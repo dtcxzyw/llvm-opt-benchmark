@@ -630,11 +630,11 @@ _ZN4pbrtL13TerminalWidthEv.exit:                  ; preds = %6, %10, %13
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %49
 
-49:                                               ; preds = %_ZN4pbrtL13TerminalWidthEv.exit, %128
-  %.080 = phi i32 [ 0, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %.1.lcssa, %128 ]
-  %.03279 = phi ptr [ %30, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %.133.lcssa, %128 ]
-  %.03777 = phi i32 [ 0, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %66, %128 ]
-  %.sroa.0.076 = phi i64 [ 250, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %.sroa.0.1, %128 ]
+49:                                               ; preds = %_ZN4pbrtL13TerminalWidthEv.exit, %127
+  %.080 = phi i32 [ 0, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %.1.lcssa, %127 ]
+  %.03279 = phi ptr [ %30, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %.133.lcssa, %127 ]
+  %.03777 = phi i32 [ 0, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %66, %127 ]
+  %.sroa.0.076 = phi i64 [ 250, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %.sroa.0.1, %127 ]
   %50 = load atomic i8, ptr %42 seq_cst, align 8
   %51 = trunc i8 %50 to i1
   %52 = icmp slt i64 %.sroa.0.076, 1
@@ -764,7 +764,7 @@ _ZN4pstd8optionalIfEdeEv.exit:                    ; preds = %104
   %108 = load float, ptr %48, align 8, !tbaa !46
   %109 = fpext float %108 to double
   %110 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %109)
-  br label %128
+  br label %127
 
 111:                                              ; preds = %107
   %112 = landingpad { ptr, i32 }
@@ -778,31 +778,30 @@ _ZN4pstd8optionalIfEdeEv.exit:                    ; preds = %104
 115:                                              ; preds = %113
   %116 = fpext float %99 to double
   %117 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %116)
-  br label %128
+  br label %127
 
 118:                                              ; preds = %113
   %119 = call float @llvm.fabs.f32(float %101)
   %120 = fcmp oeq float %119, 0x7FF0000000000000
   %121 = fpext float %99 to double
-  br i1 %120, label %126, label %122
+  br i1 %120, label %125, label %122
 
 122:                                              ; preds = %118
-  %123 = fcmp ogt float %101, 0.000000e+00
-  %.sroa.speculated = select i1 %123, float %101, float 0.000000e+00
-  %124 = fpext float %.sroa.speculated to double
-  %125 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %121, double noundef %124)
-  br label %128
+  %.sroa.speculated = call float @llvm.maxnum.f32(float %101, float 0.000000e+00)
+  %123 = fpext float %.sroa.speculated to double
+  %124 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %121, double noundef %123)
+  br label %127
 
-126:                                              ; preds = %118
-  %127 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, double noundef %121)
-  br label %128
+125:                                              ; preds = %118
+  %126 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, double noundef %121)
+  br label %127
 
-128:                                              ; preds = %115, %126, %122, %_ZN4pstd8optionalIfEdeEv.exit
-  %129 = load ptr, ptr @stdout, align 8, !tbaa !50
-  %130 = call i32 @fflush(ptr noundef %129)
+127:                                              ; preds = %115, %125, %122, %_ZN4pstd8optionalIfEdeEv.exit
+  %128 = load ptr, ptr @stdout, align 8, !tbaa !50
+  %129 = call i32 @fflush(ptr noundef %128)
   br i1 %51, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, label %49, !llvm.loop !63
 
-_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %128
+_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %127
   call void @_ZdaPv(ptr noundef nonnull %26) #22
   ret void
 
@@ -5183,6 +5182,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #20

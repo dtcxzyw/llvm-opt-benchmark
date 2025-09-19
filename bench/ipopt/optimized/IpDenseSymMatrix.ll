@@ -1404,7 +1404,7 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %11, %_ZNK5Ipopt16De
 .preheader:                                       ; preds = %.preheader.preheader, %34
   %indvars.iv31 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next32, %34 ]
   %indvars.iv29 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next30, %34 ]
-  %.025 = phi ptr [ %32, %.preheader.preheader ], [ %43, %34 ]
+  %.025 = phi ptr [ %32, %.preheader.preheader ], [ %41, %34 ]
   %33 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv31
   br label %35
 
@@ -1419,19 +1419,17 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %11, %_ZNK5Ipopt16De
 
 35:                                               ; preds = %.preheader, %35
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %35 ]
-  %.123 = phi ptr [ %.025, %.preheader ], [ %43, %35 ]
+  %.123 = phi ptr [ %.025, %.preheader ], [ %41, %35 ]
   %36 = load double, ptr %.123, align 8, !tbaa !55
   %37 = tail call noundef double @llvm.fabs.f64(double %36)
   %38 = load double, ptr %33, align 8, !tbaa !55
-  %39 = fcmp olt double %38, %37
-  %.sroa.speculated.i = select i1 %39, double %37, double %38
+  %.sroa.speculated.i = tail call noundef double @llvm.maxnum.f64(double %37, double %38)
   store double %.sroa.speculated.i, ptr %33, align 8, !tbaa !55
-  %40 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
-  %41 = load double, ptr %40, align 8, !tbaa !55
-  %42 = fcmp olt double %41, %37
-  %.sroa.speculated.i21 = select i1 %42, double %37, double %41
-  store double %.sroa.speculated.i21, ptr %40, align 8, !tbaa !55
-  %43 = getelementptr inbounds nuw i8, ptr %.123, i64 8
+  %39 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  %40 = load double, ptr %39, align 8, !tbaa !55
+  %.sroa.speculated.i21 = tail call noundef double @llvm.maxnum.f64(double %37, double %40)
+  store double %.sroa.speculated.i21, ptr %39, align 8, !tbaa !55
+  %41 = getelementptr inbounds nuw i8, ptr %.123, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv29
   br i1 %exitcond.not, label %34, label %35, !llvm.loop !114
@@ -3127,6 +3125,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

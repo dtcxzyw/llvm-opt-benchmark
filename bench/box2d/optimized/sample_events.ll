@@ -4118,7 +4118,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10Platformer14PreSolveStati
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %.019.lcssa.i = phi float [ 0.000000e+00, %.preheader.i ], [ %37, %.lr.ph.i ]
+  %.019.lcssa.i = phi float [ 0.000000e+00, %.preheader.i ], [ %36, %.lr.ph.i ]
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 252
   %30 = load float, ptr %29, align 4, !tbaa !164
   %31 = fmul float %30, 0x3FB99999A0000000
@@ -4127,12 +4127,11 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10Platformer14PreSolveStati
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.01932.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i ], [ %37, %.lr.ph.i ]
+  %.01932.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i ], [ %36, %.lr.ph.i ]
   %33 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %2, i64 %indvars.iv.i
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 36
   %35 = load float, ptr %34, align 4, !tbaa !176
-  %36 = fcmp olt float %.01932.i, %35
-  %37 = select i1 %36, float %.01932.i, float %35
+  %36 = tail call float @llvm.minnum.f32(float %.01932.i, float %35)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !178
@@ -4329,18 +4328,17 @@ define linkonce_odr dso_local void @_ZN10Platformer4StepER8Settings(ptr noundef 
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %88 = load float, ptr %87, align 4, !tbaa !70
   %89 = fcmp ogt float %88, 0.000000e+00
-  br i1 %89, label %90, label %96
+  br i1 %89, label %90, label %95
 
 90:                                               ; preds = %70
   %91 = load float, ptr %7, align 8, !tbaa !172
   %92 = fdiv float 1.000000e+00, %88
   %93 = fsub float %91, %92
-  %94 = fcmp olt float %93, 0.000000e+00
-  %95 = select i1 %94, float 0.000000e+00, float %93
-  store float %95, ptr %7, align 8, !tbaa !172
-  br label %96
+  %94 = call noundef float @llvm.maxnum.f32(float %93, float 0.000000e+00)
+  store float %94, ptr %7, align 8, !tbaa !172
+  br label %95
 
-96:                                               ; preds = %90, %70
+95:                                               ; preds = %90, %70
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -5579,7 +5577,13 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

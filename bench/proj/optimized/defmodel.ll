@@ -13334,40 +13334,39 @@ define hidden noundef double @_ZNK16DeformationModel9Component23ExponentialTimeF
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load double, ptr %7, align 8, !tbaa !186
-  br label %31
+  br label %30
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i64, ptr %10, align 8, !tbaa !14
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %17, label %13
+  br i1 %12, label %16, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load double, ptr %14, align 8, !tbaa !15
-  %16 = fcmp olt double %15, %1
-  %.sroa.speculated = select i1 %16, double %15, double %1
-  br label %17
+  %.sroa.speculated = tail call double @llvm.minnum.f64(double %15, double %1)
+  br label %16
 
-17:                                               ; preds = %13, %9
+16:                                               ; preds = %13, %9
   %.07 = phi double [ %1, %9 ], [ %.sroa.speculated, %13 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %19 = load double, ptr %18, align 8, !tbaa !187
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %21 = load double, ptr %20, align 8, !tbaa !188
-  %22 = fsub double %21, %19
-  %23 = fsub double %.07, %4
-  %24 = fneg double %23
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %26 = load double, ptr %25, align 8, !tbaa !183
-  %27 = fdiv double %24, %26
-  %28 = tail call double @exp(double noundef %27) #37, !tbaa !18
-  %29 = fsub double 1.000000e+00, %28
-  %30 = tail call double @llvm.fmuladd.f64(double %22, double %29, double %19)
-  br label %31
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %18 = load double, ptr %17, align 8, !tbaa !187
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = load double, ptr %19, align 8, !tbaa !188
+  %21 = fsub double %20, %18
+  %22 = fsub double %.07, %4
+  %23 = fneg double %22
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %25 = load double, ptr %24, align 8, !tbaa !183
+  %26 = fdiv double %23, %25
+  %27 = tail call double @exp(double noundef %26) #37, !tbaa !18
+  %28 = fsub double 1.000000e+00, %27
+  %29 = tail call double @llvm.fmuladd.f64(double %21, double %28, double %18)
+  br label %30
 
-31:                                               ; preds = %17, %6
-  %.0 = phi double [ %8, %6 ], [ %30, %17 ]
+30:                                               ; preds = %16, %6
+  %.0 = phi double [ %8, %6 ], [ %29, %16 ]
   ret double %.0
 }
 
@@ -14568,12 +14567,11 @@ define internal void @_ZL10reverse_4dR8PJ_COORDP8PJconsts(ptr noundef nonnull al
   store double %41, ptr %20, align 8, !tbaa !67
   %42 = tail call double @llvm.fabs.f64(double %31)
   %43 = tail call double @llvm.fabs.f64(double %33)
-  %44 = fcmp olt double %42, %43
-  %.sroa.speculated.i = select i1 %44, double %43, double %42
-  %45 = fcmp olt double %.sroa.speculated.i, 0x3D719799812DEA11
-  %46 = tail call double @llvm.fabs.f64(double %35)
-  %47 = fcmp olt double %46, 1.000000e-03
-  %.not34.not.i = select i1 %45, i1 %47, i1 false
+  %.sroa.speculated.i = tail call double @llvm.maxnum.f64(double %43, double %42)
+  %44 = fcmp olt double %.sroa.speculated.i, 0x3D719799812DEA11
+  %45 = tail call double @llvm.fabs.f64(double %35)
+  %46 = fcmp olt double %45, 1.000000e-03
+  %.not34.not.i = select i1 %44, i1 %46, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -40843,7 +40841,13 @@ declare i64 @llvm.smin.i64(i64, i64) #32
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #32
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #32
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #32
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

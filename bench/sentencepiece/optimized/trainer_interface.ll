@@ -19871,8 +19871,8 @@ _ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engi
 
 .lr.ph.split.i.i.i:                               ; preds = %.lr.ph.i.i.i, %.lr.ph.splitthread-pre-split.i.i.i
   %34 = phi float [ %.pr.i.i.i, %.lr.ph.splitthread-pre-split.i.i.i ], [ %23, %.lr.ph.i.i.i ]
-  %35 = phi ptr [ %56, %.lr.ph.splitthread-pre-split.i.i.i ], [ %11, %.lr.ph.i.i.i ]
-  %.04.i.i.i = phi i64 [ %54, %.lr.ph.splitthread-pre-split.i.i.i ], [ %7, %.lr.ph.i.i.i ]
+  %35 = phi ptr [ %55, %.lr.ph.splitthread-pre-split.i.i.i ], [ %11, %.lr.ph.i.i.i ]
+  %.04.i.i.i = phi i64 [ %53, %.lr.ph.splitthread-pre-split.i.i.i ], [ %7, %.lr.ph.i.i.i ]
   %36 = getelementptr inbounds nuw %"struct.std::pair", ptr %35, i64 %.04.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = fcmp ogt float %34, 0.000000e+00
@@ -19880,7 +19880,7 @@ _ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engi
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.split.i.i.i
   %.pre.i.i.i.i = load i64, ptr %37, align 8, !tbaa !229
-  br label %47
+  br label %46
 
 39:                                               ; preds = %.lr.ph.split.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -19892,36 +19892,35 @@ _ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engi
   %41 = load i64, ptr %37, align 8, !tbaa !229
   %42 = sitofp i64 %41 to float
   %43 = fadd float %40, %42
-  %44 = fcmp ogt float %43, 0.000000e+00
-  %.sroa.speculated.i.i.i.i = select i1 %44, float %43, float 0.000000e+00
-  %45 = call noundef float @llvm.round.f32(float %.sroa.speculated.i.i.i.i)
-  %46 = fptosi float %45 to i64
-  store i64 %46, ptr %37, align 8, !tbaa !229
+  %.sroa.speculated.i.i.i.i = call float @llvm.maxnum.f32(float %43, float 0.000000e+00)
+  %44 = call noundef float @llvm.round.f32(float %.sroa.speculated.i.i.i.i)
+  %45 = fptosi float %44 to i64
+  store i64 %45, ptr %37, align 8, !tbaa !229
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %47
+  br label %46
 
-47:                                               ; preds = %39, %._crit_edge.i.i.i.i
-  %48 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %46, %39 ]
-  %49 = load i64, ptr %21, align 8, !tbaa !279
-  %50 = icmp ult i64 %48, %49
-  br i1 %50, label %51, label %_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.i.i.i
+46:                                               ; preds = %39, %._crit_edge.i.i.i.i
+  %47 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %45, %39 ]
+  %48 = load i64, ptr %21, align 8, !tbaa !279
+  %49 = icmp ult i64 %47, %48
+  br i1 %49, label %50, label %_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.i.i.i
 
-51:                                               ; preds = %47
+50:                                               ; preds = %46
   store i64 0, ptr %37, align 8, !tbaa !229
   br label %_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.i.i.i
 
-_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.i.i.i: ; preds = %51, %47
-  %52 = load ptr, ptr %22, align 8, !tbaa !522
-  %53 = load i64, ptr %52, align 8, !tbaa !229
-  %54 = add i64 %53, %.04.i.i.i
-  %55 = load ptr, ptr %9, align 8, !tbaa !156
-  %56 = load ptr, ptr %8, align 8, !tbaa !153
+_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.i.i.i: ; preds = %50, %46
+  %51 = load ptr, ptr %22, align 8, !tbaa !522
+  %52 = load i64, ptr %51, align 8, !tbaa !229
+  %53 = add i64 %52, %.04.i.i.i
+  %54 = load ptr, ptr %9, align 8, !tbaa !156
+  %55 = load ptr, ptr %8, align 8, !tbaa !153
+  %56 = ptrtoint ptr %54 to i64
   %57 = ptrtoint ptr %55 to i64
-  %58 = ptrtoint ptr %56 to i64
-  %59 = sub i64 %57, %58
-  %60 = sdiv exact i64 %59, 40
-  %61 = icmp ult i64 %54, %60
-  br i1 %61, label %.lr.ph.splitthread-pre-split.i.i.i, label %"_ZSt10__invoke_rIvRZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", !llvm.loop !530
+  %58 = sub i64 %56, %57
+  %59 = sdiv exact i64 %58, 40
+  %60 = icmp ult i64 %53, %59
+  br i1 %60, label %.lr.ph.splitthread-pre-split.i.i.i, label %"_ZSt10__invoke_rIvRZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", !llvm.loop !530
 
 "_ZSt10__invoke_rIvRZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.us.i.i.i, %_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.i.i.i, %1
   ret void
@@ -24355,6 +24354,9 @@ declare x86_fp80 @llvm.log.f80(x86_fp80) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.log.f32(float) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #24
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -414,7 +414,7 @@ define void @lv_vector_path_get_bounding(ptr noundef %0, ptr noundef %1) local_u
 
 8:                                                ; preds = %4
   tail call void @lv_memset(ptr noundef nonnull %1, i8 noundef zeroext 0, i64 noundef 16) #10
-  br label %33
+  br label %29
 
 9:                                                ; preds = %4
   %10 = tail call ptr @lv_array_front(ptr noundef nonnull %5) #10
@@ -448,7 +448,7 @@ define void @lv_vector_path_get_bounding(ptr noundef %0, ptr noundef %1) local_u
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %23, ptr %24, align 4, !tbaa !26
-  br label %33
+  br label %29
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -458,21 +458,17 @@ define void @lv_vector_path_get_bounding(ptr noundef %0, ptr noundef %1) local_u
   %.04556 = phi float [ %11, %.lr.ph.preheader ], [ %.146, %.lr.ph ]
   %25 = getelementptr inbounds nuw %struct._lv_fpoint_t, ptr %10, i64 %indvars.iv
   %26 = load float, ptr %25, align 4, !tbaa !3
-  %27 = fcmp olt float %26, %.04556
-  %.146 = select i1 %27, float %26, float %.04556
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %29 = load float, ptr %28, align 4, !tbaa !8
-  %30 = fcmp olt float %29, %.04158
-  %.142 = select i1 %30, float %29, float %.04158
-  %31 = fcmp ogt float %26, %.04357
-  %.144 = select i1 %31, float %26, float %.04357
-  %32 = fcmp ogt float %29, %.04059
-  %.1 = select i1 %32, float %29, float %.04059
+  %.146 = tail call float @llvm.minnum.f32(float %26, float %.04556)
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %28 = load float, ptr %27, align 4, !tbaa !8
+  %.142 = tail call float @llvm.minnum.f32(float %28, float %.04158)
+  %.144 = tail call float @llvm.maxnum.f32(float %26, float %.04357)
+  %.1 = tail call float @llvm.maxnum.f32(float %28, float %.04059)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
-33:                                               ; preds = %._crit_edge, %8
+29:                                               ; preds = %._crit_edge, %8
   ret void
 }
 
@@ -1582,6 +1578,12 @@ declare float @llvm.ceil.f32(float) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

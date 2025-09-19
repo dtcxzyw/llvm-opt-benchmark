@@ -472,7 +472,7 @@ geohashDecode.exit:                               ; preds = %3, %7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local range(i32 0, 2) i32 @geohashDecodeAreaToLongLat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %21, label %3
+  br i1 %.not, label %17, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -481,26 +481,22 @@ define dso_local range(i32 0, 2) i32 @geohashDecodeAreaToLongLat(ptr noundef rea
   %7 = load double, ptr %6, align 8, !tbaa !21
   %8 = fadd double %5, %7
   %9 = fmul double %8, 5.000000e-01
-  %10 = fcmp ogt double %9, 1.800000e+02
-  %storemerge = select i1 %10, double 1.800000e+02, double %9
-  %11 = fcmp olt double %storemerge, -1.800000e+02
-  %storemerge16 = select i1 %11, double -1.800000e+02, double %storemerge
+  %storemerge = tail call double @llvm.minnum.f64(double %9, double 1.800000e+02)
+  %storemerge16 = tail call double @llvm.maxnum.f64(double %storemerge, double -1.800000e+02)
   store double %storemerge16, ptr %1, align 8, !tbaa !22
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load double, ptr %12, align 8, !tbaa !17
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load double, ptr %14, align 8, !tbaa !19
-  %16 = fadd double %13, %15
-  %17 = fmul double %16, 5.000000e-01
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = fcmp ogt double %17, 0x40554345B1A57F00
-  %storemerge17 = select i1 %19, double 0x40554345B1A57F00, double %17
-  %20 = fcmp olt double %storemerge17, 0xC0554345B1A57F00
-  %storemerge18 = select i1 %20, double 0xC0554345B1A57F00, double %storemerge17
-  store double %storemerge18, ptr %18, align 8, !tbaa !22
-  br label %21
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = load double, ptr %10, align 8, !tbaa !17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %13 = load double, ptr %12, align 8, !tbaa !19
+  %14 = fadd double %11, %13
+  %15 = fmul double %14, 5.000000e-01
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %storemerge17 = tail call double @llvm.minnum.f64(double %15, double 0x40554345B1A57F00)
+  %storemerge18 = tail call double @llvm.maxnum.f64(double %storemerge17, double 0xC0554345B1A57F00)
+  store double %storemerge18, ptr %16, align 8, !tbaa !22
+  br label %17
 
-21:                                               ; preds = %2, %3
+17:                                               ; preds = %2, %3
   %.0 = phi i32 [ 1, %3 ], [ 0, %2 ]
   ret i32 %.0
 }
@@ -571,19 +567,15 @@ geohashDecodeAreaToLongLat.exit:                  ; preds = %4
   %56 = tail call double @llvm.fmuladd.f64(double %55, double 3.600000e+02, double -1.800000e+02)
   %57 = fadd double %52, %56
   %58 = fmul double %57, 5.000000e-01
-  %59 = fcmp ogt double %58, 1.800000e+02
-  %storemerge.i = select i1 %59, double 1.800000e+02, double %58
-  %60 = fcmp olt double %storemerge.i, -1.800000e+02
-  %storemerge16.i = select i1 %60, double -1.800000e+02, double %storemerge.i
+  %storemerge.i = tail call double @llvm.minnum.f64(double %58, double 1.800000e+02)
+  %storemerge16.i = tail call double @llvm.maxnum.f64(double %storemerge.i, double -1.800000e+02)
   store double %storemerge16.i, ptr %2, align 8, !tbaa !22
-  %61 = fadd double %45, %49
-  %62 = fmul double %61, 5.000000e-01
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %64 = fcmp ogt double %62, 0x40554345B1A57F00
-  %storemerge17.i = select i1 %64, double 0x40554345B1A57F00, double %62
-  %65 = fcmp olt double %storemerge17.i, 0xC0554345B1A57F00
-  %storemerge18.i = select i1 %65, double 0xC0554345B1A57F00, double %storemerge17.i
-  store double %storemerge18.i, ptr %63, align 8, !tbaa !22
+  %59 = fadd double %45, %49
+  %60 = fmul double %59, 5.000000e-01
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %storemerge17.i = tail call double @llvm.minnum.f64(double %60, double 0x40554345B1A57F00)
+  %storemerge18.i = tail call double @llvm.maxnum.f64(double %storemerge17.i, double 0xC0554345B1A57F00)
+  store double %storemerge18.i, ptr %61, align 8, !tbaa !22
   br label %geohashDecode.exit.thread
 
 geohashDecode.exit.thread:                        ; preds = %4, %3, %geohashDecodeAreaToLongLat.exit
@@ -758,6 +750,12 @@ define dso_local void @geohashNeighbors(ptr noundef readonly captures(none) %0, 
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

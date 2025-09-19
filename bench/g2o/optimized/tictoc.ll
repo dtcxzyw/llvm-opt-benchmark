@@ -112,7 +112,7 @@ define noundef double @_ZN3g2o6tictocEPKc(ptr noundef %0) local_unnamed_addr #0 
 14:                                               ; preds = %9, %7, %1
   %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3g2o6tictocEPKcE11initializer, i64 48), align 8, !tbaa !17, !range !25, !noundef !26
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %116
+  br i1 %16, label %17, label %114
 
 17:                                               ; preds = %14
   %18 = tail call noundef double @_ZN3g2o18get_monotonic_timeEv()
@@ -300,7 +300,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN3g2o13TicTocElementD2Ev.exit:                  ; preds = %73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %116
+  br label %114
 
 80:                                               ; preds = %71, %60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
   %81 = landingpad { ptr, i32 }
@@ -324,7 +324,7 @@ _ZN3g2o13TicTocElementD2Ev.exit21:                ; preds = %80, %_ZNKSt7__cxx11
   %88 = load i8, ptr %87, align 8, !tbaa !44, !range !25, !noundef !26
   %89 = trunc nuw i8 %88 to i1
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 64
-  br i1 %89, label %91, label %113
+  br i1 %89, label %91, label %111
 
 91:                                               ; preds = %86
   %92 = load double, ptr %90, align 8, !tbaa !46
@@ -335,45 +335,43 @@ _ZN3g2o13TicTocElementD2Ev.exit21:                ; preds = %80, %_ZNKSt7__cxx11
   store double %96, ptr %94, align 8, !tbaa !47
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 88
   %98 = load double, ptr %97, align 8, !tbaa !48
-  %99 = fcmp olt double %93, %98
-  %.sroa.speculated46 = select i1 %99, double %93, double %98
+  %.sroa.speculated46 = call double @llvm.minnum.f64(double %93, double %98)
   store double %.sroa.speculated46, ptr %97, align 8, !tbaa !49
-  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 96
-  %101 = load double, ptr %100, align 8, !tbaa !48
-  %102 = fcmp olt double %101, %93
-  %.sroa.speculated = select i1 %102, double %93, double %101
-  store double %.sroa.speculated, ptr %100, align 8, !tbaa !50
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 80
-  %104 = load i32, ptr %103, align 8, !tbaa !51
-  %105 = icmp eq i32 %104, 0
-  %106 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 104
-  br i1 %105, label %111, label %107
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 96
+  %100 = load double, ptr %99, align 8, !tbaa !48
+  %.sroa.speculated = call double @llvm.maxnum.f64(double %93, double %100)
+  store double %.sroa.speculated, ptr %99, align 8, !tbaa !50
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 80
+  %102 = load i32, ptr %101, align 8, !tbaa !51
+  %103 = icmp eq i32 %102, 0
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 104
+  br i1 %103, label %109, label %105
 
-107:                                              ; preds = %91
-  %108 = load double, ptr %106, align 8, !tbaa !52
-  %109 = fmul double %93, 1.000000e-02
-  %110 = call double @llvm.fmuladd.f64(double %108, double 0x3FEFAE147AE147AE, double %109)
-  br label %111
+105:                                              ; preds = %91
+  %106 = load double, ptr %104, align 8, !tbaa !52
+  %107 = fmul double %93, 1.000000e-02
+  %108 = call double @llvm.fmuladd.f64(double %106, double 0x3FEFAE147AE147AE, double %107)
+  br label %109
 
-111:                                              ; preds = %91, %107
-  %.sink = phi double [ %110, %107 ], [ %93, %91 ]
-  store double %.sink, ptr %106, align 8, !tbaa !52
-  %112 = add nsw i32 %104, 1
-  store i32 %112, ptr %103, align 8, !tbaa !51
-  br label %114
+109:                                              ; preds = %91, %105
+  %.sink = phi double [ %108, %105 ], [ %93, %91 ]
+  store double %.sink, ptr %104, align 8, !tbaa !52
+  %110 = add nsw i32 %102, 1
+  store i32 %110, ptr %101, align 8, !tbaa !51
+  br label %112
 
-113:                                              ; preds = %86
+111:                                              ; preds = %86
   store double %18, ptr %90, align 8, !tbaa !46
+  br label %112
+
+112:                                              ; preds = %111, %109
+  %.1 = phi double [ %93, %109 ], [ 0.000000e+00, %111 ]
+  %113 = xor i8 %88, 1
+  store i8 %113, ptr %87, align 8, !tbaa !44
   br label %114
 
-114:                                              ; preds = %113, %111
-  %.1 = phi double [ %93, %111 ], [ 0.000000e+00, %113 ]
-  %115 = xor i8 %88, 1
-  store i8 %115, ptr %87, align 8, !tbaa !44
-  br label %116
-
-116:                                              ; preds = %_ZN3g2o13TicTocElementD2Ev.exit, %114, %14
-  %.0 = phi double [ 0.000000e+00, %14 ], [ 0.000000e+00, %_ZN3g2o13TicTocElementD2Ev.exit ], [ %.1, %114 ]
+114:                                              ; preds = %_ZN3g2o13TicTocElementD2Ev.exit, %112, %14
+  %.0 = phi double [ 0.000000e+00, %14 ], [ 0.000000e+00, %_ZN3g2o13TicTocElementD2Ev.exit ], [ %.1, %112 ]
   ret double %.0
 }
 
@@ -3707,6 +3705,12 @@ declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #20
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

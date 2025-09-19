@@ -1356,8 +1356,8 @@ define dso_local range(i32 0, 2) i32 @table_is_an_array(ptr noundef %0) local_un
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %11
-  %.02130 = phi i32 [ %16, %11 ], [ 0, %1 ]
-  %.02229 = phi i32 [ %15, %11 ], [ 0, %1 ]
+  %.02130 = phi i32 [ %15, %11 ], [ 0, %1 ]
+  %.02229 = phi i32 [ %14, %11 ], [ 0, %1 ]
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #10
   %4 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -1) #10
   %.not24 = icmp eq i32 %4, 3
@@ -1376,21 +1376,20 @@ define dso_local range(i32 0, 2) i32 @table_is_an_array(ptr noundef %0) local_un
 
 11:                                               ; preds = %7
   %12 = sitofp i32 %.02229 to double
-  %13 = fcmp ogt double %6, %12
-  %14 = select i1 %13, double %6, double %12
-  %15 = fptosi double %14 to i32
-  %16 = add nuw nsw i32 %.02130, 1
-  %17 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #10
-  %.not = icmp eq i32 %17, 0
+  %13 = tail call double @llvm.maxnum.f64(double %6, double %12)
+  %14 = fptosi double %13 to i32
+  %15 = add nuw nsw i32 %.02130, 1
+  %16 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #10
+  %.not = icmp eq i32 %16, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge.loopexit:                             ; preds = %11
-  %18 = icmp eq i32 %16, %15
-  %19 = zext i1 %18 to i32
+  %17 = icmp eq i32 %15, %14
+  %18 = zext i1 %17 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5, %7, %1, %._crit_edge.loopexit
-  %.0 = phi i32 [ 1, %1 ], [ %19, %._crit_edge.loopexit ], [ 0, %7 ], [ 0, %5 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %1 ], [ %18, %._crit_edge.loopexit ], [ 0, %7 ], [ 0, %5 ], [ 0, %.lr.ph ]
   tail call void @lua_settop(ptr noundef %0, i32 noundef %2) #10
   ret i32 %.0
 }
@@ -2686,11 +2685,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #8
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #9
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #8
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2700,8 +2702,8 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind }
 attributes #11 = { noreturn nounwind }
 attributes #12 = { memory(none) }

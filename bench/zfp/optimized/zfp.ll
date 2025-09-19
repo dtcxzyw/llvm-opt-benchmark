@@ -1583,11 +1583,11 @@ define internal fastcc void @print_error(ptr noundef readonly captures(none) %0,
   br i1 %switch, label %.lr.ph.split, label %.critedge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %39
-  %.06582 = phi i64 [ %47, %39 ], [ 0, %.lr.ph ]
-  %.06681 = phi double [ %41, %39 ], [ 0.000000e+00, %.lr.ph ]
-  %.06780 = phi double [ %42, %39 ], [ 0.000000e+00, %.lr.ph ]
-  %.06979 = phi double [ %46, %39 ], [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ]
-  %.07178 = phi double [ %44, %39 ], [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ]
+  %.06582 = phi i64 [ %44, %39 ], [ 0, %.lr.ph ]
+  %.06681 = phi double [ %40, %39 ], [ 0.000000e+00, %.lr.ph ]
+  %.06780 = phi double [ %41, %39 ], [ 0.000000e+00, %.lr.ph ]
+  %.06979 = phi double [ %43, %39 ], [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ]
+  %.07178 = phi double [ %42, %39 ], [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ]
   switch i32 %2, label %32 [
     i32 1, label %5
     i32 2, label %14
@@ -1639,35 +1639,32 @@ define internal fastcc void @print_error(ptr noundef readonly captures(none) %0,
 39:                                               ; preds = %32, %23, %14, %5
   %.064 = phi double [ %12, %5 ], [ %21, %14 ], [ %30, %23 ], [ %38, %32 ]
   %.063 = phi double [ %13, %5 ], [ %22, %14 ], [ %31, %23 ], [ %34, %32 ]
-  %40 = fcmp ogt double %.06681, %.064
-  %41 = select i1 %40, double %.06681, double %.064
-  %42 = tail call double @llvm.fmuladd.f64(double %.064, double %.064, double %.06780)
-  %43 = fcmp olt double %.07178, %.063
-  %44 = select i1 %43, double %.07178, double %.063
-  %45 = fcmp ogt double %.06979, %.063
-  %46 = select i1 %45, double %.06979, double %.063
-  %47 = add nuw i64 %.06582, 1
-  %exitcond.not = icmp eq i64 %47, %3
+  %40 = tail call double @llvm.maxnum.f64(double %.06681, double %.064)
+  %41 = tail call double @llvm.fmuladd.f64(double %.064, double %.064, double %.06780)
+  %42 = tail call double @llvm.minnum.f64(double %.07178, double %.063)
+  %43 = tail call double @llvm.maxnum.f64(double %.06979, double %.063)
+  %44 = add nuw i64 %.06582, 1
+  %exitcond.not = icmp eq i64 %44, %3
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph.split
 
 ._crit_edge.loopexit:                             ; preds = %39
-  %48 = fsub double %46, %44
+  %45 = fsub double %43, %42
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.067.lcssa = phi double [ 0.000000e+00, %4 ], [ %42, %._crit_edge.loopexit ]
-  %.066.lcssa = phi double [ 0.000000e+00, %4 ], [ %41, %._crit_edge.loopexit ]
-  %49 = phi double [ 0xFFF0000000000000, %4 ], [ %48, %._crit_edge.loopexit ]
-  %50 = uitofp i64 %3 to double
-  %51 = fdiv double %.067.lcssa, %50
-  %52 = tail call double @sqrt(double noundef %51) #16, !tbaa !10
-  %53 = fdiv double %52, %49
-  %54 = fmul double %52, 2.000000e+00
-  %55 = fdiv double %49, %54
-  %56 = tail call double @log10(double noundef %55) #16, !tbaa !10
-  %57 = fmul double %56, 2.000000e+01
-  %58 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.99, double noundef %52, double noundef %53, double noundef %.066.lcssa, double noundef %57) #21
+  %.067.lcssa = phi double [ 0.000000e+00, %4 ], [ %41, %._crit_edge.loopexit ]
+  %.066.lcssa = phi double [ 0.000000e+00, %4 ], [ %40, %._crit_edge.loopexit ]
+  %46 = phi double [ 0xFFF0000000000000, %4 ], [ %45, %._crit_edge.loopexit ]
+  %47 = uitofp i64 %3 to double
+  %48 = fdiv double %.067.lcssa, %47
+  %49 = tail call double @sqrt(double noundef %48) #16, !tbaa !10
+  %50 = fdiv double %49, %46
+  %51 = fmul double %49, 2.000000e+00
+  %52 = fdiv double %46, %51
+  %53 = tail call double @log10(double noundef %52) #16, !tbaa !10
+  %54 = fmul double %53, 2.000000e+01
+  %55 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.99, double noundef %49, double noundef %50, double noundef %.066.lcssa, double noundef %54) #21
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %._crit_edge
@@ -1709,6 +1706,12 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

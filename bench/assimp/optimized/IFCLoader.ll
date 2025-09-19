@@ -1199,19 +1199,17 @@ define hidden void @_ZN6Assimp11IFCImporter15SetupPropertiesEPKNS_8ImporterE(ptr
   %10 = zext i1 %8 to i8
   store i8 %10, ptr %9, align 1
   %11 = tail call noundef float @_ZNK6Assimp8Importer16GetPropertyFloatEPKcf(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.4, float noundef 1.000000e+01)
-  %12 = fcmp olt float %11, 5.000000e+00
-  %.sroa.speculated18 = select i1 %12, float 5.000000e+00, float %11
-  %13 = fcmp ogt float %.sroa.speculated18, 1.200000e+02
-  %.sroa.speculated16 = select i1 %13, float 1.200000e+02, float %.sroa.speculated18
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store float %.sroa.speculated16, ptr %14, align 4
-  %15 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.5, i32 noundef 32)
-  %.sroa.speculated9 = tail call i32 @llvm.smax.i32(i32 %15, i32 3)
+  %.sroa.speculated18 = tail call float @llvm.maxnum.f32(float %11, float 5.000000e+00)
+  %.sroa.speculated16 = tail call float @llvm.minnum.f32(float %.sroa.speculated18, float 1.200000e+02)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store float %.sroa.speculated16, ptr %12, align 4
+  %13 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.5, i32 noundef 32)
+  %.sroa.speculated9 = tail call i32 @llvm.smax.i32(i32 %13, i32 3)
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.sroa.speculated9, i32 180)
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %.sroa.speculated, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 74
-  store i8 1, ptr %17, align 2
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 %.sroa.speculated, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 74
+  store i8 1, ptr %15, align 2
   ret void
 }
 
@@ -22569,6 +22567,12 @@ declare void @llvm.assume(i1 noundef) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #26

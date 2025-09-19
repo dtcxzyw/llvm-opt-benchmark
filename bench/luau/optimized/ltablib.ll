@@ -326,35 +326,34 @@ define internal noundef i32 @_ZL4maxnP9lua_State(ptr noundef %0) #0 {
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %16, !llvm.loop !39
 
-._crit_edge:                                      ; preds = %37, %.preheader
-  %.2.lcssa = phi double [ %.0.lcssa, %.preheader ], [ %.3, %37 ]
+._crit_edge:                                      ; preds = %36, %.preheader
+  %.2.lcssa = phi double [ %.0.lcssa, %.preheader ], [ %.3, %36 ]
   tail call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %.2.lcssa)
   ret i32 1
 
-23:                                               ; preds = %.lr.ph27, %37
-  %indvars.iv30 = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next31, %37 ]
-  %.226 = phi double [ %.0.lcssa, %.lr.ph27 ], [ %.3, %37 ]
+23:                                               ; preds = %.lr.ph27, %36
+  %indvars.iv30 = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next31, %36 ]
+  %.226 = phi double [ %.0.lcssa, %.lr.ph27 ], [ %.3, %36 ]
   %24 = getelementptr inbounds nuw %struct.LuaNode, ptr %15, i64 %indvars.iv30
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !40
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %37, label %28
+  br i1 %27, label %36, label %28
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 28
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 15
   %32 = icmp eq i32 %31, 3
-  br i1 %32, label %33, label %37
+  br i1 %32, label %33, label %36
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %35 = load double, ptr %34, align 8, !tbaa !19
-  %36 = fcmp ogt double %35, %.226
-  %.4 = select i1 %36, double %35, double %.226
-  br label %37
+  %.4 = tail call double @llvm.maxnum.f64(double %35, double %.226)
+  br label %36
 
-37:                                               ; preds = %33, %28, %23
+36:                                               ; preds = %33, %28, %23
   %.3 = phi double [ %.226, %23 ], [ %.4, %33 ], [ %.226, %28 ]
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
@@ -1528,6 +1527,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5

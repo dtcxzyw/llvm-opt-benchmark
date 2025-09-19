@@ -3274,14 +3274,13 @@ define dso_local { <2 x float>, float } @_ZN4pbrt23EqualAreaSquareToSphereENS_6P
   %34 = tail call noundef float @llvm.copysign.f32(float %33, float %12)
   %35 = fmul float %18, %32
   %36 = fsub float 2.000000e+00, %28
-  %37 = fcmp ogt float %36, 0.000000e+00
-  %.sroa.speculated.i = select i1 %37, float %36, float 0.000000e+00
+  %.sroa.speculated.i = tail call float @llvm.maxnum.f32(float %36, float 0.000000e+00)
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i)
-  %38 = fmul float %sqrt.i, %35
-  %39 = fmul float %18, %34
-  %40 = fmul float %sqrt.i, %39
-  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %38, i64 0
-  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %40, i64 1
+  %37 = fmul float %sqrt.i, %35
+  %38 = fmul float %18, %34
+  %39 = fmul float %sqrt.i, %38
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %37, i64 0
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %39, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %30, 1
   ret { <2 x float>, float } %.fca.1.insert
@@ -3350,39 +3349,37 @@ define dso_local <2 x float> @_ZN4pbrt23EqualAreaSphereToSquareENS_7Vector3IfEE(
   %4 = tail call noundef float @llvm.fabs.f32(float %.sroa.09.4.vec.extract)
   %5 = tail call noundef float @llvm.fabs.f32(float %1)
   %6 = fsub float 1.000000e+00, %5
-  %7 = fcmp ogt float %6, 0.000000e+00
-  %.sroa.speculated.i = select i1 %7, float %6, float 0.000000e+00
+  %.sroa.speculated.i = tail call float @llvm.maxnum.f32(float %6, float 0.000000e+00)
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i)
-  %8 = fcmp olt float %3, %4
-  %.sroa.speculated27 = select i1 %8, float %4, float %3
-  %9 = fcmp olt float %4, %3
-  %.sroa.speculated = select i1 %9, float %4, float %3
-  %10 = fcmp oeq float %.sroa.speculated27, 0.000000e+00
-  %11 = fdiv float %.sroa.speculated, %.sroa.speculated27
-  %12 = select i1 %10, float 0.000000e+00, float %11
-  %13 = tail call noundef float @llvm.fma.f32(float %12, float 0xBF99BE1040000000, float 0x3FA5746D00000000)
-  %14 = tail call noundef float @llvm.fma.f32(float %12, float %13, float 0x3FB692C5C0000000)
-  %15 = tail call noundef float @llvm.fma.f32(float %12, float %14, float 0xBFCFA8A1C0000000)
-  %16 = tail call noundef float @llvm.fma.f32(float %12, float %15, float 0x3F79384B40000000)
-  %17 = tail call noundef float @llvm.fma.f32(float %12, float %16, float 0x3FE45BF7C0000000)
-  %18 = tail call noundef float @llvm.fma.f32(float %12, float %17, float 0x3ED10F8960000000)
-  %19 = fsub float 1.000000e+00, %18
-  %.0 = select i1 %8, float %19, float %18
-  %20 = fmul float %sqrt.i, %.0
-  %21 = fsub float %sqrt.i, %20
-  %22 = fcmp olt float %1, 0.000000e+00
-  %23 = fsub float 1.000000e+00, %20
-  %24 = fsub float 1.000000e+00, %21
-  %.033 = select i1 %22, float %24, float %20
-  %.032 = select i1 %22, float %23, float %21
-  %25 = tail call noundef float @llvm.copysign.f32(float %.032, float %.sroa.09.0.vec.extract)
-  %26 = tail call noundef float @llvm.copysign.f32(float %.033, float %.sroa.09.4.vec.extract)
-  %27 = fadd float %25, 1.000000e+00
+  %7 = fcmp olt float %3, %4
+  %.sroa.speculated27 = select i1 %7, float %4, float %3
+  %.sroa.speculated = tail call float @llvm.minnum.f32(float %4, float %3)
+  %8 = fcmp oeq float %.sroa.speculated27, 0.000000e+00
+  %9 = fdiv float %.sroa.speculated, %.sroa.speculated27
+  %10 = select i1 %8, float 0.000000e+00, float %9
+  %11 = tail call noundef float @llvm.fma.f32(float %10, float 0xBF99BE1040000000, float 0x3FA5746D00000000)
+  %12 = tail call noundef float @llvm.fma.f32(float %10, float %11, float 0x3FB692C5C0000000)
+  %13 = tail call noundef float @llvm.fma.f32(float %10, float %12, float 0xBFCFA8A1C0000000)
+  %14 = tail call noundef float @llvm.fma.f32(float %10, float %13, float 0x3F79384B40000000)
+  %15 = tail call noundef float @llvm.fma.f32(float %10, float %14, float 0x3FE45BF7C0000000)
+  %16 = tail call noundef float @llvm.fma.f32(float %10, float %15, float 0x3ED10F8960000000)
+  %17 = fsub float 1.000000e+00, %16
+  %.0 = select i1 %7, float %17, float %16
+  %18 = fmul float %sqrt.i, %.0
+  %19 = fsub float %sqrt.i, %18
+  %20 = fcmp olt float %1, 0.000000e+00
+  %21 = fsub float 1.000000e+00, %18
+  %22 = fsub float 1.000000e+00, %19
+  %.033 = select i1 %20, float %22, float %18
+  %.032 = select i1 %20, float %21, float %19
+  %23 = tail call noundef float @llvm.copysign.f32(float %.032, float %.sroa.09.0.vec.extract)
+  %24 = tail call noundef float @llvm.copysign.f32(float %.033, float %.sroa.09.4.vec.extract)
+  %25 = fadd float %23, 1.000000e+00
+  %26 = fmul float %25, 5.000000e-01
+  %27 = fadd float %24, 1.000000e+00
   %28 = fmul float %27, 5.000000e-01
-  %29 = fadd float %26, 1.000000e+00
-  %30 = fmul float %29, 5.000000e-01
-  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %28, i64 0
-  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %30, i64 1
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %26, i64 0
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %28, i64 1
   ret <2 x float> %.sroa.0.4.vec.insert
 }
 
@@ -12143,7 +12140,13 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #25
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }

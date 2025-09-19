@@ -31602,18 +31602,17 @@ define dso_local noundef zeroext i1 @_ZNK5Catch8Matchers8Floating16WithinRelMatc
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load double, ptr %7, align 8, !tbaa !805
   %9 = tail call double @llvm.fabs.f64(double %8)
-  %10 = fcmp olt double %6, %9
-  %.sroa.speculated = select i1 %10, double %9, double %6
-  %11 = fmul double %4, %.sroa.speculated
-  %12 = tail call double @llvm.fabs.f64(double %11)
-  %13 = fcmp oeq double %12, 0x7FF0000000000000
-  %14 = select i1 %13, double 0.000000e+00, double %11
-  %15 = fadd double %5, %14
-  %16 = fcmp oge double %15, %8
-  %17 = fadd double %8, %14
-  %18 = fcmp oge double %17, %5
-  %19 = and i1 %16, %18
-  ret i1 %19
+  %.sroa.speculated = tail call double @llvm.maxnum.f64(double %9, double %6)
+  %10 = fmul double %4, %.sroa.speculated
+  %11 = tail call double @llvm.fabs.f64(double %10)
+  %12 = fcmp oeq double %11, 0x7FF0000000000000
+  %13 = select i1 %12, double 0.000000e+00, double %10
+  %14 = fadd double %5, %13
+  %15 = fcmp oge double %14, %8
+  %16 = fadd double %8, %13
+  %17 = fcmp oge double %16, %5
+  %18 = and i1 %15, %17
+  ret i1 %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -31625,18 +31624,17 @@ define dso_local noundef zeroext i1 @_ZThn40_NK5Catch8Matchers8Floating16WithinR
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load double, ptr %7, align 8, !tbaa !805
   %9 = tail call double @llvm.fabs.f64(double %8)
-  %10 = fcmp olt double %6, %9
-  %.sroa.speculated.i = select i1 %10, double %9, double %6
-  %11 = fmul double %4, %.sroa.speculated.i
-  %12 = tail call double @llvm.fabs.f64(double %11)
-  %13 = fcmp oeq double %12, 0x7FF0000000000000
-  %14 = select i1 %13, double 0.000000e+00, double %11
-  %15 = fadd double %5, %14
-  %16 = fcmp oge double %15, %8
-  %17 = fadd double %8, %14
-  %18 = fcmp oge double %17, %5
-  %19 = and i1 %16, %18
-  ret i1 %19
+  %.sroa.speculated.i = tail call double @llvm.maxnum.f64(double %9, double %6)
+  %10 = fmul double %4, %.sroa.speculated.i
+  %11 = tail call double @llvm.fabs.f64(double %10)
+  %12 = fcmp oeq double %11, 0x7FF0000000000000
+  %13 = select i1 %12, double 0.000000e+00, double %10
+  %14 = fadd double %5, %13
+  %15 = fcmp oge double %14, %8
+  %16 = fadd double %8, %13
+  %17 = fcmp oge double %16, %5
+  %18 = and i1 %15, %17
+  ret i1 %18
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -169944,6 +169942,9 @@ declare i64 @llvm.smin.i64(i64, i64) #57
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #57
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #57
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #57

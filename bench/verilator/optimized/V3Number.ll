@@ -5850,13 +5850,11 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstNode8filelineEv(ptr noundef n
 define dso_local noundef zeroext i1 @_ZN8V3Number12epsilonEqualEdd(double noundef %0, double noundef %1) local_unnamed_addr #12 align 2 {
   %3 = fsub double %0, %1
   %4 = tail call double @llvm.fabs.f64(double %3)
-  %5 = fcmp olt double %0, %1
-  %.sroa.speculated2 = select i1 %5, double %1, double %0
-  %6 = fcmp ogt double %.sroa.speculated2, 1.000000e+00
-  %.sroa.speculated = select i1 %6, double %.sroa.speculated2, double 1.000000e+00
-  %7 = fmul double %.sroa.speculated, 0x3CB0000000000000
-  %8 = fcmp ole double %4, %7
-  ret i1 %8
+  %.sroa.speculated2 = tail call double @llvm.maxnum.f64(double %1, double %0)
+  %.sroa.speculated = tail call double @llvm.maxnum.f64(double %.sroa.speculated2, double 1.000000e+00)
+  %5 = fmul double %.sroa.speculated, 0x3CB0000000000000
+  %6 = fcmp ole double %4, %5
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -5868,41 +5866,35 @@ define dso_local noundef zeroext i1 @_ZN8V3Number15epsilonIntegralEd(double noun
   %3 = sitofp i64 %2 to double
   %4 = fsub double %0, %3
   %5 = tail call double @llvm.fabs.f64(double %4)
-  %6 = fcmp olt double %0, %3
-  %.sroa.speculated2.i = select i1 %6, double %3, double %0
-  %7 = fcmp ogt double %.sroa.speculated2.i, 1.000000e+00
-  %.sroa.speculated.i = select i1 %7, double %.sroa.speculated2.i, double 1.000000e+00
-  %8 = fmul double %.sroa.speculated.i, 0x3CB0000000000000
-  %9 = fcmp ugt double %5, %8
-  br i1 %9, label %10, label %26
+  %.sroa.speculated2.i = tail call double @llvm.maxnum.f64(double %3, double %0)
+  %.sroa.speculated.i = tail call double @llvm.maxnum.f64(double %.sroa.speculated2.i, double 1.000000e+00)
+  %6 = fmul double %.sroa.speculated.i, 0x3CB0000000000000
+  %7 = fcmp ugt double %5, %6
+  br i1 %7, label %8, label %20
 
-10:                                               ; preds = %1
-  %11 = fadd double %3, -1.000000e+00
-  %12 = fsub double %0, %11
-  %13 = tail call double @llvm.fabs.f64(double %12)
-  %14 = fcmp olt double %0, %11
-  %.sroa.speculated2.i7 = select i1 %14, double %11, double %0
-  %15 = fcmp ogt double %.sroa.speculated2.i7, 1.000000e+00
-  %.sroa.speculated.i8 = select i1 %15, double %.sroa.speculated2.i7, double 1.000000e+00
-  %16 = fmul double %.sroa.speculated.i8, 0x3CB0000000000000
-  %17 = fcmp ugt double %13, %16
-  br i1 %17, label %18, label %26
+8:                                                ; preds = %1
+  %9 = fadd double %3, -1.000000e+00
+  %10 = fsub double %0, %9
+  %11 = tail call double @llvm.fabs.f64(double %10)
+  %.sroa.speculated2.i7 = tail call double @llvm.maxnum.f64(double %9, double %0)
+  %.sroa.speculated.i8 = tail call double @llvm.maxnum.f64(double %.sroa.speculated2.i7, double 1.000000e+00)
+  %12 = fmul double %.sroa.speculated.i8, 0x3CB0000000000000
+  %13 = fcmp ugt double %11, %12
+  br i1 %13, label %14, label %20
 
-18:                                               ; preds = %10
-  %19 = fadd double %3, 1.000000e+00
-  %20 = fsub double %0, %19
-  %21 = tail call double @llvm.fabs.f64(double %20)
-  %22 = fcmp olt double %0, %19
-  %.sroa.speculated2.i9 = select i1 %22, double %19, double %0
-  %23 = fcmp ogt double %.sroa.speculated2.i9, 1.000000e+00
-  %.sroa.speculated.i10 = select i1 %23, double %.sroa.speculated2.i9, double 1.000000e+00
-  %24 = fmul double %.sroa.speculated.i10, 0x3CB0000000000000
-  %25 = fcmp ole double %21, %24
-  br label %26
+14:                                               ; preds = %8
+  %15 = fadd double %3, 1.000000e+00
+  %16 = fsub double %0, %15
+  %17 = tail call double @llvm.fabs.f64(double %16)
+  %.sroa.speculated2.i9 = tail call double @llvm.maxnum.f64(double %15, double %0)
+  %.sroa.speculated.i10 = tail call double @llvm.maxnum.f64(double %.sroa.speculated2.i9, double 1.000000e+00)
+  %18 = fmul double %.sroa.speculated.i10, 0x3CB0000000000000
+  %19 = fcmp ole double %17, %18
+  br label %20
 
-26:                                               ; preds = %18, %10, %1
-  %27 = phi i1 [ true, %10 ], [ true, %1 ], [ %25, %18 ]
-  ret i1 %27
+20:                                               ; preds = %14, %8, %1
+  %21 = phi i1 [ true, %8 ], [ true, %1 ], [ %19, %14 ]
+  ret i1 %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -33491,6 +33483,9 @@ declare i32 @llvm.smax.i32(i32, i32) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #30

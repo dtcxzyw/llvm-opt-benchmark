@@ -35361,7 +35361,7 @@ _ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit: ; preds = %_ZNK7xgb
 ._crit_edge:                                      ; preds = %.lr.ph55, %.preheader
   %.1.lcssa = phi double [ %.047.lcssa, %.preheader ], [ %89, %.lr.ph55 ]
   %82 = fcmp ogt double %.1.lcssa, 0.000000e+00
-  br i1 %82, label %92, label %109
+  br i1 %82, label %92, label %108
 
 .lr.ph55:                                         ; preds = %.lr.ph55.preheader, %.lr.ph55
   %.054 = phi i64 [ %90, %.lr.ph55 ], [ %.0.i, %.lr.ph55.preheader ]
@@ -35404,39 +35404,38 @@ _ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit27:  ; preds = %92, %95
   unreachable
 
 _ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit29: ; preds = %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit27
-  %103 = fcmp olt double %.0.i26, %.1.lcssa
-  %.sroa.speculated = select i1 %103, double %.0.i26, double %.1.lcssa
-  %104 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %105 = load ptr, ptr %104, align 8, !tbaa !601
-  %106 = getelementptr inbounds nuw double, ptr %105, i64 %1
-  %107 = load double, ptr %106, align 8, !tbaa !86
-  %108 = fdiv double %107, %.sroa.speculated
-  store double %108, ptr %106, align 8, !tbaa !86
-  br label %122
+  %.sroa.speculated = tail call double @llvm.minnum.f64(double %.0.i26, double %.1.lcssa)
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %104 = load ptr, ptr %103, align 8, !tbaa !601
+  %105 = getelementptr inbounds nuw double, ptr %104, i64 %1
+  %106 = load double, ptr %105, align 8, !tbaa !86
+  %107 = fdiv double %106, %.sroa.speculated
+  store double %107, ptr %105, align 8, !tbaa !86
+  br label %121
 
-109:                                              ; preds = %._crit_edge
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %111 = load ptr, ptr %110, align 8, !tbaa !1104
-  %112 = load i64, ptr %111, align 8, !tbaa !597
-  %113 = icmp ult i64 %1, %112
-  br i1 %113, label %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit30, label %114, !prof !171
+108:                                              ; preds = %._crit_edge
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %110 = load ptr, ptr %109, align 8, !tbaa !1104
+  %111 = load i64, ptr %110, align 8, !tbaa !597
+  %112 = icmp ult i64 %1, %111
+  br i1 %112, label %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit30, label %113, !prof !171
 
-114:                                              ; preds = %109
+113:                                              ; preds = %108
   tail call void @_ZSt9terminatev() #42
   unreachable
 
-_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit30: ; preds = %109
-  %115 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %116 = load i8, ptr %115, align 8, !tbaa !914, !range !432, !noundef !433
-  %117 = trunc nuw i8 %116 to i1
-  %118 = select i1 %117, double 0.000000e+00, double 1.000000e+00
-  %119 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %120 = load ptr, ptr %119, align 8, !tbaa !601
-  %121 = getelementptr inbounds nuw double, ptr %120, i64 %1
-  store double %118, ptr %121, align 8, !tbaa !86
-  br label %122
+_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit30: ; preds = %108
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %115 = load i8, ptr %114, align 8, !tbaa !914, !range !432, !noundef !433
+  %116 = trunc nuw i8 %115 to i1
+  %117 = select i1 %116, double 0.000000e+00, double 1.000000e+00
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %119 = load ptr, ptr %118, align 8, !tbaa !601
+  %120 = getelementptr inbounds nuw double, ptr %119, i64 %1
+  store double %117, ptr %120, align 8, !tbaa !86
+  br label %121
 
-122:                                              ; preds = %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit30, %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit29
+121:                                              ; preds = %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit30, %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit29
   ret void
 }
 
@@ -54725,6 +54724,9 @@ declare i32 @llvm.umin.i32(i32, i32) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #38
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #38
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

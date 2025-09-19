@@ -19737,9 +19737,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103: ; preds = %_Z
   store double %254, ptr %13, align 8, !tbaa !360
   %255 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %256 = load double, ptr %255, align 8, !tbaa !342
-  %257 = fcmp olt double %254, %256
-  %258 = select i1 %257, double %254, double %256
-  store double %258, ptr %255, align 8, !tbaa !355
+  %257 = call double @llvm.minnum.f64(double %254, double %256)
+  store double %257, ptr %255, align 8, !tbaa !355
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader.i, %.preheader16.i, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit, %._crit_edge, %253, %2
@@ -78056,6 +78055,9 @@ declare i64 @llvm.umin.i64(i64, i64) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #34
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #35

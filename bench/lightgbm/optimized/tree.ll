@@ -13881,8 +13881,7 @@ define noundef double @_ZNK8LightGBM4Tree18GetUpperBoundValueEv(ptr noundef nonn
   %.067 = phi double [ %4, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
   %8 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   %9 = load double, ptr %8, align 8, !tbaa !66
-  %10 = fcmp ogt double %9, %.067
-  %.1 = select i1 %10, double %9, double %.067
+  %.1 = tail call double @llvm.maxnum.f64(double %9, double %.067)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !391
@@ -13911,8 +13910,7 @@ define noundef double @_ZNK8LightGBM4Tree18GetLowerBoundValueEv(ptr noundef nonn
   %.067 = phi double [ %4, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
   %8 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   %9 = load double, ptr %8, align 8, !tbaa !66
-  %10 = fcmp olt double %9, %.067
-  %.1 = select i1 %10, double %9, double %.067
+  %.1 = tail call double @llvm.minnum.f64(double %9, double %.067)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !392
@@ -55950,6 +55948,12 @@ declare i32 @llvm.umin.i32(i32, i32) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #41
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #39
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #39

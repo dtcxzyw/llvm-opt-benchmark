@@ -7,13 +7,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_line_dsc_init(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 88) #4
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 88) #5
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 1, ptr %2, align 4, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 -1, ptr %3, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %5 = tail call i24 @lv_color_black() #4
+  %5 = tail call i24 @lv_color_black() #5
   store i24 %5, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 88, ptr %6, align 8, !tbaa !17
@@ -45,13 +45,13 @@ define void @lv_draw_line(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %44, label %7
+  br i1 %6, label %40, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load i8, ptr %8, align 8, !tbaa !16
   %10 = icmp ult i8 %9, 3
-  br i1 %10, label %44, label %11
+  br i1 %10, label %40, label %11
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -59,52 +59,48 @@ define void @lv_draw_line(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %13 = load float, ptr %12, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load float, ptr %14, align 8, !tbaa !25
-  %16 = fcmp olt float %13, %15
-  %. = select i1 %16, float %13, float %15
-  %17 = fptosi float %. to i32
-  %18 = sub nsw i32 %17, %5
-  store i32 %18, ptr %3, align 4, !tbaa !26
-  %19 = fcmp ogt float %13, %15
-  %20 = select i1 %19, float %13, float %15
-  %21 = fptosi float %20 to i32
-  %22 = add nsw i32 %5, %21
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %22, ptr %23, align 4, !tbaa !27
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %25 = load float, ptr %24, align 4, !tbaa !28
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %27 = load float, ptr %26, align 4, !tbaa !29
-  %28 = fcmp olt float %25, %27
-  %29 = select i1 %28, float %25, float %27
-  %30 = fptosi float %29 to i32
-  %31 = sub nsw i32 %30, %5
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %31, ptr %32, align 4, !tbaa !30
-  %33 = fcmp ogt float %25, %27
-  %34 = select i1 %33, float %25, float %27
-  %35 = fptosi float %34 to i32
-  %36 = add nsw i32 %5, %35
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %36, ptr %37, align 4, !tbaa !31
-  %38 = call ptr @lv_draw_add_task(ptr noundef %0, ptr noundef nonnull %3) #4
-  %39 = call ptr @lv_malloc(i64 noundef 88) #4
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 104
-  store ptr %39, ptr %40, align 8, !tbaa !23
-  %.not = icmp eq ptr %39, null
-  br i1 %.not, label %.preheader, label %41
+  %. = tail call float @llvm.minnum.f32(float %13, float %15)
+  %16 = fptosi float %. to i32
+  %17 = sub nsw i32 %16, %5
+  store i32 %17, ptr %3, align 4, !tbaa !26
+  %18 = tail call float @llvm.maxnum.f32(float %13, float %15)
+  %19 = fptosi float %18 to i32
+  %20 = add nsw i32 %5, %19
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %20, ptr %21, align 4, !tbaa !27
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %23 = load float, ptr %22, align 4, !tbaa !28
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %25 = load float, ptr %24, align 4, !tbaa !29
+  %26 = tail call float @llvm.minnum.f32(float %23, float %25)
+  %27 = fptosi float %26 to i32
+  %28 = sub nsw i32 %27, %5
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %28, ptr %29, align 4, !tbaa !30
+  %30 = tail call float @llvm.maxnum.f32(float %23, float %25)
+  %31 = fptosi float %30 to i32
+  %32 = add nsw i32 %5, %31
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %32, ptr %33, align 4, !tbaa !31
+  %34 = call ptr @lv_draw_add_task(ptr noundef %0, ptr noundef nonnull %3) #5
+  %35 = call ptr @lv_malloc(i64 noundef 88) #5
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 104
+  store ptr %35, ptr %36, align 8, !tbaa !23
+  %.not = icmp eq ptr %35, null
+  br i1 %.not, label %.preheader, label %37
 
 .preheader:                                       ; preds = %11, %.preheader
   br label %.preheader
 
-41:                                               ; preds = %11
-  %42 = call ptr @lv_memcpy(ptr noundef nonnull %39, ptr noundef nonnull %1, i64 noundef 88) #4
-  %43 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store i32 8, ptr %43, align 8, !tbaa !18
-  call void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef nonnull %38) #4
+37:                                               ; preds = %11
+  %38 = call ptr @lv_memcpy(ptr noundef nonnull %35, ptr noundef nonnull %1, i64 noundef 88) #5
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store i32 8, ptr %39, align 8, !tbaa !18
+  call void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef nonnull %34) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %44
+  br label %40
 
-44:                                               ; preds = %7, %2, %41
+40:                                               ; preds = %7, %2, %37
   ret void
 }
 
@@ -124,11 +120,18 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

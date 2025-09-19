@@ -112,8 +112,7 @@ entry:
   %conv4.i = trunc i64 %shr.i to i32
   %conv = sitofp i32 %conv4.i to double
   %1 = tail call double @llvm.fmuladd.f64(double %conv, double 0x3DF0000000000000, double 5.000000e-01)
-  %cmp = fcmp ogt double %1, 0x3FEFFFFE00000000
-  %dResult.0 = select i1 %cmp, double 0x3FEFFFFE00000000, double %1
+  %dResult.0 = tail call double @llvm.minnum.f64(double %1, double 0x3FEFFFFE00000000)
   ret double %dResult.0
 }
 
@@ -425,8 +424,7 @@ entry:
   %mul = fmul float %conv, 0x3DF0000000000000
   %conv2 = fpext float %mul to double
   %add = fadd double %conv2, 5.000000e-01
-  %cmp = fcmp ogt double %add, 0x3FEFFFFE00000000
-  %dResult.0 = select i1 %cmp, double 0x3FEFFFFE00000000, double %add
+  %dResult.0 = tail call double @llvm.minnum.f64(double %add, double 0x3FEFFFFE00000000)
   ret double %dResult.0
 }
 
@@ -464,8 +462,7 @@ entry:
   %mul = fmul double %limit, 0x3DF0000000000000
   %conv = sitofp i32 %xor45.i to double
   %3 = tail call double @llvm.fmuladd.f64(double %mul, double %conv, double 5.000000e-01)
-  %cmp = fcmp ogt double %3, 0x3FEFFFFE00000000
-  %dResult.0 = select i1 %cmp, double 0x3FEFFFFE00000000, double %3
+  %dResult.0 = tail call double @llvm.minnum.f64(double %3, double 0x3FEFFFFE00000000)
   ret double %dResult.0
 }
 
@@ -967,8 +964,7 @@ entry:
   %call = tail call noundef i32 @_ZN2EA4StdC21RandomMersenneTwister19RandomUint32UniformEv(ptr noundef nonnull align 8 dereferenceable(2508) %this)
   %conv = sitofp i32 %call to double
   %0 = tail call double @llvm.fmuladd.f64(double %conv, double 0x3DF0000000000000, double 5.000000e-01)
-  %cmp = fcmp ogt double %0, 0x3FEFFFFE00000000
-  %dResult.0 = select i1 %cmp, double 0x3FEFFFFE00000000, double %0
+  %dResult.0 = tail call double @llvm.minnum.f64(double %0, double 0x3FEFFFFE00000000)
   ret double %dResult.0
 }
 
@@ -1022,6 +1018,9 @@ declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9

@@ -5354,22 +5354,20 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIiPKN11OpenIma
 
 56:                                               ; preds = %.thread, %46
   %.017202932 = phi float [ 0.000000e+00, %.thread ], [ %55, %46 ]
-  %57 = fcmp ogt float %5, 0.000000e+00
-  %58 = select i1 %57, float %5, float 0.000000e+00
-  %59 = fcmp olt float %58, 0x3FC3333340000000
-  %.sroa.speculated.i = select i1 %59, float %58, float 0x3FC3333340000000
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store float %.sroa.speculated.i, ptr %60, align 8, !tbaa !30
-  %61 = fcmp ogt float %6, 0x3FC99999A0000000
-  %62 = select i1 %61, float %6, float 0x3FC99999A0000000
-  %63 = fcmp olt float %62, 0x3FEE666660000000
-  %.sroa.speculated.i11 = select i1 %63, float %62, float 0x3FEE666660000000
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store float %.sroa.speculated.i11, ptr %64, align 4, !tbaa !31
-  %65 = fmul float %.sroa.speculated.i11, %.017202932
-  %66 = fptoui float %65 to i64
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %66, ptr %67, align 8, !tbaa !32
+  %57 = tail call float @llvm.maxnum.f32(float %5, float 0.000000e+00)
+  %.sroa.speculated.i = tail call float @llvm.minnum.f32(float %57, float 0x3FC3333340000000)
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store float %.sroa.speculated.i, ptr %58, align 8, !tbaa !30
+  %59 = fcmp ogt float %6, 0x3FC99999A0000000
+  %60 = select i1 %59, float %6, float 0x3FC99999A0000000
+  %61 = fcmp olt float %60, 0x3FEE666660000000
+  %.sroa.speculated.i11 = select i1 %61, float %60, float 0x3FEE666660000000
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store float %.sroa.speculated.i11, ptr %62, align 4, !tbaa !31
+  %63 = fmul float %.sroa.speculated.i11, %.017202932
+  %64 = fptoui float %63 to i64
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %64, ptr %65, align 8, !tbaa !32
   ret void
 }
 
@@ -5546,22 +5544,20 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112
 
 57:                                               ; preds = %.thread, %47
   %.017202932 = phi float [ 0.000000e+00, %.thread ], [ %56, %47 ]
-  %58 = fcmp ogt float %5, 0.000000e+00
-  %59 = select i1 %58, float %5, float 0.000000e+00
-  %60 = fcmp olt float %59, 0x3FC3333340000000
-  %.sroa.speculated.i = select i1 %60, float %59, float 0x3FC3333340000000
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store float %.sroa.speculated.i, ptr %61, align 8, !tbaa !47
-  %62 = fcmp ogt float %6, 0x3FC99999A0000000
-  %63 = select i1 %62, float %6, float 0x3FC99999A0000000
-  %64 = fcmp olt float %63, 0x3FEE666660000000
-  %.sroa.speculated.i11 = select i1 %64, float %63, float 0x3FEE666660000000
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store float %.sroa.speculated.i11, ptr %65, align 4, !tbaa !48
-  %66 = fmul float %.sroa.speculated.i11, %.017202932
-  %67 = fptoui float %66 to i64
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %67, ptr %68, align 8, !tbaa !49
+  %58 = tail call float @llvm.maxnum.f32(float %5, float 0.000000e+00)
+  %.sroa.speculated.i = tail call float @llvm.minnum.f32(float %58, float 0x3FC3333340000000)
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store float %.sroa.speculated.i, ptr %59, align 8, !tbaa !47
+  %60 = fcmp ogt float %6, 0x3FC99999A0000000
+  %61 = select i1 %60, float %6, float 0x3FC99999A0000000
+  %62 = fcmp olt float %61, 0x3FEE666660000000
+  %.sroa.speculated.i11 = select i1 %62, float %61, float 0x3FEE666660000000
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store float %.sroa.speculated.i11, ptr %63, align 4, !tbaa !48
+  %64 = fmul float %.sroa.speculated.i11, %.017202932
+  %65 = fptoui float %64 to i64
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %65, ptr %66, align 8, !tbaa !49
   ret void
 }
 
@@ -9410,6 +9406,12 @@ declare void @llvm.assume(i1 noundef) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #29

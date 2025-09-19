@@ -10101,8 +10101,7 @@ default.unreachable57:                            ; preds = %57
 _ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %64, %62, %60, %58, %53
   %.047 = phi double [ %54, %53 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ]
   %66 = fcmp olt double %.047, -1.500000e+01
-  %67 = fcmp ogt double %.047, 1.500000e+01
-  %..i = select i1 %67, double 1.500000e+01, double %.047
+  %..i = tail call double @llvm.minnum.f64(double %.047, double 1.500000e+01)
   %.0.i52 = select i1 %66, double -1.500000e+01, double %..i
   ret double %.0.i52
 }
@@ -10239,8 +10238,7 @@ default.unreachable76:                            ; preds = %79
 _ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %79, %79, %84, %82, %75
   %.058 = phi double [ %76, %75 ], [ %83, %82 ], [ %85, %84 ], [ %81, %79 ], [ %81, %79 ]
   %86 = fcmp olt double %.058, 0x3C9CD2B297D889BC
-  %87 = fcmp ogt double %.058, 1.500000e+01
-  %..i = select i1 %87, double 1.500000e+01, double %.058
+  %..i = tail call double @llvm.minnum.f64(double %.058, double 1.500000e+01)
   %.0.i71 = select i1 %86, double 0x3C9CD2B297D889BC, double %..i
   ret double %.0.i71
 }
@@ -11362,8 +11360,7 @@ default.unreachable65:                            ; preds = %72
 _ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_20LogisticDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %81, %78, %75, %73, %68
   %.047 = phi double [ %69, %68 ], [ %74, %73 ], [ %77, %75 ], [ %80, %78 ], [ %82, %81 ]
   %83 = fcmp olt double %.047, -1.500000e+01
-  %84 = fcmp ogt double %.047, 1.500000e+01
-  %..i = select i1 %84, double 1.500000e+01, double %.047
+  %..i = tail call double @llvm.minnum.f64(double %.047, double 1.500000e+01)
   %.0.i57 = select i1 %83, double -1.500000e+01, double %..i
   ret double %.0.i57
 }
@@ -11498,8 +11495,7 @@ _ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit82: ; preds = %_ZN7xgboos
   %or.cond97 = select i1 %84, i1 %or.cond, i1 false
   %.058 = select i1 %or.cond97, double 0x3C9CD2B297D889BC, double %83
   %86 = fcmp olt double %.058, 0x3C9CD2B297D889BC
-  %87 = fcmp ogt double %.058, 1.500000e+01
-  %..i = select i1 %87, double 1.500000e+01, double %.058
+  %..i = tail call double @llvm.minnum.f64(double %.058, double 1.500000e+01)
   %.0.i84 = select i1 %86, double 0x3C9CD2B297D889BC, double %..i
   ret double %.0.i84
 }
@@ -12464,8 +12460,7 @@ default.unreachable59:                            ; preds = %74
 _ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %83, %80, %78, %75, %70
   %.047 = phi double [ %71, %70 ], [ %77, %75 ], [ %79, %78 ], [ %82, %80 ], [ %85, %83 ]
   %86 = fcmp olt double %.047, -1.500000e+01
-  %87 = fcmp ogt double %.047, 1.500000e+01
-  %..i = select i1 %87, double 1.500000e+01, double %.047
+  %..i = tail call double @llvm.minnum.f64(double %.047, double 1.500000e+01)
   %.0.i54 = select i1 %86, double -1.500000e+01, double %..i
   ret double %.0.i54
 }
@@ -12683,8 +12678,7 @@ default.unreachable84:                            ; preds = %120
 _ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %123, %121, %120, %116
   %.058 = phi double [ %117, %116 ], [ %122, %121 ], [ %124, %123 ], [ 0x3C9CD2B297D889BC, %120 ]
   %125 = fcmp olt double %.058, 0x3C9CD2B297D889BC
-  %126 = fcmp ogt double %.058, 1.500000e+01
-  %..i = select i1 %126, double 1.500000e+01, double %.058
+  %..i = tail call double @llvm.minnum.f64(double %.058, double 1.500000e+01)
   %.0.i79 = select i1 %125, double 0x3C9CD2B297D889BC, double %..i
   ret double %.0.i79
 }
@@ -13523,6 +13517,9 @@ declare i64 @llvm.umin.i64(i64, i64) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #31
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #31
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

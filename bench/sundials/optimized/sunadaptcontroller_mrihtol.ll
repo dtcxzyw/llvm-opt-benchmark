@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @SUNAdaptController_MRIHTol(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @SUNAdaptController_NewEmpty(ptr noundef %2) #9
+  %4 = tail call ptr @SUNAdaptController_NewEmpty(ptr noundef %2) #10
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   store ptr @SUNAdaptController_GetType_MRIHTol, ptr %6, align 8, !tbaa !10
@@ -30,7 +30,7 @@ define noundef ptr @SUNAdaptController_MRIHTol(ptr noundef %0, ptr noundef %1, p
   store ptr @SUNAdaptController_UpdateMRIHTol_MRIHTol, ptr %12, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr @SUNAdaptController_Space_MRIHTol, ptr %13, align 8, !tbaa !18
-  %14 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #10
+  %14 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #11
   store ptr %0, ptr %14, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %1, ptr %15, align 8, !tbaa !23
@@ -57,30 +57,26 @@ define noundef i32 @SUNAdaptController_EstimateStepTol_MRIHTol(ptr noundef reado
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load ptr, ptr %0, align 8, !tbaa !27
   %11 = load ptr, ptr %10, align 8, !tbaa !19
-  %12 = tail call i32 @SUNAdaptController_EstimateStep(ptr noundef %11, double noundef %1, i32 noundef %3, double noundef %4, ptr noundef %6) #9
+  %12 = tail call i32 @SUNAdaptController_EstimateStep(ptr noundef %11, double noundef %1, i32 noundef %3, double noundef %4, ptr noundef %6) #10
   %13 = load ptr, ptr %0, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !23
-  %16 = call i32 @SUNAdaptController_EstimateStep(ptr noundef %15, double noundef %2, i32 noundef 0, double noundef %5, ptr noundef nonnull %9) #9
+  %16 = call i32 @SUNAdaptController_EstimateStep(ptr noundef %15, double noundef %2, i32 noundef 0, double noundef %5, ptr noundef nonnull %9) #10
   %17 = load double, ptr %9, align 8, !tbaa !28
   %18 = load ptr, ptr %0, align 8, !tbaa !27
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load double, ptr %19, align 8, !tbaa !24
   %21 = fdiv double %2, %20
-  %22 = fcmp ogt double %17, %21
-  %. = select i1 %22, double %17, double %21
-  %23 = fmul double %2, %20
-  %24 = fcmp olt double %., %23
-  %25 = select i1 %24, double %., double %23
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %27 = load double, ptr %26, align 8, !tbaa !25
-  %28 = fcmp ogt double %25, %27
-  %29 = select i1 %28, double %25, double %27
-  %30 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %31 = load double, ptr %30, align 8, !tbaa !26
-  %32 = fcmp olt double %29, %31
-  %33 = select i1 %32, double %29, double %31
-  store double %33, ptr %7, align 8, !tbaa !28
+  %. = call double @llvm.maxnum.f64(double %17, double %21)
+  %22 = fmul double %2, %20
+  %23 = call double @llvm.minnum.f64(double %., double %22)
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %25 = load double, ptr %24, align 8, !tbaa !25
+  %26 = call double @llvm.maxnum.f64(double %23, double %25)
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %28 = load double, ptr %27, align 8, !tbaa !26
+  %29 = call double @llvm.minnum.f64(double %26, double %28)
+  store double %29, ptr %7, align 8, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 0
 }
@@ -89,11 +85,11 @@ define noundef i32 @SUNAdaptController_EstimateStepTol_MRIHTol(ptr noundef reado
 define noundef i32 @SUNAdaptController_Reset_MRIHTol(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !27
   %3 = load ptr, ptr %2, align 8, !tbaa !19
-  %4 = tail call i32 @SUNAdaptController_Reset(ptr noundef %3) #9
+  %4 = tail call i32 @SUNAdaptController_Reset(ptr noundef %3) #10
   %5 = load ptr, ptr %0, align 8, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !23
-  %8 = tail call i32 @SUNAdaptController_Reset(ptr noundef %7) #9
+  %8 = tail call i32 @SUNAdaptController_Reset(ptr noundef %7) #10
   ret i32 0
 }
 
@@ -101,11 +97,11 @@ define noundef i32 @SUNAdaptController_Reset_MRIHTol(ptr noundef readonly captur
 define noundef i32 @SUNAdaptController_SetDefaults_MRIHTol(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !27
   %3 = load ptr, ptr %2, align 8, !tbaa !19
-  %4 = tail call i32 @SUNAdaptController_SetDefaults(ptr noundef %3) #9
+  %4 = tail call i32 @SUNAdaptController_SetDefaults(ptr noundef %3) #10
   %5 = load ptr, ptr %0, align 8, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !23
-  %8 = tail call i32 @SUNAdaptController_SetDefaults(ptr noundef %7) #9
+  %8 = tail call i32 @SUNAdaptController_SetDefaults(ptr noundef %7) #10
   %9 = load ptr, ptr %0, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store double 2.000000e+01, ptr %10, align 8, !tbaa !24
@@ -122,24 +118,24 @@ define noundef i32 @SUNAdaptController_Write_MRIHTol(ptr noundef readonly captur
   %4 = load ptr, ptr %0, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load double, ptr %5, align 8, !tbaa !24
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, double noundef %6) #9
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, double noundef %6) #10
   %8 = load ptr, ptr %0, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load double, ptr %9, align 8, !tbaa !25
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %10) #9
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %10) #10
   %12 = load ptr, ptr %0, align 8, !tbaa !27
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load double, ptr %13, align 8, !tbaa !26
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, double noundef %14) #9
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, double noundef %14) #10
   %16 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 23, i64 1, ptr %1)
   %17 = load ptr, ptr %0, align 8, !tbaa !27
   %18 = load ptr, ptr %17, align 8, !tbaa !19
-  %19 = tail call i32 @SUNAdaptController_Write(ptr noundef %18, ptr noundef %1) #9
+  %19 = tail call i32 @SUNAdaptController_Write(ptr noundef %18, ptr noundef %1) #10
   %20 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 28, i64 1, ptr %1)
   %21 = load ptr, ptr %0, align 8, !tbaa !27
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !23
-  %24 = tail call i32 @SUNAdaptController_Write(ptr noundef %23, ptr noundef %1) #9
+  %24 = tail call i32 @SUNAdaptController_Write(ptr noundef %23, ptr noundef %1) #10
   ret i32 0
 }
 
@@ -147,11 +143,11 @@ define noundef i32 @SUNAdaptController_Write_MRIHTol(ptr noundef readonly captur
 define noundef i32 @SUNAdaptController_SetErrorBias_MRIHTol(ptr noundef readonly captures(none) %0, double noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !27
   %4 = load ptr, ptr %3, align 8, !tbaa !19
-  %5 = tail call i32 @SUNAdaptController_SetErrorBias(ptr noundef %4, double noundef %1) #9
+  %5 = tail call i32 @SUNAdaptController_SetErrorBias(ptr noundef %4, double noundef %1) #10
   %6 = load ptr, ptr %0, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !23
-  %9 = tail call i32 @SUNAdaptController_SetErrorBias(ptr noundef %8, double noundef %1) #9
+  %9 = tail call i32 @SUNAdaptController_SetErrorBias(ptr noundef %8, double noundef %1) #10
   ret i32 0
 }
 
@@ -159,11 +155,11 @@ define noundef i32 @SUNAdaptController_SetErrorBias_MRIHTol(ptr noundef readonly
 define noundef i32 @SUNAdaptController_UpdateMRIHTol_MRIHTol(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) #0 {
   %6 = load ptr, ptr %0, align 8, !tbaa !27
   %7 = load ptr, ptr %6, align 8, !tbaa !19
-  %8 = tail call i32 @SUNAdaptController_UpdateH(ptr noundef %7, double noundef %1, double noundef %3) #9
+  %8 = tail call i32 @SUNAdaptController_UpdateH(ptr noundef %7, double noundef %1, double noundef %3) #10
   %9 = load ptr, ptr %0, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !23
-  %12 = tail call i32 @SUNAdaptController_UpdateH(ptr noundef %11, double noundef %2, double noundef %4) #9
+  %12 = tail call i32 @SUNAdaptController_UpdateH(ptr noundef %11, double noundef %2, double noundef %4) #10
   ret i32 0
 }
 
@@ -175,11 +171,11 @@ define noundef i32 @SUNAdaptController_Space_MRIHTol(ptr noundef readonly captur
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !27
   %7 = load ptr, ptr %6, align 8, !tbaa !19
-  %8 = tail call i32 @SUNAdaptController_Space(ptr noundef %7, ptr noundef %1, ptr noundef %2) #9
+  %8 = tail call i32 @SUNAdaptController_Space(ptr noundef %7, ptr noundef %1, ptr noundef %2) #10
   %9 = load ptr, ptr %0, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !23
-  %12 = call i32 @SUNAdaptController_Space(ptr noundef %11, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
+  %12 = call i32 @SUNAdaptController_Space(ptr noundef %11, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %13 = load i64, ptr %4, align 8, !tbaa !29
   %14 = load i64, ptr %1, align 8, !tbaa !29
   %15 = add nsw i64 %14, %13
@@ -259,6 +255,12 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #9
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -268,8 +270,9 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nofree nounwind }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

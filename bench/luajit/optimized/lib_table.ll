@@ -89,37 +89,36 @@ define internal noundef i32 @lj_cf_table_maxn(ptr noundef %0) #0 {
   %23 = zext i32 %22 to i64
   br label %24
 
-24:                                               ; preds = %.loopexit, %35
-  %.127 = phi double [ %.0, %.loopexit ], [ %.3, %35 ]
-  %.12326 = phi i64 [ %23, %.loopexit ], [ %36, %35 ]
+24:                                               ; preds = %.loopexit, %34
+  %.127 = phi double [ %.0, %.loopexit ], [ %.3, %34 ]
+  %.12326 = phi i64 [ %23, %.loopexit ], [ %35, %34 ]
   %25 = getelementptr inbounds nuw %struct.Node, ptr %20, i64 %.12326
   %26 = load i64, ptr %25, align 8, !tbaa !14
   %27 = icmp eq i64 %26, -1
-  br i1 %27, label %35, label %28
+  br i1 %27, label %34, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = icmp ult i64 %30, -1829587348619264
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %28
   %33 = bitcast i64 %30 to double
-  %34 = fcmp olt double %.127, %33
-  %.2 = select i1 %34, double %33, double %.127
-  br label %35
+  %.2 = tail call double @llvm.maxnum.f64(double %33, double %.127)
+  br label %34
 
-35:                                               ; preds = %24, %28, %32
+34:                                               ; preds = %24, %28, %32
   %.3 = phi double [ %.127, %24 ], [ %.2, %32 ], [ %.127, %28 ]
-  %36 = add nsw i64 %.12326, -1
-  %37 = icmp sgt i64 %.12326, 0
-  br i1 %37, label %24, label %38, !llvm.loop !22
+  %35 = add nsw i64 %.12326, -1
+  %36 = icmp sgt i64 %.12326, 0
+  br i1 %36, label %24, label %37, !llvm.loop !22
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %40 = load ptr, ptr %39, align 8, !tbaa !4
-  %41 = getelementptr inbounds i8, ptr %40, i64 -8
-  store double %.3, ptr %41, align 8, !tbaa !14
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %39 = load ptr, ptr %38, align 8, !tbaa !4
+  %40 = getelementptr inbounds i8, ptr %39, i64 -8
+  store double %.3, ptr %40, align 8, !tbaa !14
   ret i32 1
 }
 
@@ -680,6 +679,9 @@ declare hidden void @lj_tab_clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

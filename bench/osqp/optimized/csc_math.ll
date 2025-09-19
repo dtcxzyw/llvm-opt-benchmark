@@ -1074,7 +1074,7 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i.preheader,
   %.pre = load i64, ptr %4, align 8, !tbaa !17
   br label %.lr.ph50
 
-.loopexit:                                        ; preds = %36, %.lr.ph50
+.loopexit:                                        ; preds = %34, %.lr.ph50
   %exitcond51.not = icmp eq i64 %16, %8
   br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph50, !llvm.loop !53
 
@@ -1091,8 +1091,8 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i.preheader,
   %20 = getelementptr inbounds nuw double, ptr %1, i64 %.049
   br label %21
 
-21:                                               ; preds = %.lr.ph, %36
-  %.04148 = phi i64 [ %15, %.lr.ph ], [ %37, %36 ]
+21:                                               ; preds = %.lr.ph, %34
+  %.04148 = phi i64 [ %15, %.lr.ph ], [ %35, %34 ]
   %22 = getelementptr inbounds i64, ptr %6, i64 %.04148
   %23 = load i64, ptr %22, align 8, !tbaa !17
   %24 = getelementptr inbounds double, ptr %11, i64 %.04148
@@ -1101,23 +1101,21 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i.preheader,
   %27 = fneg double %25
   %28 = select i1 %26, double %27, double %25
   %29 = load double, ptr %20, align 8, !tbaa !3
-  %30 = fcmp ogt double %28, %29
-  %31 = select i1 %30, double %28, double %29
-  store double %31, ptr %20, align 8, !tbaa !3
+  %30 = tail call double @llvm.maxnum.f64(double %28, double %29)
+  store double %30, ptr %20, align 8, !tbaa !3
   %.not = icmp eq i64 %23, %.049
-  br i1 %.not, label %36, label %32
+  br i1 %.not, label %34, label %31
 
-32:                                               ; preds = %21
-  %33 = getelementptr inbounds double, ptr %1, i64 %23
-  %34 = load double, ptr %33, align 8, !tbaa !3
-  %35 = fcmp ogt double %28, %34
-  %. = select i1 %35, double %28, double %34
-  store double %., ptr %33, align 8, !tbaa !3
-  br label %36
+31:                                               ; preds = %21
+  %32 = getelementptr inbounds double, ptr %1, i64 %23
+  %33 = load double, ptr %32, align 8, !tbaa !3
+  %. = tail call double @llvm.maxnum.f64(double %28, double %33)
+  store double %., ptr %32, align 8, !tbaa !3
+  br label %34
 
-36:                                               ; preds = %21, %32
-  %37 = add nsw i64 %.04148, 1
-  %exitcond.not = icmp eq i64 %37, %18
+34:                                               ; preds = %21, %31
+  %35 = add nsw i64 %.04148, 1
+  %exitcond.not = icmp eq i64 %35, %18
   br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.loopexit, %vec_set_scalar.exit
@@ -1129,6 +1127,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

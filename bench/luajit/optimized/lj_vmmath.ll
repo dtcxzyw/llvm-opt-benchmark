@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden double @lj_vm_foldarith(double noundef %0, double noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  switch i32 %2, label %30 [
+  switch i32 %2, label %28 [
     i32 0, label %4
     i32 1, label %6
     i32 2, label %8
@@ -16,59 +16,57 @@ define hidden double @lj_vm_foldarith(double noundef %0, double noundef %1, i32 
     i32 7, label %19
     i32 8, label %21
     i32 9, label %24
-    i32 10, label %27
+    i32 10, label %26
   ]
 
 4:                                                ; preds = %3
   %5 = fadd double %0, %1
-  br label %30
+  br label %28
 
 6:                                                ; preds = %3
   %7 = fsub double %0, %1
-  br label %30
+  br label %28
 
 8:                                                ; preds = %3
   %9 = fmul double %0, %1
-  br label %30
+  br label %28
 
 10:                                               ; preds = %3
   %11 = fdiv double %0, %1
-  br label %30
+  br label %28
 
 12:                                               ; preds = %3
   %13 = tail call fastcc double @lj_vm_floormul(double noundef %0, double noundef %1)
   %14 = fsub double %0, %13
-  br label %30
+  br label %28
 
 15:                                               ; preds = %3
   %16 = tail call double @pow(double noundef %0, double noundef %1) #9, !tbaa !4
-  br label %30
+  br label %28
 
 17:                                               ; preds = %3
   %18 = fneg double %0
-  br label %30
+  br label %28
 
 19:                                               ; preds = %3
   %20 = tail call double @llvm.fabs.f64(double %0)
-  br label %30
+  br label %28
 
 21:                                               ; preds = %3
   %22 = fptosi double %1 to i32
   %23 = tail call double @ldexp(double noundef %0, i32 noundef %22) #9, !tbaa !4
-  br label %30
+  br label %28
 
 24:                                               ; preds = %3
-  %25 = fcmp olt double %0, %1
-  %26 = select i1 %25, double %0, double %1
-  br label %30
+  %25 = tail call double @llvm.minnum.f64(double %0, double %1)
+  br label %28
 
-27:                                               ; preds = %3
-  %28 = fcmp ogt double %0, %1
-  %29 = select i1 %28, double %0, double %1
-  br label %30
+26:                                               ; preds = %3
+  %27 = tail call double @llvm.maxnum.f64(double %0, double %1)
+  br label %28
 
-30:                                               ; preds = %3, %27, %24, %21, %19, %17, %15, %12, %10, %8, %6, %4
-  %.0 = phi double [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %14, %12 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %0, %3 ]
+28:                                               ; preds = %3, %26, %24, %21, %19, %17, %15, %12, %10, %8, %6, %4
+  %.0 = phi double [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %14, %12 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %23, %21 ], [ %25, %24 ], [ %27, %26 ], [ %0, %3 ]
   ret double %.0
 }
 
@@ -171,6 +169,12 @@ define hidden i32 @lj_vm_errno() local_unnamed_addr #6 {
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #8

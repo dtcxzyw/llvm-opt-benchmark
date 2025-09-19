@@ -101039,17 +101039,16 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
   %10 = load double, ptr %9, align 8, !alias.scope !13862, !noalias !13865, !noundef !3
   %11 = load double, ptr %8, align 8, !alias.scope !13865, !noalias !13862, !noundef !3
   %12 = fcmp olt double %2, %10
-  %13 = fcmp ogt double %2, %11
-  %.sroa.0.0.in.sroa.speculate.load.6.sroa.speculated.i.i.i.i = select i1 %13, double %11, double %2
+  %.sroa.0.0.in.sroa.speculate.load.6.sroa.speculated.i.i.i.i = tail call double @llvm.minnum.f64(double %11, double %2)
   %.sroa.0.0.in.sroa.speculated.i.i.i.i = select i1 %12, double %10, double %.sroa.0.0.in.sroa.speculate.load.6.sroa.speculated.i.i.i.i
   br label %"_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17hb8515e2df7e710f9E.exit"
 
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17hb8515e2df7e710f9E.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i64 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi double [ %.sroa.0.0.in.sroa.speculated.i.i.i.i, %5 ], [ undef, %3 ]
-  %14 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
-  %15 = insertvalue { i64, double } %14, double %.sroa.3.0.i, 1
-  ret { i64, double } %15
+  %13 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
+  %14 = insertvalue { i64, double } %13, double %.sroa.3.0.i, 1
+  ret { i64, double } %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -101170,16 +101169,15 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
   %.val = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %7 = load ptr, ptr %.val, align 8, !nonnull !3, !align !4, !noundef !3
   %8 = load double, ptr %7, align 8, !alias.scope !13883, !noundef !3
-  %9 = fcmp ogt double %2, %8
-  %.sroa.0.0.sroa.speculated.i.i.i.i = select i1 %9, double %8, double %2
+  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef double @llvm.minnum.f64(double %8, double %2)
   br label %"_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17hc88ccac15d7b9f55E.exit"
 
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17hc88ccac15d7b9f55E.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i64 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi double [ %.sroa.0.0.sroa.speculated.i.i.i.i, %5 ], [ undef, %3 ]
-  %10 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
-  %11 = insertvalue { i64, double } %10, double %.sroa.3.0.i, 1
-  ret { i64, double } %11
+  %9 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
+  %10 = insertvalue { i64, double } %9, double %.sroa.3.0.i, 1
+  ret { i64, double } %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -101659,16 +101657,15 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !align !4, !noundef !3
   %9 = load double, ptr %8, align 8, !alias.scope !13966, !noundef !3
-  %10 = fcmp olt double %2, %9
-  %.sroa.0.0.sroa.speculated.i.i.i.i.i = select i1 %10, double %9, double %2
+  %.sroa.0.0.sroa.speculated.i.i.i.i.i = tail call noundef double @llvm.maxnum.f64(double %9, double %2)
   br label %"_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h403fe36c07139bdeE.exit"
 
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h403fe36c07139bdeE.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i64 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi double [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %5 ], [ undef, %3 ]
-  %11 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
-  %12 = insertvalue { i64, double } %11, double %.sroa.3.0.i, 1
-  ret { i64, double } %12
+  %10 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
+  %11 = insertvalue { i64, double } %10, double %.sroa.3.0.i, 1
+  ret { i64, double } %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -101793,17 +101790,16 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
   %10 = load float, ptr %9, align 4, !alias.scope !13987, !noalias !13990, !noundef !3
   %11 = load float, ptr %8, align 4, !alias.scope !13990, !noalias !13987, !noundef !3
   %12 = fcmp olt float %2, %10
-  %13 = fcmp ogt float %2, %11
-  %.sroa.0.0.in.sroa.speculate.load.6.sroa.speculated.i.i.i.i = select i1 %13, float %11, float %2
+  %.sroa.0.0.in.sroa.speculate.load.6.sroa.speculated.i.i.i.i = tail call float @llvm.minnum.f32(float %11, float %2)
   %.sroa.0.0.in.sroa.speculated.i.i.i.i = select i1 %12, float %10, float %.sroa.0.0.in.sroa.speculate.load.6.sroa.speculated.i.i.i.i
   br label %"_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h93398e7f0a4996aaE.exit"
 
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h93398e7f0a4996aaE.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i32 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi float [ %.sroa.0.0.in.sroa.speculated.i.i.i.i, %5 ], [ undef, %3 ]
-  %14 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
-  %15 = insertvalue { i32, float } %14, float %.sroa.3.0.i, 1
-  ret { i32, float } %15
+  %13 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
+  %14 = insertvalue { i32, float } %13, float %.sroa.3.0.i, 1
+  ret { i32, float } %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -101816,16 +101812,15 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
   %.val = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %7 = load ptr, ptr %.val, align 8, !nonnull !3, !align !4, !noundef !3
   %8 = load double, ptr %7, align 8, !alias.scope !13992, !noundef !3
-  %9 = fcmp olt double %2, %8
-  %.sroa.0.0.sroa.speculated.i.i.i.i = select i1 %9, double %8, double %2
+  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef double @llvm.maxnum.f64(double %8, double %2)
   br label %"_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17hc948eacbe0dd5c4dE.exit"
 
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17hc948eacbe0dd5c4dE.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i64 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi double [ %.sroa.0.0.sroa.speculated.i.i.i.i, %5 ], [ undef, %3 ]
-  %10 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
-  %11 = insertvalue { i64, double } %10, double %.sroa.3.0.i, 1
-  ret { i64, double } %11
+  %9 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
+  %10 = insertvalue { i64, double } %9, double %.sroa.3.0.i, 1
+  ret { i64, double } %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -101877,16 +101872,15 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !align !287, !noundef !3
   %9 = load float, ptr %8, align 4, !alias.scope !14001, !noundef !3
-  %10 = fcmp olt float %2, %9
-  %.sroa.0.0.sroa.speculated.i.i.i.i.i = select i1 %10, float %9, float %2
+  %.sroa.0.0.sroa.speculated.i.i.i.i.i = tail call noundef float @llvm.maxnum.f32(float %9, float %2)
   br label %"_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h6a3c72a8609970c1E.exit"
 
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h6a3c72a8609970c1E.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i32 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi float [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %5 ], [ undef, %3 ]
-  %11 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
-  %12 = insertvalue { i32, float } %11, float %.sroa.3.0.i, 1
-  ret { i32, float } %12
+  %10 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
+  %11 = insertvalue { i32, float } %10, float %.sroa.3.0.i, 1
+  ret { i32, float } %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -102035,16 +102029,15 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !align !4, !noundef !3
   %9 = load double, ptr %8, align 8, !alias.scope !14032, !noundef !3
-  %10 = fcmp ogt double %2, %9
-  %.sroa.0.0.sroa.speculated.i.i.i.i.i = select i1 %10, double %9, double %2
+  %.sroa.0.0.sroa.speculated.i.i.i.i.i = tail call noundef double @llvm.minnum.f64(double %9, double %2)
   br label %"_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17hc8743adb53d08febE.exit"
 
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17hc8743adb53d08febE.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i64 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi double [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %5 ], [ undef, %3 ]
-  %11 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
-  %12 = insertvalue { i64, double } %11, double %.sroa.3.0.i, 1
-  ret { i64, double } %12
+  %10 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
+  %11 = insertvalue { i64, double } %10, double %.sroa.3.0.i, 1
+  ret { i64, double } %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -102301,16 +102294,15 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !align !287, !noundef !3
   %9 = load float, ptr %8, align 4, !alias.scope !14079, !noundef !3
-  %10 = fcmp ogt float %2, %9
-  %.sroa.0.0.sroa.speculated.i.i.i.i.i = select i1 %10, float %9, float %2
+  %.sroa.0.0.sroa.speculated.i.i.i.i.i = tail call noundef float @llvm.minnum.f32(float %9, float %2)
   br label %"_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h0a537d0f7e4b4466E.exit"
 
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h0a537d0f7e4b4466E.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i32 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi float [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %5 ], [ undef, %3 ]
-  %11 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
-  %12 = insertvalue { i32, float } %11, float %.sroa.3.0.i, 1
-  ret { i32, float } %12
+  %10 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
+  %11 = insertvalue { i32, float } %10, float %.sroa.3.0.i, 1
+  ret { i32, float } %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -102323,16 +102315,15 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
   %.val = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %7 = load ptr, ptr %.val, align 8, !nonnull !3, !align !287, !noundef !3
   %8 = load float, ptr %7, align 4, !alias.scope !14082, !noundef !3
-  %9 = fcmp ogt float %2, %8
-  %.sroa.0.0.sroa.speculated.i.i.i.i = select i1 %9, float %8, float %2
+  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef float @llvm.minnum.f32(float %8, float %2)
   br label %"_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h430e1abc48a92f7bE.exit"
 
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h430e1abc48a92f7bE.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i32 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi float [ %.sroa.0.0.sroa.speculated.i.i.i.i, %5 ], [ undef, %3 ]
-  %10 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
-  %11 = insertvalue { i32, float } %10, float %.sroa.3.0.i, 1
-  ret { i32, float } %11
+  %9 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
+  %10 = insertvalue { i32, float } %9, float %.sroa.3.0.i, 1
+  ret { i32, float } %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -102365,16 +102356,15 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
   %.val = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %7 = load ptr, ptr %.val, align 8, !nonnull !3, !align !287, !noundef !3
   %8 = load float, ptr %7, align 4, !alias.scope !14088, !noundef !3
-  %9 = fcmp olt float %2, %8
-  %.sroa.0.0.sroa.speculated.i.i.i.i = select i1 %9, float %8, float %2
+  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef float @llvm.maxnum.f32(float %8, float %2)
   br label %"_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h951a98fb9761c34cE.exit"
 
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h951a98fb9761c34cE.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i32 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi float [ %.sroa.0.0.sroa.speculated.i.i.i.i, %5 ], [ undef, %3 ]
-  %10 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
-  %11 = insertvalue { i32, float } %10, float %.sroa.3.0.i, 1
-  ret { i32, float } %11
+  %9 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
+  %10 = insertvalue { i32, float } %9, float %.sroa.3.0.i, 1
+  ret { i32, float } %10
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -204090,6 +204080,9 @@ declare i64 @llvm.smin.i64(i64, i64) #24
 declare i16 @llvm.umin.i16(i16, i16) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -204109,6 +204102,15 @@ declare i128 @llvm.smin.i128(i128, i128) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #24

@@ -397,44 +397,42 @@ define i32 @stb_easy_font_width(ptr noundef readonly captures(none) %0) local_un
   %2 = load float, ptr @stb_easy_font_spacing_val, align 4
   br label %3
 
-3:                                                ; preds = %16, %1
-  %.015 = phi ptr [ %0, %1 ], [ %17, %16 ]
-  %.013 = phi float [ 0.000000e+00, %1 ], [ %.114, %16 ]
-  %.0 = phi float [ 0.000000e+00, %1 ], [ %.2, %16 ]
+3:                                                ; preds = %15, %1
+  %.015 = phi ptr [ %0, %1 ], [ %16, %15 ]
+  %.013 = phi float [ 0.000000e+00, %1 ], [ %.114, %15 ]
+  %.0 = phi float [ 0.000000e+00, %1 ], [ %.2, %15 ]
   %4 = load i8, ptr %.015, align 1, !tbaa !3
-  switch i8 %4, label %7 [
-    i8 0, label %18
+  switch i8 %4, label %6 [
+    i8 0, label %17
     i8 10, label %5
   ]
 
 5:                                                ; preds = %3
-  %6 = fcmp ogt float %.013, %.0
-  %.1 = select i1 %6, float %.013, float %.0
-  br label %16
+  %.1 = tail call float @llvm.maxnum.f32(float %.013, float %.0)
+  br label %15
 
-7:                                                ; preds = %3
-  %8 = sext i8 %4 to i64
-  %9 = getelementptr %struct.stb_easy_font_info_struct, ptr @stb_easy_font_charinfo, i64 %8
-  %10 = getelementptr i8, ptr %9, i64 -96
-  %11 = load i8, ptr %10, align 1, !tbaa !11
-  %12 = and i8 %11, 15
-  %13 = uitofp nneg i8 %12 to float
-  %14 = fadd float %.013, %13
-  %15 = fadd float %2, %14
-  br label %16
+6:                                                ; preds = %3
+  %7 = sext i8 %4 to i64
+  %8 = getelementptr %struct.stb_easy_font_info_struct, ptr @stb_easy_font_charinfo, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 -96
+  %10 = load i8, ptr %9, align 1, !tbaa !11
+  %11 = and i8 %10, 15
+  %12 = uitofp nneg i8 %11 to float
+  %13 = fadd float %.013, %12
+  %14 = fadd float %2, %13
+  br label %15
 
-16:                                               ; preds = %7, %5
-  %.114 = phi float [ 0.000000e+00, %5 ], [ %15, %7 ]
-  %.2 = phi float [ %.1, %5 ], [ %.0, %7 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.015, i64 1
+15:                                               ; preds = %6, %5
+  %.114 = phi float [ 0.000000e+00, %5 ], [ %14, %6 ]
+  %.2 = phi float [ %.1, %5 ], [ %.0, %6 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   br label %3, !llvm.loop !16
 
-18:                                               ; preds = %3
-  %19 = fcmp ogt float %.013, %.0
-  %.3 = select i1 %19, float %.013, float %.0
-  %20 = tail call float @llvm.ceil.f32(float %.3)
-  %21 = fptosi float %20 to i32
-  ret i32 %21
+17:                                               ; preds = %3
+  %.3 = tail call float @llvm.maxnum.f32(float %.013, float %.0)
+  %18 = tail call float @llvm.ceil.f32(float %.3)
+  %19 = fptosi float %18 to i32
+  ret i32 %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -473,6 +471,9 @@ define i32 @stb_easy_font_height(ptr noundef readonly captures(none) %0) local_u
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ceil.f32(float) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #5
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

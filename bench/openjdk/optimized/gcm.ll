@@ -7454,16 +7454,17 @@ _ZN7CFGLoop16update_succ_freqEP5Blockd.exit65:    ; preds = %128, %132, %_ZN26Gr
   %229 = load i32, ptr %209, align 8
   %230 = sext i32 %229 to i64
   %231 = icmp slt i64 %indvars.iv.next121, %230
-  br i1 %231, label %220, label %._crit_edge105, !llvm.loop !77
+  br i1 %231, label %220, label %._crit_edge105.loopexit, !llvm.loop !77
 
-._crit_edge105:                                   ; preds = %220, %.preheader83
-  %.049.lcssa144 = phi double [ 0.000000e+00, %.preheader83 ], [ %219, %220 ]
-  %232 = fcmp ogt double %.049.lcssa144, 1.000000e+00
-  %.1 = select i1 %232, double 1.000000e+00, double %.049.lcssa144
-  %233 = fcmp olt double %.1, 0x3EB0C6F7A0000000
-  %.2 = select i1 %233, double 0x3EB0C6F7A0000000, double %.1
+._crit_edge105.loopexit:                          ; preds = %220
+  %232 = tail call double @llvm.minnum.f64(double %219, double 1.000000e+00)
+  %233 = tail call double @llvm.maxnum.f64(double %232, double 0x3EB0C6F7A0000000)
+  br label %._crit_edge105
+
+._crit_edge105:                                   ; preds = %._crit_edge105.loopexit, %.preheader83
+  %.049.lcssa144 = phi double [ 0x3EB0C6F7A0000000, %.preheader83 ], [ %233, %._crit_edge105.loopexit ]
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store double %.2, ptr %234, align 8
+  store double %.049.lcssa144, ptr %234, align 8
   br label %235
 
 235:                                              ; preds = %._crit_edge105, %._crit_edge99
@@ -8525,6 +8526,12 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

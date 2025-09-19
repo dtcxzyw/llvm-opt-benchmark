@@ -2331,8 +2331,7 @@ define dso_local void @_ZN9cmProcess8OnExitCBEP12uv_process_sli(ptr noundef read
   %20 = sub nsw i64 %18, %.sroa.0.0.copyload.i2.i.i.i
   %21 = sitofp i64 %20 to double
   %22 = fdiv double %21, 1.000000e+09
-  %.inv.i.i = fcmp ogt double %22, 0.000000e+00
-  %storemerge.i.i = select i1 %.inv.i.i, double %22, double 0.000000e+00
+  %storemerge.i.i = tail call double @llvm.maxnum.f64(double %22, double 0.000000e+00)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store double %storemerge.i.i, ptr %23, align 8, !tbaa !80
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 128
@@ -2948,8 +2947,7 @@ _ZN9cmProcess6Buffer7GetLastERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %173 = sub nsw i64 %171, %.sroa.0.0.copyload.i2.i.i
   %174 = sitofp i64 %173 to double
   %175 = fdiv double %174, 1.000000e+09
-  %.inv.i = fcmp ogt double %175, 0.000000e+00
-  %storemerge.i = select i1 %.inv.i, double %175, double 0.000000e+00
+  %storemerge.i = call double @llvm.maxnum.f64(double %175, double 0.000000e+00)
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %storemerge.i, ptr %176, align 8, !tbaa !80
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -3007,8 +3005,7 @@ define dso_local void @_ZN9cmProcess6FinishEv(ptr noundef nonnull align 8 captur
   %4 = sub nsw i64 %2, %.sroa.0.0.copyload.i2.i
   %5 = sitofp i64 %4 to double
   %6 = fdiv double %5, 1.000000e+09
-  %.inv = fcmp ogt double %6, 0.000000e+00
-  %storemerge = select i1 %.inv, double %6, double 0.000000e+00
+  %storemerge = tail call double @llvm.maxnum.f64(double %6, double 0.000000e+00)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %storemerge, ptr %7, align 8, !tbaa !80
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -3267,8 +3264,7 @@ define dso_local void @_ZN9cmProcess9OnTimeoutEv(ptr noundef nonnull align 8 der
   %65 = sub nsw i64 %63, %.sroa.0.0.copyload.i2.i.i
   %66 = sitofp i64 %65 to double
   %67 = fdiv double %66, 1.000000e+09
-  %.inv.i = fcmp ogt double %67, 0.000000e+00
-  %storemerge.i = select i1 %.inv.i, double %67, double 0.000000e+00
+  %storemerge.i = tail call double @llvm.maxnum.f64(double %67, double 0.000000e+00)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %storemerge.i, ptr %68, align 8, !tbaa !80
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -3324,8 +3320,7 @@ define dso_local void @_ZN9cmProcess6OnExitEli(ptr noundef nonnull align 8 deref
   %19 = sub nsw i64 %17, %.sroa.0.0.copyload.i2.i.i
   %20 = sitofp i64 %19 to double
   %21 = fdiv double %20, 1.000000e+09
-  %.inv.i = fcmp ogt double %21, 0.000000e+00
-  %storemerge.i = select i1 %.inv.i, double %21, double 0.000000e+00
+  %storemerge.i = tail call double @llvm.maxnum.f64(double %21, double 0.000000e+00)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %storemerge.i, ptr %22, align 8, !tbaa !80
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -5246,6 +5241,9 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #20
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

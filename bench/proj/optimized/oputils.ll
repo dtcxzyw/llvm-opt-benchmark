@@ -6073,7 +6073,7 @@ define hidden noundef double @_ZN5osgeo4proj9operation11getAccuracyERKN7dropbox6
   %18 = extractvalue { ptr, i32 } %17, 1
   %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %20 = icmp eq i32 %18, %19
-  br i1 %20, label %21, label %41
+  br i1 %20, label %21, label %40
 
 21:                                               ; preds = %16
   %22 = extractvalue { ptr, i32 } %17, 0
@@ -6100,25 +6100,24 @@ define hidden noundef double @_ZN5osgeo4proj9operation11getAccuracyERKN7dropbox6
   br i1 %.not24, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30, %37
-  %.014.i26 = phi double [ %39, %37 ], [ -1.000000e+00, %30 ]
-  %.sroa.017.025 = phi ptr [ %40, %37 ], [ %32, %30 ]
+  %.014.i26 = phi double [ %38, %37 ], [ -1.000000e+00, %30 ]
+  %.sroa.017.025 = phi ptr [ %39, %37 ], [ %32, %30 ]
   %35 = tail call noundef double @_ZN5osgeo4proj9operation11getAccuracyERKN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEE(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.017.025)
   %36 = fcmp uge double %35, 0.000000e+00
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %.lr.ph
-  %38 = fcmp olt double %.014.i26, 0.000000e+00
-  %.317.i = select i1 %38, double 0.000000e+00, double %.014.i26
-  %39 = fadd double %.317.i, %35
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.017.025, i64 16
-  %.not = icmp eq ptr %40, %34
+  %.317.i = tail call double @llvm.maxnum.f64(double %.014.i26, double 0.000000e+00)
+  %38 = fadd double %.317.i, %35
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.017.025, i64 16
+  %.not = icmp eq ptr %39, %34
   br i1 %.not, label %.thread, label %.lr.ph
 
-41:                                               ; preds = %16
+40:                                               ; preds = %16
   resume { ptr, i32 } %17
 
 .thread:                                          ; preds = %.lr.ph, %37, %30, %27, %24, %21, %12, %4
-  %.0 = phi double [ 0.000000e+00, %4 ], [ -1.000000e+00, %21 ], [ %15, %12 ], [ -1.000000e+00, %24 ], [ -1.000000e+00, %27 ], [ -1.000000e+00, %30 ], [ -1.000000e+00, %.lr.ph ], [ %39, %37 ]
+  %.0 = phi double [ 0.000000e+00, %4 ], [ -1.000000e+00, %21 ], [ %15, %12 ], [ -1.000000e+00, %24 ], [ -1.000000e+00, %27 ], [ -1.000000e+00, %30 ], [ -1.000000e+00, %.lr.ph ], [ %38, %37 ]
   ret double %.0
 }
 
@@ -6145,22 +6144,21 @@ define hidden noundef double @_ZN5osgeo4proj9operation11getAccuracyERKSt6vectorI
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %7
-  %.01428 = phi double [ %9, %7 ], [ -1.000000e+00, %1 ]
-  %.sroa.021.027 = phi ptr [ %10, %7 ], [ %2, %1 ]
+  %.01428 = phi double [ %8, %7 ], [ -1.000000e+00, %1 ]
+  %.sroa.021.027 = phi ptr [ %9, %7 ], [ %2, %1 ]
   %5 = tail call noundef double @_ZN5osgeo4proj9operation11getAccuracyERKN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEE(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.021.027)
   %6 = fcmp uge double %5, 0.000000e+00
   br i1 %6, label %7, label %._crit_edge
 
 7:                                                ; preds = %.lr.ph
-  %8 = fcmp olt double %.01428, 0.000000e+00
-  %.317 = select i1 %8, double 0.000000e+00, double %.01428
-  %9 = fadd double %.317, %5
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.021.027, i64 16
-  %.not = icmp eq ptr %10, %4
+  %.317 = tail call double @llvm.maxnum.f64(double %.01428, double 0.000000e+00)
+  %8 = fadd double %.317, %5
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.021.027, i64 16
+  %.not = icmp eq ptr %9, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph, %1
-  %.3 = phi double [ -1.000000e+00, %1 ], [ -1.000000e+00, %.lr.ph ], [ %9, %7 ]
+  %.3 = phi double [ -1.000000e+00, %1 ], [ -1.000000e+00, %.lr.ph ], [ %8, %7 ]
   ret double %.3
 }
 
@@ -7152,6 +7150,9 @@ declare i64 @llvm.smax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #22
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

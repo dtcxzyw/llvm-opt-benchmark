@@ -8565,13 +8565,12 @@ define dso_local i64 @dist_sl(ptr noundef readonly captures(none) %0) local_unna
   %10 = tail call fastcc double @line_closept_point(ptr noundef null, ptr noundef readonly %7, ptr noundef readonly %4)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = tail call fastcc double @line_closept_point(ptr noundef null, ptr noundef readonly %7, ptr noundef nonnull readonly %11)
-  %13 = fcmp olt double %10, %12
-  %..i = select i1 %13, double %10, double %12
-  %14 = bitcast double %..i to i64
+  %..i = tail call double @llvm.minnum.f64(double %10, double %12)
+  %13 = bitcast double %..i to i64
   br label %lseg_closept_line.exit
 
 lseg_closept_line.exit:                           ; preds = %1, %9
-  %.0.i = phi i64 [ 0, %1 ], [ %14, %9 ]
+  %.0.i = phi i64 [ 0, %1 ], [ %13, %9 ]
   ret i64 %.0.i
 }
 
@@ -8590,13 +8589,12 @@ define dso_local i64 @dist_ls(ptr noundef readonly captures(none) %0) local_unna
   %10 = tail call fastcc double @line_closept_point(ptr noundef null, ptr noundef readonly %4, ptr noundef readonly %7)
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %12 = tail call fastcc double @line_closept_point(ptr noundef null, ptr noundef readonly %4, ptr noundef nonnull readonly %11)
-  %13 = fcmp olt double %10, %12
-  %..i = select i1 %13, double %10, double %12
-  %14 = bitcast double %..i to i64
+  %..i = tail call double @llvm.minnum.f64(double %10, double %12)
+  %13 = bitcast double %..i to i64
   br label %lseg_closept_line.exit
 
 lseg_closept_line.exit:                           ; preds = %1, %9
-  %.0.i = phi i64 [ 0, %1 ], [ %14, %9 ]
+  %.0.i = phi i64 [ 0, %1 ], [ %13, %9 ]
   ret i64 %.0.i
 }
 
@@ -8764,10 +8762,9 @@ define dso_local i64 @dist_cpoly(ptr noundef readonly captures(none) %0) local_u
   unreachable
 
 dist_cpoly_internal.exit:                         ; preds = %1, %15
-  %21 = fcmp olt double %12, 0.000000e+00
-  %.0.i = select i1 %21, double 0.000000e+00, double %12
-  %22 = bitcast double %.0.i to i64
-  ret i64 %22
+  %.0.i = tail call double @llvm.maxnum.f64(double %12, double 0.000000e+00)
+  %21 = bitcast double %.0.i to i64
+  ret i64 %21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8800,10 +8797,9 @@ define dso_local i64 @dist_polyc(ptr noundef readonly captures(none) %0) local_u
   unreachable
 
 dist_cpoly_internal.exit:                         ; preds = %1, %15
-  %21 = fcmp olt double %12, 0.000000e+00
-  %.0.i = select i1 %21, double 0.000000e+00, double %12
-  %22 = bitcast double %.0.i to i64
-  ret i64 %22
+  %.0.i = tail call double @llvm.maxnum.f64(double %12, double 0.000000e+00)
+  %21 = bitcast double %.0.i to i64
+  ret i64 %21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -17209,10 +17205,9 @@ float8_pl.exit:                                   ; preds = %point_dt.exit, %62
   unreachable
 
 float8_mi.exit:                                   ; preds = %float8_pl.exit, %71
-  %75 = fcmp olt double %68, 0.000000e+00
-  %.0 = select i1 %75, double 0.000000e+00, double %68
-  %76 = bitcast double %.0 to i64
-  ret i64 %76
+  %.0 = tail call double @llvm.maxnum.f64(double %68, double 0.000000e+00)
+  %75 = bitcast double %.0 to i64
+  ret i64 %75
 }
 
 ; Function Attrs: nounwind uwtable
@@ -17534,10 +17529,9 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
   unreachable
 
 float8_mi.exit:                                   ; preds = %point_dt.exit, %60
-  %66 = fcmp olt double %57, 0.000000e+00
-  %.0 = select i1 %66, double 0.000000e+00, double %57
-  %67 = bitcast double %.0 to i64
-  ret i64 %67
+  %.0 = tail call double @llvm.maxnum.f64(double %57, double 0.000000e+00)
+  %66 = bitcast double %.0 to i64
+  ret i64 %66
 }
 
 ; Function Attrs: nounwind uwtable
@@ -17655,10 +17649,9 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
   unreachable
 
 float8_mi.exit:                                   ; preds = %point_dt.exit, %60
-  %66 = fcmp olt double %57, 0.000000e+00
-  %.0 = select i1 %66, double 0.000000e+00, double %57
-  %67 = bitcast double %.0 to i64
-  ret i64 %67
+  %.0 = tail call double @llvm.maxnum.f64(double %57, double 0.000000e+00)
+  %66 = bitcast double %.0 to i64
+  ret i64 %66
 }
 
 ; Function Attrs: nounwind uwtable
@@ -19058,6 +19051,12 @@ declare double @llvm.sqrt.f64(double) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12

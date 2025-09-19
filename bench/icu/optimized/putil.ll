@@ -810,13 +810,13 @@ define noundef double @uprv_fmax_77(double noundef %0, double noundef %1) local_
   %3 = tail call double @llvm.fabs.f64(double %0)
   %4 = bitcast double %3 to i64
   %5 = icmp samesign ult i64 %4, 9218868437227405313
-  br i1 %5, label %6, label %17
+  br i1 %5, label %6, label %16
 
 6:                                                ; preds = %2
   %7 = tail call double @llvm.fabs.f64(double %1)
   %8 = bitcast double %7 to i64
   %9 = icmp samesign ult i64 %8, 9218868437227405313
-  br i1 %9, label %10, label %17
+  br i1 %9, label %10, label %16
 
 10:                                               ; preds = %6
   %11 = fcmp oeq double %0, 0.000000e+00
@@ -826,15 +826,14 @@ define noundef double @uprv_fmax_77(double noundef %0, double noundef %1) local_
 
 13:                                               ; preds = %10
   %.not15 = tail call i1 @llvm.is.fpclass.f64(double %0, i32 64)
-  br i1 %.not15, label %14, label %17
+  br i1 %.not15, label %14, label %16
 
 14:                                               ; preds = %13, %10
-  %15 = fcmp ogt double %0, %1
-  %16 = select i1 %15, double %0, double %1
-  br label %17
+  %15 = tail call double @llvm.maxnum.f64(double %0, double %1)
+  br label %16
 
-17:                                               ; preds = %2, %6, %13, %14
-  %.0 = phi double [ %16, %14 ], [ %1, %13 ], [ 0x7FF8000000000000, %6 ], [ 0x7FF8000000000000, %2 ]
+16:                                               ; preds = %2, %6, %13, %14
+  %.0 = phi double [ %15, %14 ], [ %1, %13 ], [ 0x7FF8000000000000, %6 ], [ 0x7FF8000000000000, %2 ]
   ret double %.0
 }
 
@@ -843,13 +842,13 @@ define noundef double @uprv_fmin_77(double noundef %0, double noundef %1) local_
   %3 = tail call double @llvm.fabs.f64(double %0)
   %4 = bitcast double %3 to i64
   %5 = icmp samesign ult i64 %4, 9218868437227405313
-  br i1 %5, label %6, label %17
+  br i1 %5, label %6, label %16
 
 6:                                                ; preds = %2
   %7 = tail call double @llvm.fabs.f64(double %1)
   %8 = bitcast double %7 to i64
   %9 = icmp samesign ult i64 %8, 9218868437227405313
-  br i1 %9, label %10, label %17
+  br i1 %9, label %10, label %16
 
 10:                                               ; preds = %6
   %11 = fcmp oeq double %0, 0.000000e+00
@@ -859,15 +858,14 @@ define noundef double @uprv_fmin_77(double noundef %0, double noundef %1) local_
 
 13:                                               ; preds = %10
   %.not14 = tail call i1 @llvm.is.fpclass.f64(double %1, i32 64)
-  br i1 %.not14, label %14, label %17
+  br i1 %.not14, label %14, label %16
 
 14:                                               ; preds = %13, %10
-  %15 = fcmp ogt double %0, %1
-  %16 = select i1 %15, double %1, double %0
-  br label %17
+  %15 = tail call double @llvm.minnum.f64(double %1, double %0)
+  br label %16
 
-17:                                               ; preds = %2, %6, %13, %14
-  %.0 = phi double [ %16, %14 ], [ %1, %13 ], [ 0x7FF8000000000000, %6 ], [ 0x7FF8000000000000, %2 ]
+16:                                               ; preds = %2, %6, %13, %14
+  %.0 = phi double [ %15, %14 ], [ %1, %13 ], [ 0x7FF8000000000000, %6 ], [ 0x7FF8000000000000, %2 ]
   ret double %.0
 }
 
@@ -2665,6 +2663,12 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #31
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #31
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.sadd.with.overflow.i32(i32, i32) #31

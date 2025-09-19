@@ -76,7 +76,7 @@ define float @b2Atan2(float noundef %0, float noundef %1) local_unnamed_addr #0 
   %3 = fcmp oeq float %1, 0.000000e+00
   %4 = fcmp oeq float %0, 0.000000e+00
   %or.cond = and i1 %4, %3
-  br i1 %or.cond, label %31, label %5
+  br i1 %or.cond, label %30, label %5
 
 5:                                                ; preds = %2
   %6 = fcmp olt float %1, 0.000000e+00
@@ -85,31 +85,30 @@ define float @b2Atan2(float noundef %0, float noundef %1) local_unnamed_addr #0 
   %9 = fcmp olt float %0, 0.000000e+00
   %10 = fneg float %0
   %11 = select i1 %9, float %10, float %0
-  %12 = fcmp ogt float %11, %8
-  %13 = select i1 %12, float %11, float %8
-  %14 = fcmp olt float %11, %8
-  %15 = select i1 %14, float %11, float %8
-  %16 = fdiv float %15, %13
-  %17 = fmul float %16, %16
-  %18 = fmul float %16, %17
-  %19 = fmul float %17, %17
-  %20 = fmul float %19, 0x3F996FBB40000000
-  %21 = fadd float %20, 0x3FC7E986E0000000
-  %22 = fmul float %19, 0x3FB816CDA0000000
-  %23 = fsub float 0xBFD541A140000000, %22
-  %24 = fmul float %17, %21
-  %25 = fadd float %23, %24
-  %26 = fmul float %18, %25
-  %27 = fadd float %16, %26
-  %28 = fsub float 0x3FF921FB60000000, %27
-  %.034 = select i1 %12, float %28, float %27
-  %29 = fsub float 0x400921FB60000000, %.034
-  %.1 = select i1 %6, float %29, float %.034
-  %30 = fneg float %.1
-  %.2 = select i1 %9, float %30, float %.1
-  br label %31
+  %12 = tail call noundef float @llvm.maxnum.f32(float %11, float %8)
+  %13 = tail call noundef float @llvm.minnum.f32(float %11, float %8)
+  %14 = fdiv float %13, %12
+  %15 = fmul float %14, %14
+  %16 = fmul float %14, %15
+  %17 = fmul float %15, %15
+  %18 = fmul float %17, 0x3F996FBB40000000
+  %19 = fadd float %18, 0x3FC7E986E0000000
+  %20 = fmul float %17, 0x3FB816CDA0000000
+  %21 = fsub float 0xBFD541A140000000, %20
+  %22 = fmul float %15, %19
+  %23 = fadd float %21, %22
+  %24 = fmul float %16, %23
+  %25 = fadd float %14, %24
+  %26 = fcmp ogt float %11, %8
+  %27 = fsub float 0x3FF921FB60000000, %25
+  %.034 = select i1 %26, float %27, float %25
+  %28 = fsub float 0x400921FB60000000, %.034
+  %.1 = select i1 %6, float %28, float %.034
+  %29 = fneg float %.1
+  %.2 = select i1 %9, float %29, float %.1
+  br label %30
 
-31:                                               ; preds = %2, %5
+30:                                               ; preds = %2, %5
   %.0 = phi float [ %.2, %5 ], [ 0.000000e+00, %2 ]
   ret float %.0
 }
@@ -224,6 +223,12 @@ define <2 x float> @b2ComputeRotationBetweenUnitVectors(<2 x float> %0, <2 x flo
   %.sroa.012.4.vec.insert.i = insertelement <2 x float> %.sroa.012.0.vec.insert.i, float %16, i64 1
   ret <2 x float> %.sroa.012.4.vec.insert.i
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #4

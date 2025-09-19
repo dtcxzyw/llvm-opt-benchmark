@@ -138,7 +138,7 @@ lv_matrix_is_identity_or_translation.exit.thread: ; preds = %3, %8, %12, %16, %2
   br i1 %exitcond.not.i, label %53, label %54, !llvm.loop !9
 
 lv_matrix_multiply.exit:                          ; preds = %53
-  %65 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
+  %65 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %66
@@ -214,7 +214,7 @@ define void @lv_matrix_multiply(ptr noundef %0, ptr noundef readonly captures(no
   br label %16
 
 13:                                               ; preds = %15
-  %14 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 36) #9
+  %14 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 36) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
@@ -300,7 +300,7 @@ define void @lv_matrix_scale(ptr noundef %0, float noundef %1, float noundef %2)
   br i1 %exitcond.not.i, label %21, label %22, !llvm.loop !9
 
 lv_matrix_multiply.exit:                          ; preds = %21
-  %33 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
+  %33 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -312,8 +312,8 @@ define void @lv_matrix_rotate(ptr noundef %0, float noundef %1) local_unnamed_ad
   %4 = alloca %struct._lv_matrix_t, align 4
   %5 = fdiv float %1, 1.800000e+02
   %6 = fmul float %5, 0x400921FB60000000
-  %7 = tail call float @cosf(float noundef %6) #9, !tbaa !10
-  %8 = tail call float @sinf(float noundef %6) #9, !tbaa !10
+  %7 = tail call float @cosf(float noundef %6) #10, !tbaa !10
+  %8 = tail call float @sinf(float noundef %6) #10, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float %7, ptr %4, align 4, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -370,7 +370,7 @@ define void @lv_matrix_rotate(ptr noundef %0, float noundef %1) local_unnamed_ad
   br i1 %exitcond.not.i, label %25, label %26, !llvm.loop !9
 
 lv_matrix_multiply.exit:                          ; preds = %25
-  %37 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 36) #9
+  %37 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 36) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -390,8 +390,8 @@ define void @lv_matrix_skew(ptr noundef %0, float noundef %1, float noundef %2) 
   %7 = fmul float %6, 0x400921FB60000000
   %8 = fdiv float %2, 1.800000e+02
   %9 = fmul float %8, 0x400921FB60000000
-  %10 = tail call float @tanf(float noundef %7) #9, !tbaa !10
-  %11 = tail call float @tanf(float noundef %9) #9, !tbaa !10
+  %10 = tail call float @tanf(float noundef %7) #10, !tbaa !10
+  %11 = tail call float @tanf(float noundef %9) #10, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 1.000000e+00, ptr %5, align 4, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -447,7 +447,7 @@ define void @lv_matrix_skew(ptr noundef %0, float noundef %1, float noundef %2) 
   br i1 %exitcond.not.i, label %27, label %28, !llvm.loop !9
 
 lv_matrix_multiply.exit:                          ; preds = %27
-  %39 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
+  %39 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -696,42 +696,30 @@ define { i64, i64 } @lv_matrix_transform_area(ptr noundef readonly captures(none
   %50 = tail call float @llvm.fmuladd.f32(float %13, float %24, float %37)
   %51 = fadd float %30, %50
   %52 = tail call float @llvm.round.f32(float %51)
-  %53 = fcmp olt float %22, %36
-  %54 = select i1 %53, float %22, float %36
-  %55 = fcmp olt float %43, %49
-  %56 = select i1 %55, float %43, float %49
-  %57 = fcmp olt float %54, %56
-  %. = select i1 %57, float %54, float %56
-  %58 = fcmp ogt float %22, %36
-  %59 = select i1 %58, float %22, float %36
-  %60 = fcmp ogt float %43, %49
-  %61 = select i1 %60, float %43, float %49
-  %62 = fcmp ogt float %59, %61
-  %63 = select i1 %62, float %59, float %61
-  %64 = fcmp olt float %32, %40
-  %65 = select i1 %64, float %32, float %40
-  %66 = fcmp olt float %46, %52
-  %67 = select i1 %66, float %46, float %52
-  %68 = fcmp olt float %65, %67
-  %69 = select i1 %68, float %65, float %67
-  %70 = fcmp ogt float %32, %40
-  %71 = select i1 %70, float %32, float %40
-  %72 = fcmp ogt float %46, %52
-  %73 = select i1 %72, float %46, float %52
-  %74 = fcmp ogt float %71, %73
-  %75 = select i1 %74, float %71, float %73
-  %76 = fptosi float %69 to i32
-  %77 = fptosi float %63 to i32
-  %78 = fptosi float %. to i32
-  %79 = fptosi float %75 to i32
-  %.sroa.2.0.insert.ext = zext i32 %76 to i64
+  %53 = tail call float @llvm.minnum.f32(float %22, float %36)
+  %54 = tail call float @llvm.minnum.f32(float %43, float %49)
+  %. = tail call float @llvm.minnum.f32(float %53, float %54)
+  %55 = tail call float @llvm.maxnum.f32(float %22, float %36)
+  %56 = tail call float @llvm.maxnum.f32(float %43, float %49)
+  %57 = tail call float @llvm.maxnum.f32(float %55, float %56)
+  %58 = tail call float @llvm.minnum.f32(float %32, float %40)
+  %59 = tail call float @llvm.minnum.f32(float %46, float %52)
+  %60 = tail call float @llvm.minnum.f32(float %58, float %59)
+  %61 = tail call float @llvm.maxnum.f32(float %32, float %40)
+  %62 = tail call float @llvm.maxnum.f32(float %46, float %52)
+  %63 = tail call float @llvm.maxnum.f32(float %61, float %62)
+  %64 = fptosi float %60 to i32
+  %65 = fptosi float %57 to i32
+  %66 = fptosi float %. to i32
+  %67 = fptosi float %63 to i32
+  %.sroa.2.0.insert.ext = zext i32 %64 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
-  %.sroa.015.0.insert.ext = zext i32 %78 to i64
+  %.sroa.015.0.insert.ext = zext i32 %66 to i64
   %.sroa.015.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.015.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.015.0.insert.insert, 0
-  %.sroa.5.8.insert.ext = zext i32 %79 to i64
+  %.sroa.5.8.insert.ext = zext i32 %67 to i64
   %.sroa.5.8.insert.shift = shl nuw i64 %.sroa.5.8.insert.ext, 32
-  %.sroa.3.8.insert.ext = zext i32 %77 to i64
+  %.sroa.3.8.insert.ext = zext i32 %65 to i64
   %.sroa.3.8.insert.insert = or disjoint i64 %.sroa.5.8.insert.shift, %.sroa.3.8.insert.ext
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.8.insert.insert, 1
   ret { i64, i64 } %.fca.1.insert
@@ -743,6 +731,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #9
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -752,7 +746,8 @@ attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

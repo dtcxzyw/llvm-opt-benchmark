@@ -8388,8 +8388,7 @@ if.end6.i:                                        ; preds = %if.end.i
 
 if.end9.i:                                        ; preds = %if.end6.i
   %12 = tail call noundef float @llvm.fabs.f32(float %5)
-  %cmp.i.i = fcmp olt float %8, %12
-  %.sroa.speculated.i = select i1 %cmp.i.i, float %12, float %8
+  %.sroa.speculated.i = tail call float @llvm.maxnum.f32(float %12, float %8)
   %mul.i = fmul float %.sroa.speculated.i, 2.000000e+00
   %mul16.i = fmul float %mul.i, 0x3E80000000000000
   %cmp18.i = fcmp ole float %10, %mul16.i
@@ -8419,10 +8418,10 @@ _ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit16.i: ; preds = %
 if.end.i21:                                       ; preds = %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit16.i
   %18 = tail call double @llvm.fabs.f64(double %13)
   %19 = fcmp oeq double %18, 0x7FF0000000000000
-  br i1 %19, label %if.then5.i30, label %if.end6.i22
+  br i1 %19, label %if.then5.i29, label %if.end6.i22
 
-if.then5.i30:                                     ; preds = %if.end.i21
-  %cmp.i31 = fcmp oeq double %13, %15
+if.then5.i29:                                     ; preds = %if.end.i21
+  %cmp.i30 = fcmp oeq double %13, %15
   br label %return
 
 if.end6.i22:                                      ; preds = %if.end.i21
@@ -8433,15 +8432,14 @@ if.end6.i22:                                      ; preds = %if.end.i21
 
 if.end9.i25:                                      ; preds = %if.end6.i22
   %21 = tail call noundef double @llvm.fabs.f64(double %15)
-  %cmp.i.i26 = fcmp olt double %18, %21
-  %.sroa.speculated.i27 = select i1 %cmp.i.i26, double %21, double %18
-  %mul.i28 = fmul double %.sroa.speculated.i27, 2.000000e+00
-  %mul15.i = fmul double %mul.i28, 0x3E80000000000000
+  %.sroa.speculated.i26 = tail call double @llvm.maxnum.f64(double %21, double %18)
+  %mul.i27 = fmul double %.sroa.speculated.i26, 2.000000e+00
+  %mul15.i = fmul double %mul.i27, 0x3E80000000000000
   %cmp16.i = fcmp ole double %20, %mul15.i
   br label %return
 
-return:                                           ; preds = %if.end9.i25, %if.end6.i22, %if.then5.i30, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit16.i, %if.end9.i, %if.end6.i, %if.then5.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE5EEERKDav.exit16.i, %entry, %lor.lhs.false
-  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ %cmp.i9, %if.then5.i ], [ %cmp18.i, %if.end9.i ], [ true, %if.end6.i ], [ true, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE5EEERKDav.exit16.i ], [ %cmp.i31, %if.then5.i30 ], [ %cmp16.i, %if.end9.i25 ], [ true, %if.end6.i22 ], [ true, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit16.i ]
+return:                                           ; preds = %if.end9.i25, %if.end6.i22, %if.then5.i29, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit16.i, %if.end9.i, %if.end6.i, %if.then5.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE5EEERKDav.exit16.i, %entry, %lor.lhs.false
+  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ %cmp.i9, %if.then5.i ], [ %cmp18.i, %if.end9.i ], [ true, %if.end6.i ], [ true, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE5EEERKDav.exit16.i ], [ %cmp.i30, %if.then5.i29 ], [ %cmp16.i, %if.end9.i25 ], [ true, %if.end6.i22 ], [ true, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit16.i ]
   ret i1 %retval.0
 }
 
@@ -17675,6 +17673,12 @@ declare i32 @llvm.smin.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #26
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

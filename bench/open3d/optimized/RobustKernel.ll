@@ -46,7 +46,7 @@ $_ZTSN6open3d9pipelines12registration12RobustKernelE = comdat any
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d9pipelines12registration9HuberLossD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #6
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #7
   ret void
 }
 
@@ -55,15 +55,14 @@ define noundef double @_ZNK6open3d9pipelines12registration9HuberLoss6WeightEd(pt
   %3 = tail call noundef double @llvm.fabs.f64(double %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8, !tbaa !4
-  %6 = fcmp olt double %3, %5
-  %.sroa.speculated = select i1 %6, double %5, double %3
-  %7 = fdiv double %5, %.sroa.speculated
-  ret double %7
+  %.sroa.speculated = tail call double @llvm.maxnum.f64(double %5, double %3)
+  %6 = fdiv double %5, %.sroa.speculated
+  ret double %6
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d9pipelines12registration10CauchyLossD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #6
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #7
   ret void
 }
 
@@ -80,7 +79,7 @@ define noundef double @_ZNK6open3d9pipelines12registration10CauchyLoss6WeightEd(
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d9pipelines12registration6GMLossD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #6
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #7
   ret void
 }
 
@@ -97,7 +96,7 @@ define noundef double @_ZNK6open3d9pipelines12registration6GMLoss6WeightEd(ptr n
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d9pipelines12registration9TukeyLossD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #6
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #7
   ret void
 }
 
@@ -117,7 +116,7 @@ define noundef double @_ZNK6open3d9pipelines12registration9TukeyLoss6WeightEd(pt
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d9pipelines12registration6L2LossD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #6
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #7
   ret void
 }
 
@@ -133,7 +132,7 @@ define linkonce_odr void @_ZN6open3d9pipelines12registration12RobustKernelD2Ev(p
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d9pipelines12registration6L1LossD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #6
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #7
   ret void
 }
 
@@ -150,13 +149,17 @@ declare double @llvm.fabs.f64(double) #4
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #6
+
 attributes #0 = { inlinehint mustprogress nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { builtin nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

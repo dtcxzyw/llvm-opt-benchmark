@@ -130,17 +130,16 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeigh
   %.339 = phi i32 [ %.036, %.preheader ], [ %.036, %.preheader47 ], [ %.238, %.lr.ph56 ], [ %.541, %30 ]
   %.3 = phi float [ %.035, %.preheader ], [ %.035, %.preheader47 ], [ %.2, %.lr.ph56 ], [ %.5, %30 ]
   %31 = icmp eq i32 %.339, 0
-  br i1 %31, label %37, label %32
+  br i1 %31, label %36, label %32
 
 32:                                               ; preds = %.loopexit
   %33 = sitofp i32 %.339 to float
   %34 = fdiv float %.3, %33
-  %35 = fcmp ogt float %34, 1.000000e+00
-  %36 = select i1 %35, float 1.000000e+00, float %34
-  br label %37
+  %35 = tail call float @llvm.minnum.f32(float %34, float 1.000000e+00)
+  br label %36
 
-37:                                               ; preds = %.loopexit, %32
-  %.0 = phi float [ %36, %32 ], [ 0.000000e+00, %.loopexit ]
+36:                                               ; preds = %.loopexit, %32
+  %.0 = phi float [ %35, %32 ], [ 0.000000e+00, %.loopexit ]
   ret float %.0
 }
 
@@ -213,12 +212,11 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease30SubdivideEdgeSharpness
 35:                                               ; preds = %28, %._crit_edge
   %.028 = phi float [ %34, %28 ], [ %1, %._crit_edge ]
   %36 = fadd float %.028, -1.000000e+00
-  %37 = fcmp ogt float %36, 0.000000e+00
-  %38 = select i1 %37, float %36, float 0.000000e+00
+  %37 = tail call float @llvm.maxnum.f32(float %36, float 0.000000e+00)
   br label %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit: ; preds = %15, %13, %11, %10, %18, %17, %35
-  %.0 = phi float [ %38, %35 ], [ 0.000000e+00, %17 ], [ 1.000000e+01, %18 ], [ %16, %15 ], [ 0.000000e+00, %10 ], [ 1.000000e+01, %11 ], [ 0.000000e+00, %13 ]
+  %.0 = phi float [ %37, %35 ], [ 0.000000e+00, %17 ], [ 1.000000e+01, %18 ], [ %16, %15 ], [ 0.000000e+00, %10 ], [ 1.000000e+01, %11 ], [ 0.000000e+00, %13 ]
   ret float %.0
 }
 
@@ -380,10 +378,17 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit56.us: ; preds = %3
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #4
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

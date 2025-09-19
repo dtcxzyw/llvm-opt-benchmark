@@ -13787,7 +13787,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
   %15 = load i64, ptr %2, align 8, !tbaa !9
   %16 = load i64, ptr %3, align 8, !tbaa !9
   %17 = icmp ult i64 %15, %16
-  br i1 %17, label %18, label %51
+  br i1 %17, label %18, label %50
 
 18:                                               ; preds = %10
   %19 = xor i64 %15, -1
@@ -13822,7 +13822,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
   br i1 %32, label %.lr.ph.us, label %._crit_edge43
 
 .lr.ph.us:                                        ; preds = %.lr.ph42, %._crit_edge.us
-  %.03440.us = phi i64 [ %50, %._crit_edge.us ], [ %24, %.lr.ph42 ]
+  %.03440.us = phi i64 [ %49, %._crit_edge.us ], [ %24, %.lr.ph42 ]
   %35 = add i64 %.03440.us, %15
   %36 = sub i64 %35, %28
   %37 = mul i64 %31, %36
@@ -13831,24 +13831,23 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
   br label %40
 
 40:                                               ; preds = %.lr.ph.us, %40
-  %.03539.us = phi i64 [ %30, %.lr.ph.us ], [ %49, %40 ]
-  %.03638.us = phi ptr [ %38, %.lr.ph.us ], [ %48, %40 ]
+  %.03539.us = phi i64 [ %30, %.lr.ph.us ], [ %48, %40 ]
+  %.03638.us = phi ptr [ %38, %.lr.ph.us ], [ %47, %40 ]
   %41 = load float, ptr %.03638.us, align 4, !tbaa !13
   %42 = load float, ptr %39, align 4, !tbaa !13
   %43 = getelementptr inbounds nuw float, ptr %34, i64 %.03539.us
   %44 = load float, ptr %43, align 4, !tbaa !13
   %45 = fadd float %42, %44
   %46 = call float @llvm.fmuladd.f32(float %41, float -2.000000e+00, float %45)
-  %47 = fcmp olt float %46, 0.000000e+00
-  %.1.us = select i1 %47, float 0.000000e+00, float %46
+  %.1.us = call float @llvm.maxnum.f32(float %46, float 0.000000e+00)
   store float %.1.us, ptr %.03638.us, align 4, !tbaa !13
-  %48 = getelementptr inbounds nuw i8, ptr %.03638.us, i64 4
-  %49 = add nuw i64 %.03539.us, 1
-  %exitcond.not = icmp eq i64 %49, %29
+  %47 = getelementptr inbounds nuw i8, ptr %.03638.us, i64 4
+  %48 = add nuw i64 %.03539.us, 1
+  %exitcond.not = icmp eq i64 %48, %29
   br i1 %exitcond.not, label %._crit_edge.us, label %40, !llvm.loop !316
 
 ._crit_edge.us:                                   ; preds = %40
-  %50 = add nuw i64 %.03440.us, 1
+  %49 = add nuw i64 %.03440.us, 1
   %exitcond45.not = icmp eq i64 %.03440.us, %23
   br i1 %exitcond45.not, label %._crit_edge43, label %.lr.ph.us
 
@@ -13858,9 +13857,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %51
+  br label %50
 
-51:                                               ; preds = %._crit_edge43, %10
+50:                                               ; preds = %._crit_edge43, %10
   ret void
 }
 
@@ -14109,7 +14108,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
   %15 = load i64, ptr %2, align 8, !tbaa !9
   %16 = load i64, ptr %3, align 8, !tbaa !9
   %17 = icmp ult i64 %15, %16
-  br i1 %17, label %18, label %51
+  br i1 %17, label %18, label %50
 
 18:                                               ; preds = %10
   %19 = xor i64 %15, -1
@@ -14144,7 +14143,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
   br i1 %32, label %.lr.ph.us, label %._crit_edge43
 
 .lr.ph.us:                                        ; preds = %.lr.ph42, %._crit_edge.us
-  %.03440.us = phi i64 [ %50, %._crit_edge.us ], [ %24, %.lr.ph42 ]
+  %.03440.us = phi i64 [ %49, %._crit_edge.us ], [ %24, %.lr.ph42 ]
   %35 = add i64 %.03440.us, %15
   %36 = sub i64 %35, %28
   %37 = mul i64 %31, %36
@@ -14153,24 +14152,23 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
   br label %40
 
 40:                                               ; preds = %.lr.ph.us, %40
-  %.03539.us = phi i64 [ %30, %.lr.ph.us ], [ %49, %40 ]
-  %.03638.us = phi ptr [ %38, %.lr.ph.us ], [ %48, %40 ]
+  %.03539.us = phi i64 [ %30, %.lr.ph.us ], [ %48, %40 ]
+  %.03638.us = phi ptr [ %38, %.lr.ph.us ], [ %47, %40 ]
   %41 = load float, ptr %.03638.us, align 4, !tbaa !13
   %42 = load float, ptr %39, align 4, !tbaa !13
   %43 = getelementptr inbounds nuw float, ptr %34, i64 %.03539.us
   %44 = load float, ptr %43, align 4, !tbaa !13
   %45 = fadd float %42, %44
   %46 = call float @llvm.fmuladd.f32(float %41, float -2.000000e+00, float %45)
-  %47 = fcmp olt float %46, 0.000000e+00
-  %.1.us = select i1 %47, float 0.000000e+00, float %46
+  %.1.us = call float @llvm.maxnum.f32(float %46, float 0.000000e+00)
   store float %.1.us, ptr %.03638.us, align 4, !tbaa !13
-  %48 = getelementptr inbounds nuw i8, ptr %.03638.us, i64 4
-  %49 = add nuw i64 %.03539.us, 1
-  %exitcond.not = icmp eq i64 %49, %29
+  %47 = getelementptr inbounds nuw i8, ptr %.03638.us, i64 4
+  %48 = add nuw i64 %.03539.us, 1
+  %exitcond.not = icmp eq i64 %48, %29
   br i1 %exitcond.not, label %._crit_edge.us, label %40, !llvm.loop !320
 
 ._crit_edge.us:                                   ; preds = %40
-  %50 = add nuw i64 %.03440.us, 1
+  %49 = add nuw i64 %.03440.us, 1
   %exitcond45.not = icmp eq i64 %.03440.us, %23
   br i1 %exitcond45.not, label %._crit_edge43, label %.lr.ph.us
 
@@ -14180,9 +14178,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %51
+  br label %50
 
-51:                                               ; preds = %._crit_edge43, %10
+50:                                               ; preds = %._crit_edge43, %10
   ret void
 }
 
@@ -14648,7 +14646,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
   %15 = load i64, ptr %2, align 8, !tbaa !9
   %16 = load i64, ptr %3, align 8, !tbaa !9
   %17 = icmp ult i64 %15, %16
-  br i1 %17, label %18, label %51
+  br i1 %17, label %18, label %50
 
 18:                                               ; preds = %10
   %19 = xor i64 %15, -1
@@ -14683,7 +14681,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
   br i1 %32, label %.lr.ph.us, label %._crit_edge43
 
 .lr.ph.us:                                        ; preds = %.lr.ph42, %._crit_edge.us
-  %.03440.us = phi i64 [ %50, %._crit_edge.us ], [ %24, %.lr.ph42 ]
+  %.03440.us = phi i64 [ %49, %._crit_edge.us ], [ %24, %.lr.ph42 ]
   %35 = add i64 %.03440.us, %15
   %36 = sub i64 %35, %28
   %37 = mul i64 %31, %36
@@ -14692,24 +14690,23 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
   br label %40
 
 40:                                               ; preds = %.lr.ph.us, %40
-  %.03539.us = phi i64 [ %30, %.lr.ph.us ], [ %49, %40 ]
-  %.03638.us = phi ptr [ %38, %.lr.ph.us ], [ %48, %40 ]
+  %.03539.us = phi i64 [ %30, %.lr.ph.us ], [ %48, %40 ]
+  %.03638.us = phi ptr [ %38, %.lr.ph.us ], [ %47, %40 ]
   %41 = load float, ptr %.03638.us, align 4, !tbaa !13
   %42 = load float, ptr %39, align 4, !tbaa !13
   %43 = getelementptr inbounds nuw float, ptr %34, i64 %.03539.us
   %44 = load float, ptr %43, align 4, !tbaa !13
   %45 = fadd float %42, %44
   %46 = call float @llvm.fmuladd.f32(float %41, float -2.000000e+00, float %45)
-  %47 = fcmp olt float %46, 0.000000e+00
-  %.1.us = select i1 %47, float 0.000000e+00, float %46
+  %.1.us = call float @llvm.maxnum.f32(float %46, float 0.000000e+00)
   store float %.1.us, ptr %.03638.us, align 4, !tbaa !13
-  %48 = getelementptr inbounds nuw i8, ptr %.03638.us, i64 4
-  %49 = add nuw i64 %.03539.us, 1
-  %exitcond.not = icmp eq i64 %49, %29
+  %47 = getelementptr inbounds nuw i8, ptr %.03638.us, i64 4
+  %48 = add nuw i64 %.03539.us, 1
+  %exitcond.not = icmp eq i64 %48, %29
   br i1 %exitcond.not, label %._crit_edge.us, label %40, !llvm.loop !327
 
 ._crit_edge.us:                                   ; preds = %40
-  %50 = add nuw i64 %.03440.us, 1
+  %49 = add nuw i64 %.03440.us, 1
   %exitcond45.not = icmp eq i64 %.03440.us, %23
   br i1 %exitcond45.not, label %._crit_edge43, label %.lr.ph.us
 
@@ -14719,9 +14716,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %51
+  br label %50
 
-51:                                               ; preds = %._crit_edge43, %10
+50:                                               ; preds = %._crit_edge43, %10
   ret void
 }
 
@@ -17150,7 +17147,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
   %15 = load i64, ptr %2, align 8, !tbaa !9
   %16 = load i64, ptr %3, align 8, !tbaa !9
   %17 = icmp ult i64 %15, %16
-  br i1 %17, label %18, label %51
+  br i1 %17, label %18, label %50
 
 18:                                               ; preds = %10
   %19 = xor i64 %15, -1
@@ -17185,7 +17182,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
   br i1 %32, label %.lr.ph.us, label %._crit_edge43
 
 .lr.ph.us:                                        ; preds = %.lr.ph42, %._crit_edge.us
-  %.03440.us = phi i64 [ %50, %._crit_edge.us ], [ %24, %.lr.ph42 ]
+  %.03440.us = phi i64 [ %49, %._crit_edge.us ], [ %24, %.lr.ph42 ]
   %35 = add i64 %.03440.us, %15
   %36 = sub i64 %35, %28
   %37 = mul i64 %31, %36
@@ -17194,24 +17191,23 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
   br label %40
 
 40:                                               ; preds = %.lr.ph.us, %40
-  %.03539.us = phi i64 [ %30, %.lr.ph.us ], [ %49, %40 ]
-  %.03638.us = phi ptr [ %38, %.lr.ph.us ], [ %48, %40 ]
+  %.03539.us = phi i64 [ %30, %.lr.ph.us ], [ %48, %40 ]
+  %.03638.us = phi ptr [ %38, %.lr.ph.us ], [ %47, %40 ]
   %41 = load float, ptr %.03638.us, align 4, !tbaa !13
   %42 = load float, ptr %39, align 4, !tbaa !13
   %43 = getelementptr inbounds nuw float, ptr %34, i64 %.03539.us
   %44 = load float, ptr %43, align 4, !tbaa !13
   %45 = fadd float %42, %44
   %46 = call float @llvm.fmuladd.f32(float %41, float -2.000000e+00, float %45)
-  %47 = fcmp olt float %46, 0.000000e+00
-  %.1.us = select i1 %47, float 0.000000e+00, float %46
+  %.1.us = call float @llvm.maxnum.f32(float %46, float 0.000000e+00)
   store float %.1.us, ptr %.03638.us, align 4, !tbaa !13
-  %48 = getelementptr inbounds nuw i8, ptr %.03638.us, i64 4
-  %49 = add nuw i64 %.03539.us, 1
-  %exitcond.not = icmp eq i64 %49, %29
+  %47 = getelementptr inbounds nuw i8, ptr %.03638.us, i64 4
+  %48 = add nuw i64 %.03539.us, 1
+  %exitcond.not = icmp eq i64 %48, %29
   br i1 %exitcond.not, label %._crit_edge.us, label %40, !llvm.loop !403
 
 ._crit_edge.us:                                   ; preds = %40
-  %50 = add nuw i64 %.03440.us, 1
+  %49 = add nuw i64 %.03440.us, 1
   %exitcond45.not = icmp eq i64 %.03440.us, %23
   br i1 %exitcond45.not, label %._crit_edge43, label %.lr.ph.us
 
@@ -17221,9 +17217,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %51
+  br label %50
 
-51:                                               ; preds = %._crit_edge43, %10
+50:                                               ; preds = %._crit_edge43, %10
   ret void
 }
 
@@ -19395,6 +19391,9 @@ declare i64 @llvm.umax.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #26
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

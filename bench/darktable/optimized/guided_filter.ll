@@ -349,8 +349,8 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
 
 231:                                              ; preds = %231, %.lr.ph332.us.i.us
   %indvars.iv352.i.us = phi i64 [ %indvars.iv, %.lr.ph332.us.i.us ], [ %indvars.iv.next353.i.us, %231 ]
-  %.0267329.us.i.us = phi i64 [ %229, %.lr.ph332.us.i.us ], [ %259, %231 ]
-  %.0268328.us.i.us = phi i64 [ %226, %.lr.ph332.us.i.us ], [ %260, %231 ]
+  %.0267329.us.i.us = phi i64 [ %229, %.lr.ph332.us.i.us ], [ %258, %231 ]
+  %.0268328.us.i.us = phi i64 [ %226, %.lr.ph332.us.i.us ], [ %259, %231 ]
   %232 = mul i64 %.0268328.us.i.us, %25
   %233 = getelementptr inbounds nuw float, ptr %0, i64 %232
   %.idx.us.i.us = shl i64 %.0267329.us.i.us, 4
@@ -375,14 +375,13 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
   %252 = load float, ptr %251, align 4, !tbaa !12
   %253 = fadd reassoc nsz arcp contract afn float %250, %252
   %254 = fcmp reassoc nsz arcp contract afn ogt float %253, %10
-  %255 = fcmp reassoc nsz arcp contract afn olt float %253, %9
-  %256 = select reassoc nsz arcp contract afn i1 %255, float %9, float %253
-  %257 = select reassoc nsz arcp contract afn i1 %254, float %10, float %256
-  %258 = getelementptr float, ptr %230, i64 %indvars.iv352.i.us
-  store float %257, ptr %258, align 4, !tbaa !12
+  %255 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %9, float %253)
+  %256 = select reassoc nsz arcp contract afn i1 %254, float %10, float %255
+  %257 = getelementptr float, ptr %230, i64 %indvars.iv352.i.us
+  store float %256, ptr %257, align 4, !tbaa !12
   %indvars.iv.next353.i.us = add nsw i64 %indvars.iv352.i.us, 1
-  %259 = add i64 %.0267329.us.i.us, 1
-  %260 = add i64 %.0268328.us.i.us, 1
+  %258 = add i64 %.0267329.us.i.us, 1
+  %259 = add i64 %.0268328.us.i.us, 1
   %exitcond356.not.i.us = icmp eq i64 %indvars.iv.next353.i.us, %222
   br i1 %exitcond356.not.i.us, label %._crit_edge333.us.i.us, label %231
 
@@ -393,18 +392,18 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
 
 _guided_filter_tiling.exit.us:                    ; preds = %._crit_edge333.us.i.us, %.lr.ph336.i.us, %._crit_edge.i.us
   tail call void @free(ptr noundef %55) #6
-  %261 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %261, label %33, label %._crit_edge.us
+  %260 = icmp slt i64 %indvars.iv.next, %24
+  br i1 %260, label %33, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %_guided_filter_tiling.exit.us
-  %262 = icmp slt i64 %indvars.iv.next61, %27
-  br i1 %262, label %.preheader.us, label %._crit_edge56
+  %261 = icmp slt i64 %indvars.iv.next61, %27
+  br i1 %261, label %.preheader.us, label %._crit_edge56
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %.04355 = phi i32 [ %263, %.preheader ], [ 0, %.preheader.lr.ph ]
-  %263 = add nsw i32 %.04355, %20
-  %264 = icmp slt i32 %263, %4
-  br i1 %264, label %.preheader, label %._crit_edge56
+  %.04355 = phi i32 [ %262, %.preheader ], [ 0, %.preheader.lr.ph ]
+  %262 = add nsw i32 %.04355, %20
+  %263 = icmp slt i32 %262, %4
+  br i1 %263, label %.preheader, label %._crit_edge56
 
 ._crit_edge56:                                    ; preds = %.preheader, %._crit_edge.us, %19
   ret void
@@ -434,6 +433,9 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #5
 
 attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }

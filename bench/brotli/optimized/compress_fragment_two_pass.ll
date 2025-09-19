@@ -8981,7 +8981,7 @@ define internal fastcc range(i32 0, 2) i32 @ShouldCompress(ptr noundef captures(
   %6 = uitofp i64 %3 to double
   %7 = fmul double %5, 0x3FEF5C28F5C28F5C
   %8 = fcmp ogt double %7, %6
-  br i1 %8, label %59, label %9
+  br i1 %8, label %58, label %9
 
 9:                                                ; preds = %4
   %10 = fmul double %5, 8.000000e+00
@@ -9085,14 +9085,13 @@ FastLog2.exit18:                                  ; preds = %50, %53
 ShannonEntropy.exit:                              ; preds = %46, %FastLog2.exit18
   %.pre-phi25 = phi double [ %48, %FastLog2.exit18 ], [ 0.000000e+00, %46 ]
   %.2.i = phi double [ %55, %FastLog2.exit18 ], [ %44, %46 ]
-  %56 = fcmp olt double %.2.i, %.pre-phi25
-  %.0.i = select i1 %56, double %.pre-phi25, double %.2.i
-  %57 = fcmp olt double %.0.i, %12
-  %58 = zext i1 %57 to i32
-  br label %59
+  %.0.i = tail call double @llvm.maxnum.f64(double %.pre-phi25, double %.2.i)
+  %56 = fcmp olt double %.0.i, %12
+  %57 = zext i1 %56 to i32
+  br label %58
 
-59:                                               ; preds = %4, %ShannonEntropy.exit
-  %.013 = phi i32 [ %58, %ShannonEntropy.exit ], [ 1, %4 ]
+58:                                               ; preds = %4, %ShannonEntropy.exit
+  %.013 = phi i32 [ %57, %ShannonEntropy.exit ], [ 1, %4 ]
   ret i32 %.013
 }
 
@@ -9374,6 +9373,9 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

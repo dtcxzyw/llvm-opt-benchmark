@@ -48,7 +48,7 @@ declare noundef i32 @_Z14RegisterSamplePKcS0_PFP6SampleR8SettingsE(ptr noundef, 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN10ConvexHull6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(328) ptr @_Znwm(i64 noundef 328) #11
+  %2 = tail call noalias noundef nonnull dereferenceable(328) ptr @_Znwm(i64 noundef 328) #12
   invoke void @_ZN6SampleC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(322) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %.noexc unwind label %13
 
@@ -78,7 +78,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10ConvexHull6CreateER8Settings(ptr
 11:                                               ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(322) %2) #12
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(322) %2) #13
   br label %.body
 
 _ZN10ConvexHullC2ER8Settings.exit:                ; preds = %7
@@ -91,7 +91,7 @@ _ZN10ConvexHullC2ER8Settings.exit:                ; preds = %7
 
 .body:                                            ; preds = %11, %13
   %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 328) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 328) #14
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -168,23 +168,21 @@ define linkonce_odr dso_local void @_ZN10ConvexHull8GenerateEv(ptr noundef nonnu
   %46 = fadd float %45, -1.000000e+00
   %47 = fmul float %46, 1.000000e+01
   %48 = fcmp olt float %35, -4.000000e+00
-  %49 = fcmp ogt float %35, 4.000000e+00
-  %50 = select i1 %49, float 4.000000e+00, float %35
-  %51 = select i1 %48, float -4.000000e+00, float %50
-  %52 = fcmp olt float %47, -4.000000e+00
-  %53 = fcmp ogt float %47, 4.000000e+00
-  %54 = select i1 %53, float 4.000000e+00, float %47
-  %55 = select i1 %52, float -4.000000e+00, float %54
-  %56 = fmul float %.sroa.05.0.vec.extract.i, %51
-  %57 = fmul float %.sroa.05.4.vec.extract.i, %55
-  %58 = fsub float %56, %57
-  %.sroa.010.0.vec.insert.i = insertelement <2 x float> poison, float %58, i64 0
-  %59 = fmul float %.sroa.05.4.vec.extract.i, %51
-  %60 = fmul float %.sroa.05.0.vec.extract.i, %55
-  %61 = fadd float %59, %60
-  %.sroa.010.4.vec.insert.i = insertelement <2 x float> %.sroa.010.0.vec.insert.i, float %61, i64 1
-  %62 = getelementptr inbounds nuw %struct.b2Vec2, ptr %16, i64 %indvars.iv
-  store <2 x float> %.sroa.010.4.vec.insert.i, ptr %62, align 8
+  %49 = tail call float @llvm.minnum.f32(float %35, float 4.000000e+00)
+  %50 = select i1 %48, float -4.000000e+00, float %49
+  %51 = fcmp olt float %47, -4.000000e+00
+  %52 = tail call float @llvm.minnum.f32(float %47, float 4.000000e+00)
+  %53 = select i1 %51, float -4.000000e+00, float %52
+  %54 = fmul float %.sroa.05.0.vec.extract.i, %50
+  %55 = fmul float %.sroa.05.4.vec.extract.i, %53
+  %56 = fsub float %54, %55
+  %.sroa.010.0.vec.insert.i = insertelement <2 x float> poison, float %56, i64 0
+  %57 = fmul float %.sroa.05.4.vec.extract.i, %50
+  %58 = fmul float %.sroa.05.0.vec.extract.i, %53
+  %59 = fadd float %57, %58
+  %.sroa.010.4.vec.insert.i = insertelement <2 x float> %.sroa.010.0.vec.insert.i, float %59, i64 1
+  %60 = getelementptr inbounds nuw %struct.b2Vec2, ptr %16, i64 %indvars.iv
+  store <2 x float> %.sroa.010.4.vec.insert.i, ptr %60, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %17, label %22, !llvm.loop !35
@@ -195,8 +193,8 @@ declare void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248)) u
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10ConvexHullD0Ev(ptr noundef nonnull align 8 dereferenceable(322) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(322) %0) #12
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 328) #13
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(322) %0) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 328) #14
   ret void
 }
 
@@ -438,6 +436,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #11
+
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -449,9 +450,10 @@ attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-wid
 attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { builtin allocsize(0) }
-attributes #12 = { nounwind }
-attributes #13 = { builtin nounwind }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { builtin allocsize(0) }
+attributes #13 = { nounwind }
+attributes #14 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

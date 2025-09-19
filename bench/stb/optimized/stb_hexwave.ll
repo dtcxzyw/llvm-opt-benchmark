@@ -13,21 +13,19 @@ define void @hexwave_change(ptr noundef writeonly captures(none) initializes((24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %1, ptr %6, align 4, !tbaa !3
   %7 = fcmp olt float %2, 0.000000e+00
-  %8 = fcmp ogt float %2, 1.000000e+00
-  %9 = select i1 %8, float 1.000000e+00, float %2
-  %10 = select i1 %7, float 0.000000e+00, float %9
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %10, ptr %11, align 4, !tbaa !10
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store float %3, ptr %12, align 4, !tbaa !11
-  %13 = fcmp olt float %4, 0.000000e+00
-  %14 = fcmp ogt float %4, 1.000000e+00
-  %15 = select i1 %14, float 1.000000e+00, float %4
-  %16 = select i1 %13, float 0.000000e+00, float %15
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %16, ptr %17, align 4, !tbaa !12
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %18, align 4, !tbaa !13
+  %8 = tail call float @llvm.minnum.f32(float %2, float 1.000000e+00)
+  %9 = select i1 %7, float 0.000000e+00, float %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float %9, ptr %10, align 4, !tbaa !10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store float %3, ptr %11, align 4, !tbaa !11
+  %12 = fcmp olt float %4, 0.000000e+00
+  %13 = tail call float @llvm.minnum.f32(float %4, float 1.000000e+00)
+  %14 = select i1 %12, float 0.000000e+00, float %13
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store float %14, ptr %15, align 4, !tbaa !12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 1, ptr %16, align 4, !tbaa !13
   ret void
 }
 
@@ -37,25 +35,23 @@ define void @hexwave_create(ptr noundef captures(none) initializes((0, 300)) %0,
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %1, ptr %6, align 4, !tbaa !3
   %7 = fcmp olt float %2, 0.000000e+00
-  %8 = fcmp ogt float %2, 1.000000e+00
-  %9 = select i1 %8, float 1.000000e+00, float %2
-  %10 = select i1 %7, float 0.000000e+00, float %9
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %10, ptr %11, align 4, !tbaa !10
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store float %3, ptr %12, align 4, !tbaa !11
-  %13 = fcmp olt float %4, 0.000000e+00
-  %14 = fcmp ogt float %4, 1.000000e+00
-  %15 = select i1 %14, float 1.000000e+00, float %4
-  %16 = select i1 %13, float 0.000000e+00, float %15
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %16, ptr %17, align 4, !tbaa !12
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !14
-  store i32 0, ptr %18, align 4, !tbaa !13
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float 0.000000e+00, ptr %20, align 4, !tbaa !17
+  %8 = tail call float @llvm.minnum.f32(float %2, float 1.000000e+00)
+  %9 = select i1 %7, float 0.000000e+00, float %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float %9, ptr %10, align 4, !tbaa !10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store float %3, ptr %11, align 4, !tbaa !11
+  %12 = fcmp olt float %4, 0.000000e+00
+  %13 = tail call float @llvm.minnum.f32(float %4, float 1.000000e+00)
+  %14 = select i1 %12, float 0.000000e+00, float %13
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store float %14, ptr %15, align 4, !tbaa !12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !14
+  store i32 0, ptr %16, align 4, !tbaa !13
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float 0.000000e+00, ptr %18, align 4, !tbaa !17
   ret void
 }
 
@@ -1155,6 +1151,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #14

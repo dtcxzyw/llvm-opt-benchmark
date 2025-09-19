@@ -4221,7 +4221,7 @@ define dso_local void @_ZN5Catch9Benchmark6Detail15analyse_samplesEdjN9__gnu_cxx
 
 13:                                               ; preds = %11
   invoke void @_ZNSt13random_deviceC2Ev(ptr noundef nonnull align 8 dereferenceable(5000) @_ZZN5Catch9Benchmark6Detail15analyse_samplesEdjN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E7entropy)
-          to label %14 unwind label %81
+          to label %14 unwind label %79
 
 14:                                               ; preds = %13
   %15 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13random_deviceD2Ev, ptr nonnull @_ZZN5Catch9Benchmark6Detail15analyse_samplesEdjN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E7entropy, ptr nonnull @__dso_handle) #56
@@ -4292,28 +4292,26 @@ define dso_local void @_ZN5Catch9Benchmark6Detail15analyse_samplesEdjN9__gnu_cxx
   %68 = fdiv double %65, %67
   %69 = fptosi double %68 to i32
   %70 = sitofp i32 %69 to double
-  %71 = fcmp olt double %70, %56
-  %.sroa.speculated.i = select i1 %71, double %70, double %56
-  %72 = fsub double %25, %.sroa.speculated.i
-  %73 = fdiv double %72, %25
-  %74 = fneg double %72
-  %75 = call double @llvm.fmuladd.f64(double %74, double %32, double %33)
-  %76 = fmul double %73, %75
-  %77 = fcmp olt double %76, %38
-  %.sroa.speculated4.i = select i1 %77, double %76, double %38
-  %78 = fdiv double %.sroa.speculated4.i, %33
+  %.sroa.speculated.i = call double @llvm.minnum.f64(double %70, double %56)
+  %71 = fsub double %25, %.sroa.speculated.i
+  %72 = fdiv double %71, %25
+  %73 = fneg double %71
+  %74 = call double @llvm.fmuladd.f64(double %73, double %32, double %33)
+  %75 = fmul double %72, %74
+  %.sroa.speculated4.i = call double @llvm.minnum.f64(double %75, double %38)
+  %76 = fdiv double %.sroa.speculated4.i, %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %78, ptr %80, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store double %76, ptr %78, align 8
   ret void
 
-81:                                               ; preds = %13
-  %82 = landingpad { ptr, i32 }
+79:                                               ; preds = %13
+  %80 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5Catch9Benchmark6Detail15analyse_samplesEdjN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E7entropy) #56
-  resume { ptr, i32 } %82
+  resume { ptr, i32 } %80
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -54117,18 +54115,17 @@ define dso_local noundef zeroext i1 @_ZNK5Catch8Matchers16WithinRelMatcher5match
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load double, ptr %7, align 8
   %9 = tail call double @llvm.fabs.f64(double %8)
-  %10 = fcmp olt double %6, %9
-  %.sroa.speculated = select i1 %10, double %9, double %6
-  %11 = fmul double %4, %.sroa.speculated
-  %12 = tail call double @llvm.fabs.f64(double %11)
-  %13 = fcmp oeq double %12, 0x7FF0000000000000
-  %14 = select i1 %13, double 0.000000e+00, double %11
-  %15 = fadd double %5, %14
-  %16 = fcmp oge double %15, %8
-  %17 = fadd double %8, %14
-  %18 = fcmp oge double %17, %5
-  %19 = and i1 %16, %18
-  ret i1 %19
+  %.sroa.speculated = tail call double @llvm.maxnum.f64(double %9, double %6)
+  %10 = fmul double %4, %.sroa.speculated
+  %11 = tail call double @llvm.fabs.f64(double %10)
+  %12 = fcmp oeq double %11, 0x7FF0000000000000
+  %13 = select i1 %12, double 0.000000e+00, double %10
+  %14 = fadd double %5, %13
+  %15 = fcmp oge double %14, %8
+  %16 = fadd double %8, %13
+  %17 = fcmp oge double %16, %5
+  %18 = and i1 %15, %17
+  ret i1 %18
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -134200,6 +134197,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #53
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #53
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #49
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #49
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -134213,6 +134213,9 @@ declare i32 @llvm.umax.i32(i32, i32) #49
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #49
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #49
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

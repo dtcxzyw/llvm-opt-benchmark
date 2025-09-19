@@ -2702,8 +2702,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
   %9 = load float, ptr %8, align 4, !noundef !3
   %10 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.01.05
   %11 = load float, ptr %10, align 4, !noundef !3
-  %12 = fcmp olt float %11, %9
-  %.sroa.0.0.sroa.speculated.i.i = select i1 %12, float %11, float %9
+  %.sroa.0.0.sroa.speculated.i.i = tail call noundef float @llvm.minnum.f32(float %11, float %9)
   store float %.sroa.0.0.sroa.speculated.i.i, ptr %8, align 4
   %exitcond.not = icmp eq i64 %7, 4
   br i1 %exitcond.not, label %5, label %6
@@ -2795,8 +2794,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
   %9 = load float, ptr %8, align 4, !noundef !3
   %10 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.01.05
   %11 = load float, ptr %10, align 4, !noundef !3
-  %12 = fcmp olt float %9, %11
-  %.sroa.0.0.sroa.speculated.i.i = select i1 %12, float %11, float %9
+  %.sroa.0.0.sroa.speculated.i.i = tail call noundef float @llvm.maxnum.f32(float %11, float %9)
   store float %.sroa.0.0.sroa.speculated.i.i, ptr %8, align 4
   %exitcond.not = icmp eq i64 %7, 4
   br i1 %exitcond.not, label %5, label %6
@@ -3240,12 +3238,10 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..si
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
   %3 = load double, ptr %2, align 8, !noundef !3
-  %4 = fcmp olt double %3, %.sroa.0.0.copyload
-  %.sroa.0.0.sroa.speculated.i.i = select i1 %4, double %3, double %.sroa.0.0.copyload
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load double, ptr %5, align 8, !noundef !3
-  %7 = fcmp olt double %6, %.sroa.4.0.copyload
-  %.sroa.0.0.sroa.speculated.i.i.c = select i1 %7, double %6, double %.sroa.4.0.copyload
+  %.sroa.0.0.sroa.speculated.i.i = tail call noundef double @llvm.minnum.f64(double %3, double %.sroa.0.0.copyload)
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %5 = load double, ptr %4, align 8, !noundef !3
+  %.sroa.0.0.sroa.speculated.i.i.c = tail call noundef double @llvm.minnum.f64(double %5, double %.sroa.4.0.copyload)
   store double %.sroa.0.0.sroa.speculated.i.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.0.0.sroa.speculated.i.i.c, ptr %.sroa.4.0..sroa_idx7, align 8
@@ -3310,12 +3306,10 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..si
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
   %3 = load double, ptr %2, align 8, !noundef !3
-  %4 = fcmp olt double %.sroa.0.0.copyload, %3
-  %.sroa.0.0.sroa.speculated.i.i = select i1 %4, double %3, double %.sroa.0.0.copyload
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load double, ptr %5, align 8, !noundef !3
-  %7 = fcmp olt double %.sroa.4.0.copyload, %6
-  %.sroa.0.0.sroa.speculated.i.i.c = select i1 %7, double %6, double %.sroa.4.0.copyload
+  %.sroa.0.0.sroa.speculated.i.i = tail call noundef double @llvm.maxnum.f64(double %3, double %.sroa.0.0.copyload)
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %5 = load double, ptr %4, align 8, !noundef !3
+  %.sroa.0.0.sroa.speculated.i.i.c = tail call noundef double @llvm.maxnum.f64(double %5, double %.sroa.4.0.copyload)
   store double %.sroa.0.0.sroa.speculated.i.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.0.0.sroa.speculated.i.i.c, ptr %.sroa.4.0..sroa_idx7, align 8
@@ -4670,6 +4664,18 @@ declare i8 @llvm.umax.i8(i8, i8) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #9
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

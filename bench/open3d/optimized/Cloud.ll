@@ -26,7 +26,7 @@ define { <2 x float>, float } @_ZN6open3d2ml7contrib9max_pointESt6vectorINS1_8Po
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.sroa.6.016 = phi float [ %.sroa.6.1, %.lr.ph ], [ %.sroa.6.0.copyload, %1 ]
   %.sroa.06.015 = phi <2 x float> [ %.sroa.06.2, %.lr.ph ], [ %.sroa.06.0.copyload, %1 ]
-  %.sroa.010.014 = phi ptr [ %8, %.lr.ph ], [ %2, %1 ]
+  %.sroa.010.014 = phi ptr [ %7, %.lr.ph ], [ %2, %1 ]
   %.sroa.01.0.copyload = load float, ptr %.sroa.010.014, align 4, !tbaa !10
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 4
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !10
@@ -40,10 +40,9 @@ define { <2 x float>, float } @_ZN6open3d2ml7contrib9max_pointESt6vectorINS1_8Po
   %6 = fcmp ogt float %.sroa.5.0.copyload, %.sroa.06.4.vec.extract
   %.sroa.06.4.vec.insert = insertelement <2 x float> %.sroa.06.1, float %.sroa.5.0.copyload, i64 1
   %.sroa.06.2 = select i1 %6, <2 x float> %.sroa.06.4.vec.insert, <2 x float> %.sroa.06.1
-  %7 = fcmp ogt float %.sroa.7.0.copyload, %.sroa.6.016
-  %.sroa.6.1 = select i1 %7, float %.sroa.7.0.copyload, float %.sroa.6.016
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 12
-  %.not = icmp eq ptr %8, %4
+  %.sroa.6.1 = tail call float @llvm.maxnum.f32(float %.sroa.7.0.copyload, float %.sroa.6.016)
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 12
+  %.not = icmp eq ptr %7, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
@@ -68,7 +67,7 @@ define { <2 x float>, float } @_ZN6open3d2ml7contrib9min_pointESt6vectorINS1_8Po
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.sroa.6.016 = phi float [ %.sroa.6.1, %.lr.ph ], [ %.sroa.6.0.copyload, %1 ]
   %.sroa.06.015 = phi <2 x float> [ %.sroa.06.2, %.lr.ph ], [ %.sroa.06.0.copyload, %1 ]
-  %.sroa.010.014 = phi ptr [ %8, %.lr.ph ], [ %2, %1 ]
+  %.sroa.010.014 = phi ptr [ %7, %.lr.ph ], [ %2, %1 ]
   %.sroa.01.0.copyload = load float, ptr %.sroa.010.014, align 4, !tbaa !10
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 4
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !10
@@ -82,14 +81,20 @@ define { <2 x float>, float } @_ZN6open3d2ml7contrib9min_pointESt6vectorINS1_8Po
   %6 = fcmp olt float %.sroa.5.0.copyload, %.sroa.06.4.vec.extract
   %.sroa.06.4.vec.insert = insertelement <2 x float> %.sroa.06.1, float %.sroa.5.0.copyload, i64 1
   %.sroa.06.2 = select i1 %6, <2 x float> %.sroa.06.4.vec.insert, <2 x float> %.sroa.06.1
-  %7 = fcmp olt float %.sroa.7.0.copyload, %.sroa.6.016
-  %.sroa.6.1 = select i1 %7, float %.sroa.7.0.copyload, float %.sroa.6.016
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 12
-  %.not = icmp eq ptr %8, %4
+  %.sroa.6.1 = tail call float @llvm.minnum.f32(float %.sroa.7.0.copyload, float %.sroa.6.016)
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 12
+  %.not = icmp eq ptr %7, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #1
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

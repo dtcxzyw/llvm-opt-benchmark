@@ -4050,12 +4050,10 @@ if.then.i722:                                     ; preds = %_ZN7LagPool6setMaxE
 _ZN7LagPool6setMaxEf.exit723:                     ; preds = %if.then.i722, %_ZN7LagPool6setMaxEf.exit
   %209 = phi float [ %208, %_ZN7LagPool6setMaxEf.exit ], [ %lag_pool_max.0, %if.then.i722 ]
   %sub.i724 = fsub nsz float %207, %dtime
-  %cmp.i725 = fcmp nsz olt float %sub.i724, 0.000000e+00
-  %storemerge.i726 = select i1 %cmp.i725, float 0.000000e+00, float %sub.i724
+  %storemerge.i726 = call float @llvm.maxnum.f32(float %sub.i724, float 0.000000e+00)
   store float %storemerge.i726, ptr %m_dig_pool, align 4, !tbaa !346
   %sub.i727 = fsub nsz float %209, %dtime
-  %cmp.i728 = fcmp nsz olt float %sub.i727, 0.000000e+00
-  %storemerge.i729 = select i1 %cmp.i728, float 0.000000e+00, float %sub.i727
+  %storemerge.i729 = call float @llvm.maxnum.f32(float %sub.i727, float 0.000000e+00)
   store float %storemerge.i729, ptr %m_move_pool, align 4, !tbaa !346
   %m_time_from_last_teleport = getelementptr inbounds nuw i8, ptr %this, i64 896
   %210 = load <2 x float>, ptr %m_time_from_last_teleport, align 8, !tbaa !76
@@ -4070,8 +4068,7 @@ _ZN7LagPool6setMaxEf.exit723:                     ; preds = %if.then.i722, %_ZN7
   %m_max_speed_override_time = getelementptr inbounds nuw i8, ptr %this, i64 916
   %215 = load float, ptr %m_max_speed_override_time, align 4, !tbaa !348
   %sub251 = fsub nsz float %215, %dtime
-  %cmp252 = fcmp nsz ogt float %sub251, 0.000000e+00
-  %cond = select nsz i1 %cmp252, float %sub251, float 0.000000e+00
+  %cond = call nsz float @llvm.maxnum.f32(float %sub251, float 0.000000e+00)
   store float %cond, ptr %m_max_speed_override_time, align 4, !tbaa !348
   %vtable256 = load ptr, ptr %this, align 8, !tbaa !15
   %vfn257 = getelementptr inbounds nuw i8, ptr %vtable256, i64 304
@@ -5917,8 +5914,7 @@ if.then3:                                         ; preds = %if.end
   %7 = load float, ptr %movement_acceleration_default, align 8, !tbaa !360
   %movement_acceleration_air = getelementptr inbounds nuw i8, ptr %6, i64 92
   %8 = load float, ptr %movement_acceleration_air, align 4, !tbaa !361
-  %cmp6 = fcmp nsz olt float %7, %8
-  %. = select nsz i1 %cmp6, float %7, float %8
+  %. = tail call nsz float @llvm.minnum.f32(float %7, float %8)
   %9 = load float, ptr %m_max_speed_override, align 8, !tbaa !312
   %Y.i19 = getelementptr inbounds nuw i8, ptr %this, i64 924
   %10 = load float, ptr %Y.i19, align 4, !tbaa !313
@@ -6024,8 +6020,7 @@ if.then32:                                        ; preds = %if.end
   %Z = getelementptr inbounds nuw i8, ptr %this, i64 928
   %12 = load float, ptr %Z, align 8, !tbaa !363
   %13 = call nsz float @llvm.fabs.f32(float %12)
-  %cmp35 = fcmp nsz ogt float %11, %13
-  %. = select i1 %cmp35, float %11, float %13
+  %. = call float @llvm.maxnum.f32(float %11, float %13)
   %Y = getelementptr inbounds nuw i8, ptr %this, i64 924
   %14 = load float, ptr %Y, align 4, !tbaa !364
   %15 = call nsz float @llvm.fabs.f32(float %14)
@@ -6139,8 +6134,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257: ; preds = %if
   br i1 %cmp.i.i.i.i, label %if.end100, label %if.then83
 
 if.then83:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257
-  %cmp84 = fcmp nsz ogt float %mul66, %mul62
-  %cond88 = select nsz i1 %cmp84, float %mul66, float %mul62
+  %cond88 = call nsz float @llvm.maxnum.f32(float %mul66, float %mul62)
   br label %if.end100
 
 if.end100:                                        ; preds = %if.then83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257.thread
@@ -6180,17 +6174,12 @@ if.then136:                                       ; preds = %if.end100
   %40 = load float, ptr %jump, align 4, !tbaa !374
   %mul109 = fmul nsz float %39, %40
   %conv112 = fmul nsz float %mul109, 2.000000e+00
-  %cmp113 = fcmp nsz ogt float %conv112, %mul70
-  %cond117 = select nsz i1 %cmp113, float %conv112, float %mul70
-  %cmp118 = fcmp nsz ogt float %cond117, %override_max_V.0
-  %cond122 = select nsz i1 %cmp118, float %cond117, float %override_max_V.0
-  %cmp126 = fcmp nsz olt float %cond122, 0x3F1A36E2E0000000
-  %player_max_jump.0 = select i1 %cmp126, float 0x3F1A36E2E0000000, float %cond122
-  %cmp137 = fcmp nsz ogt float %player_max_jump.0, %player_max_walk.1
-  %cond141 = select nsz i1 %cmp137, float %player_max_jump.0, float %player_max_walk.1
+  %cond117 = call nsz float @llvm.maxnum.f32(float %conv112, float %mul70)
+  %cond122 = call nsz float @llvm.maxnum.f32(float %cond117, float %override_max_V.0)
+  %player_max_jump.0 = call float @llvm.maxnum.f32(float %cond122, float 0x3F1A36E2E0000000)
+  %cond141 = call nsz float @llvm.maxnum.f32(float %player_max_jump.0, float %player_max_walk.1)
   %div142 = fdiv nsz float %sub4.i, %cond141
-  %cmp143 = fcmp nsz ogt float %div, %div142
-  %cond148 = select nsz i1 %cmp143, float %div, float %div142
+  %cond148 = call nsz float @llvm.maxnum.f32(float %div, float %div142)
   br label %if.end149
 
 if.end149:                                        ; preds = %if.then136, %if.end100
@@ -6221,8 +6210,7 @@ if.else154:                                       ; preds = %if.end.i
   %m_max_lag_estimate.i = getelementptr inbounds nuw i8, ptr %43, i64 732
   %44 = load float, ptr %m_max_lag_estimate.i, align 4, !tbaa !344
   %conv158 = fmul nsz float %44, 2.000000e+00
-  %cmp159 = fcmp nsz ogt float %conv158, 5.000000e+00
-  %cond163 = select nsz i1 %cmp159, float %conv158, float 5.000000e+00
+  %cond163 = call nsz float @llvm.maxnum.f32(float %conv158, float 5.000000e+00)
   %m_time_from_last_teleport = getelementptr inbounds nuw i8, ptr %this, i64 896
   %45 = load float, ptr %m_time_from_last_teleport, align 8, !tbaa !351
   %cmp164 = fcmp nsz ogt float %45, %cond163
@@ -11822,6 +11810,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #32
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #32
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #33
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #33

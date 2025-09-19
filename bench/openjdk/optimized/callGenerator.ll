@@ -3299,7 +3299,7 @@ define hidden noundef ptr @_ZN13CallGenerator18for_predicted_callEP7ciKlassPS_S2
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 296
   %12 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 48, ptr noundef nonnull %11) #8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %25, label %14
+  br i1 %13, label %23, label %14
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3307,23 +3307,21 @@ define hidden noundef ptr @_ZN13CallGenerator18for_predicted_callEP7ciKlassPS_S2
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %16, ptr %17, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV22PredictedCallGenerator, i64 16), ptr %12, align 8
-  %18 = fcmp ogt float %3, 0x3FEFFFFDE0000000
-  %.0.i = select i1 %18, float 0x3FEFFFFDE0000000, float %3
-  %19 = fcmp olt float %.0.i, 0x3EB0C6F7A0000000
-  %.1.i = select i1 %19, float 0x3EB0C6F7A0000000, float %.0.i
-  %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %0, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %1, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %2, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store float %.1.i, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %12, i64 44
-  store i8 1, ptr %24, align 4
-  br label %25
+  %.0.i = tail call float @llvm.minnum.f32(float %3, float 0x3FEFFFFDE0000000)
+  %.1.i = tail call float @llvm.maxnum.f32(float %.0.i, float 0x3EB0C6F7A0000000)
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %0, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store ptr %1, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr %2, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store float %.1.i, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 44
+  store i8 1, ptr %22, align 4
+  br label %23
 
-25:                                               ; preds = %14, %4
+23:                                               ; preds = %14, %4
   ret ptr %12
 }
 
@@ -7519,6 +7517,12 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #5
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

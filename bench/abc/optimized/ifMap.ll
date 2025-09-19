@@ -313,8 +313,7 @@ define float @If_CutDelaySpecial(ptr noundef readonly captures(none) %0, ptr nou
   %22 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
   %23 = load float, ptr %22, align 4, !tbaa !40
   %24 = fadd float %21, %23
-  %25 = fcmp ogt float %.01518, %24
-  %.015. = select i1 %25, float %.01518, float %24
+  %.015. = tail call float @llvm.maxnum.f32(float %.01518, float %24)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !41
@@ -5590,6 +5589,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19

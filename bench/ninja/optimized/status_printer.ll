@@ -1051,7 +1051,7 @@ define dso_local void @_ZN13StatusPrinter29RecalculateProgressPredictionEv(ptr n
 .thread38:                                        ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4, !tbaa !88
-  br label %41
+  br label %39
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1059,11 +1059,11 @@ define dso_local void @_ZN13StatusPrinter29RecalculateProgressPredictionEv(ptr n
   %.not24 = icmp eq i32 %13, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !88
-  %.fr43 = freeze i32 %.pre
+  %.fr41 = freeze i32 %.pre
   br i1 %.not24, label %.thread, label %14
 
 14:                                               ; preds = %11
-  %.not25 = icmp ne i32 %.fr43, 0
+  %.not25 = icmp ne i32 %.fr41, 0
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i64, ptr %15, align 8
   %17 = icmp sgt i64 %16, 14999
@@ -1071,78 +1071,76 @@ define dso_local void @_ZN13StatusPrinter29RecalculateProgressPredictionEv(ptr n
   br i1 %or.cond, label %18, label %.thread
 
 18:                                               ; preds = %14
-  %19 = sitofp i32 %.fr43 to double
+  %19 = sitofp i32 %.fr41 to double
   %20 = sitofp i32 %13 to double
   %21 = fdiv double %19, %20
   %22 = fcmp ult double %21, 5.000000e-02
   br i1 %22, label %.thread, label %24
 
 .thread:                                          ; preds = %11, %18, %14
-  %23 = add nsw i32 %.fr43, %4
-  br label %41
+  %23 = add nsw i32 %.fr41, %4
+  br label %39
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !89
-  %.fr42 = freeze i64 %26
-  %27 = sitofp i64 %.fr42 to double
+  %.fr = freeze i64 %26
+  %27 = sitofp i64 %.fr to double
   %28 = fdiv double %27, %19
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load i64, ptr %29, align 8, !tbaa !11
-  %.fr = freeze i64 %30
-  %31 = sitofp i64 %.fr to double
+  %.fr42 = freeze i64 %30
+  %31 = sitofp i64 %.fr42 to double
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load i32, ptr %32, align 8, !tbaa !63
-  %.fr41 = freeze i32 %33
-  %34 = sitofp i32 %.fr41 to double
+  %.fr43 = freeze i32 %33
+  %34 = sitofp i32 %.fr43 to double
   %35 = fdiv double %31, %34
-  %36 = fcmp olt double %35, %28
-  %.sroa.speculated32 = select i1 %36, double %28, double %35
-  %37 = fcmp olt double %28, %35
-  %.sroa.speculated = select i1 %37, double %28, double %35
-  %38 = fdiv double %.sroa.speculated32, %.sroa.speculated
-  %39 = fcmp olt double %38, 1.000000e+01
-  %40 = select i1 %39, i32 %4, i32 0
-  %spec.select = add nsw i32 %40, %.fr43
-  br label %41
+  %.sroa.speculated32 = tail call double @llvm.maxnum.f64(double %28, double %35)
+  %.sroa.speculated = tail call double @llvm.minnum.f64(double %28, double %35)
+  %36 = fdiv double %.sroa.speculated32, %.sroa.speculated
+  %37 = fcmp olt double %36, 1.000000e+01
+  %38 = select i1 %37, i32 %4, i32 0
+  %spec.select = add nsw i32 %38, %.fr41
+  br label %39
 
-41:                                               ; preds = %24, %.thread, %.thread38
-  %42 = phi i32 [ %10, %.thread38 ], [ %.fr43, %.thread ], [ %.fr43, %24 ]
-  %.0.in36 = phi i1 [ false, %.thread38 ], [ true, %.thread ], [ %39, %24 ]
-  %43 = phi i32 [ %10, %.thread38 ], [ %23, %.thread ], [ %spec.select, %24 ]
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %67, label %45
+39:                                               ; preds = %24, %.thread, %.thread38
+  %40 = phi i32 [ %10, %.thread38 ], [ %.fr41, %.thread ], [ %.fr41, %24 ]
+  %.0.in36 = phi i1 [ false, %.thread38 ], [ true, %.thread ], [ %37, %24 ]
+  %41 = phi i32 [ %10, %.thread38 ], [ %23, %.thread ], [ %spec.select, %24 ]
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %65, label %43
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %45 = load i32, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load i32, ptr %48, align 8
-  %50 = sub nsw i32 %49, %42
-  %51 = select i1 %.0.in36, i32 %47, i32 %50
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = load i64, ptr %52, align 8, !tbaa !89
-  %54 = select i1 %.0.in36, i64 %6, i64 0
-  %.020 = add nsw i64 %53, %54
-  %55 = sitofp i64 %.020 to double
-  %56 = sitofp i32 %43 to double
-  %57 = fdiv double %55, %56
-  %58 = sitofp i32 %51 to double
-  %59 = fmul double %57, %58
-  %60 = sitofp i64 %6 to double
-  %61 = fadd double %59, %60
-  %.018 = select i1 %.0.in36, double %61, double %59
-  %62 = sitofp i64 %53 to double
-  %63 = fadd double %.018, %62
-  %64 = fcmp oeq double %63, 0.000000e+00
-  br i1 %64, label %67, label %65
+  %48 = sub nsw i32 %47, %40
+  %49 = select i1 %.0.in36, i32 %45, i32 %48
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %51 = load i64, ptr %50, align 8, !tbaa !89
+  %52 = select i1 %.0.in36, i64 %6, i64 0
+  %.020 = add nsw i64 %51, %52
+  %53 = sitofp i64 %.020 to double
+  %54 = sitofp i32 %41 to double
+  %55 = fdiv double %53, %54
+  %56 = sitofp i32 %49 to double
+  %57 = fmul double %55, %56
+  %58 = sitofp i64 %6 to double
+  %59 = fadd double %57, %58
+  %.018 = select i1 %.0.in36, double %59, double %57
+  %60 = sitofp i64 %51 to double
+  %61 = fadd double %.018, %60
+  %62 = fcmp oeq double %61, 0.000000e+00
+  br i1 %62, label %65, label %63
 
-65:                                               ; preds = %45
-  %66 = fdiv double %62, %63
-  store double %66, ptr %2, align 8, !tbaa !87
-  br label %67
+63:                                               ; preds = %43
+  %64 = fdiv double %60, %61
+  store double %64, ptr %2, align 8, !tbaa !87
+  br label %65
 
-67:                                               ; preds = %65, %45, %41
+65:                                               ; preds = %63, %43, %39
   ret void
 }
 
@@ -4174,6 +4172,12 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #20
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1655,7 +1655,7 @@ _ZNK6vectorIN1q5queue5entryELb0EjE3endEv.exit:    ; preds = %2
   %.not29 = icmp eq i32 %7, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %33
+._crit_edge.loopexit:                             ; preds = %31
   %11 = fpext float %.128 to double
   %12 = fpext float %.126 to double
   br label %._crit_edge
@@ -1685,38 +1685,36 @@ _ZNK6vectorIN1q5queue5entryELb0EjE4sizeEv.exit:   ; preds = %._crit_edge, %19
   tail call void @_ZN10statistics6updateEPKcd(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.25, double noundef %.025.lcssa)
   ret void
 
-.lr.ph:                                           ; preds = %_ZNK6vectorIN1q5queue5entryELb0EjE3endEv.exit, %33
-  %.033 = phi i1 [ %.1, %33 ], [ false, %_ZNK6vectorIN1q5queue5entryELb0EjE3endEv.exit ]
-  %.01732 = phi ptr [ %34, %33 ], [ %4, %_ZNK6vectorIN1q5queue5entryELb0EjE3endEv.exit ]
-  %.02531 = phi float [ %.126, %33 ], [ 0.000000e+00, %_ZNK6vectorIN1q5queue5entryELb0EjE3endEv.exit ]
-  %.02730 = phi float [ %.128, %33 ], [ 0.000000e+00, %_ZNK6vectorIN1q5queue5entryELb0EjE3endEv.exit ]
+.lr.ph:                                           ; preds = %_ZNK6vectorIN1q5queue5entryELb0EjE3endEv.exit, %31
+  %.033 = phi i1 [ %.1, %31 ], [ false, %_ZNK6vectorIN1q5queue5entryELb0EjE3endEv.exit ]
+  %.01732 = phi ptr [ %32, %31 ], [ %4, %_ZNK6vectorIN1q5queue5entryELb0EjE3endEv.exit ]
+  %.02531 = phi float [ %.126, %31 ], [ 0.000000e+00, %_ZNK6vectorIN1q5queue5entryELb0EjE3endEv.exit ]
+  %.02730 = phi float [ %.128, %31 ], [ 0.000000e+00, %_ZNK6vectorIN1q5queue5entryELb0EjE3endEv.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %.01732, i64 12
   %23 = load i8, ptr %22, align 4, !tbaa !531, !range !598, !noundef !599
   %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %33, label %25
+  br i1 %24, label %31, label %25
 
 25:                                               ; preds = %.lr.ph
   %26 = getelementptr inbounds nuw i8, ptr %.01732, i64 8
-  br i1 %.033, label %27, label %31
+  br i1 %.033, label %27, label %29
 
 27:                                               ; preds = %25
   %28 = load float, ptr %26, align 4, !tbaa !462
-  %29 = fcmp olt float %28, %.02730
-  %.sroa.speculated22 = select i1 %29, float %28, float %.02730
-  %30 = fcmp olt float %.02531, %28
-  %.sroa.speculated = select i1 %30, float %28, float %.02531
-  br label %33
+  %.sroa.speculated22 = tail call float @llvm.minnum.f32(float %28, float %.02730)
+  %.sroa.speculated = tail call float @llvm.maxnum.f32(float %28, float %.02531)
+  br label %31
 
-31:                                               ; preds = %25
-  %32 = load float, ptr %26, align 8, !tbaa !532
-  br label %33
+29:                                               ; preds = %25
+  %30 = load float, ptr %26, align 8, !tbaa !532
+  br label %31
 
-33:                                               ; preds = %27, %31, %.lr.ph
-  %.128 = phi float [ %.02730, %.lr.ph ], [ %.sroa.speculated22, %27 ], [ %32, %31 ]
-  %.126 = phi float [ %.02531, %.lr.ph ], [ %.sroa.speculated, %27 ], [ %32, %31 ]
-  %.1 = phi i1 [ %.033, %.lr.ph ], [ true, %27 ], [ true, %31 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.01732, i64 16
-  %.not = icmp eq ptr %34, %10
+31:                                               ; preds = %27, %29, %.lr.ph
+  %.128 = phi float [ %.02730, %.lr.ph ], [ %.sroa.speculated22, %27 ], [ %30, %29 ]
+  %.126 = phi float [ %.02531, %.lr.ph ], [ %.sroa.speculated, %27 ], [ %30, %29 ]
+  %.1 = phi i1 [ %.033, %.lr.ph ], [ true, %27 ], [ true, %29 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.01732, i64 16
+  %.not = icmp eq ptr %32, %10
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 
@@ -2598,6 +2596,12 @@ declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #18
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

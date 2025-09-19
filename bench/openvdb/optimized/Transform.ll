@@ -10498,18 +10498,18 @@ entry:
   %mMax.i52.promoted = load double, ptr %mMax.i52, align 8
   %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %image, i64 8
   %arrayidx.i9.i = getelementptr inbounds nuw i8, ptr %image, i64 16
-  %arrayidx.i.i60.promoted = load double, ptr %arrayidx3.i2.i, align 8
-  %arrayidx.i8.i64.promoted = load double, ptr %arrayidx.i1.i, align 8
+  %arrayidx.i.i59.promoted = load double, ptr %arrayidx3.i2.i, align 8
+  %arrayidx.i8.i62.promoted = load double, ptr %arrayidx.i1.i, align 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 1, %entry ], [ %indvars.iv.next, %for.body ]
-  %8 = phi double [ %arrayidx.i8.i64.promoted, %entry ], [ %.sroa.speculated.i67, %for.body ]
-  %9 = phi double [ %arrayidx.i.i60.promoted, %entry ], [ %.sroa.speculated12.i63, %for.body ]
-  %.sroa.speculated13.i7075 = phi double [ %agg.result.promoted, %entry ], [ %.sroa.speculated13.i, %for.body ]
-  %.sroa.speculated12.i7174 = phi double [ %arrayidx3.i.i.promoted, %entry ], [ %.sroa.speculated12.i, %for.body ]
-  %.sroa.speculated.i7273 = phi double [ %arrayidx.i.i.promoted, %entry ], [ %.sroa.speculated.i, %for.body ]
-  %10 = phi double [ %mMax.i52.promoted, %entry ], [ %.sroa.speculated13.i59, %for.body ]
+  %8 = phi double [ %arrayidx.i8.i62.promoted, %entry ], [ %.sroa.speculated.i64, %for.body ]
+  %9 = phi double [ %arrayidx.i.i59.promoted, %entry ], [ %.sroa.speculated12.i61, %for.body ]
+  %.sroa.speculated13.i6772 = phi double [ %agg.result.promoted, %entry ], [ %.sroa.speculated13.i, %for.body ]
+  %.sroa.speculated12.i6871 = phi double [ %arrayidx3.i.i.promoted, %entry ], [ %.sroa.speculated12.i, %for.body ]
+  %.sroa.speculated.i6970 = phi double [ %arrayidx.i.i.promoted, %entry ], [ %.sroa.speculated.i, %for.body ]
+  %10 = phi double [ %mMax.i52.promoted, %entry ], [ %.sroa.speculated13.i58, %for.body ]
   %arrayidx37 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3", ptr %corners, i64 %indvars.iv
   %11 = load ptr, ptr %this, align 8, !noalias !199
   %vtable.i54 = load ptr, ptr %11, align 8, !noalias !199
@@ -10517,26 +10517,20 @@ for.body:                                         ; preds = %entry, %for.body
   %12 = load ptr, ptr %vfn.i55, align 8, !noalias !199
   call void %12(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %image, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx37)
   %13 = load double, ptr %image, align 8, !noalias !202
-  %cmp.i.i = fcmp olt double %13, %.sroa.speculated13.i7075
-  %.sroa.speculated13.i = select i1 %cmp.i.i, double %13, double %.sroa.speculated13.i7075
+  %.sroa.speculated13.i = call double @llvm.minnum.f64(double %13, double %.sroa.speculated13.i6772)
   %14 = load double, ptr %arrayidx.i5.i, align 8, !noalias !202
-  %cmp.i6.i = fcmp olt double %14, %.sroa.speculated12.i7174
-  %.sroa.speculated12.i = select i1 %cmp.i6.i, double %14, double %.sroa.speculated12.i7174
+  %.sroa.speculated12.i = call double @llvm.minnum.f64(double %14, double %.sroa.speculated12.i6871)
   %15 = load double, ptr %arrayidx.i9.i, align 8, !noalias !202
-  %cmp.i10.i = fcmp olt double %15, %.sroa.speculated.i7273
-  %.sroa.speculated.i = select i1 %cmp.i10.i, double %15, double %.sroa.speculated.i7273
+  %.sroa.speculated.i = call double @llvm.minnum.f64(double %15, double %.sroa.speculated.i6970)
   store double %.sroa.speculated13.i, ptr %agg.result, align 8
   store double %.sroa.speculated12.i, ptr %arrayidx3.i.i, align 8
   store double %.sroa.speculated.i, ptr %arrayidx.i.i, align 8
-  %cmp.i.i58 = fcmp olt double %10, %13
-  %.sroa.speculated13.i59 = select i1 %cmp.i.i58, double %13, double %10
-  %cmp.i6.i62 = fcmp olt double %9, %14
-  %.sroa.speculated12.i63 = select i1 %cmp.i6.i62, double %14, double %9
-  %cmp.i10.i66 = fcmp olt double %8, %15
-  %.sroa.speculated.i67 = select i1 %cmp.i10.i66, double %15, double %8
-  store double %.sroa.speculated13.i59, ptr %mMax.i52, align 8
-  store double %.sroa.speculated12.i63, ptr %arrayidx3.i2.i, align 8
-  store double %.sroa.speculated.i67, ptr %arrayidx.i1.i, align 8
+  %.sroa.speculated13.i58 = call double @llvm.maxnum.f64(double %13, double %10)
+  %.sroa.speculated12.i61 = call double @llvm.maxnum.f64(double %14, double %9)
+  %.sroa.speculated.i64 = call double @llvm.maxnum.f64(double %15, double %8)
+  store double %.sroa.speculated13.i58, ptr %mMax.i52, align 8
+  store double %.sroa.speculated12.i61, ptr %arrayidx3.i2.i, align 8
+  store double %.sroa.speculated.i64, ptr %arrayidx.i1.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !205
@@ -10640,13 +10634,11 @@ for.body36:                                       ; preds = %for.body, %for.body
   %arrayidx.i64 = getelementptr inbounds nuw double, ptr %pre_image, i64 %indvars.iv
   %10 = load double, ptr %arrayidx.i64, align 8
   %11 = load double, ptr %arrayidx.i62, align 8
-  %cmp.i = fcmp olt double %10, %11
-  %12 = select i1 %cmp.i, double %10, double %11
+  %12 = call double @llvm.minnum.f64(double %10, double %11)
   store double %12, ptr %arrayidx.i62, align 8
   %arrayidx.i68 = getelementptr inbounds nuw double, ptr %maxIS, i64 %indvars.iv
   %13 = load double, ptr %arrayidx.i68, align 8
-  %cmp.i71 = fcmp olt double %13, %10
-  %14 = select i1 %cmp.i71, double %10, double %13
+  %14 = call double @llvm.maxnum.f64(double %10, double %13)
   store double %14, ptr %arrayidx.i68, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -28502,6 +28494,12 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20

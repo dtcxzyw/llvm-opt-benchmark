@@ -7,15 +7,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_triangle_dsc_init(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 88) #4
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 88) #5
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %3 = tail call i24 @lv_color_white() #4
+  %3 = tail call i24 @lv_color_white() #5
   store i24 %3, ptr %2, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %5 = tail call i24 @lv_color_white() #4
+  %5 = tail call i24 @lv_color_white() #5
   store i24 %5, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %7 = tail call i24 @lv_color_black() #4
+  %7 = tail call i24 @lv_color_black() #5
   store i24 %7, ptr %6, align 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 61
   store i8 -1, ptr %8, align 1, !tbaa !3
@@ -55,7 +55,7 @@ define void @lv_draw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i8, ptr %4, align 8, !tbaa !17
   %6 = icmp ult i8 %5, 3
-  br i1 %6, label %45, label %7
+  br i1 %6, label %37, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -63,60 +63,52 @@ define void @lv_draw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %9 = load float, ptr %8, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load float, ptr %10, align 8, !tbaa !25
-  %12 = fcmp olt float %9, %11
-  %. = select i1 %12, float %9, float %11
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %14 = load float, ptr %13, align 8, !tbaa !25
-  %15 = fcmp olt float %., %14
-  %16 = select i1 %15, float %., float %14
-  %17 = fptosi float %16 to i32
-  store i32 %17, ptr %3, align 4, !tbaa !28
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %. = tail call float @llvm.minnum.f32(float %9, float %11)
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %13 = load float, ptr %12, align 8, !tbaa !25
+  %14 = tail call float @llvm.minnum.f32(float %., float %13)
+  %15 = fptosi float %14 to i32
+  store i32 %15, ptr %3, align 4, !tbaa !28
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %17 = load float, ptr %16, align 4, !tbaa !29
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %19 = load float, ptr %18, align 4, !tbaa !29
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %.70 = tail call float @llvm.minnum.f32(float %17, float %19)
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %21 = load float, ptr %20, align 4, !tbaa !29
-  %22 = fcmp olt float %19, %21
-  %.70 = select i1 %22, float %19, float %21
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %24 = load float, ptr %23, align 4, !tbaa !29
-  %25 = fcmp olt float %.70, %24
-  %26 = select i1 %25, float %.70, float %24
-  %27 = fptosi float %26 to i32
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %27, ptr %28, align 4, !tbaa !30
-  %29 = fcmp ogt float %9, %11
-  %.72 = select i1 %29, float %9, float %11
-  %30 = fcmp ogt float %.72, %14
-  %31 = select i1 %30, float %.72, float %14
-  %32 = fptosi float %31 to i32
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %32, ptr %33, align 4, !tbaa !31
-  %34 = fcmp ogt float %19, %21
-  %.74 = select i1 %34, float %19, float %21
-  %35 = fcmp ogt float %.74, %24
-  %36 = select i1 %35, float %.74, float %24
-  %37 = fptosi float %36 to i32
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %37, ptr %38, align 4, !tbaa !32
-  %39 = call ptr @lv_draw_add_task(ptr noundef %0, ptr noundef nonnull %3) #4
-  %40 = call ptr @lv_malloc(i64 noundef 88) #4
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 104
-  store ptr %40, ptr %41, align 8, !tbaa !24
-  %.not = icmp eq ptr %40, null
-  br i1 %.not, label %.preheader, label %42
+  %22 = tail call float @llvm.minnum.f32(float %.70, float %21)
+  %23 = fptosi float %22 to i32
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %23, ptr %24, align 4, !tbaa !30
+  %.72 = tail call float @llvm.maxnum.f32(float %9, float %11)
+  %25 = tail call float @llvm.maxnum.f32(float %.72, float %13)
+  %26 = fptosi float %25 to i32
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %26, ptr %27, align 4, !tbaa !31
+  %.74 = tail call float @llvm.maxnum.f32(float %17, float %19)
+  %28 = tail call float @llvm.maxnum.f32(float %.74, float %21)
+  %29 = fptosi float %28 to i32
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %29, ptr %30, align 4, !tbaa !32
+  %31 = call ptr @lv_draw_add_task(ptr noundef %0, ptr noundef nonnull %3) #5
+  %32 = call ptr @lv_malloc(i64 noundef 88) #5
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 104
+  store ptr %32, ptr %33, align 8, !tbaa !24
+  %.not = icmp eq ptr %32, null
+  br i1 %.not, label %.preheader, label %34
 
 .preheader:                                       ; preds = %7, %.preheader
   br label %.preheader
 
-42:                                               ; preds = %7
-  %43 = call ptr @lv_memcpy(ptr noundef nonnull %40, ptr noundef nonnull %1, i64 noundef 88) #4
-  %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i32 10, ptr %44, align 8, !tbaa !19
-  call void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef nonnull %39) #4
+34:                                               ; preds = %7
+  %35 = call ptr @lv_memcpy(ptr noundef nonnull %32, ptr noundef nonnull %1, i64 noundef 88) #5
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i32 10, ptr %36, align 8, !tbaa !19
+  call void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef nonnull %31) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %45
+  br label %37
 
-45:                                               ; preds = %2, %42
+37:                                               ; preds = %2, %34
   ret void
 }
 
@@ -136,11 +128,18 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

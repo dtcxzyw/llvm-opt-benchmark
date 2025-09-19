@@ -8815,43 +8815,41 @@ define void @_ZN10open_spiel10algorithms18CFRInfoStateValues30ApplyRegretMatchin
 .lr.ph22:                                         ; preds = %25
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %30
+  br label %29
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %.01219 = phi double [ 0.000000e+00, %.lr.ph ], [ %29, %25 ]
+  %.01219 = phi double [ 0.000000e+00, %.lr.ph ], [ %28, %25 ]
   %26 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv
   %27 = load double, ptr %26, align 8
-  %28 = fcmp olt double %27, %1
-  %.sroa.speculated17 = select i1 %28, double %1, double %27
-  %29 = fadd double %.01219, %.sroa.speculated17
+  %.sroa.speculated17 = tail call double @llvm.maxnum.f64(double %1, double %27)
+  %28 = fadd double %.01219, %.sroa.speculated17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph22, label %25, !llvm.loop !166
 
-30:                                               ; preds = %.lr.ph22, %30
-  %indvars.iv24 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next25, %30 ]
-  %31 = load ptr, ptr %23, align 8
-  %32 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv24
-  %33 = load double, ptr %32, align 8
-  %34 = fcmp olt double %33, %1
-  %.sroa.speculated = select i1 %34, double %1, double %33
-  %35 = fdiv double %.sroa.speculated, %29
-  %36 = load ptr, ptr %24, align 8
-  %37 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv24
-  store double %35, ptr %37, align 8
+29:                                               ; preds = %.lr.ph22, %29
+  %indvars.iv24 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next25, %29 ]
+  %30 = load ptr, ptr %23, align 8
+  %31 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv24
+  %32 = load double, ptr %31, align 8
+  %.sroa.speculated = tail call double @llvm.maxnum.f64(double %1, double %32)
+  %33 = fdiv double %.sroa.speculated, %28
+  %34 = load ptr, ptr %24, align 8
+  %35 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv24
+  store double %33, ptr %35, align 8
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
-  %38 = load ptr, ptr %8, align 8
-  %39 = load ptr, ptr %0, align 8
-  %40 = ptrtoint ptr %38 to i64
-  %41 = ptrtoint ptr %39 to i64
-  %42 = sub i64 %40, %41
-  %sext = shl i64 %42, 29
-  %43 = ashr i64 %sext, 32
-  %44 = icmp slt i64 %indvars.iv.next25, %43
-  br i1 %44, label %30, label %._crit_edge, !llvm.loop !167
+  %36 = load ptr, ptr %8, align 8
+  %37 = load ptr, ptr %0, align 8
+  %38 = ptrtoint ptr %36 to i64
+  %39 = ptrtoint ptr %37 to i64
+  %40 = sub i64 %38, %39
+  %sext = shl i64 %40, 29
+  %41 = ashr i64 %sext, 32
+  %42 = icmp slt i64 %indvars.iv.next25, %41
+  br i1 %42, label %29, label %._crit_edge, !llvm.loop !167
 
-._crit_edge:                                      ; preds = %30, %.preheader18
+._crit_edge:                                      ; preds = %29, %.preheader18
   ret void
 }
 
@@ -17979,6 +17977,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

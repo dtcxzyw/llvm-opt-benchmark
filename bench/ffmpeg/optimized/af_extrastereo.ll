@@ -70,7 +70,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 19:                                               ; preds = %15
   call void @av_frame_free(ptr noundef nonnull %3) #4
-  br label %66
+  br label %62
 
 20:                                               ; preds = %15
   %21 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %18, ptr noundef nonnull %1) #4
@@ -127,36 +127,32 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %52 = tail call nsz float @llvm.fmuladd.f32(float %13, float %51, float %50)
   %53 = fsub nsz float %48, %50
   %54 = tail call nsz float @llvm.fmuladd.f32(float %13, float %53, float %50)
-  %55 = fcmp nsz ogt float %52, -1.000000e+00
-  %56 = select nsz i1 %55, float %52, float -1.000000e+00
-  %57 = fcmp nsz ogt float %56, 1.000000e+00
-  %..i = select nsz i1 %57, float 1.000000e+00, float %56
-  %58 = fcmp nsz ogt float %54, -1.000000e+00
-  %59 = select nsz i1 %58, float %54, float -1.000000e+00
-  %60 = fcmp nsz ogt float %59, 1.000000e+00
-  %..i44 = select nsz i1 %60, float 1.000000e+00, float %59
-  %61 = getelementptr inbounds nuw float, ptr %23, i64 %43
-  store float %..i, ptr %61, align 4, !tbaa !45
-  %62 = getelementptr inbounds nuw float, ptr %23, i64 %46
-  store float %..i44, ptr %62, align 4, !tbaa !45
+  %55 = tail call nsz float @llvm.maxnum.f32(float %52, float -1.000000e+00)
+  %..i = tail call nsz float @llvm.minnum.f32(float %55, float 1.000000e+00)
+  %56 = tail call nsz float @llvm.maxnum.f32(float %54, float -1.000000e+00)
+  %..i44 = tail call nsz float @llvm.minnum.f32(float %56, float 1.000000e+00)
+  %57 = getelementptr inbounds nuw float, ptr %23, i64 %43
+  store float %..i, ptr %57, align 4, !tbaa !45
+  %58 = getelementptr inbounds nuw float, ptr %23, i64 %46
+  store float %..i44, ptr %58, align 4, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count51
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %22
   %.not42 = icmp eq ptr %.039, %1
-  br i1 %.not42, label %64, label %63
+  br i1 %.not42, label %60, label %59
 
-63:                                               ; preds = %._crit_edge
+59:                                               ; preds = %._crit_edge
   call void @av_frame_free(ptr noundef nonnull %3) #4
-  br label %64
+  br label %60
 
-64:                                               ; preds = %63, %._crit_edge
-  %65 = call i32 @ff_filter_frame(ptr noundef %8, ptr noundef nonnull %.039) #4
-  br label %66
+60:                                               ; preds = %59, %._crit_edge
+  %61 = call i32 @ff_filter_frame(ptr noundef %8, ptr noundef nonnull %.039) #4
+  br label %62
 
-66:                                               ; preds = %64, %19
-  %.037 = phi i32 [ %65, %64 ], [ -12, %19 ]
+62:                                               ; preds = %60, %19
+  %.037 = phi i32 [ %61, %60 ], [ -12, %19 ]
   ret i32 %.037
 }
 
@@ -181,6 +177,12 @@ declare i32 @ff_set_common_channel_layouts_from_list2(ptr noundef, ptr noundef, 
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -216,31 +216,29 @@ define void @_Z13set_mat_entryP5t_matiif(ptr noundef captures(none) %0, i32 noun
   store float %3, ptr %14, align 4, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load float, ptr %15, align 8, !tbaa !31
-  %17 = fcmp olt float %16, %3
-  %.sroa.speculated25 = select i1 %17, float %3, float %16
+  %.sroa.speculated25 = tail call float @llvm.maxnum.f32(float %3, float %16)
   store float %.sroa.speculated25, ptr %15, align 8, !tbaa !18
   %.not = icmp eq i32 %2, %1
-  br i1 %.not, label %22, label %18
+  br i1 %.not, label %20, label %17
 
-18:                                               ; preds = %4
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %20 = load float, ptr %19, align 4, !tbaa !31
-  %21 = fcmp olt float %3, %20
-  %.sroa.speculated = select i1 %21, float %3, float %20
-  store float %.sroa.speculated, ptr %19, align 4, !tbaa !19
-  br label %22
+17:                                               ; preds = %4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %19 = load float, ptr %18, align 4, !tbaa !31
+  %.sroa.speculated = tail call float @llvm.minnum.f32(float %3, float %19)
+  store float %.sroa.speculated, ptr %18, align 4, !tbaa !19
+  br label %20
 
-22:                                               ; preds = %18, %4
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %24 = load float, ptr %23, align 4, !tbaa !20
-  %25 = fadd float %3, %24
-  store float %25, ptr %23, align 4, !tbaa !20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !24
+20:                                               ; preds = %17, %4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %22 = load float, ptr %21, align 4, !tbaa !20
+  %23 = fadd float %3, %22
+  store float %23, ptr %21, align 4, !tbaa !20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %25 = load i32, ptr %24, align 4, !tbaa !24
   %.v = tail call i32 @llvm.smax.i32(i32 %2, i32 %1)
-  %28 = add nsw i32 %.v, 1
-  %29 = tail call i32 @llvm.smax.i32(i32 %27, i32 %28)
-  store i32 %29, ptr %26, align 4, !tbaa !16
+  %26 = add nsw i32 %.v, 1
+  %27 = tail call i32 @llvm.smax.i32(i32 %25, i32 %26)
+  store i32 %27, ptr %24, align 4, !tbaa !16
   ret void
 }
 
@@ -715,6 +713,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15

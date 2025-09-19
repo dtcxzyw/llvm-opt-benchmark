@@ -561,13 +561,12 @@ gv_recalloc.exit:                                 ; preds = %19, %26, %28
   store i64 %60, ptr %7, align 8, !tbaa !13
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %62 = load double, ptr %61, align 8, !tbaa !55
-  %63 = fcmp ogt double %62, %.sroa.06.0
-  %..sroa.06.0 = select i1 %63, double %62, double %.sroa.06.0
+  %..sroa.06.0 = call double @llvm.maxnum.f64(double %62, double %.sroa.06.0)
   store double %..sroa.06.0, ptr %61, align 8, !tbaa !55
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %65 = load double, ptr %64, align 8, !tbaa !56
-  %66 = fadd double %.sroa.6.0, %65
-  store double %66, ptr %64, align 8, !tbaa !56
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %64 = load double, ptr %63, align 8, !tbaa !56
+  %65 = fadd double %.sroa.6.0, %64
+  store double %65, ptr %63, align 8, !tbaa !56
   ret void
 }
 
@@ -1906,6 +1905,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

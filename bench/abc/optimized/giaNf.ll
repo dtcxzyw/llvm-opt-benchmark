@@ -8451,26 +8451,24 @@ Nf_ObjUpdateRequired.exit337:                     ; preds = %338, %346
   %372 = getelementptr inbounds nuw i32, ptr %.val322, i64 %indvars.iv386
   %373 = load i32, ptr %372, align 4, !tbaa !13
   %374 = sitofp i32 %373 to float
-  %375 = fcmp olt float %374, 1.000000e+00
-  %376 = select i1 %375, float 1.000000e+00, float %374
-  %377 = fpext float %376 to double
-  %378 = tail call double @llvm.fmuladd.f64(double %366, double %377, double %371)
-  %379 = fptrunc double %378 to float
-  %380 = fcmp olt float %379, 1.000000e+00
-  %381 = select i1 %380, float 1.000000e+00, float %379
-  store float %381, ptr %368, align 4, !tbaa !111
+  %375 = tail call noundef float @llvm.maxnum.f32(float %374, float 1.000000e+00)
+  %376 = fpext float %375 to double
+  %377 = tail call double @llvm.fmuladd.f64(double %366, double %376, double %371)
+  %378 = fptrunc double %377 to float
+  %379 = tail call noundef float @llvm.maxnum.f32(float %378, float 1.000000e+00)
+  store float %379, ptr %368, align 4, !tbaa !111
   %indvars.iv.next387 = add nuw nsw i64 %indvars.iv386, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next387, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %367, !llvm.loop !231
 
 ._crit_edge:                                      ; preds = %367, %.critedge9
-  %382 = load ptr, ptr %45, align 8, !tbaa !103
-  %383 = getelementptr inbounds nuw i8, ptr %382, i64 168
-  %384 = load i64, ptr %383, align 8, !tbaa !179
-  %385 = trunc i64 %384 to i32
+  %380 = load ptr, ptr %45, align 8, !tbaa !103
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 168
+  %382 = load i64, ptr %381, align 8, !tbaa !179
+  %383 = trunc i64 %382 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %385
+  ret i32 %383
 }
 
 declare void @Tim_ManSetCiRequired(ptr noundef, i32 noundef, float noundef) local_unnamed_addr #3
@@ -13980,6 +13978,9 @@ declare i32 @llvm.smax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24

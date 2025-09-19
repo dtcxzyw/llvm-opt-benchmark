@@ -577,62 +577,60 @@ define noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
   br i1 %37, label %38, label %.preheader.preheader
 
 38:                                               ; preds = %34
-  %39 = fcmp ogt double %32, %30
-  %.sroa.01.0.i.i = select i1 %39, double %32, double %30
-  %40 = fmul double %.sroa.01.0.i.i, 1.000000e-10
-  %41 = fcmp ole double %36, %40
+  %.sroa.01.0.i.i = tail call double @llvm.maxnum.f64(double %32, double %30)
+  %39 = fmul double %.sroa.01.0.i.i, 1.000000e-10
+  %40 = fcmp ole double %36, %39
   br label %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit
 
 _ZN6statrs4prec11convergence17he4da219176fb4aabE.exit: ; preds = %29, %38
-  %.sroa.0.0.i.i = phi i1 [ %41, %38 ], [ false, %29 ]
-  %42 = icmp samesign ugt i32 %.sroa.014.0, 6
-  %or.cond.not = or i1 %42, %.sroa.0.0.i.i
+  %.sroa.0.0.i.i = phi i1 [ %40, %38 ], [ false, %29 ]
+  %41 = icmp samesign ugt i32 %.sroa.014.0, 6
+  %or.cond.not = or i1 %41, %.sroa.0.0.i.i
   br i1 %or.cond.not, label %.preheader.preheader, label %22
 
 .preheader.preheader:                             ; preds = %34, %22, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25
-  %.sroa.030.1 = phi double [ %48, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25 ], [ %27, %.preheader.preheader ]
-  %.sroa.017.0 = phi i32 [ %43, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25 ], [ 0, %.preheader.preheader ]
-  %43 = add nuw nsw i32 %.sroa.017.0, 1
-  %44 = tail call noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17h8ea699656e017159E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %.sroa.030.1)
-  %45 = fsub double %44, %1
-  %46 = tail call noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17h1673f1a8c3c39778E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %.sroa.030.1)
-  %47 = fdiv double %45, %46
-  %48 = fsub double %.sroa.030.1, %47
-  %49 = fcmp oeq double %.sroa.030.1, %48
-  br i1 %49, label %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25.thread, label %50
+  %.sroa.030.1 = phi double [ %47, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25 ], [ %27, %.preheader.preheader ]
+  %.sroa.017.0 = phi i32 [ %42, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25 ], [ 0, %.preheader.preheader ]
+  %42 = add nuw nsw i32 %.sroa.017.0, 1
+  %43 = tail call noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17h8ea699656e017159E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %.sroa.030.1)
+  %44 = fsub double %43, %1
+  %45 = tail call noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17h1673f1a8c3c39778E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %.sroa.030.1)
+  %46 = fdiv double %44, %45
+  %47 = fsub double %.sroa.030.1, %46
+  %48 = fcmp oeq double %.sroa.030.1, %47
+  br i1 %48, label %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25.thread, label %49
 
-50:                                               ; preds = %.preheader
-  %51 = tail call double @llvm.fabs.f64(double %.sroa.030.1)
-  %52 = fcmp oeq double %51, 0x7FF0000000000000
-  %53 = tail call double @llvm.fabs.f64(double %48)
-  %54 = fcmp oeq double %53, 0x7FF0000000000000
-  %or.cond.i.i22 = or i1 %52, %54
-  br i1 %or.cond.i.i22, label %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25, label %55
+49:                                               ; preds = %.preheader
+  %50 = tail call double @llvm.fabs.f64(double %.sroa.030.1)
+  %51 = fcmp oeq double %50, 0x7FF0000000000000
+  %52 = tail call double @llvm.fabs.f64(double %47)
+  %53 = fcmp oeq double %52, 0x7FF0000000000000
+  %or.cond.i.i22 = or i1 %51, %53
+  br i1 %or.cond.i.i22, label %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25, label %54
 
-55:                                               ; preds = %50
-  %56 = fsub double %.sroa.030.1, %48
-  %57 = tail call double @llvm.fabs.f64(double %56)
-  %58 = fcmp ugt double %57, 0x3CB0000000000000
-  br i1 %58, label %59, label %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25.thread
+54:                                               ; preds = %49
+  %55 = fsub double %.sroa.030.1, %47
+  %56 = tail call double @llvm.fabs.f64(double %55)
+  %57 = fcmp ugt double %56, 0x3CB0000000000000
+  br i1 %57, label %58, label %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25.thread
 
-59:                                               ; preds = %55
-  %60 = fcmp ogt double %53, %51
-  %.sroa.01.0.i.i24 = select i1 %60, double %53, double %51
-  %61 = fmul double %.sroa.01.0.i.i24, 1.000000e-10
-  %62 = fcmp ole double %57, %61
+58:                                               ; preds = %54
+  %.sroa.01.0.i.i24 = tail call double @llvm.maxnum.f64(double %52, double %50)
+  %59 = fmul double %.sroa.01.0.i.i24, 1.000000e-10
+  %60 = fcmp ole double %56, %59
   br label %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25
 
-_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25: ; preds = %50, %59
-  %.sroa.0.0.i.i23 = phi i1 [ %62, %59 ], [ false, %50 ]
-  %63 = icmp samesign ugt i32 %.sroa.017.0, 2
-  %or.cond5.not = or i1 %63, %.sroa.0.0.i.i23
+_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25: ; preds = %49, %58
+  %.sroa.0.0.i.i23 = phi i1 [ %60, %58 ], [ false, %49 ]
+  %61 = icmp samesign ugt i32 %.sroa.017.0, 2
+  %or.cond5.not = or i1 %61, %.sroa.0.0.i.i23
   br i1 %or.cond5.not, label %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25.thread, label %.preheader
 
-_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25.thread: ; preds = %55, %.preheader, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25, %8, %6
-  %.sroa.0.0 = phi double [ 0.000000e+00, %6 ], [ 0x7FF0000000000000, %8 ], [ %48, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25 ], [ %48, %.preheader ], [ %48, %55 ]
+_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25.thread: ; preds = %54, %.preheader, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25, %8, %6
+  %.sroa.0.0 = phi double [ 0.000000e+00, %6 ], [ 0x7FF0000000000000, %8 ], [ %47, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25 ], [ %47, %.preheader ], [ %47, %54 ]
   ret double %.sroa.0.0
 }
 
@@ -2844,6 +2842,9 @@ declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #10
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

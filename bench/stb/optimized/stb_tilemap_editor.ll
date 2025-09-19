@@ -4010,7 +4010,7 @@ stbte__hittest.exitthread-pre-split:              ; preds = %10
 
 stbte__hittest.exit:                              ; preds = %stbte__hittest.exitthread-pre-split, %15, %21
   %22 = phi i32 [ %.pr, %stbte__hittest.exitthread-pre-split ], [ %19, %15 ], [ %19, %21 ]
-  switch i32 %22, label %85 [
+  switch i32 %22, label %83 [
     i32 0, label %23
     i32 4, label %38
     i32 6, label %38
@@ -4038,7 +4038,7 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
   %37 = zext i8 %36 to i32
   call void @stbte__draw_textbox(i32 noundef %0, i32 noundef %1, i32 noundef %12, i32 noundef %13, ptr noundef nonnull %11, i32 noundef 1, i32 noundef 2, i32 noundef %8, i32 noundef %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %85
+  br label %83
 
 38:                                               ; preds = %stbte__hittest.exit, %stbte__hittest.exit
   %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 12), align 4, !tbaa !102
@@ -4046,31 +4046,31 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 8), align 8
   %42 = icmp eq i32 %41, 0
   %or.cond = select i1 %40, i1 %42, i1 false
-  br i1 %or.cond, label %43, label %85
+  br i1 %or.cond, label %43, label %83
 
 43:                                               ; preds = %38
   store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 8), align 8, !tbaa !94
   store i32 %22, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 4), align 4, !tbaa !96
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5244), align 4, !tbaa !97
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5248), align 8, !tbaa !98
-  br label %85
+  br label %83
 
 44:                                               ; preds = %stbte__hittest.exit, %stbte__hittest.exit
   %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 8), align 8, !tbaa !94
   %46 = icmp eq i32 %45, %9
-  br i1 %46, label %47, label %85
+  br i1 %46, label %47, label %83
 
 47:                                               ; preds = %44
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 8), align 8, !tbaa !94
   store i32 %22, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 4), align 4, !tbaa !96
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5244), align 4, !tbaa !97
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5248), align 8, !tbaa !98
-  br label %85
+  br label %83
 
 48:                                               ; preds = %stbte__hittest.exit
   %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 8), align 8, !tbaa !94
   %50 = icmp eq i32 %49, %9
-  br i1 %50, label %51, label %85
+  br i1 %50, label %51, label %83
 
 51:                                               ; preds = %48
   %52 = load float, ptr %7, align 4, !tbaa !48
@@ -4122,14 +4122,12 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
 81:                                               ; preds = %76, %78, %66, %69
   %.045 = phi float [ %68, %66 ], [ %73, %69 ], [ %77, %76 ], [ %80, %78 ]
   %82 = tail call float @llvm.fmuladd.f32(float %.045, float %5, float %52)
-  %83 = fcmp olt float %82, %3
-  %.046 = select i1 %83, float %3, float %82
-  %84 = fcmp ogt float %.046, %4
-  %.1 = select i1 %84, float %4, float %.046
+  %.046 = tail call float @llvm.maxnum.f32(float %3, float %82)
+  %.1 = tail call float @llvm.minnum.f32(float %4, float %.046)
   store float %.1, ptr %7, align 4, !tbaa !48
-  br label %85
+  br label %83
 
-85:                                               ; preds = %stbte__hittest.exit, %23, %44, %48, %38, %43, %81, %47
+83:                                               ; preds = %stbte__hittest.exit, %23, %44, %48, %38, %43, %81, %47
   %.0 = phi i32 [ 2, %47 ], [ 3, %81 ], [ 1, %43 ], [ 1, %38 ], [ 0, %48 ], [ 0, %44 ], [ 0, %23 ], [ 0, %stbte__hittest.exit ]
   ret i32 %.0
 }
@@ -12408,6 +12406,12 @@ declare i32 @llvm.smin.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #24

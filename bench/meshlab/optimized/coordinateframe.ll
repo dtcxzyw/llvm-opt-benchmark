@@ -2468,16 +2468,13 @@ define noundef float @_ZN3vcg15CoordinateFrame9calcSlopeERKNS_6Point3IdEES4_fiPd
   %48 = call noundef float @llvm.ceil.f32(float %47)
   %49 = call noundef float @powf(float noundef 1.000000e+01, float noundef %48) #26
   %50 = fmul float %49, 0x3FC99999A0000000
-  %51 = fcmp olt float %40, %45
-  %..i = select i1 %51, float %40, float %45
-  %52 = fcmp olt float %..i, %50
-  %.sroa.speculated20 = select i1 %52, float %..i, float %50
-  %53 = fmul float %2, 0x3F50624DE0000000
-  %54 = call noundef float @log10f(float noundef %53) #26
-  %55 = call noundef float @llvm.ceil.f32(float %54)
-  %56 = call noundef float @powf(float noundef 1.000000e+01, float noundef %55) #26
-  %57 = fcmp olt float %56, %.sroa.speculated20
-  %.sroa.speculated = select i1 %57, float %.sroa.speculated20, float %56
+  %..i = call float @llvm.minnum.f32(float %40, float %45)
+  %.sroa.speculated20 = call float @llvm.minnum.f32(float %..i, float %50)
+  %51 = fmul float %2, 0x3F50624DE0000000
+  %52 = call noundef float @log10f(float noundef %51) #26
+  %53 = call noundef float @llvm.ceil.f32(float %52)
+  %54 = call noundef float @powf(float noundef 1.000000e+01, float noundef %53) #26
+  %.sroa.speculated = call float @llvm.maxnum.f32(float %.sroa.speculated20, float %54)
   ret float %.sroa.speculated
 }
 
@@ -3693,6 +3690,12 @@ declare double @llvm.sqrt.f64(double) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #22

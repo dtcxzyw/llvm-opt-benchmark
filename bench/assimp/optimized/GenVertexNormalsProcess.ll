@@ -122,12 +122,10 @@ define noundef zeroext i1 @_ZNK6Assimp23GenVertexNormalsProcess8IsActiveEj(ptr n
 define void @_ZN6Assimp23GenVertexNormalsProcess15SetupPropertiesEPKNS_8ImporterE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(31) initializes((24, 28)) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef float @_ZNK6Assimp8Importer16GetPropertyFloatEPKcf(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, float noundef 1.750000e+02)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = fcmp ogt float %3, 1.750000e+02
-  %.sroa.speculated3 = select i1 %5, float 1.750000e+02, float %3
-  %6 = fcmp olt float %.sroa.speculated3, 0.000000e+00
-  %.sroa.speculated = select i1 %6, float 0.000000e+00, float %.sroa.speculated3
-  %7 = fmul float %.sroa.speculated, 0x3F91DF46A0000000
-  store float %7, ptr %4, align 8
+  %.sroa.speculated3 = tail call float @llvm.minnum.f32(float %3, float 1.750000e+02)
+  %.sroa.speculated = tail call float @llvm.maxnum.f32(float %.sroa.speculated3, float 0.000000e+00)
+  %5 = fmul float %.sroa.speculated, 0x3F91DF46A0000000
+  store float %5, ptr %4, align 8
   ret void
 }
 
@@ -1328,6 +1326,12 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #16
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

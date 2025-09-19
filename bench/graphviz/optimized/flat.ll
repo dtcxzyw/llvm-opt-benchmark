@@ -535,10 +535,10 @@ gv_recalloc.exit.i:                               ; preds = %185, %183, %176
   %.not111 = icmp eq ptr %263, null
   br i1 %.not111, label %.preheader151, label %.lr.ph183, !llvm.loop !97
 
-.lr.ph187:                                        ; preds = %.preheader151, %311
-  %264 = phi ptr [ %312, %311 ], [ %233, %.preheader151 ]
-  %.085186 = phi i64 [ %313, %311 ], [ 0, %.preheader151 ]
-  %.3185 = phi i8 [ %.4, %311 ], [ %.193.lcssa, %.preheader151 ]
+.lr.ph187:                                        ; preds = %.preheader151, %310
+  %264 = phi ptr [ %311, %310 ], [ %233, %.preheader151 ]
+  %.085186 = phi i64 [ %312, %310 ], [ 0, %.preheader151 ]
+  %.3185 = phi i8 [ %.4, %310 ], [ %.193.lcssa, %.preheader151 ]
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 320
   %266 = load ptr, ptr %265, align 8, !tbaa !65
   %267 = getelementptr inbounds nuw ptr, ptr %266, i64 %.085186
@@ -566,7 +566,7 @@ gv_recalloc.exit.i:                               ; preds = %185, %183, %176
   %.not113 = icmp ne i32 %278, %286
   %287 = icmp eq ptr %274, %282
   %or.cond = or i1 %287, %.not113
-  br i1 %or.cond, label %311, label %.preheader
+  br i1 %or.cond, label %310, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph187, %.preheader
   %.084 = phi ptr [ %291, %.preheader ], [ %268, %.lr.ph187 ]
@@ -587,11 +587,11 @@ gv_recalloc.exit.i:                               ; preds = %185, %183, %176
   %298 = getelementptr inbounds nuw i8, ptr %296, i64 120
   %299 = load ptr, ptr %298, align 8, !tbaa !70
   %.not115 = icmp eq ptr %299, null
-  br i1 %.not115, label %311, label %300
+  br i1 %.not115, label %310, label %300
 
 300:                                              ; preds = %292
   %.not116 = icmp eq i8 %294, 0
-  br i1 %.not116, label %310, label %301
+  br i1 %.not116, label %309, label %301
 
 301:                                              ; preds = %300
   %302 = load ptr, ptr %2, align 8, !tbaa !3
@@ -604,44 +604,43 @@ gv_recalloc.exit.i:                               ; preds = %185, %183, %176
   %.0 = load double, ptr %.0.in, align 8, !tbaa !77
   %306 = getelementptr inbounds nuw i8, ptr %289, i64 184
   %307 = load double, ptr %306, align 8, !tbaa !95
-  %308 = fcmp ogt double %.0, %307
-  %309 = select i1 %308, double %.0, double %307
-  store double %309, ptr %306, align 8, !tbaa !95
-  br label %311
+  %308 = tail call double @llvm.maxnum.f64(double %.0, double %307)
+  store double %308, ptr %306, align 8, !tbaa !95
+  br label %310
 
-310:                                              ; preds = %300
+309:                                              ; preds = %300
   tail call fastcc void @flat_node(ptr noundef nonnull %268)
   %.pre206 = load ptr, ptr %228, align 8, !tbaa !3
-  br label %311
+  br label %310
 
-311:                                              ; preds = %292, %310, %301, %.lr.ph187
-  %312 = phi ptr [ %264, %.lr.ph187 ], [ %264, %301 ], [ %.pre206, %310 ], [ %264, %292 ]
-  %.4 = phi i8 [ %.3185, %.lr.ph187 ], [ %.3185, %301 ], [ 1, %310 ], [ %.3185, %292 ]
-  %313 = add nuw i64 %.085186, 1
-  %314 = getelementptr inbounds nuw i8, ptr %312, i64 328
-  %315 = load i64, ptr %314, align 8, !tbaa !63
-  %316 = icmp ult i64 %313, %315
-  br i1 %316, label %.lr.ph187, label %.loopexit, !llvm.loop !99
+310:                                              ; preds = %292, %309, %301, %.lr.ph187
+  %311 = phi ptr [ %264, %.lr.ph187 ], [ %264, %301 ], [ %.pre206, %309 ], [ %264, %292 ]
+  %.4 = phi i8 [ %.3185, %.lr.ph187 ], [ %.3185, %301 ], [ 1, %309 ], [ %.3185, %292 ]
+  %312 = add nuw i64 %.085186, 1
+  %313 = getelementptr inbounds nuw i8, ptr %311, i64 328
+  %314 = load i64, ptr %313, align 8, !tbaa !63
+  %315 = icmp ult i64 %312, %314
+  br i1 %315, label %.lr.ph187, label %.loopexit, !llvm.loop !99
 
-.loopexit:                                        ; preds = %311, %.preheader151, %.lr.ph194
-  %317 = phi ptr [ %229, %.lr.ph194 ], [ %233, %.preheader151 ], [ %312, %311 ]
-  %.6 = phi i8 [ %.092191, %.lr.ph194 ], [ %.193.lcssa, %.preheader151 ], [ %.4, %311 ]
-  %318 = getelementptr inbounds nuw i8, ptr %317, i64 240
-  %.191 = load ptr, ptr %318, align 8, !tbaa !12
+.loopexit:                                        ; preds = %310, %.preheader151, %.lr.ph194
+  %316 = phi ptr [ %229, %.lr.ph194 ], [ %233, %.preheader151 ], [ %311, %310 ]
+  %.6 = phi i8 [ %.092191, %.lr.ph194 ], [ %.193.lcssa, %.preheader151 ], [ %.4, %310 ]
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 240
+  %.191 = load ptr, ptr %317, align 8, !tbaa !12
   %.not109 = icmp eq ptr %.191, null
   br i1 %.not109, label %._crit_edge195, label %.lr.ph194, !llvm.loop !100
 
 ._crit_edge195:                                   ; preds = %.loopexit
-  %319 = trunc nuw i8 %.6 to i1
-  br i1 %319, label %320, label %._crit_edge195.thread
+  %318 = trunc nuw i8 %.6 to i1
+  br i1 %318, label %319, label %._crit_edge195.thread
 
-320:                                              ; preds = %._crit_edge195
+319:                                              ; preds = %._crit_edge195
   tail call void @checkLabelOrder(ptr noundef %0) #13
   tail call void @rec_reset_vlists(ptr noundef %0) #13
   br label %._crit_edge195.thread
 
-._crit_edge195.thread:                            ; preds = %.loopexit154, %320, %._crit_edge195
-  %.092.lcssa228 = phi i32 [ 1, %320 ], [ 0, %._crit_edge195 ], [ 0, %.loopexit154 ]
+._crit_edge195.thread:                            ; preds = %.loopexit154, %319, %._crit_edge195
+  %.092.lcssa228 = phi i32 [ 1, %319 ], [ 0, %._crit_edge195 ], [ 0, %.loopexit154 ]
   ret i32 %.092.lcssa228
 }
 
@@ -1236,6 +1235,9 @@ declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1270,43 +1270,39 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev15GammaBasicOpCPU5applyEPKvPvl(ptr 
   ret void
 
 10:                                               ; preds = %.lr.ph, %10
-  %.034 = phi ptr [ %1, %.lr.ph ], [ %33, %10 ]
-  %.01533 = phi ptr [ %2, %.lr.ph ], [ %34, %10 ]
-  %.01632 = phi i64 [ 0, %.lr.ph ], [ %35, %10 ]
+  %.034 = phi ptr [ %1, %.lr.ph ], [ %29, %10 ]
+  %.01533 = phi ptr [ %2, %.lr.ph ], [ %30, %10 ]
+  %.01632 = phi i64 [ 0, %.lr.ph ], [ %31, %10 ]
   %11 = load float, ptr %.034, align 4, !tbaa !125
-  %12 = fcmp ogt float %11, 0.000000e+00
-  %.sroa.speculated29 = select i1 %12, float %11, float 0.000000e+00
-  %13 = getelementptr inbounds nuw i8, ptr %.034, i64 4
-  %14 = load float, ptr %13, align 4, !tbaa !125
-  %15 = fcmp ogt float %14, 0.000000e+00
-  %.sroa.speculated25 = select i1 %15, float %14, float 0.000000e+00
-  %16 = getelementptr inbounds nuw i8, ptr %.034, i64 8
+  %.sroa.speculated29 = tail call float @llvm.maxnum.f32(float %11, float 0.000000e+00)
+  %12 = getelementptr inbounds nuw i8, ptr %.034, i64 4
+  %13 = load float, ptr %12, align 4, !tbaa !125
+  %.sroa.speculated25 = tail call float @llvm.maxnum.f32(float %13, float 0.000000e+00)
+  %14 = getelementptr inbounds nuw i8, ptr %.034, i64 8
+  %15 = load float, ptr %14, align 4, !tbaa !125
+  %.sroa.speculated21 = tail call float @llvm.maxnum.f32(float %15, float 0.000000e+00)
+  %16 = getelementptr inbounds nuw i8, ptr %.034, i64 12
   %17 = load float, ptr %16, align 4, !tbaa !125
-  %18 = fcmp ogt float %17, 0.000000e+00
-  %.sroa.speculated21 = select i1 %18, float %17, float 0.000000e+00
-  %19 = getelementptr inbounds nuw i8, ptr %.034, i64 12
-  %20 = load float, ptr %19, align 4, !tbaa !125
-  %21 = fcmp ogt float %20, 0.000000e+00
-  %.sroa.speculated = select i1 %21, float %20, float 0.000000e+00
-  %22 = load float, ptr %6, align 8, !tbaa !103
-  %23 = tail call noundef float @powf(float noundef %.sroa.speculated29, float noundef %22) #22, !tbaa !129
-  store float %23, ptr %.01533, align 4, !tbaa !125
-  %24 = load float, ptr %7, align 4, !tbaa !107
-  %25 = tail call noundef float @powf(float noundef %.sroa.speculated25, float noundef %24) #22, !tbaa !129
-  %26 = getelementptr inbounds nuw i8, ptr %.01533, i64 4
-  store float %25, ptr %26, align 4, !tbaa !125
-  %27 = load float, ptr %8, align 8, !tbaa !108
-  %28 = tail call noundef float @powf(float noundef %.sroa.speculated21, float noundef %27) #22, !tbaa !129
-  %29 = getelementptr inbounds nuw i8, ptr %.01533, i64 8
-  store float %28, ptr %29, align 4, !tbaa !125
-  %30 = load float, ptr %9, align 4, !tbaa !109
-  %31 = tail call noundef float @powf(float noundef %.sroa.speculated, float noundef %30) #22, !tbaa !129
-  %32 = getelementptr inbounds nuw i8, ptr %.01533, i64 12
-  store float %31, ptr %32, align 4, !tbaa !125
-  %33 = getelementptr inbounds nuw i8, ptr %.034, i64 16
-  %34 = getelementptr inbounds nuw i8, ptr %.01533, i64 16
-  %35 = add nuw nsw i64 %.01632, 1
-  %exitcond.not = icmp eq i64 %35, %3
+  %.sroa.speculated = tail call float @llvm.maxnum.f32(float %17, float 0.000000e+00)
+  %18 = load float, ptr %6, align 8, !tbaa !103
+  %19 = tail call noundef float @powf(float noundef %.sroa.speculated29, float noundef %18) #22, !tbaa !129
+  store float %19, ptr %.01533, align 4, !tbaa !125
+  %20 = load float, ptr %7, align 4, !tbaa !107
+  %21 = tail call noundef float @powf(float noundef %.sroa.speculated25, float noundef %20) #22, !tbaa !129
+  %22 = getelementptr inbounds nuw i8, ptr %.01533, i64 4
+  store float %21, ptr %22, align 4, !tbaa !125
+  %23 = load float, ptr %8, align 8, !tbaa !108
+  %24 = tail call noundef float @powf(float noundef %.sroa.speculated21, float noundef %23) #22, !tbaa !129
+  %25 = getelementptr inbounds nuw i8, ptr %.01533, i64 8
+  store float %24, ptr %25, align 4, !tbaa !125
+  %26 = load float, ptr %9, align 4, !tbaa !109
+  %27 = tail call noundef float @powf(float noundef %.sroa.speculated, float noundef %26) #22, !tbaa !129
+  %28 = getelementptr inbounds nuw i8, ptr %.01533, i64 12
+  store float %27, ptr %28, align 4, !tbaa !125
+  %29 = getelementptr inbounds nuw i8, ptr %.034, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.01533, i64 16
+  %31 = add nuw nsw i64 %.01632, 1
+  %exitcond.not = icmp eq i64 %31, %3
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !130
 }
 
@@ -4673,6 +4669,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x float> @llvm.fabs.v4f32(<4 x float>) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #20
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

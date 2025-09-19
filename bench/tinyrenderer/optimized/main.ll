@@ -1986,56 +1986,54 @@ _ZNK3vecILi3EEixEi.exit8.i152:                    ; preds = %_ZNK3vecILi3EEixEi.
 
 _ZmlILi3EEdRK3vecIXT_EES3_.exit159:               ; preds = %_ZNK3vecILi3EEixEi.exit8.i152, %_ZNK3vecILi3EEixEi.exit8.thread.i157
   %293 = phi double [ %289, %_ZNK3vecILi3EEixEi.exit8.thread.i157 ], [ %292, %_ZNK3vecILi3EEixEi.exit8.i152 ]
-  %294 = fcmp ogt double %293, 0.000000e+00
-  %.sroa.speculated171 = select i1 %294, double %293, double 0.000000e+00
-  %295 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %296 = load double, ptr %295, align 8
-  %297 = fneg double %296
-  %298 = fcmp olt double %297, 0.000000e+00
-  %.sroa.speculated169 = select i1 %298, double 0.000000e+00, double %297
-  %299 = load ptr, ptr %202, align 8, !tbaa !83
-  %300 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5Model8specularEv(ptr noundef nonnull align 8 dereferenceable(264) %299)
-  %301 = load double, ptr %7, align 8, !tbaa !38
-  %302 = call noundef i32 @_ZNK8TGAImage5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %300)
-  %303 = sitofp i32 %302 to double
-  %304 = fmul double %301, %303
-  %305 = fptosi double %304 to i32
-  %306 = load double, ptr %69, align 8, !tbaa !38
-  %307 = call noundef i32 @_ZNK8TGAImage6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %300)
-  %308 = sitofp i32 %307 to double
-  %309 = fmul double %306, %308
-  %310 = fptosi double %309 to i32
-  %311 = call i40 @_ZNK8TGAImage3getEii(ptr noundef nonnull align 8 dereferenceable(40) %300, i32 noundef %305, i32 noundef %310)
-  %.sroa.0168.0.extract.trunc = trunc i40 %311 to i32
-  %312 = and i32 %.sroa.0168.0.extract.trunc, 255
-  %313 = add nuw nsw i32 %312, 5
-  %314 = uitofp nneg i32 %313 to double
-  %315 = call noundef double @pow(double noundef %.sroa.speculated169, double noundef %314) #18, !tbaa !42
+  %.sroa.speculated171 = call double @llvm.maxnum.f64(double %293, double 0.000000e+00)
+  %294 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %295 = load double, ptr %294, align 8
+  %296 = fneg double %295
+  %.sroa.speculated169 = call double @llvm.maxnum.f64(double %296, double 0.000000e+00)
+  %297 = load ptr, ptr %202, align 8, !tbaa !83
+  %298 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5Model8specularEv(ptr noundef nonnull align 8 dereferenceable(264) %297)
+  %299 = load double, ptr %7, align 8, !tbaa !38
+  %300 = call noundef i32 @_ZNK8TGAImage5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %298)
+  %301 = sitofp i32 %300 to double
+  %302 = fmul double %299, %301
+  %303 = fptosi double %302 to i32
+  %304 = load double, ptr %69, align 8, !tbaa !38
+  %305 = call noundef i32 @_ZNK8TGAImage6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %298)
+  %306 = sitofp i32 %305 to double
+  %307 = fmul double %304, %306
+  %308 = fptosi double %307 to i32
+  %309 = call i40 @_ZNK8TGAImage3getEii(ptr noundef nonnull align 8 dereferenceable(40) %298, i32 noundef %303, i32 noundef %308)
+  %.sroa.0168.0.extract.trunc = trunc i40 %309 to i32
+  %310 = and i32 %.sroa.0168.0.extract.trunc, 255
+  %311 = add nuw nsw i32 %310, 5
+  %312 = uitofp nneg i32 %311 to double
+  %313 = call noundef double @pow(double noundef %.sroa.speculated169, double noundef %312) #18, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %316 = load ptr, ptr %202, align 8, !tbaa !83
-  %317 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5Model7diffuseEv(ptr noundef nonnull align 8 dereferenceable(264) %316)
-  %318 = load double, ptr %7, align 8, !tbaa !38
-  %319 = call noundef i32 @_ZNK8TGAImage5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %317)
-  %320 = sitofp i32 %319 to double
-  %321 = fmul double %318, %320
-  %322 = fptosi double %321 to i32
-  %323 = load double, ptr %69, align 8, !tbaa !38
-  %324 = call noundef i32 @_ZNK8TGAImage6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %317)
-  %325 = sitofp i32 %324 to double
-  %326 = fmul double %323, %325
-  %327 = fptosi double %326 to i32
-  %328 = call i40 @_ZNK8TGAImage3getEii(ptr noundef nonnull align 8 dereferenceable(40) %317, i32 noundef %322, i32 noundef %327)
-  store i40 %328, ptr %17, align 8
+  %314 = load ptr, ptr %202, align 8, !tbaa !83
+  %315 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5Model7diffuseEv(ptr noundef nonnull align 8 dereferenceable(264) %314)
+  %316 = load double, ptr %7, align 8, !tbaa !38
+  %317 = call noundef i32 @_ZNK8TGAImage5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %315)
+  %318 = sitofp i32 %317 to double
+  %319 = fmul double %316, %318
+  %320 = fptosi double %319 to i32
+  %321 = load double, ptr %69, align 8, !tbaa !38
+  %322 = call noundef i32 @_ZNK8TGAImage6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %315)
+  %323 = sitofp i32 %322 to double
+  %324 = fmul double %321, %323
+  %325 = fptosi double %324 to i32
+  %326 = call i40 @_ZNK8TGAImage3getEii(ptr noundef nonnull align 8 dereferenceable(40) %315, i32 noundef %320, i32 noundef %325)
+  store i40 %326, ptr %17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !42
-  %329 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 1, ptr %329, align 4, !tbaa !42
-  %330 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 2, ptr %330, align 4, !tbaa !42
-  %331 = fadd double %.sroa.speculated171, %315
-  br label %333
+  %327 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 1, ptr %327, align 4, !tbaa !42
+  %328 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 2, ptr %328, align 4, !tbaa !42
+  %329 = fadd double %.sroa.speculated171, %313
+  br label %331
 
-332:                                              ; preds = %333
+330:                                              ; preds = %331
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -2046,23 +2044,23 @@ _ZmlILi3EEdRK3vecIXT_EES3_.exit159:               ; preds = %_ZNK3vecILi3EEixEi.
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 false
 
-333:                                              ; preds = %_ZmlILi3EEdRK3vecIXT_EES3_.exit159, %333
-  %.0.idx219 = phi i64 [ 0, %_ZmlILi3EEdRK3vecIXT_EES3_.exit159 ], [ %.0.add, %333 ]
+331:                                              ; preds = %_ZmlILi3EEdRK3vecIXT_EES3_.exit159, %331
+  %.0.idx219 = phi i64 [ 0, %_ZmlILi3EEdRK3vecIXT_EES3_.exit159 ], [ %.0.add, %331 ]
   %.0.ptr = getelementptr inbounds nuw i8, ptr %18, i64 %.0.idx219
-  %334 = load i32, ptr %.0.ptr, align 4, !tbaa !42
-  %335 = sext i32 %334 to i64
-  %336 = getelementptr inbounds i8, ptr %17, i64 %335
-  %337 = load i8, ptr %336, align 1, !tbaa !37
-  %338 = uitofp i8 %337 to double
-  %339 = call double @llvm.fmuladd.f64(double %338, double %331, double 1.000000e+01)
-  %340 = fptosi double %339 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %340, i32 255)
-  %341 = trunc i32 %.sroa.speculated to i8
-  %342 = getelementptr inbounds i8, ptr %2, i64 %335
-  store i8 %341, ptr %342, align 1, !tbaa !37
+  %332 = load i32, ptr %.0.ptr, align 4, !tbaa !42
+  %333 = sext i32 %332 to i64
+  %334 = getelementptr inbounds i8, ptr %17, i64 %333
+  %335 = load i8, ptr %334, align 1, !tbaa !37
+  %336 = uitofp i8 %335 to double
+  %337 = call double @llvm.fmuladd.f64(double %336, double %329, double 1.000000e+01)
+  %338 = fptosi double %337 to i32
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %338, i32 255)
+  %339 = trunc i32 %.sroa.speculated to i8
+  %340 = getelementptr inbounds i8, ptr %2, i64 %333
+  store i8 %339, ptr %340, align 1, !tbaa !37
   %.0.add = add nuw nsw i64 %.0.idx219, 4
   %.not = icmp eq i64 %.0.add, 12
-  br i1 %.not, label %332, label %333
+  br i1 %.not, label %330, label %331
 }
 
 declare void @_ZNK5Model6normalERK3vecILi2EE(ptr dead_on_unwind writable sret(%struct.vec) align 8, ptr noundef nonnull align 8 dereferenceable(264), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
@@ -2515,6 +2513,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #17

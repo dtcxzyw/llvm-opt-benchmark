@@ -23,13 +23,12 @@ define dso_local noundef float @_ZNK12ValueHistory12getSampleMinEv(ptr noundef n
   %.068 = phi float [ %2, %1 ], [ %.1, %3 ]
   %4 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %5 = load float, ptr %4, align 4
-  %6 = fcmp olt float %5, %.068
-  %.1 = select i1 %6, float %5, float %.068
+  %.1 = tail call float @llvm.minnum.f32(float %5, float %.068)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %7, label %3, !llvm.loop !5
+  br i1 %exitcond.not, label %6, label %3, !llvm.loop !5
 
-7:                                                ; preds = %3
+6:                                                ; preds = %3
   ret float %.1
 }
 
@@ -43,13 +42,12 @@ define dso_local noundef float @_ZNK12ValueHistory12getSampleMaxEv(ptr noundef n
   %.068 = phi float [ %2, %1 ], [ %.1, %3 ]
   %4 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %5 = load float, ptr %4, align 4
-  %6 = fcmp ogt float %5, %.068
-  %.1 = select i1 %6, float %5, float %.068
+  %.1 = tail call float @llvm.maxnum.f32(float %5, float %.068)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %7, label %3, !llvm.loop !7
+  br i1 %exitcond.not, label %6, label %3, !llvm.loop !7
 
-7:                                                ; preds = %3
+6:                                                ; preds = %3
   ret float %.1
 }
 
@@ -95,7 +93,7 @@ define dso_local void @_ZN11GraphParams13setValueRangeEffiPKc(ptr noundef nonnul
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %3, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %4) #9
+  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %4) #10
   ret void
 }
 
@@ -156,7 +154,7 @@ define dso_local void @_Z19drawGraphBackgroundPK11GraphParams(ptr noundef %0) lo
   %43 = fsub float %42, %41
   %44 = call float @llvm.fmuladd.f32(float %43, float %40, float %41)
   %45 = fpext float %44 to double
-  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str, double noundef %45, ptr noundef nonnull %35) #9
+  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str, double noundef %45, ptr noundef nonnull %35) #10
   %47 = call float @llvm.fmuladd.f32(float %44, float %27, float %32)
   %48 = load i32, ptr %0, align 4
   %49 = load i32, ptr %8, align 4
@@ -287,7 +285,7 @@ _ZNK12ValueHistory10getAverageEv.exit:            ; preds = %60
   %64 = fmul float %63, 3.906250e-03
   %65 = fpext float %64 to double
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str, double noundef %65, ptr noundef nonnull %66) #9
+  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str, double noundef %65, ptr noundef nonnull %66) #10
   %68 = add nsw i32 %52, 25
   %69 = add nsw i32 %57, 3
   tail call void @_Z13imguiDrawTextiiiPKcj(i32 noundef %68, i32 noundef %69, i32 noundef 0, ptr noundef %3, i32 noundef -1056964609)
@@ -299,6 +297,12 @@ _ZNK12ValueHistory10getAverageEv.exit:            ; preds = %60
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #9
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -308,7 +312,8 @@ attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

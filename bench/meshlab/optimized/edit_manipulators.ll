@@ -5535,14 +5535,11 @@ define void @_ZN22EditManipulatorsPlugin9DrawCubesEfff(ptr nonnull readnone alig
   tail call void @glVertex3f(float noundef 0.000000e+00, float noundef 0x3FB99999A0000000, float noundef 0xBFF19999A0000000)
   tail call void @glEnd()
   %5 = fadd float %1, 0x3FC99999A0000000
-  %6 = fcmp olt float %5, 1.000000e+00
-  %.sroa.speculated14 = select i1 %6, float %5, float 1.000000e+00
-  %7 = fadd float %2, 0x3FC99999A0000000
-  %8 = fcmp olt float %7, 1.000000e+00
-  %.sroa.speculated9 = select i1 %8, float %7, float 1.000000e+00
-  %9 = fadd float %3, 0x3FC99999A0000000
-  %10 = fcmp olt float %9, 1.000000e+00
-  %.sroa.speculated = select i1 %10, float %9, float 1.000000e+00
+  %.sroa.speculated14 = tail call float @llvm.minnum.f32(float %5, float 1.000000e+00)
+  %6 = fadd float %2, 0x3FC99999A0000000
+  %.sroa.speculated9 = tail call float @llvm.minnum.f32(float %6, float 1.000000e+00)
+  %7 = fadd float %3, 0x3FC99999A0000000
+  %.sroa.speculated = tail call float @llvm.minnum.f32(float %7, float 1.000000e+00)
   tail call void @glColor4f(float noundef %.sroa.speculated14, float noundef %.sroa.speculated9, float noundef %.sroa.speculated, float noundef 5.000000e-01)
   tail call void @glBegin(i32 noundef 6)
   tail call void @glVertex3f(float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0x3FF3333340000000)
@@ -5605,14 +5602,11 @@ define void @_ZN22EditManipulatorsPlugin10DrawArrowsEfff(ptr nonnull readnone al
   tail call void @glVertex3f(float noundef 0xBFB99999A0000000, float noundef 0xBFB99999A0000000, float noundef 0xBFECCCCCC0000000)
   tail call void @glEnd()
   %5 = fadd float %1, 0x3FC99999A0000000
-  %6 = fcmp olt float %5, 1.000000e+00
-  %.sroa.speculated14 = select i1 %6, float %5, float 1.000000e+00
-  %7 = fadd float %2, 0x3FC99999A0000000
-  %8 = fcmp olt float %7, 1.000000e+00
-  %.sroa.speculated9 = select i1 %8, float %7, float 1.000000e+00
-  %9 = fadd float %3, 0x3FC99999A0000000
-  %10 = fcmp olt float %9, 1.000000e+00
-  %.sroa.speculated = select i1 %10, float %9, float 1.000000e+00
+  %.sroa.speculated14 = tail call float @llvm.minnum.f32(float %5, float 1.000000e+00)
+  %6 = fadd float %2, 0x3FC99999A0000000
+  %.sroa.speculated9 = tail call float @llvm.minnum.f32(float %6, float 1.000000e+00)
+  %7 = fadd float %3, 0x3FC99999A0000000
+  %.sroa.speculated = tail call float @llvm.minnum.f32(float %7, float 1.000000e+00)
   tail call void @glColor4f(float noundef %.sroa.speculated14, float noundef %.sroa.speculated9, float noundef %.sroa.speculated, float noundef 5.000000e-01)
   tail call void @glBegin(i32 noundef 6)
   tail call void @glVertex3f(float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0x3FF19999A0000000)
@@ -5657,52 +5651,49 @@ define void @_ZN22EditManipulatorsPlugin10DrawCircleEfff(ptr noundef nonnull rea
 12:                                               ; preds = %5
   tail call void @glEnd()
   %13 = fadd float %1, 0x3FC99999A0000000
-  %14 = fcmp olt float %13, 1.000000e+00
-  %.sroa.speculated33 = select i1 %14, float %13, float 1.000000e+00
-  %15 = fadd float %2, 0x3FC99999A0000000
-  %16 = fcmp olt float %15, 1.000000e+00
-  %.sroa.speculated28 = select i1 %16, float %15, float 1.000000e+00
-  %17 = fadd float %3, 0x3FC99999A0000000
-  %18 = fcmp olt float %17, 1.000000e+00
-  %.sroa.speculated = select i1 %18, float %17, float 1.000000e+00
+  %.sroa.speculated33 = tail call float @llvm.minnum.f32(float %13, float 1.000000e+00)
+  %14 = fadd float %2, 0x3FC99999A0000000
+  %.sroa.speculated28 = tail call float @llvm.minnum.f32(float %14, float 1.000000e+00)
+  %15 = fadd float %3, 0x3FC99999A0000000
+  %.sroa.speculated = tail call float @llvm.minnum.f32(float %15, float 1.000000e+00)
   tail call void @glColor4f(float noundef %.sroa.speculated33, float noundef %.sroa.speculated28, float noundef %.sroa.speculated, float noundef 5.000000e-01)
   tail call void @glBegin(i32 noundef 6)
   tail call void @glVertex3d(double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %20 = load float, ptr %19, align 4
-  %21 = fcmp ult float %20, 0.000000e+00
-  br i1 %21, label %.thread, label %26
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  %17 = load float, ptr %16, align 4
+  %18 = fcmp ult float %17, 0.000000e+00
+  br i1 %18, label %.thread, label %23
 
 .thread:                                          ; preds = %12
-  %22 = fneg float %20
-  %23 = fptosi float %22 to i32
-  %24 = srem i32 %23, 360
-  %25 = sub nsw i32 360, %24
+  %19 = fneg float %17
+  %20 = fptosi float %19 to i32
+  %21 = srem i32 %20, 360
+  %22 = sub nsw i32 360, %21
   br label %.lr.ph.preheader
 
-26:                                               ; preds = %12
-  %27 = fptosi float %20 to i32
-  %28 = srem i32 %27, 360
-  %29 = icmp slt i32 %28, 0
-  br i1 %29, label %._crit_edge, label %.lr.ph.preheader
+23:                                               ; preds = %12
+  %24 = fptosi float %17 to i32
+  %25 = srem i32 %24, 360
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread, %26
-  %.in = phi i32 [ %25, %.thread ], [ %28, %26 ]
-  %30 = uitofp i32 %.in to double
+.lr.ph.preheader:                                 ; preds = %.thread, %23
+  %.in = phi i32 [ %22, %.thread ], [ %25, %23 ]
+  %27 = uitofp i32 %.in to double
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.038 = phi double [ %35, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %31 = fmul double %.038, 0x401921FB53C8D4F1
-  %32 = fdiv double %31, 3.600000e+02
-  %33 = tail call double @cos(double noundef %32) #25
-  %34 = tail call double @sin(double noundef %32) #25
-  tail call void @glVertex3d(double noundef %33, double noundef %34, double noundef 0.000000e+00)
-  %35 = fadd double %.038, 1.000000e+00
-  %36 = fcmp ugt double %35, %30
-  br i1 %36, label %._crit_edge, label %.lr.ph, !llvm.loop !116
+  %.038 = phi double [ %32, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+  %28 = fmul double %.038, 0x401921FB53C8D4F1
+  %29 = fdiv double %28, 3.600000e+02
+  %30 = tail call double @cos(double noundef %29) #25
+  %31 = tail call double @sin(double noundef %29) #25
+  tail call void @glVertex3d(double noundef %30, double noundef %31, double noundef 0.000000e+00)
+  %32 = fadd double %.038, 1.000000e+00
+  %33 = fcmp ugt double %32, %27
+  br i1 %33, label %._crit_edge, label %.lr.ph, !llvm.loop !116
 
-._crit_edge:                                      ; preds = %.lr.ph, %26
+._crit_edge:                                      ; preds = %.lr.ph, %23
   tail call void @glEnd()
   ret void
 }
@@ -12445,6 +12436,9 @@ declare float @llvm.sqrt.f32(float) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #23
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

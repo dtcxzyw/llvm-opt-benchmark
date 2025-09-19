@@ -9781,41 +9781,33 @@ define hidden void @"_ZN87_$LT$typst..visualize..color..ColorSpace$u20$as$u20$ty
   %14 = load float, ptr %13, align 4, !noalias !2014, !noundef !13
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2014
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2014
-  %15 = fcmp olt float %12, 0.000000e+00
-  %.0.i.i = select i1 %15, float 0.000000e+00, float %12
-  %16 = fcmp ogt float %.0.i.i, 5.000000e-01
-  %.1.i.i = select i1 %16, float 5.000000e-01, float %.0.i.i
-  %17 = fmul float %14, 0x3F91DF46A0000000
-  %18 = call float @llvm.cos.f32(float %17)
-  %19 = fmul float %18, %.1.i.i
-  %20 = call float @llvm.sin.f32(float %17)
-  %21 = fmul float %20, %.1.i.i
-  %22 = fadd float %19, 5.000000e-01
-  %23 = fadd float %21, 5.000000e-01
+  %.0.i.i = call float @llvm.maxnum.f32(float %12, float 0.000000e+00)
+  %.1.i.i = call noundef float @llvm.minnum.f32(float %.0.i.i, float 5.000000e-01)
+  %15 = fmul float %14, 0x3F91DF46A0000000
+  %16 = call float @llvm.cos.f32(float %15)
+  %17 = fmul float %.1.i.i, %16
+  %18 = call float @llvm.sin.f32(float %15)
+  %19 = fmul float %.1.i.i, %18
+  %20 = fadd float %17, 5.000000e-01
+  %21 = fadd float %19, 5.000000e-01
   br label %"_ZN56_$LT$f32$u20$as$u20$typst_pdf..color..QuantizedColor$GT$8quantize17he16b23bafbf73f6eE.exit16"
 
 "_ZN56_$LT$f32$u20$as$u20$typst_pdf..color..QuantizedColor$GT$8quantize17he16b23bafbf73f6eE.exit16": ; preds = %9, %8
-  %24 = phi float [ %23, %9 ], [ %.pre19, %8 ]
-  %25 = phi float [ %22, %9 ], [ %.pre17, %8 ]
-  %26 = phi float [ %10, %9 ], [ %.pre, %8 ]
+  %22 = phi float [ %21, %9 ], [ %.pre19, %8 ]
+  %23 = phi float [ %20, %9 ], [ %.pre17, %8 ]
+  %24 = phi float [ %10, %9 ], [ %.pre, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %27 = fcmp olt float %26, 0.000000e+00
-  %.0.i.i7 = select i1 %27, float 0.000000e+00, float %26
-  %28 = fcmp ogt float %.0.i.i7, 1.000000e+00
-  %.1.i.i8 = select i1 %28, float 1.000000e+00, float %.0.i.i7
-  %29 = fcmp olt float %25, 0.000000e+00
-  %.0.i.i10 = select i1 %29, float 0.000000e+00, float %25
-  %30 = fcmp ogt float %.0.i.i10, 1.000000e+00
-  %.1.i.i11 = select i1 %30, float 1.000000e+00, float %.0.i.i10
-  %31 = fcmp olt float %24, 0.000000e+00
-  %.0.i.i14 = select i1 %31, float 0.000000e+00, float %24
-  %32 = fcmp ogt float %.0.i.i14, 1.000000e+00
-  %.1.i.i15 = select i1 %32, float 1.000000e+00, float %.0.i.i14
+  %.0.i.i7 = call float @llvm.maxnum.f32(float %24, float 0.000000e+00)
+  %.1.i.i8 = call noundef float @llvm.minnum.f32(float %.0.i.i7, float 1.000000e+00)
+  %.0.i.i10 = call float @llvm.maxnum.f32(float %23, float 0.000000e+00)
+  %.1.i.i11 = call noundef float @llvm.minnum.f32(float %.0.i.i10, float 1.000000e+00)
+  %.0.i.i14 = call float @llvm.maxnum.f32(float %22, float 0.000000e+00)
+  %.1.i.i15 = call noundef float @llvm.minnum.f32(float %.0.i.i14, float 1.000000e+00)
   store float %.1.i.i8, ptr %0, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.1.i.i11, ptr %33, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.1.i.i15, ptr %34, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.1.i.i11, ptr %25, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.1.i.i15, ptr %26, align 4
   ret void
 }
 
@@ -9857,51 +9849,43 @@ define hidden i48 @"_ZN87_$LT$typst..visualize..color..ColorSpace$u20$as$u20$typ
   %13 = load float, ptr %12, align 4, !noalias !2021, !noundef !13
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2021
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2021
-  %14 = fcmp olt float %11, 0.000000e+00
-  %.0.i.i = select i1 %14, float 0.000000e+00, float %11
-  %15 = fcmp ogt float %.0.i.i, 5.000000e-01
-  %.1.i.i = select i1 %15, float 5.000000e-01, float %.0.i.i
-  %16 = fmul float %13, 0x3F91DF46A0000000
-  %17 = call float @llvm.cos.f32(float %16)
-  %18 = fmul float %17, %.1.i.i
-  %19 = call float @llvm.sin.f32(float %16)
-  %20 = fmul float %19, %.1.i.i
-  %21 = fadd float %18, 5.000000e-01
-  %22 = fadd float %20, 5.000000e-01
+  %.0.i.i = call float @llvm.maxnum.f32(float %11, float 0.000000e+00)
+  %.1.i.i = call noundef float @llvm.minnum.f32(float %.0.i.i, float 5.000000e-01)
+  %14 = fmul float %13, 0x3F91DF46A0000000
+  %15 = call float @llvm.cos.f32(float %14)
+  %16 = fmul float %.1.i.i, %15
+  %17 = call float @llvm.sin.f32(float %14)
+  %18 = fmul float %.1.i.i, %17
+  %19 = fadd float %16, 5.000000e-01
+  %20 = fadd float %18, 5.000000e-01
   br label %"_ZN85_$LT$typst..visualize..color..ColorSpace$u20$as$u20$typst_pdf..color..ColorEncode$GT$6encode17h11d1dbc7cfdc5f53E.exit"
 
 "_ZN85_$LT$typst..visualize..color..ColorSpace$u20$as$u20$typst_pdf..color..ColorEncode$GT$6encode17h11d1dbc7cfdc5f53E.exit": ; preds = %7, %8
-  %23 = phi float [ %.pre18, %7 ], [ %22, %8 ]
-  %24 = phi float [ %.pre16, %7 ], [ %21, %8 ]
-  %25 = phi float [ %.pre, %7 ], [ %9, %8 ]
+  %21 = phi float [ %.pre18, %7 ], [ %20, %8 ]
+  %22 = phi float [ %.pre16, %7 ], [ %19, %8 ]
+  %23 = phi float [ %.pre, %7 ], [ %9, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %26 = fmul float %25, 6.553500e+04
-  %27 = call float @llvm.round.f32(float %26)
-  %28 = fcmp olt float %27, 0.000000e+00
-  %.0.i.i8 = select i1 %28, float 0.000000e+00, float %27
-  %29 = fcmp ogt float %.0.i.i8, 6.553500e+04
-  %.1.i.i9 = select i1 %29, float 6.553500e+04, float %.0.i.i8
-  %30 = call noundef i16 @llvm.fptoui.sat.i16.f32(float %.1.i.i9)
-  %31 = fmul float %24, 6.553500e+04
-  %32 = call float @llvm.round.f32(float %31)
-  %33 = fcmp olt float %32, 0.000000e+00
-  %.0.i.i11 = select i1 %33, float 0.000000e+00, float %32
-  %34 = fcmp ogt float %.0.i.i11, 6.553500e+04
-  %.1.i.i12 = select i1 %34, float 6.553500e+04, float %.0.i.i11
-  %35 = call noundef i16 @llvm.fptoui.sat.i16.f32(float %.1.i.i12)
-  %36 = fmul float %23, 6.553500e+04
-  %37 = call float @llvm.round.f32(float %36)
-  %38 = fcmp olt float %37, 0.000000e+00
-  %.0.i.i14 = select i1 %38, float 0.000000e+00, float %37
-  %39 = fcmp ogt float %.0.i.i14, 6.553500e+04
-  %.1.i.i15 = select i1 %39, float 6.553500e+04, float %.0.i.i14
-  %40 = call noundef i16 @llvm.fptoui.sat.i16.f32(float %.1.i.i15)
-  %.sroa.3.0.insert.ext = zext i16 %40 to i48
+  %24 = fmul float %23, 6.553500e+04
+  %25 = call float @llvm.round.f32(float %24)
+  %.0.i.i8 = call float @llvm.maxnum.f32(float %25, float 0.000000e+00)
+  %.1.i.i9 = call noundef float @llvm.minnum.f32(float %.0.i.i8, float 6.553500e+04)
+  %26 = call noundef i16 @llvm.fptoui.sat.i16.f32(float %.1.i.i9)
+  %27 = fmul float %22, 6.553500e+04
+  %28 = call float @llvm.round.f32(float %27)
+  %.0.i.i11 = call float @llvm.maxnum.f32(float %28, float 0.000000e+00)
+  %.1.i.i12 = call noundef float @llvm.minnum.f32(float %.0.i.i11, float 6.553500e+04)
+  %29 = call noundef i16 @llvm.fptoui.sat.i16.f32(float %.1.i.i12)
+  %30 = fmul float %21, 6.553500e+04
+  %31 = call float @llvm.round.f32(float %30)
+  %.0.i.i14 = call float @llvm.maxnum.f32(float %31, float 0.000000e+00)
+  %.1.i.i15 = call noundef float @llvm.minnum.f32(float %.0.i.i14, float 6.553500e+04)
+  %32 = call noundef i16 @llvm.fptoui.sat.i16.f32(float %.1.i.i15)
+  %.sroa.3.0.insert.ext = zext i16 %32 to i48
   %.sroa.3.0.insert.shift = shl nuw i48 %.sroa.3.0.insert.ext, 32
-  %.sroa.2.0.insert.ext = zext i16 %35 to i48
+  %.sroa.2.0.insert.ext = zext i16 %29 to i48
   %.sroa.2.0.insert.shift = shl nuw nsw i48 %.sroa.2.0.insert.ext, 16
   %.sroa.2.0.insert.insert = or disjoint i48 %.sroa.3.0.insert.shift, %.sroa.2.0.insert.shift
-  %.sroa.0.0.insert.ext = zext i16 %30 to i48
+  %.sroa.0.0.insert.ext = zext i16 %26 to i48
   %.sroa.0.0.insert.insert = or disjoint i48 %.sroa.2.0.insert.insert, %.sroa.0.0.insert.ext
   ret i48 %.sroa.0.0.insert.insert
 }
@@ -10849,6 +10833,12 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #30
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

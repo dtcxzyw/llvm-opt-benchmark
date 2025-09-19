@@ -105230,9 +105230,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %39,
 define internal void @_ZN6open3d4core6kernelL19CPUMaxElementKernelIfEEvPKvS4_Pv(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #14 {
   %4 = load float, ptr %0, align 4, !tbaa !694
   %5 = load float, ptr %1, align 4, !tbaa !694
-  %6 = fcmp olt float %4, %5
-  %7 = select i1 %6, float %5, float %4
-  store float %7, ptr %2, align 4, !tbaa !694
+  %6 = tail call float @llvm.maxnum.f32(float %5, float %4)
+  store float %6, ptr %2, align 4, !tbaa !694
   ret void
 }
 
@@ -105240,9 +105239,8 @@ define internal void @_ZN6open3d4core6kernelL19CPUMaxElementKernelIfEEvPKvS4_Pv(
 define internal void @_ZN6open3d4core6kernelL19CPUMinElementKernelIfEEvPKvS4_Pv(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #14 {
   %4 = load float, ptr %1, align 4, !tbaa !694
   %5 = load float, ptr %0, align 4, !tbaa !694
-  %6 = fcmp olt float %4, %5
-  %7 = select i1 %6, float %4, float %5
-  store float %7, ptr %2, align 4, !tbaa !694
+  %6 = tail call float @llvm.minnum.f32(float %4, float %5)
+  store float %6, ptr %2, align 4, !tbaa !694
   ret void
 }
 
@@ -105603,9 +105601,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %39,
 define internal void @_ZN6open3d4core6kernelL19CPUMaxElementKernelIdEEvPKvS4_Pv(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #14 {
   %4 = load double, ptr %0, align 8, !tbaa !723
   %5 = load double, ptr %1, align 8, !tbaa !723
-  %6 = fcmp olt double %4, %5
-  %7 = select i1 %6, double %5, double %4
-  store double %7, ptr %2, align 8, !tbaa !723
+  %6 = tail call double @llvm.maxnum.f64(double %5, double %4)
+  store double %6, ptr %2, align 8, !tbaa !723
   ret void
 }
 
@@ -105613,9 +105610,8 @@ define internal void @_ZN6open3d4core6kernelL19CPUMaxElementKernelIdEEvPKvS4_Pv(
 define internal void @_ZN6open3d4core6kernelL19CPUMinElementKernelIdEEvPKvS4_Pv(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #14 {
   %4 = load double, ptr %1, align 8, !tbaa !723
   %5 = load double, ptr %0, align 8, !tbaa !723
-  %6 = fcmp olt double %4, %5
-  %7 = select i1 %6, double %4, double %5
-  store double %7, ptr %2, align 8, !tbaa !723
+  %6 = tail call double @llvm.minnum.f64(double %4, double %5)
+  store double %6, ptr %2, align 8, !tbaa !723
   ret void
 }
 
@@ -117790,6 +117786,18 @@ declare i8 @llvm.umin.i8(i8, i8) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.smin.i8(i8, i8) #29

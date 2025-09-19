@@ -11098,7 +11098,7 @@ _ZNSt10_HashtableIiSt4pairIKimESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define void @_Z21common_embd_normalizePKfPfii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #23 {
   switch i32 %3, label %.preheader [
-    i32 -1, label %30
+    i32 -1, label %29
     i32 0, label %.preheader41
     i32 2, label %.preheader42
   ]
@@ -11126,12 +11126,12 @@ define void @_Z21common_embd_normalizePKfPfii(ptr noundef readonly captures(none
 
 .lr.ph52:                                         ; preds = %.preheader
   %wide.trip.count69 = zext nneg i32 %2 to i64
-  br label %23
+  br label %22
 
 ._crit_edge48:                                    ; preds = %.lr.ph47, %.preheader41
   %.1.lcssa = phi double [ 0.000000e+00, %.preheader41 ], [ %.2, %.lr.ph47 ]
   %9 = fdiv double %.1.lcssa, 3.276000e+04
-  br label %30
+  br label %29
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
   %indvars.iv61 = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next62, %.lr.ph47 ]
@@ -11140,71 +11140,70 @@ define void @_Z21common_embd_normalizePKfPfii(ptr noundef readonly captures(none
   %11 = load float, ptr %10, align 4, !tbaa !446
   %12 = tail call noundef float @llvm.fabs.f32(float %11)
   %13 = fpext float %12 to double
-  %14 = fcmp olt double %.146, %13
-  %.2 = select i1 %14, double %13, double %.146
+  %.2 = tail call double @llvm.maxnum.f64(double %13, double %.146)
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
   br i1 %exitcond65.not, label %._crit_edge48, label %.lr.ph47, !llvm.loop !499
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader42
-  %.3.lcssa = phi double [ 0.000000e+00, %.preheader42 ], [ %20, %.lr.ph ]
-  %15 = tail call double @sqrt(double noundef %.3.lcssa) #42, !tbaa !72
-  br label %30
+  %.3.lcssa = phi double [ 0.000000e+00, %.preheader42 ], [ %19, %.lr.ph ]
+  %14 = tail call double @sqrt(double noundef %.3.lcssa) #42, !tbaa !72
+  br label %29
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.344 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %20, %.lr.ph ]
-  %16 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
-  %17 = load float, ptr %16, align 4, !tbaa !446
-  %18 = fmul float %17, %17
-  %19 = fpext float %18 to double
-  %20 = fadd double %.344, %19
+  %.344 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %19, %.lr.ph ]
+  %15 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %16 = load float, ptr %15, align 4, !tbaa !446
+  %17 = fmul float %16, %16
+  %18 = fpext float %17 to double
+  %19 = fadd double %.344, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !500
 
-._crit_edge53:                                    ; preds = %23, %.preheader
-  %.4.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %29, %23 ]
-  %21 = fdiv double 1.000000e+00, %8
-  %22 = tail call double @pow(double noundef %.4.lcssa, double noundef %21) #42, !tbaa !72
-  br label %30
+._crit_edge53:                                    ; preds = %22, %.preheader
+  %.4.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %28, %22 ]
+  %20 = fdiv double 1.000000e+00, %8
+  %21 = tail call double @pow(double noundef %.4.lcssa, double noundef %20) #42, !tbaa !72
+  br label %29
 
-23:                                               ; preds = %.lr.ph52, %23
-  %indvars.iv66 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next67, %23 ]
-  %.451 = phi double [ 0.000000e+00, %.lr.ph52 ], [ %29, %23 ]
-  %24 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv66
-  %25 = load float, ptr %24, align 4, !tbaa !446
-  %26 = tail call noundef float @llvm.fabs.f32(float %25)
-  %27 = fpext float %26 to double
-  %28 = tail call noundef double @pow(double noundef %27, double noundef %8) #42, !tbaa !72
-  %29 = fadd double %.451, %28
+22:                                               ; preds = %.lr.ph52, %22
+  %indvars.iv66 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next67, %22 ]
+  %.451 = phi double [ 0.000000e+00, %.lr.ph52 ], [ %28, %22 ]
+  %23 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv66
+  %24 = load float, ptr %23, align 4, !tbaa !446
+  %25 = tail call noundef float @llvm.fabs.f32(float %24)
+  %26 = fpext float %25 to double
+  %27 = tail call noundef double @pow(double noundef %26, double noundef %8) #42, !tbaa !72
+  %28 = fadd double %.451, %27
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %._crit_edge53, label %23, !llvm.loop !501
+  br i1 %exitcond70.not, label %._crit_edge53, label %22, !llvm.loop !501
 
-30:                                               ; preds = %4, %._crit_edge53, %._crit_edge, %._crit_edge48
-  %.037 = phi double [ %22, %._crit_edge53 ], [ %9, %._crit_edge48 ], [ %15, %._crit_edge ], [ 1.000000e+00, %4 ]
-  %31 = fcmp ogt double %.037, 0.000000e+00
-  %32 = fdiv double 1.000000e+00, %.037
-  %33 = select i1 %31, double %32, double 0.000000e+00
-  %34 = fptrunc double %33 to float
-  %35 = icmp sgt i32 %2, 0
-  br i1 %35, label %.lr.ph57.preheader, label %._crit_edge58
+29:                                               ; preds = %4, %._crit_edge53, %._crit_edge, %._crit_edge48
+  %.037 = phi double [ %21, %._crit_edge53 ], [ %9, %._crit_edge48 ], [ %14, %._crit_edge ], [ 1.000000e+00, %4 ]
+  %30 = fcmp ogt double %.037, 0.000000e+00
+  %31 = fdiv double 1.000000e+00, %.037
+  %32 = select i1 %30, double %31, double 0.000000e+00
+  %33 = fptrunc double %32 to float
+  %34 = icmp sgt i32 %2, 0
+  br i1 %34, label %.lr.ph57.preheader, label %._crit_edge58
 
-.lr.ph57.preheader:                               ; preds = %30
+.lr.ph57.preheader:                               ; preds = %29
   %wide.trip.count74 = zext nneg i32 %2 to i64
   br label %.lr.ph57
 
-._crit_edge58:                                    ; preds = %.lr.ph57, %30
+._crit_edge58:                                    ; preds = %.lr.ph57, %29
   ret void
 
 .lr.ph57:                                         ; preds = %.lr.ph57.preheader, %.lr.ph57
   %indvars.iv71 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next72, %.lr.ph57 ]
-  %36 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv71
-  %37 = load float, ptr %36, align 4, !tbaa !446
-  %38 = fmul float %37, %34
-  %39 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv71
-  store float %38, ptr %39, align 4, !tbaa !446
+  %35 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv71
+  %36 = load float, ptr %35, align 4, !tbaa !446
+  %37 = fmul float %36, %33
+  %38 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv71
+  store float %37, ptr %38, align 4, !tbaa !446
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
   br i1 %exitcond75.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !502
@@ -13466,6 +13465,9 @@ declare i64 @llvm.umax.i64(i64, i64) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #35
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #35
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

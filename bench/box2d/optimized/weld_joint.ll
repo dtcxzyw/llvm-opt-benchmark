@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define float @b2WeldJoint_GetReferenceAngle(i64 %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #8
+  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load float, ptr %3, align 4, !tbaa !3
   ret float %4
@@ -30,19 +30,18 @@ declare ptr @b2GetJointSimCheckType(i64, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @b2WeldJoint_SetReferenceAngle(i64 %0, float noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #8
+  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #9
   %4 = fcmp olt float %1, 0xC00921FB60000000
-  %5 = fcmp ogt float %1, 0x400921FB60000000
-  %6 = select i1 %5, float 0x400921FB60000000, float %1
-  %7 = select i1 %4, float 0xC00921FB60000000, float %6
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store float %7, ptr %8, align 4, !tbaa !3
+  %5 = tail call float @llvm.minnum.f32(float %1, float 0x400921FB60000000)
+  %6 = select i1 %4, float 0xC00921FB60000000, float %5
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store float %6, ptr %7, align 4, !tbaa !3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @b2WeldJoint_SetLinearHertz(i64 %0, float noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #8
+  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 52
   store float %1, ptr %4, align 4, !tbaa !3
   ret void
@@ -50,7 +49,7 @@ define void @b2WeldJoint_SetLinearHertz(i64 %0, float noundef %1) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define float @b2WeldJoint_GetLinearHertz(i64 %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #8
+  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %4 = load float, ptr %3, align 4, !tbaa !3
   ret float %4
@@ -58,7 +57,7 @@ define float @b2WeldJoint_GetLinearHertz(i64 %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @b2WeldJoint_SetLinearDampingRatio(i64 %0, float noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #8
+  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store float %1, ptr %4, align 4, !tbaa !3
   ret void
@@ -66,7 +65,7 @@ define void @b2WeldJoint_SetLinearDampingRatio(i64 %0, float noundef %1) local_u
 
 ; Function Attrs: nounwind uwtable
 define float @b2WeldJoint_GetLinearDampingRatio(i64 %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #8
+  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load float, ptr %3, align 4, !tbaa !3
   ret float %4
@@ -74,7 +73,7 @@ define float @b2WeldJoint_GetLinearDampingRatio(i64 %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @b2WeldJoint_SetAngularHertz(i64 %0, float noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #8
+  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store float %1, ptr %4, align 4, !tbaa !3
   ret void
@@ -82,7 +81,7 @@ define void @b2WeldJoint_SetAngularHertz(i64 %0, float noundef %1) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define float @b2WeldJoint_GetAngularHertz(i64 %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #8
+  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %4 = load float, ptr %3, align 4, !tbaa !3
   ret float %4
@@ -90,7 +89,7 @@ define float @b2WeldJoint_GetAngularHertz(i64 %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @b2WeldJoint_SetAngularDampingRatio(i64 %0, float noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #8
+  %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store float %1, ptr %4, align 4, !tbaa !3
   ret void
@@ -98,7 +97,7 @@ define void @b2WeldJoint_SetAngularDampingRatio(i64 %0, float noundef %1) local_
 
 ; Function Attrs: nounwind uwtable
 define float @b2WeldJoint_GetAngularDampingRatio(i64 %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #8
+  %2 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 6) #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4 = load float, ptr %3, align 4, !tbaa !3
   ret float %4
@@ -248,7 +247,7 @@ define hidden void @b2PrepareWeldJoint(ptr noundef captures(none) initializes((3
   %86 = extractelement <2 x float> %foldExtExtBinop140, i64 0
   %87 = fmul float %.sroa.05.4.vec.extract.i, %.sroa.05.4.vec.extract.i104
   %88 = fadd float %86, %87
-  %89 = tail call float @b2Atan2(float noundef %85, float noundef %88) #8
+  %89 = tail call float @b2Atan2(float noundef %85, float noundef %88) #9
   %90 = load float, ptr %43, align 4, !tbaa !94
   %91 = fsub float %89, %90
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -562,7 +561,7 @@ define hidden void @b2SolveWeldJoint(ptr noundef captures(none) %0, ptr noundef 
   %49 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %50 = fmul float %.sroa.06.4.vec.extract.i, %.sroa.0.4.vec.extract.i
   %51 = fadd float %49, %50
-  %52 = tail call float @b2Atan2(float noundef %48, float noundef %51) #8
+  %52 = tail call float @b2Atan2(float noundef %48, float noundef %51) #9
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %54 = load float, ptr %53, align 4, !tbaa !95
   %55 = fadd float %52, %54
@@ -777,6 +776,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #8
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -785,7 +787,8 @@ attributes #4 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-ma
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

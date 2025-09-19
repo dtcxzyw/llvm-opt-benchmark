@@ -757,47 +757,35 @@ define hidden void @_ZNK4nori4Mesh14getBoundingBoxEj(ptr dead_on_unwind noalias 
   %33 = load float, ptr %32, align 4
   %34 = getelementptr i8, ptr %30, i64 8
   %35 = load float, ptr %34, align 4
-  %36 = fcmp olt float %31, %19
-  %37 = select i1 %36, float %31, float %19
-  %38 = fcmp olt float %33, %21
-  %39 = select i1 %38, float %33, float %21
-  %40 = fcmp olt float %35, %23
-  %41 = select i1 %40, float %35, float %23
-  %42 = fcmp olt float %19, %31
-  %43 = select i1 %42, float %31, float %19
-  %44 = fcmp olt float %21, %33
-  %45 = select i1 %44, float %33, float %21
-  %46 = fcmp olt float %23, %35
-  %47 = select i1 %46, float %35, float %23
-  %48 = getelementptr i8, ptr %7, i64 8
-  %49 = getelementptr i32, ptr %48, i64 %10
-  %50 = load i32, ptr %49, align 4
-  %51 = zext i32 %50 to i64
-  %52 = mul nsw i64 %16, %51
-  %53 = getelementptr inbounds float, ptr %14, i64 %52
-  %54 = load float, ptr %53, align 4
-  %55 = getelementptr i8, ptr %53, i64 4
-  %56 = load float, ptr %55, align 4
-  %57 = getelementptr i8, ptr %53, i64 8
-  %58 = load float, ptr %57, align 4
-  %59 = fcmp olt float %54, %37
-  %60 = select i1 %59, float %54, float %37
-  store float %60, ptr %0, align 4
-  %61 = fcmp olt float %56, %39
-  %62 = select i1 %61, float %56, float %39
-  store float %62, ptr %.sroa.329.0..sroa_idx, align 4
-  %63 = fcmp olt float %58, %41
-  %64 = select i1 %63, float %58, float %41
-  store float %64, ptr %.sroa.432.0..sroa_idx, align 4
-  %65 = fcmp olt float %43, %54
-  %66 = select i1 %65, float %54, float %43
-  store float %66, ptr %24, align 4
-  %67 = fcmp olt float %45, %56
-  %68 = select i1 %67, float %56, float %45
-  store float %68, ptr %.sroa.329.0..sroa_idx30, align 4
-  %69 = fcmp olt float %47, %58
-  %70 = select i1 %69, float %58, float %47
-  store float %70, ptr %.sroa.432.0..sroa_idx33, align 4
+  %36 = tail call noundef float @llvm.minnum.f32(float %31, float %19)
+  %37 = tail call noundef float @llvm.minnum.f32(float %33, float %21)
+  %38 = tail call noundef float @llvm.minnum.f32(float %35, float %23)
+  %39 = tail call noundef float @llvm.maxnum.f32(float %31, float %19)
+  %40 = tail call noundef float @llvm.maxnum.f32(float %33, float %21)
+  %41 = tail call noundef float @llvm.maxnum.f32(float %35, float %23)
+  %42 = getelementptr i8, ptr %7, i64 8
+  %43 = getelementptr i32, ptr %42, i64 %10
+  %44 = load i32, ptr %43, align 4
+  %45 = zext i32 %44 to i64
+  %46 = mul nsw i64 %16, %45
+  %47 = getelementptr inbounds float, ptr %14, i64 %46
+  %48 = load float, ptr %47, align 4
+  %49 = getelementptr i8, ptr %47, i64 4
+  %50 = load float, ptr %49, align 4
+  %51 = getelementptr i8, ptr %47, i64 8
+  %52 = load float, ptr %51, align 4
+  %53 = tail call noundef float @llvm.minnum.f32(float %48, float %36)
+  store float %53, ptr %0, align 4
+  %54 = tail call noundef float @llvm.minnum.f32(float %50, float %37)
+  store float %54, ptr %.sroa.329.0..sroa_idx, align 4
+  %55 = tail call noundef float @llvm.minnum.f32(float %52, float %38)
+  store float %55, ptr %.sroa.432.0..sroa_idx, align 4
+  %56 = tail call noundef float @llvm.maxnum.f32(float %48, float %39)
+  store float %56, ptr %24, align 4
+  %57 = tail call noundef float @llvm.maxnum.f32(float %50, float %40)
+  store float %57, ptr %.sroa.329.0..sroa_idx30, align 4
+  %58 = tail call noundef float @llvm.maxnum.f32(float %52, float %41)
+  store float %58, ptr %.sroa.432.0..sroa_idx33, align 4
   ret void
 }
 
@@ -4169,6 +4157,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

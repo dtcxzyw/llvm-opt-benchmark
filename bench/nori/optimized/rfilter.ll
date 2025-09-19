@@ -967,8 +967,7 @@ define linkonce_odr hidden noundef float @_ZNK4nori14GaussianFilter4evalEf(ptr n
   %14 = fmul float %12, %13
   %15 = tail call noundef float @expf(float noundef %14) #16
   %16 = fsub float %10, %15
-  %17 = fcmp ogt float %16, 0.000000e+00
-  %.sroa.speculated = select i1 %17, float %16, float 0.000000e+00
+  %.sroa.speculated = tail call float @llvm.maxnum.f32(float %16, float 0.000000e+00)
   ret float %.sroa.speculated
 }
 
@@ -2194,8 +2193,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 define linkonce_odr hidden noundef float @_ZNK4nori10TentFilter4evalEf(ptr noundef nonnull align 8 dereferenceable(12) %0, float noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = tail call noundef float @llvm.fabs.f32(float %1)
   %4 = fsub float 1.000000e+00, %3
-  %5 = fcmp ogt float %4, 0.000000e+00
-  %.sroa.speculated = select i1 %5, float %4, float 0.000000e+00
+  %.sroa.speculated = tail call float @llvm.maxnum.f32(float %4, float 0.000000e+00)
   ret float %.sroa.speculated
 }
 
@@ -2323,6 +2321,9 @@ define internal void @_GLOBAL__sub_I_rfilter.cpp() #11 section ".text.startup" {
   tail call void @_ZN4nori10BoxFilter_C2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN4noriL16BoxFilter__NORI_E)
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12

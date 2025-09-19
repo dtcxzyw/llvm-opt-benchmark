@@ -79,7 +79,7 @@ define dso_local void @_ZN4llvm12getHeatColorB5cxx11Emm(ptr dead_on_unwind noali
   %4 = alloca i64, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %2)
   %.not = icmp eq i64 %spec.select, 0
-  br i1 %.not, label %11, label %5
+  br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %3
   %6 = uitofp i64 %spec.select to double
@@ -87,57 +87,55 @@ define dso_local void @_ZN4llvm12getHeatColorB5cxx11Emm(ptr dead_on_unwind noali
   %8 = uitofp i64 %2 to double
   %9 = tail call double @log2(double noundef %8) #9, !tbaa !21
   %10 = fdiv double %7, %9
-  br label %11
+  %11 = tail call double @llvm.minnum.f64(double %10, double 1.000000e+00)
+  %12 = tail call double @llvm.maxnum.f64(double %11, double 0.000000e+00)
+  %13 = fmul double %12, 9.900000e+01
+  %14 = tail call double @llvm.round.f64(double %13)
+  %15 = fptoui double %14 to i32
+  %16 = zext i32 %15 to i64
+  br label %17
 
-11:                                               ; preds = %3, %5
-  %12 = phi double [ %10, %5 ], [ 0.000000e+00, %3 ]
+17:                                               ; preds = %3, %5
+  %.0.i = phi i64 [ %16, %5 ], [ 0, %3 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %13 = fcmp ogt double %12, 1.000000e+00
-  %.0.i = select i1 %13, double 1.000000e+00, double %12
-  %14 = fcmp olt double %.0.i, 0.000000e+00
-  %.1.i = select i1 %14, double 0.000000e+00, double %.0.i
-  %15 = fmul double %.1.i, 9.900000e+01
-  %16 = tail call double @llvm.round.f64(double %15)
-  %17 = fptoui double %16 to i32
-  %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4llvmL11heatPaletteE, i64 %18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %20, ptr %0, align 8, !tbaa !25, !alias.scope !22
-  %21 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #9, !noalias !22
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4llvmL11heatPaletteE, i64 %.0.i
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %19, ptr %0, align 8, !tbaa !25, !alias.scope !22
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #9, !noalias !22
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !22
-  store i64 %21, ptr %4, align 8, !tbaa !28, !noalias !22
-  %22 = icmp ugt i64 %21, 15
-  br i1 %22, label %23, label %._crit_edge.i.i.i
+  store i64 %20, ptr %4, align 8, !tbaa !28, !noalias !22
+  %21 = icmp ugt i64 %20, 15
+  br i1 %21, label %22, label %._crit_edge.i.i.i
 
-23:                                               ; preds = %11
-  %24 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #9
-  store ptr %24, ptr %0, align 8, !tbaa !30, !alias.scope !22
-  %25 = load i64, ptr %4, align 8, !tbaa !28, !noalias !22
-  store i64 %25, ptr %20, align 8, !tbaa !32, !alias.scope !22
+22:                                               ; preds = %17
+  %23 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #9
+  store ptr %23, ptr %0, align 8, !tbaa !30, !alias.scope !22
+  %24 = load i64, ptr %4, align 8, !tbaa !28, !noalias !22
+  store i64 %24, ptr %19, align 8, !tbaa !32, !alias.scope !22
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %23, %11
-  %26 = phi ptr [ %24, %23 ], [ %20, %11 ]
-  switch i64 %21, label %28 [
-    i64 1, label %27
+._crit_edge.i.i.i:                                ; preds = %22, %17
+  %25 = phi ptr [ %23, %22 ], [ %19, %17 ]
+  switch i64 %20, label %27 [
+    i64 1, label %26
     i64 0, label %_ZN4llvm12getHeatColorB5cxx11Ed.exit
   ]
 
+26:                                               ; preds = %._crit_edge.i.i.i
+  store i8 35, ptr %25, align 1, !tbaa !32
+  br label %_ZN4llvm12getHeatColorB5cxx11Ed.exit
+
 27:                                               ; preds = %._crit_edge.i.i.i
-  store i8 35, ptr %26, align 1, !tbaa !32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr nonnull align 8 %18, i64 %20, i1 false)
   br label %_ZN4llvm12getHeatColorB5cxx11Ed.exit
 
-28:                                               ; preds = %._crit_edge.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr nonnull align 8 %19, i64 %21, i1 false)
-  br label %_ZN4llvm12getHeatColorB5cxx11Ed.exit
-
-_ZN4llvm12getHeatColorB5cxx11Ed.exit:             ; preds = %._crit_edge.i.i.i, %27, %28
-  %29 = load i64, ptr %4, align 8, !tbaa !28, !noalias !22
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %29, ptr %30, align 8, !tbaa !33, !alias.scope !22
-  %31 = load ptr, ptr %0, align 8, !tbaa !30, !alias.scope !22
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %29
-  store i8 0, ptr %32, align 1, !tbaa !32
+_ZN4llvm12getHeatColorB5cxx11Ed.exit:             ; preds = %._crit_edge.i.i.i, %26, %27
+  %28 = load i64, ptr %4, align 8, !tbaa !28, !noalias !22
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %28, ptr %29, align 8, !tbaa !33, !alias.scope !22
+  %30 = load ptr, ptr %0, align 8, !tbaa !30, !alias.scope !22
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %28
+  store i8 0, ptr %31, align 1, !tbaa !32
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !22
   ret void
 }
@@ -148,52 +146,50 @@ declare double @log2(double noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm12getHeatColorB5cxx11Ed(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  %4 = fcmp ogt double %1, 1.000000e+00
-  %.0 = select i1 %4, double 1.000000e+00, double %1
-  %5 = fcmp olt double %.0, 0.000000e+00
-  %.1 = select i1 %5, double 0.000000e+00, double %.0
-  %6 = fmul double %.1, 9.900000e+01
-  %7 = tail call double @llvm.round.f64(double %6)
-  %8 = fptoui double %7 to i32
-  %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4llvmL11heatPaletteE, i64 %9
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %0, align 8, !tbaa !25
-  %12 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #9
+  %.0 = tail call double @llvm.minnum.f64(double %1, double 1.000000e+00)
+  %.1 = tail call double @llvm.maxnum.f64(double %.0, double 0.000000e+00)
+  %4 = fmul double %.1, 9.900000e+01
+  %5 = tail call double @llvm.round.f64(double %4)
+  %6 = fptoui double %5 to i32
+  %7 = zext i32 %6 to i64
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4llvmL11heatPaletteE, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %9, ptr %0, align 8, !tbaa !25
+  %10 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %12, ptr %3, align 8, !tbaa !28
-  %13 = icmp ugt i64 %12, 15
-  br i1 %13, label %14, label %._crit_edge.i.i
+  store i64 %10, ptr %3, align 8, !tbaa !28
+  %11 = icmp ugt i64 %10, 15
+  br i1 %11, label %12, label %._crit_edge.i.i
 
-14:                                               ; preds = %2
-  %15 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0) #9
-  store ptr %15, ptr %0, align 8, !tbaa !30
-  %16 = load i64, ptr %3, align 8, !tbaa !28
-  store i64 %16, ptr %11, align 8, !tbaa !32
+12:                                               ; preds = %2
+  %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0) #9
+  store ptr %13, ptr %0, align 8, !tbaa !30
+  %14 = load i64, ptr %3, align 8, !tbaa !28
+  store i64 %14, ptr %9, align 8, !tbaa !32
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %14, %2
-  %17 = phi ptr [ %15, %14 ], [ %11, %2 ]
-  switch i64 %12, label %19 [
-    i64 1, label %18
+._crit_edge.i.i:                                  ; preds = %12, %2
+  %15 = phi ptr [ %13, %12 ], [ %9, %2 ]
+  switch i64 %10, label %17 [
+    i64 1, label %16
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   ]
 
-18:                                               ; preds = %._crit_edge.i.i
-  store i8 35, ptr %17, align 1, !tbaa !32
+16:                                               ; preds = %._crit_edge.i.i
+  store i8 35, ptr %15, align 1, !tbaa !32
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
-19:                                               ; preds = %._crit_edge.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr nonnull align 8 %10, i64 %12, i1 false)
+17:                                               ; preds = %._crit_edge.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr nonnull align 8 %8, i64 %10, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %._crit_edge.i.i, %18, %19
-  %20 = load i64, ptr %3, align 8, !tbaa !28
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %20, ptr %21, align 8, !tbaa !33
-  %22 = load ptr, ptr %0, align 8, !tbaa !30
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
-  store i8 0, ptr %23, align 1, !tbaa !32
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %._crit_edge.i.i, %16, %17
+  %18 = load i64, ptr %3, align 8, !tbaa !28
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %18, ptr %19, align 8, !tbaa !33
+  %20 = load ptr, ptr %0, align 8, !tbaa !30
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
+  store i8 0, ptr %21, align 1, !tbaa !32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -217,6 +213,12 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8

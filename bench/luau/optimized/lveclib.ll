@@ -309,7 +309,7 @@ define internal noundef i32 @_ZL12vector_clampP9lua_State(ptr noundef %0) #0 {
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %1
-  tail call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.17) #6
+  tail call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.17) #7
   unreachable
 
 9:                                                ; preds = %1
@@ -321,7 +321,7 @@ define internal noundef i32 @_ZL12vector_clampP9lua_State(ptr noundef %0) #0 {
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %9
-  tail call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.18) #6
+  tail call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.18) #7
   unreachable
 
 16:                                               ; preds = %9
@@ -333,28 +333,22 @@ define internal noundef i32 @_ZL12vector_clampP9lua_State(ptr noundef %0) #0 {
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %16
-  tail call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.19) #6
+  tail call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.19) #7
   unreachable
 
 23:                                               ; preds = %16
   %24 = load float, ptr %2, align 4, !tbaa !14
-  %25 = fcmp olt float %24, %5
-  %26 = select i1 %25, float %5, float %24
-  %27 = fcmp ogt float %26, %6
-  %28 = select i1 %27, float %6, float %26
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %30 = load float, ptr %29, align 4, !tbaa !14
-  %31 = fcmp olt float %30, %11
-  %32 = select i1 %31, float %11, float %30
-  %33 = fcmp ogt float %32, %13
-  %34 = select i1 %33, float %13, float %32
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %36 = load float, ptr %35, align 4, !tbaa !14
-  %37 = fcmp olt float %36, %18
-  %38 = select i1 %37, float %18, float %36
-  %39 = fcmp ogt float %38, %20
-  %40 = select i1 %39, float %20, float %38
-  tail call void @_Z14lua_pushvectorP9lua_Statefff(ptr noundef %0, float noundef %28, float noundef %34, float noundef %40)
+  %25 = tail call float @llvm.maxnum.f32(float %5, float %24)
+  %26 = tail call noundef float @llvm.minnum.f32(float %6, float %25)
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %28 = load float, ptr %27, align 4, !tbaa !14
+  %29 = tail call float @llvm.maxnum.f32(float %11, float %28)
+  %30 = tail call noundef float @llvm.minnum.f32(float %13, float %29)
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %32 = load float, ptr %31, align 4, !tbaa !14
+  %33 = tail call float @llvm.maxnum.f32(float %18, float %32)
+  %34 = tail call noundef float @llvm.minnum.f32(float %20, float %33)
+  tail call void @_Z14lua_pushvectorP9lua_Statefff(ptr noundef %0, float noundef %26, float noundef %30, float noundef %34)
   ret i32 1
 }
 
@@ -379,22 +373,19 @@ define internal noundef i32 @_ZL10vector_maxP9lua_State(ptr noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.sroa.10.026 = phi float [ %.sroa.10.1, %.lr.ph ], [ %8, %1 ]
-  %.025 = phi i32 [ %18, %.lr.ph ], [ 2, %1 ]
+  %.025 = phi i32 [ %15, %.lr.ph ], [ 2, %1 ]
   %.sroa.0.024 = phi float [ %.sroa.0.1, %.lr.ph ], [ %4, %1 ]
   %.sroa.6.023 = phi float [ %.sroa.6.1, %.lr.ph ], [ %6, %1 ]
   %9 = tail call noundef ptr @_Z16luaL_checkvectorP9lua_Statei(ptr noundef %0, i32 noundef %.025)
   %10 = load float, ptr %9, align 4, !tbaa !14
-  %11 = fcmp ogt float %10, %.sroa.0.024
-  %.sroa.0.1 = select i1 %11, float %10, float %.sroa.0.024
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %13 = load float, ptr %12, align 4, !tbaa !14
-  %14 = fcmp ogt float %13, %.sroa.6.023
-  %.sroa.6.1 = select i1 %14, float %13, float %.sroa.6.023
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load float, ptr %15, align 4, !tbaa !14
-  %17 = fcmp ogt float %16, %.sroa.10.026
-  %.sroa.10.1 = select i1 %17, float %16, float %.sroa.10.026
-  %18 = add nuw i32 %.025, 1
+  %.sroa.0.1 = tail call float @llvm.maxnum.f32(float %10, float %.sroa.0.024)
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %12 = load float, ptr %11, align 4, !tbaa !14
+  %.sroa.6.1 = tail call float @llvm.maxnum.f32(float %12, float %.sroa.6.023)
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %14 = load float, ptr %13, align 4, !tbaa !14
+  %.sroa.10.1 = tail call float @llvm.maxnum.f32(float %14, float %.sroa.10.026)
+  %15 = add nuw i32 %.025, 1
   %exitcond.not = icmp eq i32 %.025, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 }
@@ -420,22 +411,19 @@ define internal noundef i32 @_ZL10vector_minP9lua_State(ptr noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.sroa.10.026 = phi float [ %.sroa.10.1, %.lr.ph ], [ %8, %1 ]
-  %.025 = phi i32 [ %18, %.lr.ph ], [ 2, %1 ]
+  %.025 = phi i32 [ %15, %.lr.ph ], [ 2, %1 ]
   %.sroa.0.024 = phi float [ %.sroa.0.1, %.lr.ph ], [ %4, %1 ]
   %.sroa.6.023 = phi float [ %.sroa.6.1, %.lr.ph ], [ %6, %1 ]
   %9 = tail call noundef ptr @_Z16luaL_checkvectorP9lua_Statei(ptr noundef %0, i32 noundef %.025)
   %10 = load float, ptr %9, align 4, !tbaa !14
-  %11 = fcmp olt float %10, %.sroa.0.024
-  %.sroa.0.1 = select i1 %11, float %10, float %.sroa.0.024
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %13 = load float, ptr %12, align 4, !tbaa !14
-  %14 = fcmp olt float %13, %.sroa.6.023
-  %.sroa.6.1 = select i1 %14, float %13, float %.sroa.6.023
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load float, ptr %15, align 4, !tbaa !14
-  %17 = fcmp olt float %16, %.sroa.10.026
-  %.sroa.10.1 = select i1 %17, float %16, float %.sroa.10.026
-  %18 = add nuw i32 %.025, 1
+  %.sroa.0.1 = tail call float @llvm.minnum.f32(float %10, float %.sroa.0.024)
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %12 = load float, ptr %11, align 4, !tbaa !14
+  %.sroa.6.1 = tail call float @llvm.minnum.f32(float %12, float %.sroa.6.023)
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %14 = load float, ptr %13, align 4, !tbaa !14
+  %.sroa.10.1 = tail call float @llvm.minnum.f32(float %14, float %.sroa.10.026)
+  %15 = add nuw i32 %.025, 1
   %exitcond.not = icmp eq i32 %.025, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 }
@@ -510,7 +498,7 @@ define internal noundef i32 @_ZL12vector_indexP9lua_State(ptr noundef %0) #0 {
   ret i32 1
 
 .critedge:                                        ; preds = %7, %1
-  call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef %4) #6
+  call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef %4) #7
   unreachable
 }
 
@@ -538,13 +526,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #6
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { noreturn }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

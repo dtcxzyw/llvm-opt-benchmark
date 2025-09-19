@@ -4951,7 +4951,7 @@ define void @_ZN6open3d13visualization21VisualizerWithEditing16KeyPressCallbackE
   br i1 %34, label %35, label %75
 
 35:                                               ; preds = %6
-  switch i32 %2, label %679 [
+  switch i32 %2, label %677 [
     i32 345, label %36
     i32 341, label %36
   ]
@@ -4960,13 +4960,13 @@ define void @_ZN6open3d13visualization21VisualizerWithEditing16KeyPressCallbackE
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 880
   %38 = load i8, ptr %37, align 16, !tbaa !211, !range !81, !noundef !82
   %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %40, label %679
+  br i1 %39, label %40, label %677
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %42 = load i32, ptr %41, align 8, !tbaa !202
   %43 = icmp eq i32 %42, 2
-  br i1 %43, label %44, label %679
+  br i1 %43, label %44, label %677
 
 44:                                               ; preds = %40
   store i32 0, ptr %41, align 8, !tbaa !202
@@ -5010,10 +5010,10 @@ define void @_ZN6open3d13visualization21VisualizerWithEditing16KeyPressCallbackE
   %73 = tail call noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(240) %69)
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i8 1, ptr %74, align 8, !tbaa !215
-  br label %679
+  br label %677
 
 75:                                               ; preds = %6
-  switch i32 %2, label %674 [
+  switch i32 %2, label %672 [
     i32 70, label %76
     i32 88, label %77
     i32 89, label %81
@@ -5024,7 +5024,7 @@ define void @_ZN6open3d13visualization21VisualizerWithEditing16KeyPressCallbackE
     i32 67, label %218
     i32 83, label %334
     i32 45, label %656
-    i32 61, label %665
+    i32 61, label %664
   ]
 
 76:                                               ; preds = %75
@@ -6373,55 +6373,53 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209: ; preds = %65
 656:                                              ; preds = %75
   %657 = and i32 %5, 1
   %.not95 = icmp eq i32 %657, 0
-  br i1 %.not95, label %664, label %658
+  br i1 %.not95, label %663, label %658
 
 658:                                              ; preds = %656
   %659 = getelementptr inbounds nuw i8, ptr %33, i64 560
   %660 = load double, ptr %659, align 8, !tbaa !200
   %661 = fmul double %660, 5.000000e-01
   %662 = load double, ptr @_ZN6open3d13visualization23RenderOptionWithEditing22PICKER_SPHERE_SIZE_MINE, align 8, !tbaa !183
-  %663 = fcmp olt double %661, %662
-  %.sroa.speculated.i = select i1 %663, double %662, double %661
+  %.sroa.speculated.i = tail call double @llvm.maxnum.f64(double %662, double %661)
   store double %.sroa.speculated.i, ptr %659, align 8, !tbaa !200
   br label %_ZN6open3d13visualization21VisualizerWithEditing17InvalidatePickingEv.exit
 
-664:                                              ; preds = %656
+663:                                              ; preds = %656
   tail call void @_ZN6open3d13visualization10Visualizer16KeyPressCallbackEP10GLFWwindowiiii(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef %1, i32 noundef 45, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   br label %_ZN6open3d13visualization21VisualizerWithEditing17InvalidatePickingEv.exit
 
-665:                                              ; preds = %75
-  %666 = and i32 %5, 1
-  %.not = icmp eq i32 %666, 0
-  br i1 %.not, label %673, label %667
+664:                                              ; preds = %75
+  %665 = and i32 %5, 1
+  %.not = icmp eq i32 %665, 0
+  br i1 %.not, label %671, label %666
 
-667:                                              ; preds = %665
-  %668 = getelementptr inbounds nuw i8, ptr %33, i64 560
-  %669 = load double, ptr %668, align 8, !tbaa !200
-  %670 = fmul double %669, 2.000000e+00
-  %671 = load double, ptr @_ZN6open3d13visualization23RenderOptionWithEditing22PICKER_SPHERE_SIZE_MAXE, align 8, !tbaa !183
-  %672 = fcmp olt double %671, %670
-  %.sroa.speculated.i210 = select i1 %672, double %671, double %670
-  store double %.sroa.speculated.i210, ptr %668, align 8, !tbaa !200
+666:                                              ; preds = %664
+  %667 = getelementptr inbounds nuw i8, ptr %33, i64 560
+  %668 = load double, ptr %667, align 8, !tbaa !200
+  %669 = fmul double %668, 2.000000e+00
+  %670 = load double, ptr @_ZN6open3d13visualization23RenderOptionWithEditing22PICKER_SPHERE_SIZE_MAXE, align 8, !tbaa !183
+  %.sroa.speculated.i210 = tail call double @llvm.minnum.f64(double %670, double %669)
+  store double %.sroa.speculated.i210, ptr %667, align 8, !tbaa !200
   br label %_ZN6open3d13visualization21VisualizerWithEditing17InvalidatePickingEv.exit
 
-673:                                              ; preds = %665
+671:                                              ; preds = %664
   tail call void @_ZN6open3d13visualization10Visualizer16KeyPressCallbackEP10GLFWwindowiiii(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef %1, i32 noundef 61, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   br label %_ZN6open3d13visualization21VisualizerWithEditing17InvalidatePickingEv.exit
 
-674:                                              ; preds = %75
+672:                                              ; preds = %75
   tail call void @_ZN6open3d13visualization10Visualizer16KeyPressCallbackEP10GLFWwindowiiii(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   br label %_ZN6open3d13visualization21VisualizerWithEditing17InvalidatePickingEv.exit
 
-_ZN6open3d13visualization21VisualizerWithEditing17InvalidatePickingEv.exit: ; preds = %228, %328, %325, %225, %277, %274, %667, %673, %658, %664, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206, %333, %217, %216, %211, %114, %142, %674, %_ZN6open3d13visualization21VisualizerWithEditing26InvalidateSelectionPolygonEv.exit, %85, %81, %77, %76
-  %675 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i8 1, ptr %675, align 8, !tbaa !215
-  %676 = load ptr, ptr %0, align 8, !tbaa !4
-  %677 = getelementptr inbounds nuw i8, ptr %676, i64 96
-  %678 = load ptr, ptr %677, align 8
-  call void %678(ptr noundef nonnull align 8 dereferenceable(628) %0)
-  br label %679
+_ZN6open3d13visualization21VisualizerWithEditing17InvalidatePickingEv.exit: ; preds = %228, %328, %325, %225, %277, %274, %666, %671, %658, %663, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206, %333, %217, %216, %211, %114, %142, %672, %_ZN6open3d13visualization21VisualizerWithEditing26InvalidateSelectionPolygonEv.exit, %85, %81, %77, %76
+  %673 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i8 1, ptr %673, align 8, !tbaa !215
+  %674 = load ptr, ptr %0, align 8, !tbaa !4
+  %675 = getelementptr inbounds nuw i8, ptr %674, i64 96
+  %676 = load ptr, ptr %675, align 8
+  call void %676(ptr noundef nonnull align 8 dereferenceable(628) %0)
+  br label %677
 
-679:                                              ; preds = %67, %40, %36, %35, %_ZN6open3d13visualization21VisualizerWithEditing17InvalidatePickingEv.exit
+677:                                              ; preds = %67, %40, %36, %35, %_ZN6open3d13visualization21VisualizerWithEditing17InvalidatePickingEv.exit
   ret void
 }
 
@@ -52257,6 +52255,12 @@ declare i128 @llvm.ctlz.i128(i128, i1 immarg) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #32
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #32
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #32
 
 attributes #0 = { mustprogress nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

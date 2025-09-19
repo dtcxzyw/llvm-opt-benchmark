@@ -757,7 +757,7 @@ define weak_odr void @_ZN7mitsuba18DirectionalEmitterIfN5drjit6MatrixINS_8Spectr
   %9 = bitcast <8 x i1> %8 to i8
   %10 = and i8 %9, 7
   %11 = icmp eq i8 %10, 7
-  br i1 %11, label %12, label %25
+  br i1 %11, label %12, label %24
 
 12:                                               ; preds = %2
   %13 = tail call noundef nonnull align 16 dereferenceable(32) ptr @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4bboxEv(ptr noundef nonnull align 16 dereferenceable(345) %1)
@@ -775,17 +775,16 @@ define weak_odr void @_ZN7mitsuba18DirectionalEmitterIfN5drjit6MatrixINS_8Spectr
   %21 = extractelement <4 x float> %foldExtExtBinop10, i64 0
   %22 = tail call contract noundef float @llvm.sqrt.f32(float %21)
   %23 = fmul contract float %22, 0x3FF0005DC0000000
-  %24 = fcmp contract ogt float %23, 0x3F17700000000000
-  %..i = select contract i1 %24, float %23, float 0x3F17700000000000
-  br label %25
+  %..i = tail call contract noundef float @llvm.maxnum.f32(float %23, float 0x3F17700000000000)
+  br label %24
 
-25:                                               ; preds = %2, %12
+24:                                               ; preds = %2, %12
   %.sink7 = phi <4 x float> [ %18, %12 ], [ zeroinitializer, %2 ]
   %.sink = phi float [ %..i, %12 ], [ 0x3F17700000000000, %2 ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store <4 x float> %.sink7, ptr %26, align 16
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store float %.sink, ptr %27, align 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store <4 x float> %.sink7, ptr %25, align 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store float %.sink, ptr %26, align 16
   ret void
 }
 
@@ -1342,17 +1341,16 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %foldExtExtBinop354 = fadd contract <4 x float> %shift353, %foldExtExtBinop
   %59 = extractelement <4 x float> %foldExtExtBinop354, i64 0
   %60 = call contract noundef float @llvm.sqrt.f32(float %59)
-  %61 = fcmp contract olt float %19, %60
-  %..i = select contract i1 %61, float %60, float %19
-  %62 = fmul contract float %..i, 2.000000e+00
-  %63 = insertelement <4 x float> poison, float %62, i64 0
-  %64 = shufflevector <4 x float> %63, <4 x float> poison, <4 x i32> zeroinitializer
-  %65 = fmul contract <4 x float> %55, %64
-  %66 = fsub contract <4 x float> %17, %65
+  %..i = call contract noundef float @llvm.maxnum.f32(float %60, float %19)
+  %61 = fmul contract float %..i, 2.000000e+00
+  %62 = insertelement <4 x float> poison, float %61, i64 0
+  %63 = shufflevector <4 x float> %62, <4 x float> poison, <4 x i32> zeroinitializer
+  %64 = fmul contract <4 x float> %55, %63
+  %65 = fsub contract <4 x float> %17, %64
   %.sroa.0.i293.16.i293.16.i293.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i293, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %.sroa.0.i293.16.i293.16.i293.16..sroa_idx, i8 0, i64 240, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i293, ptr noundef nonnull align 16 dereferenceable(256) %8, i64 16, i1 false)
-  store <4 x float> %66, ptr %0, align 16
+  store <4 x float> %65, ptr %0, align 16
   %.sroa.2302.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <4 x float> %55, ptr %.sroa.2302.0..sroa_idx, align 16
   %.sroa.3.0..sroa_idx303 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1368,11 +1366,11 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %.sroa.8304.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store <4 x float> %56, ptr %.sroa.8304.0..sroa_idx, align 16
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store float %62, ptr %.sroa.9.0..sroa_idx, align 16
+  store float %61, ptr %.sroa.9.0..sroa_idx, align 16
   %.sroa.10305.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %.sroa.10305.0..sroa_idx, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %67, ptr noundef nonnull align 16 dereferenceable(256) %.sroa.0.i293, i64 256, i1 false)
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %66, ptr noundef nonnull align 16 dereferenceable(256) %.sroa.0.i293, i64 256, i1 false)
   ret void
 }
 
@@ -4557,6 +4555,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.copysign.f32(float, float) #21

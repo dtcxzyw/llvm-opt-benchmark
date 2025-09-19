@@ -7478,14 +7478,14 @@ define dso_local void @set_cluster_tres(i1 noundef zeroext %0) local_unnamed_add
   %63 = getelementptr inbounds nuw i8, ptr %.051.lcssa, i64 16
   br label %64
 
-64:                                               ; preds = %.lr.ph77, %131
-  %65 = phi ptr [ %62, %.lr.ph77 ], [ %134, %131 ]
-  %.075 = phi i32 [ 0, %.lr.ph77 ], [ %.1, %131 ]
-  %.04974 = phi i64 [ 0, %.lr.ph77 ], [ %.150, %131 ]
+64:                                               ; preds = %.lr.ph77, %130
+  %65 = phi ptr [ %62, %.lr.ph77 ], [ %133, %130 ]
+  %.075 = phi i32 [ 0, %.lr.ph77 ], [ %.1, %130 ]
+  %.04974 = phi i64 [ 0, %.lr.ph77 ], [ %.150, %130 ]
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 272
   %67 = load ptr, ptr %66, align 8
   %.not60 = icmp eq ptr %67, null
-  br i1 %.not60, label %131, label %68
+  br i1 %.not60, label %130, label %68
 
 68:                                               ; preds = %64
   %69 = add nsw i32 %.075, 1
@@ -7538,105 +7538,104 @@ define dso_local void @set_cluster_tres(i1 noundef zeroext %0) local_unnamed_add
   %98 = getelementptr inbounds nuw i8, ptr %65, i64 344
   br label %99
 
-99:                                               ; preds = %112, %.lr.ph.i
-  %100 = phi i16 [ %97, %.lr.ph.i ], [ %113, %112 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %112 ]
-  %.01618.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1.i, %112 ]
+99:                                               ; preds = %111, %.lr.ph.i
+  %100 = phi i16 [ %97, %.lr.ph.i ], [ %112, %111 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %111 ]
+  %.01618.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1.i, %111 ]
   %101 = load ptr, ptr %98, align 8
   %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.i
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 88
   %105 = load ptr, ptr %104, align 8
   %.not.i = icmp eq ptr %105, null
-  br i1 %.not.i, label %112, label %106
+  br i1 %.not.i, label %111, label %106
 
 106:                                              ; preds = %99
   %107 = load ptr, ptr %84, align 8
   %108 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 842), align 2
   %109 = call double @assoc_mgr_tres_weighted(ptr noundef %107, ptr noundef nonnull %105, i16 noundef zeroext %108, i1 noundef zeroext true) #19
-  %110 = fcmp ogt double %.01618.i, %109
-  %111 = select i1 %110, double %.01618.i, double %109
+  %110 = call double @llvm.maxnum.f64(double %.01618.i, double %109)
   %.pre.i = load i16, ptr %96, align 2
-  br label %112
+  br label %111
 
-112:                                              ; preds = %106, %99
-  %113 = phi i16 [ %.pre.i, %106 ], [ %100, %99 ]
-  %.1.i = phi double [ %111, %106 ], [ %.01618.i, %99 ]
+111:                                              ; preds = %106, %99
+  %112 = phi i16 [ %.pre.i, %106 ], [ %100, %99 ]
+  %.1.i = phi double [ %110, %106 ], [ %.01618.i, %99 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %114 = zext i16 %113 to i64
-  %115 = icmp samesign ult i64 %indvars.iv.next.i, %114
-  br i1 %115, label %99, label %_set_node_billing_tres.exit, !llvm.loop !43
+  %113 = zext i16 %112 to i64
+  %114 = icmp samesign ult i64 %indvars.iv.next.i, %113
+  br i1 %114, label %99, label %_set_node_billing_tres.exit, !llvm.loop !43
 
-_set_node_billing_tres.exit:                      ; preds = %112, %90
-  %.016.lcssa.i = phi double [ 0.000000e+00, %90 ], [ %.1.i, %112 ]
-  %116 = fcmp une double %.016.lcssa.i, 0.000000e+00
-  %117 = uitofp i16 %71 to double
-  %.2.i = select i1 %116, double %.016.lcssa.i, double %117
-  %118 = fptoui double %.2.i to i64
-  %119 = load ptr, ptr %84, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 32
-  store i64 %118, ptr %120, align 8
-  %121 = load ptr, ptr %84, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 32
-  %123 = load i64, ptr %122, align 8
-  %124 = add i64 %123, %.04974
-  %125 = getelementptr inbounds nuw i8, ptr %65, i64 496
-  call void @slurm_xfree(ptr noundef nonnull %125) #19
-  %126 = load ptr, ptr %84, align 8
-  %127 = call ptr @assoc_mgr_make_tres_str_from_array(ptr noundef %126, i32 noundef 16, i1 noundef zeroext true) #19
-  store ptr %127, ptr %125, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %65, i64 488
-  call void @slurm_xfree(ptr noundef nonnull %128) #19
-  %129 = load ptr, ptr %84, align 8
-  %130 = call ptr @assoc_mgr_make_tres_str_from_array(ptr noundef %129, i32 noundef 128, i1 noundef zeroext true) #19
-  store ptr %130, ptr %128, align 8
-  br label %131
+_set_node_billing_tres.exit:                      ; preds = %111, %90
+  %.016.lcssa.i = phi double [ 0.000000e+00, %90 ], [ %.1.i, %111 ]
+  %115 = fcmp une double %.016.lcssa.i, 0.000000e+00
+  %116 = uitofp i16 %71 to double
+  %.2.i = select i1 %115, double %.016.lcssa.i, double %116
+  %117 = fptoui double %.2.i to i64
+  %118 = load ptr, ptr %84, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  store i64 %117, ptr %119, align 8
+  %120 = load ptr, ptr %84, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
+  %122 = load i64, ptr %121, align 8
+  %123 = add i64 %122, %.04974
+  %124 = getelementptr inbounds nuw i8, ptr %65, i64 496
+  call void @slurm_xfree(ptr noundef nonnull %124) #19
+  %125 = load ptr, ptr %84, align 8
+  %126 = call ptr @assoc_mgr_make_tres_str_from_array(ptr noundef %125, i32 noundef 16, i1 noundef zeroext true) #19
+  store ptr %126, ptr %124, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %65, i64 488
+  call void @slurm_xfree(ptr noundef nonnull %127) #19
+  %128 = load ptr, ptr %84, align 8
+  %129 = call ptr @assoc_mgr_make_tres_str_from_array(ptr noundef %128, i32 noundef 128, i1 noundef zeroext true) #19
+  store ptr %129, ptr %127, align 8
+  br label %130
 
-131:                                              ; preds = %64, %_set_node_billing_tres.exit
-  %.150 = phi i64 [ %124, %_set_node_billing_tres.exit ], [ %.04974, %64 ]
+130:                                              ; preds = %64, %_set_node_billing_tres.exit
+  %.150 = phi i64 [ %123, %_set_node_billing_tres.exit ], [ %.04974, %64 ]
   %.1 = phi i32 [ %69, %_set_node_billing_tres.exit ], [ %.075, %64 ]
-  %132 = load i32, ptr %2, align 4
-  %133 = add nsw i32 %132, 1
-  store i32 %133, ptr %2, align 4
-  %134 = call ptr @next_node(ptr noundef nonnull %2) #19
-  %.not = icmp eq ptr %134, null
+  %131 = load i32, ptr %2, align 4
+  %132 = add nsw i32 %131, 1
+  store i32 %132, ptr %2, align 4
+  %133 = call ptr @next_node(ptr noundef nonnull %2) #19
+  %.not = icmp eq ptr %133, null
   br i1 %.not, label %._crit_edge78.loopexit, label %64, !llvm.loop !44
 
-._crit_edge78.loopexit:                           ; preds = %131
-  %135 = sext i32 %.1 to i64
+._crit_edge78.loopexit:                           ; preds = %130
+  %134 = sext i32 %.1 to i64
   br label %._crit_edge78
 
 ._crit_edge78:                                    ; preds = %._crit_edge78.loopexit, %._crit_edge
   %.049.lcssa = phi i64 [ 0, %._crit_edge ], [ %.150, %._crit_edge78.loopexit ]
-  %.0.lcssa = phi i64 [ 0, %._crit_edge ], [ %135, %._crit_edge78.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %._crit_edge ], [ %134, %._crit_edge78.loopexit ]
   %.not59 = icmp eq ptr %.053.lcssa, null
-  br i1 %.not59, label %140, label %136
+  br i1 %.not59, label %139, label %135
 
-136:                                              ; preds = %._crit_edge78
-  %137 = load i32, ptr @cluster_cpus, align 4
-  %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw i8, ptr %.053.lcssa, i64 16
-  store i64 %138, ptr %139, align 8
-  br label %140
+135:                                              ; preds = %._crit_edge78
+  %136 = load i32, ptr @cluster_cpus, align 4
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds nuw i8, ptr %.053.lcssa, i64 16
+  store i64 %137, ptr %138, align 8
+  br label %139
 
-140:                                              ; preds = %136, %._crit_edge78
-  %141 = load ptr, ptr @assoc_mgr_tres_array, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
-  store i64 %.0.lcssa, ptr %144, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %141, i64 32
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
-  store i64 %.049.lcssa, ptr %147, align 8
+139:                                              ; preds = %135, %._crit_edge78
+  %140 = load ptr, ptr @assoc_mgr_tres_array, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
+  store i64 %.0.lcssa, ptr %143, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %140, i64 32
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
+  store i64 %.049.lcssa, ptr %146, align 8
   call void @set_partition_tres(i1 noundef zeroext true) #19
-  br i1 %0, label %149, label %148
+  br i1 %0, label %148, label %147
 
-148:                                              ; preds = %140
+147:                                              ; preds = %139
   call void @assoc_mgr_unlock(ptr noundef nonnull %4) #19
-  br label %149
+  br label %148
 
-149:                                              ; preds = %148, %140
+148:                                              ; preds = %147, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -9490,6 +9489,9 @@ declare i32 @llvm.smin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18

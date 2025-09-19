@@ -736,11 +736,10 @@ av_cmp_q.exit129.thread137:                       ; preds = %56, %53
   %148 = fdiv nsz float %.0102.lcssa, %138
   %149 = fdiv nsz float 1.000000e+00, %136
   %150 = fadd nsz float %149, -1.000000e+00
-  %151 = fcmp nsz ogt float %150, 1.000000e+00
-  %152 = select nsz i1 %151, float %150, float 1.000000e+00
-  %153 = fdiv nsz float %148, %152
-  %154 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  store float %153, ptr %154, align 8, !tbaa !83
+  %151 = call nsz float @llvm.maxnum.f32(float %150, float 1.000000e+00)
+  %152 = fdiv nsz float %148, %151
+  %153 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  store float %152, ptr %153, align 8, !tbaa !83
   br label %.loopexit
 
 .loopexit:                                        ; preds = %103, %.lr.ph, %119, %._crit_edge, %81, %75, %._crit_edge146, %74, %av_cmp_q.exit129.thread, %av_cmp_q.exit.thread, %._crit_edge151
@@ -2343,6 +2342,9 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #9
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

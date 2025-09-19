@@ -1031,40 +1031,32 @@ _ZdvILi4EE3vecIXT_EERKS1_RKd.exit54:              ; preds = %84
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %96 = fcmp olt double %78, %64
-  %97 = select i1 %96, double %78, double %64
-  %98 = fcmp olt double %92, %97
-  %99 = select i1 %98, double %92, double %97
-  %100 = fptosi double %99 to i32
-  %.sroa.speculated81 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
+  %96 = tail call double @llvm.minnum.f64(double %78, double %64)
+  %97 = tail call double @llvm.minnum.f64(double %92, double %96)
+  %98 = fptosi double %97 to i32
+  %.sroa.speculated81 = tail call i32 @llvm.smax.i32(i32 %98, i32 0)
   store i32 %.sroa.speculated81, ptr %11, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %101 = fcmp olt double %80, %66
-  %102 = select i1 %101, double %80, double %66
-  %103 = fcmp olt double %94, %102
-  %104 = select i1 %103, double %94, double %102
-  %105 = fptosi double %104 to i32
-  %.sroa.speculated76 = tail call i32 @llvm.smax.i32(i32 %105, i32 0)
+  %99 = tail call double @llvm.minnum.f64(double %80, double %66)
+  %100 = tail call double @llvm.minnum.f64(double %94, double %99)
+  %101 = fptosi double %100 to i32
+  %.sroa.speculated76 = tail call i32 @llvm.smax.i32(i32 %101, i32 0)
   store i32 %.sroa.speculated76, ptr %12, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %106 = tail call noundef i32 @_ZNK8TGAImage5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
-  %107 = add nsw i32 %106, -1
-  %108 = fcmp olt double %64, %78
-  %109 = select i1 %108, double %78, double %64
-  %110 = fcmp olt double %109, %92
-  %111 = select i1 %110, double %92, double %109
-  %112 = fptosi double %111 to i32
-  %.sroa.speculated71 = tail call i32 @llvm.smin.i32(i32 %107, i32 %112)
+  %102 = tail call noundef i32 @_ZNK8TGAImage5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
+  %103 = add nsw i32 %102, -1
+  %104 = tail call double @llvm.maxnum.f64(double %78, double %64)
+  %105 = tail call double @llvm.maxnum.f64(double %92, double %104)
+  %106 = fptosi double %105 to i32
+  %.sroa.speculated71 = tail call i32 @llvm.smin.i32(i32 %103, i32 %106)
   store i32 %.sroa.speculated71, ptr %13, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %113 = tail call noundef i32 @_ZNK8TGAImage6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
-  %114 = add nsw i32 %113, -1
-  %115 = fcmp olt double %66, %80
-  %116 = select i1 %115, double %80, double %66
-  %117 = fcmp olt double %116, %94
-  %118 = select i1 %117, double %94, double %116
-  %119 = fptosi double %118 to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %114, i32 %119)
+  %107 = tail call noundef i32 @_ZNK8TGAImage6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
+  %108 = add nsw i32 %107, -1
+  %109 = tail call double @llvm.maxnum.f64(double %80, double %66)
+  %110 = tail call double @llvm.maxnum.f64(double %94, double %109)
+  %111 = fptosi double %110 to i32
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %108, i32 %111)
   store i32 %.sroa.speculated, ptr %14, align 4, !tbaa !16
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 10, ptr nonnull @_Z9rasterizePK3vecILi4EERK7IShaderR8TGAImageRSt6vectorIdSaIdEE.omp_outlined, ptr nonnull %13, ptr nonnull %11, ptr nonnull %12, ptr nonnull %14, ptr nonnull %7, ptr nonnull %6, ptr nonnull %5, ptr nonnull %3, ptr nonnull %2, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -1726,7 +1718,13 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #16
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

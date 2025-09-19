@@ -892,15 +892,14 @@ define internal noundef float @"_ZNSt17_Function_handlerIFfdEZN19OpenColorIO_v2_
   %3 = tail call noundef double @llvm.fabs.f64(double %.val)
   %4 = tail call double @pow(double noundef %3, double noundef 0x3F89F9B5860989B1) #23, !tbaa !14
   %5 = fadd double %4, 0xBFEAC00000000000
-  %6 = fcmp ogt double %5, 0.000000e+00
-  %.sroa.speculated.i.i.i = select i1 %6, double %5, double 0.000000e+00
-  %7 = tail call double @llvm.fmuladd.f64(double %4, double -1.868750e+01, double 0x4032DA0000000000)
-  %8 = fdiv double %.sroa.speculated.i.i.i, %7
-  %9 = tail call double @pow(double noundef %8, double noundef 0x40191C0D56E7162B) #23, !tbaa !14
-  %10 = fmul double %9, 1.000000e+02
-  %11 = tail call double @llvm.copysign.f64(double %10, double %.val)
-  %12 = fptrunc double %11 to float
-  ret float %12
+  %.sroa.speculated.i.i.i = tail call double @llvm.maxnum.f64(double %5, double 0.000000e+00)
+  %6 = tail call double @llvm.fmuladd.f64(double %4, double -1.868750e+01, double 0x4032DA0000000000)
+  %7 = fdiv double %.sroa.speculated.i.i.i, %6
+  %8 = tail call double @pow(double noundef %7, double noundef 0x40191C0D56E7162B) #23, !tbaa !14
+  %9 = fmul double %8, 1.000000e+02
+  %10 = tail call double @llvm.copysign.f64(double %9, double %.val)
+  %11 = fptrunc double %10 to float
+  ret float %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -940,12 +939,11 @@ define internal noundef float @"_ZNSt17_Function_handlerIFfdEZN19OpenColorIO_v2_
   %6 = tail call double @llvm.fmuladd.f64(double %5, double 0x4032DA0000000000, double 0x3FEAC00000000000)
   %7 = tail call double @llvm.fmuladd.f64(double %5, double 1.868750e+01, double 1.000000e+00)
   %8 = fdiv double %6, %7
-  %9 = fcmp ogt double %8, 0.000000e+00
-  %.sroa.speculated.i.i.i = select i1 %9, double %8, double 0.000000e+00
-  %10 = tail call double @pow(double noundef %.sroa.speculated.i.i.i, double noundef 0x4053B60000000000) #23, !tbaa !14
-  %11 = tail call double @llvm.copysign.f64(double %10, double %.val)
-  %12 = fptrunc double %11 to float
-  ret float %12
+  %.sroa.speculated.i.i.i = tail call double @llvm.maxnum.f64(double %8, double 0.000000e+00)
+  %9 = tail call double @pow(double noundef %.sroa.speculated.i.i.i, double noundef 0x4053B60000000000) #23, !tbaa !14
+  %10 = tail call double @llvm.copysign.f64(double %9, double %.val)
+  %11 = fptrunc double %10 to float
+  ret float %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -4735,6 +4733,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #20

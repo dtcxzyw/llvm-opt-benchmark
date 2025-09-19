@@ -1368,7 +1368,7 @@ define linkonce_odr void @_ZNSt20poisson_distributionIlE10param_type13_M_initial
   %2 = load double, ptr %0, align 8, !tbaa !94
   %3 = fcmp ult double %2, 1.200000e+01
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %3, label %44, label %5
+  br i1 %3, label %42, label %5
 
 5:                                                ; preds = %1
   %6 = tail call double @llvm.floor.f64(double %2)
@@ -1387,47 +1387,45 @@ define linkonce_odr void @_ZNSt20poisson_distributionIlE10param_type13_M_initial
   %16 = tail call double @log(double noundef %15) #33, !tbaa !114
   %17 = fmul double %13, %16
   %18 = tail call double @sqrt(double noundef %17) #33, !tbaa !114
-  %19 = fcmp olt double %18, %6
-  %.sroa.speculated6 = select i1 %19, double %18, double %6
-  %20 = fcmp ogt double %.sroa.speculated6, 6.000000e+00
-  %.sroa.speculated = select i1 %20, double %.sroa.speculated6, double 6.000000e+00
-  %21 = tail call double @llvm.round.f64(double %.sroa.speculated)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store double %21, ptr %22, align 8, !tbaa !119
-  %23 = tail call double @llvm.fmuladd.f64(double %6, double 2.000000e+00, double %21)
-  %24 = fmul double %23, 5.000000e-01
-  %25 = tail call double @sqrt(double noundef %24) #33, !tbaa !114
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double %25, ptr %26, align 8, !tbaa !120
-  %27 = fdiv double 1.000000e+00, %23
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store double %27, ptr %28, align 8, !tbaa !121
-  %29 = fmul double %23, 0x3FE921FB54442D18
-  %30 = tail call double @sqrt(double noundef %29) #33, !tbaa !114
-  %31 = tail call double @exp(double noundef %27) #33, !tbaa !114
-  %32 = fmul double %30, %31
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %32, ptr %33, align 8, !tbaa !122
-  %34 = fmul double %23, 2.000000e+00
-  %35 = fneg double %21
-  %36 = fmul double %27, %35
-  %37 = fmul double %21, 5.000000e-01
-  %38 = fadd double %37, 1.000000e+00
-  %39 = fmul double %38, %36
-  %40 = tail call double @exp(double noundef %39) #33, !tbaa !114
-  %41 = fmul double %34, %40
-  %42 = fdiv double %41, %21
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %42, ptr %43, align 8, !tbaa !123
-  br label %47
+  %.sroa.speculated6 = tail call double @llvm.minnum.f64(double %18, double %6)
+  %.sroa.speculated = tail call double @llvm.maxnum.f64(double %.sroa.speculated6, double 6.000000e+00)
+  %19 = tail call double @llvm.round.f64(double %.sroa.speculated)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store double %19, ptr %20, align 8, !tbaa !119
+  %21 = tail call double @llvm.fmuladd.f64(double %6, double 2.000000e+00, double %19)
+  %22 = fmul double %21, 5.000000e-01
+  %23 = tail call double @sqrt(double noundef %22) #33, !tbaa !114
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store double %23, ptr %24, align 8, !tbaa !120
+  %25 = fdiv double 1.000000e+00, %21
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store double %25, ptr %26, align 8, !tbaa !121
+  %27 = fmul double %21, 0x3FE921FB54442D18
+  %28 = tail call double @sqrt(double noundef %27) #33, !tbaa !114
+  %29 = tail call double @exp(double noundef %25) #33, !tbaa !114
+  %30 = fmul double %28, %29
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store double %30, ptr %31, align 8, !tbaa !122
+  %32 = fmul double %21, 2.000000e+00
+  %33 = fneg double %19
+  %34 = fmul double %25, %33
+  %35 = fmul double %19, 5.000000e-01
+  %36 = fadd double %35, 1.000000e+00
+  %37 = fmul double %36, %34
+  %38 = tail call double @exp(double noundef %37) #33, !tbaa !114
+  %39 = fmul double %32, %38
+  %40 = fdiv double %39, %19
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store double %40, ptr %41, align 8, !tbaa !123
+  br label %45
 
-44:                                               ; preds = %1
-  %45 = fneg double %2
-  %46 = tail call double @exp(double noundef %45) #33, !tbaa !114
-  store double %46, ptr %4, align 8, !tbaa !116
-  br label %47
+42:                                               ; preds = %1
+  %43 = fneg double %2
+  %44 = tail call double @exp(double noundef %43) #33, !tbaa !114
+  store double %44, ptr %4, align 8, !tbaa !116
+  br label %45
 
-47:                                               ; preds = %44, %5
+45:                                               ; preds = %42, %5
   ret void
 }
 
@@ -9282,6 +9280,12 @@ declare i64 @llvm.umin.i64(i64, i64) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.log.f80(x86_fp80) #30

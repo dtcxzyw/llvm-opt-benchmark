@@ -40,7 +40,7 @@ if.end7:                                          ; preds = %lor.lhs.false
   br i1 %cmp11, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.end7
-  %call = tail call double @sqrt(double noundef %3) #3
+  %call = tail call double @sqrt(double noundef %3) #4
   %fneg13 = fneg double %b
   %add = fsub double %call, %b
   %mul14 = fmul double %a, 2.000000e+00
@@ -108,29 +108,27 @@ if.then2:                                         ; preds = %if.then
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then2
-  %call.i = tail call double @sqrt(double noundef %mul10.i) #3
+  %call.i = tail call double @sqrt(double noundef %mul10.i) #4
   %div.i = fdiv double %mul7.i, %call.i
-  %cmp12.i = fcmp olt double %div.i, -1.000000e+00
-  %t.0.i = select i1 %cmp12.i, double -1.000000e+00, double %div.i
-  %cmp14.i = fcmp ogt double %t.0.i, 1.000000e+00
-  %t.1.i = select i1 %cmp14.i, double 1.000000e+00, double %t.0.i
-  %call17.i = tail call double @acos(double noundef %t.1.i) #3
-  %call18.i = tail call double @sqrt(double noundef %mul2.i) #3
+  %t.0.i = tail call double @llvm.maxnum.f64(double %div.i, double -1.000000e+00)
+  %t.1.i = tail call double @llvm.minnum.f64(double %t.0.i, double 1.000000e+00)
+  %call17.i = tail call double @acos(double noundef %t.1.i) #4
+  %call18.i = tail call double @sqrt(double noundef %mul2.i) #4
   %mul19.i = fmul double %call18.i, -2.000000e+00
   %mul20.i = fmul double %call17.i, 0x3FD5555555555555
-  %call21.i = tail call double @cos(double noundef %mul20.i) #3
+  %call21.i = tail call double @cos(double noundef %mul20.i) #4
   %neg23.i = fneg double %mul11.i
   %4 = tail call double @llvm.fmuladd.f64(double %mul19.i, double %call21.i, double %neg23.i)
   store double %4, ptr %x, align 8
   %add.i = fadd double %call17.i, 0x401921FB54442D18
   %mul24.i = fmul double %add.i, 0x3FD5555555555555
-  %call25.i = tail call double @cos(double noundef %mul24.i) #3
+  %call25.i = tail call double @cos(double noundef %mul24.i) #4
   %5 = tail call double @llvm.fmuladd.f64(double %mul19.i, double %call25.i, double %neg23.i)
   %arrayidx28.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   store double %5, ptr %arrayidx28.i, align 8
   %sub.i = fadd double %call17.i, 0xC01921FB54442D18
   %mul29.i = fmul double %sub.i, 0x3FD5555555555555
-  %call30.i = tail call double @cos(double noundef %mul29.i) #3
+  %call30.i = tail call double @cos(double noundef %mul29.i) #4
   %6 = tail call double @llvm.fmuladd.f64(double %mul19.i, double %call30.i, double %neg23.i)
   br label %return.sink.split.i
 
@@ -138,9 +136,9 @@ if.else.i:                                        ; preds = %if.then2
   %cmp34.i = fcmp olt double %mul7.i, 0.000000e+00
   %7 = tail call double @llvm.fabs.f64(double %mul7.i)
   %sub35.i = fsub double %mul8.i, %mul10.i
-  %call36.i = tail call double @sqrt(double noundef %sub35.i) #3
+  %call36.i = tail call double @sqrt(double noundef %sub35.i) #4
   %add37.i = fadd double %7, %call36.i
-  %call38.i = tail call double @pow(double noundef %add37.i, double noundef 0x3FD5555555555555) #3
+  %call38.i = tail call double @pow(double noundef %add37.i, double noundef 0x3FD5555555555555) #4
   %8 = fneg double %call38.i
   %mul39.i = select i1 %cmp34.i, double %call38.i, double %8
   %cmp40.i = fcmp oeq double %call38.i, 0.000000e+00
@@ -208,7 +206,7 @@ if.end7.i:                                        ; preds = %lor.lhs.false.i10
   br i1 %cmp11.i, label %if.then12.i, label %if.else.i14
 
 if.then12.i:                                      ; preds = %if.end7.i
-  %call.i17 = tail call double @sqrt(double noundef %15) #3
+  %call.i17 = tail call double @sqrt(double noundef %15) #4
   %fneg13.i = fneg double %c
   %add.i18 = fsub double %call.i17, %c
   %mul14.i = fmul double %b, 2.000000e+00
@@ -245,10 +243,17 @@ declare double @cos(double noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #2
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #3
+
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: write, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

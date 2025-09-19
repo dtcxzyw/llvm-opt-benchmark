@@ -1296,16 +1296,15 @@ define hidden float @SDL_PQtoNits(float noundef %0) local_unnamed_addr #1 {
 define hidden float @SDL_PQfromNits(float noundef %0) local_unnamed_addr #1 {
   %2 = fdiv float %0, 1.000000e+04
   %3 = fcmp olt float %2, 0.000000e+00
-  %4 = fcmp ogt float %2, 1.000000e+00
-  %5 = select i1 %4, float 1.000000e+00, float %2
-  %6 = select i1 %3, float 0.000000e+00, float %5
-  %7 = tail call float @SDL_powf_REAL(float noundef %6, float noundef 0x3FC4640000000000) #15
-  %8 = tail call float @llvm.fmuladd.f32(float %7, float 0x4032DA0000000000, float 0x3FEAC00000000000)
-  %9 = tail call float @SDL_powf_REAL(float noundef %6, float noundef 0x3FC4640000000000) #15
-  %10 = tail call float @llvm.fmuladd.f32(float %9, float 1.868750e+01, float 1.000000e+00)
-  %11 = fdiv float %8, %10
-  %12 = tail call float @SDL_powf_REAL(float noundef %11, float noundef 0x4053B60000000000) #15
-  ret float %12
+  %4 = tail call float @llvm.minnum.f32(float %2, float 1.000000e+00)
+  %5 = select i1 %3, float 0.000000e+00, float %4
+  %6 = tail call float @SDL_powf_REAL(float noundef %5, float noundef 0x3FC4640000000000) #15
+  %7 = tail call float @llvm.fmuladd.f32(float %6, float 0x4032DA0000000000, float 0x3FEAC00000000000)
+  %8 = tail call float @SDL_powf_REAL(float noundef %5, float noundef 0x3FC4640000000000) #15
+  %9 = tail call float @llvm.fmuladd.f32(float %8, float 1.868750e+01, float 1.000000e+00)
+  %10 = fdiv float %7, %9
+  %11 = tail call float @SDL_powf_REAL(float noundef %10, float noundef 0x4053B60000000000) #15
+  ret float %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -3402,6 +3401,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14

@@ -158,36 +158,32 @@ define void @_ZN5ZXing6Pdf41711BoundingBox21calculateMinMaxValuesEv(ptr noundef 
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load double, ptr %45, align 8, !tbaa !18
   %47 = fptrunc double %46 to float
-  %48 = fcmp olt float %47, %44
-  %.sroa.speculated15 = select i1 %48, float %47, float %44
-  %49 = fptosi float %.sroa.speculated15 to i32
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %49, ptr %50, align 8, !tbaa !19
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %52 = load double, ptr %51, align 8, !tbaa !18
-  %53 = fptrunc double %52 to float
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %55 = load double, ptr %54, align 8, !tbaa !18
-  %56 = fptrunc double %55 to float
-  %57 = fcmp olt float %53, %56
-  %.sroa.speculated10 = select i1 %57, float %56, float %53
-  %58 = fptosi float %.sroa.speculated10 to i32
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %58, ptr %59, align 4, !tbaa !20
-  %60 = fptrunc double %41 to float
-  %61 = fptrunc double %40 to float
-  %62 = fcmp olt float %61, %60
-  %.sroa.speculated5 = select i1 %62, float %61, float %60
-  %63 = fptosi float %.sroa.speculated5 to i32
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %63, ptr %64, align 8, !tbaa !21
-  %65 = fptrunc double %39 to float
-  %66 = fptrunc double %38 to float
-  %67 = fcmp olt float %65, %66
-  %.sroa.speculated = select i1 %67, float %66, float %65
-  %68 = fptosi float %.sroa.speculated to i32
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 %68, ptr %69, align 4, !tbaa !22
+  %.sroa.speculated15 = tail call float @llvm.minnum.f32(float %47, float %44)
+  %48 = fptosi float %.sroa.speculated15 to i32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i32 %48, ptr %49, align 8, !tbaa !19
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %51 = load double, ptr %50, align 8, !tbaa !18
+  %52 = fptrunc double %51 to float
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %54 = load double, ptr %53, align 8, !tbaa !18
+  %55 = fptrunc double %54 to float
+  %.sroa.speculated10 = tail call float @llvm.maxnum.f32(float %55, float %52)
+  %56 = fptosi float %.sroa.speculated10 to i32
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  store i32 %56, ptr %57, align 4, !tbaa !20
+  %58 = fptrunc double %41 to float
+  %59 = fptrunc double %40 to float
+  %.sroa.speculated5 = tail call float @llvm.minnum.f32(float %59, float %58)
+  %60 = fptosi float %.sroa.speculated5 to i32
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 %60, ptr %61, align 8, !tbaa !21
+  %62 = fptrunc double %39 to float
+  %63 = fptrunc double %38 to float
+  %.sroa.speculated = tail call float @llvm.maxnum.f32(float %63, float %62)
+  %64 = fptosi float %.sroa.speculated to i32
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  store i32 %64, ptr %65, align 4, !tbaa !22
   ret void
 }
 
@@ -200,7 +196,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1
 
 7:                                                ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  br label %104
+  br label %100
 
 8:                                                ; preds = %3
   %9 = load i8, ptr %1, align 8, !tbaa !23, !range !11, !noundef !12
@@ -209,7 +205,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1
 
 11:                                               ; preds = %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 128, i1 false)
-  br label %104
+  br label %100
 
 12:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -336,47 +332,43 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %79 = load double, ptr %78, align 8, !tbaa !18
   %80 = fptrunc double %79 to float
-  %81 = fcmp olt float %80, %77
-  %.sroa.speculated15.i = select i1 %81, float %80, float %77
-  %82 = fptosi float %.sroa.speculated15.i to i32
-  %83 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i32 %82, ptr %83, align 8, !tbaa !19
-  %84 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %85 = load double, ptr %84, align 8, !tbaa !18
-  %86 = fptrunc double %85 to float
-  %87 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %88 = load double, ptr %87, align 8, !tbaa !18
-  %89 = fptrunc double %88 to float
-  %90 = fcmp olt float %86, %89
-  %.sroa.speculated10.i = select i1 %90, float %89, float %86
-  %91 = fptosi float %.sroa.speculated10.i to i32
-  %92 = getelementptr inbounds nuw i8, ptr %4, i64 108
-  store i32 %91, ptr %92, align 4, !tbaa !20
-  %93 = fptrunc double %74 to float
-  %94 = fptrunc double %73 to float
-  %95 = fcmp olt float %94, %93
-  %.sroa.speculated5.i = select i1 %95, float %94, float %93
-  %96 = fptosi float %.sroa.speculated5.i to i32
-  %97 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store i32 %96, ptr %97, align 8, !tbaa !21
-  %98 = fptrunc double %72 to float
-  %99 = fptrunc double %71 to float
-  %100 = fcmp olt float %98, %99
-  %.sroa.speculated.i = select i1 %100, float %99, float %98
-  %101 = fptosi float %.sroa.speculated.i to i32
-  %102 = getelementptr inbounds nuw i8, ptr %4, i64 116
-  store i32 %101, ptr %102, align 4, !tbaa !22
+  %.sroa.speculated15.i = call float @llvm.minnum.f32(float %80, float %77)
+  %81 = fptosi float %.sroa.speculated15.i to i32
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  store i32 %81, ptr %82, align 8, !tbaa !19
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %84 = load double, ptr %83, align 8, !tbaa !18
+  %85 = fptrunc double %84 to float
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %87 = load double, ptr %86, align 8, !tbaa !18
+  %88 = fptrunc double %87 to float
+  %.sroa.speculated10.i = call float @llvm.maxnum.f32(float %88, float %85)
+  %89 = fptosi float %.sroa.speculated10.i to i32
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 108
+  store i32 %89, ptr %90, align 4, !tbaa !20
+  %91 = fptrunc double %74 to float
+  %92 = fptrunc double %73 to float
+  %.sroa.speculated5.i = call float @llvm.minnum.f32(float %92, float %91)
+  %93 = fptosi float %.sroa.speculated5.i to i32
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  store i32 %93, ptr %94, align 8, !tbaa !21
+  %95 = fptrunc double %72 to float
+  %96 = fptrunc double %71 to float
+  %.sroa.speculated.i = call float @llvm.maxnum.f32(float %96, float %95)
+  %97 = fptosi float %.sroa.speculated.i to i32
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 116
+  store i32 %97, ptr %98, align 4, !tbaa !22
   store i8 1, ptr %2, align 8, !tbaa !23
-  %103 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %103, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %99, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
   br label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
 
 _ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread: ; preds = %..thread21_crit_edge.i, %28, %23, %70
   %.0.i17 = phi i1 [ true, %70 ], [ false, %23 ], [ false, %28 ], [ false, %..thread21_crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %104
+  br label %100
 
-104:                                              ; preds = %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread, %11, %7
+100:                                              ; preds = %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread, %11, %7
   %.0 = phi i1 [ true, %7 ], [ true, %11 ], [ %.0.i17, %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread ]
   ret i1 %.0
 }
@@ -567,6 +559,12 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5

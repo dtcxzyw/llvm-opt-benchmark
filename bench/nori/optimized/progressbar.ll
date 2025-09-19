@@ -321,19 +321,17 @@ _ZN7nanogui5ColorC2Eii.exit76:                    ; preds = %113
   %.sroa.382.12.vec.insert = insertelement <2 x float> <float poison, float 0x3FD9191920000000>, float %.sroa.2.0.copyload.i.i.i50, i64 0
   %121 = add nsw i32 %82, -1
   %122 = sitofp i32 %121 to float
-  %123 = fcmp ogt float %78, 0.000000e+00
-  %.sroa.speculated84 = select i1 %123, float %78, float 0.000000e+00
-  %124 = fcmp ogt float %.sroa.speculated84, 1.000000e+00
-  %.sroa.speculated = select i1 %124, float 1.000000e+00, float %.sroa.speculated84
-  %125 = add nsw i32 %79, -2
-  %126 = sitofp i32 %125 to float
-  %127 = fmul float %.sroa.speculated, %126
-  %128 = call noundef float @llvm.round.f32(float %127)
-  %129 = fptosi float %128 to i32
-  %130 = sitofp i32 %129 to float
-  %131 = fadd float %130, 1.500000e+00
-  %132 = sitofp i32 %81 to float
-  %133 = sitofp i32 %80 to float
+  %.sroa.speculated84 = call float @llvm.maxnum.f32(float %78, float 0.000000e+00)
+  %.sroa.speculated = call float @llvm.minnum.f32(float %.sroa.speculated84, float 1.000000e+00)
+  %123 = add nsw i32 %79, -2
+  %124 = sitofp i32 %123 to float
+  %125 = fmul float %.sroa.speculated, %124
+  %126 = call noundef float @llvm.round.f32(float %125)
+  %127 = fptosi float %126 to i32
+  %128 = sitofp i32 %127 to float
+  %129 = fadd float %128, 1.500000e+00
+  %130 = sitofp i32 %81 to float
+  %131 = sitofp i32 %80 to float
   %.sroa.0.0.copyload.i.i.i68 = load <2 x float>, ptr %2, align 8
   %.sroa.2.0..sroa_idx.i.i.i69 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i.i.i70 = load float, ptr %.sroa.2.0..sroa_idx.i.i.i69, align 8
@@ -350,19 +348,19 @@ _ZN7nanogui5ColorC2Eii.exit76:                    ; preds = %113
   store float %.sroa.2.0.copyload.i.i.i70, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 12
   store float 0x3FD9191920000000, ptr %.sroa.4.0..sroa_idx, align 4
-  call void @nvgBoxGradient(ptr dead_on_unwind nonnull writable sret(%struct.NVGpaint) align 4 %20, ptr noundef %1, float noundef %133, float noundef %132, float noundef %131, float noundef %122, float noundef 3.000000e+00, float noundef 4.000000e+00, <2 x float> %.sroa.0.0.copyload.i.i.i48, <2 x float> %.sroa.382.12.vec.insert, ptr noundef nonnull byval(%struct.NVGcolor) align 8 %21)
+  call void @nvgBoxGradient(ptr dead_on_unwind nonnull writable sret(%struct.NVGpaint) align 4 %20, ptr noundef %1, float noundef %131, float noundef %130, float noundef %129, float noundef %122, float noundef 3.000000e+00, float noundef 4.000000e+00, <2 x float> %.sroa.0.0.copyload.i.i.i48, <2 x float> %.sroa.382.12.vec.insert, ptr noundef nonnull byval(%struct.NVGcolor) align 8 %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %18, ptr noundef nonnull align 4 dereferenceable(76) %20, i64 76, i1 false)
   call void @nvgBeginPath(ptr noundef %1)
-  %134 = load i32, ptr %22, align 8
-  %135 = add nsw i32 %134, 1
-  %136 = sitofp i32 %135 to float
-  %137 = load i32, ptr %24, align 4
-  %138 = add nsw i32 %137, 1
-  %139 = sitofp i32 %138 to float
-  %140 = load i32, ptr %28, align 4
-  %141 = add nsw i32 %140, -2
-  %142 = sitofp i32 %141 to float
-  call void @nvgRoundedRect(ptr noundef %1, float noundef %136, float noundef %139, float noundef %130, float noundef %142, float noundef 3.000000e+00)
+  %132 = load i32, ptr %22, align 8
+  %133 = add nsw i32 %132, 1
+  %134 = sitofp i32 %133 to float
+  %135 = load i32, ptr %24, align 4
+  %136 = add nsw i32 %135, 1
+  %137 = sitofp i32 %136 to float
+  %138 = load i32, ptr %28, align 4
+  %139 = add nsw i32 %138, -2
+  %140 = sitofp i32 %139 to float
+  call void @nvgRoundedRect(ptr noundef %1, float noundef %134, float noundef %137, float noundef %128, float noundef %140, float noundef 3.000000e+00)
   call void @nvgFillPaint(ptr noundef %1, ptr noundef nonnull byval(%struct.NVGpaint) align 8 %18)
   call void @nvgFill(ptr noundef %1)
   ret void
@@ -385,14 +383,14 @@ declare void @nvgFill(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7nanogui11ProgressBarD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #11
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7nanogui11ProgressBarD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #12
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -433,8 +431,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #10
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
@@ -446,9 +450,10 @@ attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { builtin nounwind }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nounwind }
+attributes #13 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

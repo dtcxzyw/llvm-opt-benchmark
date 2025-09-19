@@ -4260,11 +4260,9 @@ if.end68:                                         ; preds = %sw.default
   %23 = extractvalue { i32, i64 } %call63, 1
   %sub69 = add i32 %20, -2
   %24 = bitcast i64 %23 to double
-  %cmp.i108 = fcmp olt double %24, 0.000000e+00
   %sub77 = fsub double %conv, %cond
-  %.sroa.speculated397 = select i1 %cmp.i108, double 0.000000e+00, double %24
-  %cmp.i110 = fcmp olt double %sub77, %.sroa.speculated397
-  %.sroa.speculated = select i1 %cmp.i110, double %sub77, double %.sroa.speculated397
+  %.sroa.speculated397 = call double @llvm.maxnum.f64(double %24, double 0.000000e+00)
+  %.sroa.speculated = call double @llvm.minnum.f64(double %sub77, double %.sroa.speculated397)
   %conv79 = fptoui double %.sroa.speculated to i64
   %25 = uitofp i32 %sub69 to double
   br label %sw.epilog
@@ -10387,8 +10385,7 @@ if.else88:                                        ; preds = %_ZN6hermes2vm13Muta
 
 if.then90:                                        ; preds = %if.else88
   %sub93 = fadd double %conv, -1.000000e+00
-  %cmp.i49 = fcmp olt double %sub93, %n.0
-  %.sroa.speculated = select i1 %cmp.i49, double %sub93, double %n.0
+  %.sroa.speculated = call double @llvm.minnum.f64(double %sub93, double %n.0)
   store double %.sroa.speculated, ptr %retval.0.i.i.i.i.i.i43, align 8
   br label %if.end108
 
@@ -12955,6 +12952,12 @@ declare ptr @_ZN6hermes2vm23defineSystemConstructorERNS0_7RuntimeENS0_8SymbolIDE
 declare ptr @_ZN6hermes2vm17NativeConstructor15creatorFunctionINS0_7JSArrayEEENS0_10CallResultINS0_12PseudoHandleINS0_8JSObjectEEELNS0_6detail20CallResultSpecializeE6EEERNS0_7RuntimeENS0_6HandleIS6_EEPv(ptr noundef nonnull align 8 dereferenceable(9832), ptr, ptr noundef) #1
 
 declare void @_ZN6hermes2vm7Runtime19removeVisitedObjectEPNS0_8JSObjectE(ptr noundef nonnull align 8 dereferenceable(9832), ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #7

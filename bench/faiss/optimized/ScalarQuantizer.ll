@@ -3089,7 +3089,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerFP16ILi1EE13encode_vect
   ret void
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.06 = phi i64 [ %26, %.lr.ph ], [ 0, %3 ]
+  %.06 = phi i64 [ %25, %.lr.ph ], [ 0, %3 ]
   %6 = getelementptr inbounds nuw float, ptr %1, i64 %.06
   %7 = load float, ptr %6, align 4, !tbaa !23
   %8 = bitcast float %7 to i32
@@ -3100,21 +3100,20 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerFP16ILi1EE13encode_vect
   %13 = and i32 %8, 2147479552
   %14 = bitcast i32 %13 to float
   %15 = fmul float %14, 0x38F0000000000000
-  %16 = fcmp ogt float %15, 0x39EFFE0000000000
-  %.sroa.speculated.i = select i1 %16, float 0x39EFFE0000000000, float %15
-  %17 = bitcast float %.sroa.speculated.i to i32
-  %18 = icmp samesign ult i32 %10, 2139095040
-  %19 = add i32 %17, 4096
-  %20 = lshr i32 %19, 13
-  %.0.i = select i1 %18, i32 %20, i32 %12
-  %21 = lshr i32 %8, 16
-  %22 = and i32 %21, 32768
-  %23 = or i32 %.0.i, %22
-  %24 = trunc i32 %23 to i16
-  %25 = getelementptr inbounds nuw i16, ptr %2, i64 %.06
-  store i16 %24, ptr %25, align 2, !tbaa !109
-  %26 = add nuw i64 %.06, 1
-  %exitcond.not = icmp eq i64 %26, %5
+  %.sroa.speculated.i = tail call float @llvm.minnum.f32(float %15, float 0x39EFFE0000000000)
+  %16 = bitcast float %.sroa.speculated.i to i32
+  %17 = icmp samesign ult i32 %10, 2139095040
+  %18 = add i32 %16, 4096
+  %19 = lshr i32 %18, 13
+  %.0.i = select i1 %17, i32 %19, i32 %12
+  %20 = lshr i32 %8, 16
+  %21 = and i32 %20, 32768
+  %22 = or i32 %.0.i, %21
+  %23 = trunc i32 %22 to i16
+  %24 = getelementptr inbounds nuw i16, ptr %2, i64 %.06
+  store i16 %23, ptr %24, align 2, !tbaa !109
+  %25 = add nuw i64 %.06, 1
+  %exitcond.not = icmp eq i64 %25, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !111
 }
 
@@ -32632,6 +32631,9 @@ declare i64 @llvm.umax.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #26
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

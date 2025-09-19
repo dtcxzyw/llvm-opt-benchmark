@@ -7771,47 +7771,46 @@ define internal void @encoder_progress_callback(ptr readnone captures(none) %0, 
   %18 = fcmp une double %16, 0.000000e+00
   %19 = icmp ne i64 %8, 0
   %or.cond = select i1 %18, i1 %19, i1 false
-  br i1 %or.cond, label %20, label %27
+  br i1 %or.cond, label %20, label %26
 
 20:                                               ; preds = %6
   %21 = uitofp i64 %1 to double
   %22 = uitofp i64 %8 to double
-  %23 = fcmp ogt double %16, 1.000000e+00
-  %24 = select i1 %23, double 1.000000e+00, double %16
-  %25 = fmul double %24, %22
-  %26 = fdiv double %21, %25
-  br label %27
+  %23 = tail call double @llvm.minnum.f64(double %16, double 1.000000e+00)
+  %24 = fmul double %23, %22
+  %25 = fdiv double %21, %24
+  br label %26
 
-27:                                               ; preds = %6, %20
-  %28 = phi double [ %26, %20 ], [ 0.000000e+00, %6 ]
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8440
-  store double %28, ptr %29, align 8, !tbaa !28
-  br i1 %.not, label %44, label %30
+26:                                               ; preds = %6, %20
+  %27 = phi double [ %25, %20 ], [ 0.000000e+00, %6 ]
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8440
+  store double %27, ptr %28, align 8, !tbaa !28
+  br i1 %.not, label %43, label %29
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %32 = load i32, ptr %31, align 8, !tbaa !189
-  %33 = zext i32 %32 to i64
-  %34 = sub i64 %2, %33
-  %35 = icmp ugt i64 %34, 10000
-  br i1 %35, label %36, label %44
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %31 = load i32, ptr %30, align 8, !tbaa !189
+  %32 = zext i32 %31 to i64
+  %33 = sub i64 %2, %32
+  %34 = icmp ugt i64 %33, 10000
+  br i1 %34, label %35, label %43
 
-36:                                               ; preds = %30
-  %37 = tail call i64 @clock() #20
-  %38 = trunc i64 %2 to i32
-  store i32 %38, ptr %31, align 8, !tbaa !189
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %40 = load i64, ptr %39, align 8, !tbaa !190
-  %41 = sub nsw i64 %37, %40
-  %42 = icmp sgt i64 %41, 250000
-  br i1 %42, label %43, label %44
+35:                                               ; preds = %29
+  %36 = tail call i64 @clock() #20
+  %37 = trunc i64 %2 to i32
+  store i32 %37, ptr %30, align 8, !tbaa !189
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %39 = load i64, ptr %38, align 8, !tbaa !190
+  %40 = sub nsw i64 %36, %39
+  %41 = icmp sgt i64 %40, 250000
+  br i1 %41, label %42, label %43
 
-43:                                               ; preds = %36
+42:                                               ; preds = %35
   tail call fastcc void @print_stats(ptr noundef nonnull %5)
-  store i64 %37, ptr %39, align 8, !tbaa !190
-  br label %44
+  store i64 %36, ptr %38, align 8, !tbaa !190
+  br label %43
 
-44:                                               ; preds = %36, %43, %30, %27
+43:                                               ; preds = %35, %42, %29, %26
   ret void
 }
 
@@ -7942,6 +7941,9 @@ declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.minnum.f64(double, double) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #19

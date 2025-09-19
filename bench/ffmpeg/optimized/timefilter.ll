@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @ff_timefilter_new(double noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noalias ptr @av_mallocz(i64 noundef 40) #6
+  %4 = tail call noalias ptr @av_mallocz(i64 noundef 40) #7
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %29, label %5
 
@@ -48,7 +48,7 @@ declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #1
 define void @ff_timefilter_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8, !tbaa !12
-  call void @av_freep(ptr noundef nonnull %2) #6
+  call void @av_freep(ptr noundef nonnull %2) #7
   ret void
 }
 
@@ -68,7 +68,7 @@ define double @ff_timefilter_update(ptr noundef captures(none) %0, double nounde
   %6 = add nsw i32 %5, 1
   store i32 %6, ptr %4, align 8, !tbaa !15
   %7 = icmp eq i32 %5, 0
-  br i1 %7, label %23, label %8
+  br i1 %7, label %22, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -80,17 +80,16 @@ define double @ff_timefilter_update(ptr noundef captures(none) %0, double nounde
   %15 = load double, ptr %14, align 8, !tbaa !10
   %16 = sitofp i32 %6 to double
   %17 = fdiv nsz double 1.000000e+00, %16
-  %18 = fcmp nsz ogt double %15, %17
-  %. = select nsz i1 %18, double %15, double %17
-  %19 = tail call nsz double @llvm.fmuladd.f64(double %., double %13, double %12)
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load double, ptr %20, align 8, !tbaa !11
-  %22 = tail call nsz double @llvm.fmuladd.f64(double %21, double %13, double %10)
-  store double %22, ptr %9, align 8, !tbaa !4
-  br label %23
+  %. = tail call nsz double @llvm.maxnum.f64(double %15, double %17)
+  %18 = tail call nsz double @llvm.fmuladd.f64(double %., double %13, double %12)
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %20 = load double, ptr %19, align 8, !tbaa !11
+  %21 = tail call nsz double @llvm.fmuladd.f64(double %20, double %13, double %10)
+  store double %21, ptr %9, align 8, !tbaa !4
+  br label %22
 
-23:                                               ; preds = %3, %8
-  %.sink = phi double [ %19, %8 ], [ %1, %3 ]
+22:                                               ; preds = %3, %8
+  %.sink = phi double [ %18, %8 ], [ %1, %3 ]
   store double %.sink, ptr %0, align 8, !tbaa !16
   ret double %.sink
 }
@@ -107,13 +106,17 @@ define double @ff_timefilter_eval(ptr noundef readonly captures(none) %0, double
   ret double %6
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #6
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

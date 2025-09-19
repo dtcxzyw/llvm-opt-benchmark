@@ -441,23 +441,25 @@ define <2 x float> @_ZN8facebook4yoga4Node7measureEfNS0_11MeasureModeEfS2_(ptr n
   %or.cond = fcmp ult float %.sroa.0.4.vec.extract, 0.000000e+00
   %.sroa.0.0.vec.extract = extractelement <2 x float> %10, i64 0
   %or.cond5 = fcmp ult float %.sroa.0.0.vec.extract, 0.000000e+00
-  %or.cond26 = select i1 %or.cond, i1 true, i1 %or.cond5
-  br i1 %or.cond26, label %11, label %18
+  %or.cond28 = select i1 %or.cond, i1 true, i1 %or.cond5
+  br i1 %or.cond28, label %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit, label %13
 
-11:                                               ; preds = %5
-  %12 = fpext float %.sroa.0.0.vec.extract to double
-  %13 = fpext float %.sroa.0.4.vec.extract to double
-  tail call void (ptr, i8, ptr, ...) @_ZN8facebook4yoga3logEPKNS0_4NodeENS0_8LogLevelEPKcz(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull @.str.1, double noundef %12, double noundef %13) #25
-  %14 = fcmp ogt float %.sroa.0.0.vec.extract, 0.000000e+00
-  %15 = select i1 %14, float %.sroa.0.0.vec.extract, float 0.000000e+00
-  %.sroa.021.0.vec.insert = insertelement <2 x float> poison, float %15, i64 0
-  %16 = fcmp ogt float %.sroa.0.4.vec.extract, 0.000000e+00
-  %17 = select i1 %16, float %.sroa.0.4.vec.extract, float 0.000000e+00
-  %.sroa.021.4.vec.insert = insertelement <2 x float> %.sroa.021.0.vec.insert, float %17, i64 1
-  br label %18
+_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit: ; preds = %5
+  %11 = fpext float %.sroa.0.0.vec.extract to double
+  %12 = fpext float %.sroa.0.4.vec.extract to double
+  tail call void (ptr, i8, ptr, ...) @_ZN8facebook4yoga3logEPKNS0_4NodeENS0_8LogLevelEPKcz(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull @.str.1, double noundef %11, double noundef %12) #25
+  %or.cond.i = fcmp ord float %.sroa.0.0.vec.extract, 0.000000e+00
+  %.sroa.speculated.i = tail call float @llvm.maxnum.f32(float %.sroa.0.0.vec.extract, float 0.000000e+00)
+  %.0.i = select i1 %or.cond.i, float %.sroa.speculated.i, float 0.000000e+00
+  %.sroa.021.0.vec.insert = insertelement <2 x float> poison, float %.0.i, i64 0
+  %or.cond.i23 = fcmp ord float %.sroa.0.4.vec.extract, 0.000000e+00
+  %.sroa.speculated.i25 = tail call float @llvm.maxnum.f32(float %.sroa.0.4.vec.extract, float 0.000000e+00)
+  %.0.i24 = select i1 %or.cond.i23, float %.sroa.speculated.i25, float 0.000000e+00
+  %.sroa.021.4.vec.insert = insertelement <2 x float> %.sroa.021.0.vec.insert, float %.0.i24, i64 1
+  br label %13
 
-18:                                               ; preds = %5, %11
-  %.sroa.021.0 = phi <2 x float> [ %.sroa.021.4.vec.insert, %11 ], [ %10, %5 ]
+13:                                               ; preds = %5, %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit
+  %.sroa.021.0 = phi <2 x float> [ %.sroa.021.4.vec.insert, %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit ], [ %10, %5 ]
   ret <2 x float> %.sroa.021.0
 }
 
@@ -4632,27 +4634,34 @@ _ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit
   %18 = trunc i64 %17 to i8
   %19 = trunc i64 %.sroa.0.0.in.i to i32
   %20 = bitcast i32 %19 to float
-  switch i8 %18, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit [
-    i8 1, label %21
-    i8 2, label %22
+  switch i8 %18, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread [
+    i8 1, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+    i8 2, label %21
   ]
 
 21:                                               ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit
+  %22 = fmul float %3, %20
+  %23 = fmul float %22, 0x3F847AE140000000
   br label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
 
-22:                                               ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit
-  %23 = fmul float %3, %20
-  %24 = fmul float %23, 0x3F847AE140000000
-  br label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
-
-_ZN8facebook4yoga11StyleLength7resolveEf.exit:    ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit, %21, %22
-  %.sroa.0.0.i = phi float [ %20, %21 ], [ %24, %22 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit ]
+_ZN8facebook4yoga11StyleLength7resolveEf.exit:    ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit, %21
+  %.sroa.0.0.i = phi float [ %23, %21 ], [ %20, %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit ]
   %or.cond.i = fcmp ord float %.sroa.0.0.i, 0.000000e+00
-  %25 = fcmp uno float %.sroa.0.0.i, 0.000000e+00
-  %26 = fcmp olt float %.sroa.0.0.i, 0.000000e+00
-  %.sink.i = select i1 %or.cond.i, i1 %26, i1 %25
-  %27 = select i1 %.sink.i, float 0.000000e+00, float %.sroa.0.0.i
-  ret float %27
+  br i1 %or.cond.i, label %24, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread
+
+24:                                               ; preds = %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+  %.sroa.speculated.i = tail call float @llvm.maxnum.f32(float %.sroa.0.0.i, float 0.000000e+00)
+  br label %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit
+
+_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread: ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit, %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+  %.sroa.0.0.i14 = phi float [ %.sroa.0.0.i, %_ZN8facebook4yoga11StyleLength7resolveEf.exit ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit ]
+  %.inv = fcmp ord float %.sroa.0.0.i14, 0.000000e+00
+  %25 = select i1 %.inv, float %.sroa.0.0.i14, float 0.000000e+00
+  br label %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit
+
+_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit: ; preds = %24, %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread
+  %.0.i3 = phi float [ %.sroa.speculated.i, %24 ], [ %25, %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread ]
+  ret float %.0.i3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4694,27 +4703,34 @@ _ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit:
   %17 = trunc i64 %16 to i8
   %18 = trunc i64 %.sroa.0.0.in.i to i32
   %19 = bitcast i32 %18 to float
-  switch i8 %17, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit [
-    i8 1, label %20
-    i8 2, label %21
+  switch i8 %17, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread [
+    i8 1, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+    i8 2, label %20
   ]
 
 20:                                               ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit
+  %21 = fmul float %19, 0.000000e+00
+  %22 = fmul float %21, 0x3F847AE140000000
   br label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
 
-21:                                               ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit
-  %22 = fmul float %19, 0.000000e+00
-  %23 = fmul float %22, 0x3F847AE140000000
-  br label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
-
-_ZN8facebook4yoga11StyleLength7resolveEf.exit:    ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit, %20, %21
-  %.sroa.0.0.i = phi float [ %19, %20 ], [ %23, %21 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit ]
+_ZN8facebook4yoga11StyleLength7resolveEf.exit:    ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit, %20
+  %.sroa.0.0.i = phi float [ %22, %20 ], [ %19, %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit ]
   %or.cond.i = fcmp ord float %.sroa.0.0.i, 0.000000e+00
-  %24 = fcmp uno float %.sroa.0.0.i, 0.000000e+00
-  %25 = fcmp olt float %.sroa.0.0.i, 0.000000e+00
-  %.sink.i = select i1 %or.cond.i, i1 %25, i1 %24
-  %26 = select i1 %.sink.i, float 0.000000e+00, float %.sroa.0.0.i
-  ret float %26
+  br i1 %or.cond.i, label %23, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread
+
+23:                                               ; preds = %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+  %.sroa.speculated.i = tail call float @llvm.maxnum.f32(float %.sroa.0.0.i, float 0.000000e+00)
+  br label %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit
+
+_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread: ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit, %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+  %.sroa.0.0.i13 = phi float [ %.sroa.0.0.i, %_ZN8facebook4yoga11StyleLength7resolveEf.exit ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit ]
+  %.inv = fcmp ord float %.sroa.0.0.i13, 0.000000e+00
+  %24 = select i1 %.inv, float %.sroa.0.0.i13, float 0.000000e+00
+  br label %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit
+
+_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit: ; preds = %23, %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread
+  %.0.i2 = phi float [ %.sroa.speculated.i, %23 ], [ %24, %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread ]
+  ret float %.0.i2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4756,27 +4772,34 @@ _ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit
   %18 = trunc i64 %17 to i8
   %19 = trunc i64 %.sroa.0.0.in.i to i32
   %20 = bitcast i32 %19 to float
-  switch i8 %18, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit [
-    i8 1, label %21
-    i8 2, label %22
+  switch i8 %18, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread [
+    i8 1, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+    i8 2, label %21
   ]
 
 21:                                               ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit
+  %22 = fmul float %3, %20
+  %23 = fmul float %22, 0x3F847AE140000000
   br label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
 
-22:                                               ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit
-  %23 = fmul float %3, %20
-  %24 = fmul float %23, 0x3F847AE140000000
-  br label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
-
-_ZN8facebook4yoga11StyleLength7resolveEf.exit:    ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit, %21, %22
-  %.sroa.0.0.i = phi float [ %20, %21 ], [ %24, %22 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit ]
+_ZN8facebook4yoga11StyleLength7resolveEf.exit:    ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit, %21
+  %.sroa.0.0.i = phi float [ %23, %21 ], [ %20, %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit ]
   %or.cond.i = fcmp ord float %.sroa.0.0.i, 0.000000e+00
-  %25 = fcmp uno float %.sroa.0.0.i, 0.000000e+00
-  %26 = fcmp olt float %.sroa.0.0.i, 0.000000e+00
-  %.sink.i = select i1 %or.cond.i, i1 %26, i1 %25
-  %27 = select i1 %.sink.i, float 0.000000e+00, float %.sroa.0.0.i
-  ret float %27
+  br i1 %or.cond.i, label %24, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread
+
+24:                                               ; preds = %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+  %.sroa.speculated.i = tail call float @llvm.maxnum.f32(float %.sroa.0.0.i, float 0.000000e+00)
+  br label %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit
+
+_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread: ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit, %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+  %.sroa.0.0.i14 = phi float [ %.sroa.0.0.i, %_ZN8facebook4yoga11StyleLength7resolveEf.exit ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit ]
+  %.inv = fcmp ord float %.sroa.0.0.i14, 0.000000e+00
+  %25 = select i1 %.inv, float %.sroa.0.0.i14, float 0.000000e+00
+  br label %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit
+
+_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit: ; preds = %24, %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread
+  %.0.i3 = phi float [ %.sroa.speculated.i, %24 ], [ %25, %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread ]
+  ret float %.0.i3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4818,27 +4841,34 @@ _ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit:
   %17 = trunc i64 %16 to i8
   %18 = trunc i64 %.sroa.0.0.in.i to i32
   %19 = bitcast i32 %18 to float
-  switch i8 %17, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit [
-    i8 1, label %20
-    i8 2, label %21
+  switch i8 %17, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread [
+    i8 1, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+    i8 2, label %20
   ]
 
 20:                                               ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit
+  %21 = fmul float %19, 0.000000e+00
+  %22 = fmul float %21, 0x3F847AE140000000
   br label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
 
-21:                                               ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit
-  %22 = fmul float %19, 0.000000e+00
-  %23 = fmul float %22, 0x3F847AE140000000
-  br label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
-
-_ZN8facebook4yoga11StyleLength7resolveEf.exit:    ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit, %20, %21
-  %.sroa.0.0.i = phi float [ %19, %20 ], [ %23, %21 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit ]
+_ZN8facebook4yoga11StyleLength7resolveEf.exit:    ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit, %20
+  %.sroa.0.0.i = phi float [ %22, %20 ], [ %19, %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit ]
   %or.cond.i = fcmp ord float %.sroa.0.0.i, 0.000000e+00
-  %24 = fcmp uno float %.sroa.0.0.i, 0.000000e+00
-  %25 = fcmp olt float %.sroa.0.0.i, 0.000000e+00
-  %.sink.i = select i1 %or.cond.i, i1 %25, i1 %24
-  %26 = select i1 %.sink.i, float 0.000000e+00, float %.sroa.0.0.i
-  ret float %26
+  br i1 %or.cond.i, label %23, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread
+
+23:                                               ; preds = %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+  %.sroa.speculated.i = tail call float @llvm.maxnum.f32(float %.sroa.0.0.i, float 0.000000e+00)
+  br label %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit
+
+_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread: ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit, %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+  %.sroa.0.0.i13 = phi float [ %.sroa.0.0.i, %_ZN8facebook4yoga11StyleLength7resolveEf.exit ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit ]
+  %.inv = fcmp ord float %.sroa.0.0.i13, 0.000000e+00
+  %24 = select i1 %.inv, float %.sroa.0.0.i13, float 0.000000e+00
+  br label %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit
+
+_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit: ; preds = %23, %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread
+  %.0.i2 = phi float [ %.sroa.speculated.i, %23 ], [ %24, %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread ]
+  ret float %.0.i2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -4933,6 +4963,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22

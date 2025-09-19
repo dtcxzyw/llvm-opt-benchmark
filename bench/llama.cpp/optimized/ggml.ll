@@ -8606,15 +8606,13 @@ define void @ggml_rope_yarn_corr_dims(i32 noundef %0, i32 noundef %1, float noun
   %24 = fmul float %23, 2.000000e+00
   %25 = fdiv float %22, %24
   %26 = tail call float @llvm.ceil.f32(float %25)
-  %27 = fcmp olt float %17, 0.000000e+00
-  %28 = select i1 %27, float 0.000000e+00, float %17
-  store float %28, ptr %5, align 4, !tbaa !15
-  %29 = add nsw i32 %0, -1
-  %30 = sitofp i32 %29 to float
-  %31 = fcmp ogt float %26, %30
-  %32 = select i1 %31, float %30, float %26
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float %32, ptr %33, align 4, !tbaa !15
+  %27 = tail call float @llvm.maxnum.f32(float %17, float 0.000000e+00)
+  store float %27, ptr %5, align 4, !tbaa !15
+  %28 = add nsw i32 %0, -1
+  %29 = sitofp i32 %28 to float
+  %30 = tail call float @llvm.minnum.f32(float %29, float %26)
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store float %30, ptr %31, align 4, !tbaa !15
   ret void
 }
 
@@ -18868,6 +18866,12 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #39
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.maxnum.f32(float, float) #39
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.minnum.f32(float, float) #39
 
 attributes #0 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

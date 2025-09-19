@@ -239,14 +239,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit38: ; preds = %_ZStl
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13)
-          to label %39 unwind label %235
+          to label %39 unwind label %234
 
 39:                                               ; preds = %37, %35
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %38, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %234
+  br label %233
 
 40:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit38
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -645,7 +645,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit49: ; preds = %_ZStl
   %195 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16)
-          to label %196 unwind label %235
+          to label %196 unwind label %234
 
 196:                                              ; preds = %194, %192
   %.pn18 = phi { ptr, i32 } [ %193, %192 ], [ %195, %194 ]
@@ -735,54 +735,53 @@ _ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %._crit_edge98, %_ZN
 216:                                              ; preds = %.noexc50, %207
   %217 = landingpad { ptr, i32 }
           cleanup
-  br label %233
+  br label %232
 
 218:                                              ; preds = %211
   %219 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #11
-  br label %233
+  br label %232
 
 220:                                              ; preds = %.lr.ph97, %220
-  %storemerge2096 = phi i64 [ 0, %.lr.ph97 ], [ %232, %220 ]
+  %storemerge2096 = phi i64 [ 0, %.lr.ph97 ], [ %231, %220 ]
   %221 = mul i64 %storemerge2096, %61
   %222 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %51, i64 %221
   %223 = load double, ptr %222, align 8, !tbaa !47
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %225 = load double, ptr %224, align 8, !tbaa !50
   %226 = fneg double %223
-  %227 = fcmp olt double %225, 0x3EB0C6F7A0000000
-  %.sroa.speculated.i = select i1 %227, double 0x3EB0C6F7A0000000, double %225
-  %228 = fdiv double %226, %.sroa.speculated.i
-  %229 = mul i64 %212, %storemerge2096
-  %230 = getelementptr inbounds nuw float, ptr %214, i64 %229
-  %231 = fptrunc double %228 to float
-  store float %231, ptr %230, align 4, !tbaa !110
-  %232 = add nuw i64 %storemerge2096, 1
-  %exitcond.not = icmp eq i64 %232, %.sink.i.i.i
+  %.sroa.speculated.i = call double @llvm.maxnum.f64(double %225, double 0x3EB0C6F7A0000000)
+  %227 = fdiv double %226, %.sroa.speculated.i
+  %228 = mul i64 %212, %storemerge2096
+  %229 = getelementptr inbounds nuw float, ptr %214, i64 %228
+  %230 = fptrunc double %227 to float
+  store float %230, ptr %229, align 4, !tbaa !110
+  %231 = add nuw i64 %storemerge2096, 1
+  %exitcond.not = icmp eq i64 %231, %.sink.i.i.i
   br i1 %exitcond.not, label %._crit_edge98, label %220, !llvm.loop !111
 
-233:                                              ; preds = %218, %216
+232:                                              ; preds = %218, %216
   %.pn21.pn = phi { ptr, i32 } [ %219, %218 ], [ %217, %216 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.body
 
-.body:                                            ; preds = %196, %167, %233, %165, %146, %163
-  %.pn26.pn.pn = phi { ptr, i32 } [ %164, %163 ], [ %166, %165 ], [ %.pn.i.i, %146 ], [ %.pn18, %196 ], [ %168, %167 ], [ %.pn21.pn, %233 ]
+.body:                                            ; preds = %196, %167, %232, %165, %146, %163
+  %.pn26.pn.pn = phi { ptr, i32 } [ %164, %163 ], [ %166, %165 ], [ %.pn.i.i, %146 ], [ %.pn18, %196 ], [ %168, %167 ], [ %.pn21.pn, %232 ]
   call void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIdEEED1Ev(ptr noundef nonnull align 8 dereferenceable(25) %14) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %234
+  br label %233
 
-234:                                              ; preds = %.body, %39
+233:                                              ; preds = %.body, %39
   %.pn26.pn.pn.pn = phi { ptr, i32 } [ %.pn26.pn.pn, %.body ], [ %.pn, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn26.pn.pn.pn
 
-235:                                              ; preds = %194, %37
-  %236 = landingpad { ptr, i32 }
+234:                                              ; preds = %194, %37
+  %235 = landingpad { ptr, i32 }
           catch ptr null
-  %237 = extractvalue { ptr, i32 } %236, 0
-  call void @__clang_call_terminate(ptr %237) #28
+  %236 = extractvalue { ptr, i32 } %235, 0
+  call void @__clang_call_terminate(ptr %236) #28
   unreachable
 }
 
@@ -3152,6 +3151,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #26
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

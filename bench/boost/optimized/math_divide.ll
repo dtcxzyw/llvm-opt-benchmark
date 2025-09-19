@@ -133744,59 +133744,58 @@ _ZN5boost4math3fpc10fpc_detail17safe_fpt_divisionIdEET_S4_S4_.exit.i: ; preds = 
 
 41:                                               ; preds = %39, %35, %32, %_ZN5boost4math3fpc10fpc_detail17safe_fpt_divisionIdEET_S4_S4_.exit.i
   %.0.i10.i = phi double [ %40, %39 ], [ 0.000000e+00, %32 ], [ 0x7FEFFFFFFFFFFFFF, %_ZN5boost4math3fpc10fpc_detail17safe_fpt_divisionIdEET_S4_S4_.exit.i ], [ 0.000000e+00, %35 ]
-  %42 = fcmp olt double %.0.i10.i, %.0.i.i
-  %.sroa.speculated17.i = select i1 %42, double %.0.i.i, double %.0.i10.i
-  %43 = fcmp ole double %.sroa.speculated17.i, %6
-  %44 = zext i1 %43 to i8
-  store i8 %44, ptr %0, align 8, !tbaa !396
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
-  br i1 %43, label %_ZN5boostlsIcdEERNS_23basic_wrap_stringstreamIT_EES4_RKT0_.exit, label %46
+  %.sroa.speculated17.i = tail call double @llvm.maxnum.f64(double %.0.i.i, double %.0.i10.i)
+  %42 = fcmp ole double %.sroa.speculated17.i, %6
+  %43 = zext i1 %42 to i8
+  store i8 %43, ptr %0, align 8, !tbaa !396
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
+  br i1 %42, label %_ZN5boostlsIcdEERNS_23basic_wrap_stringstreamIT_EES4_RKT0_.exit, label %45
 
-46:                                               ; preds = %41
-  %47 = invoke noalias noundef nonnull dereferenceable(408) ptr @_Znwm(i64 noundef 408) #58
-          to label %.noexc unwind label %55
+45:                                               ; preds = %41
+  %46 = invoke noalias noundef nonnull dereferenceable(408) ptr @_Znwm(i64 noundef 408) #58
+          to label %.noexc unwind label %54
 
-.noexc:                                           ; preds = %46
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(408) %47)
-          to label %48 unwind label %52
+.noexc:                                           ; preds = %45
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(408) %46)
+          to label %47 unwind label %51
 
-48:                                               ; preds = %.noexc
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 376
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 392
-  store ptr %50, ptr %49, align 8, !tbaa !92
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 384
-  store i64 0, ptr %51, align 8, !tbaa !11
-  store i8 0, ptr %50, align 8, !tbaa !24
-  invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull %47)
-          to label %_ZN5boost10test_tools16assertion_result7messageEv.exit unwind label %55
+47:                                               ; preds = %.noexc
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 376
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 392
+  store ptr %49, ptr %48, align 8, !tbaa !92
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 384
+  store i64 0, ptr %50, align 8, !tbaa !11
+  store i8 0, ptr %49, align 8, !tbaa !24
+  invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull %46)
+          to label %_ZN5boost10test_tools16assertion_result7messageEv.exit unwind label %54
 
-52:                                               ; preds = %.noexc
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %.noexc
+  %52 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef 408) #57
+  tail call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef 408) #57
   br label %.body
 
-_ZN5boost10test_tools16assertion_result7messageEv.exit: ; preds = %48
-  %.pre.i = load ptr, ptr %45, align 8, !tbaa !754
-  %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(408) %.pre.i, double noundef %.sroa.speculated17.i)
-          to label %_ZN5boostlsIcdEERNS_23basic_wrap_stringstreamIT_EES4_RKT0_.exit unwind label %57
+_ZN5boost10test_tools16assertion_result7messageEv.exit: ; preds = %47
+  %.pre.i = load ptr, ptr %44, align 8, !tbaa !754
+  %53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(408) %.pre.i, double noundef %.sroa.speculated17.i)
+          to label %_ZN5boostlsIcdEERNS_23basic_wrap_stringstreamIT_EES4_RKT0_.exit unwind label %56
 
-55:                                               ; preds = %48, %46
-  %56 = landingpad { ptr, i32 }
+54:                                               ; preds = %47, %45
+  %55 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-57:                                               ; preds = %_ZN5boost10test_tools16assertion_result7messageEv.exit
-  %58 = landingpad { ptr, i32 }
+56:                                               ; preds = %_ZN5boost10test_tools16assertion_result7messageEv.exit
+  %57 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 _ZN5boostlsIcdEERNS_23basic_wrap_stringstreamIT_EES4_RKT0_.exit: ; preds = %_ZN5boost10test_tools16assertion_result7messageEv.exit, %41
   ret void
 
-.body:                                            ; preds = %55, %52, %57
-  %.pn = phi { ptr, i32 } [ %58, %57 ], [ %56, %55 ], [ %53, %52 ]
+.body:                                            ; preds = %54, %51, %56
+  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %55, %54 ], [ %52, %51 ]
   tail call void @_ZN5boost10test_tools16assertion_resultD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #55
   resume { ptr, i32 } %.pn
 }
@@ -135025,6 +135024,9 @@ declare i64 @llvm.smin.i64(i64, i64) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #52
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #52
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

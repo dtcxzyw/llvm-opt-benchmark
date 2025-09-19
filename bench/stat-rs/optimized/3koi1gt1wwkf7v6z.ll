@@ -65,7 +65,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$f64$u20$as$u20$approx..relative_eq.
   %5 = load double, ptr %0, align 8, !noundef !4
   %6 = load double, ptr %1, align 8, !noundef !4
   %7 = fcmp oeq double %5, %6
-  br i1 %7, label %21, label %8
+  br i1 %7, label %20, label %8
 
 8:                                                ; preds = %4
   %9 = tail call double @llvm.fabs.f64(double %5)
@@ -73,23 +73,22 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$f64$u20$as$u20$approx..relative_eq.
   %11 = tail call double @llvm.fabs.f64(double %6)
   %12 = fcmp oeq double %11, 0x7FF0000000000000
   %or.cond = or i1 %10, %12
-  br i1 %or.cond, label %21, label %13
+  br i1 %or.cond, label %20, label %13
 
 13:                                               ; preds = %8
   %14 = fsub double %5, %6
   %15 = tail call double @llvm.fabs.f64(double %14)
   %16 = fcmp ugt double %15, %2
-  br i1 %16, label %17, label %21
+  br i1 %16, label %17, label %20
 
 17:                                               ; preds = %13
-  %18 = fcmp ogt double %11, %9
-  %.sroa.01.0 = select i1 %18, double %11, double %9
-  %19 = fmul double %3, %.sroa.01.0
-  %20 = fcmp ole double %15, %19
-  br label %21
+  %.sroa.01.0 = tail call double @llvm.maxnum.f64(double %11, double %9)
+  %18 = fmul double %3, %.sroa.01.0
+  %19 = fcmp ole double %15, %18
+  br label %20
 
-21:                                               ; preds = %13, %8, %4, %17
-  %.sroa.0.0 = phi i1 [ %20, %17 ], [ true, %4 ], [ false, %8 ], [ true, %13 ]
+20:                                               ; preds = %13, %8, %4, %17
+  %.sroa.0.0 = phi i1 [ %19, %17 ], [ true, %4 ], [ false, %8 ], [ true, %13 ]
   ret i1 %.sroa.0.0
 }
 
@@ -1963,14 +1962,13 @@ define noundef zeroext i1 @_ZN6statrs4prec11convergence17he4da219176fb4aabE(ptr 
   br i1 %13, label %14, label %"_ZN55_$LT$f64$u20$as$u20$approx..relative_eq..RelativeEq$GT$11relative_eq17h408dac37a9613714E.llvm.18390252353518890138.exit"
 
 14:                                               ; preds = %10
-  %15 = fcmp ogt double %8, %6
-  %.sroa.01.0.i = select i1 %15, double %8, double %6
-  %16 = fmul double %.sroa.01.0.i, 1.000000e-10
-  %17 = fcmp ole double %12, %16
+  %.sroa.01.0.i = tail call double @llvm.maxnum.f64(double %8, double %6)
+  %15 = fmul double %.sroa.01.0.i, 1.000000e-10
+  %16 = fcmp ole double %12, %15
   br label %"_ZN55_$LT$f64$u20$as$u20$approx..relative_eq..RelativeEq$GT$11relative_eq17h408dac37a9613714E.llvm.18390252353518890138.exit"
 
 "_ZN55_$LT$f64$u20$as$u20$approx..relative_eq..RelativeEq$GT$11relative_eq17h408dac37a9613714E.llvm.18390252353518890138.exit": ; preds = %2, %5, %10, %14
-  %.sroa.0.0.i = phi i1 [ %17, %14 ], [ true, %2 ], [ false, %5 ], [ true, %10 ]
+  %.sroa.0.0.i = phi i1 [ %16, %14 ], [ true, %2 ], [ false, %5 ], [ true, %10 ]
   store double %1, ptr %0, align 8
   ret i1 %.sroa.0.0.i
 }
@@ -2129,6 +2127,9 @@ declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.maxnum.f64(double, double) #15
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
