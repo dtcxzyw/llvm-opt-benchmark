@@ -639,12 +639,11 @@ define weak_odr <6 x double> @_ZNK7mitsuba17HomogeneousMediumIfN5drjit6MatrixINS
   %34 = tail call <4 x float> %33(ptr noundef nonnull align 16 dereferenceable(180) %30, ptr noundef nonnull align 16 dereferenceable(64) %1, i1 noundef zeroext true)
   %35 = fmul contract <4 x float> %.sroa.075.0, %34
   %36 = bitcast <4 x float> %35 to <2 x double>
-  %.sroa.082.0.vec.expand = shufflevector <2 x double> %36, <2 x double> poison, <6 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison>
-  %.sroa.082.16.vecblend = shufflevector <6 x double> %.sroa.082.0.vec.expand, <6 x double> <double poison, double poison, double 0.000000e+00, double 0.000000e+00, double poison, double poison>, <6 x i32> <i32 0, i32 1, i32 8, i32 9, i32 poison, i32 poison>
-  %37 = bitcast <4 x float> %.sroa.075.0 to <2 x double>
-  %.sroa.082.32.vec.expand = shufflevector <2 x double> %37, <2 x double> poison, <6 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1>
-  %.sroa.082.32.vecblend = shufflevector <6 x double> %.sroa.082.16.vecblend, <6 x double> %.sroa.082.32.vec.expand, <6 x i32> <i32 0, i32 1, i32 2, i32 3, i32 10, i32 11>
-  ret <6 x double> %.sroa.082.32.vecblend
+  %37 = shufflevector <2 x double> %36, <2 x double> zeroinitializer, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %38 = bitcast <4 x float> %.sroa.075.0 to <2 x double>
+  %39 = shufflevector <2 x double> %38, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %40 = shufflevector <4 x double> %37, <4 x double> %39, <6 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5>
+  ret <6 x double> %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

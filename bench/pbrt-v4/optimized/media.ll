@@ -24064,7 +24064,7 @@ _ZNK4pbrt3SOAINS_10RaySamplesEE16GetSetIndirectorcvS1_Ev.exit:
   %36 = load ptr, ptr %35, align 8, !tbaa !987, !noalias !982
   %37 = getelementptr inbounds %"struct.pbrt::Float4", ptr %36, i64 %30
   %.sroa.2.0..0..sroa_idx.i8.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %.sroa.2.0.copyload.i931.i.i303 = load <2 x float>, ptr %.sroa.2.0..0..sroa_idx.i8.i.i, align 8, !tbaa !120, !noalias !982
+  %.sroa.2.0.copyload.i931.i.i302 = load <2 x float>, ptr %.sroa.2.0..0..sroa_idx.i8.i.i, align 8, !tbaa !120, !noalias !982
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %.sroa.01.4.vec.extract.i.i = load float, ptr %38, align 4, !noalias !982
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -24084,10 +24084,10 @@ _ZNK4pbrt3SOAINS_10RaySamplesEE16GetSetIndirectorcvS1_Ev.exit:
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %44, i64 0
   %.sroa.0.4.vec.insert.i = shufflevector <2 x float> %.sroa.0.0.vec.insert.i, <2 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %.sroa.07.4.vec.insert.i, ptr %19, align 8
-  %.sroa.4299.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store <2 x float> %.sroa.05.4.vec.insert.i, ptr %.sroa.4299.0..sroa_idx, align 8
-  %.sroa.5300.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store <2 x float> %.sroa.0.4.vec.insert.i, ptr %.sroa.5300.0..sroa_idx, align 8
+  %.sroa.4298.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store <2 x float> %.sroa.05.4.vec.insert.i, ptr %.sroa.4298.0..sroa_idx, align 8
+  %.sroa.5299.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store <2 x float> %.sroa.0.4.vec.insert.i, ptr %.sroa.5299.0..sroa_idx, align 8
   %45 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 32
   %46 = getelementptr inbounds nuw i8, ptr %19, i64 36
@@ -24116,8 +24116,8 @@ _ZNK4pbrt3SOAINS_10RaySamplesEE16GetSetIndirectorcvS1_Ev.exit:
   br i1 %57, label %58, label %215
 
 58:                                               ; preds = %_ZNK4pbrt3SOAINS_10RaySamplesEE16GetSetIndirectorcvS1_Ev.exit
-  %.sroa.0289.0.vec.insert = insertelement <2 x float> poison, float %32, i64 0
-  %.sroa.0289.4.vec.insert = insertelement <2 x float> %.sroa.0289.0.vec.insert, float %34, i64 1
+  %.sroa.0288.0.vec.insert = insertelement <2 x float> poison, float %32, i64 0
+  %.sroa.0288.4.vec.insert = insertelement <2 x float> %.sroa.0288.0.vec.insert, float %34, i64 1
   %59 = load i64, ptr %20, align 8, !tbaa !219
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -24127,7 +24127,7 @@ _ZNK4pbrt3SOAINS_10RaySamplesEE16GetSetIndirectorcvS1_Ev.exit:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %60, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  store <2 x float> %.sroa.0289.4.vec.insert, ptr %12, align 8, !noalias !1000
+  store <2 x float> %.sroa.0288.4.vec.insert, ptr %12, align 8, !noalias !1000
   store i8 1, ptr %13, align 1, !tbaa !125, !noalias !1000
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !1000
   store ptr %16, ptr %14, align 8, !tbaa !991, !noalias !1000
@@ -24195,10 +24195,10 @@ _ZN4pstd8optionalIN4pbrt13LightLiSampleEEptEv.exit113: ; preds = %_ZN4pstd8optio
   %.0.i.i.i = phi float [ 0x3FEFAE1480000000, %86 ], [ %81, %84 ], [ 0xBFEFAE1480000000, %_ZN4pstd8optionalIN4pbrt13LightLiSampleEEptEv.exit113 ]
   %88 = fmul float %.sroa.7.0.copyload, %.sroa.6.0.copyload
   %foldExtExtBinop = fmul <2 x float> %.sroa.065.0.copyload, %.sroa.056.0.copyload
-  %foldExtExtBinop318 = fmul <2 x float> %.sroa.065.0.copyload, %.sroa.056.0.copyload
-  %shift = shufflevector <2 x float> %foldExtExtBinop318, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop320 = fadd <2 x float> %foldExtExtBinop, %shift
-  %89 = extractelement <2 x float> %foldExtExtBinop320, i64 0
+  %foldExtExtBinop317 = fmul <2 x float> %.sroa.065.0.copyload, %.sroa.056.0.copyload
+  %shift = shufflevector <2 x float> %foldExtExtBinop317, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop319 = fadd <2 x float> %foldExtExtBinop, %shift
+  %89 = extractelement <2 x float> %foldExtExtBinop319, i64 0
   %90 = fadd float %88, %89
   %91 = fmul float %.0.i.i.i, %.0.i.i.i
   %92 = fadd float %91, 1.000000e+00
@@ -24317,8 +24317,8 @@ _ZNK4pbrt15HGPhaseFunction3PDFENS_7Vector3IfEES2_.exit: ; preds = %115, %116, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x float> %.fca.0.load.i, ptr %8, align 8
-  %.sroa.5274.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store <2 x float> %.fca.1.load.i, ptr %.sroa.5274.0..sroa_idx, align 8, !tbaa !120
+  %.sroa.5273.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store <2 x float> %.fca.1.load.i, ptr %.sroa.5273.0..sroa_idx, align 8, !tbaa !120
   br label %142
 
 142:                                              ; preds = %142, %141
@@ -24335,7 +24335,7 @@ _ZNK4pbrt15HGPhaseFunction3PDFENS_7Vector3IfEES2_.exit: ; preds = %115, %116, %1
 
 148:                                              ; preds = %142
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %8, align 8
-  %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.5274.0..sroa_idx, align 8, !tbaa !120
+  %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.5273.0..sroa_idx, align 8, !tbaa !120
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.sroa.031.0.copyload = load <2 x float>, ptr %1, align 8
   %.sroa.232.0.copyload = load float, ptr %43, align 8
@@ -24469,7 +24469,7 @@ _ZN4pstd8optionalIN4pbrt13LightLiSampleEED2Ev.exit: ; preds = %58, %148, %_ZN4ps
   %217 = load ptr, ptr %216, align 8, !tbaa !976
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1021
   %218 = load float, ptr %217, align 4, !tbaa !1011, !noalias !1021
-  %219 = call { <2 x float>, float } @_ZN4pbrt22SampleHenyeyGreensteinENS_7Vector3IfEEfNS_6Point2IfEEPf(<2 x float> %.sroa.065.0.copyload, float %.sroa.7.0.copyload, float noundef %218, <2 x float> %.sroa.2.0.copyload.i931.i.i303, ptr noundef nonnull %7)
+  %219 = call { <2 x float>, float } @_ZN4pbrt22SampleHenyeyGreensteinENS_7Vector3IfEEfNS_6Point2IfEEPf(<2 x float> %.sroa.065.0.copyload, float %.sroa.7.0.copyload, float noundef %218, <2 x float> %.sroa.2.0.copyload.i931.i.i302, ptr noundef nonnull %7)
   %.fca.0.extract.i = extractvalue { <2 x float>, float } %219, 0
   %.fca.1.extract.i = extractvalue { <2 x float>, float } %219, 1
   %220 = load float, ptr %7, align 4, !tbaa !127, !noalias !1021
@@ -24728,7 +24728,7 @@ _ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit220: ; preds = %.preheader
   %330 = load ptr, ptr %329, align 8, !tbaa !201
   %331 = getelementptr inbounds float, ptr %330, i64 %294
   store float %328, ptr %331, align 4, !tbaa !127
-  %332 = load float, ptr %.sroa.4299.0..sroa_idx, align 8, !tbaa !325
+  %332 = load float, ptr %.sroa.4298.0..sroa_idx, align 8, !tbaa !325
   %333 = getelementptr inbounds nuw i8, ptr %286, i64 272
   %334 = load ptr, ptr %333, align 8, !tbaa !200
   %335 = getelementptr inbounds float, ptr %334, i64 %294
@@ -24739,7 +24739,7 @@ _ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit220: ; preds = %.preheader
   %339 = load ptr, ptr %338, align 8, !tbaa !201
   %340 = getelementptr inbounds float, ptr %339, i64 %294
   store float %337, ptr %340, align 4, !tbaa !127
-  %341 = load float, ptr %.sroa.5300.0..sroa_idx, align 8, !tbaa !325
+  %341 = load float, ptr %.sroa.5299.0..sroa_idx, align 8, !tbaa !325
   %342 = getelementptr inbounds nuw i8, ptr %286, i64 296
   %343 = load ptr, ptr %342, align 8, !tbaa !200
   %344 = getelementptr inbounds float, ptr %343, i64 %294

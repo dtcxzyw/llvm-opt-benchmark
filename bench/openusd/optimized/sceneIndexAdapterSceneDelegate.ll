@@ -35988,8 +35988,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 618:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7SdfPathEEEED2Ev.exit.i.i
   %619 = load ptr, ptr %20, align 8, !noalias !171
-  %.not135.i.i = icmp eq ptr %619, null
-  br i1 %.not135.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i, label %620
+  %.not134.i.i = icmp eq ptr %619, null
+  br i1 %.not134.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i, label %620
 
 620:                                              ; preds = %618
   %621 = load ptr, ptr %619, align 8, !noalias !168
@@ -36102,8 +36102,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 670:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit.i.i
   %671 = load ptr, ptr %22, align 8, !noalias !171
-  %.not136.i.i = icmp eq ptr %671, null
-  br i1 %.not136.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit26.i.i, label %672
+  %.not135.i.i = icmp eq ptr %671, null
+  br i1 %.not135.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit26.i.i, label %672
 
 672:                                              ; preds = %670
   %673 = load ptr, ptr %671, align 8, !noalias !168
@@ -36216,8 +36216,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 722:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit33.i.i
   %723 = load ptr, ptr %24, align 8, !noalias !171
-  %.not137.i.i = icmp eq ptr %723, null
-  br i1 %.not137.i.i, label %732, label %724
+  %.not136.i.i = icmp eq ptr %723, null
+  br i1 %.not136.i.i, label %732, label %724
 
 724:                                              ; preds = %722
   %725 = load ptr, ptr %723, align 8, !noalias !168
@@ -38118,8 +38118,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25HdSchemaBasedVectorSchemaINS_17HdRenderVa
 
 1552:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25HdSchemaBasedVectorSchemaINS_17HdRenderVarSchemaEED2Ev.exit64.i.i
   %1553 = load ptr, ptr %28, align 8, !noalias !171
-  %.not138.i.i = icmp eq ptr %1553, null
-  br i1 %.not138.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit68.i.i, label %1554
+  %.not137.i.i = icmp eq ptr %1553, null
+  br i1 %.not137.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit68.i.i, label %1554
 
 1554:                                             ; preds = %1552
   %1555 = load ptr, ptr %1553, align 8, !noalias !168
@@ -38169,16 +38169,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit66.thread.i.i: ; preds 
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit66.i.i: ; preds = %1575, %1562
-  %.pr131.i.i = load i32, ptr %29, align 4, !noalias !171
+  %.pr130.i.i = load i32, ptr %29, align 4, !noalias !171
   %1579 = load i32, ptr %542, align 4, !noalias !171
   store i32 0, ptr %542, align 4, !noalias !171
   store i32 %1579, ptr %541, align 4, !alias.scope !168, !noalias !165
-  %.not.i.i67.i.i = icmp eq i32 %.pr131.i.i, 0
+  %.not.i.i67.i.i = icmp eq i32 %.pr130.i.i, 0
   br i1 %.not.i.i67.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit68.i.i, label %1580
 
 1580:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit66.i.i
-  %1581 = and i32 %.pr131.i.i, 255
-  %1582 = lshr i32 %.pr131.i.i, 8
+  %1581 = and i32 %.pr130.i.i, 255
+  %1582 = lshr i32 %.pr130.i.i, 8
   %1583 = zext nneg i32 %1581 to i64
   %1584 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %1583
   %1585 = load ptr, ptr %1584, align 8, !noalias !171
@@ -38292,8 +38292,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 1635:                                             ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7SdfPathEEEED2Ev.exit75.i.i
   %1636 = load ptr, ptr %30, align 8, !noalias !171
-  %.not139.i.i = icmp eq ptr %1636, null
-  br i1 %.not139.i.i, label %1645, label %1637
+  %.not138.i.i = icmp eq ptr %1636, null
+  br i1 %.not138.i.i, label %1645, label %1637
 
 1637:                                             ; preds = %1635
   %1638 = load ptr, ptr %1636, align 8, !noalias !168
@@ -38391,8 +38391,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 1681:                                             ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIfEEED2Ev.exit.i.i
   %1682 = load ptr, ptr %31, align 8, !noalias !171
-  %.not140.i.i = icmp eq ptr %1682, null
-  br i1 %.not140.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit88.i.i, label %1683
+  %.not139.i.i = icmp eq ptr %1682, null
+  br i1 %.not139.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit88.i.i, label %1683
 
 1683:                                             ; preds = %1681
   %1684 = load ptr, ptr %1682, align 8, !noalias !168
@@ -38505,8 +38505,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 1733:                                             ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit95.i.i
   %1734 = load ptr, ptr %33, align 8, !noalias !171
-  %.not141.i.i = icmp eq ptr %1734, null
-  br i1 %.not141.i.i, label %1743, label %1735
+  %.not140.i.i = icmp eq ptr %1734, null
+  br i1 %.not140.i.i, label %1743, label %1735
 
 1735:                                             ; preds = %1733
   %1736 = load ptr, ptr %1734, align 8, !noalias !168
@@ -38604,8 +38604,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 1779:                                             ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7GfVec2fEEEED2Ev.exit.i.i
   %1780 = load ptr, ptr %34, align 8, !noalias !171
-  %.not142.i.i = icmp eq ptr %1780, null
-  br i1 %.not142.i.i, label %1791, label %1781
+  %.not141.i.i = icmp eq ptr %1780, null
+  br i1 %.not141.i.i, label %1791, label %1781
 
 1781:                                             ; preds = %1779
   %1782 = load ptr, ptr %1780, align 8, !noalias !168
@@ -38615,10 +38615,10 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
           to label %1786 unwind label %1789, !noalias !168
 
 1786:                                             ; preds = %1781
-  %1787 = extractvalue { <2 x float>, <2 x float> } %1785, 0
-  %1788 = extractvalue { <2 x float>, <2 x float> } %1785, 1
-  store <2 x float> %1787, ptr %505, align 8, !alias.scope !168, !noalias !165
-  store <2 x float> %1788, ptr %507, align 8, !alias.scope !168, !noalias !165
+  %1787 = extractvalue { <2 x float>, <2 x float> } %1785, 1
+  %1788 = extractvalue { <2 x float>, <2 x float> } %1785, 0
+  store <2 x float> %1788, ptr %505, align 8, !alias.scope !168, !noalias !165
+  store <2 x float> %1787, ptr %507, align 8, !alias.scope !168, !noalias !165
   br label %1791
 
 1789:                                             ; preds = %1781
@@ -38706,8 +38706,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 1827:                                             ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7GfVec4fEEEED2Ev.exit.i.i
   %1828 = load ptr, ptr %35, align 8, !noalias !171
-  %.not143.i.i = icmp eq ptr %1828, null
-  br i1 %.not143.i.i, label %1838, label %1829
+  %.not142.i.i = icmp eq ptr %1828, null
+  br i1 %.not142.i.i, label %1838, label %1829
 
 1829:                                             ; preds = %1827
   %1830 = load ptr, ptr %1828, align 8, !noalias !168
@@ -38806,8 +38806,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 1874:                                             ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIbEEED2Ev.exit.i.i
   %1875 = load ptr, ptr %36, align 8, !noalias !171
-  %.not144.i.i = icmp eq ptr %1875, null
-  br i1 %.not144.i.i, label %1885, label %1876
+  %.not143.i.i = icmp eq ptr %1875, null
+  br i1 %.not143.i.i, label %1885, label %1876
 
 1876:                                             ; preds = %1874
   %1877 = load ptr, ptr %1875, align 8, !noalias !168
@@ -38906,8 +38906,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 1921:                                             ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIbEEED2Ev.exit120.i.i
   %1922 = load ptr, ptr %37, align 8, !noalias !171
-  %.not145.i.i = icmp eq ptr %1922, null
-  br i1 %.not145.i.i, label %1941, label %1923
+  %.not144.i.i = icmp eq ptr %1922, null
+  br i1 %.not144.i.i, label %1941, label %1923
 
 1923:                                             ; preds = %1921
   %.val9.i.i = load ptr, ptr %554, align 8, !noalias !171
@@ -38937,14 +38937,14 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryaSEOS0_.exit.i.i: ; preds = %1927
   call void @_ZdlPvm(ptr noundef nonnull %1926, i64 noundef 48) #27, !noalias !168
-  %.pr133.i.i = load ptr, ptr %38, align 8, !noalias !171
-  %.not.i.i122.i.i = icmp eq ptr %.pr133.i.i, null
+  %.pr132.i.i = load ptr, ptr %38, align 8, !noalias !171
+  %.not.i.i122.i.i = icmp eq ptr %.pr132.i.i, null
   br i1 %.not.i.i122.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i.i, label %1933
 
 1933:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryaSEOS0_.exit.i.i
-  %1934 = getelementptr inbounds nuw i8, ptr %.pr133.i.i, i64 16
+  %1934 = getelementptr inbounds nuw i8, ptr %.pr132.i.i, i64 16
   %1935 = load ptr, ptr %1934, align 8, !noalias !168
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %.pr133.i.i, ptr noundef %1935)
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %.pr132.i.i, ptr noundef %1935)
           to label %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i.i.i unwind label %1936, !noalias !168
 
 1936:                                             ; preds = %1933
@@ -38955,7 +38955,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryaSEOS0_.exit.i.i: ; preds = %
   unreachable
 
 _ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i.i.i: ; preds = %1933
-  call void @_ZdlPvm(ptr noundef nonnull %.pr133.i.i, i64 noundef 48) #27, !noalias !168
+  call void @_ZdlPvm(ptr noundef nonnull %.pr132.i.i, i64 noundef 48) #27, !noalias !168
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryaSEOS0_.exit.i.i, %1924

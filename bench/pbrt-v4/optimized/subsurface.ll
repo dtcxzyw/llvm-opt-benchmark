@@ -871,31 +871,31 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt12ForAllQueuedIZNS1_2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %134 = getelementptr inbounds nuw i8, ptr %131, i64 680
   %135 = atomicrmw add ptr %134, i32 1 monotonic, align 4
-  %.sroa.058.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.09.0.copyload.i.i.i.i, i64 0
+  %.sroa.057.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.09.0.copyload.i.i.i.i, i64 0
   %136 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %137 = load ptr, ptr %136, align 8, !tbaa !118
   %138 = sext i32 %135 to i64
   %139 = getelementptr inbounds float, ptr %137, i64 %138
-  store float %.sroa.058.0.vec.extract.i.i.i.i.i, ptr %139, align 4, !tbaa !119
-  %.sroa.058.4.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.09.0.copyload.i.i.i.i, i64 1
+  store float %.sroa.057.0.vec.extract.i.i.i.i.i, ptr %139, align 4, !tbaa !119
+  %.sroa.057.4.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.09.0.copyload.i.i.i.i, i64 1
   %140 = getelementptr inbounds nuw i8, ptr %131, i64 24
   %141 = load ptr, ptr %140, align 8, !tbaa !121
   %142 = getelementptr inbounds float, ptr %141, i64 %138
-  store float %.sroa.058.4.vec.extract.i.i.i.i.i, ptr %142, align 4, !tbaa !119
+  store float %.sroa.057.4.vec.extract.i.i.i.i.i, ptr %142, align 4, !tbaa !119
   %143 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %144 = load ptr, ptr %143, align 8, !tbaa !122
   %145 = getelementptr inbounds float, ptr %144, i64 %138
   store float %.sroa.210.0.copyload.i.i.i.i, ptr %145, align 4, !tbaa !119
-  %.sroa.057.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.07.0.copyload.i.i.i.i, i64 0
+  %.sroa.056.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.07.0.copyload.i.i.i.i, i64 0
   %146 = getelementptr inbounds nuw i8, ptr %131, i64 48
   %147 = load ptr, ptr %146, align 8, !tbaa !118
   %148 = getelementptr inbounds float, ptr %147, i64 %138
-  store float %.sroa.057.0.vec.extract.i.i.i.i.i, ptr %148, align 4, !tbaa !119
-  %.sroa.057.4.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.07.0.copyload.i.i.i.i, i64 1
+  store float %.sroa.056.0.vec.extract.i.i.i.i.i, ptr %148, align 4, !tbaa !119
+  %.sroa.056.4.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.07.0.copyload.i.i.i.i, i64 1
   %149 = getelementptr inbounds nuw i8, ptr %131, i64 56
   %150 = load ptr, ptr %149, align 8, !tbaa !121
   %151 = getelementptr inbounds float, ptr %150, i64 %138
-  store float %.sroa.057.4.vec.extract.i.i.i.i.i, ptr %151, align 4, !tbaa !119
+  store float %.sroa.056.4.vec.extract.i.i.i.i.i, ptr %151, align 4, !tbaa !119
   %152 = getelementptr inbounds nuw i8, ptr %131, i64 64
   %153 = load ptr, ptr %152, align 8, !tbaa !122
   %154 = getelementptr inbounds float, ptr %153, i64 %138

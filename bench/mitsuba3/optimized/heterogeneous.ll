@@ -609,12 +609,12 @@ define weak_odr <6 x double> @_ZNK7mitsuba19HeterogeneousMediumIfN5drjit6MatrixI
   %38 = insertelement <4 x float> poison, float %37, i64 0
   %39 = shufflevector <4 x float> %38, <4 x float> poison, <4 x i32> zeroinitializer
   %40 = fsub contract <4 x float> %39, %.sroa.059.0
-  %41 = shufflevector <4 x float> %35, <4 x float> %40, <12 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison>
-  %.sroa.062.16.vecblend = bitcast <12 x float> %41 to <6 x double>
-  %42 = bitcast <4 x float> %.sroa.059.0 to <2 x double>
-  %.sroa.062.32.vec.expand = shufflevector <2 x double> %42, <2 x double> poison, <6 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1>
-  %.sroa.062.32.vecblend = shufflevector <6 x double> %.sroa.062.16.vecblend, <6 x double> %.sroa.062.32.vec.expand, <6 x i32> <i32 0, i32 1, i32 2, i32 3, i32 10, i32 11>
-  ret <6 x double> %.sroa.062.32.vecblend
+  %41 = shufflevector <4 x float> %35, <4 x float> %40, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %42 = bitcast <8 x float> %41 to <4 x double>
+  %43 = bitcast <4 x float> %.sroa.059.0 to <2 x double>
+  %44 = shufflevector <2 x double> %43, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %45 = shufflevector <4 x double> %42, <4 x double> %44, <6 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5>
+  ret <6 x double> %45
 }
 
 declare noundef i32 @_ZNK7mitsuba13PhaseFunctionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE5flagsEb(ptr noundef nonnull align 8 dereferenceable(64), i1 noundef zeroext) local_unnamed_addr #1
