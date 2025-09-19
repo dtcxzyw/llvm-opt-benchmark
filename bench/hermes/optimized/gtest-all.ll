@@ -44722,26 +44722,25 @@ lpad21:                                           ; preds = %invoke.cont20
 
 invoke.cont25:                                    ; preds = %invoke.cont16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %call26, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %invoke.cont29 unwind label %lpad28
+          to label %for.body.i.i.i.i.preheader unwind label %lpad28
 
-invoke.cont29:                                    ; preds = %invoke.cont25
+for.body.i.i.i.i.preheader:                       ; preds = %invoke.cont25
   %line_.i = getelementptr inbounds nuw i8, ptr %call26, i64 32
   store i32 %conv13.i, ptr %line_.i, align 8
   %index_.i = getelementptr inbounds nuw i8, ptr %call26, i64 36
   store i32 %conv13.i28, ptr %index_.i, align 4
   %write_fd_.i = getelementptr inbounds nuw i8, ptr %call26, i64 40
   store i32 %conv13.i47, ptr %write_fd_.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %2, %1
-  br i1 %cmp.not3.i.i.i.i, label %if.then.i.i.i, label %for.body.i.i.i.i
+  br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %invoke.cont29, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %2, %invoke.cont29 ]
+for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader, %for.body.i.i.i.i
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %2, %for.body.i.i.i.i.preheader ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #52
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %if.then.i.i.i, label %for.body.i.i.i.i, !llvm.loop !19
 
-if.then.i.i.i:                                    ; preds = %for.body.i.i.i.i, %invoke.cont29
+if.then.i.i.i:                                    ; preds = %for.body.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %2) #56
   br label %return
 

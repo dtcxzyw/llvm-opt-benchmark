@@ -3509,7 +3509,7 @@ define void @_ZN11OpenImageIO6v3_1_09ImageSpec9attributeENS0_17basic_string_view
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !100
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %37, label %10
+  br i1 %9, label %36, label %10
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %1, align 8, !tbaa !102
@@ -3525,7 +3525,7 @@ define void @_ZN11OpenImageIO6v3_1_09ImageSpec9attributeENS0_17basic_string_view
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not12 = icmp eq ptr %14, null
   %.not = or i1 %.not12, %.not.i
-  br i1 %.not, label %17, label %27
+  br i1 %.not, label %17, label %26
 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %12, align 8, !tbaa !104
@@ -3533,63 +3533,59 @@ define void @_ZN11OpenImageIO6v3_1_09ImageSpec9attributeENS0_17basic_string_view
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %.not13 = icmp eq i64 %21, -40
-  br i1 %.not13, label %23, label %22
+  br i1 %.not13, label %.lr.ph.i.i.i.i.i, label %22
 
 22:                                               ; preds = %17
   call void @_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef 1)
   %.pre = load ptr, ptr %15, align 8, !tbaa !103
   br label %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE6resizeEm.exit
 
-23:                                               ; preds = %17
-  %.not.i.i = icmp eq ptr %16, %18
-  br i1 %.not.i.i, label %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i:                                 ; preds = %23, %.lr.ph.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i ], [ %18, %23 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %17, %.lr.ph.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i ], [ %18, %17 ]
   call void @_ZN11OpenImageIO6v3_1_010ParamValue11clear_valueEv(ptr noundef nonnull align 8 dereferenceable(39) %.05.i.i.i.i.i) #37
-  %24 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 40
-  %.not.i.i.i.i.i = icmp eq ptr %24, %16
+  %23 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 40
+  %.not.i.i.i.i.i = icmp eq ptr %23, %16
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN11OpenImageIO6v3_1_010ParamValueES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !105
 
 _ZSt8_DestroyIPN11OpenImageIO6v3_1_010ParamValueES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
   store ptr %18, ptr %15, align 8, !tbaa !106
   br label %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE6resizeEm.exit
 
-_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE6resizeEm.exit: ; preds = %22, %23, %_ZSt8_DestroyIPN11OpenImageIO6v3_1_010ParamValueES2_EvT_S4_RSaIT0_E.exit.i.i
-  %25 = phi ptr [ %.pre, %22 ], [ %16, %23 ], [ %18, %_ZSt8_DestroyIPN11OpenImageIO6v3_1_010ParamValueES2_EvT_S4_RSaIT0_E.exit.i.i ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 -40
-  br label %27
+_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE6resizeEm.exit: ; preds = %22, %_ZSt8_DestroyIPN11OpenImageIO6v3_1_010ParamValueES2_EvT_S4_RSaIT0_E.exit.i.i
+  %24 = phi ptr [ %.pre, %22 ], [ %18, %_ZSt8_DestroyIPN11OpenImageIO6v3_1_010ParamValueES2_EvT_S4_RSaIT0_E.exit.i.i ]
+  %25 = getelementptr inbounds i8, ptr %24, i64 -40
+  br label %26
 
-27:                                               ; preds = %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE6resizeEm.exit, %10
-  %.0 = phi ptr [ %14, %10 ], [ %26, %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE6resizeEm.exit ]
-  %28 = load ptr, ptr %1, align 8, !tbaa !102
-  %29 = load i64, ptr %7, align 8, !tbaa !100
+26:                                               ; preds = %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE6resizeEm.exit, %10
+  %.0 = phi ptr [ %14, %10 ], [ %25, %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE6resizeEm.exit ]
+  %27 = load ptr, ptr %1, align 8, !tbaa !102
+  %28 = load i64, ptr %7, align 8, !tbaa !100
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.not.i.i6 = icmp eq ptr %28, null
-  br i1 %.not.i.i6, label %_ZN11OpenImageIO6v3_1_010ParamValue4initENS0_17basic_string_viewIcSt11char_traitsIcEEENS0_8TypeDescEiPKvNS1_4CopyE.exit, label %30
+  %.not.i.i6 = icmp eq ptr %27, null
+  br i1 %.not.i.i6, label %_ZN11OpenImageIO6v3_1_010ParamValue4initENS0_17basic_string_viewIcSt11char_traitsIcEEENS0_8TypeDescEiPKvNS1_4CopyE.exit, label %29
 
-30:                                               ; preds = %27
-  store ptr %28, ptr %5, align 8, !tbaa !102
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %29, ptr %31, align 8, !tbaa !100
-  %32 = invoke noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %5)
-          to label %_ZN11OpenImageIO6v3_1_010ParamValue4initENS0_17basic_string_viewIcSt11char_traitsIcEEENS0_8TypeDescEiPKvNS1_4CopyE.exit unwind label %33
+29:                                               ; preds = %26
+  store ptr %27, ptr %5, align 8, !tbaa !102
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %28, ptr %30, align 8, !tbaa !100
+  %31 = invoke noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %5)
+          to label %_ZN11OpenImageIO6v3_1_010ParamValue4initENS0_17basic_string_viewIcSt11char_traitsIcEEENS0_8TypeDescEiPKvNS1_4CopyE.exit unwind label %32
 
-33:                                               ; preds = %30
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %29
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #39
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #39
   unreachable
 
-_ZN11OpenImageIO6v3_1_010ParamValue4initENS0_17basic_string_viewIcSt11char_traitsIcEEENS0_8TypeDescEiPKvNS1_4CopyE.exit: ; preds = %27, %30
-  %36 = phi ptr [ null, %27 ], [ %32, %30 ]
+_ZN11OpenImageIO6v3_1_010ParamValue4initENS0_17basic_string_viewIcSt11char_traitsIcEEENS0_8TypeDescEiPKvNS1_4CopyE.exit: ; preds = %26, %29
+  %35 = phi ptr [ null, %26 ], [ %31, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN11OpenImageIO6v3_1_010ParamValue11clear_valueEv(ptr noundef nonnull align 8 dereferenceable(39) %.0) #37
-  call void @_ZN11OpenImageIO6v3_1_010ParamValue12init_noclearENS0_7ustringENS0_8TypeDescEiNS1_6InterpEPKvNS1_4CopyENS1_11FromUstringE(ptr noundef nonnull align 8 dereferenceable(39) %.0, ptr %36, i64 %2, i32 noundef 1, i32 noundef 0, ptr noundef %3, i8 1, i8 0) #37
-  br label %37
+  call void @_ZN11OpenImageIO6v3_1_010ParamValue12init_noclearENS0_7ustringENS0_8TypeDescEiNS1_6InterpEPKvNS1_4CopyENS1_11FromUstringE(ptr noundef nonnull align 8 dereferenceable(39) %.0, ptr %35, i64 %2, i32 noundef 1, i32 noundef 0, ptr noundef %3, i8 1, i8 0) #37
+  br label %36
 
-37:                                               ; preds = %4, %_ZN11OpenImageIO6v3_1_010ParamValue4initENS0_17basic_string_viewIcSt11char_traitsIcEEENS0_8TypeDescEiPKvNS1_4CopyE.exit
+36:                                               ; preds = %4, %_ZN11OpenImageIO6v3_1_010ParamValue4initENS0_17basic_string_viewIcSt11char_traitsIcEEENS0_8TypeDescEiPKvNS1_4CopyE.exit
   ret void
 }
 

@@ -11451,13 +11451,9 @@ call5.i.i.i.i4.i.i.noexc:                         ; preds = %if.then318
   store ptr %add.ptr21.i.i.i, ptr %_M_end_of_storage.i.i.i.i933, align 8, !tbaa !535
   %conv3.i937 = trunc nuw i64 %sub.ptr.div.i931 to i8
   %call4.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsEh(ptr noundef nonnull align 8 dereferenceable(36) %pkt.i, i8 noundef zeroext %conv3.i937)
-          to label %invoke.cont.i unwind label %lpad.i.loopexit
+          to label %for.body.i938 unwind label %lpad.i.loopexit
 
-invoke.cont.i:                                    ; preds = %call5.i.i.i.i4.i.i.noexc
-  %cmp.i.not33.i = icmp eq ptr %cond.i31.i.i96914051412, %154
-  br i1 %cmp.i.not33.i, label %for.cond.cleanup.i, label %for.body.i938
-
-for.cond.cleanup.i:                               ; preds = %invoke.cont11.i, %invoke.cont.i
+for.cond.cleanup.i:                               ; preds = %invoke.cont11.i
   %155 = load i16, ptr %m_command.i.i, align 8, !tbaa !526
   %idxprom.i.i = zext i16 %155 to i64
   %arrayidx.i.i = getelementptr inbounds nuw %struct.ServerCommandFactory, ptr @serverCommandFactoryTable, i64 %idxprom.i.i
@@ -11494,8 +11490,8 @@ lpad.i.loopexit.split-lp:                         ; preds = %cond.true.i.i
           cleanup
   br label %ehcleanup.i
 
-for.body.i938:                                    ; preds = %invoke.cont.i, %invoke.cont11.i
-  %__begin1.sroa.0.034.i = phi ptr [ %incdec.ptr.i.i939, %invoke.cont11.i ], [ %cond.i31.i.i96914051412, %invoke.cont.i ]
+for.body.i938:                                    ; preds = %call5.i.i.i.i4.i.i.noexc, %invoke.cont11.i
+  %__begin1.sroa.0.034.i = phi ptr [ %incdec.ptr.i.i939, %invoke.cont11.i ], [ %cond.i31.i.i96914051412, %call5.i.i.i.i4.i.i.noexc ]
   %agg.tmp.sroa.0.0.copyload.i = load i48, ptr %__begin1.sroa.0.034.i, align 2, !tbaa.struct !482
   %call12.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(36) %pkt.i, i48 %agg.tmp.sroa.0.0.copyload.i)
           to label %invoke.cont11.i unwind label %lpad10.i
@@ -11536,9 +11532,6 @@ _ZN13NetworkPacketD2Ev.exit30.i:                  ; preds = %if.then.i.i.i.i29.i
 
 invoke.cont320:                                   ; preds = %if.then.i.i.i.i.i943, %invoke.cont14.i
   call void @llvm.lifetime.end.p0(ptr nonnull %pkt.i)
-  br i1 %cmp.i.not33.i, label %if.end321, label %invoke.cont.i.i947
-
-invoke.cont.i.i947:                               ; preds = %invoke.cont320
   store ptr %cond.i31.i.i96914051412, ptr %_M_finish.i927, align 8, !tbaa !480
   br label %if.end321
 
@@ -11558,8 +11551,8 @@ lpad319.body:                                     ; preds = %lpad319.loopexit.sp
   call void @llvm.lifetime.end.p0(ptr nonnull %p314)
   br label %ehcleanup357
 
-if.end321:                                        ; preds = %invoke.cont.i.i947, %invoke.cont320, %for.body313
-  %163 = phi ptr [ %cond.i31.i.i96914051412, %invoke.cont.i.i947 ], [ %154, %invoke.cont320 ], [ %154, %for.body313 ]
+if.end321:                                        ; preds = %invoke.cont320, %for.body313
+  %163 = phi ptr [ %cond.i31.i.i96914051412, %invoke.cont320 ], [ %154, %for.body313 ]
   %164 = load ptr, ptr %_M_end_of_storage.i950, align 8, !tbaa !481
   %cmp.not.i951 = icmp eq ptr %163, %164
   br i1 %cmp.not.i951, label %if.else.i954, label %if.then.i952
@@ -12028,19 +12021,15 @@ if.end460:                                        ; preds = %if.else457, %invoke
 
 if.then463:                                       ; preds = %if.end460
   invoke void @_ZN6Client13sendHaveMediaERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1746) %this, ptr noundef nonnull align 8 dereferenceable(24) %done)
-          to label %invoke.cont464 unwind label %lpad435.loopexit
+          to label %invoke.cont.i.i1097 unwind label %lpad435.loopexit
 
-invoke.cont464:                                   ; preds = %if.then463
-  %tobool.not.i.i1096 = icmp eq ptr %213, %215
-  br i1 %tobool.not.i.i1096, label %if.end465, label %invoke.cont.i.i1097
-
-invoke.cont.i.i1097:                              ; preds = %invoke.cont464
+invoke.cont.i.i1097:                              ; preds = %if.then463
   store ptr %215, ptr %_M_finish.i1056, align 8, !tbaa !562
   br label %if.end465
 
-if.end465:                                        ; preds = %invoke.cont.i.i1097, %invoke.cont464, %if.end460
-  %216 = phi ptr [ %215, %invoke.cont.i.i1097 ], [ %212, %invoke.cont464 ], [ %212, %if.end460 ]
-  %217 = phi ptr [ %215, %invoke.cont.i.i1097 ], [ %213, %invoke.cont464 ], [ %213, %if.end460 ]
+if.end465:                                        ; preds = %invoke.cont.i.i1097, %if.end460
+  %216 = phi ptr [ %215, %invoke.cont.i.i1097 ], [ %212, %if.end460 ]
+  %217 = phi ptr [ %215, %invoke.cont.i.i1097 ], [ %213, %if.end460 ]
   %218 = load ptr, ptr %_M_finish.i1052, align 8, !tbaa !164
   %cmp.i1053.not = icmp eq ptr %it.sroa.0.1, %218
   br i1 %cmp.i1053.not, label %for.cond.cleanup429, label %for.body430, !llvm.loop !566

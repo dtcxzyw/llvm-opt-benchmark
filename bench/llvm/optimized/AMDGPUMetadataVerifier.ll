@@ -899,7 +899,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i:   ; preds = %_ZN4llvm6AMDGPU5HSA
   %24 = load i8, ptr %23, align 8, !tbaa !9
   %25 = add i8 %24, -9
   %26 = icmp ult i8 %25, -2
-  br i1 %26, label %27, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit"
+  br i1 %26, label %27, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
 27:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i.i
   %.not.i.i.i.i.i.i = icmp eq i8 %24, 1
@@ -927,7 +927,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i:   ; preds = %_ZN4llvm6AMDGPU5HSA
 37:                                               ; preds = %31
   %.pre.i.i.i.i.i = add i8 %36, -9
   %38 = icmp ult i8 %.pre.i.i.i.i.i, -2
-  br i1 %38, label %.thread.i.i.i.i.i, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit"
+  br i1 %38, label %.thread.i.i.i.i.i, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
 .thread.i.i.i.i.i:                                ; preds = %37, %28
   %39 = phi i8 [ %36, %37 ], [ %24, %28 ]
@@ -939,7 +939,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i:   ; preds = %_ZN4llvm6AMDGPU5HSA
   %42 = trunc nuw i8 %41 to i1
   %.not15.i6.i.i.i.i.i = icmp ne i8 %39, 5
   %or.cond.not.i7.i.i.i.i.i = or i1 %.not15.i6.i.i.i.i.i, %42
-  br i1 %or.cond.not.i7.i.i.i.i.i, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit", label %43
+  br i1 %or.cond.not.i7.i.i.i.i.i, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -951,7 +951,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i:   ; preds = %_ZN4llvm6AMDGPU5HSA
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i8, ptr %47, align 8, !tbaa !9
   %.not16.not.i11.i.i.i.i.i = icmp eq i8 %48, 0
-  br i1 %.not16.not.i11.i.i.i.i.i, label %49, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit"
+  br i1 %.not16.not.i11.i.i.i.i.i, label %49, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
 49:                                               ; preds = %43, %.thread.i.i.i.i.i, %31, %27
   %50 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -964,7 +964,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i:   ; preds = %_ZN4llvm6AMDGPU5HSA
 
 56:                                               ; preds = %49
   %.not.i.i.i.i6.i.i = icmp eq i8 %53, 1
-  br i1 %.not.i.i.i.i6.i.i, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread65", label %57
+  br i1 %.not.i.i.i.i6.i.i, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread64", label %57
 
 57:                                               ; preds = %56
   %58 = load i8, ptr %0, align 1, !tbaa !13, !range !16, !noundef !17
@@ -983,7 +983,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i:   ; preds = %_ZN4llvm6AMDGPU5HSA
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load i8, ptr %64, align 8, !tbaa !9
   %.not16.not.i.i.i.i12.i.i = icmp eq i8 %65, 1
-  br i1 %.not16.not.i.i.i.i12.i.i, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread65", label %66
+  br i1 %.not16.not.i.i.i.i12.i.i, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread64", label %66
 
 66:                                               ; preds = %60
   %.pre.i.i.i13.i.i = add i8 %65, -9
@@ -993,7 +993,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i:   ; preds = %_ZN4llvm6AMDGPU5HSA
 .thread.i.i.i14.i.i:                              ; preds = %66, %57
   %68 = phi i8 [ %65, %66 ], [ %53, %57 ]
   %.not.i5.i.i.i15.i.i = icmp eq i8 %68, 0
-  br i1 %.not.i5.i.i.i15.i.i, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread65", label %69
+  br i1 %.not.i5.i.i.i15.i.i, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread64", label %69
 
 69:                                               ; preds = %.thread.i.i.i14.i.i
   %70 = load i8, ptr %0, align 1, !tbaa !13, !range !16, !noundef !17
@@ -1012,21 +1012,22 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i:   ; preds = %_ZN4llvm6AMDGPU5HSA
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i8, ptr %76, align 8, !tbaa !9
   %.not16.not.i11.i.i.i21.i.i = icmp eq i8 %77, 0
-  br i1 %.not16.not.i11.i.i.i21.i.i, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread65", label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit"
+  %78 = icmp eq ptr %50, %17
+  %or.cond = or i1 %78, %.not16.not.i11.i.i.i21.i.i
+  br i1 %or.cond, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread64", label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
-"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit": ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %37, %40, %43, %49, %66, %69, %72
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i = phi ptr [ %18, %._crit_edge.i.i.i.i.i.i.i.i ], [ %18, %37 ], [ %18, %40 ], [ %18, %43 ], [ %50, %49 ], [ %50, %66 ], [ %50, %69 ], [ %50, %72 ]
-  %78 = icmp eq ptr %17, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i
-  br i1 %78, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread65", label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
+"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit": ; preds = %49, %66, %69
+  %.old = icmp eq ptr %50, %17
+  br i1 %.old, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread64", label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
-"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread65": ; preds = %72, %.thread.i.i.i14.i.i, %60, %56, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit"
+"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread64": ; preds = %56, %60, %.thread.i.i.i14.i.i, %72, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit"
   %79 = tail call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.36, i64 13) #6
   %80 = load ptr, ptr %8, align 8, !tbaa !22
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = icmp eq ptr %79, %81
   br i1 %82, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8.thread, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8
 
-_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8: ; preds = %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread65"
+_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8: ; preds = %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread64"
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 56
   %.val1.i31 = load ptr, ptr %83, align 8, !tbaa !3
   %84 = getelementptr i8, ptr %.val1.i31, i64 8
@@ -1068,7 +1069,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load i8, ptr %97, align 8, !tbaa !9
   %.not.i.i.i2.i.i = icmp eq i8 %98, 5
-  br i1 %.not.i.i.i2.i.i, label %99, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit95"
+  br i1 %.not.i.i.i2.i.i, label %99, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit94"
 
 99:                                               ; preds = %94
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 48
@@ -1076,7 +1077,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load i8, ptr %102, align 8, !tbaa !9
   %.not.i.i.i3.i.i = icmp eq i8 %103, 5
-  br i1 %.not.i.i.i3.i.i, label %104, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit93"
+  br i1 %.not.i.i.i3.i.i, label %104, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit92"
 
 104:                                              ; preds = %99
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 72
@@ -1143,20 +1144,20 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   %130 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 72
   br label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit"
 
-"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit93": ; preds = %99
+"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit92": ; preds = %99
   %131 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 48
   br label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit"
 
-"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit95": ; preds = %94
+"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit94": ; preds = %94
   %132 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit"
 
-"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit", %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit93", %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit95", %114, %120, %126
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i37 = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i, %114 ], [ %.sroa.038.1.i.i.i.i.i.i.i.i, %120 ], [ %spec.select.i.i.i.i.i.i.i.i, %126 ], [ %130, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit" ], [ %131, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit93" ], [ %132, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit95" ], [ %.sroa.038.048.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %133 = icmp eq ptr %.pre9.i.i.i, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i37
+"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit", %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit92", %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit94", %114, %120, %126
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i, %114 ], [ %.sroa.038.1.i.i.i.i.i.i.i.i, %120 ], [ %spec.select.i.i.i.i.i.i.i.i, %126 ], [ %130, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit" ], [ %131, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit92" ], [ %132, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit94" ], [ %.sroa.038.048.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %133 = icmp eq ptr %.pre9.i.i.i, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i
   br i1 %133, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8.thread, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
-_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8.thread: ; preds = %._crit_edge.i.i.i.i.i.i.i.i35, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread65", %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit"
+_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8.thread: ; preds = %._crit_edge.i.i.i.i.i.i.i.i35, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread64", %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit"
   %134 = tail call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.37, i64 14) #6
   %135 = load ptr, ptr %8, align 8, !tbaa !22
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
@@ -1165,98 +1166,98 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
 
 138:                                              ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8.thread
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 56
-  %.val1.i39 = load ptr, ptr %139, align 8, !tbaa !3
-  %140 = getelementptr i8, ptr %.val1.i39, i64 8
-  %.val1.val.i40 = load i8, ptr %140, align 8, !tbaa !9
-  %141 = icmp eq i8 %.val1.val.i40, 7
+  %.val1.i37 = load ptr, ptr %139, align 8, !tbaa !3
+  %140 = getelementptr i8, ptr %.val1.i37, i64 8
+  %.val1.val.i38 = load i8, ptr %140, align 8, !tbaa !9
+  %141 = icmp eq i8 %.val1.val.i38, 7
   br i1 %141, label %142, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
 142:                                              ; preds = %138
   %143 = getelementptr inbounds nuw i8, ptr %134, i64 64
-  %.val2.i42 = load ptr, ptr %143, align 8
-  %.pre7.i.i.i43 = load ptr, ptr %.val2.i42, align 8, !tbaa !23
-  %.phi.trans.insert8.i.i.i44 = getelementptr inbounds nuw i8, ptr %.val2.i42, i64 8
-  %.pre9.i.i.i45 = load ptr, ptr %.phi.trans.insert8.i.i.i44, align 8, !tbaa !23
-  %.pre10.i.i.i46 = ptrtoint ptr %.pre9.i.i.i45 to i64
-  %.pre11.i.i.i47 = ptrtoint ptr %.pre7.i.i.i43 to i64
-  %.pre13.i.i.i48 = sub i64 %.pre10.i.i.i46, %.pre11.i.i.i47
-  %.pre15.i.i.i49 = sdiv exact i64 %.pre13.i.i.i48, 24
-  %144 = ashr i64 %.pre15.i.i.i49, 2
+  %.val2.i40 = load ptr, ptr %143, align 8
+  %.pre7.i.i.i41 = load ptr, ptr %.val2.i40, align 8, !tbaa !23
+  %.phi.trans.insert8.i.i.i42 = getelementptr inbounds nuw i8, ptr %.val2.i40, i64 8
+  %.pre9.i.i.i43 = load ptr, ptr %.phi.trans.insert8.i.i.i42, align 8, !tbaa !23
+  %.pre10.i.i.i44 = ptrtoint ptr %.pre9.i.i.i43 to i64
+  %.pre11.i.i.i45 = ptrtoint ptr %.pre7.i.i.i41 to i64
+  %.pre13.i.i.i46 = sub i64 %.pre10.i.i.i44, %.pre11.i.i.i45
+  %.pre15.i.i.i47 = sdiv exact i64 %.pre13.i.i.i46, 24
+  %144 = ashr i64 %.pre15.i.i.i47, 2
   %145 = icmp sgt i64 %144, 0
-  br i1 %145, label %.lr.ph.i.i.i.i.i.i.i.i58, label %._crit_edge.i.i.i.i.i.i.i.i50
+  br i1 %145, label %.lr.ph.i.i.i.i.i.i.i.i56, label %._crit_edge.i.i.i.i.i.i.i.i48
 
-.lr.ph.i.i.i.i.i.i.i.i58:                         ; preds = %142, %156
-  %.049.i.i.i.i.i.i.i.i59 = phi i64 [ %158, %156 ], [ %144, %142 ]
-  %.sroa.038.048.i.i.i.i.i.i.i.i60 = phi ptr [ %157, %156 ], [ %.pre7.i.i.i43, %142 ]
-  %146 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038.048.i.i.i.i.i.i.i.i60)
-  br i1 %146, label %147, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i55
+.lr.ph.i.i.i.i.i.i.i.i56:                         ; preds = %142, %156
+  %.049.i.i.i.i.i.i.i.i57 = phi i64 [ %158, %156 ], [ %144, %142 ]
+  %.sroa.038.048.i.i.i.i.i.i.i.i58 = phi ptr [ %157, %156 ], [ %.pre7.i.i.i41, %142 ]
+  %146 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038.048.i.i.i.i.i.i.i.i58)
+  br i1 %146, label %147, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i53
 
-147:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i58
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i60, i64 24
+147:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i56
+  %148 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i58, i64 24
   %149 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %148)
-  br i1 %149, label %150, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i55
+  br i1 %149, label %150, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i53
 
 150:                                              ; preds = %147
-  %151 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i60, i64 48
+  %151 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i58, i64 48
   %152 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %151)
-  br i1 %152, label %153, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i55
+  br i1 %152, label %153, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i53
 
 153:                                              ; preds = %150
-  %154 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i60, i64 72
+  %154 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i58, i64 72
   %155 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %154)
-  br i1 %155, label %156, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i55
+  br i1 %155, label %156, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i53
 
 156:                                              ; preds = %153
-  %157 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i60, i64 96
-  %158 = add nsw i64 %.049.i.i.i.i.i.i.i.i59, -1
-  %159 = icmp sgt i64 %.049.i.i.i.i.i.i.i.i59, 1
-  br i1 %159, label %.lr.ph.i.i.i.i.i.i.i.i58, label %._crit_edge.loopexit.i.i.i.i.i.i.i.i61, !llvm.loop !28
+  %157 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i58, i64 96
+  %158 = add nsw i64 %.049.i.i.i.i.i.i.i.i57, -1
+  %159 = icmp sgt i64 %.049.i.i.i.i.i.i.i.i57, 1
+  br i1 %159, label %.lr.ph.i.i.i.i.i.i.i.i56, label %._crit_edge.loopexit.i.i.i.i.i.i.i.i59, !llvm.loop !28
 
-._crit_edge.loopexit.i.i.i.i.i.i.i.i61:           ; preds = %156
-  %.pre.i.i.i.i.i.i.i.i62 = ptrtoint ptr %157 to i64
-  %.pre50.i.i.i.i.i.i.i.i63 = sub i64 %.pre10.i.i.i46, %.pre.i.i.i.i.i.i.i.i62
-  br label %._crit_edge.i.i.i.i.i.i.i.i50
+._crit_edge.loopexit.i.i.i.i.i.i.i.i59:           ; preds = %156
+  %.pre.i.i.i.i.i.i.i.i60 = ptrtoint ptr %157 to i64
+  %.pre50.i.i.i.i.i.i.i.i61 = sub i64 %.pre10.i.i.i44, %.pre.i.i.i.i.i.i.i.i60
+  br label %._crit_edge.i.i.i.i.i.i.i.i48
 
-._crit_edge.i.i.i.i.i.i.i.i50:                    ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i.i61, %142
-  %.pre-phi51.i.i.i.i.i.i.i.i51 = phi i64 [ %.pre50.i.i.i.i.i.i.i.i63, %._crit_edge.loopexit.i.i.i.i.i.i.i.i61 ], [ %.pre13.i.i.i48, %142 ]
-  %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i52 = phi ptr [ %157, %._crit_edge.loopexit.i.i.i.i.i.i.i.i61 ], [ %.pre7.i.i.i43, %142 ]
-  %160 = sdiv exact i64 %.pre-phi51.i.i.i.i.i.i.i.i51, 24
-  switch i64 %160, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i55 [
+._crit_edge.i.i.i.i.i.i.i.i48:                    ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i.i59, %142
+  %.pre-phi51.i.i.i.i.i.i.i.i49 = phi i64 [ %.pre50.i.i.i.i.i.i.i.i61, %._crit_edge.loopexit.i.i.i.i.i.i.i.i59 ], [ %.pre13.i.i.i46, %142 ]
+  %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i50 = phi ptr [ %157, %._crit_edge.loopexit.i.i.i.i.i.i.i.i59 ], [ %.pre7.i.i.i41, %142 ]
+  %160 = sdiv exact i64 %.pre-phi51.i.i.i.i.i.i.i.i49, 24
+  switch i64 %160, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i53 [
     i64 3, label %161
     i64 2, label %165
     i64 1, label %169
   ]
 
-161:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i50
-  %162 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i52)
-  br i1 %162, label %163, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i55
+161:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i48
+  %162 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i50)
+  br i1 %162, label %163, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i53
 
 163:                                              ; preds = %161
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i52, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i50, i64 24
   br label %165
 
-165:                                              ; preds = %163, %._crit_edge.i.i.i.i.i.i.i.i50
-  %.sroa.038.1.i.i.i.i.i.i.i.i57 = phi ptr [ %164, %163 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i52, %._crit_edge.i.i.i.i.i.i.i.i50 ]
-  %166 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038.1.i.i.i.i.i.i.i.i57)
-  br i1 %166, label %167, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i55
+165:                                              ; preds = %163, %._crit_edge.i.i.i.i.i.i.i.i48
+  %.sroa.038.1.i.i.i.i.i.i.i.i55 = phi ptr [ %164, %163 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i50, %._crit_edge.i.i.i.i.i.i.i.i48 ]
+  %166 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038.1.i.i.i.i.i.i.i.i55)
+  br i1 %166, label %167, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i53
 
 167:                                              ; preds = %165
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.038.1.i.i.i.i.i.i.i.i57, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.038.1.i.i.i.i.i.i.i.i55, i64 24
   br label %169
 
-169:                                              ; preds = %167, %._crit_edge.i.i.i.i.i.i.i.i50
-  %.sroa.038.2.i.i.i.i.i.i.i.i53 = phi ptr [ %168, %167 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i52, %._crit_edge.i.i.i.i.i.i.i.i50 ]
-  %170 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038.2.i.i.i.i.i.i.i.i53)
-  %spec.select.i.i.i.i.i.i.i.i54 = select i1 %170, ptr %.pre9.i.i.i45, ptr %.sroa.038.2.i.i.i.i.i.i.i.i53
-  br label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i55
+169:                                              ; preds = %167, %._crit_edge.i.i.i.i.i.i.i.i48
+  %.sroa.038.2.i.i.i.i.i.i.i.i51 = phi ptr [ %168, %167 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i50, %._crit_edge.i.i.i.i.i.i.i.i48 ]
+  %170 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038.2.i.i.i.i.i.i.i.i51)
+  %spec.select.i.i.i.i.i.i.i.i52 = select i1 %170, ptr %.pre9.i.i.i43, ptr %.sroa.038.2.i.i.i.i.i.i.i.i51
+  br label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i53
 
-_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i55: ; preds = %153, %150, %147, %.lr.ph.i.i.i.i.i.i.i.i58, %169, %165, %161, %._crit_edge.i.i.i.i.i.i.i.i50
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i56 = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i52, %161 ], [ %.sroa.038.1.i.i.i.i.i.i.i.i57, %165 ], [ %.pre9.i.i.i45, %._crit_edge.i.i.i.i.i.i.i.i50 ], [ %spec.select.i.i.i.i.i.i.i.i54, %169 ], [ %.sroa.038.048.i.i.i.i.i.i.i.i60, %.lr.ph.i.i.i.i.i.i.i.i58 ], [ %148, %147 ], [ %151, %150 ], [ %154, %153 ]
-  %171 = icmp eq ptr %.pre9.i.i.i45, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i56
+_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i53: ; preds = %153, %150, %147, %.lr.ph.i.i.i.i.i.i.i.i56, %169, %165, %161, %._crit_edge.i.i.i.i.i.i.i.i48
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i54 = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i50, %161 ], [ %.sroa.038.1.i.i.i.i.i.i.i.i55, %165 ], [ %.pre9.i.i.i43, %._crit_edge.i.i.i.i.i.i.i.i48 ], [ %spec.select.i.i.i.i.i.i.i.i52, %169 ], [ %.sroa.038.048.i.i.i.i.i.i.i.i58, %.lr.ph.i.i.i.i.i.i.i.i56 ], [ %148, %147 ], [ %151, %150 ], [ %154, %153 ]
+  %171 = icmp eq ptr %.pre9.i.i.i43, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i54
   br label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
-_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread: ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8.thread, %138, %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i55, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit, %_ZN4llvm7msgpack7DocNode6getMapEb.exit, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit", %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit", %2
-  %.0 = phi i1 [ false, %2 ], [ false, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit" ], [ false, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit" ], [ false, %_ZN4llvm7msgpack7DocNode6getMapEb.exit ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit ], [ false, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8.thread ], [ false, %138 ], [ %171, %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i55 ]
+_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread: ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8.thread, %138, %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i53, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8, %72, %43, %40, %37, %._crit_edge.i.i.i.i.i.i.i.i, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit, %_ZN4llvm7msgpack7DocNode6getMapEb.exit, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit", %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit", %2
+  %.0 = phi i1 [ false, %2 ], [ false, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit" ], [ false, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit" ], [ false, %_ZN4llvm7msgpack7DocNode6getMapEb.exit ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit ], [ false, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i ], [ false, %._crit_edge.i.i.i.i.i.i.i.i ], [ false, %37 ], [ false, %40 ], [ false, %43 ], [ false, %72 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8.thread ], [ false, %138 ], [ %171, %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i53 ]
   ret i1 %.0
 }
 
@@ -1666,7 +1667,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   %15 = load i8, ptr %14, align 8, !tbaa !9
   %16 = add i8 %15, -9
   %17 = icmp ult i8 %16, -2
-  br i1 %17, label %18, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
+  br i1 %17, label %18, label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeEENK3$_1clES6_.exit"
 
 18:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
   %.not.i.i.i.i.i = icmp eq i8 %15, 1
@@ -1694,7 +1695,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
 28:                                               ; preds = %22
   %.pre.i.i.i.i = add i8 %27, -9
   %29 = icmp ult i8 %.pre.i.i.i.i, -2
-  br i1 %29, label %.thread.i.i.i.i, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
+  br i1 %29, label %.thread.i.i.i.i, label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeEENK3$_1clES6_.exit"
 
 .thread.i.i.i.i:                                  ; preds = %28, %19
   %30 = phi i8 [ %27, %28 ], [ %15, %19 ]
@@ -1706,7 +1707,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   %33 = trunc nuw i8 %32 to i1
   %.not15.i6.i.i.i.i = icmp ne i8 %30, 5
   %or.cond.not.i7.i.i.i.i = or i1 %.not15.i6.i.i.i.i, %33
-  br i1 %or.cond.not.i7.i.i.i.i, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i, label %34
+  br i1 %or.cond.not.i7.i.i.i.i, label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeEENK3$_1clES6_.exit", label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1718,7 +1719,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i8, ptr %38, align 8, !tbaa !9
   %.not16.not.i11.i.i.i.i = icmp eq i8 %39, 0
-  br i1 %.not16.not.i11.i.i.i.i, label %40, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
+  br i1 %.not16.not.i11.i.i.i.i, label %40, label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeEENK3$_1clES6_.exit"
 
 40:                                               ; preds = %34, %.thread.i.i.i.i, %22, %18
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -1727,11 +1728,11 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   %44 = load i8, ptr %43, align 8, !tbaa !9
   %45 = add i8 %44, -9
   %46 = icmp ult i8 %45, -2
-  br i1 %46, label %47, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
+  br i1 %46, label %47, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS4_4TypeENS_12function_refIFbS6_EEE.exit13.thread.i.i.i4.i
 
 47:                                               ; preds = %40
   %.not.i.i.i.i6.i = icmp eq i8 %44, 1
-  br i1 %.not.i.i.i.i6.i, label %69, label %48
+  br i1 %.not.i.i.i.i6.i, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_ENK3$_1clES3_EUlS3_E_EEblS3_.exit22.i", label %48
 
 48:                                               ; preds = %47
   %49 = load i8, ptr %.val, align 1, !tbaa !13, !range !16, !noundef !17
@@ -1750,24 +1751,24 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i8, ptr %55, align 8, !tbaa !9
   %.not16.not.i.i.i.i12.i = icmp eq i8 %56, 1
-  br i1 %.not16.not.i.i.i.i12.i, label %69, label %57
+  br i1 %.not16.not.i.i.i.i12.i, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_ENK3$_1clES3_EUlS3_E_EEblS3_.exit22.i", label %57
 
 57:                                               ; preds = %51
   %.pre.i.i.i13.i = add i8 %56, -9
   %58 = icmp ult i8 %.pre.i.i.i13.i, -2
-  br i1 %58, label %.thread.i.i.i14.i, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
+  br i1 %58, label %.thread.i.i.i14.i, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS4_4TypeENS_12function_refIFbS6_EEE.exit13.thread.i.i.i4.i
 
 .thread.i.i.i14.i:                                ; preds = %57, %48
   %59 = phi i8 [ %56, %57 ], [ %44, %48 ]
   %.not.i5.i.i.i15.i = icmp eq i8 %59, 0
-  br i1 %.not.i5.i.i.i15.i, label %69, label %60
+  br i1 %.not.i5.i.i.i15.i, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_ENK3$_1clES3_EUlS3_E_EEblS3_.exit22.i", label %60
 
 60:                                               ; preds = %.thread.i.i.i14.i
   %61 = load i8, ptr %.val, align 1, !tbaa !13, !range !16, !noundef !17
   %62 = trunc nuw i8 %61 to i1
   %.not15.i6.i.i.i16.i = icmp ne i8 %59, 5
   %or.cond.not.i7.i.i.i17.i = or i1 %.not15.i6.i.i.i16.i, %62
-  br i1 %or.cond.not.i7.i.i.i17.i, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i, label %63
+  br i1 %or.cond.not.i7.i.i.i17.i, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS4_4TypeENS_12function_refIFbS6_EEE.exit13.thread.i.i.i4.i, label %63
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -1779,18 +1780,19 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i8, ptr %67, align 8, !tbaa !9
   %.not16.not.i11.i.i.i21.i = icmp eq i8 %68, 0
-  br i1 %.not16.not.i11.i.i.i21.i, label %69, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
+  br i1 %.not16.not.i11.i.i.i21.i, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_ENK3$_1clES3_EUlS3_E_EEblS3_.exit22.i", label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS4_4TypeENS_12function_refIFbS6_EEE.exit13.thread.i.i.i4.i
 
-69:                                               ; preds = %63, %.thread.i.i.i14.i, %51, %47
-  br label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
+_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS4_4TypeENS_12function_refIFbS6_EEE.exit13.thread.i.i.i4.i: ; preds = %63, %60, %57, %40
+  br label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_ENK3$_1clES3_EUlS3_E_EEblS3_.exit22.i"
 
-_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i: ; preds = %69, %63, %60, %57, %40, %34, %31, %28, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %9, %._crit_edge.i.i.i.i.i.i.i ], [ %9, %28 ], [ %9, %31 ], [ %9, %34 ], [ %8, %69 ], [ %41, %40 ], [ %41, %57 ], [ %41, %60 ], [ %41, %63 ]
-  %70 = icmp eq ptr %8, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i
+"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_ENK3$_1clES3_EUlS3_E_EEblS3_.exit22.i": ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS4_4TypeENS_12function_refIFbS6_EEE.exit13.thread.i.i.i4.i, %63, %.thread.i.i.i14.i, %51, %47
+  %.0.i.i.i5.i = phi i1 [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS4_4TypeENS_12function_refIFbS6_EEE.exit13.thread.i.i.i4.i ], [ true, %63 ], [ true, %.thread.i.i.i14.i ], [ true, %51 ], [ true, %47 ]
+  %69 = icmp eq ptr %41, %8
+  %70 = or i1 %69, %.0.i.i.i5.i
   br label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeEENK3$_1clES6_.exit"
 
-"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeEENK3$_1clES6_.exit": ; preds = %2, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i, %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
-  %.0.i.i = phi i1 [ false, %2 ], [ %70, %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i ], [ false, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i ]
+"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeEENK3$_1clES6_.exit": ; preds = %2, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i, %._crit_edge.i.i.i.i.i.i.i, %28, %31, %34, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_ENK3$_1clES3_EUlS3_E_EEblS3_.exit22.i"
+  %.0.i.i = phi i1 [ false, %2 ], [ false, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i ], [ %70, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_ENK3$_1clES3_EUlS3_E_EEblS3_.exit22.i" ], [ false, %._crit_edge.i.i.i.i.i.i.i ], [ false, %28 ], [ false, %31 ], [ false, %34 ]
   ret i1 %.0.i.i
 }
 
