@@ -10021,7 +10021,7 @@ _ZNK3gmx11DomdecZones9atomRangeEi.exit:           ; preds = %.split, %.split41
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN11gmx_ga2la_t6insertEiRKNS_5EntryE.exit, %_ZNK3gmx11DomdecZones9atomRangeEi.exit
-  %.137.lcssa = phi i32 [ %.03678, %_ZNK3gmx11DomdecZones9atomRangeEi.exit ], [ %97, %_ZN11gmx_ga2la_t6insertEiRKNS_5EntryE.exit ]
+  %.137.lcssa = phi i32 [ %.03678, %_ZNK3gmx11DomdecZones9atomRangeEi.exit ], [ %98, %_ZN11gmx_ga2la_t6insertEiRKNS_5EntryE.exit ]
   %spec.select = select i1 %17, i32 %.137.lcssa, i32 %.079
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count
@@ -10029,7 +10029,7 @@ _ZNK3gmx11DomdecZones9atomRangeEi.exit:           ; preds = %.split, %.split41
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN11gmx_ga2la_t6insertEiRKNS_5EntryE.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN11gmx_ga2la_t6insertEiRKNS_5EntryE.exit ]
-  %.13775 = phi i32 [ %.03678, %.lr.ph.preheader ], [ %97, %_ZN11gmx_ga2la_t6insertEiRKNS_5EntryE.exit ]
+  %.13775 = phi i32 [ %.03678, %.lr.ph.preheader ], [ %98, %_ZN11gmx_ga2la_t6insertEiRKNS_5EntryE.exit ]
   %.not = icmp slt i64 %indvars.iv, %32
   %33 = select i1 %.not, i64 0, i64 %15
   %34 = add nuw nsw i64 %33, %indvars.iv87
@@ -10141,33 +10141,33 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i:          ; preds = %46, %44
 
 _ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE6resizeEm.exit.i.i.i: ; preds = %85, %84, %.critedge.i.i.i
   %.1.lcssa39.i.i.i = phi i64 [ -1, %85 ], [ %76, %84 ], [ %.1.lcssa.i.i.i, %.critedge.i.i.i ]
-  %86 = phi ptr [ %58, %85 ], [ %.pre.i.i.i, %84 ], [ %58, %.critedge.i.i.i ]
-  %87 = trunc i64 %.1.lcssa39.i.i.i to i32
-  %88 = getelementptr inbounds nuw %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %86, i64 %62
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 12
-  store i32 %87, ptr %89, align 4, !tbaa !741
-  %90 = add i32 %87, 1
-  store i32 %90, ptr %68, align 4, !tbaa !788
+  %87 = phi ptr [ %58, %85 ], [ %.pre.i.i.i, %84 ], [ %58, %.critedge.i.i.i ]
+  %88 = trunc i64 %.1.lcssa39.i.i.i to i32
+  %89 = getelementptr inbounds nuw %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %87, i64 %62
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 12
+  store i32 %88, ptr %90, align 4, !tbaa !741
+  %91 = add i32 %88, 1
+  store i32 %91, ptr %68, align 4, !tbaa !788
   br label %_ZN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE6insertEiRKS2_.exit.i
 
 _ZN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE6insertEiRKS2_.exit.i: ; preds = %_ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE6resizeEm.exit.i.i.i, %53
-  %91 = phi ptr [ %86, %_ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE6resizeEm.exit.i.i.i ], [ %58, %53 ]
+  %92 = phi ptr [ %87, %_ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE6resizeEm.exit.i.i.i ], [ %58, %53 ]
   %.020.i.i.i = phi i64 [ %.1.lcssa39.i.i.i, %_ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE6resizeEm.exit.i.i.i ], [ %57, %53 ]
-  %92 = getelementptr inbounds nuw %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %91, i64 %.020.i.i.i
-  store i32 %36, ptr %92, align 4, !tbaa !739
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
+  %93 = getelementptr inbounds nuw %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %92, i64 %.020.i.i.i
+  store i32 %36, ptr %93, align 4, !tbaa !739
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %.sroa.5.0.insert.shift = shl nuw nsw i64 %34, 32
   %.sroa.0.0.insert.ext = zext i32 %.13775 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.0.0.insert.ext
-  store i64 %.sroa.0.0.insert.insert, ptr %93, align 4
-  %94 = getelementptr inbounds nuw i8, ptr %spec.select.i.i6.i, i64 32
-  %95 = load i32, ptr %94, align 8, !tbaa !791
-  %96 = add nsw i32 %95, 1
-  store i32 %96, ptr %94, align 8, !tbaa !791
+  store i64 %.sroa.0.0.insert.insert, ptr %94, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %spec.select.i.i6.i, i64 32
+  %96 = load i32, ptr %95, align 8, !tbaa !791
+  %97 = add nsw i32 %96, 1
+  store i32 %97, ptr %95, align 8, !tbaa !791
   br label %_ZN11gmx_ga2la_t6insertEiRKNS_5EntryE.exit
 
 _ZN11gmx_ga2la_t6insertEiRKNS_5EntryE.exit:       ; preds = %_ZN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE6insertEiRKS2_.exit.i, %49, %.lr.ph
-  %97 = add nsw i32 %.13775, 1
+  %98 = add nsw i32 %.13775, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %phi.call.in, %lftr.wideiv

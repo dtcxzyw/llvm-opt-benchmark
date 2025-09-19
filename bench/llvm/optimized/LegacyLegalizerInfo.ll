@@ -6737,7 +6737,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairItN4llvm21LegacyLegalizeAct
     i8 7, label %24
     i8 8, label %24
     i8 3, label %26
-    i8 1, label %.lr.ph63
+    i8 1, label %.lr.ph64
     i8 2, label %52
     i8 4, label %52
     i8 9, label %59
@@ -6753,23 +6753,23 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairItN4llvm21LegacyLegalizeAct
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 2
   store i8 3, ptr %.sroa.4.0..sroa_idx, align 2
   %28 = icmp eq i64 %6, 4
-  br i1 %28, label %.lr.ph.i.i.i.i.i, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit
+  br i1 %28, label %29, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %26, %38
+29:                                               ; preds = %26, %38
   %.011.i.i.i.i.i = phi ptr [ %40, %38 ], [ %27, %26 ]
   %.0810.i.i.i.i.i = phi ptr [ %39, %38 ], [ %.val, %26 ]
   %29 = load i16, ptr %.0810.i.i.i.i.i, align 2, !tbaa !96
   %30 = load i16, ptr %.011.i.i.i.i.i, align 2, !tbaa !96
   %31 = icmp eq i16 %29, %30
   %32 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 2
-  %33 = load i8, ptr %32, align 2
+  %30 = load i8, ptr %32, align 2
   %34 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 2
   %35 = load i8, ptr %34, align 2
-  %36 = icmp eq i8 %33, %35
+  %36 = icmp eq i8 %30, %35
   %37 = select i1 %31, i1 %36, i1 false
   br i1 %37, label %38, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit
 
-38:                                               ; preds = %.lr.ph.i.i.i.i.i
+38:; preds = %29
   %39 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 4
   %40 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i = icmp eq ptr %39, %.val32
@@ -6777,13 +6777,13 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairItN4llvm21LegacyLegalizeAct
 
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit: ; preds = %.lr.ph.i.i.i.i.i, %26
   tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef 4) #19
-  br label %.lr.ph63
+  br label %.lr.ph64
 
-41:                                               ; preds = %38
+.loopexit53:                                      ; preds = %38
   tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef 4) #19
   br label %62
 
-.lr.ph63:                                         ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit, %"_ZN4llvm15partition_pointIRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEZNS_19LegacyLegalizerInfo10findActionES9_jE3$_0RKS5_EEDaOT_T0_.exit"
+.lr.ph64:                                         ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit, %"_ZN4llvm15partition_pointIRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEZNS_19LegacyLegalizerInfo10findActionES9_jE3$_0RKS5_EEDaOT_T0_.exit"
   %42 = add i32 %18, -2
   %43 = icmp sgt i32 %42, -1
   tail call void @llvm.assume(i1 %43)
@@ -6791,7 +6791,7 @@ _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4
   %45 = zext nneg i32 %42 to i64
   br label %46
 
-46:                                               ; preds = %_ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegalizeActions20LegacyLegalizeActionE.exit.thread, %.lr.ph63
+46:                                               ; preds = %_ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegalizeActions20LegacyLegalizeActionE.exit.thread, %.lr.ph64
   %indvars.iv = phi i64 [ %45, %.lr.ph63 ], [ %indvars.iv.next, %_ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegalizeActions20LegacyLegalizeActionE.exit.thread ]
   %47 = getelementptr inbounds nuw %"struct.std::pair", ptr %44, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 2
@@ -6819,8 +6819,8 @@ _ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegaliz
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegalizeActions20LegacyLegalizeActionE.exit34.thread, %52
-  %.060 = phi i64 [ %58, %_ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegalizeActions20LegacyLegalizeActionE.exit34.thread ], [ %53, %52 ]
-  %54 = getelementptr inbounds nuw %"struct.std::pair", ptr %.val, i64 %.060
+  %.061 = phi i64 [ %58, %_ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegalizeActions20LegacyLegalizeActionE.exit34.thread ], [ %53, %52 ]
+  %54 = getelementptr inbounds nuw %"struct.std::pair", ptr %.val, i64 %.061
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 2
   %56 = load i8, ptr %55, align 2, !tbaa !98
   switch i8 %56, label %_ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegalizeActions20LegacyLegalizeActionE.exit34 [
@@ -6836,7 +6836,7 @@ _ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegaliz
   br label %62
 
 _ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegalizeActions20LegacyLegalizeActionE.exit34.thread: ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %58 = add i64 %.060, 1
+  %58 = add i64 %.061, 1
   br label %.lr.ph
 
 59:                                               ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEZNS_19LegacyLegalizerInfo10findActionES9_jE3$_0RKS5_EEDaOT_T0_.exit"
@@ -6846,7 +6846,7 @@ _ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegaliz
 61:                                               ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEZNS_19LegacyLegalizerInfo10findActionES9_jE3$_0RKS5_EEDaOT_T0_.exit"
   unreachable
 
-62:                                               ; preds = %_ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegalizeActions20LegacyLegalizeActionE.exit34, %_ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegalizeActions20LegacyLegalizeActionE.exit, %59, %41, %24
+62:                                               ; preds = %_ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegalizeActions20LegacyLegalizeActionE.exit34, %_ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegalizeActions20LegacyLegalizeActionE.exit, %59, %.loopexit53, %24
   %.sroa.049.0 = phi i16 [ %25, %24 ], [ 1, %41 ], [ %50, %_ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegalizeActions20LegacyLegalizeActionE.exit ], [ %57, %_ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegalizeActions20LegacyLegalizeActionE.exit34 ], [ %60, %59 ]
   %.sroa.650.0 = phi i8 [ %23, %24 ], [ 3, %41 ], [ %23, %_ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegalizeActions20LegacyLegalizeActionE.exit ], [ %23, %_ZN4llvm19LegacyLegalizerInfo30needsLegalizingToDifferentSizeENS_21LegacyLegalizeActions20LegacyLegalizeActionE.exit34 ], [ 9, %59 ]
   %.sroa.650.0.insert.ext = zext i8 %.sroa.650.0 to i32

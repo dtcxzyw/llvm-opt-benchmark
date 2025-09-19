@@ -2504,7 +2504,7 @@ _ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDp
 48:                                               ; preds = %3
   %49 = landingpad { ptr, i32 }
           cleanup
-  br label %224
+  br label %226
 
 50:                                               ; preds = %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit
   %51 = load i32, ptr %43, align 4, !tbaa !3
@@ -2552,7 +2552,7 @@ _ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDp
 73:                                               ; preds = %72, %166, %163, %160
   %74 = landingpad { ptr, i32 }
           cleanup
-  br label %224
+  br label %226
 
 .preheader112:                                    ; preds = %.preheader113, %.loopexit
   %.063143 = phi i32 [ %.2, %.loopexit ], [ 0, %.preheader113 ]
@@ -2571,21 +2571,21 @@ _ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDp
   br label %.lr.ph
 
 ._crit_edge144:                                   ; preds = %.loopexit, %.loopexit.thread
-  %.368191 = phi i32 [ %156, %.loopexit.thread ], [ %.267, %.loopexit ]
+  %.368194 = phi i32 [ %156, %.loopexit.thread ], [ %.267, %.loopexit ]
   %.pre170 = load ptr, ptr %42, align 8, !tbaa !121
   %.pre171 = load ptr, ptr %45, align 8, !tbaa !122
   %82 = icmp eq ptr %.pre171, %.pre170
   br i1 %82, label %_ZNSt6vectorIN10duckdb_re26SpliceESaIS1_EE5clearEv.exit, label %._crit_edge144.thread
 
 ._crit_edge144.thread:                            ; preds = %.preheader113, %._crit_edge144
-  %.065.lcssa187 = phi i32 [ %.368191, %._crit_edge144 ], [ 0, %.preheader113 ]
+  %.065.lcssa190 = phi i32 [ %.368194, %._crit_edge144 ], [ 0, %.preheader113 ]
   %83 = phi ptr [ %.pre170, %._crit_edge144 ], [ %44, %.preheader113 ]
   store ptr %83, ptr %45, align 8, !tbaa !122
   br label %_ZNSt6vectorIN10duckdb_re26SpliceESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN10duckdb_re26SpliceESaIS1_EE5clearEv.exit: ; preds = %._crit_edge144, %._crit_edge144.thread
-  %.065.lcssa188 = phi i32 [ %.368191, %._crit_edge144 ], [ %.065.lcssa187, %._crit_edge144.thread ]
-  store i32 %.065.lcssa188, ptr %40, align 4, !tbaa !3
+  %.065.lcssa191 = phi i32 [ %.368194, %._crit_edge144 ], [ %.065.lcssa190, %._crit_edge144.thread ]
+  store i32 %.065.lcssa191, ptr %40, align 4, !tbaa !3
   br label %158
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2646,7 +2646,7 @@ _ZNSt6vectorIN10duckdb_re26SpliceESaIS1_EE5clearEv.exit: ; preds = %._crit_edge1
   %108 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %224
+  br label %226
 
 109:                                              ; preds = %._crit_edge
   %110 = load ptr, ptr %.sroa.099.0141, align 8, !tbaa !124
@@ -2752,7 +2752,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %137, %_ZNKSt7__cxx1
 .body:                                            ; preds = %133, %142
   %.pn = phi { ptr, i32 } [ %143, %142 ], [ %.pn.pn.i, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %224
+  br label %226
 
 144:                                              ; preds = %_ZN10LogMessageD2Ev.exit, %109, %99
   %.267 = phi i32 [ %.166.lcssa, %_ZN10LogMessageD2Ev.exit ], [ %101, %99 ], [ %111, %109 ]
@@ -2829,7 +2829,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %137, %_ZNKSt7__cxx1
   %174 = sub i64 %172, %173
   %175 = icmp eq i64 %174, 48
   %176 = load i32, ptr %40, align 4, !tbaa !3
-  br i1 %175, label %.lr.ph.i.i.i.i, label %177
+  br i1 %175, label %219, label %177
 
 177:                                              ; preds = %169
   %178 = getelementptr inbounds i8, ptr %170, i64 -48
@@ -2908,7 +2908,7 @@ _ZN10LogMessageD2Ev.exit98:                       ; preds = %195, %_ZNKSt7__cxx1
 204:                                              ; preds = %202, %200
   %.pn83 = phi { ptr, i32 } [ %203, %202 ], [ %201, %200 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %224
+  br label %226
 
 205:                                              ; preds = %166, %163, %160, %_ZN10LogMessageD2Ev.exit98
   %206 = load ptr, ptr %42, align 8, !tbaa !107
@@ -2934,36 +2934,36 @@ _ZN10LogMessageD2Ev.exit98:                       ; preds = %195, %_ZNKSt7__cxx1
   store i32 %storemerge, ptr %43, align 4, !tbaa !3
   br label %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit.backedge
 
-.lr.ph.i.i.i.i:                                   ; preds = %169, %_ZSt8_DestroyIN10duckdb_re25FrameEEvPT_.exit.i.i.i.i
+219:                                              ; preds = %169, %_ZSt8_DestroyIN10duckdb_re25FrameEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %222, %_ZSt8_DestroyIN10duckdb_re25FrameEEvPT_.exit.i.i.i.i ], [ %171, %169 ]
   %219 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
   %220 = load ptr, ptr %219, align 8, !tbaa !121
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %220, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN10duckdb_re25FrameEEvPT_.exit.i.i.i.i, label %221
 
-221:                                              ; preds = %.lr.ph.i.i.i.i
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %220) #30
   br label %_ZSt8_DestroyIN10duckdb_re25FrameEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN10duckdb_re25FrameEEvPT_.exit.i.i.i.i: ; preds = %221, %.lr.ph.i.i.i.i
-  %222 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 48
-  %.not.i.i.i.i = icmp eq ptr %222, %170
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN10duckdb_re25FrameES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !147
+  %223 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 48
+  %.not.i.i.i.i = icmp eq ptr %223, %170
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN10duckdb_re25FrameES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !147
 
-_ZSt8_DestroyIPN10duckdb_re25FrameES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN10duckdb_re25FrameEEvPT_.exit.i.i.i.i
+_ZSt8_DestroyIPN10duckdb_re25FrameES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN10duckdb_re25FrameEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %6, align 8, !tbaa !145
   %.not.i.i.i = icmp eq ptr %.pr.i, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EED2Ev.exit, label %223
 
-223:                                              ; preds = %_ZSt8_DestroyIPN10duckdb_re25FrameES1_EvT_S3_RSaIT0_E.exit.i
+225:                                              ; preds = %_ZSt8_DestroyIPN10duckdb_re25FrameES1_EvT_S3_RSaIT0_E.exit.i
   call void @_ZdlPv(ptr noundef nonnull %.pr.i) #30
   br label %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN10duckdb_re25FrameES1_EvT_S3_RSaIT0_E.exit.i, %223
+_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN10duckdb_re25FrameES1_EvT_S3_RSaIT0_E.exit.i, %225
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %176
 
-224:                                              ; preds = %107, %.body, %73, %204, %48
+226:                                              ; preds = %107, %.body, %73, %204, %48
   %.pn83.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %.pn83, %204 ], [ %74, %73 ], [ %.pn, %.body ], [ %108, %107 ]
   call void @_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

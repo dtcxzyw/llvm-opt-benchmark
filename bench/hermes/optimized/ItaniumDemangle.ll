@@ -18390,9 +18390,9 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %cmp.i = icmp eq i64 %sub.ptr.sub.i.i, 1
-  br i1 %cmp.i, label %_ZeqRK10StringViewS1_.exit, label %if.end.i24
+  br i1 %cmp.i, label %land.rhs.i, label %if.end.i24
 
-_ZeqRK10StringViewS1_.exit:                       ; preds = %entry
+land.rhs.i:                                       ; preds = %entry
   %lhsc = load i8, ptr %1, align 1
   %tobool1.not.i.i.i.i.i = icmp eq i8 %lhsc, 62
   br i1 %tobool1.not.i.i.i.i.i, label %if.end.i, label %if.end.i24
@@ -18655,8 +18655,8 @@ _ZN12OutputStream4growEm.exit.i144:               ; preds = %if.then.i._ZN12Outp
   br i1 %cmp.i160, label %_ZeqRK10StringViewS1_.exit166, label %if.end20
 
 _ZeqRK10StringViewS1_.exit166:                    ; preds = %_ZN12OutputStream4growEm.exit.i144
-  %lhsc200 = load i8, ptr %40, align 1
-  %tobool1.not.i.i.i.i.i165.not = icmp eq i8 %lhsc200, 62
+  %lhsc202 = load i8, ptr %40, align 1
+  %tobool1.not.i.i.i.i.i165.not = icmp eq i8 %lhsc202, 62
   br i1 %tobool1.not.i.i.i.i.i165.not, label %if.end.i174, label %if.end20
 
 if.end.i174:                                      ; preds = %_ZeqRK10StringViewS1_.exit166
@@ -30640,9 +30640,9 @@ land.rhs.i:                                       ; preds = %lor.lhs.false
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %retval.sroa.0.0.copyload.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 11
-  br i1 %cmp.i.i, label %_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit, label %if.then
+  br i1 %cmp.i.i, label %land.rhs.i.i, label %if.then
 
-_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit: ; preds = %land.rhs.i
+land.rhs.i.i:                                     ; preds = %land.rhs.i
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %retval.sroa.0.0.copyload.i.i, ptr noundef nonnull dereferenceable(11) @.str.287, i64 11)
   %tobool1.not.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i, label %if.end.i89, label %if.then
@@ -30959,7 +30959,7 @@ land.rhs.i:                                       ; preds = %lor.lhs.false
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %retval.sroa.0.0.copyload.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 11
-  br i1 %cmp.i.i, label %_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit, label %if.then
+  br i1 %cmp.i.i, label %land.rhs.i.i, label %if.then
 
 _ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit: ; preds = %land.rhs.i
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %retval.sroa.0.0.copyload.i.i, ptr noundef nonnull dereferenceable(11) @.str.287, i64 11)

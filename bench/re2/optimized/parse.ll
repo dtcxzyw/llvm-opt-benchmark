@@ -2751,14 +2751,14 @@ for.end:                                          ; preds = %if.end
   br i1 %42, label %_ZNSt6vectorIN3re26SpliceESaIS1_EE5clearEv.exit, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %for.cond26.preheader, %for.end
-  %out.0.lcssa205 = phi i32 [ %out.3, %for.end ], [ 0, %for.cond26.preheader ]
+  %out.0.lcssa209 = phi i32 [ %out.3, %for.end ], [ 0, %for.cond26.preheader ]
   %43 = phi ptr [ %.pre192, %for.end ], [ %1, %for.cond26.preheader ]
   store ptr %43, ptr %_M_finish.i.i62, align 8
   br label %_ZNSt6vectorIN3re26SpliceESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN3re26SpliceESaIS1_EE5clearEv.exit:  ; preds = %for.end, %invoke.cont.i.i
-  %out.0.lcssa206 = phi i32 [ %out.3, %for.end ], [ %out.0.lcssa205, %invoke.cont.i.i ]
-  store i32 %out.0.lcssa206, ptr %nsub6, align 4
+  %out.0.lcssa210 = phi i32 [ %out.3, %for.end ], [ %out.0.lcssa209, %invoke.cont.i.i ]
+  store i32 %out.0.lcssa210, ptr %nsub6, align 4
   br label %if.end85
 
 if.end85:                                         ; preds = %for.cond, %_ZNSt6vectorIN3re26SpliceESaIS1_EE5clearEv.exit
@@ -2798,9 +2798,9 @@ sw.bb92:                                          ; preds = %if.end85
   %sub.ptr.sub.i87 = sub i64 %sub.ptr.lhs.cast.i85, %sub.ptr.rhs.cast.i86
   %cmp94 = icmp eq i64 %sub.ptr.sub.i87, 48
   %52 = load i32, ptr %nsub6, align 4
-  br i1 %cmp94, label %for.body.i.i.i.i, label %if.else96
+  br i1 %cmp94, label %if.then95, label %if.else96
 
-for.body.i.i.i.i:                                 ; preds = %sw.bb92, %_ZSt8_DestroyIN3re25FrameEEvPT_.exit.i.i.i.i
+if.then95:                                        ; preds = %sw.bb92, %_ZSt8_DestroyIN3re25FrameEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN3re25FrameEEvPT_.exit.i.i.i.i ], [ %51, %sw.bb92 ]
   %splices.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %53 = load ptr, ptr %splices.i.i.i.i.i.i, align 8
@@ -2832,29 +2832,29 @@ if.else96:                                        ; preds = %sw.bb92
   %incdec.ptr.i91 = getelementptr inbounds i8, ptr %50, i64 -48
   store ptr %incdec.ptr.i91, ptr %_M_finish.i, align 8
   %splices.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 -32
-  %54 = load ptr, ptr %splices.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %54, null
+  %55 = load ptr, ptr %splices.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %55, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN3re25FrameESaIS1_EE8pop_backEv.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.else96
-  call void @_ZdlPv(ptr noundef nonnull %54) #29
+  call void @_ZdlPv(ptr noundef nonnull %55) #29
   %.pre194 = load ptr, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN3re25FrameESaIS1_EE8pop_backEv.exit
 
 _ZNSt6vectorIN3re25FrameESaIS1_EE8pop_backEv.exit: ; preds = %if.else96, %if.then.i.i.i.i.i.i.i
-  %55 = phi ptr [ %incdec.ptr.i91, %if.else96 ], [ %.pre194, %if.then.i.i.i.i.i.i.i ]
-  %splices99 = getelementptr inbounds i8, ptr %55, i64 -32
-  %spliceidx101 = getelementptr inbounds i8, ptr %55, i64 -8
-  %56 = load i32, ptr %spliceidx101, align 8
-  %conv102 = sext i32 %56 to i64
-  %57 = load ptr, ptr %splices99, align 8
-  %add.ptr.i96 = getelementptr inbounds %"struct.re2::Splice", ptr %57, i64 %conv102
+  %56 = phi ptr [ %incdec.ptr.i91, %if.else96 ], [ %.pre194, %if.then.i.i.i.i.i.i.i ]
+  %splices99 = getelementptr inbounds i8, ptr %56, i64 -32
+  %spliceidx101 = getelementptr inbounds i8, ptr %56, i64 -8
+  %57 = load i32, ptr %spliceidx101, align 8
+  %conv102 = sext i32 %57 to i64
+  %58 = load ptr, ptr %splices99, align 8
+  %add.ptr.i96 = getelementptr inbounds %"struct.re2::Splice", ptr %58, i64 %conv102
   %nsuffix104 = getelementptr inbounds nuw i8, ptr %add.ptr.i96, i64 20
   store i32 %52, ptr %nsuffix104, align 4
-  %58 = load ptr, ptr %_M_finish.i, align 8
-  %spliceidx106 = getelementptr inbounds i8, ptr %58, i64 -8
-  %59 = load i32, ptr %spliceidx106, align 8
-  %inc107 = add nsw i32 %59, 1
+  %59 = load ptr, ptr %_M_finish.i, align 8
+  %spliceidx106 = getelementptr inbounds i8, ptr %59, i64 -8
+  %60 = load i32, ptr %spliceidx106, align 8
+  %inc107 = add nsw i32 %60, 1
   store i32 %inc107, ptr %spliceidx106, align 8
   br label %for.cond.backedge
 
@@ -2880,7 +2880,7 @@ invoke.cont6.i106:                                ; preds = %invoke.cont4.i104
           to label %invoke.cont110 unwind label %lpad.i101
 
 lpad.i101:                                        ; preds = %invoke.cont6.i106, %invoke.cont4.i104, %invoke.cont2.i102, %.noexc108
-  %60 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str_.i99) #28
   br label %ehcleanup
@@ -2890,8 +2890,8 @@ invoke.cont110:                                   ; preds = %invoke.cont6.i106
           to label %invoke.cont114 unwind label %lpad111
 
 invoke.cont114:                                   ; preds = %invoke.cont110
-  %61 = load i32, ptr %round8, align 4
-  %call117 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call115, i32 noundef %61)
+  %62 = load i32, ptr %round8, align 4
+  %call117 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call115, i32 noundef %62)
           to label %invoke.cont116 unwind label %lpad111
 
 invoke.cont116:                                   ; preds = %invoke.cont114
@@ -2899,25 +2899,25 @@ invoke.cont116:                                   ; preds = %invoke.cont114
   br label %sw.epilog118
 
 lpad111:                                          ; preds = %invoke.cont114, %invoke.cont110
-  %62 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp109) #28
   br label %ehcleanup
 
 sw.epilog118:                                     ; preds = %sw.bb90, %sw.bb88, %sw.bb86, %invoke.cont116
-  %63 = load ptr, ptr %splices10, align 8
-  %64 = load ptr, ptr %_M_finish.i.i62, align 8
-  %cmp.i.i114 = icmp eq ptr %63, %64
+  %64 = load ptr, ptr %splices10, align 8
+  %65 = load ptr, ptr %_M_finish.i.i62, align 8
+  %cmp.i.i114 = icmp eq ptr %64, %65
   br i1 %cmp.i.i114, label %if.then121, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.epilog118
-  %65 = load i32, ptr %round8, align 4
-  %cmp120 = icmp eq i32 %65, 3
+  %66 = load i32, ptr %round8, align 4
+  %cmp120 = icmp eq i32 %66, 3
   br i1 %cmp120, label %if.then121, label %if.end125
 
 if.then121:                                       ; preds = %lor.lhs.false, %sw.epilog118
-  %sub.ptr.lhs.cast.i116 = ptrtoint ptr %64 to i64
-  %sub.ptr.rhs.cast.i117 = ptrtoint ptr %63 to i64
+  %sub.ptr.lhs.cast.i116 = ptrtoint ptr %65 to i64
+  %sub.ptr.rhs.cast.i117 = ptrtoint ptr %64 to i64
   %sub.ptr.sub.i118 = sub i64 %sub.ptr.lhs.cast.i116, %sub.ptr.rhs.cast.i117
   %sub.ptr.div.i119 = sdiv exact i64 %sub.ptr.sub.i118, 24
   %conv123 = trunc i64 %sub.ptr.div.i119 to i32
@@ -2929,7 +2929,7 @@ if.end125:                                        ; preds = %lor.lhs.false, %if.
   br label %for.cond.backedge
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i, %lpad.i101, %lpad111, %lpad60
-  %.pn = phi { ptr, i32 } [ %62, %lpad111 ], [ %31, %lpad60 ], [ %25, %lpad.i ], [ %60, %lpad.i101 ], [ %lpad.loopexit128, %lpad.loopexit ], [ %lpad.loopexit130, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp131, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %63, %lpad111 ], [ %31, %lpad60 ], [ %25, %lpad.i ], [ %61, %lpad.i101 ], [ %lpad.loopexit128, %lpad.loopexit ], [ %lpad.loopexit130, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp131, %lpad.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorIN3re25FrameESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %stk) #28
   resume { ptr, i32 } %.pn
 }

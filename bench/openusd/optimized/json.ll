@@ -436,7 +436,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13JsParseStringERKNSt7__cxx111
   store i8 0, ptr %14, align 8
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %4, i32 noundef 1, ptr noundef nonnull @.str.2)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7JsValueC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  br label %104
+  br label %106
 
 15:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
@@ -537,7 +537,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13JsParseStringERKNSt7__cxx111
   store i32 %52, ptr %2, align 8
   br label %55
 
-53:                                               ; preds = %85, %81, %74, %64, %_ZN3pxr9rapidjson16GetParseError_EnENS0_14ParseErrorCodeE.exit
+53:                                               ; preds = %87, %81, %74, %64, %_ZN3pxr9rapidjson16GetParseError_EnENS0_14ParseErrorCodeE.exit
   %54 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -588,7 +588,7 @@ _ZN3pxr9rapidjson16GetParseError_EnENS0_14ParseErrorCodeE.exit: ; preds = %._cri
   %71 = ptrtoint ptr %69 to i64
   %72 = sub i64 %70, %71
   %73 = icmp eq i64 %72, 16
-  br i1 %73, label %.thread49, label %74
+  br i1 %73, label %88, label %74
 
 74:                                               ; preds = %65
   %75 = ashr exact i64 %72, 4
@@ -608,60 +608,60 @@ _ZN3pxr9rapidjson16GetParseError_EnENS0_14ParseErrorCodeE.exit: ; preds = %._cri
   %82 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %8, ptr noundef nonnull @.str.3, ptr noundef %80)
           to label %83 unwind label %53
 
-83:                                               ; preds = %81
+._crit_edge36:                                    ; preds = %81
   %.pre = load ptr, ptr %66, align 8
   %.pre37 = load ptr, ptr %67, align 8
   %84 = icmp eq ptr %.pre, %.pre37
   br i1 %84, label %85, label %.thread49
 
-85:                                               ; preds = %83
+87:                                               ; preds = %83
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7JsValueC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7JsValueC2ERKS0_.exit unwind label %53
 
-.thread49:                                        ; preds = %65, %83
+88:                                               ; preds = %65, %83
   %86 = phi ptr [ %.pre, %83 ], [ %69, %65 ]
   %87 = load ptr, ptr %86, align 8
   store ptr %87, ptr %0, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %90 = load ptr, ptr %89, align 8
   store ptr %90, ptr %88, align 8
   %.not.i.i.i.i = icmp eq ptr %90, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7JsValueC2ERKS0_.exit, label %91
 
-91:                                               ; preds = %.thread49
+91: ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %93 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %93, 0
   br i1 %.not.i.i.i.i.i, label %97, label %94
 
-94:                                               ; preds = %91
+94:; preds = %91
   %95 = load i32, ptr %92, align 4
   %96 = add nsw i32 %95, 1
   store i32 %96, ptr %92, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7JsValueC2ERKS0_.exit
 
-97:                                               ; preds = %91
-  %98 = atomicrmw volatile add ptr %92, i32 1 acq_rel, align 4
+99:                                               ; preds = %91
+  %100 = atomicrmw volatile add ptr %92, i32 1 acq_rel, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7JsValueC2ERKS0_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__7JsValueC2ERKS0_.exit: ; preds = %97, %94, %.thread49, %85, %64
-  %99 = phi ptr [ %41, %97 ], [ %41, %94 ], [ %41, %.thread49 ], [ %41, %85 ], [ %45, %64 ]
-  %100 = load ptr, ptr %99, align 8
-  call void @free(ptr noundef %100) #24
-  %101 = load ptr, ptr %16, align 8
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEED2Ev.exit, label %103
+_ZN32pxrInternal_v0_24__pxrReserved__7JsValueC2ERKS0_.exit: ; preds = %99, %94, %88, %87, %64
+  %101 = phi ptr [ %41, %97 ], [ %41, %94 ], [ %41, %.thread49 ], [ %41, %85 ], [ %45, %64 ]
+  %102 = load ptr, ptr %101, align 8
+  call void @free(ptr noundef %102) #24
+  %103 = load ptr, ptr %16, align 8
+  %104 = icmp eq ptr %103, null
+  br i1 %104, label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEED2Ev.exit, label %105
 
-103:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7JsValueC2ERKS0_.exit
-  call void @_ZdlPvm(ptr noundef nonnull %101, i64 noundef 1) #25
+105:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7JsValueC2ERKS0_.exit
+  call void @_ZdlPvm(ptr noundef nonnull %103, i64 noundef 1) #25
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEED2Ev.exit
 
-_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7JsValueC2ERKS0_.exit, %103
+_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7JsValueC2ERKS0_.exit, %105
   call fastcc void @_ZN12_GLOBAL__N_113_InputHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #24
-  br label %104
+  br label %106
 
-104:                                              ; preds = %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEED2Ev.exit, %10
+106:                                              ; preds = %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEED2Ev.exit, %10
   ret void
 }
 

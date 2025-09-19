@@ -11453,7 +11453,7 @@ call5.i.i.i.i4.i.i.noexc:                         ; preds = %if.then318
   %call4.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsEh(ptr noundef nonnull align 8 dereferenceable(36) %pkt.i, i8 noundef zeroext %conv3.i937)
           to label %for.body.i938 unwind label %lpad.i.loopexit
 
-for.cond.cleanup.i:                               ; preds = %invoke.cont11.i
+invoke.cont.i:                                    ; preds = %invoke.cont11.i
   %155 = load i16, ptr %m_command.i.i, align 8, !tbaa !526
   %idxprom.i.i = zext i16 %155 to i64
   %arrayidx.i.i = getelementptr inbounds nuw %struct.ServerCommandFactory, ptr @serverCommandFactoryTable, i64 %idxprom.i.i

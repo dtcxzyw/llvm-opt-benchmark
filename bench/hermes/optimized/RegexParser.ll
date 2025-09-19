@@ -7242,14 +7242,14 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   store i8 0, ptr %ref.tmp.i, align 1
   %cmp.i.not.i = icmp eq i64 %sub.ptr.sub.i.i, -1
-  br i1 %cmp.i.not.i, label %if.then.i.i.i, label %if.then.i.i
+  br i1 %cmp.i.not.i, label %if.then7.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %0, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_8GoalInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
-if.then.i.i.i:                                    ; preds = %entry
+if.then7.i.i:                                     ; preds = %entry
   store ptr %1, ptr %_M_finish.i.i, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_8GoalInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -9847,14 +9847,14 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   store i8 0, ptr %ref.tmp.i, align 1
   %cmp.i.not.i = icmp eq i64 %sub.ptr.sub.i.i, -1
-  br i1 %cmp.i.not.i, label %if.then.i.i.i, label %if.then.i.i
+  br i1 %cmp.i.not.i, label %if.then7.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %0, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_14LeftAnchorInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
-if.then.i.i.i:                                    ; preds = %entry
+if.then7.i.i:                                     ; preds = %entry
   store ptr %1, ptr %_M_finish.i.i, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_14LeftAnchorInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -10040,14 +10040,14 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   store i8 0, ptr %ref.tmp.i, align 1
   %cmp.i.not.i = icmp eq i64 %sub.ptr.sub.i.i, -1
-  br i1 %cmp.i.not.i, label %if.then.i.i.i, label %if.then.i.i
+  br i1 %cmp.i.not.i, label %if.then7.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %0, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_15RightAnchorInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
-if.then.i.i.i:                                    ; preds = %entry
+if.then7.i.i:                                     ; preds = %entry
   store ptr %1, ptr %_M_finish.i.i, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_15RightAnchorInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -12825,8 +12825,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN6hermes5regex12MatchAnyNode8emitStepERNS0_19RegexBytecodeStreamE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(25) %bcs) unnamed_addr #0 comdat align 2 {
 entry:
-  %ref.tmp.i30 = alloca i8, align 1
-  %ref.tmp.i17 = alloca i8, align 1
+  %ref.tmp.i34 = alloca i8, align 1
+  %ref.tmp.i19 = alloca i8, align 1
   %ref.tmp.i4 = alloca i8, align 1
   %ref.tmp.i = alloca i8, align 1
   %unicode_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -12850,14 +12850,14 @@ if.then3:                                         ; preds = %if.then
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   store i8 0, ptr %ref.tmp.i, align 1
   %cmp.i.not.i = icmp eq i64 %sub.ptr.sub.i.i, -1
-  br i1 %cmp.i.not.i, label %if.then.i.i.i, label %if.then.i.i
+  br i1 %cmp.i.not.i, label %if.then7.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3
   call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %2, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_15U16MatchAnyInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
-if.then.i.i.i:                                    ; preds = %if.then3
+if.then7.i.i:                                     ; preds = %if.then3
   store ptr %3, ptr %_M_finish.i.i, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_15U16MatchAnyInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -12877,18 +12877,18 @@ if.else:                                          ; preds = %if.then
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
   store i8 0, ptr %ref.tmp.i4, align 1
   %cmp.i.not.i9 = icmp eq i64 %sub.ptr.sub.i.i8, -1
-  br i1 %cmp.i.not.i9, label %if.then.i.i.i16, label %if.then.i.i10
+  br i1 %cmp.i.not.i9, label %if.then7.i.i16, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %if.else
   call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %5, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i4)
   %.pre.i11 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_25U16MatchAnyButNewlineInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
-if.then.i.i.i16:                                  ; preds = %if.else
+if.then7.i.i16:                                   ; preds = %if.else
   store ptr %6, ptr %_M_finish.i.i, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_25U16MatchAnyButNewlineInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
-_ZN6hermes5regex19RegexBytecodeStream4emitINS0_25U16MatchAnyButNewlineInsnEEENS1_18InstructionWrapperIT_EEv.exit: ; preds = %if.then.i.i10, %if.then.i.i.i16
+_ZN6hermes5regex19RegexBytecodeStream4emitINS0_25U16MatchAnyButNewlineInsnEEENS1_18InstructionWrapperIT_EEv.exit: ; preds = %if.then.i.i10, %if.then7.i.i16
   %7 = phi ptr [ %.pre.i11, %if.then.i.i10 ], [ %6, %if.then.i.i.i16 ]
   %add.ptr.i3.i12 = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i.i8
   store i8 6, ptr %add.ptr.i3.i12, align 1
@@ -12899,57 +12899,57 @@ if.else6:                                         ; preds = %entry
   br i1 %tobool2, label %if.then9, label %if.else12
 
 if.then9:                                         ; preds = %if.else6
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i19)
   %8 = load ptr, ptr %_M_finish.i.i, align 8
   %9 = load ptr, ptr %bcs, align 8
-  %sub.ptr.lhs.cast.i.i19 = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast.i.i20 = ptrtoint ptr %9 to i64
-  %sub.ptr.sub.i.i21 = sub i64 %sub.ptr.lhs.cast.i.i19, %sub.ptr.rhs.cast.i.i20
-  store i8 0, ptr %ref.tmp.i17, align 1
-  %cmp.i.not.i22 = icmp eq i64 %sub.ptr.sub.i.i21, -1
-  br i1 %cmp.i.not.i22, label %if.then.i.i.i29, label %if.then.i.i23
+  %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %9 to i64
+  %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
+  store i8 0, ptr %ref.tmp.i19, align 1
+  %cmp.i.not.i24 = icmp eq i64 %sub.ptr.sub.i.i23, -1
+  br i1 %cmp.i.not.i24, label %if.then7.i.i31, label %if.then.i.i25
 
-if.then.i.i23:                                    ; preds = %if.then9
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %8, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i17)
-  %.pre.i24 = load ptr, ptr %bcs, align 8
+if.then.i.i25:                                    ; preds = %if.then9
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %8, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i19)
+  %.pre.i26 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_12MatchAnyInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
-if.then.i.i.i29:                                  ; preds = %if.then9
+if.then7.i.i31:                                   ; preds = %if.then9
   store ptr %9, ptr %_M_finish.i.i, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_12MatchAnyInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
-_ZN6hermes5regex19RegexBytecodeStream4emitINS0_12MatchAnyInsnEEENS1_18InstructionWrapperIT_EEv.exit: ; preds = %if.then.i.i23, %if.then.i.i.i29
-  %10 = phi ptr [ %.pre.i24, %if.then.i.i23 ], [ %9, %if.then.i.i.i29 ]
-  %add.ptr.i3.i25 = getelementptr inbounds i8, ptr %10, i64 %sub.ptr.sub.i.i21
-  store i8 3, ptr %add.ptr.i3.i25, align 1
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i17)
+_ZN6hermes5regex19RegexBytecodeStream4emitINS0_12MatchAnyInsnEEENS1_18InstructionWrapperIT_EEv.exit: ; preds = %if.then.i.i25, %if.then7.i.i31
+  %10 = phi ptr [ %.pre.i26, %if.then.i.i23 ], [ %9, %if.then.i.i.i29 ]
+  %add.ptr.i3.i27 = getelementptr inbounds i8, ptr %10, i64 %sub.ptr.sub.i.i23
+  store i8 3, ptr %add.ptr.i3.i27, align 1
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i19)
   br label %if.end16
 
 if.else12:                                        ; preds = %if.else6
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i34)
   %11 = load ptr, ptr %_M_finish.i.i, align 8
   %12 = load ptr, ptr %bcs, align 8
-  %sub.ptr.lhs.cast.i.i32 = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i.i33 = ptrtoint ptr %12 to i64
-  %sub.ptr.sub.i.i34 = sub i64 %sub.ptr.lhs.cast.i.i32, %sub.ptr.rhs.cast.i.i33
-  store i8 0, ptr %ref.tmp.i30, align 1
-  %cmp.i.not.i35 = icmp eq i64 %sub.ptr.sub.i.i34, -1
-  br i1 %cmp.i.not.i35, label %if.then.i.i.i42, label %if.then.i.i36
+  %sub.ptr.lhs.cast.i.i36 = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i37 = ptrtoint ptr %12 to i64
+  %sub.ptr.sub.i.i38 = sub i64 %sub.ptr.lhs.cast.i.i36, %sub.ptr.rhs.cast.i.i37
+  store i8 0, ptr %ref.tmp.i34, align 1
+  %cmp.i.not.i39 = icmp eq i64 %sub.ptr.sub.i.i38, -1
+  br i1 %cmp.i.not.i39, label %if.then7.i.i46, label %if.then.i.i40
 
-if.then.i.i36:                                    ; preds = %if.else12
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %11, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i30)
-  %.pre.i37 = load ptr, ptr %bcs, align 8
+if.then.i.i40:                                    ; preds = %if.else12
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %11, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i34)
+  %.pre.i41 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_22MatchAnyButNewlineInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
-if.then.i.i.i42:                                  ; preds = %if.else12
+if.then7.i.i46:                                   ; preds = %if.else12
   store ptr %12, ptr %_M_finish.i.i, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_22MatchAnyButNewlineInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
-_ZN6hermes5regex19RegexBytecodeStream4emitINS0_22MatchAnyButNewlineInsnEEENS1_18InstructionWrapperIT_EEv.exit: ; preds = %if.then.i.i36, %if.then.i.i.i42
-  %13 = phi ptr [ %.pre.i37, %if.then.i.i36 ], [ %12, %if.then.i.i.i42 ]
-  %add.ptr.i3.i38 = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub.i.i34
-  store i8 5, ptr %add.ptr.i3.i38, align 1
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i30)
+_ZN6hermes5regex19RegexBytecodeStream4emitINS0_22MatchAnyButNewlineInsnEEENS1_18InstructionWrapperIT_EEv.exit: ; preds = %if.then.i.i40, %if.then7.i.i46
+  %13 = phi ptr [ %.pre.i41, %if.then.i.i36 ], [ %12, %if.then.i.i.i42 ]
+  %add.ptr.i3.i42 = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub.i.i38
+  store i8 5, ptr %add.ptr.i3.i42, align 1
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i34)
   br label %if.end16
 
 if.end16:                                         ; preds = %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_12MatchAnyInsnEEENS1_18InstructionWrapperIT_EEv.exit, %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_22MatchAnyButNewlineInsnEEENS1_18InstructionWrapperIT_EEv.exit, %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_15U16MatchAnyInsnEEENS1_18InstructionWrapperIT_EEv.exit, %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_25U16MatchAnyButNewlineInsnEEENS1_18InstructionWrapperIT_EEv.exit

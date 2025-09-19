@@ -660,7 +660,7 @@ invoke.cont91:                                    ; preds = %invoke.cont89
   invoke void @__cxa_throw(ptr nonnull %exception86, ptr nonnull @_ZTI19TestFailedException, ptr nonnull @_ZN19TestFailedExceptionD2Ev) #28
           to label %unreachable unwind label %lpad90
 
-lpad47:                                           ; preds = %invoke.cont432, %invoke.cont427, %invoke.cont.i.i988, %_ZNSt6vectorIP4AreaSaIS1_EE5clearEv.exit953, %invoke.cont.i.i916, %invoke.cont.i.i880, %invoke.cont238, %_ZNSt6vectorIP4AreaSaIS1_EE5clearEv.exit847, %invoke.cont191, %invoke.cont.i.i812, %invoke.cont.i.i, %if.end100, %invoke.cont55, %invoke.cont51, %invoke.cont48, %if.end
+lpad47:                                           ; preds = %invoke.cont432, %invoke.cont427, %if.end421, %_ZNSt6vectorIP4AreaSaIS1_EE5clearEv.exit953, %if.end327, %if.end280, %invoke.cont238, %_ZNSt6vectorIP4AreaSaIS1_EE5clearEv.exit847, %invoke.cont191, %if.end186, %if.end143, %if.end100, %invoke.cont55, %invoke.cont51, %invoke.cont48, %if.end
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup571
@@ -724,7 +724,7 @@ invoke.cont105:                                   ; preds = %if.end100
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp109 = icmp eq i64 %sub.ptr.sub.i, 24
-  br i1 %cmp109, label %invoke.cont.i.i, label %if.then110
+  br i1 %cmp109, label %if.end143, label %if.then110
 
 if.then110:                                       ; preds = %invoke.cont105
   call void @llvm.lifetime.start.p0(ptr nonnull %message111)
@@ -818,12 +818,12 @@ ehcleanup142:                                     ; preds = %ehcleanup141, %lpad
   call void @llvm.lifetime.end.p0(ptr nonnull %message111)
   br label %ehcleanup571
 
-invoke.cont.i.i:                                  ; preds = %invoke.cont105
+if.end143:                                        ; preds = %invoke.cont105
   store ptr %23, ptr %_M_finish.i, align 8, !tbaa !65
   invoke void @_ZN9AreaStore14getAreasForPosEPSt6vectorIP4AreaSaIS2_EEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(160) %store, ptr noundef nonnull %res, i48 30064771072)
           to label %invoke.cont148 unwind label %lpad47
 
-invoke.cont148:                                   ; preds = %invoke.cont.i.i
+invoke.cont148:                                   ; preds = %if.end143
   %30 = load ptr, ptr %_M_finish.i, align 8, !tbaa !65
   %31 = load ptr, ptr %res, align 8, !tbaa !52
   %sub.ptr.lhs.cast.i783 = ptrtoint ptr %30 to i64
@@ -831,7 +831,7 @@ invoke.cont148:                                   ; preds = %invoke.cont.i.i
   %sub.ptr.sub.i785 = sub i64 %sub.ptr.lhs.cast.i783, %sub.ptr.rhs.cast.i784
   %sub.ptr.div.i786 = ashr exact i64 %sub.ptr.sub.i785, 3
   %cmp152 = icmp eq i64 %sub.ptr.sub.i785, 8
-  br i1 %cmp152, label %invoke.cont.i.i812, label %if.then153
+  br i1 %cmp152, label %if.end186, label %if.then153
 
 if.then153:                                       ; preds = %invoke.cont148
   call void @llvm.lifetime.start.p0(ptr nonnull %message154)
@@ -925,7 +925,7 @@ ehcleanup185:                                     ; preds = %ehcleanup184, %lpad
   call void @llvm.lifetime.end.p0(ptr nonnull %message154)
   br label %ehcleanup571
 
-invoke.cont.i.i812:                               ; preds = %invoke.cont148
+if.end186:                                        ; preds = %invoke.cont148
   store ptr %31, ptr %_M_finish.i, align 8, !tbaa !65
   %38 = load i32, ptr %a, align 8, !tbaa !56
   %vtable189 = load ptr, ptr %store, align 8, !tbaa !4
@@ -934,7 +934,7 @@ invoke.cont.i.i812:                               ; preds = %invoke.cont148
   %call192 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(160) %store, i32 noundef %38)
           to label %invoke.cont191 unwind label %lpad47
 
-invoke.cont191:                                   ; preds = %invoke.cont.i.i812
+invoke.cont191:                                   ; preds = %if.end186
   invoke void @_ZN9AreaStore14getAreasForPosEPSt6vectorIP4AreaSaIS2_EEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(160) %store, ptr noundef nonnull %res, i48 30064771072)
           to label %invoke.cont195 unwind label %lpad47
 
@@ -1059,7 +1059,7 @@ invoke.cont242:                                   ; preds = %invoke.cont238
   %sub.ptr.sub.i853 = sub i64 %sub.ptr.lhs.cast.i851, %sub.ptr.rhs.cast.i852
   %sub.ptr.div.i854 = ashr exact i64 %sub.ptr.sub.i853, 3
   %cmp246 = icmp eq i64 %sub.ptr.sub.i853, 8
-  br i1 %cmp246, label %invoke.cont.i.i880, label %if.then247
+  br i1 %cmp246, label %if.end280, label %if.then247
 
 if.then247:                                       ; preds = %invoke.cont242
   call void @llvm.lifetime.start.p0(ptr nonnull %message248)
@@ -1153,7 +1153,7 @@ ehcleanup279:                                     ; preds = %ehcleanup278, %lpad
   call void @llvm.lifetime.end.p0(ptr nonnull %message248)
   br label %ehcleanup571
 
-invoke.cont.i.i880:                               ; preds = %invoke.cont242
+if.end280:                                        ; preds = %invoke.cont242
   store ptr %50, ptr %_M_finish.i, align 8, !tbaa !65
   %vtable287 = load ptr, ptr %store, align 8, !tbaa !4
   %vfn288 = getelementptr inbounds nuw i8, ptr %vtable287, i64 40
@@ -1161,7 +1161,7 @@ invoke.cont.i.i880:                               ; preds = %invoke.cont242
   invoke void %57(ptr noundef nonnull align 8 dereferenceable(160) %store, ptr noundef nonnull %res, i48 25769672694, i48 30066671616, i1 noundef zeroext false)
           to label %invoke.cont289 unwind label %lpad47
 
-invoke.cont289:                                   ; preds = %invoke.cont.i.i880
+invoke.cont289:                                   ; preds = %if.end280
   %58 = load ptr, ptr %_M_finish.i, align 8, !tbaa !65
   %59 = load ptr, ptr %res, align 8, !tbaa !52
   %sub.ptr.lhs.cast.i887 = ptrtoint ptr %58 to i64
@@ -1169,7 +1169,7 @@ invoke.cont289:                                   ; preds = %invoke.cont.i.i880
   %sub.ptr.sub.i889 = sub i64 %sub.ptr.lhs.cast.i887, %sub.ptr.rhs.cast.i888
   %sub.ptr.div.i890 = ashr exact i64 %sub.ptr.sub.i889, 3
   %cmp293 = icmp eq i64 %sub.ptr.sub.i889, 24
-  br i1 %cmp293, label %invoke.cont.i.i916, label %if.then294
+  br i1 %cmp293, label %if.end327, label %if.then294
 
 if.then294:                                       ; preds = %invoke.cont289
   call void @llvm.lifetime.start.p0(ptr nonnull %message295)
@@ -1263,7 +1263,7 @@ ehcleanup326:                                     ; preds = %ehcleanup325, %lpad
   call void @llvm.lifetime.end.p0(ptr nonnull %message295)
   br label %ehcleanup571
 
-invoke.cont.i.i916:                               ; preds = %invoke.cont289
+if.end327:                                        ; preds = %invoke.cont289
   store ptr %59, ptr %_M_finish.i, align 8, !tbaa !65
   %vtable334 = load ptr, ptr %store, align 8, !tbaa !4
   %vfn335 = getelementptr inbounds nuw i8, ptr %vtable334, i64 40
@@ -1271,7 +1271,7 @@ invoke.cont.i.i916:                               ; preds = %invoke.cont289
   invoke void %66(ptr noundef nonnull align 8 dereferenceable(160) %store, ptr noundef nonnull %res, i48 25769869212, i48 25769803976, i1 noundef zeroext false)
           to label %invoke.cont336 unwind label %lpad47
 
-invoke.cont336:                                   ; preds = %invoke.cont.i.i916
+invoke.cont336:                                   ; preds = %if.end327
   %67 = load ptr, ptr %_M_finish.i, align 8, !tbaa !65
   %68 = load ptr, ptr %res, align 8, !tbaa !52
   %sub.ptr.lhs.cast.i923 = ptrtoint ptr %67 to i64
@@ -1388,7 +1388,7 @@ invoke.cont383:                                   ; preds = %_ZNSt6vectorIP4Area
   %sub.ptr.sub.i961 = sub i64 %sub.ptr.lhs.cast.i959, %sub.ptr.rhs.cast.i960
   %sub.ptr.div.i962 = ashr exact i64 %sub.ptr.sub.i961, 3
   %cmp387 = icmp eq i64 %sub.ptr.sub.i961, 24
-  br i1 %cmp387, label %invoke.cont.i.i988, label %if.then388
+  br i1 %cmp387, label %if.end421, label %if.then388
 
 if.then388:                                       ; preds = %invoke.cont383
   call void @llvm.lifetime.start.p0(ptr nonnull %message389)
@@ -1482,7 +1482,7 @@ ehcleanup420:                                     ; preds = %ehcleanup419, %lpad
   call void @llvm.lifetime.end.p0(ptr nonnull %message389)
   br label %ehcleanup571
 
-invoke.cont.i.i988:                               ; preds = %invoke.cont383
+if.end421:                                        ; preds = %invoke.cont383
   store ptr %77, ptr %_M_finish.i, align 8, !tbaa !65
   %84 = load i32, ptr %a, align 8, !tbaa !56
   %vtable425 = load ptr, ptr %store, align 8, !tbaa !4
@@ -1491,7 +1491,7 @@ invoke.cont.i.i988:                               ; preds = %invoke.cont383
   %call428 = invoke noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(160) %store, i32 noundef %84)
           to label %invoke.cont427 unwind label %lpad47
 
-invoke.cont427:                                   ; preds = %invoke.cont.i.i988
+invoke.cont427:                                   ; preds = %if.end421
   %86 = load i32, ptr %b, align 8, !tbaa !56
   %vtable430 = load ptr, ptr %store, align 8, !tbaa !4
   %vfn431 = getelementptr inbounds nuw i8, ptr %vtable430, i64 32
@@ -1592,7 +1592,7 @@ invoke.cont486:                                   ; preds = %invoke.cont484
   invoke void @__cxa_throw(ptr nonnull %exception481, ptr nonnull @_ZTI19TestFailedException, ptr nonnull @_ZN19TestFailedExceptionD2Ev) #28
           to label %unreachable unwind label %lpad485
 
-lpad448:                                          ; preds = %invoke.cont.i.i1073, %invoke.cont453, %invoke.cont449, %invoke.cont445
+lpad448:                                          ; preds = %if.end563, %invoke.cont453, %invoke.cont449, %invoke.cont445
   %94 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup569
@@ -1753,14 +1753,14 @@ if.end539:                                        ; preds = %if.end495
 sub_1:                                            ; preds = %if.end539
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 1
   %112 = load i8, ptr %111, align 1
-  %.not25 = icmp eq i8 %112, 105
-  br i1 %.not25, label %if.end539.tail, label %if.then547
+  %.not30 = icmp eq i8 %112, 105
+  br i1 %.not30, label %if.end539.tail, label %if.then547
 
 if.end539.tail:                                   ; preds = %sub_1
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 2
   %114 = load i8, ptr %113, align 1
   %115 = icmp eq i8 %114, 33
-  br i1 %115, label %invoke.cont.i.i1073, label %if.then547
+  br i1 %115, label %if.end563, label %if.then547
 
 if.then547:                                       ; preds = %sub_1, %if.end539, %if.end539.tail
   %exception548 = call ptr @__cxa_allocate_exception(i64 72) #27
@@ -1805,7 +1805,7 @@ cleanup.action561:                                ; preds = %ehcleanup557, %_ZNK
   call void @__cxa_free_exception(ptr %exception548) #27
   br label %ehcleanup569
 
-invoke.cont.i.i1073:                              ; preds = %if.end539.tail
+if.end563:                                        ; preds = %if.end539.tail
   store ptr %93, ptr %_M_finish.i, align 8, !tbaa !65
   %120 = load i32, ptr %d, align 8, !tbaa !56
   %vtable565 = load ptr, ptr %store, align 8, !tbaa !4
@@ -1814,7 +1814,7 @@ invoke.cont.i.i1073:                              ; preds = %if.end539.tail
   %call568 = invoke noundef zeroext i1 %121(ptr noundef nonnull align 8 dereferenceable(160) %store, i32 noundef %120)
           to label %invoke.cont567 unwind label %lpad448
 
-invoke.cont567:                                   ; preds = %invoke.cont.i.i1073
+invoke.cont567:                                   ; preds = %if.end563
   %122 = load ptr, ptr %data.i996, align 8, !tbaa !7
   %cmp.i.i.i.i = icmp eq ptr %122, %90
   br i1 %cmp.i.i.i.i, label %_ZN4AreaD2Ev.exit, label %if.then.i.i.i

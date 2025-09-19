@@ -1298,49 +1298,49 @@ define void @_ZN17InteractionOfType11sortAtomIdsEv(ptr noundef nonnull readonly 
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   switch i64 %10, label %34 [
-    i64 8, label %_ZNK17InteractionOfType2aiEv.exit.i
-    i64 12, label %_ZNK17InteractionOfType2aiEv.exit.i9
-    i64 16, label %21
+    i64 8, label %_ZNK17InteractionOfType2ajEv.exit.i
+    i64 12, label %_ZNK17InteractionOfType2akEv.exit.i
+    i64 16, label %25
   ]
 
-_ZNK17InteractionOfType2aiEv.exit.i:              ; preds = %1
+_ZNK17InteractionOfType2ajEv.exit.i:              ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !20
   %13 = load i32, ptr %7, align 4, !tbaa !20
   %14 = icmp slt i32 %12, %13
   br i1 %14, label %15, label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit
 
-15:                                               ; preds = %_ZNK17InteractionOfType2aiEv.exit.i
+14:                                               ; preds = %_ZNK17InteractionOfType2ajEv.exit.i
   store i32 %12, ptr %7, align 4, !tbaa !20
   store i32 %13, ptr %11, align 4, !tbaa !20
   br label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit
 
-_ZNK17InteractionOfType2aiEv.exit.i9:             ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %17 = load i32, ptr %16, align 4, !tbaa !20
+_ZNK17InteractionOfType2akEv.exit.i:              ; preds = %1
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %19 = load i32, ptr %18, align 4, !tbaa !20
   %18 = load i32, ptr %7, align 4, !tbaa !20
-  %19 = icmp slt i32 %17, %18
+  %19 = icmp slt i32 %19, %18
   br i1 %19, label %20, label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit
 
-20:                                               ; preds = %_ZNK17InteractionOfType2aiEv.exit.i9
+21:                                               ; preds = %_ZNK17InteractionOfType2akEv.exit.i
   store i32 %17, ptr %7, align 4, !tbaa !20
   store i32 %18, ptr %16, align 4, !tbaa !20
   br label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit
 
-21:                                               ; preds = %1
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %23 = load i8, ptr %22, align 8, !tbaa !23, !range !35, !noundef !36
-  %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit, label %_ZNK17InteractionOfType2aiEv.exit.i10
+25:                                               ; preds = %1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %27 = load i8, ptr %26, align 8, !tbaa !23, !range !35, !noundef !36
+  %28 = trunc nuw i8 %27 to i1
+  br i1 %28, label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit, label %_ZNK17InteractionOfType2alEv.exit.i
 
-_ZNK17InteractionOfType2aiEv.exit.i10:            ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %26 = load i32, ptr %25, align 4, !tbaa !20
+_ZNK17InteractionOfType2alEv.exit.i:              ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %30 = load i32, ptr %29, align 4, !tbaa !20
   %27 = load i32, ptr %7, align 4, !tbaa !20
   %28 = icmp slt i32 %26, %27
   br i1 %28, label %29, label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit
 
-29:                                               ; preds = %_ZNK17InteractionOfType2aiEv.exit.i10
+29:; preds = %_ZNK17InteractionOfType2aiEv.exit.i10
   store i32 %26, ptr %7, align 4, !tbaa !20
   store i32 %27, ptr %25, align 4, !tbaa !20
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -1351,73 +1351,73 @@ _ZNK17InteractionOfType2aiEv.exit.i10:            ; preds = %21
   store i32 %32, ptr %31, align 4, !tbaa !20
   br label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit
 
-34:                                               ; preds = %1
-  %35 = tail call ptr @__cxa_allocate_exception(i64 24) #29
+40:                                               ; preds = %1
+  %41 = tail call ptr @__cxa_allocate_exception(i64 24) #29
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.22)
           to label %36 unwind label %.thread
 
-36:                                               ; preds = %34
+42:                                               ; preds = %40
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
           to label %37 unwind label %.thread15
 
-37:                                               ; preds = %36
+43:                                               ; preds = %42
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %2, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %4, align 8, !tbaa !37
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN17InteractionOfType11sortAtomIdsEv, ptr %38, align 8, !tbaa !39
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN17InteractionOfType11sortAtomIdsEv, ptr %44, align 8, !tbaa !39
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @.str.11, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !39
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 260, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !20
-  invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %35, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %39 unwind label %42
+  invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %41, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %39 unwind label %48
 
-39:                                               ; preds = %37
-  invoke void @__cxa_throw(ptr %35, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #28
-          to label %46 unwind label %42
+45:                                               ; preds = %43
+  invoke void @__cxa_throw(ptr %41, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #28
+          to label %46 unwind label %48
 
-.thread:                                          ; preds = %34
-  %40 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %40
+  %46 = landingpad { ptr, i32 }
           cleanup
   br label %.sink.split
 
-.thread15:                                        ; preds = %36
-  %41 = landingpad { ptr, i32 }
+.thread15:                                        ; preds = %42
+  %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #29
   br label %.sink.split
 
-42:                                               ; preds = %37, %39
+48:                                               ; preds = %43, %45
   %.0 = phi i1 [ false, %39 ], [ true, %37 ]
-  %43 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #29
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.0, label %44, label %45
+  br i1 %.0, label %50, label %51
 
 .sink.split:                                      ; preds = %.thread, %.thread15
-  %.pn.pn14.ph = phi { ptr, i32 } [ %41, %.thread15 ], [ %40, %.thread ]
+  %.pn.pn14.ph = phi { ptr, i32 } [ %47, %.thread15 ], [ %46, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %44
+  br label %50
 
-44:                                               ; preds = %.sink.split, %42
-  %.pn.pn14 = phi { ptr, i32 } [ %43, %42 ], [ %.pn.pn14.ph, %.sink.split ]
-  call void @__cxa_free_exception(ptr %35) #29
-  br label %45
+50:                                               ; preds = %.sink.split, %48
+  %.pn.pn14 = phi { ptr, i32 } [ %49, %42 ], [ %.pn.pn14.ph, %.sink.split ]
+  call void @__cxa_free_exception(ptr %41) #29
+  br label %51
 
-_ZN17InteractionOfType15sortBondAtomIdsEv.exit:   ; preds = %29, %_ZNK17InteractionOfType2aiEv.exit.i10, %21, %20, %_ZNK17InteractionOfType2aiEv.exit.i9, %15, %_ZNK17InteractionOfType2aiEv.exit.i
+_ZN17InteractionOfType15sortBondAtomIdsEv.exit:   ; preds = %29, %_ZNK17InteractionOfType2aiEv.exit.i10, %25, %20, %_ZNK17InteractionOfType2aiEv.exit.i9, %15, %_ZNK17InteractionOfType2aiEv.exit.i
   ret void
 
-45:                                               ; preds = %42, %44
-  %.pn.pn13 = phi { ptr, i32 } [ %43, %42 ], [ %.pn.pn14, %44 ]
+51:                                               ; preds = %48, %50
+  %.pn.pn13 = phi { ptr, i32 } [ %49, %42 ], [ %.pn.pn14, %44 ]
   resume { ptr, i32 } %.pn.pn13
 
-46:                                               ; preds = %39
+52:                                               ; preds = %45
   unreachable
 }
 

@@ -8935,8 +8935,8 @@ for.body.i.i.i41.i:                               ; preds = %invoke.cont16.i, %f
   %mValue.i2.i.i.i45.i = getelementptr inbounds nuw i8, ptr %first2.sroa.0.024.i.i.i43.i, i64 16
   %19 = load i32, ptr %mValue.i.i.i.i44.i, align 8
   %20 = load i32, ptr %mValue.i2.i.i.i45.i, align 8
-  %or.cond741.not = icmp eq i32 %19, %20
-  br i1 %or.cond741.not, label %for.inc.i.i.i49.i, label %invoke.cont18.i.loopexit
+  %or.cond742.not = icmp eq i32 %19, %20
+  br i1 %or.cond742.not, label %for.inc.i.i.i49.i, label %invoke.cont18.i.loopexit
 
 for.inc.i.i.i49.i:                                ; preds = %for.body.i.i.i41.i
   %21 = load ptr, ptr %first1.sroa.0.025.i.i.i42.i, align 8
@@ -8978,8 +8978,8 @@ for.body.i.i.i62.i:                               ; preds = %invoke.cont20.i, %f
   %mValue.i2.i.i.i66.i = getelementptr inbounds nuw i8, ptr %first2.sroa.0.024.i.i.i64.i, i64 16
   %25 = load i32, ptr %mValue.i.i.i.i65.i, align 8
   %26 = load i32, ptr %mValue.i2.i.i.i66.i, align 8
-  %or.cond742.not = icmp eq i32 %25, %26
-  br i1 %or.cond742.not, label %for.inc.i.i.i69.i, label %invoke.cont22.i.loopexit
+  %or.cond743.not = icmp eq i32 %25, %26
+  br i1 %or.cond743.not, label %for.inc.i.i.i69.i, label %invoke.cont22.i.loopexit
 
 for.inc.i.i.i69.i:                                ; preds = %for.body.i.i.i62.i
   %27 = load ptr, ptr %first1.sroa.0.025.i.i.i63.i, align 8
@@ -9021,8 +9021,8 @@ for.body.i.i.i83.i:                               ; preds = %invoke.cont25.i, %f
   %mValue.i2.i.i.i87.i = getelementptr inbounds nuw i8, ptr %first2.sroa.0.024.i.i.i85.i, i64 16
   %31 = load i32, ptr %mValue.i.i.i.i86.i, align 8
   %32 = load i32, ptr %mValue.i2.i.i.i87.i, align 8
-  %or.cond743.not = icmp eq i32 %31, %32
-  br i1 %or.cond743.not, label %for.inc.i.i.i91.i, label %invoke.cont27.i.loopexit
+  %or.cond744.not = icmp eq i32 %31, %32
+  br i1 %or.cond744.not, label %for.inc.i.i.i91.i, label %invoke.cont27.i.loopexit
 
 for.inc.i.i.i91.i:                                ; preds = %for.body.i.i.i83.i
   %33 = load ptr, ptr %first1.sroa.0.025.i.i.i84.i, align 8
@@ -11010,8 +11010,8 @@ for.body.i.i.i.i112:                              ; preds = %land.rhs.i.i.i111, 
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %first1.addr.05.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i = getelementptr inbounds nuw i8, ptr %first2.addr.06.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %372
-  %or.cond744 = select i1 %cmp.i.i.i.not.i.not.i.not, i1 true, i1 %cmp.not.i.i.i.i
-  br i1 %or.cond744, label %invoke.cont48.i, label %for.body.i.i.i.i112, !llvm.loop !201
+  %or.cond745 = select i1 %cmp.i.i.i.not.i.not.i.not, i1 true, i1 %cmp.not.i.i.i.i
+  br i1 %or.cond745, label %invoke.cont48.i, label %for.body.i.i.i.i112, !llvm.loop !201
 
 invoke.cont48.i:                                  ; preds = %for.body.i.i.i.i112, %land.rhs.i.i.i111, %invoke.cont46.i
   %lnot.i.i = phi i1 [ true, %invoke.cont46.i ], [ false, %land.rhs.i.i.i111 ], [ %cmp.i.i.i.not.i.not.i.not, %for.body.i.i.i.i112 ]
@@ -11045,8 +11045,8 @@ for.body.i.i.i81.i:                               ; preds = %land.rhs.i.i79.i, %
   %incdec.ptr.i.i.i85.i = getelementptr inbounds nuw i8, ptr %first1.addr.05.i.i.i83.i, i64 24
   %incdec.ptr1.i.i.i86.i = getelementptr inbounds nuw i8, ptr %first2.addr.06.i.i.i82.i, i64 24
   %cmp.not.i.i.i87.i = icmp ne ptr %incdec.ptr.i.i.i85.i, %378
-  %or.cond745.not = select i1 %cmp.i.i.i.i.i110, i1 %cmp.not.i.i.i87.i, i1 false
-  br i1 %or.cond745.not, label %for.body.i.i.i81.i, label %invoke.cont52.i, !llvm.loop !201
+  %or.cond746.not = select i1 %cmp.i.i.i.i.i110, i1 %cmp.not.i.i.i87.i, i1 false
+  br i1 %or.cond746.not, label %for.body.i.i.i81.i, label %invoke.cont52.i, !llvm.loop !201
 
 invoke.cont52.i:                                  ; preds = %for.body.i.i.i81.i, %land.rhs.i.i79.i, %invoke.cont50.i
   %384 = phi i1 [ false, %invoke.cont50.i ], [ true, %land.rhs.i.i79.i ], [ %cmp.i.i.i.i.i110, %for.body.i.i.i81.i ]
@@ -11080,8 +11080,8 @@ for.body.i.i.i100.i:                              ; preds = %land.rhs.i.i98.i, %
   %incdec.ptr.i.i.i105.i = getelementptr inbounds nuw i8, ptr %first1.addr.05.i.i.i102.i, i64 24
   %incdec.ptr1.i.i.i106.i = getelementptr inbounds nuw i8, ptr %first2.addr.06.i.i.i101.i, i64 24
   %cmp.not.i.i.i107.i = icmp ne ptr %incdec.ptr.i.i.i105.i, %385
-  %or.cond746.not = select i1 %cmp.i.i.i.not.i103.i, i1 %cmp.not.i.i.i107.i, i1 false
-  br i1 %or.cond746.not, label %for.body.i.i.i100.i, label %invoke.cont56.i, !llvm.loop !201
+  %or.cond747.not = select i1 %cmp.i.i.i.not.i103.i, i1 %cmp.not.i.i.i107.i, i1 false
+  br i1 %or.cond747.not, label %for.body.i.i.i100.i, label %invoke.cont56.i, !llvm.loop !201
 
 invoke.cont56.i:                                  ; preds = %for.body.i.i.i100.i, %land.rhs.i.i98.i, %invoke.cont54.i
   %lnot58.i = phi i1 [ false, %invoke.cont54.i ], [ true, %land.rhs.i.i98.i ], [ %cmp.i.i.i.not.i103.i, %for.body.i.i.i100.i ]
@@ -11103,8 +11103,8 @@ for.body.i.i.i110.i:                              ; preds = %invoke.cont59.i, %f
   %first1.addr.016.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i113.i, %for.inc.i.i.i112.i ], [ %391, %invoke.cont59.i ]
   %396 = load i32, ptr %first1.addr.016.i.i.i.i, align 8
   %397 = load i32, ptr %first2.addr.017.i.i.i.i, align 8
-  %or.cond747.not = icmp eq i32 %396, %397
-  br i1 %or.cond747.not, label %for.inc.i.i.i112.i, label %invoke.cont61.i.loopexit
+  %or.cond748.not = icmp eq i32 %396, %397
+  br i1 %or.cond748.not, label %for.inc.i.i.i112.i, label %invoke.cont61.i.loopexit
 
 for.inc.i.i.i112.i:                               ; preds = %for.body.i.i.i110.i
   %incdec.ptr.i.i.i113.i = getelementptr inbounds nuw i8, ptr %first1.addr.016.i.i.i.i, i64 24
@@ -11146,8 +11146,8 @@ for.body.i.i.i123.i:                              ; preds = %invoke.cont63.i, %f
   %first1.addr.016.i.i.i125.i = phi ptr [ %incdec.ptr.i.i.i130.i, %for.inc.i.i.i129.i ], [ %401, %invoke.cont63.i ]
   %406 = load i32, ptr %first1.addr.016.i.i.i125.i, align 8
   %407 = load i32, ptr %first2.addr.017.i.i.i124.i, align 8
-  %or.cond748.not = icmp eq i32 %406, %407
-  br i1 %or.cond748.not, label %for.inc.i.i.i129.i, label %invoke.cont65.i.loopexit
+  %or.cond749.not = icmp eq i32 %406, %407
+  br i1 %or.cond749.not, label %for.inc.i.i.i129.i, label %invoke.cont65.i.loopexit
 
 for.inc.i.i.i129.i:                               ; preds = %for.body.i.i.i123.i
   %incdec.ptr.i.i.i130.i = getelementptr inbounds nuw i8, ptr %first1.addr.016.i.i.i125.i, i64 24
@@ -11189,8 +11189,8 @@ for.body.i.i.i143.i:                              ; preds = %invoke.cont67.i, %f
   %first1.addr.016.i.i.i145.i = phi ptr [ %incdec.ptr.i.i.i150.i, %for.inc.i.i.i149.i ], [ %411, %invoke.cont67.i ]
   %416 = load i32, ptr %first1.addr.016.i.i.i145.i, align 8
   %417 = load i32, ptr %first2.addr.017.i.i.i144.i, align 8
-  %or.cond749.not = icmp eq i32 %416, %417
-  br i1 %or.cond749.not, label %for.inc.i.i.i149.i, label %invoke.cont69.i.loopexit
+  %or.cond750.not = icmp eq i32 %416, %417
+  br i1 %or.cond750.not, label %for.inc.i.i.i149.i, label %invoke.cont69.i.loopexit
 
 for.inc.i.i.i149.i:                               ; preds = %for.body.i.i.i143.i
   %incdec.ptr.i.i.i150.i = getelementptr inbounds nuw i8, ptr %first1.addr.016.i.i.i145.i, i64 24
@@ -11232,8 +11232,8 @@ for.body.i.i.i163.i:                              ; preds = %invoke.cont72.i, %f
   %first1.addr.016.i.i.i165.i = phi ptr [ %incdec.ptr.i.i.i170.i, %for.inc.i.i.i169.i ], [ %421, %invoke.cont72.i ]
   %426 = load i32, ptr %first1.addr.016.i.i.i165.i, align 8
   %427 = load i32, ptr %first2.addr.017.i.i.i164.i, align 8
-  %or.cond750.not = icmp eq i32 %426, %427
-  br i1 %or.cond750.not, label %for.inc.i.i.i169.i, label %invoke.cont74.i.loopexit
+  %or.cond751.not = icmp eq i32 %426, %427
+  br i1 %or.cond751.not, label %for.inc.i.i.i169.i, label %invoke.cont74.i.loopexit
 
 for.inc.i.i.i169.i:                               ; preds = %for.body.i.i.i163.i
   %incdec.ptr.i.i.i170.i = getelementptr inbounds nuw i8, ptr %first1.addr.016.i.i.i165.i, i64 24
@@ -13401,8 +13401,8 @@ for.body.i.i.i.i375:                              ; preds = %invoke.cont15.i, %f
   %mValue.i2.i.i.i.i379 = getelementptr inbounds nuw i8, ptr %first2.sroa.0.024.i.i.i.i377, i64 16
   %759 = load i32, ptr %mValue.i.i.i.i.i378, align 8
   %760 = load i32, ptr %mValue.i2.i.i.i.i379, align 8
-  %or.cond751.not = icmp eq i32 %759, %760
-  br i1 %or.cond751.not, label %for.inc.i.i.i.i383, label %invoke.cont17.i144.loopexit
+  %or.cond752.not = icmp eq i32 %759, %760
+  br i1 %or.cond752.not, label %for.inc.i.i.i.i383, label %invoke.cont17.i144.loopexit
 
 for.inc.i.i.i.i383:                               ; preds = %for.body.i.i.i.i375
   %761 = load ptr, ptr %first1.sroa.0.025.i.i.i.i376, align 8
@@ -13444,8 +13444,8 @@ for.body.i.i.i41.i363:                            ; preds = %invoke.cont19.i146,
   %mValue.i2.i.i.i45.i367 = getelementptr inbounds nuw i8, ptr %first2.sroa.0.024.i.i.i43.i365, i64 16
   %765 = load i32, ptr %mValue.i.i.i.i44.i366, align 8
   %766 = load i32, ptr %mValue.i2.i.i.i45.i367, align 8
-  %or.cond752.not = icmp eq i32 %765, %766
-  br i1 %or.cond752.not, label %for.inc.i.i.i49.i371, label %invoke.cont21.i.loopexit
+  %or.cond753.not = icmp eq i32 %765, %766
+  br i1 %or.cond753.not, label %for.inc.i.i.i49.i371, label %invoke.cont21.i.loopexit
 
 for.inc.i.i.i49.i371:                             ; preds = %for.body.i.i.i41.i363
   %767 = load ptr, ptr %first1.sroa.0.025.i.i.i42.i364, align 8
@@ -13487,8 +13487,8 @@ for.body.i.i.i62.i351:                            ; preds = %invoke.cont23.i, %f
   %mValue.i2.i.i.i66.i355 = getelementptr inbounds nuw i8, ptr %first2.sroa.0.024.i.i.i64.i353, i64 16
   %771 = load i32, ptr %mValue.i.i.i.i65.i354, align 8
   %772 = load i32, ptr %mValue.i2.i.i.i66.i355, align 8
-  %or.cond753.not = icmp eq i32 %771, %772
-  br i1 %or.cond753.not, label %for.inc.i.i.i69.i359, label %invoke.cont25.i166.loopexit
+  %or.cond754.not = icmp eq i32 %771, %772
+  br i1 %or.cond754.not, label %for.inc.i.i.i69.i359, label %invoke.cont25.i166.loopexit
 
 for.inc.i.i.i69.i359:                             ; preds = %for.body.i.i.i62.i351
   %773 = load ptr, ptr %first1.sroa.0.025.i.i.i63.i352, align 8
@@ -13530,8 +13530,8 @@ for.body.i.i.i83.i339:                            ; preds = %invoke.cont28.i, %f
   %mValue.i2.i.i.i87.i343 = getelementptr inbounds nuw i8, ptr %first2.sroa.0.024.i.i.i85.i341, i64 16
   %777 = load i32, ptr %mValue.i.i.i.i86.i342, align 8
   %778 = load i32, ptr %mValue.i2.i.i.i87.i343, align 8
-  %or.cond754.not = icmp eq i32 %777, %778
-  br i1 %or.cond754.not, label %for.inc.i.i.i91.i347, label %invoke.cont30.i177.loopexit
+  %or.cond755.not = icmp eq i32 %777, %778
+  br i1 %or.cond755.not, label %for.inc.i.i.i91.i347, label %invoke.cont30.i177.loopexit
 
 for.inc.i.i.i91.i347:                             ; preds = %for.body.i.i.i83.i339
   %779 = load ptr, ptr %first1.sroa.0.025.i.i.i84.i340, align 8
@@ -15418,9 +15418,9 @@ for.body.i429:                                    ; preds = %for.inc.i, %_ZL11Te
   %__begin1.sroa.0.0364.i = phi ptr [ %add.ptr.i.i.i.i428, %_ZL11TestNumericv.exit ], [ %incdec.ptr.i.i430, %for.inc.i ]
   %incdec.ptr.i.i430 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0364.i, i64 -4
   %cmp.i13.i = icmp ult ptr %reversed.sroa.8.0366.i, %reversed.sroa.13.0365.i
-  br i1 %cmp.i13.i, label %if.then.i.i456, label %if.else.i.i431
+  br i1 %cmp.i13.i, label %if.then.i.i457, label %if.else.i.i431
 
-if.then.i.i456:                                   ; preds = %for.body.i429
+if.then.i.i457:                                   ; preds = %for.body.i429
   %1066 = load i32, ptr %incdec.ptr.i.i430, align 4
   store i32 %1066, ptr %reversed.sroa.8.0366.i, align 4
   br label %for.inc.i
@@ -15464,7 +15464,7 @@ _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i.i: ; pr
   %add.ptr.i.i.i443 = getelementptr inbounds i32, ptr %retval.0.i.i.i.i441, i64 %cond.i.i.i.i437
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i.i, %if.then.i.i456
+for.inc.i:                                        ; preds = %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i.i, %if.then.i.i457
   %reversed.sroa.13.1.i = phi ptr [ %reversed.sroa.13.0365.i, %if.then.i.i456 ], [ %add.ptr.i.i.i443, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i.i ]
   %reversed.sroa.8.0.pn.i = phi ptr [ %reversed.sroa.8.0366.i, %if.then.i.i456 ], [ %retval.0.i.i.i.i.i.i.i.i.i.i, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i.i ]
   %reversed.sroa.0.1.i = phi ptr [ %reversed.sroa.0.0367.i, %if.then.i.i456 ], [ %retval.0.i.i.i.i441, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i.i ]
@@ -15509,9 +15509,9 @@ invoke.cont19.i446:                               ; preds = %for.body.i.i.i445
   %sub.ptr.rhs.cast.i.i23.i = ptrtoint ptr %reversed.sroa.0.1.i to i64
   %sub.ptr.sub.i.i24.i = sub i64 %sub.ptr.lhs.cast.i.i22.i, %sub.ptr.rhs.cast.i.i23.i
   %cmp.i25.i = icmp eq i64 %sub.ptr.sub.i.i24.i, 36
-  br i1 %cmp.i25.i, label %for.body.i.i26.i, label %invoke.cont20.i447
+  br i1 %cmp.i25.i, label %land.rhs.i.i456, label %invoke.cont20.i447
 
-for.body.i.i26.i:                                 ; preds = %invoke.cont19.i446, %for.body.i.i26.i
+land.rhs.i.i456:                                  ; preds = %invoke.cont19.i446, %land.rhs.i.i456
   %first2.addr.06.i.i.i = phi ptr [ %incdec.ptr2.i.i29.i, %for.body.i.i26.i ], [ %call.i.i.i.i.i1.i.i, %invoke.cont19.i446 ]
   %first1.addr.05.i.i.i = phi ptr [ %incdec.ptr.i.i28.i, %for.body.i.i26.i ], [ %reversed.sroa.0.1.i, %invoke.cont19.i446 ]
   %1070 = load i32, ptr %first1.addr.05.i.i.i, align 4
@@ -15520,8 +15520,8 @@ for.body.i.i26.i:                                 ; preds = %invoke.cont19.i446,
   %incdec.ptr.i.i28.i = getelementptr inbounds nuw i8, ptr %first1.addr.05.i.i.i, i64 4
   %incdec.ptr2.i.i29.i = getelementptr inbounds nuw i8, ptr %first2.addr.06.i.i.i, i64 4
   %cmp.not.i.i30.i = icmp ne ptr %first1.addr.05.i.i.i, %reversed.sroa.8.0.pn.i
-  %or.cond755.not = and i1 %cmp.not.i.i30.i, %cmp1.i.i27.i
-  br i1 %or.cond755.not, label %for.body.i.i26.i, label %invoke.cont20.i447, !llvm.loop !219
+  %or.cond756.not = and i1 %cmp.not.i.i30.i, %cmp1.i.i27.i
+  br i1 %or.cond756.not, label %for.body.i.i26.i, label %invoke.cont20.i447, !llvm.loop !219
 
 invoke.cont20.i447:                               ; preds = %for.body.i.i26.i, %invoke.cont19.i446
   %1072 = phi i1 [ false, %invoke.cont19.i446 ], [ %cmp1.i.i27.i, %for.body.i.i26.i ]
@@ -15651,8 +15651,8 @@ for.body.i.i126.i:                                ; preds = %invoke.cont60.i, %f
   %incdec.ptr.i.i131.i = getelementptr inbounds nuw i8, ptr %first1.addr.05.i.i128.i, i64 4
   %incdec.ptr2.i.i132.i = getelementptr inbounds nuw i8, ptr %first2.addr.06.i.i127.i, i64 4
   %cmp.not.i.i133.i = icmp ne ptr %first1.addr.05.i.i128.i, %reversed29.sroa.8.0.pn.i
-  %or.cond756.not = and i1 %cmp.not.i.i133.i, %cmp1.i.i129.i
-  br i1 %or.cond756.not, label %for.body.i.i126.i, label %invoke.cont61.i452, !llvm.loop !219
+  %or.cond757.not = and i1 %cmp.not.i.i133.i, %cmp1.i.i129.i
+  br i1 %or.cond757.not, label %for.body.i.i126.i, label %invoke.cont61.i452, !llvm.loop !219
 
 invoke.cont61.i452:                               ; preds = %for.body.i.i126.i, %invoke.cont60.i
   %1079 = phi i1 [ false, %invoke.cont60.i ], [ %cmp1.i.i129.i, %for.body.i.i126.i ]
@@ -15798,8 +15798,8 @@ for.body.i.i265.i:                                ; preds = %invoke.cont106.i455
   %incdec.ptr.i.i270.i = getelementptr inbounds nuw i8, ptr %first1.addr.05.i.i267.i, i64 4
   %incdec.ptr2.i.i271.i = getelementptr inbounds nuw i8, ptr %first2.addr.06.i.i266.i, i64 4
   %cmp.not.i.i272.i = icmp ne ptr %first1.addr.05.i.i267.i, %reversed73.sroa.8.0.pn.i
-  %or.cond757.not = and i1 %cmp.not.i.i272.i, %cmp1.i.i268.i
-  br i1 %or.cond757.not, label %for.body.i.i265.i, label %invoke.cont107.i, !llvm.loop !219
+  %or.cond758.not = and i1 %cmp.not.i.i272.i, %cmp1.i.i268.i
+  br i1 %or.cond758.not, label %for.body.i.i265.i, label %invoke.cont107.i, !llvm.loop !219
 
 invoke.cont107.i:                                 ; preds = %for.body.i.i265.i, %invoke.cont106.i455
   %1089 = phi i1 [ false, %invoke.cont106.i455 ], [ %cmp1.i.i268.i, %for.body.i.i265.i ]
