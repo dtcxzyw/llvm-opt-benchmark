@@ -70,7 +70,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 19:                                               ; preds = %15
   call void @av_frame_free(ptr noundef nonnull %3) #4
-  br label %62
+  br label %66
 
 20:                                               ; preds = %15
   %21 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %18, ptr noundef nonnull %1) #4
@@ -141,18 +141,18 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %22
   %.not42 = icmp eq ptr %.039, %1
-  br i1 %.not42, label %60, label %59
+  br i1 %.not42, label %64, label %63
 
-59:                                               ; preds = %._crit_edge
+63:                                               ; preds = %._crit_edge
   call void @av_frame_free(ptr noundef nonnull %3) #4
-  br label %60
+  br label %64
 
-60:                                               ; preds = %59, %._crit_edge
-  %61 = call i32 @ff_filter_frame(ptr noundef %8, ptr noundef nonnull %.039) #4
-  br label %62
+64:                                               ; preds = %63, %._crit_edge
+  %65 = call i32 @ff_filter_frame(ptr noundef %8, ptr noundef nonnull %.039) #4
+  br label %66
 
-62:                                               ; preds = %60, %19
-  %.037 = phi i32 [ %61, %60 ], [ -12, %19 ]
+66:                                               ; preds = %64, %19
+  %.037 = phi i32 [ %65, %60 ], [ -12, %19 ]
   ret i32 %.037
 }
 

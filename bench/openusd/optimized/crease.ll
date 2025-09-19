@@ -130,7 +130,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeigh
   %.339 = phi i32 [ %.036, %.preheader ], [ %.036, %.preheader47 ], [ %.238, %.lr.ph56 ], [ %.541, %30 ]
   %.3 = phi float [ %.035, %.preheader ], [ %.035, %.preheader47 ], [ %.2, %.lr.ph56 ], [ %.5, %30 ]
   %31 = icmp eq i32 %.339, 0
-  br i1 %31, label %36, label %32
+  br i1 %31, label %37, label %32
 
 32:                                               ; preds = %.loopexit
   %33 = sitofp i32 %.339 to float
@@ -138,7 +138,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeigh
   %35 = tail call float @llvm.minnum.f32(float %34, float 1.000000e+00)
   br label %36
 
-36:                                               ; preds = %.loopexit, %32
+37:                                               ; preds = %.loopexit, %32
   %.0 = phi float [ %35, %32 ], [ 0.000000e+00, %.loopexit ]
   ret float %.0
 }

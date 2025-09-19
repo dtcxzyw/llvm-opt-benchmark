@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @ff_timefilter_new(double noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noalias ptr @av_mallocz(i64 noundef 40) #7
+  %4 = tail call noalias ptr @av_mallocz(i64 noundef 40) #6
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %29, label %5
 
@@ -48,7 +48,7 @@ declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #1
 define void @ff_timefilter_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8, !tbaa !12
-  call void @av_freep(ptr noundef nonnull %2) #7
+  call void @av_freep(ptr noundef nonnull %2) #6
   ret void
 }
 

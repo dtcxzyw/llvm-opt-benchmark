@@ -1425,10 +1425,10 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %11, %_ZNK5Ipopt16De
   %38 = load double, ptr %33, align 8, !tbaa !55
   %.sroa.speculated.i = tail call noundef double @llvm.maxnum.f64(double %37, double %38)
   store double %.sroa.speculated.i, ptr %33, align 8, !tbaa !55
-  %39 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
-  %40 = load double, ptr %39, align 8, !tbaa !55
-  %.sroa.speculated.i21 = tail call noundef double @llvm.maxnum.f64(double %37, double %40)
-  store double %.sroa.speculated.i21, ptr %39, align 8, !tbaa !55
+  %40 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  %41 = load double, ptr %40, align 8, !tbaa !55
+  %.sroa.speculated.i21 = tail call noundef double @llvm.maxnum.f64(double %37, double %41)
+  store double %.sroa.speculated.i21, ptr %40, align 8, !tbaa !55
   %41 = getelementptr inbounds nuw i8, ptr %.123, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv29

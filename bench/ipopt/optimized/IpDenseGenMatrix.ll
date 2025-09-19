@@ -1789,22 +1789,22 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %11, %_ZNK5Ipopt16De
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  %.01317.us = phi ptr [ %35, %.preheader.us.preheader ], [ %40, %._crit_edge.us ]
+  %.01317.us = phi ptr [ %35, %.preheader.us.preheader ], [ %41, %._crit_edge.us ]
   %36 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
   %.promoted.us = load double, ptr %36, align 8, !tbaa !47
   br label %37
 
 37:                                               ; preds = %.preheader.us, %37
   %.sroa.speculated.i16.us = phi double [ %.promoted.us, %.preheader.us ], [ %.sroa.speculated.i.us, %37 ]
-  %.015.us = phi i32 [ 0, %.preheader.us ], [ %41, %37 ]
-  %.114.us = phi ptr [ %.01317.us, %.preheader.us ], [ %40, %37 ]
+  %.015.us = phi i32 [ 0, %.preheader.us ], [ %42, %37 ]
+  %.114.us = phi ptr [ %.01317.us, %.preheader.us ], [ %41, %37 ]
   %38 = load double, ptr %.114.us, align 8, !tbaa !47
   %39 = tail call noundef double @llvm.fabs.f64(double %38)
   %.sroa.speculated.i.us = tail call noundef double @llvm.maxnum.f64(double %39, double %.sroa.speculated.i16.us)
   store double %.sroa.speculated.i.us, ptr %36, align 8, !tbaa !47
-  %40 = getelementptr inbounds nuw i8, ptr %.114.us, i64 8
-  %41 = add nuw nsw i32 %.015.us, 1
-  %exitcond.not = icmp eq i32 %41, %32
+  %41 = getelementptr inbounds nuw i8, ptr %.114.us, i64 8
+  %42 = add nuw nsw i32 %.015.us, 1
+  %exitcond.not = icmp eq i32 %42, %32
   br i1 %exitcond.not, label %._crit_edge.us, label %37, !llvm.loop !112
 
 ._crit_edge.us:                                   ; preds = %37
@@ -1879,9 +1879,9 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %11, %_ZNK5Ipopt16De
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %33 = phi i32 [ %.pre, %.lr.ph.preheader ], [ %43, %.lr.ph ]
+  %33 = phi i32 [ %.pre, %.lr.ph.preheader ], [ %44, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.014 = phi ptr [ %32, %.lr.ph.preheader ], [ %45, %.lr.ph ]
+  %.014 = phi ptr [ %32, %.lr.ph.preheader ], [ %46, %.lr.ph ]
   %34 = tail call noundef i32 @_ZN5Ipopt11IpBlasIamaxEiPKdi(i32 noundef %33, ptr noundef %.014, i32 noundef 1)
   %35 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
   %36 = load double, ptr %35, align 8, !tbaa !47
@@ -1891,17 +1891,17 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %11, %_ZNK5Ipopt16De
   %40 = tail call noundef double @llvm.fabs.f64(double %39)
   %.sroa.speculated.i = tail call noundef double @llvm.maxnum.f64(double %40, double %36)
   store double %.sroa.speculated.i, ptr %35, align 8, !tbaa !47
-  %41 = load ptr, ptr %26, align 8, !tbaa !6
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  %43 = load i32, ptr %42, align 4, !tbaa !33
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds double, ptr %.014, i64 %44
+  %42 = load ptr, ptr %26, align 8, !tbaa !6
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 12
+  %44 = load i32, ptr %43, align 4, !tbaa !33
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds double, ptr %.014, i64 %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %47 = load i32, ptr %46, align 8, !tbaa !31
-  %48 = sext i32 %47 to i64
-  %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !114
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %48 = load i32, ptr %47, align 8, !tbaa !31
+  %49 = sext i32 %48 to i64
+  %50 = icmp slt i64 %indvars.iv.next, %49
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !114
 }
 
 declare noundef i32 @_ZN5Ipopt11IpBlasIamaxEiPKdi(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5

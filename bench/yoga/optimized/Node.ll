@@ -441,8 +441,8 @@ define <2 x float> @_ZN8facebook4yoga4Node7measureEfNS0_11MeasureModeEfS2_(ptr n
   %or.cond = fcmp ult float %.sroa.0.4.vec.extract, 0.000000e+00
   %.sroa.0.0.vec.extract = extractelement <2 x float> %10, i64 0
   %or.cond5 = fcmp ult float %.sroa.0.0.vec.extract, 0.000000e+00
-  %or.cond28 = select i1 %or.cond, i1 true, i1 %or.cond5
-  br i1 %or.cond28, label %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit, label %13
+  %or.cond26 = select i1 %or.cond, i1 true, i1 %or.cond5
+  br i1 %or.cond26, label %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit, label %13
 
 _ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit: ; preds = %5
   %11 = fpext float %.sroa.0.0.vec.extract to double
@@ -458,7 +458,7 @@ _ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_
   %.sroa.021.4.vec.insert = insertelement <2 x float> %.sroa.021.0.vec.insert, float %.0.i24, i64 1
   br label %13
 
-13:                                               ; preds = %5, %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit
+11:                                               ; preds = %5, %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit
   %.sroa.021.0 = phi <2 x float> [ %.sroa.021.4.vec.insert, %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit ], [ %10, %5 ]
   ret <2 x float> %.sroa.021.0
 }
@@ -4635,7 +4635,7 @@ _ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit
   %19 = trunc i64 %.sroa.0.0.in.i to i32
   %20 = bitcast i32 %19 to float
   switch i8 %18, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread [
-    i8 1, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+    i8 1, label %21
     i8 2, label %21
   ]
 
@@ -4644,12 +4644,12 @@ _ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit
   %23 = fmul float %22, 0x3F847AE140000000
   br label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
 
-_ZN8facebook4yoga11StyleLength7resolveEf.exit:    ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit, %21
+22:                                               ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit, %21
   %.sroa.0.0.i = phi float [ %23, %21 ], [ %20, %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit ]
   %or.cond.i = fcmp ord float %.sroa.0.0.i, 0.000000e+00
   br i1 %or.cond.i, label %24, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread
 
-24:                                               ; preds = %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+24:; preds = %21
   %.sroa.speculated.i = tail call float @llvm.maxnum.f32(float %.sroa.0.0.i, float 0.000000e+00)
   br label %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit
 
@@ -4704,7 +4704,7 @@ _ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit:
   %18 = trunc i64 %.sroa.0.0.in.i to i32
   %19 = bitcast i32 %18 to float
   switch i8 %17, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread [
-    i8 1, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+    i8 1, label %21
     i8 2, label %20
   ]
 
@@ -4713,12 +4713,12 @@ _ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit:
   %22 = fmul float %21, 0x3F847AE140000000
   br label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
 
-_ZN8facebook4yoga11StyleLength7resolveEf.exit:    ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit, %20
+21:                                               ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit, %20
   %.sroa.0.0.i = phi float [ %22, %20 ], [ %19, %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit ]
   %or.cond.i = fcmp ord float %.sroa.0.0.i, 0.000000e+00
   br i1 %or.cond.i, label %23, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread
 
-23:                                               ; preds = %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+23:; preds = %21
   %.sroa.speculated.i = tail call float @llvm.maxnum.f32(float %.sroa.0.0.i, float 0.000000e+00)
   br label %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit
 
@@ -4773,7 +4773,7 @@ _ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit
   %19 = trunc i64 %.sroa.0.0.in.i to i32
   %20 = bitcast i32 %19 to float
   switch i8 %18, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread [
-    i8 1, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+    i8 1, label %21
     i8 2, label %21
   ]
 
@@ -4782,12 +4782,12 @@ _ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit
   %23 = fmul float %22, 0x3F847AE140000000
   br label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
 
-_ZN8facebook4yoga11StyleLength7resolveEf.exit:    ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit, %21
+22:                                               ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit, %21
   %.sroa.0.0.i = phi float [ %23, %21 ], [ %20, %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit ]
   %or.cond.i = fcmp ord float %.sroa.0.0.i, 0.000000e+00
   br i1 %or.cond.i, label %24, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread
 
-24:                                               ; preds = %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+24:; preds = %21
   %.sroa.speculated.i = tail call float @llvm.maxnum.f32(float %.sroa.0.0.i, float 0.000000e+00)
   br label %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit
 
@@ -4842,7 +4842,7 @@ _ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit:
   %18 = trunc i64 %.sroa.0.0.in.i to i32
   %19 = bitcast i32 %18 to float
   switch i8 %17, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread [
-    i8 1, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+    i8 1, label %21
     i8 2, label %20
   ]
 
@@ -4851,12 +4851,12 @@ _ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit:
   %22 = fmul float %21, 0x3F847AE140000000
   br label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
 
-_ZN8facebook4yoga11StyleLength7resolveEf.exit:    ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit, %20
+21:                                               ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit, %20
   %.sroa.0.0.i = phi float [ %22, %20 ], [ %19, %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit ]
   %or.cond.i = fcmp ord float %.sroa.0.0.i, 0.000000e+00
   br i1 %or.cond.i, label %23, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit.thread
 
-23:                                               ; preds = %_ZN8facebook4yoga11StyleLength7resolveEf.exit
+23:; preds = %21
   %.sroa.speculated.i = tail call float @llvm.maxnum.f32(float %.sroa.0.0.i, float 0.000000e+00)
   br label %_ZN8facebook4yoga12maxOrDefinedITkSt14floating_pointfTkSt14floating_pointfEEDaT_T0_.exit
 

@@ -8815,7 +8815,7 @@ define void @_ZN10open_spiel10algorithms18CFRInfoStateValues30ApplyRegretMatchin
 .lr.ph22:                                         ; preds = %25
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %29
+  br label %30
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
@@ -8828,28 +8828,28 @@ define void @_ZN10open_spiel10algorithms18CFRInfoStateValues30ApplyRegretMatchin
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph22, label %25, !llvm.loop !166
 
-29:                                               ; preds = %.lr.ph22, %29
+30:                                               ; preds = %.lr.ph22, %30
   %indvars.iv24 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next25, %29 ]
-  %30 = load ptr, ptr %23, align 8
-  %31 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv24
-  %32 = load double, ptr %31, align 8
-  %.sroa.speculated = tail call double @llvm.maxnum.f64(double %1, double %32)
+  %31 = load ptr, ptr %23, align 8
+  %32 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv24
+  %33 = load double, ptr %32, align 8
+  %.sroa.speculated = tail call double @llvm.maxnum.f64(double %1, double %33)
   %33 = fdiv double %.sroa.speculated, %28
   %34 = load ptr, ptr %24, align 8
   %35 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv24
   store double %33, ptr %35, align 8
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
-  %36 = load ptr, ptr %8, align 8
-  %37 = load ptr, ptr %0, align 8
-  %38 = ptrtoint ptr %36 to i64
-  %39 = ptrtoint ptr %37 to i64
-  %40 = sub i64 %38, %39
-  %sext = shl i64 %40, 29
-  %41 = ashr i64 %sext, 32
-  %42 = icmp slt i64 %indvars.iv.next25, %41
-  br i1 %42, label %29, label %._crit_edge, !llvm.loop !167
+  %38 = load ptr, ptr %8, align 8
+  %39 = load ptr, ptr %0, align 8
+  %40 = ptrtoint ptr %38 to i64
+  %41 = ptrtoint ptr %39 to i64
+  %42 = sub i64 %40, %41
+  %sext = shl i64 %42, 29
+  %43 = ashr i64 %sext, 32
+  %44 = icmp slt i64 %indvars.iv.next25, %43
+  br i1 %44, label %30, label %._crit_edge, !llvm.loop !167
 
-._crit_edge:                                      ; preds = %29, %.preheader18
+._crit_edge:                                      ; preds = %30, %.preheader18
   ret void
 }
 

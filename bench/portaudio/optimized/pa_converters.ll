@@ -557,15 +557,15 @@ define internal void @Float32_To_Int32_Clip(ptr noundef writeonly captures(none)
   %8 = sext i32 %1 to i64
   br label %9
 
-9:                                                ; preds = %.lr.ph, %18
+9:                                                ; preds = %.lr.ph, %19
   %.in = phi i32 [ %4, %.lr.ph ], [ %10, %18 ]
-  %.017 = phi ptr [ %0, %.lr.ph ], [ %21, %18 ]
-  %.01216 = phi ptr [ %2, %.lr.ph ], [ %20, %18 ]
+  %.017 = phi ptr [ %0, %.lr.ph ], [ %22, %18 ]
+  %.01216 = phi ptr [ %2, %.lr.ph ], [ %21, %18 ]
   %10 = add i32 %.in, -1
   %11 = load float, ptr %.01216, align 4, !tbaa !68
   %12 = fmul float %11, 0x41E0000000000000
   %13 = fcmp olt float %12, 0xC1E0000000000000
-  br i1 %13, label %18, label %14
+  br i1 %13, label %19, label %14
 
 14:                                               ; preds = %9
   %15 = fpext float %12 to double
@@ -573,15 +573,15 @@ define internal void @Float32_To_Int32_Clip(ptr noundef writeonly captures(none)
   %17 = fptosi double %16 to i32
   br label %18
 
-18:                                               ; preds = %9, %14
-  %19 = phi i32 [ %17, %14 ], [ -2147483648, %9 ]
-  store i32 %19, ptr %.017, align 4, !tbaa !70
-  %20 = getelementptr inbounds float, ptr %.01216, i64 %7
-  %21 = getelementptr inbounds i32, ptr %.017, i64 %8
+19:                                               ; preds = %9, %14
+  %20 = phi i32 [ %17, %14 ], [ -2147483648, %9 ]
+  store i32 %20, ptr %.017, align 4, !tbaa !70
+  %21 = getelementptr inbounds float, ptr %.01216, i64 %7
+  %22 = getelementptr inbounds i32, ptr %.017, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !74
 
-._crit_edge:                                      ; preds = %18, %6
+._crit_edge:                                      ; preds = %19, %6
   ret void
 }
 
@@ -595,10 +595,10 @@ define internal void @Float32_To_Int32_DitherClip(ptr noundef writeonly captures
   %8 = sext i32 %1 to i64
   br label %9
 
-9:                                                ; preds = %.lr.ph, %20
-  %.in = phi i32 [ %4, %.lr.ph ], [ %10, %20 ]
-  %.01419 = phi ptr [ %0, %.lr.ph ], [ %23, %20 ]
-  %.01518 = phi ptr [ %2, %.lr.ph ], [ %22, %20 ]
+9:                                                ; preds = %.lr.ph, %21
+  %.in = phi i32 [ %4, %.lr.ph ], [ %10, %21 ]
+  %.01419 = phi ptr [ %0, %.lr.ph ], [ %24, %21 ]
+  %.01518 = phi ptr [ %2, %.lr.ph ], [ %23, %21 ]
   %10 = add i32 %.in, -1
   %11 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #9
   %12 = fpext float %11 to double
@@ -606,22 +606,22 @@ define internal void @Float32_To_Int32_DitherClip(ptr noundef writeonly captures
   %14 = fpext float %13 to double
   %15 = tail call double @llvm.fmuladd.f64(double %14, double 0x41DFFFFFFF800000, double %12)
   %16 = fcmp olt double %15, 0xC1E0000000000000
-  br i1 %16, label %20, label %17
+  br i1 %16, label %21, label %17
 
 17:                                               ; preds = %9
   %18 = tail call double @llvm.minnum.f64(double %15, double 0x41DFFFFFFFC00000)
   %19 = fptosi double %18 to i32
-  br label %20
+  br label %21
 
-20:                                               ; preds = %9, %17
-  %21 = phi i32 [ %19, %17 ], [ -2147483648, %9 ]
-  store i32 %21, ptr %.01419, align 4, !tbaa !70
-  %22 = getelementptr inbounds float, ptr %.01518, i64 %7
-  %23 = getelementptr inbounds i32, ptr %.01419, i64 %8
+21:                                               ; preds = %9, %17
+  %22 = phi i32 [ %20, %17 ], [ -2147483648, %9 ]
+  store i32 %22, ptr %.01419, align 4, !tbaa !70
+  %23 = getelementptr inbounds float, ptr %.01518, i64 %7
+  %24 = getelementptr inbounds i32, ptr %.01419, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !75
 
-._crit_edge:                                      ; preds = %20, %6
+._crit_edge:                                      ; preds = %21, %6
   ret void
 }
 
@@ -718,15 +718,15 @@ define internal void @Float32_To_Int24_Clip(ptr noundef writeonly captures(none)
   %9 = sext i32 %8 to i64
   br label %10
 
-10:                                               ; preds = %.lr.ph, %19
-  %.in = phi i32 [ %4, %.lr.ph ], [ %11, %19 ]
-  %.01722 = phi ptr [ %0, %.lr.ph ], [ %30, %19 ]
-  %.01821 = phi ptr [ %2, %.lr.ph ], [ %29, %19 ]
+10:                                               ; preds = %.lr.ph, %20
+  %.in = phi i32 [ %4, %.lr.ph ], [ %11, %20 ]
+  %.01722 = phi ptr [ %0, %.lr.ph ], [ %31, %20 ]
+  %.01821 = phi ptr [ %2, %.lr.ph ], [ %30, %20 ]
   %11 = add i32 %.in, -1
   %12 = load float, ptr %.01821, align 4, !tbaa !68
   %13 = fmul float %12, 0x41E0000000000000
   %14 = fcmp olt float %13, 0xC1E0000000000000
-  br i1 %14, label %19, label %15
+  br i1 %14, label %20, label %15
 
 15:                                               ; preds = %10
   %16 = fpext float %13 to double
@@ -734,25 +734,25 @@ define internal void @Float32_To_Int24_Clip(ptr noundef writeonly captures(none)
   %18 = fptosi double %17 to i32
   br label %19
 
-19:                                               ; preds = %10, %15
-  %20 = phi i32 [ %18, %15 ], [ -2147483648, %10 ]
-  %21 = lshr i32 %20, 8
-  %22 = trunc i32 %21 to i8
-  store i8 %22, ptr %.01722, align 1, !tbaa !76
-  %23 = lshr i32 %20, 16
-  %24 = trunc i32 %23 to i8
-  %25 = getelementptr inbounds nuw i8, ptr %.01722, i64 1
-  store i8 %24, ptr %25, align 1, !tbaa !76
-  %26 = lshr i32 %20, 24
-  %27 = trunc nuw i32 %26 to i8
-  %28 = getelementptr inbounds nuw i8, ptr %.01722, i64 2
-  store i8 %27, ptr %28, align 1, !tbaa !76
-  %29 = getelementptr inbounds float, ptr %.01821, i64 %7
-  %30 = getelementptr inbounds i8, ptr %.01722, i64 %9
+20:                                               ; preds = %10, %15
+  %21 = phi i32 [ %19, %15 ], [ -2147483648, %10 ]
+  %22 = lshr i32 %21, 8
+  %23 = trunc i32 %22 to i8
+  store i8 %23, ptr %.01722, align 1, !tbaa !76
+  %24 = lshr i32 %21, 16
+  %25 = trunc i32 %24 to i8
+  %26 = getelementptr inbounds nuw i8, ptr %.01722, i64 1
+  store i8 %25, ptr %26, align 1, !tbaa !76
+  %27 = lshr i32 %21, 24
+  %28 = trunc nuw i32 %27 to i8
+  %29 = getelementptr inbounds nuw i8, ptr %.01722, i64 2
+  store i8 %28, ptr %29, align 1, !tbaa !76
+  %30 = getelementptr inbounds float, ptr %.01821, i64 %7
+  %31 = getelementptr inbounds i8, ptr %.01722, i64 %9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !79
 
-._crit_edge:                                      ; preds = %19, %6
+._crit_edge:                                      ; preds = %20, %6
   ret void
 }
 
@@ -767,10 +767,10 @@ define internal void @Float32_To_Int24_DitherClip(ptr noundef writeonly captures
   %9 = sext i32 %8 to i64
   br label %10
 
-10:                                               ; preds = %.lr.ph, %21
-  %.in = phi i32 [ %4, %.lr.ph ], [ %11, %21 ]
-  %.01924 = phi ptr [ %2, %.lr.ph ], [ %31, %21 ]
-  %.02023 = phi ptr [ %0, %.lr.ph ], [ %32, %21 ]
+10:                                               ; preds = %.lr.ph, %22
+  %.in = phi i32 [ %4, %.lr.ph ], [ %11, %22 ]
+  %.01924 = phi ptr [ %2, %.lr.ph ], [ %31, %22 ]
+  %.02023 = phi ptr [ %0, %.lr.ph ], [ %32, %22 ]
   %11 = add i32 %.in, -1
   %12 = tail call float @PaUtil_GenerateFloatTriangularDither(ptr noundef %5) #9
   %13 = fpext float %12 to double
@@ -778,23 +778,23 @@ define internal void @Float32_To_Int24_DitherClip(ptr noundef writeonly captures
   %15 = fpext float %14 to double
   %16 = tail call double @llvm.fmuladd.f64(double %15, double 0x41DFFFFFFF800000, double %13)
   %17 = fcmp olt double %16, 0xC1E0000000000000
-  br i1 %17, label %21, label %18
+  br i1 %17, label %22, label %18
 
 18:                                               ; preds = %10
   %19 = tail call double @llvm.minnum.f64(double %16, double 0x41DFFFFFFFC00000)
   %20 = fptosi double %19 to i32
-  br label %21
+  br label %22
 
 21:                                               ; preds = %10, %18
   %22 = phi i32 [ %20, %18 ], [ -2147483648, %10 ]
   %23 = lshr i32 %22, 8
   %24 = trunc i32 %23 to i8
   store i8 %24, ptr %.02023, align 1, !tbaa !76
-  %25 = lshr i32 %22, 16
+  %25 = lshr i32 %23, 16
   %26 = trunc i32 %25 to i8
   %27 = getelementptr inbounds nuw i8, ptr %.02023, i64 1
   store i8 %26, ptr %27, align 1, !tbaa !76
-  %28 = lshr i32 %22, 24
+  %29 = lshr i32 %22, 24
   %29 = trunc nuw i32 %28 to i8
   %30 = getelementptr inbounds nuw i8, ptr %.02023, i64 2
   store i8 %29, ptr %30, align 1, !tbaa !76
@@ -803,7 +803,7 @@ define internal void @Float32_To_Int24_DitherClip(ptr noundef writeonly captures
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !80
 
-._crit_edge:                                      ; preds = %21, %6
+._crit_edge:                                      ; preds = %22, %6
   ret void
 }
 

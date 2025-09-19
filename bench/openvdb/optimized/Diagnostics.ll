@@ -110022,14 +110022,14 @@ if.else.i:                                        ; preds = %entry
 
 _ZN7openvdb5v11_04math16GodunovsNormSqrdIdEET_bS3_S3_S3_S3_S3_S3_.exit: ; preds = %if.then.i, %if.else.i
   %cmp.i.i45.sink.i = phi i1 [ %cmp.i.i45.i, %if.else.i ], [ %cmp.i.i21.i, %if.then.i ]
-  %mul.i44.sink.i = phi double [ %mul.i44.i, %if.else.i ], [ %mul.i20.i, %if.then.i ]
+  %mul.i44.sink106.i = phi double [ %mul.i44.i, %if.else.i ], [ %mul.i20.i, %if.then.i ]
   %add35.sink.i = phi double [ %add35.i, %if.else.i ], [ %add.i374, %if.then.i ]
   %conv67.i369 = fptrunc double %div66.i368 to float
   %conv134 = fpext float %conv67.i369 to double
   %conv135 = fpext float %117 to double
   %.sroa.speculated66.i = select i1 %cmp.i.i45.sink.i, double 0.000000e+00, double %conv134
   %mul.i47.i = fmul double %.sroa.speculated66.i, %.sroa.speculated66.i
-  %.sroa.speculated.i = tail call double @llvm.maxnum.f64(double %mul.i47.i, double %mul.i44.sink.i)
+  %.sroa.speculated.i = tail call double @llvm.maxnum.f64(double %mul.i47.i, double %mul.i44.sink106.i)
   %add43.i = fadd double %add35.sink.i, %.sroa.speculated.i
   %mul = fmul double %add43.i, %conv135
   %conv138 = fptrunc double %mul to float
@@ -133894,11 +133894,11 @@ if.else.i:                                        ; preds = %entry
 
 _ZN7openvdb5v11_04math16GodunovsNormSqrdIdEET_bS3_S3_S3_S3_S3_S3_.exit: ; preds = %if.then.i, %if.else.i
   %cmp.i.i45.sink.i = phi i1 [ %cmp.i.i45.i, %if.else.i ], [ %cmp.i.i21.i, %if.then.i ]
-  %mul.i44.sink.i = phi double [ %mul.i44.i, %if.else.i ], [ %mul.i20.i, %if.then.i ]
+  %mul.i44.sink106.i = phi double [ %mul.i44.i, %if.else.i ], [ %mul.i20.i, %if.then.i ]
   %add35.sink.i = phi double [ %add35.i, %if.else.i ], [ %add.i300, %if.then.i ]
   %.sroa.speculated66.i = select i1 %cmp.i.i45.sink.i, double 0.000000e+00, double %div46.i294
   %mul.i47.i = fmul double %.sroa.speculated66.i, %.sroa.speculated66.i
-  %.sroa.speculated.i = tail call double @llvm.maxnum.f64(double %mul.i47.i, double %mul.i44.sink.i)
+  %.sroa.speculated.i = tail call double @llvm.maxnum.f64(double %mul.i47.i, double %mul.i44.sink106.i)
   %add43.i298 = fadd double %add35.sink.i, %.sroa.speculated.i
   %mul = fmul double %117, %add43.i298
   ret double %mul

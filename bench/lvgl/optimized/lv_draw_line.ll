@@ -7,13 +7,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_line_dsc_init(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 88) #5
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 88) #4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 1, ptr %2, align 4, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 -1, ptr %3, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %5 = tail call i24 @lv_color_black() #5
+  %5 = tail call i24 @lv_color_black() #4
   store i24 %5, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 88, ptr %6, align 8, !tbaa !17
@@ -45,13 +45,13 @@ define void @lv_draw_line(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %40, label %7
+  br i1 %6, label %44, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load i8, ptr %8, align 8, !tbaa !16
   %10 = icmp ult i8 %9, 3
-  br i1 %10, label %40, label %11
+  br i1 %10, label %44, label %11
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -68,8 +68,8 @@ define void @lv_draw_line(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %20 = add nsw i32 %5, %19
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %20, ptr %21, align 4, !tbaa !27
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %23 = load float, ptr %22, align 4, !tbaa !28
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %23 = load float, ptr %23, align 4, !tbaa !28
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %25 = load float, ptr %24, align 4, !tbaa !29
   %26 = tail call float @llvm.minnum.f32(float %23, float %25)
@@ -84,23 +84,23 @@ define void @lv_draw_line(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   store i32 %32, ptr %33, align 4, !tbaa !31
   %34 = call ptr @lv_draw_add_task(ptr noundef %0, ptr noundef nonnull %3) #5
   %35 = call ptr @lv_malloc(i64 noundef 88) #5
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 104
-  store ptr %35, ptr %36, align 8, !tbaa !23
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 104
+  store ptr %35, ptr %37, align 8, !tbaa !23
   %.not = icmp eq ptr %35, null
-  br i1 %.not, label %.preheader, label %37
+  br i1 %.not, label %.preheader, label %41
 
 .preheader:                                       ; preds = %11, %.preheader
   br label %.preheader
 
-37:                                               ; preds = %11
-  %38 = call ptr @lv_memcpy(ptr noundef nonnull %35, ptr noundef nonnull %1, i64 noundef 88) #5
-  %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i32 8, ptr %39, align 8, !tbaa !18
-  call void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef nonnull %34) #5
+41:                                               ; preds = %11
+  %42 = call ptr @lv_memcpy(ptr noundef nonnull %35, ptr noundef nonnull %1, i64 noundef 88) #4
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store i32 8, ptr %43, align 8, !tbaa !18
+  call void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef nonnull %34) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %40
+  br label %44
 
-40:                                               ; preds = %7, %2, %37
+44:                                               ; preds = %7, %2, %41
   ret void
 }
 

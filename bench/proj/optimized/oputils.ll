@@ -6073,7 +6073,7 @@ define hidden noundef double @_ZN5osgeo4proj9operation11getAccuracyERKN7dropbox6
   %18 = extractvalue { ptr, i32 } %17, 1
   %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %20 = icmp eq i32 %18, %19
-  br i1 %20, label %21, label %40
+  br i1 %20, label %21, label %41
 
 21:                                               ; preds = %16
   %22 = extractvalue { ptr, i32 } %17, 0
@@ -6113,7 +6113,7 @@ define hidden noundef double @_ZN5osgeo4proj9operation11getAccuracyERKN7dropbox6
   %.not = icmp eq ptr %39, %34
   br i1 %.not, label %.thread, label %.lr.ph
 
-40:                                               ; preds = %16
+41:                                               ; preds = %16
   resume { ptr, i32 } %17
 
 .thread:                                          ; preds = %.lr.ph, %37, %30, %27, %24, %21, %12, %4

@@ -48,7 +48,7 @@ declare noundef i32 @_Z14RegisterSamplePKcS0_PFP6SampleR8SettingsE(ptr noundef, 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN10ConvexHull6CreateER8Settings(ptr noundef nonnull align 4 dereferenceable(44) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(328) ptr @_Znwm(i64 noundef 328) #12
+  %2 = tail call noalias noundef nonnull dereferenceable(328) ptr @_Znwm(i64 noundef 328) #11
   invoke void @_ZN6SampleC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(322) %2, ptr noundef nonnull align 4 dereferenceable(44) %0)
           to label %.noexc unwind label %13
 
@@ -78,7 +78,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10ConvexHull6CreateER8Settings(ptr
 11:                                               ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(322) %2) #13
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(322) %2) #12
   br label %.body
 
 _ZN10ConvexHullC2ER8Settings.exit:                ; preds = %7
@@ -91,7 +91,7 @@ _ZN10ConvexHullC2ER8Settings.exit:                ; preds = %7
 
 .body:                                            ; preds = %11, %13
   %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 328) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 328) #13
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -193,8 +193,8 @@ declare void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248)) u
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10ConvexHullD0Ev(ptr noundef nonnull align 8 dereferenceable(322) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(322) %0) #13
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 328) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(322) %0) #12
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 328) #13
   ret void
 }
 

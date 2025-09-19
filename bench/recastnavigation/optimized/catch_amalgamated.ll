@@ -4221,7 +4221,7 @@ define dso_local void @_ZN5Catch9Benchmark6Detail15analyse_samplesEdjN9__gnu_cxx
 
 13:                                               ; preds = %11
   invoke void @_ZNSt13random_deviceC2Ev(ptr noundef nonnull align 8 dereferenceable(5000) @_ZZN5Catch9Benchmark6Detail15analyse_samplesEdjN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E7entropy)
-          to label %14 unwind label %79
+          to label %14 unwind label %81
 
 14:                                               ; preds = %13
   %15 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13random_deviceD2Ev, ptr nonnull @_ZZN5Catch9Benchmark6Detail15analyse_samplesEdjN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E7entropy, ptr nonnull @__dso_handle) #56
@@ -4301,17 +4301,17 @@ define dso_local void @_ZN5Catch9Benchmark6Detail15analyse_samplesEdjN9__gnu_cxx
   %.sroa.speculated4.i = call double @llvm.minnum.f64(double %75, double %38)
   %76 = fdiv double %.sroa.speculated4.i, %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %76, ptr %78, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store double %76, ptr %80, align 8
   ret void
 
-79:                                               ; preds = %13
-  %80 = landingpad { ptr, i32 }
+81:                                               ; preds = %13
+  %82 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5Catch9Benchmark6Detail15analyse_samplesEdjN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E7entropy) #56
-  resume { ptr, i32 } %80
+  resume { ptr, i32 } %82
 }
 
 ; Function Attrs: mustprogress uwtable

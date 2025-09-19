@@ -484,19 +484,19 @@ define dso_local range(i32 0, 2) i32 @geohashDecodeAreaToLongLat(ptr noundef rea
   %storemerge = tail call double @llvm.minnum.f64(double %9, double 1.800000e+02)
   %storemerge16 = tail call double @llvm.maxnum.f64(double %storemerge, double -1.800000e+02)
   store double %storemerge16, ptr %1, align 8, !tbaa !22
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load double, ptr %10, align 8, !tbaa !17
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load double, ptr %12, align 8, !tbaa !19
-  %14 = fadd double %11, %13
-  %15 = fmul double %14, 5.000000e-01
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %storemerge17 = tail call double @llvm.minnum.f64(double %15, double 0x40554345B1A57F00)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = load double, ptr %12, align 8, !tbaa !17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %15 = load double, ptr %14, align 8, !tbaa !19
+  %16 = fadd double %13, %15
+  %17 = fmul double %16, 5.000000e-01
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %storemerge17 = tail call double @llvm.minnum.f64(double %17, double 0x40554345B1A57F00)
   %storemerge18 = tail call double @llvm.maxnum.f64(double %storemerge17, double 0xC0554345B1A57F00)
   store double %storemerge18, ptr %16, align 8, !tbaa !22
   br label %17
 
-17:                                               ; preds = %2, %3
+17:; preds = %2, %3
   %.0 = phi i32 [ 1, %3 ], [ 0, %2 ]
   ret i32 %.0
 }
@@ -570,10 +570,10 @@ geohashDecodeAreaToLongLat.exit:                  ; preds = %4
   %storemerge.i = tail call double @llvm.minnum.f64(double %58, double 1.800000e+02)
   %storemerge16.i = tail call double @llvm.maxnum.f64(double %storemerge.i, double -1.800000e+02)
   store double %storemerge16.i, ptr %2, align 8, !tbaa !22
-  %59 = fadd double %45, %49
-  %60 = fmul double %59, 5.000000e-01
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %storemerge17.i = tail call double @llvm.minnum.f64(double %60, double 0x40554345B1A57F00)
+  %61 = fadd double %45, %49
+  %62 = fmul double %61, 5.000000e-01
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %storemerge17.i = tail call double @llvm.minnum.f64(double %62, double 0x40554345B1A57F00)
   %storemerge18.i = tail call double @llvm.maxnum.f64(double %storemerge17.i, double 0xC0554345B1A57F00)
   store double %storemerge18.i, ptr %61, align 8, !tbaa !22
   br label %geohashDecode.exit.thread

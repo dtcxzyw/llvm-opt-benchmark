@@ -349,8 +349,8 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
 
 231:                                              ; preds = %231, %.lr.ph332.us.i.us
   %indvars.iv352.i.us = phi i64 [ %indvars.iv, %.lr.ph332.us.i.us ], [ %indvars.iv.next353.i.us, %231 ]
-  %.0267329.us.i.us = phi i64 [ %229, %.lr.ph332.us.i.us ], [ %258, %231 ]
-  %.0268328.us.i.us = phi i64 [ %226, %.lr.ph332.us.i.us ], [ %259, %231 ]
+  %.0267329.us.i.us = phi i64 [ %229, %.lr.ph332.us.i.us ], [ %259, %231 ]
+  %.0268328.us.i.us = phi i64 [ %226, %.lr.ph332.us.i.us ], [ %260, %231 ]
   %232 = mul i64 %.0268328.us.i.us, %25
   %233 = getelementptr inbounds nuw float, ptr %0, i64 %232
   %.idx.us.i.us = shl i64 %.0267329.us.i.us, 4
@@ -380,8 +380,8 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
   %257 = getelementptr float, ptr %230, i64 %indvars.iv352.i.us
   store float %256, ptr %257, align 4, !tbaa !12
   %indvars.iv.next353.i.us = add nsw i64 %indvars.iv352.i.us, 1
-  %258 = add i64 %.0267329.us.i.us, 1
-  %259 = add i64 %.0268328.us.i.us, 1
+  %259 = add i64 %.0267329.us.i.us, 1
+  %260 = add i64 %.0268328.us.i.us, 1
   %exitcond356.not.i.us = icmp eq i64 %indvars.iv.next353.i.us, %222
   br i1 %exitcond356.not.i.us, label %._crit_edge333.us.i.us, label %231
 
@@ -392,18 +392,18 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
 
 _guided_filter_tiling.exit.us:                    ; preds = %._crit_edge333.us.i.us, %.lr.ph336.i.us, %._crit_edge.i.us
   tail call void @free(ptr noundef %55) #6
-  %260 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %260, label %33, label %._crit_edge.us
+  %261 = icmp slt i64 %indvars.iv.next, %24
+  br i1 %261, label %33, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %_guided_filter_tiling.exit.us
-  %261 = icmp slt i64 %indvars.iv.next61, %27
-  br i1 %261, label %.preheader.us, label %._crit_edge56
+  %262 = icmp slt i64 %indvars.iv.next61, %27
+  br i1 %262, label %.preheader.us, label %._crit_edge56
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %.04355 = phi i32 [ %262, %.preheader ], [ 0, %.preheader.lr.ph ]
-  %262 = add nsw i32 %.04355, %20
-  %263 = icmp slt i32 %262, %4
-  br i1 %263, label %.preheader, label %._crit_edge56
+  %.04355 = phi i32 [ %263, %.preheader ], [ 0, %.preheader.lr.ph ]
+  %263 = add nsw i32 %.04355, %20
+  %264 = icmp slt i32 %263, %4
+  br i1 %264, label %.preheader, label %._crit_edge56
 
 ._crit_edge56:                                    ; preds = %.preheader, %._crit_edge.us, %19
   ret void

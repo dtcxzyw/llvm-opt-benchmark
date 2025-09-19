@@ -5870,19 +5870,19 @@ define dso_local noundef zeroext i1 @_ZN8V3Number15epsilonIntegralEd(double noun
   %.sroa.speculated.i = tail call double @llvm.maxnum.f64(double %.sroa.speculated2.i, double 1.000000e+00)
   %6 = fmul double %.sroa.speculated.i, 0x3CB0000000000000
   %7 = fcmp ugt double %5, %6
-  br i1 %7, label %8, label %20
+  br i1 %7, label %10, label %20
 
-8:                                                ; preds = %1
-  %9 = fadd double %3, -1.000000e+00
-  %10 = fsub double %0, %9
-  %11 = tail call double @llvm.fabs.f64(double %10)
+10:                                               ; preds = %1
+  %11 = fadd double %3, -1.000000e+00
+  %12 = fsub double %0, %11
+  %13 = tail call double @llvm.fabs.f64(double %12)
   %.sroa.speculated2.i7 = tail call double @llvm.maxnum.f64(double %9, double %0)
   %.sroa.speculated.i8 = tail call double @llvm.maxnum.f64(double %.sroa.speculated2.i7, double 1.000000e+00)
   %12 = fmul double %.sroa.speculated.i8, 0x3CB0000000000000
   %13 = fcmp ugt double %11, %12
   br i1 %13, label %14, label %20
 
-14:                                               ; preds = %8
+26:                                               ; preds = %10
   %15 = fadd double %3, 1.000000e+00
   %16 = fsub double %0, %15
   %17 = tail call double @llvm.fabs.f64(double %16)

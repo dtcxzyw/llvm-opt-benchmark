@@ -1419,13 +1419,13 @@ define linkonce_odr void @_ZNSt20poisson_distributionIlE10param_type13_M_initial
   store double %40, ptr %41, align 8, !tbaa !123
   br label %45
 
-42:                                               ; preds = %1
+42:; preds = %1
   %43 = fneg double %2
   %44 = tail call double @exp(double noundef %43) #33, !tbaa !114
   store double %44, ptr %4, align 8, !tbaa !116
   br label %45
 
-45:                                               ; preds = %42, %5
+45:; preds = %42, %5
   ret void
 }
 

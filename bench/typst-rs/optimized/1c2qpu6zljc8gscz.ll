@@ -9793,21 +9793,21 @@ define hidden void @"_ZN87_$LT$typst..visualize..color..ColorSpace$u20$as$u20$ty
   br label %"_ZN56_$LT$f32$u20$as$u20$typst_pdf..color..QuantizedColor$GT$8quantize17he16b23bafbf73f6eE.exit16"
 
 "_ZN56_$LT$f32$u20$as$u20$typst_pdf..color..QuantizedColor$GT$8quantize17he16b23bafbf73f6eE.exit16": ; preds = %9, %8
-  %22 = phi float [ %21, %9 ], [ %.pre19, %8 ]
-  %23 = phi float [ %20, %9 ], [ %.pre17, %8 ]
-  %24 = phi float [ %10, %9 ], [ %.pre, %8 ]
+  %24 = phi float [ %23, %9 ], [ %.pre19, %8 ]
+  %25 = phi float [ %20, %9 ], [ %.pre17, %8 ]
+  %26 = phi float [ %10, %9 ], [ %.pre, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.0.i.i7 = call float @llvm.maxnum.f32(float %24, float 0.000000e+00)
+  %.0.i.i7 = call float @llvm.maxnum.f32(float %26, float 0.000000e+00)
   %.1.i.i8 = call noundef float @llvm.minnum.f32(float %.0.i.i7, float 1.000000e+00)
   %.0.i.i10 = call float @llvm.maxnum.f32(float %23, float 0.000000e+00)
   %.1.i.i11 = call noundef float @llvm.minnum.f32(float %.0.i.i10, float 1.000000e+00)
   %.0.i.i14 = call float @llvm.maxnum.f32(float %22, float 0.000000e+00)
-  %.1.i.i15 = call noundef float @llvm.minnum.f32(float %.0.i.i14, float 1.000000e+00)
+  %35 = call noundef float @llvm.minnum.f32(float %.0.i.i14, float 1.000000e+00)
   store float %.1.i.i8, ptr %0, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.1.i.i11, ptr %25, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.1.i.i15, ptr %26, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.1.i.i11, ptr %33, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.1.i.i15, ptr %34, align 4
   ret void
 }
 
@@ -9861,31 +9861,31 @@ define hidden i48 @"_ZN87_$LT$typst..visualize..color..ColorSpace$u20$as$u20$typ
   br label %"_ZN85_$LT$typst..visualize..color..ColorSpace$u20$as$u20$typst_pdf..color..ColorEncode$GT$6encode17h11d1dbc7cfdc5f53E.exit"
 
 "_ZN85_$LT$typst..visualize..color..ColorSpace$u20$as$u20$typst_pdf..color..ColorEncode$GT$6encode17h11d1dbc7cfdc5f53E.exit": ; preds = %7, %8
-  %21 = phi float [ %.pre18, %7 ], [ %20, %8 ]
-  %22 = phi float [ %.pre16, %7 ], [ %19, %8 ]
-  %23 = phi float [ %.pre, %7 ], [ %9, %8 ]
+  %23 = phi float [ %.pre18, %7 ], [ %20, %8 ]
+  %24 = phi float [ %.pre16, %7 ], [ %19, %8 ]
+  %25 = phi float [ %.pre, %7 ], [ %9, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %24 = fmul float %23, 6.553500e+04
-  %25 = call float @llvm.round.f32(float %24)
-  %.0.i.i8 = call float @llvm.maxnum.f32(float %25, float 0.000000e+00)
+  %26 = fmul float %25, 6.553500e+04
+  %27 = call float @llvm.round.f32(float %26)
+  %.0.i.i8 = call float @llvm.maxnum.f32(float %27, float 0.000000e+00)
   %.1.i.i9 = call noundef float @llvm.minnum.f32(float %.0.i.i8, float 6.553500e+04)
   %26 = call noundef i16 @llvm.fptoui.sat.i16.f32(float %.1.i.i9)
   %27 = fmul float %22, 6.553500e+04
-  %28 = call float @llvm.round.f32(float %27)
+  %30 = call float @llvm.round.f32(float %27)
   %.0.i.i11 = call float @llvm.maxnum.f32(float %28, float 0.000000e+00)
-  %.1.i.i12 = call noundef float @llvm.minnum.f32(float %.0.i.i11, float 6.553500e+04)
-  %29 = call noundef i16 @llvm.fptoui.sat.i16.f32(float %.1.i.i12)
+  %32 = call noundef float @llvm.minnum.f32(float %.0.i.i11, float 6.553500e+04)
+  %29 = call noundef i16 @llvm.fptoui.sat.i16.f32(float %32)
   %30 = fmul float %21, 6.553500e+04
   %31 = call float @llvm.round.f32(float %30)
   %.0.i.i14 = call float @llvm.maxnum.f32(float %31, float 0.000000e+00)
-  %.1.i.i15 = call noundef float @llvm.minnum.f32(float %.0.i.i14, float 6.553500e+04)
-  %32 = call noundef i16 @llvm.fptoui.sat.i16.f32(float %.1.i.i15)
+  %35 = call noundef float @llvm.minnum.f32(float %.0.i.i14, float 6.553500e+04)
+  %32 = call noundef i16 @llvm.fptoui.sat.i16.f32(float %35)
   %.sroa.3.0.insert.ext = zext i16 %32 to i48
   %.sroa.3.0.insert.shift = shl nuw i48 %.sroa.3.0.insert.ext, 32
   %.sroa.2.0.insert.ext = zext i16 %29 to i48
   %.sroa.2.0.insert.shift = shl nuw nsw i48 %.sroa.2.0.insert.ext, 16
   %.sroa.2.0.insert.insert = or disjoint i48 %.sroa.3.0.insert.shift, %.sroa.2.0.insert.shift
-  %.sroa.0.0.insert.ext = zext i16 %26 to i48
+  %.sroa.0.0.insert.ext = zext i16 %34 to i48
   %.sroa.0.0.insert.insert = or disjoint i48 %.sroa.2.0.insert.insert, %.sroa.0.0.insert.ext
   ret i48 %.sroa.0.0.insert.insert
 }

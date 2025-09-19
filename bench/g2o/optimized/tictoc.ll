@@ -112,7 +112,7 @@ define noundef double @_ZN3g2o6tictocEPKc(ptr noundef %0) local_unnamed_addr #0 
 14:                                               ; preds = %9, %7, %1
   %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3g2o6tictocEPKcE11initializer, i64 48), align 8, !tbaa !17, !range !25, !noundef !26
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %114
+  br i1 %16, label %17, label %116
 
 17:                                               ; preds = %14
   %18 = tail call noundef double @_ZN3g2o18get_monotonic_timeEv()
@@ -300,7 +300,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN3g2o13TicTocElementD2Ev.exit:                  ; preds = %73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %114
+  br label %116
 
 80:                                               ; preds = %71, %60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
   %81 = landingpad { ptr, i32 }
@@ -337,10 +337,10 @@ _ZN3g2o13TicTocElementD2Ev.exit21:                ; preds = %80, %_ZNKSt7__cxx11
   %98 = load double, ptr %97, align 8, !tbaa !48
   %.sroa.speculated46 = call double @llvm.minnum.f64(double %93, double %98)
   store double %.sroa.speculated46, ptr %97, align 8, !tbaa !49
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 96
-  %100 = load double, ptr %99, align 8, !tbaa !48
-  %.sroa.speculated = call double @llvm.maxnum.f64(double %93, double %100)
-  store double %.sroa.speculated, ptr %99, align 8, !tbaa !50
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 96
+  %101 = load double, ptr %100, align 8, !tbaa !48
+  %.sroa.speculated = call double @llvm.maxnum.f64(double %93, double %101)
+  store double %.sroa.speculated, ptr %100, align 8, !tbaa !50
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 80
   %102 = load i32, ptr %101, align 8, !tbaa !51
   %103 = icmp eq i32 %102, 0
@@ -362,15 +362,15 @@ _ZN3g2o13TicTocElementD2Ev.exit21:                ; preds = %80, %_ZNKSt7__cxx11
 
 111:                                              ; preds = %86
   store double %18, ptr %90, align 8, !tbaa !46
-  br label %112
-
-112:                                              ; preds = %111, %109
-  %.1 = phi double [ %93, %109 ], [ 0.000000e+00, %111 ]
-  %113 = xor i8 %88, 1
-  store i8 %113, ptr %87, align 8, !tbaa !44
   br label %114
 
-114:                                              ; preds = %_ZN3g2o13TicTocElementD2Ev.exit, %112, %14
+114:                                              ; preds = %111, %109
+  %.1 = phi double [ %93, %109 ], [ 0.000000e+00, %111 ]
+  %115 = xor i8 %88, 1
+  store i8 %115, ptr %87, align 8, !tbaa !44
+  br label %116
+
+116:                                              ; preds = %_ZN3g2o13TicTocElementD2Ev.exit, %114, %14
   %.0 = phi double [ 0.000000e+00, %14 ], [ 0.000000e+00, %_ZN3g2o13TicTocElementD2Ev.exit ], [ %.1, %112 ]
   ret double %.0
 }

@@ -2947,7 +2947,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt3tr110_HashtableINSt7__cxx1112b
 
 _ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit.thread: ; preds = %4
   %11 = tail call noundef ptr @_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE16_M_allocate_nodeERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  br label %48
+  br label %49
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2973,84 +2973,84 @@ _ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit.thread: ; pre
 _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, %22
   %.017.i.i.i.i = phi ptr [ @_ZNSt3tr18__detail12__prime_listE, %22 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ]
   %.01116.i.i.i.i = phi i64 [ 303, %22 ], [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ]
-  %28 = lshr i64 %.01116.i.i.i.i, 1
-  %29 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %28
-  %30 = load i64, ptr %29, align 8, !tbaa !15
-  %31 = icmp ult i64 %30, %27
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %33 = xor i64 %28, -1
-  %34 = add nsw i64 %.01116.i.i.i.i, %33
-  %.112.i.i.i.i = select i1 %31, i64 %34, i64 %28
-  %.1.i.i.i.i = select i1 %31, ptr %32, ptr %.017.i.i.i.i
-  %35 = icmp sgt i64 %.112.i.i.i.i, 0
-  br i1 %35, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %_ZNKSt3tr18__detail20_Prime_rehash_policy11_M_next_bktEm.exit.i, !llvm.loop !37
+  %29 = lshr i64 %.01116.i.i.i.i, 1
+  %30 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %29
+  %31 = load i64, ptr %30, align 8, !tbaa !15
+  %32 = icmp ult i64 %31, %27
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %34 = xor i64 %29, -1
+  %35 = add nsw i64 %.01116.i.i.i.i, %34
+  %.112.i.i.i.i = select i1 %32, i64 %35, i64 %29
+  %.1.i.i.i.i = select i1 %32, ptr %33, ptr %.017.i.i.i.i
+  %36 = icmp sgt i64 %.112.i.i.i.i, 0
+  br i1 %36, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %_ZNKSt3tr18__detail20_Prime_rehash_policy11_M_next_bktEm.exit.i, !llvm.loop !37
 
 _ZNKSt3tr18__detail20_Prime_rehash_policy11_M_next_bktEm.exit.i: ; preds = %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i
-  %36 = load i64, ptr %.1.i.i.i.i, align 8, !tbaa !15
-  %37 = uitofp i64 %36 to float
+  %37 = load i64, ptr %.1.i.i.i.i, align 8, !tbaa !15
+  %38 = uitofp i64 %37 to float
   br label %_ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit
 
 _ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit: ; preds = %12, %_ZNKSt3tr18__detail20_Prime_rehash_policy11_M_next_bktEm.exit.i
-  %.sink25.i = phi float [ %37, %_ZNKSt3tr18__detail20_Prime_rehash_policy11_M_next_bktEm.exit.i ], [ %20, %12 ]
-  %.sroa.4.1.ph.i = phi i64 [ %36, %_ZNKSt3tr18__detail20_Prime_rehash_policy11_M_next_bktEm.exit.i ], [ 0, %12 ]
-  %38 = fmul float %18, %.sink25.i
-  %39 = tail call float @llvm.ceil.f32(float %38)
-  %40 = fptoui float %39 to i64
-  store i64 %40, ptr %8, align 8, !tbaa !39
-  %41 = tail call noundef ptr @_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE16_M_allocate_nodeERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  br i1 %21, label %42, label %48
+  %.sink25.i = phi float [ %38, %_ZNKSt3tr18__detail20_Prime_rehash_policy11_M_next_bktEm.exit.i ], [ %20, %12 ]
+  %.sroa.4.1.ph.i = phi i64 [ %37, %_ZNKSt3tr18__detail20_Prime_rehash_policy11_M_next_bktEm.exit.i ], [ 0, %12 ]
+  %39 = fmul float %18, %.sink25.i
+  %40 = tail call float @llvm.ceil.f32(float %39)
+  %41 = fptoui float %40 to i64
+  store i64 %41, ptr %8, align 8, !tbaa !39
+  %42 = tail call noundef ptr @_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE16_M_allocate_nodeERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  br i1 %21, label %43, label %49
 
-42:                                               ; preds = %_ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit
-  %43 = urem i64 %3, %.sroa.4.1.ph.i
+43:                                               ; preds = %_ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit
+  %44 = urem i64 %3, %.sroa.4.1.ph.i
   invoke void @_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE9_M_rehashEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %.sroa.4.1.ph.i)
-          to label %48 unwind label %44
+          to label %48 unwind label %45
 
-44:                                               ; preds = %42
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %43
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  %47 = tail call ptr @__cxa_begin_catch(ptr %46) #24
-  invoke void @_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE18_M_deallocate_nodeEPNSM_10_Hash_nodeISE_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %41)
-          to label %57 unwind label %58
+  %47 = extractvalue { ptr, i32 } %46, 0
+  %48 = tail call ptr @__cxa_begin_catch(ptr %47) #24
+  invoke void @_ZNSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE18_M_deallocate_nodeEPNSM_10_Hash_nodeISE_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %42)
+          to label %57 unwind label %59
 
-48:                                               ; preds = %_ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit.thread, %42, %_ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit
-  %49 = phi ptr [ %41, %_ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit ], [ %41, %42 ], [ %11, %_ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit.thread ]
-  %.0 = phi i64 [ %2, %_ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit ], [ %43, %42 ], [ %2, %_ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit.thread ]
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !53
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.0
-  %53 = load ptr, ptr %52, align 8, !tbaa !51
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  store ptr %53, ptr %54, align 8, !tbaa !69
-  store ptr %49, ptr %52, align 8, !tbaa !51
-  %55 = load i64, ptr %5, align 8, !tbaa !73
-  %56 = add i64 %55, 1
-  store i64 %56, ptr %5, align 8, !tbaa !73
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %49, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %52, 1
+49:                                               ; preds = %_ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit.thread, %43, %_ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit
+  %50 = phi ptr [ %42, %_ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit ], [ %42, %42 ], [ %11, %_ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit.thread ]
+  %.0 = phi i64 [ %2, %_ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit ], [ %44, %42 ], [ %2, %_ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit.thread ]
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !53
+  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %.0
+  %54 = load ptr, ptr %53, align 8, !tbaa !51
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  store ptr %54, ptr %55, align 8, !tbaa !69
+  store ptr %50, ptr %53, align 8, !tbaa !51
+  %56 = load i64, ptr %5, align 8, !tbaa !73
+  %57 = add i64 %56, 1
+  store i64 %57, ptr %5, align 8, !tbaa !73
+  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %50, 0
+  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %53, 1
   ret { ptr, ptr } %.fca.1.insert
 
-57:                                               ; preds = %44
+58:                                               ; preds = %45
   invoke void @__cxa_rethrow() #25
-          to label %64 unwind label %58
+          to label %64 unwind label %59
 
-58:                                               ; preds = %57, %44
-  %59 = landingpad { ptr, i32 }
+59:                                               ; preds = %58, %45
+  %60 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %60 unwind label %61
+          to label %60 unwind label %62
 
-60:                                               ; preds = %58
-  resume { ptr, i32 } %59
+61:                                               ; preds = %59
+  resume { ptr, i32 } %60
 
-61:                                               ; preds = %58
-  %62 = landingpad { ptr, i32 }
+62:                                               ; preds = %59
+  %63 = landingpad { ptr, i32 }
           catch ptr null
-  %63 = extractvalue { ptr, i32 } %62, 0
-  tail call void @__clang_call_terminate(ptr %63) #26
+  %64 = extractvalue { ptr, i32 } %63, 0
+  tail call void @__clang_call_terminate(ptr %64) #26
   unreachable
 
-64:                                               ; preds = %57
+65:                                               ; preds = %58
   unreachable
 }
 

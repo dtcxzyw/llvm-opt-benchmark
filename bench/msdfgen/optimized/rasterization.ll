@@ -98,7 +98,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i.i.i, label %_ZN7msdfgen8ScanlineD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %8) #10
+  call void @_ZdlPv(ptr noundef nonnull %8) #9
   br label %_ZN7msdfgen8ScanlineD2Ev.exit
 
 _ZN7msdfgen8ScanlineD2Ev.exit:                    ; preds = %lpad, %if.then.i.i.i.i
@@ -116,7 +116,7 @@ for.end18:                                        ; preds = %for.inc16, %entry
   br i1 %tobool.not.i.i.i.i13, label %_ZN7msdfgen8ScanlineD2Ev.exit15, label %if.then.i.i.i.i14
 
 if.then.i.i.i.i14:                                ; preds = %for.end18
-  call void @_ZdlPv(ptr noundef nonnull %10) #10
+  call void @_ZdlPv(ptr noundef nonnull %10) #9
   br label %_ZN7msdfgen8ScanlineD2Ev.exit15
 
 _ZN7msdfgen8ScanlineD2Ev.exit15:                  ; preds = %for.end18, %if.then.i.i.i.i14
@@ -218,7 +218,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i.i.i, label %_ZN7msdfgen8ScanlineD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %9) #10
+  call void @_ZdlPv(ptr noundef nonnull %9) #9
   br label %_ZN7msdfgen8ScanlineD2Ev.exit
 
 _ZN7msdfgen8ScanlineD2Ev.exit:                    ; preds = %lpad, %if.then.i.i.i.i
@@ -242,7 +242,7 @@ for.end23:                                        ; preds = %for.inc21, %entry
   br i1 %tobool.not.i.i.i.i15, label %_ZN7msdfgen8ScanlineD2Ev.exit17, label %if.then.i.i.i.i16
 
 if.then.i.i.i.i16:                                ; preds = %for.end23
-  call void @_ZdlPv(ptr noundef nonnull %12) #10
+  call void @_ZdlPv(ptr noundef nonnull %12) #9
   br label %_ZN7msdfgen8ScanlineD2Ev.exit17
 
 _ZN7msdfgen8ScanlineD2Ev.exit17:                  ; preds = %for.end23, %if.then.i.i.i.i16
@@ -267,7 +267,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   call void @_ZN7msdfgen8ScanlineC1Ev(ptr noundef nonnull align 8 dereferenceable(28) %scanline.i)
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i) #11
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i, i8 0, i64 24, i1 false)
   %conv.i = sext i32 %mul.i to i64
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %matchMap.i, i64 8
@@ -276,14 +276,14 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #12
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #11
           to label %.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc.i:                                         ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.end.i
-  %call5.i.i.i.i.i62.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %conv.i) #13
+  %call5.i.i.i.i.i62.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %conv.i) #12
           to label %call5.i.i.i.i.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i
 
 call5.i.i.i.i.i.noexc.i:                          ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i.i
@@ -358,7 +358,7 @@ invoke.cont21.us.i:                               ; preds = %invoke.cont13.us.i
   %cond.i3.i.us.i = call noundef float @llvm.maxnum.f32(float %7, float %6)
   %cond.i4.i.us.i = call noundef float @llvm.minnum.f32(float %8, float %cond.i3.i.us.i)
   %cond.i5.i.us.i = call noundef float @llvm.maxnum.f32(float %cond.i4.i.us.i, float %cond.i.i.us.i)
-  %cmp23.us.i = fcmp oeq float %cond.i5.i.us.i, 5.000000e-01
+  %cmp.i5.i.us.i = fcmp oeq float %cond.i5.i.us.i, 5.000000e-01
   br i1 %cmp23.us.i, label %if.end42.us.i, label %if.else.us.i
 
 if.else.us.i:                                     ; preds = %invoke.cont21.us.i
@@ -430,13 +430,13 @@ lpad.loopexit.split-lp.loopexit.split-lp.i:       ; preds = %_ZNKSt6vectorIcSaIc
 
 lpad.i:                                           ; preds = %lpad.loopexit.split-lp.loopexit.split-lp.i, %lpad.loopexit.split-lp.loopexit.split.i, %lpad.loopexit.split.us.i, %lpad.loopexit.split-lp.loopexit.split.us.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit76.us.i, %lpad.loopexit.split.us.i ], [ %lpad.loopexit.split-lp79.i, %lpad.loopexit.split-lp.loopexit.split-lp.i ], [ %lpad.loopexit78.i, %lpad.loopexit.split-lp.loopexit.split.i ], [ %lpad.loopexit78.us.i, %lpad.loopexit.split-lp.loopexit.split.us.i ]
-  call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i) #11
+  call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i) #10
   %10 = load ptr, ptr %scanline.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7msdfgen8ScanlineD2Ev.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %lpad.i
-  call void @_ZdlPv(ptr noundef nonnull %10) #10
+  call void @_ZdlPv(ptr noundef nonnull %10) #9
   br label %_ZN7msdfgen8ScanlineD2Ev.exit.i
 
 _ZN7msdfgen8ScanlineD2Ev.exit.i:                  ; preds = %if.then.i.i.i.i.i, %lpad.i
@@ -626,17 +626,17 @@ if.end117.i:                                      ; preds = %for.cond8.preheader
 
 if.then.i.i.i72.i:                                ; preds = %if.end117.i, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit33.i.i.i
   %33 = phi ptr [ %.pr.i, %if.end117.i ], [ %call5.i.i.i.i.i62.i, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit33.i.i.i ]
-  call void @_ZdlPv(ptr noundef nonnull %33) #10
+  call void @_ZdlPv(ptr noundef nonnull %33) #9
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit.i
 
 _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %if.then.i.i.i72.i, %if.end117.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i) #10
   %34 = load ptr, ptr %scanline.i, align 8
   %tobool.not.i.i.i.i73.i = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i.i73.i, label %_ZN7msdfgenL27multiDistanceSignCorrectionILi3EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE.exit, label %if.then.i.i.i.i74.i
 
 if.then.i.i.i.i74.i:                              ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %34) #10
+  call void @_ZdlPv(ptr noundef nonnull %34) #9
   br label %_ZN7msdfgenL27multiDistanceSignCorrectionILi3EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE.exit
 
 _ZN7msdfgenL27multiDistanceSignCorrectionILi3EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE.exit: ; preds = %entry, %_ZNSt6vectorIcSaIcEED2Ev.exit.i, %if.then.i.i.i.i74.i
@@ -663,7 +663,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   call void @_ZN7msdfgen8ScanlineC1Ev(ptr noundef nonnull align 8 dereferenceable(28) %scanline.i)
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i) #11
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i, i8 0, i64 24, i1 false)
   %conv.i = sext i32 %mul.i to i64
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %matchMap.i, i64 8
@@ -672,14 +672,14 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #12
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #11
           to label %.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc.i:                                         ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.end.i
-  %call5.i.i.i.i.i66.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %conv.i) #13
+  %call5.i.i.i.i.i66.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %conv.i) #12
           to label %call5.i.i.i.i.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i
 
 call5.i.i.i.i.i.noexc.i:                          ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i.i
@@ -754,7 +754,7 @@ invoke.cont21.us.i:                               ; preds = %invoke.cont13.us.i
   %cond.i3.i.us.i = call noundef float @llvm.maxnum.f32(float %7, float %6)
   %cond.i4.i.us.i = call noundef float @llvm.minnum.f32(float %8, float %cond.i3.i.us.i)
   %cond.i5.i.us.i = call noundef float @llvm.maxnum.f32(float %cond.i4.i.us.i, float %cond.i.i.us.i)
-  %cmp23.us.i = fcmp oeq float %cond.i5.i.us.i, 5.000000e-01
+  %cmp.i5.i.us.i = fcmp oeq float %cond.i5.i.us.i, 5.000000e-01
   br i1 %cmp23.us.i, label %if.end42.us.i, label %if.else.us.i
 
 if.else.us.i:                                     ; preds = %invoke.cont21.us.i
@@ -838,13 +838,13 @@ lpad.loopexit.split-lp.loopexit.split-lp.i:       ; preds = %_ZNKSt6vectorIcSaIc
 
 lpad.i:                                           ; preds = %lpad.loopexit.split-lp.loopexit.split-lp.i, %lpad.loopexit.split-lp.loopexit.split.i, %lpad.loopexit.split.us.i, %lpad.loopexit.split-lp.loopexit.split.us.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit80.us.i, %lpad.loopexit.split.us.i ], [ %lpad.loopexit.split-lp83.i, %lpad.loopexit.split-lp.loopexit.split-lp.i ], [ %lpad.loopexit82.i, %lpad.loopexit.split-lp.loopexit.split.i ], [ %lpad.loopexit82.us.i, %lpad.loopexit.split-lp.loopexit.split.us.i ]
-  call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i) #11
+  call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i) #10
   %12 = load ptr, ptr %scanline.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7msdfgen8ScanlineD2Ev.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %lpad.i
-  call void @_ZdlPv(ptr noundef nonnull %12) #10
+  call void @_ZdlPv(ptr noundef nonnull %12) #9
   br label %_ZN7msdfgen8ScanlineD2Ev.exit.i
 
 _ZN7msdfgen8ScanlineD2Ev.exit.i:                  ; preds = %if.then.i.i.i.i.i, %lpad.i
@@ -1034,17 +1034,17 @@ if.end128.i:                                      ; preds = %for.cond8.preheader
 
 if.then.i.i.i76.i:                                ; preds = %if.end128.i, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit33.i.i.i
   %35 = phi ptr [ %.pr.i, %if.end128.i ], [ %call5.i.i.i.i.i66.i, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit33.i.i.i ]
-  call void @_ZdlPv(ptr noundef nonnull %35) #10
+  call void @_ZdlPv(ptr noundef nonnull %35) #9
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit.i
 
 _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %if.then.i.i.i76.i, %if.end128.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i) #10
   %36 = load ptr, ptr %scanline.i, align 8
   %tobool.not.i.i.i.i77.i = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i.i77.i, label %_ZN7msdfgenL27multiDistanceSignCorrectionILi4EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE.exit, label %if.then.i.i.i.i78.i
 
 if.then.i.i.i.i78.i:                              ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %36) #10
+  call void @_ZdlPv(ptr noundef nonnull %36) #9
   br label %_ZN7msdfgenL27multiDistanceSignCorrectionILi4EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE.exit
 
 _ZN7msdfgenL27multiDistanceSignCorrectionILi4EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE.exit: ; preds = %entry, %_ZNSt6vectorIcSaIcEED2Ev.exit.i, %if.then.i.i.i.i78.i
@@ -1102,11 +1102,11 @@ invoke.cont:
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #9
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #11
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #10
   ret void
 }
 
@@ -1132,10 +1132,10 @@ declare float @llvm.maxnum.f32(float, float) #8
 declare float @llvm.minnum.f32(float, float) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

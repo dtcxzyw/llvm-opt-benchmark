@@ -1104,12 +1104,12 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i.preheader,
   %30 = tail call double @llvm.maxnum.f64(double %28, double %29)
   store double %30, ptr %20, align 8, !tbaa !3
   %.not = icmp eq i64 %23, %.049
-  br i1 %.not, label %34, label %31
+  br i1 %.not, label %34, label %32
 
-31:                                               ; preds = %21
-  %32 = getelementptr inbounds double, ptr %1, i64 %23
-  %33 = load double, ptr %32, align 8, !tbaa !3
-  %. = tail call double @llvm.maxnum.f64(double %28, double %33)
+32:                                               ; preds = %21
+  %33 = getelementptr inbounds double, ptr %1, i64 %23
+  %34 = load double, ptr %33, align 8, !tbaa !3
+  %. = tail call double @llvm.maxnum.f64(double %28, double %34)
   store double %., ptr %32, align 8, !tbaa !3
   br label %34
 

@@ -7,15 +7,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_triangle_dsc_init(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 88) #5
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 88) #4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %3 = tail call i24 @lv_color_white() #5
+  %3 = tail call i24 @lv_color_white() #4
   store i24 %3, ptr %2, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %5 = tail call i24 @lv_color_white() #5
+  %5 = tail call i24 @lv_color_white() #4
   store i24 %5, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %7 = tail call i24 @lv_color_black() #5
+  %7 = tail call i24 @lv_color_black() #4
   store i24 %7, ptr %6, align 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 61
   store i8 -1, ptr %8, align 1, !tbaa !3
@@ -55,7 +55,7 @@ define void @lv_draw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i8, ptr %4, align 8, !tbaa !17
   %6 = icmp ult i8 %5, 3
-  br i1 %6, label %37, label %7
+  br i1 %6, label %45, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -78,13 +78,13 @@ define void @lv_draw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %21 = load float, ptr %20, align 4, !tbaa !29
   %22 = tail call float @llvm.minnum.f32(float %.70, float %21)
   %23 = fptosi float %22 to i32
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %23, ptr %24, align 4, !tbaa !30
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %23, ptr %23, align 4, !tbaa !30
   %.72 = tail call float @llvm.maxnum.f32(float %9, float %11)
   %25 = tail call float @llvm.maxnum.f32(float %.72, float %13)
-  %26 = fptosi float %25 to i32
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %26, ptr %27, align 4, !tbaa !31
+  %27 = fptosi float %25 to i32
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %27, ptr %28, align 4, !tbaa !31
   %.74 = tail call float @llvm.maxnum.f32(float %17, float %19)
   %28 = tail call float @llvm.maxnum.f32(float %.74, float %21)
   %29 = fptosi float %28 to i32
@@ -100,15 +100,15 @@ define void @lv_draw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 .preheader:                                       ; preds = %7, %.preheader
   br label %.preheader
 
-34:                                               ; preds = %7
-  %35 = call ptr @lv_memcpy(ptr noundef nonnull %32, ptr noundef nonnull %1, i64 noundef 88) #5
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i32 10, ptr %36, align 8, !tbaa !19
-  call void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef nonnull %31) #5
+42:                                               ; preds = %7
+  %43 = call ptr @lv_memcpy(ptr noundef nonnull %32, ptr noundef nonnull %1, i64 noundef 88) #4
+  %44 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i32 10, ptr %44, align 8, !tbaa !19
+  call void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef nonnull %31) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %37
+  br label %45
 
-37:                                               ; preds = %2, %34
+45:                                               ; preds = %2, %42
   ret void
 }
 

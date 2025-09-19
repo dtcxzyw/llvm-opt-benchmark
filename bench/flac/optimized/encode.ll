@@ -7808,9 +7808,9 @@ define internal void @encoder_progress_callback(ptr readnone captures(none) %0, 
 42:                                               ; preds = %35
   tail call fastcc void @print_stats(ptr noundef nonnull %5)
   store i64 %36, ptr %38, align 8, !tbaa !190
-  br label %43
+  br label %44
 
-43:                                               ; preds = %35, %42, %29, %26
+44:                                               ; preds = %35, %42, %29, %26
   ret void
 }
 

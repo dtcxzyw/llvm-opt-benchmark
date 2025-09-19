@@ -138,7 +138,7 @@ lv_matrix_is_identity_or_translation.exit.thread: ; preds = %3, %8, %12, %16, %2
   br i1 %exitcond.not.i, label %53, label %54, !llvm.loop !9
 
 lv_matrix_multiply.exit:                          ; preds = %53
-  %65 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #10
+  %65 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %66
@@ -214,7 +214,7 @@ define void @lv_matrix_multiply(ptr noundef %0, ptr noundef readonly captures(no
   br label %16
 
 13:                                               ; preds = %15
-  %14 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 36) #10
+  %14 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 36) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
@@ -300,7 +300,7 @@ define void @lv_matrix_scale(ptr noundef %0, float noundef %1, float noundef %2)
   br i1 %exitcond.not.i, label %21, label %22, !llvm.loop !9
 
 lv_matrix_multiply.exit:                          ; preds = %21
-  %33 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #10
+  %33 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -370,7 +370,7 @@ define void @lv_matrix_rotate(ptr noundef %0, float noundef %1) local_unnamed_ad
   br i1 %exitcond.not.i, label %25, label %26, !llvm.loop !9
 
 lv_matrix_multiply.exit:                          ; preds = %25
-  %37 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 36) #10
+  %37 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 36) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -447,7 +447,7 @@ define void @lv_matrix_skew(ptr noundef %0, float noundef %1, float noundef %2) 
   br i1 %exitcond.not.i, label %27, label %28, !llvm.loop !9
 
 lv_matrix_multiply.exit:                          ; preds = %27
-  %39 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #10
+  %39 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void

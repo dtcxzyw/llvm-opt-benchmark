@@ -5869,7 +5869,7 @@ define linkonce_odr dso_local void @_ZN14UserConstraint4StepER8Settings(ptr noun
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %4 = load i8, ptr %3, align 1, !tbaa !196, !range !13, !noundef !14
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %105, label %6
+  br i1 %5, label %106, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -5878,7 +5878,7 @@ define linkonce_odr dso_local void @_ZN14UserConstraint4StepER8Settings(ptr noun
   %10 = fdiv float 1.000000e+00, %8
   %11 = select i1 %9, float %10, float 0.000000e+00
   %12 = fcmp oeq float %11, 0.000000e+00
-  br i1 %12, label %105, label %13
+  br i1 %12, label %106, label %13
 
 13:                                               ; preds = %6
   %14 = load float, ptr @_ZZN14UserConstraint4StepER8SettingsE5hertz, align 4, !tbaa !15
@@ -5932,7 +5932,7 @@ define linkonce_odr dso_local void @_ZN14UserConstraint4StepER8Settings(ptr noun
   %50 = load i32, ptr %39, align 8, !tbaa !89
   %51 = add nsw i32 %50, %49
   store i32 %51, ptr %39, align 8, !tbaa !89
-  br label %105
+  br label %106
 
 52:                                               ; preds = %13, %103
   %53 = phi i1 [ true, %13 ], [ false, %103 ]
@@ -6023,13 +6023,13 @@ _Z11b2Normalize6b2Vec2.exit:                      ; preds = %64, %66
 
 103:                                              ; preds = %_Z11b2Normalize6b2Vec2.exit, %63
   %.sink = phi float [ %94, %_Z11b2Normalize6b2Vec2.exit ], [ 0.000000e+00, %63 ]
-  %.1 = phi float [ %102, %_Z11b2Normalize6b2Vec2.exit ], [ %.0120, %63 ]
+  %.sink = phi float [ %102, %_Z11b2Normalize6b2Vec2.exit ], [ %.0120, %63 ]
   %.sroa.063.1 = phi <2 x float> [ %.sroa.03.4.vec.insert.i, %_Z11b2Normalize6b2Vec2.exit ], [ %.sroa.063.0121, %63 ]
-  %104 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
-  store float %.sink, ptr %104, align 4, !tbaa !15
+  %105 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
+  store float %.sink, ptr %105, align 4, !tbaa !15
   br i1 %53, label %52, label %38, !llvm.loop !197
 
-105:                                              ; preds = %38, %6, %2
+106:                                              ; preds = %38, %6, %2
   ret void
 }
 

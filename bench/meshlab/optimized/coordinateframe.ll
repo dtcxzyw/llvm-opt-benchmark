@@ -2474,7 +2474,7 @@ define noundef float @_ZN3vcg15CoordinateFrame9calcSlopeERKNS_6Point3IdEES4_fiPd
   %52 = call noundef float @log10f(float noundef %51) #26
   %53 = call noundef float @llvm.ceil.f32(float %52)
   %54 = call noundef float @powf(float noundef 1.000000e+01, float noundef %53) #26
-  %.sroa.speculated = call float @llvm.maxnum.f32(float %.sroa.speculated20, float %54)
+  %55 = call float @llvm.maxnum.f32(float %.sroa.speculated20, float %54)
   ret float %.sroa.speculated
 }
 

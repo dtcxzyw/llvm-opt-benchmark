@@ -35425,17 +35425,17 @@ _ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit29: ; preds = %_ZNK7x
   unreachable
 
 _ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit30: ; preds = %108
-  %114 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %115 = load i8, ptr %114, align 8, !tbaa !914, !range !432, !noundef !433
-  %116 = trunc nuw i8 %115 to i1
-  %117 = select i1 %116, double 0.000000e+00, double 1.000000e+00
-  %118 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %119 = load ptr, ptr %118, align 8, !tbaa !601
-  %120 = getelementptr inbounds nuw double, ptr %119, i64 %1
-  store double %117, ptr %120, align 8, !tbaa !86
-  br label %121
+  %115 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %116 = load i8, ptr %115, align 8, !tbaa !914, !range !432, !noundef !433
+  %117 = trunc nuw i8 %116 to i1
+  %118 = select i1 %117, double 0.000000e+00, double 1.000000e+00
+  %119 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %120 = load ptr, ptr %119, align 8, !tbaa !601
+  %121 = getelementptr inbounds nuw double, ptr %120, i64 %1
+  store double %118, ptr %121, align 8, !tbaa !86
+  br label %122
 
-121:                                              ; preds = %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit30, %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit29
+122:                                              ; preds = %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit30, %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit29
   ret void
 }
 

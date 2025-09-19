@@ -5361,10 +5361,10 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIiPKN11OpenIma
   %59 = fcmp ogt float %6, 0x3FC99999A0000000
   %60 = select i1 %59, float %6, float 0x3FC99999A0000000
   %61 = fcmp olt float %60, 0x3FEE666660000000
-  %.sroa.speculated.i11 = select i1 %61, float %60, float 0x3FEE666660000000
+  %62 = select i1 %61, float %60, float 0x3FEE666660000000
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i11, ptr %62, align 4, !tbaa !31
-  %63 = fmul float %.sroa.speculated.i11, %.017202932
+  %63 = fmul float %63, %.017202932
   %64 = fptoui float %63 to i64
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %64, ptr %65, align 8, !tbaa !32
@@ -5551,10 +5551,10 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112
   %60 = fcmp ogt float %6, 0x3FC99999A0000000
   %61 = select i1 %60, float %6, float 0x3FC99999A0000000
   %62 = fcmp olt float %61, 0x3FEE666660000000
-  %.sroa.speculated.i11 = select i1 %62, float %61, float 0x3FEE666660000000
+  %63 = select i1 %62, float %61, float 0x3FEE666660000000
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i11, ptr %63, align 4, !tbaa !48
-  %64 = fmul float %.sroa.speculated.i11, %.017202932
+  %64 = fmul float %63, %.017202932
   %65 = fptoui float %64 to i64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %65, ptr %66, align 8, !tbaa !49

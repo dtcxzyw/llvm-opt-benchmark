@@ -403,7 +403,7 @@ define i32 @stb_easy_font_width(ptr noundef readonly captures(none) %0) local_un
   %.0 = phi float [ 0.000000e+00, %1 ], [ %.2, %15 ]
   %4 = load i8, ptr %.015, align 1, !tbaa !3
   switch i8 %4, label %6 [
-    i8 0, label %17
+    i8 0, label %18
     i8 10, label %5
   ]
 
@@ -424,11 +424,11 @@ define i32 @stb_easy_font_width(ptr noundef readonly captures(none) %0) local_un
 
 15:                                               ; preds = %6, %5
   %.114 = phi float [ 0.000000e+00, %5 ], [ %14, %6 ]
-  %.2 = phi float [ %.1, %5 ], [ %.0, %6 ]
+  %.114 = phi float [ %.1, %5 ], [ %.0, %6 ]
   %16 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   br label %3, !llvm.loop !16
 
-17:                                               ; preds = %3
+18:                                               ; preds = %3
   %.3 = tail call float @llvm.maxnum.f32(float %.013, float %.0)
   %18 = tail call float @llvm.ceil.f32(float %.3)
   %19 = fptosi float %18 to i32

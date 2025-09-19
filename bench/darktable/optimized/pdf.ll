@@ -505,7 +505,7 @@ define internal fastcc range(i32 0, 2) i32 @_paper_size(ptr noundef %0, ptr noun
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.58, ptr noundef nonnull %8) #16
   %11 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #16
   call void (ptr, ...) @dt_control_log(ptr noundef %11) #16
-  br label %31
+  br label %34
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -526,28 +526,28 @@ define internal fastcc range(i32 0, 2) i32 @_paper_size(ptr noundef %0, ptr noun
   %20 = icmp eq i32 %19, 1
   %21 = load float, ptr %5, align 4, !tbaa !19
   %22 = load float, ptr %6, align 4, !tbaa !19
-  br i1 %20, label %23, label %26
+  br i1 %20, label %23, label %27
 
 23:                                               ; preds = %17
   %24 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %21, float %22)
   %25 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %21, float %22)
   br label %29
 
-26:                                               ; preds = %17
+27:                                               ; preds = %17
   %27 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %21, float %22)
   %28 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %21, float %22)
   br label %29
 
-29:                                               ; preds = %26, %23
-  %.sink = phi float [ %24, %23 ], [ %27, %26 ]
-  %storemerge = phi float [ %25, %23 ], [ %28, %26 ]
+31:                                               ; preds = %27, %23
+  %.sink25 = phi float [ %24, %23 ], [ %27, %26 ]
+  %.sink = phi float [ %25, %23 ], [ %28, %26 ]
   store float %.sink, ptr %1, align 4, !tbaa !19
-  store float %storemerge, ptr %2, align 4, !tbaa !19
-  %30 = load float, ptr %7, align 4, !tbaa !19
-  store float %30, ptr %3, align 4, !tbaa !19
-  br label %31
+  store float %.sink25, ptr %2, align 4, !tbaa !19
+  %33 = load float, ptr %7, align 4, !tbaa !19
+  store float %33, ptr %3, align 4, !tbaa !19
+  br label %34
 
-31:                                               ; preds = %29, %10
+34:                                               ; preds = %31, %10
   %.0 = phi i32 [ 0, %29 ], [ 1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

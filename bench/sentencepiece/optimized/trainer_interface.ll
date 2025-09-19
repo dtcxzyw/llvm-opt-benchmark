@@ -19871,8 +19871,8 @@ _ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engi
 
 .lr.ph.split.i.i.i:                               ; preds = %.lr.ph.i.i.i, %.lr.ph.splitthread-pre-split.i.i.i
   %34 = phi float [ %.pr.i.i.i, %.lr.ph.splitthread-pre-split.i.i.i ], [ %23, %.lr.ph.i.i.i ]
-  %35 = phi ptr [ %55, %.lr.ph.splitthread-pre-split.i.i.i ], [ %11, %.lr.ph.i.i.i ]
-  %.04.i.i.i = phi i64 [ %53, %.lr.ph.splitthread-pre-split.i.i.i ], [ %7, %.lr.ph.i.i.i ]
+  %35 = phi ptr [ %56, %.lr.ph.splitthread-pre-split.i.i.i ], [ %11, %.lr.ph.i.i.i ]
+  %.04.i.i.i = phi i64 [ %54, %.lr.ph.splitthread-pre-split.i.i.i ], [ %7, %.lr.ph.i.i.i ]
   %36 = getelementptr inbounds nuw %"struct.std::pair", ptr %35, i64 %.04.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = fcmp ogt float %34, 0.000000e+00
@@ -19880,7 +19880,7 @@ _ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engi
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.split.i.i.i
   %.pre.i.i.i.i = load i64, ptr %37, align 8, !tbaa !229
-  br label %46
+  br label %47
 
 39:                                               ; preds = %.lr.ph.split.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -19897,24 +19897,24 @@ _ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engi
   %45 = fptosi float %44 to i64
   store i64 %45, ptr %37, align 8, !tbaa !229
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %46
+  br label %47
 
-46:                                               ; preds = %39, %._crit_edge.i.i.i.i
-  %47 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %45, %39 ]
-  %48 = load i64, ptr %21, align 8, !tbaa !279
-  %49 = icmp ult i64 %47, %48
-  br i1 %49, label %50, label %_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.i.i.i
+47:                                               ; preds = %39, %._crit_edge.i.i.i.i
+  %48 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %45, %39 ]
+  %49 = load i64, ptr %21, align 8, !tbaa !279
+  %50 = icmp ult i64 %48, %49
+  br i1 %50, label %51, label %_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.i.i.i
 
-50:                                               ; preds = %46
+51:                                               ; preds = %47
   store i64 0, ptr %37, align 8, !tbaa !229
   br label %_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.i.i.i
 
-_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.i.i.i: ; preds = %50, %46
-  %51 = load ptr, ptr %22, align 8, !tbaa !522
-  %52 = load i64, ptr %51, align 8, !tbaa !229
-  %53 = add i64 %52, %.04.i.i.i
-  %54 = load ptr, ptr %9, align 8, !tbaa !156
-  %55 = load ptr, ptr %8, align 8, !tbaa !153
+_ZN13sentencepiece10AddDPNoiseIlEEvRKNS_11TrainerSpecEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPT_.exit.i.i.i: ; preds = %51, %47
+  %52 = load ptr, ptr %22, align 8, !tbaa !522
+  %53 = load i64, ptr %52, align 8, !tbaa !229
+  %54 = add i64 %53, %.04.i.i.i
+  %55 = load ptr, ptr %9, align 8, !tbaa !156
+  %56 = load ptr, ptr %8, align 8, !tbaa !153
   %56 = ptrtoint ptr %54 to i64
   %57 = ptrtoint ptr %55 to i64
   %58 = sub i64 %56, %57

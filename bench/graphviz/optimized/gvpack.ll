@@ -1003,7 +1003,7 @@ _ZL10readGraphsP5GVC_sRSt8optionalI8Agdesc_sE.exit: ; preds = %235
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %331, %338, %_ZL6compBBRSt6vectorIP8Agraph_sSaIS1_EE.exit, %698, %699, %342, %.noexc, %_ZL9initAttrsP8Agraph_sRSt6vectorIS0_SaIS0_EE.exit.i, %._crit_edge.i
+.loopexit.split-lp:                               ; preds = %331, %338, %_ZL6compBBRSt6vectorIP8Agraph_sSaIS1_EE.exit, %702, %703, %342, %.noexc, %_ZL9initAttrsP8Agraph_sRSt6vectorIS0_SaIS0_EE.exit.i, %._crit_edge.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1861,7 +1861,7 @@ _ZNSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ES
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %679 = load i8, ptr @_ZL6doPack, align 1, !tbaa !56, !range !63, !noundef !64
   %680 = trunc nuw i8 %679 to i1
-  br i1 %680, label %681, label %699
+  br i1 %680, label %681, label %703
 
 681:                                              ; preds = %678
   %682 = load ptr, ptr %.ph.ph, align 8, !tbaa !65, !noalias !131
@@ -1909,44 +1909,44 @@ _ZL6compBBRSt6vectorIP8Agraph_sSaIS1_EE.exit:     ; preds = %.lr.ph.i40, %681
   %.sroa.9.0 = phi double [ %.sroa.9.0.copyload48, %681 ], [ %.sroa.speculated3.i, %.lr.ph.i40 ]
   %.sroa.7.0 = phi double [ %.sroa.7.0.copyload46, %681 ], [ %.sroa.speculated6.i, %.lr.ph.i40 ]
   %.sroa.0.0 = phi double [ %.sroa.0.0.copyload44, %681 ], [ %.sroa.speculated9.i, %.lr.ph.i40 ]
-  %696 = load ptr, ptr %418, align 8, !tbaa !81
-  %697 = getelementptr inbounds nuw i8, ptr %696, i64 32
-  store double %.sroa.0.0, ptr %697, align 8, !tbaa !60
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %696, i64 40
+  %700 = load ptr, ptr %418, align 8, !tbaa !81
+  %701 = getelementptr inbounds nuw i8, ptr %700, i64 32
+  store double %.sroa.0.0, ptr %701, align 8, !tbaa !60
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %700, i64 40
   store double %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !60
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %696, i64 48
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %700, i64 48
   store double %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !60
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %696, i64 56
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %700, i64 56
   store double %.sroa.11.0, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !60
   invoke void @dotneato_postprocess(ptr noundef nonnull %345)
           to label %698 unwind label %.loopexit.split-lp
 
-698:                                              ; preds = %_ZL6compBBRSt6vectorIP8Agraph_sSaIS1_EE.exit
+702:                                              ; preds = %_ZL6compBBRSt6vectorIP8Agraph_sSaIS1_EE.exit
   invoke void @attach_attrs(ptr noundef nonnull %345)
           to label %699 unwind label %.loopexit.split-lp
 
-699:                                              ; preds = %698, %678
-  %700 = load ptr, ptr @_ZL5outfp, align 8, !tbaa !38
-  %701 = invoke i32 @agwrite(ptr noundef %345, ptr noundef %700)
+703:                                              ; preds = %702, %678
+  %704 = load ptr, ptr @_ZL5outfp, align 8, !tbaa !38
+  %705 = invoke i32 @agwrite(ptr noundef %345, ptr noundef %704)
           to label %702 unwind label %.loopexit.split-lp
 
-702:                                              ; preds = %699
+706:                                              ; preds = %703
   call fastcc void @_ZL13graphviz_exiti(i32 noundef 0) #32
   unreachable
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit.split-lp.i.i, %.loopexit.split-lp.i24
   %.pn = phi { ptr, i32 } [ %.pn.i.i, %.loopexit.split-lp.i.i ], [ %.pn88.pn.i, %.loopexit.split-lp.i24 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i42 = icmp eq ptr %.ph.ph, null
-  br i1 %.not.i.i.i42, label %_ZNSt6vectorIP8Agraph_sSaIS1_EED2Ev.exit, label %703
+  br i1 %.not.i.i.i42, label %_ZNSt6vectorIP8Agraph_sSaIS1_EED2Ev.exit, label %707
 
-703:                                              ; preds = %.body
-  %704 = ptrtoint ptr %.ph238.ph to i64
-  %705 = ptrtoint ptr %.ph.ph to i64
-  %706 = sub i64 %704, %705
-  call void @_ZdlPvm(ptr noundef nonnull %.ph.ph, i64 noundef %706) #30
+707:                                              ; preds = %.body
+  %708 = ptrtoint ptr %.ph238.ph to i64
+  %709 = ptrtoint ptr %.ph.ph to i64
+  %710 = sub i64 %708, %709
+  call void @_ZdlPvm(ptr noundef nonnull %.ph.ph, i64 noundef %710) #30
   br label %_ZNSt6vectorIP8Agraph_sSaIS1_EED2Ev.exit
 
-_ZNSt6vectorIP8Agraph_sSaIS1_EED2Ev.exit:         ; preds = %.body, %703
+_ZNSt6vectorIP8Agraph_sSaIS1_EED2Ev.exit:         ; preds = %.body, %707
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %common.resume
 }

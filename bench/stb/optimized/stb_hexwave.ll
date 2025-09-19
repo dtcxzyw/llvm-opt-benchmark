@@ -24,8 +24,8 @@ define void @hexwave_change(ptr noundef writeonly captures(none) initializes((24
   %14 = select i1 %12, float 0.000000e+00, float %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %14, ptr %15, align 4, !tbaa !12
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %16, align 4, !tbaa !13
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 1, ptr %17, align 4, !tbaa !13
   ret void
 }
 
@@ -46,7 +46,7 @@ define void @hexwave_create(ptr noundef captures(none) initializes((0, 300)) %0,
   %14 = select i1 %12, float 0.000000e+00, float %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %14, ptr %15, align 4, !tbaa !12
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !14
   store i32 0, ptr %16, align 4, !tbaa !13

@@ -1697,7 +1697,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
 5:                                                ; preds = %3
   %6 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.14, i64 noundef %2, i64 noundef 2, i64 noundef 2) #16
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %119, label %7
+  br i1 %.not, label %120, label %7
 
 7:                                                ; preds = %3, %5
   %8 = load ptr, ptr %1, align 8, !tbaa !12
@@ -1762,7 +1762,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
 .thread.i:                                        ; preds = %31
   %34 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
   tail call void @PyErr_SetString(ptr noundef %34, ptr noundef nonnull @.str.62) #16
-  br label %106
+  br label %107
 
 35:                                               ; preds = %31
   %36 = icmp sgt i64 %.067.val.i, 16
@@ -1776,7 +1776,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
 
 .thread3.i:                                       ; preds = %37
   %41 = tail call ptr @PyErr_NoMemory() #16
-  br label %105
+  br label %106
 
 42:                                               ; preds = %35
   %43 = icmp sgt i64 %.067.val.i, 0
@@ -1816,7 +1816,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
 56:                                               ; preds = %53
   %57 = tail call ptr @PyErr_Occurred() #16
   %.not96.i = icmp eq ptr %57, null
-  br i1 %.not96.i, label %63, label %104
+  br i1 %.not96.i, label %63, label %105
 
 58:                                               ; preds = %52
   %59 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %48) #16
@@ -1826,7 +1826,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
 61:                                               ; preds = %58
   %62 = tail call ptr @PyErr_Occurred() #16
   %.not95.i = icmp eq ptr %62, null
-  br i1 %.not95.i, label %63, label %104
+  br i1 %.not95.i, label %63, label %105
 
 63:                                               ; preds = %61, %58, %56, %53, %50
   %.071.i = phi double [ %.val122.i, %50 ], [ -1.000000e+00, %56 ], [ %54, %53 ], [ -1.000000e+00, %61 ], [ %59, %58 ]
@@ -1854,7 +1854,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
 73:                                               ; preds = %70
   %74 = tail call ptr @PyErr_Occurred() #16
   %.not100.i = icmp eq ptr %74, null
-  br i1 %.not100.i, label %80, label %104
+  br i1 %.not100.i, label %80, label %105
 
 75:                                               ; preds = %69
   %76 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %65) #16
@@ -1864,7 +1864,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
 78:                                               ; preds = %75
   %79 = tail call ptr @PyErr_Occurred() #16
   %.not99.i = icmp eq ptr %79, null
-  br i1 %.not99.i, label %80, label %104
+  br i1 %.not99.i, label %80, label %105
 
 80:                                               ; preds = %78, %75, %73, %70, %67
   %.070.i = phi double [ %.val121.i, %67 ], [ -1.000000e+00, %73 ], [ %71, %70 ], [ -1.000000e+00, %78 ], [ %76, %75 ]
@@ -1881,106 +1881,106 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %exitcond.not.i, label %._crit_edge.i, label %46, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %80
-  %88 = call fastcc double @vector_norm(i64 noundef %.067.val.i, ptr noundef %.131.i, double noundef %.173.i, i32 noundef %86)
+  %89 = call fastcc double @vector_norm(i64 noundef %.067.val.i, ptr noundef %.131.i, double noundef %.173.i, i32 noundef %86)
   %.not90.i = icmp eq ptr %.131.i, %4
-  br i1 %.not90.i, label %._crit_edge.thread.i, label %89
+  br i1 %.not90.i, label %._crit_edge.thread.i, label %90
 
-89:                                               ; preds = %._crit_edge.i
+90:                                               ; preds = %._crit_edge.i
   call void @PyMem_Free(ptr noundef nonnull %.131.i) #16
   br label %._crit_edge.thread.i
 
-._crit_edge.thread.i:                             ; preds = %42, %89, %._crit_edge.i
-  %90 = phi double [ %88, %89 ], [ %88, %._crit_edge.i ], [ 0.000000e+00, %42 ]
-  br i1 %.not.not.not.not.i, label %91, label %Py_DECREF.exit109.i
+._crit_edge.thread.i:                             ; preds = %42, %90, %._crit_edge.i
+  %91 = phi double [ %89, %89 ], [ %89, %._crit_edge.i ], [ 0.000000e+00, %42 ]
+  br i1 %.not.not.not.not.i, label %92, label %Py_DECREF.exit109.i
 
-91:                                               ; preds = %._crit_edge.thread.i
-  %92 = load i32, ptr %.067.i, align 8, !tbaa !13
-  %.not.i108.i = icmp sgt i32 %92, -1
-  br i1 %.not.i108.i, label %93, label %Py_DECREF.exit109.i
+92:                                               ; preds = %._crit_edge.thread.i
+  %93 = load i32, ptr %.067.i, align 8, !tbaa !13
+  %.not.i108.i = icmp sgt i32 %93, -1
+  br i1 %.not.i108.i, label %94, label %Py_DECREF.exit109.i
 
-93:                                               ; preds = %91
-  %94 = add nsw i32 %92, -1
-  store i32 %94, ptr %.067.i, align 8, !tbaa !13
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %Py_DECREF.exit109.i
+94:                                               ; preds = %92
+  %95 = add nsw i32 %93, -1
+  store i32 %95, ptr %.067.i, align 8, !tbaa !13
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %97, label %Py_DECREF.exit109.i
 
-96:                                               ; preds = %93
+97:                                               ; preds = %94
   call void @_Py_Dealloc(ptr noundef nonnull %.067.i) #16
   br label %Py_DECREF.exit109.i
 
-Py_DECREF.exit109.i:                              ; preds = %96, %93, %91, %._crit_edge.thread.i
-  br i1 %.not88.not.not.i, label %97, label %Py_DECREF.exit107.i
+Py_DECREF.exit109.i:                              ; preds = %97, %94, %92, %._crit_edge.thread.i
+  br i1 %.not88.not.not.i, label %98, label %Py_DECREF.exit107.i
 
-97:                                               ; preds = %Py_DECREF.exit109.i
-  %98 = load i32, ptr %.069.i, align 8, !tbaa !13
-  %.not.i106.i = icmp sgt i32 %98, -1
-  br i1 %.not.i106.i, label %99, label %Py_DECREF.exit107.i
+98:                                               ; preds = %Py_DECREF.exit109.i
+  %99 = load i32, ptr %.069.i, align 8, !tbaa !13
+  %.not.i106.i = icmp sgt i32 %99, -1
+  br i1 %.not.i106.i, label %100, label %Py_DECREF.exit107.i
 
-99:                                               ; preds = %97
-  %100 = add nsw i32 %98, -1
-  store i32 %100, ptr %.069.i, align 8, !tbaa !13
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %Py_DECREF.exit107.i
+100:                                              ; preds = %98
+  %101 = add nsw i32 %99, -1
+  store i32 %101, ptr %.069.i, align 8, !tbaa !13
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %103, label %Py_DECREF.exit107.i
 
-102:                                              ; preds = %99
+103:                                              ; preds = %100
   call void @_Py_Dealloc(ptr noundef nonnull %.069.i) #16
   br label %Py_DECREF.exit107.i
 
-Py_DECREF.exit107.i:                              ; preds = %102, %99, %97, %Py_DECREF.exit109.i
-  %103 = call ptr @PyFloat_FromDouble(double noundef %90) #16
+Py_DECREF.exit107.i:                              ; preds = %103, %100, %98, %Py_DECREF.exit109.i
+  %104 = call ptr @PyFloat_FromDouble(double noundef %91) #16
   br label %math_dist_impl.exit
 
-104:                                              ; preds = %78, %73, %61, %56
+105:                                              ; preds = %78, %73, %61, %56
   %.not101.i = icmp eq ptr %.131.i, %4
-  br i1 %.not101.i, label %106, label %105
+  br i1 %.not101.i, label %107, label %106
 
-105:                                              ; preds = %104, %.thread3.i
+106:                                              ; preds = %105, %.thread3.i
   %.06.i = phi ptr [ null, %.thread3.i ], [ %.131.i, %104 ]
   call void @PyMem_Free(ptr noundef %.06.i) #16
-  br label %106
+  br label %107
 
-106:                                              ; preds = %105, %104, %.thread.i
-  br i1 %.not.not.not.not.i, label %107, label %Py_DECREF.exit105.i
+107:                                              ; preds = %106, %105, %.thread.i
+  br i1 %.not.not.not.not.i, label %108, label %Py_DECREF.exit105.i
 
-107:                                              ; preds = %106
-  %108 = load i32, ptr %.067.i, align 8, !tbaa !13
-  %.not.i104.i = icmp sgt i32 %108, -1
-  br i1 %.not.i104.i, label %109, label %Py_DECREF.exit105.i
+108:                                              ; preds = %107
+  %109 = load i32, ptr %.067.i, align 8, !tbaa !13
+  %.not.i104.i = icmp sgt i32 %109, -1
+  br i1 %.not.i104.i, label %110, label %Py_DECREF.exit105.i
 
-109:                                              ; preds = %107
-  %110 = add nsw i32 %108, -1
-  store i32 %110, ptr %.067.i, align 8, !tbaa !13
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %Py_DECREF.exit105.i
+110:                                              ; preds = %108
+  %111 = add nsw i32 %109, -1
+  store i32 %111, ptr %.067.i, align 8, !tbaa !13
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %Py_DECREF.exit105.i
 
-112:                                              ; preds = %109
+113:                                              ; preds = %110
   call void @_Py_Dealloc(ptr noundef nonnull %.067.i) #16
   br label %Py_DECREF.exit105.i
 
-Py_DECREF.exit105.i:                              ; preds = %112, %109, %107, %106
-  br i1 %.not88.not.not.i, label %113, label %math_dist_impl.exit
+Py_DECREF.exit105.i:                              ; preds = %113, %110, %108, %107
+  br i1 %.not88.not.not.i, label %114, label %math_dist_impl.exit
 
-113:                                              ; preds = %Py_DECREF.exit105.i
-  %114 = load i32, ptr %.069.i, align 8, !tbaa !13
-  %.not.i.i = icmp sgt i32 %114, -1
-  br i1 %.not.i.i, label %115, label %math_dist_impl.exit
+114:                                              ; preds = %Py_DECREF.exit105.i
+  %115 = load i32, ptr %.069.i, align 8, !tbaa !13
+  %.not.i.i = icmp sgt i32 %115, -1
+  br i1 %.not.i.i, label %116, label %math_dist_impl.exit
 
-115:                                              ; preds = %113
-  %116 = add nsw i32 %114, -1
-  store i32 %116, ptr %.069.i, align 8, !tbaa !13
-  %117 = icmp eq i32 %116, 0
-  br i1 %117, label %118, label %math_dist_impl.exit
+116:                                              ; preds = %114
+  %117 = add nsw i32 %115, -1
+  store i32 %117, ptr %.069.i, align 8, !tbaa !13
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %119, label %math_dist_impl.exit
 
-118:                                              ; preds = %115
+119:                                              ; preds = %116
   call void @_Py_Dealloc(ptr noundef nonnull %.069.i) #16
   br label %math_dist_impl.exit
 
-math_dist_impl.exit:                              ; preds = %14, %24, %25, %27, %30, %Py_DECREF.exit107.i, %Py_DECREF.exit105.i, %113, %115, %118
-  %.066.i = phi ptr [ %103, %Py_DECREF.exit107.i ], [ null, %14 ], [ null, %24 ], [ null, %Py_DECREF.exit105.i ], [ null, %25 ], [ null, %27 ], [ null, %30 ], [ null, %113 ], [ null, %115 ], [ null, %118 ]
+math_dist_impl.exit:                              ; preds = %14, %24, %25, %27, %30, %Py_DECREF.exit107.i, %Py_DECREF.exit105.i, %114, %116, %119
+  %.066.i = phi ptr [ %104, %Py_DECREF.exit107.i ], [ null, %14 ], [ null, %24 ], [ null, %Py_DECREF.exit105.i ], [ null, %25 ], [ null, %27 ], [ null, %30 ], [ null, %113 ], [ null, %115 ], [ null, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %119
+  br label %120
 
-119:                                              ; preds = %5, %math_dist_impl.exit
+120:                                              ; preds = %5, %math_dist_impl.exit
   %.0 = phi ptr [ %.066.i, %math_dist_impl.exit ], [ null, %5 ]
   ret ptr %.0
 }
@@ -3419,7 +3419,7 @@ define internal ptr @math_hypot(ptr readnone captures(none) %0, ptr noundef read
 23:                                               ; preds = %20
   %24 = tail call ptr @PyErr_Occurred() #16
   %.not49.i = icmp eq ptr %24, null
-  br i1 %.not49.i, label %30, label %41
+  br i1 %.not49.i, label %30, label %42
 
 25:                                               ; preds = %19
   %26 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %15) #16
@@ -3429,7 +3429,7 @@ define internal ptr @math_hypot(ptr readnone captures(none) %0, ptr noundef read
 28:                                               ; preds = %25
   %29 = tail call ptr @PyErr_Occurred() #16
   %.not48.i = icmp eq ptr %29, null
-  br i1 %.not48.i, label %30, label %41
+  br i1 %.not48.i, label %30, label %42
 
 30:                                               ; preds = %28, %25, %23, %20, %17
   %.035.i = phi double [ %.val52.i, %17 ], [ -1.000000e+00, %23 ], [ %21, %20 ], [ -1.000000e+00, %28 ], [ %26, %25 ]
@@ -3445,29 +3445,29 @@ define internal ptr @math_hypot(ptr readnone captures(none) %0, ptr noundef read
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !44
 
 ._crit_edge.i:                                    ; preds = %30
-  %37 = call fastcc double @vector_norm(i64 noundef %2, ptr noundef %.016.i, double noundef %.1.i, i32 noundef %35)
+  %38 = call fastcc double @vector_norm(i64 noundef %2, ptr noundef %.016.i, double noundef %.1.i, i32 noundef %35)
   %.not.i = icmp eq ptr %.016.i, %4
-  br i1 %.not.i, label %._crit_edge.thread.i, label %38
+  br i1 %.not.i, label %._crit_edge.thread.i, label %39
 
-38:                                               ; preds = %._crit_edge.i
+39:                                               ; preds = %._crit_edge.i
   call void @PyMem_Free(ptr noundef nonnull %.016.i) #16
   br label %._crit_edge.thread.i
 
-._crit_edge.thread.i:                             ; preds = %12, %38, %._crit_edge.i
-  %39 = phi double [ %37, %38 ], [ %37, %._crit_edge.i ], [ 0.000000e+00, %12 ]
-  %40 = call ptr @PyFloat_FromDouble(double noundef %39) #16
+._crit_edge.thread.i:                             ; preds = %12, %39, %._crit_edge.i
+  %40 = phi double [ %38, %38 ], [ %38, %._crit_edge.i ], [ 0.000000e+00, %12 ]
+  %41 = call ptr @PyFloat_FromDouble(double noundef %40) #16
   br label %math_hypot_impl.exit
 
-41:                                               ; preds = %28, %23
+42:                                               ; preds = %28, %23
   %.not50.i = icmp eq ptr %.016.i, %4
-  br i1 %.not50.i, label %math_hypot_impl.exit, label %42
+  br i1 %.not50.i, label %math_hypot_impl.exit, label %43
 
-42:                                               ; preds = %41
+43:                                               ; preds = %42
   call void @PyMem_Free(ptr noundef nonnull %.016.i) #16
   br label %math_hypot_impl.exit
 
-math_hypot_impl.exit:                             ; preds = %10, %._crit_edge.thread.i, %41, %42
-  %.034.i = phi ptr [ %11, %10 ], [ %40, %._crit_edge.thread.i ], [ null, %42 ], [ null, %41 ]
+math_hypot_impl.exit:                             ; preds = %10, %._crit_edge.thread.i, %42, %43
+  %.034.i = phi ptr [ %11, %10 ], [ %41, %._crit_edge.thread.i ], [ null, %42 ], [ null, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.034.i
 }

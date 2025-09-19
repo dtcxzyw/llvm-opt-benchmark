@@ -1705,14 +1705,14 @@ _ZNK6vectorIN1q5queue5entryELb0EjE4sizeEv.exit:   ; preds = %._crit_edge, %19
   %.sroa.speculated = tail call float @llvm.maxnum.f32(float %28, float %.02531)
   br label %31
 
-29:                                               ; preds = %25
+29:; preds = %25
   %30 = load float, ptr %26, align 8, !tbaa !532
   br label %31
 
-31:                                               ; preds = %27, %29, %.lr.ph
+31:; preds = %27, %29, %.lr.ph
   %.128 = phi float [ %.02730, %.lr.ph ], [ %.sroa.speculated22, %27 ], [ %30, %29 ]
   %.126 = phi float [ %.02531, %.lr.ph ], [ %.sroa.speculated, %27 ], [ %30, %29 ]
-  %.1 = phi i1 [ %.033, %.lr.ph ], [ true, %27 ], [ true, %29 ]
+  %.128 = phi i1 [ %.033, %.lr.ph ], [ true, %27 ], [ true, %29 ]
   %32 = getelementptr inbounds nuw i8, ptr %.01732, i64 16
   %.not = icmp eq ptr %32, %10
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph

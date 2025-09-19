@@ -757,7 +757,7 @@ define weak_odr void @_ZN7mitsuba18DirectionalEmitterIfN5drjit6MatrixINS_8Spectr
   %9 = bitcast <8 x i1> %8 to i8
   %10 = and i8 %9, 7
   %11 = icmp eq i8 %10, 7
-  br i1 %11, label %12, label %24
+  br i1 %11, label %12, label %25
 
 12:                                               ; preds = %2
   %13 = tail call noundef nonnull align 16 dereferenceable(32) ptr @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4bboxEv(ptr noundef nonnull align 16 dereferenceable(345) %1)
@@ -778,13 +778,13 @@ define weak_odr void @_ZN7mitsuba18DirectionalEmitterIfN5drjit6MatrixINS_8Spectr
   %..i = tail call contract noundef float @llvm.maxnum.f32(float %23, float 0x3F17700000000000)
   br label %24
 
-24:                                               ; preds = %2, %12
+25:                                               ; preds = %2, %12
   %.sink7 = phi <4 x float> [ %18, %12 ], [ zeroinitializer, %2 ]
   %.sink = phi float [ %..i, %12 ], [ 0x3F17700000000000, %2 ]
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store <4 x float> %.sink7, ptr %25, align 16
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store float %.sink, ptr %26, align 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store <4 x float> %.sink7, ptr %26, align 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store float %.sink, ptr %27, align 16
   ret void
 }
 
@@ -1369,8 +1369,8 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   store float %61, ptr %.sroa.9.0..sroa_idx, align 16
   %.sroa.10305.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %.sroa.10305.0..sroa_idx, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %66, ptr noundef nonnull align 16 dereferenceable(256) %.sroa.0.i293, i64 256, i1 false)
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %67, ptr noundef nonnull align 16 dereferenceable(256) %.sroa.0.i293, i64 256, i1 false)
   ret void
 }
 

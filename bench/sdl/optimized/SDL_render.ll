@@ -4014,7 +4014,7 @@ define hidden noundef zeroext i1 @SDL_GetTextureColorMod_REAL(ptr noundef %0, pt
 
 11:                                               ; preds = %10, %9
   %.not23 = icmp eq ptr %3, null
-  br i1 %.not23, label %43, label %.sink.split
+  br i1 %.not23, label %46, label %.sink.split
 
 12:                                               ; preds = %4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -4024,69 +4024,69 @@ define hidden noundef zeroext i1 @SDL_GetTextureColorMod_REAL(ptr noundef %0, pt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload.i = load float, ptr %13, align 8
   %.not24 = icmp eq ptr %1, null
-  br i1 %.not24, label %23, label %14
+  br i1 %.not24, label %24, label %14
 
 14:                                               ; preds = %12
   %15 = fcmp olt float %.sroa.0.0.copyload.i, 0.000000e+00
-  br i1 %15, label %19, label %16
+  br i1 %15, label %20, label %16
 
 16:                                               ; preds = %14
   %17 = tail call float @llvm.minnum.f32(float %.sroa.0.0.copyload.i, float 1.000000e+00)
   %18 = fmul float %17, 2.550000e+02
   br label %19
 
-19:                                               ; preds = %14, %16
-  %20 = phi float [ %18, %16 ], [ 0.000000e+00, %14 ]
-  %21 = tail call float @SDL_roundf_REAL(float noundef %20) #15
-  %22 = fptoui float %21 to i8
-  store i8 %22, ptr %1, align 1
-  br label %23
+20:                                               ; preds = %14, %16
+  %21 = phi float [ %19, %16 ], [ 0.000000e+00, %14 ]
+  %22 = tail call float @SDL_roundf_REAL(float noundef %21) #15
+  %23 = fptoui float %22 to i8
+  store i8 %23, ptr %1, align 1
+  br label %24
 
-23:                                               ; preds = %19, %12
+24:                                               ; preds = %20, %12
   %.not25 = icmp eq ptr %2, null
-  br i1 %.not25, label %33, label %24
+  br i1 %.not25, label %35, label %25
 
-24:                                               ; preds = %23
-  %25 = fcmp olt float %.sroa.4.0.copyload.i, 0.000000e+00
-  br i1 %25, label %29, label %26
+25:                                               ; preds = %24
+  %26 = fcmp olt float %.sroa.4.0.copyload.i, 0.000000e+00
+  br i1 %26, label %31, label %27
 
-26:                                               ; preds = %24
+27:                                               ; preds = %25
   %27 = tail call float @llvm.minnum.f32(float %.sroa.4.0.copyload.i, float 1.000000e+00)
   %28 = fmul float %27, 2.550000e+02
   br label %29
 
-29:                                               ; preds = %24, %26
-  %30 = phi float [ %28, %26 ], [ 0.000000e+00, %24 ]
-  %31 = tail call float @SDL_roundf_REAL(float noundef %30) #15
-  %32 = fptoui float %31 to i8
-  store i8 %32, ptr %2, align 1
-  br label %33
+31:                                               ; preds = %25, %27
+  %32 = phi float [ %28, %26 ], [ 0.000000e+00, %24 ]
+  %33 = tail call float @SDL_roundf_REAL(float noundef %32) #15
+  %34 = fptoui float %33 to i8
+  store i8 %34, ptr %2, align 1
+  br label %35
 
-33:                                               ; preds = %29, %23
+35:                                               ; preds = %31, %24
   %.not26 = icmp eq ptr %3, null
-  br i1 %.not26, label %43, label %34
+  br i1 %.not26, label %46, label %36
 
-34:                                               ; preds = %33
-  %35 = fcmp olt float %.sroa.5.0.copyload.i, 0.000000e+00
-  br i1 %35, label %39, label %36
+36:                                               ; preds = %35
+  %37 = fcmp olt float %.sroa.5.0.copyload.i, 0.000000e+00
+  br i1 %37, label %42, label %38
 
-36:                                               ; preds = %34
+38:                                               ; preds = %36
   %37 = tail call float @llvm.minnum.f32(float %.sroa.5.0.copyload.i, float 1.000000e+00)
   %38 = fmul float %37, 2.550000e+02
-  br label %39
+  br label %42
 
-39:                                               ; preds = %34, %36
-  %40 = phi float [ %38, %36 ], [ 0.000000e+00, %34 ]
-  %41 = tail call float @SDL_roundf_REAL(float noundef %40) #15
-  %42 = fptoui float %41 to i8
+42:                                               ; preds = %36, %38
+  %43 = phi float [ %38, %36 ], [ 0.000000e+00, %34 ]
+  %44 = tail call float @SDL_roundf_REAL(float noundef %43) #15
+  %45 = fptoui float %44 to i8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %11, %39
-  %.sink = phi i8 [ %42, %39 ], [ -1, %11 ]
+.sink.split:                                      ; preds = %11, %42
+  %.sink = phi i8 [ %45, %39 ], [ -1, %11 ]
   store i8 %.sink, ptr %3, align 1
-  br label %43
+  br label %46
 
-43:                                               ; preds = %.sink.split, %33, %11
+46:                                               ; preds = %.sink.split, %35, %11
   ret i1 %5
 }
 
@@ -4219,35 +4219,35 @@ define hidden noundef zeroext i1 @SDL_GetTextureAlphaMod_REAL(ptr noundef %0, pt
 4:                                                ; preds = %2
   %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52) #15
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %18, label %.sink.split
+  br i1 %.not, label %19, label %.sink.split
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %8 = load float, ptr %7, align 4
   %.not8 = icmp eq ptr %1, null
-  br i1 %.not8, label %18, label %9
+  br i1 %.not8, label %19, label %9
 
 9:                                                ; preds = %6
   %10 = fcmp olt float %8, 0.000000e+00
-  br i1 %10, label %14, label %11
+  br i1 %10, label %15, label %11
 
 11:                                               ; preds = %9
   %12 = tail call float @llvm.minnum.f32(float %8, float 1.000000e+00)
   %13 = fmul float %12, 2.550000e+02
-  br label %14
+  br label %15
 
-14:                                               ; preds = %9, %11
-  %15 = phi float [ %13, %11 ], [ 0.000000e+00, %9 ]
-  %16 = tail call float @SDL_roundf_REAL(float noundef %15) #15
-  %17 = fptoui float %16 to i8
+15:                                               ; preds = %9, %11
+  %16 = phi float [ %13, %11 ], [ 0.000000e+00, %9 ]
+  %17 = tail call float @SDL_roundf_REAL(float noundef %16) #15
+  %18 = fptoui float %17 to i8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %4, %14
-  %.sink = phi i8 [ %17, %14 ], [ -1, %4 ]
+.sink.split:                                      ; preds = %4, %15
+  %.sink = phi i8 [ %18, %14 ], [ -1, %4 ]
   store i8 %.sink, ptr %1, align 1
-  br label %18
+  br label %19
 
-18:                                               ; preds = %.sink.split, %6, %4
+19:                                               ; preds = %.sink.split, %6, %4
   ret i1 %3
 }
 

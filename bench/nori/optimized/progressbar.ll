@@ -351,16 +351,16 @@ _ZN7nanogui5ColorC2Eii.exit76:                    ; preds = %113
   call void @nvgBoxGradient(ptr dead_on_unwind nonnull writable sret(%struct.NVGpaint) align 4 %20, ptr noundef %1, float noundef %131, float noundef %130, float noundef %129, float noundef %122, float noundef 3.000000e+00, float noundef 4.000000e+00, <2 x float> %.sroa.0.0.copyload.i.i.i48, <2 x float> %.sroa.382.12.vec.insert, ptr noundef nonnull byval(%struct.NVGcolor) align 8 %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %18, ptr noundef nonnull align 4 dereferenceable(76) %20, i64 76, i1 false)
   call void @nvgBeginPath(ptr noundef %1)
-  %132 = load i32, ptr %22, align 8
-  %133 = add nsw i32 %132, 1
-  %134 = sitofp i32 %133 to float
-  %135 = load i32, ptr %24, align 4
-  %136 = add nsw i32 %135, 1
-  %137 = sitofp i32 %136 to float
-  %138 = load i32, ptr %28, align 4
-  %139 = add nsw i32 %138, -2
-  %140 = sitofp i32 %139 to float
-  call void @nvgRoundedRect(ptr noundef %1, float noundef %134, float noundef %137, float noundef %128, float noundef %140, float noundef 3.000000e+00)
+  %134 = load i32, ptr %22, align 8
+  %135 = add nsw i32 %134, 1
+  %136 = sitofp i32 %135 to float
+  %137 = load i32, ptr %24, align 4
+  %138 = add nsw i32 %137, 1
+  %139 = sitofp i32 %138 to float
+  %140 = load i32, ptr %28, align 4
+  %141 = add nsw i32 %140, -2
+  %142 = sitofp i32 %141 to float
+  call void @nvgRoundedRect(ptr noundef %1, float noundef %136, float noundef %139, float noundef %128, float noundef %142, float noundef 3.000000e+00)
   call void @nvgFillPaint(ptr noundef %1, ptr noundef nonnull byval(%struct.NVGpaint) align 8 %18)
   call void @nvgFill(ptr noundef %1)
   ret void
@@ -383,14 +383,14 @@ declare void @nvgFill(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7nanogui11ProgressBarD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #12
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7nanogui11ProgressBarD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void
 }
 
@@ -438,7 +438,7 @@ declare float @llvm.minnum.f32(float, float) #10
 declare float @llvm.maxnum.f32(float, float) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }

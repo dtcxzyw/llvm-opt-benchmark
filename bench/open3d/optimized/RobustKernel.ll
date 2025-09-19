@@ -46,7 +46,7 @@ $_ZTSN6open3d9pipelines12registration12RobustKernelE = comdat any
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d9pipelines12registration9HuberLossD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #7
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #6
   ret void
 }
 
@@ -62,7 +62,7 @@ define noundef double @_ZNK6open3d9pipelines12registration9HuberLoss6WeightEd(pt
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d9pipelines12registration10CauchyLossD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #7
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #6
   ret void
 }
 
@@ -79,7 +79,7 @@ define noundef double @_ZNK6open3d9pipelines12registration10CauchyLoss6WeightEd(
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d9pipelines12registration6GMLossD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #7
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #6
   ret void
 }
 
@@ -96,7 +96,7 @@ define noundef double @_ZNK6open3d9pipelines12registration6GMLoss6WeightEd(ptr n
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d9pipelines12registration9TukeyLossD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #7
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #6
   ret void
 }
 
@@ -116,7 +116,7 @@ define noundef double @_ZNK6open3d9pipelines12registration9TukeyLoss6WeightEd(pt
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d9pipelines12registration6L2LossD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #7
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #6
   ret void
 }
 
@@ -132,7 +132,7 @@ define linkonce_odr void @_ZN6open3d9pipelines12registration12RobustKernelD2Ev(p
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d9pipelines12registration6L1LossD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #7
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #6
   ret void
 }
 

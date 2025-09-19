@@ -1059,11 +1059,11 @@ define dso_local void @_ZN13StatusPrinter29RecalculateProgressPredictionEv(ptr n
   %.not24 = icmp eq i32 %13, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !88
-  %.fr41 = freeze i32 %.pre
+  %.fr43 = freeze i32 %.pre
   br i1 %.not24, label %.thread, label %14
 
 14:                                               ; preds = %11
-  %.not25 = icmp ne i32 %.fr41, 0
+  %.not25 = icmp ne i32 %.fr43, 0
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i64, ptr %15, align 8
   %17 = icmp sgt i64 %16, 14999
@@ -1071,30 +1071,30 @@ define dso_local void @_ZN13StatusPrinter29RecalculateProgressPredictionEv(ptr n
   br i1 %or.cond, label %18, label %.thread
 
 18:                                               ; preds = %14
-  %19 = sitofp i32 %.fr41 to double
+  %19 = sitofp i32 %.fr43 to double
   %20 = sitofp i32 %13 to double
   %21 = fdiv double %19, %20
   %22 = fcmp ult double %21, 5.000000e-02
   br i1 %22, label %.thread, label %24
 
 .thread:                                          ; preds = %11, %18, %14
-  %23 = add nsw i32 %.fr41, %4
+  %23 = add nsw i32 %.fr43, %4
   br label %39
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !89
-  %.fr = freeze i64 %26
-  %27 = sitofp i64 %.fr to double
+  %.fr42 = freeze i64 %26
+  %27 = sitofp i64 %.fr42 to double
   %28 = fdiv double %27, %19
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load i64, ptr %29, align 8, !tbaa !11
-  %.fr42 = freeze i64 %30
-  %31 = sitofp i64 %.fr42 to double
+  %.fr = freeze i64 %30
+  %31 = sitofp i64 %.fr to double
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load i32, ptr %32, align 8, !tbaa !63
-  %.fr43 = freeze i32 %33
-  %34 = sitofp i32 %.fr43 to double
+  %.fr41 = freeze i32 %33
+  %34 = sitofp i32 %.fr41 to double
   %35 = fdiv double %31, %34
   %.sroa.speculated32 = tail call double @llvm.maxnum.f64(double %28, double %35)
   %.sroa.speculated = tail call double @llvm.minnum.f64(double %28, double %35)
@@ -1104,14 +1104,14 @@ define dso_local void @_ZN13StatusPrinter29RecalculateProgressPredictionEv(ptr n
   %spec.select = add nsw i32 %38, %.fr41
   br label %39
 
-39:                                               ; preds = %24, %.thread, %.thread38
+39:; preds = %24, %.thread, %.thread38
   %40 = phi i32 [ %10, %.thread38 ], [ %.fr41, %.thread ], [ %.fr41, %24 ]
   %.0.in36 = phi i1 [ false, %.thread38 ], [ true, %.thread ], [ %37, %24 ]
   %41 = phi i32 [ %10, %.thread38 ], [ %23, %.thread ], [ %spec.select, %24 ]
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %65, label %43
 
-43:                                               ; preds = %39
+41:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %45 = load i32, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1135,12 +1135,12 @@ define dso_local void @_ZN13StatusPrinter29RecalculateProgressPredictionEv(ptr n
   %62 = fcmp oeq double %61, 0.000000e+00
   br i1 %62, label %65, label %63
 
-63:                                               ; preds = %43
+63:; preds = %43
   %64 = fdiv double %60, %61
   store double %64, ptr %2, align 8, !tbaa !87
   br label %65
 
-65:                                               ; preds = %63, %43, %39
+65:; preds = %63, %43, %39
   ret void
 }
 

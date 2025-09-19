@@ -3299,7 +3299,7 @@ define hidden noundef ptr @_ZN13CallGenerator18for_predicted_callEP7ciKlassPS_S2
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 296
   %12 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 48, ptr noundef nonnull %11) #8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %23, label %14
+  br i1 %13, label %25, label %14
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3311,17 +3311,17 @@ define hidden noundef ptr @_ZN13CallGenerator18for_predicted_callEP7ciKlassPS_S2
   %.1.i = tail call float @llvm.maxnum.f32(float %.0.i, float 0x3EB0C6F7A0000000)
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %0, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %1, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %2, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store float %.1.i, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %12, i64 44
-  store i8 1, ptr %22, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store ptr %1, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr %2, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store float %.1.i, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 44
+  store i8 1, ptr %23, align 4
   br label %23
 
-23:                                               ; preds = %14, %4
+25:                                               ; preds = %14, %4
   ret ptr %12
 }
 

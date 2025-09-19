@@ -101046,9 +101046,9 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17hb8515e2df7e710f9E.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i64 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi double [ %.sroa.0.0.in.sroa.speculated.i.i.i.i, %5 ], [ undef, %3 ]
-  %13 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
-  %14 = insertvalue { i64, double } %13, double %.sroa.3.0.i, 1
-  ret { i64, double } %14
+  %14 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
+  %15 = insertvalue { i64, double } %14, double %.sroa.3.0.i, 1
+  ret { i64, double } %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -101175,9 +101175,9 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17hc88ccac15d7b9f55E.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i64 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi double [ %.sroa.0.0.sroa.speculated.i.i.i.i, %5 ], [ undef, %3 ]
-  %9 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
-  %10 = insertvalue { i64, double } %9, double %.sroa.3.0.i, 1
-  ret { i64, double } %10
+  %10 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
+  %11 = insertvalue { i64, double } %10, double %.sroa.3.0.i, 1
+  ret { i64, double } %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -101663,9 +101663,9 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h403fe36c07139bdeE.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i64 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi double [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %5 ], [ undef, %3 ]
-  %10 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
-  %11 = insertvalue { i64, double } %10, double %.sroa.3.0.i, 1
-  ret { i64, double } %11
+  %11 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
+  %12 = insertvalue { i64, double } %11, double %.sroa.3.0.i, 1
+  ret { i64, double } %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -101797,9 +101797,9 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h93398e7f0a4996aaE.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i32 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi float [ %.sroa.0.0.in.sroa.speculated.i.i.i.i, %5 ], [ undef, %3 ]
-  %13 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
-  %14 = insertvalue { i32, float } %13, float %.sroa.3.0.i, 1
-  ret { i32, float } %14
+  %14 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
+  %15 = insertvalue { i32, float } %14, float %.sroa.3.0.i, 1
+  ret { i32, float } %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -101818,9 +101818,9 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17hc948eacbe0dd5c4dE.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i64 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi double [ %.sroa.0.0.sroa.speculated.i.i.i.i, %5 ], [ undef, %3 ]
-  %9 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
-  %10 = insertvalue { i64, double } %9, double %.sroa.3.0.i, 1
-  ret { i64, double } %10
+  %10 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
+  %11 = insertvalue { i64, double } %10, double %.sroa.3.0.i, 1
+  ret { i64, double } %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -101878,9 +101878,9 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h6a3c72a8609970c1E.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i32 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi float [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %5 ], [ undef, %3 ]
-  %10 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
-  %11 = insertvalue { i32, float } %10, float %.sroa.3.0.i, 1
-  ret { i32, float } %11
+  %11 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
+  %12 = insertvalue { i32, float } %11, float %.sroa.3.0.i, 1
+  ret { i32, float } %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -102035,9 +102035,9 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17hc8743adb53d08febE.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i64 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi double [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %5 ], [ undef, %3 ]
-  %10 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
-  %11 = insertvalue { i64, double } %10, double %.sroa.3.0.i, 1
-  ret { i64, double } %11
+  %11 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
+  %12 = insertvalue { i64, double } %11, double %.sroa.3.0.i, 1
+  ret { i64, double } %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -102300,9 +102300,9 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h0a537d0f7e4b4466E.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i32 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi float [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %5 ], [ undef, %3 ]
-  %10 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
-  %11 = insertvalue { i32, float } %10, float %.sroa.3.0.i, 1
-  ret { i32, float } %11
+  %11 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
+  %12 = insertvalue { i32, float } %11, float %.sroa.3.0.i, 1
+  ret { i32, float } %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -102321,9 +102321,9 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h430e1abc48a92f7bE.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i32 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi float [ %.sroa.0.0.sroa.speculated.i.i.i.i, %5 ], [ undef, %3 ]
-  %9 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
-  %10 = insertvalue { i32, float } %9, float %.sroa.3.0.i, 1
-  ret { i32, float } %10
+  %10 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
+  %11 = insertvalue { i32, float } %10, float %.sroa.3.0.i, 1
+  ret { i32, float } %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -102362,9 +102362,9 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
 "_ZN10polars_ops6series3ops4clip10clip_unary28_$u7b$$u7b$closure$u7d$$u7d$17h951a98fb9761c34cE.exit": ; preds = %3, %5
   %.sroa.01.0.i = phi i32 [ 1, %5 ], [ 0, %3 ]
   %.sroa.3.0.i = phi float [ %.sroa.0.0.sroa.speculated.i.i.i.i, %5 ], [ undef, %3 ]
-  %9 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
-  %10 = insertvalue { i32, float } %9, float %.sroa.3.0.i, 1
-  ret { i32, float } %10
+  %10 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
+  %11 = insertvalue { i32, float } %10, float %.sroa.3.0.i, 1
+  ret { i32, float } %11
 }
 
 ; Function Attrs: nonlazybind uwtable

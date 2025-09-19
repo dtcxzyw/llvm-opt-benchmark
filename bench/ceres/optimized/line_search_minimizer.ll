@@ -3757,7 +3757,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i: ; preds = %37
   %65 = shl nsw i64 %64, 1
   %.off.i.i.i.i = add nsw i64 %35, 1
   %.not.i.i.i.i16 = icmp ult i64 %.off.i.i.i.i, 3
-  br i1 %.not.i.i.i.i16, label %170, label %66
+  br i1 %.not.i.i.i.i16, label %172, label %66
 
 66:                                               ; preds = %60
   %67 = load <2 x double>, ptr %61, align 16, !tbaa !78
@@ -3918,8 +3918,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i: ; preds = %37
 .lr.ph85.i.i.i.i.i.i:                             ; preds = %159, %.lr.ph85.i.i.i.i.i.i
   %.05283.i.i.i.i.i.i = phi i64 [ %169, %.lr.ph85.i.i.i.i.i.i ], [ %65, %159 ]
   %.182.i.i.i.i.i.i = phi double [ %168, %.lr.ph85.i.i.i.i.i.i ], [ %160, %159 ]
-  %162 = getelementptr inbounds double, ptr %61, i64 %.05283.i.i.i.i.i.i
-  %163 = getelementptr inbounds double, ptr %.sroa.0.0, i64 %.05283.i.i.i.i.i.i
+  %163 = getelementptr inbounds double, ptr %61, i64 %.05283.i.i.i.i.i.i
+  %164 = getelementptr inbounds double, ptr %.sroa.0.0, i64 %.05283.i.i.i.i.i.i
   %164 = load double, ptr %162, align 8, !tbaa !75
   %165 = load double, ptr %163, align 8, !tbaa !75
   %166 = fsub double %164, %165
@@ -3929,35 +3929,35 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i: ; preds = %37
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %169, %35
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEES7_EEE6lpNormILin1EEEdv.exit, label %.lr.ph85.i.i.i.i.i.i, !llvm.loop !225
 
-170:                                              ; preds = %60
-  %171 = load double, ptr %61, align 8, !tbaa !75
-  %172 = load double, ptr %.sroa.0.0, align 8, !tbaa !75
-  %173 = fsub double %171, %172
-  %174 = fmul double %173, %173
-  %175 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store double %174, ptr %175, align 8, !tbaa !89
-  %176 = load double, ptr %61, align 8, !tbaa !75
-  %177 = fsub double %176, %172
-  %178 = call noundef double @llvm.fabs.f64(double %177)
+172:                                              ; preds = %60
+  %173 = load double, ptr %61, align 8, !tbaa !75
+  %174 = load double, ptr %.sroa.0.0, align 8, !tbaa !75
+  %175 = fsub double %173, %174
+  %176 = fmul double %175, %175
+  %177 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store double %176, ptr %177, align 8, !tbaa !89
+  %178 = load double, ptr %61, align 8, !tbaa !75
+  %179 = fsub double %178, %174
+  %180 = call noundef double @llvm.fabs.f64(double %179)
   br label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEES7_EEE6lpNormILin1EEEdv.exit
 
-_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEES7_EEE6lpNormILin1EEEdv.exit: ; preds = %.lr.ph85.i.i.i.i.i.i, %170, %159, %117
-  %.0.i.i17 = phi double [ 0.000000e+00, %117 ], [ %178, %170 ], [ %160, %159 ], [ %168, %.lr.ph85.i.i.i.i.i.i ]
-  %179 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store double %.0.i.i17, ptr %179, align 8, !tbaa !92
+_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEES7_EEE6lpNormILin1EEEdv.exit: ; preds = %.lr.ph85.i.i.i.i.i.i, %172, %159, %117
+  %.0.i.i17 = phi double [ 0.000000e+00, %117 ], [ %180, %170 ], [ %160, %159 ], [ %168, %.lr.ph85.i.i.i.i.i.i ]
+  %181 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store double %.0.i.i17, ptr %181, align 8, !tbaa !92
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %53, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEES7_EEE6lpNormILin1EEEdv.exit
   call void @free(ptr noundef %.sroa.0.0) #29
-  %180 = load ptr, ptr %5, align 8, !tbaa !70
-  call void @free(ptr noundef %180) #29
+  %182 = load ptr, ptr %5, align 8, !tbaa !70
+  call void @free(ptr noundef %182) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %51
 
 .body:                                            ; preds = %43, %57
   %.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %44, %43 ]
-  %181 = load ptr, ptr %5, align 8, !tbaa !70
-  call void @free(ptr noundef %181) #29
+  %183 = load ptr, ptr %5, align 8, !tbaa !70
+  call void @free(ptr noundef %183) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 }

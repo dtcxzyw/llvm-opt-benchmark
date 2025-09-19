@@ -4328,7 +4328,7 @@ define linkonce_odr dso_local void @_ZN10Platformer4StepER8Settings(ptr noundef 
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %88 = load float, ptr %87, align 4, !tbaa !70
   %89 = fcmp ogt float %88, 0.000000e+00
-  br i1 %89, label %90, label %95
+  br i1 %89, label %90, label %96
 
 90:                                               ; preds = %70
   %91 = load float, ptr %7, align 8, !tbaa !172
@@ -4338,7 +4338,7 @@ define linkonce_odr dso_local void @_ZN10Platformer4StepER8Settings(ptr noundef 
   store float %94, ptr %7, align 8, !tbaa !172
   br label %95
 
-95:                                               ; preds = %90, %70
+96:                                               ; preds = %90, %70
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

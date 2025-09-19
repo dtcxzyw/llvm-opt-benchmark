@@ -26,9 +26,9 @@ define dso_local noundef float @_ZNK12ValueHistory12getSampleMinEv(ptr noundef n
   %.1 = tail call float @llvm.minnum.f32(float %5, float %.068)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %6, label %3, !llvm.loop !5
+  br i1 %exitcond.not, label %7, label %3, !llvm.loop !5
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   ret float %.1
 }
 
@@ -45,9 +45,9 @@ define dso_local noundef float @_ZNK12ValueHistory12getSampleMaxEv(ptr noundef n
   %.1 = tail call float @llvm.maxnum.f32(float %5, float %.068)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %6, label %3, !llvm.loop !7
+  br i1 %exitcond.not, label %7, label %3, !llvm.loop !7
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   ret float %.1
 }
 
@@ -93,7 +93,7 @@ define dso_local void @_ZN11GraphParams13setValueRangeEffiPKc(ptr noundef nonnul
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %3, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %4) #10
+  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %4) #9
   ret void
 }
 
@@ -154,7 +154,7 @@ define dso_local void @_Z19drawGraphBackgroundPK11GraphParams(ptr noundef %0) lo
   %43 = fsub float %42, %41
   %44 = call float @llvm.fmuladd.f32(float %43, float %40, float %41)
   %45 = fpext float %44 to double
-  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str, double noundef %45, ptr noundef nonnull %35) #10
+  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str, double noundef %45, ptr noundef nonnull %35) #9
   %47 = call float @llvm.fmuladd.f32(float %44, float %27, float %32)
   %48 = load i32, ptr %0, align 4
   %49 = load i32, ptr %8, align 4
@@ -285,7 +285,7 @@ _ZNK12ValueHistory10getAverageEv.exit:            ; preds = %60
   %64 = fmul float %63, 3.906250e-03
   %65 = fpext float %64 to double
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str, double noundef %65, ptr noundef nonnull %66) #10
+  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str, double noundef %65, ptr noundef nonnull %66) #9
   %68 = add nsw i32 %52, 25
   %69 = add nsw i32 %57, 3
   tail call void @_Z13imguiDrawTextiiiPKcj(i32 noundef %68, i32 noundef %69, i32 noundef 0, ptr noundef %3, i32 noundef -1056964609)

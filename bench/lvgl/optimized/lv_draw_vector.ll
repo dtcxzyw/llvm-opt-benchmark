@@ -414,7 +414,7 @@ define void @lv_vector_path_get_bounding(ptr noundef %0, ptr noundef %1) local_u
 
 8:                                                ; preds = %4
   tail call void @lv_memset(ptr noundef nonnull %1, i8 noundef zeroext 0, i64 noundef 16) #10
-  br label %29
+  br label %33
 
 9:                                                ; preds = %4
   %10 = tail call ptr @lv_array_front(ptr noundef nonnull %5) #10
@@ -448,7 +448,7 @@ define void @lv_vector_path_get_bounding(ptr noundef %0, ptr noundef %1) local_u
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %23, ptr %24, align 4, !tbaa !26
-  br label %29
+  br label %33
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -468,7 +468,7 @@ define void @lv_vector_path_get_bounding(ptr noundef %0, ptr noundef %1) local_u
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
-29:                                               ; preds = %._crit_edge, %8
+33:                                               ; preds = %._crit_edge, %8
   ret void
 }
 

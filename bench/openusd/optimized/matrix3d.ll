@@ -1696,7 +1696,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3d25ExtractRotation
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %24 = fadd double %13, 1.000000e+00
-  %25 = tail call double @sqrt(double noundef %24) #19
+  %25 = tail call double @sqrt(double noundef %24) #18
   %26 = fmul double %25, 5.000000e-01
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %28 = load double, ptr %27, align 8
@@ -1743,7 +1743,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3d25ExtractRotation
   %64 = load double, ptr %63, align 8
   %65 = fsub double %58, %64
   %66 = fadd double %65, 1.000000e+00
-  %67 = tail call double @sqrt(double noundef %66) #19
+  %67 = tail call double @sqrt(double noundef %66) #18
   %68 = fmul double %67, 5.000000e-01
   %69 = getelementptr inbounds nuw double, ptr %3, i64 %17
   store double %68, ptr %69, align 8
@@ -1778,8 +1778,8 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3d25ExtractRotation
   %..i = tail call double @llvm.minnum.f64(double %.033, double 1.000000e+00)
   %.0.i = select i1 %92, double -1.000000e+00, double %..i
   store double %.0.i, ptr %0, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   ret void
 }
 
@@ -1863,7 +1863,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.8() #11 section ".text.startup" {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_RegistryInitCtorEPKc(ptr noundef nonnull @.str)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_RegistryStaticInitD2Ev, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__15Arch_PerLibInitINS_12_GLOBAL__N_121Tf_RegistryStaticInitEE4initE, ptr nonnull @__dso_handle) #19
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_RegistryStaticInitD2Ev, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__15Arch_PerLibInitINS_12_GLOBAL__N_121Tf_RegistryStaticInitEE4initE, ptr nonnull @__dso_handle) #18
   ret void
 }
 
@@ -1879,7 +1879,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_Re
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #20
+  tail call void @__clang_call_terminate(ptr %5) #19
   unreachable
 }
 
@@ -1905,8 +1905,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #14 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
-  tail call void @_ZSt9terminatev() #20
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
+  tail call void @_ZSt9terminatev() #19
   unreachable
 }
 

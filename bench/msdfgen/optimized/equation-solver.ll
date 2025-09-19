@@ -40,7 +40,7 @@ if.end7:                                          ; preds = %lor.lhs.false
   br i1 %cmp11, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.end7
-  %call = tail call double @sqrt(double noundef %3) #4
+  %call = tail call double @sqrt(double noundef %3) #3
   %fneg13 = fneg double %b
   %add = fsub double %call, %b
   %mul14 = fmul double %a, 2.000000e+00
@@ -108,7 +108,7 @@ if.then2:                                         ; preds = %if.then
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then2
-  %call.i = tail call double @sqrt(double noundef %mul10.i) #4
+  %call.i = tail call double @sqrt(double noundef %mul10.i) #3
   %div.i = fdiv double %mul7.i, %call.i
   %t.0.i = tail call double @llvm.maxnum.f64(double %div.i, double -1.000000e+00)
   %t.1.i = tail call double @llvm.minnum.f64(double %t.0.i, double 1.000000e+00)
@@ -116,19 +116,19 @@ if.then.i:                                        ; preds = %if.then2
   %call18.i = tail call double @sqrt(double noundef %mul2.i) #4
   %mul19.i = fmul double %call18.i, -2.000000e+00
   %mul20.i = fmul double %call17.i, 0x3FD5555555555555
-  %call21.i = tail call double @cos(double noundef %mul20.i) #4
+  %call21.i = tail call double @cos(double noundef %mul20.i) #3
   %neg23.i = fneg double %mul11.i
   %4 = tail call double @llvm.fmuladd.f64(double %mul19.i, double %call21.i, double %neg23.i)
   store double %4, ptr %x, align 8
   %add.i = fadd double %call17.i, 0x401921FB54442D18
   %mul24.i = fmul double %add.i, 0x3FD5555555555555
-  %call25.i = tail call double @cos(double noundef %mul24.i) #4
+  %call25.i = tail call double @cos(double noundef %mul24.i) #3
   %5 = tail call double @llvm.fmuladd.f64(double %mul19.i, double %call25.i, double %neg23.i)
   %arrayidx28.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   store double %5, ptr %arrayidx28.i, align 8
   %sub.i = fadd double %call17.i, 0xC01921FB54442D18
   %mul29.i = fmul double %sub.i, 0x3FD5555555555555
-  %call30.i = tail call double @cos(double noundef %mul29.i) #4
+  %call30.i = tail call double @cos(double noundef %mul29.i) #3
   %6 = tail call double @llvm.fmuladd.f64(double %mul19.i, double %call30.i, double %neg23.i)
   br label %return.sink.split.i
 
@@ -136,9 +136,9 @@ if.else.i:                                        ; preds = %if.then2
   %cmp34.i = fcmp olt double %mul7.i, 0.000000e+00
   %7 = tail call double @llvm.fabs.f64(double %mul7.i)
   %sub35.i = fsub double %mul8.i, %mul10.i
-  %call36.i = tail call double @sqrt(double noundef %sub35.i) #4
+  %call36.i = tail call double @sqrt(double noundef %sub35.i) #3
   %add37.i = fadd double %7, %call36.i
-  %call38.i = tail call double @pow(double noundef %add37.i, double noundef 0x3FD5555555555555) #4
+  %call38.i = tail call double @pow(double noundef %add37.i, double noundef 0x3FD5555555555555) #3
   %8 = fneg double %call38.i
   %mul39.i = select i1 %cmp34.i, double %call38.i, double %8
   %cmp40.i = fcmp oeq double %call38.i, 0.000000e+00
@@ -206,7 +206,7 @@ if.end7.i:                                        ; preds = %lor.lhs.false.i10
   br i1 %cmp11.i, label %if.then12.i, label %if.else.i14
 
 if.then12.i:                                      ; preds = %if.end7.i
-  %call.i17 = tail call double @sqrt(double noundef %15) #4
+  %call.i17 = tail call double @sqrt(double noundef %15) #3
   %fneg13.i = fneg double %c
   %add.i18 = fsub double %call.i17, %c
   %mul14.i = fmul double %b, 2.000000e+00

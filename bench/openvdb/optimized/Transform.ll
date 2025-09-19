@@ -10498,17 +10498,17 @@ entry:
   %mMax.i52.promoted = load double, ptr %mMax.i52, align 8
   %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %image, i64 8
   %arrayidx.i9.i = getelementptr inbounds nuw i8, ptr %image, i64 16
-  %arrayidx.i.i59.promoted = load double, ptr %arrayidx3.i2.i, align 8
-  %arrayidx.i8.i62.promoted = load double, ptr %arrayidx.i1.i, align 8
+  %arrayidx.i.i60.promoted = load double, ptr %arrayidx3.i2.i, align 8
+  %arrayidx.i8.i64.promoted = load double, ptr %arrayidx.i1.i, align 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 1, %entry ], [ %indvars.iv.next, %for.body ]
-  %8 = phi double [ %arrayidx.i8.i62.promoted, %entry ], [ %.sroa.speculated.i64, %for.body ]
-  %9 = phi double [ %arrayidx.i.i59.promoted, %entry ], [ %.sroa.speculated12.i61, %for.body ]
-  %.sroa.speculated13.i6772 = phi double [ %agg.result.promoted, %entry ], [ %.sroa.speculated13.i, %for.body ]
-  %.sroa.speculated12.i6871 = phi double [ %arrayidx3.i.i.promoted, %entry ], [ %.sroa.speculated12.i, %for.body ]
-  %.sroa.speculated.i6970 = phi double [ %arrayidx.i.i.promoted, %entry ], [ %.sroa.speculated.i, %for.body ]
+  %8 = phi double [ %arrayidx.i8.i64.promoted, %entry ], [ %.sroa.speculated.i64, %for.body ]
+  %9 = phi double [ %arrayidx.i.i60.promoted, %entry ], [ %.sroa.speculated12.i61, %for.body ]
+  %.sroa.speculated13.i7075 = phi double [ %agg.result.promoted, %entry ], [ %.sroa.speculated13.i, %for.body ]
+  %.sroa.speculated12.i7174 = phi double [ %arrayidx3.i.i.promoted, %entry ], [ %.sroa.speculated12.i, %for.body ]
+  %.sroa.speculated.i7273 = phi double [ %arrayidx.i.i.promoted, %entry ], [ %.sroa.speculated.i, %for.body ]
   %10 = phi double [ %mMax.i52.promoted, %entry ], [ %.sroa.speculated13.i58, %for.body ]
   %arrayidx37 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3", ptr %corners, i64 %indvars.iv
   %11 = load ptr, ptr %this, align 8, !noalias !199
@@ -10517,11 +10517,11 @@ for.body:                                         ; preds = %entry, %for.body
   %12 = load ptr, ptr %vfn.i55, align 8, !noalias !199
   call void %12(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %image, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx37)
   %13 = load double, ptr %image, align 8, !noalias !202
-  %.sroa.speculated13.i = call double @llvm.minnum.f64(double %13, double %.sroa.speculated13.i6772)
+  %.sroa.speculated13.i = call double @llvm.minnum.f64(double %13, double %.sroa.speculated13.i7075)
   %14 = load double, ptr %arrayidx.i5.i, align 8, !noalias !202
-  %.sroa.speculated12.i = call double @llvm.minnum.f64(double %14, double %.sroa.speculated12.i6871)
+  %.sroa.speculated12.i = call double @llvm.minnum.f64(double %14, double %.sroa.speculated12.i7174)
   %15 = load double, ptr %arrayidx.i9.i, align 8, !noalias !202
-  %.sroa.speculated.i = call double @llvm.minnum.f64(double %15, double %.sroa.speculated.i6970)
+  %.sroa.speculated.i = call double @llvm.minnum.f64(double %15, double %.sroa.speculated.i7273)
   store double %.sroa.speculated13.i, ptr %agg.result, align 8
   store double %.sroa.speculated12.i, ptr %arrayidx3.i.i, align 8
   store double %.sroa.speculated.i, ptr %arrayidx.i.i, align 8

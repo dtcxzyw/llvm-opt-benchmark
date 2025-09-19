@@ -45,9 +45,9 @@ declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @camelsrt_init(ptr noundef %0, ptr readnone captures(none) %1) #0 {
-  %3 = tail call noalias dereferenceable_or_null(80000768) ptr @g_malloc(i64 noundef 80000768) #10
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(80000768) %3, i8 noundef 0, i64 noundef 80000768, i1 noundef false) #11
-  %4 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(11) @.str.2, i64 noundef 10) #12
+  %3 = tail call noalias dereferenceable_or_null(80000768) ptr @g_malloc(i64 noundef 80000768) #9
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(80000768) %3, i8 noundef 0, i64 noundef 80000768, i1 noundef false) #10
+  %4 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(11) @.str.2, i64 noundef 10) #11
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %8
 
@@ -70,7 +70,7 @@ define internal void @camelsrt_init(ptr noundef %0, ptr readnone captures(none) 
   %12 = load ptr, ptr %9, align 8
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.4, ptr noundef %12)
   %13 = tail call ptr @g_string_free(ptr noundef nonnull %9, i32 noundef 1)
-  tail call void @exit(i32 noundef 1) #13
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 14:                                               ; preds = %8
@@ -281,7 +281,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   %82 = getelementptr i32, ptr %79, i64 %indvars.iv169
   %83 = load i32, ptr %82, align 4
   %.not = icmp eq i32 %83, 0
-  br i1 %.not, label %144, label %.preheader
+  br i1 %.not, label %145, label %.preheader
 
 .preheader:                                       ; preds = %81
   %84 = getelementptr %struct._timestat_t, ptr %9, i64 %indvars.iv169
@@ -403,39 +403,39 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, 7
   br i1 %exitcond167.not, label %.loopexit, label %139, !llvm.loop !17
 
-144:                                              ; preds = %81
-  %145 = trunc nuw nsw i64 %indvars.iv169 to i32
-  %146 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %145, ptr noundef nonnull @camelSRTtype_naming, ptr noundef nonnull @.str.10)
-  %147 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.17, ptr noundef %146)
-  tail call void @wmem_free(ptr noundef null, ptr noundef %146)
-  br label %148
+145:                                              ; preds = %81
+  %146 = trunc nuw nsw i64 %indvars.iv169 to i32
+  %147 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %146, ptr noundef nonnull @camelSRTtype_naming, ptr noundef nonnull @.str.10)
+  %148 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.17, ptr noundef %147)
+  tail call void @wmem_free(ptr noundef null, ptr noundef %147)
+  br label %149
 
-148:                                              ; preds = %144, %148
-  %.4142 = phi i32 [ 0, %144 ], [ %150, %148 ]
-  %149 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.18, double noundef 0.000000e+00)
-  %150 = add nuw nsw i32 %.4142, 1
-  %exitcond168.not = icmp eq i32 %150, 7
-  br i1 %exitcond168.not, label %.loopexit, label %148, !llvm.loop !18
+149:                                              ; preds = %145, %149
+  %.4142 = phi i32 [ 0, %144 ], [ %151, %148 ]
+  %150 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.18, double noundef 0.000000e+00)
+  %151 = add nuw nsw i32 %.4142, 1
+  %exitcond168.not = icmp eq i32 %151, 7
+  br i1 %exitcond168.not, label %.loopexit, label %149, !llvm.loop !18
 
-.loopexit:                                        ; preds = %139, %148
-  %151 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.5)
+.loopexit:                                        ; preds = %139, %149
+  %152 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.5)
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, 10
-  br i1 %exitcond172.not, label %152, label %81, !llvm.loop !19
+  br i1 %exitcond172.not, label %153, label %81, !llvm.loop !19
 
-152:                                              ; preds = %.loopexit
-  %153 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.19)
-  br label %154
+153:                                              ; preds = %.loopexit
+  %154 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.19)
+  br label %155
 
-154:                                              ; preds = %152, %154
-  %.5144 = phi i32 [ 0, %152 ], [ %156, %154 ]
-  %155 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.20)
-  %156 = add nuw nsw i32 %.5144, 1
-  %exitcond173.not = icmp eq i32 %156, 7
-  br i1 %exitcond173.not, label %157, label %154, !llvm.loop !20
+155:                                              ; preds = %153, %155
+  %.5144 = phi i32 [ 0, %152 ], [ %157, %154 ]
+  %156 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.20)
+  %157 = add nuw nsw i32 %.5144, 1
+  %exitcond173.not = icmp eq i32 %157, 7
+  br i1 %exitcond173.not, label %158, label %155, !llvm.loop !20
 
-157:                                              ; preds = %154
-  %158 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.5)
+158:                                              ; preds = %155
+  %159 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.5)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -489,7 +489,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 declare double @llvm.minnum.f64(double, double) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

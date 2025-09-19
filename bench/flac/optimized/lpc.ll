@@ -675,36 +675,36 @@ define hidden range(i32 0, 3) i32 @FLAC__lpc_quantize_coefficients(ptr noundef r
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %15 = fcmp reassoc nsz arcp ugt double %.173, 0.000000e+00
-  br i1 %15, label %16, label %.loopexit
+  %16 = fcmp reassoc nsz arcp ugt double %.173, 0.000000e+00
+  br i1 %16, label %17, label %.loopexit
 
-16:                                               ; preds = %._crit_edge
-  %17 = load i32, ptr @FLAC__SUBFRAME_LPC_QLP_SHIFT_LEN, align 4, !tbaa !3
-  %18 = add i32 %17, -1
-  %notmask = shl nsw i32 -1, %18
-  %19 = xor i32 %notmask, -1
+17:                                               ; preds = %._crit_edge
+  %18 = load i32, ptr @FLAC__SUBFRAME_LPC_QLP_SHIFT_LEN, align 4, !tbaa !3
+  %19 = add i32 %18, -1
+  %notmask = shl nsw i32 -1, %19
+  %20 = xor i32 %notmask, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %20 = call reassoc nsz arcp double @frexp(double noundef %.173, ptr noundef nonnull %6) #13
-  %21 = load i32, ptr %6, align 4, !tbaa !3
-  %22 = xor i32 %21, -1
-  %23 = add i32 %2, %22
-  store i32 %23, ptr %4, align 4, !tbaa !3
-  %24 = icmp sgt i32 %23, %19
-  br i1 %24, label %.critedge.thread, label %25
+  %21 = call reassoc nsz arcp double @frexp(double noundef %.173, ptr noundef nonnull %6) #13
+  %22 = load i32, ptr %6, align 4, !tbaa !3
+  %23 = xor i32 %22, -1
+  %24 = add i32 %2, %23
+  store i32 %24, ptr %4, align 4, !tbaa !3
+  %25 = icmp sgt i32 %24, %20
+  br i1 %25, label %.critedge.thread, label %26
 
-.critedge.thread:                                 ; preds = %16
-  store i32 %19, ptr %4, align 4, !tbaa !3
+.critedge.thread:                                 ; preds = %17
+  store i32 %20, ptr %4, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.lr.ph95.preheader
 
-25:                                               ; preds = %16
-  %26 = icmp slt i32 %23, %notmask
+26:                                               ; preds = %17
+  %27 = icmp slt i32 %24, %notmask
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %26, label %.loopexit, label %.critedge
+  br i1 %27, label %.loopexit, label %.critedge
 
-.critedge:                                        ; preds = %25
-  %27 = icmp sgt i32 %23, -1
-  br i1 %27, label %.lr.ph95.preheader, label %.lr.ph91
+.critedge:                                        ; preds = %26
+  %28 = icmp sgt i32 %24, -1
+  br i1 %28, label %.lr.ph95.preheader, label %.lr.ph91
 
 .lr.ph95.preheader:                               ; preds = %.critedge, %.critedge.thread
   %wide.trip.count108 = zext i32 %1 to i64
@@ -712,62 +712,62 @@ define hidden range(i32 0, 3) i32 @FLAC__lpc_quantize_coefficients(ptr noundef r
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
   %indvars.iv105 = phi i64 [ 0, %.lr.ph95.preheader ], [ %indvars.iv.next106, %.lr.ph95 ]
-  %.06894 = phi double [ 0.000000e+00, %.lr.ph95.preheader ], [ %39, %.lr.ph95 ]
-  %28 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv105
-  %29 = load float, ptr %28, align 4, !tbaa !7
-  %30 = load i32, ptr %4, align 4, !tbaa !3
-  %31 = shl nuw i32 1, %30
-  %32 = sitofp i32 %31 to float
-  %33 = fmul reassoc nsz arcp float %29, %32
-  %34 = fpext reassoc nsz arcp float %33 to double
-  %35 = fadd reassoc nsz arcp double %.06894, %34
-  %36 = tail call i64 @lround(double noundef %35) #13, !tbaa !3
-  %37 = trunc i64 %36 to i32
-  %.not84 = icmp sgt i32 %8, %37
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %37, i32 %9)
+  %.06894 = phi double [ 0.000000e+00, %.lr.ph95.preheader ], [ %40, %.lr.ph95 ]
+  %29 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv105
+  %30 = load float, ptr %29, align 4, !tbaa !7
+  %31 = load i32, ptr %4, align 4, !tbaa !3
+  %32 = shl nuw i32 1, %31
+  %33 = sitofp i32 %32 to float
+  %34 = fmul reassoc nsz arcp float %30, %33
+  %35 = fpext reassoc nsz arcp float %34 to double
+  %36 = fadd reassoc nsz arcp double %.06894, %35
+  %37 = tail call i64 @lround(double noundef %36) #13, !tbaa !3
+  %38 = trunc i64 %37 to i32
+  %.not84 = icmp sgt i32 %8, %38
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %38, i32 %9)
   %.067 = select i1 %.not84, i32 %spec.select, i32 %10
-  %38 = sitofp i32 %.067 to double
-  %39 = fsub reassoc nsz arcp double %35, %38
-  %40 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv105
-  store i32 %.067, ptr %40, align 4, !tbaa !3
+  %39 = sitofp i32 %.067 to double
+  %40 = fsub reassoc nsz arcp double %36, %39
+  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv105
+  store i32 %.067, ptr %41, align 4, !tbaa !3
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
   br i1 %exitcond109.not, label %.loopexit, label %.lr.ph95, !llvm.loop !41
 
 .lr.ph91:                                         ; preds = %.critedge
-  %41 = sub nsw i32 0, %23
-  %42 = shl nuw i32 1, %41
-  %43 = sitofp i32 %42 to float
+  %42 = sub nsw i32 0, %24
+  %43 = shl nuw i32 1, %42
+  %44 = sitofp i32 %43 to float
   %wide.trip.count103 = zext i32 %1 to i64
-  %44 = fdiv reassoc nsz arcp float 1.000000e+00, %43
-  br label %45
+  %45 = fdiv reassoc nsz arcp float 1.000000e+00, %44
+  br label %46
 
-45:                                               ; preds = %.lr.ph91, %45
+46:                                               ; preds = %.lr.ph91, %46
   %indvars.iv100 = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next101, %45 ]
-  %.06589 = phi double [ 0.000000e+00, %.lr.ph91 ], [ %54, %45 ]
-  %46 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv100
-  %47 = load float, ptr %46, align 4, !tbaa !7
-  %48 = fmul reassoc nsz arcp float %47, %44
-  %49 = fpext reassoc nsz arcp float %48 to double
-  %50 = fadd reassoc nsz arcp double %.06589, %49
-  %51 = tail call i64 @lround(double noundef %50) #13, !tbaa !3
-  %52 = trunc i64 %51 to i32
-  %.not = icmp sgt i32 %8, %52
-  %spec.select85 = tail call i32 @llvm.smax.i32(i32 %52, i32 %9)
+  %.06589 = phi double [ 0.000000e+00, %.lr.ph91 ], [ %55, %45 ]
+  %47 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv100
+  %48 = load float, ptr %47, align 4, !tbaa !7
+  %49 = fmul reassoc nsz arcp float %48, %45
+  %50 = fpext reassoc nsz arcp float %49 to double
+  %51 = fadd reassoc nsz arcp double %.06589, %50
+  %52 = tail call i64 @lround(double noundef %51) #13, !tbaa !3
+  %53 = trunc i64 %52 to i32
+  %.not = icmp sgt i32 %8, %53
+  %spec.select85 = tail call i32 @llvm.smax.i32(i32 %53, i32 %9)
   %.0 = select i1 %.not, i32 %spec.select85, i32 %10
-  %53 = sitofp i32 %.0 to double
-  %54 = fsub reassoc nsz arcp double %50, %53
-  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv100
-  store i32 %.0, ptr %55, align 4, !tbaa !3
+  %54 = sitofp i32 %.0 to double
+  %55 = fsub reassoc nsz arcp double %51, %54
+  %56 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv100
+  store i32 %.0, ptr %56, align 4, !tbaa !3
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
-  br i1 %exitcond104.not, label %._crit_edge92, label %45, !llvm.loop !42
+  br i1 %exitcond104.not, label %._crit_edge92, label %46, !llvm.loop !42
 
-._crit_edge92:                                    ; preds = %45
+._crit_edge92:                                    ; preds = %46
   store i32 0, ptr %4, align 4, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph95, %25, %5, %._crit_edge92, %._crit_edge
+.loopexit:                                        ; preds = %.lr.ph95, %26, %5, %._crit_edge92, %._crit_edge
   %.066 = phi i32 [ 2, %._crit_edge ], [ 0, %._crit_edge92 ], [ 2, %5 ], [ 1, %25 ], [ 0, %.lr.ph95 ]
   ret i32 %.066
 }

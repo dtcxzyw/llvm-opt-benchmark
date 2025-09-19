@@ -1206,10 +1206,10 @@ define hidden void @_ZN6Assimp11IFCImporter15SetupPropertiesEPKNS_8ImporterE(ptr
   %13 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.5, i32 noundef 32)
   %.sroa.speculated9 = tail call i32 @llvm.smax.i32(i32 %13, i32 3)
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.sroa.speculated9, i32 180)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %.sroa.speculated, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 74
-  store i8 1, ptr %15, align 2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 %.sroa.speculated, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 74
+  store i8 1, ptr %17, align 2
   ret void
 }
 

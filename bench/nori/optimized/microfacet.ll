@@ -191,11 +191,11 @@ define linkonce_odr hidden void @_ZN4nori10MicrofacetC2ERKNS_12PropertyListE(ptr
   store float 0.000000e+00, ptr %18, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #15
   %19 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %.noexc unwind label %59
+          to label %.noexc unwind label %61
 
 .noexc:                                           ; preds = %2
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %.noexc20 unwind label %59
+          to label %.noexc20 unwind label %61
 
 .noexc20:                                         ; preds = %.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 5))
@@ -327,7 +327,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30: ; 
   store float %57, ptr %58, align 4
   ret void
 
-59:                                               ; preds = %.noexc, %2
+61:                                               ; preds = %.noexc, %2
   %60 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -371,7 +371,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #15
   br label %.body
 
-.body:                                            ; preds = %73, %38, %71, %69, %32, %67, %65, %26, %63, %61, %20, %59
+.body:                                            ; preds = %73, %38, %71, %69, %32, %67, %65, %26, %63, %61, %20, %61
   %.sink = phi ptr [ %4, %59 ], [ %4, %20 ], [ %4, %61 ], [ %7, %63 ], [ %7, %26 ], [ %7, %65 ], [ %10, %67 ], [ %10, %32 ], [ %10, %69 ], [ %14, %71 ], [ %14, %38 ], [ %14, %73 ]
   %.pn18 = phi { ptr, i32 } [ %60, %59 ], [ %21, %20 ], [ %62, %61 ], [ %64, %63 ], [ %27, %26 ], [ %66, %65 ], [ %68, %67 ], [ %33, %32 ], [ %70, %69 ], [ %72, %71 ], [ %39, %38 ], [ %74, %73 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #15
@@ -1849,13 +1849,13 @@ define internal void @_GLOBAL__sub_I_microfacet.cpp() #10 section ".text.startup
 declare float @llvm.maxnum.f32(float, float) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.smin.i32(i32, i32) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

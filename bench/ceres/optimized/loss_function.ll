@@ -76,7 +76,7 @@ $_ZN5ceres12TolerantLossD0Ev = comdat any
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZN5ceres12LossFunctionD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
-  tail call void @llvm.trap() #17
+  tail call void @llvm.trap() #16
   unreachable
 }
 
@@ -244,8 +244,8 @@ _ZN4absl12lts_2024011612log_internal12Check_GEImplIddEEPNSt7__cxx1112basic_strin
   %17 = load ptr, ptr %16, align 8, !tbaa !29
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !35
-  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.1, i32 noundef 97, i64 %19, ptr %17) #19
-  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.1, i32 noundef 97, i64 %19, ptr %17) #18
+  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   unreachable
 
 20:                                               ; preds = %3
@@ -258,8 +258,8 @@ _ZN4absl12lts_2024011612log_internal12Check_GTImplIddEEPNSt7__cxx1112basic_strin
   %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !35
-  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.1, i32 noundef 98, i64 %25, ptr %23) #19
-  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
+  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.1, i32 noundef 98, i64 %25, ptr %23) #18
+  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   unreachable
 
 26:                                               ; preds = %20
@@ -382,11 +382,11 @@ define hidden void @_ZN5ceres12ComposedLossC2EPKNS_12LossFunctionENS_9OwnershipE
 
 12:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.1, i32 noundef 143, i64 13, ptr nonnull @.str.3) #19
+  invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.1, i32 noundef 143, i64 13, ptr nonnull @.str.3) #18
           to label %13 unwind label %14
 
 13:                                               ; preds = %12
-  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
+  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   unreachable
 
 14:                                               ; preds = %12
@@ -401,11 +401,11 @@ define hidden void @_ZN5ceres12ComposedLossC2EPKNS_12LossFunctionENS_9OwnershipE
 
 16:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.1, i32 noundef 144, i64 13, ptr nonnull @.str.4) #19
+  invoke void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.1, i32 noundef 144, i64 13, ptr nonnull @.str.4) #18
           to label %17 unwind label %18
 
 17:                                               ; preds = %16
-  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
+  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   unreachable
 
 18:                                               ; preds = %16
@@ -427,7 +427,7 @@ _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i: ; preds = %20
   %22 = load ptr, ptr %21, align 8, !tbaa !22
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %21) #18
+  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %21) #17
   br label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit: ; preds = %20, %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i
@@ -440,7 +440,7 @@ _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i21: ; preds = %_ZNS
   %26 = load ptr, ptr %25, align 8, !tbaa !22
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(8) %25) #18
+  call void %28(ptr noundef nonnull align 8 dereferenceable(8) %25) #17
   br label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit22
 
 _ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit22: ; preds = %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i21
@@ -477,7 +477,7 @@ _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i: ; preds = %12
   %14 = load ptr, ptr %.pre, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %.pre) #18
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %.pre) #17
   br label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit: ; preds = %7, %12, %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i
@@ -492,7 +492,7 @@ _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i2: ; preds = %_ZNSt
   %20 = load ptr, ptr %19, align 8, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %19) #18
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %19) #17
   br label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit3
 
 _ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit3: ; preds = %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i2
@@ -528,7 +528,7 @@ _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i.i: ; preds = %12
   %13 = load ptr, ptr %.pre.i, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i) #18
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i) #17
   br label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i.i, %12, %7
@@ -542,11 +542,11 @@ _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i2.i: ; preds = %_ZN
   %18 = load ptr, ptr %17, align 8, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %17) #18
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %17) #17
   br label %_ZN5ceres12ComposedLossD2Ev.exit
 
 _ZN5ceres12ComposedLossD2Ev.exit:                 ; preds = %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit.i, %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i2.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #19
   ret void
 }
 
@@ -644,31 +644,31 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5ceres9HuberLossD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #12 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #19
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5ceres12SoftLOneLossD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #12 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #19
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5ceres10CauchyLossD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #12 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #19
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5ceres10ArctanLossD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #12 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #19
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5ceres9TukeyLossD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #12 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #19
   ret void
 }
 
@@ -689,7 +689,7 @@ _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i: ; preds = %5
   %6 = load ptr, ptr %.pre, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %.pre) #18
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %.pre) #17
   br label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %5, %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i
@@ -715,17 +715,17 @@ _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i.i: ; preds = %5
   %6 = load ptr, ptr %.pre.i, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i) #18
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i) #17
   br label %_ZN5ceres10ScaledLossD2Ev.exit
 
 _ZN5ceres10ScaledLossD2Ev.exit:                   ; preds = %1, %5, %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #19
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5ceres11TrivialLossD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #12 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #19
   ret void
 }
 
@@ -736,7 +736,7 @@ define hidden void @_ZN5ceres12LossFunctionD2Ev(ptr nonnull readnone align 8 cap
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5ceres12TolerantLossD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #19
   ret void
 }
 

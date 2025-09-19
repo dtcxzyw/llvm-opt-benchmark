@@ -1043,20 +1043,20 @@ _ZdvILi4EE3vecIXT_EERKS1_RKd.exit54:              ; preds = %84
   %.sroa.speculated76 = tail call i32 @llvm.smax.i32(i32 %101, i32 0)
   store i32 %.sroa.speculated76, ptr %12, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %102 = tail call noundef i32 @_ZNK8TGAImage5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
-  %103 = add nsw i32 %102, -1
+  %106 = tail call noundef i32 @_ZNK8TGAImage5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
+  %107 = add nsw i32 %106, -1
   %104 = tail call double @llvm.maxnum.f64(double %78, double %64)
   %105 = tail call double @llvm.maxnum.f64(double %92, double %104)
   %106 = fptosi double %105 to i32
   %.sroa.speculated71 = tail call i32 @llvm.smin.i32(i32 %103, i32 %106)
   store i32 %.sroa.speculated71, ptr %13, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %107 = tail call noundef i32 @_ZNK8TGAImage6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
-  %108 = add nsw i32 %107, -1
+  %113 = tail call noundef i32 @_ZNK8TGAImage6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
+  %114 = add nsw i32 %113, -1
   %109 = tail call double @llvm.maxnum.f64(double %80, double %66)
   %110 = tail call double @llvm.maxnum.f64(double %94, double %109)
   %111 = fptosi double %110 to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %108, i32 %111)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %114, i32 %111)
   store i32 %.sroa.speculated, ptr %14, align 4, !tbaa !16
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 10, ptr nonnull @_Z9rasterizePK3vecILi4EERK7IShaderR8TGAImageRSt6vectorIdSaIdEE.omp_outlined, ptr nonnull %13, ptr nonnull %11, ptr nonnull %12, ptr nonnull %14, ptr nonnull %7, ptr nonnull %6, ptr nonnull %5, ptr nonnull %3, ptr nonnull %2, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

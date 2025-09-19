@@ -5659,41 +5659,41 @@ define void @_ZN22EditManipulatorsPlugin10DrawCircleEfff(ptr noundef nonnull rea
   tail call void @glColor4f(float noundef %.sroa.speculated33, float noundef %.sroa.speculated28, float noundef %.sroa.speculated, float noundef 5.000000e-01)
   tail call void @glBegin(i32 noundef 6)
   tail call void @glVertex3d(double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00)
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %17 = load float, ptr %16, align 4
-  %18 = fcmp ult float %17, 0.000000e+00
-  br i1 %18, label %.thread, label %23
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  %20 = load float, ptr %19, align 4
+  %21 = fcmp ult float %20, 0.000000e+00
+  br i1 %21, label %.thread, label %26
 
 .thread:                                          ; preds = %12
-  %19 = fneg float %17
-  %20 = fptosi float %19 to i32
-  %21 = srem i32 %20, 360
-  %22 = sub nsw i32 360, %21
+  %22 = fneg float %20
+  %23 = fptosi float %22 to i32
+  %24 = srem i32 %23, 360
+  %25 = sub nsw i32 360, %24
   br label %.lr.ph.preheader
 
-23:                                               ; preds = %12
-  %24 = fptosi float %17 to i32
-  %25 = srem i32 %24, 360
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %._crit_edge, label %.lr.ph.preheader
+26:                                               ; preds = %12
+  %27 = fptosi float %20 to i32
+  %28 = srem i32 %27, 360
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread, %23
-  %.in = phi i32 [ %22, %.thread ], [ %25, %23 ]
-  %27 = uitofp i32 %.in to double
+.lr.ph.preheader:                                 ; preds = %.thread, %26
+  %.in = phi i32 [ %25, %.thread ], [ %28, %23 ]
+  %30 = uitofp i32 %.in to double
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.038 = phi double [ %32, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %28 = fmul double %.038, 0x401921FB53C8D4F1
-  %29 = fdiv double %28, 3.600000e+02
-  %30 = tail call double @cos(double noundef %29) #25
-  %31 = tail call double @sin(double noundef %29) #25
-  tail call void @glVertex3d(double noundef %30, double noundef %31, double noundef 0.000000e+00)
-  %32 = fadd double %.038, 1.000000e+00
-  %33 = fcmp ugt double %32, %27
-  br i1 %33, label %._crit_edge, label %.lr.ph, !llvm.loop !116
+  %.038 = phi double [ %35, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+  %31 = fmul double %.038, 0x401921FB53C8D4F1
+  %32 = fdiv double %31, 3.600000e+02
+  %33 = tail call double @cos(double noundef %32) #25
+  %34 = tail call double @sin(double noundef %32) #25
+  tail call void @glVertex3d(double noundef %33, double noundef %34, double noundef 0.000000e+00)
+  %35 = fadd double %.038, 1.000000e+00
+  %36 = fcmp ugt double %35, %30
+  br i1 %36, label %._crit_edge, label %.lr.ph, !llvm.loop !116
 
-._crit_edge:                                      ; preds = %.lr.ph, %23
+._crit_edge:                                      ; preds = %.lr.ph, %26
   tail call void @glEnd()
   ret void
 }

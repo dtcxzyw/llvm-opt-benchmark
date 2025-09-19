@@ -89,36 +89,36 @@ define internal noundef i32 @lj_cf_table_maxn(ptr noundef %0) #0 {
   %23 = zext i32 %22 to i64
   br label %24
 
-24:                                               ; preds = %.loopexit, %34
+24:                                               ; preds = %.loopexit, %35
   %.127 = phi double [ %.0, %.loopexit ], [ %.3, %34 ]
-  %.12326 = phi i64 [ %23, %.loopexit ], [ %35, %34 ]
+  %.12326 = phi i64 [ %23, %.loopexit ], [ %36, %34 ]
   %25 = getelementptr inbounds nuw %struct.Node, ptr %20, i64 %.12326
   %26 = load i64, ptr %25, align 8, !tbaa !14
   %27 = icmp eq i64 %26, -1
-  br i1 %27, label %34, label %28
+  br i1 %27, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = icmp ult i64 %30, -1829587348619264
-  br i1 %31, label %32, label %34
+  br i1 %31, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = bitcast i64 %30 to double
   %.2 = tail call double @llvm.maxnum.f64(double %33, double %.127)
   br label %34
 
-34:                                               ; preds = %24, %28, %32
+35:                                               ; preds = %24, %28, %32
   %.3 = phi double [ %.127, %24 ], [ %.2, %32 ], [ %.127, %28 ]
-  %35 = add nsw i64 %.12326, -1
-  %36 = icmp sgt i64 %.12326, 0
-  br i1 %36, label %24, label %37, !llvm.loop !22
+  %36 = add nsw i64 %.12326, -1
+  %37 = icmp sgt i64 %.12326, 0
+  br i1 %37, label %24, label %38, !llvm.loop !22
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %39 = load ptr, ptr %38, align 8, !tbaa !4
-  %40 = getelementptr inbounds i8, ptr %39, i64 -8
-  store double %.3, ptr %40, align 8, !tbaa !14
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %40 = load ptr, ptr %39, align 8, !tbaa !4
+  %41 = getelementptr inbounds i8, ptr %40, i64 -8
+  store double %.3, ptr %41, align 8, !tbaa !14
   ret i32 1
 }
 

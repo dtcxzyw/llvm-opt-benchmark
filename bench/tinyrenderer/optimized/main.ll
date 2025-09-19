@@ -2010,30 +2010,30 @@ _ZmlILi3EEdRK3vecIXT_EES3_.exit159:               ; preds = %_ZNK3vecILi3EEixEi.
   %312 = uitofp nneg i32 %311 to double
   %313 = call noundef double @pow(double noundef %.sroa.speculated169, double noundef %312) #18, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %314 = load ptr, ptr %202, align 8, !tbaa !83
-  %315 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5Model7diffuseEv(ptr noundef nonnull align 8 dereferenceable(264) %314)
-  %316 = load double, ptr %7, align 8, !tbaa !38
-  %317 = call noundef i32 @_ZNK8TGAImage5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %315)
-  %318 = sitofp i32 %317 to double
-  %319 = fmul double %316, %318
-  %320 = fptosi double %319 to i32
-  %321 = load double, ptr %69, align 8, !tbaa !38
-  %322 = call noundef i32 @_ZNK8TGAImage6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %315)
-  %323 = sitofp i32 %322 to double
-  %324 = fmul double %321, %323
-  %325 = fptosi double %324 to i32
-  %326 = call i40 @_ZNK8TGAImage3getEii(ptr noundef nonnull align 8 dereferenceable(40) %315, i32 noundef %320, i32 noundef %325)
-  store i40 %326, ptr %17, align 8
+  %316 = load ptr, ptr %202, align 8, !tbaa !83
+  %317 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5Model7diffuseEv(ptr noundef nonnull align 8 dereferenceable(264) %316)
+  %318 = load double, ptr %7, align 8, !tbaa !38
+  %319 = call noundef i32 @_ZNK8TGAImage5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %317)
+  %320 = sitofp i32 %319 to double
+  %321 = fmul double %318, %320
+  %322 = fptosi double %321 to i32
+  %323 = load double, ptr %69, align 8, !tbaa !38
+  %324 = call noundef i32 @_ZNK8TGAImage6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %317)
+  %325 = sitofp i32 %324 to double
+  %326 = fmul double %323, %325
+  %327 = fptosi double %326 to i32
+  %328 = call i40 @_ZNK8TGAImage3getEii(ptr noundef nonnull align 8 dereferenceable(40) %317, i32 noundef %322, i32 noundef %327)
+  store i40 %328, ptr %17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !42
-  %327 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 1, ptr %327, align 4, !tbaa !42
-  %328 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 2, ptr %328, align 4, !tbaa !42
-  %329 = fadd double %.sroa.speculated171, %313
-  br label %331
+  %329 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 1, ptr %329, align 4, !tbaa !42
+  %330 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 2, ptr %330, align 4, !tbaa !42
+  %331 = fadd double %.sroa.speculated171, %313
+  br label %333
 
-330:                                              ; preds = %331
+332:                                              ; preds = %333
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -2044,23 +2044,23 @@ _ZmlILi3EEdRK3vecIXT_EES3_.exit159:               ; preds = %_ZNK3vecILi3EEixEi.
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 false
 
-331:                                              ; preds = %_ZmlILi3EEdRK3vecIXT_EES3_.exit159, %331
+333:                                              ; preds = %_ZmlILi3EEdRK3vecIXT_EES3_.exit159, %333
   %.0.idx219 = phi i64 [ 0, %_ZmlILi3EEdRK3vecIXT_EES3_.exit159 ], [ %.0.add, %331 ]
   %.0.ptr = getelementptr inbounds nuw i8, ptr %18, i64 %.0.idx219
-  %332 = load i32, ptr %.0.ptr, align 4, !tbaa !42
-  %333 = sext i32 %332 to i64
-  %334 = getelementptr inbounds i8, ptr %17, i64 %333
-  %335 = load i8, ptr %334, align 1, !tbaa !37
-  %336 = uitofp i8 %335 to double
-  %337 = call double @llvm.fmuladd.f64(double %336, double %329, double 1.000000e+01)
-  %338 = fptosi double %337 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %338, i32 255)
-  %339 = trunc i32 %.sroa.speculated to i8
-  %340 = getelementptr inbounds i8, ptr %2, i64 %333
-  store i8 %339, ptr %340, align 1, !tbaa !37
+  %334 = load i32, ptr %.0.ptr, align 4, !tbaa !42
+  %335 = sext i32 %334 to i64
+  %336 = getelementptr inbounds i8, ptr %17, i64 %335
+  %337 = load i8, ptr %336, align 1, !tbaa !37
+  %338 = uitofp i8 %337 to double
+  %339 = call double @llvm.fmuladd.f64(double %338, double %331, double 1.000000e+01)
+  %340 = fptosi double %339 to i32
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %340, i32 255)
+  %341 = trunc i32 %.sroa.speculated to i8
+  %342 = getelementptr inbounds i8, ptr %2, i64 %335
+  store i8 %341, ptr %342, align 1, !tbaa !37
   %.0.add = add nuw nsw i64 %.0.idx219, 4
   %.not = icmp eq i64 %.0.add, 12
-  br i1 %.not, label %330, label %331
+  br i1 %.not, label %332, label %333
 }
 
 declare void @_ZNK5Model6normalERK3vecILi2EE(ptr dead_on_unwind writable sret(%struct.vec) align 8, ptr noundef nonnull align 8 dereferenceable(264), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0

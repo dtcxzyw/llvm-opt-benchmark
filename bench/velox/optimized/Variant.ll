@@ -8418,10 +8418,10 @@ _ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit16.i: ; preds = %
 if.end.i21:                                       ; preds = %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit16.i
   %18 = tail call double @llvm.fabs.f64(double %13)
   %19 = fcmp oeq double %18, 0x7FF0000000000000
-  br i1 %19, label %if.then5.i29, label %if.end6.i22
+  br i1 %19, label %if.then5.i30, label %if.end6.i22
 
-if.then5.i29:                                     ; preds = %if.end.i21
-  %cmp.i30 = fcmp oeq double %13, %15
+if.then5.i30:                                     ; preds = %if.end.i21
+  %cmp.i31 = fcmp oeq double %13, %15
   br label %return
 
 if.end6.i22:                                      ; preds = %if.end.i21
@@ -8434,12 +8434,12 @@ if.end9.i25:                                      ; preds = %if.end6.i22
   %21 = tail call noundef double @llvm.fabs.f64(double %15)
   %.sroa.speculated.i26 = tail call double @llvm.maxnum.f64(double %21, double %18)
   %mul.i27 = fmul double %.sroa.speculated.i26, 2.000000e+00
-  %mul15.i = fmul double %mul.i27, 0x3E80000000000000
+  %mul.i28 = fmul double %mul.i27, 0x3E80000000000000
   %cmp16.i = fcmp ole double %20, %mul15.i
   br label %return
 
-return:                                           ; preds = %if.end9.i25, %if.end6.i22, %if.then5.i29, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit16.i, %if.end9.i, %if.end6.i, %if.then5.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE5EEERKDav.exit16.i, %entry, %lor.lhs.false
-  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ %cmp.i9, %if.then5.i ], [ %cmp18.i, %if.end9.i ], [ true, %if.end6.i ], [ true, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE5EEERKDav.exit16.i ], [ %cmp.i30, %if.then5.i29 ], [ %cmp16.i, %if.end9.i25 ], [ true, %if.end6.i22 ], [ true, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit16.i ]
+return:                                           ; preds = %if.end9.i25, %if.end6.i22, %if.then5.i30, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit16.i, %if.end9.i, %if.end6.i, %if.then5.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE5EEERKDav.exit16.i, %entry, %lor.lhs.false
+  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ %cmp.i9, %if.then5.i ], [ %cmp18.i, %if.end9.i ], [ true, %if.end6.i ], [ true, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE5EEERKDav.exit16.i ], [ %cmp.i31, %if.then5.i29 ], [ %cmp16.i, %if.end9.i25 ], [ true, %if.end6.i22 ], [ true, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit16.i ]
   ret i1 %retval.0
 }
 

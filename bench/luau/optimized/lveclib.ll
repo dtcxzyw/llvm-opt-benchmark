@@ -309,7 +309,7 @@ define internal noundef i32 @_ZL12vector_clampP9lua_State(ptr noundef %0) #0 {
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %1
-  tail call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.17) #7
+  tail call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.17) #6
   unreachable
 
 9:                                                ; preds = %1
@@ -321,7 +321,7 @@ define internal noundef i32 @_ZL12vector_clampP9lua_State(ptr noundef %0) #0 {
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %9
-  tail call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.18) #7
+  tail call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.18) #6
   unreachable
 
 16:                                               ; preds = %9
@@ -333,7 +333,7 @@ define internal noundef i32 @_ZL12vector_clampP9lua_State(ptr noundef %0) #0 {
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %16
-  tail call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.19) #7
+  tail call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.19) #6
   unreachable
 
 23:                                               ; preds = %16
@@ -498,7 +498,7 @@ define internal noundef i32 @_ZL12vector_indexP9lua_State(ptr noundef %0) #0 {
   ret i32 1
 
 .critedge:                                        ; preds = %7, %1
-  call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef %4) #7
+  call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef %4) #6
   unreachable
 }
 

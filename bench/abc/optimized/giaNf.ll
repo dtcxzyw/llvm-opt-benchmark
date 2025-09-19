@@ -8462,13 +8462,13 @@ Nf_ObjUpdateRequired.exit337:                     ; preds = %338, %346
   br i1 %exitcond.not, label %._crit_edge, label %367, !llvm.loop !231
 
 ._crit_edge:                                      ; preds = %367, %.critedge9
-  %380 = load ptr, ptr %45, align 8, !tbaa !103
-  %381 = getelementptr inbounds nuw i8, ptr %380, i64 168
-  %382 = load i64, ptr %381, align 8, !tbaa !179
-  %383 = trunc i64 %382 to i32
+  %382 = load ptr, ptr %45, align 8, !tbaa !103
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 168
+  %384 = load i64, ptr %383, align 8, !tbaa !179
+  %385 = trunc i64 %384 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %383
+  ret i32 %385
 }
 
 declare void @Tim_ManSetCiRequired(ptr noundef, i32 noundef, float noundef) local_unnamed_addr #3

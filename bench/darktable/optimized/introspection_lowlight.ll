@@ -1798,7 +1798,7 @@ define internal range(i32 0, 2) i32 @lowlight_button_press(ptr noundef %0, ptr n
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %10 = load i32, ptr %9, align 4, !tbaa !148
   %11 = icmp eq i32 %10, 1
-  br i1 %11, label %12, label %117
+  br i1 %11, label %12, label %119
 
 12:                                               ; preds = %3
   %13 = load i32, ptr %1, align 8, !tbaa !153
@@ -1824,7 +1824,7 @@ define internal range(i32 0, 2) i32 @lowlight_button_press(ptr noundef %0, ptr n
   %28 = tail call i64 @gtk_widget_get_type() #22
   %29 = tail call ptr @g_type_check_instance_cast(ptr noundef %27, i64 noundef %28) #20
   tail call void @gtk_widget_queue_draw(ptr noundef %29) #20
-  br label %117
+  br label %119
 
 30:                                               ; preds = %15, %30
   %indvars.iv = phi i64 [ 0, %15 ], [ %indvars.iv.next, %30 ]
@@ -1939,36 +1939,36 @@ dt_draw_curve_calc_value.exit:                    ; preds = %._crit_edge.i, %89
   %98 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %.026..i, float %97)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %99 = fpext reassoc nsz arcp contract afn float %98 to double
-  %100 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %102 = load double, ptr %101, align 8, !tbaa !156
-  %103 = fsub reassoc nsz arcp contract afn double %102, %63
-  %104 = sitofp i32 %56 to double
-  %105 = fcmp reassoc nsz arcp contract afn ogt double %103, %104
-  br i1 %105, label %109, label %106
+  %101 = fpext reassoc nsz arcp contract afn float %98 to double
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %104 = load double, ptr %103, align 8, !tbaa !156
+  %105 = fsub reassoc nsz arcp contract afn double %104, %63
+  %106 = sitofp i32 %56 to double
+  %107 = fcmp reassoc nsz arcp contract afn ogt double %105, %106
+  br i1 %107, label %111, label %108
 
-106:                                              ; preds = %dt_draw_curve_calc_value.exit
-  %107 = fcmp reassoc nsz arcp contract afn olt double %103, 0.000000e+00
-  br i1 %107, label %109, label %108
+108:                                              ; preds = %dt_draw_curve_calc_value.exit
+  %109 = fcmp reassoc nsz arcp contract afn olt double %105, 0.000000e+00
+  br i1 %109, label %111, label %110
 
-108:                                              ; preds = %106
-  br label %109
+110:                                              ; preds = %108
+  br label %111
 
-109:                                              ; preds = %dt_draw_curve_calc_value.exit, %108, %106
-  %110 = phi reassoc nsz arcp contract afn double [ %103, %108 ], [ 0.000000e+00, %106 ], [ %104, %dt_draw_curve_calc_value.exit ]
-  %111 = sitofp i32 %56 to float
-  %112 = fpext reassoc nsz arcp contract afn float %111 to double
-  %113 = fdiv reassoc nsz arcp contract afn double %110, %112
-  %114 = fadd reassoc nsz arcp contract afn double %99, -1.000000e+00
-  %115 = fadd reassoc nsz arcp contract afn double %114, %113
-  store double %115, ptr %100, align 8, !tbaa !118
-  %116 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  store i32 1, ptr %116, align 8, !tbaa !121
+111:                                              ; preds = %dt_draw_curve_calc_value.exit, %110, %108
+  %112 = phi reassoc nsz arcp contract afn double [ %105, %108 ], [ 0.000000e+00, %106 ], [ %106, %dt_draw_curve_calc_value.exit ]
+  %113 = sitofp i32 %56 to float
+  %114 = fpext reassoc nsz arcp contract afn float %113 to double
+  %115 = fdiv reassoc nsz arcp contract afn double %112, %114
+  %116 = fadd reassoc nsz arcp contract afn double %101, -1.000000e+00
+  %117 = fadd reassoc nsz arcp contract afn double %116, %115
+  store double %117, ptr %102, align 8, !tbaa !118
+  %118 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  store i32 1, ptr %118, align 8, !tbaa !121
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %117
+  br label %119
 
-117:                                              ; preds = %3, %24, %109
+119:                                              ; preds = %3, %24, %111
   %.0 = phi i32 [ 1, %109 ], [ 0, %24 ], [ 0, %3 ]
   ret i32 %.0
 }

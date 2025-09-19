@@ -1648,23 +1648,23 @@ define internal fastcc void @print_error(ptr noundef readonly captures(none) %0,
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph.split
 
 ._crit_edge.loopexit:                             ; preds = %39
-  %45 = fsub double %43, %42
+  %48 = fsub double %43, %42
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
   %.067.lcssa = phi double [ 0.000000e+00, %4 ], [ %41, %._crit_edge.loopexit ]
   %.066.lcssa = phi double [ 0.000000e+00, %4 ], [ %40, %._crit_edge.loopexit ]
-  %46 = phi double [ 0xFFF0000000000000, %4 ], [ %45, %._crit_edge.loopexit ]
-  %47 = uitofp i64 %3 to double
-  %48 = fdiv double %.067.lcssa, %47
-  %49 = tail call double @sqrt(double noundef %48) #16, !tbaa !10
-  %50 = fdiv double %49, %46
-  %51 = fmul double %49, 2.000000e+00
-  %52 = fdiv double %46, %51
-  %53 = tail call double @log10(double noundef %52) #16, !tbaa !10
-  %54 = fmul double %53, 2.000000e+01
-  %55 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.99, double noundef %49, double noundef %50, double noundef %.066.lcssa, double noundef %54) #21
+  %49 = phi double [ 0xFFF0000000000000, %4 ], [ %48, %._crit_edge.loopexit ]
+  %50 = uitofp i64 %3 to double
+  %51 = fdiv double %.067.lcssa, %50
+  %52 = tail call double @sqrt(double noundef %51) #16, !tbaa !10
+  %53 = fdiv double %52, %49
+  %54 = fmul double %52, 2.000000e+00
+  %55 = fdiv double %49, %54
+  %56 = tail call double @log10(double noundef %55) #16, !tbaa !10
+  %57 = fmul double %56, 2.000000e+01
+  %58 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.99, double noundef %52, double noundef %53, double noundef %.066.lcssa, double noundef %57) #21
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %._crit_edge

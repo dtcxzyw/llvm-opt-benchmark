@@ -1384,12 +1384,12 @@ define dso_local range(i32 0, 2) i32 @table_is_an_array(ptr noundef %0) local_un
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge.loopexit:                             ; preds = %11
-  %17 = icmp eq i32 %15, %14
-  %18 = zext i1 %17 to i32
+  %18 = icmp eq i32 %15, %14
+  %19 = zext i1 %18 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5, %7, %1, %._crit_edge.loopexit
-  %.0 = phi i32 [ 1, %1 ], [ %18, %._crit_edge.loopexit ], [ 0, %7 ], [ 0, %5 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %1 ], [ %19, %._crit_edge.loopexit ], [ 0, %7 ], [ 0, %5 ], [ 0, %.lr.ph ]
   tail call void @lua_settop(ptr noundef %0, i32 noundef %2) #10
   ret i32 %.0
 }
@@ -2689,10 +2689,10 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 declare double @llvm.maxnum.f64(double, double) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #8
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #9
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

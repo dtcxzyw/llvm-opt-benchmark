@@ -33,7 +33,7 @@ define dso_local void @_ZN3ozz4math3BoxC2EPKNS0_6Float3Emm(ptr noundef nonnull w
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.037 = phi ptr [ %19, %.lr.ph ], [ %1, %4 ]
+  %.037 = phi ptr [ %25, %.lr.ph ], [ %1, %4 ]
   %.sroa.0.036 = phi <2 x float> [ %.sroa.030.4.vec.insert, %.lr.ph ], [ splat (float 0xC7EFFFFFE0000000), %4 ]
   %.sroa.8.035 = phi float [ %16, %.lr.ph ], [ 0xC7EFFFFFE0000000, %4 ]
   %.sroa.024.034 = phi <2 x float> [ %.sroa.028.4.vec.insert, %.lr.ph ], [ splat (float 0x47EFFFFFE0000000), %4 ]
@@ -42,9 +42,9 @@ define dso_local void @_ZN3ozz4math3BoxC2EPKNS0_6Float3Emm(ptr noundef nonnull w
   %8 = load float, ptr %.037, align 4, !tbaa !4
   %..i = tail call float @llvm.minnum.f32(float %.sroa.024.0.vec.extract, float %8)
   %.sroa.024.4.vec.extract = extractelement <2 x float> %.sroa.024.034, i64 1
-  %9 = getelementptr inbounds nuw i8, ptr %.037, i64 4
-  %10 = load float, ptr %9, align 4, !tbaa !9
-  %11 = tail call float @llvm.minnum.f32(float %.sroa.024.4.vec.extract, float %10)
+  %10 = getelementptr inbounds nuw i8, ptr %.037, i64 4
+  %11 = load float, ptr %10, align 4, !tbaa !9
+  %11 = tail call float @llvm.minnum.f32(float %.sroa.024.4.vec.extract, float %11)
   %12 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %13 = load float, ptr %12, align 4, !tbaa !10
   %14 = tail call float @llvm.minnum.f32(float %.sroa.827.033, float %13)
@@ -53,26 +53,26 @@ define dso_local void @_ZN3ozz4math3BoxC2EPKNS0_6Float3Emm(ptr noundef nonnull w
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.sroa.0.036, i64 0
   %..i16 = tail call float @llvm.maxnum.f32(float %.sroa.0.0.vec.extract, float %8)
   %.sroa.0.4.vec.extract = extractelement <2 x float> %.sroa.0.036, i64 1
-  %15 = tail call float @llvm.maxnum.f32(float %.sroa.0.4.vec.extract, float %10)
+  %15 = tail call float @llvm.maxnum.f32(float %.sroa.0.4.vec.extract, float %11)
   %16 = tail call float @llvm.maxnum.f32(float %.sroa.8.035, float %13)
   %.sroa.030.0.vec.insert = insertelement <2 x float> poison, float %..i16, i64 0
   %.sroa.030.4.vec.insert = insertelement <2 x float> %.sroa.030.0.vec.insert, float %15, i64 1
-  %17 = ptrtoint ptr %.037 to i64
-  %18 = add i64 %2, %17
-  %19 = inttoptr i64 %18 to ptr
-  %20 = icmp ugt ptr %6, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  %23 = ptrtoint ptr %.037 to i64
+  %24 = add i64 %2, %23
+  %25 = inttoptr i64 %24 to ptr
+  %26 = icmp ugt ptr %6, %25
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.sroa.827.0.lcssa = phi float [ 0x47EFFFFFE0000000, %4 ], [ %14, %.lr.ph ]
   %.sroa.024.0.lcssa = phi <2 x float> [ splat (float 0x47EFFFFFE0000000), %4 ], [ %.sroa.028.4.vec.insert, %.lr.ph ]
   %.sroa.8.0.lcssa = phi float [ 0xC7EFFFFFE0000000, %4 ], [ %16, %.lr.ph ]
   %.sroa.0.0.lcssa = phi <2 x float> [ splat (float 0xC7EFFFFFE0000000), %4 ], [ %.sroa.030.4.vec.insert, %.lr.ph ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store <2 x float> %.sroa.024.0.lcssa, ptr %0, align 4
   %.sroa.827.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %.sroa.827.0.lcssa, ptr %.sroa.827.0..sroa_idx, align 4, !tbaa !13
-  store <2 x float> %.sroa.0.0.lcssa, ptr %21, align 4
+  store <2 x float> %.sroa.0.0.lcssa, ptr %27, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %.sroa.8.0.lcssa, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !13
   ret void

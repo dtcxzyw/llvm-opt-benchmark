@@ -3913,14 +3913,14 @@ define internal fastcc void @ConstrainMousePosition(ptr noundef %0, ptr noundef 
   %4 = alloca %struct.SDL_Rect, align 4
   %5 = alloca %struct.SDL_Rect, align 4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %62, label %6
+  br i1 %.not, label %64, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 16384
   %.not46 = icmp eq i64 %9, 0
-  br i1 %.not46, label %10, label %62
+  br i1 %.not46, label %10, label %64
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3980,48 +3980,48 @@ define internal fastcc void @ConstrainMousePosition(ptr noundef %0, ptr noundef 
   %40 = add nsw i32 %.036, 1
   %41 = sitofp i32 %40 to float
   %42 = fcmp ult float %39, %41
-  br i1 %42, label %46, label %43
+  br i1 %42, label %47, label %43
 
 43:                                               ; preds = %38
   %44 = sitofp i32 %.036 to float
   %45 = load float, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 152), align 8
   %. = call float @llvm.maxnum.f32(float %44, float %45)
   store float %., ptr %1, align 4
-  br label %46
+  br label %47
 
-46:                                               ; preds = %43, %38
-  %47 = phi float [ %., %43 ], [ %39, %38 ]
-  %48 = fcmp olt float %47, %.0
-  br i1 %48, label %49, label %50
+47:                                               ; preds = %43, %38
+  %48 = phi float [ %., %43 ], [ %39, %38 ]
+  %49 = fcmp olt float %48, %.0
+  br i1 %49, label %50, label %51
 
-49:                                               ; preds = %46
+50:                                               ; preds = %47
   store float %.0, ptr %1, align 4
-  br label %50
+  br label %51
 
-50:                                               ; preds = %49, %46
-  %51 = load float, ptr %2, align 4
-  %52 = add nsw i32 %.032, 1
-  %53 = sitofp i32 %52 to float
-  %54 = fcmp ult float %51, %53
-  br i1 %54, label %58, label %55
+51:                                               ; preds = %50, %47
+  %52 = load float, ptr %2, align 4
+  %53 = add nsw i32 %.032, 1
+  %54 = sitofp i32 %53 to float
+  %55 = fcmp ult float %52, %54
+  br i1 %55, label %60, label %56
 
-55:                                               ; preds = %50
-  %56 = sitofp i32 %.032 to float
-  %57 = load float, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 156), align 4
+56:                                               ; preds = %51
+  %57 = sitofp i32 %.032 to float
+  %58 = load float, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 156), align 4
   %.48 = call float @llvm.maxnum.f32(float %56, float %57)
   store float %.48, ptr %2, align 4
-  br label %58
+  br label %60
 
-58:                                               ; preds = %55, %50
-  %59 = phi float [ %.48, %55 ], [ %51, %50 ]
-  %60 = fcmp olt float %59, %.034
-  br i1 %60, label %61, label %62
+60:                                               ; preds = %56, %51
+  %61 = phi float [ %.48, %55 ], [ %52, %50 ]
+  %62 = fcmp olt float %61, %.034
+  br i1 %62, label %63, label %64
 
-61:                                               ; preds = %58
+63:                                               ; preds = %60
   store float %.034, ptr %2, align 4
-  br label %62
+  br label %64
 
-62:                                               ; preds = %58, %61, %6, %3
+64:                                               ; preds = %60, %63, %6, %3
   ret void
 }
 

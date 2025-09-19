@@ -196,7 +196,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1
 
 7:                                                ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  br label %100
+  br label %104
 
 8:                                                ; preds = %3
   %9 = load i8, ptr %1, align 8, !tbaa !23, !range !11, !noundef !12
@@ -205,7 +205,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1
 
 11:                                               ; preds = %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 128, i1 false)
-  br label %100
+  br label %104
 
 12:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -359,16 +359,16 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 116
   store i32 %97, ptr %98, align 4, !tbaa !22
   store i8 1, ptr %2, align 8, !tbaa !23
-  %99 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %99, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %103, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
   br label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
 
 _ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread: ; preds = %..thread21_crit_edge.i, %28, %23, %70
   %.0.i17 = phi i1 [ true, %70 ], [ false, %23 ], [ false, %28 ], [ false, %..thread21_crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %100
+  br label %104
 
-100:                                              ; preds = %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread, %11, %7
+104:                                              ; preds = %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread, %11, %7
   %.0 = phi i1 [ true, %7 ], [ true, %11 ], [ %.0.i17, %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread ]
   ret i1 %.0
 }

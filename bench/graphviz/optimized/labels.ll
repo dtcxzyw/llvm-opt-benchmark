@@ -563,10 +563,10 @@ gv_recalloc.exit:                                 ; preds = %19, %26, %28
   %62 = load double, ptr %61, align 8, !tbaa !55
   %..sroa.06.0 = call double @llvm.maxnum.f64(double %62, double %.sroa.06.0)
   store double %..sroa.06.0, ptr %61, align 8, !tbaa !55
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %64 = load double, ptr %63, align 8, !tbaa !56
-  %65 = fadd double %.sroa.6.0, %64
-  store double %65, ptr %63, align 8, !tbaa !56
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %65 = load double, ptr %64, align 8, !tbaa !56
+  %66 = fadd double %.sroa.6.0, %65
+  store double %66, ptr %64, align 8, !tbaa !56
   ret void
 }
 
