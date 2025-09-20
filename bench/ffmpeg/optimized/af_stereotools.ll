@@ -280,36 +280,36 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %101 = select nsz i1 %100, double %22, double 1.000000e+00
   %102 = fcmp nsz olt double %19, 1.000000e+00
   %.neg = fneg nsz double %19
-  %103 = select nsz i1 %102, double %.neg, double -1.000000e+00
-  %104 = select nsz i1 %102, double %19, double 1.000000e+00
-  %105 = sitofp i32 %42 to double
-  %106 = fsub nsz double 1.000000e+00, %105
-  %107 = sitofp i32 %44 to double
-  %108 = fsub nsz double 1.000000e+00, %107
-  %109 = sitofp i32 %46 to double
-  %110 = fsub nsz double 1.000000e+00, %109
-  %111 = tail call nsz double @llvm.fmuladd.f64(double %110, double 2.000000e+00, double -1.000000e+00)
-  %112 = sitofp i32 %48 to double
-  %113 = fsub nsz double 1.000000e+00, %112
-  %114 = tail call nsz double @llvm.fmuladd.f64(double %113, double 2.000000e+00, double -1.000000e+00)
-  %115 = getelementptr inbounds nuw i8, ptr %10, i64 172
-  %116 = fcmp nsz ogt double %38, 0.000000e+00
-  %117 = fcmp nsz olt double %38, 0.000000e+00
-  %118 = add i32 %.neg317, %40
-  %119 = add i32 %40, 1
-  %120 = add i32 %119, %.neg317
-  %121 = fneg nsz double %16
-  %122 = getelementptr inbounds nuw i8, ptr %10, i64 120
-  %123 = getelementptr inbounds nuw i8, ptr %10, i64 112
-  %124 = load i32, ptr %39, align 8, !tbaa !33
-  %125 = fcmp nsz olt double %30, 0.000000e+00
-  %126 = fsub nsz double 1.000000e+00, %30
-  %127 = select i1 %125, double 1.000000e+00, double %126
-  %128 = fadd nsz double %30, 1.000000e+00
-  %129 = select i1 %125, double %128, double 1.000000e+00
-  %130 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  %131 = load i32, ptr %130, align 4, !tbaa !69
-  %132 = fcmp nsz ule double %30, 0.000000e+00
+  %102 = select nsz i1 %102, double %.neg, double -1.000000e+00
+  %103 = select nsz i1 %102, double %19, double 1.000000e+00
+  %104 = sitofp i32 %42 to double
+  %105 = fsub nsz double 1.000000e+00, %104
+  %106 = sitofp i32 %44 to double
+  %107 = fsub nsz double 1.000000e+00, %106
+  %108 = sitofp i32 %46 to double
+  %109 = fsub nsz double 1.000000e+00, %108
+  %110 = tail call nsz double @llvm.fmuladd.f64(double %109, double 2.000000e+00, double -1.000000e+00)
+  %111 = sitofp i32 %48 to double
+  %112 = fsub nsz double 1.000000e+00, %111
+  %113 = tail call nsz double @llvm.fmuladd.f64(double %112, double 2.000000e+00, double -1.000000e+00)
+  %114 = getelementptr inbounds nuw i8, ptr %10, i64 172
+  %115 = fcmp nsz ogt double %38, 0.000000e+00
+  %116 = fcmp nsz olt double %38, 0.000000e+00
+  %117 = add i32 %.neg317, %40
+  %118 = add i32 %40, 1
+  %119 = add i32 %118, %.neg317
+  %120 = fneg nsz double %16
+  %121 = getelementptr inbounds nuw i8, ptr %10, i64 120
+  %122 = getelementptr inbounds nuw i8, ptr %10, i64 112
+  %123 = load i32, ptr %39, align 8, !tbaa !33
+  %124 = fcmp nsz olt double %30, 0.000000e+00
+  %125 = fsub nsz double 1.000000e+00, %30
+  %126 = select i1 %124, double 1.000000e+00, double %125
+  %127 = fadd nsz double %30, 1.000000e+00
+  %128 = select i1 %124, double %127, double 1.000000e+00
+  %129 = getelementptr inbounds nuw i8, ptr %10, i64 36
+  %130 = load i32, ptr %129, align 4, !tbaa !69
+  %131 = fcmp nsz ule double %30, 0.000000e+00
   %133 = fcmp nsz olt double %126, 5.000000e-01
   %134 = select nsz i1 %133, double 5.000000e-01, double %126
   %135 = fdiv nsz double 1.000000e+00, %134
@@ -326,55 +326,55 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.mux = select i1 %72, double %85, double %73
   %.mux312 = select i1 %72, double %84, double 1.000000e+00
   %.mux315 = select i1 %125, double %138, double %126
-  %.mux316 = select i1 %125, double %137, double 1.000000e+00
+  %.mux315 = select i1 %124, double %137, double 1.000000e+00
   br label %144
 
 144:                                              ; preds = %.lr.ph, %276
   %145 = phi i32 [ %.promoted, %.lr.ph ], [ %263, %276 ]
-  %.0287309 = phi i32 [ 0, %.lr.ph ], [ %278, %276 ]
-  %.0288308 = phi ptr [ %71, %.lr.ph ], [ %280, %276 ]
-  %.0291307 = phi ptr [ %11, %.lr.ph ], [ %279, %276 ]
+  %143 = phi i32 [ 0, %.lr.ph ], [ %278, %276 ]
+  %.0287309 = phi ptr [ %71, %.lr.ph ], [ %280, %276 ]
+  %.0288308 = phi ptr [ %11, %.lr.ph ], [ %279, %276 ]
   %146 = load double, ptr %.0291307, align 8, !tbaa !72
   %147 = getelementptr inbounds nuw i8, ptr %.0291307, i64 8
   %148 = load double, ptr %147, align 8, !tbaa !72
   %149 = fmul nsz double %32, %146
-  %150 = fmul nsz double %32, %148
+  %147 = fmul nsz double %32, %148
   switch i32 %78, label %154 [
     i32 1, label %151
     i32 2, label %152
   ]
 
-151:                                              ; preds = %144
-  br label %154
+149:                                              ; preds = %144
+  br label %152
 
-152:                                              ; preds = %144
-  br i1 %79, label %154, label %153
+150:                                              ; preds = %144
+  br i1 %79, label %152, label %151
 
-153:                                              ; preds = %152
-  br label %154
+151:                                              ; preds = %150
+  br label %152
 
-154:                                              ; preds = %152, %153, %151, %144
+152:                                              ; preds = %150, %151, %149, %144
   %.0280 = phi nsz double [ %74, %144 ], [ %87, %151 ], [ %81, %153 ], [ %.mux, %152 ]
   %.0 = phi nsz double [ %76, %144 ], [ %88, %151 ], [ %82, %153 ], [ %.mux312, %152 ]
-  %155 = fmul nsz double %149, %.0280
-  %156 = fmul nsz double %150, %.0
-  br i1 %.not300, label %165, label %157
+  %153 = fmul nsz double %149, %.0280
+  %154 = fmul nsz double %147, %.0
+  br i1 %.not300, label %163, label %155
 
-157:                                              ; preds = %154
-  %158 = load double, ptr %91, align 8, !tbaa !38
-  %159 = fmul nsz double %36, %156
-  %160 = tail call nsz double @llvm.atan.f64(double %159)
-  %161 = fmul nsz double %160, %158
-  %162 = fmul nsz double %36, %155
-  %163 = tail call nsz double @llvm.atan.f64(double %162)
-  %164 = fmul nsz double %163, %158
-  br label %165
+155:                                              ; preds = %152
+  %156 = load double, ptr %91, align 8, !tbaa !38
+  %157 = fmul nsz double %36, %154
+  %158 = tail call nsz double @llvm.atan.f64(double %157)
+  %159 = fmul nsz double %158, %156
+  %160 = fmul nsz double %36, %153
+  %161 = tail call nsz double @llvm.atan.f64(double %160)
+  %162 = fmul nsz double %161, %156
+  br label %163
 
-165:                                              ; preds = %157, %154
-  %.0284 = phi nsz double [ %164, %157 ], [ %155, %154 ]
-  %.0282 = phi nsz double [ %161, %157 ], [ %156, %154 ]
+163:                                              ; preds = %155, %152
+  %.0284 = phi nsz double [ %162, %157 ], [ %153, %154 ]
+  %.0282 = phi nsz double [ %159, %157 ], [ %154, %154 ]
   switch i32 %93, label %229 [
-    i32 0, label %166
+    i32 0, label %164
     i32 1, label %177
     i32 2, label %186
     i32 3, label %193
@@ -387,8 +387,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
     i32 10, label %226
   ]
 
-166:                                              ; preds = %165
-  %167 = fadd nsz double %.0284, %.0282
+164:                                              ; preds = %163
+  %165 = fadd nsz double %.0284, %.0282
   %168 = fmul nsz double %167, 5.000000e-01
   %169 = fsub nsz double %.0284, %.0282
   %170 = fmul nsz double %169, 5.000000e-01
@@ -400,9 +400,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %176 = tail call nsz double @llvm.fmuladd.f64(double %171, double %101, double %175)
   br label %229
 
-177:                                              ; preds = %165
+177:; preds = %163
   %178 = fmul nsz double %99, %.0284
-  %179 = fmul nsz double %104, %.0282
+  %179 = fmul nsz double %104, %.0280
   %180 = fadd nsz double %178, %179
   %181 = fmul nsz double %180, 5.000000e-01
   %182 = fmul nsz double %26, %181
@@ -411,12 +411,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %185 = fmul nsz double %24, %184
   br label %229
 
-186:                                              ; preds = %165
+186:; preds = %165
   %187 = fmul nsz double %26, %.0284
   %188 = fmul nsz double %24, %.0282
   %189 = fmul nsz double %99, %188
   %190 = tail call nsz double @llvm.fmuladd.f64(double %187, double %96, double %189)
-  %191 = fmul nsz double %103, %188
+  %191 = fmul nsz double %102, %188
   %192 = tail call nsz double @llvm.fmuladd.f64(double %187, double %101, double %191)
   br label %229
 
@@ -426,12 +426,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 194:                                              ; preds = %165
   br label %229
 
-195:                                              ; preds = %165
+195:; preds = %165
   %196 = fadd nsz double %.0284, %.0282
   %197 = fmul nsz double %196, 5.000000e-01
   br label %229
 
-198:                                              ; preds = %165
+198:; preds = %165
   %199 = fadd nsz double %.0284, %.0282
   %200 = fmul nsz double %199, 5.000000e-01
   %201 = fsub nsz double %.0282, %.0284
@@ -444,21 +444,21 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %208 = tail call nsz double @llvm.fmuladd.f64(double %203, double %101, double %207)
   br label %229
 
-209:                                              ; preds = %165
+209:; preds = %165
   %210 = fmul nsz double %26, %.0284
   %211 = fmul nsz double %24, %.0282
   %212 = fmul nsz double %99, %211
   %213 = tail call nsz double @llvm.fmuladd.f64(double %210, double %96, double %212)
   br label %229
 
-214:                                              ; preds = %165
+214:; preds = %165
   %215 = fmul nsz double %26, %.0284
   %216 = fmul nsz double %24, %.0282
   %217 = fmul nsz double %103, %216
   %218 = tail call nsz double @llvm.fmuladd.f64(double %215, double %101, double %217)
   br label %229
 
-219:                                              ; preds = %165
+219:; preds = %165
   %220 = fmul nsz double %26, %.0284
   %221 = fmul nsz double %24, %.0282
   %222 = fmul nsz double %99, %221
@@ -467,12 +467,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %225 = tail call nsz double @llvm.fmuladd.f64(double %220, double %101, double %224)
   br label %229
 
-226:                                              ; preds = %165
+226:; preds = %165
   %227 = fsub nsz double %.0284, %.0282
   %228 = fmul nsz double %227, 5.000000e-01
   br label %229
 
-229:                                              ; preds = %226, %219, %214, %209, %198, %195, %194, %193, %186, %177, %166, %165
+229:; preds = %226, %219, %214, %209, %198, %195, %194, %193, %186, %177, %166, %165
   %.1285 = phi nsz double [ %.0284, %165 ], [ %174, %166 ], [ %182, %177 ], [ %190, %186 ], [ %.0284, %193 ], [ %.0282, %194 ], [ %197, %195 ], [ %206, %198 ], [ %213, %209 ], [ %218, %214 ], [ %225, %219 ], [ %228, %226 ]
   %.1283 = phi nsz double [ %.0282, %165 ], [ %176, %166 ], [ %185, %177 ], [ %192, %186 ], [ %.0284, %193 ], [ %.0282, %194 ], [ %197, %195 ], [ %208, %198 ], [ %213, %209 ], [ %218, %214 ], [ %223, %219 ], [ %228, %226 ]
   %230 = fmul nsz double %106, %.1285
@@ -480,13 +480,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %232 = fmul nsz double %111, %230
   %233 = fmul nsz double %114, %231
   %234 = sext i32 %145 to i64
-  %235 = getelementptr inbounds double, ptr %50, i64 %234
-  store double %232, ptr %235, align 8, !tbaa !72
+  %234 = getelementptr inbounds double, ptr %50, i64 %234
+  store double %232, ptr %234, align 8, !tbaa !72
   %236 = getelementptr i8, ptr %235, i64 8
   store double %233, ptr %236, align 8, !tbaa !72
   br i1 %116, label %237, label %243
 
-237:                                              ; preds = %229
+237:; preds = %229
   %238 = add i32 %120, %145
   %239 = srem i32 %238, %40
   %240 = sext i32 %239 to i64
@@ -497,7 +497,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 243:                                              ; preds = %229
   br i1 %117, label %244, label %250
 
-244:                                              ; preds = %243
+244: ; preds = %243
   %245 = add i32 %118, %145
   %246 = srem i32 %245, %40
   %247 = sext i32 %246 to i64
@@ -505,15 +505,15 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %249 = load double, ptr %248, align 8, !tbaa !72
   br label %250
 
-250:                                              ; preds = %243, %244, %237
+250: ; preds = %243, %244, %237
   %.2286 = phi nsz double [ %232, %237 ], [ %249, %244 ], [ %232, %243 ]
   %.2 = phi nsz double [ %242, %237 ], [ %233, %244 ], [ %233, %243 ]
   %251 = tail call nsz double @llvm.fmuladd.f64(double %16, double %.2286, double %.2286)
-  %252 = tail call nsz double @llvm.fmuladd.f64(double %121, double %.2, double %251)
+  %252 = tail call nsz double @llvm.fmuladd.f64(double %120, double %.2, double %251)
   %253 = tail call nsz double @llvm.fmuladd.f64(double %16, double %.2, double %.2)
   %254 = tail call nsz double @llvm.fmuladd.f64(double %121, double %.2286, double %253)
   %255 = load double, ptr %122, align 8, !tbaa !40
-  %256 = load double, ptr %123, align 8, !tbaa !41
+  %256 = load double, ptr %122, align 8, !tbaa !41
   %257 = fneg nsz double %256
   %258 = fmul nsz double %254, %257
   %259 = tail call nsz double @llvm.fmuladd.f64(double %252, double %255, double %258)
@@ -526,37 +526,37 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
     i32 2, label %265
   ]
 
-264:                                              ; preds = %250
-  br label %267
+262:                                              ; preds = %250
+  br label %265
 
-265:                                              ; preds = %250
-  br i1 %132, label %267, label %266
+263:                                              ; preds = %250
+  br i1 %131, label %265, label %264
+
+264:                                              ; preds = %263
+  br label %265
+
+265:                                              ; preds = %263, %264, %262, %250
+  %.1281 = phi nsz double [ %126, %250 ], [ %140, %264 ], [ %134, %266 ], [ %.mux315, %265 ]
+  %.1 = phi nsz double [ %128, %250 ], [ %141, %264 ], [ %135, %266 ], [ %.mux316, %265 ]
+  br i1 %.not305, label %269, label %266
 
 266:                                              ; preds = %265
-  br label %267
-
-267:                                              ; preds = %265, %266, %264, %250
-  %.1281 = phi nsz double [ %127, %250 ], [ %140, %264 ], [ %134, %266 ], [ %.mux315, %265 ]
-  %.1 = phi nsz double [ %129, %250 ], [ %141, %264 ], [ %135, %266 ], [ %.mux316, %265 ]
-  br i1 %.not305, label %271, label %268
-
-268:                                              ; preds = %267
-  %269 = load double, ptr %.0291307, align 8, !tbaa !72
-  store double %269, ptr %.0288308, align 8, !tbaa !72
-  %270 = load double, ptr %147, align 8, !tbaa !72
+  %267 = load double, ptr %.0291307, align 8, !tbaa !72
+  store double %267, ptr %.0288308, align 8, !tbaa !72
+  %268 = load double, ptr %147, align 8, !tbaa !72
   br label %276
 
-271:                                              ; preds = %267
-  %272 = fmul nsz double %261, %.1
+269:                                              ; preds = %265
+  %270 = fmul nsz double %261, %.1
   %273 = fmul nsz double %34, %272
   %274 = fmul nsz double %259, %.1281
   %275 = fmul nsz double %34, %274
   store double %275, ptr %.0288308, align 8, !tbaa !72
   br label %276
 
-276:                                              ; preds = %271, %268
+276: ; preds = %271, %268
   %.sink = phi double [ %273, %271 ], [ %270, %268 ]
-  %277 = getelementptr inbounds nuw i8, ptr %.0288308, i64 8
+  %277 = getelementptr inbounds nuw i8, ptr %.0287309, i64 8
   store double %.sink, ptr %277, align 8, !tbaa !72
   %278 = add nuw nsw i32 %.0287309, 1
   %279 = getelementptr inbounds nuw i8, ptr %.0291307, i64 16
@@ -564,15 +564,15 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %exitcond.not = icmp eq i32 %278, %69
   br i1 %exitcond.not, label %._crit_edge, label %144, !llvm.loop !73
 
-._crit_edge:                                      ; preds = %276
+._crit_edge:; preds = %276
   store i32 %263, ptr %115, align 4, !tbaa !71
   br label %281
 
 281:                                              ; preds = %._crit_edge, %67
   %.not299 = icmp eq ptr %.0289, %1
-  br i1 %.not299, label %283, label %282
+  br i1 %.not299, label %283, label %280
 
-282:                                              ; preds = %281
+280:                                              ; preds = %281
   call void @av_frame_free(ptr noundef nonnull %3) #5
   br label %283
 

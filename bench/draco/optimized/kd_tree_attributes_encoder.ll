@@ -7872,7 +7872,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
     i32 8, label %239
     i32 9, label %274
     i32 10, label %276
-    i32 11, label %324
+    i32 11, label %278
   ]
 
 9:                                                ; preds = %6
@@ -8460,66 +8460,66 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i140, i8 0, i64 %323, i1 false), !tbaa !52
   br label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIajEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
-324:                                              ; preds = %6
-  %325 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %326 = load i8, ptr %325, align 8, !tbaa !81
-  %.sroa.speculated30.i141 = tail call i8 @llvm.umin.i8(i8 %2, i8 %326)
-  %.not31.i142 = icmp eq i8 %.sroa.speculated30.i141, 0
-  br i1 %.not31.i142, label %.critedge.i150, label %.lr.ph.i143
+278:                                              ; preds = %6
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %280 = load i8, ptr %279, align 8, !tbaa !81
+  %.sroa.speculated30.i132 = tail call i8 @llvm.umin.i8(i8 %2, i8 %280)
+  %.not31.i133 = icmp eq i8 %.sroa.speculated30.i132, 0
+  br i1 %.not31.i133, label %.critedge.i141, label %.lr.ph.i134
 
-.lr.ph.i143:                                      ; preds = %324
-  %327 = load ptr, ptr %0, align 8, !tbaa !174
-  %328 = load ptr, ptr %327, align 8, !tbaa !175
-  %329 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %330 = load i64, ptr %329, align 8, !tbaa !173
-  %331 = zext i32 %1 to i64
-  %332 = mul nsw i64 %330, %331
-  %333 = getelementptr i8, ptr %328, i64 %332
-  %334 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %335 = load i64, ptr %334, align 8, !tbaa !172
-  %336 = getelementptr i8, ptr %333, i64 %335
-  %337 = getelementptr inbounds nuw i8, ptr %327, i64 8
-  %338 = load ptr, ptr %337, align 8, !tbaa !294
-  br label %339
+.lr.ph.i134:                                      ; preds = %278
+  %281 = load ptr, ptr %0, align 8, !tbaa !174
+  %282 = load ptr, ptr %281, align 8, !tbaa !175
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %284 = load i64, ptr %283, align 8, !tbaa !173
+  %285 = zext i32 %1 to i64
+  %286 = mul nsw i64 %284, %285
+  %287 = getelementptr i8, ptr %282, i64 %286
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %289 = load i64, ptr %288, align 8, !tbaa !172
+  %290 = getelementptr i8, ptr %287, i64 %289
+  %291 = getelementptr inbounds nuw i8, ptr %281, i64 8
+  %292 = load ptr, ptr %291, align 8, !tbaa !294
+  br label %293
 
-339:                                              ; preds = %341, %.lr.ph.i143
-  %indvars.iv.i144 = phi i64 [ 0, %.lr.ph.i143 ], [ %indvars.iv.next.i147, %341 ]
-  %.02032.i145 = phi ptr [ %336, %.lr.ph.i143 ], [ %345, %341 ]
-  %340 = icmp ugt ptr %338, %.02032.i145
-  br i1 %340, label %341, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIajEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
+293:                                              ; preds = %295, %.lr.ph.i134
+  %indvars.iv.i135 = phi i64 [ 0, %.lr.ph.i143 ], [ %indvars.iv.next.i138, %341 ]
+  %.02032.i136 = phi ptr [ %290, %.lr.ph.i143 ], [ %299, %341 ]
+  %294 = icmp ugt ptr %292, %.02032.i136
+  br i1 %294, label %295, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIajEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
-341:                                              ; preds = %339
-  %342 = load i8, ptr %.02032.i145, align 1, !tbaa !305, !range !169, !noundef !170
-  %343 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i144
-  %344 = zext nneg i8 %342 to i32
-  store i32 %344, ptr %343, align 4, !tbaa !52
-  %345 = getelementptr inbounds nuw i8, ptr %.02032.i145, i64 1
-  %indvars.iv.next.i147 = add nuw nsw i64 %indvars.iv.i144, 1
-  %346 = load i8, ptr %325, align 8, !tbaa !81
-  %.sroa.speculated.i148 = tail call i8 @llvm.umin.i8(i8 %2, i8 %346)
-  %347 = zext i8 %.sroa.speculated.i148 to i64
-  %.not.not.i149 = icmp samesign ult i64 %indvars.iv.next.i147, %347
-  br i1 %.not.not.i149, label %339, label %.critedge.i150, !llvm.loop !324
+295:                                              ; preds = %293
+  %296 = load i8, ptr %.02032.i136, align 1, !tbaa !305, !range !169, !noundef !170
+  %297 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i135
+  %298 = zext nneg i8 %296 to i32
+  store i32 %298, ptr %297, align 4, !tbaa !52
+  %299 = getelementptr inbounds nuw i8, ptr %.02032.i136, i64 1
+  %indvars.iv.next.i138 = add nuw nsw i64 %indvars.iv.i135, 1
+  %300 = load i8, ptr %279, align 8, !tbaa !81
+  %.sroa.speculated.i139 = tail call i8 @llvm.umin.i8(i8 %2, i8 %300)
+  %301 = zext i8 %.sroa.speculated.i139 to i64
+  %.not.not.i140 = icmp samesign ult i64 %indvars.iv.next.i138, %301
+  br i1 %.not.not.i140, label %293, label %.critedge.i141, !llvm.loop !324
 
-.critedge.i150:                                   ; preds = %341, %324
-  %.lcssa.i151 = phi i8 [ %326, %324 ], [ %346, %341 ]
-  %348 = icmp ult i8 %.lcssa.i151, %2
-  br i1 %348, label %.lr.ph37.preheader.i152, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIajEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
+.critedge.i141:                                   ; preds = %295, %278
+  %.lcssa.i142 = phi i8 [ %280, %324 ], [ %300, %341 ]
+  %302 = icmp ult i8 %.lcssa.i142, %2
+  br i1 %302, label %.lr.ph37.preheader.i143, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIajEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
-.lr.ph37.preheader.i152:                          ; preds = %.critedge.i150
-  %349 = zext i8 %2 to i64
-  %350 = zext i8 %.lcssa.i151 to i64
-  %351 = shl nuw nsw i64 %350, 2
-  %scevgep.i153 = getelementptr i8, ptr %3, i64 %351
-  %352 = xor i64 %350, -1
-  %353 = add nsw i64 %352, %349
-  %354 = shl nsw i64 %353, 2
-  %355 = and i64 %354, 17179869180
-  %356 = add nuw nsw i64 %355, 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i153, i8 0, i64 %356, i1 false), !tbaa !52
+.lr.ph37.preheader.i143:                          ; preds = %.critedge.i141
+  %303 = zext i8 %2 to i64
+  %304 = zext i8 %.lcssa.i142 to i64
+  %305 = shl nuw nsw i64 %304, 2
+  %scevgep.i144 = getelementptr i8, ptr %3, i64 %305
+  %306 = xor i64 %304, -1
+  %307 = add nsw i64 %306, %303
+  %308 = shl nsw i64 %307, 2
+  %309 = and i64 %308, 17179869180
+  %310 = add nuw nsw i64 %309, 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i144, i8 0, i64 %310, i1 false), !tbaa !52
   br label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIajEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
-_ZNK5draco17GeometryAttribute17ConvertTypedValueIajEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit: ; preds = %339, %.lr.ph45.i, %306, %.lr.ph52.i, %295, %256, %254, %222, %220, %188, %156, %123, %90, %57, %24, %.lr.ph37.preheader.i152, %.critedge.i150, %.lr.ph59.preheader.i, %.critedge.i138, %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph39.preheader.i130, %.critedge.i128, %.lr.ph39.preheader.i, %.critedge.i116, %.lr.ph37.preheader.i109, %.critedge.i107, %.lr.ph37.preheader.i96, %.critedge.i94, %.lr.ph37.preheader.i83, %.critedge.i81, %.lr.ph37.preheader.i70, %.critedge.i68, %.lr.ph37.preheader.i57, %.critedge.i55, %.lr.ph37.preheader.i, %.critedge.i, %6, %4, %274
+_ZNK5draco17GeometryAttribute17ConvertTypedValueIajEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit: ; preds = %293, %.lr.ph45.i, %306, %.lr.ph52.i, %295, %256, %254, %222, %220, %188, %156, %123, %90, %57, %24, %.lr.ph37.preheader.i143, %.critedge.i141, %.lr.ph59.preheader.i, %.critedge.i138, %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph39.preheader.i130, %.critedge.i128, %.lr.ph39.preheader.i, %.critedge.i116, %.lr.ph37.preheader.i109, %.critedge.i107, %.lr.ph37.preheader.i96, %.critedge.i94, %.lr.ph37.preheader.i83, %.critedge.i81, %.lr.ph37.preheader.i70, %.critedge.i68, %.lr.ph37.preheader.i57, %.critedge.i55, %.lr.ph37.preheader.i, %.critedge.i, %6, %4, %274
   %.0 = phi i1 [ %275, %274 ], [ false, %4 ], [ false, %6 ], [ true, %.critedge.i ], [ true, %.lr.ph37.preheader.i ], [ true, %.critedge.i55 ], [ true, %.lr.ph37.preheader.i57 ], [ true, %.critedge.i68 ], [ true, %.lr.ph37.preheader.i70 ], [ true, %.critedge.i81 ], [ true, %.lr.ph37.preheader.i83 ], [ true, %.critedge.i94 ], [ true, %.lr.ph37.preheader.i96 ], [ true, %.critedge.i107 ], [ true, %.lr.ph37.preheader.i109 ], [ true, %.critedge.i116 ], [ true, %.lr.ph39.preheader.i ], [ true, %.critedge.i128 ], [ true, %.lr.ph39.preheader.i130 ], [ true, %.critedge.i138 ], [ false, %.lr.ph.split.us.i ], [ false, %.lr.ph.split.i ], [ true, %.lr.ph59.preheader.i ], [ true, %.critedge.i150 ], [ true, %.lr.ph37.preheader.i152 ], [ false, %24 ], [ false, %57 ], [ false, %90 ], [ false, %123 ], [ false, %156 ], [ false, %188 ], [ false, %220 ], [ false, %222 ], [ false, %254 ], [ false, %256 ], [ false, %295 ], [ false, %.lr.ph52.i ], [ false, %306 ], [ false, %.lr.ph45.i ], [ false, %339 ]
   ret i1 %.0
 }
@@ -8566,71 +8566,71 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute17ConvertTy
   %26 = load float, ptr %.02035.us51, align 4, !tbaa !83
   %or.cond13.i.us = tail call i1 @llvm.is.fpclass.f32(float %26, i32 480)
   %27 = fcmp ule float %26, 1.000000e+00
-  %or.cond.not = and i1 %or.cond13.i.us, %27
+  %or.cond14.i.us = and i1 %or.cond13.i.us, %27
   br i1 %or.cond.not, label %28, label %.loopexit
 
-28:                                               ; preds = %.lr.ph52
+28:; preds = %.lr.ph52
   %29 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv67
   %30 = fpext float %26 to double
   %31 = tail call double @llvm.fmuladd.f64(double %30, double 0x41EFFFFFFFE00000, double 5.000000e-01)
   %32 = tail call double @llvm.floor.f64(double %31)
-  %33 = fptoui double %32 to i32
-  store i32 %33, ptr %29, align 4, !tbaa !52
+  %storemerge.i.us = fptoui double %32 to i32
+  store i32 %storemerge.i.us, ptr %29, align 4, !tbaa !52
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %34 = load i8, ptr %15, align 8, !tbaa !81
-  %.sroa.speculated.us = tail call i8 @llvm.umin.i8(i8 %2, i8 %34)
-  %35 = zext i8 %.sroa.speculated.us to i64
-  %.not.us.not = icmp samesign ult i64 %indvars.iv.next68, %35
+  %33 = load i8, ptr %15, align 8, !tbaa !81
+  %.sroa.speculated.us = tail call i8 @llvm.umin.i8(i8 %2, i8 %33)
+  %34 = zext i8 %.sroa.speculated.us to i64
+  %.not.us.not = icmp samesign ult i64 %indvars.iv.next68, %34
   br i1 %.not.us.not, label %23, label %.critedge, !llvm.loop !325
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %22, label %.lr.ph45, label %.loopexit
 
-36:                                               ; preds = %41
-  %37 = getelementptr inbounds nuw i8, ptr %.0203544, i64 4
-  %38 = icmp ugt ptr %18, %37
-  br i1 %38, label %.lr.ph45, label %.loopexit, !llvm.loop !325
+35:                                               ; preds = %40
+  %36 = getelementptr inbounds nuw i8, ptr %.0203544, i64 4
+  %37 = icmp ugt ptr %18, %36
+  br i1 %37, label %.lr.ph45, label %.loopexit, !llvm.loop !325
 
-.lr.ph45:                                         ; preds = %.lr.ph.split, %36
+.lr.ph45:                                         ; preds = %.lr.ph.split, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.lr.ph.split ]
-  %.0203544 = phi ptr [ %37, %36 ], [ %14, %.lr.ph.split ]
-  %39 = load float, ptr %.0203544, align 4, !tbaa !83
-  %or.cond13.i = tail call i1 @llvm.is.fpclass.f32(float %39, i32 480)
-  %40 = fcmp ult float %39, 0x41F0000000000000
-  %or.cond14.i = and i1 %or.cond13.i, %40
-  br i1 %or.cond14.i, label %41, label %.loopexit
+  %.0203544 = phi ptr [ %36, %36 ], [ %14, %.lr.ph.split ]
+  %38 = load float, ptr %.0203544, align 4, !tbaa !83
+  %or.cond13.i = tail call i1 @llvm.is.fpclass.f32(float %38, i32 480)
+  %39 = fcmp ult float %38, 0x41F0000000000000
+  %or.cond14.i = and i1 %or.cond13.i, %39
+  br i1 %or.cond14.i, label %40, label %.loopexit
 
-41:                                               ; preds = %.lr.ph45
-  %42 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  %43 = fptoui float %39 to i32
-  store i32 %43, ptr %42, align 4, !tbaa !52
+40:                                               ; preds = %.lr.ph45
+  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %storemerge.i = fptoui float %38 to i32
+  store i32 %storemerge.i, ptr %41, align 4, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = load i8, ptr %15, align 8, !tbaa !81
-  %.sroa.speculated = tail call i8 @llvm.umin.i8(i8 %2, i8 %44)
-  %45 = zext i8 %.sroa.speculated to i64
-  %.not.not = icmp samesign ult i64 %indvars.iv.next, %45
-  br i1 %.not.not, label %36, label %.critedge, !llvm.loop !325
+  %42 = load i8, ptr %15, align 8, !tbaa !81
+  %.sroa.speculated = tail call i8 @llvm.umin.i8(i8 %2, i8 %42)
+  %43 = zext i8 %.sroa.speculated to i64
+  %.not.not = icmp samesign ult i64 %indvars.iv.next, %43
+  br i1 %.not.not, label %35, label %.critedge, !llvm.loop !325
 
-.critedge:                                        ; preds = %41, %28, %4
-  %.lcssa = phi i8 [ %16, %4 ], [ %34, %28 ], [ %44, %41 ]
-  %46 = icmp ult i8 %.lcssa, %2
-  br i1 %46, label %.lr.ph59.preheader, label %.loopexit
+.critedge:                                        ; preds = %40, %28, %4
+  %.lcssa = phi i8 [ %16, %4 ], [ %33, %28 ], [ %42, %41 ]
+  %44 = icmp ult i8 %.lcssa, %2
+  br i1 %44, label %.lr.ph59.preheader, label %.loopexit
 
 .lr.ph59.preheader:                               ; preds = %.critedge
-  %47 = zext i8 %2 to i64
-  %48 = zext i8 %.lcssa to i64
-  %49 = zext i8 %.lcssa to i64
-  %50 = shl nuw nsw i64 %49, 2
-  %scevgep = getelementptr i8, ptr %3, i64 %50
-  %51 = xor i64 %48, -1
-  %52 = add nsw i64 %51, %47
-  %53 = shl nsw i64 %52, 2
-  %54 = and i64 %53, 17179869180
-  %55 = add nuw nsw i64 %54, 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %55, i1 false), !tbaa !52
+  %45 = zext i8 %2 to i64
+  %46 = zext i8 %.lcssa to i64
+  %47 = zext i8 %.lcssa to i64
+  %48 = shl nuw nsw i64 %47, 2
+  %scevgep = getelementptr i8, ptr %3, i64 %48
+  %49 = xor i64 %46, -1
+  %50 = add nsw i64 %49, %45
+  %51 = shl nsw i64 %50, 2
+  %52 = and i64 %51, 17179869180
+  %53 = add nuw nsw i64 %52, 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %53, i1 false), !tbaa !52
   br label %.loopexit
 
-.loopexit:                                        ; preds = %36, %.lr.ph45, %23, %.lr.ph52, %.lr.ph59.preheader, %.lr.ph.split.us, %.lr.ph.split, %.critedge
+.loopexit:                                        ; preds = %35, %.lr.ph45, %23, %.lr.ph52, %.lr.ph59.preheader, %.lr.ph.split.us, %.lr.ph.split, %.critedge
   %.not31 = phi i1 [ true, %.critedge ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ true, %.lr.ph59.preheader ], [ false, %.lr.ph52 ], [ false, %23 ], [ false, %.lr.ph45 ], [ false, %36 ]
   ret i1 %.not31
 }

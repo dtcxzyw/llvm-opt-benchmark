@@ -1636,13 +1636,13 @@ define hidden void @_ZN2cv8obsensor19DepthFrameProcessorC2ERKNS0_16OBExtensionPa
   %13 = fpext float %12 to double
   br label %15
 
-14:                                               ; preds = %32
+14:                                               ; preds = %33
   ret void
 
-15:                                               ; preds = %2, %32
+15:                                               ; preds = %2, %33
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %32 ]
   %16 = icmp eq i64 %indvars.iv, 0
-  br i1 %16, label %32, label %17
+  br i1 %16, label %33, label %17
 
 17:                                               ; preds = %15
   %18 = trunc nuw nsw i64 %indvars.iv to i16
@@ -1659,13 +1659,13 @@ define hidden void @_ZN2cv8obsensor19DepthFrameProcessorC2ERKNS0_16OBExtensionPa
   %or.cond = and i1 %27, %28
   br i1 %or.cond, label %29, label %32
 
-29:                                               ; preds = %17
-  %30 = fptoui double %26 to i16
-  %31 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
-  store i16 %30, ptr %31, align 2, !tbaa !95
-  br label %32
+30:                                               ; preds = %17
+  %31 = fptoui double %26 to i16
+  %32 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  store i16 %31, ptr %32, align 2, !tbaa !95
+  br label %33
 
-32:                                               ; preds = %17, %29, %15
+33:                                               ; preds = %17, %30, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4096
   br i1 %exitcond.not, label %14, label %15, !llvm.loop !96
@@ -2880,7 +2880,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_8obsensor19DepthFrameProcessorEJ
   %8 = invoke noalias noundef nonnull dereferenceable(8192) ptr @_Znam(i64 noundef 8192) #27
           to label %.noexc.i.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8obsensor19DepthFrameProcessorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !124
 
-.noexc.i.i.i.i:                                   ; preds = %2
+.noexc.i.i:                                       ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %8, ptr %9, align 8, !tbaa !90, !noalias !124
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(8192) %8, i8 0, i64 8192, i1 false), !noalias !124
@@ -2894,13 +2894,13 @@ define internal fastcc void @_ZN2cvL7makePtrINS_8obsensor19DepthFrameProcessorEJ
   %17 = fpext float %16 to double
   br label %18
 
-18:                                               ; preds = %35, %.noexc.i.i.i.i
-  %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i.i, %35 ]
-  %19 = icmp eq i64 %indvars.iv.i.i.i.i.i.i.i.i, 0
+18:                                               ; preds = %35, %.noexc.i.i
+  %indvars.iv.i.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i.i, %35 ]
+  %19 = icmp eq i64 %indvars.iv.i.i.i.i.i.i, 0
   br i1 %19, label %35, label %20
 
 20:                                               ; preds = %18
-  %21 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i to i16
+  %21 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i.i to i16
   %22 = uitofp nneg i16 %21 to double
   %23 = fmul double %22, 1.250000e-01
   %24 = fsub double 2.003750e+02, %23
@@ -2911,21 +2911,21 @@ define internal fastcc void @_ZN2cvL7makePtrINS_8obsensor19DepthFrameProcessorEJ
   %29 = fmul double %28, 1.000000e+01
   %30 = fcmp oge double %29, 4.000000e+01
   %31 = fcmp ole double %29, 1.000000e+04
-  %or.cond.i.i.i.i.i.i.i.i = and i1 %30, %31
-  br i1 %or.cond.i.i.i.i.i.i.i.i, label %32, label %35
+  %or.cond.i.i.i.i.i.i = and i1 %30, %31
+  br i1 %or.cond.i.i.i.i.i.i, label %33, label %35
 
-32:                                               ; preds = %20
+33:; preds = %20
   %33 = fptoui double %29 to i16
-  %34 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %34 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i.i.i.i.i.i
   store i16 %33, ptr %34, align 2, !tbaa !95, !noalias !124
   br label %35
 
-35:                                               ; preds = %32, %20, %18
+35:; preds = %32, %20, %18
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 4096
   br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZNSt12__shared_ptrIN2cv8obsensor19DepthFrameProcessorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %18, !llvm.loop !96
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8obsensor19DepthFrameProcessorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i: ; preds = %2
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8obsensor19DepthFrameProcessorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i:; preds = %2
   %36 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %3) #30, !noalias !124
@@ -2933,8 +2933,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8obsensor19DepthFrameP
 
 _ZNSt12__shared_ptrIN2cv8obsensor19DepthFrameProcessorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %35
   store ptr %6, ptr %0, align 8, !tbaa !127
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %37, align 8, !tbaa !57
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %3, ptr %38, align 8, !tbaa !57
   ret void
 }
 

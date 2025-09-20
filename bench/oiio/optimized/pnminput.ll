@@ -1145,9 +1145,9 @@ _ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit: ; preds = %.lr.ph.i92, %181
 
 207:                                              ; preds = %109, %109
   %208 = load float, ptr %31, align 8, !tbaa !80
-  %.old1.i = fcmp ogt float %208, 0.000000e+00
-  %or.cond.i = and i1 %32, %.old1.i
-  br i1 %or.cond.i, label %.lr.ph.i.i, label %_ZN11OpenImageIO6v3_1_011swap_endianIfEEvPT_i.exit.i
+  %or.cond.i = fcmp ogt float %208, 0.000000e+00
+  %or.cond16.i = and i1 %32, %or.cond.i
+  br i1 %or.cond16.i, label %.lr.ph.i.i, label %_ZN11OpenImageIO6v3_1_011swap_endianIfEEvPT_i.exit.i
 
 .lr.ph.i.i:                                       ; preds = %207, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %207 ]
@@ -1168,13 +1168,13 @@ _ZN11OpenImageIO6v3_1_011swap_endianIfEEvPT_i.exit.i: ; preds = %207
   br label %.lr.ph.i110
 
 .lr.ph.i110:                                      ; preds = %.lr.ph.i110, %.lr.ph.preheader.i109
-  %.016.i = phi i64 [ %218, %.lr.ph.i110 ], [ 0, %.lr.ph.preheader.i109 ]
-  %214 = getelementptr inbounds nuw float, ptr %.sroa.0118.1, i64 %.016.i
+  %.017.i = phi i64 [ %218, %.lr.ph.i110 ], [ 0, %.lr.ph.preheader.i109 ]
+  %214 = getelementptr inbounds nuw float, ptr %.sroa.0118.1, i64 %.017.i
   %215 = load float, ptr %214, align 4, !tbaa !81
   %216 = fmul float %213, %215
-  %217 = getelementptr inbounds nuw float, ptr %1, i64 %.016.i
+  %217 = getelementptr inbounds nuw float, ptr %1, i64 %.017.i
   store float %216, ptr %217, align 4, !tbaa !81
-  %218 = add nuw i64 %.016.i, 1
+  %218 = add nuw i64 %.017.i, 1
   %exitcond.not.i111 = icmp eq i64 %218, %30
   br i1 %exitcond.not.i111, label %_ZN11OpenImageIO6v3_1_06unpackEPKhPhm.exit, label %.lr.ph.i110, !llvm.loop !83
 

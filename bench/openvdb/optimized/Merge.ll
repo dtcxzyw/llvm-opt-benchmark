@@ -52777,8 +52777,8 @@ call5.i.i.i.i.i.noexc577:                         ; preds = %invoke.cont132
   store i8 %spec.select.i238, ptr %ref.tmp130.sroa.2.0.add.ptr.i.i.i.sroa_idx, align 4
   %__it.sroa.0.036.i = load ptr, ptr %_M_before_begin.i.i, align 8
   %cmp.i.not37.i = icmp eq ptr %__it.sroa.0.036.i, null
-  %or.cond = select i1 %cmp.not.not.i, i1 true, i1 %cmp.i.not37.i
-  br i1 %or.cond, label %invoke.cont21.i, label %for.body.i568
+  %or.cond1190 = select i1 %cmp.not.not.i, i1 true, i1 %cmp.i.not37.i
+  br i1 %or.cond1190, label %invoke.cont21.i, label %for.body.i568
 
 for.body.i568:                                    ; preds = %call5.i.i.i.i.i.noexc577, %for.inc.i570
   %__it.sroa.0.038.i = phi ptr [ %__it.sroa.0.0.i, %for.inc.i570 ], [ %__it.sroa.0.036.i, %call5.i.i.i.i.i.noexc577 ]
@@ -53109,8 +53109,8 @@ if.else:                                          ; preds = %_ZNKSt8__detail15_H
 if.then140:                                       ; preds = %if.else
   %tile.i.i.i245 = getelementptr inbounds nuw i8, ptr %valueIter105.sroa.3.01052, i64 56
   %125 = load float, ptr %tile.i.i.i245, align 4
-  %cmp5.i248 = fcmp ogt float %125, 0.000000e+00
-  br i1 %cmp5.i248, label %if.then6.i254, label %if.then.i.i260
+  %or.cond = fcmp ogt float %125, 0.000000e+00
+  br i1 %or.cond, label %if.then6.i254, label %if.then.i.i260
 
 if.then6.i254:                                    ; preds = %if.then140
   %second.i.i.i250 = getelementptr inbounds nuw i8, ptr %valueIter105.sroa.3.01052, i64 48
@@ -55317,8 +55317,8 @@ call5.i.i.i.i.i.noexc577:                         ; preds = %invoke.cont132
   store i8 %spec.select.i238, ptr %ref.tmp130.sroa.2.0.add.ptr.i.i.i.sroa_idx, align 4
   %__it.sroa.0.036.i = load ptr, ptr %_M_before_begin.i.i, align 8
   %cmp.i.not37.i = icmp eq ptr %__it.sroa.0.036.i, null
-  %or.cond = select i1 %cmp.not.not.i, i1 true, i1 %cmp.i.not37.i
-  br i1 %or.cond, label %invoke.cont21.i, label %for.body.i568
+  %or.cond1190 = select i1 %cmp.not.not.i, i1 true, i1 %cmp.i.not37.i
+  br i1 %or.cond1190, label %invoke.cont21.i, label %for.body.i568
 
 for.body.i568:                                    ; preds = %call5.i.i.i.i.i.noexc577, %for.inc.i570
   %__it.sroa.0.038.i = phi ptr [ %__it.sroa.0.0.i, %for.inc.i570 ], [ %__it.sroa.0.036.i, %call5.i.i.i.i.i.noexc577 ]
@@ -55649,8 +55649,8 @@ if.else:                                          ; preds = %_ZNKSt8__detail15_H
 if.then140:                                       ; preds = %if.else
   %tile.i.i.i245 = getelementptr inbounds nuw i8, ptr %valueIter105.sroa.3.01052, i64 56
   %125 = load double, ptr %tile.i.i.i245, align 8
-  %cmp5.i248 = fcmp ogt double %125, 0.000000e+00
-  br i1 %cmp5.i248, label %if.then6.i254, label %if.then.i.i260
+  %or.cond = fcmp ogt double %125, 0.000000e+00
+  br i1 %or.cond, label %if.then6.i254, label %if.then.i.i260
 
 if.then6.i254:                                    ; preds = %if.then140
   %second.i.i.i250 = getelementptr inbounds nuw i8, ptr %valueIter105.sroa.3.01052, i64 48

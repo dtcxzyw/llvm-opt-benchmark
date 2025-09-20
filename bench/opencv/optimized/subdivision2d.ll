@@ -2232,7 +2232,7 @@ define noundef i32 @_ZN2cv8Subdiv2D6insertENS_6Point_IfEE(ptr noundef nonnull al
 18:                                               ; preds = %131, %2
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %361
+  br label %362
 
 20:                                               ; preds = %15
   %21 = landingpad { ptr, i32 }
@@ -2255,7 +2255,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %22, %
   %.pn58 = phi { ptr, i32 } [ %21, %20 ], [ %23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %361
+  br label %362
 
 27:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2291,7 +2291,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %32,
   %.pn56 = phi { ptr, i32 } [ %31, %30 ], [ %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61 ], [ %33, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %361
+  br label %362
 
 37:                                               ; preds = %14
   %38 = load i32, ptr %6, align 4, !tbaa !9
@@ -2433,7 +2433,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %126
   %.pn50 = phi { ptr, i32 } [ %125, %124 ], [ %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i67 ], [ %127, %126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %361
+  br label %362
 
 131:                                              ; preds = %120
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2463,7 +2463,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %126
 
 144:                                              ; preds = %139
   invoke void @_ZN2cv8Subdiv2D8QuadEdgeC1Ev(ptr noundef nonnull align 4 dereferenceable(32) %141)
-          to label %.noexc unwind label %335
+          to label %.noexc unwind label %336
 
 .noexc:                                           ; preds = %144
   %145 = load ptr, ptr %140, align 8, !tbaa !19
@@ -2473,7 +2473,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %126
 
 147:                                              ; preds = %139
   invoke void @_ZNSt6vectorIN2cv8Subdiv2D8QuadEdgeESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %138, ptr %141)
-          to label %.noexc70 unwind label %335
+          to label %.noexc70 unwind label %336
 
 .noexc70:                                         ; preds = %147
   %.pre.i = load ptr, ptr %140, align 8, !tbaa !19
@@ -2502,7 +2502,7 @@ _ZNSt6vectorIN2cv8Subdiv2D8QuadEdgeESaIS2_EE12emplace_backIJEEEvDpOT_.exit.i: ; 
   store i32 %163, ptr %135, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN2cv8Subdiv2D8QuadEdgeC1Ei(ptr noundef nonnull align 4 dereferenceable(32) %3, i32 noundef %159)
-          to label %164 unwind label %335
+          to label %164 unwind label %336
 
 164:                                              ; preds = %156
   %165 = load ptr, ptr %138, align 8, !tbaa !3
@@ -2561,7 +2561,7 @@ _ZNSt6vectorIN2cv8Subdiv2D8QuadEdgeESaIS2_EE12emplace_backIJEEEvDpOT_.exit.i: ; 
   %.045 = phi i32 [ %159, %164 ], [ %207, %208 ]
   %206 = xor i32 %.045, 2
   %207 = invoke noundef i32 @_ZN2cv8Subdiv2D12connectEdgesEii(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %205, i32 noundef %206)
-          to label %208 unwind label %337
+          to label %208 unwind label %338
 
 208:                                              ; preds = %204
   %209 = ashr i32 %207, 2
@@ -2604,9 +2604,9 @@ _ZNSt6vectorIN2cv8Subdiv2D8QuadEdgeESaIS2_EE12emplace_backIJEEEvDpOT_.exit.i: ; 
   %237 = and i32 %tr.sh.diff, 2147483644
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %352
-  %238 = phi ptr [ %353, %352 ], [ %211, %.lr.ph.preheader ]
-  %.04686 = phi i32 [ %354, %352 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %353
+  %238 = phi ptr [ %354, %352 ], [ %211, %.lr.ph.preheader ]
+  %.04686 = phi i32 [ %355, %352 ], [ 0, %.lr.ph.preheader ]
   %storemerge8485 = phi i32 [ %storemerge, %352 ], [ %221, %.lr.ph.preheader ]
   %239 = ashr i32 %storemerge8485, 2
   %240 = sext i32 %239 to i64
@@ -2668,7 +2668,7 @@ _ZNSt6vectorIN2cv8Subdiv2D8QuadEdgeESaIS2_EE12emplace_backIJEEEvDpOT_.exit.i: ; 
   %289 = fmul double %285, %288
   %290 = call noundef double @llvm.fmuladd.f64(double %280, double %283, double %289)
   %291 = fcmp ogt double %290, 0.000000e+00
-  br i1 %291, label %292, label %339
+  br i1 %291, label %292, label %340
 
 292:                                              ; preds = %.lr.ph
   %293 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %267, i64 %183
@@ -2707,80 +2707,80 @@ _ZNSt6vectorIN2cv8Subdiv2D8QuadEdgeESaIS2_EE12emplace_backIJEEEvDpOT_.exit.i: ; 
   %323 = fneg double %319
   %324 = call double @llvm.fmuladd.f64(double %323, double %322, double %317)
   %325 = fcmp olt double %324, 0xBE50000000000000
-  br i1 %325, label %326, label %339
+  br i1 %325, label %326, label %340
 
-326:                                              ; preds = %292
+327:                                              ; preds = %292
   call void @_ZN2cv8Subdiv2D9swapEdgesEi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %storemerge8485)
-  %327 = load ptr, ptr %138, align 8, !tbaa !3
-  %328 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %327, i64 %240
-  %329 = getelementptr inbounds nuw i32, ptr %328, i64 %244
-  %330 = load i32, ptr %329, align 4, !tbaa !9
-  %331 = and i32 %330, -4
-  %332 = add i32 %330, 1
-  %333 = and i32 %332, 3
-  %334 = or disjoint i32 %333, %331
-  br label %352
+  %328 = load ptr, ptr %138, align 8, !tbaa !3
+  %329 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %328, i64 %240
+  %330 = getelementptr inbounds nuw i32, ptr %329, i64 %244
+  %331 = load i32, ptr %330, align 4, !tbaa !9
+  %332 = and i32 %331, -4
+  %333 = add i32 %331, 1
+  %334 = and i32 %333, 3
+  %335 = or disjoint i32 %334, %332
+  br label %353
 
-335:                                              ; preds = %156, %147, %144
-  %336 = landingpad { ptr, i32 }
+336:                                              ; preds = %156, %147, %144
+  %337 = landingpad { ptr, i32 }
           cleanup
-  br label %361
+  br label %362
 
-337:                                              ; preds = %204
-  %338 = landingpad { ptr, i32 }
+338:                                              ; preds = %204
+  %339 = landingpad { ptr, i32 }
           cleanup
-  br label %361
+  br label %362
 
-339:                                              ; preds = %292, %.lr.ph
-  %340 = icmp eq i32 %261, %175
-  br i1 %340, label %.loopexit, label %341
+340:                                              ; preds = %292, %.lr.ph
+  %341 = icmp eq i32 %261, %175
+  br i1 %341, label %.loopexit, label %342
 
-341:                                              ; preds = %339
-  %342 = getelementptr inbounds nuw i32, ptr %241, i64 %259
-  %343 = load i32, ptr %342, align 4, !tbaa !9
-  %344 = ashr i32 %343, 2
-  %345 = sext i32 %344 to i64
-  %346 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %238, i64 %345
-  %347 = and i32 %343, 3
-  %348 = zext nneg i32 %347 to i64
-  %349 = getelementptr inbounds nuw i32, ptr %346, i64 %348
-  %350 = load i32, ptr %349, align 4, !tbaa !9
-  %351 = xor i32 %350, 2
-  br label %352
+342:                                              ; preds = %340
+  %343 = getelementptr inbounds nuw i32, ptr %241, i64 %259
+  %344 = load i32, ptr %343, align 4, !tbaa !9
+  %345 = ashr i32 %344, 2
+  %346 = sext i32 %345 to i64
+  %347 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %238, i64 %346
+  %348 = and i32 %344, 3
+  %349 = zext nneg i32 %348 to i64
+  %350 = getelementptr inbounds nuw i32, ptr %347, i64 %349
+  %351 = load i32, ptr %350, align 4, !tbaa !9
+  %352 = xor i32 %351, 2
+  br label %353
 
-352:                                              ; preds = %326, %341
-  %353 = phi ptr [ %238, %341 ], [ %327, %326 ]
-  %storemerge = phi i32 [ %351, %341 ], [ %334, %326 ]
-  %354 = add nuw nsw i32 %.04686, 1
-  %exitcond.not = icmp eq i32 %354, %237
+353:                                              ; preds = %327, %342
+  %354 = phi ptr [ %238, %341 ], [ %328, %326 ]
+  %storemerge = phi i32 [ %352, %341 ], [ %335, %326 ]
+  %355 = add nuw nsw i32 %.04686, 1
+  %exitcond.not = icmp eq i32 %355, %237
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !68
 
-.loopexit:                                        ; preds = %352, %339, %230, %._crit_edge92
+.loopexit:                                        ; preds = %353, %340, %230, %._crit_edge92
   %.0 = phi i32 [ %.0.pre, %._crit_edge92 ], [ %133, %230 ], [ %133, %339 ], [ %133, %352 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %355 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %356 = load i32, ptr %355, align 8, !tbaa !49
-  %.not.i = icmp eq i32 %356, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %357
+  %356 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %357 = load i32, ptr %356, align 8, !tbaa !49
+  %.not.i = icmp eq i32 %357, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %358
 
-357:                                              ; preds = %.loopexit
+358:                                              ; preds = %.loopexit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %4)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %358
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %359
 
-358:                                              ; preds = %357
-  %359 = landingpad { ptr, i32 }
+359:                                              ; preds = %358
+  %360 = landingpad { ptr, i32 }
           catch ptr null
-  %360 = extractvalue { ptr, i32 } %359, 0
-  call void @__clang_call_terminate(ptr %360) #30
+  %361 = extractvalue { ptr, i32 } %360, 0
+  call void @__clang_call_terminate(ptr %361) #30
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %357
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %358
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 
-361:                                              ; preds = %335, %337, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %18
-  %.pn58.pn = phi { ptr, i32 } [ %.pn58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ], [ %19, %18 ], [ %.pn50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69 ], [ %336, %335 ], [ %338, %337 ]
+362:                                              ; preds = %336, %338, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %18
+  %.pn58.pn = phi { ptr, i32 } [ %.pn58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ], [ %19, %18 ], [ %.pn50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69 ], [ %337, %335 ], [ %339, %337 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #31
