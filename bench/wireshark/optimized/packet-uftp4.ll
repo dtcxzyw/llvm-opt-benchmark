@@ -802,7 +802,7 @@ define internal i32 @dissect_uftp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %30 = xor i32 %23, 255
   %31 = uitofp nneg i32 %30 to double
   %32 = fdiv double %31, 1.300000e+01
-  %33 = tail call double @exp(double noundef %32) #3
+  %33 = tail call double @exp(double noundef %32) #4
   %34 = fdiv double 1.000000e+03, %33
   br label %unquantize_grtt.exit
 
@@ -2758,7 +2758,7 @@ unquantize_rate.exit:                             ; preds = %.lr.ph.i, %19
   %63 = xor i32 %56, 255
   %64 = uitofp nneg i32 %63 to double
   %65 = fdiv double %64, 1.300000e+01
-  %66 = tail call double @exp(double noundef %65) #3
+  %66 = tail call double @exp(double noundef %65) #4
   %67 = fdiv double 1.000000e+03, %66
   br label %unquantize_grtt.exit
 

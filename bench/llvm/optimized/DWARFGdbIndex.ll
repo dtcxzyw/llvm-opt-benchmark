@@ -1292,8 +1292,8 @@ _ZN4llvm15SmallVectorImplINS_13DWARFGdbIndex12AddressEntryEE7reserveEm.exit: ; p
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 16
   store i64 %91, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond96.not = icmp eq i64 %indvars.iv.next, %41
-  br i1 %exitcond96.not, label %._crit_edge74, label %.lr.ph73, !llvm.loop !170
+  %exitcond97.not = icmp eq i64 %indvars.iv.next, %41
+  br i1 %exitcond97.not, label %._crit_edge74, label %.lr.ph73, !llvm.loop !170
 
 ._crit_edge77:                                    ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_13DWARFGdbIndex12AddressEntryELb1EE9push_backERKS2_.exit, %_ZN4llvm15SmallVectorImplINS_13DWARFGdbIndex12AddressEntryEE7reserveEm.exit
   %94 = load i32, ptr %19, align 4, !tbaa !88
@@ -1381,8 +1381,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_13DWARFGdbIndex12AddressEntryELb1EE9push_ba
   store i32 %134, ptr %86, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %135 = add nuw nsw i32 %.04675, 1
-  %exitcond97.not = icmp eq i32 %135, %76
-  br i1 %exitcond97.not, label %._crit_edge77, label %112, !llvm.loop !182
+  %exitcond99.not = icmp eq i32 %135, %76
+  br i1 %exitcond99.not, label %._crit_edge77, label %112, !llvm.loop !182
 
 ._crit_edge80:                                    ; preds = %_ZNSt3setIjSt4lessIjESaIjEE6insertERKj.exit
   %.pre = load ptr, ptr %107, align 8, !tbaa !177
@@ -1492,8 +1492,8 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
 
 _ZNSt3setIjSt4lessIjESaIjEE6insertERKj.exit:      ; preds = %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, %165, %_ZN4llvm23SmallVectorTemplateBaseINS_13DWARFGdbIndex13SymTableEntryELb1EE9push_backES2_.exit
   %178 = add nuw nsw i32 %.04778, 1
-  %exitcond98.not = icmp eq i32 %178, %97
-  br i1 %exitcond98.not, label %._crit_edge80, label %142, !llvm.loop !185
+  %exitcond101.not = icmp eq i32 %178, %97
+  br i1 %exitcond101.not, label %._crit_edge80, label %142, !llvm.loop !185
 
 ._crit_edge88:                                    ; preds = %._crit_edge83, %_ZN4llvm15SmallVectorImplINS_13DWARFGdbIndex13SymTableEntryEE7reserveEm.exit, %._crit_edge80
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !37
@@ -1573,15 +1573,15 @@ _ZN4llvm15SmallVectorImplIjE12assignRemoteEOS1_.exit.i: ; preds = %206
 _ZSt4moveIPjS0_ET0_T_S2_S1_.exit35.i:             ; preds = %206
   %210 = zext i32 %204 to i64
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %200, ptr noundef nonnull %201, i64 noundef %210, i64 noundef 4) #15
-  %.pre100 = load i32, ptr %138, align 8, !tbaa !3
-  %.not.i.i.i63 = icmp eq i32 %.pre100, 0
+  %.pre103 = load i32, ptr %138, align 8, !tbaa !3
+  %.not.i.i.i63 = icmp eq i32 %.pre103, 0
   br i1 %.not.i.i.i63, label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i, label %211
 
 211:                                              ; preds = %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit35.i
-  %.pre101 = zext i32 %.pre100 to i64
+  %.pre104 = zext i32 %.pre103 to i64
   %212 = load ptr, ptr %7, align 8, !tbaa !30
   %213 = load ptr, ptr %200, align 8, !tbaa !30
-  %gepdiff.i = shl nuw nsw i64 %.pre101, 2
+  %gepdiff.i = shl nuw nsw i64 %.pre104, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %213, ptr align 4 %212, i64 %gepdiff.i, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i
 
@@ -1661,8 +1661,8 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %233, %237
   %245 = add i32 %244, 1
   store i32 %245, ptr %230, align 8, !tbaa !3
   %246 = add nuw i32 %.04381, 1
-  %exitcond99.not = icmp eq i32 %246, %228
-  br i1 %exitcond99.not, label %._crit_edge83, label %233, !llvm.loop !186
+  %exitcond102.not = icmp eq i32 %246, %228
+  br i1 %exitcond102.not, label %._crit_edge83, label %233, !llvm.loop !186
 
 247:                                              ; preds = %2, %9, %._crit_edge88
   %.0 = phi i1 [ true, %._crit_edge88 ], [ false, %2 ], [ false, %9 ]
