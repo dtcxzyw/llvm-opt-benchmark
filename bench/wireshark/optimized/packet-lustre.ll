@@ -9211,16 +9211,13 @@ define internal fastcc noundef i32 @dissect_struct_llog_log_hdr(ptr noundef %0, 
   %.neg81 = add i32 %.neg, %24
   %reass.sub = sub i32 %.neg81, %29
   %59 = add i32 %reass.sub, -72
-  %.not85 = icmp ult i32 %59, 4
-  br i1 %.not85, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %27
   %60 = lshr i32 %59, 2
-  br label %.lr.ph
+  %.not85 = icmp ult i32 %59, 4
+  br i1 %.not85, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.084 = phi i32 [ %64, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.07683 = phi i32 [ %63, %.lr.ph ], [ %58, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %27, %.lr.ph
+  %.084 = phi i32 [ %64, %.lr.ph ], [ 0, %27 ]
+  %.07683 = phi i32 [ %63, %.lr.ph ], [ %58, %27 ]
   %61 = load i32, ptr @hf_lustre_llog_log_hdr_bitmap, align 4
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %61, ptr noundef %0, i32 noundef %.07683, i32 noundef 4, i32 noundef -2147483648)
   %63 = add i32 %.07683, 4

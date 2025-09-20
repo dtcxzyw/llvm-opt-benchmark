@@ -1836,7 +1836,7 @@ define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_Blake2s_update
   %4 = zext i32 %2 to i64
   %5 = xor i64 %.sroa.3145.0.copyload, -1
   %6 = icmp ugt i64 %4, %5
-  br i1 %6, label %67, label %7
+  br i1 %6, label %65, label %7
 
 7:                                                ; preds = %3
   %8 = and i64 %.sroa.3145.0.copyload, 63
@@ -1967,19 +1967,17 @@ python_hashlib_Hacl_Hash_Blake2s_update_multi.exit201: ; preds = %.lr.ph.i197, %
   %indvars.iv.i206 = phi i64 [ 0, %.lr.ph.preheader.i203 ], [ %indvars.iv.next.i207, %.lr.ph.i205 ]
   %indvars.iv.next.i207 = add nuw nsw i64 %indvars.iv.i206, 1
   %59 = shl i64 %indvars.iv.next.i207, 6
-  %60 = and i64 %59, 4294967232
-  %61 = add i64 %60, %40
-  %62 = shl i64 %indvars.iv.i206, 6
-  %63 = and i64 %62, 4294967232
-  %64 = getelementptr i8, ptr %38, i64 %63
-  tail call fastcc void @update_block(ptr noundef %.sroa.447.0.copyload, ptr noundef %.sroa.5.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, i64 noundef %61, ptr noundef readonly %64)
+  %60 = add i64 %59, %40
+  %61 = shl i64 %indvars.iv.i206, 6
+  %62 = getelementptr i8, ptr %38, i64 %61
+  tail call fastcc void @update_block(ptr noundef %.sroa.447.0.copyload, ptr noundef %.sroa.5.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, i64 noundef %60, ptr noundef readonly %62)
   %exitcond.not.i208 = icmp eq i64 %indvars.iv.next.i207, %wide.trip.count.i204
   br i1 %exitcond.not.i208, label %python_hashlib_Hacl_Hash_Blake2s_update_multi.exit209, label %.lr.ph.i205, !llvm.loop !7
 
 python_hashlib_Hacl_Hash_Blake2s_update_multi.exit209: ; preds = %.lr.ph.i205, %python_hashlib_Hacl_Hash_Blake2s_update_multi.exit201
-  %65 = zext i32 %55 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.462.0.copyload, ptr align 1 %57, i64 %65, i1 false)
-  %66 = add i64 %40, %50
+  %63 = zext i32 %55 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.462.0.copyload, ptr align 1 %57, i64 %63, i1 false)
+  %64 = add i64 %40, %50
   store i64 %.sroa.0.0.copyload, ptr %0, align 8
   store ptr %.sroa.447.0.copyload, ptr %.sroa.447.0..sroa_idx, align 8, !tbaa !11
   store ptr %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !11
@@ -1987,12 +1985,12 @@ python_hashlib_Hacl_Hash_Blake2s_update_multi.exit209: ; preds = %.lr.ph.i205, %
 
 .sink.split:                                      ; preds = %python_hashlib_Hacl_Hash_Blake2s_update_multi.exit195, %python_hashlib_Hacl_Hash_Blake2s_update_multi.exit209, %13
   %.sroa.4135.0.copyload.sink = phi ptr [ %.sroa.4135.0.copyload, %13 ], [ %.sroa.462.0.copyload, %python_hashlib_Hacl_Hash_Blake2s_update_multi.exit209 ], [ %.sroa.6120.0.copyload, %python_hashlib_Hacl_Hash_Blake2s_update_multi.exit195 ]
-  %.sink = phi i64 [ %15, %13 ], [ %66, %python_hashlib_Hacl_Hash_Blake2s_update_multi.exit209 ], [ %35, %python_hashlib_Hacl_Hash_Blake2s_update_multi.exit195 ]
+  %.sink = phi i64 [ %15, %13 ], [ %64, %python_hashlib_Hacl_Hash_Blake2s_update_multi.exit209 ], [ %35, %python_hashlib_Hacl_Hash_Blake2s_update_multi.exit195 ]
   store ptr %.sroa.4135.0.copyload.sink, ptr %.sroa.6120.0..sroa_idx, align 8, !tbaa !14
   store i64 %.sink, ptr %.sroa.3145.0..sroa_idx, align 8, !tbaa !16
-  br label %67
+  br label %65
 
-67:                                               ; preds = %.sink.split, %3
+65:                                               ; preds = %.sink.split, %3
   %.0 = phi i8 [ 3, %3 ], [ 0, %.sink.split ]
   ret i8 %.0
 }

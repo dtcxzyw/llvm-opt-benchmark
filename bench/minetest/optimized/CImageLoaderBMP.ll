@@ -297,7 +297,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %21 = getelementptr i8, ptr %next.gep241, i64 16
   store <16 x i8> %wide.load, ptr %next.gep241, align 1, !tbaa !17
   store <16 x i8> %wide.load243, ptr %21, align 1, !tbaa !17
-  %index.next = add nuw i64 %index, 32
+  %index.next = add nuw nsw i64 %index, 32
   %22 = icmp eq i64 %index.next, %n.vec
   br i1 %22, label %middle.block, label %vector.body, !llvm.loop !22
 

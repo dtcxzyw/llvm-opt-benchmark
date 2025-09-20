@@ -1684,16 +1684,15 @@ dissect_wlccp_ccm_tlv.exit:                       ; preds = %.thread, %79, %80
   %235 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %234, ptr noundef %1, i32 noundef %233, i32 noundef 2, i32 noundef 0)
   %236 = add i32 %2, 10
   %237 = add nsw i32 %7, -14
+  %238 = udiv i32 %237, 14
   %.not409.i = icmp ult i32 %237, 14
   br i1 %.not409.i, label %dissect_wlccp_sec_tlv.exit, label %.lr.ph422.preheader.i
 
 .lr.ph422.preheader.i:                            ; preds = %224
-  %238 = udiv i32 %237, 14
   %239 = load i32, ptr @hf_framereport_elements, align 4
   %240 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %239, ptr noundef %1, i32 noundef %236, i32 noundef %237, i32 noundef 0)
   %241 = load i32, ptr @ett_framereport_elements_tree, align 4
   %242 = tail call ptr @proto_item_add_subtree(ptr noundef %240, i32 noundef %241)
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %238, i32 1)
   br label %.lr.ph422.i
 
 .lr.ph422.i:                                      ; preds = %.lr.ph422.i, %.lr.ph422.preheader.i
@@ -1712,7 +1711,7 @@ dissect_wlccp_ccm_tlv.exit:                       ; preds = %.thread, %79, %80
   %253 = tail call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %252, ptr noundef %1, i32 noundef %251, i32 noundef 6, i32 noundef 0)
   %254 = add i32 %.3421.i, 14
   %255 = add nuw nsw i32 %.0404420.i, 1
-  %exitcond436.not.i = icmp eq i32 %255, %umax.i
+  %exitcond436.not.i = icmp eq i32 %255, %238
   br i1 %exitcond436.not.i, label %dissect_wlccp_sec_tlv.exit, label %.lr.ph422.i, !llvm.loop !11
 
 256:                                              ; preds = %.thread138

@@ -984,7 +984,7 @@ define internal fastcc i32 @init_vq(ptr noundef captures(none) %0) unnamed_addr 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %17, ptr noundef nonnull @.str.14) #15
-  br label %104
+  br label %103
 
 .thread:                                          ; preds = %1, %9
   %18 = phi i16 [ %14, %9 ], [ 1, %1 ]
@@ -1024,7 +1024,7 @@ define internal fastcc i32 @init_vq(ptr noundef captures(none) %0) unnamed_addr 
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %41, ptr %42, align 8
   %43 = icmp eq ptr %41, null
-  br i1 %43, label %104, label %44
+  br i1 %43, label %103, label %44
 
 44:                                               ; preds = %26
   %45 = shl nuw nsw i64 %30, 3
@@ -1036,18 +1036,19 @@ define internal fastcc i32 @init_vq(ptr noundef captures(none) %0) unnamed_addr 
   %51 = select i1 %49, i1 %50, i1 false
   %52 = icmp ne ptr %48, null
   %53 = select i1 %51, i1 %52, i1 false
-  br i1 %53, label %54, label %99
+  br i1 %53, label %54, label %98
 
 54:                                               ; preds = %44
   %55 = icmp sgt i32 %35, 0
   br i1 %55, label %.preheader14.preheader, label %.loopexit15
 
 .preheader14.preheader:                           ; preds = %54
+  %wide.trip.count = zext nneg i32 %35 to i64
   %.pre = load ptr, ptr %42, align 8
   br label %.preheader14
 
 .loopexit15.loopexit:                             ; preds = %.preheader14
-  %56 = trunc nuw i64 %indvars.iv.next to i16
+  %56 = trunc nuw i32 %35 to i16
   br label %.loopexit15
 
 .loopexit15:                                      ; preds = %.loopexit15.loopexit, %54
@@ -1075,80 +1076,80 @@ define internal fastcc i32 @init_vq(ptr noundef captures(none) %0) unnamed_addr 
   %67 = getelementptr i8, ptr %.split8, i64 12
   %68 = getelementptr ptr, ptr %46, i64 %indvars.iv
   store ptr %67, ptr %68, align 8
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = trunc nuw i64 %indvars.iv.next to i32
-  %70 = icmp samesign ugt i32 %35, %69
-  br i1 %70, label %.preheader14, label %.loopexit15.loopexit, !llvm.loop !13
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit15.loopexit, label %.preheader14, !llvm.loop !13
 
 .preheader12:                                     ; preds = %.preheader12.preheader, %.preheader12
-  %71 = phi ptr [ %.pre18, %.preheader12.preheader ], [ %76, %.preheader12 ]
+  %70 = phi ptr [ %.pre18, %.preheader12.preheader ], [ %75, %.preheader12 ]
   %indvars.iv16 = phi i64 [ %60, %.preheader12.preheader ], [ %indvars.iv.next17, %.preheader12 ]
-  %72 = phi i32 [ %58, %.preheader12.preheader ], [ %79, %.preheader12 ]
-  %73 = getelementptr ptr, ptr %47, i64 %indvars.iv16
-  store ptr null, ptr %73, align 8
-  %.split9 = getelementptr %struct.virtio_blk_vq, ptr %71, i64 %indvars.iv16
-  %74 = getelementptr i8, ptr %.split9, i64 12
-  %75 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %74, i64 noundef 16, ptr noundef nonnull @.str.17, i32 noundef %72) #14
-  %76 = load ptr, ptr %42, align 8
-  %.split10 = getelementptr %struct.virtio_blk_vq, ptr %76, i64 %indvars.iv16
-  %77 = getelementptr i8, ptr %.split10, i64 12
-  %78 = getelementptr ptr, ptr %46, i64 %indvars.iv16
-  store ptr %77, ptr %78, align 8
+  %71 = phi i32 [ %58, %.preheader12.preheader ], [ %78, %.preheader12 ]
+  %72 = getelementptr ptr, ptr %47, i64 %indvars.iv16
+  store ptr null, ptr %72, align 8
+  %.split9 = getelementptr %struct.virtio_blk_vq, ptr %70, i64 %indvars.iv16
+  %73 = getelementptr i8, ptr %.split9, i64 12
+  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %73, i64 noundef 16, ptr noundef nonnull @.str.17, i32 noundef %71) #14
+  %75 = load ptr, ptr %42, align 8
+  %.split10 = getelementptr %struct.virtio_blk_vq, ptr %75, i64 %indvars.iv16
+  %76 = getelementptr i8, ptr %.split10, i64 12
+  %77 = getelementptr ptr, ptr %46, i64 %indvars.iv16
+  store ptr %76, ptr %77, align 8
   %indvars.iv.next17 = add nuw i64 %indvars.iv16, 1
-  %79 = trunc nuw i64 %indvars.iv.next17 to i32
-  %80 = icmp samesign ugt i32 %29, %79
-  br i1 %80, label %.preheader12, label %.loopexit13, !llvm.loop !14
+  %78 = trunc nuw i64 %indvars.iv.next17 to i32
+  %79 = icmp samesign ugt i32 %29, %78
+  br i1 %79, label %.preheader12, label %.loopexit13, !llvm.loop !14
 
 .loopexit13:                                      ; preds = %.preheader12, %.loopexit15
-  %81 = getelementptr inbounds nuw i8, ptr %5, i64 752
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 48
-  %84 = load ptr, ptr %83, align 8
-  %85 = call i32 %84(ptr noundef %5, i32 noundef %29, ptr noundef nonnull %48, ptr noundef nonnull %47, ptr noundef nonnull %46, ptr noundef null, ptr noundef nonnull %2) #14
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %99
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 752
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 48
+  %83 = load ptr, ptr %82, align 8
+  %84 = call i32 %83(ptr noundef %5, i32 noundef %29, ptr noundef nonnull %48, ptr noundef nonnull %47, ptr noundef nonnull %46, ptr noundef null, ptr noundef nonnull %2) #14
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %98
 
-87:                                               ; preds = %.loopexit13
-  %88 = icmp eq i32 %27, 0
-  br i1 %88, label %.loopexit, label %.preheader
+86:                                               ; preds = %.loopexit13
+  %87 = icmp eq i32 %27, 0
+  br i1 %87, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %87, %.preheader
-  %89 = phi i64 [ %96, %.preheader ], [ 0, %87 ]
-  %90 = load ptr, ptr %42, align 8
-  %.split11 = getelementptr %struct.virtio_blk_vq, ptr %90, i64 %89
-  %91 = getelementptr i8, ptr %.split11, i64 8
-  store i32 0, ptr %91, align 8
-  %92 = getelementptr ptr, ptr %48, i64 %89
-  %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %42, align 8
-  %95 = getelementptr %struct.virtio_blk_vq, ptr %94, i64 %89
-  store ptr %93, ptr %95, align 64
-  %96 = add nuw nsw i64 %89, 1
-  %97 = icmp eq i64 %96, %30
-  br i1 %97, label %.loopexit, label %.preheader, !llvm.loop !15
+.preheader:                                       ; preds = %86, %.preheader
+  %88 = phi i64 [ %95, %.preheader ], [ 0, %86 ]
+  %89 = load ptr, ptr %42, align 8
+  %.split11 = getelementptr %struct.virtio_blk_vq, ptr %89, i64 %88
+  %90 = getelementptr i8, ptr %.split11, i64 8
+  store i32 0, ptr %90, align 8
+  %91 = getelementptr ptr, ptr %48, i64 %88
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %42, align 8
+  %94 = getelementptr %struct.virtio_blk_vq, ptr %93, i64 %88
+  store ptr %92, ptr %94, align 64
+  %95 = add nuw nsw i64 %88, 1
+  %96 = icmp eq i64 %95, %30
+  br i1 %96, label %.loopexit, label %.preheader, !llvm.loop !15
 
-.loopexit:                                        ; preds = %.preheader, %87
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  store i32 %29, ptr %98, align 4
-  br label %99
+.loopexit:                                        ; preds = %.preheader, %86
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  store i32 %29, ptr %97, align 4
+  br label %98
 
-99:                                               ; preds = %.loopexit, %.loopexit13, %44
-  %100 = phi i32 [ %85, %.loopexit13 ], [ 0, %.loopexit ], [ -12, %44 ]
+98:                                               ; preds = %.loopexit, %.loopexit13, %44
+  %99 = phi i32 [ %84, %.loopexit13 ], [ 0, %.loopexit ], [ -12, %44 ]
   call void @kfree(ptr noundef %48) #14
   call void @kfree(ptr noundef %47) #14
   call void @kfree(ptr noundef %46) #14
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %104, label %102
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %103, label %101
 
-102:                                              ; preds = %99
-  %103 = load ptr, ptr %42, align 8
-  call void @kfree(ptr noundef %103) #14
-  br label %104
+101:                                              ; preds = %98
+  %102 = load ptr, ptr %42, align 8
+  call void @kfree(ptr noundef %102) #14
+  br label %103
 
-104:                                              ; preds = %102, %99, %26, %16
-  %105 = phi i32 [ -22, %16 ], [ -12, %26 ], [ %100, %102 ], [ 0, %99 ]
+103:                                              ; preds = %101, %98, %26, %16
+  %104 = phi i32 [ -22, %16 ], [ -12, %26 ], [ %99, %101 ], [ 0, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %105
+  ret i32 %104
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

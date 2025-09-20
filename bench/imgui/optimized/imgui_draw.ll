@@ -21406,7 +21406,7 @@ _ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i: ; preds =
   %3204 = zext i8 %3203 to i32
   %3205 = sub nsw i32 %3200, %3204
   %3206 = add i32 %3205, %.0131.i.i
-  %3207 = add nuw nsw i64 %indvars.iv174.i.i, 2
+  %3207 = add nuw i64 %indvars.iv174.i.i, 2
   %3208 = and i64 %3207, 7
   %3209 = getelementptr inbounds nuw i8, ptr %4, i64 %3208
   store i8 %3199, ptr %3209, align 1, !tbaa !23
@@ -21429,7 +21429,7 @@ _ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i: ; preds =
   %3218 = zext i8 %3217 to i32
   %3219 = sub nsw i32 %3214, %3218
   %3220 = add i32 %3219, %.2125.i.i
-  %3221 = add nuw nsw i64 %indvars.iv169.i.i, 3
+  %3221 = add nuw i64 %indvars.iv169.i.i, 3
   %3222 = and i64 %3221, 7
   %3223 = getelementptr inbounds nuw i8, ptr %4, i64 %3222
   store i8 %3213, ptr %3223, align 1, !tbaa !23
@@ -21474,7 +21474,7 @@ _ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i: ; preds =
   %3245 = zext i8 %3244 to i32
   %3246 = sub nsw i32 %3241, %3245
   %3247 = add i32 %3246, %.4115.i.i
-  %3248 = add nuw nsw i64 %indvars.iv.i.i442, 5
+  %3248 = add nuw i64 %indvars.iv.i.i442, 5
   %3249 = and i64 %3248, 7
   %3250 = getelementptr inbounds nuw i8, ptr %4, i64 %3249
   store i8 %3240, ptr %3250, align 1, !tbaa !23
@@ -21623,7 +21623,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit.i:             ; preds = %_ZL18stbtt__h_prefi
   %3301 = zext i8 %3300 to i32
   %3302 = sub nsw i32 %3297, %3301
   %3303 = add i32 %3302, %.0146.i.i
-  %3304 = add nuw nsw i64 %indvars.iv189.i.i, 2
+  %3304 = add nuw i64 %indvars.iv189.i.i, 2
   %3305 = and i64 %3304, 7
   %3306 = getelementptr inbounds nuw i8, ptr %3, i64 %3305
   store i8 %3296, ptr %3306, align 1, !tbaa !23
@@ -21647,7 +21647,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit.i:             ; preds = %_ZL18stbtt__h_prefi
   %3316 = zext i8 %3315 to i32
   %3317 = sub nsw i32 %3312, %3316
   %3318 = add i32 %3317, %.2140.i.i
-  %3319 = add nuw nsw i64 %indvars.iv184.i178.i, 3
+  %3319 = add nuw i64 %indvars.iv184.i178.i, 3
   %3320 = and i64 %3319, 7
   %3321 = getelementptr inbounds nuw i8, ptr %3, i64 %3320
   store i8 %3311, ptr %3321, align 1, !tbaa !23
@@ -21694,7 +21694,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit.i:             ; preds = %_ZL18stbtt__h_prefi
   %3345 = zext i8 %3344 to i32
   %3346 = sub nsw i32 %3341, %3345
   %3347 = add i32 %3346, %.4130.i.i
-  %3348 = add nuw nsw i64 %indvars.iv.i169.i, 5
+  %3348 = add nuw i64 %indvars.iv.i169.i, 5
   %3349 = and i64 %3348, 7
   %3350 = getelementptr inbounds nuw i8, ptr %3, i64 %3349
   store i8 %3340, ptr %3350, align 1, !tbaa !23

@@ -6520,12 +6520,12 @@ split:                                            ; preds = %126, %._crit_edge
 
 353:                                              ; preds = %353, %351
   %354 = phi i64 [ 0, %351 ], [ %359, %353 ]
-  %355 = mul i64 %354, 12
+  %355 = mul nuw i64 %354, 12
   %356 = getelementptr i8, ptr %314, i64 %355
   %357 = getelementptr i8, ptr %312, i64 %355
   %358 = load <24 x i32>, ptr %357, align 4, !tbaa !24
   store <24 x i32> %358, ptr %356, align 4, !tbaa !24
-  %359 = add nuw i64 %354, 8
+  %359 = add nuw nsw i64 %354, 8
   %360 = icmp eq i64 %359, %352
   br i1 %360, label %361, label %353, !llvm.loop !328
 
@@ -7065,12 +7065,12 @@ split:                                            ; preds = %126, %._crit_edge
 
 719:                                              ; preds = %719, %717
   %720 = phi i64 [ 0, %717 ], [ %725, %719 ]
-  %721 = mul i64 %720, 12
+  %721 = mul nuw i64 %720, 12
   %722 = getelementptr i8, ptr %681, i64 %721
   %723 = getelementptr i8, ptr %679, i64 %721
   %724 = load <24 x i32>, ptr %723, align 4, !tbaa !24
   store <24 x i32> %724, ptr %722, align 4, !tbaa !24
-  %725 = add nuw i64 %720, 8
+  %725 = add nuw nsw i64 %720, 8
   %726 = icmp eq i64 %725, %718
   br i1 %726, label %727, label %719, !llvm.loop !340
 
@@ -7429,12 +7429,12 @@ split:                                            ; preds = %126, %._crit_edge
 
 967:                                              ; preds = %967, %965
   %968 = phi i64 [ 0, %965 ], [ %973, %967 ]
-  %969 = mul i64 %968, 12
+  %969 = mul nuw i64 %968, 12
   %970 = getelementptr i8, ptr %929, i64 %969
   %971 = getelementptr i8, ptr %927, i64 %969
   %972 = load <24 x i32>, ptr %971, align 4, !tbaa !24
   store <24 x i32> %972, ptr %970, align 4, !tbaa !24
-  %973 = add nuw i64 %968, 8
+  %973 = add nuw nsw i64 %968, 8
   %974 = icmp eq i64 %973, %966
   br i1 %974, label %975, label %967, !llvm.loop !346
 
@@ -8208,7 +8208,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass19setSharedAssignment
 
 95:                                               ; preds = %95, %93
   %96 = phi i64 [ 0, %93 ], [ %117, %95 ]
-  %97 = getelementptr inbounds i64, ptr %74, i64 %96
+  %97 = getelementptr inbounds nuw i64, ptr %74, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 64
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 96
@@ -8216,7 +8216,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass19setSharedAssignment
   %102 = load <4 x i64>, ptr %98, align 8, !tbaa !136, !alias.scope !362, !noalias !365
   %103 = load <4 x i64>, ptr %99, align 8, !tbaa !136, !alias.scope !362, !noalias !365
   %104 = load <4 x i64>, ptr %100, align 8, !tbaa !136, !alias.scope !362, !noalias !365
-  %105 = getelementptr inbounds i64, ptr %75, i64 %96
+  %105 = getelementptr inbounds nuw i64, ptr %75, i64 %96
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 32
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 64
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 96
@@ -8232,7 +8232,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass19setSharedAssignment
   store <4 x i64> %114, ptr %98, align 8, !tbaa !136, !alias.scope !362, !noalias !365
   store <4 x i64> %115, ptr %99, align 8, !tbaa !136, !alias.scope !362, !noalias !365
   store <4 x i64> %116, ptr %100, align 8, !tbaa !136, !alias.scope !362, !noalias !365
-  %117 = add nuw i64 %96, 16
+  %117 = add nuw nsw i64 %96, 16
   %118 = icmp eq i64 %117, %94
   br i1 %118, label %119, label %95, !llvm.loop !367
 

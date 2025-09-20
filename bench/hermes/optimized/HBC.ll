@@ -2869,10 +2869,10 @@ for.body.preheader.i.i.i:                         ; preds = %if.then27.i.i
 
 for.body.i21.i.i:                                 ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes7LiteralELb1EE9push_backERKS3_.exit20.i.i.i, %for.body.preheader.i.i.i
   %ind.033.i.i.i = phi i32 [ %inc.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes7LiteralELb1EE9push_backERKS3_.exit20.i.i.i ], [ 0, %for.body.preheader.i.i.i ]
-  %mul.i.i.i.i = shl i32 %ind.033.i.i.i, 1
+  %mul.i.i.i.i = shl nuw i32 %ind.033.i.i.i, 1
   %add.i.i22.i.i = or disjoint i32 %mul.i.i.i.i, 1
   %call.i9.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin3.sroa.0.01078.i.i, i32 noundef %add.i.i22.i.i) #18
-  %add5.i.i.i.i = add i32 %mul.i.i.i.i, 2
+  %add5.i.i.i.i = add nuw i32 %mul.i.i.i.i, 2
   %call6.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin3.sroa.0.01078.i.i, i32 noundef %add5.i.i.i.i) #18
   %194 = load i32, ptr %Size.i.i.i.i.i.i19.i.i, align 8
   %195 = load i32, ptr %Capacity2.i.i.i.i.i.i20.i.i, align 4
@@ -2914,7 +2914,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes7LiteralELb1EE9push_backERKS3_.exit20
   %205 = load i32, ptr %Size.i.i.i.i.i7.i.i.i, align 8
   %add.i19.i.i.i = add i32 %205, 1
   store i32 %add.i19.i.i.i, ptr %Size.i.i.i.i.i7.i.i.i, align 8
-  %inc.i.i.i = add i32 %ind.033.i.i.i, 1
+  %inc.i.i.i = add nuw nsw i32 %ind.033.i.i.i, 1
   %cmp.not.i.i.i219 = icmp eq i32 %inc.i.i.i, %div1.i.i.i.i
   br i1 %cmp.not.i.i.i219, label %for.end.i29.i.i, label %for.body.i21.i.i, !llvm.loop !74
 

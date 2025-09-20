@@ -28319,7 +28319,6 @@ define internal fastcc void @ntt_to_limb(ptr noundef readonly captures(none) %0,
   %51 = icmp slt i32 %50, %6
   %52 = zext i32 %39 to i64
   %53 = trunc i32 %5 to i6
-  %umax = tail call i32 @llvm.umax.i32(i32 %34, i32 1)
   %54 = lshr i32 %33, 6
   %55 = zext nneg i32 %54 to i64
   %56 = zext nneg i32 %34 to i64
@@ -28338,7 +28337,6 @@ define internal fastcc void @ntt_to_limb(ptr noundef readonly captures(none) %0,
   %wide.trip.count203 = zext i32 %6 to i64
   %wide.trip.count222 = zext i32 %13 to i64
   %66 = icmp sgt i32 %13, 0
-  %wide.trip.count234 = zext nneg i32 %umax to i64
   %wide.trip.count238 = zext i32 %59 to i64
   %.phi.trans.insert = getelementptr inbounds nuw i64, ptr %8, i64 %55
   br label %.preheader146
@@ -28557,7 +28555,7 @@ define internal fastcc void @ntt_to_limb(ptr noundef readonly captures(none) %0,
 put_bits.exit:                                    ; preds = %158, %159, %162
   %167 = add i64 %.0133176, 64
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
-  %exitcond235.not = icmp eq i64 %indvars.iv.next232, %wide.trip.count234
+  %exitcond235.not = icmp eq i64 %indvars.iv.next232, %41
   br i1 %exitcond235.not, label %._crit_edge180, label %.lr.ph179, !llvm.loop !170
 
 ._crit_edge180:                                   ; preds = %put_bits.exit, %._crit_edge174
@@ -29151,9 +29149,6 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #20

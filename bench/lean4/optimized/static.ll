@@ -17156,11 +17156,11 @@ _ZL7mi_outccPPcS_.exit53.i:                       ; preds = %225, %.split56.us.i
   %228 = ptrtoint ptr %227 to i64
   %229 = ptrtoint ptr %.5306 to i64
   %230 = sub i64 %228, %229
+  %231 = lshr i64 %230, 1
   %.not58.i = icmp ult i64 %230, 2
   br i1 %.not58.i, label %_ZL7mi_outsPKcPPcS1_.exit, label %.lr.ph.i259
 
 .lr.ph.i259:                                      ; preds = %_ZL7mi_outccPPcS_.exit53.i
-  %231 = lshr i64 %230, 1
   %232 = getelementptr i8, ptr %.5306, i64 %230
   br label %233
 
@@ -17374,11 +17374,11 @@ _ZL7mi_outccPPcS_.exit53.i265:                    ; preds = %323, %.split56.us.i
   %326 = ptrtoint ptr %325 to i64
   %327 = ptrtoint ptr %.0302343 to i64
   %328 = sub i64 %326, %327
+  %329 = lshr i64 %328, 1
   %.not58.i266 = icmp ult i64 %328, 2
   br i1 %.not58.i266, label %_ZL7mi_outsPKcPPcS1_.exit, label %.lr.ph.i267
 
 .lr.ph.i267:                                      ; preds = %_ZL7mi_outccPPcS_.exit53.i265
-  %329 = lshr i64 %328, 1
   %330 = getelementptr i8, ptr %.0302343, i64 %328
   br label %331
 

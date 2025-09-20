@@ -4165,20 +4165,23 @@ define internal fastcc void @reassemble_sequence(ptr noundef captures(none) %0, 
   %53 = load i16, ptr %52, align 4
   %54 = zext i16 %53 to i32
   %55 = icmp samesign ult i32 %51, %54
-  br i1 %55, label %.preheader.i, label %76
+  br i1 %55, label %.preheader.preheader.i, label %76
 
-.preheader.i:                                     ; preds = %47, %58
-  %.0.i35 = phi ptr [ %57, %58 ], [ %33, %47 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 48
-  %57 = load ptr, ptr %56, align 8
-  %.not70.i = icmp eq ptr %57, null
-  br i1 %.not70.i, label %63, label %58
+.preheader.preheader.i:                           ; preds = %47
+  %56 = trunc nuw i32 %51 to i16
+  br label %.preheader.i
 
-58:                                               ; preds = %.preheader.i
-  %59 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 28
-  %60 = load i16, ptr %59, align 4
-  %61 = zext i16 %60 to i32
-  %62 = icmp samesign ult i32 %51, %61
+.preheader.i:                                     ; preds = %59, %.preheader.preheader.i
+  %.0.i35 = phi ptr [ %58, %59 ], [ %33, %.preheader.preheader.i ]
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 48
+  %58 = load ptr, ptr %57, align 8
+  %.not70.i = icmp eq ptr %58, null
+  br i1 %.not70.i, label %63, label %59
+
+59:                                               ; preds = %.preheader.i
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 28
+  %61 = load i16, ptr %60, align 4
+  %62 = icmp ugt i16 %61, %56
   br i1 %62, label %.preheader.i, label %.critedge.i, !llvm.loop !20
 
 63:                                               ; preds = %.preheader.i
@@ -4187,8 +4190,8 @@ define internal fastcc void @reassemble_sequence(ptr noundef captures(none) %0, 
   store ptr %32, ptr %23, align 8
   br label %91
 
-.critedge.i:                                      ; preds = %58, %67
-  %.1.i = phi ptr [ %66, %67 ], [ %.0.i35, %58 ]
+.critedge.i:                                      ; preds = %59, %67
+  %.1.i = phi ptr [ %66, %67 ], [ %.0.i35, %59 ]
   %65 = getelementptr inbounds nuw i8, ptr %.1.i, i64 48
   %66 = load ptr, ptr %65, align 8
   %.not71.i = icmp eq ptr %66, null
