@@ -9739,8 +9739,8 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit124:           ; preds = %120, %122
   %143 = zext i32 %135 to i64
   br i1 %or.cond8.i, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit139.us, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit139
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit139.us:        ; preds = %.lr.ph, %153
-  %indvars.iv214 = phi i64 [ %indvars.iv.next215, %153 ], [ 0, %.lr.ph ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit139.us:        ; preds = %.lr.ph, %152
+  %indvars.iv214 = phi i64 [ %indvars.iv.next215, %152 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 %.0.in.i4.i131, ptr %12, align 8
   store i8 0, ptr %.sroa.220.0..sroa_idx, align 8
@@ -9754,364 +9754,362 @@ _ZN4llvm7isUIntNEjm.exit.us:                      ; preds = %_ZNK4llvm3LLT13getS
   %148 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::BitTestCase", ptr %147, i64 %indvars.iv214
   %149 = load i64, ptr %148, align 8, !tbaa !785
   %150 = icmp eq i32 %145, 0
-  %narrow.i.us = sub i64 64, %144
-  %151 = and i64 %narrow.i.us, 127
-  %152 = lshr i64 -1, %151
-  %.0.i.i.us = select i1 %150, i64 0, i64 %152
+  %narrow.i.us = sub nuw i64 64, %144
+  %151 = lshr i64 -1, %narrow.i.us
+  %.0.i.i.us = select i1 %150, i64 0, i64 %151
   %.not208.us = icmp ugt i64 %149, %.0.i.i.us
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %.not208.us, label %.split.us, label %153
+  br i1 %.not208.us, label %.split.us, label %152
 
 _ZN4llvm7isUIntNEjm.exit.thread.us:               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit139.us
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %153
+  br label %152
 
-153:                                              ; preds = %_ZN4llvm7isUIntNEjm.exit.thread.us, %_ZN4llvm7isUIntNEjm.exit.us
+152:                                              ; preds = %_ZN4llvm7isUIntNEjm.exit.thread.us, %_ZN4llvm7isUIntNEjm.exit.us
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %.not.us = icmp eq i64 %indvars.iv.next215, %143
   br i1 %.not.us, label %.loopexit, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit139.us, !llvm.loop !786
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit139:           ; preds = %.lr.ph, %175
-  %indvars.iv = phi i64 [ %indvars.iv.next, %175 ], [ 0, %.lr.ph ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit139:           ; preds = %.lr.ph, %173
+  %indvars.iv = phi i64 [ %indvars.iv.next, %173 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 %139, ptr %12, align 8
   store i8 %142, ptr %.sroa.220.0..sroa_idx, align 8
-  %154 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %12) #28
-  %155 = trunc i64 %154 to i32
-  %156 = icmp ugt i32 %155, 63
-  br i1 %156, label %_ZN4llvm7isUIntNEjm.exit.thread, label %_ZN4llvm7isUIntNEjm.exit
+  %153 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %12) #28
+  %154 = trunc i64 %153 to i32
+  %155 = icmp ugt i32 %154, 63
+  br i1 %155, label %_ZN4llvm7isUIntNEjm.exit.thread, label %_ZN4llvm7isUIntNEjm.exit
 
 _ZN4llvm7isUIntNEjm.exit.thread:                  ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit139
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %175
+  br label %173
 
 _ZN4llvm7isUIntNEjm.exit:                         ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit139
-  %157 = load ptr, ptr %133, align 8, !tbaa !25
-  %158 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::BitTestCase", ptr %157, i64 %indvars.iv
-  %159 = load i64, ptr %158, align 8, !tbaa !785
-  %160 = icmp eq i32 %155, 0
-  %narrow.i = sub i64 64, %154
-  %161 = and i64 %narrow.i, 127
-  %162 = lshr i64 -1, %161
-  %.0.i.i = select i1 %160, i64 0, i64 %162
-  %.not208 = icmp ugt i64 %159, %.0.i.i
+  %156 = load ptr, ptr %133, align 8, !tbaa !25
+  %157 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::BitTestCase", ptr %156, i64 %indvars.iv
+  %158 = load i64, ptr %157, align 8, !tbaa !785
+  %159 = icmp eq i32 %154, 0
+  %narrow.i = sub nuw i64 64, %153
+  %160 = lshr i64 -1, %narrow.i
+  %.0.i.i = select i1 %159, i64 0, i64 %160
+  %.not208 = icmp ugt i64 %158, %.0.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %.not208, label %.split.us, label %175
+  br i1 %.not208, label %.split.us, label %173
 
 .split.us:                                        ; preds = %_ZN4llvm7isUIntNEjm.exit, %_ZN4llvm7isUIntNEjm.exit.us
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  br i1 %or.cond8.i82, label %163, label %165
+  br i1 %or.cond8.i82, label %161, label %163
 
-163:                                              ; preds = %.split.us
+161:                                              ; preds = %.split.us
   %.not.i.i.i151 = icmp ne i64 %87, 0
-  %164 = and i1 %.not.i.i.i151, %spec.select.i.i.i80
-  %.0.in.v.i.i152 = select i1 %164, i64 48, i64 32
+  %162 = and i1 %.not.i.i.i151, %spec.select.i.i.i80
+  %.0.in.v.i.i152 = select i1 %162, i64 48, i64 32
   %.0.in.i.i153 = lshr i64 %68, %.0.in.v.i.i152
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit154
 
-165:                                              ; preds = %.split.us
-  %166 = lshr i64 %68, 8
-  %.sroa.0.0.insert.ext.i.i.i143 = and i64 %166, 65535
+163:                                              ; preds = %.split.us
+  %164 = lshr i64 %68, 8
+  %.sroa.0.0.insert.ext.i.i.i143 = and i64 %164, 65535
   %.not.i.i1.i144 = icmp ne i64 %87, 0
-  %167 = and i1 %.not.i.i1.i144, %spec.select.i.i.i80
-  %.0.in.v.i3.i145 = select i1 %167, i64 48, i64 32
+  %165 = and i1 %.not.i.i1.i144, %spec.select.i.i.i80
+  %.0.in.v.i3.i145 = select i1 %165, i64 48, i64 32
   %.0.in.i4.i146 = lshr i64 %68, %.0.in.v.i3.i145
-  %168 = mul nuw nsw i64 %.0.in.i4.i146, %.sroa.0.0.insert.ext.i.i.i143
-  %169 = and i64 %168, 4294967295
-  %170 = trunc i64 %68 to i8
-  %171 = lshr i8 %170, 3
-  %172 = and i8 %171, 1
+  %166 = mul nuw nsw i64 %.0.in.i4.i146, %.sroa.0.0.insert.ext.i.i.i143
+  %167 = and i64 %166, 4294967295
+  %168 = trunc i64 %68 to i8
+  %169 = lshr i8 %168, 3
+  %170 = and i8 %169, 1
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit154
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit154:           ; preds = %163, %165
-  %.sroa.06.0.i147 = phi i64 [ %.0.in.i.i153, %163 ], [ %169, %165 ]
-  %.sroa.3.0.i148 = phi i8 [ 0, %163 ], [ %172, %165 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit154:           ; preds = %161, %163
+  %.sroa.06.0.i147 = phi i64 [ %.0.in.i.i153, %161 ], [ %167, %163 ]
+  %.sroa.3.0.i148 = phi i8 [ 0, %161 ], [ %170, %163 ]
   store i64 %.sroa.06.0.i147, ptr %13, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i8 %.sroa.3.0.i148, ptr %.sroa.2.0..sroa_idx, align 8
-  %173 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %13) #28
-  %174 = shl i64 %173, 32
-  %storemerge.i.i.i155 = or disjoint i64 %174, 1
+  %171 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %13) #28
+  %172 = shl i64 %171, 32
+  %storemerge.i.i.i155 = or disjoint i64 %172, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
-175:                                              ; preds = %_ZN4llvm7isUIntNEjm.exit.thread, %_ZN4llvm7isUIntNEjm.exit
+173:                                              ; preds = %_ZN4llvm7isUIntNEjm.exit.thread, %_ZN4llvm7isUIntNEjm.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %143
   br i1 %.not, label %.loopexit, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit139, !llvm.loop !786
 
-.loopexit:                                        ; preds = %175, %153, %132, %_ZNK4llvm3LLT13getSizeInBitsEv.exit154, %_ZNK4llvm3LLT13getSizeInBitsEv.exit124
-  %.sroa.0168.0 = phi i64 [ %storemerge.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit124 ], [ %storemerge.i.i.i155, %_ZNK4llvm3LLT13getSizeInBitsEv.exit154 ], [ %.sroa.04.0.i, %132 ], [ %.sroa.04.0.i, %153 ], [ %.sroa.04.0.i, %175 ]
-  %176 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %177 = load ptr, ptr %176, align 8, !tbaa !570
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
-  %179 = load i32, ptr %178, align 4, !tbaa !224
+.loopexit:                                        ; preds = %173, %152, %132, %_ZNK4llvm3LLT13getSizeInBitsEv.exit154, %_ZNK4llvm3LLT13getSizeInBitsEv.exit124
+  %.sroa.0168.0 = phi i64 [ %storemerge.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit124 ], [ %storemerge.i.i.i155, %_ZNK4llvm3LLT13getSizeInBitsEv.exit154 ], [ %.sroa.04.0.i, %132 ], [ %.sroa.04.0.i, %152 ], [ %.sroa.04.0.i, %173 ]
+  %174 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %175 = load ptr, ptr %174, align 8, !tbaa !570
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 4
+  %177 = load i32, ptr %176, align 4, !tbaa !224
   %spec.select.i.i.not = icmp eq i64 %.sroa.04.0.i, %.sroa.0168.0
-  br i1 %spec.select.i.i.not, label %189, label %180
+  br i1 %spec.select.i.i.not, label %187, label %178
 
-180:                                              ; preds = %.loopexit
+178:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %.sroa.0168.0, ptr %14, align 8, !tbaa !224
-  %181 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i32 0, ptr %181, align 8, !tbaa !370
+  %179 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store i32 0, ptr %179, align 8, !tbaa !370
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  store i32 %179, ptr %15, align 8, !tbaa !257
-  %182 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i32 0, ptr %182, align 8, !tbaa !377
-  %183 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder16buildZExtOrTruncERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(20) %15) #28
-  %184 = extractvalue { ptr, ptr } %183, 1
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 32
-  %186 = load ptr, ptr %185, align 8, !tbaa !570
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  %188 = load i32, ptr %187, align 4, !tbaa !224
+  store i32 %177, ptr %15, align 8, !tbaa !257
+  %180 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store i32 0, ptr %180, align 8, !tbaa !377
+  %181 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder16buildZExtOrTruncERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(20) %15) #28
+  %182 = extractvalue { ptr, ptr } %181, 1
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 32
+  %184 = load ptr, ptr %183, align 8, !tbaa !570
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 4
+  %186 = load i32, ptr %185, align 4, !tbaa !224
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %189
+  br label %187
 
-189:                                              ; preds = %180, %.loopexit
-  %.sroa.014.0 = phi i32 [ %188, %180 ], [ %179, %.loopexit ]
-  %190 = call i16 @_ZN4llvm12getMVTForLLTENS_3LLTE(i64 %.sroa.0168.0) #28
-  %191 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  store i16 %190, ptr %191, align 4, !tbaa !787
-  %192 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 %.sroa.014.0, ptr %192, align 8, !tbaa !257
-  %193 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %194 = load ptr, ptr %193, align 8, !tbaa !25
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
-  %196 = load ptr, ptr %195, align 8, !tbaa !751
-  %197 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %198 = load i8, ptr %197, align 8, !tbaa !753, !range !52, !noundef !53
-  %199 = trunc nuw i8 %198 to i1
-  br i1 %199, label %_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit, label %200
+187:                                              ; preds = %178, %.loopexit
+  %.sroa.014.0 = phi i32 [ %186, %178 ], [ %177, %.loopexit ]
+  %188 = call i16 @_ZN4llvm12getMVTForLLTENS_3LLTE(i64 %.sroa.0168.0) #28
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  store i16 %188, ptr %189, align 4, !tbaa !787
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i32 %.sroa.014.0, ptr %190, align 8, !tbaa !257
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %192 = load ptr, ptr %191, align 8, !tbaa !25
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
+  %194 = load ptr, ptr %193, align 8, !tbaa !751
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %196 = load i8, ptr %195, align 8, !tbaa !753, !range !52, !noundef !53
+  %197 = trunc nuw i8 %196 to i1
+  br i1 %197, label %_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit, label %198
 
-200:                                              ; preds = %189
-  %201 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %202 = load ptr, ptr %201, align 8, !tbaa !749
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  %204 = load ptr, ptr %203, align 8, !tbaa !560
-  %.not.i156 = icmp eq ptr %204, null
-  br i1 %.not.i156, label %205, label %206
+198:                                              ; preds = %187
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %200 = load ptr, ptr %199, align 8, !tbaa !749
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  %202 = load ptr, ptr %201, align 8, !tbaa !560
+  %.not.i156 = icmp eq ptr %202, null
+  br i1 %.not.i156, label %203, label %204
 
-205:                                              ; preds = %200
-  call void @_ZN4llvm17MachineBasicBlock23addSuccessorWithoutProbEPS0_(ptr noundef nonnull align 8 dereferenceable(288) %2, ptr noundef %202) #28
+203:                                              ; preds = %198
+  call void @_ZN4llvm17MachineBasicBlock23addSuccessorWithoutProbEPS0_(ptr noundef nonnull align 8 dereferenceable(288) %2, ptr noundef %200) #28
   br label %_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit
 
-206:                                              ; preds = %200
-  %207 = getelementptr inbounds nuw i8, ptr %1, i64 180
-  %.sroa.06.0.copyload = load i32, ptr %207, align 4, !tbaa !257
-  %208 = icmp eq i32 %.sroa.06.0.copyload, -1
-  br i1 %208, label %_ZNK4llvm12IRTranslator18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.i, label %214
+204:                                              ; preds = %198
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 180
+  %.sroa.06.0.copyload = load i32, ptr %205, align 4, !tbaa !257
+  %206 = icmp eq i32 %.sroa.06.0.copyload, -1
+  br i1 %206, label %_ZNK4llvm12IRTranslator18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.i, label %212
 
-_ZNK4llvm12IRTranslator18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.i: ; preds = %206
-  %209 = getelementptr inbounds nuw i8, ptr %2, i64 16
+_ZNK4llvm12IRTranslator18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.i: ; preds = %204
+  %207 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %208 = load ptr, ptr %207, align 8, !tbaa !490
+  %209 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %210 = load ptr, ptr %209, align 8, !tbaa !490
-  %211 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  %212 = load ptr, ptr %211, align 8, !tbaa !490
-  %213 = call i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(248) %204, ptr noundef %210, ptr noundef %212) #28
-  br label %214
+  %211 = call i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(248) %202, ptr noundef %208, ptr noundef %210) #28
+  br label %212
 
-214:                                              ; preds = %_ZNK4llvm12IRTranslator18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.i, %206
-  %.sroa.0.0.i = phi i32 [ %213, %_ZNK4llvm12IRTranslator18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.i ], [ %.sroa.06.0.copyload, %206 ]
-  call void @_ZN4llvm17MachineBasicBlock12addSuccessorEPS0_NS_17BranchProbabilityE(ptr noundef nonnull align 8 dereferenceable(288) %2, ptr noundef %202, i32 %.sroa.0.0.i) #28
+212:                                              ; preds = %_ZNK4llvm12IRTranslator18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.i, %204
+  %.sroa.0.0.i = phi i32 [ %211, %_ZNK4llvm12IRTranslator18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.i ], [ %.sroa.06.0.copyload, %204 ]
+  call void @_ZN4llvm17MachineBasicBlock12addSuccessorEPS0_NS_17BranchProbabilityE(ptr noundef nonnull align 8 dereferenceable(288) %2, ptr noundef %200, i32 %.sroa.0.0.i) #28
   br label %_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit
 
-_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit: ; preds = %214, %205, %189
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  %216 = load ptr, ptr %215, align 8, !tbaa !560
-  %.not.i157 = icmp eq ptr %216, null
-  br i1 %.not.i157, label %217, label %218
+_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit: ; preds = %212, %203, %187
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  %214 = load ptr, ptr %213, align 8, !tbaa !560
+  %.not.i157 = icmp eq ptr %214, null
+  br i1 %.not.i157, label %215, label %216
 
-217:                                              ; preds = %_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit
-  call void @_ZN4llvm17MachineBasicBlock23addSuccessorWithoutProbEPS0_(ptr noundef nonnull align 8 dereferenceable(288) %2, ptr noundef %196) #28
+215:                                              ; preds = %_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit
+  call void @_ZN4llvm17MachineBasicBlock23addSuccessorWithoutProbEPS0_(ptr noundef nonnull align 8 dereferenceable(288) %2, ptr noundef %194) #28
   br label %_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit160
 
-218:                                              ; preds = %_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit
-  %219 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %.sroa.05.0.copyload = load i32, ptr %219, align 8, !tbaa !257
-  %220 = icmp eq i32 %.sroa.05.0.copyload, -1
-  br i1 %220, label %_ZNK4llvm12IRTranslator18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.i159, label %226
+216:                                              ; preds = %_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %.sroa.05.0.copyload = load i32, ptr %217, align 8, !tbaa !257
+  %218 = icmp eq i32 %.sroa.05.0.copyload, -1
+  br i1 %218, label %_ZNK4llvm12IRTranslator18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.i159, label %224
 
-_ZNK4llvm12IRTranslator18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.i159: ; preds = %218
-  %221 = getelementptr inbounds nuw i8, ptr %2, i64 16
+_ZNK4llvm12IRTranslator18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.i159: ; preds = %216
+  %219 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %220 = load ptr, ptr %219, align 8, !tbaa !490
+  %221 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %222 = load ptr, ptr %221, align 8, !tbaa !490
-  %223 = getelementptr inbounds nuw i8, ptr %196, i64 16
-  %224 = load ptr, ptr %223, align 8, !tbaa !490
-  %225 = call i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(248) %216, ptr noundef %222, ptr noundef %224) #28
-  br label %226
+  %223 = call i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(248) %214, ptr noundef %220, ptr noundef %222) #28
+  br label %224
 
-226:                                              ; preds = %_ZNK4llvm12IRTranslator18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.i159, %218
-  %.sroa.0.0.i158 = phi i32 [ %225, %_ZNK4llvm12IRTranslator18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.i159 ], [ %.sroa.05.0.copyload, %218 ]
-  call void @_ZN4llvm17MachineBasicBlock12addSuccessorEPS0_NS_17BranchProbabilityE(ptr noundef nonnull align 8 dereferenceable(288) %2, ptr noundef %196, i32 %.sroa.0.0.i158) #28
+224:                                              ; preds = %_ZNK4llvm12IRTranslator18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.i159, %216
+  %.sroa.0.0.i158 = phi i32 [ %223, %_ZNK4llvm12IRTranslator18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.i159 ], [ %.sroa.05.0.copyload, %216 ]
+  call void @_ZN4llvm17MachineBasicBlock12addSuccessorEPS0_NS_17BranchProbabilityE(ptr noundef nonnull align 8 dereferenceable(288) %2, ptr noundef %194, i32 %.sroa.0.0.i158) #28
   br label %_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit160
 
-_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit160: ; preds = %217, %226
-  %227 = getelementptr inbounds nuw i8, ptr %2, i64 144
+_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit160: ; preds = %215, %224
+  %225 = getelementptr inbounds nuw i8, ptr %2, i64 144
+  %226 = load ptr, ptr %225, align 8, !tbaa !566
+  %227 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %228 = load ptr, ptr %227, align 8, !tbaa !566
-  %229 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  %230 = load ptr, ptr %229, align 8, !tbaa !566
-  %231 = icmp eq ptr %228, %230
-  br i1 %231, label %_ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit, label %.lr.ph.i.i.i
+  %229 = icmp eq ptr %226, %228
+  br i1 %229, label %_ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit160, %.lr.ph.i.i.i
   %.0.i.i161 = phi i32 [ %.1.i.i, %.lr.ph.i.i.i ], [ 0, %_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit160 ]
   %.08.i.i.i = phi i64 [ %.0.i.i.i.i, %.lr.ph.i.i.i ], [ 0, %_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit160 ]
-  %.sroa.03.07.i.i.i = phi ptr [ %236, %.lr.ph.i.i.i ], [ %228, %_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit160 ]
-  %232 = load i32, ptr %.sroa.03.07.i.i.i, align 4, !tbaa !533
-  %233 = icmp eq i32 %232, -1
-  %234 = zext i1 %233 to i32
-  %.1.i.i = add i32 %.0.i.i161, %234
-  %narrow.i.i = select i1 %233, i32 0, i32 %232
-  %235 = zext i32 %narrow.i.i to i64
-  %.0.i.i.i.i = add i64 %.08.i.i.i, %235
-  %236 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i, i64 4
-  %.not.i.i.i162 = icmp eq ptr %236, %230
+  %.sroa.03.07.i.i.i = phi ptr [ %234, %.lr.ph.i.i.i ], [ %226, %_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit160 ]
+  %230 = load i32, ptr %.sroa.03.07.i.i.i, align 4, !tbaa !533
+  %231 = icmp eq i32 %230, -1
+  %232 = zext i1 %231 to i32
+  %.1.i.i = add i32 %.0.i.i161, %232
+  %narrow.i.i = select i1 %231, i32 0, i32 %230
+  %233 = zext i32 %narrow.i.i to i64
+  %.0.i.i.i.i = add i64 %.08.i.i.i, %233
+  %234 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i, i64 4
+  %.not.i.i.i162 = icmp eq ptr %234, %228
   br i1 %.not.i.i.i162, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6vectorIS3_SaIS3_EEEEmZNS3_22normalizeProbabilitiesIS8_EEvT_SA_EUlmRKS3_E_ET0_SA_SA_SE_T1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !567
 
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6vectorIS3_SaIS3_EEEEmZNS3_22normalizeProbabilitiesIS8_EEvT_SA_EUlmRKS3_E_ET0_SA_SA_SE_T1_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %.not.i.i = icmp eq i32 %.1.i.i, 0
-  br i1 %.not.i.i, label %248, label %237
+  br i1 %.not.i.i, label %246, label %235
 
-237:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6vectorIS3_SaIS3_EEEEmZNS3_22normalizeProbabilitiesIS8_EEvT_SA_EUlmRKS3_E_ET0_SA_SA_SE_T1_.exit.i.i
-  %238 = icmp ult i64 %.0.i.i.i.i, 2147483648
-  br i1 %238, label %239, label %242
+235:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6vectorIS3_SaIS3_EEEEmZNS3_22normalizeProbabilitiesIS8_EEvT_SA_EUlmRKS3_E_ET0_SA_SA_SE_T1_.exit.i.i
+  %236 = icmp ult i64 %.0.i.i.i.i, 2147483648
+  br i1 %236, label %237, label %240
 
-239:                                              ; preds = %237
-  %240 = trunc nuw nsw i64 %.0.i.i.i.i to i32
-  %.lhs.trunc.i.i = sub nuw i32 -2147483648, %240
-  %241 = udiv i32 %.lhs.trunc.i.i, %.1.i.i
-  br label %242
+237:                                              ; preds = %235
+  %238 = trunc nuw nsw i64 %.0.i.i.i.i to i32
+  %.lhs.trunc.i.i = sub nuw i32 -2147483648, %238
+  %239 = udiv i32 %.lhs.trunc.i.i, %.1.i.i
+  br label %240
 
-242:                                              ; preds = %239, %237
-  %.sroa.023.0.i.i = phi i32 [ %241, %239 ], [ 0, %237 ]
+240:                                              ; preds = %237, %235
+  %.sroa.023.0.i.i = phi i32 [ %239, %237 ], [ 0, %235 ]
   br label %.lr.ph.i18.i.i
 
-.lr.ph.i18.i.i:                                   ; preds = %246, %242
-  %.sroa.01.06.i.i.i = phi ptr [ %247, %246 ], [ %228, %242 ]
-  %243 = load i32, ptr %.sroa.01.06.i.i.i, align 4, !tbaa !533
-  %244 = icmp eq i32 %243, -1
-  br i1 %244, label %245, label %246
+.lr.ph.i18.i.i:                                   ; preds = %244, %240
+  %.sroa.01.06.i.i.i = phi ptr [ %245, %244 ], [ %226, %240 ]
+  %241 = load i32, ptr %.sroa.01.06.i.i.i, align 4, !tbaa !533
+  %242 = icmp eq i32 %241, -1
+  br i1 %242, label %243, label %244
 
-245:                                              ; preds = %.lr.ph.i18.i.i
+243:                                              ; preds = %.lr.ph.i18.i.i
   store i32 %.sroa.023.0.i.i, ptr %.sroa.01.06.i.i.i, align 4, !tbaa !257
-  br label %246
+  br label %244
 
-246:                                              ; preds = %245, %.lr.ph.i18.i.i
-  %247 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i.i.i, i64 4
-  %.not.i19.i.i = icmp eq ptr %247, %230
+244:                                              ; preds = %243, %.lr.ph.i18.i.i
+  %245 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i.i.i, i64 4
+  %.not.i19.i.i = icmp eq ptr %245, %228
   br i1 %.not.i19.i.i, label %_ZSt10replace_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6vectorIS3_SaIS3_EEEEZNS3_22normalizeProbabilitiesIS8_EEvT_SA_EUlRKS3_E_S3_EvSA_SA_T0_RKT1_.exit.i.i, label %.lr.ph.i18.i.i, !llvm.loop !568
 
-_ZSt10replace_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6vectorIS3_SaIS3_EEEEZNS3_22normalizeProbabilitiesIS8_EEvT_SA_EUlRKS3_E_S3_EvSA_SA_T0_RKT1_.exit.i.i: ; preds = %246
+_ZSt10replace_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6vectorIS3_SaIS3_EEEEZNS3_22normalizeProbabilitiesIS8_EEvT_SA_EUlRKS3_E_S3_EvSA_SA_T0_RKT1_.exit.i.i: ; preds = %244
   %.not17.i.i = icmp ult i64 %.0.i.i.i.i, 2147483649
   br i1 %.not17.i.i, label %_ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit, label %.lr.ph.i.i
 
-248:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6vectorIS3_SaIS3_EEEEmZNS3_22normalizeProbabilitiesIS8_EEvT_SA_EUlmRKS3_E_ET0_SA_SA_SE_T1_.exit.i.i
-  %249 = icmp eq i64 %.0.i.i.i.i, 0
-  br i1 %249, label %.lr.ph.preheader.i.i.i.i.i.i, label %.lr.ph.i.i
+246:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6vectorIS3_SaIS3_EEEEmZNS3_22normalizeProbabilitiesIS8_EEvT_SA_EUlmRKS3_E_ET0_SA_SA_SE_T1_.exit.i.i
+  %247 = icmp eq i64 %.0.i.i.i.i, 0
+  br i1 %247, label %.lr.ph.preheader.i.i.i.i.i.i, label %.lr.ph.i.i
 
-.lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %248
+.lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %246
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %250 = ptrtoint ptr %230 to i64
-  %251 = ptrtoint ptr %228 to i64
-  %252 = sub i64 %250, %251
-  %253 = lshr exact i64 %252, 2
-  %254 = trunc i64 %253 to i32
-  call void @_ZN4llvm17BranchProbabilityC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 1, i32 noundef %254) #28
+  %248 = ptrtoint ptr %228 to i64
+  %249 = ptrtoint ptr %226 to i64
+  %250 = sub i64 %248, %249
+  %251 = lshr exact i64 %250, 2
+  %252 = trunc i64 %251 to i32
+  call void @_ZN4llvm17BranchProbabilityC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 1, i32 noundef %252) #28
   %.pre.i.i.i.i.i.i = load i32, ptr %4, align 4, !tbaa !257
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i
-  %.06.i.i.i.i.i.i = phi ptr [ %255, %.lr.ph.i.i.i.i.i.i ], [ %228, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.06.i.i.i.i.i.i = phi ptr [ %253, %.lr.ph.i.i.i.i.i.i ], [ %226, %.lr.ph.preheader.i.i.i.i.i.i ]
   store i32 %.pre.i.i.i.i.i.i, ptr %.06.i.i.i.i.i.i, align 4, !tbaa !257
-  %255 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i = icmp eq ptr %255, %230
+  %253 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i = icmp eq ptr %253, %228
   br i1 %.not.i.i.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !536
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit
 
-.lr.ph.i.i:                                       ; preds = %248, %_ZSt10replace_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6vectorIS3_SaIS3_EEEEZNS3_22normalizeProbabilitiesIS8_EEvT_SA_EUlRKS3_E_S3_EvSA_SA_T0_RKT1_.exit.i.i
-  %256 = lshr i64 %.0.i.i.i.i, 1
-  br label %257
+.lr.ph.i.i:                                       ; preds = %246, %_ZSt10replace_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6vectorIS3_SaIS3_EEEEZNS3_22normalizeProbabilitiesIS8_EEvT_SA_EUlRKS3_E_S3_EvSA_SA_T0_RKT1_.exit.i.i
+  %254 = lshr i64 %.0.i.i.i.i, 1
+  br label %255
 
-257:                                              ; preds = %257, %.lr.ph.i.i
-  %.sroa.0.031.i.i = phi ptr [ %228, %.lr.ph.i.i ], [ %264, %257 ]
-  %258 = load i32, ptr %.sroa.0.031.i.i, align 4, !tbaa !533
-  %259 = zext i32 %258 to i64
-  %260 = shl nuw nsw i64 %259, 31
-  %261 = add nuw i64 %260, %256
-  %262 = udiv i64 %261, %.0.i.i.i.i
-  %263 = trunc i64 %262 to i32
-  store i32 %263, ptr %.sroa.0.031.i.i, align 4, !tbaa !533
-  %264 = getelementptr inbounds nuw i8, ptr %.sroa.0.031.i.i, i64 4
-  %.not29.i.i = icmp eq ptr %264, %230
-  br i1 %.not29.i.i, label %_ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit, label %257, !llvm.loop !569
+255:                                              ; preds = %255, %.lr.ph.i.i
+  %.sroa.0.031.i.i = phi ptr [ %226, %.lr.ph.i.i ], [ %262, %255 ]
+  %256 = load i32, ptr %.sroa.0.031.i.i, align 4, !tbaa !533
+  %257 = zext i32 %256 to i64
+  %258 = shl nuw nsw i64 %257, 31
+  %259 = add nuw i64 %258, %254
+  %260 = udiv i64 %259, %.0.i.i.i.i
+  %261 = trunc i64 %260 to i32
+  store i32 %261, ptr %.sroa.0.031.i.i, align 4, !tbaa !533
+  %262 = getelementptr inbounds nuw i8, ptr %.sroa.0.031.i.i, i64 4
+  %.not29.i.i = icmp eq ptr %262, %228
+  br i1 %.not29.i.i, label %_ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit, label %255, !llvm.loop !569
 
-_ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit: ; preds = %257, %_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit160, %_ZSt10replace_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6vectorIS3_SaIS3_EEEEZNS3_22normalizeProbabilitiesIS8_EEvT_SA_EUlRKS3_E_S3_EvSA_SA_T0_RKT1_.exit.i.i, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.i.i
-  %265 = load i8, ptr %197, align 8, !tbaa !753, !range !52, !noundef !53
-  %266 = trunc nuw i8 %265 to i1
-  br i1 %266, label %283, label %267
+_ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit: ; preds = %255, %_ZN4llvm12IRTranslator20addSuccessorWithProbEPNS_17MachineBasicBlockES2_NS_17BranchProbabilityE.exit160, %_ZSt10replace_ifIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6vectorIS3_SaIS3_EEEEZNS3_22normalizeProbabilitiesIS8_EEvT_SA_EUlRKS3_E_S3_EvSA_SA_T0_RKT1_.exit.i.i, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit.i.i
+  %263 = load i8, ptr %195, align 8, !tbaa !753, !range !52, !noundef !53
+  %264 = trunc nuw i8 %263 to i1
+  br i1 %264, label %281, label %265
 
-267:                                              ; preds = %_ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit
+265:                                              ; preds = %_ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 %.sroa.04.0.i, ptr %16, align 8, !tbaa !224
-  %268 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 0, ptr %268, align 8, !tbaa !370
-  %269 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %270 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(12) %269) #28
-  %271 = extractvalue { ptr, ptr } %270, 0
-  %272 = extractvalue { ptr, ptr } %270, 1
+  %266 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i32 0, ptr %266, align 8, !tbaa !370
+  %267 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %268 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(12) %267) #28
+  %269 = extractvalue { ptr, ptr } %268, 0
+  %270 = extractvalue { ptr, ptr } %268, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 4294967297, ptr %17, align 8, !tbaa !224
-  %273 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i32 0, ptr %273, align 8, !tbaa !370
+  %271 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store i32 0, ptr %271, align 8, !tbaa !370
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %59, ptr %18, align 8, !tbaa !583
   %.sroa.4195.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %60, ptr %.sroa.4195.0..sroa_idx, align 8, !tbaa !584
-  %274 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i32 1, ptr %274, align 8, !tbaa !377
+  %272 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store i32 1, ptr %272, align 8, !tbaa !377
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  store ptr %271, ptr %19, align 8, !tbaa !583
+  store ptr %269, ptr %19, align 8, !tbaa !583
   %.sroa.4166.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %272, ptr %.sroa.4166.0..sroa_idx, align 8, !tbaa !584
-  %275 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i32 1, ptr %275, align 8, !tbaa !377
-  %276 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildICmpENS_7CmpInst9PredicateERKNS_5DstOpERKNS_5SrcOpES8_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %22, i32 noundef 34, ptr noundef nonnull align 8 dereferenceable(20) %17, ptr noundef nonnull align 8 dereferenceable(20) %18, ptr noundef nonnull align 8 dereferenceable(20) %19, i64 0) #28
-  %277 = extractvalue { ptr, ptr } %276, 0
-  %278 = extractvalue { ptr, ptr } %276, 1
+  store ptr %270, ptr %.sroa.4166.0..sroa_idx, align 8, !tbaa !584
+  %273 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i32 1, ptr %273, align 8, !tbaa !377
+  %274 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildICmpENS_7CmpInst9PredicateERKNS_5DstOpERKNS_5SrcOpES8_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %22, i32 noundef 34, ptr noundef nonnull align 8 dereferenceable(20) %17, ptr noundef nonnull align 8 dereferenceable(20) %18, ptr noundef nonnull align 8 dereferenceable(20) %19, i64 0) #28
+  %275 = extractvalue { ptr, ptr } %274, 0
+  %276 = extractvalue { ptr, ptr } %274, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  store ptr %277, ptr %20, align 8, !tbaa !583
+  store ptr %275, ptr %20, align 8, !tbaa !583
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %278, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !584
-  %279 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i32 1, ptr %279, align 8, !tbaa !377
-  %280 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %281 = load ptr, ptr %280, align 8, !tbaa !749
-  %282 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildBrCondERKNS_5SrcOpERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef nonnull align 8 dereferenceable(288) %281) #28
+  store ptr %276, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !584
+  %277 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store i32 1, ptr %277, align 8, !tbaa !377
+  %278 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %279 = load ptr, ptr %278, align 8, !tbaa !749
+  %280 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildBrCondERKNS_5SrcOpERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef nonnull align 8 dereferenceable(288) %279) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %283
+  br label %281
 
-283:                                              ; preds = %267, %_ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit
-  %284 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %285 = load ptr, ptr %284, align 8, !tbaa !531
-  %286 = getelementptr inbounds nuw i8, ptr %285, i64 320
-  %287 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %288 = load ptr, ptr %287, align 8, !tbaa !359
-  %289 = icmp eq ptr %288, %286
-  %spec.select.i.i163 = select i1 %289, ptr null, ptr %288
-  %.not79 = icmp eq ptr %196, %spec.select.i.i163
-  br i1 %.not79, label %292, label %290
+281:                                              ; preds = %265, %_ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit
+  %282 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %283 = load ptr, ptr %282, align 8, !tbaa !531
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 320
+  %285 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %286 = load ptr, ptr %285, align 8, !tbaa !359
+  %287 = icmp eq ptr %286, %284
+  %spec.select.i.i163 = select i1 %287, ptr null, ptr %286
+  %.not79 = icmp eq ptr %194, %spec.select.i.i163
+  br i1 %.not79, label %290, label %288
 
-290:                                              ; preds = %283
-  %291 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder7buildBrERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef nonnull align 8 dereferenceable(288) %196) #28
-  br label %292
+288:                                              ; preds = %281
+  %289 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder7buildBrERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef nonnull align 8 dereferenceable(288) %194) #28
+  br label %290
 
-292:                                              ; preds = %290, %283
+290:                                              ; preds = %288, %281
   ret void
 }
 

@@ -8942,7 +8942,7 @@ isabsolutepath.exit.i:                            ; preds = %812
   store i8 0, ptr %820, align 1
   %821 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 47) #21
   %822 = icmp eq ptr %821, null
-  br i1 %822, label %834, label %823
+  br i1 %822, label %833, label %823
 
 823:                                              ; preds = %819
   %824 = ptrtoint ptr %821 to i64
@@ -8950,41 +8950,40 @@ isabsolutepath.exit.i:                            ; preds = %812
   %826 = sub i64 %824, %825
   %827 = trunc i64 %826 to i32
   %828 = icmp ugt i32 %827, 254
-  br i1 %828, label %834, label %829
+  br i1 %828, label %833, label %829
 
 829:                                              ; preds = %823
   %830 = getelementptr inbounds nuw i8, ptr %821, i64 1
-  %831 = and i64 %826, 255
-  %832 = xor i64 %831, 255
-  %833 = call ptr @strncpy(ptr noundef nonnull %830, ptr noundef readonly %.val167, i64 noundef %832) #19
+  %831 = sub nuw i64 255, %826
+  %832 = call ptr @strncpy(ptr noundef nonnull %830, ptr noundef readonly %.val167, i64 noundef %831) #19
   br label %BuildAbsolutePath.exit
 
-834:                                              ; preds = %819, %823
+833:                                              ; preds = %819, %823
   call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113)
   store i32 7, ptr %10, align 8
   br label %.loopexit
 
 BuildAbsolutePath.exit:                           ; preds = %829, %817
-  %835 = call noalias ptr @fopen64(ptr noundef nonnull %.0, ptr noundef nonnull @.str.7)
-  %836 = getelementptr inbounds nuw i8, ptr %.0, i64 256
-  store ptr %835, ptr %836, align 8
-  %837 = icmp eq ptr %835, null
-  br i1 %837, label %838, label %839
+  %834 = call noalias ptr @fopen64(ptr noundef nonnull %.0, ptr noundef nonnull @.str.7)
+  %835 = getelementptr inbounds nuw i8, ptr %.0, i64 256
+  store ptr %834, ptr %835, align 8
+  %836 = icmp eq ptr %834, null
+  br i1 %836, label %837, label %838
 
-838:                                              ; preds = %BuildAbsolutePath.exit
+837:                                              ; preds = %BuildAbsolutePath.exit
   call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.114, ptr noundef nonnull %.0)
   store i32 7, ptr %10, align 8
   br label %.loopexit
 
-839:                                              ; preds = %BuildAbsolutePath.exit
-  %840 = load i32, ptr %6, align 8
-  %841 = add nsw i32 %840, 1
-  store i32 %841, ptr %6, align 8
+838:                                              ; preds = %BuildAbsolutePath.exit
+  %839 = load i32, ptr %6, align 8
+  %840 = add nsw i32 %839, 1
+  store i32 %840, ptr %6, align 8
   store i32 32, ptr %4, align 4
   call fastcc void @InSymbol(ptr noundef %0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %750, %424, %NextCh.exit203, %NextCh.exit195, %NextCh.exit237, %NextCh.exit233, %570, %BinSrchKey.exit.thread, %423, %415, %381, %380, %372, %NextCh.exit199, %NextCh.exit191, %switch.early.test284, %switch.early.test284, %switch.early.test284, %isidchar.exit213, %569, %839, %838, %834, %AllocChunk.exit.thread, %758, %755, %749, %495, %446, %393, %310
+.loopexit:                                        ; preds = %750, %424, %NextCh.exit203, %NextCh.exit195, %NextCh.exit237, %NextCh.exit233, %570, %BinSrchKey.exit.thread, %423, %415, %381, %380, %372, %NextCh.exit199, %NextCh.exit191, %switch.early.test284, %switch.early.test284, %switch.early.test284, %isidchar.exit213, %569, %838, %837, %833, %AllocChunk.exit.thread, %758, %755, %749, %495, %446, %393, %310
   ret void
 }
 

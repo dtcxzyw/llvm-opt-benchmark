@@ -39667,31 +39667,30 @@ luaL_checklstring.exit:                           ; preds = %58
   %119 = zext i8 %118 to i32
   %.not.i.i.i = icmp samesign ugt i32 %116, %119
   %120 = getelementptr inbounds nuw i8, ptr %115, i64 40
-  %121 = sub nsw i64 4294957293, %82
-  %122 = and i64 %121, 4294967295
-  %123 = getelementptr inbounds nuw %struct.lua_TValue, ptr %120, i64 %122
-  %124 = select i1 %.not.i.i.i, ptr @luaO_nilobject_, ptr %123
+  %121 = sub nuw nsw i64 4294957293, %82
+  %122 = getelementptr inbounds nuw %struct.lua_TValue, ptr %120, i64 %121
+  %123 = select i1 %.not.i.i.i, ptr @luaO_nilobject_, ptr %122
   br label %aux_lines.exit
 
 aux_lines.exit:                                   ; preds = %110, %108, %98, %95, %91, %85, %f_lines.exit
-  %.1.i.i.i.sink27 = phi ptr [ %.luaO_nilobject_.i.i.i.i, %f_lines.exit ], [ %.luaO_nilobject_.i.i.i, %85 ], [ %93, %91 ], [ %124, %110 ], [ %97, %95 ], [ %104, %98 ], [ %109, %108 ]
+  %.1.i.i.i.sink27 = phi ptr [ %.luaO_nilobject_.i.i.i.i, %f_lines.exit ], [ %.luaO_nilobject_.i.i.i, %85 ], [ %93, %91 ], [ %123, %110 ], [ %97, %95 ], [ %104, %98 ], [ %109, %108 ]
   %.val.sink26 = phi ptr [ %57, %f_lines.exit ], [ %.val, %85 ], [ %.val, %91 ], [ %.val, %110 ], [ %.val, %95 ], [ %.val, %98 ], [ %.val, %108 ]
   %.sink = phi i32 [ 0, %f_lines.exit ], [ 1, %85 ], [ 1, %91 ], [ 1, %110 ], [ 1, %95 ], [ 1, %98 ], [ 1, %108 ]
-  %125 = load i64, ptr %.1.i.i.i.sink27, align 8, !tbaa !46
-  store i64 %125, ptr %.val.sink26, align 8, !tbaa !46
-  %126 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.sink27, i64 8
-  %127 = load i32, ptr %126, align 8, !tbaa !69
-  %128 = getelementptr inbounds nuw i8, ptr %.val.sink26, i64 8
-  store i32 %127, ptr %128, align 8, !tbaa !69
-  %129 = load ptr, ptr %5, align 8, !tbaa !62
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  store ptr %130, ptr %5, align 8, !tbaa !62
-  store i32 %.sink, ptr %130, align 8, !tbaa !46
-  %131 = getelementptr inbounds nuw i8, ptr %129, i64 24
-  store i32 1, ptr %131, align 8, !tbaa !69
-  %132 = load ptr, ptr %5, align 8, !tbaa !62
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  store ptr %133, ptr %5, align 8, !tbaa !62
+  %124 = load i64, ptr %.1.i.i.i.sink27, align 8, !tbaa !46
+  store i64 %124, ptr %.val.sink26, align 8, !tbaa !46
+  %125 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.sink27, i64 8
+  %126 = load i32, ptr %125, align 8, !tbaa !69
+  %127 = getelementptr inbounds nuw i8, ptr %.val.sink26, i64 8
+  store i32 %126, ptr %127, align 8, !tbaa !69
+  %128 = load ptr, ptr %5, align 8, !tbaa !62
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
+  store ptr %129, ptr %5, align 8, !tbaa !62
+  store i32 %.sink, ptr %129, align 8, !tbaa !46
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 24
+  store i32 1, ptr %130, align 8, !tbaa !69
+  %131 = load ptr, ptr %5, align 8, !tbaa !62
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  store ptr %132, ptr %5, align 8, !tbaa !62
   tail call fastcc void @lua_pushcclosure(ptr noundef nonnull %0, ptr noundef nonnull @io_readline, i32 noundef 2)
   ret i32 1
 }

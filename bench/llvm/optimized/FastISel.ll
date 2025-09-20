@@ -3546,7 +3546,7 @@ define dso_local noundef i32 @_ZN4llvm8FastISel12fastEmit_ri_ENS_3MVTEjjmS1_(ptr
 .thread68:                                        ; preds = %11, %9
   %.0.ph67 = phi i32 [ 190, %9 ], [ 192, %11 ]
   %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 false)
-  %.035.ph.in = sub nuw nsw i64 63, %13
+  %.035.ph = sub nuw nsw i64 63, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %16
 
@@ -3558,7 +3558,7 @@ define dso_local noundef i32 @_ZN4llvm8FastISel12fastEmit_ri_ENS_3MVTEjjmS1_(ptr
 
 16:                                               ; preds = %.thread68, %14
   %.073 = phi i32 [ %.0.ph67, %.thread68 ], [ %2, %14 ]
-  %.03572 = phi i64 [ %.035.ph.in, %.thread68 ], [ %4, %14 ]
+  %.03572 = phi i64 [ %.035.ph, %.thread68 ], [ %4, %14 ]
   %17 = zext i16 %1 to i64
   %18 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -16

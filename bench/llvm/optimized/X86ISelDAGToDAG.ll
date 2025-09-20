@@ -28955,53 +28955,52 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %37, %36
 
 39:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i
   %40 = icmp ult i32 %33, 65
-  br i1 %40, label %41, label %54
+  br i1 %40, label %41, label %53
 
 41:                                               ; preds = %39
-  %42 = sub i64 64, %32
-  %43 = and i64 %42, 4294967295
-  %44 = lshr i64 -1, %43
-  %45 = load i32, ptr %34, align 8, !tbaa !477, !alias.scope !905
-  %46 = icmp ult i32 %45, 65
-  br i1 %46, label %47, label %50
+  %42 = sub nuw i64 64, %32
+  %43 = lshr i64 -1, %42
+  %44 = load i32, ptr %34, align 8, !tbaa !477, !alias.scope !905
+  %45 = icmp ult i32 %44, 65
+  br i1 %45, label %46, label %49
 
-47:                                               ; preds = %41
-  %48 = load i64, ptr %4, align 8, !tbaa !479, !alias.scope !905
-  %49 = or i64 %48, %44
-  store i64 %49, ptr %4, align 8, !tbaa !479, !alias.scope !905
+46:                                               ; preds = %41
+  %47 = load i64, ptr %4, align 8, !tbaa !479, !alias.scope !905
+  %48 = or i64 %47, %43
+  store i64 %48, ptr %4, align 8, !tbaa !479, !alias.scope !905
   br label %_ZN4llvm5APInt13getLowBitsSetEjj.exit
 
-50:                                               ; preds = %41
-  %51 = load ptr, ptr %4, align 8, !tbaa !479, !alias.scope !905
-  %52 = load i64, ptr %51, align 8, !tbaa !53
-  %53 = or i64 %52, %44
-  store i64 %53, ptr %51, align 8, !tbaa !53
+49:                                               ; preds = %41
+  %50 = load ptr, ptr %4, align 8, !tbaa !479, !alias.scope !905
+  %51 = load i64, ptr %50, align 8, !tbaa !53
+  %52 = or i64 %51, %43
+  store i64 %52, ptr %50, align 8, !tbaa !53
   br label %_ZN4llvm5APInt13getLowBitsSetEjj.exit
 
-54:                                               ; preds = %39
+53:                                               ; preds = %39
   call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 0, i32 noundef %33) #25
   br label %_ZN4llvm5APInt13getLowBitsSetEjj.exit
 
-_ZN4llvm5APInt13getLowBitsSetEjj.exit:            ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i, %47, %50, %54
-  %55 = call noundef zeroext i1 @_ZNK4llvm12SelectionDAG20MaskedValueIsAllOnesENS_7SDValueERKNS_5APIntEj(ptr noundef nonnull align 8 dereferenceable(952) %17, ptr nonnull %.sroa.01.0.i, i32 %.sroa.6.0.i, ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 0) #25
-  %56 = load i32, ptr %34, align 8, !tbaa !477
-  %57 = icmp ugt i32 %56, 64
-  br i1 %57, label %58, label %_ZN4llvm5APIntD2Ev.exit
+_ZN4llvm5APInt13getLowBitsSetEjj.exit:            ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i, %46, %49, %53
+  %54 = call noundef zeroext i1 @_ZNK4llvm12SelectionDAG20MaskedValueIsAllOnesENS_7SDValueERKNS_5APIntEj(ptr noundef nonnull align 8 dereferenceable(952) %17, ptr nonnull %.sroa.01.0.i, i32 %.sroa.6.0.i, ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 0) #25
+  %55 = load i32, ptr %34, align 8, !tbaa !477
+  %56 = icmp ugt i32 %55, 64
+  br i1 %56, label %57, label %_ZN4llvm5APIntD2Ev.exit
 
-58:                                               ; preds = %_ZN4llvm5APInt13getLowBitsSetEjj.exit
-  %59 = load ptr, ptr %4, align 8, !tbaa !479
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %_ZN4llvm5APIntD2Ev.exit, label %61
+57:                                               ; preds = %_ZN4llvm5APInt13getLowBitsSetEjj.exit
+  %58 = load ptr, ptr %4, align 8, !tbaa !479
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %_ZN4llvm5APIntD2Ev.exit, label %60
 
-61:                                               ; preds = %58
-  call void @_ZdaPv(ptr noundef nonnull %59) #28
+60:                                               ; preds = %57
+  call void @_ZdaPv(ptr noundef nonnull %58) #28
   br label %_ZN4llvm5APIntD2Ev.exit
 
-_ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt13getLowBitsSetEjj.exit, %58, %61
+_ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt13getLowBitsSetEjj.exit, %57, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %55
+  ret i1 %54
 }
 
 declare noundef zeroext i1 @_ZNK4llvm12SelectionDAG20MaskedValueIsAllOnesENS_7SDValueERKNS_5APIntEj(ptr noundef nonnull align 8 dereferenceable(952), ptr, i32, ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #8

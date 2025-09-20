@@ -39,21 +39,21 @@ define hidden { ptr, i32 } @_ZNSt3__116__d2s_buffered_nB8ne210000EPcS0_dNS_12cha
   %11 = ptrtoint ptr %0 to i64
   %12 = sub i64 %10, %11
   %13 = icmp slt i64 %12, 5
-  br i1 %13, label %53, label %14
+  br i1 %13, label %52, label %14
 
 14:                                               ; preds = %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %0, ptr noundef nonnull align 1 dereferenceable(5) @.str, i64 5, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  br label %53
+  br label %52
 
 16:                                               ; preds = %7
   %17 = icmp eq ptr %0, %1
-  br i1 %17, label %53, label %18
+  br i1 %17, label %52, label %18
 
 18:                                               ; preds = %16
   store i8 48, ptr %0, align 1, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  br label %53
+  br label %52
 
 20:                                               ; preds = %4
   %21 = and i64 %5, 4503599627370495
@@ -68,59 +68,58 @@ define hidden { ptr, i32 } @_ZNSt3__116__d2s_buffered_nB8ne210000EPcS0_dNS_12cha
   %27 = tail call { ptr, i32 } @_ZNSt3__120__d2fixed_buffered_nB8ne210000EPcS0_dj(ptr noundef %0, ptr noundef %1, double noundef %2, i32 noundef 0)
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = extractvalue { ptr, i32 } %27, 1
-  br label %53
+  br label %52
 
 .thread:                                          ; preds = %20
   %30 = or disjoint i64 %21, 4503599627370496
   %31 = add nsw i32 %23, -1076
   %or.cond.i = icmp ult i32 %31, -53
-  br i1 %or.cond.i, label %46, label %32
+  br i1 %or.cond.i, label %45, label %32
 
 32:                                               ; preds = %.thread
-  %33 = sub nsw i64 1075, %22
-  %34 = and i64 %33, 4294967295
-  %notmask.i = shl nsw i64 -1, %34
-  %35 = xor i64 %notmask.i, -1
-  %36 = and i64 %30, %35
-  %.not.i = icmp eq i64 %36, 0
-  br i1 %.not.i, label %_ZNSt3__115__d2d_small_intB8ne210000EmjPNS_21__floating_decimal_64E.exit, label %46
+  %33 = sub nuw nsw i64 1075, %22
+  %notmask.i = shl nsw i64 -1, %33
+  %34 = xor i64 %notmask.i, -1
+  %35 = and i64 %30, %34
+  %.not.i = icmp eq i64 %35, 0
+  br i1 %.not.i, label %_ZNSt3__115__d2d_small_intB8ne210000EmjPNS_21__floating_decimal_64E.exit, label %45
 
 _ZNSt3__115__d2d_small_intB8ne210000EmjPNS_21__floating_decimal_64E.exit: ; preds = %32
-  %37 = lshr i64 %30, %34
-  br label %38
+  %36 = lshr i64 %30, %33
+  br label %37
 
-38:                                               ; preds = %38, %_ZNSt3__115__d2d_small_intB8ne210000EmjPNS_21__floating_decimal_64E.exit
-  %.sroa.8.0 = phi i32 [ 0, %_ZNSt3__115__d2d_small_intB8ne210000EmjPNS_21__floating_decimal_64E.exit ], [ %45, %38 ]
-  %.sroa.0.0 = phi i64 [ %37, %_ZNSt3__115__d2d_small_intB8ne210000EmjPNS_21__floating_decimal_64E.exit ], [ %44, %38 ]
-  %39 = zext nneg i64 %.sroa.0.0 to i128
-  %40 = mul nuw nsw i128 %39, 14757395258967641293
-  %sum.shift.i = lshr i128 %40, 67
-  %41 = trunc i64 %.sroa.0.0 to i32
-  %42 = trunc i128 %sum.shift.i to i32
-  %.neg = mul i32 %42, -10
-  %43 = sub i32 0, %41
-  %.not = icmp eq i32 %.neg, %43
-  %44 = trunc nuw nsw i128 %sum.shift.i to i64
-  %45 = add nuw nsw i32 %.sroa.8.0, 1
-  br i1 %.not, label %38, label %.thread46
+37:                                               ; preds = %37, %_ZNSt3__115__d2d_small_intB8ne210000EmjPNS_21__floating_decimal_64E.exit
+  %.sroa.8.0 = phi i32 [ 0, %_ZNSt3__115__d2d_small_intB8ne210000EmjPNS_21__floating_decimal_64E.exit ], [ %44, %37 ]
+  %.sroa.0.0 = phi i64 [ %36, %_ZNSt3__115__d2d_small_intB8ne210000EmjPNS_21__floating_decimal_64E.exit ], [ %43, %37 ]
+  %38 = zext nneg i64 %.sroa.0.0 to i128
+  %39 = mul nuw nsw i128 %38, 14757395258967641293
+  %sum.shift.i = lshr i128 %39, 67
+  %40 = trunc i64 %.sroa.0.0 to i32
+  %41 = trunc i128 %sum.shift.i to i32
+  %.neg = mul i32 %41, -10
+  %42 = sub i32 0, %40
+  %.not = icmp eq i32 %.neg, %42
+  %43 = trunc nuw nsw i128 %sum.shift.i to i64
+  %44 = add nuw nsw i32 %.sroa.8.0, 1
+  br i1 %.not, label %37, label %.thread46
 
-46:                                               ; preds = %.thread, %32
-  %47 = tail call { i64, i32 } @_ZNSt3__15__d2dB8ne210000Emj(i64 noundef %21, i32 noundef %23)
-  %48 = extractvalue { i64, i32 } %47, 0
-  %49 = extractvalue { i64, i32 } %47, 1
+45:                                               ; preds = %.thread, %32
+  %46 = tail call { i64, i32 } @_ZNSt3__15__d2dB8ne210000Emj(i64 noundef %21, i32 noundef %23)
+  %47 = extractvalue { i64, i32 } %46, 0
+  %48 = extractvalue { i64, i32 } %46, 1
   br label %.thread46
 
-.thread46:                                        ; preds = %38, %46
-  %.sroa.8.2 = phi i32 [ %49, %46 ], [ %.sroa.8.0, %38 ]
-  %.sroa.0.2 = phi i64 [ %48, %46 ], [ %.sroa.0.0, %38 ]
-  %50 = tail call { ptr, i32 } @_ZNSt3__110__to_charsB8ne210000EPcS0_NS_21__floating_decimal_64ENS_12chars_formatEd(ptr noundef %0, ptr noundef %1, i64 %.sroa.0.2, i32 %.sroa.8.2, i32 noundef %3, double noundef %2)
-  %51 = extractvalue { ptr, i32 } %50, 0
-  %52 = extractvalue { ptr, i32 } %50, 1
-  br label %53
+.thread46:                                        ; preds = %37, %45
+  %.sroa.8.2 = phi i32 [ %48, %45 ], [ %.sroa.8.0, %37 ]
+  %.sroa.0.2 = phi i64 [ %47, %45 ], [ %.sroa.0.0, %37 ]
+  %49 = tail call { ptr, i32 } @_ZNSt3__110__to_charsB8ne210000EPcS0_NS_21__floating_decimal_64ENS_12chars_formatEd(ptr noundef %0, ptr noundef %1, i64 %.sroa.0.2, i32 %.sroa.8.2, i32 noundef %3, double noundef %2)
+  %50 = extractvalue { ptr, i32 } %49, 0
+  %51 = extractvalue { ptr, i32 } %49, 1
+  br label %52
 
-53:                                               ; preds = %26, %.thread46, %16, %9, %18, %14
-  %.sroa.035.0 = phi ptr [ %15, %14 ], [ %19, %18 ], [ %1, %9 ], [ %1, %16 ], [ %51, %.thread46 ], [ %28, %26 ]
-  %.sroa.7.0 = phi i32 [ 0, %14 ], [ 0, %18 ], [ 75, %9 ], [ 75, %16 ], [ %52, %.thread46 ], [ %29, %26 ]
+52:                                               ; preds = %26, %.thread46, %16, %9, %18, %14
+  %.sroa.035.0 = phi ptr [ %15, %14 ], [ %19, %18 ], [ %1, %9 ], [ %1, %16 ], [ %50, %.thread46 ], [ %28, %26 ]
+  %.sroa.7.0 = phi i32 [ 0, %14 ], [ 0, %18 ], [ 75, %9 ], [ 75, %16 ], [ %51, %.thread46 ], [ %29, %26 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.035.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.7.0, 1
   ret { ptr, i32 } %.fca.1.insert

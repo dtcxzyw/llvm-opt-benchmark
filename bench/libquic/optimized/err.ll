@@ -725,29 +725,28 @@ ERR_reason_error_string.exit:                     ; preds = %48, %14, %16, %19, 
   %67 = getelementptr inbounds i8, ptr %66, i64 -4
   br label %68
 
-68:                                               ; preds = %.preheader, %76
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %76 ]
-  %.03251 = phi ptr [ %1, %.preheader ], [ %77, %76 ]
+68:                                               ; preds = %.preheader, %75
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %75 ]
+  %.03251 = phi ptr [ %1, %.preheader ], [ %76, %75 ]
   %69 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03251, i32 noundef 58) #19
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 %indvars.iv
   %71 = icmp eq ptr %69, null
   %72 = icmp ugt ptr %69, %70
   %or.cond = select i1 %71, i1 true, i1 %72
-  br i1 %or.cond, label %73, label %76
+  br i1 %or.cond, label %73, label %75
 
 73:                                               ; preds = %68
-  %74 = sub nsw i64 4, %indvars.iv
-  %75 = and i64 %74, 4294967295
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %70, i8 58, i64 %75, i1 false)
+  %74 = sub nuw nsw i64 4, %indvars.iv
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %70, i8 58, i64 %74, i1 false)
   br label %.critedge
 
-76:                                               ; preds = %68
-  %77 = getelementptr inbounds nuw i8, ptr %69, i64 1
+75:                                               ; preds = %68
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.critedge, label %68, !llvm.loop !29
 
-.critedge:                                        ; preds = %76, %73, %60, %3
+.critedge:                                        ; preds = %75, %73, %60, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

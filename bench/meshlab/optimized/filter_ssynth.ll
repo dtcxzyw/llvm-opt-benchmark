@@ -33748,7 +33748,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %322, %325
 
 353:                                              ; preds = %348
   %354 = icmp eq i32 %347, 0
-  %355 = sub nsw i64 2, %indvars.iv1260
+  %355 = sub nuw nsw i64 2, %indvars.iv1260
   %spec.select = select i1 %354, i64 %355, i64 %indvars.iv1260
   %356 = getelementptr inbounds nuw i32, ptr %.sroa.0843.0.lcssa, i64 %349
   %357 = load i32, ptr %356, align 4
@@ -36504,7 +36504,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %266, %269
 
 296:                                              ; preds = %286
   %297 = icmp eq i32 %293, 0
-  %298 = sub nsw i64 2, %indvars.iv797
+  %298 = sub nuw nsw i64 2, %indvars.iv797
   %spec.select = select i1 %297, i64 %298, i64 %indvars.iv797
   %299 = add nuw nsw i64 %indvars.iv797, %285
   %300 = load ptr, ptr %16, align 8
@@ -40080,7 +40080,7 @@ _ZN3vcg3tri2io11ImporterX3DI6CMeshOE23loadDefaultValuePerFaceEP6CFaceORKS3_i.exi
 
 682:                                              ; preds = %_ZN3vcg3tri2io11ImporterX3DI6CMeshOE23loadDefaultValuePerFaceEP6CFaceORKS3_i.exit.us
   %683 = icmp eq i32 %681, 0
-  %684 = sub nsw i64 2, %indvars.iv524
+  %684 = sub nuw nsw i64 2, %indvars.iv524
   %spec.select.us = select i1 %683, i64 %684, i64 %indvars.iv524
   %685 = getelementptr inbounds nuw [2 x i32], ptr %40, i64 %indvars.iv524
   %686 = load i32, ptr %685, align 8
@@ -42022,7 +42022,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %_ZNSt16allocator_tr
 
 610:                                              ; preds = %602
   %611 = icmp eq i32 %609, 0
-  %612 = sub nsw i64 2, %indvars.iv906
+  %612 = sub nuw nsw i64 2, %indvars.iv906
   %spec.select = select i1 %611, i64 %612, i64 %indvars.iv906
   %613 = add nuw nsw i64 %indvars.iv906, %601
   %.not.i.i455 = icmp samesign ugt i64 %590, %613

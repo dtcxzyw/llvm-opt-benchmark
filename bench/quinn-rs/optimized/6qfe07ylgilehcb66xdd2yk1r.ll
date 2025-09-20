@@ -1711,13 +1711,13 @@ define hidden noundef i64 @_ZN4rand3rng3Rng12random_range17h33dfc3fb5ed2e9eeE(pt
   %6 = alloca [1 x i8], align 1
   %7 = alloca [48 x i8], align 8
   %.not = icmp ult i64 %1, %2
-  br i1 %.not, label %8, label %56, !prof !227
+  br i1 %.not, label %8, label %55, !prof !227
 
 8:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !256)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !259)
   %9 = icmp ugt i64 %2, 4294967295
-  br i1 %9, label %48, label %10
+  br i1 %9, label %47, label %10
 
 10:                                               ; preds = %8
   %11 = trunc i64 %1 to i32
@@ -1726,7 +1726,7 @@ define hidden noundef i64 @_ZN4rand3rng3Rng12random_range17h33dfc3fb5ed2e9eeE(pt
   br i1 %13, label %14, label %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit.thread"
 
 14:                                               ; preds = %10
-  %15 = sub i64 %2, %1
+  %15 = sub nuw i64 %2, %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %17 = load i64, ptr %16, align 16, !alias.scope !262, !noalias !267, !noundef !8
   %18 = icmp ugt i64 %17, 63
@@ -1744,86 +1744,85 @@ _ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit11.i.i.i.i: ; preds = %19, %14
   %24 = add nuw nsw i64 %21, 1
   store i64 %24, ptr %16, align 16, !alias.scope !270, !noalias !267
   %25 = zext i32 %23 to i64
-  %26 = and i64 %15, 4294967295
-  %27 = mul nuw i64 %26, %25
-  %28 = lshr i64 %27, 32
-  %29 = trunc i64 %27 to i32
-  %30 = sub i32 %11, %12
-  %31 = icmp ult i32 %30, %29
-  br i1 %31, label %32, label %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit.thread11"
+  %26 = mul nuw i64 %15, %25
+  %27 = lshr i64 %26, 32
+  %28 = trunc i64 %26 to i32
+  %29 = sub i32 %11, %12
+  %30 = icmp ult i32 %29, %28
+  br i1 %30, label %31, label %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit.thread11"
 
-32:                                               ; preds = %_ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit11.i.i.i.i
-  %33 = icmp eq i64 %21, 63
-  br i1 %33, label %34, label %_ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit12.i.i.i.i
+31:                                               ; preds = %_ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit11.i.i.i.i
+  %32 = icmp eq i64 %21, 63
+  br i1 %32, label %33, label %_ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit12.i.i.i.i
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  tail call void @_ZN11rand_chacha4guts11refill_wide17hef15c7c52b9581fbE(ptr noalias noundef nonnull align 16 dereferenceable(48) %35, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(320) %0), !noalias !267
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  tail call void @_ZN11rand_chacha4guts11refill_wide17hef15c7c52b9581fbE(ptr noalias noundef nonnull align 16 dereferenceable(48) %34, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(320) %0), !noalias !267
   br label %_ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit12.i.i.i.i
 
-_ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit12.i.i.i.i: ; preds = %34, %32
-  %36 = phi i64 [ %24, %32 ], [ 0, %34 ]
-  %37 = getelementptr inbounds nuw i32, ptr %0, i64 %36
-  %38 = load i32, ptr %37, align 4, !alias.scope !277, !noalias !267, !noundef !8
-  %39 = add nuw nsw i64 %36, 1
-  store i64 %39, ptr %16, align 16, !alias.scope !277, !noalias !267
-  %40 = zext i32 %38 to i64
-  %41 = mul nuw i64 %26, %40
-  %42 = lshr i64 %41, 32
-  %43 = trunc nuw i64 %42 to i32
-  %44 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %29, i32 %43)
-  %45 = extractvalue { i32, i1 } %44, 1
-  %46 = zext i1 %45 to i64
-  %47 = add nuw nsw i64 %28, %46
+_ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit12.i.i.i.i: ; preds = %33, %31
+  %35 = phi i64 [ %24, %31 ], [ 0, %33 ]
+  %36 = getelementptr inbounds nuw i32, ptr %0, i64 %35
+  %37 = load i32, ptr %36, align 4, !alias.scope !277, !noalias !267, !noundef !8
+  %38 = add nuw nsw i64 %35, 1
+  store i64 %38, ptr %16, align 16, !alias.scope !277, !noalias !267
+  %39 = zext i32 %37 to i64
+  %40 = mul nuw i64 %15, %39
+  %41 = lshr i64 %40, 32
+  %42 = trunc nuw i64 %41 to i32
+  %43 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %28, i32 %42)
+  %44 = extractvalue { i32, i1 } %43, 1
+  %45 = zext i1 %44 to i64
+  %46 = add nuw nsw i64 %27, %45
   br label %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit.thread11"
 
-48:                                               ; preds = %8
+47:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !284
   call fastcc void @"_ZN105_$LT$rand..distr..uniform..int..UniformInt$LT$u64$GT$$u20$as$u20$rand..distr..uniform..UniformSampler$GT$13sample_single17h749f518904f7c076E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 16 dereferenceable(320) %0), !noalias !267
-  %49 = load i8, ptr %5, align 8, !range !57, !noalias !284, !noundef !8
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit.thread16", label %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit"
+  %48 = load i8, ptr %5, align 8, !range !57, !noalias !284, !noundef !8
+  %49 = trunc nuw i8 %48 to i1
+  br i1 %49, label %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit.thread16", label %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit"
 
 "_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit.thread11": ; preds = %_ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit11.i.i.i.i, %_ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit12.i.i.i.i
-  %.sroa.04.0.i.i.i.i = phi i64 [ %47, %_ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit12.i.i.i.i ], [ %28, %_ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit11.i.i.i.i ]
-  %51 = add i64 %.sroa.04.0.i.i.i.i, %1
-  %.sroa.67.0.extract.shift.i.i = and i64 %51, 4294967295
+  %.sroa.04.0.i.i.i.i = phi i64 [ %46, %_ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit12.i.i.i.i ], [ %27, %_ZN4rand3rng3Rng6random17h72bb2cef5bbbd342E.exit11.i.i.i.i ]
+  %50 = add i64 %.sroa.04.0.i.i.i.i, %1
+  %.sroa.67.0.extract.shift.i.i = and i64 %50, 4294967295
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf9433ffb945e364cE.exit"
 
-"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit.thread16": ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %53 = load i8, ptr %52, align 1, !range !57, !noalias !284, !noundef !8
+"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit.thread16": ; preds = %47
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %52 = load i8, ptr %51, align 1, !range !57, !noalias !284, !noundef !8
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !284
   br label %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit.thread"
 
-"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit": ; preds = %48
-  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %55 = load i64, ptr %54, align 8, !noalias !284, !noundef !8
+"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit": ; preds = %47
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %54 = load i64, ptr %53, align 8, !noalias !284, !noundef !8
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !284
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf9433ffb945e364cE.exit"
 
 "_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit.thread": ; preds = %10, %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit.thread16"
-  %.sroa.6.210 = phi i8 [ %53, %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit.thread16" ], [ 0, %10 ]
+  %.sroa.6.210 = phi i8 [ %52, %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit.thread16" ], [ 0, %10 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !285
   store i8 %.sroa.6.210, ptr %6, align 1, !noalias !285
   call void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.2245126a2ad8437c5367a35deb4c33ec.30, i64 noundef 43, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2245126a2ad8437c5367a35deb4c33ec.32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #30, !noalias !289
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf9433ffb945e364cE.exit": ; preds = %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit", %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit.thread11"
-  %.sroa.106.215 = phi i64 [ %.sroa.67.0.extract.shift.i.i, %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit.thread11" ], [ %55, %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit" ]
+  %.sroa.106.215 = phi i64 [ %.sroa.67.0.extract.shift.i.i, %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit.thread11" ], [ %54, %"_ZN95_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distr..uniform..SampleRange$LT$T$GT$$GT$13sample_single17h0f01a2dadc27fc07E.exit" ]
   ret i64 %.sroa.106.215
 
-56:                                               ; preds = %4
+55:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @anon.2245126a2ad8437c5367a35deb4c33ec.36, ptr %7, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 1, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr null, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 0, ptr %60, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 1, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr null, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i64 0, ptr %59, align 8
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #30
   unreachable
 }
