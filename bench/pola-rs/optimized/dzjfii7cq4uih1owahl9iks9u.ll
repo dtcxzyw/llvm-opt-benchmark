@@ -31441,7 +31441,6 @@ _ZN12polars_arrow5array5Array10null_count17hd53e035b1ae1b3b3E.exit265: ; preds =
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc1.i.i.i
   %1125 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %umax.i.i.i.i = call i64 @llvm.umax.i64(i64 %1114, i64 1)
   br label %1126
 
 .preheader32.i.i.i.i:                             ; preds = %.noexc3.i.i.i, %.noexc1.i.i.i
@@ -31533,7 +31532,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf8861047e1068ad4E.exit.i
 .noexc3.i.i.i:                                    ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf8861047e1068ad4E.exit.i.i.i.i
   %1165 = add nuw nsw i64 %.sroa.019.034.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1762
-  %exitcond.not.i.i.i.i = icmp eq i64 %1165, %umax.i.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %1165, %1114
   br i1 %exitcond.not.i.i.i.i, label %.preheader32.i.i.i.i, label %1126
 
 ._crit_edge.i.i.i.i:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h57da5d0075da71f3E.exit27.i.i.i.i", %.preheader32.i.i.i.i
@@ -35309,7 +35308,6 @@ _ZN12polars_arrow5array5Array10null_count17h0da43b16b9a996ecE.exit265: ; preds =
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc1.i.i.i
   %1125 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %umax.i.i.i.i = call i64 @llvm.umax.i64(i64 %1114, i64 1)
   br label %1126
 
 .preheader32.i.i.i.i:                             ; preds = %.noexc3.i.i.i, %.noexc1.i.i.i
@@ -35401,7 +35399,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h1086b465f7613311E.exit.i
 .noexc3.i.i.i:                                    ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h1086b465f7613311E.exit.i.i.i.i
   %1165 = add nuw nsw i64 %.sroa.019.034.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !2020
-  %exitcond.not.i.i.i.i = icmp eq i64 %1165, %umax.i.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %1165, %1114
   br i1 %exitcond.not.i.i.i.i, label %.preheader32.i.i.i.i, label %1126
 
 ._crit_edge.i.i.i.i:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h57da5d0075da71f3E.exit27.i.i.i.i", %.preheader32.i.i.i.i
@@ -39175,7 +39173,6 @@ _ZN12polars_arrow5array5Array10null_count17h79f330fc29125d60E.exit265: ; preds =
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc1.i.i.i
   %1125 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %umax.i.i.i.i = call i64 @llvm.umax.i64(i64 %1114, i64 1)
   br label %1126
 
 .preheader32.i.i.i.i:                             ; preds = %.noexc3.i.i.i, %.noexc1.i.i.i
@@ -39267,7 +39264,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hb195c69981fe8677E.exit.i
 .noexc3.i.i.i:                                    ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hb195c69981fe8677E.exit.i.i.i.i
   %1165 = add nuw nsw i64 %.sroa.019.034.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !2278
-  %exitcond.not.i.i.i.i = icmp eq i64 %1165, %umax.i.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %1165, %1114
   br i1 %exitcond.not.i.i.i.i, label %.preheader32.i.i.i.i, label %1126
 
 ._crit_edge.i.i.i.i:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h57da5d0075da71f3E.exit27.i.i.i.i", %.preheader32.i.i.i.i
@@ -43040,7 +43037,6 @@ _ZN12polars_arrow5array5Array10null_count17hafe6c826cae7e91bE.exit265: ; preds =
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc1.i.i.i
   %1125 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %umax.i.i.i.i = call i64 @llvm.umax.i64(i64 %1114, i64 1)
   br label %1126
 
 .preheader32.i.i.i.i:                             ; preds = %.noexc3.i.i.i, %.noexc1.i.i.i
@@ -43132,7 +43128,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h5cdce43544c3e852E.exit.i
 .noexc3.i.i.i:                                    ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h5cdce43544c3e852E.exit.i.i.i.i
   %1165 = add nuw nsw i64 %.sroa.019.034.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !2536
-  %exitcond.not.i.i.i.i = icmp eq i64 %1165, %umax.i.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %1165, %1114
   br i1 %exitcond.not.i.i.i.i, label %.preheader32.i.i.i.i, label %1126
 
 ._crit_edge.i.i.i.i:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h57da5d0075da71f3E.exit27.i.i.i.i", %.preheader32.i.i.i.i
@@ -46910,7 +46906,6 @@ _ZN12polars_arrow5array5Array10null_count17hfc5c2f3f935e1a96E.exit265: ; preds =
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc1.i.i.i
   %1125 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %umax.i.i.i.i = call i64 @llvm.umax.i64(i64 %1114, i64 1)
   br label %1126
 
 .preheader32.i.i.i.i:                             ; preds = %.noexc3.i.i.i, %.noexc1.i.i.i
@@ -47002,7 +46997,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hcebb5cfb00a2a4f8E.exit.i
 .noexc3.i.i.i:                                    ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hcebb5cfb00a2a4f8E.exit.i.i.i.i
   %1165 = add nuw nsw i64 %.sroa.019.034.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !2794
-  %exitcond.not.i.i.i.i = icmp eq i64 %1165, %umax.i.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %1165, %1114
   br i1 %exitcond.not.i.i.i.i, label %.preheader32.i.i.i.i, label %1126
 
 ._crit_edge.i.i.i.i:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h57da5d0075da71f3E.exit27.i.i.i.i", %.preheader32.i.i.i.i
@@ -50774,7 +50769,6 @@ _ZN12polars_arrow5array5Array10null_count17hea473820d8c05644E.exit265: ; preds =
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc1.i.i.i
   %1125 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %umax.i.i.i.i = call i64 @llvm.umax.i64(i64 %1114, i64 1)
   br label %1126
 
 .preheader32.i.i.i.i:                             ; preds = %.noexc3.i.i.i, %.noexc1.i.i.i
@@ -50866,7 +50860,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h06e031fe9ff67044E.exit.i
 .noexc3.i.i.i:                                    ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h06e031fe9ff67044E.exit.i.i.i.i
   %1165 = add nuw nsw i64 %.sroa.019.034.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !3052
-  %exitcond.not.i.i.i.i = icmp eq i64 %1165, %umax.i.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %1165, %1114
   br i1 %exitcond.not.i.i.i.i, label %.preheader32.i.i.i.i, label %1126
 
 ._crit_edge.i.i.i.i:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h57da5d0075da71f3E.exit27.i.i.i.i", %.preheader32.i.i.i.i
@@ -54643,7 +54637,6 @@ _ZN12polars_arrow5array5Array10null_count17hd17694cc7be7d897E.exit265: ; preds =
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc1.i.i.i
   %1125 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %umax.i.i.i.i = call i64 @llvm.umax.i64(i64 %1114, i64 1)
   br label %1126
 
 .preheader32.i.i.i.i:                             ; preds = %.noexc3.i.i.i, %.noexc1.i.i.i
@@ -54735,7 +54728,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hc673548711a0d698E.exit.i
 .noexc3.i.i.i:                                    ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hc673548711a0d698E.exit.i.i.i.i
   %1165 = add nuw nsw i64 %.sroa.019.034.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !3310
-  %exitcond.not.i.i.i.i = icmp eq i64 %1165, %umax.i.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %1165, %1114
   br i1 %exitcond.not.i.i.i.i, label %.preheader32.i.i.i.i, label %1126
 
 ._crit_edge.i.i.i.i:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h57da5d0075da71f3E.exit27.i.i.i.i", %.preheader32.i.i.i.i
@@ -58659,7 +58652,6 @@ _ZN12polars_arrow5array5Array10null_count17h3ccbd98fa294eb09E.exit265: ; preds =
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc1.i.i.i
   %1174 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %umax.i.i.i.i = call i64 @llvm.umax.i64(i64 %1163, i64 1)
   br label %1175
 
 .preheader32.i.i.i.i:                             ; preds = %.noexc3.i.i.i, %.noexc1.i.i.i
@@ -58751,7 +58743,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h29661c28c08cf818E.exit.i
 .noexc3.i.i.i:                                    ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h29661c28c08cf818E.exit.i.i.i.i
   %1214 = add nuw nsw i64 %.sroa.019.034.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !3596
-  %exitcond.not.i.i.i.i = icmp eq i64 %1214, %umax.i.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %1214, %1163
   br i1 %exitcond.not.i.i.i.i, label %.preheader32.i.i.i.i, label %1175
 
 ._crit_edge.i.i.i.i:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h57da5d0075da71f3E.exit27.i.i.i.i", %.preheader32.i.i.i.i
@@ -62529,7 +62521,6 @@ _ZN12polars_arrow5array5Array10null_count17hc8e24ce11d8ac45eE.exit265: ; preds =
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc1.i.i.i
   %1125 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %umax.i.i.i.i = call i64 @llvm.umax.i64(i64 %1114, i64 1)
   br label %1126
 
 .preheader32.i.i.i.i:                             ; preds = %.noexc3.i.i.i, %.noexc1.i.i.i
@@ -62621,7 +62612,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h25ae21eab92c1407E.exit.i
 .noexc3.i.i.i:                                    ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h25ae21eab92c1407E.exit.i.i.i.i
   %1165 = add nuw nsw i64 %.sroa.019.034.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !3854
-  %exitcond.not.i.i.i.i = icmp eq i64 %1165, %umax.i.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %1165, %1114
   br i1 %exitcond.not.i.i.i.i, label %.preheader32.i.i.i.i, label %1126
 
 ._crit_edge.i.i.i.i:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h57da5d0075da71f3E.exit27.i.i.i.i", %.preheader32.i.i.i.i

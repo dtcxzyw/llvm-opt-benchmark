@@ -9550,15 +9550,12 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit109:            ; preds = %217, %_ZNSt12_Vecto
   %222 = ptrtoint ptr %.sroa.18.3 to i64
   %223 = sub i64 %222, %.pre-phi
   %224 = add i64 %223, 16383
-  %.not186 = icmp ult i64 %224, 16384
-  br i1 %.not186, label %._crit_edge, label %.lr.ph185.preheader
-
-.lr.ph185.preheader:                              ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit109
   %225 = lshr i64 %224, 14
-  br label %.lr.ph185
+  %.not186 = icmp ult i64 %224, 16384
+  br i1 %.not186, label %._crit_edge, label %.lr.ph185
 
-.lr.ph185:                                        ; preds = %.lr.ph185.preheader, %_ZNSt6vectorIhSaIhEED2Ev.exit
-  %.052184 = phi i64 [ %228, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ 0, %.lr.ph185.preheader ]
+.lr.ph185:                                        ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit109, %_ZNSt6vectorIhSaIhEED2Ev.exit
+  %.052184 = phi i64 [ %228, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ 0, %_ZNSt6vectorIhSaIhEE6resizeEm.exit109 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %226 = shl nuw i64 %.052184, 14
   %227 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 %226

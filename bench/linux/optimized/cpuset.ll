@@ -2371,7 +2371,7 @@ define dso_local void @__cpuset_memory_pressure_bump() local_unnamed_addr #1 ali
 20:                                               ; preds = %20, %16
   %21 = phi i32 [ %17, %16 ], [ %23, %20 ]
   %22 = phi i32 [ %19, %16 ], [ %25, %20 ]
-  %23 = add i32 %21, -1
+  %23 = add nsw i32 %21, -1
   %24 = mul i32 %22, 933
   %25 = sdiv i32 %24, 1000
   %26 = icmp eq i32 %23, 0
@@ -7553,7 +7553,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cpuset_read_u64(ptr noun
 47:                                               ; preds = %47, %43
   %48 = phi i32 [ %44, %43 ], [ %50, %47 ]
   %49 = phi i32 [ %46, %43 ], [ %52, %47 ]
-  %50 = add i32 %48, -1
+  %50 = add nsw i32 %48, -1
   %51 = mul i32 %49, 933
   %52 = sdiv i32 %51, 1000
   %53 = icmp eq i32 %50, 0

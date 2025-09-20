@@ -21363,7 +21363,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %31 = getelementptr i8, ptr %next.gep, i64 16
   store <4 x i32> %wide.load, ptr %next.gep, align 2, !alias.scope !579, !noalias !582
   store <4 x i32> %wide.load195, ptr %31, align 2, !alias.scope !579, !noalias !582
-  %index.next = add nuw i64 %index, 8
+  %index.next = add nuw nsw i64 %index, 8
   %32 = icmp eq i64 %index.next, %n.vec
   br i1 %32, label %middle.block, label %vector.body, !llvm.loop !584
 
@@ -21497,7 +21497,7 @@ vector.body210:                                   ; preds = %vector.body210, %ve
   %50 = getelementptr i8, ptr %next.gep213, i64 16
   store <4 x i32> %wide.load218, ptr %next.gep213, align 2, !alias.scope !590, !noalias !593
   store <4 x i32> %wide.load219, ptr %50, align 2, !alias.scope !590, !noalias !593
-  %index.next220 = add nuw i64 %index211, 8
+  %index.next220 = add nuw nsw i64 %index211, 8
   %51 = icmp eq i64 %index.next220, %n.vec204
   br i1 %51, label %middle.block199, label %vector.body210, !llvm.loop !595
 
@@ -21651,7 +21651,7 @@ vector.body235:                                   ; preds = %vector.body235, %ve
   %72 = getelementptr i8, ptr %next.gep238, i64 16
   store <4 x i32> %wide.load243, ptr %next.gep238, align 2, !alias.scope !597, !noalias !600
   store <4 x i32> %wide.load244, ptr %72, align 2, !alias.scope !597, !noalias !600
-  %index.next245 = add nuw i64 %index236, 8
+  %index.next245 = add nuw nsw i64 %index236, 8
   %73 = icmp eq i64 %index.next245, %n.vec229
   br i1 %73, label %middle.block224, label %vector.body235, !llvm.loop !602
 

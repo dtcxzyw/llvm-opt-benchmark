@@ -27803,7 +27803,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.028.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.028.0, -1
+  %31 = add nsw i64 %.sroa.028.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not44 = icmp eq ptr %33, null
@@ -28055,7 +28055,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.028.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.028.0, -1
+  %31 = add nsw i64 %.sroa.028.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not44 = icmp eq ptr %33, null
@@ -28307,7 +28307,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.030.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.030.0, -1
+  %31 = add nsw i64 %.sroa.030.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not47 = icmp eq ptr %33, null
@@ -28561,7 +28561,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.030.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.030.0, -1
+  %31 = add nsw i64 %.sroa.030.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not47 = icmp eq ptr %33, null
@@ -28815,7 +28815,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.028.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.028.0, -1
+  %31 = add nsw i64 %.sroa.028.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not44 = icmp eq ptr %33, null
@@ -29067,7 +29067,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.030.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.030.0, -1
+  %31 = add nsw i64 %.sroa.030.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not47 = icmp eq ptr %33, null
@@ -29321,7 +29321,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.028.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.028.0, -1
+  %31 = add nsw i64 %.sroa.028.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not44 = icmp eq ptr %33, null
@@ -29573,7 +29573,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.030.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.030.0, -1
+  %31 = add nsw i64 %.sroa.030.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not47 = icmp eq ptr %33, null
@@ -29827,7 +29827,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.030.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.030.0, -1
+  %31 = add nsw i64 %.sroa.030.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not47 = icmp eq ptr %33, null
@@ -34744,7 +34744,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.019.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.019.0, -1
+  %28 = add nsw i64 %.sroa.019.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not33 = icmp eq ptr %30, null
@@ -34979,7 +34979,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.017.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.017.0, -1
+  %28 = add nsw i64 %.sroa.017.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not30 = icmp eq ptr %30, null
@@ -35212,7 +35212,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.017.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.017.0, -1
+  %28 = add nsw i64 %.sroa.017.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not30 = icmp eq ptr %30, null
@@ -35445,7 +35445,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.019.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.019.0, -1
+  %28 = add nsw i64 %.sroa.019.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not33 = icmp eq ptr %30, null
@@ -35667,7 +35667,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.017.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.017.0, -1
+  %28 = add nsw i64 %.sroa.017.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not30 = icmp eq ptr %30, null
@@ -35900,7 +35900,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.017.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.017.0, -1
+  %28 = add nsw i64 %.sroa.017.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not30 = icmp eq ptr %30, null
@@ -36133,7 +36133,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.019.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.019.0, -1
+  %28 = add nsw i64 %.sroa.019.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not33 = icmp eq ptr %30, null
@@ -36368,7 +36368,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.019.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.019.0, -1
+  %28 = add nsw i64 %.sroa.019.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not33 = icmp eq ptr %30, null
@@ -36603,7 +36603,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.019.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.019.0, -1
+  %28 = add nsw i64 %.sroa.019.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not33 = icmp eq ptr %30, null

@@ -499,7 +499,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !44, !alias.scope !60, !noalias !57
   store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !44, !alias.scope !60, !noalias !57
-  %index.next = add nuw i64 %index, 4
+  %index.next = add nuw nsw i64 %index, 4
   %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
   br i1 %19, label %middle.block, label %vector.body, !llvm.loop !62

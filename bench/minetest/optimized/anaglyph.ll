@@ -1025,7 +1025,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !49, !alias.scope !82, !noalias !79
   store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !49, !alias.scope !82, !noalias !79
-  %index.next = add nuw i64 %index, 4
+  %index.next = add nuw nsw i64 %index, 4
   %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
   br i1 %19, label %middle.block, label %vector.body, !llvm.loop !84
@@ -2187,7 +2187,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !49, !alias.scope !121, !noalias !118
   store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !49, !alias.scope !121, !noalias !118
-  %index.next = add nuw i64 %index, 4
+  %index.next = add nuw nsw i64 %index, 4
   %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
   br i1 %19, label %middle.block, label %vector.body, !llvm.loop !123
@@ -2363,7 +2363,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !49, !alias.scope !133, !noalias !130
   store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !49, !alias.scope !133, !noalias !130
-  %index.next = add nuw i64 %index, 4
+  %index.next = add nuw nsw i64 %index, 4
   %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
   br i1 %19, label %middle.block, label %vector.body, !llvm.loop !135
@@ -2539,7 +2539,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !49, !alias.scope !145, !noalias !142
   store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !49, !alias.scope !145, !noalias !142
-  %index.next = add nuw i64 %index, 4
+  %index.next = add nuw nsw i64 %index, 4
   %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
   br i1 %19, label %middle.block, label %vector.body, !llvm.loop !147
@@ -2715,7 +2715,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !49, !alias.scope !157, !noalias !154
   store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !49, !alias.scope !157, !noalias !154
-  %index.next = add nuw i64 %index, 4
+  %index.next = add nuw nsw i64 %index, 4
   %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
   br i1 %19, label %middle.block, label %vector.body, !llvm.loop !159
@@ -2893,7 +2893,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !49, !alias.scope !169, !noalias !166
   store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !49, !alias.scope !169, !noalias !166
-  %index.next = add nuw i64 %index, 4
+  %index.next = add nuw nsw i64 %index, 4
   %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
   br i1 %19, label %middle.block, label %vector.body, !llvm.loop !171
@@ -3071,7 +3071,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !49, !alias.scope !181, !noalias !178
   store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !49, !alias.scope !181, !noalias !178
-  %index.next = add nuw i64 %index, 4
+  %index.next = add nuw nsw i64 %index, 4
   %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
   br i1 %19, label %middle.block, label %vector.body, !llvm.loop !183
@@ -3247,7 +3247,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !49, !alias.scope !193, !noalias !190
   store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !49, !alias.scope !193, !noalias !190
-  %index.next = add nuw i64 %index, 4
+  %index.next = add nuw nsw i64 %index, 4
   %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
   br i1 %19, label %middle.block, label %vector.body, !llvm.loop !195
@@ -3423,7 +3423,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !49, !alias.scope !205, !noalias !202
   store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !49, !alias.scope !205, !noalias !202
-  %index.next = add nuw i64 %index, 4
+  %index.next = add nuw nsw i64 %index, 4
   %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
   br i1 %19, label %middle.block, label %vector.body, !llvm.loop !207
