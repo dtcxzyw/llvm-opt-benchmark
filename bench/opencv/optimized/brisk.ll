@@ -6047,9 +6047,7 @@ define linkonce_odr hidden noundef float @_ZNK2cv15BriskScaleSpace10subpixel2DEi
   store float %98, ptr %11, align 4, !tbaa !29
   %99 = load float, ptr %10, align 4, !tbaa !29
   %100 = fcmp ogt float %99, 1.000000e+00
-  %.not = xor i1 %100, true
   %101 = fcmp olt float %99, -1.000000e+00
-  %or.cond218 = and i1 %101, %.not
   %102 = fcmp ogt float %98, 1.000000e+00
   %103 = fcmp olt float %98, -1.000000e+00
   %or.cond3 = or i1 %100, %101
@@ -6077,7 +6075,7 @@ define linkonce_odr hidden noundef float @_ZNK2cv15BriskScaleSpace10subpixel2DEi
   br label %126
 
 115:                                              ; preds = %104
-  br i1 %or.cond218, label %116, label %126
+  br i1 %101, label %116, label %126
 
 116:                                              ; preds = %115
   %117 = sub nsw i32 %38, %42

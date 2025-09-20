@@ -1090,7 +1090,7 @@ define void @_ZN5faiss14fvec_renorm_L2EmmPf(i64 noundef %0, i64 noundef %1, ptr 
 
 .lr.ph19.i:                                       ; preds = %8
   %.not20.i = icmp eq i64 %0, 0
-  br i1 %.not20.i, label %cdce.end, label %.lr.ph19.split.us.i
+  br i1 %.not20.i, label %.lr.ph19.split.i, label %.lr.ph19.split.us.i
 
 .lr.ph19.split.us.i:                              ; preds = %.lr.ph19.i, %..loopexit_crit_edge.us.i
   %.018.us.i = phi i64 [ %15, %..loopexit_crit_edge.us.i ], [ 0, %.lr.ph19.i ]
@@ -1120,12 +1120,12 @@ define void @_ZN5faiss14fvec_renorm_L2EmmPf(i64 noundef %0, i64 noundef %1, ptr 
   %exitcond.not.i = icmp eq i64 %20, %0
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %16, !llvm.loop !19
 
-cdce.end:                                         ; preds = %.lr.ph19.i, %cdce.end
-  %.018.i = phi i64 [ %22, %cdce.end ], [ 0, %.lr.ph19.i ]
+.lr.ph19.split.i:                                 ; preds = %.lr.ph19.i, %.lr.ph19.split.i
+  %.018.i = phi i64 [ %22, %.lr.ph19.split.i ], [ 0, %.lr.ph19.i ]
   %21 = tail call noundef float @_ZN5faiss15fvec_norm_L2sqrEPKfm(ptr noundef %2, i64 noundef 0)
   %22 = add nuw nsw i64 %.018.i, 1
   %exitcond23.not.i = icmp eq i64 %22, %1
-  br i1 %exitcond23.not.i, label %_ZN5faiss20fvec_renorm_L2_noompEmmPf.exit, label %cdce.end, !llvm.loop !17
+  br i1 %exitcond23.not.i, label %_ZN5faiss20fvec_renorm_L2_noompEmmPf.exit, label %.lr.ph19.split.i, !llvm.loop !17
 
 _ZN5faiss18fvec_renorm_L2_ompEmmPf.exit:          ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1141,7 +1141,7 @@ _ZN5faiss18fvec_renorm_L2_ompEmmPf.exit:          ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN5faiss20fvec_renorm_L2_noompEmmPf.exit
 
-_ZN5faiss20fvec_renorm_L2_noompEmmPf.exit:        ; preds = %..loopexit_crit_edge.us.i, %cdce.end, %8, %_ZN5faiss18fvec_renorm_L2_ompEmmPf.exit
+_ZN5faiss20fvec_renorm_L2_noompEmmPf.exit:        ; preds = %..loopexit_crit_edge.us.i, %.lr.ph19.split.i, %8, %_ZN5faiss18fvec_renorm_L2_ompEmmPf.exit
   ret void
 }
 

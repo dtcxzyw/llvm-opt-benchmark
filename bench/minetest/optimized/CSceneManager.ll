@@ -3181,70 +3181,54 @@ for.cond69.preheader:                             ; preds = %for.inc83, %_ZNK3ir
   %465 = call float @llvm.fmuladd.f32(float %461, float %add.i, float %mul4.i.i152)
   %466 = call noundef float @llvm.fmuladd.f32(float %463, float %add8.i, float %465)
   %add.i155 = fadd float %464, %466
-  %cmp.i156 = fcmp uge float %add.i155, 0xBEB0C6F7A0000000
   %cmp2.i = fcmp ogt float %add.i155, 0x3EB0C6F7A0000000
-  %cmp76.not = and i1 %cmp.i156, %cmp2.i
-  br i1 %cmp76.not, label %for.cond69, label %for.inc83
+  br i1 %cmp2.i, label %for.cond69, label %for.inc83
 
 for.cond69:                                       ; preds = %for.cond69.preheader
   %mul4.i.i152.1 = fmul float %sub.i148, %462
   %467 = call float @llvm.fmuladd.f32(float %461, float %add.i, float %mul4.i.i152.1)
   %468 = call noundef float @llvm.fmuladd.f32(float %463, float %add8.i, float %467)
   %add.i155.1 = fadd float %464, %468
-  %cmp.i156.1 = fcmp uge float %add.i155.1, 0xBEB0C6F7A0000000
   %cmp2.i.1 = fcmp ogt float %add.i155.1, 0x3EB0C6F7A0000000
-  %cmp76.not.1 = and i1 %cmp.i156.1, %cmp2.i.1
-  br i1 %cmp76.not.1, label %for.cond69.1, label %for.inc83
+  br i1 %cmp2.i.1, label %for.cond69.1, label %for.inc83
 
 for.cond69.1:                                     ; preds = %for.cond69
   %469 = call noundef float @llvm.fmuladd.f32(float %463, float %sub29.i, float %465)
   %add.i155.2 = fadd float %464, %469
-  %cmp.i156.2 = fcmp uge float %add.i155.2, 0xBEB0C6F7A0000000
   %cmp2.i.2 = fcmp ogt float %add.i155.2, 0x3EB0C6F7A0000000
-  %cmp76.not.2 = and i1 %cmp.i156.2, %cmp2.i.2
-  br i1 %cmp76.not.2, label %for.cond69.2, label %for.inc83
+  br i1 %cmp2.i.2, label %for.cond69.2, label %for.inc83
 
 for.cond69.2:                                     ; preds = %for.cond69.1
   %470 = call noundef float @llvm.fmuladd.f32(float %463, float %sub29.i, float %467)
   %add.i155.3 = fadd float %464, %470
-  %cmp.i156.3 = fcmp uge float %add.i155.3, 0xBEB0C6F7A0000000
   %cmp2.i.3 = fcmp ogt float %add.i155.3, 0x3EB0C6F7A0000000
-  %cmp76.not.3 = and i1 %cmp.i156.3, %cmp2.i.3
-  br i1 %cmp76.not.3, label %for.cond69.3, label %for.inc83
+  br i1 %cmp2.i.3, label %for.cond69.3, label %for.inc83
 
 for.cond69.3:                                     ; preds = %for.cond69.2
   %471 = call float @llvm.fmuladd.f32(float %461, float %sub45.i, float %mul4.i.i152)
   %472 = call noundef float @llvm.fmuladd.f32(float %463, float %add8.i, float %471)
   %add.i155.4 = fadd float %464, %472
-  %cmp.i156.4 = fcmp uge float %add.i155.4, 0xBEB0C6F7A0000000
   %cmp2.i.4 = fcmp ogt float %add.i155.4, 0x3EB0C6F7A0000000
-  %cmp76.not.4 = and i1 %cmp.i156.4, %cmp2.i.4
-  br i1 %cmp76.not.4, label %for.cond69.4, label %for.inc83
+  br i1 %cmp2.i.4, label %for.cond69.4, label %for.inc83
 
 for.cond69.4:                                     ; preds = %for.cond69.3
   %473 = call float @llvm.fmuladd.f32(float %461, float %sub45.i, float %mul4.i.i152.1)
   %474 = call noundef float @llvm.fmuladd.f32(float %463, float %add8.i, float %473)
   %add.i155.5 = fadd float %464, %474
-  %cmp.i156.5 = fcmp uge float %add.i155.5, 0xBEB0C6F7A0000000
   %cmp2.i.5 = fcmp ogt float %add.i155.5, 0x3EB0C6F7A0000000
-  %cmp76.not.5 = and i1 %cmp.i156.5, %cmp2.i.5
-  br i1 %cmp76.not.5, label %for.cond69.5, label %for.inc83
+  br i1 %cmp2.i.5, label %for.cond69.5, label %for.inc83
 
 for.cond69.5:                                     ; preds = %for.cond69.4
   %475 = call noundef float @llvm.fmuladd.f32(float %463, float %sub29.i, float %471)
   %add.i155.6 = fadd float %464, %475
-  %cmp.i156.6 = fcmp uge float %add.i155.6, 0xBEB0C6F7A0000000
   %cmp2.i.6 = fcmp ogt float %add.i155.6, 0x3EB0C6F7A0000000
-  %cmp76.not.6 = and i1 %cmp.i156.6, %cmp2.i.6
-  br i1 %cmp76.not.6, label %for.cond69.6, label %for.inc83
+  br i1 %cmp2.i.6, label %for.cond69.6, label %for.inc83
 
 for.cond69.6:                                     ; preds = %for.cond69.5
   %476 = call noundef float @llvm.fmuladd.f32(float %463, float %sub29.i, float %473)
   %add.i155.7 = fadd float %464, %476
-  %cmp.i156.7 = fcmp uge float %add.i155.7, 0xBEB0C6F7A0000000
   %cmp2.i.7 = fcmp ogt float %add.i155.7, 0x3EB0C6F7A0000000
-  %cmp76.not.7 = and i1 %cmp.i156.7, %cmp2.i.7
-  br i1 %cmp76.not.7, label %cleanup85, label %for.inc83
+  br i1 %cmp2.i.7, label %cleanup85, label %for.inc83
 
 for.inc83:                                        ; preds = %for.cond69.6, %for.cond69.5, %for.cond69.4, %for.cond69.3, %for.cond69.2, %for.cond69.1, %for.cond69, %for.cond69.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

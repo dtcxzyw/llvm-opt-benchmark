@@ -113,19 +113,19 @@ define noundef i32 @SUNModifiedGS(ptr noundef readonly captures(none) %0, ptr no
   %65 = load double, ptr %4, align 8, !tbaa !12
   %66 = fneg double %.1
   %67 = tail call double @llvm.fmuladd.f64(double %65, double %65, double %66)
-  %or.cond = fcmp ule double %67, 0.000000e+00
-  br i1 %or.cond, label %70, label %68
+  %68 = fcmp ule double %67, 0.000000e+00
+  br i1 %68, label %71, label %69
 
-68:                                               ; preds = %64
-  %69 = tail call double @sqrt(double noundef %67) #7, !tbaa !8
-  br label %70
+69:                                               ; preds = %64
+  %70 = tail call double @sqrt(double noundef %67) #7, !tbaa !8
+  br label %71
 
-70:                                               ; preds = %64, %68
-  %71 = phi double [ %69, %68 ], [ 0.000000e+00, %64 ]
-  store double %71, ptr %4, align 8, !tbaa !12
+71:                                               ; preds = %64, %69
+  %72 = phi double [ %70, %69 ], [ 0.000000e+00, %64 ]
+  store double %72, ptr %4, align 8, !tbaa !12
   br label %._crit_edge92.thread
 
-._crit_edge92.thread:                             ; preds = %38, %._crit_edge92, %70
+._crit_edge92.thread:                             ; preds = %38, %._crit_edge92, %71
   ret i32 0
 }
 
