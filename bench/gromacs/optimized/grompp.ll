@@ -1297,151 +1297,127 @@ define void @_ZN17InteractionOfType11sortAtomIdsEv(ptr noundef nonnull readonly 
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  switch i64 %10, label %40 [
-    i64 8, label %_ZNK17InteractionOfType2ajEv.exit.i
-    i64 12, label %_ZNK17InteractionOfType2akEv.exit.i
-    i64 16, label %25
+  switch i64 %10, label %34 [
+    i64 8, label %_ZNK17InteractionOfType2aiEv.exit.i
+    i64 12, label %_ZNK17InteractionOfType2aiEv.exit.i9
+    i64 16, label %21
   ]
 
-_ZNK17InteractionOfType2ajEv.exit.i:              ; preds = %1
+_ZNK17InteractionOfType2aiEv.exit.i:              ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !20
-  %13 = icmp eq ptr %7, %6
-  br i1 %13, label %14, label %_ZNK17InteractionOfType2aiEv.exit.i
+  %13 = load i32, ptr %7, align 4, !tbaa !20
+  %14 = icmp slt i32 %12, %13
+  br i1 %14, label %15, label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit
 
-14:                                               ; preds = %_ZNK17InteractionOfType2ajEv.exit.i
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZNK17InteractionOfType2aiEvENK3$_0clEv", ptr noundef nonnull @.str.11, i32 noundef 166) #28
-  unreachable
-
-_ZNK17InteractionOfType2aiEv.exit.i:              ; preds = %_ZNK17InteractionOfType2ajEv.exit.i
-  %15 = load i32, ptr %7, align 4, !tbaa !20
-  %16 = icmp slt i32 %12, %15
-  br i1 %16, label %17, label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit
-
-17:                                               ; preds = %_ZNK17InteractionOfType2aiEv.exit.i
+15:                                               ; preds = %_ZNK17InteractionOfType2aiEv.exit.i
   store i32 %12, ptr %7, align 4, !tbaa !20
-  store i32 %15, ptr %11, align 4, !tbaa !20
+  store i32 %13, ptr %11, align 4, !tbaa !20
   br label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit
 
-_ZNK17InteractionOfType2akEv.exit.i:              ; preds = %1
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %19 = load i32, ptr %18, align 4, !tbaa !20
-  %20 = icmp eq ptr %7, %6
-  br i1 %20, label %21, label %_ZNK17InteractionOfType2aiEv.exit.i9
+_ZNK17InteractionOfType2aiEv.exit.i9:             ; preds = %1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %17 = load i32, ptr %16, align 4, !tbaa !20
+  %18 = load i32, ptr %7, align 4, !tbaa !20
+  %19 = icmp slt i32 %17, %18
+  br i1 %19, label %20, label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit
 
-21:                                               ; preds = %_ZNK17InteractionOfType2akEv.exit.i
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZNK17InteractionOfType2aiEvENK3$_0clEv", ptr noundef nonnull @.str.11, i32 noundef 166) #28
-  unreachable
-
-_ZNK17InteractionOfType2aiEv.exit.i9:             ; preds = %_ZNK17InteractionOfType2akEv.exit.i
-  %22 = load i32, ptr %7, align 4, !tbaa !20
-  %23 = icmp slt i32 %19, %22
-  br i1 %23, label %24, label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit
-
-24:                                               ; preds = %_ZNK17InteractionOfType2aiEv.exit.i9
-  store i32 %19, ptr %7, align 4, !tbaa !20
-  store i32 %22, ptr %18, align 4, !tbaa !20
+20:                                               ; preds = %_ZNK17InteractionOfType2aiEv.exit.i9
+  store i32 %17, ptr %7, align 4, !tbaa !20
+  store i32 %18, ptr %16, align 4, !tbaa !20
   br label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit
 
-25:                                               ; preds = %1
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %27 = load i8, ptr %26, align 8, !tbaa !23, !range !35, !noundef !36
-  %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit, label %_ZNK17InteractionOfType2alEv.exit.i
+21:                                               ; preds = %1
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %23 = load i8, ptr %22, align 8, !tbaa !23, !range !35, !noundef !36
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit, label %_ZNK17InteractionOfType2aiEv.exit.i10
 
-_ZNK17InteractionOfType2alEv.exit.i:              ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %30 = load i32, ptr %29, align 4, !tbaa !20
-  %31 = icmp eq ptr %7, %6
-  br i1 %31, label %32, label %_ZNK17InteractionOfType2aiEv.exit.i10
+_ZNK17InteractionOfType2aiEv.exit.i10:            ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %26 = load i32, ptr %25, align 4, !tbaa !20
+  %27 = load i32, ptr %7, align 4, !tbaa !20
+  %28 = icmp slt i32 %26, %27
+  br i1 %28, label %29, label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit
 
-32:                                               ; preds = %_ZNK17InteractionOfType2alEv.exit.i
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZNK17InteractionOfType2aiEvENK3$_0clEv", ptr noundef nonnull @.str.11, i32 noundef 166) #28
-  unreachable
-
-_ZNK17InteractionOfType2aiEv.exit.i10:            ; preds = %_ZNK17InteractionOfType2alEv.exit.i
-  %33 = load i32, ptr %7, align 4, !tbaa !20
-  %34 = icmp slt i32 %30, %33
-  br i1 %34, label %35, label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit
-
-35:                                               ; preds = %_ZNK17InteractionOfType2aiEv.exit.i10
-  store i32 %30, ptr %7, align 4, !tbaa !20
-  store i32 %33, ptr %29, align 4, !tbaa !20
-  %36 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %38 = load i32, ptr %36, align 4, !tbaa !20
-  %39 = load i32, ptr %37, align 4, !tbaa !20
-  store i32 %39, ptr %36, align 4, !tbaa !20
-  store i32 %38, ptr %37, align 4, !tbaa !20
+29:                                               ; preds = %_ZNK17InteractionOfType2aiEv.exit.i10
+  store i32 %26, ptr %7, align 4, !tbaa !20
+  store i32 %27, ptr %25, align 4, !tbaa !20
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %32 = load i32, ptr %30, align 4, !tbaa !20
+  %33 = load i32, ptr %31, align 4, !tbaa !20
+  store i32 %33, ptr %30, align 4, !tbaa !20
+  store i32 %32, ptr %31, align 4, !tbaa !20
   br label %_ZN17InteractionOfType15sortBondAtomIdsEv.exit
 
-40:                                               ; preds = %1
-  %41 = tail call ptr @__cxa_allocate_exception(i64 24) #29
+34:                                               ; preds = %1
+  %35 = tail call ptr @__cxa_allocate_exception(i64 24) #29
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.22)
-          to label %42 unwind label %.thread
+          to label %36 unwind label %.thread
 
-42:                                               ; preds = %40
+36:                                               ; preds = %34
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
-          to label %43 unwind label %.thread15
+          to label %37 unwind label %.thread15
 
-43:                                               ; preds = %42
+37:                                               ; preds = %36
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %2, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %4, align 8, !tbaa !37
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN17InteractionOfType11sortAtomIdsEv, ptr %44, align 8, !tbaa !39
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN17InteractionOfType11sortAtomIdsEv, ptr %38, align 8, !tbaa !39
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @.str.11, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !39
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 260, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !20
-  invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %41, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %45 unwind label %48
+  invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %35, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %39 unwind label %42
 
-45:                                               ; preds = %43
-  invoke void @__cxa_throw(ptr %41, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #28
-          to label %52 unwind label %48
+39:                                               ; preds = %37
+  invoke void @__cxa_throw(ptr %35, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #28
+          to label %46 unwind label %42
 
-.thread:                                          ; preds = %40
-  %46 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %34
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %.sink.split
 
-.thread15:                                        ; preds = %42
-  %47 = landingpad { ptr, i32 }
+.thread15:                                        ; preds = %36
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #29
   br label %.sink.split
 
-48:                                               ; preds = %43, %45
-  %.0 = phi i1 [ false, %45 ], [ true, %43 ]
-  %49 = landingpad { ptr, i32 }
+42:                                               ; preds = %37, %39
+  %.0 = phi i1 [ false, %39 ], [ true, %37 ]
+  %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #29
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.0, label %50, label %51
+  br i1 %.0, label %44, label %45
 
 .sink.split:                                      ; preds = %.thread, %.thread15
-  %.pn.pn14.ph = phi { ptr, i32 } [ %47, %.thread15 ], [ %46, %.thread ]
+  %.pn.pn14.ph = phi { ptr, i32 } [ %41, %.thread15 ], [ %40, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %50
+  br label %44
 
-50:                                               ; preds = %.sink.split, %48
-  %.pn.pn14 = phi { ptr, i32 } [ %49, %48 ], [ %.pn.pn14.ph, %.sink.split ]
-  call void @__cxa_free_exception(ptr %41) #29
-  br label %51
+44:                                               ; preds = %.sink.split, %42
+  %.pn.pn14 = phi { ptr, i32 } [ %43, %42 ], [ %.pn.pn14.ph, %.sink.split ]
+  call void @__cxa_free_exception(ptr %35) #29
+  br label %45
 
-_ZN17InteractionOfType15sortBondAtomIdsEv.exit:   ; preds = %35, %_ZNK17InteractionOfType2aiEv.exit.i10, %25, %24, %_ZNK17InteractionOfType2aiEv.exit.i9, %17, %_ZNK17InteractionOfType2aiEv.exit.i
+_ZN17InteractionOfType15sortBondAtomIdsEv.exit:   ; preds = %29, %_ZNK17InteractionOfType2aiEv.exit.i10, %21, %20, %_ZNK17InteractionOfType2aiEv.exit.i9, %15, %_ZNK17InteractionOfType2aiEv.exit.i
   ret void
 
-51:                                               ; preds = %48, %50
-  %.pn.pn13 = phi { ptr, i32 } [ %49, %48 ], [ %.pn.pn14, %50 ]
+45:                                               ; preds = %42, %44
+  %.pn.pn13 = phi { ptr, i32 } [ %43, %42 ], [ %.pn.pn14, %44 ]
   resume { ptr, i32 } %.pn.pn13
 
-52:                                               ; preds = %45
+46:                                               ; preds = %39
   unreachable
 }
 

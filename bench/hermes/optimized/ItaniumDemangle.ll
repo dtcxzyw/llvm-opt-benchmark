@@ -18390,18 +18390,14 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %cmp.i = icmp eq i64 %sub.ptr.sub.i.i, 1
-  br i1 %cmp.i, label %land.rhs.i, label %if.end.i24
+  br i1 %cmp.i, label %_ZeqRK10StringViewS1_.exit, label %if.end.i24
 
-land.rhs.i:                                       ; preds = %entry
-  %tobool.not.i.i.i.i.i = icmp eq ptr %0, %1
-  br i1 %tobool.not.i.i.i.i.i, label %if.end.i, label %_ZeqRK10StringViewS1_.exit
-
-_ZeqRK10StringViewS1_.exit:                       ; preds = %land.rhs.i
+_ZeqRK10StringViewS1_.exit:                       ; preds = %entry
   %lhsc = load i8, ptr %1, align 1
   %tobool1.not.i.i.i.i.i = icmp eq i8 %lhsc, 62
   br i1 %tobool1.not.i.i.i.i.i, label %if.end.i, label %if.end.i24
 
-if.end.i:                                         ; preds = %_ZeqRK10StringViewS1_.exit, %land.rhs.i
+if.end.i:                                         ; preds = %_ZeqRK10StringViewS1_.exit
   %CurrentPosition.i.i = getelementptr inbounds nuw i8, ptr %S, i64 8
   %2 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %2, 1
@@ -18656,18 +18652,14 @@ _ZN12OutputStream4growEm.exit.i144:               ; preds = %if.then.i._ZN12Outp
   %sub.ptr.rhs.cast.i.i154 = ptrtoint ptr %40 to i64
   %sub.ptr.sub.i.i155 = sub i64 %sub.ptr.lhs.cast.i.i153, %sub.ptr.rhs.cast.i.i154
   %cmp.i160 = icmp eq i64 %sub.ptr.sub.i.i155, 1
-  br i1 %cmp.i160, label %land.rhs.i161, label %if.end20
+  br i1 %cmp.i160, label %_ZeqRK10StringViewS1_.exit166, label %if.end20
 
-land.rhs.i161:                                    ; preds = %_ZN12OutputStream4growEm.exit.i144
-  %tobool.not.i.i.i.i.i162 = icmp eq ptr %39, %40
-  br i1 %tobool.not.i.i.i.i.i162, label %if.end.i174, label %_ZeqRK10StringViewS1_.exit166
-
-_ZeqRK10StringViewS1_.exit166:                    ; preds = %land.rhs.i161
-  %lhsc202 = load i8, ptr %40, align 1
-  %tobool1.not.i.i.i.i.i165.not = icmp eq i8 %lhsc202, 62
+_ZeqRK10StringViewS1_.exit166:                    ; preds = %_ZN12OutputStream4growEm.exit.i144
+  %lhsc200 = load i8, ptr %40, align 1
+  %tobool1.not.i.i.i.i.i165.not = icmp eq i8 %lhsc200, 62
   br i1 %tobool1.not.i.i.i.i.i165.not, label %if.end.i174, label %if.end20
 
-if.end.i174:                                      ; preds = %land.rhs.i161, %_ZeqRK10StringViewS1_.exit166
+if.end.i174:                                      ; preds = %_ZeqRK10StringViewS1_.exit166
   %add.i.i176 = add i64 %38, 2
   %41 = load i64, ptr %BufferCapacity.i.i27, align 8
   %cmp.not.i.i178 = icmp ult i64 %add.i.i176, %41
@@ -30648,13 +30640,9 @@ land.rhs.i:                                       ; preds = %lor.lhs.false
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %retval.sroa.0.0.copyload.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 11
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %if.then
+  br i1 %cmp.i.i, label %_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit, label %if.then
 
-land.rhs.i.i:                                     ; preds = %land.rhs.i
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i.i, %retval.sroa.0.0.copyload.i.i
-  br i1 %tobool.not.i.i.i.i.i.i, label %if.end.i89, label %_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit
-
-_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit: ; preds = %land.rhs.i.i
+_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit: ; preds = %land.rhs.i
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %retval.sroa.0.0.copyload.i.i, ptr noundef nonnull dereferenceable(11) @.str.287, i64 11)
   %tobool1.not.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i, label %if.end.i89, label %if.then
@@ -30826,7 +30814,7 @@ _ZN12OutputStream4growEm.exit.i77:                ; preds = %if.then.i._ZN12Outp
   store i64 %add.i79, ptr %CurrentPosition.i.i65, align 8
   br label %if.end27
 
-if.end.i89:                                       ; preds = %_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit, %land.rhs.i.i
+if.end.i89:                                       ; preds = %_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit
   %CurrentPosition.i.i90 = getelementptr inbounds nuw i8, ptr %s, i64 8
   %29 = load i64, ptr %CurrentPosition.i.i90, align 8
   %add.i.i91 = add i64 %29, 3
@@ -30971,13 +30959,9 @@ land.rhs.i:                                       ; preds = %lor.lhs.false
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %retval.sroa.0.0.copyload.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 11
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %if.then
+  br i1 %cmp.i.i, label %_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit, label %if.then
 
-land.rhs.i.i:                                     ; preds = %land.rhs.i
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i.i, %retval.sroa.0.0.copyload.i.i
-  br i1 %tobool.not.i.i.i.i.i.i, label %if.end12, label %_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit
-
-_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit: ; preds = %land.rhs.i.i
+_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit: ; preds = %land.rhs.i
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %retval.sroa.0.0.copyload.i.i, ptr noundef nonnull dereferenceable(11) @.str.287, i64 11)
   %tobool1.not.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i, label %if.end12, label %if.then
@@ -31062,7 +31046,7 @@ if.end:                                           ; preds = %lor.lhs.false6, %_Z
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br label %if.end12
 
-if.end12:                                         ; preds = %land.rhs.i.i, %if.end, %_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit
+if.end12:                                         ; preds = %if.end, %_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit
   ret void
 }
 

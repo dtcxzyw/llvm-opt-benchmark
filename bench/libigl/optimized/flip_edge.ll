@@ -79,120 +79,119 @@ define weak_odr dso_local void @_ZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0E
   %58 = load ptr, ptr %3, align 8, !tbaa !22
   %59 = getelementptr inbounds i32, ptr %58, i64 %48
   %60 = load i32, ptr %59, align 4, !tbaa !19
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i32, ptr %58, i64 %49
-  %63 = load i32, ptr %62, align 4, !tbaa !19
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i32, ptr %58, i64 %53
+  %61 = getelementptr inbounds i32, ptr %58, i64 %49
+  %62 = load i32, ptr %61, align 4, !tbaa !19
+  %63 = getelementptr inbounds i32, ptr %58, i64 %53
+  %64 = load i32, ptr %63, align 4, !tbaa !19
+  %65 = getelementptr inbounds i32, ptr %58, i64 %57
   %66 = load i32, ptr %65, align 4, !tbaa !19
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i32, ptr %58, i64 %57
-  %69 = load i32, ptr %68, align 4, !tbaa !19
-  %70 = sext i32 %69 to i64
   store i32 %35, ptr %33, align 4, !tbaa !19
-  %71 = getelementptr i32, ptr %33, i64 %19
-  store i32 %47, ptr %71, align 4, !tbaa !19
-  %72 = shl i64 %19, 1
-  %73 = getelementptr i32, ptr %33, i64 %72
-  store i32 %43, ptr %73, align 4, !tbaa !19
+  %67 = getelementptr i32, ptr %33, i64 %19
+  store i32 %47, ptr %67, align 4, !tbaa !19
+  %68 = shl i64 %19, 1
+  %69 = getelementptr i32, ptr %33, i64 %68
+  store i32 %43, ptr %69, align 4, !tbaa !19
   store i32 %40, ptr %45, align 4, !tbaa !19
-  %74 = getelementptr i32, ptr %45, i64 %19
-  store i32 %43, ptr %74, align 4, !tbaa !19
-  %75 = getelementptr i32, ptr %45, i64 %72
-  store i32 %47, ptr %75, align 4, !tbaa !19
-  %76 = load ptr, ptr %2, align 8, !tbaa !24
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %78 = getelementptr i32, ptr %76, i64 %5
-  store i32 %47, ptr %78, align 4, !tbaa !19
-  %79 = load i64, ptr %77, align 8, !tbaa !26
-  %80 = getelementptr i32, ptr %78, i64 %79
-  store i32 %43, ptr %80, align 4, !tbaa !19
-  %81 = add i64 %22, %19
-  %82 = add i64 %22, %72
-  %83 = add i64 %26, %19
-  %84 = add i64 %26, %72
-  %85 = load ptr, ptr %1, align 8, !tbaa !24
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %87 = getelementptr i32, ptr %85, i64 %22
-  store i32 %47, ptr %87, align 4, !tbaa !19
-  %88 = load i64, ptr %86, align 8, !tbaa !26
-  %89 = getelementptr i32, ptr %87, i64 %88
-  store i32 %43, ptr %89, align 4, !tbaa !19
-  %90 = getelementptr i32, ptr %85, i64 %81
+  %70 = getelementptr i32, ptr %45, i64 %19
+  store i32 %43, ptr %70, align 4, !tbaa !19
+  %71 = getelementptr i32, ptr %45, i64 %68
+  store i32 %47, ptr %71, align 4, !tbaa !19
+  %72 = load ptr, ptr %2, align 8, !tbaa !24
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %74 = getelementptr i32, ptr %72, i64 %5
+  store i32 %47, ptr %74, align 4, !tbaa !19
+  %75 = load i64, ptr %73, align 8, !tbaa !26
+  %76 = getelementptr i32, ptr %74, i64 %75
+  store i32 %43, ptr %76, align 4, !tbaa !19
+  %77 = add i64 %22, %19
+  %78 = add i64 %22, %68
+  %79 = add i64 %26, %19
+  %80 = add i64 %26, %68
+  %81 = load ptr, ptr %1, align 8, !tbaa !24
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %83 = getelementptr i32, ptr %81, i64 %22
+  store i32 %47, ptr %83, align 4, !tbaa !19
+  %84 = load i64, ptr %82, align 8, !tbaa !26
+  %85 = getelementptr i32, ptr %83, i64 %84
+  store i32 %43, ptr %85, align 4, !tbaa !19
+  %86 = getelementptr i32, ptr %81, i64 %77
+  store i32 %43, ptr %86, align 4, !tbaa !19
+  %87 = getelementptr i32, ptr %86, i64 %84
+  store i32 %35, ptr %87, align 4, !tbaa !19
+  %88 = getelementptr i32, ptr %81, i64 %78
+  store i32 %35, ptr %88, align 4, !tbaa !19
+  %89 = getelementptr i32, ptr %88, i64 %84
+  store i32 %47, ptr %89, align 4, !tbaa !19
+  %90 = getelementptr i32, ptr %81, i64 %26
   store i32 %43, ptr %90, align 4, !tbaa !19
-  %91 = getelementptr i32, ptr %90, i64 %88
-  store i32 %35, ptr %91, align 4, !tbaa !19
-  %92 = getelementptr i32, ptr %85, i64 %82
-  store i32 %35, ptr %92, align 4, !tbaa !19
-  %93 = getelementptr i32, ptr %92, i64 %88
-  store i32 %47, ptr %93, align 4, !tbaa !19
-  %94 = getelementptr i32, ptr %85, i64 %26
-  store i32 %43, ptr %94, align 4, !tbaa !19
-  %95 = getelementptr i32, ptr %94, i64 %88
-  store i32 %47, ptr %95, align 4, !tbaa !19
-  %96 = getelementptr i32, ptr %85, i64 %83
-  store i32 %47, ptr %96, align 4, !tbaa !19
-  %97 = getelementptr i32, ptr %96, i64 %88
-  store i32 %40, ptr %97, align 4, !tbaa !19
-  %98 = getelementptr i32, ptr %85, i64 %84
-  store i32 %40, ptr %98, align 4, !tbaa !19
-  %99 = getelementptr i32, ptr %98, i64 %88
-  store i32 %43, ptr %99, align 4, !tbaa !19
-  %100 = trunc i64 %5 to i32
-  %101 = getelementptr inbounds i32, ptr %58, i64 %22
-  store i32 %100, ptr %101, align 4, !tbaa !19
-  %102 = getelementptr inbounds i32, ptr %58, i64 %26
-  store i32 %100, ptr %102, align 4, !tbaa !19
-  %103 = getelementptr inbounds i32, ptr %58, i64 %81
-  store i32 %63, ptr %103, align 4, !tbaa !19
-  %104 = getelementptr inbounds i32, ptr %58, i64 %82
-  store i32 %66, ptr %104, align 4, !tbaa !19
-  %105 = getelementptr inbounds i32, ptr %58, i64 %83
-  store i32 %69, ptr %105, align 4, !tbaa !19
-  %106 = getelementptr inbounds i32, ptr %58, i64 %84
-  store i32 %60, ptr %106, align 4, !tbaa !19
-  %107 = trunc i64 %22 to i32
-  %.not6.i.i = icmp eq ptr %11, %10
-  br i1 %.not6.i.i, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit161, label %.lr.ph.i.i
+  %91 = getelementptr i32, ptr %90, i64 %84
+  store i32 %47, ptr %91, align 4, !tbaa !19
+  %92 = getelementptr i32, ptr %81, i64 %79
+  store i32 %47, ptr %92, align 4, !tbaa !19
+  %93 = getelementptr i32, ptr %92, i64 %84
+  store i32 %40, ptr %93, align 4, !tbaa !19
+  %94 = getelementptr i32, ptr %81, i64 %80
+  store i32 %40, ptr %94, align 4, !tbaa !19
+  %95 = getelementptr i32, ptr %94, i64 %84
+  store i32 %43, ptr %95, align 4, !tbaa !19
+  %96 = trunc i64 %5 to i32
+  %97 = getelementptr inbounds i32, ptr %58, i64 %22
+  store i32 %96, ptr %97, align 4, !tbaa !19
+  %98 = getelementptr inbounds i32, ptr %58, i64 %26
+  store i32 %96, ptr %98, align 4, !tbaa !19
+  %99 = getelementptr inbounds i32, ptr %58, i64 %77
+  store i32 %62, ptr %99, align 4, !tbaa !19
+  %100 = getelementptr inbounds i32, ptr %58, i64 %78
+  store i32 %64, ptr %100, align 4, !tbaa !19
+  %101 = getelementptr inbounds i32, ptr %58, i64 %79
+  store i32 %66, ptr %101, align 4, !tbaa !19
+  %102 = getelementptr inbounds i32, ptr %58, i64 %80
+  store i32 %60, ptr %102, align 4, !tbaa !19
+  %103 = trunc i64 %22 to i32
+  br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %17, %111
-  %.sroa.02.07.i.i = phi ptr [ %112, %111 ], [ %11, %17 ]
-  %108 = load i32, ptr %.sroa.02.07.i.i, align 4, !tbaa !19
-  %109 = icmp eq i32 %108, %20
-  br i1 %109, label %110, label %111
+.lr.ph.i.i:                                       ; preds = %17, %107
+  %.sroa.02.07.i.i = phi ptr [ %108, %107 ], [ %11, %17 ]
+  %104 = load i32, ptr %.sroa.02.07.i.i, align 4, !tbaa !19
+  %105 = icmp eq i32 %104, %20
+  br i1 %105, label %106, label %107
 
-110:                                              ; preds = %.lr.ph.i.i
-  store i32 %107, ptr %.sroa.02.07.i.i, align 4, !tbaa !19
-  br label %111
+106:                                              ; preds = %.lr.ph.i.i
+  store i32 %103, ptr %.sroa.02.07.i.i, align 4, !tbaa !19
+  br label %107
 
-111:                                              ; preds = %110, %.lr.ph.i.i
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i.i, i64 4
-  %.not.i.i = icmp eq ptr %112, %10
+107:                                              ; preds = %106, %.lr.ph.i.i
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i.i, i64 4
+  %.not.i.i = icmp eq ptr %108, %10
   br i1 %.not.i.i, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit, label %.lr.ph.i.i, !llvm.loop !27
 
-_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit: ; preds = %111
-  %113 = trunc i64 %26 to i32
+_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit: ; preds = %107
+  %109 = trunc i64 %26 to i32
   br label %.lr.ph.i.i158
 
-.lr.ph.i.i158:                                    ; preds = %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit, %117
-  %.sroa.02.07.i.i159 = phi ptr [ %118, %117 ], [ %11, %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit ]
-  %114 = load i32, ptr %.sroa.02.07.i.i159, align 4, !tbaa !19
-  %115 = icmp eq i32 %114, %24
-  br i1 %115, label %116, label %117
+.lr.ph.i.i158:                                    ; preds = %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit, %113
+  %.sroa.02.07.i.i159 = phi ptr [ %114, %113 ], [ %11, %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit ]
+  %110 = load i32, ptr %.sroa.02.07.i.i159, align 4, !tbaa !19
+  %111 = icmp eq i32 %110, %24
+  br i1 %111, label %112, label %113
 
-116:                                              ; preds = %.lr.ph.i.i158
-  store i32 %113, ptr %.sroa.02.07.i.i159, align 4, !tbaa !19
-  br label %117
+112:                                              ; preds = %.lr.ph.i.i158
+  store i32 %109, ptr %.sroa.02.07.i.i159, align 4, !tbaa !19
+  br label %113
 
-117:                                              ; preds = %116, %.lr.ph.i.i158
-  %118 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i.i159, i64 4
-  %.not.i.i160 = icmp eq ptr %118, %10
+113:                                              ; preds = %112, %.lr.ph.i.i158
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i.i159, i64 4
+  %.not.i.i160 = icmp eq ptr %114, %10
   br i1 %.not.i.i160, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit161, label %.lr.ph.i.i158, !llvm.loop !27
 
-_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit161: ; preds = %117, %17
-  %119 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %67
+_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit161: ; preds = %113
+  %115 = sext i32 %60 to i64
+  %116 = sext i32 %62 to i64
+  %117 = sext i32 %64 to i64
+  %118 = sext i32 %66 to i64
+  %119 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %117
   %120 = trunc i64 %53 to i32
-  %121 = trunc i64 %82 to i32
+  %121 = trunc i64 %78 to i32
   %122 = load ptr, ptr %119, align 8, !tbaa !29
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %124 = load ptr, ptr %123, align 8, !tbaa !29
@@ -215,9 +214,9 @@ _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0E
   br i1 %.not.i.i165, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit166, label %.lr.ph.i.i163, !llvm.loop !27
 
 _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit166: ; preds = %128, %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit161
-  %130 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %70
+  %130 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %118
   %131 = trunc i64 %57 to i32
-  %132 = trunc i64 %83 to i32
+  %132 = trunc i64 %79 to i32
   %133 = load ptr, ptr %130, align 8, !tbaa !29
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !29
@@ -240,9 +239,9 @@ _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0E
   br i1 %.not.i.i170, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit171, label %.lr.ph.i.i168, !llvm.loop !27
 
 _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit171: ; preds = %139, %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit166
-  %141 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %61
+  %141 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %115
   %142 = trunc i64 %48 to i32
-  %143 = trunc i64 %84 to i32
+  %143 = trunc i64 %80 to i32
   %144 = load ptr, ptr %141, align 8, !tbaa !29
   %145 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %146 = load ptr, ptr %145, align 8, !tbaa !29
@@ -265,9 +264,9 @@ _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0E
   br i1 %.not.i.i175, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit176, label %.lr.ph.i.i173, !llvm.loop !27
 
 _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit176: ; preds = %150, %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS6_IT0_EERNS6_IT1_EERNS6_IT2_EERSt6vectorISJ_IT3_SaISK_EESaISM_EEmENKUlRSJ_IiSaIiEEiiE_clESS_ii.exit171
-  %152 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %64
+  %152 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %116
   %153 = trunc i64 %49 to i32
-  %154 = trunc i64 %81 to i32
+  %154 = trunc i64 %77 to i32
   %155 = load ptr, ptr %152, align 8, !tbaa !29
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %157 = load ptr, ptr %156, align 8, !tbaa !29
@@ -361,120 +360,119 @@ define weak_odr dso_local void @_ZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0E
   %58 = load ptr, ptr %3, align 8, !tbaa !22
   %59 = getelementptr inbounds i32, ptr %58, i64 %48
   %60 = load i32, ptr %59, align 4, !tbaa !19
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i32, ptr %58, i64 %49
-  %63 = load i32, ptr %62, align 4, !tbaa !19
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i32, ptr %58, i64 %53
+  %61 = getelementptr inbounds i32, ptr %58, i64 %49
+  %62 = load i32, ptr %61, align 4, !tbaa !19
+  %63 = getelementptr inbounds i32, ptr %58, i64 %53
+  %64 = load i32, ptr %63, align 4, !tbaa !19
+  %65 = getelementptr inbounds i32, ptr %58, i64 %57
   %66 = load i32, ptr %65, align 4, !tbaa !19
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i32, ptr %58, i64 %57
-  %69 = load i32, ptr %68, align 4, !tbaa !19
-  %70 = sext i32 %69 to i64
   store i32 %35, ptr %33, align 4, !tbaa !19
-  %71 = getelementptr i32, ptr %33, i64 %19
-  store i32 %47, ptr %71, align 4, !tbaa !19
-  %72 = shl i64 %19, 1
-  %73 = getelementptr i32, ptr %33, i64 %72
-  store i32 %43, ptr %73, align 4, !tbaa !19
+  %67 = getelementptr i32, ptr %33, i64 %19
+  store i32 %47, ptr %67, align 4, !tbaa !19
+  %68 = shl i64 %19, 1
+  %69 = getelementptr i32, ptr %33, i64 %68
+  store i32 %43, ptr %69, align 4, !tbaa !19
   store i32 %40, ptr %45, align 4, !tbaa !19
-  %74 = getelementptr i32, ptr %45, i64 %19
-  store i32 %43, ptr %74, align 4, !tbaa !19
-  %75 = getelementptr i32, ptr %45, i64 %72
-  store i32 %47, ptr %75, align 4, !tbaa !19
-  %76 = load ptr, ptr %2, align 8, !tbaa !21
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %78 = getelementptr i32, ptr %76, i64 %5
-  store i32 %47, ptr %78, align 4, !tbaa !19
-  %79 = load i64, ptr %77, align 8, !tbaa !16
-  %80 = getelementptr i32, ptr %78, i64 %79
-  store i32 %43, ptr %80, align 4, !tbaa !19
-  %81 = add i64 %22, %19
-  %82 = add i64 %22, %72
-  %83 = add i64 %26, %19
-  %84 = add i64 %26, %72
-  %85 = load ptr, ptr %1, align 8, !tbaa !21
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %87 = getelementptr i32, ptr %85, i64 %22
-  store i32 %47, ptr %87, align 4, !tbaa !19
-  %88 = load i64, ptr %86, align 8, !tbaa !16
-  %89 = getelementptr i32, ptr %87, i64 %88
-  store i32 %43, ptr %89, align 4, !tbaa !19
-  %90 = getelementptr i32, ptr %85, i64 %81
+  %70 = getelementptr i32, ptr %45, i64 %19
+  store i32 %43, ptr %70, align 4, !tbaa !19
+  %71 = getelementptr i32, ptr %45, i64 %68
+  store i32 %47, ptr %71, align 4, !tbaa !19
+  %72 = load ptr, ptr %2, align 8, !tbaa !21
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %74 = getelementptr i32, ptr %72, i64 %5
+  store i32 %47, ptr %74, align 4, !tbaa !19
+  %75 = load i64, ptr %73, align 8, !tbaa !16
+  %76 = getelementptr i32, ptr %74, i64 %75
+  store i32 %43, ptr %76, align 4, !tbaa !19
+  %77 = add i64 %22, %19
+  %78 = add i64 %22, %68
+  %79 = add i64 %26, %19
+  %80 = add i64 %26, %68
+  %81 = load ptr, ptr %1, align 8, !tbaa !21
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %83 = getelementptr i32, ptr %81, i64 %22
+  store i32 %47, ptr %83, align 4, !tbaa !19
+  %84 = load i64, ptr %82, align 8, !tbaa !16
+  %85 = getelementptr i32, ptr %83, i64 %84
+  store i32 %43, ptr %85, align 4, !tbaa !19
+  %86 = getelementptr i32, ptr %81, i64 %77
+  store i32 %43, ptr %86, align 4, !tbaa !19
+  %87 = getelementptr i32, ptr %86, i64 %84
+  store i32 %35, ptr %87, align 4, !tbaa !19
+  %88 = getelementptr i32, ptr %81, i64 %78
+  store i32 %35, ptr %88, align 4, !tbaa !19
+  %89 = getelementptr i32, ptr %88, i64 %84
+  store i32 %47, ptr %89, align 4, !tbaa !19
+  %90 = getelementptr i32, ptr %81, i64 %26
   store i32 %43, ptr %90, align 4, !tbaa !19
-  %91 = getelementptr i32, ptr %90, i64 %88
-  store i32 %35, ptr %91, align 4, !tbaa !19
-  %92 = getelementptr i32, ptr %85, i64 %82
-  store i32 %35, ptr %92, align 4, !tbaa !19
-  %93 = getelementptr i32, ptr %92, i64 %88
-  store i32 %47, ptr %93, align 4, !tbaa !19
-  %94 = getelementptr i32, ptr %85, i64 %26
-  store i32 %43, ptr %94, align 4, !tbaa !19
-  %95 = getelementptr i32, ptr %94, i64 %88
-  store i32 %47, ptr %95, align 4, !tbaa !19
-  %96 = getelementptr i32, ptr %85, i64 %83
-  store i32 %47, ptr %96, align 4, !tbaa !19
-  %97 = getelementptr i32, ptr %96, i64 %88
-  store i32 %40, ptr %97, align 4, !tbaa !19
-  %98 = getelementptr i32, ptr %85, i64 %84
-  store i32 %40, ptr %98, align 4, !tbaa !19
-  %99 = getelementptr i32, ptr %98, i64 %88
-  store i32 %43, ptr %99, align 4, !tbaa !19
-  %100 = trunc i64 %5 to i32
-  %101 = getelementptr inbounds i32, ptr %58, i64 %22
-  store i32 %100, ptr %101, align 4, !tbaa !19
-  %102 = getelementptr inbounds i32, ptr %58, i64 %26
-  store i32 %100, ptr %102, align 4, !tbaa !19
-  %103 = getelementptr inbounds i32, ptr %58, i64 %81
-  store i32 %63, ptr %103, align 4, !tbaa !19
-  %104 = getelementptr inbounds i32, ptr %58, i64 %82
-  store i32 %66, ptr %104, align 4, !tbaa !19
-  %105 = getelementptr inbounds i32, ptr %58, i64 %83
-  store i32 %69, ptr %105, align 4, !tbaa !19
-  %106 = getelementptr inbounds i32, ptr %58, i64 %84
-  store i32 %60, ptr %106, align 4, !tbaa !19
-  %107 = trunc i64 %22 to i32
-  %.not6.i.i = icmp eq ptr %11, %10
-  br i1 %.not6.i.i, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit161, label %.lr.ph.i.i
+  %91 = getelementptr i32, ptr %90, i64 %84
+  store i32 %47, ptr %91, align 4, !tbaa !19
+  %92 = getelementptr i32, ptr %81, i64 %79
+  store i32 %47, ptr %92, align 4, !tbaa !19
+  %93 = getelementptr i32, ptr %92, i64 %84
+  store i32 %40, ptr %93, align 4, !tbaa !19
+  %94 = getelementptr i32, ptr %81, i64 %80
+  store i32 %40, ptr %94, align 4, !tbaa !19
+  %95 = getelementptr i32, ptr %94, i64 %84
+  store i32 %43, ptr %95, align 4, !tbaa !19
+  %96 = trunc i64 %5 to i32
+  %97 = getelementptr inbounds i32, ptr %58, i64 %22
+  store i32 %96, ptr %97, align 4, !tbaa !19
+  %98 = getelementptr inbounds i32, ptr %58, i64 %26
+  store i32 %96, ptr %98, align 4, !tbaa !19
+  %99 = getelementptr inbounds i32, ptr %58, i64 %77
+  store i32 %62, ptr %99, align 4, !tbaa !19
+  %100 = getelementptr inbounds i32, ptr %58, i64 %78
+  store i32 %64, ptr %100, align 4, !tbaa !19
+  %101 = getelementptr inbounds i32, ptr %58, i64 %79
+  store i32 %66, ptr %101, align 4, !tbaa !19
+  %102 = getelementptr inbounds i32, ptr %58, i64 %80
+  store i32 %60, ptr %102, align 4, !tbaa !19
+  %103 = trunc i64 %22 to i32
+  br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %17, %111
-  %.sroa.02.07.i.i = phi ptr [ %112, %111 ], [ %11, %17 ]
-  %108 = load i32, ptr %.sroa.02.07.i.i, align 4, !tbaa !19
-  %109 = icmp eq i32 %108, %20
-  br i1 %109, label %110, label %111
+.lr.ph.i.i:                                       ; preds = %17, %107
+  %.sroa.02.07.i.i = phi ptr [ %108, %107 ], [ %11, %17 ]
+  %104 = load i32, ptr %.sroa.02.07.i.i, align 4, !tbaa !19
+  %105 = icmp eq i32 %104, %20
+  br i1 %105, label %106, label %107
 
-110:                                              ; preds = %.lr.ph.i.i
-  store i32 %107, ptr %.sroa.02.07.i.i, align 4, !tbaa !19
-  br label %111
+106:                                              ; preds = %.lr.ph.i.i
+  store i32 %103, ptr %.sroa.02.07.i.i, align 4, !tbaa !19
+  br label %107
 
-111:                                              ; preds = %110, %.lr.ph.i.i
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i.i, i64 4
-  %.not.i.i = icmp eq ptr %112, %10
+107:                                              ; preds = %106, %.lr.ph.i.i
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i.i, i64 4
+  %.not.i.i = icmp eq ptr %108, %10
   br i1 %.not.i.i, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit, label %.lr.ph.i.i, !llvm.loop !27
 
-_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit: ; preds = %111
-  %113 = trunc i64 %26 to i32
+_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit: ; preds = %107
+  %109 = trunc i64 %26 to i32
   br label %.lr.ph.i.i158
 
-.lr.ph.i.i158:                                    ; preds = %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit, %117
-  %.sroa.02.07.i.i159 = phi ptr [ %118, %117 ], [ %11, %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit ]
-  %114 = load i32, ptr %.sroa.02.07.i.i159, align 4, !tbaa !19
-  %115 = icmp eq i32 %114, %24
-  br i1 %115, label %116, label %117
+.lr.ph.i.i158:                                    ; preds = %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit, %113
+  %.sroa.02.07.i.i159 = phi ptr [ %114, %113 ], [ %11, %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit ]
+  %110 = load i32, ptr %.sroa.02.07.i.i159, align 4, !tbaa !19
+  %111 = icmp eq i32 %110, %24
+  br i1 %111, label %112, label %113
 
-116:                                              ; preds = %.lr.ph.i.i158
-  store i32 %113, ptr %.sroa.02.07.i.i159, align 4, !tbaa !19
-  br label %117
+112:                                              ; preds = %.lr.ph.i.i158
+  store i32 %109, ptr %.sroa.02.07.i.i159, align 4, !tbaa !19
+  br label %113
 
-117:                                              ; preds = %116, %.lr.ph.i.i158
-  %118 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i.i159, i64 4
-  %.not.i.i160 = icmp eq ptr %118, %10
+113:                                              ; preds = %112, %.lr.ph.i.i158
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i.i159, i64 4
+  %.not.i.i160 = icmp eq ptr %114, %10
   br i1 %.not.i.i160, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit161, label %.lr.ph.i.i158, !llvm.loop !27
 
-_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit161: ; preds = %117, %17
-  %119 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %67
+_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit161: ; preds = %113
+  %115 = sext i32 %60 to i64
+  %116 = sext i32 %62 to i64
+  %117 = sext i32 %64 to i64
+  %118 = sext i32 %66 to i64
+  %119 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %117
   %120 = trunc i64 %53 to i32
-  %121 = trunc i64 %82 to i32
+  %121 = trunc i64 %78 to i32
   %122 = load ptr, ptr %119, align 8, !tbaa !29
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %124 = load ptr, ptr %123, align 8, !tbaa !29
@@ -497,9 +495,9 @@ _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi
   br i1 %.not.i.i165, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit166, label %.lr.ph.i.i163, !llvm.loop !27
 
 _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit166: ; preds = %128, %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit161
-  %130 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %70
+  %130 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %118
   %131 = trunc i64 %57 to i32
-  %132 = trunc i64 %83 to i32
+  %132 = trunc i64 %79 to i32
   %133 = load ptr, ptr %130, align 8, !tbaa !29
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !29
@@ -522,9 +520,9 @@ _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi
   br i1 %.not.i.i170, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit171, label %.lr.ph.i.i168, !llvm.loop !27
 
 _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit171: ; preds = %139, %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit166
-  %141 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %61
+  %141 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %115
   %142 = trunc i64 %48 to i32
-  %143 = trunc i64 %84 to i32
+  %143 = trunc i64 %80 to i32
   %144 = load ptr, ptr %141, align 8, !tbaa !29
   %145 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %146 = load ptr, ptr %145, align 8, !tbaa !29
@@ -547,9 +545,9 @@ _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi
   br i1 %.not.i.i175, label %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit176, label %.lr.ph.i.i173, !llvm.loop !27
 
 _ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit176: ; preds = %150, %_ZZN3igl9flip_edgeIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEiEEvRNS1_15PlainObjectBaseIT_EERNS5_IT0_EERNS5_IT1_EERNS5_IT2_EERSt6vectorISI_IT3_SaISJ_EESaISL_EEmENKUlRSI_IiSaIiEEiiE_clESR_ii.exit171
-  %152 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %64
+  %152 = getelementptr inbounds nuw %"class.std::vector.3", ptr %7, i64 %116
   %153 = trunc i64 %49 to i32
-  %154 = trunc i64 %81 to i32
+  %154 = trunc i64 %77 to i32
   %155 = load ptr, ptr %152, align 8, !tbaa !29
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %157 = load ptr, ptr %156, align 8, !tbaa !29

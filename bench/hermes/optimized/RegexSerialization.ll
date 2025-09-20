@@ -6451,23 +6451,19 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   store i8 0, ptr %ref.tmp.i, align 1
   %cmp.i.not.i = icmp eq i64 %sub.ptr.sub.i.i, -1
-  br i1 %cmp.i.not.i, label %if.then7.i.i, label %if.then.i.i
+  br i1 %cmp.i.not.i, label %if.then.i.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %0, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_8GoalInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
-if.then7.i.i:                                     ; preds = %entry
-  %tobool.not.i.i.i = icmp eq ptr %0, %1
-  br i1 %tobool.not.i.i.i, label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_8GoalInsnEEENS1_18InstructionWrapperIT_EEv.exit, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.then7.i.i
+if.then.i.i.i:                                    ; preds = %entry
   store ptr %1, ptr %_M_finish.i.i, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_8GoalInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
-_ZN6hermes5regex19RegexBytecodeStream4emitINS0_8GoalInsnEEENS1_18InstructionWrapperIT_EEv.exit: ; preds = %if.then.i.i, %if.then7.i.i, %if.then.i.i.i
-  %2 = phi ptr [ %.pre.i, %if.then.i.i ], [ %1, %if.then7.i.i ], [ %1, %if.then.i.i.i ]
+_ZN6hermes5regex19RegexBytecodeStream4emitINS0_8GoalInsnEEENS1_18InstructionWrapperIT_EEv.exit: ; preds = %if.then.i.i, %if.then.i.i.i
+  %2 = phi ptr [ %.pre.i, %if.then.i.i ], [ %1, %if.then.i.i.i ]
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i.i
   store i8 0, ptr %add.ptr.i3.i, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)

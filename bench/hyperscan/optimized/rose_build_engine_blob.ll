@@ -829,116 +829,100 @@ define linkonce_odr hidden noundef i32 @_ZN3ue214RoseEngineBlob3addIN9__gnu_cxx1
   %13 = sub i64 %11, %12
   %14 = add i64 %13, 512
   %.not.i = icmp eq i64 %13, -1
-  br i1 %.not.i, label %15, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i
+  br i1 %.not.i, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i
 
-15:                                               ; preds = %6
-  %.not.i.i.i.i = icmp eq ptr %9, %10
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i, label %16
-
-16:                                               ; preds = %15
+_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i: ; preds = %6
   store ptr %10, ptr %8, align 8
-  br label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i
-
-_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i: ; preds = %16, %15
-  %.ph.i = phi ptr [ %10, %16 ], [ %9, %15 ]
-  %17 = getelementptr i8, ptr %.ph.i, i64 -1
-  %18 = load i8, ptr %1, align 1
-  store i8 %18, ptr %17, align 1
+  %15 = getelementptr i8, ptr %10, i64 -1
+  %16 = load i8, ptr %1, align 1
+  store i8 %16, ptr %15, align 1
   br label %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i: ; preds = %6
   tail call void @_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 1)
   %.pre8.i.i = load ptr, ptr %8, align 8
-  %19 = getelementptr i8, ptr %.pre8.i.i, i64 -1
-  %20 = load i8, ptr %1, align 1
-  store i8 %20, ptr %19, align 1
+  %17 = getelementptr i8, ptr %.pre8.i.i, i64 -1
+  %18 = load i8, ptr %1, align 1
+  store i8 %18, ptr %17, align 1
   %.not.i.i6.i.i = icmp ult i64 %14, 4294967296
-  br i1 %.not.i.i6.i.i, label %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit, label %21
+  br i1 %.not.i.i6.i.i, label %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit, label %19
 
-21:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i
-  %22 = tail call ptr @__cxa_allocate_exception(i64 48) #21
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %22)
-          to label %23 unwind label %24
+19:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i
+  %20 = tail call ptr @__cxa_allocate_exception(i64 48) #21
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %20)
+          to label %21 unwind label %22
 
-23:                                               ; preds = %21
-  tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #18
+21:                                               ; preds = %19
+  tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #18
   unreachable
 
-common.resume:                                    ; preds = %43, %24
-  %.sink = phi ptr [ %41, %43 ], [ %22, %24 ]
-  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %25, %24 ]
+common.resume:                                    ; preds = %39, %22
+  %.sink = phi ptr [ %37, %39 ], [ %20, %22 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %23, %22 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #21
   resume { ptr, i32 } %common.resume.op
 
-24:                                               ; preds = %21
-  %25 = landingpad { ptr, i32 }
+22:                                               ; preds = %19
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit:        ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i
-  %26 = trunc nuw i64 %14 to i32
-  %.sroa.0.017 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %27 = load ptr, ptr %2, align 8
-  %.not18 = icmp eq ptr %.sroa.0.017, %27
-  br i1 %.not18, label %.loopexit, label %.lr.ph
+  %24 = trunc nuw i64 %14 to i32
+  %.sroa.0.015 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %25 = load ptr, ptr %2, align 8
+  %.not16 = icmp eq ptr %.sroa.0.015, %25
+  br i1 %.not16, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit, %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit11
-  %.sroa.0.019 = phi ptr [ %.sroa.0.0, %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit11 ], [ %.sroa.0.017, %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit ]
-  %28 = load ptr, ptr %8, align 8
-  %29 = load ptr, ptr %7, align 8
-  %30 = ptrtoint ptr %28 to i64
-  %31 = ptrtoint ptr %29 to i64
-  %32 = sub i64 %30, %31
-  %.not.i4 = icmp eq i64 %32, -1
-  br i1 %.not.i4, label %33, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i5
+.lr.ph:                                           ; preds = %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit, %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit9
+  %.sroa.0.017 = phi ptr [ %.sroa.0.0, %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit9 ], [ %.sroa.0.015, %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit ]
+  %26 = load ptr, ptr %8, align 8
+  %27 = load ptr, ptr %7, align 8
+  %28 = ptrtoint ptr %26 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %.not.i4 = icmp eq i64 %30, -1
+  br i1 %.not.i4, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i8, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i5
 
-33:                                               ; preds = %.lr.ph
-  %.not.i.i.i.i8 = icmp eq ptr %28, %29
-  br i1 %.not.i.i.i.i8, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i9, label %34
-
-34:                                               ; preds = %33
-  store ptr %29, ptr %8, align 8
-  br label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i9
-
-_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i9: ; preds = %34, %33
-  %.ph.i10 = phi ptr [ %29, %34 ], [ %28, %33 ]
-  %35 = getelementptr i8, ptr %.ph.i10, i64 -1
-  %36 = load i8, ptr %.sroa.0.019, align 1
-  store i8 %36, ptr %35, align 1
-  br label %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit11
+_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i8: ; preds = %.lr.ph
+  store ptr %27, ptr %8, align 8
+  %31 = getelementptr i8, ptr %27, i64 -1
+  %32 = load i8, ptr %.sroa.0.017, align 1
+  store i8 %32, ptr %31, align 1
+  br label %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit9
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i5: ; preds = %.lr.ph
-  %37 = add i64 %32, 512
+  %33 = add i64 %30, 512
   tail call void @_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 1)
   %.pre8.i.i6 = load ptr, ptr %8, align 8
-  %38 = getelementptr i8, ptr %.pre8.i.i6, i64 -1
-  %39 = load i8, ptr %.sroa.0.019, align 1
-  store i8 %39, ptr %38, align 1
-  %.not.i.i6.i.i7 = icmp ult i64 %37, 4294967296
-  br i1 %.not.i.i6.i.i7, label %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit11, label %40
+  %34 = getelementptr i8, ptr %.pre8.i.i6, i64 -1
+  %35 = load i8, ptr %.sroa.0.017, align 1
+  store i8 %35, ptr %34, align 1
+  %.not.i.i6.i.i7 = icmp ult i64 %33, 4294967296
+  br i1 %.not.i.i6.i.i7, label %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit9, label %36
 
-40:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i5
-  %41 = tail call ptr @__cxa_allocate_exception(i64 48) #21
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %41)
-          to label %42 unwind label %43
+36:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i5
+  %37 = tail call ptr @__cxa_allocate_exception(i64 48) #21
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %37)
+          to label %38 unwind label %39
 
-42:                                               ; preds = %40
-  tail call void @__cxa_throw(ptr nonnull %41, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #18
+38:                                               ; preds = %36
+  tail call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #18
   unreachable
 
-43:                                               ; preds = %40
-  %44 = landingpad { ptr, i32 }
+39:                                               ; preds = %36
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit11:      ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i9, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i5
-  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.019, i64 1
-  %45 = load ptr, ptr %2, align 8
-  %.not = icmp eq ptr %.sroa.0.0, %45
+_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit9:       ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i8, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i5
+  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.017, i64 1
+  %41 = load ptr, ptr %2, align 8
+  %.not = icmp eq ptr %.sroa.0.0, %41
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
-.loopexit:                                        ; preds = %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit11, %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit, %3
-  %.0 = phi i32 [ 0, %3 ], [ %26, %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit ], [ %26, %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit11 ]
+.loopexit:                                        ; preds = %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit9, %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit, %3
+  %.0 = phi i32 [ 0, %3 ], [ %24, %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit ], [ %24, %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit9 ]
   ret i32 %.0
 }
 
@@ -3466,116 +3450,100 @@ define linkonce_odr hidden noundef i32 @_ZN3ue214RoseEngineBlob3addIN9__gnu_cxx1
   %13 = sub i64 %11, %12
   %14 = add i64 %13, 512
   %.not.i = icmp eq i64 %13, -1
-  br i1 %.not.i, label %15, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i
+  br i1 %.not.i, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i
 
-15:                                               ; preds = %6
-  %.not.i.i.i.i = icmp eq ptr %9, %10
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i, label %16
-
-16:                                               ; preds = %15
+_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i: ; preds = %6
   store ptr %10, ptr %8, align 8
-  br label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i
-
-_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i: ; preds = %16, %15
-  %.ph.i = phi ptr [ %10, %16 ], [ %9, %15 ]
-  %17 = getelementptr i8, ptr %.ph.i, i64 -1
-  %18 = load i8, ptr %1, align 1
-  store i8 %18, ptr %17, align 1
+  %15 = getelementptr i8, ptr %10, i64 -1
+  %16 = load i8, ptr %1, align 1
+  store i8 %16, ptr %15, align 1
   br label %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i: ; preds = %6
   tail call void @_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 1)
   %.pre8.i.i = load ptr, ptr %8, align 8
-  %19 = getelementptr i8, ptr %.pre8.i.i, i64 -1
-  %20 = load i8, ptr %1, align 1
-  store i8 %20, ptr %19, align 1
+  %17 = getelementptr i8, ptr %.pre8.i.i, i64 -1
+  %18 = load i8, ptr %1, align 1
+  store i8 %18, ptr %17, align 1
   %.not.i.i6.i.i = icmp ult i64 %14, 4294967296
-  br i1 %.not.i.i6.i.i, label %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit, label %21
+  br i1 %.not.i.i6.i.i, label %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit, label %19
 
-21:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i
-  %22 = tail call ptr @__cxa_allocate_exception(i64 48) #21
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %22)
-          to label %23 unwind label %24
+19:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i
+  %20 = tail call ptr @__cxa_allocate_exception(i64 48) #21
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %20)
+          to label %21 unwind label %22
 
-23:                                               ; preds = %21
-  tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #18
+21:                                               ; preds = %19
+  tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #18
   unreachable
 
-common.resume:                                    ; preds = %43, %24
-  %.sink = phi ptr [ %41, %43 ], [ %22, %24 ]
-  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %25, %24 ]
+common.resume:                                    ; preds = %39, %22
+  %.sink = phi ptr [ %37, %39 ], [ %20, %22 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %23, %22 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #21
   resume { ptr, i32 } %common.resume.op
 
-24:                                               ; preds = %21
-  %25 = landingpad { ptr, i32 }
+22:                                               ; preds = %19
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit:        ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i
-  %26 = trunc nuw i64 %14 to i32
-  %.sroa.0.017 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %27 = load ptr, ptr %2, align 8
-  %.not18 = icmp eq ptr %.sroa.0.017, %27
-  br i1 %.not18, label %.loopexit, label %.lr.ph
+  %24 = trunc nuw i64 %14 to i32
+  %.sroa.0.015 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %25 = load ptr, ptr %2, align 8
+  %.not16 = icmp eq ptr %.sroa.0.015, %25
+  br i1 %.not16, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit, %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit11
-  %.sroa.0.019 = phi ptr [ %.sroa.0.0, %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit11 ], [ %.sroa.0.017, %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit ]
-  %28 = load ptr, ptr %8, align 8
-  %29 = load ptr, ptr %7, align 8
-  %30 = ptrtoint ptr %28 to i64
-  %31 = ptrtoint ptr %29 to i64
-  %32 = sub i64 %30, %31
-  %.not.i4 = icmp eq i64 %32, -1
-  br i1 %.not.i4, label %33, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i5
+.lr.ph:                                           ; preds = %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit, %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit9
+  %.sroa.0.017 = phi ptr [ %.sroa.0.0, %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit9 ], [ %.sroa.0.015, %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit ]
+  %26 = load ptr, ptr %8, align 8
+  %27 = load ptr, ptr %7, align 8
+  %28 = ptrtoint ptr %26 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %.not.i4 = icmp eq i64 %30, -1
+  br i1 %.not.i4, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i8, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i5
 
-33:                                               ; preds = %.lr.ph
-  %.not.i.i.i.i8 = icmp eq ptr %28, %29
-  br i1 %.not.i.i.i.i8, label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i9, label %34
-
-34:                                               ; preds = %33
-  store ptr %29, ptr %8, align 8
-  br label %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i9
-
-_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i9: ; preds = %34, %33
-  %.ph.i10 = phi ptr [ %29, %34 ], [ %28, %33 ]
-  %35 = getelementptr i8, ptr %.ph.i10, i64 -1
-  %36 = load i8, ptr %.sroa.0.019, align 1
-  store i8 %36, ptr %35, align 1
-  br label %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit11
+_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i8: ; preds = %.lr.ph
+  store ptr %27, ptr %8, align 8
+  %31 = getelementptr i8, ptr %27, i64 -1
+  %32 = load i8, ptr %.sroa.0.017, align 1
+  store i8 %32, ptr %31, align 1
+  br label %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit9
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i5: ; preds = %.lr.ph
-  %37 = add i64 %32, 512
+  %33 = add i64 %30, 512
   tail call void @_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 1)
   %.pre8.i.i6 = load ptr, ptr %8, align 8
-  %38 = getelementptr i8, ptr %.pre8.i.i6, i64 -1
-  %39 = load i8, ptr %.sroa.0.019, align 1
-  store i8 %39, ptr %38, align 1
-  %.not.i.i6.i.i7 = icmp ult i64 %37, 4294967296
-  br i1 %.not.i.i6.i.i7, label %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit11, label %40
+  %34 = getelementptr i8, ptr %.pre8.i.i6, i64 -1
+  %35 = load i8, ptr %.sroa.0.017, align 1
+  store i8 %35, ptr %34, align 1
+  %.not.i.i6.i.i7 = icmp ult i64 %33, 4294967296
+  br i1 %.not.i.i6.i.i7, label %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit9, label %36
 
-40:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i5
-  %41 = tail call ptr @__cxa_allocate_exception(i64 48) #21
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %41)
-          to label %42 unwind label %43
+36:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i5
+  %37 = tail call ptr @__cxa_allocate_exception(i64 48) #21
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %37)
+          to label %38 unwind label %39
 
-42:                                               ; preds = %40
-  tail call void @__cxa_throw(ptr nonnull %41, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #18
+38:                                               ; preds = %36
+  tail call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #18
   unreachable
 
-43:                                               ; preds = %40
-  %44 = landingpad { ptr, i32 }
+39:                                               ; preds = %36
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit11:      ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i9, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i5
-  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.019, i64 1
-  %45 = load ptr, ptr %2, align 8
-  %.not = icmp eq ptr %.sroa.0.0, %45
+_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit9:       ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i8, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i5
+  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.017, i64 1
+  %41 = load ptr, ptr %2, align 8
+  %.not = icmp eq ptr %.sroa.0.0, %41
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
-.loopexit:                                        ; preds = %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit11, %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit, %3
-  %.0 = phi i32 [ 0, %3 ], [ %26, %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit ], [ %26, %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit11 ]
+.loopexit:                                        ; preds = %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit9, %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit, %3
+  %.0 = phi i32 [ 0, %3 ], [ %24, %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit ], [ %24, %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit9 ]
   ret i32 %.0
 }
 

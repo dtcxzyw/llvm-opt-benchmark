@@ -15324,7 +15324,7 @@ declare void @_ZN14WarningHandler7addNoteESt17basic_string_viewIcSt11char_traits
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS0_IKiEEPi(i32 noundef %0, ptr readonly captures(none) %1, ptr %2, ptr %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
-  switch i32 %0, label %224 [
+  switch i32 %0, label %216 [
     i32 25, label %6
     i32 24, label %6
     i32 20, label %6
@@ -15337,8 +15337,8 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !300
   %11 = load ptr, ptr %8, align 8, !tbaa !300
-  %.not165 = icmp eq ptr %11, %10
-  br i1 %.not165, label %.loopexit, label %.lr.ph
+  %.not160 = icmp eq ptr %11, %10
+  br i1 %.not160, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %12 = ptrtoint ptr %10 to i64
@@ -15354,28 +15354,28 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
   %22 = mul nuw nsw i64 %16, 448
   %scevgep.i.i.i = getelementptr i8, ptr %11, i64 %22
   %.pre.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
-  %.pre163.i.i.i = sub i64 %12, %.pre.i.i.i
+  %.pre145.i.i.i = sub i64 %12, %.pre.i.i.i
   br label %23
 
 23:                                               ; preds = %.lr.ph, %_ZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEE.exit
-  %.sroa.082.0147 = phi ptr [ %10, %.lr.ph ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %_ZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEE.exit ]
-  %.089145 = phi i32 [ -1, %.lr.ph ], [ %.190, %_ZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEE.exit ]
+  %.sroa.083.0142 = phi ptr [ %10, %.lr.ph ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %_ZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEE.exit ]
+  %.090140 = phi i32 [ -1, %.lr.ph ], [ %.191, %_ZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEE.exit ]
   br i1 %17, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %23
   br i1 %21, label %.lr.ph.split.i.i.i, label %29
 
-.lr.ph.split.i.i.i:                               ; preds = %.lr.ph.i.i.i, %99
-  %.0142.i.i.i = phi i64 [ %101, %99 ], [ %16, %.lr.ph.i.i.i ]
-  %.sroa.0111.0141.i.i.i = phi ptr [ %100, %99 ], [ %11, %.lr.ph.i.i.i ]
-  %.val2.i.i.i.i = load ptr, ptr %.sroa.0111.0141.i.i.i, align 8
-  %24 = getelementptr i8, ptr %.sroa.0111.0141.i.i.i, i64 8
+.lr.ph.split.i.i.i:                               ; preds = %.lr.ph.i.i.i, %95
+  %.0130.i.i.i = phi i64 [ %97, %95 ], [ %16, %.lr.ph.i.i.i ]
+  %.sroa.0105.0129.i.i.i = phi ptr [ %96, %95 ], [ %11, %.lr.ph.i.i.i ]
+  %24 = getelementptr i8, ptr %.sroa.0105.0129.i.i.i, i64 8
   %.val3.i.i.i.i = load ptr, ptr %24, align 8
+  %.val2.i.i.i.i = load ptr, ptr %.sroa.0105.0129.i.i.i, align 8
   %25 = ptrtoint ptr %.val3.i.i.i.i to i64
   %26 = ptrtoint ptr %.val2.i.i.i.i to i64
   %27 = sub i64 %25, %26
   %28 = icmp eq i64 %27, 16
-  br i1 %28, label %31, label %30
+  br i1 %28, label %.lr.ph.i.i.i.i.i.i.i, label %30
 
 29:                                               ; preds = %.lr.ph.i.i.i
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_1clEv", ptr noundef nonnull @.str.9, i32 noundef 1887) #30
@@ -15385,740 +15385,708 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.170, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_1clEv", ptr noundef nonnull @.str.9, i32 noundef 1889) #30
   unreachable
 
-31:                                               ; preds = %.lr.ph.split.i.i.i
-  %.not8.i.i.i.i.i.i.i = icmp eq ptr %.val2.i.i.i.i, %.val3.i.i.i.i
-  br i1 %.not8.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %31, %37
-  %.05.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i, %37 ], [ 0, %31 ]
-  %.sroa.05.010.i.i.i.i.i.i.i = phi ptr [ %38, %37 ], [ %.val2.i.i.i.i, %31 ]
-  %.sroa.03.09.i.i.i.i.i.i.i = phi ptr [ %39, %37 ], [ %2, %31 ]
-  %32 = load i32, ptr %.sroa.05.010.i.i.i.i.i.i.i, align 4, !tbaa !41
-  %33 = load i32, ptr %.sroa.03.09.i.i.i.i.i.i.i, align 4, !tbaa !41
-  %34 = icmp eq i32 %32, %33
-  br i1 %34, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i.i.i.i"
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.split.i.i.i, %36
+  %.05.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i, %36 ], [ 0, %.lr.ph.split.i.i.i ]
+  %.sroa.05.010.i.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.val2.i.i.i.i, %.lr.ph.split.i.i.i ]
+  %.sroa.03.09.i.i.i.i.i.i.i = phi ptr [ %38, %36 ], [ %2, %.lr.ph.split.i.i.i ]
+  %31 = load i32, ptr %.sroa.05.010.i.i.i.i.i.i.i, align 4, !tbaa !41
+  %32 = load i32, ptr %.sroa.03.09.i.i.i.i.i.i.i, align 4, !tbaa !41
+  %33 = icmp eq i32 %31, %32
+  br i1 %33, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i.i.i.i"
 
 "_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %35 = add nsw i32 %.05.i.i.i.i.i.i, 1
-  br label %37
+  %34 = add nsw i32 %.05.i.i.i.i.i.i, 1
+  br label %36
 
 "_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %36 = icmp eq i32 %32, -1
-  br i1 %36, label %37, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i"
+  %35 = icmp eq i32 %31, -1
+  br i1 %35, label %36, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i"
 
-37:                                               ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i.i.i.i"
-  %.1.i.i.i.i.i.i = phi i32 [ %35, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i.i.i.i" ], [ %.05.i.i.i.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i.i.i.i" ]
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i.i.i.i.i, i64 4
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %38, %.val3.i.i.i.i
+36:                                               ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i.i.i.i"
+  %.1.i.i.i.i.i.i = phi i32 [ %34, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i.i.i.i" ], [ %.05.i.i.i.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i.i.i.i" ]
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i.i.i.i.i, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %37, %.val3.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !313
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i": ; preds = %37, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i.i.i.i", %31
-  %40 = phi i32 [ 0, %31 ], [ %.1.i.i.i.i.i.i, %37 ], [ -1, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i.i.i.i" ]
-  %41 = icmp sgt i32 %40, %.089145
-  br i1 %41, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit", label %42
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i": ; preds = %36, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i.i.i.i"
+  %39 = phi i32 [ -1, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %36 ]
+  %40 = icmp sgt i32 %39, %.090140
+  br i1 %40, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit", label %41
 
-42:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i"
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0141.i.i.i, i64 112
-  %.val2.i36.i.i.i = load ptr, ptr %43, align 8
-  %44 = getelementptr i8, ptr %.sroa.0111.0141.i.i.i, i64 120
-  %.val3.i37.i.i.i = load ptr, ptr %44, align 8
-  %45 = ptrtoint ptr %.val3.i37.i.i.i to i64
-  %46 = ptrtoint ptr %.val2.i36.i.i.i to i64
-  %47 = sub i64 %45, %46
-  %48 = icmp eq i64 %47, 16
-  br i1 %48, label %50, label %49
+41:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i"
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0129.i.i.i, i64 112
+  %43 = getelementptr i8, ptr %.sroa.0105.0129.i.i.i, i64 120
+  %.val3.i36.i.i.i = load ptr, ptr %43, align 8
+  %.val2.i37.i.i.i = load ptr, ptr %42, align 8
+  %44 = ptrtoint ptr %.val3.i36.i.i.i to i64
+  %45 = ptrtoint ptr %.val2.i37.i.i.i to i64
+  %46 = sub i64 %44, %45
+  %47 = icmp eq i64 %46, 16
+  br i1 %47, label %.lr.ph.i.i.i.i38.i.i.i, label %48
 
-49:                                               ; preds = %42
+48:                                               ; preds = %41
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.170, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_1clEv", ptr noundef nonnull @.str.9, i32 noundef 1889) #30
   unreachable
 
-50:                                               ; preds = %42
-  %.not8.i.i.i.i38.i.i.i = icmp eq ptr %.val2.i36.i.i.i, %.val3.i37.i.i.i
-  br i1 %.not8.i.i.i.i38.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit47.i.i.i", label %.lr.ph.i.i.i.i39.i.i.i
+.lr.ph.i.i.i.i38.i.i.i:                           ; preds = %41, %54
+  %.05.i.i.i39.i.i.i = phi i32 [ %.1.i.i.i43.i.i.i, %54 ], [ 0, %41 ]
+  %.sroa.05.010.i.i.i.i40.i.i.i = phi ptr [ %55, %54 ], [ %.val2.i37.i.i.i, %41 ]
+  %.sroa.03.09.i.i.i.i41.i.i.i = phi ptr [ %56, %54 ], [ %2, %41 ]
+  %49 = load i32, ptr %.sroa.05.010.i.i.i.i40.i.i.i, align 4, !tbaa !41
+  %50 = load i32, ptr %.sroa.03.09.i.i.i.i41.i.i.i, align 4, !tbaa !41
+  %51 = icmp eq i32 %49, %50
+  br i1 %51, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i45.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i42.i.i.i"
 
-.lr.ph.i.i.i.i39.i.i.i:                           ; preds = %50, %56
-  %.05.i.i.i40.i.i.i = phi i32 [ %.1.i.i.i44.i.i.i, %56 ], [ 0, %50 ]
-  %.sroa.05.010.i.i.i.i41.i.i.i = phi ptr [ %57, %56 ], [ %.val2.i36.i.i.i, %50 ]
-  %.sroa.03.09.i.i.i.i42.i.i.i = phi ptr [ %58, %56 ], [ %2, %50 ]
-  %51 = load i32, ptr %.sroa.05.010.i.i.i.i41.i.i.i, align 4, !tbaa !41
-  %52 = load i32, ptr %.sroa.03.09.i.i.i.i42.i.i.i, align 4, !tbaa !41
-  %53 = icmp eq i32 %51, %52
-  br i1 %53, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i46.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i43.i.i.i"
+"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i45.i.i.i": ; preds = %.lr.ph.i.i.i.i38.i.i.i
+  %52 = add nsw i32 %.05.i.i.i39.i.i.i, 1
+  br label %54
 
-"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i46.i.i.i": ; preds = %.lr.ph.i.i.i.i39.i.i.i
-  %54 = add nsw i32 %.05.i.i.i40.i.i.i, 1
-  br label %56
+"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i42.i.i.i": ; preds = %.lr.ph.i.i.i.i38.i.i.i
+  %53 = icmp eq i32 %49, -1
+  br i1 %53, label %54, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit46.i.i.i"
 
-"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i43.i.i.i": ; preds = %.lr.ph.i.i.i.i39.i.i.i
-  %55 = icmp eq i32 %51, -1
-  br i1 %55, label %56, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit47.i.i.i"
+54:                                               ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i42.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i45.i.i.i"
+  %.1.i.i.i43.i.i.i = phi i32 [ %52, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i45.i.i.i" ], [ %.05.i.i.i39.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i42.i.i.i" ]
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i.i40.i.i.i, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i.i.i.i41.i.i.i, i64 4
+  %.not.i.i.i.i44.i.i.i = icmp eq ptr %55, %.val3.i36.i.i.i
+  br i1 %.not.i.i.i.i44.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit46.i.i.i", label %.lr.ph.i.i.i.i38.i.i.i, !llvm.loop !313
 
-56:                                               ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i43.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i46.i.i.i"
-  %.1.i.i.i44.i.i.i = phi i32 [ %54, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i46.i.i.i" ], [ %.05.i.i.i40.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i43.i.i.i" ]
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i.i41.i.i.i, i64 4
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i.i.i.i42.i.i.i, i64 4
-  %.not.i.i.i.i45.i.i.i = icmp eq ptr %57, %.val3.i37.i.i.i
-  br i1 %.not.i.i.i.i45.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit47.i.i.i", label %.lr.ph.i.i.i.i39.i.i.i, !llvm.loop !313
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit46.i.i.i": ; preds = %54, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i42.i.i.i"
+  %57 = phi i32 [ -1, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i42.i.i.i" ], [ %.1.i.i.i43.i.i.i, %54 ]
+  %58 = icmp sgt i32 %57, %.090140
+  br i1 %58, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit", label %59
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit47.i.i.i": ; preds = %56, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i43.i.i.i", %50
-  %59 = phi i32 [ 0, %50 ], [ %.1.i.i.i44.i.i.i, %56 ], [ -1, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i43.i.i.i" ]
-  %60 = icmp sgt i32 %59, %.089145
-  br i1 %60, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit", label %61
+59:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit46.i.i.i"
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0129.i.i.i, i64 224
+  %61 = getelementptr i8, ptr %.sroa.0105.0129.i.i.i, i64 232
+  %.val3.i47.i.i.i = load ptr, ptr %61, align 8
+  %.val2.i48.i.i.i = load ptr, ptr %60, align 8
+  %62 = ptrtoint ptr %.val3.i47.i.i.i to i64
+  %63 = ptrtoint ptr %.val2.i48.i.i.i to i64
+  %64 = sub i64 %62, %63
+  %65 = icmp eq i64 %64, 16
+  br i1 %65, label %.lr.ph.i.i.i.i49.i.i.i, label %66
 
-61:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit47.i.i.i"
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0141.i.i.i, i64 224
-  %.val2.i48.i.i.i = load ptr, ptr %62, align 8
-  %63 = getelementptr i8, ptr %.sroa.0111.0141.i.i.i, i64 232
-  %.val3.i49.i.i.i = load ptr, ptr %63, align 8
-  %64 = ptrtoint ptr %.val3.i49.i.i.i to i64
-  %65 = ptrtoint ptr %.val2.i48.i.i.i to i64
-  %66 = sub i64 %64, %65
-  %67 = icmp eq i64 %66, 16
-  br i1 %67, label %69, label %68
-
-68:                                               ; preds = %61
+66:                                               ; preds = %59
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.170, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_1clEv", ptr noundef nonnull @.str.9, i32 noundef 1889) #30
   unreachable
 
-69:                                               ; preds = %61
-  %.not8.i.i.i.i50.i.i.i = icmp eq ptr %.val2.i48.i.i.i, %.val3.i49.i.i.i
-  br i1 %.not8.i.i.i.i50.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit59.i.i.i", label %.lr.ph.i.i.i.i51.i.i.i
+.lr.ph.i.i.i.i49.i.i.i:                           ; preds = %59, %72
+  %.05.i.i.i50.i.i.i = phi i32 [ %.1.i.i.i54.i.i.i, %72 ], [ 0, %59 ]
+  %.sroa.05.010.i.i.i.i51.i.i.i = phi ptr [ %73, %72 ], [ %.val2.i48.i.i.i, %59 ]
+  %.sroa.03.09.i.i.i.i52.i.i.i = phi ptr [ %74, %72 ], [ %2, %59 ]
+  %67 = load i32, ptr %.sroa.05.010.i.i.i.i51.i.i.i, align 4, !tbaa !41
+  %68 = load i32, ptr %.sroa.03.09.i.i.i.i52.i.i.i, align 4, !tbaa !41
+  %69 = icmp eq i32 %67, %68
+  br i1 %69, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i56.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i53.i.i.i"
 
-.lr.ph.i.i.i.i51.i.i.i:                           ; preds = %69, %75
-  %.05.i.i.i52.i.i.i = phi i32 [ %.1.i.i.i56.i.i.i, %75 ], [ 0, %69 ]
-  %.sroa.05.010.i.i.i.i53.i.i.i = phi ptr [ %76, %75 ], [ %.val2.i48.i.i.i, %69 ]
-  %.sroa.03.09.i.i.i.i54.i.i.i = phi ptr [ %77, %75 ], [ %2, %69 ]
-  %70 = load i32, ptr %.sroa.05.010.i.i.i.i53.i.i.i, align 4, !tbaa !41
-  %71 = load i32, ptr %.sroa.03.09.i.i.i.i54.i.i.i, align 4, !tbaa !41
-  %72 = icmp eq i32 %70, %71
-  br i1 %72, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i58.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i55.i.i.i"
+"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i56.i.i.i": ; preds = %.lr.ph.i.i.i.i49.i.i.i
+  %70 = add nsw i32 %.05.i.i.i50.i.i.i, 1
+  br label %72
 
-"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i58.i.i.i": ; preds = %.lr.ph.i.i.i.i51.i.i.i
-  %73 = add nsw i32 %.05.i.i.i52.i.i.i, 1
-  br label %75
+"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i53.i.i.i": ; preds = %.lr.ph.i.i.i.i49.i.i.i
+  %71 = icmp eq i32 %67, -1
+  br i1 %71, label %72, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit57.i.i.i"
 
-"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i55.i.i.i": ; preds = %.lr.ph.i.i.i.i51.i.i.i
-  %74 = icmp eq i32 %70, -1
-  br i1 %74, label %75, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit59.i.i.i"
+72:                                               ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i53.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i56.i.i.i"
+  %.1.i.i.i54.i.i.i = phi i32 [ %70, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i56.i.i.i" ], [ %.05.i.i.i50.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i53.i.i.i" ]
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i.i51.i.i.i, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i.i.i.i52.i.i.i, i64 4
+  %.not.i.i.i.i55.i.i.i = icmp eq ptr %73, %.val3.i47.i.i.i
+  br i1 %.not.i.i.i.i55.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit57.i.i.i", label %.lr.ph.i.i.i.i49.i.i.i, !llvm.loop !313
 
-75:                                               ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i55.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i58.i.i.i"
-  %.1.i.i.i56.i.i.i = phi i32 [ %73, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i58.i.i.i" ], [ %.05.i.i.i52.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i55.i.i.i" ]
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i.i53.i.i.i, i64 4
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i.i.i.i54.i.i.i, i64 4
-  %.not.i.i.i.i57.i.i.i = icmp eq ptr %76, %.val3.i49.i.i.i
-  br i1 %.not.i.i.i.i57.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit59.i.i.i", label %.lr.ph.i.i.i.i51.i.i.i, !llvm.loop !313
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit57.i.i.i": ; preds = %72, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i53.i.i.i"
+  %75 = phi i32 [ -1, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i53.i.i.i" ], [ %.1.i.i.i54.i.i.i, %72 ]
+  %76 = icmp sgt i32 %75, %.090140
+  br i1 %76, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit235", label %77
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit59.i.i.i": ; preds = %75, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i55.i.i.i", %69
-  %78 = phi i32 [ 0, %69 ], [ %.1.i.i.i56.i.i.i, %75 ], [ -1, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i55.i.i.i" ]
-  %79 = icmp sgt i32 %78, %.089145
-  br i1 %79, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit252", label %80
+77:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit57.i.i.i"
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0129.i.i.i, i64 336
+  %79 = getelementptr i8, ptr %.sroa.0105.0129.i.i.i, i64 344
+  %.val3.i58.i.i.i = load ptr, ptr %79, align 8
+  %.val2.i59.i.i.i = load ptr, ptr %78, align 8
+  %80 = ptrtoint ptr %.val3.i58.i.i.i to i64
+  %81 = ptrtoint ptr %.val2.i59.i.i.i to i64
+  %82 = sub i64 %80, %81
+  %83 = icmp eq i64 %82, 16
+  br i1 %83, label %.lr.ph.i.i.i.i60.i.i.i, label %84
 
-80:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit59.i.i.i"
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0141.i.i.i, i64 336
-  %.val2.i60.i.i.i = load ptr, ptr %81, align 8
-  %82 = getelementptr i8, ptr %.sroa.0111.0141.i.i.i, i64 344
-  %.val3.i61.i.i.i = load ptr, ptr %82, align 8
-  %83 = ptrtoint ptr %.val3.i61.i.i.i to i64
-  %84 = ptrtoint ptr %.val2.i60.i.i.i to i64
-  %85 = sub i64 %83, %84
-  %86 = icmp eq i64 %85, 16
-  br i1 %86, label %88, label %87
-
-87:                                               ; preds = %80
+84:                                               ; preds = %77
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.170, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_1clEv", ptr noundef nonnull @.str.9, i32 noundef 1889) #30
   unreachable
 
-88:                                               ; preds = %80
-  %.not8.i.i.i.i62.i.i.i = icmp eq ptr %.val2.i60.i.i.i, %.val3.i61.i.i.i
-  br i1 %.not8.i.i.i.i62.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit71.i.i.i", label %.lr.ph.i.i.i.i63.i.i.i
+.lr.ph.i.i.i.i60.i.i.i:                           ; preds = %77, %90
+  %.05.i.i.i61.i.i.i = phi i32 [ %.1.i.i.i65.i.i.i, %90 ], [ 0, %77 ]
+  %.sroa.05.010.i.i.i.i62.i.i.i = phi ptr [ %91, %90 ], [ %.val2.i59.i.i.i, %77 ]
+  %.sroa.03.09.i.i.i.i63.i.i.i = phi ptr [ %92, %90 ], [ %2, %77 ]
+  %85 = load i32, ptr %.sroa.05.010.i.i.i.i62.i.i.i, align 4, !tbaa !41
+  %86 = load i32, ptr %.sroa.03.09.i.i.i.i63.i.i.i, align 4, !tbaa !41
+  %87 = icmp eq i32 %85, %86
+  br i1 %87, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i67.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i64.i.i.i"
 
-.lr.ph.i.i.i.i63.i.i.i:                           ; preds = %88, %94
-  %.05.i.i.i64.i.i.i = phi i32 [ %.1.i.i.i68.i.i.i, %94 ], [ 0, %88 ]
-  %.sroa.05.010.i.i.i.i65.i.i.i = phi ptr [ %95, %94 ], [ %.val2.i60.i.i.i, %88 ]
-  %.sroa.03.09.i.i.i.i66.i.i.i = phi ptr [ %96, %94 ], [ %2, %88 ]
-  %89 = load i32, ptr %.sroa.05.010.i.i.i.i65.i.i.i, align 4, !tbaa !41
-  %90 = load i32, ptr %.sroa.03.09.i.i.i.i66.i.i.i, align 4, !tbaa !41
-  %91 = icmp eq i32 %89, %90
-  br i1 %91, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i70.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i67.i.i.i"
+"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i67.i.i.i": ; preds = %.lr.ph.i.i.i.i60.i.i.i
+  %88 = add nsw i32 %.05.i.i.i61.i.i.i, 1
+  br label %90
 
-"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i70.i.i.i": ; preds = %.lr.ph.i.i.i.i63.i.i.i
-  %92 = add nsw i32 %.05.i.i.i64.i.i.i, 1
-  br label %94
+"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i64.i.i.i": ; preds = %.lr.ph.i.i.i.i60.i.i.i
+  %89 = icmp eq i32 %85, -1
+  br i1 %89, label %90, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit68.i.i.i"
 
-"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i67.i.i.i": ; preds = %.lr.ph.i.i.i.i63.i.i.i
-  %93 = icmp eq i32 %89, -1
-  br i1 %93, label %94, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit71.i.i.i"
+90:                                               ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i64.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i67.i.i.i"
+  %.1.i.i.i65.i.i.i = phi i32 [ %88, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i67.i.i.i" ], [ %.05.i.i.i61.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i64.i.i.i" ]
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i.i62.i.i.i, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i.i.i.i63.i.i.i, i64 4
+  %.not.i.i.i.i66.i.i.i = icmp eq ptr %91, %.val3.i58.i.i.i
+  br i1 %.not.i.i.i.i66.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit68.i.i.i", label %.lr.ph.i.i.i.i60.i.i.i, !llvm.loop !313
 
-94:                                               ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i67.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i70.i.i.i"
-  %.1.i.i.i68.i.i.i = phi i32 [ %92, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i70.i.i.i" ], [ %.05.i.i.i64.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i67.i.i.i" ]
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i.i65.i.i.i, i64 4
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i.i.i.i66.i.i.i, i64 4
-  %.not.i.i.i.i69.i.i.i = icmp eq ptr %95, %.val3.i61.i.i.i
-  br i1 %.not.i.i.i.i69.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit71.i.i.i", label %.lr.ph.i.i.i.i63.i.i.i, !llvm.loop !313
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit68.i.i.i": ; preds = %90, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i64.i.i.i"
+  %93 = phi i32 [ -1, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i64.i.i.i" ], [ %.1.i.i.i65.i.i.i, %90 ]
+  %94 = icmp sgt i32 %93, %.090140
+  br i1 %94, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit237", label %95
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit71.i.i.i": ; preds = %94, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i67.i.i.i", %88
-  %97 = phi i32 [ 0, %88 ], [ %.1.i.i.i68.i.i.i, %94 ], [ -1, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i67.i.i.i" ]
-  %98 = icmp sgt i32 %97, %.089145
-  br i1 %98, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit254", label %99
+95:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit68.i.i.i"
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0129.i.i.i, i64 448
+  %97 = add nsw i64 %.0130.i.i.i, -1
+  %98 = icmp sgt i64 %.0130.i.i.i, 1
+  br i1 %98, label %.lr.ph.split.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !314
 
-99:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit71.i.i.i"
-  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0141.i.i.i, i64 448
-  %101 = add nsw i64 %.0142.i.i.i, -1
-  %102 = icmp sgt i64 %.0142.i.i.i, 1
-  br i1 %102, label %.lr.ph.split.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !314
-
-._crit_edge.i.i.i:                                ; preds = %99, %23
-  %.pre-phi164.i.i.i = phi i64 [ %14, %23 ], [ %.pre163.i.i.i, %99 ]
-  %.sroa.0111.0.lcssa.i.i.i = phi ptr [ %11, %23 ], [ %scevgep.i.i.i, %99 ]
-  %103 = sdiv exact i64 %.pre-phi164.i.i.i, 112
-  switch i64 %103, label %._crit_edge [
-    i64 3, label %104
+._crit_edge.i.i.i:                                ; preds = %95, %23
+  %.pre-phi146.i.i.i = phi i64 [ %14, %23 ], [ %.pre145.i.i.i, %95 ]
+  %.sroa.0105.0.lcssa.i.i.i = phi ptr [ %11, %23 ], [ %scevgep.i.i.i, %95 ]
+  %99 = sdiv exact i64 %.pre-phi146.i.i.i, 112
+  switch i64 %99, label %._crit_edge [
+    i64 3, label %100
     i64 2, label %._crit_edge._crit_edge.i.i.i
-    i64 1, label %._crit_edge._crit_edge159.i.i.i
+    i64 1, label %._crit_edge._crit_edge141.i.i.i
   ]
 
-104:                                              ; preds = %._crit_edge.i.i.i
-  %.val2.i72.i.i.i = load ptr, ptr %.sroa.0111.0.lcssa.i.i.i, align 8
-  %105 = getelementptr i8, ptr %.sroa.0111.0.lcssa.i.i.i, i64 8
-  %.val3.i73.i.i.i = load ptr, ptr %105, align 8
-  br i1 %21, label %107, label %106
+100:                                              ; preds = %._crit_edge.i.i.i
+  %101 = getelementptr i8, ptr %.sroa.0105.0.lcssa.i.i.i, i64 8
+  %.val3.i69.i.i.i = load ptr, ptr %101, align 8
+  br i1 %21, label %103, label %102
 
-106:                                              ; preds = %104
+102:                                              ; preds = %100
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_1clEv", ptr noundef nonnull @.str.9, i32 noundef 1887) #30
   unreachable
 
-107:                                              ; preds = %104
-  %108 = ptrtoint ptr %.val3.i73.i.i.i to i64
-  %109 = ptrtoint ptr %.val2.i72.i.i.i to i64
-  %110 = sub i64 %108, %109
-  %111 = icmp eq i64 %110, 16
-  br i1 %111, label %113, label %112
+103:                                              ; preds = %100
+  %.val2.i70.i.i.i = load ptr, ptr %.sroa.0105.0.lcssa.i.i.i, align 8
+  %104 = ptrtoint ptr %.val3.i69.i.i.i to i64
+  %105 = ptrtoint ptr %.val2.i70.i.i.i to i64
+  %106 = sub i64 %104, %105
+  %107 = icmp eq i64 %106, 16
+  br i1 %107, label %.lr.ph.i.i.i.i71.i.i.i, label %108
 
-112:                                              ; preds = %107
+108:                                              ; preds = %103
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.170, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_1clEv", ptr noundef nonnull @.str.9, i32 noundef 1889) #30
   unreachable
 
-113:                                              ; preds = %107
-  %.not8.i.i.i.i74.i.i.i = icmp eq ptr %.val2.i72.i.i.i, %.val3.i73.i.i.i
-  br i1 %.not8.i.i.i.i74.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit83.i.i.i", label %.lr.ph.i.i.i.i75.i.i.i
+.lr.ph.i.i.i.i71.i.i.i:                           ; preds = %103, %114
+  %.05.i.i.i72.i.i.i = phi i32 [ %.1.i.i.i76.i.i.i, %114 ], [ 0, %103 ]
+  %.sroa.05.010.i.i.i.i73.i.i.i = phi ptr [ %115, %114 ], [ %.val2.i70.i.i.i, %103 ]
+  %.sroa.03.09.i.i.i.i74.i.i.i = phi ptr [ %116, %114 ], [ %2, %103 ]
+  %109 = load i32, ptr %.sroa.05.010.i.i.i.i73.i.i.i, align 4, !tbaa !41
+  %110 = load i32, ptr %.sroa.03.09.i.i.i.i74.i.i.i, align 4, !tbaa !41
+  %111 = icmp eq i32 %109, %110
+  br i1 %111, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i78.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i75.i.i.i"
 
-.lr.ph.i.i.i.i75.i.i.i:                           ; preds = %113, %119
-  %.05.i.i.i76.i.i.i = phi i32 [ %.1.i.i.i80.i.i.i, %119 ], [ 0, %113 ]
-  %.sroa.05.010.i.i.i.i77.i.i.i = phi ptr [ %120, %119 ], [ %.val2.i72.i.i.i, %113 ]
-  %.sroa.03.09.i.i.i.i78.i.i.i = phi ptr [ %121, %119 ], [ %2, %113 ]
-  %114 = load i32, ptr %.sroa.05.010.i.i.i.i77.i.i.i, align 4, !tbaa !41
-  %115 = load i32, ptr %.sroa.03.09.i.i.i.i78.i.i.i, align 4, !tbaa !41
-  %116 = icmp eq i32 %114, %115
-  br i1 %116, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i82.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i79.i.i.i"
+"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i78.i.i.i": ; preds = %.lr.ph.i.i.i.i71.i.i.i
+  %112 = add nsw i32 %.05.i.i.i72.i.i.i, 1
+  br label %114
 
-"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i82.i.i.i": ; preds = %.lr.ph.i.i.i.i75.i.i.i
-  %117 = add nsw i32 %.05.i.i.i76.i.i.i, 1
-  br label %119
+"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i75.i.i.i": ; preds = %.lr.ph.i.i.i.i71.i.i.i
+  %113 = icmp eq i32 %109, -1
+  br i1 %113, label %114, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit79.i.i.i"
 
-"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i79.i.i.i": ; preds = %.lr.ph.i.i.i.i75.i.i.i
-  %118 = icmp eq i32 %114, -1
-  br i1 %118, label %119, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit83.i.i.i"
+114:                                              ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i75.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i78.i.i.i"
+  %.1.i.i.i76.i.i.i = phi i32 [ %112, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i78.i.i.i" ], [ %.05.i.i.i72.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i75.i.i.i" ]
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i.i73.i.i.i, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i.i.i.i74.i.i.i, i64 4
+  %.not.i.i.i.i77.i.i.i = icmp eq ptr %115, %.val3.i69.i.i.i
+  br i1 %.not.i.i.i.i77.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit79.i.i.i", label %.lr.ph.i.i.i.i71.i.i.i, !llvm.loop !313
 
-119:                                              ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i79.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i82.i.i.i"
-  %.1.i.i.i80.i.i.i = phi i32 [ %117, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i82.i.i.i" ], [ %.05.i.i.i76.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i79.i.i.i" ]
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i.i77.i.i.i, i64 4
-  %121 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i.i.i.i78.i.i.i, i64 4
-  %.not.i.i.i.i81.i.i.i = icmp eq ptr %120, %.val3.i73.i.i.i
-  br i1 %.not.i.i.i.i81.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit83.i.i.i", label %.lr.ph.i.i.i.i75.i.i.i, !llvm.loop !313
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit79.i.i.i": ; preds = %114, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i75.i.i.i"
+  %117 = phi i32 [ -1, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i75.i.i.i" ], [ %.1.i.i.i76.i.i.i, %114 ]
+  %118 = icmp sgt i32 %117, %.090140
+  br i1 %118, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit", label %119
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit83.i.i.i": ; preds = %119, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i79.i.i.i", %113
-  %122 = phi i32 [ 0, %113 ], [ %.1.i.i.i80.i.i.i, %119 ], [ -1, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i79.i.i.i" ]
-  %123 = icmp sgt i32 %122, %.089145
-  br i1 %123, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit", label %124
-
-124:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit83.i.i.i"
-  %125 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0.lcssa.i.i.i, i64 112
+119:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit79.i.i.i"
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0.lcssa.i.i.i, i64 112
   br label %._crit_edge._crit_edge.i.i.i
 
-._crit_edge._crit_edge.i.i.i:                     ; preds = %._crit_edge.i.i.i, %124
-  %.sroa.0111.1.i.i.i = phi ptr [ %125, %124 ], [ %.sroa.0111.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %.val2.i84.i.i.i = load ptr, ptr %.sroa.0111.1.i.i.i, align 8
-  %126 = getelementptr i8, ptr %.sroa.0111.1.i.i.i, i64 8
-  %.val3.i85.i.i.i = load ptr, ptr %126, align 8
-  br i1 %21, label %128, label %127
+._crit_edge._crit_edge.i.i.i:                     ; preds = %._crit_edge.i.i.i, %119
+  %.sroa.0105.1.i.i.i = phi ptr [ %120, %119 ], [ %.sroa.0105.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %121 = getelementptr i8, ptr %.sroa.0105.1.i.i.i, i64 8
+  %.val3.i80.i.i.i = load ptr, ptr %121, align 8
+  br i1 %21, label %123, label %122
 
-127:                                              ; preds = %._crit_edge._crit_edge.i.i.i
+122:                                              ; preds = %._crit_edge._crit_edge.i.i.i
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_1clEv", ptr noundef nonnull @.str.9, i32 noundef 1887) #30
   unreachable
 
-128:                                              ; preds = %._crit_edge._crit_edge.i.i.i
-  %129 = ptrtoint ptr %.val3.i85.i.i.i to i64
-  %130 = ptrtoint ptr %.val2.i84.i.i.i to i64
-  %131 = sub i64 %129, %130
-  %132 = icmp eq i64 %131, 16
-  br i1 %132, label %134, label %133
+123:                                              ; preds = %._crit_edge._crit_edge.i.i.i
+  %.val2.i81.i.i.i = load ptr, ptr %.sroa.0105.1.i.i.i, align 8
+  %124 = ptrtoint ptr %.val3.i80.i.i.i to i64
+  %125 = ptrtoint ptr %.val2.i81.i.i.i to i64
+  %126 = sub i64 %124, %125
+  %127 = icmp eq i64 %126, 16
+  br i1 %127, label %.lr.ph.i.i.i.i82.i.i.i, label %128
 
-133:                                              ; preds = %128
+128:                                              ; preds = %123
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.170, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_1clEv", ptr noundef nonnull @.str.9, i32 noundef 1889) #30
   unreachable
 
-134:                                              ; preds = %128
-  %.not8.i.i.i.i86.i.i.i = icmp eq ptr %.val2.i84.i.i.i, %.val3.i85.i.i.i
-  br i1 %.not8.i.i.i.i86.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit95.i.i.i", label %.lr.ph.i.i.i.i87.i.i.i
+.lr.ph.i.i.i.i82.i.i.i:                           ; preds = %123, %134
+  %.05.i.i.i83.i.i.i = phi i32 [ %.1.i.i.i87.i.i.i, %134 ], [ 0, %123 ]
+  %.sroa.05.010.i.i.i.i84.i.i.i = phi ptr [ %135, %134 ], [ %.val2.i81.i.i.i, %123 ]
+  %.sroa.03.09.i.i.i.i85.i.i.i = phi ptr [ %136, %134 ], [ %2, %123 ]
+  %129 = load i32, ptr %.sroa.05.010.i.i.i.i84.i.i.i, align 4, !tbaa !41
+  %130 = load i32, ptr %.sroa.03.09.i.i.i.i85.i.i.i, align 4, !tbaa !41
+  %131 = icmp eq i32 %129, %130
+  br i1 %131, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i89.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i86.i.i.i"
 
-.lr.ph.i.i.i.i87.i.i.i:                           ; preds = %134, %140
-  %.05.i.i.i88.i.i.i = phi i32 [ %.1.i.i.i92.i.i.i, %140 ], [ 0, %134 ]
-  %.sroa.05.010.i.i.i.i89.i.i.i = phi ptr [ %141, %140 ], [ %.val2.i84.i.i.i, %134 ]
-  %.sroa.03.09.i.i.i.i90.i.i.i = phi ptr [ %142, %140 ], [ %2, %134 ]
-  %135 = load i32, ptr %.sroa.05.010.i.i.i.i89.i.i.i, align 4, !tbaa !41
-  %136 = load i32, ptr %.sroa.03.09.i.i.i.i90.i.i.i, align 4, !tbaa !41
-  %137 = icmp eq i32 %135, %136
-  br i1 %137, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i94.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i91.i.i.i"
+"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i89.i.i.i": ; preds = %.lr.ph.i.i.i.i82.i.i.i
+  %132 = add nsw i32 %.05.i.i.i83.i.i.i, 1
+  br label %134
 
-"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i94.i.i.i": ; preds = %.lr.ph.i.i.i.i87.i.i.i
-  %138 = add nsw i32 %.05.i.i.i88.i.i.i, 1
-  br label %140
+"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i86.i.i.i": ; preds = %.lr.ph.i.i.i.i82.i.i.i
+  %133 = icmp eq i32 %129, -1
+  br i1 %133, label %134, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit90.i.i.i"
 
-"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i91.i.i.i": ; preds = %.lr.ph.i.i.i.i87.i.i.i
-  %139 = icmp eq i32 %135, -1
-  br i1 %139, label %140, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit95.i.i.i"
+134:                                              ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i86.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i89.i.i.i"
+  %.1.i.i.i87.i.i.i = phi i32 [ %132, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i89.i.i.i" ], [ %.05.i.i.i83.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i86.i.i.i" ]
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i.i84.i.i.i, i64 4
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i.i.i.i85.i.i.i, i64 4
+  %.not.i.i.i.i88.i.i.i = icmp eq ptr %135, %.val3.i80.i.i.i
+  br i1 %.not.i.i.i.i88.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit90.i.i.i", label %.lr.ph.i.i.i.i82.i.i.i, !llvm.loop !313
 
-140:                                              ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i91.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i94.i.i.i"
-  %.1.i.i.i92.i.i.i = phi i32 [ %138, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i94.i.i.i" ], [ %.05.i.i.i88.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i91.i.i.i" ]
-  %141 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i.i89.i.i.i, i64 4
-  %142 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i.i.i.i90.i.i.i, i64 4
-  %.not.i.i.i.i93.i.i.i = icmp eq ptr %141, %.val3.i85.i.i.i
-  br i1 %.not.i.i.i.i93.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit95.i.i.i", label %.lr.ph.i.i.i.i87.i.i.i, !llvm.loop !313
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit90.i.i.i": ; preds = %134, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i86.i.i.i"
+  %137 = phi i32 [ -1, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i86.i.i.i" ], [ %.1.i.i.i87.i.i.i, %134 ]
+  %138 = icmp sgt i32 %137, %.090140
+  br i1 %138, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit", label %139
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit95.i.i.i": ; preds = %140, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i91.i.i.i", %134
-  %143 = phi i32 [ 0, %134 ], [ %.1.i.i.i92.i.i.i, %140 ], [ -1, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i91.i.i.i" ]
-  %144 = icmp sgt i32 %143, %.089145
-  br i1 %144, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit", label %145
+139:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit90.i.i.i"
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0105.1.i.i.i, i64 112
+  br label %._crit_edge._crit_edge141.i.i.i
 
-145:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit95.i.i.i"
-  %146 = getelementptr inbounds nuw i8, ptr %.sroa.0111.1.i.i.i, i64 112
-  br label %._crit_edge._crit_edge159.i.i.i
+._crit_edge._crit_edge141.i.i.i:                  ; preds = %._crit_edge.i.i.i, %139
+  %.sroa.0105.2.i.i.i = phi ptr [ %140, %139 ], [ %.sroa.0105.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %141 = getelementptr i8, ptr %.sroa.0105.2.i.i.i, i64 8
+  %.val3.i91.i.i.i = load ptr, ptr %141, align 8
+  br i1 %21, label %143, label %142
 
-._crit_edge._crit_edge159.i.i.i:                  ; preds = %._crit_edge.i.i.i, %145
-  %.sroa.0111.2.i.i.i = phi ptr [ %146, %145 ], [ %.sroa.0111.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %.val2.i96.i.i.i = load ptr, ptr %.sroa.0111.2.i.i.i, align 8
-  %147 = getelementptr i8, ptr %.sroa.0111.2.i.i.i, i64 8
-  %.val3.i97.i.i.i = load ptr, ptr %147, align 8
-  br i1 %21, label %149, label %148
-
-148:                                              ; preds = %._crit_edge._crit_edge159.i.i.i
+142:                                              ; preds = %._crit_edge._crit_edge141.i.i.i
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_1clEv", ptr noundef nonnull @.str.9, i32 noundef 1887) #30
   unreachable
 
-149:                                              ; preds = %._crit_edge._crit_edge159.i.i.i
-  %150 = ptrtoint ptr %.val3.i97.i.i.i to i64
-  %151 = ptrtoint ptr %.val2.i96.i.i.i to i64
-  %152 = sub i64 %150, %151
-  %153 = icmp eq i64 %152, 16
-  br i1 %153, label %155, label %154
+143:                                              ; preds = %._crit_edge._crit_edge141.i.i.i
+  %.val2.i92.i.i.i = load ptr, ptr %.sroa.0105.2.i.i.i, align 8
+  %144 = ptrtoint ptr %.val3.i91.i.i.i to i64
+  %145 = ptrtoint ptr %.val2.i92.i.i.i to i64
+  %146 = sub i64 %144, %145
+  %147 = icmp eq i64 %146, 16
+  br i1 %147, label %.lr.ph.i.i.i.i93.i.i.i, label %148
 
-154:                                              ; preds = %149
+148:                                              ; preds = %143
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.170, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_1clEv", ptr noundef nonnull @.str.9, i32 noundef 1889) #30
   unreachable
 
-155:                                              ; preds = %149
-  %.not8.i.i.i.i98.i.i.i = icmp eq ptr %.val2.i96.i.i.i, %.val3.i97.i.i.i
-  br i1 %.not8.i.i.i.i98.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit107.i.i.i", label %.lr.ph.i.i.i.i99.i.i.i
+.lr.ph.i.i.i.i93.i.i.i:                           ; preds = %143, %154
+  %.05.i.i.i94.i.i.i = phi i32 [ %.1.i.i.i98.i.i.i, %154 ], [ 0, %143 ]
+  %.sroa.05.010.i.i.i.i95.i.i.i = phi ptr [ %155, %154 ], [ %.val2.i92.i.i.i, %143 ]
+  %.sroa.03.09.i.i.i.i96.i.i.i = phi ptr [ %156, %154 ], [ %2, %143 ]
+  %149 = load i32, ptr %.sroa.05.010.i.i.i.i95.i.i.i, align 4, !tbaa !41
+  %150 = load i32, ptr %.sroa.03.09.i.i.i.i96.i.i.i, align 4, !tbaa !41
+  %151 = icmp eq i32 %149, %150
+  br i1 %151, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i100.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i97.i.i.i"
 
-.lr.ph.i.i.i.i99.i.i.i:                           ; preds = %155, %161
-  %.05.i.i.i100.i.i.i = phi i32 [ %.1.i.i.i104.i.i.i, %161 ], [ 0, %155 ]
-  %.sroa.05.010.i.i.i.i101.i.i.i = phi ptr [ %162, %161 ], [ %.val2.i96.i.i.i, %155 ]
-  %.sroa.03.09.i.i.i.i102.i.i.i = phi ptr [ %163, %161 ], [ %2, %155 ]
-  %156 = load i32, ptr %.sroa.05.010.i.i.i.i101.i.i.i, align 4, !tbaa !41
-  %157 = load i32, ptr %.sroa.03.09.i.i.i.i102.i.i.i, align 4, !tbaa !41
-  %158 = icmp eq i32 %156, %157
-  br i1 %158, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i106.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i103.i.i.i"
+"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i100.i.i.i": ; preds = %.lr.ph.i.i.i.i93.i.i.i
+  %152 = add nsw i32 %.05.i.i.i94.i.i.i, 1
+  br label %154
 
-"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i106.i.i.i": ; preds = %.lr.ph.i.i.i.i99.i.i.i
-  %159 = add nsw i32 %.05.i.i.i100.i.i.i, 1
-  br label %161
+"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i97.i.i.i": ; preds = %.lr.ph.i.i.i.i93.i.i.i
+  %153 = icmp eq i32 %149, -1
+  br i1 %153, label %154, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit101.i.i.i"
 
-"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i103.i.i.i": ; preds = %.lr.ph.i.i.i.i99.i.i.i
-  %160 = icmp eq i32 %156, -1
-  br i1 %160, label %161, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit107.i.i.i"
+154:                                              ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i97.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i100.i.i.i"
+  %.1.i.i.i98.i.i.i = phi i32 [ %152, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i100.i.i.i" ], [ %.05.i.i.i94.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i97.i.i.i" ]
+  %155 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i.i95.i.i.i, i64 4
+  %156 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i.i.i.i96.i.i.i, i64 4
+  %.not.i.i.i.i99.i.i.i = icmp eq ptr %155, %.val3.i91.i.i.i
+  br i1 %.not.i.i.i.i99.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit101.i.i.i", label %.lr.ph.i.i.i.i93.i.i.i, !llvm.loop !313
 
-161:                                              ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i103.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i106.i.i.i"
-  %.1.i.i.i104.i.i.i = phi i32 [ %159, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i106.i.i.i" ], [ %.05.i.i.i100.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i103.i.i.i" ]
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i.i101.i.i.i, i64 4
-  %163 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i.i.i.i102.i.i.i, i64 4
-  %.not.i.i.i.i105.i.i.i = icmp eq ptr %162, %.val3.i97.i.i.i
-  br i1 %.not.i.i.i.i105.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit107.i.i.i", label %.lr.ph.i.i.i.i99.i.i.i, !llvm.loop !313
-
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit107.i.i.i": ; preds = %161, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i103.i.i.i", %155
-  %164 = phi i32 [ 0, %155 ], [ %.1.i.i.i104.i.i.i, %161 ], [ -1, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i103.i.i.i" ]
-  %165 = icmp sgt i32 %164, %.089145
-  %spec.select.i.i.i = select i1 %165, ptr %.sroa.0111.2.i.i.i, ptr %10
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit101.i.i.i": ; preds = %154, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i97.i.i.i"
+  %157 = phi i32 [ -1, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i97.i.i.i" ], [ %.1.i.i.i98.i.i.i, %154 ]
+  %158 = icmp sgt i32 %157, %.090140
+  %spec.select.i.i.i = select i1 %158, ptr %.sroa.0105.2.i.i.i, ptr %10
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit47.i.i.i"
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0141.i.i.i, i64 112
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit46.i.i.i"
+  %159 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0129.i.i.i, i64 112
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit252": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit59.i.i.i"
-  %167 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0141.i.i.i, i64 224
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit235": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit57.i.i.i"
+  %160 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0129.i.i.i, i64 224
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit254": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit71.i.i.i"
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0141.i.i.i, i64 336
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit237": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit68.i.i.i"
+  %161 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0129.i.i.i, i64 336
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit252", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit254", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit83.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit95.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit107.i.i.i"
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.0111.0.lcssa.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit83.i.i.i" ], [ %.sroa.0111.1.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit95.i.i.i" ], [ %spec.select.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit107.i.i.i" ], [ %166, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit" ], [ %167, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit252" ], [ %168, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit254" ], [ %.sroa.0111.0141.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i" ]
-  %.not95 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %10
-  br i1 %.not95, label %._crit_edge, label %169
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit235", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit237", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit79.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit90.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit101.i.i.i"
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.0105.0.lcssa.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit79.i.i.i" ], [ %.sroa.0105.1.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit90.i.i.i" ], [ %spec.select.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit101.i.i.i" ], [ %159, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit" ], [ %160, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit235" ], [ %161, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit.loopexit.split.loop.exit237" ], [ %.sroa.0105.0129.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i" ]
+  %.not96 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %10
+  br i1 %.not96, label %._crit_edge, label %162
 
-169:                                              ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit"
+162:                                              ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit"
+  %163 = getelementptr i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i, i64 8
+  %.val40 = load ptr, ptr %163, align 8
+  br i1 %21, label %165, label %164
+
+164:                                              ; preds = %162
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_1clEv", ptr noundef nonnull @.str.9, i32 noundef 1887) #30
+  unreachable
+
+165:                                              ; preds = %162
   %.val = load ptr, ptr %.sroa.08.0.in.sroa.speculated.i.i.i, align 8
-  %170 = getelementptr i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i, i64 8
-  %.val40 = load ptr, ptr %170, align 8
-  br i1 %21, label %172, label %171
+  %166 = ptrtoint ptr %.val40 to i64
+  %167 = ptrtoint ptr %.val to i64
+  %168 = sub i64 %166, %167
+  %169 = icmp eq i64 %168, 16
+  br i1 %169, label %.lr.ph.i.i, label %170
 
-171:                                              ; preds = %169
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_1clEv", ptr noundef nonnull @.str.9, i32 noundef 1887) #30
-  unreachable
-
-172:                                              ; preds = %169
-  %173 = ptrtoint ptr %.val40 to i64
-  %174 = ptrtoint ptr %.val to i64
-  %175 = sub i64 %173, %174
-  %176 = icmp eq i64 %175, 16
-  br i1 %176, label %178, label %177
-
-177:                                              ; preds = %172
+170:                                              ; preds = %165
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.170, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_1clEv", ptr noundef nonnull @.str.9, i32 noundef 1889) #30
   unreachable
 
-178:                                              ; preds = %172
-  %.not8.i.i = icmp eq ptr %.val, %.val40
-  br i1 %.not8.i.i, label %_ZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEE.exit, label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %178, %184
-  %.05.i = phi i32 [ %.1.i, %184 ], [ 0, %178 ]
-  %.sroa.05.010.i.i = phi ptr [ %185, %184 ], [ %.val, %178 ]
-  %.sroa.03.09.i.i = phi ptr [ %186, %184 ], [ %2, %178 ]
-  %179 = load i32, ptr %.sroa.05.010.i.i, align 4, !tbaa !41
-  %180 = load i32, ptr %.sroa.03.09.i.i, align 4, !tbaa !41
-  %181 = icmp eq i32 %179, %180
-  br i1 %181, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i"
+.lr.ph.i.i:                                       ; preds = %165, %176
+  %.05.i = phi i32 [ %.1.i, %176 ], [ 0, %165 ]
+  %.sroa.05.010.i.i = phi ptr [ %177, %176 ], [ %.val, %165 ]
+  %.sroa.03.09.i.i = phi ptr [ %178, %176 ], [ %2, %165 ]
+  %171 = load i32, ptr %.sroa.05.010.i.i, align 4, !tbaa !41
+  %172 = load i32, ptr %.sroa.03.09.i.i, align 4, !tbaa !41
+  %173 = icmp eq i32 %171, %172
+  br i1 %173, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i"
 
 "_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i": ; preds = %.lr.ph.i.i
-  %182 = add nsw i32 %.05.i, 1
-  br label %184
+  %174 = add nsw i32 %.05.i, 1
+  br label %176
 
 "_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i": ; preds = %.lr.ph.i.i
-  %183 = icmp eq i32 %179, -1
-  br i1 %183, label %184, label %_ZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEE.exit
+  %175 = icmp eq i32 %171, -1
+  br i1 %175, label %176, label %_ZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEE.exit
 
-184:                                              ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i"
-  %.1.i = phi i32 [ %182, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i" ], [ %.05.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i" ]
-  %185 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i, i64 4
-  %186 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i.i, i64 4
-  %.not.i.i = icmp eq ptr %185, %.val40
+176:                                              ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i"
+  %.1.i = phi i32 [ %174, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i" ], [ %.05.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i" ]
+  %177 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i, i64 4
+  %178 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i.i, i64 4
+  %.not.i.i = icmp eq ptr %177, %.val40
   br i1 %.not.i.i, label %_ZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEE.exit, label %.lr.ph.i.i, !llvm.loop !313
 
-_ZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEE.exit: ; preds = %184, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i", %178
-  %.190 = phi i32 [ 0, %178 ], [ -1, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i" ], [ %.1.i, %184 ]
-  %187 = icmp slt i32 %.190, 4
-  br i1 %187, label %23, label %._crit_edge, !llvm.loop !315
+_ZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEE.exit: ; preds = %176, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i"
+  %.191 = phi i32 [ %.1.i, %176 ], [ -1, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i" ]
+  %179 = icmp slt i32 %.191, 4
+  br i1 %179, label %23, label %._crit_edge, !llvm.loop !315
 
 ._crit_edge:                                      ; preds = %._crit_edge.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit", %_ZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEE.exit
-  %.sroa.082.0.lcssa = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i, %_ZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEE.exit ], [ %.sroa.082.0147, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit" ], [ %.sroa.082.0147, %._crit_edge.i.i.i ]
-  %.not = icmp eq ptr %.sroa.082.0.lcssa, %10
-  br i1 %.not, label %.loopexit, label %188
+  %.sroa.083.0.lcssa = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i, %_ZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEE.exit ], [ %.sroa.083.0142, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_1ET_SG_SG_T0_.exit" ], [ %.sroa.083.0142, %._crit_edge.i.i.i ]
+  %.not = icmp eq ptr %.sroa.083.0.lcssa, %10
+  br i1 %.not, label %.loopexit, label %180
 
-188:                                              ; preds = %._crit_edge
-  %189 = ptrtoint ptr %.sroa.082.0.lcssa to i64
-  %190 = ptrtoint ptr %10 to i64
-  %191 = sub i64 %190, %189
-  %192 = icmp sgt i64 %191, 224
-  %193 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.lcssa, i64 224
-  %spec.select.i = select i1 %192, ptr %193, ptr %10
-  %194 = icmp ult ptr %spec.select.i, %10
-  br i1 %194, label %.lr.ph152, label %.loopexit
+180:                                              ; preds = %._crit_edge
+  %181 = ptrtoint ptr %.sroa.083.0.lcssa to i64
+  %182 = ptrtoint ptr %10 to i64
+  %183 = sub i64 %182, %181
+  %184 = icmp sgt i64 %183, 224
+  %185 = getelementptr inbounds nuw i8, ptr %.sroa.083.0.lcssa, i64 224
+  %spec.select.i = select i1 %184, ptr %185, ptr %10
+  %186 = icmp ult ptr %spec.select.i, %10
+  br i1 %186, label %.lr.ph147, label %.loopexit
 
-.lr.ph152:                                        ; preds = %188, %.thread
-  %.1150 = phi i32 [ %spec.select, %.thread ], [ 1, %188 ]
-  %.sroa.052.0149 = phi ptr [ %spec.select.i42, %.thread ], [ %spec.select.i, %188 ]
-  %195 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2aiEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.082.0.lcssa)
+.lr.ph147:                                        ; preds = %180, %.thread
+  %.1145 = phi i32 [ %spec.select, %.thread ], [ 1, %180 ]
+  %.sroa.053.0144 = phi ptr [ %spec.select.i42, %.thread ], [ %spec.select.i, %180 ]
+  %187 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2aiEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.083.0.lcssa)
+  %188 = load i32, ptr %187, align 4, !tbaa !41
+  %189 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2aiEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.053.0144)
+  %190 = load i32, ptr %189, align 4, !tbaa !41
+  %191 = icmp eq i32 %188, %190
+  br i1 %191, label %192, label %.loopexit
+
+192:                                              ; preds = %.lr.ph147
+  %193 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2ajEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.083.0.lcssa)
+  %194 = load i32, ptr %193, align 4, !tbaa !41
+  %195 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2ajEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.053.0144)
   %196 = load i32, ptr %195, align 4, !tbaa !41
-  %197 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2aiEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.052.0149)
-  %198 = load i32, ptr %197, align 4, !tbaa !41
-  %199 = icmp eq i32 %196, %198
-  br i1 %199, label %200, label %.loopexit
+  %197 = icmp eq i32 %194, %196
+  br i1 %197, label %198, label %.loopexit
 
-200:                                              ; preds = %.lr.ph152
-  %201 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2ajEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.082.0.lcssa)
+198:                                              ; preds = %192
+  %199 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2akEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.083.0.lcssa)
+  %200 = load i32, ptr %199, align 4, !tbaa !41
+  %201 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2akEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.053.0144)
   %202 = load i32, ptr %201, align 4, !tbaa !41
-  %203 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2ajEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.052.0149)
-  %204 = load i32, ptr %203, align 4, !tbaa !41
-  %205 = icmp eq i32 %202, %204
-  br i1 %205, label %206, label %.loopexit
+  %203 = icmp eq i32 %200, %202
+  br i1 %203, label %.thread, label %.loopexit
 
-206:                                              ; preds = %200
-  %207 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2akEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.082.0.lcssa)
-  %208 = load i32, ptr %207, align 4, !tbaa !41
-  %209 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2akEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.052.0149)
-  %210 = load i32, ptr %209, align 4, !tbaa !41
-  %211 = icmp eq i32 %208, %210
-  br i1 %211, label %.thread, label %.loopexit
+.thread:                                          ; preds = %198
+  %204 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2alEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.083.0.lcssa)
+  %205 = load i32, ptr %204, align 4, !tbaa !41
+  %206 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2alEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.053.0144)
+  %207 = load i32, ptr %206, align 4, !tbaa !41
+  %.fr = freeze i32 %205
+  %.fr95 = freeze i32 %207
+  %208 = icmp eq i32 %.fr, %.fr95
+  %209 = zext i1 %208 to i32
+  %spec.select = add nuw nsw i32 %.1145, %209
+  %210 = ptrtoint ptr %.sroa.053.0144 to i64
+  %211 = sub i64 %182, %210
+  %212 = icmp sgt i64 %211, 224
+  %213 = getelementptr inbounds nuw i8, ptr %.sroa.053.0144, i64 224
+  %spec.select.i42 = select i1 %212, ptr %213, ptr %10
+  %214 = icmp ult ptr %spec.select.i42, %10
+  %215 = and i1 %214, %208
+  br i1 %215, label %.lr.ph147, label %.loopexit, !llvm.loop !316
 
-.thread:                                          ; preds = %206
-  %212 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2alEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.082.0.lcssa)
-  %213 = load i32, ptr %212, align 4, !tbaa !41
-  %214 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2alEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.052.0149)
-  %215 = load i32, ptr %214, align 4, !tbaa !41
-  %.fr = freeze i32 %213
-  %.fr94 = freeze i32 %215
-  %216 = icmp eq i32 %.fr, %.fr94
-  %217 = zext i1 %216 to i32
-  %spec.select = add nuw nsw i32 %.1150, %217
-  %218 = ptrtoint ptr %.sroa.052.0149 to i64
-  %219 = sub i64 %190, %218
-  %220 = icmp sgt i64 %219, 224
-  %221 = getelementptr inbounds nuw i8, ptr %.sroa.052.0149, i64 224
-  %spec.select.i42 = select i1 %220, ptr %221, ptr %10
-  %222 = icmp ult ptr %spec.select.i42, %10
-  %223 = and i1 %222, %216
-  br i1 %223, label %.lr.ph152, label %.loopexit, !llvm.loop !316
+216:                                              ; preds = %5
+  %217 = sext i32 %0 to i64
+  %218 = getelementptr inbounds %struct.InteractionsOfType, ptr %1, i64 %217
+  %219 = load ptr, ptr %218, align 8, !tbaa !300
+  %220 = getelementptr inbounds nuw i8, ptr %218, i64 8
+  %221 = load ptr, ptr %220, align 8, !tbaa !300
+  %222 = ptrtoint ptr %221 to i64
+  %223 = ptrtoint ptr %219 to i64
+  %224 = sub i64 %222, %223
+  %225 = sdiv exact i64 %224, 112
+  %226 = ashr i64 %225, 2
+  %227 = icmp sgt i64 %226, 0
+  br i1 %227, label %.lr.ph.i.i.i47, label %._crit_edge.i.i.i43
 
-224:                                              ; preds = %5
-  %225 = sext i32 %0 to i64
-  %226 = getelementptr inbounds %struct.InteractionsOfType, ptr %1, i64 %225
-  %227 = load ptr, ptr %226, align 8, !tbaa !300
-  %228 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %229 = load ptr, ptr %228, align 8, !tbaa !300
-  %230 = ptrtoint ptr %229 to i64
-  %231 = ptrtoint ptr %227 to i64
-  %232 = sub i64 %230, %231
-  %233 = sdiv exact i64 %232, 112
-  %234 = ashr i64 %233, 2
-  %235 = icmp sgt i64 %234, 0
-  br i1 %235, label %.lr.ph.i.i.i46, label %._crit_edge.i.i.i43
+.lr.ph.i.i.i47:                                   ; preds = %216
+  %228 = mul nuw nsw i64 %226, 448
+  %scevgep.i.i.i48 = getelementptr i8, ptr %219, i64 %228
+  br label %229
 
-.lr.ph.i.i.i46:                                   ; preds = %224
-  %236 = mul nuw nsw i64 %234, 448
-  %scevgep.i.i.i47 = getelementptr i8, ptr %227, i64 %236
-  br label %237
-
-237:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit48.i.i.i", %.lr.ph.i.i.i46
-  %.0126.i.i.i = phi i64 [ %234, %.lr.ph.i.i.i46 ], [ %270, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit48.i.i.i" ]
-  %.sroa.079.0125.i.i.i = phi ptr [ %227, %.lr.ph.i.i.i46 ], [ %269, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit48.i.i.i" ]
+229:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit48.i.i.i", %.lr.ph.i.i.i47
+  %.0126.i.i.i = phi i64 [ %226, %.lr.ph.i.i.i47 ], [ %262, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit48.i.i.i" ]
+  %.sroa.079.0125.i.i.i = phi ptr [ %219, %.lr.ph.i.i.i47 ], [ %261, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit48.i.i.i" ]
   %.val1.i.i.i.i = load ptr, ptr %.sroa.079.0125.i.i.i, align 8, !tbaa !24
-  %238 = getelementptr i8, ptr %.sroa.079.0125.i.i.i, i64 8
-  %.val2.i.i.i.i48 = load ptr, ptr %238, align 8, !tbaa !58
-  %.not6.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val1.i.i.i.i, %.val2.i.i.i.i48
+  %230 = getelementptr i8, ptr %.sroa.079.0125.i.i.i, i64 8
+  %.val2.i.i.i.i49 = load ptr, ptr %230, align 8, !tbaa !58
+  %.not6.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val1.i.i.i.i, %.val2.i.i.i.i49
   br i1 %.not6.i.i.i.i.i.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %237, %242
-  %.sroa.0.08.i.i.i.i.i.i.i.i.i = phi ptr [ %244, %242 ], [ %2, %237 ]
-  %.sroa.04.07.i.i.i.i.i.i.i.i.i = phi ptr [ %243, %242 ], [ %.val1.i.i.i.i, %237 ]
-  %239 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i.i.i.i, align 4, !tbaa !41
-  %240 = load i32, ptr %.sroa.0.08.i.i.i.i.i.i.i.i.i, align 4, !tbaa !41
-  %241 = icmp eq i32 %239, %240
-  br i1 %241, label %242, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i"
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %229, %234
+  %.sroa.0.08.i.i.i.i.i.i.i.i.i = phi ptr [ %236, %234 ], [ %2, %229 ]
+  %.sroa.04.07.i.i.i.i.i.i.i.i.i = phi ptr [ %235, %234 ], [ %.val1.i.i.i.i, %229 ]
+  %231 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i.i.i.i, align 4, !tbaa !41
+  %232 = load i32, ptr %.sroa.0.08.i.i.i.i.i.i.i.i.i, align 4, !tbaa !41
+  %233 = icmp eq i32 %231, %232
+  br i1 %233, label %234, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i"
 
-242:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %243 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i.i.i.i, i64 4
-  %244 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %243, %.val2.i.i.i.i48
+234:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
+  %235 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i.i.i.i, i64 4
+  %236 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %235, %.val2.i.i.i.i49
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !147
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %245 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 112
-  %.val1.i22.i.i.i = load ptr, ptr %245, align 8, !tbaa !24
-  %246 = getelementptr i8, ptr %.sroa.079.0125.i.i.i, i64 120
-  %.val2.i23.i.i.i = load ptr, ptr %246, align 8, !tbaa !58
+  %237 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 112
+  %.val1.i22.i.i.i = load ptr, ptr %237, align 8, !tbaa !24
+  %238 = getelementptr i8, ptr %.sroa.079.0125.i.i.i, i64 120
+  %.val2.i23.i.i.i = load ptr, ptr %238, align 8, !tbaa !58
   %.not6.i.i.i.i.i.i24.i.i.i = icmp eq ptr %.val1.i22.i.i.i, %.val2.i23.i.i.i
-  br i1 %.not6.i.i.i.i.i.i24.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit231.split.loop.exit", label %.lr.ph.i.i.i.i.i.i25.i.i.i
+  br i1 %.not6.i.i.i.i.i.i24.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit220.split.loop.exit", label %.lr.ph.i.i.i.i.i.i25.i.i.i
 
-.lr.ph.i.i.i.i.i.i25.i.i.i:                       ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i", %250
-  %.sroa.0.08.i.i.i.i.i.i26.i.i.i = phi ptr [ %252, %250 ], [ %2, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i" ]
-  %.sroa.04.07.i.i.i.i.i.i27.i.i.i = phi ptr [ %251, %250 ], [ %.val1.i22.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i" ]
-  %247 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i27.i.i.i, align 4, !tbaa !41
-  %248 = load i32, ptr %.sroa.0.08.i.i.i.i.i.i26.i.i.i, align 4, !tbaa !41
-  %249 = icmp eq i32 %247, %248
-  br i1 %249, label %250, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit30.i.i.i"
+.lr.ph.i.i.i.i.i.i25.i.i.i:                       ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i", %242
+  %.sroa.0.08.i.i.i.i.i.i26.i.i.i = phi ptr [ %244, %242 ], [ %2, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i" ]
+  %.sroa.04.07.i.i.i.i.i.i27.i.i.i = phi ptr [ %243, %242 ], [ %.val1.i22.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i" ]
+  %239 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i27.i.i.i, align 4, !tbaa !41
+  %240 = load i32, ptr %.sroa.0.08.i.i.i.i.i.i26.i.i.i, align 4, !tbaa !41
+  %241 = icmp eq i32 %239, %240
+  br i1 %241, label %242, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit30.i.i.i"
 
-250:                                              ; preds = %.lr.ph.i.i.i.i.i.i25.i.i.i
-  %251 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i27.i.i.i, i64 4
-  %252 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i26.i.i.i, i64 4
-  %.not.i.i.i.i.i.i29.i.i.i = icmp eq ptr %251, %.val2.i23.i.i.i
-  br i1 %.not.i.i.i.i.i.i29.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit229", label %.lr.ph.i.i.i.i.i.i25.i.i.i, !llvm.loop !147
+242:                                              ; preds = %.lr.ph.i.i.i.i.i.i25.i.i.i
+  %243 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i27.i.i.i, i64 4
+  %244 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i26.i.i.i, i64 4
+  %.not.i.i.i.i.i.i29.i.i.i = icmp eq ptr %243, %.val2.i23.i.i.i
+  br i1 %.not.i.i.i.i.i.i29.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit218", label %.lr.ph.i.i.i.i.i.i25.i.i.i, !llvm.loop !147
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit30.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i25.i.i.i
-  %253 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 224
-  %.val1.i31.i.i.i = load ptr, ptr %253, align 8, !tbaa !24
-  %254 = getelementptr i8, ptr %.sroa.079.0125.i.i.i, i64 232
-  %.val2.i32.i.i.i = load ptr, ptr %254, align 8, !tbaa !58
+  %245 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 224
+  %.val1.i31.i.i.i = load ptr, ptr %245, align 8, !tbaa !24
+  %246 = getelementptr i8, ptr %.sroa.079.0125.i.i.i, i64 232
+  %.val2.i32.i.i.i = load ptr, ptr %246, align 8, !tbaa !58
   %.not6.i.i.i.i.i.i33.i.i.i = icmp eq ptr %.val1.i31.i.i.i, %.val2.i32.i.i.i
-  br i1 %.not6.i.i.i.i.i.i33.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit231.split.loop.exit260", label %.lr.ph.i.i.i.i.i.i34.i.i.i
+  br i1 %.not6.i.i.i.i.i.i33.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit220.split.loop.exit243", label %.lr.ph.i.i.i.i.i.i34.i.i.i
 
-.lr.ph.i.i.i.i.i.i34.i.i.i:                       ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit30.i.i.i", %258
-  %.sroa.0.08.i.i.i.i.i.i35.i.i.i = phi ptr [ %260, %258 ], [ %2, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit30.i.i.i" ]
-  %.sroa.04.07.i.i.i.i.i.i36.i.i.i = phi ptr [ %259, %258 ], [ %.val1.i31.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit30.i.i.i" ]
-  %255 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i36.i.i.i, align 4, !tbaa !41
-  %256 = load i32, ptr %.sroa.0.08.i.i.i.i.i.i35.i.i.i, align 4, !tbaa !41
-  %257 = icmp eq i32 %255, %256
-  br i1 %257, label %258, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit39.i.i.i"
+.lr.ph.i.i.i.i.i.i34.i.i.i:                       ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit30.i.i.i", %250
+  %.sroa.0.08.i.i.i.i.i.i35.i.i.i = phi ptr [ %252, %250 ], [ %2, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit30.i.i.i" ]
+  %.sroa.04.07.i.i.i.i.i.i36.i.i.i = phi ptr [ %251, %250 ], [ %.val1.i31.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit30.i.i.i" ]
+  %247 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i36.i.i.i, align 4, !tbaa !41
+  %248 = load i32, ptr %.sroa.0.08.i.i.i.i.i.i35.i.i.i, align 4, !tbaa !41
+  %249 = icmp eq i32 %247, %248
+  br i1 %249, label %250, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit39.i.i.i"
 
-258:                                              ; preds = %.lr.ph.i.i.i.i.i.i34.i.i.i
-  %259 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i36.i.i.i, i64 4
-  %260 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i35.i.i.i, i64 4
-  %.not.i.i.i.i.i.i38.i.i.i = icmp eq ptr %259, %.val2.i32.i.i.i
-  br i1 %.not.i.i.i.i.i.i38.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit228", label %.lr.ph.i.i.i.i.i.i34.i.i.i, !llvm.loop !147
+250:                                              ; preds = %.lr.ph.i.i.i.i.i.i34.i.i.i
+  %251 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i36.i.i.i, i64 4
+  %252 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i35.i.i.i, i64 4
+  %.not.i.i.i.i.i.i38.i.i.i = icmp eq ptr %251, %.val2.i32.i.i.i
+  br i1 %.not.i.i.i.i.i.i38.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit217", label %.lr.ph.i.i.i.i.i.i34.i.i.i, !llvm.loop !147
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit39.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i34.i.i.i
-  %261 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 336
-  %.val1.i40.i.i.i = load ptr, ptr %261, align 8, !tbaa !24
-  %262 = getelementptr i8, ptr %.sroa.079.0125.i.i.i, i64 344
-  %.val2.i41.i.i.i = load ptr, ptr %262, align 8, !tbaa !58
+  %253 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 336
+  %.val1.i40.i.i.i = load ptr, ptr %253, align 8, !tbaa !24
+  %254 = getelementptr i8, ptr %.sroa.079.0125.i.i.i, i64 344
+  %.val2.i41.i.i.i = load ptr, ptr %254, align 8, !tbaa !58
   %.not6.i.i.i.i.i.i42.i.i.i = icmp eq ptr %.val1.i40.i.i.i, %.val2.i41.i.i.i
-  br i1 %.not6.i.i.i.i.i.i42.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit231.split.loop.exit262", label %.lr.ph.i.i.i.i.i.i43.i.i.i
+  br i1 %.not6.i.i.i.i.i.i42.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit220.split.loop.exit245", label %.lr.ph.i.i.i.i.i.i43.i.i.i
 
-.lr.ph.i.i.i.i.i.i43.i.i.i:                       ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit39.i.i.i", %266
-  %.sroa.0.08.i.i.i.i.i.i44.i.i.i = phi ptr [ %268, %266 ], [ %2, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit39.i.i.i" ]
-  %.sroa.04.07.i.i.i.i.i.i45.i.i.i = phi ptr [ %267, %266 ], [ %.val1.i40.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit39.i.i.i" ]
-  %263 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i45.i.i.i, align 4, !tbaa !41
-  %264 = load i32, ptr %.sroa.0.08.i.i.i.i.i.i44.i.i.i, align 4, !tbaa !41
-  %265 = icmp eq i32 %263, %264
-  br i1 %265, label %266, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit48.i.i.i"
+.lr.ph.i.i.i.i.i.i43.i.i.i:                       ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit39.i.i.i", %258
+  %.sroa.0.08.i.i.i.i.i.i44.i.i.i = phi ptr [ %260, %258 ], [ %2, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit39.i.i.i" ]
+  %.sroa.04.07.i.i.i.i.i.i45.i.i.i = phi ptr [ %259, %258 ], [ %.val1.i40.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit39.i.i.i" ]
+  %255 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i45.i.i.i, align 4, !tbaa !41
+  %256 = load i32, ptr %.sroa.0.08.i.i.i.i.i.i44.i.i.i, align 4, !tbaa !41
+  %257 = icmp eq i32 %255, %256
+  br i1 %257, label %258, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit48.i.i.i"
 
-266:                                              ; preds = %.lr.ph.i.i.i.i.i.i43.i.i.i
-  %267 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i45.i.i.i, i64 4
-  %268 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i44.i.i.i, i64 4
-  %.not.i.i.i.i.i.i47.i.i.i = icmp eq ptr %267, %.val2.i41.i.i.i
-  br i1 %.not.i.i.i.i.i.i47.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit227", label %.lr.ph.i.i.i.i.i.i43.i.i.i, !llvm.loop !147
+258:                                              ; preds = %.lr.ph.i.i.i.i.i.i43.i.i.i
+  %259 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i45.i.i.i, i64 4
+  %260 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i44.i.i.i, i64 4
+  %.not.i.i.i.i.i.i47.i.i.i = icmp eq ptr %259, %.val2.i41.i.i.i
+  br i1 %.not.i.i.i.i.i.i47.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit216", label %.lr.ph.i.i.i.i.i.i43.i.i.i, !llvm.loop !147
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit48.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i43.i.i.i
-  %269 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 448
-  %270 = add nsw i64 %.0126.i.i.i, -1
-  %271 = icmp sgt i64 %.0126.i.i.i, 1
-  br i1 %271, label %237, label %._crit_edge.loopexit.i.i.i49, !llvm.loop !317
+  %261 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 448
+  %262 = add nsw i64 %.0126.i.i.i, -1
+  %263 = icmp sgt i64 %.0126.i.i.i, 1
+  br i1 %263, label %229, label %._crit_edge.loopexit.i.i.i50, !llvm.loop !317
 
-._crit_edge.loopexit.i.i.i49:                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit48.i.i.i"
-  %.pre.i.i.i50 = ptrtoint ptr %scevgep.i.i.i47 to i64
-  %.pre142.i.i.i = sub i64 %230, %.pre.i.i.i50
+._crit_edge.loopexit.i.i.i50:                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit48.i.i.i"
+  %.pre.i.i.i51 = ptrtoint ptr %scevgep.i.i.i48 to i64
+  %.pre142.i.i.i = sub i64 %222, %.pre.i.i.i51
   br label %._crit_edge.i.i.i43
 
-._crit_edge.i.i.i43:                              ; preds = %._crit_edge.loopexit.i.i.i49, %224
-  %.pre-phi143.i.i.i = phi i64 [ %.pre142.i.i.i, %._crit_edge.loopexit.i.i.i49 ], [ %232, %224 ]
-  %.sroa.079.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i47, %._crit_edge.loopexit.i.i.i49 ], [ %227, %224 ]
-  %272 = sdiv exact i64 %.pre-phi143.i.i.i, 112
-  switch i64 %272, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit" [
-    i64 3, label %273
+._crit_edge.i.i.i43:                              ; preds = %._crit_edge.loopexit.i.i.i50, %216
+  %.pre-phi143.i.i.i = phi i64 [ %.pre142.i.i.i, %._crit_edge.loopexit.i.i.i50 ], [ %224, %216 ]
+  %.sroa.079.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i48, %._crit_edge.loopexit.i.i.i50 ], [ %219, %216 ]
+  %264 = sdiv exact i64 %.pre-phi143.i.i.i, 112
+  switch i64 %264, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit" [
+    i64 3, label %265
     i64 2, label %._crit_edge._crit_edge.i.i.i45
     i64 1, label %._crit_edge._crit_edge140.i.i.i
   ]
 
-273:                                              ; preds = %._crit_edge.i.i.i43
+265:                                              ; preds = %._crit_edge.i.i.i43
   %.val1.i49.i.i.i = load ptr, ptr %.sroa.079.0.lcssa.i.i.i, align 8, !tbaa !24
-  %274 = getelementptr i8, ptr %.sroa.079.0.lcssa.i.i.i, i64 8
-  %.val2.i50.i.i.i = load ptr, ptr %274, align 8, !tbaa !58
+  %266 = getelementptr i8, ptr %.sroa.079.0.lcssa.i.i.i, i64 8
+  %.val2.i50.i.i.i = load ptr, ptr %266, align 8, !tbaa !58
   %.not6.i.i.i.i.i.i51.i.i.i = icmp eq ptr %.val1.i49.i.i.i, %.val2.i50.i.i.i
   br i1 %.not6.i.i.i.i.i.i51.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit", label %.lr.ph.i.i.i.i.i.i52.i.i.i
 
-.lr.ph.i.i.i.i.i.i52.i.i.i:                       ; preds = %273, %278
-  %.sroa.0.08.i.i.i.i.i.i53.i.i.i = phi ptr [ %280, %278 ], [ %2, %273 ]
-  %.sroa.04.07.i.i.i.i.i.i54.i.i.i = phi ptr [ %279, %278 ], [ %.val1.i49.i.i.i, %273 ]
-  %275 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i54.i.i.i, align 4, !tbaa !41
-  %276 = load i32, ptr %.sroa.0.08.i.i.i.i.i.i53.i.i.i, align 4, !tbaa !41
-  %277 = icmp eq i32 %275, %276
-  br i1 %277, label %278, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit57.i.i.i"
+.lr.ph.i.i.i.i.i.i52.i.i.i:                       ; preds = %265, %270
+  %.sroa.0.08.i.i.i.i.i.i53.i.i.i = phi ptr [ %272, %270 ], [ %2, %265 ]
+  %.sroa.04.07.i.i.i.i.i.i54.i.i.i = phi ptr [ %271, %270 ], [ %.val1.i49.i.i.i, %265 ]
+  %267 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i54.i.i.i, align 4, !tbaa !41
+  %268 = load i32, ptr %.sroa.0.08.i.i.i.i.i.i53.i.i.i, align 4, !tbaa !41
+  %269 = icmp eq i32 %267, %268
+  br i1 %269, label %270, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit57.i.i.i"
 
-278:                                              ; preds = %.lr.ph.i.i.i.i.i.i52.i.i.i
-  %279 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i54.i.i.i, i64 4
-  %280 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i53.i.i.i, i64 4
-  %.not.i.i.i.i.i.i56.i.i.i = icmp eq ptr %279, %.val2.i50.i.i.i
+270:                                              ; preds = %.lr.ph.i.i.i.i.i.i52.i.i.i
+  %271 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i54.i.i.i, i64 4
+  %272 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i53.i.i.i, i64 4
+  %.not.i.i.i.i.i.i56.i.i.i = icmp eq ptr %271, %.val2.i50.i.i.i
   br i1 %.not.i.i.i.i.i.i56.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit", label %.lr.ph.i.i.i.i.i.i52.i.i.i, !llvm.loop !147
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit57.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i52.i.i.i
-  %281 = getelementptr inbounds nuw i8, ptr %.sroa.079.0.lcssa.i.i.i, i64 112
+  %273 = getelementptr inbounds nuw i8, ptr %.sroa.079.0.lcssa.i.i.i, i64 112
   br label %._crit_edge._crit_edge.i.i.i45
 
 ._crit_edge._crit_edge.i.i.i45:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit57.i.i.i", %._crit_edge.i.i.i43
-  %.sroa.079.1.i.i.i = phi ptr [ %281, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit57.i.i.i" ], [ %.sroa.079.0.lcssa.i.i.i, %._crit_edge.i.i.i43 ]
+  %.sroa.079.1.i.i.i = phi ptr [ %273, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit57.i.i.i" ], [ %.sroa.079.0.lcssa.i.i.i, %._crit_edge.i.i.i43 ]
   %.val1.i58.i.i.i = load ptr, ptr %.sroa.079.1.i.i.i, align 8, !tbaa !24
-  %282 = getelementptr i8, ptr %.sroa.079.1.i.i.i, i64 8
-  %.val2.i59.i.i.i = load ptr, ptr %282, align 8, !tbaa !58
-  %.not6.i.i.i.i.i.i60.i.i.i = icmp eq ptr %.val1.i58.i.i.i, %.val2.i59.i.i.i
+  %274 = getelementptr i8, ptr %.sroa.079.1.i.i.i, i64 8
+  %.val2.i59.i.i.i46 = load ptr, ptr %274, align 8, !tbaa !58
+  %.not6.i.i.i.i.i.i60.i.i.i = icmp eq ptr %.val1.i58.i.i.i, %.val2.i59.i.i.i46
   br i1 %.not6.i.i.i.i.i.i60.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit", label %.lr.ph.i.i.i.i.i.i61.i.i.i
 
-.lr.ph.i.i.i.i.i.i61.i.i.i:                       ; preds = %._crit_edge._crit_edge.i.i.i45, %286
-  %.sroa.0.08.i.i.i.i.i.i62.i.i.i = phi ptr [ %288, %286 ], [ %2, %._crit_edge._crit_edge.i.i.i45 ]
-  %.sroa.04.07.i.i.i.i.i.i63.i.i.i = phi ptr [ %287, %286 ], [ %.val1.i58.i.i.i, %._crit_edge._crit_edge.i.i.i45 ]
-  %283 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i63.i.i.i, align 4, !tbaa !41
-  %284 = load i32, ptr %.sroa.0.08.i.i.i.i.i.i62.i.i.i, align 4, !tbaa !41
-  %285 = icmp eq i32 %283, %284
-  br i1 %285, label %286, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit66.i.i.i"
+.lr.ph.i.i.i.i.i.i61.i.i.i:                       ; preds = %._crit_edge._crit_edge.i.i.i45, %278
+  %.sroa.0.08.i.i.i.i.i.i62.i.i.i = phi ptr [ %280, %278 ], [ %2, %._crit_edge._crit_edge.i.i.i45 ]
+  %.sroa.04.07.i.i.i.i.i.i63.i.i.i = phi ptr [ %279, %278 ], [ %.val1.i58.i.i.i, %._crit_edge._crit_edge.i.i.i45 ]
+  %275 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i63.i.i.i, align 4, !tbaa !41
+  %276 = load i32, ptr %.sroa.0.08.i.i.i.i.i.i62.i.i.i, align 4, !tbaa !41
+  %277 = icmp eq i32 %275, %276
+  br i1 %277, label %278, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit66.i.i.i"
 
-286:                                              ; preds = %.lr.ph.i.i.i.i.i.i61.i.i.i
-  %287 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i63.i.i.i, i64 4
-  %288 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i62.i.i.i, i64 4
-  %.not.i.i.i.i.i.i65.i.i.i = icmp eq ptr %287, %.val2.i59.i.i.i
+278:                                              ; preds = %.lr.ph.i.i.i.i.i.i61.i.i.i
+  %279 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i63.i.i.i, i64 4
+  %280 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i62.i.i.i, i64 4
+  %.not.i.i.i.i.i.i65.i.i.i = icmp eq ptr %279, %.val2.i59.i.i.i46
   br i1 %.not.i.i.i.i.i.i65.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit", label %.lr.ph.i.i.i.i.i.i61.i.i.i, !llvm.loop !147
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit66.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i61.i.i.i
-  %289 = getelementptr inbounds nuw i8, ptr %.sroa.079.1.i.i.i, i64 112
+  %281 = getelementptr inbounds nuw i8, ptr %.sroa.079.1.i.i.i, i64 112
   br label %._crit_edge._crit_edge140.i.i.i
 
 ._crit_edge._crit_edge140.i.i.i:                  ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit66.i.i.i", %._crit_edge.i.i.i43
-  %.sroa.079.2.i.i.i = phi ptr [ %289, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit66.i.i.i" ], [ %.sroa.079.0.lcssa.i.i.i, %._crit_edge.i.i.i43 ]
+  %.sroa.079.2.i.i.i = phi ptr [ %281, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit66.i.i.i" ], [ %.sroa.079.0.lcssa.i.i.i, %._crit_edge.i.i.i43 ]
   %.val1.i67.i.i.i = load ptr, ptr %.sroa.079.2.i.i.i, align 8, !tbaa !24
-  %290 = getelementptr i8, ptr %.sroa.079.2.i.i.i, i64 8
-  %.val2.i68.i.i.i = load ptr, ptr %290, align 8, !tbaa !58
+  %282 = getelementptr i8, ptr %.sroa.079.2.i.i.i, i64 8
+  %.val2.i68.i.i.i = load ptr, ptr %282, align 8, !tbaa !58
   %.not6.i.i.i.i.i.i69.i.i.i = icmp eq ptr %.val1.i67.i.i.i, %.val2.i68.i.i.i
   br i1 %.not6.i.i.i.i.i.i69.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit", label %.lr.ph.i.i.i.i.i.i70.i.i.i
 
-.lr.ph.i.i.i.i.i.i70.i.i.i:                       ; preds = %._crit_edge._crit_edge140.i.i.i, %294
-  %.sroa.0.08.i.i.i.i.i.i71.i.i.i = phi ptr [ %296, %294 ], [ %2, %._crit_edge._crit_edge140.i.i.i ]
-  %.sroa.04.07.i.i.i.i.i.i72.i.i.i = phi ptr [ %295, %294 ], [ %.val1.i67.i.i.i, %._crit_edge._crit_edge140.i.i.i ]
-  %291 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i72.i.i.i, align 4, !tbaa !41
-  %292 = load i32, ptr %.sroa.0.08.i.i.i.i.i.i71.i.i.i, align 4, !tbaa !41
-  %293 = icmp eq i32 %291, %292
-  br i1 %293, label %294, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit"
+.lr.ph.i.i.i.i.i.i70.i.i.i:                       ; preds = %._crit_edge._crit_edge140.i.i.i, %286
+  %.sroa.0.08.i.i.i.i.i.i71.i.i.i = phi ptr [ %288, %286 ], [ %2, %._crit_edge._crit_edge140.i.i.i ]
+  %.sroa.04.07.i.i.i.i.i.i72.i.i.i = phi ptr [ %287, %286 ], [ %.val1.i67.i.i.i, %._crit_edge._crit_edge140.i.i.i ]
+  %283 = load i32, ptr %.sroa.04.07.i.i.i.i.i.i72.i.i.i, align 4, !tbaa !41
+  %284 = load i32, ptr %.sroa.0.08.i.i.i.i.i.i71.i.i.i, align 4, !tbaa !41
+  %285 = icmp eq i32 %283, %284
+  br i1 %285, label %286, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit"
 
-294:                                              ; preds = %.lr.ph.i.i.i.i.i.i70.i.i.i
-  %295 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i72.i.i.i, i64 4
-  %296 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i71.i.i.i, i64 4
-  %.not.i.i.i.i.i.i74.i.i.i = icmp eq ptr %295, %.val2.i68.i.i.i
+286:                                              ; preds = %.lr.ph.i.i.i.i.i.i70.i.i.i
+  %287 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i72.i.i.i, i64 4
+  %288 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i71.i.i.i, i64 4
+  %.not.i.i.i.i.i.i74.i.i.i = icmp eq ptr %287, %.val2.i68.i.i.i
   br i1 %.not.i.i.i.i.i.i74.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit", label %.lr.ph.i.i.i.i.i.i70.i.i.i, !llvm.loop !147
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit227": ; preds = %266
-  %297 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 336
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit216": ; preds = %258
+  %289 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 336
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit228": ; preds = %258
-  %298 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 224
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit217": ; preds = %250
+  %290 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 224
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit229": ; preds = %250
-  %299 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 112
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit218": ; preds = %242
+  %291 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 112
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit231.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i"
-  %300 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 112
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit220.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i"
+  %292 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 112
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit231.split.loop.exit260": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit30.i.i.i"
-  %301 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 224
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit220.split.loop.exit243": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit30.i.i.i"
+  %293 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 224
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit231.split.loop.exit262": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit39.i.i.i"
-  %302 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 336
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit220.split.loop.exit245": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_2EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit39.i.i.i"
+  %294 = getelementptr inbounds nuw i8, ptr %.sroa.079.0125.i.i.i, i64 336
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit": ; preds = %237, %242, %278, %286, %.lr.ph.i.i.i.i.i.i70.i.i.i, %294, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit231.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit231.split.loop.exit260", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit231.split.loop.exit262", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit229", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit228", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit227", %._crit_edge.i.i.i43, %273, %._crit_edge._crit_edge.i.i.i45, %._crit_edge._crit_edge140.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i44 = phi ptr [ %229, %._crit_edge.i.i.i43 ], [ %.sroa.079.0.lcssa.i.i.i, %273 ], [ %.sroa.079.1.i.i.i, %._crit_edge._crit_edge.i.i.i45 ], [ %.sroa.079.2.i.i.i, %._crit_edge._crit_edge140.i.i.i ], [ %297, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit227" ], [ %298, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit228" ], [ %299, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit229" ], [ %300, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit231.split.loop.exit" ], [ %301, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit231.split.loop.exit260" ], [ %302, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit231.split.loop.exit262" ], [ %229, %.lr.ph.i.i.i.i.i.i70.i.i.i ], [ %.sroa.079.2.i.i.i, %294 ], [ %.sroa.079.1.i.i.i, %286 ], [ %.sroa.079.0.lcssa.i.i.i, %278 ], [ %.sroa.079.0125.i.i.i, %242 ], [ %.sroa.079.0125.i.i.i, %237 ]
-  %.not96 = icmp ne ptr %.sroa.08.0.in.sroa.speculated.i.i.i44, %229
-  %spec.select39 = zext i1 %.not96 to i32
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit": ; preds = %229, %234, %270, %278, %.lr.ph.i.i.i.i.i.i70.i.i.i, %286, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit220.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit220.split.loop.exit243", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit220.split.loop.exit245", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit218", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit217", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit216", %._crit_edge.i.i.i43, %265, %._crit_edge._crit_edge.i.i.i45, %._crit_edge._crit_edge140.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i44 = phi ptr [ %221, %._crit_edge.i.i.i43 ], [ %.sroa.079.0.lcssa.i.i.i, %265 ], [ %.sroa.079.1.i.i.i, %._crit_edge._crit_edge.i.i.i45 ], [ %.sroa.079.2.i.i.i, %._crit_edge._crit_edge140.i.i.i ], [ %289, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit216" ], [ %290, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit217" ], [ %291, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit218" ], [ %292, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit220.split.loop.exit" ], [ %293, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit220.split.loop.exit243" ], [ %294, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit.loopexit220.split.loop.exit245" ], [ %221, %.lr.ph.i.i.i.i.i.i70.i.i.i ], [ %.sroa.079.2.i.i.i, %286 ], [ %.sroa.079.1.i.i.i, %278 ], [ %.sroa.079.0.lcssa.i.i.i, %270 ], [ %.sroa.079.0125.i.i.i, %234 ], [ %.sroa.079.0125.i.i.i, %229 ]
+  %.not97 = icmp ne ptr %.sroa.08.0.in.sroa.speculated.i.i.i44, %221
+  %spec.select39 = zext i1 %.not97 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph152, %200, %206, %.thread, %6, %188, %._crit_edge, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit"
-  %storemerge = phi i32 [ %spec.select39, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit" ], [ 0, %._crit_edge ], [ 1, %188 ], [ 0, %6 ], [ %.1150, %.lr.ph152 ], [ %.1150, %200 ], [ %.1150, %206 ], [ %spec.select, %.thread ]
-  %.sroa.082.2 = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i44, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit" ], [ %.sroa.082.0.lcssa, %._crit_edge ], [ %.sroa.082.0.lcssa, %188 ], [ %10, %6 ], [ %.sroa.082.0.lcssa, %.thread ], [ %.sroa.082.0.lcssa, %206 ], [ %.sroa.082.0.lcssa, %200 ], [ %.sroa.082.0.lcssa, %.lr.ph152 ]
+.loopexit:                                        ; preds = %.lr.ph147, %192, %198, %.thread, %6, %180, %._crit_edge, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit"
+  %storemerge = phi i32 [ %spec.select39, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit" ], [ 0, %._crit_edge ], [ 1, %180 ], [ 0, %6 ], [ %.1145, %.lr.ph147 ], [ %.1145, %192 ], [ %.1145, %198 ], [ %spec.select, %.thread ]
+  %.sroa.083.2 = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i44, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS9_IKiEEPiE3$_2ET_SG_SG_T0_.exit" ], [ %.sroa.083.0.lcssa, %._crit_edge ], [ %.sroa.083.0.lcssa, %180 ], [ %10, %6 ], [ %.sroa.083.0.lcssa, %.thread ], [ %.sroa.083.0.lcssa, %198 ], [ %.sroa.083.0.lcssa, %192 ], [ %.sroa.083.0.lcssa, %.lr.ph147 ]
   store i32 %storemerge, ptr %4, align 4, !tbaa !41
-  ret ptr %.sroa.082.2
+  ret ptr %.sroa.083.2
 }
 
 ; Function Attrs: mustprogress uwtable

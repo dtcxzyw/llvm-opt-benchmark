@@ -4282,10 +4282,8 @@ _ZNK11FactPointTo11is_tbd_onlyEv.exit.thread:     ; preds = %7, %_ZNK11FactPoint
 _ZNK11FactPointTo11is_tbd_onlyEv.exit11:          ; preds = %_ZNK11FactPointTo11is_tbd_onlyEv.exit.thread
   %27 = load ptr, ptr %22, align 8, !tbaa !19
   %28 = load ptr, ptr @_ZN11FactPointTo7tbd_ptrE, align 8, !tbaa !19
-  %29 = icmp ne ptr %27, %28
-  %.not.i.i = icmp eq ptr %21, %22
-  %or.cond = or i1 %29, %.not.i.i
-  br i1 %or.cond, label %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit, label %30
+  %29 = icmp eq ptr %27, %28
+  br i1 %29, label %30, label %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit
 
 30:                                               ; preds = %_ZNK11FactPointTo11is_tbd_onlyEv.exit11
   store ptr %22, ptr %20, align 8, !tbaa !18

@@ -6867,14 +6867,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i:           ; preds = %159
   %169 = sub i64 %167, %168
   %170 = ashr exact i64 %169, 3
   %.not.i = icmp eq i64 %169, 8
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit26
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit26
 
-.preheader.split.i:                               ; preds = %163
-  %.not17.i = icmp eq ptr %165, %166
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit26, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %163, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %163 ]
   %171 = getelementptr inbounds nuw i64, ptr %166, i64 %indvars.iv.i
   %172 = load i64, ptr %171, align 8
   %173 = getelementptr inbounds nuw i64, ptr %160, i64 %indvars.iv.i
@@ -6885,8 +6881,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit26, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit26:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %163
-  %.09.i = phi i1 [ false, %163 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit26:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %163
+  %.09.i = phi i1 [ false, %163 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %160, i64 noundef 8) #26
   %175 = load ptr, ptr %22, align 8
   %.not.i.i.i27 = icmp eq ptr %175, null
@@ -6962,14 +6958,10 @@ _ZNSt12_Vector_baseISt4pairIldESaIS1_EED2Ev.exit.i: ; preds = %198
   %208 = sub i64 %206, %207
   %209 = ashr exact i64 %208, 4
   %.not.i39 = icmp eq i64 %208, 16
-  br i1 %.not.i39, label %.preheader.split.i41, label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit
+  br i1 %.not.i39, label %_ZNKSt6vectorISt4pairIldESaIS1_EE2atEm.exit.i, label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit
 
-.preheader.split.i41:                             ; preds = %202
-  %.not16.i = icmp eq ptr %204, %205
-  br i1 %.not16.i, label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit, label %_ZNKSt6vectorISt4pairIldESaIS1_EE2atEm.exit.i
-
-_ZNKSt6vectorISt4pairIldESaIS1_EE2atEm.exit.i:    ; preds = %.preheader.split.i41, %_ZNKSt6vectorISt4pairIldESaIS1_EE2atEm.exit.i
-  %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i43, %_ZNKSt6vectorISt4pairIldESaIS1_EE2atEm.exit.i ], [ 0, %.preheader.split.i41 ]
+_ZNKSt6vectorISt4pairIldESaIS1_EE2atEm.exit.i:    ; preds = %202, %_ZNKSt6vectorISt4pairIldESaIS1_EE2atEm.exit.i
+  %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i43, %_ZNKSt6vectorISt4pairIldESaIS1_EE2atEm.exit.i ], [ 0, %202 ]
   %210 = getelementptr inbounds nuw %"struct.std::pair.56", ptr %205, i64 %indvars.iv.i42
   %211 = getelementptr inbounds nuw %"struct.std::pair.56", ptr %199, i64 %indvars.iv.i42
   %212 = load i64, ptr %210, align 8
@@ -6983,11 +6975,11 @@ _ZNKSt6vectorISt4pairIldESaIS1_EE2atEm.exit.i:    ; preds = %.preheader.split.i4
   %.not3.i.not.i = select i1 %214, i1 %219, i1 false
   %indvars.iv.next.i43 = add nuw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp ne i64 %indvars.iv.next.i43, %209
-  %or.cond128.not = select i1 %.not3.i.not.i, i1 %exitcond.not.i44, i1 false
-  br i1 %or.cond128.not, label %_ZNKSt6vectorISt4pairIldESaIS1_EE2atEm.exit.i, label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit, !llvm.loop !20
+  %or.cond126.not = select i1 %.not3.i.not.i, i1 %exitcond.not.i44, i1 false
+  br i1 %or.cond126.not, label %_ZNKSt6vectorISt4pairIldESaIS1_EE2atEm.exit.i, label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit, !llvm.loop !20
 
-_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %_ZNKSt6vectorISt4pairIldESaIS1_EE2atEm.exit.i, %.preheader.split.i41, %202
-  %.09.i40 = phi i1 [ false, %202 ], [ true, %.preheader.split.i41 ], [ %.not3.i.not.i, %_ZNKSt6vectorISt4pairIldESaIS1_EE2atEm.exit.i ]
+_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %_ZNKSt6vectorISt4pairIldESaIS1_EE2atEm.exit.i, %202
+  %.09.i40 = phi i1 [ false, %202 ], [ %.not3.i.not.i, %_ZNKSt6vectorISt4pairIldESaIS1_EE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %199, i64 noundef 16) #26
   %220 = load ptr, ptr %25, align 8
   %.not.i.i.i47 = icmp eq ptr %220, null
@@ -8303,14 +8295,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i:           ; preds = %105
   %115 = sub i64 %113, %114
   %116 = ashr exact i64 %115, 3
   %.not.i = icmp eq i64 %115, 64
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %109
-  %.not17.i = icmp eq ptr %111, %112
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %109, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %109 ]
   %117 = getelementptr inbounds nuw i64, ptr %112, i64 %indvars.iv.i
   %118 = load i64, ptr %117, align 8
   %119 = getelementptr inbounds nuw i64, ptr %106, i64 %indvars.iv.i
@@ -8321,8 +8309,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %109
-  %.09.i = phi i1 [ false, %109 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %109
+  %.09.i = phi i1 [ false, %109 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %106, i64 noundef 64) #26
   %121 = load ptr, ptr %16, align 8
   %.not.i.i.i21 = icmp eq ptr %121, null
@@ -8436,14 +8424,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i31:         ; preds = %162
   %172 = sub i64 %170, %171
   %173 = ashr exact i64 %172, 3
   %.not.i35 = icmp eq i64 %172, 64
-  br i1 %.not.i35, label %.preheader.split.i37, label %_ZNSt6vectorIlSaIlEED2Ev.exit47
+  br i1 %.not.i35, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i39, label %_ZNSt6vectorIlSaIlEED2Ev.exit47
 
-.preheader.split.i37:                             ; preds = %166
-  %.not17.i38 = icmp eq ptr %168, %169
-  br i1 %.not17.i38, label %_ZNSt6vectorIlSaIlEED2Ev.exit47, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i39
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i39:              ; preds = %.preheader.split.i37, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i39
-  %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i42, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i39 ], [ 0, %.preheader.split.i37 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i39:              ; preds = %166, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i39
+  %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i42, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i39 ], [ 0, %166 ]
   %174 = getelementptr inbounds nuw i64, ptr %169, i64 %indvars.iv.i40
   %175 = load i64, ptr %174, align 8
   %176 = getelementptr inbounds nuw i64, ptr %163, i64 %indvars.iv.i40
@@ -8451,11 +8435,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i39:              ; preds = %.preheader.split.i3
   %.not11.i41 = icmp eq i64 %175, %177
   %indvars.iv.next.i42 = add nuw i64 %indvars.iv.i40, 1
   %exitcond.not.i43 = icmp ne i64 %indvars.iv.next.i42, %173
-  %or.cond121.not = select i1 %.not11.i41, i1 %exitcond.not.i43, i1 false
-  br i1 %or.cond121.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i39, label %_ZNSt6vectorIlSaIlEED2Ev.exit47, !llvm.loop !19
+  %or.cond118.not = select i1 %.not11.i41, i1 %exitcond.not.i43, i1 false
+  br i1 %or.cond118.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i39, label %_ZNSt6vectorIlSaIlEED2Ev.exit47, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit47:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i39, %.preheader.split.i37, %166
-  %.09.i36 = phi i1 [ false, %166 ], [ true, %.preheader.split.i37 ], [ %.not11.i41, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i39 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit47:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i39, %166
+  %.09.i36 = phi i1 [ false, %166 ], [ %.not11.i41, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i39 ]
   call void @_ZdlPvm(ptr noundef nonnull %163, i64 noundef 64) #26
   %178 = load ptr, ptr %23, align 8
   %.not.i.i.i48 = icmp eq ptr %178, null
@@ -8569,14 +8553,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i58:         ; preds = %219
   %229 = sub i64 %227, %228
   %230 = ashr exact i64 %229, 3
   %.not.i62 = icmp eq i64 %229, 72
-  br i1 %.not.i62, label %.preheader.split.i64, label %_ZNSt6vectorIlSaIlEED2Ev.exit74
+  br i1 %.not.i62, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, label %_ZNSt6vectorIlSaIlEED2Ev.exit74
 
-.preheader.split.i64:                             ; preds = %223
-  %.not17.i65 = icmp eq ptr %225, %226
-  br i1 %.not17.i65, label %_ZNSt6vectorIlSaIlEED2Ev.exit74, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i66:              ; preds = %.preheader.split.i64, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66
-  %indvars.iv.i67 = phi i64 [ %indvars.iv.next.i69, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ], [ 0, %.preheader.split.i64 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i66:              ; preds = %223, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66
+  %indvars.iv.i67 = phi i64 [ %indvars.iv.next.i69, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ], [ 0, %223 ]
   %231 = getelementptr inbounds nuw i64, ptr %226, i64 %indvars.iv.i67
   %232 = load i64, ptr %231, align 8
   %233 = getelementptr inbounds nuw i64, ptr %220, i64 %indvars.iv.i67
@@ -8584,11 +8564,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i66:              ; preds = %.preheader.split.i6
   %.not11.i68 = icmp eq i64 %232, %234
   %indvars.iv.next.i69 = add nuw i64 %indvars.iv.i67, 1
   %exitcond.not.i70 = icmp ne i64 %indvars.iv.next.i69, %230
-  %or.cond122.not = select i1 %.not11.i68, i1 %exitcond.not.i70, i1 false
-  br i1 %or.cond122.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, label %_ZNSt6vectorIlSaIlEED2Ev.exit74, !llvm.loop !19
+  %or.cond119.not = select i1 %.not11.i68, i1 %exitcond.not.i70, i1 false
+  br i1 %or.cond119.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, label %_ZNSt6vectorIlSaIlEED2Ev.exit74, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit74:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, %.preheader.split.i64, %223
-  %.09.i63 = phi i1 [ false, %223 ], [ true, %.preheader.split.i64 ], [ %.not11.i68, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit74:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, %223
+  %.09.i63 = phi i1 [ false, %223 ], [ %.not11.i68, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ]
   call void @_ZdlPvm(ptr noundef nonnull %220, i64 noundef 72) #26
   %235 = load ptr, ptr %30, align 8
   %.not.i.i.i75 = icmp eq ptr %235, null
@@ -9355,14 +9335,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i:           ; preds = %126
   %136 = sub i64 %134, %135
   %137 = ashr exact i64 %136, 3
   %.not.i = icmp eq i64 %136, 64
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %130
-  %.not17.i = icmp eq ptr %132, %133
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %130, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %130 ]
   %138 = getelementptr inbounds nuw i64, ptr %133, i64 %indvars.iv.i
   %139 = load i64, ptr %138, align 8
   %140 = getelementptr inbounds nuw i64, ptr %127, i64 %indvars.iv.i
@@ -9373,8 +9349,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %130
-  %.09.i = phi i1 [ false, %130 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %130
+  %.09.i = phi i1 [ false, %130 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %127, i64 noundef 64) #26
   %142 = load ptr, ptr %16, align 8
   %.not.i.i.i36 = icmp eq ptr %142, null
@@ -9488,14 +9464,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i46:         ; preds = %183
   %193 = sub i64 %191, %192
   %194 = ashr exact i64 %193, 3
   %.not.i50 = icmp eq i64 %193, 56
-  br i1 %.not.i50, label %.preheader.split.i52, label %_ZNSt6vectorIlSaIlEED2Ev.exit62
+  br i1 %.not.i50, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54, label %_ZNSt6vectorIlSaIlEED2Ev.exit62
 
-.preheader.split.i52:                             ; preds = %187
-  %.not17.i53 = icmp eq ptr %189, %190
-  br i1 %.not17.i53, label %_ZNSt6vectorIlSaIlEED2Ev.exit62, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i54:              ; preds = %.preheader.split.i52, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54
-  %indvars.iv.i55 = phi i64 [ %indvars.iv.next.i57, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54 ], [ 0, %.preheader.split.i52 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i54:              ; preds = %187, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54
+  %indvars.iv.i55 = phi i64 [ %indvars.iv.next.i57, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54 ], [ 0, %187 ]
   %195 = getelementptr inbounds nuw i64, ptr %190, i64 %indvars.iv.i55
   %196 = load i64, ptr %195, align 8
   %197 = getelementptr inbounds nuw i64, ptr %184, i64 %indvars.iv.i55
@@ -9503,11 +9475,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i54:              ; preds = %.preheader.split.i5
   %.not11.i56 = icmp eq i64 %196, %198
   %indvars.iv.next.i57 = add nuw i64 %indvars.iv.i55, 1
   %exitcond.not.i58 = icmp ne i64 %indvars.iv.next.i57, %194
-  %or.cond250.not = select i1 %.not11.i56, i1 %exitcond.not.i58, i1 false
-  br i1 %or.cond250.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54, label %_ZNSt6vectorIlSaIlEED2Ev.exit62, !llvm.loop !19
+  %or.cond244.not = select i1 %.not11.i56, i1 %exitcond.not.i58, i1 false
+  br i1 %or.cond244.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54, label %_ZNSt6vectorIlSaIlEED2Ev.exit62, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit62:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54, %.preheader.split.i52, %187
-  %.09.i51 = phi i1 [ false, %187 ], [ true, %.preheader.split.i52 ], [ %.not11.i56, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit62:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54, %187
+  %.09.i51 = phi i1 [ false, %187 ], [ %.not11.i56, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54 ]
   call void @_ZdlPvm(ptr noundef nonnull %184, i64 noundef 56) #26
   %199 = load ptr, ptr %23, align 8
   %.not.i.i.i63 = icmp eq ptr %199, null
@@ -9621,14 +9593,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i73:         ; preds = %240
   %250 = sub i64 %248, %249
   %251 = ashr exact i64 %250, 3
   %.not.i77 = icmp eq i64 %250, 48
-  br i1 %.not.i77, label %.preheader.split.i79, label %_ZNSt6vectorIlSaIlEED2Ev.exit89
+  br i1 %.not.i77, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81, label %_ZNSt6vectorIlSaIlEED2Ev.exit89
 
-.preheader.split.i79:                             ; preds = %244
-  %.not17.i80 = icmp eq ptr %246, %247
-  br i1 %.not17.i80, label %_ZNSt6vectorIlSaIlEED2Ev.exit89, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i81:              ; preds = %.preheader.split.i79, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81
-  %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i84, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81 ], [ 0, %.preheader.split.i79 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i81:              ; preds = %244, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81
+  %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i84, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81 ], [ 0, %244 ]
   %252 = getelementptr inbounds nuw i64, ptr %247, i64 %indvars.iv.i82
   %253 = load i64, ptr %252, align 8
   %254 = getelementptr inbounds nuw i64, ptr %241, i64 %indvars.iv.i82
@@ -9636,11 +9604,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i81:              ; preds = %.preheader.split.i7
   %.not11.i83 = icmp eq i64 %253, %255
   %indvars.iv.next.i84 = add nuw i64 %indvars.iv.i82, 1
   %exitcond.not.i85 = icmp ne i64 %indvars.iv.next.i84, %251
-  %or.cond251.not = select i1 %.not11.i83, i1 %exitcond.not.i85, i1 false
-  br i1 %or.cond251.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81, label %_ZNSt6vectorIlSaIlEED2Ev.exit89, !llvm.loop !19
+  %or.cond245.not = select i1 %.not11.i83, i1 %exitcond.not.i85, i1 false
+  br i1 %or.cond245.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81, label %_ZNSt6vectorIlSaIlEED2Ev.exit89, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit89:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81, %.preheader.split.i79, %244
-  %.09.i78 = phi i1 [ false, %244 ], [ true, %.preheader.split.i79 ], [ %.not11.i83, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit89:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81, %244
+  %.09.i78 = phi i1 [ false, %244 ], [ %.not11.i83, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81 ]
   call void @_ZdlPvm(ptr noundef nonnull %241, i64 noundef 48) #26
   %256 = load ptr, ptr %30, align 8
   %.not.i.i.i90 = icmp eq ptr %256, null
@@ -9754,14 +9722,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i100:        ; preds = %297
   %307 = sub i64 %305, %306
   %308 = ashr exact i64 %307, 3
   %.not.i104 = icmp eq i64 %307, 48
-  br i1 %.not.i104, label %.preheader.split.i106, label %_ZNSt6vectorIlSaIlEED2Ev.exit116
+  br i1 %.not.i104, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108, label %_ZNSt6vectorIlSaIlEED2Ev.exit116
 
-.preheader.split.i106:                            ; preds = %301
-  %.not17.i107 = icmp eq ptr %303, %304
-  br i1 %.not17.i107, label %_ZNSt6vectorIlSaIlEED2Ev.exit116, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i108:             ; preds = %.preheader.split.i106, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108
-  %indvars.iv.i109 = phi i64 [ %indvars.iv.next.i111, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108 ], [ 0, %.preheader.split.i106 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i108:             ; preds = %301, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108
+  %indvars.iv.i109 = phi i64 [ %indvars.iv.next.i111, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108 ], [ 0, %301 ]
   %309 = getelementptr inbounds nuw i64, ptr %304, i64 %indvars.iv.i109
   %310 = load i64, ptr %309, align 8
   %311 = getelementptr inbounds nuw i64, ptr %298, i64 %indvars.iv.i109
@@ -9769,11 +9733,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i108:             ; preds = %.preheader.split.i1
   %.not11.i110 = icmp eq i64 %310, %312
   %indvars.iv.next.i111 = add nuw i64 %indvars.iv.i109, 1
   %exitcond.not.i112 = icmp ne i64 %indvars.iv.next.i111, %308
-  %or.cond252.not = select i1 %.not11.i110, i1 %exitcond.not.i112, i1 false
-  br i1 %or.cond252.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108, label %_ZNSt6vectorIlSaIlEED2Ev.exit116, !llvm.loop !19
+  %or.cond246.not = select i1 %.not11.i110, i1 %exitcond.not.i112, i1 false
+  br i1 %or.cond246.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108, label %_ZNSt6vectorIlSaIlEED2Ev.exit116, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit116:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108, %.preheader.split.i106, %301
-  %.09.i105 = phi i1 [ false, %301 ], [ true, %.preheader.split.i106 ], [ %.not11.i110, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit116:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108, %301
+  %.09.i105 = phi i1 [ false, %301 ], [ %.not11.i110, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108 ]
   call void @_ZdlPvm(ptr noundef nonnull %298, i64 noundef 48) #26
   %313 = load ptr, ptr %37, align 8
   %.not.i.i.i117 = icmp eq ptr %313, null
@@ -9887,14 +9851,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i127:        ; preds = %354
   %364 = sub i64 %362, %363
   %365 = ashr exact i64 %364, 3
   %.not.i131 = icmp eq i64 %364, 40
-  br i1 %.not.i131, label %.preheader.split.i133, label %_ZNSt6vectorIlSaIlEED2Ev.exit143
+  br i1 %.not.i131, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135, label %_ZNSt6vectorIlSaIlEED2Ev.exit143
 
-.preheader.split.i133:                            ; preds = %358
-  %.not17.i134 = icmp eq ptr %360, %361
-  br i1 %.not17.i134, label %_ZNSt6vectorIlSaIlEED2Ev.exit143, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i135:             ; preds = %.preheader.split.i133, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135
-  %indvars.iv.i136 = phi i64 [ %indvars.iv.next.i138, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135 ], [ 0, %.preheader.split.i133 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i135:             ; preds = %358, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135
+  %indvars.iv.i136 = phi i64 [ %indvars.iv.next.i138, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135 ], [ 0, %358 ]
   %366 = getelementptr inbounds nuw i64, ptr %361, i64 %indvars.iv.i136
   %367 = load i64, ptr %366, align 8
   %368 = getelementptr inbounds nuw i64, ptr %355, i64 %indvars.iv.i136
@@ -9902,11 +9862,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i135:             ; preds = %.preheader.split.i1
   %.not11.i137 = icmp eq i64 %367, %369
   %indvars.iv.next.i138 = add nuw i64 %indvars.iv.i136, 1
   %exitcond.not.i139 = icmp ne i64 %indvars.iv.next.i138, %365
-  %or.cond253.not = select i1 %.not11.i137, i1 %exitcond.not.i139, i1 false
-  br i1 %or.cond253.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135, label %_ZNSt6vectorIlSaIlEED2Ev.exit143, !llvm.loop !19
+  %or.cond247.not = select i1 %.not11.i137, i1 %exitcond.not.i139, i1 false
+  br i1 %or.cond247.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135, label %_ZNSt6vectorIlSaIlEED2Ev.exit143, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit143:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135, %.preheader.split.i133, %358
-  %.09.i132 = phi i1 [ false, %358 ], [ true, %.preheader.split.i133 ], [ %.not11.i137, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit143:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135, %358
+  %.09.i132 = phi i1 [ false, %358 ], [ %.not11.i137, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135 ]
   call void @_ZdlPvm(ptr noundef nonnull %355, i64 noundef 40) #26
   %370 = load ptr, ptr %44, align 8
   %.not.i.i.i144 = icmp eq ptr %370, null
@@ -10020,14 +9980,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i154:        ; preds = %411
   %421 = sub i64 %419, %420
   %422 = ashr exact i64 %421, 3
   %.not.i158 = icmp eq i64 %421, 40
-  br i1 %.not.i158, label %.preheader.split.i160, label %_ZNSt6vectorIlSaIlEED2Ev.exit170
+  br i1 %.not.i158, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162, label %_ZNSt6vectorIlSaIlEED2Ev.exit170
 
-.preheader.split.i160:                            ; preds = %415
-  %.not17.i161 = icmp eq ptr %417, %418
-  br i1 %.not17.i161, label %_ZNSt6vectorIlSaIlEED2Ev.exit170, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i162:             ; preds = %.preheader.split.i160, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162
-  %indvars.iv.i163 = phi i64 [ %indvars.iv.next.i165, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162 ], [ 0, %.preheader.split.i160 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i162:             ; preds = %415, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162
+  %indvars.iv.i163 = phi i64 [ %indvars.iv.next.i165, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162 ], [ 0, %415 ]
   %423 = getelementptr inbounds nuw i64, ptr %418, i64 %indvars.iv.i163
   %424 = load i64, ptr %423, align 8
   %425 = getelementptr inbounds nuw i64, ptr %412, i64 %indvars.iv.i163
@@ -10035,11 +9991,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i162:             ; preds = %.preheader.split.i1
   %.not11.i164 = icmp eq i64 %424, %426
   %indvars.iv.next.i165 = add nuw i64 %indvars.iv.i163, 1
   %exitcond.not.i166 = icmp ne i64 %indvars.iv.next.i165, %422
-  %or.cond254.not = select i1 %.not11.i164, i1 %exitcond.not.i166, i1 false
-  br i1 %or.cond254.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162, label %_ZNSt6vectorIlSaIlEED2Ev.exit170, !llvm.loop !19
+  %or.cond248.not = select i1 %.not11.i164, i1 %exitcond.not.i166, i1 false
+  br i1 %or.cond248.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162, label %_ZNSt6vectorIlSaIlEED2Ev.exit170, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit170:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162, %.preheader.split.i160, %415
-  %.09.i159 = phi i1 [ false, %415 ], [ true, %.preheader.split.i160 ], [ %.not11.i164, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit170:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162, %415
+  %.09.i159 = phi i1 [ false, %415 ], [ %.not11.i164, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162 ]
   call void @_ZdlPvm(ptr noundef nonnull %412, i64 noundef 40) #26
   %427 = load ptr, ptr %51, align 8
   %.not.i.i.i171 = icmp eq ptr %427, null
@@ -10762,14 +10718,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i:           ; preds = %119
   %129 = sub i64 %127, %128
   %130 = ashr exact i64 %129, 3
   %.not.i = icmp eq i64 %129, 64
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %123
-  %.not17.i = icmp eq ptr %125, %126
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %123, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %123 ]
   %131 = getelementptr inbounds nuw i64, ptr %126, i64 %indvars.iv.i
   %132 = load i64, ptr %131, align 8
   %133 = getelementptr inbounds nuw i64, ptr %120, i64 %indvars.iv.i
@@ -10780,8 +10732,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %123
-  %.09.i = phi i1 [ false, %123 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %123
+  %.09.i = phi i1 [ false, %123 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %120, i64 noundef 64) #26
   %135 = load ptr, ptr %16, align 8
   %.not.i.i.i31 = icmp eq ptr %135, null
@@ -10895,14 +10847,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i41:         ; preds = %176
   %186 = sub i64 %184, %185
   %187 = ashr exact i64 %186, 3
   %.not.i45 = icmp eq i64 %186, 40
-  br i1 %.not.i45, label %.preheader.split.i47, label %_ZNSt6vectorIlSaIlEED2Ev.exit57
+  br i1 %.not.i45, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i49, label %_ZNSt6vectorIlSaIlEED2Ev.exit57
 
-.preheader.split.i47:                             ; preds = %180
-  %.not17.i48 = icmp eq ptr %182, %183
-  br i1 %.not17.i48, label %_ZNSt6vectorIlSaIlEED2Ev.exit57, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i49
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i49:              ; preds = %.preheader.split.i47, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i49
-  %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i52, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i49 ], [ 0, %.preheader.split.i47 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i49:              ; preds = %180, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i49
+  %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i52, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i49 ], [ 0, %180 ]
   %188 = getelementptr inbounds nuw i64, ptr %183, i64 %indvars.iv.i50
   %189 = load i64, ptr %188, align 8
   %190 = getelementptr inbounds nuw i64, ptr %177, i64 %indvars.iv.i50
@@ -10910,11 +10858,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i49:              ; preds = %.preheader.split.i4
   %.not11.i51 = icmp eq i64 %189, %191
   %indvars.iv.next.i52 = add nuw i64 %indvars.iv.i50, 1
   %exitcond.not.i53 = icmp ne i64 %indvars.iv.next.i52, %187
-  %or.cond207.not = select i1 %.not11.i51, i1 %exitcond.not.i53, i1 false
-  br i1 %or.cond207.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i49, label %_ZNSt6vectorIlSaIlEED2Ev.exit57, !llvm.loop !19
+  %or.cond202.not = select i1 %.not11.i51, i1 %exitcond.not.i53, i1 false
+  br i1 %or.cond202.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i49, label %_ZNSt6vectorIlSaIlEED2Ev.exit57, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit57:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i49, %.preheader.split.i47, %180
-  %.09.i46 = phi i1 [ false, %180 ], [ true, %.preheader.split.i47 ], [ %.not11.i51, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i49 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit57:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i49, %180
+  %.09.i46 = phi i1 [ false, %180 ], [ %.not11.i51, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i49 ]
   call void @_ZdlPvm(ptr noundef nonnull %177, i64 noundef 40) #26
   %192 = load ptr, ptr %23, align 8
   %.not.i.i.i58 = icmp eq ptr %192, null
@@ -11028,14 +10976,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i68:         ; preds = %233
   %243 = sub i64 %241, %242
   %244 = ashr exact i64 %243, 3
   %.not.i72 = icmp eq i64 %243, 40
-  br i1 %.not.i72, label %.preheader.split.i74, label %_ZNSt6vectorIlSaIlEED2Ev.exit84
+  br i1 %.not.i72, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76, label %_ZNSt6vectorIlSaIlEED2Ev.exit84
 
-.preheader.split.i74:                             ; preds = %237
-  %.not17.i75 = icmp eq ptr %239, %240
-  br i1 %.not17.i75, label %_ZNSt6vectorIlSaIlEED2Ev.exit84, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i76:              ; preds = %.preheader.split.i74, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76
-  %indvars.iv.i77 = phi i64 [ %indvars.iv.next.i79, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76 ], [ 0, %.preheader.split.i74 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i76:              ; preds = %237, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76
+  %indvars.iv.i77 = phi i64 [ %indvars.iv.next.i79, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76 ], [ 0, %237 ]
   %245 = getelementptr inbounds nuw i64, ptr %240, i64 %indvars.iv.i77
   %246 = load i64, ptr %245, align 8
   %247 = getelementptr inbounds nuw i64, ptr %234, i64 %indvars.iv.i77
@@ -11043,11 +10987,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i76:              ; preds = %.preheader.split.i7
   %.not11.i78 = icmp eq i64 %246, %248
   %indvars.iv.next.i79 = add nuw i64 %indvars.iv.i77, 1
   %exitcond.not.i80 = icmp ne i64 %indvars.iv.next.i79, %244
-  %or.cond208.not = select i1 %.not11.i78, i1 %exitcond.not.i80, i1 false
-  br i1 %or.cond208.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76, label %_ZNSt6vectorIlSaIlEED2Ev.exit84, !llvm.loop !19
+  %or.cond203.not = select i1 %.not11.i78, i1 %exitcond.not.i80, i1 false
+  br i1 %or.cond203.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76, label %_ZNSt6vectorIlSaIlEED2Ev.exit84, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit84:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76, %.preheader.split.i74, %237
-  %.09.i73 = phi i1 [ false, %237 ], [ true, %.preheader.split.i74 ], [ %.not11.i78, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit84:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76, %237
+  %.09.i73 = phi i1 [ false, %237 ], [ %.not11.i78, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76 ]
   call void @_ZdlPvm(ptr noundef nonnull %234, i64 noundef 40) #26
   %249 = load ptr, ptr %30, align 8
   %.not.i.i.i85 = icmp eq ptr %249, null
@@ -11161,14 +11105,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i95:         ; preds = %290
   %300 = sub i64 %298, %299
   %301 = ashr exact i64 %300, 3
   %.not.i99 = icmp eq i64 %300, 40
-  br i1 %.not.i99, label %.preheader.split.i101, label %_ZNSt6vectorIlSaIlEED2Ev.exit111
+  br i1 %.not.i99, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103, label %_ZNSt6vectorIlSaIlEED2Ev.exit111
 
-.preheader.split.i101:                            ; preds = %294
-  %.not17.i102 = icmp eq ptr %296, %297
-  br i1 %.not17.i102, label %_ZNSt6vectorIlSaIlEED2Ev.exit111, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i103:             ; preds = %.preheader.split.i101, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103
-  %indvars.iv.i104 = phi i64 [ %indvars.iv.next.i106, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103 ], [ 0, %.preheader.split.i101 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i103:             ; preds = %294, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103
+  %indvars.iv.i104 = phi i64 [ %indvars.iv.next.i106, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103 ], [ 0, %294 ]
   %302 = getelementptr inbounds nuw i64, ptr %297, i64 %indvars.iv.i104
   %303 = load i64, ptr %302, align 8
   %304 = getelementptr inbounds nuw i64, ptr %291, i64 %indvars.iv.i104
@@ -11176,11 +11116,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i103:             ; preds = %.preheader.split.i1
   %.not11.i105 = icmp eq i64 %303, %305
   %indvars.iv.next.i106 = add nuw i64 %indvars.iv.i104, 1
   %exitcond.not.i107 = icmp ne i64 %indvars.iv.next.i106, %301
-  %or.cond209.not = select i1 %.not11.i105, i1 %exitcond.not.i107, i1 false
-  br i1 %or.cond209.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103, label %_ZNSt6vectorIlSaIlEED2Ev.exit111, !llvm.loop !19
+  %or.cond204.not = select i1 %.not11.i105, i1 %exitcond.not.i107, i1 false
+  br i1 %or.cond204.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103, label %_ZNSt6vectorIlSaIlEED2Ev.exit111, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit111:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103, %.preheader.split.i101, %294
-  %.09.i100 = phi i1 [ false, %294 ], [ true, %.preheader.split.i101 ], [ %.not11.i105, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit111:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103, %294
+  %.09.i100 = phi i1 [ false, %294 ], [ %.not11.i105, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103 ]
   call void @_ZdlPvm(ptr noundef nonnull %291, i64 noundef 40) #26
   %306 = load ptr, ptr %37, align 8
   %.not.i.i.i112 = icmp eq ptr %306, null
@@ -11294,14 +11234,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i122:        ; preds = %347
   %357 = sub i64 %355, %356
   %358 = ashr exact i64 %357, 3
   %.not.i126 = icmp eq i64 %357, 32
-  br i1 %.not.i126, label %.preheader.split.i128, label %_ZNSt6vectorIlSaIlEED2Ev.exit138
+  br i1 %.not.i126, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130, label %_ZNSt6vectorIlSaIlEED2Ev.exit138
 
-.preheader.split.i128:                            ; preds = %351
-  %.not17.i129 = icmp eq ptr %353, %354
-  br i1 %.not17.i129, label %_ZNSt6vectorIlSaIlEED2Ev.exit138, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i130:             ; preds = %.preheader.split.i128, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130
-  %indvars.iv.i131 = phi i64 [ %indvars.iv.next.i133, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130 ], [ 0, %.preheader.split.i128 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i130:             ; preds = %351, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130
+  %indvars.iv.i131 = phi i64 [ %indvars.iv.next.i133, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130 ], [ 0, %351 ]
   %359 = getelementptr inbounds nuw i64, ptr %354, i64 %indvars.iv.i131
   %360 = load i64, ptr %359, align 8
   %361 = getelementptr inbounds nuw i64, ptr %348, i64 %indvars.iv.i131
@@ -11309,11 +11245,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i130:             ; preds = %.preheader.split.i1
   %.not11.i132 = icmp eq i64 %360, %362
   %indvars.iv.next.i133 = add nuw i64 %indvars.iv.i131, 1
   %exitcond.not.i134 = icmp ne i64 %indvars.iv.next.i133, %358
-  %or.cond210.not = select i1 %.not11.i132, i1 %exitcond.not.i134, i1 false
-  br i1 %or.cond210.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130, label %_ZNSt6vectorIlSaIlEED2Ev.exit138, !llvm.loop !19
+  %or.cond205.not = select i1 %.not11.i132, i1 %exitcond.not.i134, i1 false
+  br i1 %or.cond205.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130, label %_ZNSt6vectorIlSaIlEED2Ev.exit138, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit138:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130, %.preheader.split.i128, %351
-  %.09.i127 = phi i1 [ false, %351 ], [ true, %.preheader.split.i128 ], [ %.not11.i132, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit138:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130, %351
+  %.09.i127 = phi i1 [ false, %351 ], [ %.not11.i132, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130 ]
   call void @_ZdlPvm(ptr noundef nonnull %348, i64 noundef 32) #26
   %363 = load ptr, ptr %44, align 8
   %.not.i.i.i139 = icmp eq ptr %363, null
@@ -11855,14 +11791,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i:           ; preds = %126
   %136 = sub i64 %134, %135
   %137 = ashr exact i64 %136, 3
   %.not.i = icmp eq i64 %136, 64
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %130
-  %.not17.i = icmp eq ptr %132, %133
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %130, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %130 ]
   %138 = getelementptr inbounds nuw i64, ptr %133, i64 %indvars.iv.i
   %139 = load i64, ptr %138, align 8
   %140 = getelementptr inbounds nuw i64, ptr %127, i64 %indvars.iv.i
@@ -11873,8 +11805,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %130
-  %.09.i = phi i1 [ false, %130 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %130
+  %.09.i = phi i1 [ false, %130 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %127, i64 noundef 64) #26
   %142 = load ptr, ptr %16, align 8
   %.not.i.i.i36 = icmp eq ptr %142, null
@@ -11988,14 +11920,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i46:         ; preds = %183
   %193 = sub i64 %191, %192
   %194 = ashr exact i64 %193, 3
   %.not.i50 = icmp eq i64 %193, 56
-  br i1 %.not.i50, label %.preheader.split.i52, label %_ZNSt6vectorIlSaIlEED2Ev.exit62
+  br i1 %.not.i50, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54, label %_ZNSt6vectorIlSaIlEED2Ev.exit62
 
-.preheader.split.i52:                             ; preds = %187
-  %.not17.i53 = icmp eq ptr %189, %190
-  br i1 %.not17.i53, label %_ZNSt6vectorIlSaIlEED2Ev.exit62, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i54:              ; preds = %.preheader.split.i52, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54
-  %indvars.iv.i55 = phi i64 [ %indvars.iv.next.i57, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54 ], [ 0, %.preheader.split.i52 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i54:              ; preds = %187, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54
+  %indvars.iv.i55 = phi i64 [ %indvars.iv.next.i57, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54 ], [ 0, %187 ]
   %195 = getelementptr inbounds nuw i64, ptr %190, i64 %indvars.iv.i55
   %196 = load i64, ptr %195, align 8
   %197 = getelementptr inbounds nuw i64, ptr %184, i64 %indvars.iv.i55
@@ -12003,11 +11931,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i54:              ; preds = %.preheader.split.i5
   %.not11.i56 = icmp eq i64 %196, %198
   %indvars.iv.next.i57 = add nuw i64 %indvars.iv.i55, 1
   %exitcond.not.i58 = icmp ne i64 %indvars.iv.next.i57, %194
-  %or.cond253.not = select i1 %.not11.i56, i1 %exitcond.not.i58, i1 false
-  br i1 %or.cond253.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54, label %_ZNSt6vectorIlSaIlEED2Ev.exit62, !llvm.loop !19
+  %or.cond247.not = select i1 %.not11.i56, i1 %exitcond.not.i58, i1 false
+  br i1 %or.cond247.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54, label %_ZNSt6vectorIlSaIlEED2Ev.exit62, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit62:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54, %.preheader.split.i52, %187
-  %.09.i51 = phi i1 [ false, %187 ], [ true, %.preheader.split.i52 ], [ %.not11.i56, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit62:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54, %187
+  %.09.i51 = phi i1 [ false, %187 ], [ %.not11.i56, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i54 ]
   call void @_ZdlPvm(ptr noundef nonnull %184, i64 noundef 56) #26
   %199 = load ptr, ptr %23, align 8
   %.not.i.i.i63 = icmp eq ptr %199, null
@@ -12121,14 +12049,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i73:         ; preds = %240
   %250 = sub i64 %248, %249
   %251 = ashr exact i64 %250, 3
   %.not.i77 = icmp eq i64 %250, 56
-  br i1 %.not.i77, label %.preheader.split.i79, label %_ZNSt6vectorIlSaIlEED2Ev.exit89
+  br i1 %.not.i77, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81, label %_ZNSt6vectorIlSaIlEED2Ev.exit89
 
-.preheader.split.i79:                             ; preds = %244
-  %.not17.i80 = icmp eq ptr %246, %247
-  br i1 %.not17.i80, label %_ZNSt6vectorIlSaIlEED2Ev.exit89, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i81:              ; preds = %.preheader.split.i79, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81
-  %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i84, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81 ], [ 0, %.preheader.split.i79 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i81:              ; preds = %244, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81
+  %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i84, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81 ], [ 0, %244 ]
   %252 = getelementptr inbounds nuw i64, ptr %247, i64 %indvars.iv.i82
   %253 = load i64, ptr %252, align 8
   %254 = getelementptr inbounds nuw i64, ptr %241, i64 %indvars.iv.i82
@@ -12136,11 +12060,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i81:              ; preds = %.preheader.split.i7
   %.not11.i83 = icmp eq i64 %253, %255
   %indvars.iv.next.i84 = add nuw i64 %indvars.iv.i82, 1
   %exitcond.not.i85 = icmp ne i64 %indvars.iv.next.i84, %251
-  %or.cond254.not = select i1 %.not11.i83, i1 %exitcond.not.i85, i1 false
-  br i1 %or.cond254.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81, label %_ZNSt6vectorIlSaIlEED2Ev.exit89, !llvm.loop !19
+  %or.cond248.not = select i1 %.not11.i83, i1 %exitcond.not.i85, i1 false
+  br i1 %or.cond248.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81, label %_ZNSt6vectorIlSaIlEED2Ev.exit89, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit89:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81, %.preheader.split.i79, %244
-  %.09.i78 = phi i1 [ false, %244 ], [ true, %.preheader.split.i79 ], [ %.not11.i83, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit89:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81, %244
+  %.09.i78 = phi i1 [ false, %244 ], [ %.not11.i83, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i81 ]
   call void @_ZdlPvm(ptr noundef nonnull %241, i64 noundef 56) #26
   %256 = load ptr, ptr %30, align 8
   %.not.i.i.i90 = icmp eq ptr %256, null
@@ -12254,14 +12178,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i100:        ; preds = %297
   %307 = sub i64 %305, %306
   %308 = ashr exact i64 %307, 3
   %.not.i104 = icmp eq i64 %307, 8
-  br i1 %.not.i104, label %.preheader.split.i106, label %_ZNSt6vectorIlSaIlEED2Ev.exit116
+  br i1 %.not.i104, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108, label %_ZNSt6vectorIlSaIlEED2Ev.exit116
 
-.preheader.split.i106:                            ; preds = %301
-  %.not17.i107 = icmp eq ptr %303, %304
-  br i1 %.not17.i107, label %_ZNSt6vectorIlSaIlEED2Ev.exit116, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i108:             ; preds = %.preheader.split.i106, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108
-  %indvars.iv.i109 = phi i64 [ %indvars.iv.next.i111, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108 ], [ 0, %.preheader.split.i106 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i108:             ; preds = %301, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108
+  %indvars.iv.i109 = phi i64 [ %indvars.iv.next.i111, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108 ], [ 0, %301 ]
   %309 = getelementptr inbounds nuw i64, ptr %304, i64 %indvars.iv.i109
   %310 = load i64, ptr %309, align 8
   %311 = getelementptr inbounds nuw i64, ptr %298, i64 %indvars.iv.i109
@@ -12269,11 +12189,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i108:             ; preds = %.preheader.split.i1
   %.not11.i110 = icmp eq i64 %310, %312
   %indvars.iv.next.i111 = add nuw i64 %indvars.iv.i109, 1
   %exitcond.not.i112 = icmp ne i64 %indvars.iv.next.i111, %308
-  %or.cond255.not = select i1 %.not11.i110, i1 %exitcond.not.i112, i1 false
-  br i1 %or.cond255.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108, label %_ZNSt6vectorIlSaIlEED2Ev.exit116, !llvm.loop !19
+  %or.cond249.not = select i1 %.not11.i110, i1 %exitcond.not.i112, i1 false
+  br i1 %or.cond249.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108, label %_ZNSt6vectorIlSaIlEED2Ev.exit116, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit116:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108, %.preheader.split.i106, %301
-  %.09.i105 = phi i1 [ false, %301 ], [ true, %.preheader.split.i106 ], [ %.not11.i110, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit116:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108, %301
+  %.09.i105 = phi i1 [ false, %301 ], [ %.not11.i110, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i108 ]
   call void @_ZdlPvm(ptr noundef nonnull %298, i64 noundef 8) #26
   %313 = load ptr, ptr %37, align 8
   %.not.i.i.i117 = icmp eq ptr %313, null
@@ -12387,14 +12307,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i127:        ; preds = %354
   %364 = sub i64 %362, %363
   %365 = ashr exact i64 %364, 3
   %.not.i131 = icmp eq i64 %364, 8
-  br i1 %.not.i131, label %.preheader.split.i133, label %_ZNSt6vectorIlSaIlEED2Ev.exit143
+  br i1 %.not.i131, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135, label %_ZNSt6vectorIlSaIlEED2Ev.exit143
 
-.preheader.split.i133:                            ; preds = %358
-  %.not17.i134 = icmp eq ptr %360, %361
-  br i1 %.not17.i134, label %_ZNSt6vectorIlSaIlEED2Ev.exit143, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i135:             ; preds = %.preheader.split.i133, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135
-  %indvars.iv.i136 = phi i64 [ %indvars.iv.next.i138, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135 ], [ 0, %.preheader.split.i133 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i135:             ; preds = %358, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135
+  %indvars.iv.i136 = phi i64 [ %indvars.iv.next.i138, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135 ], [ 0, %358 ]
   %366 = getelementptr inbounds nuw i64, ptr %361, i64 %indvars.iv.i136
   %367 = load i64, ptr %366, align 8
   %368 = getelementptr inbounds nuw i64, ptr %355, i64 %indvars.iv.i136
@@ -12402,11 +12318,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i135:             ; preds = %.preheader.split.i1
   %.not11.i137 = icmp eq i64 %367, %369
   %indvars.iv.next.i138 = add nuw i64 %indvars.iv.i136, 1
   %exitcond.not.i139 = icmp ne i64 %indvars.iv.next.i138, %365
-  %or.cond256.not = select i1 %.not11.i137, i1 %exitcond.not.i139, i1 false
-  br i1 %or.cond256.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135, label %_ZNSt6vectorIlSaIlEED2Ev.exit143, !llvm.loop !19
+  %or.cond250.not = select i1 %.not11.i137, i1 %exitcond.not.i139, i1 false
+  br i1 %or.cond250.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135, label %_ZNSt6vectorIlSaIlEED2Ev.exit143, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit143:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135, %.preheader.split.i133, %358
-  %.09.i132 = phi i1 [ false, %358 ], [ true, %.preheader.split.i133 ], [ %.not11.i137, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit143:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135, %358
+  %.09.i132 = phi i1 [ false, %358 ], [ %.not11.i137, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i135 ]
   call void @_ZdlPvm(ptr noundef nonnull %355, i64 noundef 8) #26
   %370 = load ptr, ptr %44, align 8
   %.not.i.i.i144 = icmp eq ptr %370, null
@@ -12520,14 +12436,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i154:        ; preds = %411
   %421 = sub i64 %419, %420
   %422 = ashr exact i64 %421, 3
   %.not.i158 = icmp eq i64 %421, 8
-  br i1 %.not.i158, label %.preheader.split.i160, label %_ZNSt6vectorIlSaIlEED2Ev.exit170
+  br i1 %.not.i158, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162, label %_ZNSt6vectorIlSaIlEED2Ev.exit170
 
-.preheader.split.i160:                            ; preds = %415
-  %.not17.i161 = icmp eq ptr %417, %418
-  br i1 %.not17.i161, label %_ZNSt6vectorIlSaIlEED2Ev.exit170, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i162:             ; preds = %.preheader.split.i160, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162
-  %indvars.iv.i163 = phi i64 [ %indvars.iv.next.i165, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162 ], [ 0, %.preheader.split.i160 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i162:             ; preds = %415, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162
+  %indvars.iv.i163 = phi i64 [ %indvars.iv.next.i165, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162 ], [ 0, %415 ]
   %423 = getelementptr inbounds nuw i64, ptr %418, i64 %indvars.iv.i163
   %424 = load i64, ptr %423, align 8
   %425 = getelementptr inbounds nuw i64, ptr %412, i64 %indvars.iv.i163
@@ -12535,11 +12447,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i162:             ; preds = %.preheader.split.i1
   %.not11.i164 = icmp eq i64 %424, %426
   %indvars.iv.next.i165 = add nuw i64 %indvars.iv.i163, 1
   %exitcond.not.i166 = icmp ne i64 %indvars.iv.next.i165, %422
-  %or.cond257.not = select i1 %.not11.i164, i1 %exitcond.not.i166, i1 false
-  br i1 %or.cond257.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162, label %_ZNSt6vectorIlSaIlEED2Ev.exit170, !llvm.loop !19
+  %or.cond251.not = select i1 %.not11.i164, i1 %exitcond.not.i166, i1 false
+  br i1 %or.cond251.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162, label %_ZNSt6vectorIlSaIlEED2Ev.exit170, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit170:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162, %.preheader.split.i160, %415
-  %.09.i159 = phi i1 [ false, %415 ], [ true, %.preheader.split.i160 ], [ %.not11.i164, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit170:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162, %415
+  %.09.i159 = phi i1 [ false, %415 ], [ %.not11.i164, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i162 ]
   call void @_ZdlPvm(ptr noundef nonnull %412, i64 noundef 8) #26
   %427 = load ptr, ptr %51, align 8
   %.not.i.i.i171 = icmp eq ptr %427, null
@@ -13249,14 +13161,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i:           ; preds = %138
   %148 = sub i64 %146, %147
   %149 = ashr exact i64 %148, 3
   %.not.i = icmp eq i64 %148, 88
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %142
-  %.not17.i = icmp eq ptr %144, %145
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %142, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %142 ]
   %150 = getelementptr inbounds nuw i64, ptr %145, i64 %indvars.iv.i
   %151 = load i64, ptr %150, align 8
   %152 = getelementptr inbounds nuw i64, ptr %139, i64 %indvars.iv.i
@@ -13267,8 +13175,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %142
-  %.09.i = phi i1 [ false, %142 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %142
+  %.09.i = phi i1 [ false, %142 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %139, i64 noundef 88) #26
   %154 = load ptr, ptr %19, align 8
   %.not.i.i.i43 = icmp eq ptr %154, null
@@ -13382,14 +13290,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i53:         ; preds = %195
   %205 = sub i64 %203, %204
   %206 = ashr exact i64 %205, 3
   %.not.i57 = icmp eq i64 %205, 88
-  br i1 %.not.i57, label %.preheader.split.i59, label %_ZNSt6vectorIlSaIlEED2Ev.exit69
+  br i1 %.not.i57, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i61, label %_ZNSt6vectorIlSaIlEED2Ev.exit69
 
-.preheader.split.i59:                             ; preds = %199
-  %.not17.i60 = icmp eq ptr %201, %202
-  br i1 %.not17.i60, label %_ZNSt6vectorIlSaIlEED2Ev.exit69, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i61
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i61:              ; preds = %.preheader.split.i59, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i61
-  %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i64, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i61 ], [ 0, %.preheader.split.i59 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i61:              ; preds = %199, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i61
+  %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i64, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i61 ], [ 0, %199 ]
   %207 = getelementptr inbounds nuw i64, ptr %202, i64 %indvars.iv.i62
   %208 = load i64, ptr %207, align 8
   %209 = getelementptr inbounds nuw i64, ptr %196, i64 %indvars.iv.i62
@@ -13397,11 +13301,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i61:              ; preds = %.preheader.split.i5
   %.not11.i63 = icmp eq i64 %208, %210
   %indvars.iv.next.i64 = add nuw i64 %indvars.iv.i62, 1
   %exitcond.not.i65 = icmp ne i64 %indvars.iv.next.i64, %206
-  %or.cond182.not = select i1 %.not11.i63, i1 %exitcond.not.i65, i1 false
-  br i1 %or.cond182.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i61, label %_ZNSt6vectorIlSaIlEED2Ev.exit69, !llvm.loop !19
+  %or.cond178.not = select i1 %.not11.i63, i1 %exitcond.not.i65, i1 false
+  br i1 %or.cond178.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i61, label %_ZNSt6vectorIlSaIlEED2Ev.exit69, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit69:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i61, %.preheader.split.i59, %199
-  %.09.i58 = phi i1 [ false, %199 ], [ true, %.preheader.split.i59 ], [ %.not11.i63, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i61 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit69:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i61, %199
+  %.09.i58 = phi i1 [ false, %199 ], [ %.not11.i63, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i61 ]
   call void @_ZdlPvm(ptr noundef nonnull %196, i64 noundef 88) #26
   %211 = load ptr, ptr %26, align 8
   %.not.i.i.i70 = icmp eq ptr %211, null
@@ -13515,14 +13419,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i80:         ; preds = %252
   %262 = sub i64 %260, %261
   %263 = ashr exact i64 %262, 3
   %.not.i84 = icmp eq i64 %262, 88
-  br i1 %.not.i84, label %.preheader.split.i86, label %_ZNSt6vectorIlSaIlEED2Ev.exit96
+  br i1 %.not.i84, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i88, label %_ZNSt6vectorIlSaIlEED2Ev.exit96
 
-.preheader.split.i86:                             ; preds = %256
-  %.not17.i87 = icmp eq ptr %258, %259
-  br i1 %.not17.i87, label %_ZNSt6vectorIlSaIlEED2Ev.exit96, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i88
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i88:              ; preds = %.preheader.split.i86, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i88
-  %indvars.iv.i89 = phi i64 [ %indvars.iv.next.i91, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i88 ], [ 0, %.preheader.split.i86 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i88:              ; preds = %256, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i88
+  %indvars.iv.i89 = phi i64 [ %indvars.iv.next.i91, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i88 ], [ 0, %256 ]
   %264 = getelementptr inbounds nuw i64, ptr %259, i64 %indvars.iv.i89
   %265 = load i64, ptr %264, align 8
   %266 = getelementptr inbounds nuw i64, ptr %253, i64 %indvars.iv.i89
@@ -13530,11 +13430,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i88:              ; preds = %.preheader.split.i8
   %.not11.i90 = icmp eq i64 %265, %267
   %indvars.iv.next.i91 = add nuw i64 %indvars.iv.i89, 1
   %exitcond.not.i92 = icmp ne i64 %indvars.iv.next.i91, %263
-  %or.cond183.not = select i1 %.not11.i90, i1 %exitcond.not.i92, i1 false
-  br i1 %or.cond183.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i88, label %_ZNSt6vectorIlSaIlEED2Ev.exit96, !llvm.loop !19
+  %or.cond179.not = select i1 %.not11.i90, i1 %exitcond.not.i92, i1 false
+  br i1 %or.cond179.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i88, label %_ZNSt6vectorIlSaIlEED2Ev.exit96, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit96:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i88, %.preheader.split.i86, %256
-  %.09.i85 = phi i1 [ false, %256 ], [ true, %.preheader.split.i86 ], [ %.not11.i90, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i88 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit96:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i88, %256
+  %.09.i85 = phi i1 [ false, %256 ], [ %.not11.i90, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i88 ]
   call void @_ZdlPvm(ptr noundef nonnull %253, i64 noundef 88) #26
   %268 = load ptr, ptr %33, align 8
   %.not.i.i.i97 = icmp eq ptr %268, null
@@ -13648,14 +13548,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i107:        ; preds = %309
   %319 = sub i64 %317, %318
   %320 = ashr exact i64 %319, 3
   %.not.i111 = icmp eq i64 %319, 96
-  br i1 %.not.i111, label %.preheader.split.i113, label %_ZNSt6vectorIlSaIlEED2Ev.exit123
+  br i1 %.not.i111, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i115, label %_ZNSt6vectorIlSaIlEED2Ev.exit123
 
-.preheader.split.i113:                            ; preds = %313
-  %.not17.i114 = icmp eq ptr %315, %316
-  br i1 %.not17.i114, label %_ZNSt6vectorIlSaIlEED2Ev.exit123, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i115
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i115:             ; preds = %.preheader.split.i113, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i115
-  %indvars.iv.i116 = phi i64 [ %indvars.iv.next.i118, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i115 ], [ 0, %.preheader.split.i113 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i115:             ; preds = %313, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i115
+  %indvars.iv.i116 = phi i64 [ %indvars.iv.next.i118, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i115 ], [ 0, %313 ]
   %321 = getelementptr inbounds nuw i64, ptr %316, i64 %indvars.iv.i116
   %322 = load i64, ptr %321, align 8
   %323 = getelementptr inbounds nuw i64, ptr %310, i64 %indvars.iv.i116
@@ -13663,11 +13559,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i115:             ; preds = %.preheader.split.i1
   %.not11.i117 = icmp eq i64 %322, %324
   %indvars.iv.next.i118 = add nuw i64 %indvars.iv.i116, 1
   %exitcond.not.i119 = icmp ne i64 %indvars.iv.next.i118, %320
-  %or.cond184.not = select i1 %.not11.i117, i1 %exitcond.not.i119, i1 false
-  br i1 %or.cond184.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i115, label %_ZNSt6vectorIlSaIlEED2Ev.exit123, !llvm.loop !19
+  %or.cond180.not = select i1 %.not11.i117, i1 %exitcond.not.i119, i1 false
+  br i1 %or.cond180.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i115, label %_ZNSt6vectorIlSaIlEED2Ev.exit123, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit123:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i115, %.preheader.split.i113, %313
-  %.09.i112 = phi i1 [ false, %313 ], [ true, %.preheader.split.i113 ], [ %.not11.i117, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i115 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit123:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i115, %313
+  %.09.i112 = phi i1 [ false, %313 ], [ %.not11.i117, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i115 ]
   call void @_ZdlPvm(ptr noundef nonnull %310, i64 noundef 96) #26
   %325 = load ptr, ptr %40, align 8
   %.not.i.i.i124 = icmp eq ptr %325, null
@@ -14430,14 +14326,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i:           ; preds = %152
   %162 = sub i64 %160, %161
   %163 = ashr exact i64 %162, 3
   %.not.i = icmp eq i64 %162, 88
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %156
-  %.not17.i = icmp eq ptr %158, %159
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %156, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %156 ]
   %164 = getelementptr inbounds nuw i64, ptr %159, i64 %indvars.iv.i
   %165 = load i64, ptr %164, align 8
   %166 = getelementptr inbounds nuw i64, ptr %153, i64 %indvars.iv.i
@@ -14448,8 +14340,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %156
-  %.09.i = phi i1 [ false, %156 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %156
+  %.09.i = phi i1 [ false, %156 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef 88) #26
   %168 = load ptr, ptr %19, align 8
   %.not.i.i.i53 = icmp eq ptr %168, null
@@ -14563,14 +14455,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i63:         ; preds = %209
   %219 = sub i64 %217, %218
   %220 = ashr exact i64 %219, 3
   %.not.i67 = icmp eq i64 %219, 88
-  br i1 %.not.i67, label %.preheader.split.i69, label %_ZNSt6vectorIlSaIlEED2Ev.exit79
+  br i1 %.not.i67, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71, label %_ZNSt6vectorIlSaIlEED2Ev.exit79
 
-.preheader.split.i69:                             ; preds = %213
-  %.not17.i70 = icmp eq ptr %215, %216
-  br i1 %.not17.i70, label %_ZNSt6vectorIlSaIlEED2Ev.exit79, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i71:              ; preds = %.preheader.split.i69, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71
-  %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i74, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71 ], [ 0, %.preheader.split.i69 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i71:              ; preds = %213, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71
+  %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i74, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71 ], [ 0, %213 ]
   %221 = getelementptr inbounds nuw i64, ptr %216, i64 %indvars.iv.i72
   %222 = load i64, ptr %221, align 8
   %223 = getelementptr inbounds nuw i64, ptr %210, i64 %indvars.iv.i72
@@ -14578,11 +14466,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i71:              ; preds = %.preheader.split.i6
   %.not11.i73 = icmp eq i64 %222, %224
   %indvars.iv.next.i74 = add nuw i64 %indvars.iv.i72, 1
   %exitcond.not.i75 = icmp ne i64 %indvars.iv.next.i74, %220
-  %or.cond268.not = select i1 %.not11.i73, i1 %exitcond.not.i75, i1 false
-  br i1 %or.cond268.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71, label %_ZNSt6vectorIlSaIlEED2Ev.exit79, !llvm.loop !19
+  %or.cond262.not = select i1 %.not11.i73, i1 %exitcond.not.i75, i1 false
+  br i1 %or.cond262.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71, label %_ZNSt6vectorIlSaIlEED2Ev.exit79, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit79:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71, %.preheader.split.i69, %213
-  %.09.i68 = phi i1 [ false, %213 ], [ true, %.preheader.split.i69 ], [ %.not11.i73, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit79:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71, %213
+  %.09.i68 = phi i1 [ false, %213 ], [ %.not11.i73, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71 ]
   call void @_ZdlPvm(ptr noundef nonnull %210, i64 noundef 88) #26
   %225 = load ptr, ptr %26, align 8
   %.not.i.i.i80 = icmp eq ptr %225, null
@@ -14696,14 +14584,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i90:         ; preds = %266
   %276 = sub i64 %274, %275
   %277 = ashr exact i64 %276, 3
   %.not.i94 = icmp eq i64 %276, 72
-  br i1 %.not.i94, label %.preheader.split.i96, label %_ZNSt6vectorIlSaIlEED2Ev.exit106
+  br i1 %.not.i94, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98, label %_ZNSt6vectorIlSaIlEED2Ev.exit106
 
-.preheader.split.i96:                             ; preds = %270
-  %.not17.i97 = icmp eq ptr %272, %273
-  br i1 %.not17.i97, label %_ZNSt6vectorIlSaIlEED2Ev.exit106, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i98:              ; preds = %.preheader.split.i96, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98
-  %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i101, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98 ], [ 0, %.preheader.split.i96 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i98:              ; preds = %270, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98
+  %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i101, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98 ], [ 0, %270 ]
   %278 = getelementptr inbounds nuw i64, ptr %273, i64 %indvars.iv.i99
   %279 = load i64, ptr %278, align 8
   %280 = getelementptr inbounds nuw i64, ptr %267, i64 %indvars.iv.i99
@@ -14711,11 +14595,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i98:              ; preds = %.preheader.split.i9
   %.not11.i100 = icmp eq i64 %279, %281
   %indvars.iv.next.i101 = add nuw i64 %indvars.iv.i99, 1
   %exitcond.not.i102 = icmp ne i64 %indvars.iv.next.i101, %277
-  %or.cond269.not = select i1 %.not11.i100, i1 %exitcond.not.i102, i1 false
-  br i1 %or.cond269.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98, label %_ZNSt6vectorIlSaIlEED2Ev.exit106, !llvm.loop !19
+  %or.cond263.not = select i1 %.not11.i100, i1 %exitcond.not.i102, i1 false
+  br i1 %or.cond263.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98, label %_ZNSt6vectorIlSaIlEED2Ev.exit106, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit106:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98, %.preheader.split.i96, %270
-  %.09.i95 = phi i1 [ false, %270 ], [ true, %.preheader.split.i96 ], [ %.not11.i100, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit106:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98, %270
+  %.09.i95 = phi i1 [ false, %270 ], [ %.not11.i100, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98 ]
   call void @_ZdlPvm(ptr noundef nonnull %267, i64 noundef 72) #26
   %282 = load ptr, ptr %33, align 8
   %.not.i.i.i107 = icmp eq ptr %282, null
@@ -14829,14 +14713,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i117:        ; preds = %323
   %333 = sub i64 %331, %332
   %334 = ashr exact i64 %333, 3
   %.not.i121 = icmp eq i64 %333, 80
-  br i1 %.not.i121, label %.preheader.split.i123, label %_ZNSt6vectorIlSaIlEED2Ev.exit133
+  br i1 %.not.i121, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125, label %_ZNSt6vectorIlSaIlEED2Ev.exit133
 
-.preheader.split.i123:                            ; preds = %327
-  %.not17.i124 = icmp eq ptr %329, %330
-  br i1 %.not17.i124, label %_ZNSt6vectorIlSaIlEED2Ev.exit133, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i125:             ; preds = %.preheader.split.i123, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125
-  %indvars.iv.i126 = phi i64 [ %indvars.iv.next.i128, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125 ], [ 0, %.preheader.split.i123 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i125:             ; preds = %327, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125
+  %indvars.iv.i126 = phi i64 [ %indvars.iv.next.i128, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125 ], [ 0, %327 ]
   %335 = getelementptr inbounds nuw i64, ptr %330, i64 %indvars.iv.i126
   %336 = load i64, ptr %335, align 8
   %337 = getelementptr inbounds nuw i64, ptr %324, i64 %indvars.iv.i126
@@ -14844,11 +14724,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i125:             ; preds = %.preheader.split.i1
   %.not11.i127 = icmp eq i64 %336, %338
   %indvars.iv.next.i128 = add nuw i64 %indvars.iv.i126, 1
   %exitcond.not.i129 = icmp ne i64 %indvars.iv.next.i128, %334
-  %or.cond270.not = select i1 %.not11.i127, i1 %exitcond.not.i129, i1 false
-  br i1 %or.cond270.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125, label %_ZNSt6vectorIlSaIlEED2Ev.exit133, !llvm.loop !19
+  %or.cond264.not = select i1 %.not11.i127, i1 %exitcond.not.i129, i1 false
+  br i1 %or.cond264.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125, label %_ZNSt6vectorIlSaIlEED2Ev.exit133, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit133:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125, %.preheader.split.i123, %327
-  %.09.i122 = phi i1 [ false, %327 ], [ true, %.preheader.split.i123 ], [ %.not11.i127, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit133:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125, %327
+  %.09.i122 = phi i1 [ false, %327 ], [ %.not11.i127, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125 ]
   call void @_ZdlPvm(ptr noundef nonnull %324, i64 noundef 80) #26
   %339 = load ptr, ptr %40, align 8
   %.not.i.i.i134 = icmp eq ptr %339, null
@@ -14962,14 +14842,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i144:        ; preds = %380
   %390 = sub i64 %388, %389
   %391 = ashr exact i64 %390, 3
   %.not.i148 = icmp eq i64 %390, 72
-  br i1 %.not.i148, label %.preheader.split.i150, label %_ZNSt6vectorIlSaIlEED2Ev.exit160
+  br i1 %.not.i148, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152, label %_ZNSt6vectorIlSaIlEED2Ev.exit160
 
-.preheader.split.i150:                            ; preds = %384
-  %.not17.i151 = icmp eq ptr %386, %387
-  br i1 %.not17.i151, label %_ZNSt6vectorIlSaIlEED2Ev.exit160, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i152:             ; preds = %.preheader.split.i150, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152
-  %indvars.iv.i153 = phi i64 [ %indvars.iv.next.i155, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152 ], [ 0, %.preheader.split.i150 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i152:             ; preds = %384, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152
+  %indvars.iv.i153 = phi i64 [ %indvars.iv.next.i155, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152 ], [ 0, %384 ]
   %392 = getelementptr inbounds nuw i64, ptr %387, i64 %indvars.iv.i153
   %393 = load i64, ptr %392, align 8
   %394 = getelementptr inbounds nuw i64, ptr %381, i64 %indvars.iv.i153
@@ -14977,11 +14853,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i152:             ; preds = %.preheader.split.i1
   %.not11.i154 = icmp eq i64 %393, %395
   %indvars.iv.next.i155 = add nuw i64 %indvars.iv.i153, 1
   %exitcond.not.i156 = icmp ne i64 %indvars.iv.next.i155, %391
-  %or.cond271.not = select i1 %.not11.i154, i1 %exitcond.not.i156, i1 false
-  br i1 %or.cond271.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152, label %_ZNSt6vectorIlSaIlEED2Ev.exit160, !llvm.loop !19
+  %or.cond265.not = select i1 %.not11.i154, i1 %exitcond.not.i156, i1 false
+  br i1 %or.cond265.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152, label %_ZNSt6vectorIlSaIlEED2Ev.exit160, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit160:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152, %.preheader.split.i150, %384
-  %.09.i149 = phi i1 [ false, %384 ], [ true, %.preheader.split.i150 ], [ %.not11.i154, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit160:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152, %384
+  %.09.i149 = phi i1 [ false, %384 ], [ %.not11.i154, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152 ]
   call void @_ZdlPvm(ptr noundef nonnull %381, i64 noundef 72) #26
   %396 = load ptr, ptr %47, align 8
   %.not.i.i.i161 = icmp eq ptr %396, null
@@ -15095,14 +14971,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i171:        ; preds = %437
   %447 = sub i64 %445, %446
   %448 = ashr exact i64 %447, 3
   %.not.i175 = icmp eq i64 %447, 72
-  br i1 %.not.i175, label %.preheader.split.i177, label %_ZNSt6vectorIlSaIlEED2Ev.exit187
+  br i1 %.not.i175, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179, label %_ZNSt6vectorIlSaIlEED2Ev.exit187
 
-.preheader.split.i177:                            ; preds = %441
-  %.not17.i178 = icmp eq ptr %443, %444
-  br i1 %.not17.i178, label %_ZNSt6vectorIlSaIlEED2Ev.exit187, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i179:             ; preds = %.preheader.split.i177, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179
-  %indvars.iv.i180 = phi i64 [ %indvars.iv.next.i182, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179 ], [ 0, %.preheader.split.i177 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i179:             ; preds = %441, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179
+  %indvars.iv.i180 = phi i64 [ %indvars.iv.next.i182, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179 ], [ 0, %441 ]
   %449 = getelementptr inbounds nuw i64, ptr %444, i64 %indvars.iv.i180
   %450 = load i64, ptr %449, align 8
   %451 = getelementptr inbounds nuw i64, ptr %438, i64 %indvars.iv.i180
@@ -15110,11 +14982,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i179:             ; preds = %.preheader.split.i1
   %.not11.i181 = icmp eq i64 %450, %452
   %indvars.iv.next.i182 = add nuw i64 %indvars.iv.i180, 1
   %exitcond.not.i183 = icmp ne i64 %indvars.iv.next.i182, %448
-  %or.cond272.not = select i1 %.not11.i181, i1 %exitcond.not.i183, i1 false
-  br i1 %or.cond272.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179, label %_ZNSt6vectorIlSaIlEED2Ev.exit187, !llvm.loop !19
+  %or.cond266.not = select i1 %.not11.i181, i1 %exitcond.not.i183, i1 false
+  br i1 %or.cond266.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179, label %_ZNSt6vectorIlSaIlEED2Ev.exit187, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit187:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179, %.preheader.split.i177, %441
-  %.09.i176 = phi i1 [ false, %441 ], [ true, %.preheader.split.i177 ], [ %.not11.i181, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit187:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179, %441
+  %.09.i176 = phi i1 [ false, %441 ], [ %.not11.i181, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179 ]
   call void @_ZdlPvm(ptr noundef nonnull %438, i64 noundef 72) #26
   %453 = load ptr, ptr %54, align 8
   %.not.i.i.i188 = icmp eq ptr %453, null
@@ -15881,14 +15753,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i:           ; preds = %152
   %162 = sub i64 %160, %161
   %163 = ashr exact i64 %162, 3
   %.not.i = icmp eq i64 %162, 88
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %156
-  %.not17.i = icmp eq ptr %158, %159
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %156, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %156 ]
   %164 = getelementptr inbounds nuw i64, ptr %159, i64 %indvars.iv.i
   %165 = load i64, ptr %164, align 8
   %166 = getelementptr inbounds nuw i64, ptr %153, i64 %indvars.iv.i
@@ -15899,8 +15767,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %156
-  %.09.i = phi i1 [ false, %156 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %156
+  %.09.i = phi i1 [ false, %156 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef 88) #26
   %168 = load ptr, ptr %19, align 8
   %.not.i.i.i53 = icmp eq ptr %168, null
@@ -16014,14 +15882,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i63:         ; preds = %209
   %219 = sub i64 %217, %218
   %220 = ashr exact i64 %219, 3
   %.not.i67 = icmp eq i64 %219, 64
-  br i1 %.not.i67, label %.preheader.split.i69, label %_ZNSt6vectorIlSaIlEED2Ev.exit79
+  br i1 %.not.i67, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71, label %_ZNSt6vectorIlSaIlEED2Ev.exit79
 
-.preheader.split.i69:                             ; preds = %213
-  %.not17.i70 = icmp eq ptr %215, %216
-  br i1 %.not17.i70, label %_ZNSt6vectorIlSaIlEED2Ev.exit79, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i71:              ; preds = %.preheader.split.i69, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71
-  %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i74, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71 ], [ 0, %.preheader.split.i69 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i71:              ; preds = %213, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71
+  %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i74, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71 ], [ 0, %213 ]
   %221 = getelementptr inbounds nuw i64, ptr %216, i64 %indvars.iv.i72
   %222 = load i64, ptr %221, align 8
   %223 = getelementptr inbounds nuw i64, ptr %210, i64 %indvars.iv.i72
@@ -16029,11 +15893,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i71:              ; preds = %.preheader.split.i6
   %.not11.i73 = icmp eq i64 %222, %224
   %indvars.iv.next.i74 = add nuw i64 %indvars.iv.i72, 1
   %exitcond.not.i75 = icmp ne i64 %indvars.iv.next.i74, %220
-  %or.cond268.not = select i1 %.not11.i73, i1 %exitcond.not.i75, i1 false
-  br i1 %or.cond268.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71, label %_ZNSt6vectorIlSaIlEED2Ev.exit79, !llvm.loop !19
+  %or.cond262.not = select i1 %.not11.i73, i1 %exitcond.not.i75, i1 false
+  br i1 %or.cond262.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71, label %_ZNSt6vectorIlSaIlEED2Ev.exit79, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit79:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71, %.preheader.split.i69, %213
-  %.09.i68 = phi i1 [ false, %213 ], [ true, %.preheader.split.i69 ], [ %.not11.i73, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit79:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71, %213
+  %.09.i68 = phi i1 [ false, %213 ], [ %.not11.i73, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71 ]
   call void @_ZdlPvm(ptr noundef nonnull %210, i64 noundef 64) #26
   %225 = load ptr, ptr %26, align 8
   %.not.i.i.i80 = icmp eq ptr %225, null
@@ -16147,14 +16011,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i90:         ; preds = %266
   %276 = sub i64 %274, %275
   %277 = ashr exact i64 %276, 3
   %.not.i94 = icmp eq i64 %276, 64
-  br i1 %.not.i94, label %.preheader.split.i96, label %_ZNSt6vectorIlSaIlEED2Ev.exit106
+  br i1 %.not.i94, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98, label %_ZNSt6vectorIlSaIlEED2Ev.exit106
 
-.preheader.split.i96:                             ; preds = %270
-  %.not17.i97 = icmp eq ptr %272, %273
-  br i1 %.not17.i97, label %_ZNSt6vectorIlSaIlEED2Ev.exit106, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i98:              ; preds = %.preheader.split.i96, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98
-  %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i101, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98 ], [ 0, %.preheader.split.i96 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i98:              ; preds = %270, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98
+  %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i101, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98 ], [ 0, %270 ]
   %278 = getelementptr inbounds nuw i64, ptr %273, i64 %indvars.iv.i99
   %279 = load i64, ptr %278, align 8
   %280 = getelementptr inbounds nuw i64, ptr %267, i64 %indvars.iv.i99
@@ -16162,11 +16022,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i98:              ; preds = %.preheader.split.i9
   %.not11.i100 = icmp eq i64 %279, %281
   %indvars.iv.next.i101 = add nuw i64 %indvars.iv.i99, 1
   %exitcond.not.i102 = icmp ne i64 %indvars.iv.next.i101, %277
-  %or.cond269.not = select i1 %.not11.i100, i1 %exitcond.not.i102, i1 false
-  br i1 %or.cond269.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98, label %_ZNSt6vectorIlSaIlEED2Ev.exit106, !llvm.loop !19
+  %or.cond263.not = select i1 %.not11.i100, i1 %exitcond.not.i102, i1 false
+  br i1 %or.cond263.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98, label %_ZNSt6vectorIlSaIlEED2Ev.exit106, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit106:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98, %.preheader.split.i96, %270
-  %.09.i95 = phi i1 [ false, %270 ], [ true, %.preheader.split.i96 ], [ %.not11.i100, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit106:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98, %270
+  %.09.i95 = phi i1 [ false, %270 ], [ %.not11.i100, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98 ]
   call void @_ZdlPvm(ptr noundef nonnull %267, i64 noundef 64) #26
   %282 = load ptr, ptr %33, align 8
   %.not.i.i.i107 = icmp eq ptr %282, null
@@ -16280,14 +16140,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i117:        ; preds = %323
   %333 = sub i64 %331, %332
   %334 = ashr exact i64 %333, 3
   %.not.i121 = icmp eq i64 %333, 64
-  br i1 %.not.i121, label %.preheader.split.i123, label %_ZNSt6vectorIlSaIlEED2Ev.exit133
+  br i1 %.not.i121, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125, label %_ZNSt6vectorIlSaIlEED2Ev.exit133
 
-.preheader.split.i123:                            ; preds = %327
-  %.not17.i124 = icmp eq ptr %329, %330
-  br i1 %.not17.i124, label %_ZNSt6vectorIlSaIlEED2Ev.exit133, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i125:             ; preds = %.preheader.split.i123, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125
-  %indvars.iv.i126 = phi i64 [ %indvars.iv.next.i128, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125 ], [ 0, %.preheader.split.i123 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i125:             ; preds = %327, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125
+  %indvars.iv.i126 = phi i64 [ %indvars.iv.next.i128, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125 ], [ 0, %327 ]
   %335 = getelementptr inbounds nuw i64, ptr %330, i64 %indvars.iv.i126
   %336 = load i64, ptr %335, align 8
   %337 = getelementptr inbounds nuw i64, ptr %324, i64 %indvars.iv.i126
@@ -16295,11 +16151,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i125:             ; preds = %.preheader.split.i1
   %.not11.i127 = icmp eq i64 %336, %338
   %indvars.iv.next.i128 = add nuw i64 %indvars.iv.i126, 1
   %exitcond.not.i129 = icmp ne i64 %indvars.iv.next.i128, %334
-  %or.cond270.not = select i1 %.not11.i127, i1 %exitcond.not.i129, i1 false
-  br i1 %or.cond270.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125, label %_ZNSt6vectorIlSaIlEED2Ev.exit133, !llvm.loop !19
+  %or.cond264.not = select i1 %.not11.i127, i1 %exitcond.not.i129, i1 false
+  br i1 %or.cond264.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125, label %_ZNSt6vectorIlSaIlEED2Ev.exit133, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit133:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125, %.preheader.split.i123, %327
-  %.09.i122 = phi i1 [ false, %327 ], [ true, %.preheader.split.i123 ], [ %.not11.i127, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit133:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125, %327
+  %.09.i122 = phi i1 [ false, %327 ], [ %.not11.i127, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125 ]
   call void @_ZdlPvm(ptr noundef nonnull %324, i64 noundef 64) #26
   %339 = load ptr, ptr %40, align 8
   %.not.i.i.i134 = icmp eq ptr %339, null
@@ -16413,14 +16269,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i144:        ; preds = %380
   %390 = sub i64 %388, %389
   %391 = ashr exact i64 %390, 3
   %.not.i148 = icmp eq i64 %390, 64
-  br i1 %.not.i148, label %.preheader.split.i150, label %_ZNSt6vectorIlSaIlEED2Ev.exit160
+  br i1 %.not.i148, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152, label %_ZNSt6vectorIlSaIlEED2Ev.exit160
 
-.preheader.split.i150:                            ; preds = %384
-  %.not17.i151 = icmp eq ptr %386, %387
-  br i1 %.not17.i151, label %_ZNSt6vectorIlSaIlEED2Ev.exit160, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i152:             ; preds = %.preheader.split.i150, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152
-  %indvars.iv.i153 = phi i64 [ %indvars.iv.next.i155, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152 ], [ 0, %.preheader.split.i150 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i152:             ; preds = %384, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152
+  %indvars.iv.i153 = phi i64 [ %indvars.iv.next.i155, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152 ], [ 0, %384 ]
   %392 = getelementptr inbounds nuw i64, ptr %387, i64 %indvars.iv.i153
   %393 = load i64, ptr %392, align 8
   %394 = getelementptr inbounds nuw i64, ptr %381, i64 %indvars.iv.i153
@@ -16428,11 +16280,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i152:             ; preds = %.preheader.split.i1
   %.not11.i154 = icmp eq i64 %393, %395
   %indvars.iv.next.i155 = add nuw i64 %indvars.iv.i153, 1
   %exitcond.not.i156 = icmp ne i64 %indvars.iv.next.i155, %391
-  %or.cond271.not = select i1 %.not11.i154, i1 %exitcond.not.i156, i1 false
-  br i1 %or.cond271.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152, label %_ZNSt6vectorIlSaIlEED2Ev.exit160, !llvm.loop !19
+  %or.cond265.not = select i1 %.not11.i154, i1 %exitcond.not.i156, i1 false
+  br i1 %or.cond265.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152, label %_ZNSt6vectorIlSaIlEED2Ev.exit160, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit160:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152, %.preheader.split.i150, %384
-  %.09.i149 = phi i1 [ false, %384 ], [ true, %.preheader.split.i150 ], [ %.not11.i154, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit160:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152, %384
+  %.09.i149 = phi i1 [ false, %384 ], [ %.not11.i154, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152 ]
   call void @_ZdlPvm(ptr noundef nonnull %381, i64 noundef 64) #26
   %396 = load ptr, ptr %47, align 8
   %.not.i.i.i161 = icmp eq ptr %396, null
@@ -16546,14 +16398,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i171:        ; preds = %437
   %447 = sub i64 %445, %446
   %448 = ashr exact i64 %447, 3
   %.not.i175 = icmp eq i64 %447, 56
-  br i1 %.not.i175, label %.preheader.split.i177, label %_ZNSt6vectorIlSaIlEED2Ev.exit187
+  br i1 %.not.i175, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179, label %_ZNSt6vectorIlSaIlEED2Ev.exit187
 
-.preheader.split.i177:                            ; preds = %441
-  %.not17.i178 = icmp eq ptr %443, %444
-  br i1 %.not17.i178, label %_ZNSt6vectorIlSaIlEED2Ev.exit187, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i179:             ; preds = %.preheader.split.i177, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179
-  %indvars.iv.i180 = phi i64 [ %indvars.iv.next.i182, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179 ], [ 0, %.preheader.split.i177 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i179:             ; preds = %441, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179
+  %indvars.iv.i180 = phi i64 [ %indvars.iv.next.i182, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179 ], [ 0, %441 ]
   %449 = getelementptr inbounds nuw i64, ptr %444, i64 %indvars.iv.i180
   %450 = load i64, ptr %449, align 8
   %451 = getelementptr inbounds nuw i64, ptr %438, i64 %indvars.iv.i180
@@ -16561,11 +16409,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i179:             ; preds = %.preheader.split.i1
   %.not11.i181 = icmp eq i64 %450, %452
   %indvars.iv.next.i182 = add nuw i64 %indvars.iv.i180, 1
   %exitcond.not.i183 = icmp ne i64 %indvars.iv.next.i182, %448
-  %or.cond272.not = select i1 %.not11.i181, i1 %exitcond.not.i183, i1 false
-  br i1 %or.cond272.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179, label %_ZNSt6vectorIlSaIlEED2Ev.exit187, !llvm.loop !19
+  %or.cond266.not = select i1 %.not11.i181, i1 %exitcond.not.i183, i1 false
+  br i1 %or.cond266.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179, label %_ZNSt6vectorIlSaIlEED2Ev.exit187, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit187:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179, %.preheader.split.i177, %441
-  %.09.i176 = phi i1 [ false, %441 ], [ true, %.preheader.split.i177 ], [ %.not11.i181, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit187:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179, %441
+  %.09.i176 = phi i1 [ false, %441 ], [ %.not11.i181, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i179 ]
   call void @_ZdlPvm(ptr noundef nonnull %438, i64 noundef 56) #26
   %453 = load ptr, ptr %54, align 8
   %.not.i.i.i188 = icmp eq ptr %453, null
@@ -17282,14 +17130,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i:           ; preds = %145
   %155 = sub i64 %153, %154
   %156 = ashr exact i64 %155, 3
   %.not.i = icmp eq i64 %155, 88
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %149
-  %.not17.i = icmp eq ptr %151, %152
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %149, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %149 ]
   %157 = getelementptr inbounds nuw i64, ptr %152, i64 %indvars.iv.i
   %158 = load i64, ptr %157, align 8
   %159 = getelementptr inbounds nuw i64, ptr %146, i64 %indvars.iv.i
@@ -17300,8 +17144,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %149
-  %.09.i = phi i1 [ false, %149 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %149
+  %.09.i = phi i1 [ false, %149 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %146, i64 noundef 88) #26
   %161 = load ptr, ptr %19, align 8
   %.not.i.i.i48 = icmp eq ptr %161, null
@@ -17415,14 +17259,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i58:         ; preds = %202
   %212 = sub i64 %210, %211
   %213 = ashr exact i64 %212, 3
   %.not.i62 = icmp eq i64 %212, 88
-  br i1 %.not.i62, label %.preheader.split.i64, label %_ZNSt6vectorIlSaIlEED2Ev.exit74
+  br i1 %.not.i62, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, label %_ZNSt6vectorIlSaIlEED2Ev.exit74
 
-.preheader.split.i64:                             ; preds = %206
-  %.not17.i65 = icmp eq ptr %208, %209
-  br i1 %.not17.i65, label %_ZNSt6vectorIlSaIlEED2Ev.exit74, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i66:              ; preds = %.preheader.split.i64, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66
-  %indvars.iv.i67 = phi i64 [ %indvars.iv.next.i69, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ], [ 0, %.preheader.split.i64 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i66:              ; preds = %206, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66
+  %indvars.iv.i67 = phi i64 [ %indvars.iv.next.i69, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ], [ 0, %206 ]
   %214 = getelementptr inbounds nuw i64, ptr %209, i64 %indvars.iv.i67
   %215 = load i64, ptr %214, align 8
   %216 = getelementptr inbounds nuw i64, ptr %203, i64 %indvars.iv.i67
@@ -17430,11 +17270,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i66:              ; preds = %.preheader.split.i6
   %.not11.i68 = icmp eq i64 %215, %217
   %indvars.iv.next.i69 = add nuw i64 %indvars.iv.i67, 1
   %exitcond.not.i70 = icmp ne i64 %indvars.iv.next.i69, %213
-  %or.cond225.not = select i1 %.not11.i68, i1 %exitcond.not.i70, i1 false
-  br i1 %or.cond225.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, label %_ZNSt6vectorIlSaIlEED2Ev.exit74, !llvm.loop !19
+  %or.cond220.not = select i1 %.not11.i68, i1 %exitcond.not.i70, i1 false
+  br i1 %or.cond220.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, label %_ZNSt6vectorIlSaIlEED2Ev.exit74, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit74:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, %.preheader.split.i64, %206
-  %.09.i63 = phi i1 [ false, %206 ], [ true, %.preheader.split.i64 ], [ %.not11.i68, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit74:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, %206
+  %.09.i63 = phi i1 [ false, %206 ], [ %.not11.i68, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ]
   call void @_ZdlPvm(ptr noundef nonnull %203, i64 noundef 88) #26
   %218 = load ptr, ptr %26, align 8
   %.not.i.i.i75 = icmp eq ptr %218, null
@@ -17548,14 +17388,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i85:         ; preds = %259
   %269 = sub i64 %267, %268
   %270 = ashr exact i64 %269, 3
   %.not.i89 = icmp eq i64 %269, 40
-  br i1 %.not.i89, label %.preheader.split.i91, label %_ZNSt6vectorIlSaIlEED2Ev.exit101
+  br i1 %.not.i89, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, label %_ZNSt6vectorIlSaIlEED2Ev.exit101
 
-.preheader.split.i91:                             ; preds = %263
-  %.not17.i92 = icmp eq ptr %265, %266
-  br i1 %.not17.i92, label %_ZNSt6vectorIlSaIlEED2Ev.exit101, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i93:              ; preds = %.preheader.split.i91, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93
-  %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i96, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93 ], [ 0, %.preheader.split.i91 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i93:              ; preds = %263, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93
+  %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i96, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93 ], [ 0, %263 ]
   %271 = getelementptr inbounds nuw i64, ptr %266, i64 %indvars.iv.i94
   %272 = load i64, ptr %271, align 8
   %273 = getelementptr inbounds nuw i64, ptr %260, i64 %indvars.iv.i94
@@ -17563,11 +17399,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i93:              ; preds = %.preheader.split.i9
   %.not11.i95 = icmp eq i64 %272, %274
   %indvars.iv.next.i96 = add nuw i64 %indvars.iv.i94, 1
   %exitcond.not.i97 = icmp ne i64 %indvars.iv.next.i96, %270
-  %or.cond226.not = select i1 %.not11.i95, i1 %exitcond.not.i97, i1 false
-  br i1 %or.cond226.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, label %_ZNSt6vectorIlSaIlEED2Ev.exit101, !llvm.loop !19
+  %or.cond221.not = select i1 %.not11.i95, i1 %exitcond.not.i97, i1 false
+  br i1 %or.cond221.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, label %_ZNSt6vectorIlSaIlEED2Ev.exit101, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit101:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, %.preheader.split.i91, %263
-  %.09.i90 = phi i1 [ false, %263 ], [ true, %.preheader.split.i91 ], [ %.not11.i95, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit101:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, %263
+  %.09.i90 = phi i1 [ false, %263 ], [ %.not11.i95, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93 ]
   call void @_ZdlPvm(ptr noundef nonnull %260, i64 noundef 40) #26
   %275 = load ptr, ptr %33, align 8
   %.not.i.i.i102 = icmp eq ptr %275, null
@@ -17681,14 +17517,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i112:        ; preds = %316
   %326 = sub i64 %324, %325
   %327 = ashr exact i64 %326, 3
   %.not.i116 = icmp eq i64 %326, 48
-  br i1 %.not.i116, label %.preheader.split.i118, label %_ZNSt6vectorIlSaIlEED2Ev.exit128
+  br i1 %.not.i116, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, label %_ZNSt6vectorIlSaIlEED2Ev.exit128
 
-.preheader.split.i118:                            ; preds = %320
-  %.not17.i119 = icmp eq ptr %322, %323
-  br i1 %.not17.i119, label %_ZNSt6vectorIlSaIlEED2Ev.exit128, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i120:             ; preds = %.preheader.split.i118, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120
-  %indvars.iv.i121 = phi i64 [ %indvars.iv.next.i123, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120 ], [ 0, %.preheader.split.i118 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i120:             ; preds = %320, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120
+  %indvars.iv.i121 = phi i64 [ %indvars.iv.next.i123, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120 ], [ 0, %320 ]
   %328 = getelementptr inbounds nuw i64, ptr %323, i64 %indvars.iv.i121
   %329 = load i64, ptr %328, align 8
   %330 = getelementptr inbounds nuw i64, ptr %317, i64 %indvars.iv.i121
@@ -17696,11 +17528,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i120:             ; preds = %.preheader.split.i1
   %.not11.i122 = icmp eq i64 %329, %331
   %indvars.iv.next.i123 = add nuw i64 %indvars.iv.i121, 1
   %exitcond.not.i124 = icmp ne i64 %indvars.iv.next.i123, %327
-  %or.cond227.not = select i1 %.not11.i122, i1 %exitcond.not.i124, i1 false
-  br i1 %or.cond227.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, label %_ZNSt6vectorIlSaIlEED2Ev.exit128, !llvm.loop !19
+  %or.cond222.not = select i1 %.not11.i122, i1 %exitcond.not.i124, i1 false
+  br i1 %or.cond222.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, label %_ZNSt6vectorIlSaIlEED2Ev.exit128, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit128:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, %.preheader.split.i118, %320
-  %.09.i117 = phi i1 [ false, %320 ], [ true, %.preheader.split.i118 ], [ %.not11.i122, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit128:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, %320
+  %.09.i117 = phi i1 [ false, %320 ], [ %.not11.i122, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120 ]
   call void @_ZdlPvm(ptr noundef nonnull %317, i64 noundef 48) #26
   %332 = load ptr, ptr %40, align 8
   %.not.i.i.i129 = icmp eq ptr %332, null
@@ -17814,14 +17646,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i139:        ; preds = %373
   %383 = sub i64 %381, %382
   %384 = ashr exact i64 %383, 3
   %.not.i143 = icmp eq i64 %383, 40
-  br i1 %.not.i143, label %.preheader.split.i145, label %_ZNSt6vectorIlSaIlEED2Ev.exit155
+  br i1 %.not.i143, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, label %_ZNSt6vectorIlSaIlEED2Ev.exit155
 
-.preheader.split.i145:                            ; preds = %377
-  %.not17.i146 = icmp eq ptr %379, %380
-  br i1 %.not17.i146, label %_ZNSt6vectorIlSaIlEED2Ev.exit155, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i147:             ; preds = %.preheader.split.i145, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147
-  %indvars.iv.i148 = phi i64 [ %indvars.iv.next.i150, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147 ], [ 0, %.preheader.split.i145 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i147:             ; preds = %377, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147
+  %indvars.iv.i148 = phi i64 [ %indvars.iv.next.i150, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147 ], [ 0, %377 ]
   %385 = getelementptr inbounds nuw i64, ptr %380, i64 %indvars.iv.i148
   %386 = load i64, ptr %385, align 8
   %387 = getelementptr inbounds nuw i64, ptr %374, i64 %indvars.iv.i148
@@ -17829,11 +17657,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i147:             ; preds = %.preheader.split.i1
   %.not11.i149 = icmp eq i64 %386, %388
   %indvars.iv.next.i150 = add nuw i64 %indvars.iv.i148, 1
   %exitcond.not.i151 = icmp ne i64 %indvars.iv.next.i150, %384
-  %or.cond228.not = select i1 %.not11.i149, i1 %exitcond.not.i151, i1 false
-  br i1 %or.cond228.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, label %_ZNSt6vectorIlSaIlEED2Ev.exit155, !llvm.loop !19
+  %or.cond223.not = select i1 %.not11.i149, i1 %exitcond.not.i151, i1 false
+  br i1 %or.cond223.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, label %_ZNSt6vectorIlSaIlEED2Ev.exit155, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit155:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, %.preheader.split.i145, %377
-  %.09.i144 = phi i1 [ false, %377 ], [ true, %.preheader.split.i145 ], [ %.not11.i149, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit155:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, %377
+  %.09.i144 = phi i1 [ false, %377 ], [ %.not11.i149, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147 ]
   call void @_ZdlPvm(ptr noundef nonnull %374, i64 noundef 40) #26
   %389 = load ptr, ptr %47, align 8
   %.not.i.i.i156 = icmp eq ptr %389, null
@@ -18419,14 +18247,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i:           ; preds = %159
   %169 = sub i64 %167, %168
   %170 = ashr exact i64 %169, 3
   %.not.i = icmp eq i64 %169, 88
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %163
-  %.not17.i = icmp eq ptr %165, %166
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %163, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %163 ]
   %171 = getelementptr inbounds nuw i64, ptr %166, i64 %indvars.iv.i
   %172 = load i64, ptr %171, align 8
   %173 = getelementptr inbounds nuw i64, ptr %160, i64 %indvars.iv.i
@@ -18437,8 +18261,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %163
-  %.09.i = phi i1 [ false, %163 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %163
+  %.09.i = phi i1 [ false, %163 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %160, i64 noundef 88) #26
   %175 = load ptr, ptr %19, align 8
   %.not.i.i.i58 = icmp eq ptr %175, null
@@ -18552,14 +18376,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i68:         ; preds = %216
   %226 = sub i64 %224, %225
   %227 = ashr exact i64 %226, 3
   %.not.i72 = icmp eq i64 %226, 24
-  br i1 %.not.i72, label %.preheader.split.i74, label %_ZNSt6vectorIlSaIlEED2Ev.exit84
+  br i1 %.not.i72, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76, label %_ZNSt6vectorIlSaIlEED2Ev.exit84
 
-.preheader.split.i74:                             ; preds = %220
-  %.not17.i75 = icmp eq ptr %222, %223
-  br i1 %.not17.i75, label %_ZNSt6vectorIlSaIlEED2Ev.exit84, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i76:              ; preds = %.preheader.split.i74, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76
-  %indvars.iv.i77 = phi i64 [ %indvars.iv.next.i79, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76 ], [ 0, %.preheader.split.i74 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i76:              ; preds = %220, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76
+  %indvars.iv.i77 = phi i64 [ %indvars.iv.next.i79, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76 ], [ 0, %220 ]
   %228 = getelementptr inbounds nuw i64, ptr %223, i64 %indvars.iv.i77
   %229 = load i64, ptr %228, align 8
   %230 = getelementptr inbounds nuw i64, ptr %217, i64 %indvars.iv.i77
@@ -18567,11 +18387,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i76:              ; preds = %.preheader.split.i7
   %.not11.i78 = icmp eq i64 %229, %231
   %indvars.iv.next.i79 = add nuw i64 %indvars.iv.i77, 1
   %exitcond.not.i80 = icmp ne i64 %indvars.iv.next.i79, %227
-  %or.cond319.not = select i1 %.not11.i78, i1 %exitcond.not.i80, i1 false
-  br i1 %or.cond319.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76, label %_ZNSt6vectorIlSaIlEED2Ev.exit84, !llvm.loop !19
+  %or.cond312.not = select i1 %.not11.i78, i1 %exitcond.not.i80, i1 false
+  br i1 %or.cond312.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76, label %_ZNSt6vectorIlSaIlEED2Ev.exit84, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit84:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76, %.preheader.split.i74, %220
-  %.09.i73 = phi i1 [ false, %220 ], [ true, %.preheader.split.i74 ], [ %.not11.i78, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit84:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76, %220
+  %.09.i73 = phi i1 [ false, %220 ], [ %.not11.i78, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i76 ]
   call void @_ZdlPvm(ptr noundef nonnull %217, i64 noundef 24) #26
   %232 = load ptr, ptr %26, align 8
   %.not.i.i.i85 = icmp eq ptr %232, null
@@ -18687,14 +18507,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i95:         ; preds = %273
   %283 = sub i64 %281, %282
   %284 = ashr exact i64 %283, 3
   %.not.i99 = icmp eq i64 %283, 16
-  br i1 %.not.i99, label %.preheader.split.i101, label %_ZNSt6vectorIlSaIlEED2Ev.exit111
+  br i1 %.not.i99, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103, label %_ZNSt6vectorIlSaIlEED2Ev.exit111
 
-.preheader.split.i101:                            ; preds = %277
-  %.not17.i102 = icmp eq ptr %279, %280
-  br i1 %.not17.i102, label %_ZNSt6vectorIlSaIlEED2Ev.exit111, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i103:             ; preds = %.preheader.split.i101, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103
-  %indvars.iv.i104 = phi i64 [ %indvars.iv.next.i106, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103 ], [ 0, %.preheader.split.i101 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i103:             ; preds = %277, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103
+  %indvars.iv.i104 = phi i64 [ %indvars.iv.next.i106, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103 ], [ 0, %277 ]
   %285 = getelementptr inbounds nuw i64, ptr %280, i64 %indvars.iv.i104
   %286 = load i64, ptr %285, align 8
   %287 = getelementptr inbounds nuw i64, ptr %274, i64 %indvars.iv.i104
@@ -18702,11 +18518,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i103:             ; preds = %.preheader.split.i1
   %.not11.i105 = icmp eq i64 %286, %288
   %indvars.iv.next.i106 = add nuw i64 %indvars.iv.i104, 1
   %exitcond.not.i107 = icmp ne i64 %indvars.iv.next.i106, %284
-  %or.cond320.not = select i1 %.not11.i105, i1 %exitcond.not.i107, i1 false
-  br i1 %or.cond320.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103, label %_ZNSt6vectorIlSaIlEED2Ev.exit111, !llvm.loop !19
+  %or.cond313.not = select i1 %.not11.i105, i1 %exitcond.not.i107, i1 false
+  br i1 %or.cond313.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103, label %_ZNSt6vectorIlSaIlEED2Ev.exit111, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit111:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103, %.preheader.split.i101, %277
-  %.09.i100 = phi i1 [ false, %277 ], [ true, %.preheader.split.i101 ], [ %.not11.i105, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit111:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103, %277
+  %.09.i100 = phi i1 [ false, %277 ], [ %.not11.i105, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i103 ]
   call void @_ZdlPvm(ptr noundef nonnull %274, i64 noundef 16) #26
   %289 = load ptr, ptr %33, align 8
   %.not.i.i.i112 = icmp eq ptr %289, null
@@ -18822,14 +18638,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i122:        ; preds = %330
   %340 = sub i64 %338, %339
   %341 = ashr exact i64 %340, 3
   %.not.i126 = icmp eq i64 %340, 16
-  br i1 %.not.i126, label %.preheader.split.i128, label %_ZNSt6vectorIlSaIlEED2Ev.exit138
+  br i1 %.not.i126, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130, label %_ZNSt6vectorIlSaIlEED2Ev.exit138
 
-.preheader.split.i128:                            ; preds = %334
-  %.not17.i129 = icmp eq ptr %336, %337
-  br i1 %.not17.i129, label %_ZNSt6vectorIlSaIlEED2Ev.exit138, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i130:             ; preds = %.preheader.split.i128, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130
-  %indvars.iv.i131 = phi i64 [ %indvars.iv.next.i133, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130 ], [ 0, %.preheader.split.i128 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i130:             ; preds = %334, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130
+  %indvars.iv.i131 = phi i64 [ %indvars.iv.next.i133, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130 ], [ 0, %334 ]
   %342 = getelementptr inbounds nuw i64, ptr %337, i64 %indvars.iv.i131
   %343 = load i64, ptr %342, align 8
   %344 = getelementptr inbounds nuw i64, ptr %331, i64 %indvars.iv.i131
@@ -18837,11 +18649,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i130:             ; preds = %.preheader.split.i1
   %.not11.i132 = icmp eq i64 %343, %345
   %indvars.iv.next.i133 = add nuw i64 %indvars.iv.i131, 1
   %exitcond.not.i134 = icmp ne i64 %indvars.iv.next.i133, %341
-  %or.cond321.not = select i1 %.not11.i132, i1 %exitcond.not.i134, i1 false
-  br i1 %or.cond321.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130, label %_ZNSt6vectorIlSaIlEED2Ev.exit138, !llvm.loop !19
+  %or.cond314.not = select i1 %.not11.i132, i1 %exitcond.not.i134, i1 false
+  br i1 %or.cond314.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130, label %_ZNSt6vectorIlSaIlEED2Ev.exit138, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit138:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130, %.preheader.split.i128, %334
-  %.09.i127 = phi i1 [ false, %334 ], [ true, %.preheader.split.i128 ], [ %.not11.i132, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit138:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130, %334
+  %.09.i127 = phi i1 [ false, %334 ], [ %.not11.i132, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i130 ]
   call void @_ZdlPvm(ptr noundef nonnull %331, i64 noundef 16) #26
   %346 = load ptr, ptr %40, align 8
   %.not.i.i.i139 = icmp eq ptr %346, null
@@ -18957,14 +18769,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i149:        ; preds = %387
   %397 = sub i64 %395, %396
   %398 = ashr exact i64 %397, 3
   %.not.i153 = icmp eq i64 %397, 16
-  br i1 %.not.i153, label %.preheader.split.i155, label %_ZNSt6vectorIlSaIlEED2Ev.exit165
+  br i1 %.not.i153, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i157, label %_ZNSt6vectorIlSaIlEED2Ev.exit165
 
-.preheader.split.i155:                            ; preds = %391
-  %.not17.i156 = icmp eq ptr %393, %394
-  br i1 %.not17.i156, label %_ZNSt6vectorIlSaIlEED2Ev.exit165, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i157
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i157:             ; preds = %.preheader.split.i155, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i157
-  %indvars.iv.i158 = phi i64 [ %indvars.iv.next.i160, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i157 ], [ 0, %.preheader.split.i155 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i157:             ; preds = %391, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i157
+  %indvars.iv.i158 = phi i64 [ %indvars.iv.next.i160, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i157 ], [ 0, %391 ]
   %399 = getelementptr inbounds nuw i64, ptr %394, i64 %indvars.iv.i158
   %400 = load i64, ptr %399, align 8
   %401 = getelementptr inbounds nuw i64, ptr %388, i64 %indvars.iv.i158
@@ -18972,11 +18780,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i157:             ; preds = %.preheader.split.i1
   %.not11.i159 = icmp eq i64 %400, %402
   %indvars.iv.next.i160 = add nuw i64 %indvars.iv.i158, 1
   %exitcond.not.i161 = icmp ne i64 %indvars.iv.next.i160, %398
-  %or.cond322.not = select i1 %.not11.i159, i1 %exitcond.not.i161, i1 false
-  br i1 %or.cond322.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i157, label %_ZNSt6vectorIlSaIlEED2Ev.exit165, !llvm.loop !19
+  %or.cond315.not = select i1 %.not11.i159, i1 %exitcond.not.i161, i1 false
+  br i1 %or.cond315.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i157, label %_ZNSt6vectorIlSaIlEED2Ev.exit165, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit165:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i157, %.preheader.split.i155, %391
-  %.09.i154 = phi i1 [ false, %391 ], [ true, %.preheader.split.i155 ], [ %.not11.i159, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i157 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit165:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i157, %391
+  %.09.i154 = phi i1 [ false, %391 ], [ %.not11.i159, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i157 ]
   call void @_ZdlPvm(ptr noundef nonnull %388, i64 noundef 16) #26
   %403 = load ptr, ptr %47, align 8
   %.not.i.i.i166 = icmp eq ptr %403, null
@@ -19092,14 +18900,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i176:        ; preds = %444
   %454 = sub i64 %452, %453
   %455 = ashr exact i64 %454, 3
   %.not.i180 = icmp eq i64 %454, 16
-  br i1 %.not.i180, label %.preheader.split.i182, label %_ZNSt6vectorIlSaIlEED2Ev.exit192
+  br i1 %.not.i180, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i184, label %_ZNSt6vectorIlSaIlEED2Ev.exit192
 
-.preheader.split.i182:                            ; preds = %448
-  %.not17.i183 = icmp eq ptr %450, %451
-  br i1 %.not17.i183, label %_ZNSt6vectorIlSaIlEED2Ev.exit192, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i184
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i184:             ; preds = %.preheader.split.i182, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i184
-  %indvars.iv.i185 = phi i64 [ %indvars.iv.next.i187, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i184 ], [ 0, %.preheader.split.i182 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i184:             ; preds = %448, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i184
+  %indvars.iv.i185 = phi i64 [ %indvars.iv.next.i187, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i184 ], [ 0, %448 ]
   %456 = getelementptr inbounds nuw i64, ptr %451, i64 %indvars.iv.i185
   %457 = load i64, ptr %456, align 8
   %458 = getelementptr inbounds nuw i64, ptr %445, i64 %indvars.iv.i185
@@ -19107,11 +18911,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i184:             ; preds = %.preheader.split.i1
   %.not11.i186 = icmp eq i64 %457, %459
   %indvars.iv.next.i187 = add nuw i64 %indvars.iv.i185, 1
   %exitcond.not.i188 = icmp ne i64 %indvars.iv.next.i187, %455
-  %or.cond323.not = select i1 %.not11.i186, i1 %exitcond.not.i188, i1 false
-  br i1 %or.cond323.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i184, label %_ZNSt6vectorIlSaIlEED2Ev.exit192, !llvm.loop !19
+  %or.cond316.not = select i1 %.not11.i186, i1 %exitcond.not.i188, i1 false
+  br i1 %or.cond316.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i184, label %_ZNSt6vectorIlSaIlEED2Ev.exit192, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit192:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i184, %.preheader.split.i182, %448
-  %.09.i181 = phi i1 [ false, %448 ], [ true, %.preheader.split.i182 ], [ %.not11.i186, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i184 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit192:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i184, %448
+  %.09.i181 = phi i1 [ false, %448 ], [ %.not11.i186, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i184 ]
   call void @_ZdlPvm(ptr noundef nonnull %445, i64 noundef 16) #26
   %460 = load ptr, ptr %54, align 8
   %.not.i.i.i193 = icmp eq ptr %460, null
@@ -19225,14 +19029,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i203:        ; preds = %501
   %511 = sub i64 %509, %510
   %512 = ashr exact i64 %511, 3
   %.not.i207 = icmp eq i64 %511, 8
-  br i1 %.not.i207, label %.preheader.split.i209, label %_ZNSt6vectorIlSaIlEED2Ev.exit219
+  br i1 %.not.i207, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i211, label %_ZNSt6vectorIlSaIlEED2Ev.exit219
 
-.preheader.split.i209:                            ; preds = %505
-  %.not17.i210 = icmp eq ptr %507, %508
-  br i1 %.not17.i210, label %_ZNSt6vectorIlSaIlEED2Ev.exit219, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i211
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i211:             ; preds = %.preheader.split.i209, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i211
-  %indvars.iv.i212 = phi i64 [ %indvars.iv.next.i214, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i211 ], [ 0, %.preheader.split.i209 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i211:             ; preds = %505, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i211
+  %indvars.iv.i212 = phi i64 [ %indvars.iv.next.i214, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i211 ], [ 0, %505 ]
   %513 = getelementptr inbounds nuw i64, ptr %508, i64 %indvars.iv.i212
   %514 = load i64, ptr %513, align 8
   %515 = getelementptr inbounds nuw i64, ptr %502, i64 %indvars.iv.i212
@@ -19240,11 +19040,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i211:             ; preds = %.preheader.split.i2
   %.not11.i213 = icmp eq i64 %514, %516
   %indvars.iv.next.i214 = add nuw i64 %indvars.iv.i212, 1
   %exitcond.not.i215 = icmp ne i64 %indvars.iv.next.i214, %512
-  %or.cond324.not = select i1 %.not11.i213, i1 %exitcond.not.i215, i1 false
-  br i1 %or.cond324.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i211, label %_ZNSt6vectorIlSaIlEED2Ev.exit219, !llvm.loop !19
+  %or.cond317.not = select i1 %.not11.i213, i1 %exitcond.not.i215, i1 false
+  br i1 %or.cond317.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i211, label %_ZNSt6vectorIlSaIlEED2Ev.exit219, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit219:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i211, %.preheader.split.i209, %505
-  %.09.i208 = phi i1 [ false, %505 ], [ true, %.preheader.split.i209 ], [ %.not11.i213, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i211 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit219:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i211, %505
+  %.09.i208 = phi i1 [ false, %505 ], [ %.not11.i213, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i211 ]
   call void @_ZdlPvm(ptr noundef nonnull %502, i64 noundef 8) #26
   %517 = load ptr, ptr %61, align 8
   %.not.i.i.i220 = icmp eq ptr %517, null
@@ -19823,14 +19623,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i46:         ; preds = %106
   %116 = sub i64 %114, %115
   %117 = ashr exact i64 %116, 3
   %.not.i = icmp eq i64 %116, 16
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit52
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit52
 
-.preheader.split.i:                               ; preds = %110
-  %.not17.i = icmp eq ptr %112, %113
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit52, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %110, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %110 ]
   %118 = getelementptr inbounds nuw i64, ptr %113, i64 %indvars.iv.i
   %119 = load i64, ptr %118, align 8
   %120 = getelementptr inbounds nuw i64, ptr %107, i64 %indvars.iv.i
@@ -19841,8 +19637,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit52, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit52:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %110
-  %.09.i = phi i1 [ false, %110 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit52:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %110
+  %.09.i = phi i1 [ false, %110 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %107, i64 noundef 16) #26
   %122 = load ptr, ptr %17, align 8
   %.not.i.i.i53 = icmp eq ptr %122, null
@@ -20048,9 +19844,9 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i: ; preds = %198
   %207 = phi ptr [ %197, %.noexc63.thread ], [ %204, %205 ], [ %204, %.noexc63 ]
   %208 = phi ptr [ %195, %.noexc63.thread ], [ %202, %205 ], [ %202, %.noexc63 ]
   %209 = phi ptr [ null, %.noexc63.thread ], [ %200, %205 ], [ %200, %.noexc63 ]
-  %.not.i.i.i.i.i.i.i.i.i251 = phi i1 [ true, %.noexc63.thread ], [ false, %205 ], [ true, %.noexc63 ]
-  %.pre-phi202250 = phi i64 [ 0, %.noexc63.thread ], [ %.pre201, %205 ], [ 0, %.noexc63 ]
-  %210 = getelementptr inbounds i8, ptr %209, i64 %.pre-phi202250
+  %.not.i.i.i.i.i.i.i.i.i250 = phi i1 [ true, %.noexc63.thread ], [ false, %205 ], [ true, %.noexc63 ]
+  %.pre-phi202249 = phi i64 [ 0, %.noexc63.thread ], [ %.pre201, %205 ], [ 0, %.noexc63 ]
+  %210 = getelementptr inbounds i8, ptr %209, i64 %.pre-phi202249
   store ptr %210, ptr %208, align 8
   %211 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %212 = load ptr, ptr %211, align 8
@@ -20108,17 +19904,17 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i68: ; preds = %220
   %229 = phi ptr [ %219, %.noexc72.thread ], [ %226, %227 ], [ %226, %.noexc72 ]
   %230 = phi ptr [ %217, %.noexc72.thread ], [ %224, %227 ], [ %224, %.noexc72 ]
   %231 = phi ptr [ null, %.noexc72.thread ], [ %222, %227 ], [ %222, %.noexc72 ]
-  %.pre-phi208254 = phi i64 [ 0, %.noexc72.thread ], [ %.pre207, %227 ], [ 0, %.noexc72 ]
-  %232 = getelementptr inbounds i8, ptr %231, i64 %.pre-phi208254
+  %.pre-phi208253 = phi i64 [ 0, %.noexc72.thread ], [ %.pre207, %227 ], [ 0, %.noexc72 ]
+  %232 = getelementptr inbounds i8, ptr %231, i64 %.pre-phi208253
   store ptr %232, ptr %230, align 8
-  %233 = icmp eq i64 %.pre-phi202250, %.pre-phi208254
+  %233 = icmp eq i64 %.pre-phi202249, %.pre-phi208253
   br i1 %233, label %234, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread151
 
 234:                                              ; preds = %228
-  br i1 %.not.i.i.i.i.i.i.i.i.i251, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit
+  br i1 %.not.i.i.i.i.i.i.i.i.i250, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit
 
 _ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %234
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %209, ptr %231, i64 %.pre-phi202250)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %209, ptr %231, i64 %.pre-phi202249)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread151
 
@@ -20286,14 +20082,14 @@ _ZNSt6vectorIlSaIlEED2Ev.exit88:                  ; preds = %269, %267, %237
   %297 = sub i64 %295, %296
   %298 = ashr exact i64 %297, 3
   %.not.i.i95 = icmp ugt i64 %298, %indvars.iv
-  br i1 %.not.i.i95, label %300, label %.invoke275
+  br i1 %.not.i.i95, label %300, label %.invoke274
 
-.invoke275:                                       ; preds = %307, %292
+.invoke274:                                       ; preds = %307, %292
   %299 = phi i64 [ %298, %292 ], [ %313, %307 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.329, i64 noundef %indvars.iv, i64 noundef %299) #24
-          to label %.cont276 unwind label %.loopexit.split-lp
+          to label %.cont275 unwind label %.loopexit.split-lp
 
-.cont276:                                         ; preds = %.invoke275
+.cont275:                                         ; preds = %.invoke274
   unreachable
 
 300:                                              ; preds = %292
@@ -20314,7 +20110,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit88:                  ; preds = %269, %267, %237
   %312 = sub i64 %310, %311
   %313 = ashr exact i64 %312, 3
   %.not.i.i97 = icmp ugt i64 %313, %indvars.iv
-  br i1 %.not.i.i97, label %314, label %.invoke275
+  br i1 %.not.i.i97, label %314, label %.invoke274
 
 314:                                              ; preds = %307
   %315 = getelementptr inbounds nuw i64, ptr %309, i64 %indvars.iv
@@ -20379,7 +20175,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit110:                 ; preds = %328, %331
           cleanup
   br label %.body102
 
-.loopexit.split-lp:                               ; preds = %.invoke275, %336, %342, %347
+.loopexit.split-lp:                               ; preds = %.invoke274, %336, %342, %347
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body102
@@ -21179,14 +20975,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i46:         ; preds = %106
   %116 = sub i64 %114, %115
   %117 = ashr exact i64 %116, 3
   %.not.i = icmp eq i64 %116, 16
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit52
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit52
 
-.preheader.split.i:                               ; preds = %110
-  %.not17.i = icmp eq ptr %112, %113
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit52, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %110, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %110 ]
   %118 = getelementptr inbounds nuw i64, ptr %113, i64 %indvars.iv.i
   %119 = load i64, ptr %118, align 8
   %120 = getelementptr inbounds nuw i64, ptr %107, i64 %indvars.iv.i
@@ -21197,8 +20989,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit52, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit52:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %110
-  %.09.i = phi i1 [ false, %110 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit52:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %110
+  %.09.i = phi i1 [ false, %110 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %107, i64 noundef 16) #26
   %122 = load ptr, ptr %17, align 8
   %.not.i.i.i53 = icmp eq ptr %122, null
@@ -21399,9 +21191,9 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i: ; preds = %192
   %201 = phi ptr [ %191, %.noexc63.thread ], [ %198, %199 ], [ %198, %.noexc63 ]
   %202 = phi ptr [ %189, %.noexc63.thread ], [ %196, %199 ], [ %196, %.noexc63 ]
   %203 = phi ptr [ null, %.noexc63.thread ], [ %194, %199 ], [ %194, %.noexc63 ]
-  %.not.i.i.i.i.i.i.i.i.i251 = phi i1 [ true, %.noexc63.thread ], [ false, %199 ], [ true, %.noexc63 ]
-  %.pre-phi202250 = phi i64 [ 0, %.noexc63.thread ], [ %.pre201, %199 ], [ 0, %.noexc63 ]
-  %204 = getelementptr inbounds i8, ptr %203, i64 %.pre-phi202250
+  %.not.i.i.i.i.i.i.i.i.i250 = phi i1 [ true, %.noexc63.thread ], [ false, %199 ], [ true, %.noexc63 ]
+  %.pre-phi202249 = phi i64 [ 0, %.noexc63.thread ], [ %.pre201, %199 ], [ 0, %.noexc63 ]
+  %204 = getelementptr inbounds i8, ptr %203, i64 %.pre-phi202249
   store ptr %204, ptr %202, align 8
   %205 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %206 = load ptr, ptr %205, align 8
@@ -21459,17 +21251,17 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i68: ; preds = %214
   %223 = phi ptr [ %213, %.noexc72.thread ], [ %220, %221 ], [ %220, %.noexc72 ]
   %224 = phi ptr [ %211, %.noexc72.thread ], [ %218, %221 ], [ %218, %.noexc72 ]
   %225 = phi ptr [ null, %.noexc72.thread ], [ %216, %221 ], [ %216, %.noexc72 ]
-  %.pre-phi208254 = phi i64 [ 0, %.noexc72.thread ], [ %.pre207, %221 ], [ 0, %.noexc72 ]
-  %226 = getelementptr inbounds i8, ptr %225, i64 %.pre-phi208254
+  %.pre-phi208253 = phi i64 [ 0, %.noexc72.thread ], [ %.pre207, %221 ], [ 0, %.noexc72 ]
+  %226 = getelementptr inbounds i8, ptr %225, i64 %.pre-phi208253
   store ptr %226, ptr %224, align 8
-  %227 = icmp eq i64 %.pre-phi202250, %.pre-phi208254
+  %227 = icmp eq i64 %.pre-phi202249, %.pre-phi208253
   br i1 %227, label %228, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread151
 
 228:                                              ; preds = %222
-  br i1 %.not.i.i.i.i.i.i.i.i.i251, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit
+  br i1 %.not.i.i.i.i.i.i.i.i.i250, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit
 
 _ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %228
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %203, ptr %225, i64 %.pre-phi202250)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %203, ptr %225, i64 %.pre-phi202249)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread151
 
@@ -21642,14 +21434,14 @@ _ZNSt6vectorIlSaIlEED2Ev.exit88:                  ; preds = %269, %267, %231
   %297 = sub i64 %295, %296
   %298 = ashr exact i64 %297, 3
   %.not.i.i95 = icmp ugt i64 %298, %indvars.iv
-  br i1 %.not.i.i95, label %300, label %.invoke275
+  br i1 %.not.i.i95, label %300, label %.invoke274
 
-.invoke275:                                       ; preds = %307, %292
+.invoke274:                                       ; preds = %307, %292
   %299 = phi i64 [ %298, %292 ], [ %313, %307 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.329, i64 noundef %indvars.iv, i64 noundef %299) #24
-          to label %.cont276 unwind label %.loopexit.split-lp
+          to label %.cont275 unwind label %.loopexit.split-lp
 
-.cont276:                                         ; preds = %.invoke275
+.cont275:                                         ; preds = %.invoke274
   unreachable
 
 300:                                              ; preds = %292
@@ -21670,7 +21462,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit88:                  ; preds = %269, %267, %231
   %312 = sub i64 %310, %311
   %313 = ashr exact i64 %312, 3
   %.not.i.i97 = icmp ugt i64 %313, %indvars.iv
-  br i1 %.not.i.i97, label %314, label %.invoke275
+  br i1 %.not.i.i97, label %314, label %.invoke274
 
 314:                                              ; preds = %307
   %315 = getelementptr inbounds nuw i64, ptr %309, i64 %indvars.iv
@@ -21735,7 +21527,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit110:                 ; preds = %328, %331
           cleanup
   br label %.body102
 
-.loopexit.split-lp:                               ; preds = %.invoke275, %336, %342, %347
+.loopexit.split-lp:                               ; preds = %.invoke274, %336, %342, %347
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body102
@@ -22176,14 +21968,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i51:         ; preds = %110
   %120 = sub i64 %118, %119
   %121 = ashr exact i64 %120, 3
   %.not.i = icmp eq i64 %120, 24
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit57
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit57
 
-.preheader.split.i:                               ; preds = %114
-  %.not17.i = icmp eq ptr %116, %117
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit57, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %114, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %114 ]
   %122 = getelementptr inbounds nuw i64, ptr %117, i64 %indvars.iv.i
   %123 = load i64, ptr %122, align 8
   %124 = getelementptr inbounds nuw i64, ptr %111, i64 %indvars.iv.i
@@ -22194,8 +21982,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit57, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit57:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %114
-  %.09.i = phi i1 [ false, %114 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit57:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %114
+  %.09.i = phi i1 [ false, %114 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %111, i64 noundef 24) #26
   %126 = load ptr, ptr %17, align 8
   %.not.i.i.i58 = icmp eq ptr %126, null
@@ -22389,9 +22177,9 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i: ; preds = %196
   %205 = phi ptr [ %195, %.noexc68.thread ], [ %202, %203 ], [ %202, %.noexc68 ]
   %206 = phi ptr [ %193, %.noexc68.thread ], [ %200, %203 ], [ %200, %.noexc68 ]
   %207 = phi ptr [ null, %.noexc68.thread ], [ %198, %203 ], [ %198, %.noexc68 ]
-  %.not.i.i.i.i.i.i.i.i.i322 = phi i1 [ true, %.noexc68.thread ], [ false, %203 ], [ true, %.noexc68 ]
-  %.pre-phi247321 = phi i64 [ 0, %.noexc68.thread ], [ %.pre246, %203 ], [ 0, %.noexc68 ]
-  %208 = getelementptr inbounds i8, ptr %207, i64 %.pre-phi247321
+  %.not.i.i.i.i.i.i.i.i.i321 = phi i1 [ true, %.noexc68.thread ], [ false, %203 ], [ true, %.noexc68 ]
+  %.pre-phi247320 = phi i64 [ 0, %.noexc68.thread ], [ %.pre246, %203 ], [ 0, %.noexc68 ]
+  %208 = getelementptr inbounds i8, ptr %207, i64 %.pre-phi247320
   store ptr %208, ptr %206, align 8
   %209 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %210 = load ptr, ptr %209, align 8
@@ -22449,17 +22237,17 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i73: ; preds = %218
   %227 = phi ptr [ %217, %.noexc77.thread ], [ %224, %225 ], [ %224, %.noexc77 ]
   %228 = phi ptr [ %215, %.noexc77.thread ], [ %222, %225 ], [ %222, %.noexc77 ]
   %229 = phi ptr [ null, %.noexc77.thread ], [ %220, %225 ], [ %220, %.noexc77 ]
-  %.pre-phi253325 = phi i64 [ 0, %.noexc77.thread ], [ %.pre252, %225 ], [ 0, %.noexc77 ]
-  %230 = getelementptr inbounds i8, ptr %229, i64 %.pre-phi253325
+  %.pre-phi253324 = phi i64 [ 0, %.noexc77.thread ], [ %.pre252, %225 ], [ 0, %.noexc77 ]
+  %230 = getelementptr inbounds i8, ptr %229, i64 %.pre-phi253324
   store ptr %230, ptr %228, align 8
-  %231 = icmp eq i64 %.pre-phi247321, %.pre-phi253325
+  %231 = icmp eq i64 %.pre-phi247320, %.pre-phi253324
   br i1 %231, label %232, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread191
 
 232:                                              ; preds = %226
-  br i1 %.not.i.i.i.i.i.i.i.i.i322, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit
+  br i1 %.not.i.i.i.i.i.i.i.i.i321, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit
 
 _ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %232
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %207, ptr %229, i64 %.pre-phi247321)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %207, ptr %229, i64 %.pre-phi247320)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread191
 
@@ -22575,9 +22363,9 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i89: ; preds = %260
   %269 = phi ptr [ %259, %.noexc93.thread ], [ %266, %267 ], [ %266, %.noexc93 ]
   %270 = phi ptr [ %257, %.noexc93.thread ], [ %264, %267 ], [ %264, %.noexc93 ]
   %271 = phi ptr [ null, %.noexc93.thread ], [ %262, %267 ], [ %262, %.noexc93 ]
-  %.not.i.i.i.i.i.i.i.i.i90329 = phi i1 [ true, %.noexc93.thread ], [ false, %267 ], [ true, %.noexc93 ]
-  %.pre-phi259328 = phi i64 [ 0, %.noexc93.thread ], [ %.pre258, %267 ], [ 0, %.noexc93 ]
-  %272 = getelementptr inbounds i8, ptr %271, i64 %.pre-phi259328
+  %.not.i.i.i.i.i.i.i.i.i90328 = phi i1 [ true, %.noexc93.thread ], [ false, %267 ], [ true, %.noexc93 ]
+  %.pre-phi259327 = phi i64 [ 0, %.noexc93.thread ], [ %.pre258, %267 ], [ 0, %.noexc93 ]
+  %272 = getelementptr inbounds i8, ptr %271, i64 %.pre-phi259327
   store ptr %272, ptr %270, align 8
   %273 = load ptr, ptr %169, align 8
   %274 = load ptr, ptr %24, align 8
@@ -22653,17 +22441,17 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i99: ; preds = %291
   %300 = phi ptr [ %290, %.noexc103.thread ], [ %297, %298 ], [ %297, %.noexc103 ]
   %301 = phi ptr [ %288, %.noexc103.thread ], [ %295, %298 ], [ %295, %.noexc103 ]
   %302 = phi ptr [ null, %.noexc103.thread ], [ %293, %298 ], [ %293, %.noexc103 ]
-  %.pre-phi265332 = phi i64 [ 0, %.noexc103.thread ], [ %.pre264, %298 ], [ 0, %.noexc103 ]
-  %303 = getelementptr inbounds i8, ptr %302, i64 %.pre-phi265332
+  %.pre-phi265331 = phi i64 [ 0, %.noexc103.thread ], [ %.pre264, %298 ], [ 0, %.noexc103 ]
+  %303 = getelementptr inbounds i8, ptr %302, i64 %.pre-phi265331
   store ptr %303, ptr %301, align 8
-  %304 = icmp eq i64 %.pre-phi259328, %.pre-phi265332
+  %304 = icmp eq i64 %.pre-phi259327, %.pre-phi265331
   br i1 %304, label %305, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit108.thread192
 
 305:                                              ; preds = %299
-  br i1 %.not.i.i.i.i.i.i.i.i.i90329, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit108.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit108
+  br i1 %.not.i.i.i.i.i.i.i.i.i90328, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit108.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit108
 
 _ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit108:     ; preds = %305
-  %bcmp.i.i.i.i.i106 = call i32 @bcmp(ptr %271, ptr %302, i64 %.pre-phi259328)
+  %bcmp.i.i.i.i.i106 = call i32 @bcmp(ptr %271, ptr %302, i64 %.pre-phi259327)
   %.not7.i.i.i.i.i107 = icmp eq i32 %bcmp.i.i.i.i.i106, 0
   br i1 %.not7.i.i.i.i.i107, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit108.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit108.thread192
 
@@ -22863,14 +22651,14 @@ _ZNSt6vectorIlSaIlEED2Ev.exit129:                 ; preds = %359, %357, %321
   %388 = sub i64 %386, %387
   %389 = ashr exact i64 %388, 3
   %.not.i.i136 = icmp ugt i64 %389, %indvars.iv
-  br i1 %.not.i.i136, label %391, label %.invoke353
+  br i1 %.not.i.i136, label %391, label %.invoke352
 
-.invoke353:                                       ; preds = %398, %382
+.invoke352:                                       ; preds = %398, %382
   %390 = phi i64 [ %389, %382 ], [ %404, %398 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.329, i64 noundef %indvars.iv, i64 noundef %390) #24
-          to label %.cont354 unwind label %.loopexit.split-lp
+          to label %.cont353 unwind label %.loopexit.split-lp
 
-.cont354:                                         ; preds = %.invoke353
+.cont353:                                         ; preds = %.invoke352
   unreachable
 
 391:                                              ; preds = %382
@@ -22891,7 +22679,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit129:                 ; preds = %359, %357, %321
   %403 = sub i64 %401, %402
   %404 = ashr exact i64 %403, 3
   %.not.i.i138 = icmp ugt i64 %404, %indvars.iv
-  br i1 %.not.i.i138, label %405, label %.invoke353
+  br i1 %.not.i.i138, label %405, label %.invoke352
 
 405:                                              ; preds = %398
   %406 = getelementptr inbounds nuw i64, ptr %400, i64 %indvars.iv
@@ -22956,7 +22744,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit151:                 ; preds = %419, %422
           cleanup
   br label %.body143
 
-.loopexit.split-lp:                               ; preds = %.invoke353, %427, %433, %438
+.loopexit.split-lp:                               ; preds = %.invoke352, %427, %433, %438
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body143
@@ -23436,14 +23224,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i45:         ; preds = %106
   %116 = sub i64 %114, %115
   %117 = ashr exact i64 %116, 3
   %.not.i = icmp eq i64 %116, 48
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit51
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit51
 
-.preheader.split.i:                               ; preds = %110
-  %.not17.i = icmp eq ptr %112, %113
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit51, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %110, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %110 ]
   %118 = getelementptr inbounds nuw i64, ptr %113, i64 %indvars.iv.i
   %119 = load i64, ptr %118, align 8
   %120 = getelementptr inbounds nuw i64, ptr %107, i64 %indvars.iv.i
@@ -23454,8 +23238,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit51, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit51:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %110
-  %.09.i = phi i1 [ false, %110 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit51:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %110
+  %.09.i = phi i1 [ false, %110 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %107, i64 noundef 48) #26
   %122 = load ptr, ptr %17, align 8
   %.not.i.i.i52 = icmp eq ptr %122, null
@@ -23676,9 +23460,9 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i: ; preds = %200
 
 206:                                              ; preds = %.noexc62.thread, %205, %.noexc62
   %207 = phi ptr [ null, %.noexc62.thread ], [ %202, %205 ], [ %202, %.noexc62 ]
-  %.not.i.i.i.i.i.i.i.i.i270 = phi i1 [ true, %.noexc62.thread ], [ false, %205 ], [ true, %.noexc62 ]
-  %.pre-phi218269 = phi i64 [ 0, %.noexc62.thread ], [ %.pre217, %205 ], [ 0, %.noexc62 ]
-  %208 = getelementptr inbounds i8, ptr %207, i64 %.pre-phi218269
+  %.not.i.i.i.i.i.i.i.i.i269 = phi i1 [ true, %.noexc62.thread ], [ false, %205 ], [ true, %.noexc62 ]
+  %.pre-phi218268 = phi i64 [ 0, %.noexc62.thread ], [ %.pre217, %205 ], [ 0, %.noexc62 ]
+  %208 = getelementptr inbounds i8, ptr %207, i64 %.pre-phi218268
   store ptr %208, ptr %173, align 8
   %209 = add nsw i64 %indvars.iv, -1
   %210 = load ptr, ptr %165, align 8
@@ -23748,17 +23532,17 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i67: ; preds = %226
 
 232:                                              ; preds = %.noexc71.thread, %231, %.noexc71
   %233 = phi ptr [ null, %.noexc71.thread ], [ %228, %231 ], [ %228, %.noexc71 ]
-  %.pre-phi224273 = phi i64 [ 0, %.noexc71.thread ], [ %.pre223, %231 ], [ 0, %.noexc71 ]
-  %234 = getelementptr inbounds i8, ptr %233, i64 %.pre-phi224273
+  %.pre-phi224272 = phi i64 [ 0, %.noexc71.thread ], [ %.pre223, %231 ], [ 0, %.noexc71 ]
+  %234 = getelementptr inbounds i8, ptr %233, i64 %.pre-phi224272
   store ptr %234, ptr %175, align 8
-  %235 = icmp eq i64 %.pre-phi218269, %.pre-phi224273
+  %235 = icmp eq i64 %.pre-phi218268, %.pre-phi224272
   br i1 %235, label %236, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread149
 
 236:                                              ; preds = %232
-  br i1 %.not.i.i.i.i.i.i.i.i.i270, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit
+  br i1 %.not.i.i.i.i.i.i.i.i.i269, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit
 
 _ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %236
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %207, ptr %233, i64 %.pre-phi218269)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %207, ptr %233, i64 %.pre-phi218268)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread149
 
@@ -23916,7 +23700,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit90:                  ; preds = %267, %270
   %293 = ashr exact i64 %292, 3
   %294 = add nsw i64 %293, -1
   %.not.i.i94.not = icmp eq ptr %288, %289
-  br i1 %.not.i.i94.not, label %.invoke298, label %295
+  br i1 %.not.i.i94.not, label %.invoke297, label %295
 
 295:                                              ; preds = %286
   %296 = load ptr, ptr %1, align 8
@@ -23937,15 +23721,15 @@ _ZNSt6vectorIlSaIlEED2Ev.exit90:                  ; preds = %267, %270
   %308 = ashr exact i64 %307, 3
   %309 = add nsw i64 %308, -1
   %.not.i.i96.not = icmp eq ptr %303, %304
-  br i1 %.not.i.i96.not, label %.invoke298, label %312
+  br i1 %.not.i.i96.not, label %.invoke297, label %312
 
-.invoke298:                                       ; preds = %302, %286
+.invoke297:                                       ; preds = %302, %286
   %310 = phi i64 [ %294, %286 ], [ %309, %302 ]
   %311 = phi i64 [ %293, %286 ], [ %308, %302 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.329, i64 noundef %310, i64 noundef %311) #24
-          to label %.cont299 unwind label %340
+          to label %.cont298 unwind label %340
 
-.cont299:                                         ; preds = %.invoke298
+.cont298:                                         ; preds = %.invoke297
   unreachable
 
 312:                                              ; preds = %302
@@ -24009,7 +23793,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit109:                 ; preds = %328, %331
 339:                                              ; preds = %338
   unreachable
 
-340:                                              ; preds = %.invoke298, %350, %345, %337, %295
+340:                                              ; preds = %.invoke297, %350, %345, %337, %295
   %341 = landingpad { ptr, i32 }
           cleanup
   br label %.body101
@@ -24587,14 +24371,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i53:         ; preds = %110
   %120 = sub i64 %118, %119
   %121 = ashr exact i64 %120, 3
   %.not.i = icmp eq i64 %120, 48
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit59
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit59
 
-.preheader.split.i:                               ; preds = %114
-  %.not17.i = icmp eq ptr %116, %117
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit59, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %114, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %114 ]
   %122 = getelementptr inbounds nuw i64, ptr %117, i64 %indvars.iv.i
   %123 = load i64, ptr %122, align 8
   %124 = getelementptr inbounds nuw i64, ptr %111, i64 %indvars.iv.i
@@ -24605,8 +24385,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit59, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit59:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %114
-  %.09.i = phi i1 [ false, %114 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit59:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %114
+  %.09.i = phi i1 [ false, %114 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %111, i64 noundef 48) #26
   %126 = load ptr, ptr %17, align 8
   %.not.i.i.i60 = icmp eq ptr %126, null
@@ -24835,9 +24615,9 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i: ; preds = %210
 
 216:                                              ; preds = %.noexc70.thread, %215, %.noexc70
   %217 = phi ptr [ null, %.noexc70.thread ], [ %212, %215 ], [ %212, %.noexc70 ]
-  %.not.i.i.i.i.i.i.i.i.i378 = phi i1 [ true, %.noexc70.thread ], [ false, %215 ], [ true, %.noexc70 ]
-  %.pre-phi301377 = phi i64 [ 0, %.noexc70.thread ], [ %.pre300, %215 ], [ 0, %.noexc70 ]
-  %218 = getelementptr inbounds i8, ptr %217, i64 %.pre-phi301377
+  %.not.i.i.i.i.i.i.i.i.i377 = phi i1 [ true, %.noexc70.thread ], [ false, %215 ], [ true, %.noexc70 ]
+  %.pre-phi301376 = phi i64 [ 0, %.noexc70.thread ], [ %.pre300, %215 ], [ 0, %.noexc70 ]
+  %218 = getelementptr inbounds i8, ptr %217, i64 %.pre-phi301376
   store ptr %218, ptr %181, align 8
   %219 = load ptr, ptr %169, align 8
   %220 = load ptr, ptr %24, align 8
@@ -24906,17 +24686,17 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i75: ; preds = %235
 
 241:                                              ; preds = %.noexc79.thread, %240, %.noexc79
   %242 = phi ptr [ null, %.noexc79.thread ], [ %237, %240 ], [ %237, %.noexc79 ]
-  %.pre-phi307381 = phi i64 [ 0, %.noexc79.thread ], [ %.pre306, %240 ], [ 0, %.noexc79 ]
-  %243 = getelementptr inbounds i8, ptr %242, i64 %.pre-phi307381
+  %.pre-phi307380 = phi i64 [ 0, %.noexc79.thread ], [ %.pre306, %240 ], [ 0, %.noexc79 ]
+  %243 = getelementptr inbounds i8, ptr %242, i64 %.pre-phi307380
   store ptr %243, ptr %183, align 8
-  %244 = icmp eq i64 %.pre-phi301377, %.pre-phi307381
+  %244 = icmp eq i64 %.pre-phi301376, %.pre-phi307380
   br i1 %244, label %245, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread193
 
 245:                                              ; preds = %241
-  br i1 %.not.i.i.i.i.i.i.i.i.i378, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit
+  br i1 %.not.i.i.i.i.i.i.i.i.i377, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit
 
 _ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %245
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %217, ptr %242, i64 %.pre-phi301377)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %217, ptr %242, i64 %.pre-phi301376)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread193
 
@@ -25052,9 +24832,9 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i97: ; preds = %284
 
 290:                                              ; preds = %.noexc101.thread, %289, %.noexc101
   %291 = phi ptr [ null, %.noexc101.thread ], [ %286, %289 ], [ %286, %.noexc101 ]
-  %.not.i.i.i.i.i.i.i.i.i98385 = phi i1 [ true, %.noexc101.thread ], [ false, %289 ], [ true, %.noexc101 ]
-  %.pre-phi313384 = phi i64 [ 0, %.noexc101.thread ], [ %.pre312, %289 ], [ 0, %.noexc101 ]
-  %292 = getelementptr inbounds i8, ptr %291, i64 %.pre-phi313384
+  %.not.i.i.i.i.i.i.i.i.i98384 = phi i1 [ true, %.noexc101.thread ], [ false, %289 ], [ true, %.noexc101 ]
+  %.pre-phi313383 = phi i64 [ 0, %.noexc101.thread ], [ %.pre312, %289 ], [ 0, %.noexc101 ]
+  %292 = getelementptr inbounds i8, ptr %291, i64 %.pre-phi313383
   store ptr %292, ptr %177, align 8
   %293 = load ptr, ptr %169, align 8
   %294 = load ptr, ptr %24, align 8
@@ -25123,17 +24903,17 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i107: ; preds = %309
 
 315:                                              ; preds = %.noexc111.thread, %314, %.noexc111
   %316 = phi ptr [ null, %.noexc111.thread ], [ %311, %314 ], [ %311, %.noexc111 ]
-  %.pre-phi319388 = phi i64 [ 0, %.noexc111.thread ], [ %.pre318, %314 ], [ 0, %.noexc111 ]
-  %317 = getelementptr inbounds i8, ptr %316, i64 %.pre-phi319388
+  %.pre-phi319387 = phi i64 [ 0, %.noexc111.thread ], [ %.pre318, %314 ], [ 0, %.noexc111 ]
+  %317 = getelementptr inbounds i8, ptr %316, i64 %.pre-phi319387
   store ptr %317, ptr %179, align 8
-  %318 = icmp eq i64 %.pre-phi313384, %.pre-phi319388
+  %318 = icmp eq i64 %.pre-phi313383, %.pre-phi319387
   br i1 %318, label %319, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit116.thread194
 
 319:                                              ; preds = %315
-  br i1 %.not.i.i.i.i.i.i.i.i.i98385, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit116.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit116
+  br i1 %.not.i.i.i.i.i.i.i.i.i98384, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit116.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit116
 
 _ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit116:     ; preds = %319
-  %bcmp.i.i.i.i.i114 = call i32 @bcmp(ptr %291, ptr %316, i64 %.pre-phi313384)
+  %bcmp.i.i.i.i.i114 = call i32 @bcmp(ptr %291, ptr %316, i64 %.pre-phi313383)
   %.not7.i.i.i.i.i115 = icmp eq i32 %bcmp.i.i.i.i.i114, 0
   br i1 %.not7.i.i.i.i.i115, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit116.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit116.thread194
 
@@ -25295,7 +25075,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit134:                 ; preds = %356, %359
   %381 = sub i64 %379, %380
   %382 = ashr exact i64 %381, 3
   %.not.i.i138 = icmp ugt i64 %382, 1
-  br i1 %.not.i.i138, label %383, label %.invoke427
+  br i1 %.not.i.i138, label %383, label %.invoke426
 
 383:                                              ; preds = %375
   %384 = load ptr, ptr %1, align 8
@@ -25315,14 +25095,14 @@ _ZNSt6vectorIlSaIlEED2Ev.exit134:                 ; preds = %356, %359
   %395 = sub i64 %393, %394
   %396 = ashr exact i64 %395, 3
   %.not.i.i140 = icmp ugt i64 %396, 1
-  br i1 %.not.i.i140, label %398, label %.invoke427
+  br i1 %.not.i.i140, label %398, label %.invoke426
 
-.invoke427:                                       ; preds = %390, %375
+.invoke426:                                       ; preds = %390, %375
   %397 = phi i64 [ %382, %375 ], [ %396, %390 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.329, i64 noundef 1, i64 noundef %397) #24
-          to label %.cont428 unwind label %426
+          to label %.cont427 unwind label %426
 
-.cont428:                                         ; preds = %.invoke427
+.cont427:                                         ; preds = %.invoke426
   unreachable
 
 398:                                              ; preds = %390
@@ -25386,7 +25166,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit153:                 ; preds = %414, %417
 425:                                              ; preds = %424
   unreachable
 
-426:                                              ; preds = %.invoke427, %436, %431, %423, %383
+426:                                              ; preds = %.invoke426, %436, %431, %423, %383
   %427 = landingpad { ptr, i32 }
           cleanup
   br label %.body145
@@ -25874,14 +25654,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i45:         ; preds = %106
   %116 = sub i64 %114, %115
   %117 = ashr exact i64 %116, 3
   %.not.i = icmp eq i64 %116, 48
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit51
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit51
 
-.preheader.split.i:                               ; preds = %110
-  %.not17.i = icmp eq ptr %112, %113
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit51, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %110, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %110 ]
   %118 = getelementptr inbounds nuw i64, ptr %113, i64 %indvars.iv.i
   %119 = load i64, ptr %118, align 8
   %120 = getelementptr inbounds nuw i64, ptr %107, i64 %indvars.iv.i
@@ -25892,8 +25668,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit51, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit51:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %110
-  %.09.i = phi i1 [ false, %110 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit51:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %110
+  %.09.i = phi i1 [ false, %110 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %107, i64 noundef 48) #26
   %122 = load ptr, ptr %17, align 8
   %.not.i.i.i52 = icmp eq ptr %122, null
@@ -26114,9 +25890,9 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i: ; preds = %200
 
 206:                                              ; preds = %.noexc62.thread, %205, %.noexc62
   %207 = phi ptr [ null, %.noexc62.thread ], [ %202, %205 ], [ %202, %.noexc62 ]
-  %.not.i.i.i.i.i.i.i.i.i258 = phi i1 [ true, %.noexc62.thread ], [ false, %205 ], [ true, %.noexc62 ]
-  %.pre-phi209257 = phi i64 [ 0, %.noexc62.thread ], [ %.pre208, %205 ], [ 0, %.noexc62 ]
-  %208 = getelementptr inbounds i8, ptr %207, i64 %.pre-phi209257
+  %.not.i.i.i.i.i.i.i.i.i257 = phi i1 [ true, %.noexc62.thread ], [ false, %205 ], [ true, %.noexc62 ]
+  %.pre-phi209256 = phi i64 [ 0, %.noexc62.thread ], [ %.pre208, %205 ], [ 0, %.noexc62 ]
+  %208 = getelementptr inbounds i8, ptr %207, i64 %.pre-phi209256
   store ptr %208, ptr %173, align 8
   %209 = load ptr, ptr %165, align 8
   %210 = load ptr, ptr %24, align 8
@@ -26185,17 +25961,17 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i67: ; preds = %225
 
 231:                                              ; preds = %.noexc71.thread, %230, %.noexc71
   %232 = phi ptr [ null, %.noexc71.thread ], [ %227, %230 ], [ %227, %.noexc71 ]
-  %.pre-phi215261 = phi i64 [ 0, %.noexc71.thread ], [ %.pre214, %230 ], [ 0, %.noexc71 ]
-  %233 = getelementptr inbounds i8, ptr %232, i64 %.pre-phi215261
+  %.pre-phi215260 = phi i64 [ 0, %.noexc71.thread ], [ %.pre214, %230 ], [ 0, %.noexc71 ]
+  %233 = getelementptr inbounds i8, ptr %232, i64 %.pre-phi215260
   store ptr %233, ptr %175, align 8
-  %234 = icmp eq i64 %.pre-phi209257, %.pre-phi215261
+  %234 = icmp eq i64 %.pre-phi209256, %.pre-phi215260
   br i1 %234, label %235, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread149
 
 235:                                              ; preds = %231
-  br i1 %.not.i.i.i.i.i.i.i.i.i258, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit
+  br i1 %.not.i.i.i.i.i.i.i.i.i257, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit
 
 _ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %235
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %207, ptr %232, i64 %.pre-phi209257)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %207, ptr %232, i64 %.pre-phi209256)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread149
 
@@ -26353,7 +26129,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit90:                  ; preds = %272, %275
   %293 = load ptr, ptr %292, align 8
   %294 = load ptr, ptr %36, align 8
   %.not.i.i94.not = icmp eq ptr %293, %294
-  br i1 %.not.i.i94.not, label %.invoke281, label %_ZNSt6vectorIlSaIlEE2atEm.exit
+  br i1 %.not.i.i94.not, label %.invoke280, label %_ZNSt6vectorIlSaIlEE2atEm.exit
 
 _ZNSt6vectorIlSaIlEE2atEm.exit:                   ; preds = %291
   %295 = load ptr, ptr %1, align 8
@@ -26368,13 +26144,13 @@ _ZNSt6vectorIlSaIlEE2atEm.exit:                   ; preds = %291
   %301 = load ptr, ptr %292, align 8
   %302 = load ptr, ptr %36, align 8
   %.not.i.i96.not = icmp eq ptr %301, %302
-  br i1 %.not.i.i96.not, label %.invoke281, label %_ZNSt6vectorIlSaIlEE2atEm.exit98
+  br i1 %.not.i.i96.not, label %.invoke280, label %_ZNSt6vectorIlSaIlEE2atEm.exit98
 
-.invoke281:                                       ; preds = %300, %291
+.invoke280:                                       ; preds = %300, %291
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.329, i64 noundef 0, i64 noundef 0) #24
-          to label %.cont282 unwind label %329
+          to label %.cont281 unwind label %329
 
-.cont282:                                         ; preds = %.invoke281
+.cont281:                                         ; preds = %.invoke280
   unreachable
 
 _ZNSt6vectorIlSaIlEE2atEm.exit98:                 ; preds = %300
@@ -26437,7 +26213,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit109:                 ; preds = %317, %320
 328:                                              ; preds = %327
   unreachable
 
-329:                                              ; preds = %.invoke281, %339, %334, %326, %_ZNSt6vectorIlSaIlEE2atEm.exit
+329:                                              ; preds = %.invoke280, %339, %334, %326, %_ZNSt6vectorIlSaIlEE2atEm.exit
   %330 = landingpad { ptr, i32 }
           cleanup
   br label %.body101
@@ -28163,14 +27939,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i41:         ; preds = %110
   %120 = sub i64 %118, %119
   %121 = ashr exact i64 %120, 3
   %.not.i = icmp eq i64 %120, 128
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit47
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit47
 
-.preheader.split.i:                               ; preds = %114
-  %.not17.i = icmp eq ptr %116, %117
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit47, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %114, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %114 ]
   %122 = getelementptr inbounds nuw i64, ptr %117, i64 %indvars.iv.i
   %123 = load i64, ptr %122, align 8
   %124 = getelementptr inbounds nuw i64, ptr %111, i64 %indvars.iv.i
@@ -28181,8 +27953,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit47, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit47:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %114
-  %.09.i = phi i1 [ false, %114 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit47:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %114
+  %.09.i = phi i1 [ false, %114 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %111, i64 noundef 128) #26
   %126 = load ptr, ptr %18, align 8
   %.not.i.i.i48 = icmp eq ptr %126, null
@@ -28293,14 +28065,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i58:         ; preds = %164
   %174 = sub i64 %172, %173
   %175 = ashr exact i64 %174, 3
   %.not.i62 = icmp eq i64 %174, 8
-  br i1 %.not.i62, label %.preheader.split.i64, label %_ZNSt6vectorIlSaIlEED2Ev.exit74
+  br i1 %.not.i62, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, label %_ZNSt6vectorIlSaIlEED2Ev.exit74
 
-.preheader.split.i64:                             ; preds = %168
-  %.not17.i65 = icmp eq ptr %170, %171
-  br i1 %.not17.i65, label %_ZNSt6vectorIlSaIlEED2Ev.exit74, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i66:              ; preds = %.preheader.split.i64, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66
-  %indvars.iv.i67 = phi i64 [ %indvars.iv.next.i69, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ], [ 0, %.preheader.split.i64 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i66:              ; preds = %168, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66
+  %indvars.iv.i67 = phi i64 [ %indvars.iv.next.i69, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ], [ 0, %168 ]
   %176 = getelementptr inbounds nuw i64, ptr %171, i64 %indvars.iv.i67
   %177 = load i64, ptr %176, align 8
   %178 = getelementptr inbounds nuw i64, ptr %165, i64 %indvars.iv.i67
@@ -28308,11 +28076,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i66:              ; preds = %.preheader.split.i6
   %.not11.i68 = icmp eq i64 %177, %179
   %indvars.iv.next.i69 = add nuw i64 %indvars.iv.i67, 1
   %exitcond.not.i70 = icmp ne i64 %indvars.iv.next.i69, %175
-  %or.cond231.not = select i1 %.not11.i68, i1 %exitcond.not.i70, i1 false
-  br i1 %or.cond231.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, label %_ZNSt6vectorIlSaIlEED2Ev.exit74, !llvm.loop !19
+  %or.cond226.not = select i1 %.not11.i68, i1 %exitcond.not.i70, i1 false
+  br i1 %or.cond226.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, label %_ZNSt6vectorIlSaIlEED2Ev.exit74, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit74:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, %.preheader.split.i64, %168
-  %.09.i63 = phi i1 [ false, %168 ], [ true, %.preheader.split.i64 ], [ %.not11.i68, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit74:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, %168
+  %.09.i63 = phi i1 [ false, %168 ], [ %.not11.i68, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ]
   call void @_ZdlPvm(ptr noundef nonnull %165, i64 noundef 8) #26
   %180 = load ptr, ptr %25, align 8
   %.not.i.i.i75 = icmp eq ptr %180, null
@@ -28386,14 +28154,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i85:         ; preds = %203
   %213 = sub i64 %211, %212
   %214 = ashr exact i64 %213, 3
   %.not.i89 = icmp eq i64 %213, 8
-  br i1 %.not.i89, label %.preheader.split.i91, label %_ZNSt6vectorIlSaIlEED2Ev.exit101
+  br i1 %.not.i89, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, label %_ZNSt6vectorIlSaIlEED2Ev.exit101
 
-.preheader.split.i91:                             ; preds = %207
-  %.not17.i92 = icmp eq ptr %209, %210
-  br i1 %.not17.i92, label %_ZNSt6vectorIlSaIlEED2Ev.exit101, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i93:              ; preds = %.preheader.split.i91, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93
-  %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i96, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93 ], [ 0, %.preheader.split.i91 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i93:              ; preds = %207, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93
+  %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i96, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93 ], [ 0, %207 ]
   %215 = getelementptr inbounds nuw i64, ptr %210, i64 %indvars.iv.i94
   %216 = load i64, ptr %215, align 8
   %217 = getelementptr inbounds nuw i64, ptr %204, i64 %indvars.iv.i94
@@ -28401,11 +28165,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i93:              ; preds = %.preheader.split.i9
   %.not11.i95 = icmp eq i64 %216, %218
   %indvars.iv.next.i96 = add nuw i64 %indvars.iv.i94, 1
   %exitcond.not.i97 = icmp ne i64 %indvars.iv.next.i96, %214
-  %or.cond232.not = select i1 %.not11.i95, i1 %exitcond.not.i97, i1 false
-  br i1 %or.cond232.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, label %_ZNSt6vectorIlSaIlEED2Ev.exit101, !llvm.loop !19
+  %or.cond227.not = select i1 %.not11.i95, i1 %exitcond.not.i97, i1 false
+  br i1 %or.cond227.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, label %_ZNSt6vectorIlSaIlEED2Ev.exit101, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit101:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, %.preheader.split.i91, %207
-  %.09.i90 = phi i1 [ false, %207 ], [ true, %.preheader.split.i91 ], [ %.not11.i95, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit101:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, %207
+  %.09.i90 = phi i1 [ false, %207 ], [ %.not11.i95, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93 ]
   call void @_ZdlPvm(ptr noundef nonnull %204, i64 noundef 8) #26
   %219 = load ptr, ptr %28, align 8
   %.not.i.i.i102 = icmp eq ptr %219, null
@@ -28518,14 +28282,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i112:        ; preds = %257
   %267 = sub i64 %265, %266
   %268 = ashr exact i64 %267, 3
   %.not.i116 = icmp eq i64 %267, 16
-  br i1 %.not.i116, label %.preheader.split.i118, label %_ZNSt6vectorIlSaIlEED2Ev.exit128
+  br i1 %.not.i116, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, label %_ZNSt6vectorIlSaIlEED2Ev.exit128
 
-.preheader.split.i118:                            ; preds = %261
-  %.not17.i119 = icmp eq ptr %263, %264
-  br i1 %.not17.i119, label %_ZNSt6vectorIlSaIlEED2Ev.exit128, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i120:             ; preds = %.preheader.split.i118, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120
-  %indvars.iv.i121 = phi i64 [ %indvars.iv.next.i123, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120 ], [ 0, %.preheader.split.i118 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i120:             ; preds = %261, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120
+  %indvars.iv.i121 = phi i64 [ %indvars.iv.next.i123, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120 ], [ 0, %261 ]
   %269 = getelementptr inbounds nuw i64, ptr %264, i64 %indvars.iv.i121
   %270 = load i64, ptr %269, align 8
   %271 = getelementptr inbounds nuw i64, ptr %258, i64 %indvars.iv.i121
@@ -28533,11 +28293,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i120:             ; preds = %.preheader.split.i1
   %.not11.i122 = icmp eq i64 %270, %272
   %indvars.iv.next.i123 = add nuw i64 %indvars.iv.i121, 1
   %exitcond.not.i124 = icmp ne i64 %indvars.iv.next.i123, %268
-  %or.cond233.not = select i1 %.not11.i122, i1 %exitcond.not.i124, i1 false
-  br i1 %or.cond233.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, label %_ZNSt6vectorIlSaIlEED2Ev.exit128, !llvm.loop !19
+  %or.cond228.not = select i1 %.not11.i122, i1 %exitcond.not.i124, i1 false
+  br i1 %or.cond228.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, label %_ZNSt6vectorIlSaIlEED2Ev.exit128, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit128:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, %.preheader.split.i118, %261
-  %.09.i117 = phi i1 [ false, %261 ], [ true, %.preheader.split.i118 ], [ %.not11.i122, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit128:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, %261
+  %.09.i117 = phi i1 [ false, %261 ], [ %.not11.i122, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120 ]
   call void @_ZdlPvm(ptr noundef nonnull %258, i64 noundef 16) #26
   %273 = load ptr, ptr %35, align 8
   %.not.i.i.i129 = icmp eq ptr %273, null
@@ -28611,14 +28371,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i139:        ; preds = %296
   %306 = sub i64 %304, %305
   %307 = ashr exact i64 %306, 3
   %.not.i143 = icmp eq i64 %306, 8
-  br i1 %.not.i143, label %.preheader.split.i145, label %_ZNSt6vectorIlSaIlEED2Ev.exit155
+  br i1 %.not.i143, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, label %_ZNSt6vectorIlSaIlEED2Ev.exit155
 
-.preheader.split.i145:                            ; preds = %300
-  %.not17.i146 = icmp eq ptr %302, %303
-  br i1 %.not17.i146, label %_ZNSt6vectorIlSaIlEED2Ev.exit155, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i147:             ; preds = %.preheader.split.i145, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147
-  %indvars.iv.i148 = phi i64 [ %indvars.iv.next.i150, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147 ], [ 0, %.preheader.split.i145 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i147:             ; preds = %300, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147
+  %indvars.iv.i148 = phi i64 [ %indvars.iv.next.i150, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147 ], [ 0, %300 ]
   %308 = getelementptr inbounds nuw i64, ptr %303, i64 %indvars.iv.i148
   %309 = load i64, ptr %308, align 8
   %310 = getelementptr inbounds nuw i64, ptr %297, i64 %indvars.iv.i148
@@ -28626,11 +28382,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i147:             ; preds = %.preheader.split.i1
   %.not11.i149 = icmp eq i64 %309, %311
   %indvars.iv.next.i150 = add nuw i64 %indvars.iv.i148, 1
   %exitcond.not.i151 = icmp ne i64 %indvars.iv.next.i150, %307
-  %or.cond234.not = select i1 %.not11.i149, i1 %exitcond.not.i151, i1 false
-  br i1 %or.cond234.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, label %_ZNSt6vectorIlSaIlEED2Ev.exit155, !llvm.loop !19
+  %or.cond229.not = select i1 %.not11.i149, i1 %exitcond.not.i151, i1 false
+  br i1 %or.cond229.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, label %_ZNSt6vectorIlSaIlEED2Ev.exit155, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit155:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, %.preheader.split.i145, %300
-  %.09.i144 = phi i1 [ false, %300 ], [ true, %.preheader.split.i145 ], [ %.not11.i149, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit155:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, %300
+  %.09.i144 = phi i1 [ false, %300 ], [ %.not11.i149, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147 ]
   call void @_ZdlPvm(ptr noundef nonnull %297, i64 noundef 8) #26
   %312 = load ptr, ptr %38, align 8
   %.not.i.i.i156 = icmp eq ptr %312, null
@@ -29156,14 +28912,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i41:         ; preds = %110
   %120 = sub i64 %118, %119
   %121 = ashr exact i64 %120, 3
   %.not.i = icmp eq i64 %120, 128
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit47
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit47
 
-.preheader.split.i:                               ; preds = %114
-  %.not17.i = icmp eq ptr %116, %117
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit47, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %114, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %114 ]
   %122 = getelementptr inbounds nuw i64, ptr %117, i64 %indvars.iv.i
   %123 = load i64, ptr %122, align 8
   %124 = getelementptr inbounds nuw i64, ptr %111, i64 %indvars.iv.i
@@ -29174,8 +28926,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit47, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit47:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %114
-  %.09.i = phi i1 [ false, %114 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit47:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %114
+  %.09.i = phi i1 [ false, %114 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %111, i64 noundef 128) #26
   %126 = load ptr, ptr %18, align 8
   %.not.i.i.i48 = icmp eq ptr %126, null
@@ -29286,14 +29038,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i58:         ; preds = %164
   %174 = sub i64 %172, %173
   %175 = ashr exact i64 %174, 3
   %.not.i62 = icmp eq i64 %174, 8
-  br i1 %.not.i62, label %.preheader.split.i64, label %_ZNSt6vectorIlSaIlEED2Ev.exit74
+  br i1 %.not.i62, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, label %_ZNSt6vectorIlSaIlEED2Ev.exit74
 
-.preheader.split.i64:                             ; preds = %168
-  %.not17.i65 = icmp eq ptr %170, %171
-  br i1 %.not17.i65, label %_ZNSt6vectorIlSaIlEED2Ev.exit74, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i66:              ; preds = %.preheader.split.i64, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66
-  %indvars.iv.i67 = phi i64 [ %indvars.iv.next.i69, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ], [ 0, %.preheader.split.i64 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i66:              ; preds = %168, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66
+  %indvars.iv.i67 = phi i64 [ %indvars.iv.next.i69, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ], [ 0, %168 ]
   %176 = getelementptr inbounds nuw i64, ptr %171, i64 %indvars.iv.i67
   %177 = load i64, ptr %176, align 8
   %178 = getelementptr inbounds nuw i64, ptr %165, i64 %indvars.iv.i67
@@ -29301,11 +29049,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i66:              ; preds = %.preheader.split.i6
   %.not11.i68 = icmp eq i64 %177, %179
   %indvars.iv.next.i69 = add nuw i64 %indvars.iv.i67, 1
   %exitcond.not.i70 = icmp ne i64 %indvars.iv.next.i69, %175
-  %or.cond231.not = select i1 %.not11.i68, i1 %exitcond.not.i70, i1 false
-  br i1 %or.cond231.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, label %_ZNSt6vectorIlSaIlEED2Ev.exit74, !llvm.loop !19
+  %or.cond226.not = select i1 %.not11.i68, i1 %exitcond.not.i70, i1 false
+  br i1 %or.cond226.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, label %_ZNSt6vectorIlSaIlEED2Ev.exit74, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit74:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, %.preheader.split.i64, %168
-  %.09.i63 = phi i1 [ false, %168 ], [ true, %.preheader.split.i64 ], [ %.not11.i68, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit74:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, %168
+  %.09.i63 = phi i1 [ false, %168 ], [ %.not11.i68, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ]
   call void @_ZdlPvm(ptr noundef nonnull %165, i64 noundef 8) #26
   %180 = load ptr, ptr %25, align 8
   %.not.i.i.i75 = icmp eq ptr %180, null
@@ -29381,14 +29129,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i85:         ; preds = %203
   %213 = sub i64 %211, %212
   %214 = ashr exact i64 %213, 3
   %.not.i89 = icmp eq i64 %213, 16
-  br i1 %.not.i89, label %.preheader.split.i91, label %_ZNSt6vectorIlSaIlEED2Ev.exit101
+  br i1 %.not.i89, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, label %_ZNSt6vectorIlSaIlEED2Ev.exit101
 
-.preheader.split.i91:                             ; preds = %207
-  %.not17.i92 = icmp eq ptr %209, %210
-  br i1 %.not17.i92, label %_ZNSt6vectorIlSaIlEED2Ev.exit101, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i93:              ; preds = %.preheader.split.i91, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93
-  %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i96, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93 ], [ 0, %.preheader.split.i91 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i93:              ; preds = %207, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93
+  %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i96, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93 ], [ 0, %207 ]
   %215 = getelementptr inbounds nuw i64, ptr %210, i64 %indvars.iv.i94
   %216 = load i64, ptr %215, align 8
   %217 = getelementptr inbounds nuw i64, ptr %204, i64 %indvars.iv.i94
@@ -29396,11 +29140,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i93:              ; preds = %.preheader.split.i9
   %.not11.i95 = icmp eq i64 %216, %218
   %indvars.iv.next.i96 = add nuw i64 %indvars.iv.i94, 1
   %exitcond.not.i97 = icmp ne i64 %indvars.iv.next.i96, %214
-  %or.cond232.not = select i1 %.not11.i95, i1 %exitcond.not.i97, i1 false
-  br i1 %or.cond232.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, label %_ZNSt6vectorIlSaIlEED2Ev.exit101, !llvm.loop !19
+  %or.cond227.not = select i1 %.not11.i95, i1 %exitcond.not.i97, i1 false
+  br i1 %or.cond227.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, label %_ZNSt6vectorIlSaIlEED2Ev.exit101, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit101:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, %.preheader.split.i91, %207
-  %.09.i90 = phi i1 [ false, %207 ], [ true, %.preheader.split.i91 ], [ %.not11.i95, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit101:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, %207
+  %.09.i90 = phi i1 [ false, %207 ], [ %.not11.i95, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93 ]
   call void @_ZdlPvm(ptr noundef nonnull %204, i64 noundef 16) #26
   %219 = load ptr, ptr %28, align 8
   %.not.i.i.i102 = icmp eq ptr %219, null
@@ -29513,14 +29257,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i112:        ; preds = %257
   %267 = sub i64 %265, %266
   %268 = ashr exact i64 %267, 3
   %.not.i116 = icmp eq i64 %267, 16
-  br i1 %.not.i116, label %.preheader.split.i118, label %_ZNSt6vectorIlSaIlEED2Ev.exit128
+  br i1 %.not.i116, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, label %_ZNSt6vectorIlSaIlEED2Ev.exit128
 
-.preheader.split.i118:                            ; preds = %261
-  %.not17.i119 = icmp eq ptr %263, %264
-  br i1 %.not17.i119, label %_ZNSt6vectorIlSaIlEED2Ev.exit128, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i120:             ; preds = %.preheader.split.i118, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120
-  %indvars.iv.i121 = phi i64 [ %indvars.iv.next.i123, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120 ], [ 0, %.preheader.split.i118 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i120:             ; preds = %261, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120
+  %indvars.iv.i121 = phi i64 [ %indvars.iv.next.i123, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120 ], [ 0, %261 ]
   %269 = getelementptr inbounds nuw i64, ptr %264, i64 %indvars.iv.i121
   %270 = load i64, ptr %269, align 8
   %271 = getelementptr inbounds nuw i64, ptr %258, i64 %indvars.iv.i121
@@ -29528,11 +29268,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i120:             ; preds = %.preheader.split.i1
   %.not11.i122 = icmp eq i64 %270, %272
   %indvars.iv.next.i123 = add nuw i64 %indvars.iv.i121, 1
   %exitcond.not.i124 = icmp ne i64 %indvars.iv.next.i123, %268
-  %or.cond233.not = select i1 %.not11.i122, i1 %exitcond.not.i124, i1 false
-  br i1 %or.cond233.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, label %_ZNSt6vectorIlSaIlEED2Ev.exit128, !llvm.loop !19
+  %or.cond228.not = select i1 %.not11.i122, i1 %exitcond.not.i124, i1 false
+  br i1 %or.cond228.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, label %_ZNSt6vectorIlSaIlEED2Ev.exit128, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit128:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, %.preheader.split.i118, %261
-  %.09.i117 = phi i1 [ false, %261 ], [ true, %.preheader.split.i118 ], [ %.not11.i122, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit128:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, %261
+  %.09.i117 = phi i1 [ false, %261 ], [ %.not11.i122, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120 ]
   call void @_ZdlPvm(ptr noundef nonnull %258, i64 noundef 16) #26
   %273 = load ptr, ptr %35, align 8
   %.not.i.i.i129 = icmp eq ptr %273, null
@@ -29606,14 +29346,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i139:        ; preds = %296
   %306 = sub i64 %304, %305
   %307 = ashr exact i64 %306, 3
   %.not.i143 = icmp eq i64 %306, 56
-  br i1 %.not.i143, label %.preheader.split.i145, label %_ZNSt6vectorIlSaIlEED2Ev.exit155
+  br i1 %.not.i143, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, label %_ZNSt6vectorIlSaIlEED2Ev.exit155
 
-.preheader.split.i145:                            ; preds = %300
-  %.not17.i146 = icmp eq ptr %302, %303
-  br i1 %.not17.i146, label %_ZNSt6vectorIlSaIlEED2Ev.exit155, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i147:             ; preds = %.preheader.split.i145, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147
-  %indvars.iv.i148 = phi i64 [ %indvars.iv.next.i150, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147 ], [ 0, %.preheader.split.i145 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i147:             ; preds = %300, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147
+  %indvars.iv.i148 = phi i64 [ %indvars.iv.next.i150, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147 ], [ 0, %300 ]
   %308 = getelementptr inbounds nuw i64, ptr %303, i64 %indvars.iv.i148
   %309 = load i64, ptr %308, align 8
   %310 = getelementptr inbounds nuw i64, ptr %297, i64 %indvars.iv.i148
@@ -29621,11 +29357,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i147:             ; preds = %.preheader.split.i1
   %.not11.i149 = icmp eq i64 %309, %311
   %indvars.iv.next.i150 = add nuw i64 %indvars.iv.i148, 1
   %exitcond.not.i151 = icmp ne i64 %indvars.iv.next.i150, %307
-  %or.cond234.not = select i1 %.not11.i149, i1 %exitcond.not.i151, i1 false
-  br i1 %or.cond234.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, label %_ZNSt6vectorIlSaIlEED2Ev.exit155, !llvm.loop !19
+  %or.cond229.not = select i1 %.not11.i149, i1 %exitcond.not.i151, i1 false
+  br i1 %or.cond229.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, label %_ZNSt6vectorIlSaIlEED2Ev.exit155, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit155:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, %.preheader.split.i145, %300
-  %.09.i144 = phi i1 [ false, %300 ], [ true, %.preheader.split.i145 ], [ %.not11.i149, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit155:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, %300
+  %.09.i144 = phi i1 [ false, %300 ], [ %.not11.i149, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147 ]
   call void @_ZdlPvm(ptr noundef nonnull %297, i64 noundef 56) #26
   %312 = load ptr, ptr %38, align 8
   %.not.i.i.i156 = icmp eq ptr %312, null
@@ -30109,14 +29845,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i46:         ; preds = %113
   %123 = sub i64 %121, %122
   %124 = ashr exact i64 %123, 3
   %.not.i = icmp eq i64 %123, 128
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit52
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit52
 
-.preheader.split.i:                               ; preds = %117
-  %.not17.i = icmp eq ptr %119, %120
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit52, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %117, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %117 ]
   %125 = getelementptr inbounds nuw i64, ptr %120, i64 %indvars.iv.i
   %126 = load i64, ptr %125, align 8
   %127 = getelementptr inbounds nuw i64, ptr %114, i64 %indvars.iv.i
@@ -30127,8 +29859,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit52, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit52:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %117
-  %.09.i = phi i1 [ false, %117 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit52:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %117
+  %.09.i = phi i1 [ false, %117 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %114, i64 noundef 128) #26
   %129 = load ptr, ptr %18, align 8
   %.not.i.i.i53 = icmp eq ptr %129, null
@@ -30239,14 +29971,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i63:         ; preds = %167
   %177 = sub i64 %175, %176
   %178 = ashr exact i64 %177, 3
   %.not.i67 = icmp eq i64 %177, 8
-  br i1 %.not.i67, label %.preheader.split.i69, label %_ZNSt6vectorIlSaIlEED2Ev.exit79
+  br i1 %.not.i67, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71, label %_ZNSt6vectorIlSaIlEED2Ev.exit79
 
-.preheader.split.i69:                             ; preds = %171
-  %.not17.i70 = icmp eq ptr %173, %174
-  br i1 %.not17.i70, label %_ZNSt6vectorIlSaIlEED2Ev.exit79, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i71:              ; preds = %.preheader.split.i69, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71
-  %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i74, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71 ], [ 0, %.preheader.split.i69 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i71:              ; preds = %171, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71
+  %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i74, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71 ], [ 0, %171 ]
   %179 = getelementptr inbounds nuw i64, ptr %174, i64 %indvars.iv.i72
   %180 = load i64, ptr %179, align 8
   %181 = getelementptr inbounds nuw i64, ptr %168, i64 %indvars.iv.i72
@@ -30254,11 +29982,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i71:              ; preds = %.preheader.split.i6
   %.not11.i73 = icmp eq i64 %180, %182
   %indvars.iv.next.i74 = add nuw i64 %indvars.iv.i72, 1
   %exitcond.not.i75 = icmp ne i64 %indvars.iv.next.i74, %178
-  %or.cond272.not = select i1 %.not11.i73, i1 %exitcond.not.i75, i1 false
-  br i1 %or.cond272.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71, label %_ZNSt6vectorIlSaIlEED2Ev.exit79, !llvm.loop !19
+  %or.cond266.not = select i1 %.not11.i73, i1 %exitcond.not.i75, i1 false
+  br i1 %or.cond266.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71, label %_ZNSt6vectorIlSaIlEED2Ev.exit79, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit79:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71, %.preheader.split.i69, %171
-  %.09.i68 = phi i1 [ false, %171 ], [ true, %.preheader.split.i69 ], [ %.not11.i73, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit79:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71, %171
+  %.09.i68 = phi i1 [ false, %171 ], [ %.not11.i73, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i71 ]
   call void @_ZdlPvm(ptr noundef nonnull %168, i64 noundef 8) #26
   %183 = load ptr, ptr %25, align 8
   %.not.i.i.i80 = icmp eq ptr %183, null
@@ -30332,14 +30060,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i90:         ; preds = %206
   %216 = sub i64 %214, %215
   %217 = ashr exact i64 %216, 3
   %.not.i94 = icmp eq i64 %216, 48
-  br i1 %.not.i94, label %.preheader.split.i96, label %_ZNSt6vectorIlSaIlEED2Ev.exit106
+  br i1 %.not.i94, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98, label %_ZNSt6vectorIlSaIlEED2Ev.exit106
 
-.preheader.split.i96:                             ; preds = %210
-  %.not17.i97 = icmp eq ptr %212, %213
-  br i1 %.not17.i97, label %_ZNSt6vectorIlSaIlEED2Ev.exit106, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i98:              ; preds = %.preheader.split.i96, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98
-  %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i101, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98 ], [ 0, %.preheader.split.i96 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i98:              ; preds = %210, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98
+  %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i101, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98 ], [ 0, %210 ]
   %218 = getelementptr inbounds nuw i64, ptr %213, i64 %indvars.iv.i99
   %219 = load i64, ptr %218, align 8
   %220 = getelementptr inbounds nuw i64, ptr %207, i64 %indvars.iv.i99
@@ -30347,11 +30071,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i98:              ; preds = %.preheader.split.i9
   %.not11.i100 = icmp eq i64 %219, %221
   %indvars.iv.next.i101 = add nuw i64 %indvars.iv.i99, 1
   %exitcond.not.i102 = icmp ne i64 %indvars.iv.next.i101, %217
-  %or.cond273.not = select i1 %.not11.i100, i1 %exitcond.not.i102, i1 false
-  br i1 %or.cond273.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98, label %_ZNSt6vectorIlSaIlEED2Ev.exit106, !llvm.loop !19
+  %or.cond267.not = select i1 %.not11.i100, i1 %exitcond.not.i102, i1 false
+  br i1 %or.cond267.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98, label %_ZNSt6vectorIlSaIlEED2Ev.exit106, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit106:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98, %.preheader.split.i96, %210
-  %.09.i95 = phi i1 [ false, %210 ], [ true, %.preheader.split.i96 ], [ %.not11.i100, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit106:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98, %210
+  %.09.i95 = phi i1 [ false, %210 ], [ %.not11.i100, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i98 ]
   call void @_ZdlPvm(ptr noundef nonnull %207, i64 noundef 48) #26
   %222 = load ptr, ptr %28, align 8
   %.not.i.i.i107 = icmp eq ptr %222, null
@@ -30464,14 +30188,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i117:        ; preds = %260
   %270 = sub i64 %268, %269
   %271 = ashr exact i64 %270, 3
   %.not.i121 = icmp eq i64 %270, 16
-  br i1 %.not.i121, label %.preheader.split.i123, label %_ZNSt6vectorIlSaIlEED2Ev.exit133
+  br i1 %.not.i121, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125, label %_ZNSt6vectorIlSaIlEED2Ev.exit133
 
-.preheader.split.i123:                            ; preds = %264
-  %.not17.i124 = icmp eq ptr %266, %267
-  br i1 %.not17.i124, label %_ZNSt6vectorIlSaIlEED2Ev.exit133, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i125:             ; preds = %.preheader.split.i123, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125
-  %indvars.iv.i126 = phi i64 [ %indvars.iv.next.i128, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125 ], [ 0, %.preheader.split.i123 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i125:             ; preds = %264, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125
+  %indvars.iv.i126 = phi i64 [ %indvars.iv.next.i128, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125 ], [ 0, %264 ]
   %272 = getelementptr inbounds nuw i64, ptr %267, i64 %indvars.iv.i126
   %273 = load i64, ptr %272, align 8
   %274 = getelementptr inbounds nuw i64, ptr %261, i64 %indvars.iv.i126
@@ -30479,11 +30199,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i125:             ; preds = %.preheader.split.i1
   %.not11.i127 = icmp eq i64 %273, %275
   %indvars.iv.next.i128 = add nuw i64 %indvars.iv.i126, 1
   %exitcond.not.i129 = icmp ne i64 %indvars.iv.next.i128, %271
-  %or.cond274.not = select i1 %.not11.i127, i1 %exitcond.not.i129, i1 false
-  br i1 %or.cond274.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125, label %_ZNSt6vectorIlSaIlEED2Ev.exit133, !llvm.loop !19
+  %or.cond268.not = select i1 %.not11.i127, i1 %exitcond.not.i129, i1 false
+  br i1 %or.cond268.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125, label %_ZNSt6vectorIlSaIlEED2Ev.exit133, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit133:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125, %.preheader.split.i123, %264
-  %.09.i122 = phi i1 [ false, %264 ], [ true, %.preheader.split.i123 ], [ %.not11.i127, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit133:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125, %264
+  %.09.i122 = phi i1 [ false, %264 ], [ %.not11.i127, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i125 ]
   call void @_ZdlPvm(ptr noundef nonnull %261, i64 noundef 16) #26
   %276 = load ptr, ptr %35, align 8
   %.not.i.i.i134 = icmp eq ptr %276, null
@@ -30557,14 +30277,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i144:        ; preds = %299
   %309 = sub i64 %307, %308
   %310 = ashr exact i64 %309, 3
   %.not.i148 = icmp eq i64 %309, 48
-  br i1 %.not.i148, label %.preheader.split.i150, label %_ZNSt6vectorIlSaIlEED2Ev.exit160
+  br i1 %.not.i148, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152, label %_ZNSt6vectorIlSaIlEED2Ev.exit160
 
-.preheader.split.i150:                            ; preds = %303
-  %.not17.i151 = icmp eq ptr %305, %306
-  br i1 %.not17.i151, label %_ZNSt6vectorIlSaIlEED2Ev.exit160, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i152:             ; preds = %.preheader.split.i150, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152
-  %indvars.iv.i153 = phi i64 [ %indvars.iv.next.i155, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152 ], [ 0, %.preheader.split.i150 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i152:             ; preds = %303, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152
+  %indvars.iv.i153 = phi i64 [ %indvars.iv.next.i155, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152 ], [ 0, %303 ]
   %311 = getelementptr inbounds nuw i64, ptr %306, i64 %indvars.iv.i153
   %312 = load i64, ptr %311, align 8
   %313 = getelementptr inbounds nuw i64, ptr %300, i64 %indvars.iv.i153
@@ -30572,11 +30288,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i152:             ; preds = %.preheader.split.i1
   %.not11.i154 = icmp eq i64 %312, %314
   %indvars.iv.next.i155 = add nuw i64 %indvars.iv.i153, 1
   %exitcond.not.i156 = icmp ne i64 %indvars.iv.next.i155, %310
-  %or.cond275.not = select i1 %.not11.i154, i1 %exitcond.not.i156, i1 false
-  br i1 %or.cond275.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152, label %_ZNSt6vectorIlSaIlEED2Ev.exit160, !llvm.loop !19
+  %or.cond269.not = select i1 %.not11.i154, i1 %exitcond.not.i156, i1 false
+  br i1 %or.cond269.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152, label %_ZNSt6vectorIlSaIlEED2Ev.exit160, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit160:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152, %.preheader.split.i150, %303
-  %.09.i149 = phi i1 [ false, %303 ], [ true, %.preheader.split.i150 ], [ %.not11.i154, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit160:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152, %303
+  %.09.i149 = phi i1 [ false, %303 ], [ %.not11.i154, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i152 ]
   call void @_ZdlPvm(ptr noundef nonnull %300, i64 noundef 48) #26
   %315 = load ptr, ptr %38, align 8
   %.not.i.i.i161 = icmp eq ptr %315, null
@@ -30733,14 +30449,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i174:        ; preds = %374
   %384 = sub i64 %382, %383
   %385 = ashr exact i64 %384, 3
   %.not.i178 = icmp eq i64 %384, 112
-  br i1 %.not.i178, label %.preheader.split.i180, label %_ZNSt6vectorIlSaIlEED2Ev.exit190
+  br i1 %.not.i178, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i182, label %_ZNSt6vectorIlSaIlEED2Ev.exit190
 
-.preheader.split.i180:                            ; preds = %378
-  %.not17.i181 = icmp eq ptr %380, %381
-  br i1 %.not17.i181, label %_ZNSt6vectorIlSaIlEED2Ev.exit190, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i182
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i182:             ; preds = %.preheader.split.i180, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i182
-  %indvars.iv.i183 = phi i64 [ %indvars.iv.next.i185, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i182 ], [ 0, %.preheader.split.i180 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i182:             ; preds = %378, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i182
+  %indvars.iv.i183 = phi i64 [ %indvars.iv.next.i185, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i182 ], [ 0, %378 ]
   %386 = getelementptr inbounds nuw i64, ptr %381, i64 %indvars.iv.i183
   %387 = load i64, ptr %386, align 8
   %388 = getelementptr inbounds nuw i64, ptr %375, i64 %indvars.iv.i183
@@ -30748,11 +30460,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i182:             ; preds = %.preheader.split.i1
   %.not11.i184 = icmp eq i64 %387, %389
   %indvars.iv.next.i185 = add nuw i64 %indvars.iv.i183, 1
   %exitcond.not.i186 = icmp ne i64 %indvars.iv.next.i185, %385
-  %or.cond276.not = select i1 %.not11.i184, i1 %exitcond.not.i186, i1 false
-  br i1 %or.cond276.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i182, label %_ZNSt6vectorIlSaIlEED2Ev.exit190, !llvm.loop !19
+  %or.cond270.not = select i1 %.not11.i184, i1 %exitcond.not.i186, i1 false
+  br i1 %or.cond270.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i182, label %_ZNSt6vectorIlSaIlEED2Ev.exit190, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit190:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i182, %.preheader.split.i180, %378
-  %.09.i179 = phi i1 [ false, %378 ], [ true, %.preheader.split.i180 ], [ %.not11.i184, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i182 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit190:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i182, %378
+  %.09.i179 = phi i1 [ false, %378 ], [ %.not11.i184, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i182 ]
   call void @_ZdlPvm(ptr noundef nonnull %375, i64 noundef 112) #26
   %390 = load ptr, ptr %48, align 8
   %.not.i.i.i191 = icmp eq ptr %390, null
@@ -31193,14 +30905,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i41:         ; preds = %110
   %120 = sub i64 %118, %119
   %121 = ashr exact i64 %120, 3
   %.not.i = icmp eq i64 %120, 128
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit47
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit47
 
-.preheader.split.i:                               ; preds = %114
-  %.not17.i = icmp eq ptr %116, %117
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit47, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %114, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %114 ]
   %122 = getelementptr inbounds nuw i64, ptr %117, i64 %indvars.iv.i
   %123 = load i64, ptr %122, align 8
   %124 = getelementptr inbounds nuw i64, ptr %111, i64 %indvars.iv.i
@@ -31211,8 +30919,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit47, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit47:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %114
-  %.09.i = phi i1 [ false, %114 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit47:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %114
+  %.09.i = phi i1 [ false, %114 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %111, i64 noundef 128) #26
   %126 = load ptr, ptr %18, align 8
   %.not.i.i.i48 = icmp eq ptr %126, null
@@ -31323,14 +31031,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i58:         ; preds = %164
   %174 = sub i64 %172, %173
   %175 = ashr exact i64 %174, 3
   %.not.i62 = icmp eq i64 %174, 8
-  br i1 %.not.i62, label %.preheader.split.i64, label %_ZNSt6vectorIlSaIlEED2Ev.exit74
+  br i1 %.not.i62, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, label %_ZNSt6vectorIlSaIlEED2Ev.exit74
 
-.preheader.split.i64:                             ; preds = %168
-  %.not17.i65 = icmp eq ptr %170, %171
-  br i1 %.not17.i65, label %_ZNSt6vectorIlSaIlEED2Ev.exit74, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i66:              ; preds = %.preheader.split.i64, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66
-  %indvars.iv.i67 = phi i64 [ %indvars.iv.next.i69, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ], [ 0, %.preheader.split.i64 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i66:              ; preds = %168, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66
+  %indvars.iv.i67 = phi i64 [ %indvars.iv.next.i69, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ], [ 0, %168 ]
   %176 = getelementptr inbounds nuw i64, ptr %171, i64 %indvars.iv.i67
   %177 = load i64, ptr %176, align 8
   %178 = getelementptr inbounds nuw i64, ptr %165, i64 %indvars.iv.i67
@@ -31338,11 +31042,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i66:              ; preds = %.preheader.split.i6
   %.not11.i68 = icmp eq i64 %177, %179
   %indvars.iv.next.i69 = add nuw i64 %indvars.iv.i67, 1
   %exitcond.not.i70 = icmp ne i64 %indvars.iv.next.i69, %175
-  %or.cond232.not = select i1 %.not11.i68, i1 %exitcond.not.i70, i1 false
-  br i1 %or.cond232.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, label %_ZNSt6vectorIlSaIlEED2Ev.exit74, !llvm.loop !19
+  %or.cond227.not = select i1 %.not11.i68, i1 %exitcond.not.i70, i1 false
+  br i1 %or.cond227.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, label %_ZNSt6vectorIlSaIlEED2Ev.exit74, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit74:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, %.preheader.split.i64, %168
-  %.09.i63 = phi i1 [ false, %168 ], [ true, %.preheader.split.i64 ], [ %.not11.i68, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit74:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66, %168
+  %.09.i63 = phi i1 [ false, %168 ], [ %.not11.i68, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i66 ]
   call void @_ZdlPvm(ptr noundef nonnull %165, i64 noundef 8) #26
   %180 = load ptr, ptr %25, align 8
   %.not.i.i.i75 = icmp eq ptr %180, null
@@ -31416,14 +31120,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i85:         ; preds = %203
   %213 = sub i64 %211, %212
   %214 = ashr exact i64 %213, 3
   %.not.i89 = icmp eq i64 %213, 8
-  br i1 %.not.i89, label %.preheader.split.i91, label %_ZNSt6vectorIlSaIlEED2Ev.exit101
+  br i1 %.not.i89, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, label %_ZNSt6vectorIlSaIlEED2Ev.exit101
 
-.preheader.split.i91:                             ; preds = %207
-  %.not17.i92 = icmp eq ptr %209, %210
-  br i1 %.not17.i92, label %_ZNSt6vectorIlSaIlEED2Ev.exit101, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i93:              ; preds = %.preheader.split.i91, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93
-  %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i96, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93 ], [ 0, %.preheader.split.i91 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i93:              ; preds = %207, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93
+  %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i96, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93 ], [ 0, %207 ]
   %215 = getelementptr inbounds nuw i64, ptr %210, i64 %indvars.iv.i94
   %216 = load i64, ptr %215, align 8
   %217 = getelementptr inbounds nuw i64, ptr %204, i64 %indvars.iv.i94
@@ -31431,11 +31131,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i93:              ; preds = %.preheader.split.i9
   %.not11.i95 = icmp eq i64 %216, %218
   %indvars.iv.next.i96 = add nuw i64 %indvars.iv.i94, 1
   %exitcond.not.i97 = icmp ne i64 %indvars.iv.next.i96, %214
-  %or.cond233.not = select i1 %.not11.i95, i1 %exitcond.not.i97, i1 false
-  br i1 %or.cond233.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, label %_ZNSt6vectorIlSaIlEED2Ev.exit101, !llvm.loop !19
+  %or.cond228.not = select i1 %.not11.i95, i1 %exitcond.not.i97, i1 false
+  br i1 %or.cond228.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, label %_ZNSt6vectorIlSaIlEED2Ev.exit101, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit101:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, %.preheader.split.i91, %207
-  %.09.i90 = phi i1 [ false, %207 ], [ true, %.preheader.split.i91 ], [ %.not11.i95, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit101:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93, %207
+  %.09.i90 = phi i1 [ false, %207 ], [ %.not11.i95, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i93 ]
   call void @_ZdlPvm(ptr noundef nonnull %204, i64 noundef 8) #26
   %219 = load ptr, ptr %28, align 8
   %.not.i.i.i102 = icmp eq ptr %219, null
@@ -31548,14 +31248,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i112:        ; preds = %257
   %267 = sub i64 %265, %266
   %268 = ashr exact i64 %267, 3
   %.not.i116 = icmp eq i64 %267, 16
-  br i1 %.not.i116, label %.preheader.split.i118, label %_ZNSt6vectorIlSaIlEED2Ev.exit128
+  br i1 %.not.i116, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, label %_ZNSt6vectorIlSaIlEED2Ev.exit128
 
-.preheader.split.i118:                            ; preds = %261
-  %.not17.i119 = icmp eq ptr %263, %264
-  br i1 %.not17.i119, label %_ZNSt6vectorIlSaIlEED2Ev.exit128, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i120:             ; preds = %.preheader.split.i118, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120
-  %indvars.iv.i121 = phi i64 [ %indvars.iv.next.i123, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120 ], [ 0, %.preheader.split.i118 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i120:             ; preds = %261, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120
+  %indvars.iv.i121 = phi i64 [ %indvars.iv.next.i123, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120 ], [ 0, %261 ]
   %269 = getelementptr inbounds nuw i64, ptr %264, i64 %indvars.iv.i121
   %270 = load i64, ptr %269, align 8
   %271 = getelementptr inbounds nuw i64, ptr %258, i64 %indvars.iv.i121
@@ -31563,11 +31259,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i120:             ; preds = %.preheader.split.i1
   %.not11.i122 = icmp eq i64 %270, %272
   %indvars.iv.next.i123 = add nuw i64 %indvars.iv.i121, 1
   %exitcond.not.i124 = icmp ne i64 %indvars.iv.next.i123, %268
-  %or.cond234.not = select i1 %.not11.i122, i1 %exitcond.not.i124, i1 false
-  br i1 %or.cond234.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, label %_ZNSt6vectorIlSaIlEED2Ev.exit128, !llvm.loop !19
+  %or.cond229.not = select i1 %.not11.i122, i1 %exitcond.not.i124, i1 false
+  br i1 %or.cond229.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, label %_ZNSt6vectorIlSaIlEED2Ev.exit128, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit128:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, %.preheader.split.i118, %261
-  %.09.i117 = phi i1 [ false, %261 ], [ true, %.preheader.split.i118 ], [ %.not11.i122, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit128:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120, %261
+  %.09.i117 = phi i1 [ false, %261 ], [ %.not11.i122, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i120 ]
   call void @_ZdlPvm(ptr noundef nonnull %258, i64 noundef 16) #26
   %273 = load ptr, ptr %35, align 8
   %.not.i.i.i129 = icmp eq ptr %273, null
@@ -31643,14 +31339,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i139:        ; preds = %296
   %306 = sub i64 %304, %305
   %307 = ashr exact i64 %306, 3
   %.not.i143 = icmp eq i64 %306, 16
-  br i1 %.not.i143, label %.preheader.split.i145, label %_ZNSt6vectorIlSaIlEED2Ev.exit155
+  br i1 %.not.i143, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, label %_ZNSt6vectorIlSaIlEED2Ev.exit155
 
-.preheader.split.i145:                            ; preds = %300
-  %.not17.i146 = icmp eq ptr %302, %303
-  br i1 %.not17.i146, label %_ZNSt6vectorIlSaIlEED2Ev.exit155, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i147:             ; preds = %.preheader.split.i145, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147
-  %indvars.iv.i148 = phi i64 [ %indvars.iv.next.i150, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147 ], [ 0, %.preheader.split.i145 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i147:             ; preds = %300, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147
+  %indvars.iv.i148 = phi i64 [ %indvars.iv.next.i150, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147 ], [ 0, %300 ]
   %308 = getelementptr inbounds nuw i64, ptr %303, i64 %indvars.iv.i148
   %309 = load i64, ptr %308, align 8
   %310 = getelementptr inbounds nuw i64, ptr %297, i64 %indvars.iv.i148
@@ -31658,11 +31350,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i147:             ; preds = %.preheader.split.i1
   %.not11.i149 = icmp eq i64 %309, %311
   %indvars.iv.next.i150 = add nuw i64 %indvars.iv.i148, 1
   %exitcond.not.i151 = icmp ne i64 %indvars.iv.next.i150, %307
-  %or.cond235.not = select i1 %.not11.i149, i1 %exitcond.not.i151, i1 false
-  br i1 %or.cond235.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, label %_ZNSt6vectorIlSaIlEED2Ev.exit155, !llvm.loop !19
+  %or.cond230.not = select i1 %.not11.i149, i1 %exitcond.not.i151, i1 false
+  br i1 %or.cond230.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, label %_ZNSt6vectorIlSaIlEED2Ev.exit155, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit155:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, %.preheader.split.i145, %300
-  %.09.i144 = phi i1 [ false, %300 ], [ true, %.preheader.split.i145 ], [ %.not11.i149, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit155:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147, %300
+  %.09.i144 = phi i1 [ false, %300 ], [ %.not11.i149, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i147 ]
   call void @_ZdlPvm(ptr noundef nonnull %297, i64 noundef 16) #26
   %312 = load ptr, ptr %38, align 8
   %.not.i.i.i156 = icmp eq ptr %312, null
@@ -32097,14 +31789,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i71:         ; preds = %150
   %160 = sub i64 %158, %159
   %161 = ashr exact i64 %160, 3
   %.not.i = icmp eq i64 %160, 128
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit77
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit77
 
-.preheader.split.i:                               ; preds = %154
-  %.not17.i = icmp eq ptr %156, %157
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit77, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %154, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %154 ]
   %162 = getelementptr inbounds nuw i64, ptr %157, i64 %indvars.iv.i
   %163 = load i64, ptr %162, align 8
   %164 = getelementptr inbounds nuw i64, ptr %151, i64 %indvars.iv.i
@@ -32115,8 +31803,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit77, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit77:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %154
-  %.09.i = phi i1 [ false, %154 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit77:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %154
+  %.09.i = phi i1 [ false, %154 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %151, i64 noundef 128) #26
   %166 = load ptr, ptr %18, align 8
   %.not.i.i.i78 = icmp eq ptr %166, null
@@ -32227,14 +31915,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i88:         ; preds = %204
   %214 = sub i64 %212, %213
   %215 = ashr exact i64 %214, 3
   %.not.i92 = icmp eq i64 %214, 8
-  br i1 %.not.i92, label %.preheader.split.i94, label %_ZNSt6vectorIlSaIlEED2Ev.exit104
+  br i1 %.not.i92, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i96, label %_ZNSt6vectorIlSaIlEED2Ev.exit104
 
-.preheader.split.i94:                             ; preds = %208
-  %.not17.i95 = icmp eq ptr %210, %211
-  br i1 %.not17.i95, label %_ZNSt6vectorIlSaIlEED2Ev.exit104, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i96
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i96:              ; preds = %.preheader.split.i94, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i96
-  %indvars.iv.i97 = phi i64 [ %indvars.iv.next.i99, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i96 ], [ 0, %.preheader.split.i94 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i96:              ; preds = %208, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i96
+  %indvars.iv.i97 = phi i64 [ %indvars.iv.next.i99, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i96 ], [ 0, %208 ]
   %216 = getelementptr inbounds nuw i64, ptr %211, i64 %indvars.iv.i97
   %217 = load i64, ptr %216, align 8
   %218 = getelementptr inbounds nuw i64, ptr %205, i64 %indvars.iv.i97
@@ -32242,11 +31926,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i96:              ; preds = %.preheader.split.i9
   %.not11.i98 = icmp eq i64 %217, %219
   %indvars.iv.next.i99 = add nuw i64 %indvars.iv.i97, 1
   %exitcond.not.i100 = icmp ne i64 %indvars.iv.next.i99, %215
-  %or.cond498.not = select i1 %.not11.i98, i1 %exitcond.not.i100, i1 false
-  br i1 %or.cond498.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i96, label %_ZNSt6vectorIlSaIlEED2Ev.exit104, !llvm.loop !19
+  %or.cond487.not = select i1 %.not11.i98, i1 %exitcond.not.i100, i1 false
+  br i1 %or.cond487.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i96, label %_ZNSt6vectorIlSaIlEED2Ev.exit104, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit104:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i96, %.preheader.split.i94, %208
-  %.09.i93 = phi i1 [ false, %208 ], [ true, %.preheader.split.i94 ], [ %.not11.i98, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i96 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit104:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i96, %208
+  %.09.i93 = phi i1 [ false, %208 ], [ %.not11.i98, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i96 ]
   call void @_ZdlPvm(ptr noundef nonnull %205, i64 noundef 8) #26
   %220 = load ptr, ptr %25, align 8
   %.not.i.i.i105 = icmp eq ptr %220, null
@@ -32320,14 +32004,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i115:        ; preds = %243
   %253 = sub i64 %251, %252
   %254 = ashr exact i64 %253, 3
   %.not.i119 = icmp eq i64 %253, 32
-  br i1 %.not.i119, label %.preheader.split.i121, label %_ZNSt6vectorIlSaIlEED2Ev.exit131
+  br i1 %.not.i119, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i123, label %_ZNSt6vectorIlSaIlEED2Ev.exit131
 
-.preheader.split.i121:                            ; preds = %247
-  %.not17.i122 = icmp eq ptr %249, %250
-  br i1 %.not17.i122, label %_ZNSt6vectorIlSaIlEED2Ev.exit131, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i123
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i123:             ; preds = %.preheader.split.i121, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i123
-  %indvars.iv.i124 = phi i64 [ %indvars.iv.next.i126, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i123 ], [ 0, %.preheader.split.i121 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i123:             ; preds = %247, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i123
+  %indvars.iv.i124 = phi i64 [ %indvars.iv.next.i126, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i123 ], [ 0, %247 ]
   %255 = getelementptr inbounds nuw i64, ptr %250, i64 %indvars.iv.i124
   %256 = load i64, ptr %255, align 8
   %257 = getelementptr inbounds nuw i64, ptr %244, i64 %indvars.iv.i124
@@ -32335,11 +32015,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i123:             ; preds = %.preheader.split.i1
   %.not11.i125 = icmp eq i64 %256, %258
   %indvars.iv.next.i126 = add nuw i64 %indvars.iv.i124, 1
   %exitcond.not.i127 = icmp ne i64 %indvars.iv.next.i126, %254
-  %or.cond499.not = select i1 %.not11.i125, i1 %exitcond.not.i127, i1 false
-  br i1 %or.cond499.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i123, label %_ZNSt6vectorIlSaIlEED2Ev.exit131, !llvm.loop !19
+  %or.cond488.not = select i1 %.not11.i125, i1 %exitcond.not.i127, i1 false
+  br i1 %or.cond488.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i123, label %_ZNSt6vectorIlSaIlEED2Ev.exit131, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit131:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i123, %.preheader.split.i121, %247
-  %.09.i120 = phi i1 [ false, %247 ], [ true, %.preheader.split.i121 ], [ %.not11.i125, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i123 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit131:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i123, %247
+  %.09.i120 = phi i1 [ false, %247 ], [ %.not11.i125, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i123 ]
   call void @_ZdlPvm(ptr noundef nonnull %244, i64 noundef 32) #26
   %259 = load ptr, ptr %28, align 8
   %.not.i.i.i132 = icmp eq ptr %259, null
@@ -32452,14 +32132,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i142:        ; preds = %297
   %307 = sub i64 %305, %306
   %308 = ashr exact i64 %307, 3
   %.not.i146 = icmp eq i64 %307, 16
-  br i1 %.not.i146, label %.preheader.split.i148, label %_ZNSt6vectorIlSaIlEED2Ev.exit158
+  br i1 %.not.i146, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i150, label %_ZNSt6vectorIlSaIlEED2Ev.exit158
 
-.preheader.split.i148:                            ; preds = %301
-  %.not17.i149 = icmp eq ptr %303, %304
-  br i1 %.not17.i149, label %_ZNSt6vectorIlSaIlEED2Ev.exit158, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i150
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i150:             ; preds = %.preheader.split.i148, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i150
-  %indvars.iv.i151 = phi i64 [ %indvars.iv.next.i153, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i150 ], [ 0, %.preheader.split.i148 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i150:             ; preds = %301, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i150
+  %indvars.iv.i151 = phi i64 [ %indvars.iv.next.i153, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i150 ], [ 0, %301 ]
   %309 = getelementptr inbounds nuw i64, ptr %304, i64 %indvars.iv.i151
   %310 = load i64, ptr %309, align 8
   %311 = getelementptr inbounds nuw i64, ptr %298, i64 %indvars.iv.i151
@@ -32467,11 +32143,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i150:             ; preds = %.preheader.split.i1
   %.not11.i152 = icmp eq i64 %310, %312
   %indvars.iv.next.i153 = add nuw i64 %indvars.iv.i151, 1
   %exitcond.not.i154 = icmp ne i64 %indvars.iv.next.i153, %308
-  %or.cond500.not = select i1 %.not11.i152, i1 %exitcond.not.i154, i1 false
-  br i1 %or.cond500.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i150, label %_ZNSt6vectorIlSaIlEED2Ev.exit158, !llvm.loop !19
+  %or.cond489.not = select i1 %.not11.i152, i1 %exitcond.not.i154, i1 false
+  br i1 %or.cond489.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i150, label %_ZNSt6vectorIlSaIlEED2Ev.exit158, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit158:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i150, %.preheader.split.i148, %301
-  %.09.i147 = phi i1 [ false, %301 ], [ true, %.preheader.split.i148 ], [ %.not11.i152, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i150 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit158:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i150, %301
+  %.09.i147 = phi i1 [ false, %301 ], [ %.not11.i152, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i150 ]
   call void @_ZdlPvm(ptr noundef nonnull %298, i64 noundef 16) #26
   %313 = load ptr, ptr %35, align 8
   %.not.i.i.i159 = icmp eq ptr %313, null
@@ -32545,14 +32221,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i169:        ; preds = %336
   %346 = sub i64 %344, %345
   %347 = ashr exact i64 %346, 3
   %.not.i173 = icmp eq i64 %346, 24
-  br i1 %.not.i173, label %.preheader.split.i175, label %_ZNSt6vectorIlSaIlEED2Ev.exit185
+  br i1 %.not.i173, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i177, label %_ZNSt6vectorIlSaIlEED2Ev.exit185
 
-.preheader.split.i175:                            ; preds = %340
-  %.not17.i176 = icmp eq ptr %342, %343
-  br i1 %.not17.i176, label %_ZNSt6vectorIlSaIlEED2Ev.exit185, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i177
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i177:             ; preds = %.preheader.split.i175, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i177
-  %indvars.iv.i178 = phi i64 [ %indvars.iv.next.i180, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i177 ], [ 0, %.preheader.split.i175 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i177:             ; preds = %340, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i177
+  %indvars.iv.i178 = phi i64 [ %indvars.iv.next.i180, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i177 ], [ 0, %340 ]
   %348 = getelementptr inbounds nuw i64, ptr %343, i64 %indvars.iv.i178
   %349 = load i64, ptr %348, align 8
   %350 = getelementptr inbounds nuw i64, ptr %337, i64 %indvars.iv.i178
@@ -32560,11 +32232,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i177:             ; preds = %.preheader.split.i1
   %.not11.i179 = icmp eq i64 %349, %351
   %indvars.iv.next.i180 = add nuw i64 %indvars.iv.i178, 1
   %exitcond.not.i181 = icmp ne i64 %indvars.iv.next.i180, %347
-  %or.cond501.not = select i1 %.not11.i179, i1 %exitcond.not.i181, i1 false
-  br i1 %or.cond501.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i177, label %_ZNSt6vectorIlSaIlEED2Ev.exit185, !llvm.loop !19
+  %or.cond490.not = select i1 %.not11.i179, i1 %exitcond.not.i181, i1 false
+  br i1 %or.cond490.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i177, label %_ZNSt6vectorIlSaIlEED2Ev.exit185, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit185:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i177, %.preheader.split.i175, %340
-  %.09.i174 = phi i1 [ false, %340 ], [ true, %.preheader.split.i175 ], [ %.not11.i179, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i177 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit185:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i177, %340
+  %.09.i174 = phi i1 [ false, %340 ], [ %.not11.i179, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i177 ]
   call void @_ZdlPvm(ptr noundef nonnull %337, i64 noundef 24) #26
   %352 = load ptr, ptr %38, align 8
   %.not.i.i.i186 = icmp eq ptr %352, null
@@ -32721,14 +32393,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i199:        ; preds = %411
   %421 = sub i64 %419, %420
   %422 = ashr exact i64 %421, 3
   %.not.i203 = icmp eq i64 %421, 120
-  br i1 %.not.i203, label %.preheader.split.i205, label %_ZNSt6vectorIlSaIlEED2Ev.exit215
+  br i1 %.not.i203, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i207, label %_ZNSt6vectorIlSaIlEED2Ev.exit215
 
-.preheader.split.i205:                            ; preds = %415
-  %.not17.i206 = icmp eq ptr %417, %418
-  br i1 %.not17.i206, label %_ZNSt6vectorIlSaIlEED2Ev.exit215, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i207
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i207:             ; preds = %.preheader.split.i205, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i207
-  %indvars.iv.i208 = phi i64 [ %indvars.iv.next.i210, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i207 ], [ 0, %.preheader.split.i205 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i207:             ; preds = %415, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i207
+  %indvars.iv.i208 = phi i64 [ %indvars.iv.next.i210, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i207 ], [ 0, %415 ]
   %423 = getelementptr inbounds nuw i64, ptr %418, i64 %indvars.iv.i208
   %424 = load i64, ptr %423, align 8
   %425 = getelementptr inbounds nuw i64, ptr %412, i64 %indvars.iv.i208
@@ -32736,11 +32404,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i207:             ; preds = %.preheader.split.i2
   %.not11.i209 = icmp eq i64 %424, %426
   %indvars.iv.next.i210 = add nuw i64 %indvars.iv.i208, 1
   %exitcond.not.i211 = icmp ne i64 %indvars.iv.next.i210, %422
-  %or.cond502.not = select i1 %.not11.i209, i1 %exitcond.not.i211, i1 false
-  br i1 %or.cond502.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i207, label %_ZNSt6vectorIlSaIlEED2Ev.exit215, !llvm.loop !19
+  %or.cond491.not = select i1 %.not11.i209, i1 %exitcond.not.i211, i1 false
+  br i1 %or.cond491.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i207, label %_ZNSt6vectorIlSaIlEED2Ev.exit215, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit215:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i207, %.preheader.split.i205, %415
-  %.09.i204 = phi i1 [ false, %415 ], [ true, %.preheader.split.i205 ], [ %.not11.i209, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i207 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit215:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i207, %415
+  %.09.i204 = phi i1 [ false, %415 ], [ %.not11.i209, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i207 ]
   call void @_ZdlPvm(ptr noundef nonnull %412, i64 noundef 120) #26
   %427 = load ptr, ptr %48, align 8
   %.not.i.i.i216 = icmp eq ptr %427, null
@@ -32913,14 +32581,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i229:        ; preds = %496
   %506 = sub i64 %504, %505
   %507 = ashr exact i64 %506, 3
   %.not.i233 = icmp eq i64 %506, 104
-  br i1 %.not.i233, label %.preheader.split.i235, label %_ZNSt6vectorIlSaIlEED2Ev.exit245
+  br i1 %.not.i233, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i237, label %_ZNSt6vectorIlSaIlEED2Ev.exit245
 
-.preheader.split.i235:                            ; preds = %500
-  %.not17.i236 = icmp eq ptr %502, %503
-  br i1 %.not17.i236, label %_ZNSt6vectorIlSaIlEED2Ev.exit245, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i237
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i237:             ; preds = %.preheader.split.i235, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i237
-  %indvars.iv.i238 = phi i64 [ %indvars.iv.next.i240, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i237 ], [ 0, %.preheader.split.i235 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i237:             ; preds = %500, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i237
+  %indvars.iv.i238 = phi i64 [ %indvars.iv.next.i240, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i237 ], [ 0, %500 ]
   %508 = getelementptr inbounds nuw i64, ptr %503, i64 %indvars.iv.i238
   %509 = load i64, ptr %508, align 8
   %510 = getelementptr inbounds nuw i64, ptr %497, i64 %indvars.iv.i238
@@ -32928,11 +32592,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i237:             ; preds = %.preheader.split.i2
   %.not11.i239 = icmp eq i64 %509, %511
   %indvars.iv.next.i240 = add nuw i64 %indvars.iv.i238, 1
   %exitcond.not.i241 = icmp ne i64 %indvars.iv.next.i240, %507
-  %or.cond503.not = select i1 %.not11.i239, i1 %exitcond.not.i241, i1 false
-  br i1 %or.cond503.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i237, label %_ZNSt6vectorIlSaIlEED2Ev.exit245, !llvm.loop !19
+  %or.cond492.not = select i1 %.not11.i239, i1 %exitcond.not.i241, i1 false
+  br i1 %or.cond492.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i237, label %_ZNSt6vectorIlSaIlEED2Ev.exit245, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit245:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i237, %.preheader.split.i235, %500
-  %.09.i234 = phi i1 [ false, %500 ], [ true, %.preheader.split.i235 ], [ %.not11.i239, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i237 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit245:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i237, %500
+  %.09.i234 = phi i1 [ false, %500 ], [ %.not11.i239, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i237 ]
   call void @_ZdlPvm(ptr noundef nonnull %497, i64 noundef 104) #26
   %512 = load ptr, ptr %58, align 8
   %.not.i.i.i246 = icmp eq ptr %512, null
@@ -33043,14 +32707,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i256:        ; preds = %550
   %560 = sub i64 %558, %559
   %561 = ashr exact i64 %560, 3
   %.not.i260 = icmp eq i64 %560, 8
-  br i1 %.not.i260, label %.preheader.split.i262, label %_ZNSt6vectorIlSaIlEED2Ev.exit272
+  br i1 %.not.i260, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i264, label %_ZNSt6vectorIlSaIlEED2Ev.exit272
 
-.preheader.split.i262:                            ; preds = %554
-  %.not17.i263 = icmp eq ptr %556, %557
-  br i1 %.not17.i263, label %_ZNSt6vectorIlSaIlEED2Ev.exit272, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i264
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i264:             ; preds = %.preheader.split.i262, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i264
-  %indvars.iv.i265 = phi i64 [ %indvars.iv.next.i267, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i264 ], [ 0, %.preheader.split.i262 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i264:             ; preds = %554, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i264
+  %indvars.iv.i265 = phi i64 [ %indvars.iv.next.i267, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i264 ], [ 0, %554 ]
   %562 = getelementptr inbounds nuw i64, ptr %557, i64 %indvars.iv.i265
   %563 = load i64, ptr %562, align 8
   %564 = getelementptr inbounds nuw i64, ptr %551, i64 %indvars.iv.i265
@@ -33058,11 +32718,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i264:             ; preds = %.preheader.split.i2
   %.not11.i266 = icmp eq i64 %563, %565
   %indvars.iv.next.i267 = add nuw i64 %indvars.iv.i265, 1
   %exitcond.not.i268 = icmp ne i64 %indvars.iv.next.i267, %561
-  %or.cond504.not = select i1 %.not11.i266, i1 %exitcond.not.i268, i1 false
-  br i1 %or.cond504.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i264, label %_ZNSt6vectorIlSaIlEED2Ev.exit272, !llvm.loop !19
+  %or.cond493.not = select i1 %.not11.i266, i1 %exitcond.not.i268, i1 false
+  br i1 %or.cond493.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i264, label %_ZNSt6vectorIlSaIlEED2Ev.exit272, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit272:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i264, %.preheader.split.i262, %554
-  %.09.i261 = phi i1 [ false, %554 ], [ true, %.preheader.split.i262 ], [ %.not11.i266, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i264 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit272:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i264, %554
+  %.09.i261 = phi i1 [ false, %554 ], [ %.not11.i266, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i264 ]
   call void @_ZdlPvm(ptr noundef nonnull %551, i64 noundef 8) #26
   %566 = load ptr, ptr %65, align 8
   %.not.i.i.i273 = icmp eq ptr %566, null
@@ -33136,14 +32796,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i283:        ; preds = %589
   %599 = sub i64 %597, %598
   %600 = ashr exact i64 %599, 3
   %.not.i287 = icmp eq i64 %599, 56
-  br i1 %.not.i287, label %.preheader.split.i289, label %_ZNSt6vectorIlSaIlEED2Ev.exit299
+  br i1 %.not.i287, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i291, label %_ZNSt6vectorIlSaIlEED2Ev.exit299
 
-.preheader.split.i289:                            ; preds = %593
-  %.not17.i290 = icmp eq ptr %595, %596
-  br i1 %.not17.i290, label %_ZNSt6vectorIlSaIlEED2Ev.exit299, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i291
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i291:             ; preds = %.preheader.split.i289, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i291
-  %indvars.iv.i292 = phi i64 [ %indvars.iv.next.i294, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i291 ], [ 0, %.preheader.split.i289 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i291:             ; preds = %593, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i291
+  %indvars.iv.i292 = phi i64 [ %indvars.iv.next.i294, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i291 ], [ 0, %593 ]
   %601 = getelementptr inbounds nuw i64, ptr %596, i64 %indvars.iv.i292
   %602 = load i64, ptr %601, align 8
   %603 = getelementptr inbounds nuw i64, ptr %590, i64 %indvars.iv.i292
@@ -33151,11 +32807,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i291:             ; preds = %.preheader.split.i2
   %.not11.i293 = icmp eq i64 %602, %604
   %indvars.iv.next.i294 = add nuw i64 %indvars.iv.i292, 1
   %exitcond.not.i295 = icmp ne i64 %indvars.iv.next.i294, %600
-  %or.cond505.not = select i1 %.not11.i293, i1 %exitcond.not.i295, i1 false
-  br i1 %or.cond505.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i291, label %_ZNSt6vectorIlSaIlEED2Ev.exit299, !llvm.loop !19
+  %or.cond494.not = select i1 %.not11.i293, i1 %exitcond.not.i295, i1 false
+  br i1 %or.cond494.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i291, label %_ZNSt6vectorIlSaIlEED2Ev.exit299, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit299:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i291, %.preheader.split.i289, %593
-  %.09.i288 = phi i1 [ false, %593 ], [ true, %.preheader.split.i289 ], [ %.not11.i293, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i291 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit299:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i291, %593
+  %.09.i288 = phi i1 [ false, %593 ], [ %.not11.i293, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i291 ]
   call void @_ZdlPvm(ptr noundef nonnull %590, i64 noundef 56) #26
   %605 = load ptr, ptr %68, align 8
   %.not.i.i.i300 = icmp eq ptr %605, null
@@ -33268,14 +32924,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i310:        ; preds = %643
   %653 = sub i64 %651, %652
   %654 = ashr exact i64 %653, 3
   %.not.i314 = icmp eq i64 %653, 16
-  br i1 %.not.i314, label %.preheader.split.i316, label %_ZNSt6vectorIlSaIlEED2Ev.exit326
+  br i1 %.not.i314, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i318, label %_ZNSt6vectorIlSaIlEED2Ev.exit326
 
-.preheader.split.i316:                            ; preds = %647
-  %.not17.i317 = icmp eq ptr %649, %650
-  br i1 %.not17.i317, label %_ZNSt6vectorIlSaIlEED2Ev.exit326, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i318
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i318:             ; preds = %.preheader.split.i316, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i318
-  %indvars.iv.i319 = phi i64 [ %indvars.iv.next.i321, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i318 ], [ 0, %.preheader.split.i316 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i318:             ; preds = %647, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i318
+  %indvars.iv.i319 = phi i64 [ %indvars.iv.next.i321, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i318 ], [ 0, %647 ]
   %655 = getelementptr inbounds nuw i64, ptr %650, i64 %indvars.iv.i319
   %656 = load i64, ptr %655, align 8
   %657 = getelementptr inbounds nuw i64, ptr %644, i64 %indvars.iv.i319
@@ -33283,11 +32935,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i318:             ; preds = %.preheader.split.i3
   %.not11.i320 = icmp eq i64 %656, %658
   %indvars.iv.next.i321 = add nuw i64 %indvars.iv.i319, 1
   %exitcond.not.i322 = icmp ne i64 %indvars.iv.next.i321, %654
-  %or.cond506.not = select i1 %.not11.i320, i1 %exitcond.not.i322, i1 false
-  br i1 %or.cond506.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i318, label %_ZNSt6vectorIlSaIlEED2Ev.exit326, !llvm.loop !19
+  %or.cond495.not = select i1 %.not11.i320, i1 %exitcond.not.i322, i1 false
+  br i1 %or.cond495.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i318, label %_ZNSt6vectorIlSaIlEED2Ev.exit326, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit326:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i318, %.preheader.split.i316, %647
-  %.09.i315 = phi i1 [ false, %647 ], [ true, %.preheader.split.i316 ], [ %.not11.i320, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i318 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit326:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i318, %647
+  %.09.i315 = phi i1 [ false, %647 ], [ %.not11.i320, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i318 ]
   call void @_ZdlPvm(ptr noundef nonnull %644, i64 noundef 16) #26
   %659 = load ptr, ptr %75, align 8
   %.not.i.i.i327 = icmp eq ptr %659, null
@@ -33361,14 +33013,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i337:        ; preds = %682
   %692 = sub i64 %690, %691
   %693 = ashr exact i64 %692, 3
   %.not.i341 = icmp eq i64 %692, 24
-  br i1 %.not.i341, label %.preheader.split.i343, label %_ZNSt6vectorIlSaIlEED2Ev.exit353
+  br i1 %.not.i341, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i345, label %_ZNSt6vectorIlSaIlEED2Ev.exit353
 
-.preheader.split.i343:                            ; preds = %686
-  %.not17.i344 = icmp eq ptr %688, %689
-  br i1 %.not17.i344, label %_ZNSt6vectorIlSaIlEED2Ev.exit353, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i345
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i345:             ; preds = %.preheader.split.i343, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i345
-  %indvars.iv.i346 = phi i64 [ %indvars.iv.next.i348, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i345 ], [ 0, %.preheader.split.i343 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i345:             ; preds = %686, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i345
+  %indvars.iv.i346 = phi i64 [ %indvars.iv.next.i348, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i345 ], [ 0, %686 ]
   %694 = getelementptr inbounds nuw i64, ptr %689, i64 %indvars.iv.i346
   %695 = load i64, ptr %694, align 8
   %696 = getelementptr inbounds nuw i64, ptr %683, i64 %indvars.iv.i346
@@ -33376,11 +33024,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i345:             ; preds = %.preheader.split.i3
   %.not11.i347 = icmp eq i64 %695, %697
   %indvars.iv.next.i348 = add nuw i64 %indvars.iv.i346, 1
   %exitcond.not.i349 = icmp ne i64 %indvars.iv.next.i348, %693
-  %or.cond507.not = select i1 %.not11.i347, i1 %exitcond.not.i349, i1 false
-  br i1 %or.cond507.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i345, label %_ZNSt6vectorIlSaIlEED2Ev.exit353, !llvm.loop !19
+  %or.cond496.not = select i1 %.not11.i347, i1 %exitcond.not.i349, i1 false
+  br i1 %or.cond496.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i345, label %_ZNSt6vectorIlSaIlEED2Ev.exit353, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit353:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i345, %.preheader.split.i343, %686
-  %.09.i342 = phi i1 [ false, %686 ], [ true, %.preheader.split.i343 ], [ %.not11.i347, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i345 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit353:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i345, %686
+  %.09.i342 = phi i1 [ false, %686 ], [ %.not11.i347, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i345 ]
   call void @_ZdlPvm(ptr noundef nonnull %683, i64 noundef 24) #26
   %698 = load ptr, ptr %78, align 8
   %.not.i.i.i354 = icmp eq ptr %698, null
@@ -33934,14 +33582,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i66:         ; preds = %140
   %150 = sub i64 %148, %149
   %151 = ashr exact i64 %150, 3
   %.not.i = icmp eq i64 %150, 128
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit72
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit72
 
-.preheader.split.i:                               ; preds = %144
-  %.not17.i = icmp eq ptr %146, %147
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit72, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %144, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %144 ]
   %152 = getelementptr inbounds nuw i64, ptr %147, i64 %indvars.iv.i
   %153 = load i64, ptr %152, align 8
   %154 = getelementptr inbounds nuw i64, ptr %141, i64 %indvars.iv.i
@@ -33952,8 +33596,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit72, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit72:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %144
-  %.09.i = phi i1 [ false, %144 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit72:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %144
+  %.09.i = phi i1 [ false, %144 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %141, i64 noundef 128) #26
   %156 = load ptr, ptr %18, align 8
   %.not.i.i.i73 = icmp eq ptr %156, null
@@ -34064,14 +33708,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i83:         ; preds = %194
   %204 = sub i64 %202, %203
   %205 = ashr exact i64 %204, 3
   %.not.i87 = icmp eq i64 %204, 8
-  br i1 %.not.i87, label %.preheader.split.i89, label %_ZNSt6vectorIlSaIlEED2Ev.exit99
+  br i1 %.not.i87, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91, label %_ZNSt6vectorIlSaIlEED2Ev.exit99
 
-.preheader.split.i89:                             ; preds = %198
-  %.not17.i90 = icmp eq ptr %200, %201
-  br i1 %.not17.i90, label %_ZNSt6vectorIlSaIlEED2Ev.exit99, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i91:              ; preds = %.preheader.split.i89, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91
-  %indvars.iv.i92 = phi i64 [ %indvars.iv.next.i94, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91 ], [ 0, %.preheader.split.i89 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i91:              ; preds = %198, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91
+  %indvars.iv.i92 = phi i64 [ %indvars.iv.next.i94, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91 ], [ 0, %198 ]
   %206 = getelementptr inbounds nuw i64, ptr %201, i64 %indvars.iv.i92
   %207 = load i64, ptr %206, align 8
   %208 = getelementptr inbounds nuw i64, ptr %195, i64 %indvars.iv.i92
@@ -34079,11 +33719,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i91:              ; preds = %.preheader.split.i8
   %.not11.i93 = icmp eq i64 %207, %209
   %indvars.iv.next.i94 = add nuw i64 %indvars.iv.i92, 1
   %exitcond.not.i95 = icmp ne i64 %indvars.iv.next.i94, %205
-  %or.cond454.not = select i1 %.not11.i93, i1 %exitcond.not.i95, i1 false
-  br i1 %or.cond454.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91, label %_ZNSt6vectorIlSaIlEED2Ev.exit99, !llvm.loop !19
+  %or.cond444.not = select i1 %.not11.i93, i1 %exitcond.not.i95, i1 false
+  br i1 %or.cond444.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91, label %_ZNSt6vectorIlSaIlEED2Ev.exit99, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit99:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91, %.preheader.split.i89, %198
-  %.09.i88 = phi i1 [ false, %198 ], [ true, %.preheader.split.i89 ], [ %.not11.i93, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit99:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91, %198
+  %.09.i88 = phi i1 [ false, %198 ], [ %.not11.i93, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91 ]
   call void @_ZdlPvm(ptr noundef nonnull %195, i64 noundef 8) #26
   %210 = load ptr, ptr %25, align 8
   %.not.i.i.i100 = icmp eq ptr %210, null
@@ -34157,14 +33797,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i110:        ; preds = %233
   %243 = sub i64 %241, %242
   %244 = ashr exact i64 %243, 3
   %.not.i114 = icmp eq i64 %243, 24
-  br i1 %.not.i114, label %.preheader.split.i116, label %_ZNSt6vectorIlSaIlEED2Ev.exit126
+  br i1 %.not.i114, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118, label %_ZNSt6vectorIlSaIlEED2Ev.exit126
 
-.preheader.split.i116:                            ; preds = %237
-  %.not17.i117 = icmp eq ptr %239, %240
-  br i1 %.not17.i117, label %_ZNSt6vectorIlSaIlEED2Ev.exit126, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i118:             ; preds = %.preheader.split.i116, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118
-  %indvars.iv.i119 = phi i64 [ %indvars.iv.next.i121, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118 ], [ 0, %.preheader.split.i116 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i118:             ; preds = %237, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118
+  %indvars.iv.i119 = phi i64 [ %indvars.iv.next.i121, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118 ], [ 0, %237 ]
   %245 = getelementptr inbounds nuw i64, ptr %240, i64 %indvars.iv.i119
   %246 = load i64, ptr %245, align 8
   %247 = getelementptr inbounds nuw i64, ptr %234, i64 %indvars.iv.i119
@@ -34172,11 +33808,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i118:             ; preds = %.preheader.split.i1
   %.not11.i120 = icmp eq i64 %246, %248
   %indvars.iv.next.i121 = add nuw i64 %indvars.iv.i119, 1
   %exitcond.not.i122 = icmp ne i64 %indvars.iv.next.i121, %244
-  %or.cond455.not = select i1 %.not11.i120, i1 %exitcond.not.i122, i1 false
-  br i1 %or.cond455.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118, label %_ZNSt6vectorIlSaIlEED2Ev.exit126, !llvm.loop !19
+  %or.cond445.not = select i1 %.not11.i120, i1 %exitcond.not.i122, i1 false
+  br i1 %or.cond445.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118, label %_ZNSt6vectorIlSaIlEED2Ev.exit126, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit126:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118, %.preheader.split.i116, %237
-  %.09.i115 = phi i1 [ false, %237 ], [ true, %.preheader.split.i116 ], [ %.not11.i120, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit126:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118, %237
+  %.09.i115 = phi i1 [ false, %237 ], [ %.not11.i120, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118 ]
   call void @_ZdlPvm(ptr noundef nonnull %234, i64 noundef 24) #26
   %249 = load ptr, ptr %28, align 8
   %.not.i.i.i127 = icmp eq ptr %249, null
@@ -34289,14 +33925,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i137:        ; preds = %287
   %297 = sub i64 %295, %296
   %298 = ashr exact i64 %297, 3
   %.not.i141 = icmp eq i64 %297, 16
-  br i1 %.not.i141, label %.preheader.split.i143, label %_ZNSt6vectorIlSaIlEED2Ev.exit153
+  br i1 %.not.i141, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145, label %_ZNSt6vectorIlSaIlEED2Ev.exit153
 
-.preheader.split.i143:                            ; preds = %291
-  %.not17.i144 = icmp eq ptr %293, %294
-  br i1 %.not17.i144, label %_ZNSt6vectorIlSaIlEED2Ev.exit153, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i145:             ; preds = %.preheader.split.i143, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145
-  %indvars.iv.i146 = phi i64 [ %indvars.iv.next.i148, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145 ], [ 0, %.preheader.split.i143 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i145:             ; preds = %291, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145
+  %indvars.iv.i146 = phi i64 [ %indvars.iv.next.i148, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145 ], [ 0, %291 ]
   %299 = getelementptr inbounds nuw i64, ptr %294, i64 %indvars.iv.i146
   %300 = load i64, ptr %299, align 8
   %301 = getelementptr inbounds nuw i64, ptr %288, i64 %indvars.iv.i146
@@ -34304,11 +33936,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i145:             ; preds = %.preheader.split.i1
   %.not11.i147 = icmp eq i64 %300, %302
   %indvars.iv.next.i148 = add nuw i64 %indvars.iv.i146, 1
   %exitcond.not.i149 = icmp ne i64 %indvars.iv.next.i148, %298
-  %or.cond456.not = select i1 %.not11.i147, i1 %exitcond.not.i149, i1 false
-  br i1 %or.cond456.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145, label %_ZNSt6vectorIlSaIlEED2Ev.exit153, !llvm.loop !19
+  %or.cond446.not = select i1 %.not11.i147, i1 %exitcond.not.i149, i1 false
+  br i1 %or.cond446.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145, label %_ZNSt6vectorIlSaIlEED2Ev.exit153, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit153:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145, %.preheader.split.i143, %291
-  %.09.i142 = phi i1 [ false, %291 ], [ true, %.preheader.split.i143 ], [ %.not11.i147, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit153:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145, %291
+  %.09.i142 = phi i1 [ false, %291 ], [ %.not11.i147, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145 ]
   call void @_ZdlPvm(ptr noundef nonnull %288, i64 noundef 16) #26
   %303 = load ptr, ptr %35, align 8
   %.not.i.i.i154 = icmp eq ptr %303, null
@@ -34382,14 +34014,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i164:        ; preds = %326
   %336 = sub i64 %334, %335
   %337 = ashr exact i64 %336, 3
   %.not.i168 = icmp eq i64 %336, 8
-  br i1 %.not.i168, label %.preheader.split.i170, label %_ZNSt6vectorIlSaIlEED2Ev.exit180
+  br i1 %.not.i168, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172, label %_ZNSt6vectorIlSaIlEED2Ev.exit180
 
-.preheader.split.i170:                            ; preds = %330
-  %.not17.i171 = icmp eq ptr %332, %333
-  br i1 %.not17.i171, label %_ZNSt6vectorIlSaIlEED2Ev.exit180, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i172:             ; preds = %.preheader.split.i170, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172
-  %indvars.iv.i173 = phi i64 [ %indvars.iv.next.i175, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172 ], [ 0, %.preheader.split.i170 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i172:             ; preds = %330, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172
+  %indvars.iv.i173 = phi i64 [ %indvars.iv.next.i175, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172 ], [ 0, %330 ]
   %338 = getelementptr inbounds nuw i64, ptr %333, i64 %indvars.iv.i173
   %339 = load i64, ptr %338, align 8
   %340 = getelementptr inbounds nuw i64, ptr %327, i64 %indvars.iv.i173
@@ -34397,11 +34025,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i172:             ; preds = %.preheader.split.i1
   %.not11.i174 = icmp eq i64 %339, %341
   %indvars.iv.next.i175 = add nuw i64 %indvars.iv.i173, 1
   %exitcond.not.i176 = icmp ne i64 %indvars.iv.next.i175, %337
-  %or.cond457.not = select i1 %.not11.i174, i1 %exitcond.not.i176, i1 false
-  br i1 %or.cond457.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172, label %_ZNSt6vectorIlSaIlEED2Ev.exit180, !llvm.loop !19
+  %or.cond447.not = select i1 %.not11.i174, i1 %exitcond.not.i176, i1 false
+  br i1 %or.cond447.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172, label %_ZNSt6vectorIlSaIlEED2Ev.exit180, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit180:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172, %.preheader.split.i170, %330
-  %.09.i169 = phi i1 [ false, %330 ], [ true, %.preheader.split.i170 ], [ %.not11.i174, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit180:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172, %330
+  %.09.i169 = phi i1 [ false, %330 ], [ %.not11.i174, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172 ]
   call void @_ZdlPvm(ptr noundef nonnull %327, i64 noundef 8) #26
   %342 = load ptr, ptr %38, align 8
   %.not.i.i.i181 = icmp eq ptr %342, null
@@ -34558,14 +34186,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i194:        ; preds = %401
   %411 = sub i64 %409, %410
   %412 = ashr exact i64 %411, 3
   %.not.i198 = icmp eq i64 %411, 120
-  br i1 %.not.i198, label %.preheader.split.i200, label %_ZNSt6vectorIlSaIlEED2Ev.exit210
+  br i1 %.not.i198, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202, label %_ZNSt6vectorIlSaIlEED2Ev.exit210
 
-.preheader.split.i200:                            ; preds = %405
-  %.not17.i201 = icmp eq ptr %407, %408
-  br i1 %.not17.i201, label %_ZNSt6vectorIlSaIlEED2Ev.exit210, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i202:             ; preds = %.preheader.split.i200, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202
-  %indvars.iv.i203 = phi i64 [ %indvars.iv.next.i205, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202 ], [ 0, %.preheader.split.i200 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i202:             ; preds = %405, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202
+  %indvars.iv.i203 = phi i64 [ %indvars.iv.next.i205, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202 ], [ 0, %405 ]
   %413 = getelementptr inbounds nuw i64, ptr %408, i64 %indvars.iv.i203
   %414 = load i64, ptr %413, align 8
   %415 = getelementptr inbounds nuw i64, ptr %402, i64 %indvars.iv.i203
@@ -34573,11 +34197,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i202:             ; preds = %.preheader.split.i2
   %.not11.i204 = icmp eq i64 %414, %416
   %indvars.iv.next.i205 = add nuw i64 %indvars.iv.i203, 1
   %exitcond.not.i206 = icmp ne i64 %indvars.iv.next.i205, %412
-  %or.cond458.not = select i1 %.not11.i204, i1 %exitcond.not.i206, i1 false
-  br i1 %or.cond458.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202, label %_ZNSt6vectorIlSaIlEED2Ev.exit210, !llvm.loop !19
+  %or.cond448.not = select i1 %.not11.i204, i1 %exitcond.not.i206, i1 false
+  br i1 %or.cond448.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202, label %_ZNSt6vectorIlSaIlEED2Ev.exit210, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit210:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202, %.preheader.split.i200, %405
-  %.09.i199 = phi i1 [ false, %405 ], [ true, %.preheader.split.i200 ], [ %.not11.i204, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit210:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202, %405
+  %.09.i199 = phi i1 [ false, %405 ], [ %.not11.i204, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202 ]
   call void @_ZdlPvm(ptr noundef nonnull %402, i64 noundef 120) #26
   %417 = load ptr, ptr %48, align 8
   %.not.i.i.i211 = icmp eq ptr %417, null
@@ -34688,14 +34312,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i221:        ; preds = %455
   %465 = sub i64 %463, %464
   %466 = ashr exact i64 %465, 3
   %.not.i225 = icmp eq i64 %465, 8
-  br i1 %.not.i225, label %.preheader.split.i227, label %_ZNSt6vectorIlSaIlEED2Ev.exit237
+  br i1 %.not.i225, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229, label %_ZNSt6vectorIlSaIlEED2Ev.exit237
 
-.preheader.split.i227:                            ; preds = %459
-  %.not17.i228 = icmp eq ptr %461, %462
-  br i1 %.not17.i228, label %_ZNSt6vectorIlSaIlEED2Ev.exit237, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i229:             ; preds = %.preheader.split.i227, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229
-  %indvars.iv.i230 = phi i64 [ %indvars.iv.next.i232, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229 ], [ 0, %.preheader.split.i227 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i229:             ; preds = %459, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229
+  %indvars.iv.i230 = phi i64 [ %indvars.iv.next.i232, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229 ], [ 0, %459 ]
   %467 = getelementptr inbounds nuw i64, ptr %462, i64 %indvars.iv.i230
   %468 = load i64, ptr %467, align 8
   %469 = getelementptr inbounds nuw i64, ptr %456, i64 %indvars.iv.i230
@@ -34703,11 +34323,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i229:             ; preds = %.preheader.split.i2
   %.not11.i231 = icmp eq i64 %468, %470
   %indvars.iv.next.i232 = add nuw i64 %indvars.iv.i230, 1
   %exitcond.not.i233 = icmp ne i64 %indvars.iv.next.i232, %466
-  %or.cond459.not = select i1 %.not11.i231, i1 %exitcond.not.i233, i1 false
-  br i1 %or.cond459.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229, label %_ZNSt6vectorIlSaIlEED2Ev.exit237, !llvm.loop !19
+  %or.cond449.not = select i1 %.not11.i231, i1 %exitcond.not.i233, i1 false
+  br i1 %or.cond449.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229, label %_ZNSt6vectorIlSaIlEED2Ev.exit237, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit237:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229, %.preheader.split.i227, %459
-  %.09.i226 = phi i1 [ false, %459 ], [ true, %.preheader.split.i227 ], [ %.not11.i231, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit237:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229, %459
+  %.09.i226 = phi i1 [ false, %459 ], [ %.not11.i231, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229 ]
   call void @_ZdlPvm(ptr noundef nonnull %456, i64 noundef 8) #26
   %471 = load ptr, ptr %55, align 8
   %.not.i.i.i238 = icmp eq ptr %471, null
@@ -34783,14 +34403,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i248:        ; preds = %494
   %504 = sub i64 %502, %503
   %505 = ashr exact i64 %504, 3
   %.not.i252 = icmp eq i64 %504, 16
-  br i1 %.not.i252, label %.preheader.split.i254, label %_ZNSt6vectorIlSaIlEED2Ev.exit264
+  br i1 %.not.i252, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256, label %_ZNSt6vectorIlSaIlEED2Ev.exit264
 
-.preheader.split.i254:                            ; preds = %498
-  %.not17.i255 = icmp eq ptr %500, %501
-  br i1 %.not17.i255, label %_ZNSt6vectorIlSaIlEED2Ev.exit264, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i256:             ; preds = %.preheader.split.i254, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256
-  %indvars.iv.i257 = phi i64 [ %indvars.iv.next.i259, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256 ], [ 0, %.preheader.split.i254 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i256:             ; preds = %498, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256
+  %indvars.iv.i257 = phi i64 [ %indvars.iv.next.i259, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256 ], [ 0, %498 ]
   %506 = getelementptr inbounds nuw i64, ptr %501, i64 %indvars.iv.i257
   %507 = load i64, ptr %506, align 8
   %508 = getelementptr inbounds nuw i64, ptr %495, i64 %indvars.iv.i257
@@ -34798,11 +34414,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i256:             ; preds = %.preheader.split.i2
   %.not11.i258 = icmp eq i64 %507, %509
   %indvars.iv.next.i259 = add nuw i64 %indvars.iv.i257, 1
   %exitcond.not.i260 = icmp ne i64 %indvars.iv.next.i259, %505
-  %or.cond460.not = select i1 %.not11.i258, i1 %exitcond.not.i260, i1 false
-  br i1 %or.cond460.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256, label %_ZNSt6vectorIlSaIlEED2Ev.exit264, !llvm.loop !19
+  %or.cond450.not = select i1 %.not11.i258, i1 %exitcond.not.i260, i1 false
+  br i1 %or.cond450.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256, label %_ZNSt6vectorIlSaIlEED2Ev.exit264, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit264:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256, %.preheader.split.i254, %498
-  %.09.i253 = phi i1 [ false, %498 ], [ true, %.preheader.split.i254 ], [ %.not11.i258, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit264:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256, %498
+  %.09.i253 = phi i1 [ false, %498 ], [ %.not11.i258, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256 ]
   call void @_ZdlPvm(ptr noundef nonnull %495, i64 noundef 16) #26
   %510 = load ptr, ptr %58, align 8
   %.not.i.i.i265 = icmp eq ptr %510, null
@@ -34915,14 +34531,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i275:        ; preds = %548
   %558 = sub i64 %556, %557
   %559 = ashr exact i64 %558, 3
   %.not.i279 = icmp eq i64 %558, 16
-  br i1 %.not.i279, label %.preheader.split.i281, label %_ZNSt6vectorIlSaIlEED2Ev.exit291
+  br i1 %.not.i279, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283, label %_ZNSt6vectorIlSaIlEED2Ev.exit291
 
-.preheader.split.i281:                            ; preds = %552
-  %.not17.i282 = icmp eq ptr %554, %555
-  br i1 %.not17.i282, label %_ZNSt6vectorIlSaIlEED2Ev.exit291, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i283:             ; preds = %.preheader.split.i281, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283
-  %indvars.iv.i284 = phi i64 [ %indvars.iv.next.i286, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283 ], [ 0, %.preheader.split.i281 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i283:             ; preds = %552, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283
+  %indvars.iv.i284 = phi i64 [ %indvars.iv.next.i286, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283 ], [ 0, %552 ]
   %560 = getelementptr inbounds nuw i64, ptr %555, i64 %indvars.iv.i284
   %561 = load i64, ptr %560, align 8
   %562 = getelementptr inbounds nuw i64, ptr %549, i64 %indvars.iv.i284
@@ -34930,11 +34542,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i283:             ; preds = %.preheader.split.i2
   %.not11.i285 = icmp eq i64 %561, %563
   %indvars.iv.next.i286 = add nuw i64 %indvars.iv.i284, 1
   %exitcond.not.i287 = icmp ne i64 %indvars.iv.next.i286, %559
-  %or.cond461.not = select i1 %.not11.i285, i1 %exitcond.not.i287, i1 false
-  br i1 %or.cond461.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283, label %_ZNSt6vectorIlSaIlEED2Ev.exit291, !llvm.loop !19
+  %or.cond451.not = select i1 %.not11.i285, i1 %exitcond.not.i287, i1 false
+  br i1 %or.cond451.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283, label %_ZNSt6vectorIlSaIlEED2Ev.exit291, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit291:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283, %.preheader.split.i281, %552
-  %.09.i280 = phi i1 [ false, %552 ], [ true, %.preheader.split.i281 ], [ %.not11.i285, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit291:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283, %552
+  %.09.i280 = phi i1 [ false, %552 ], [ %.not11.i285, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283 ]
   call void @_ZdlPvm(ptr noundef nonnull %549, i64 noundef 16) #26
   %564 = load ptr, ptr %65, align 8
   %.not.i.i.i292 = icmp eq ptr %564, null
@@ -35008,14 +34620,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i302:        ; preds = %587
   %597 = sub i64 %595, %596
   %598 = ashr exact i64 %597, 3
   %.not.i306 = icmp eq i64 %597, 56
-  br i1 %.not.i306, label %.preheader.split.i308, label %_ZNSt6vectorIlSaIlEED2Ev.exit318
+  br i1 %.not.i306, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310, label %_ZNSt6vectorIlSaIlEED2Ev.exit318
 
-.preheader.split.i308:                            ; preds = %591
-  %.not17.i309 = icmp eq ptr %593, %594
-  br i1 %.not17.i309, label %_ZNSt6vectorIlSaIlEED2Ev.exit318, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i310:             ; preds = %.preheader.split.i308, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310
-  %indvars.iv.i311 = phi i64 [ %indvars.iv.next.i313, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310 ], [ 0, %.preheader.split.i308 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i310:             ; preds = %591, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310
+  %indvars.iv.i311 = phi i64 [ %indvars.iv.next.i313, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310 ], [ 0, %591 ]
   %599 = getelementptr inbounds nuw i64, ptr %594, i64 %indvars.iv.i311
   %600 = load i64, ptr %599, align 8
   %601 = getelementptr inbounds nuw i64, ptr %588, i64 %indvars.iv.i311
@@ -35023,11 +34631,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i310:             ; preds = %.preheader.split.i3
   %.not11.i312 = icmp eq i64 %600, %602
   %indvars.iv.next.i313 = add nuw i64 %indvars.iv.i311, 1
   %exitcond.not.i314 = icmp ne i64 %indvars.iv.next.i313, %598
-  %or.cond462.not = select i1 %.not11.i312, i1 %exitcond.not.i314, i1 false
-  br i1 %or.cond462.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310, label %_ZNSt6vectorIlSaIlEED2Ev.exit318, !llvm.loop !19
+  %or.cond452.not = select i1 %.not11.i312, i1 %exitcond.not.i314, i1 false
+  br i1 %or.cond452.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310, label %_ZNSt6vectorIlSaIlEED2Ev.exit318, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit318:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310, %.preheader.split.i308, %591
-  %.09.i307 = phi i1 [ false, %591 ], [ true, %.preheader.split.i308 ], [ %.not11.i312, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit318:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310, %591
+  %.09.i307 = phi i1 [ false, %591 ], [ %.not11.i312, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310 ]
   call void @_ZdlPvm(ptr noundef nonnull %588, i64 noundef 56) #26
   %603 = load ptr, ptr %68, align 8
   %.not.i.i.i319 = icmp eq ptr %603, null
@@ -35554,14 +35162,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i66:         ; preds = %140
   %150 = sub i64 %148, %149
   %151 = ashr exact i64 %150, 3
   %.not.i = icmp eq i64 %150, 128
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit72
+  br i1 %.not.i, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit72
 
-.preheader.split.i:                               ; preds = %144
-  %.not17.i = icmp eq ptr %146, %147
-  br i1 %.not17.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit72, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %144, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ], [ 0, %144 ]
   %152 = getelementptr inbounds nuw i64, ptr %147, i64 %indvars.iv.i
   %153 = load i64, ptr %152, align 8
   %154 = getelementptr inbounds nuw i64, ptr %141, i64 %indvars.iv.i
@@ -35572,8 +35176,8 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit72, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit72:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %.preheader.split.i, %144
-  %.09.i = phi i1 [ false, %144 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit72:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i, %144
+  %.09.i = phi i1 [ false, %144 ], [ %.not11.i, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %141, i64 noundef 128) #26
   %156 = load ptr, ptr %18, align 8
   %.not.i.i.i73 = icmp eq ptr %156, null
@@ -35684,14 +35288,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i83:         ; preds = %194
   %204 = sub i64 %202, %203
   %205 = ashr exact i64 %204, 3
   %.not.i87 = icmp eq i64 %204, 8
-  br i1 %.not.i87, label %.preheader.split.i89, label %_ZNSt6vectorIlSaIlEED2Ev.exit99
+  br i1 %.not.i87, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91, label %_ZNSt6vectorIlSaIlEED2Ev.exit99
 
-.preheader.split.i89:                             ; preds = %198
-  %.not17.i90 = icmp eq ptr %200, %201
-  br i1 %.not17.i90, label %_ZNSt6vectorIlSaIlEED2Ev.exit99, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i91:              ; preds = %.preheader.split.i89, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91
-  %indvars.iv.i92 = phi i64 [ %indvars.iv.next.i94, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91 ], [ 0, %.preheader.split.i89 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i91:              ; preds = %198, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91
+  %indvars.iv.i92 = phi i64 [ %indvars.iv.next.i94, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91 ], [ 0, %198 ]
   %206 = getelementptr inbounds nuw i64, ptr %201, i64 %indvars.iv.i92
   %207 = load i64, ptr %206, align 8
   %208 = getelementptr inbounds nuw i64, ptr %195, i64 %indvars.iv.i92
@@ -35699,11 +35299,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i91:              ; preds = %.preheader.split.i8
   %.not11.i93 = icmp eq i64 %207, %209
   %indvars.iv.next.i94 = add nuw i64 %indvars.iv.i92, 1
   %exitcond.not.i95 = icmp ne i64 %indvars.iv.next.i94, %205
-  %or.cond451.not = select i1 %.not11.i93, i1 %exitcond.not.i95, i1 false
-  br i1 %or.cond451.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91, label %_ZNSt6vectorIlSaIlEED2Ev.exit99, !llvm.loop !19
+  %or.cond441.not = select i1 %.not11.i93, i1 %exitcond.not.i95, i1 false
+  br i1 %or.cond441.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91, label %_ZNSt6vectorIlSaIlEED2Ev.exit99, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit99:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91, %.preheader.split.i89, %198
-  %.09.i88 = phi i1 [ false, %198 ], [ true, %.preheader.split.i89 ], [ %.not11.i93, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit99:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91, %198
+  %.09.i88 = phi i1 [ false, %198 ], [ %.not11.i93, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i91 ]
   call void @_ZdlPvm(ptr noundef nonnull %195, i64 noundef 8) #26
   %210 = load ptr, ptr %25, align 8
   %.not.i.i.i100 = icmp eq ptr %210, null
@@ -35777,14 +35377,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i110:        ; preds = %233
   %243 = sub i64 %241, %242
   %244 = ashr exact i64 %243, 3
   %.not.i114 = icmp eq i64 %243, 32
-  br i1 %.not.i114, label %.preheader.split.i116, label %_ZNSt6vectorIlSaIlEED2Ev.exit126
+  br i1 %.not.i114, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118, label %_ZNSt6vectorIlSaIlEED2Ev.exit126
 
-.preheader.split.i116:                            ; preds = %237
-  %.not17.i117 = icmp eq ptr %239, %240
-  br i1 %.not17.i117, label %_ZNSt6vectorIlSaIlEED2Ev.exit126, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i118:             ; preds = %.preheader.split.i116, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118
-  %indvars.iv.i119 = phi i64 [ %indvars.iv.next.i121, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118 ], [ 0, %.preheader.split.i116 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i118:             ; preds = %237, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118
+  %indvars.iv.i119 = phi i64 [ %indvars.iv.next.i121, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118 ], [ 0, %237 ]
   %245 = getelementptr inbounds nuw i64, ptr %240, i64 %indvars.iv.i119
   %246 = load i64, ptr %245, align 8
   %247 = getelementptr inbounds nuw i64, ptr %234, i64 %indvars.iv.i119
@@ -35792,11 +35388,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i118:             ; preds = %.preheader.split.i1
   %.not11.i120 = icmp eq i64 %246, %248
   %indvars.iv.next.i121 = add nuw i64 %indvars.iv.i119, 1
   %exitcond.not.i122 = icmp ne i64 %indvars.iv.next.i121, %244
-  %or.cond452.not = select i1 %.not11.i120, i1 %exitcond.not.i122, i1 false
-  br i1 %or.cond452.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118, label %_ZNSt6vectorIlSaIlEED2Ev.exit126, !llvm.loop !19
+  %or.cond442.not = select i1 %.not11.i120, i1 %exitcond.not.i122, i1 false
+  br i1 %or.cond442.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118, label %_ZNSt6vectorIlSaIlEED2Ev.exit126, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit126:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118, %.preheader.split.i116, %237
-  %.09.i115 = phi i1 [ false, %237 ], [ true, %.preheader.split.i116 ], [ %.not11.i120, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit126:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118, %237
+  %.09.i115 = phi i1 [ false, %237 ], [ %.not11.i120, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i118 ]
   call void @_ZdlPvm(ptr noundef nonnull %234, i64 noundef 32) #26
   %249 = load ptr, ptr %28, align 8
   %.not.i.i.i127 = icmp eq ptr %249, null
@@ -35909,14 +35505,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i137:        ; preds = %287
   %297 = sub i64 %295, %296
   %298 = ashr exact i64 %297, 3
   %.not.i141 = icmp eq i64 %297, 16
-  br i1 %.not.i141, label %.preheader.split.i143, label %_ZNSt6vectorIlSaIlEED2Ev.exit153
+  br i1 %.not.i141, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145, label %_ZNSt6vectorIlSaIlEED2Ev.exit153
 
-.preheader.split.i143:                            ; preds = %291
-  %.not17.i144 = icmp eq ptr %293, %294
-  br i1 %.not17.i144, label %_ZNSt6vectorIlSaIlEED2Ev.exit153, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i145:             ; preds = %.preheader.split.i143, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145
-  %indvars.iv.i146 = phi i64 [ %indvars.iv.next.i148, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145 ], [ 0, %.preheader.split.i143 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i145:             ; preds = %291, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145
+  %indvars.iv.i146 = phi i64 [ %indvars.iv.next.i148, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145 ], [ 0, %291 ]
   %299 = getelementptr inbounds nuw i64, ptr %294, i64 %indvars.iv.i146
   %300 = load i64, ptr %299, align 8
   %301 = getelementptr inbounds nuw i64, ptr %288, i64 %indvars.iv.i146
@@ -35924,11 +35516,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i145:             ; preds = %.preheader.split.i1
   %.not11.i147 = icmp eq i64 %300, %302
   %indvars.iv.next.i148 = add nuw i64 %indvars.iv.i146, 1
   %exitcond.not.i149 = icmp ne i64 %indvars.iv.next.i148, %298
-  %or.cond453.not = select i1 %.not11.i147, i1 %exitcond.not.i149, i1 false
-  br i1 %or.cond453.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145, label %_ZNSt6vectorIlSaIlEED2Ev.exit153, !llvm.loop !19
+  %or.cond443.not = select i1 %.not11.i147, i1 %exitcond.not.i149, i1 false
+  br i1 %or.cond443.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145, label %_ZNSt6vectorIlSaIlEED2Ev.exit153, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit153:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145, %.preheader.split.i143, %291
-  %.09.i142 = phi i1 [ false, %291 ], [ true, %.preheader.split.i143 ], [ %.not11.i147, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit153:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145, %291
+  %.09.i142 = phi i1 [ false, %291 ], [ %.not11.i147, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i145 ]
   call void @_ZdlPvm(ptr noundef nonnull %288, i64 noundef 16) #26
   %303 = load ptr, ptr %35, align 8
   %.not.i.i.i154 = icmp eq ptr %303, null
@@ -36002,14 +35594,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i164:        ; preds = %326
   %336 = sub i64 %334, %335
   %337 = ashr exact i64 %336, 3
   %.not.i168 = icmp eq i64 %336, 24
-  br i1 %.not.i168, label %.preheader.split.i170, label %_ZNSt6vectorIlSaIlEED2Ev.exit180
+  br i1 %.not.i168, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172, label %_ZNSt6vectorIlSaIlEED2Ev.exit180
 
-.preheader.split.i170:                            ; preds = %330
-  %.not17.i171 = icmp eq ptr %332, %333
-  br i1 %.not17.i171, label %_ZNSt6vectorIlSaIlEED2Ev.exit180, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i172:             ; preds = %.preheader.split.i170, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172
-  %indvars.iv.i173 = phi i64 [ %indvars.iv.next.i175, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172 ], [ 0, %.preheader.split.i170 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i172:             ; preds = %330, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172
+  %indvars.iv.i173 = phi i64 [ %indvars.iv.next.i175, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172 ], [ 0, %330 ]
   %338 = getelementptr inbounds nuw i64, ptr %333, i64 %indvars.iv.i173
   %339 = load i64, ptr %338, align 8
   %340 = getelementptr inbounds nuw i64, ptr %327, i64 %indvars.iv.i173
@@ -36017,11 +35605,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i172:             ; preds = %.preheader.split.i1
   %.not11.i174 = icmp eq i64 %339, %341
   %indvars.iv.next.i175 = add nuw i64 %indvars.iv.i173, 1
   %exitcond.not.i176 = icmp ne i64 %indvars.iv.next.i175, %337
-  %or.cond454.not = select i1 %.not11.i174, i1 %exitcond.not.i176, i1 false
-  br i1 %or.cond454.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172, label %_ZNSt6vectorIlSaIlEED2Ev.exit180, !llvm.loop !19
+  %or.cond444.not = select i1 %.not11.i174, i1 %exitcond.not.i176, i1 false
+  br i1 %or.cond444.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172, label %_ZNSt6vectorIlSaIlEED2Ev.exit180, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit180:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172, %.preheader.split.i170, %330
-  %.09.i169 = phi i1 [ false, %330 ], [ true, %.preheader.split.i170 ], [ %.not11.i174, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit180:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172, %330
+  %.09.i169 = phi i1 [ false, %330 ], [ %.not11.i174, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i172 ]
   call void @_ZdlPvm(ptr noundef nonnull %327, i64 noundef 24) #26
   %342 = load ptr, ptr %38, align 8
   %.not.i.i.i181 = icmp eq ptr %342, null
@@ -36178,14 +35766,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i194:        ; preds = %401
   %411 = sub i64 %409, %410
   %412 = ashr exact i64 %411, 3
   %.not.i198 = icmp eq i64 %411, 120
-  br i1 %.not.i198, label %.preheader.split.i200, label %_ZNSt6vectorIlSaIlEED2Ev.exit210
+  br i1 %.not.i198, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202, label %_ZNSt6vectorIlSaIlEED2Ev.exit210
 
-.preheader.split.i200:                            ; preds = %405
-  %.not17.i201 = icmp eq ptr %407, %408
-  br i1 %.not17.i201, label %_ZNSt6vectorIlSaIlEED2Ev.exit210, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i202:             ; preds = %.preheader.split.i200, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202
-  %indvars.iv.i203 = phi i64 [ %indvars.iv.next.i205, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202 ], [ 0, %.preheader.split.i200 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i202:             ; preds = %405, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202
+  %indvars.iv.i203 = phi i64 [ %indvars.iv.next.i205, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202 ], [ 0, %405 ]
   %413 = getelementptr inbounds nuw i64, ptr %408, i64 %indvars.iv.i203
   %414 = load i64, ptr %413, align 8
   %415 = getelementptr inbounds nuw i64, ptr %402, i64 %indvars.iv.i203
@@ -36193,11 +35777,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i202:             ; preds = %.preheader.split.i2
   %.not11.i204 = icmp eq i64 %414, %416
   %indvars.iv.next.i205 = add nuw i64 %indvars.iv.i203, 1
   %exitcond.not.i206 = icmp ne i64 %indvars.iv.next.i205, %412
-  %or.cond455.not = select i1 %.not11.i204, i1 %exitcond.not.i206, i1 false
-  br i1 %or.cond455.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202, label %_ZNSt6vectorIlSaIlEED2Ev.exit210, !llvm.loop !19
+  %or.cond445.not = select i1 %.not11.i204, i1 %exitcond.not.i206, i1 false
+  br i1 %or.cond445.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202, label %_ZNSt6vectorIlSaIlEED2Ev.exit210, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit210:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202, %.preheader.split.i200, %405
-  %.09.i199 = phi i1 [ false, %405 ], [ true, %.preheader.split.i200 ], [ %.not11.i204, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit210:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202, %405
+  %.09.i199 = phi i1 [ false, %405 ], [ %.not11.i204, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i202 ]
   call void @_ZdlPvm(ptr noundef nonnull %402, i64 noundef 120) #26
   %417 = load ptr, ptr %48, align 8
   %.not.i.i.i211 = icmp eq ptr %417, null
@@ -36308,14 +35892,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i221:        ; preds = %455
   %465 = sub i64 %463, %464
   %466 = ashr exact i64 %465, 3
   %.not.i225 = icmp eq i64 %465, 8
-  br i1 %.not.i225, label %.preheader.split.i227, label %_ZNSt6vectorIlSaIlEED2Ev.exit237
+  br i1 %.not.i225, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229, label %_ZNSt6vectorIlSaIlEED2Ev.exit237
 
-.preheader.split.i227:                            ; preds = %459
-  %.not17.i228 = icmp eq ptr %461, %462
-  br i1 %.not17.i228, label %_ZNSt6vectorIlSaIlEED2Ev.exit237, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i229:             ; preds = %.preheader.split.i227, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229
-  %indvars.iv.i230 = phi i64 [ %indvars.iv.next.i232, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229 ], [ 0, %.preheader.split.i227 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i229:             ; preds = %459, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229
+  %indvars.iv.i230 = phi i64 [ %indvars.iv.next.i232, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229 ], [ 0, %459 ]
   %467 = getelementptr inbounds nuw i64, ptr %462, i64 %indvars.iv.i230
   %468 = load i64, ptr %467, align 8
   %469 = getelementptr inbounds nuw i64, ptr %456, i64 %indvars.iv.i230
@@ -36323,11 +35903,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i229:             ; preds = %.preheader.split.i2
   %.not11.i231 = icmp eq i64 %468, %470
   %indvars.iv.next.i232 = add nuw i64 %indvars.iv.i230, 1
   %exitcond.not.i233 = icmp ne i64 %indvars.iv.next.i232, %466
-  %or.cond456.not = select i1 %.not11.i231, i1 %exitcond.not.i233, i1 false
-  br i1 %or.cond456.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229, label %_ZNSt6vectorIlSaIlEED2Ev.exit237, !llvm.loop !19
+  %or.cond446.not = select i1 %.not11.i231, i1 %exitcond.not.i233, i1 false
+  br i1 %or.cond446.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229, label %_ZNSt6vectorIlSaIlEED2Ev.exit237, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit237:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229, %.preheader.split.i227, %459
-  %.09.i226 = phi i1 [ false, %459 ], [ true, %.preheader.split.i227 ], [ %.not11.i231, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit237:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229, %459
+  %.09.i226 = phi i1 [ false, %459 ], [ %.not11.i231, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i229 ]
   call void @_ZdlPvm(ptr noundef nonnull %456, i64 noundef 8) #26
   %471 = load ptr, ptr %55, align 8
   %.not.i.i.i238 = icmp eq ptr %471, null
@@ -36401,14 +35981,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i248:        ; preds = %494
   %504 = sub i64 %502, %503
   %505 = ashr exact i64 %504, 3
   %.not.i252 = icmp eq i64 %504, 56
-  br i1 %.not.i252, label %.preheader.split.i254, label %_ZNSt6vectorIlSaIlEED2Ev.exit264
+  br i1 %.not.i252, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256, label %_ZNSt6vectorIlSaIlEED2Ev.exit264
 
-.preheader.split.i254:                            ; preds = %498
-  %.not17.i255 = icmp eq ptr %500, %501
-  br i1 %.not17.i255, label %_ZNSt6vectorIlSaIlEED2Ev.exit264, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i256:             ; preds = %.preheader.split.i254, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256
-  %indvars.iv.i257 = phi i64 [ %indvars.iv.next.i259, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256 ], [ 0, %.preheader.split.i254 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i256:             ; preds = %498, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256
+  %indvars.iv.i257 = phi i64 [ %indvars.iv.next.i259, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256 ], [ 0, %498 ]
   %506 = getelementptr inbounds nuw i64, ptr %501, i64 %indvars.iv.i257
   %507 = load i64, ptr %506, align 8
   %508 = getelementptr inbounds nuw i64, ptr %495, i64 %indvars.iv.i257
@@ -36416,11 +35992,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i256:             ; preds = %.preheader.split.i2
   %.not11.i258 = icmp eq i64 %507, %509
   %indvars.iv.next.i259 = add nuw i64 %indvars.iv.i257, 1
   %exitcond.not.i260 = icmp ne i64 %indvars.iv.next.i259, %505
-  %or.cond457.not = select i1 %.not11.i258, i1 %exitcond.not.i260, i1 false
-  br i1 %or.cond457.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256, label %_ZNSt6vectorIlSaIlEED2Ev.exit264, !llvm.loop !19
+  %or.cond447.not = select i1 %.not11.i258, i1 %exitcond.not.i260, i1 false
+  br i1 %or.cond447.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256, label %_ZNSt6vectorIlSaIlEED2Ev.exit264, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit264:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256, %.preheader.split.i254, %498
-  %.09.i253 = phi i1 [ false, %498 ], [ true, %.preheader.split.i254 ], [ %.not11.i258, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit264:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256, %498
+  %.09.i253 = phi i1 [ false, %498 ], [ %.not11.i258, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i256 ]
   call void @_ZdlPvm(ptr noundef nonnull %495, i64 noundef 56) #26
   %510 = load ptr, ptr %58, align 8
   %.not.i.i.i265 = icmp eq ptr %510, null
@@ -36533,14 +36109,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i275:        ; preds = %548
   %558 = sub i64 %556, %557
   %559 = ashr exact i64 %558, 3
   %.not.i279 = icmp eq i64 %558, 16
-  br i1 %.not.i279, label %.preheader.split.i281, label %_ZNSt6vectorIlSaIlEED2Ev.exit291
+  br i1 %.not.i279, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283, label %_ZNSt6vectorIlSaIlEED2Ev.exit291
 
-.preheader.split.i281:                            ; preds = %552
-  %.not17.i282 = icmp eq ptr %554, %555
-  br i1 %.not17.i282, label %_ZNSt6vectorIlSaIlEED2Ev.exit291, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i283:             ; preds = %.preheader.split.i281, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283
-  %indvars.iv.i284 = phi i64 [ %indvars.iv.next.i286, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283 ], [ 0, %.preheader.split.i281 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i283:             ; preds = %552, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283
+  %indvars.iv.i284 = phi i64 [ %indvars.iv.next.i286, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283 ], [ 0, %552 ]
   %560 = getelementptr inbounds nuw i64, ptr %555, i64 %indvars.iv.i284
   %561 = load i64, ptr %560, align 8
   %562 = getelementptr inbounds nuw i64, ptr %549, i64 %indvars.iv.i284
@@ -36548,11 +36120,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i283:             ; preds = %.preheader.split.i2
   %.not11.i285 = icmp eq i64 %561, %563
   %indvars.iv.next.i286 = add nuw i64 %indvars.iv.i284, 1
   %exitcond.not.i287 = icmp ne i64 %indvars.iv.next.i286, %559
-  %or.cond458.not = select i1 %.not11.i285, i1 %exitcond.not.i287, i1 false
-  br i1 %or.cond458.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283, label %_ZNSt6vectorIlSaIlEED2Ev.exit291, !llvm.loop !19
+  %or.cond448.not = select i1 %.not11.i285, i1 %exitcond.not.i287, i1 false
+  br i1 %or.cond448.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283, label %_ZNSt6vectorIlSaIlEED2Ev.exit291, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit291:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283, %.preheader.split.i281, %552
-  %.09.i280 = phi i1 [ false, %552 ], [ true, %.preheader.split.i281 ], [ %.not11.i285, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit291:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283, %552
+  %.09.i280 = phi i1 [ false, %552 ], [ %.not11.i285, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i283 ]
   call void @_ZdlPvm(ptr noundef nonnull %549, i64 noundef 16) #26
   %564 = load ptr, ptr %65, align 8
   %.not.i.i.i292 = icmp eq ptr %564, null
@@ -36626,14 +36198,10 @@ _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i302:        ; preds = %587
   %597 = sub i64 %595, %596
   %598 = ashr exact i64 %597, 3
   %.not.i306 = icmp eq i64 %597, 24
-  br i1 %.not.i306, label %.preheader.split.i308, label %_ZNSt6vectorIlSaIlEED2Ev.exit318
+  br i1 %.not.i306, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310, label %_ZNSt6vectorIlSaIlEED2Ev.exit318
 
-.preheader.split.i308:                            ; preds = %591
-  %.not17.i309 = icmp eq ptr %593, %594
-  br i1 %.not17.i309, label %_ZNSt6vectorIlSaIlEED2Ev.exit318, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310
-
-_ZNKSt6vectorIlSaIlEE2atEm.exit.i310:             ; preds = %.preheader.split.i308, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310
-  %indvars.iv.i311 = phi i64 [ %indvars.iv.next.i313, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310 ], [ 0, %.preheader.split.i308 ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit.i310:             ; preds = %591, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310
+  %indvars.iv.i311 = phi i64 [ %indvars.iv.next.i313, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310 ], [ 0, %591 ]
   %599 = getelementptr inbounds nuw i64, ptr %594, i64 %indvars.iv.i311
   %600 = load i64, ptr %599, align 8
   %601 = getelementptr inbounds nuw i64, ptr %588, i64 %indvars.iv.i311
@@ -36641,11 +36209,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit.i310:             ; preds = %.preheader.split.i3
   %.not11.i312 = icmp eq i64 %600, %602
   %indvars.iv.next.i313 = add nuw i64 %indvars.iv.i311, 1
   %exitcond.not.i314 = icmp ne i64 %indvars.iv.next.i313, %598
-  %or.cond459.not = select i1 %.not11.i312, i1 %exitcond.not.i314, i1 false
-  br i1 %or.cond459.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310, label %_ZNSt6vectorIlSaIlEED2Ev.exit318, !llvm.loop !19
+  %or.cond449.not = select i1 %.not11.i312, i1 %exitcond.not.i314, i1 false
+  br i1 %or.cond449.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310, label %_ZNSt6vectorIlSaIlEED2Ev.exit318, !llvm.loop !19
 
-_ZNSt6vectorIlSaIlEED2Ev.exit318:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310, %.preheader.split.i308, %591
-  %.09.i307 = phi i1 [ false, %591 ], [ true, %.preheader.split.i308 ], [ %.not11.i312, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit318:                 ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310, %591
+  %.09.i307 = phi i1 [ false, %591 ], [ %.not11.i312, %_ZNKSt6vectorIlSaIlEE2atEm.exit.i310 ]
   call void @_ZdlPvm(ptr noundef nonnull %588, i64 noundef 24) #26
   %603 = load ptr, ptr %68, align 8
   %.not.i.i.i319 = icmp eq ptr %603, null
@@ -37387,14 +36955,10 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i:           ; preds = %197
   %207 = sub i64 %205, %206
   %208 = ashr exact i64 %207, 2
   %.not.i = icmp eq i64 %207, 12
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %201
-  %.not17.i = icmp eq ptr %203, %204
-  br i1 %.not17.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-
-_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %201, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %201 ]
   %209 = getelementptr inbounds nuw i32, ptr %204, i64 %indvars.iv.i
   %210 = load i32, ptr %209, align 4
   %211 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv.i
@@ -37405,8 +36969,8 @@ _ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, !llvm.loop !29
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %.preheader.split.i, %201
-  %.09.i = phi i1 [ false, %201 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %201
+  %.09.i = phi i1 [ false, %201 ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %198, i64 noundef 12) #26
   %213 = load ptr, ptr %37, align 8
   %.not.i.i.i60 = icmp eq ptr %213, null
@@ -38067,14 +37631,10 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i:           ; preds = %197
   %207 = sub i64 %205, %206
   %208 = ashr exact i64 %207, 2
   %.not.i = icmp eq i64 %207, 12
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %201
-  %.not17.i = icmp eq ptr %203, %204
-  br i1 %.not17.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-
-_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %201, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %201 ]
   %209 = getelementptr inbounds nuw i32, ptr %204, i64 %indvars.iv.i
   %210 = load i32, ptr %209, align 4
   %211 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv.i
@@ -38085,8 +37645,8 @@ _ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, !llvm.loop !29
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %.preheader.split.i, %201
-  %.09.i = phi i1 [ false, %201 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %201
+  %.09.i = phi i1 [ false, %201 ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %198, i64 noundef 12) #26
   %213 = load ptr, ptr %37, align 8
   %.not.i.i.i60 = icmp eq ptr %213, null
@@ -38441,14 +38001,10 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i:           ; preds = %98
   %108 = sub i64 %106, %107
   %109 = ashr exact i64 %108, 2
   %.not.i = icmp eq i64 %108, 12
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %102
-  %.not17.i = icmp eq ptr %104, %105
-  br i1 %.not17.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-
-_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %102, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %102 ]
   %110 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv.i
   %111 = load i32, ptr %110, align 4
   %112 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv.i
@@ -38459,8 +38015,8 @@ _ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, !llvm.loop !29
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %.preheader.split.i, %102
-  %.09.i = phi i1 [ false, %102 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %102
+  %.09.i = phi i1 [ false, %102 ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %99, i64 noundef 12) #26
   %114 = load ptr, ptr %19, align 8
   %.not.i.i.i38 = icmp eq ptr %114, null
@@ -38815,14 +38371,10 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i:           ; preds = %98
   %108 = sub i64 %106, %107
   %109 = ashr exact i64 %108, 2
   %.not.i = icmp eq i64 %108, 12
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %102
-  %.not17.i = icmp eq ptr %104, %105
-  br i1 %.not17.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-
-_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %102, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %102 ]
   %110 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv.i
   %111 = load i32, ptr %110, align 4
   %112 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv.i
@@ -38833,8 +38385,8 @@ _ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, !llvm.loop !29
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %.preheader.split.i, %102
-  %.09.i = phi i1 [ false, %102 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %102
+  %.09.i = phi i1 [ false, %102 ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %99, i64 noundef 12) #26
   %114 = load ptr, ptr %19, align 8
   %.not.i.i.i38 = icmp eq ptr %114, null
@@ -39291,14 +38843,10 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i:           ; preds = %155
   %165 = sub i64 %163, %164
   %166 = ashr exact i64 %165, 2
   %.not.i = icmp eq i64 %165, 16
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %159
-  %.not17.i = icmp eq ptr %161, %162
-  br i1 %.not17.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-
-_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %159, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %159 ]
   %167 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv.i
   %168 = load i32, ptr %167, align 4
   %169 = getelementptr inbounds nuw i32, ptr %156, i64 %indvars.iv.i
@@ -39306,11 +38854,11 @@ _ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %.not11.i = icmp eq i32 %168, %170
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, %166
-  %or.cond154.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
-  br i1 %or.cond154.not, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, !llvm.loop !29
+  %or.cond152.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
+  br i1 %or.cond152.not, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, !llvm.loop !29
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %.preheader.split.i, %159
-  %.09.i = phi i1 [ false, %159 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %159
+  %.09.i = phi i1 [ false, %159 ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %156, i64 noundef 16) #26
   %171 = load ptr, ptr %20, align 8
   %.not.i.i.i62 = icmp eq ptr %171, null
@@ -39705,14 +39253,10 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i90:         ; preds = %299
   %309 = sub i64 %307, %308
   %310 = ashr exact i64 %309, 2
   %.not.i94 = icmp eq i64 %309, 16
-  br i1 %.not.i94, label %.preheader.split.i96, label %_ZNSt6vectorIiSaIiEED2Ev.exit106
+  br i1 %.not.i94, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i98, label %_ZNSt6vectorIiSaIiEED2Ev.exit106
 
-.preheader.split.i96:                             ; preds = %303
-  %.not17.i97 = icmp eq ptr %305, %306
-  br i1 %.not17.i97, label %_ZNSt6vectorIiSaIiEED2Ev.exit106, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i98
-
-_ZNKSt6vectorIiSaIiEE2atEm.exit.i98:              ; preds = %.preheader.split.i96, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i98
-  %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i101, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i98 ], [ 0, %.preheader.split.i96 ]
+_ZNKSt6vectorIiSaIiEE2atEm.exit.i98:              ; preds = %303, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i98
+  %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i101, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i98 ], [ 0, %303 ]
   %311 = getelementptr inbounds nuw i32, ptr %306, i64 %indvars.iv.i99
   %312 = load i32, ptr %311, align 4
   %313 = getelementptr inbounds nuw i32, ptr %300, i64 %indvars.iv.i99
@@ -39720,11 +39264,11 @@ _ZNKSt6vectorIiSaIiEE2atEm.exit.i98:              ; preds = %.preheader.split.i9
   %.not11.i100 = icmp eq i32 %312, %314
   %indvars.iv.next.i101 = add nuw i64 %indvars.iv.i99, 1
   %exitcond.not.i102 = icmp ne i64 %indvars.iv.next.i101, %310
-  %or.cond155.not = select i1 %.not11.i100, i1 %exitcond.not.i102, i1 false
-  br i1 %or.cond155.not, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i98, label %_ZNSt6vectorIiSaIiEED2Ev.exit106, !llvm.loop !29
+  %or.cond153.not = select i1 %.not11.i100, i1 %exitcond.not.i102, i1 false
+  br i1 %or.cond153.not, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i98, label %_ZNSt6vectorIiSaIiEED2Ev.exit106, !llvm.loop !29
 
-_ZNSt6vectorIiSaIiEED2Ev.exit106:                 ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i98, %.preheader.split.i96, %303
-  %.09.i95 = phi i1 [ false, %303 ], [ true, %.preheader.split.i96 ], [ %.not11.i100, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i98 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit106:                 ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i98, %303
+  %.09.i95 = phi i1 [ false, %303 ], [ %.not11.i100, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i98 ]
   call void @_ZdlPvm(ptr noundef nonnull %300, i64 noundef 16) #26
   %315 = load ptr, ptr %47, align 8
   %.not.i.i.i107 = icmp eq ptr %315, null
@@ -40383,14 +39927,10 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i:           ; preds = %197
   %207 = sub i64 %205, %206
   %208 = ashr exact i64 %207, 2
   %.not.i = icmp eq i64 %207, 12
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %201
-  %.not17.i = icmp eq ptr %203, %204
-  br i1 %.not17.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-
-_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %201, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %201 ]
   %209 = getelementptr inbounds nuw i32, ptr %204, i64 %indvars.iv.i
   %210 = load i32, ptr %209, align 4
   %211 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv.i
@@ -40401,8 +39941,8 @@ _ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, !llvm.loop !29
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %.preheader.split.i, %201
-  %.09.i = phi i1 [ false, %201 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %201
+  %.09.i = phi i1 [ false, %201 ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %198, i64 noundef 12) #26
   %213 = load ptr, ptr %37, align 8
   %.not.i.i.i60 = icmp eq ptr %213, null
@@ -41018,14 +40558,10 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i:           ; preds = %197
   %207 = sub i64 %205, %206
   %208 = ashr exact i64 %207, 2
   %.not.i = icmp eq i64 %207, 12
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %201
-  %.not17.i = icmp eq ptr %203, %204
-  br i1 %.not17.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-
-_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %201, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %201 ]
   %209 = getelementptr inbounds nuw i32, ptr %204, i64 %indvars.iv.i
   %210 = load i32, ptr %209, align 4
   %211 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv.i
@@ -41036,8 +40572,8 @@ _ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, !llvm.loop !29
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %.preheader.split.i, %201
-  %.09.i = phi i1 [ false, %201 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %201
+  %.09.i = phi i1 [ false, %201 ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %198, i64 noundef 12) #26
   %213 = load ptr, ptr %37, align 8
   %.not.i.i.i60 = icmp eq ptr %213, null
@@ -41653,14 +41189,10 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i:           ; preds = %197
   %207 = sub i64 %205, %206
   %208 = ashr exact i64 %207, 2
   %.not.i = icmp eq i64 %207, 12
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %201
-  %.not17.i = icmp eq ptr %203, %204
-  br i1 %.not17.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-
-_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %201, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %201 ]
   %209 = getelementptr inbounds nuw i32, ptr %204, i64 %indvars.iv.i
   %210 = load i32, ptr %209, align 4
   %211 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv.i
@@ -41671,8 +41203,8 @@ _ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, !llvm.loop !29
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %.preheader.split.i, %201
-  %.09.i = phi i1 [ false, %201 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %201
+  %.09.i = phi i1 [ false, %201 ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %198, i64 noundef 12) #26
   %213 = load ptr, ptr %37, align 8
   %.not.i.i.i60 = icmp eq ptr %213, null
@@ -42288,14 +41820,10 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i:           ; preds = %197
   %207 = sub i64 %205, %206
   %208 = ashr exact i64 %207, 2
   %.not.i = icmp eq i64 %207, 12
-  br i1 %.not.i, label %.preheader.split.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
+  br i1 %.not.i, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-.preheader.split.i:                               ; preds = %201
-  %.not17.i = icmp eq ptr %203, %204
-  br i1 %.not17.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-
-_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %.preheader.split.i ]
+_ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %201, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ], [ 0, %201 ]
   %209 = getelementptr inbounds nuw i32, ptr %204, i64 %indvars.iv.i
   %210 = load i32, ptr %209, align 4
   %211 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv.i
@@ -42306,8 +41834,8 @@ _ZNKSt6vectorIiSaIiEE2atEm.exit.i:                ; preds = %.preheader.split.i,
   %or.cond.not = select i1 %.not11.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, !llvm.loop !29
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %.preheader.split.i, %201
-  %.09.i = phi i1 [ false, %201 ], [ true, %.preheader.split.i ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, %201
+  %.09.i = phi i1 [ false, %201 ], [ %.not11.i, %_ZNKSt6vectorIiSaIiEE2atEm.exit.i ]
   call void @_ZdlPvm(ptr noundef nonnull %198, i64 noundef 12) #26
   %213 = load ptr, ptr %37, align 8
   %.not.i.i.i60 = icmp eq ptr %213, null

@@ -2966,18 +2966,14 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.i.not = icmp eq i64 %sub.ptr.sub.i, -8
-  br i1 %cmp.i.not, label %if.then5.i, label %if.then.i
+  br i1 %cmp.i.not, label %for.body.i.i.i.i.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @_ZNSt6vectorIN2v86GlobalINS0_7ContextEEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %contexts_, i64 noundef 1)
   br label %_ZNSt6vectorIN2v86GlobalINS0_7ContextEEESaIS3_EE6resizeEm.exit
 
-if.then5.i:                                       ; preds = %entry
-  %tobool.not.i.i = icmp eq ptr %0, %1
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN2v86GlobalINS0_7ContextEEESaIS3_EE6resizeEm.exit, label %for.body.i.i.i.i.i
-
-for.body.i.i.i.i.i:                               ; preds = %if.then5.i, %_ZSt8_DestroyIN2v86GlobalINS0_7ContextEEEEvPT_.exit.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN2v86GlobalINS0_7ContextEEEEvPT_.exit.i.i.i.i.i ], [ %1, %if.then5.i ]
+for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_DestroyIN2v86GlobalINS0_7ContextEEEEvPT_.exit.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN2v86GlobalINS0_7ContextEEEEvPT_.exit.i.i.i.i.i ], [ %1, %entry ]
   %2 = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN2v86GlobalINS0_7ContextEEEEvPT_.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
@@ -2996,7 +2992,7 @@ _ZSt8_DestroyIPN2v86GlobalINS0_7ContextEEES3_EvT_S5_RSaIT0_E.exit.i.i: ; preds =
   store ptr %1, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN2v86GlobalINS0_7ContextEEESaIS3_EE6resizeEm.exit
 
-_ZNSt6vectorIN2v86GlobalINS0_7ContextEEESaIS3_EE6resizeEm.exit: ; preds = %if.then.i, %if.then5.i, %_ZSt8_DestroyIPN2v86GlobalINS0_7ContextEEES3_EvT_S5_RSaIT0_E.exit.i.i
+_ZNSt6vectorIN2v86GlobalINS0_7ContextEEESaIS3_EE6resizeEm.exit: ; preds = %if.then.i, %_ZSt8_DestroyIPN2v86GlobalINS0_7ContextEEES3_EvT_S5_RSaIT0_E.exit.i.i
   %3 = load ptr, ptr %contexts_, align 8
   %add.ptr.i6 = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 88

@@ -6124,15 +6124,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %38 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.not.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 7
-  br i1 %cmp.not.i.i, label %if.end.i.i, label %if.end.i
+  br i1 %cmp.not.i.i, label %for.body.i.i.i, label %if.end.i
 
-if.end.i.i:                                       ; preds = %for.body.i
-  %cmp.not7.i.i.i = icmp eq ptr %38, %39
-  br i1 %cmp.not7.i.i.i, label %if.then21.i, label %for.body.i.i.i
-
-for.body.i.i.i:                                   ; preds = %if.end.i.i, %for.inc.i.i.i
-  %__first2.addr.09.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.inc.i.i.i ], [ @.str.89, %if.end.i.i ]
-  %__first1.addr.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i.i ], [ %38, %if.end.i.i ]
+for.body.i.i.i:                                   ; preds = %for.body.i, %for.inc.i.i.i
+  %__first2.addr.09.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.inc.i.i.i ], [ @.str.89, %for.body.i ]
+  %__first1.addr.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i.i ], [ %38, %for.body.i ]
   %40 = load i8, ptr %__first1.addr.08.i.i.i, align 1
   %41 = load i8, ptr %__first2.addr.09.i.i.i, align 1
   %cmp.i.i.i.i = icmp eq i8 %40, %41
@@ -6155,7 +6151,7 @@ for.inc.i.i.i:                                    ; preds = %_ZNK5folly20AsciiCa
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %39
   br i1 %cmp.not.i.i.i, label %if.then21.i, label %for.body.i.i.i, !llvm.loop !9
 
-if.then21.i:                                      ; preds = %for.inc.i.i.i, %if.end.i.i
+if.then21.i:                                      ; preds = %for.inc.i.i.i
   store i8 1, ptr %34, align 1
   br label %if.end.i
 

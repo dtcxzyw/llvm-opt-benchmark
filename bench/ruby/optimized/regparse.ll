@@ -11889,7 +11889,7 @@ CC_DUP_WARN.exit:                                 ; preds = %32, %29, %24, %20, 
 define internal fastcc i32 @add_code_range_to_buf0(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #4 {
   %6 = icmp ugt i32 %2, %3
   %spec.select = select i1 %6, i32 %3, i32 %2
-  %spec.select356 = select i1 %6, i32 %2, i32 %3
+  %spec.select354 = select i1 %6, i32 %2, i32 %3
   %7 = load ptr, ptr %0, align 8, !tbaa !128
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %34
@@ -11982,13 +11982,13 @@ define internal fastcc i32 @add_code_range_to_buf0(ptr noundef captures(none) %0
 
 ._crit_edge:                                      ; preds = %40, %34
   %.0169.lcssa = phi i32 [ 0, %34 ], [ %.1170, %40 ]
-  %50 = icmp eq i32 %spec.select356, -1
+  %50 = icmp eq i32 %spec.select354, -1
   %51 = select i1 %50, i32 %36, i32 %.0169.lcssa
   %52 = icmp ult i32 %51, %36
   br i1 %52, label %.lr.ph260, label %._crit_edge261
 
 .lr.ph260:                                        ; preds = %._crit_edge
-  %53 = add i32 %spec.select356, 1
+  %53 = add i32 %spec.select354, 1
   br label %54
 
 54:                                               ; preds = %.lr.ph260, %54
@@ -12008,24 +12008,24 @@ define internal fastcc i32 @add_code_range_to_buf0(ptr noundef captures(none) %0
   br i1 %62, label %54, label %._crit_edge261, !llvm.loop !172
 
 ._crit_edge261:                                   ; preds = %54, %._crit_edge.thread, %._crit_edge
-  %.0169.lcssa331 = phi i32 [ %.0169.lcssa, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.0169.lcssa, %54 ]
-  %storemerge323330 = phi i32 [ %36, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %36, %54 ]
-  %.0177324329 = phi ptr [ %7, %._crit_edge ], [ %32, %._crit_edge.thread ], [ %7, %54 ]
+  %.0169.lcssa329 = phi i32 [ %.0169.lcssa, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.0169.lcssa, %54 ]
+  %storemerge321328 = phi i32 [ %36, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %36, %54 ]
+  %.0177322327 = phi ptr [ %7, %._crit_edge ], [ %32, %._crit_edge.thread ], [ %7, %54 ]
   %63 = phi ptr [ %37, %._crit_edge ], [ %33, %._crit_edge.thread ], [ %37, %54 ]
   %.0171.lcssa = phi i32 [ %51, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.1172, %54 ]
-  %64 = add nuw i32 %.0169.lcssa331, 1
+  %64 = add nuw i32 %.0169.lcssa329, 1
   %65 = sub i32 %64, %.0171.lcssa
-  %66 = add i32 %65, %storemerge323330
+  %66 = add i32 %65, %storemerge321328
   %67 = icmp ugt i32 %66, 10000
   br i1 %67, label %.critedge, label %68
 
 68:                                               ; preds = %._crit_edge261
   %.not213 = icmp eq i32 %65, 1
-  br i1 %.not213, label %.thread, label %69
+  br i1 %.not213, label %.thread242, label %69
 
 69:                                               ; preds = %68
   %.not214 = icmp eq i32 %4, 0
-  %.pre280 = shl i32 %.0169.lcssa331, 1
+  %.pre280 = shl i32 %.0169.lcssa329, 1
   br i1 %.not214, label %CC_DUP_WARN.exit, label %70
 
 70:                                               ; preds = %69
@@ -12041,7 +12041,7 @@ define internal fastcc i32 @add_code_range_to_buf0(ptr noundef captures(none) %0
   %77 = getelementptr i32, ptr %63, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !11
   %.not216 = icmp ugt i32 %78, %spec.select
-  %.not217 = icmp ugt i32 %74, %spec.select356
+  %.not217 = icmp ugt i32 %74, %spec.select354
   %or.cond = and i1 %.not217, %.not216
   %79 = load ptr, ptr @onig_warn, align 8
   %80 = icmp eq ptr %79, @onig_null_warn
@@ -12082,22 +12082,18 @@ CC_DUP_WARN.exit:                                 ; preds = %69, %95, %91, %85, 
   %98 = getelementptr i32, ptr %63, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !11
   %100 = icmp ugt i32 %spec.select, %99
-  %spec.select357 = select i1 %100, i32 %99, i32 %spec.select
+  %spec.select355 = select i1 %100, i32 %99, i32 %spec.select
   %101 = shl i32 %.0171.lcssa, 1
   %102 = add i32 %101, -1
   %103 = zext i32 %102 to i64
   %104 = getelementptr i32, ptr %63, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !11
-  %106 = icmp ult i32 %spec.select356, %105
-  %.1 = select i1 %106, i32 %105, i32 %spec.select356
+  %106 = icmp ult i32 %spec.select354, %105
+  %.1 = select i1 %106, i32 %105, i32 %spec.select354
   %.not218 = icmp eq i32 %64, %.0171.lcssa
   br i1 %.not218, label %.critedge227, label %111
 
-.thread:                                          ; preds = %68
-  %.not218241 = icmp eq i32 %64, %.0171.lcssa
-  br i1 %.not218241, label %.critedge227, label %.thread242
-
-.thread242:                                       ; preds = %.thread
+.thread242:                                       ; preds = %68
   %107 = shl i32 %.0171.lcssa, 3
   %108 = or disjoint i32 %107, 4
   %109 = shl i32 %64, 3
@@ -12113,24 +12109,24 @@ CC_DUP_WARN.exit:                                 ; preds = %69, %95, %91, %85, 
   br i1 %116, label %117, label %147
 
 117:                                              ; preds = %.thread242, %111
-  %.3351 = phi i32 [ %spec.select, %.thread242 ], [ %spec.select357, %111 ]
-  %.3 = phi i32 [ %spec.select356, %.thread242 ], [ %.1, %111 ]
+  %.3349 = phi i32 [ %spec.select, %.thread242 ], [ %spec.select355, %111 ]
+  %.3 = phi i32 [ %spec.select354, %.thread242 ], [ %.1, %111 ]
   %118 = phi i32 [ %110, %.thread242 ], [ %115, %111 ]
   %119 = phi i32 [ %108, %.thread242 ], [ %113, %111 ]
-  %120 = icmp ult i32 %.0171.lcssa, %storemerge323330
+  %120 = icmp ult i32 %.0171.lcssa, %storemerge321328
   br i1 %120, label %121, label %.critedge227
 
 121:                                              ; preds = %117
-  %122 = sub nuw i32 %storemerge323330, %.0171.lcssa
+  %122 = sub nuw i32 %storemerge321328, %.0171.lcssa
   %123 = shl i32 %122, 3
   %124 = add i32 %118, %123
-  %125 = getelementptr inbounds nuw i8, ptr %.0177324329, i64 12
+  %125 = getelementptr inbounds nuw i8, ptr %.0177322327, i64 12
   %126 = load i32, ptr %125, align 4, !tbaa !168
   %127 = icmp ugt i32 %124, %126
   br i1 %127, label %.preheader249, label %._crit_edge275
 
 ._crit_edge275:                                   ; preds = %121
-  %.pre276 = load ptr, ptr %.0177324329, align 8, !tbaa !64
+  %.pre276 = load ptr, ptr %.0177322327, align 8, !tbaa !64
   br label %136
 
 .preheader249:                                    ; preds = %121, %.preheader249
@@ -12141,14 +12137,14 @@ CC_DUP_WARN.exit:                                 ; preds = %69, %95, %91, %85, 
 
 131:                                              ; preds = %.preheader249
   store i32 %129, ptr %125, align 4, !tbaa !168
-  %132 = load ptr, ptr %.0177324329, align 8, !tbaa !64
+  %132 = load ptr, ptr %.0177322327, align 8, !tbaa !64
   %133 = zext i32 %129 to i64
   %134 = tail call ptr @realloc(ptr noundef %132, i64 noundef %133) #27
   %.not219 = icmp eq ptr %134, null
   br i1 %.not219, label %.critedge, label %135
 
 135:                                              ; preds = %131
-  store ptr %134, ptr %.0177324329, align 8, !tbaa !64
+  store ptr %134, ptr %.0177322327, align 8, !tbaa !64
   br label %136
 
 136:                                              ; preds = %._crit_edge275, %135
@@ -12159,7 +12155,7 @@ CC_DUP_WARN.exit:                                 ; preds = %69, %95, %91, %85, 
   %141 = getelementptr i8, ptr %137, i64 %140
   %142 = sext i32 %123 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %139, ptr noundef nonnull align 1 %141, i64 noundef range(i64 -2147483648, 4294967296) %142, i1 noundef false) #25
-  %143 = getelementptr inbounds nuw i8, ptr %.0177324329, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.0177322327, i64 8
   %144 = load i32, ptr %143, align 8, !tbaa !170
   %145 = icmp ugt i32 %124, %144
   br i1 %145, label %146, label %.critedge227
@@ -12169,12 +12165,12 @@ CC_DUP_WARN.exit:                                 ; preds = %69, %95, %91, %85, 
   br label %.critedge227
 
 147:                                              ; preds = %111
-  %148 = load ptr, ptr %.0177324329, align 8, !tbaa !64
+  %148 = load ptr, ptr %.0177322327, align 8, !tbaa !64
   %149 = sext i32 %115 to i64
   %150 = getelementptr i8, ptr %148, i64 %149
   %151 = sext i32 %113 to i64
   %152 = getelementptr i8, ptr %148, i64 %151
-  %153 = getelementptr inbounds nuw i8, ptr %.0177324329, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %.0177322327, i64 8
   %154 = load i32, ptr %153, align 8, !tbaa !170
   %155 = sub i32 %154, %113
   %156 = zext i32 %155 to i64
@@ -12185,11 +12181,11 @@ CC_DUP_WARN.exit:                                 ; preds = %69, %95, %91, %85, 
   store i32 %158, ptr %153, align 8, !tbaa !170
   br label %.critedge227
 
-.critedge227:                                     ; preds = %.thread, %146, %136, %117, %147, %CC_DUP_WARN.exit
-  %.2350 = phi i32 [ %spec.select, %.thread ], [ %.3351, %146 ], [ %.3351, %136 ], [ %.3351, %117 ], [ %spec.select357, %CC_DUP_WARN.exit ], [ %spec.select357, %147 ]
-  %.2 = phi i32 [ %spec.select356, %.thread ], [ %.3, %146 ], [ %.3, %136 ], [ %.3, %117 ], [ %.1, %CC_DUP_WARN.exit ], [ %.1, %147 ]
-  %159 = shl i32 %.0169.lcssa331, 3
-  %160 = getelementptr inbounds nuw i8, ptr %.0177324329, i64 12
+.critedge227:                                     ; preds = %146, %136, %117, %147, %CC_DUP_WARN.exit
+  %.2348 = phi i32 [ %.3349, %146 ], [ %.3349, %136 ], [ %.3349, %117 ], [ %spec.select355, %CC_DUP_WARN.exit ], [ %spec.select355, %147 ]
+  %.2 = phi i32 [ %.3, %146 ], [ %.3, %136 ], [ %.3, %117 ], [ %.1, %CC_DUP_WARN.exit ], [ %.1, %147 ]
+  %159 = shl i32 %.0169.lcssa329, 3
+  %160 = getelementptr inbounds nuw i8, ptr %.0177322327, i64 12
   %161 = load i32, ptr %160, align 4, !tbaa !168
   %162 = add i32 %159, 12
   br label %163
@@ -12205,14 +12201,14 @@ CC_DUP_WARN.exit:                                 ; preds = %69, %95, %91, %85, 
   br i1 %.not220, label %.critedge230, label %167
 
 167:                                              ; preds = %166
-  %168 = load ptr, ptr %.0177324329, align 8, !tbaa !64
+  %168 = load ptr, ptr %.0177322327, align 8, !tbaa !64
   %169 = zext i32 %.0178 to i64
   %170 = tail call ptr @realloc(ptr noundef %168, i64 noundef %169) #27
   %.not221 = icmp eq ptr %170, null
   br i1 %.not221, label %.critedge, label %171
 
 171:                                              ; preds = %167
-  store ptr %170, ptr %.0177324329, align 8, !tbaa !64
+  store ptr %170, ptr %.0177322327, align 8, !tbaa !64
   store i32 %.0178, ptr %160, align 4, !tbaa !168
   br label %.critedge230
 
@@ -12223,7 +12219,7 @@ CC_DUP_WARN.exit:                                 ; preds = %69, %95, %91, %85, 
   br i1 %173, label %.preheader248, label %.critedge230._crit_edge
 
 .critedge230._crit_edge:                          ; preds = %.critedge230
-  %.pre277 = load ptr, ptr %.0177324329, align 8, !tbaa !64
+  %.pre277 = load ptr, ptr %.0177322327, align 8, !tbaa !64
   br label %182
 
 .preheader248:                                    ; preds = %.critedge230, %.preheader248
@@ -12234,14 +12230,14 @@ CC_DUP_WARN.exit:                                 ; preds = %69, %95, %91, %85, 
 
 177:                                              ; preds = %.preheader248
   store i32 %175, ptr %160, align 4, !tbaa !168
-  %178 = load ptr, ptr %.0177324329, align 8, !tbaa !64
+  %178 = load ptr, ptr %.0177322327, align 8, !tbaa !64
   %179 = zext i32 %175 to i64
   %180 = tail call ptr @realloc(ptr noundef %178, i64 noundef %179) #27
   %.not222 = icmp eq ptr %180, null
   br i1 %.not222, label %.critedge, label %181
 
 181:                                              ; preds = %177
-  store ptr %180, ptr %.0177324329, align 8, !tbaa !64
+  store ptr %180, ptr %.0177322327, align 8, !tbaa !64
   br label %182
 
 182:                                              ; preds = %.critedge230._crit_edge, %181
@@ -12249,8 +12245,8 @@ CC_DUP_WARN.exit:                                 ; preds = %69, %95, %91, %85, 
   %184 = sext i32 %159 to i64
   %185 = getelementptr i8, ptr %183, i64 %184
   %186 = getelementptr i8, ptr %185, i64 4
-  store i32 %.2350, ptr %186, align 1
-  %187 = getelementptr inbounds nuw i8, ptr %.0177324329, i64 8
+  store i32 %.2348, ptr %186, align 1
+  %187 = getelementptr inbounds nuw i8, ptr %.0177322327, i64 8
   %188 = load i32, ptr %187, align 8, !tbaa !170
   %189 = icmp ult i32 %188, %172
   br i1 %189, label %190, label %.critedge232
@@ -12265,7 +12261,7 @@ CC_DUP_WARN.exit:                                 ; preds = %69, %95, %91, %85, 
   br i1 %192, label %.preheader247, label %.critedge232._crit_edge
 
 .critedge232._crit_edge:                          ; preds = %.critedge232
-  %.pre278 = load ptr, ptr %.0177324329, align 8, !tbaa !64
+  %.pre278 = load ptr, ptr %.0177322327, align 8, !tbaa !64
   br label %201
 
 .preheader247:                                    ; preds = %.critedge232, %.preheader247
@@ -12276,14 +12272,14 @@ CC_DUP_WARN.exit:                                 ; preds = %69, %95, %91, %85, 
 
 196:                                              ; preds = %.preheader247
   store i32 %194, ptr %160, align 4, !tbaa !168
-  %197 = load ptr, ptr %.0177324329, align 8, !tbaa !64
+  %197 = load ptr, ptr %.0177322327, align 8, !tbaa !64
   %198 = zext i32 %194 to i64
   %199 = tail call ptr @realloc(ptr noundef %197, i64 noundef %198) #27
   %.not223 = icmp eq ptr %199, null
   br i1 %.not223, label %.critedge, label %200
 
 200:                                              ; preds = %196
-  store ptr %199, ptr %.0177324329, align 8, !tbaa !64
+  store ptr %199, ptr %.0177322327, align 8, !tbaa !64
   br label %201
 
 201:                                              ; preds = %.critedge232._crit_edge, %200
@@ -12305,7 +12301,7 @@ CC_DUP_WARN.exit:                                 ; preds = %69, %95, %91, %85, 
   br i1 %209, label %.preheader, label %.critedge234._crit_edge
 
 .critedge234._crit_edge:                          ; preds = %.critedge234
-  %.pre279 = load ptr, ptr %.0177324329, align 8, !tbaa !64
+  %.pre279 = load ptr, ptr %.0177322327, align 8, !tbaa !64
   br label %218
 
 .preheader:                                       ; preds = %.critedge234, %.preheader
@@ -12316,14 +12312,14 @@ CC_DUP_WARN.exit:                                 ; preds = %69, %95, %91, %85, 
 
 213:                                              ; preds = %.preheader
   store i32 %211, ptr %160, align 4, !tbaa !168
-  %214 = load ptr, ptr %.0177324329, align 8, !tbaa !64
+  %214 = load ptr, ptr %.0177322327, align 8, !tbaa !64
   %215 = zext nneg i32 %211 to i64
   %216 = tail call ptr @realloc(ptr noundef %214, i64 noundef %215) #27
   %.not224 = icmp eq ptr %216, null
   br i1 %.not224, label %.critedge, label %217
 
 217:                                              ; preds = %213
-  store ptr %216, ptr %.0177324329, align 8, !tbaa !64
+  store ptr %216, ptr %.0177322327, align 8, !tbaa !64
   br label %218
 
 218:                                              ; preds = %.critedge234._crit_edge, %217
