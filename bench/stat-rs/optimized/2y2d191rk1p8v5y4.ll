@@ -1243,27 +1243,27 @@ define hidden noundef double @"_ZN105_$LT$statrs..distribution..empirical..Empir
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(none) uwtable
 define noundef double @_ZN6statrs8function3erf3erf17hf83a9c3681bec0e7E(double noundef %0) unnamed_addr #18 personality ptr @rust_eh_personality {
   %2 = fcmp uno double %0, 0.000000e+00
-  br i1 %2, label %10, label %3
+  br i1 %2, label %12, label %3
 
 3:                                                ; preds = %1
-  %or.cond = fcmp oeq double %0, 0x7FF0000000000000
-  br i1 %or.cond, label %10, label %4
+  %4 = fcmp oeq double %0, 0x7FF0000000000000
+  br i1 %4, label %12, label %5
 
-4:                                                ; preds = %3
-  %or.cond1 = fcmp oeq double %0, 0xFFF0000000000000
-  br i1 %or.cond1, label %10, label %5
+5:                                                ; preds = %3
+  %6 = fcmp oeq double %0, 0xFFF0000000000000
+  br i1 %6, label %12, label %7
 
-5:                                                ; preds = %4
-  %6 = tail call double @llvm.fabs.f64(double %0)
-  %7 = fcmp ugt double %6, 0x3CB0000000000000
-  br i1 %7, label %8, label %10
+7:                                                ; preds = %5
+  %8 = tail call double @llvm.fabs.f64(double %0)
+  %9 = fcmp ugt double %8, 0x3CB0000000000000
+  br i1 %9, label %10, label %12
 
-8:                                                ; preds = %5
-  %9 = tail call noundef double @_ZN6statrs8function3erf8erf_impl17hedb461e5d82f92c3E.llvm.9554138872291501309(double noundef %0, i1 noundef zeroext false)
-  br label %10
+10:                                               ; preds = %7
+  %11 = tail call noundef double @_ZN6statrs8function3erf8erf_impl17hedb461e5d82f92c3E.llvm.9554138872291501309(double noundef %0, i1 noundef zeroext false)
+  br label %12
 
-10:                                               ; preds = %5, %4, %3, %1, %8
-  %.sroa.0.0 = phi double [ %9, %8 ], [ 0x7FF8000000000000, %1 ], [ 1.000000e+00, %3 ], [ -1.000000e+00, %4 ], [ 0.000000e+00, %5 ]
+12:                                               ; preds = %7, %5, %3, %1, %10
+  %.sroa.0.0 = phi double [ %11, %10 ], [ 0x7FF8000000000000, %1 ], [ 1.000000e+00, %3 ], [ -1.000000e+00, %5 ], [ 0.000000e+00, %7 ]
   ret double %.sroa.0.0
 }
 

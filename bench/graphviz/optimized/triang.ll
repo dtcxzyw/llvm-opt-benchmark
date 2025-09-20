@@ -85,7 +85,7 @@ define internal fastcc range(i32 -1, 1) i32 @triangulate(ptr noundef captures(no
   %5 = alloca [3 x %struct.Pxy_t], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp ugt i64 %1, 3
-  br i1 %6, label %.preheader, label %77
+  br i1 %6, label %.preheader, label %78
 
 .preheader:                                       ; preds = %4
   %7 = add i64 %1, -1
@@ -155,96 +155,96 @@ define internal fastcc range(i32 -1, 1) i32 @triangulate(ptr noundef captures(no
   %50 = fneg double %49
   %51 = fmul double %24, %50
   %52 = tail call double @llvm.fmuladd.f64(double %48, double %23, double %51)
-  %.not113.i = fcmp olt double %52, 0.000000e+00
-  br i1 %.not113.i, label %.preheader.i.preheader, label %.loopexit
+  %53 = fcmp olt double %52, 0.000000e+00
+  br i1 %53, label %.preheader.i.preheader, label %.loopexit
 
 .preheader.i.preheader:                           ; preds = %47, %41
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.critedge111.i
-  %.0103114.i = phi i64 [ %53, %.critedge111.i ], [ 0, %.preheader.i.preheader ]
-  %53 = add nuw i64 %.0103114.i, 1
-  %54 = icmp eq i64 %53, %1
-  %55 = select i1 %54, i64 0, i64 %53
-  %56 = icmp eq i64 %.0103114.i, %.043126
-  %57 = icmp eq i64 %55, %.043126
-  %or.cond.i = or i1 %56, %57
-  %58 = icmp eq i64 %.0103114.i, %11
-  %or.cond108.i = or i1 %58, %or.cond.i
-  %59 = icmp eq i64 %55, %11
-  %or.cond109.i = or i1 %59, %or.cond108.i
-  br i1 %or.cond109.i, label %.critedge111.i, label %60
+  %.0103114.i = phi i64 [ %54, %.critedge111.i ], [ 0, %.preheader.i.preheader ]
+  %54 = add nuw i64 %.0103114.i, 1
+  %55 = icmp eq i64 %54, %1
+  %56 = select i1 %55, i64 0, i64 %54
+  %57 = icmp eq i64 %.0103114.i, %.043126
+  %58 = icmp eq i64 %56, %.043126
+  %or.cond.i = or i1 %57, %58
+  %59 = icmp eq i64 %.0103114.i, %11
+  %or.cond108.i = or i1 %59, %or.cond.i
+  %60 = icmp eq i64 %56, %11
+  %or.cond109.i = or i1 %60, %or.cond108.i
+  br i1 %or.cond109.i, label %.critedge111.i, label %61
 
-60:                                               ; preds = %.preheader.i
-  %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0103114.i
-  %62 = load ptr, ptr %61, align 8, !tbaa !13
-  %.sroa.0.0.copyload.i50 = load double, ptr %62, align 8, !tbaa !16
-  %.sroa.2.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %62, i64 8
+61:                                               ; preds = %.preheader.i
+  %62 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0103114.i
+  %63 = load ptr, ptr %62, align 8, !tbaa !13
+  %.sroa.0.0.copyload.i50 = load double, ptr %63, align 8, !tbaa !16
+  %.sroa.2.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %.sroa.2.0.copyload.i52 = load double, ptr %.sroa.2.0..sroa_idx.i51, align 8, !tbaa !16
-  %63 = getelementptr inbounds nuw ptr, ptr %0, i64 %55
-  %64 = load ptr, ptr %63, align 8, !tbaa !13
-  %.sroa.0.0.copyload.i = load double, ptr %64, align 8, !tbaa !16
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %56
+  %65 = load ptr, ptr %64, align 8, !tbaa !13
+  %.sroa.0.0.copyload.i = load double, ptr %65, align 8, !tbaa !16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %65, i64 8
   %.sroa.2.0.copyload.i = load double, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !16
-  %65 = tail call zeroext i1 @intersects(double %.sroa.0.0.copyload.i105, double %.sroa.2.0.copyload.i107, double %.sroa.0.0.copyload.i90, double %.sroa.2.0.copyload.i92, double %.sroa.0.0.copyload.i50, double %.sroa.2.0.copyload.i52, double %.sroa.0.0.copyload.i, double %.sroa.2.0.copyload.i)
-  br i1 %65, label %.loopexit, label %.critedge111.i
+  %66 = tail call zeroext i1 @intersects(double %.sroa.0.0.copyload.i105, double %.sroa.2.0.copyload.i107, double %.sroa.0.0.copyload.i90, double %.sroa.2.0.copyload.i92, double %.sroa.0.0.copyload.i50, double %.sroa.2.0.copyload.i52, double %.sroa.0.0.copyload.i, double %.sroa.2.0.copyload.i)
+  br i1 %66, label %.loopexit, label %.critedge111.i
 
-.critedge111.i:                                   ; preds = %60, %.preheader.i
-  br i1 %54, label %isdiagonal.exit, label %.preheader.i, !llvm.loop !18
+.critedge111.i:                                   ; preds = %61, %.preheader.i
+  br i1 %55, label %isdiagonal.exit, label %.preheader.i, !llvm.loop !18
 
 isdiagonal.exit:                                  ; preds = %.critedge111.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false), !tbaa.struct !19
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !19
-  %67 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !19
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !19
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !19
   call void %2(ptr noundef %3, ptr noundef nonnull %5) #13
-  br label %68
+  br label %69
 
-68:                                               ; preds = %isdiagonal.exit, %74
-  %.0128 = phi i64 [ 0, %isdiagonal.exit ], [ %.1, %74 ]
-  %.144127 = phi i64 [ 0, %isdiagonal.exit ], [ %75, %74 ]
+69:                                               ; preds = %isdiagonal.exit, %75
+  %.0128 = phi i64 [ 0, %isdiagonal.exit ], [ %.1, %75 ]
+  %.144127 = phi i64 [ 0, %isdiagonal.exit ], [ %76, %75 ]
   %.not49 = icmp eq i64 %.144127, %13
-  br i1 %.not49, label %74, label %69
+  br i1 %.not49, label %75, label %70
 
-69:                                               ; preds = %68
-  %70 = getelementptr inbounds nuw ptr, ptr %0, i64 %.144127
-  %71 = load ptr, ptr %70, align 8, !tbaa !13
-  %72 = add i64 %.0128, 1
-  %73 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0128
-  store ptr %71, ptr %73, align 8, !tbaa !13
-  br label %74
+70:                                               ; preds = %69
+  %71 = getelementptr inbounds nuw ptr, ptr %0, i64 %.144127
+  %72 = load ptr, ptr %71, align 8, !tbaa !13
+  %73 = add i64 %.0128, 1
+  %74 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0128
+  store ptr %72, ptr %74, align 8, !tbaa !13
+  br label %75
 
-74:                                               ; preds = %68, %69
-  %.1 = phi i64 [ %72, %69 ], [ %.0128, %68 ]
-  %75 = add nuw i64 %.144127, 1
-  %exitcond134.not = icmp eq i64 %75, %1
-  br i1 %exitcond134.not, label %.thread, label %68, !llvm.loop !20
+75:                                               ; preds = %69, %70
+  %.1 = phi i64 [ %73, %70 ], [ %.0128, %69 ]
+  %76 = add nuw i64 %.144127, 1
+  %exitcond134.not = icmp eq i64 %76, %1
+  br i1 %exitcond134.not, label %.thread, label %69, !llvm.loop !20
 
-.thread:                                          ; preds = %74
-  %76 = call fastcc i32 @triangulate(ptr noundef %0, i64 noundef %7, ptr noundef %2, ptr noundef %3)
+.thread:                                          ; preds = %75
+  %77 = call fastcc i32 @triangulate(ptr noundef %0, i64 noundef %7, ptr noundef %2, ptr noundef %3)
   br label %.loopexit120
 
-.loopexit:                                        ; preds = %60, %41, %35, %47
+.loopexit:                                        ; preds = %61, %41, %35, %47
   %exitcond.not = icmp eq i64 %9, %1
   br i1 %exitcond.not, label %.loopexit120, label %8, !llvm.loop !21
 
-77:                                               ; preds = %4
-  %78 = load ptr, ptr %0, align 8, !tbaa !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !19
-  %79 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %81 = load ptr, ptr %80, align 8, !tbaa !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !19
-  %82 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %84, i64 16, i1 false), !tbaa.struct !19
+78:                                               ; preds = %4
+  %79 = load ptr, ptr %0, align 8, !tbaa !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false), !tbaa.struct !19
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %82 = load ptr, ptr %81, align 8, !tbaa !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !19
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %85 = load ptr, ptr %84, align 8, !tbaa !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(16) %85, i64 16, i1 false), !tbaa.struct !19
   call void %2(ptr noundef %3, ptr noundef nonnull %5) #13
   br label %.loopexit120
 
-.loopexit120:                                     ; preds = %.loopexit, %.thread, %77
-  %.3 = phi i32 [ 0, %77 ], [ %76, %.thread ], [ -1, %.loopexit ]
+.loopexit120:                                     ; preds = %.loopexit, %.thread, %78
+  %.3 = phi i32 [ 0, %78 ], [ %77, %.thread ], [ -1, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.3
 }
@@ -326,48 +326,48 @@ define noundef zeroext i1 @isdiagonal(i64 noundef %0, i64 noundef %1, ptr nounde
   %69 = fneg double %68
   %70 = fmul double %67, %69
   %71 = tail call double @llvm.fmuladd.f64(double %65, double %66, double %70)
-  %.not113 = fcmp olt double %71, 0.000000e+00
-  br i1 %.not113, label %.preheader.preheader, label %.critedge
+  %72 = fcmp olt double %71, 0.000000e+00
+  br i1 %72, label %.preheader.preheader, label %.critedge
 
 .preheader.preheader:                             ; preds = %55, %46
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.critedge111
-  %.0103114 = phi i64 [ %72, %.critedge111 ], [ 0, %.preheader.preheader ]
-  %72 = add nuw i64 %.0103114, 1
-  %73 = icmp eq i64 %72, %3
-  %74 = select i1 %73, i64 0, i64 %72
-  %75 = icmp eq i64 %.0103114, %0
-  %76 = icmp eq i64 %74, %0
-  %or.cond = or i1 %75, %76
-  %77 = icmp eq i64 %.0103114, %1
-  %or.cond108 = or i1 %77, %or.cond
-  %78 = icmp eq i64 %74, %1
-  %or.cond109 = or i1 %78, %or.cond108
-  br i1 %or.cond109, label %.critedge111, label %79
+  %.0103114 = phi i64 [ %73, %.critedge111 ], [ 0, %.preheader.preheader ]
+  %73 = add nuw i64 %.0103114, 1
+  %74 = icmp eq i64 %73, %3
+  %75 = select i1 %74, i64 0, i64 %73
+  %76 = icmp eq i64 %.0103114, %0
+  %77 = icmp eq i64 %75, %0
+  %or.cond = or i1 %76, %77
+  %78 = icmp eq i64 %.0103114, %1
+  %or.cond108 = or i1 %78, %or.cond
+  %79 = icmp eq i64 %75, %1
+  %or.cond109 = or i1 %79, %or.cond108
+  br i1 %or.cond109, label %.critedge111, label %80
 
-79:                                               ; preds = %.preheader
-  %80 = tail call { double, double } %4(ptr noundef %2, i64 noundef %0) #13
-  %81 = extractvalue { double, double } %80, 0
-  %82 = extractvalue { double, double } %80, 1
-  %83 = tail call { double, double } %4(ptr noundef %2, i64 noundef %1) #13
-  %84 = extractvalue { double, double } %83, 0
-  %85 = extractvalue { double, double } %83, 1
-  %86 = tail call { double, double } %4(ptr noundef %2, i64 noundef %.0103114) #13
-  %87 = extractvalue { double, double } %86, 0
-  %88 = extractvalue { double, double } %86, 1
-  %89 = tail call { double, double } %4(ptr noundef %2, i64 noundef %74) #13
-  %90 = extractvalue { double, double } %89, 0
-  %91 = extractvalue { double, double } %89, 1
-  %92 = tail call zeroext i1 @intersects(double %81, double %82, double %84, double %85, double %87, double %88, double %90, double %91)
-  br i1 %92, label %.critedge, label %.critedge111
+80:                                               ; preds = %.preheader
+  %81 = tail call { double, double } %4(ptr noundef %2, i64 noundef %0) #13
+  %82 = extractvalue { double, double } %81, 0
+  %83 = extractvalue { double, double } %81, 1
+  %84 = tail call { double, double } %4(ptr noundef %2, i64 noundef %1) #13
+  %85 = extractvalue { double, double } %84, 0
+  %86 = extractvalue { double, double } %84, 1
+  %87 = tail call { double, double } %4(ptr noundef %2, i64 noundef %.0103114) #13
+  %88 = extractvalue { double, double } %87, 0
+  %89 = extractvalue { double, double } %87, 1
+  %90 = tail call { double, double } %4(ptr noundef %2, i64 noundef %75) #13
+  %91 = extractvalue { double, double } %90, 0
+  %92 = extractvalue { double, double } %90, 1
+  %93 = tail call zeroext i1 @intersects(double %82, double %83, double %85, double %86, double %88, double %89, double %91, double %92)
+  br i1 %93, label %.critedge, label %.critedge111
 
-.critedge111:                                     ; preds = %79, %.preheader
-  %exitcond.not = icmp eq i64 %72, %3
+.critedge111:                                     ; preds = %80, %.preheader
+  %exitcond.not = icmp eq i64 %73, %3
   br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !18
 
-.critedge:                                        ; preds = %.critedge111, %79, %46, %37, %55
-  %.0 = phi i1 [ false, %55 ], [ false, %37 ], [ false, %46 ], [ true, %.critedge111 ], [ false, %79 ]
+.critedge:                                        ; preds = %.critedge111, %80, %46, %37, %55
+  %.0 = phi i1 [ false, %55 ], [ false, %37 ], [ false, %46 ], [ true, %.critedge111 ], [ false, %80 ]
   ret i1 %.0
 }
 
@@ -380,150 +380,151 @@ define zeroext i1 @intersects(double %0, double %1, double %2, double %3, double
   %13 = fneg double %12
   %14 = fmul double %11, %13
   %15 = tail call double @llvm.fmuladd.f64(double %9, double %10, double %14)
-  %.not87 = fcmp ueq double %15, 0.000000e+00
-  br i1 %.not87, label %36, label %16
+  %16 = fcmp ule double %15, 0.000000e+00
+  %17 = fcmp olt double %15, 0.000000e+00
+  %18 = xor i1 %17, %16
+  br i1 %18, label %46, label %19
 
-16:                                               ; preds = %8
-  %17 = fsub double %6, %2
-  %18 = fsub double %7, %3
-  %19 = fmul double %18, %13
-  %20 = tail call double @llvm.fmuladd.f64(double %9, double %17, double %19)
-  %.not89 = fcmp ueq double %20, 0.000000e+00
-  br i1 %.not89, label %.thread, label %21
+19:                                               ; preds = %8
+  %20 = fsub double %6, %2
+  %21 = fsub double %7, %3
+  %22 = fmul double %21, %13
+  %23 = tail call double @llvm.fmuladd.f64(double %9, double %20, double %22)
+  %24 = fcmp ule double %23, 0.000000e+00
+  %25 = fcmp olt double %23, 0.000000e+00
+  %26 = xor i1 %25, %24
+  br i1 %26, label %46, label %27
 
-21:                                               ; preds = %16
-  %22 = fsub double %5, %7
-  %23 = fsub double %0, %6
-  %24 = fsub double %1, %7
-  %25 = fsub double %4, %6
-  %26 = fneg double %25
-  %27 = fmul double %24, %26
-  %28 = tail call double @llvm.fmuladd.f64(double %22, double %23, double %27)
-  %.not91 = fcmp ueq double %28, 0.000000e+00
-  br i1 %.not91, label %.thread, label %29
+27:                                               ; preds = %19
+  %28 = fsub double %5, %7
+  %29 = fsub double %0, %6
+  %30 = fsub double %1, %7
+  %31 = fsub double %4, %6
+  %32 = fneg double %31
+  %33 = fmul double %30, %32
+  %34 = tail call double @llvm.fmuladd.f64(double %28, double %29, double %33)
+  %35 = fcmp ule double %34, 0.000000e+00
+  %36 = fcmp olt double %34, 0.000000e+00
+  %37 = xor i1 %36, %35
+  br i1 %37, label %46, label %38
 
-29:                                               ; preds = %21
-  %30 = fsub double %2, %6
-  %31 = fsub double %3, %7
-  %32 = fmul double %31, %26
-  %33 = tail call double @llvm.fmuladd.f64(double %22, double %30, double %32)
-  %.not93 = fcmp ueq double %33, 0.000000e+00
-  br i1 %.not93, label %.thread, label %102
+38:                                               ; preds = %27
+  %39 = fsub double %2, %6
+  %40 = fsub double %3, %7
+  %41 = fmul double %40, %32
+  %42 = tail call double @llvm.fmuladd.f64(double %28, double %39, double %41)
+  %43 = fcmp ule double %42, 0.000000e+00
+  %44 = fcmp olt double %42, 0.000000e+00
+  %45 = xor i1 %44, %43
+  br i1 %45, label %46, label %111
 
-.thread:                                          ; preds = %29, %21, %16
-  %34 = fsub double %2, %0
-  %35 = fsub double %3, %1
-  br label %between.exit.thread
+46:                                               ; preds = %38, %27, %19, %8
+  %47 = fsub double %2, %0
+  %48 = fsub double %3, %1
+  %49 = fsub double %4, %0
+  %50 = fsub double %5, %1
+  %.not.i = fcmp ueq double %15, 0.000000e+00
+  br i1 %.not.i, label %51, label %between.exit.thread
 
-36:                                               ; preds = %8
-  %37 = fsub double %2, %0
-  %38 = fsub double %3, %1
-  %39 = fsub double %4, %0
-  %40 = fsub double %5, %1
-  %41 = fmul double %38, %40
-  %42 = tail call double @llvm.fmuladd.f64(double %39, double %37, double %41)
-  %43 = fcmp ult double %42, 0.000000e+00
-  br i1 %43, label %between.exit.thread, label %between.exit
+51:                                               ; preds = %46
+  %52 = fmul double %48, %50
+  %53 = tail call double @llvm.fmuladd.f64(double %49, double %47, double %52)
+  %54 = fcmp ult double %53, 0.000000e+00
+  br i1 %54, label %between.exit.thread, label %between.exit
 
-between.exit:                                     ; preds = %36
-  %44 = fmul double %40, %40
-  %45 = tail call double @llvm.fmuladd.f64(double %39, double %39, double %44)
-  %46 = fmul double %38, %38
-  %47 = tail call double @llvm.fmuladd.f64(double %37, double %37, double %46)
-  %48 = fcmp ugt double %45, %47
-  br i1 %48, label %between.exit.thread, label %between.exit82
+between.exit:                                     ; preds = %51
+  %55 = fmul double %50, %50
+  %56 = tail call double @llvm.fmuladd.f64(double %49, double %49, double %55)
+  %57 = fmul double %48, %48
+  %58 = tail call double @llvm.fmuladd.f64(double %47, double %47, double %57)
+  %59 = fcmp ugt double %56, %58
+  br i1 %59, label %between.exit.thread, label %between.exit82
 
-between.exit.thread:                              ; preds = %.thread, %36, %between.exit
-  %49 = phi double [ %35, %.thread ], [ %38, %36 ], [ %38, %between.exit ]
-  %50 = phi double [ %34, %.thread ], [ %37, %36 ], [ %37, %between.exit ]
-  %51 = fsub double %6, %0
-  %52 = fsub double %7, %1
-  %53 = fsub double %6, %2
-  %54 = fsub double %7, %3
-  %55 = fmul double %54, %13
-  %56 = tail call double @llvm.fmuladd.f64(double %9, double %53, double %55)
-  %.not.i74 = fcmp ueq double %56, 0.000000e+00
-  br i1 %.not.i74, label %57, label %between.exit76.thread
+between.exit.thread:                              ; preds = %51, %46, %between.exit
+  %60 = fsub double %6, %0
+  %61 = fsub double %7, %1
+  %62 = fsub double %6, %2
+  %63 = fsub double %7, %3
+  %64 = fmul double %63, %13
+  %65 = tail call double @llvm.fmuladd.f64(double %9, double %62, double %64)
+  %.not.i74 = fcmp ueq double %65, 0.000000e+00
+  br i1 %.not.i74, label %66, label %between.exit76.thread
 
-57:                                               ; preds = %between.exit.thread
-  %58 = fmul double %49, %52
-  %59 = tail call double @llvm.fmuladd.f64(double %51, double %50, double %58)
-  %60 = fcmp ult double %59, 0.000000e+00
-  br i1 %60, label %between.exit76.thread, label %between.exit76
+66:                                               ; preds = %between.exit.thread
+  %67 = fmul double %48, %61
+  %68 = tail call double @llvm.fmuladd.f64(double %60, double %47, double %67)
+  %69 = fcmp ult double %68, 0.000000e+00
+  br i1 %69, label %between.exit76.thread, label %between.exit76
 
-between.exit76:                                   ; preds = %57
-  %61 = fmul double %52, %52
-  %62 = tail call double @llvm.fmuladd.f64(double %51, double %51, double %61)
-  %63 = fmul double %49, %49
-  %64 = tail call double @llvm.fmuladd.f64(double %50, double %50, double %63)
-  %65 = fcmp ugt double %62, %64
-  br i1 %65, label %between.exit76.thread, label %between.exit82
+between.exit76:                                   ; preds = %66
+  %70 = fmul double %61, %61
+  %71 = tail call double @llvm.fmuladd.f64(double %60, double %60, double %70)
+  %72 = fmul double %48, %48
+  %73 = tail call double @llvm.fmuladd.f64(double %47, double %47, double %72)
+  %74 = fcmp ugt double %71, %73
+  br i1 %74, label %between.exit76.thread, label %between.exit82
 
-between.exit76.thread:                            ; preds = %57, %between.exit.thread, %between.exit76
-  %66 = fsub double %6, %4
-  %67 = fsub double %7, %5
-  %68 = fsub double %0, %4
-  %69 = fsub double %1, %5
-  %70 = fsub double %5, %7
-  %71 = fsub double %0, %6
-  %72 = fsub double %1, %7
-  %73 = fsub double %4, %6
-  %74 = fneg double %73
-  %75 = fmul double %72, %74
-  %76 = tail call double @llvm.fmuladd.f64(double %70, double %71, double %75)
-  %.not.i77 = fcmp ueq double %76, 0.000000e+00
-  br i1 %.not.i77, label %77, label %between.exit79.thread
+between.exit76.thread:                            ; preds = %66, %between.exit.thread, %between.exit76
+  %75 = fsub double %6, %4
+  %76 = fsub double %7, %5
+  %77 = fsub double %0, %4
+  %78 = fsub double %1, %5
+  %79 = fsub double %5, %7
+  %80 = fsub double %0, %6
+  %81 = fsub double %1, %7
+  %82 = fsub double %4, %6
+  %83 = fneg double %82
+  %84 = fmul double %81, %83
+  %85 = tail call double @llvm.fmuladd.f64(double %79, double %80, double %84)
+  %.not.i77 = fcmp ueq double %85, 0.000000e+00
+  br i1 %.not.i77, label %86, label %between.exit79.thread
 
-77:                                               ; preds = %between.exit76.thread
-  %78 = fmul double %69, %67
-  %79 = tail call double @llvm.fmuladd.f64(double %68, double %66, double %78)
-  %80 = fcmp ult double %79, 0.000000e+00
-  br i1 %80, label %between.exit79.thread, label %between.exit79
+86:                                               ; preds = %between.exit76.thread
+  %87 = fmul double %78, %76
+  %88 = tail call double @llvm.fmuladd.f64(double %77, double %75, double %87)
+  %89 = fcmp ult double %88, 0.000000e+00
+  br i1 %89, label %between.exit79.thread, label %between.exit79
 
-between.exit79:                                   ; preds = %77
-  %81 = fmul double %69, %69
-  %82 = tail call double @llvm.fmuladd.f64(double %68, double %68, double %81)
-  %83 = fmul double %67, %67
-  %84 = tail call double @llvm.fmuladd.f64(double %66, double %66, double %83)
-  %85 = fcmp ugt double %82, %84
-  br i1 %85, label %between.exit79.thread, label %between.exit82
+between.exit79:                                   ; preds = %86
+  %90 = fmul double %78, %78
+  %91 = tail call double @llvm.fmuladd.f64(double %77, double %77, double %90)
+  %92 = fmul double %76, %76
+  %93 = tail call double @llvm.fmuladd.f64(double %75, double %75, double %92)
+  %94 = fcmp ugt double %91, %93
+  br i1 %94, label %between.exit79.thread, label %between.exit82
 
-between.exit79.thread:                            ; preds = %77, %between.exit76.thread, %between.exit79
-  %86 = fsub double %2, %4
-  %87 = fsub double %3, %5
-  %88 = fsub double %2, %6
-  %89 = fsub double %3, %7
-  %90 = fmul double %89, %74
-  %91 = tail call double @llvm.fmuladd.f64(double %70, double %88, double %90)
-  %.not.i80 = fcmp ueq double %91, 0.000000e+00
-  br i1 %.not.i80, label %92, label %between.exit82
+between.exit79.thread:                            ; preds = %86, %between.exit76.thread, %between.exit79
+  %95 = fsub double %2, %4
+  %96 = fsub double %3, %5
+  %97 = fsub double %2, %6
+  %98 = fsub double %3, %7
+  %99 = fmul double %98, %83
+  %100 = tail call double @llvm.fmuladd.f64(double %79, double %97, double %99)
+  %.not.i80 = fcmp ueq double %100, 0.000000e+00
+  br i1 %.not.i80, label %101, label %between.exit82
 
-92:                                               ; preds = %between.exit79.thread
-  %93 = fmul double %87, %67
-  %94 = tail call double @llvm.fmuladd.f64(double %86, double %66, double %93)
-  %95 = fcmp ult double %94, 0.000000e+00
-  br i1 %95, label %between.exit82, label %96
+101:                                              ; preds = %between.exit79.thread
+  %102 = fmul double %96, %76
+  %103 = tail call double @llvm.fmuladd.f64(double %95, double %75, double %102)
+  %104 = fcmp ult double %103, 0.000000e+00
+  br i1 %104, label %between.exit82, label %105
 
-96:                                               ; preds = %92
-  %97 = fmul double %87, %87
-  %98 = tail call double @llvm.fmuladd.f64(double %86, double %86, double %97)
-  %99 = fmul double %67, %67
-  %100 = tail call double @llvm.fmuladd.f64(double %66, double %66, double %99)
-  %101 = fcmp ole double %98, %100
+105:                                              ; preds = %101
+  %106 = fmul double %96, %96
+  %107 = tail call double @llvm.fmuladd.f64(double %95, double %95, double %106)
+  %108 = fmul double %76, %76
+  %109 = tail call double @llvm.fmuladd.f64(double %75, double %75, double %108)
+  %110 = fcmp ole double %107, %109
   br label %between.exit82
 
-102:                                              ; preds = %29
-  %103 = fcmp olt double %15, 0.000000e+00
-  %104 = fcmp olt double %20, 0.000000e+00
-  %105 = fcmp olt double %28, 0.000000e+00
-  %106 = fcmp olt double %33, 0.000000e+00
-  %107 = xor i1 %103, %104
-  %108 = xor i1 %105, %106
-  %109 = and i1 %107, %108
+111:                                              ; preds = %38
+  %112 = xor i1 %17, %25
+  %113 = xor i1 %36, %44
+  %114 = and i1 %112, %113
   br label %between.exit82
 
-between.exit82:                                   ; preds = %96, %92, %between.exit79.thread, %between.exit, %between.exit76, %between.exit79, %102
-  %.0 = phi i1 [ %109, %102 ], [ true, %between.exit79 ], [ true, %between.exit76 ], [ true, %between.exit ], [ false, %between.exit79.thread ], [ false, %92 ], [ %101, %96 ]
+between.exit82:                                   ; preds = %105, %101, %between.exit79.thread, %between.exit, %between.exit76, %between.exit79, %111
+  %.0 = phi i1 [ %114, %111 ], [ true, %between.exit79 ], [ true, %between.exit76 ], [ true, %between.exit ], [ false, %between.exit79.thread ], [ false, %101 ], [ %110, %105 ]
   ret i1 %.0
 }
 

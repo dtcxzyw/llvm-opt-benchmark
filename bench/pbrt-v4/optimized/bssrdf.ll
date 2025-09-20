@@ -382,8 +382,8 @@ define dso_local noundef float @_ZN4pbrt15BeamDiffusionSSEfffff(float noundef %0
   %15 = fcmp olt double %14, 0xBFEFAE147AE147AE
   %16 = fdiv float 1.000000e+00, %3
   %17 = fcmp ule double %14, 0x3FEFAE147AE147AE
-  %.mux = select i1 %17, float %2, float 0x3FEFAE1480000000
-  %.0.i.i = select i1 %15, float 0xBFEFAE1480000000, float %.mux
+  %.mux = select i1 %15, float 0xBFEFAE1480000000, float %2
+  %.0.i.i = select i1 %17, float %.mux, float 0x3FEFAE1480000000
   %18 = fmul float %.0.i.i, %.0.i.i
   %19 = fadd float %18, 1.000000e+00
   %20 = fmul float %.0.i.i, 2.000000e+00
