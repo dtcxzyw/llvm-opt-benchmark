@@ -4165,20 +4165,20 @@ define internal fastcc void @reassemble_sequence(ptr noundef captures(none) %0, 
   %53 = load i16, ptr %52, align 4
   %54 = zext i16 %53 to i32
   %55 = icmp samesign ult i32 %51, %54
-  br i1 %55, label %.preheader.preheader.i, label %76
+  br i1 %55, label %.preheader.i, label %76
 
-.preheader.preheader.i:                           ; preds = %47
+.preheader.i:                                     ; preds = %47
   %56 = trunc nuw i32 %51 to i16
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %59, %.preheader.preheader.i
+.preheader.i:; preds = %59, %.preheader.i
   %.0.i35 = phi ptr [ %58, %59 ], [ %33, %.preheader.preheader.i ]
   %57 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 48
   %58 = load ptr, ptr %57, align 8
   %.not70.i = icmp eq ptr %58, null
   br i1 %.not70.i, label %63, label %59
 
-59:                                               ; preds = %.preheader.i
+59:; preds = %.preheader.i
   %60 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 28
   %61 = load i16, ptr %60, align 4
   %62 = icmp ugt i16 %61, %56
