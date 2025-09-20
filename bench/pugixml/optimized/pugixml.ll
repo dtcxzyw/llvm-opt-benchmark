@@ -44231,7 +44231,7 @@ define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_124convert_number_to_stri
   store i8 0, ptr %16, align 8, !tbaa !423, !alias.scope !591
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %17, align 8, !tbaa !424, !alias.scope !591
-  br label %91
+  br label %92
 
 18:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -44304,11 +44304,11 @@ _ZN4pugi4impl12_GLOBAL__N_135convert_number_to_mantissa_exponentEdRA32_cPPcPi.ex
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !352
   %.not24.i = icmp eq ptr %58, null
-  br i1 %.not24.i, label %88, label %59
+  br i1 %.not24.i, label %89, label %59
 
 59:                                               ; preds = %56
   store i8 1, ptr %58, align 1, !tbaa !385
-  br label %88
+  br label %89
 
 60:                                               ; preds = %50
   %61 = load ptr, ptr %2, align 8, !tbaa !350
@@ -44378,48 +44378,48 @@ _ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit: ; preds = %60, %47
   %78 = sub i64 4294967295, %22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.452, i8 48, i64 %78, i1 false), !tbaa !28
   %79 = getelementptr i8, ptr %73, i64 %77
-  %scevgep = getelementptr i8, ptr %79, i64 2
+  %80 = getelementptr i8, ptr %79, i64 2
   br label %.preheader
 
 .preheader:                                       ; preds = %.thread, %.lr.ph55.preheader, %76
   %.0357582 = phi ptr [ %.idx.i.sroa.sel.sroa.sel, %76 ], [ %.idx.i.sroa.sel.sroa.sel, %.lr.ph55.preheader ], [ %spec.select.idx.sroa.sel.idx.sroa.sel, %.thread ]
   %.4.lcssa = phi ptr [ %.452, %76 ], [ %scevgep, %.lr.ph55.preheader ], [ %.45281, %.thread ]
-  %80 = load i8, ptr %.0357582, align 1, !tbaa !28
-  %.not2257 = icmp eq i8 %80, 0
+  %81 = load i8, ptr %.0357582, align 1, !tbaa !28
+  %.not2257 = icmp eq i8 %81, 0
   br i1 %.not2257, label %.loopexit, label %.lr.ph60
 
 .lr.ph60:                                         ; preds = %.preheader, %.lr.ph60
-  %81 = phi i8 [ %84, %.lr.ph60 ], [ %80, %.preheader ]
-  %.559 = phi ptr [ %83, %.lr.ph60 ], [ %.4.lcssa, %.preheader ]
-  %.33858 = phi ptr [ %82, %.lr.ph60 ], [ %.0357582, %.preheader ]
-  %82 = getelementptr inbounds nuw i8, ptr %.33858, i64 1
-  %83 = getelementptr inbounds nuw i8, ptr %.559, i64 1
-  store i8 %81, ptr %.559, align 1, !tbaa !28
-  %84 = load i8, ptr %82, align 1, !tbaa !28
-  %.not22 = icmp eq i8 %84, 0
+  %82 = phi i8 [ %85, %.lr.ph60 ], [ %81, %.preheader ]
+  %.559 = phi ptr [ %84, %.lr.ph60 ], [ %.4.lcssa, %.preheader ]
+  %.33858 = phi ptr [ %83, %.lr.ph60 ], [ %.0357582, %.preheader ]
+  %83 = getelementptr inbounds nuw i8, ptr %.33858, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %.559, i64 1
+  store i8 %82, ptr %.559, align 1, !tbaa !28
+  %85 = load i8, ptr %83, align 1, !tbaa !28
+  %.not22 = icmp eq i8 %85, 0
   br i1 %.not22, label %.loopexit, label %.lr.ph60, !llvm.loop !596
 
 .loopexit:                                        ; preds = %.lr.ph60, %.loopexit46.thread, %.preheader, %.loopexit46
-  %.3 = phi ptr [ %73, %.loopexit46 ], [ %.4.lcssa, %.preheader ], [ %70, %.loopexit46.thread ], [ %83, %.lr.ph60 ]
+  %.3 = phi ptr [ %73, %.loopexit46 ], [ %.4.lcssa, %.preheader ], [ %70, %.loopexit46.thread ], [ %84, %.lr.ph60 ]
   store i8 0, ptr %.3, align 1, !tbaa !28
-  %85 = ptrtoint ptr %.3 to i64
-  %86 = ptrtoint ptr %.0.i23 to i64
-  %87 = sub i64 %85, %86
-  br label %88
+  %86 = ptrtoint ptr %.3 to i64
+  %87 = ptrtoint ptr %.0.i23 to i64
+  %88 = sub i64 %86, %87
+  br label %89
 
-88:                                               ; preds = %56, %59, %.loopexit
+89:                                               ; preds = %56, %59, %.loopexit
   %.0.i23.sink = phi ptr [ %.0.i23, %.loopexit ], [ @.str, %59 ], [ @.str, %56 ]
   %.sink85 = phi i8 [ 1, %.loopexit ], [ 0, %59 ], [ 0, %56 ]
-  %.sink = phi i64 [ %87, %.loopexit ], [ 0, %59 ], [ 0, %56 ]
+  %.sink = phi i64 [ %88, %.loopexit ], [ 0, %59 ], [ 0, %56 ]
   store ptr %.0.i23.sink, ptr %0, align 8, !tbaa !402
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink85, ptr %89, align 8, !tbaa !423
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink, ptr %90, align 8, !tbaa !424
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink85, ptr %90, align 8, !tbaa !423
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sink, ptr %91, align 8, !tbaa !424
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %91
+  br label %92
 
-91:                                               ; preds = %88, %15
+92:                                               ; preds = %89, %15
   ret void
 }
 

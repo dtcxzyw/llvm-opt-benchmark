@@ -117,8 +117,8 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inc
 14:                                               ; preds = %9
   %.sroa.021.0.extract.trunc = zext i16 %3 to i64
   %.sroa.422.0.extract.trunc = zext nneg i16 %5 to i64
-  %reass.sub = sub nsw i64 %.sroa.422.0.extract.trunc, %.sroa.021.0.extract.trunc
-  %15 = add nsw i64 %reass.sub, 1
+  %narrow.i.i.i.i.i23 = sub nsw i64 %.sroa.422.0.extract.trunc, %.sroa.021.0.extract.trunc
+  %15 = add nsw i64 %narrow.i.i.i.i.i23, 1
   br label %16
 
 16:                                               ; preds = %12, %14, %1
@@ -191,8 +191,8 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
 13:                                               ; preds = %8
   %.sroa.021.0.extract.trunc = zext i32 %2 to i64
   %.sroa.422.0.extract.trunc = zext nneg i32 %4 to i64
-  %reass.sub = sub nsw i64 %.sroa.422.0.extract.trunc, %.sroa.021.0.extract.trunc
-  %14 = add nsw i64 %reass.sub, 1
+  %narrow.i.i.i.i.i23 = sub nsw i64 %.sroa.422.0.extract.trunc, %.sroa.021.0.extract.trunc
+  %14 = add nsw i64 %narrow.i.i.i.i.i23, 1
   br label %15
 
 15:                                               ; preds = %11, %13, %1

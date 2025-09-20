@@ -7294,7 +7294,7 @@ define internal fastcc i32 @cli_loadign(ptr noundef captures(address_is_null) %0
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 256
   br label %.outer
 
-.outer:                                           ; preds = %71, %17
+.outer:                                           ; preds = %72, %17
   %.063.ph = phi ptr [ %.164, %71 ], [ null, %17 ]
   %.061.ph = phi i32 [ %25, %71 ], [ 0, %17 ]
   br label %22
@@ -7352,14 +7352,14 @@ define internal fastcc i32 @cli_loadign(ptr noundef captures(address_is_null) %0
 45:                                               ; preds = %43
   %46 = sub nuw i64 3, %40
   %.not78 = icmp eq ptr %.058, %5
-  br i1 %.not78, label %.lr.ph.preheader, label %47
+  br i1 %.not78, label %.lr.ph.preheader, label %46
 
-47:                                               ; preds = %45
-  %48 = and i64 %40, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %.058, i64 %48, i1 false)
+46:                                               ; preds = %45
+  %47 = and i64 %40, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %.058, i64 %47, i1 false)
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %45, %47
+.lr.ph.preheader:                                 ; preds = %45, %46
   %.260 = phi ptr [ %5, %47 ], [ %.058, %45 ]
   store i8 0, ptr %20, align 1, !tbaa !3
   br label %.lr.ph
@@ -7367,92 +7367,92 @@ define internal fastcc i32 @cli_loadign(ptr noundef captures(address_is_null) %0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %46, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %49 = sub nuw nsw i64 3, %indvars.iv
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 %49
-  store i8 32, ptr %50, align 1, !tbaa !3
-  %51 = trunc nuw i64 %indvars.iv to i32
-  %52 = icmp sgt i32 %51, 1
-  br i1 %52, label %.lr.ph, label %.loopexit
+  %50 = sub nuw nsw i64 3, %indvars.iv
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 %50
+  store i8 32, ptr %51, align 1, !tbaa !3
+  %52 = trunc nuw i64 %indvars.iv to i32
+  %53 = icmp sgt i32 %52, 1
+  br i1 %53, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %43
   %.159 = phi ptr [ %.058, %43 ], [ %.260, %.lr.ph ]
   %.057 = phi i32 [ %41, %43 ], [ 3, %.lr.ph ]
-  %53 = load ptr, ptr %21, align 8, !tbaa !72
-  %54 = call ptr @mpool_calloc(ptr noundef %53, i64 noundef 1, i64 noundef 72) #21
-  %.not79 = icmp eq ptr %54, null
-  br i1 %.not79, label %.loopexit92, label %55
+  %54 = load ptr, ptr %21, align 8, !tbaa !72
+  %55 = call ptr @mpool_calloc(ptr noundef %54, i64 noundef 1, i64 noundef 72) #21
+  %.not79 = icmp eq ptr %55, null
+  br i1 %.not79, label %.loopexit92, label %56
 
-55:                                               ; preds = %.loopexit
-  %56 = load ptr, ptr %21, align 8, !tbaa !72
-  %57 = call ptr @cli_mpool_strdup(ptr noundef %56, ptr noundef %.159) #21
-  store ptr %57, ptr %54, align 8, !tbaa !30
-  %.not80 = icmp eq ptr %57, null
-  br i1 %.not80, label %58, label %60
+56:                                               ; preds = %.loopexit
+  %57 = load ptr, ptr %21, align 8, !tbaa !72
+  %58 = call ptr @cli_mpool_strdup(ptr noundef %57, ptr noundef %.159) #21
+  store ptr %58, ptr %55, align 8, !tbaa !30
+  %.not80 = icmp eq ptr %58, null
+  br i1 %.not80, label %59, label %61
 
-58:                                               ; preds = %55
-  %59 = load ptr, ptr %21, align 8, !tbaa !72
-  call void @mpool_free(ptr noundef %59, ptr noundef nonnull %54) #21
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %21, align 8, !tbaa !72
+  call void @mpool_free(ptr noundef %60, ptr noundef nonnull %55) #21
   br label %.loopexit92
 
-60:                                               ; preds = %55
+61:                                               ; preds = %56
   %.not81 = icmp eq ptr %.164, null
-  br i1 %.not81, label %71, label %61
+  br i1 %.not81, label %72, label %62
 
-61:                                               ; preds = %60
-  %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.164) #20
-  %.not82 = icmp eq i64 %62, 32
-  br i1 %.not82, label %63, label %67
+62:                                               ; preds = %61
+  %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.164) #20
+  %.not82 = icmp eq i64 %63, 32
+  br i1 %.not82, label %64, label %68
 
-63:                                               ; preds = %61
-  %64 = load ptr, ptr %21, align 8, !tbaa !72
-  %65 = call ptr @cli_mpool_hex2str(ptr noundef %64, ptr noundef nonnull %.164) #21
-  %66 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store ptr %65, ptr %66, align 8, !tbaa !34
-  %.not83 = icmp eq ptr %65, null
-  br i1 %.not83, label %67, label %71
+64:                                               ; preds = %62
+  %65 = load ptr, ptr %21, align 8, !tbaa !72
+  %66 = call ptr @cli_mpool_hex2str(ptr noundef %65, ptr noundef nonnull %.164) #21
+  %67 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  store ptr %66, ptr %67, align 8, !tbaa !34
+  %.not83 = icmp eq ptr %66, null
+  br i1 %.not83, label %68, label %72
 
-67:                                               ; preds = %63, %61
+68:                                               ; preds = %64, %62
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.644, i32 noundef %25) #21
-  %68 = load ptr, ptr %21, align 8, !tbaa !72
-  %69 = load ptr, ptr %54, align 8, !tbaa !30
-  call void @mpool_free(ptr noundef %68, ptr noundef %69) #21
-  %70 = load ptr, ptr %21, align 8, !tbaa !72
-  call void @mpool_free(ptr noundef %70, ptr noundef nonnull %54) #21
+  %69 = load ptr, ptr %21, align 8, !tbaa !72
+  %70 = load ptr, ptr %55, align 8, !tbaa !30
+  call void @mpool_free(ptr noundef %69, ptr noundef %70) #21
+  %71 = load ptr, ptr %21, align 8, !tbaa !72
+  call void @mpool_free(ptr noundef %71, ptr noundef nonnull %55) #21
   br label %.loopexit92
 
-71:                                               ; preds = %63, %60
-  %72 = trunc i32 %.057 to i16
-  %73 = getelementptr inbounds nuw i8, ptr %54, i64 56
-  store i16 %72, ptr %73, align 8, !tbaa !33
-  %74 = getelementptr inbounds nuw i8, ptr %54, i64 64
-  %75 = load i32, ptr %74, align 8, !tbaa !243
-  %76 = or i32 %75, 1
-  store i32 %76, ptr %74, align 8, !tbaa !243
-  %77 = load ptr, ptr %6, align 8, !tbaa !103
-  %78 = call i32 @cli_bm_addpatt(ptr noundef %77, ptr noundef nonnull %54, ptr noundef nonnull @.str.645) #21
-  %.not84 = icmp eq i32 %78, 0
-  br i1 %.not84, label %.outer, label %79
+72:                                               ; preds = %64, %61
+  %73 = trunc i32 %.057 to i16
+  %74 = getelementptr inbounds nuw i8, ptr %55, i64 56
+  store i16 %73, ptr %74, align 8, !tbaa !33
+  %75 = getelementptr inbounds nuw i8, ptr %55, i64 64
+  %76 = load i32, ptr %75, align 8, !tbaa !243
+  %77 = or i32 %76, 1
+  store i32 %77, ptr %75, align 8, !tbaa !243
+  %78 = load ptr, ptr %6, align 8, !tbaa !103
+  %79 = call i32 @cli_bm_addpatt(ptr noundef %78, ptr noundef nonnull %55, ptr noundef nonnull @.str.645) #21
+  %.not84 = icmp eq i32 %79, 0
+  br i1 %.not84, label %.outer, label %80
 
-79:                                               ; preds = %71
-  br i1 %.not81, label %84, label %80
+80:                                               ; preds = %72
+  br i1 %.not81, label %85, label %81
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %21, align 8, !tbaa !72
-  %82 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %83 = load ptr, ptr %82, align 8, !tbaa !34
-  call void @mpool_free(ptr noundef %81, ptr noundef %83) #21
-  br label %84
+81:                                               ; preds = %80
+  %82 = load ptr, ptr %21, align 8, !tbaa !72
+  %83 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %84 = load ptr, ptr %83, align 8, !tbaa !34
+  call void @mpool_free(ptr noundef %82, ptr noundef %84) #21
+  br label %85
 
-84:                                               ; preds = %80, %79
-  %85 = load ptr, ptr %21, align 8, !tbaa !72
-  %86 = load ptr, ptr %54, align 8, !tbaa !30
-  call void @mpool_free(ptr noundef %85, ptr noundef %86) #21
-  %87 = load ptr, ptr %21, align 8, !tbaa !72
-  call void @mpool_free(ptr noundef %87, ptr noundef nonnull %54) #21
+85:                                               ; preds = %81, %80
+  %86 = load ptr, ptr %21, align 8, !tbaa !72
+  %87 = load ptr, ptr %55, align 8, !tbaa !30
+  call void @mpool_free(ptr noundef %86, ptr noundef %87) #21
+  %88 = load ptr, ptr %21, align 8, !tbaa !72
+  call void @mpool_free(ptr noundef %88, ptr noundef nonnull %55) #21
   br label %.loopexit92
 
-.loopexit92:                                      ; preds = %28, %.loopexit, %67, %84, %58, %42
-  %.2.ph = phi i32 [ 4, %42 ], [ 20, %58 ], [ %78, %84 ], [ 4, %67 ], [ 4, %28 ], [ 20, %.loopexit ]
+.loopexit92:                                      ; preds = %28, %.loopexit, %68, %85, %59, %42
+  %.2.ph = phi i32 [ 4, %42 ], [ 20, %58 ], [ %79, %84 ], [ 4, %67 ], [ 4, %28 ], [ 20, %.loopexit ]
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.646, i32 noundef %25) #21
   br label %.loopexit91
 

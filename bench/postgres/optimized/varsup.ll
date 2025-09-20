@@ -114,7 +114,7 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %30, i32 noundef %32) #7
-  br i1 %33, label %34, label %87
+  br i1 %33, label %34, label %FullTransactionIdAdvance.exit
 
 34:                                               ; preds = %24
   %35 = load ptr, ptr @TransamVariables, align 8
@@ -210,27 +210,27 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %.sroa.0.0.copyload28 = load i64, ptr %85, align 8
   %86 = trunc i64 %.sroa.0.0.copyload28 to i32
-  br label %87
+  br label %FullTransactionIdAdvance.exit
 
-87:                                               ; preds = %80, %24
+FullTransactionIdAdvance.exit:                    ; preds = %80, %24
   %.0 = phi i32 [ %86, %80 ], [ %30, %24 ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload28, %80 ], [ %.sroa.0.0.copyload, %24 ]
   tail call void @ExtendCLOG(i32 noundef %.0) #7
   tail call void @ExtendCommitTs(i32 noundef %.0) #7
   tail call void @ExtendSUBTRANS(i32 noundef %.0) #7
-  %88 = load ptr, ptr @TransamVariables, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %90 = load i64, ptr %89, align 8
-  %91 = add i64 %90, 1
-  %92 = icmp ugt i64 %91, 2
-  %93 = trunc i64 %91 to i32
-  %94 = icmp ult i32 %93, 3
-  %or.cond.i = and i1 %92, %94
+  %87 = load ptr, ptr @TransamVariables, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %89 = load i64, ptr %88, align 8
+  %90 = add i64 %89, 1
+  %91 = icmp ugt i64 %90, 2
+  %92 = trunc i64 %90 to i32
+  %93 = icmp ult i32 %92, 3
+  %or.cond.i = and i1 %91, %93
   %spec.store.select.i = select i1 %or.cond.i, i64 3, i64 %91
   store i64 %spec.store.select.i, ptr %89, align 8
   br i1 %0, label %105, label %95
 
-95:                                               ; preds = %87
+95:; preds = %FullTransactionIdAdvance.exit
   %96 = load ptr, ptr @MyProc, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 52
   store i32 %.0, ptr %97, align 4
@@ -238,13 +238,13 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 64
-  %102 = load i32, ptr %101, align 8
-  %103 = sext i32 %102 to i64
+  %101 = load i32, ptr %101, align 8
+  %103 = sext i32 %101 to i64
   %104 = getelementptr inbounds i32, ptr %100, i64 %103
   store i32 %.0, ptr %104, align 4
   br label %127
 
-105:                                              ; preds = %87
+105: ; preds = %87
   %106 = load ptr, ptr @ProcGlobal, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %108 = load ptr, ptr %107, align 8
@@ -253,12 +253,12 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
   %111 = load i32, ptr %110, align 8
   %112 = sext i32 %111 to i64
   %113 = getelementptr inbounds %struct.XidCacheStatus, ptr %108, i64 %112
-  %114 = getelementptr inbounds nuw i8, ptr %109, i64 440
-  %115 = load i8, ptr %114, align 8
-  %116 = icmp ult i8 %115, 64
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 440
+  %114 = load i8, ptr %113, align 8
+  %116 = icmp ult i8 %114, 64
   br i1 %116, label %117, label %123
 
-117:                                              ; preds = %105
+117:; preds = %105
   %118 = getelementptr inbounds nuw i8, ptr %109, i64 444
   %119 = zext nneg i8 %115 to i64
   %120 = getelementptr inbounds nuw i32, ptr %118, i64 %119
@@ -266,9 +266,9 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
   %narrow = add nuw nsw i8 %115, 1
   store i8 %narrow, ptr %113, align 1
-  %121 = load ptr, ptr @MyProc, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 440
-  store i8 %narrow, ptr %122, align 8
+  %124 = load ptr, ptr @MyProc, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 440
+  store i8 %narrow, ptr %125, align 8
   br label %127
 
 123:                                              ; preds = %105
@@ -285,7 +285,7 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
   tail call void @LWLockRelease(ptr noundef nonnull %129) #7
   br label %130
 
-130:                                              ; preds = %127, %9
+126:                                              ; preds = %127, %9
   %.sroa.032.0 = phi i64 [ 1, %9 ], [ %.sroa.0.0, %127 ]
   ret i64 %.sroa.032.0
 }

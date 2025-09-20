@@ -18853,7 +18853,7 @@ _ZN4llvm13isPowerOf2_64Em.exit.thread:            ; preds = %41
 50:                                               ; preds = %45
   %51 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %35, i1 false)
   %52 = trunc nuw nsw i64 %51 to i16
-  %.sroa.015.0.insert.insert = sub nuw nsw i16 319, %52
+  %53 = sub nuw nsw i16 319, %52
   store i16 %.sroa.015.0.insert.insert, ptr %1, align 1
   br label %_ZN4llvm8LLParser12EatIfPresentENS_5lltok4KindE.exit
 
