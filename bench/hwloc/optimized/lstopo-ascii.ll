@@ -181,20 +181,11 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   %86 = zext nneg i32 %75 to i64
   %.not114 = icmp ult i32 %74, 10
   %87 = load ptr, ptr @default_color, align 8
-  br i1 %.not114, label %.lr.ph99.split.preheader, label %.lr.ph.us.preheader
-
-.lr.ph.us.preheader:                              ; preds = %.lr.ph99
-  %umax = call i32 @llvm.umax.i32(i32 %75, i32 1)
-  %wide.trip.count121 = zext nneg i32 %80 to i64
-  %wide.trip.count = zext nneg i32 %umax to i64
-  br label %.lr.ph.us
-
-.lr.ph99.split.preheader:                         ; preds = %.lr.ph99
   %wide.trip.count126 = zext nneg i32 %80 to i64
-  br label %.lr.ph99.split
+  br i1 %.not114, label %.lr.ph99.split, label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv118 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next119, %._crit_edge.us ]
+.lr.ph.us:                                        ; preds = %.lr.ph99, %._crit_edge.us
+  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %._crit_edge.us ], [ 0, %.lr.ph99 ]
   %88 = call noalias ptr @calloc(i64 noundef %86, i64 noundef 24) #19
   %89 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv118
   store ptr %88, ptr %89, align 8, !tbaa !49
@@ -209,16 +200,16 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
   store ptr %87, ptr %93, align 8, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %86
   br i1 %exitcond.not, label %._crit_edge.us, label %90, !llvm.loop !56
 
 ._crit_edge.us:                                   ; preds = %90
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
-  %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121
+  %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count126
   br i1 %exitcond122.not, label %._crit_edge100, label %.lr.ph.us, !llvm.loop !58
 
-.lr.ph99.split:                                   ; preds = %.lr.ph99.split.preheader, %.lr.ph99.split
-  %indvars.iv123 = phi i64 [ 0, %.lr.ph99.split.preheader ], [ %indvars.iv.next124, %.lr.ph99.split ]
+.lr.ph99.split:                                   ; preds = %.lr.ph99, %.lr.ph99.split
+  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.lr.ph99.split ], [ 0, %.lr.ph99 ]
   %94 = call noalias ptr @calloc(i64 noundef %86, i64 noundef 24) #19
   %95 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv123
   store ptr %94, ptr %95, align 8, !tbaa !49

@@ -318,8 +318,7 @@ define dso_local noundef i32 @_ZNK4llvm9Localizer13getNumPhiUsesERNS_14MachineOp
   %15 = lshr i32 %14, 1
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !185
-  %umax = tail call i32 @llvm.umax.i32(i32 %15, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %15 to i64
   br label %18
 
 18:                                               ; preds = %.lr.ph, %18
@@ -545,8 +544,7 @@ _ZN4llvm9Localizer10isLocalUseERNS_14MachineOperandERKNS_12MachineInstrERPNS_17M
   %101 = lshr i32 %100, 1
   %102 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %103 = load ptr, ptr %102, align 8, !tbaa !185
-  %umax.i = call i32 @llvm.umax.i32(i32 %101, i32 1)
-  %wide.trip.count.i = zext nneg i32 %umax.i to i64
+  %wide.trip.count.i = zext nneg i32 %101 to i64
   br label %104
 
 104:                                              ; preds = %104, %.lr.ph.i

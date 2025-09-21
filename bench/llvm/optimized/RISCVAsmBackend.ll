@@ -3175,27 +3175,29 @@ _ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit: ; preds = %26, %26,
   %158 = add i32 %156, %.neg
   %159 = select i1 %157, i32 8, i32 0
   %160 = add i32 %158, %159
-  %161 = lshr i32 %160, 3
   %.not2021 = icmp ult i32 %160, 8
-  br i1 %.not2021, label %.loopexit, label %.lr.ph
+  br i1 %.not2021, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit ]
-  %162 = trunc nuw i64 %indvars.iv to i32
+.lr.ph.preheader:                                 ; preds = %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit
+  %161 = lshr i32 %160, 3
+  %162 = zext nneg i32 %161 to i64
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %163 = shl i64 %indvars.iv, 3
-  %164 = and i64 %163, 4294967288
-  %165 = lshr i64 %153, %164
-  %166 = trunc i64 %165 to i8
-  %167 = add i32 %155, %162
+  %164 = lshr i64 %153, %163
+  %165 = trunc i64 %164 to i8
+  %166 = trunc nuw nsw i64 %indvars.iv to i32
+  %167 = add i32 %155, %166
   %168 = zext i32 %167 to i64
   %169 = getelementptr inbounds nuw i8, ptr %4, i64 %168
   %170 = load i8, ptr %169, align 1, !tbaa !89
-  %171 = or i8 %170, %166
+  %171 = or i8 %170, %165
   store i8 %171, ptr %169, align 1, !tbaa !89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond = icmp eq i32 %161, %lftr.wideiv
-  br i1 %exitcond, label %.loopexit, label %.lr.ph, !llvm.loop !360
+  %.not20 = icmp eq i64 %indvars.iv.next, %162
+  br i1 %.not20, label %.loopexit, label %.lr.ph, !llvm.loop !360
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit, %20, %9
   ret void

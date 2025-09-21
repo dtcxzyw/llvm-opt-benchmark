@@ -1214,15 +1214,11 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit109: ; preds = %_ZN6Assimp12Strea
   %190 = add i64 %189, 4
   store i64 %190, ptr %6, align 8
   %.not181 = icmp ult i64 %146, 4
-  br i1 %.not181, label %.loopexit, label %.lr.ph176.preheader
+  br i1 %.not181, label %.loopexit, label %.lr.ph176
 
-.lr.ph176.preheader:                              ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit109
-  %umax191 = tail call i64 @llvm.umax.i64(i64 %147, i64 1)
-  br label %.lr.ph176
-
-.lr.ph176:                                        ; preds = %.lr.ph176.preheader, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit113
-  %191 = phi i64 [ %205, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit113 ], [ %190, %.lr.ph176.preheader ]
-  %.068175 = phi i64 [ %206, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit113 ], [ 0, %.lr.ph176.preheader ]
+.lr.ph176:                                        ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit109, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit113
+  %191 = phi i64 [ %205, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit113 ], [ %190, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit109 ]
+  %.068175 = phi i64 [ %206, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit113 ], [ 0, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit109 ]
   %192 = getelementptr inbounds nuw i32, ptr %23, i64 %.068175
   %193 = load i32, ptr %192, align 4
   %194 = add i64 %191, 4
@@ -1249,8 +1245,8 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit113: ; preds = %.lr.ph176, %200
   %205 = add i64 %204, 4
   store i64 %205, ptr %6, align 8
   %206 = add nuw nsw i64 %.068175, 1
-  %exitcond192.not = icmp eq i64 %206, %umax191
-  br i1 %exitcond192.not, label %.loopexit, label %.lr.ph176, !llvm.loop !13
+  %exitcond189.not = icmp eq i64 %206, %147
+  br i1 %exitcond189.not, label %.loopexit, label %.lr.ph176, !llvm.loop !13
 
 207:                                              ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1336,15 +1332,11 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit125: ; preds = %_ZN6Assimp12Strea
   %256 = add i64 %255, 4
   store i64 %256, ptr %6, align 8
   %.not180 = icmp ult i64 %212, 8
-  br i1 %.not180, label %.loopexit, label %.lr.ph174.preheader
+  br i1 %.not180, label %.loopexit, label %.lr.ph174
 
-.lr.ph174.preheader:                              ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit125
-  %umax189 = tail call i64 @llvm.umax.i64(i64 %213, i64 1)
-  br label %.lr.ph174
-
-.lr.ph174:                                        ; preds = %.lr.ph174.preheader, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit129
-  %257 = phi i64 [ %271, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit129 ], [ %256, %.lr.ph174.preheader ]
-  %.067173 = phi i64 [ %272, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit129 ], [ 0, %.lr.ph174.preheader ]
+.lr.ph174:                                        ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit125, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit129
+  %257 = phi i64 [ %271, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit129 ], [ %256, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit125 ]
+  %.067173 = phi i64 [ %272, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit129 ], [ 0, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit125 ]
   %258 = getelementptr inbounds nuw i64, ptr %23, i64 %.067173
   %259 = load i64, ptr %258, align 8
   %260 = add i64 %257, 8
@@ -1371,8 +1363,8 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit129: ; preds = %.lr.ph174, %266
   %271 = add i64 %270, 8
   store i64 %271, ptr %6, align 8
   %272 = add nuw nsw i64 %.067173, 1
-  %exitcond190.not = icmp eq i64 %272, %umax189
-  br i1 %exitcond190.not, label %.loopexit, label %.lr.ph174, !llvm.loop !14
+  %exitcond188.not = icmp eq i64 %272, %213
+  br i1 %exitcond188.not, label %.loopexit, label %.lr.ph174, !llvm.loop !14
 
 273:                                              ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1458,15 +1450,11 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit141: ; preds = %_ZN6Assimp12Strea
   %322 = add i64 %321, 4
   store i64 %322, ptr %6, align 8
   %.not179 = icmp ult i64 %278, 4
-  br i1 %.not179, label %.loopexit, label %.lr.ph172.preheader
+  br i1 %.not179, label %.loopexit, label %.lr.ph172
 
-.lr.ph172.preheader:                              ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit141
-  %umax187 = tail call i64 @llvm.umax.i64(i64 %279, i64 1)
-  br label %.lr.ph172
-
-.lr.ph172:                                        ; preds = %.lr.ph172.preheader, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit145
-  %323 = phi i64 [ %337, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit145 ], [ %322, %.lr.ph172.preheader ]
-  %.066171 = phi i64 [ %338, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit145 ], [ 0, %.lr.ph172.preheader ]
+.lr.ph172:                                        ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit141, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit145
+  %323 = phi i64 [ %337, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit145 ], [ %322, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit141 ]
+  %.066171 = phi i64 [ %338, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit145 ], [ 0, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit141 ]
   %324 = getelementptr inbounds nuw float, ptr %23, i64 %.066171
   %325 = load float, ptr %324, align 4
   %326 = add i64 %323, 4
@@ -1493,8 +1481,8 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit145: ; preds = %.lr.ph172, %332
   %337 = add i64 %336, 4
   store i64 %337, ptr %6, align 8
   %338 = add nuw nsw i64 %.066171, 1
-  %exitcond188.not = icmp eq i64 %338, %umax187
-  br i1 %exitcond188.not, label %.loopexit, label %.lr.ph172, !llvm.loop !15
+  %exitcond187.not = icmp eq i64 %338, %279
+  br i1 %exitcond187.not, label %.loopexit, label %.lr.ph172, !llvm.loop !15
 
 339:                                              ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1580,15 +1568,11 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit157: ; preds = %_ZN6Assimp12Strea
   %388 = add i64 %387, 4
   store i64 %388, ptr %6, align 8
   %.not = icmp ult i64 %344, 8
-  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit157
-  %umax = tail call i64 @llvm.umax.i64(i64 %345, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit161
-  %389 = phi i64 [ %403, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit161 ], [ %388, %.lr.ph.preheader ]
-  %.065170 = phi i64 [ %404, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit161 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit157, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit161
+  %389 = phi i64 [ %403, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit161 ], [ %388, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit157 ]
+  %.065170 = phi i64 [ %404, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit161 ], [ 0, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit157 ]
   %390 = getelementptr inbounds nuw double, ptr %23, i64 %.065170
   %391 = load double, ptr %390, align 8
   %392 = add i64 %389, 8
@@ -1615,7 +1599,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit161: ; preds = %.lr.ph, %398
   %403 = add i64 %402, 8
   store i64 %403, ptr %6, align 8
   %404 = add nuw nsw i64 %.065170, 1
-  %exitcond.not = icmp eq i64 %404, %umax
+  %exitcond.not = icmp eq i64 %404, %345
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 405:                                              ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit
@@ -1690,9 +1674,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %417
   resume { ptr, i32 } %.pn.pn
 
 .loopexit.sink.split:                             ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit75, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI2Es.exit, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit
-  %.sink231 = phi i64 [ 8, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit ], [ 8, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit ], [ 4, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit ], [ 4, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit ], [ 2, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI2Es.exit ], [ 1, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit75 ]
+  %.sink228 = phi i64 [ 8, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit ], [ 8, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit ], [ 4, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit ], [ 4, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit ], [ 2, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI2Es.exit ], [ 1, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit75 ]
   %426 = load i64, ptr %6, align 8
-  %427 = add i64 %426, %.sink231
+  %427 = add i64 %426, %.sink228
   store i64 %427, ptr %6, align 8
   br label %.loopexit
 
@@ -2101,8 +2085,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit173: ; preds = %64, %6
 
 87:                                               ; preds = %.lr.ph309
   %88 = add nuw i64 %.0158308, 1
-  %exitcond345.not = icmp eq i64 %88, %42
-  br i1 %exitcond345.not, label %.loopexit, label %.lr.ph309, !llvm.loop !24
+  %exitcond342.not = icmp eq i64 %88, %42
+  br i1 %exitcond342.not, label %.loopexit, label %.lr.ph309, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph309, %87, %.preheader, %3
   %.0146 = phi i64 [ %42, %3 ], [ 0, %.preheader ], [ %.0158308, %.lr.ph309 ], [ %42, %87 ]
@@ -2137,8 +2121,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit176: ; preds = %95, %9
 
 104:                                              ; preds = %.lr.ph313
   %105 = add nuw i64 %.0157312, 1
-  %exitcond347.not = icmp eq i64 %105, %103
-  br i1 %exitcond347.not, label %._crit_edge314, label %.lr.ph313, !llvm.loop !25
+  %exitcond343.not = icmp eq i64 %105, %103
+  br i1 %exitcond343.not, label %._crit_edge314, label %.lr.ph313, !llvm.loop !25
 
 ._crit_edge314:                                   ; preds = %104, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit176
   %106 = add i64 %.0146, 2
@@ -2266,8 +2250,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit182: ; preds = %145, %
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit185: ; preds = %158, %160
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %162 = add nuw i64 %.0145320, 1
-  %exitcond348.not = icmp eq i64 %162, %.0146
-  br i1 %exitcond348.not, label %._crit_edge323, label %.lr.ph322, !llvm.loop !27
+  %exitcond344.not = icmp eq i64 %162, %.0146
+  br i1 %exitcond344.not, label %._crit_edge323, label %.lr.ph322, !llvm.loop !27
 
 163:                                              ; preds = %3
   %164 = lshr i64 %42, 2
@@ -2301,11 +2285,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit188: ; preds = %171, %
 ._crit_edge299:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit191, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit188
   %177 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.6, i64 noundef 3)
   %.not326 = icmp ult i64 %42, 4
-  br i1 %.not326, label %._crit_edge304, label %.lr.ph303.preheader
-
-.lr.ph303.preheader:                              ; preds = %._crit_edge299
-  %umax342 = call i64 @llvm.umax.i64(i64 %164, i64 1)
-  br label %.lr.ph303
+  br i1 %.not326, label %._crit_edge304, label %.lr.ph303
 
 .lr.ph298:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit188, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit191
   %.0144297 = phi i32 [ %188, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit191 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit188 ]
@@ -2331,8 +2311,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit188: ; preds = %171, %
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit191: ; preds = %184, %186
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %188 = add nuw i32 %.0144297, 1
-  %exitcond341.not = icmp eq i32 %.0144297, %2
-  br i1 %exitcond341.not, label %._crit_edge299, label %.lr.ph298, !llvm.loop !28
+  %exitcond339.not = icmp eq i32 %.0144297, %2
+  br i1 %exitcond339.not, label %._crit_edge299, label %.lr.ph298, !llvm.loop !28
 
 ._crit_edge304:                                   ; preds = %225, %._crit_edge299
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
@@ -2359,9 +2339,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit194: ; preds = %195, %
   %199 = icmp sgt i32 %2, 0
   br i1 %199, label %.lr.ph306, label %._crit_edge307
 
-.lr.ph303:                                        ; preds = %.lr.ph303.preheader, %225
-  %.0143301 = phi i64 [ %229, %225 ], [ 0, %.lr.ph303.preheader ]
-  %.0154300 = phi i64 [ %.1155, %225 ], [ 0, %.lr.ph303.preheader ]
+.lr.ph303:                                        ; preds = %._crit_edge299, %225
+  %.0143301 = phi i64 [ %229, %225 ], [ 0, %._crit_edge299 ]
+  %.0154300 = phi i64 [ %.1155, %225 ], [ 0, %._crit_edge299 ]
   %.not165 = icmp eq i64 %.0143301, 0
   br i1 %.not165, label %211, label %200
 
@@ -2424,8 +2404,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit200: ; preds = %221, %
   %227 = load i32, ptr %226, align 4
   %228 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %227)
   %229 = add nuw nsw i64 %.0143301, 1
-  %exitcond343.not = icmp eq i64 %229, %umax342
-  br i1 %exitcond343.not, label %._crit_edge304, label %.lr.ph303, !llvm.loop !29
+  %exitcond340.not = icmp eq i64 %229, %164
+  br i1 %exitcond340.not, label %._crit_edge304, label %.lr.ph303, !llvm.loop !29
 
 ._crit_edge307:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit203, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit194
   %230 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.7, i64 noundef 2)
@@ -2455,8 +2435,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit200: ; preds = %221, %
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit203: ; preds = %237, %239
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %241 = add nuw nsw i32 %.0142305, 1
-  %exitcond344.not = icmp eq i32 %241, %2
-  br i1 %exitcond344.not, label %._crit_edge307, label %.lr.ph306, !llvm.loop !30
+  %exitcond341.not = icmp eq i32 %241, %2
+  br i1 %exitcond341.not, label %._crit_edge307, label %.lr.ph306, !llvm.loop !30
 
 242:                                              ; preds = %3
   %243 = lshr i64 %42, 3
@@ -2490,11 +2470,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit206: ; preds = %250, %
 ._crit_edge287:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit209, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit206
   %256 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.6, i64 noundef 3)
   %.not325 = icmp ult i64 %42, 8
-  br i1 %.not325, label %._crit_edge292, label %.lr.ph291.preheader
-
-.lr.ph291.preheader:                              ; preds = %._crit_edge287
-  %umax338 = call i64 @llvm.umax.i64(i64 %243, i64 1)
-  br label %.lr.ph291
+  br i1 %.not325, label %._crit_edge292, label %.lr.ph291
 
 .lr.ph286:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit206, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit209
   %.0141285 = phi i32 [ %267, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit209 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit206 ]
@@ -2520,8 +2496,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit206: ; preds = %250, %
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit209: ; preds = %263, %265
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %267 = add nuw i32 %.0141285, 1
-  %exitcond337.not = icmp eq i32 %.0141285, %2
-  br i1 %exitcond337.not, label %._crit_edge287, label %.lr.ph286, !llvm.loop !31
+  %exitcond336.not = icmp eq i32 %.0141285, %2
+  br i1 %exitcond336.not, label %._crit_edge287, label %.lr.ph286, !llvm.loop !31
 
 ._crit_edge292:                                   ; preds = %304, %._crit_edge287
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -2548,9 +2524,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit212: ; preds = %274, %
   %278 = icmp sgt i32 %2, 0
   br i1 %278, label %.lr.ph294, label %._crit_edge295
 
-.lr.ph291:                                        ; preds = %.lr.ph291.preheader, %304
-  %.0140289 = phi i64 [ %308, %304 ], [ 0, %.lr.ph291.preheader ]
-  %.2156288 = phi i64 [ %.3, %304 ], [ 0, %.lr.ph291.preheader ]
+.lr.ph291:                                        ; preds = %._crit_edge287, %304
+  %.0140289 = phi i64 [ %308, %304 ], [ 0, %._crit_edge287 ]
+  %.2156288 = phi i64 [ %.3, %304 ], [ 0, %._crit_edge287 ]
   %.not163 = icmp eq i64 %.0140289, 0
   br i1 %.not163, label %290, label %279
 
@@ -2613,8 +2589,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit218: ; preds = %300, %
   %306 = load i64, ptr %305, align 8
   %307 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %306)
   %308 = add nuw nsw i64 %.0140289, 1
-  %exitcond339.not = icmp eq i64 %308, %umax338
-  br i1 %exitcond339.not, label %._crit_edge292, label %.lr.ph291, !llvm.loop !32
+  %exitcond337.not = icmp eq i64 %308, %243
+  br i1 %exitcond337.not, label %._crit_edge292, label %.lr.ph291, !llvm.loop !32
 
 ._crit_edge295:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit221, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit212
   %309 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.7, i64 noundef 2)
@@ -2644,8 +2620,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit218: ; preds = %300, %
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit221: ; preds = %316, %318
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %320 = add nuw nsw i32 %.0139293, 1
-  %exitcond340.not = icmp eq i32 %320, %2
-  br i1 %exitcond340.not, label %._crit_edge295, label %.lr.ph294, !llvm.loop !33
+  %exitcond338.not = icmp eq i32 %320, %2
+  br i1 %exitcond338.not, label %._crit_edge295, label %.lr.ph294, !llvm.loop !33
 
 321:                                              ; preds = %3
   %322 = lshr i64 %42, 2
@@ -2679,11 +2655,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit224: ; preds = %329, %
 ._crit_edge275:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit227, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit224
   %335 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.6, i64 noundef 3)
   %.not324 = icmp ult i64 %42, 4
-  br i1 %.not324, label %._crit_edge280, label %.lr.ph279.preheader
-
-.lr.ph279.preheader:                              ; preds = %._crit_edge275
-  %umax334 = call i64 @llvm.umax.i64(i64 %322, i64 1)
-  br label %.lr.ph279
+  br i1 %.not324, label %._crit_edge280, label %.lr.ph279
 
 .lr.ph274:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit224, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit227
   %.0138273 = phi i32 [ %346, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit227 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit224 ]
@@ -2737,9 +2709,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit230: ; preds = %353, %
   %357 = icmp sgt i32 %2, 0
   br i1 %357, label %.lr.ph282, label %._crit_edge283
 
-.lr.ph279:                                        ; preds = %.lr.ph279.preheader, %383
-  %.0137277 = phi i64 [ %388, %383 ], [ 0, %.lr.ph279.preheader ]
-  %.4276 = phi i64 [ %.5, %383 ], [ 0, %.lr.ph279.preheader ]
+.lr.ph279:                                        ; preds = %._crit_edge275, %383
+  %.0137277 = phi i64 [ %388, %383 ], [ 0, %._crit_edge275 ]
+  %.4276 = phi i64 [ %.5, %383 ], [ 0, %._crit_edge275 ]
   %.not161 = icmp eq i64 %.0137277, 0
   br i1 %.not161, label %369, label %358
 
@@ -2803,8 +2775,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit236: ; preds = %379, %
   %386 = fpext float %385 to double
   %387 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %386)
   %388 = add nuw nsw i64 %.0137277, 1
-  %exitcond335.not = icmp eq i64 %388, %umax334
-  br i1 %exitcond335.not, label %._crit_edge280, label %.lr.ph279, !llvm.loop !35
+  %exitcond334.not = icmp eq i64 %388, %322
+  br i1 %exitcond334.not, label %._crit_edge280, label %.lr.ph279, !llvm.loop !35
 
 ._crit_edge283:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit239, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit230
   %389 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.7, i64 noundef 2)
@@ -2834,8 +2806,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit236: ; preds = %379, %
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit239: ; preds = %396, %398
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %400 = add nuw nsw i32 %.0136281, 1
-  %exitcond336.not = icmp eq i32 %400, %2
-  br i1 %exitcond336.not, label %._crit_edge283, label %.lr.ph282, !llvm.loop !36
+  %exitcond335.not = icmp eq i32 %400, %2
+  br i1 %exitcond335.not, label %._crit_edge283, label %.lr.ph282, !llvm.loop !36
 
 401:                                              ; preds = %3
   %402 = lshr i64 %42, 3
@@ -2875,11 +2847,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit242: ; preds = %409, %
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 8
   store i64 15, ptr %420, align 8
   %.not = icmp ult i64 %42, 8
-  br i1 %.not, label %._crit_edge268, label %.lr.ph267.preheader
-
-.lr.ph267.preheader:                              ; preds = %._crit_edge
-  %umax = call i64 @llvm.umax.i64(i64 %402, i64 1)
-  br label %.lr.ph267
+  br i1 %.not, label %._crit_edge268, label %.lr.ph267
 
 .lr.ph:                                           ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit242, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit245
   %.0135263 = phi i32 [ %431, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit245 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit242 ]
@@ -2933,9 +2901,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit248: ; preds = %438, %
   %442 = icmp sgt i32 %2, 0
   br i1 %442, label %.lr.ph270, label %._crit_edge271
 
-.lr.ph267:                                        ; preds = %.lr.ph267.preheader, %468
-  %.0134265 = phi i64 [ %472, %468 ], [ 0, %.lr.ph267.preheader ]
-  %.6264 = phi i64 [ %.7, %468 ], [ 0, %.lr.ph267.preheader ]
+.lr.ph267:                                        ; preds = %._crit_edge, %468
+  %.0134265 = phi i64 [ %472, %468 ], [ 0, %._crit_edge ]
+  %.6264 = phi i64 [ %.7, %468 ], [ 0, %._crit_edge ]
   %.not159 = icmp eq i64 %.0134265, 0
   br i1 %.not159, label %454, label %443
 
@@ -2998,7 +2966,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit254: ; preds = %464, %
   %470 = load double, ptr %469, align 8
   %471 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %470)
   %472 = add nuw nsw i64 %.0134265, 1
-  %exitcond331.not = icmp eq i64 %472, %umax
+  %exitcond331.not = icmp eq i64 %472, %402
   br i1 %exitcond331.not, label %._crit_edge268, label %.lr.ph267, !llvm.loop !38
 
 ._crit_edge271:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit257, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit248

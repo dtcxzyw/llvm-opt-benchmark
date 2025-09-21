@@ -16685,15 +16685,18 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_.exit.i:
   br i1 %387, label %_ZN4llvm7CCState16AllocateRegBlockENS_8ArrayRefItEEj.exit.thread16.i, label %.preheader45.i.i
 
 .preheader45.i.i:                                 ; preds = %385
-  %388 = sub nuw nsw i64 6, %386
   %.not2548.not.i.i = icmp eq i32 %383, 0
-  %389 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %390 = load ptr, ptr %389, align 8
-  br i1 %.not2548.not.i.i, label %_ZN4llvm7CCState16AllocateRegBlockENS_8ArrayRefItEEj.exit.thread16.i, label %.preheader.us.i.i
+  %388 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %389 = load ptr, ptr %388, align 8
+  br i1 %.not2548.not.i.i, label %_ZN4llvm7CCState16AllocateRegBlockENS_8ArrayRefItEEj.exit.thread16.i, label %.preheader.us.i.preheader.i
 
-.preheader.us.i.i:                                ; preds = %.preheader45.i.i, %.critedge27.us.i.i
-  %391 = phi i64 [ %408, %.critedge27.us.i.i ], [ 0, %.preheader45.i.i ]
-  %.02253.us.i.i = phi i32 [ %407, %.critedge27.us.i.i ], [ 0, %.preheader45.i.i ]
+.preheader.us.i.preheader.i:                      ; preds = %.preheader45.i.i
+  %390 = sub nuw nsw i32 5, %382
+  br label %.preheader.us.i.i
+
+.preheader.us.i.i:                                ; preds = %.critedge27.us.i.i, %.preheader.us.i.preheader.i
+  %391 = phi i64 [ %408, %.critedge27.us.i.i ], [ 0, %.preheader.us.i.preheader.i ]
+  %.02253.us.i.i = phi i32 [ %407, %.critedge27.us.i.i ], [ 0, %.preheader.us.i.preheader.i ]
   br label %393
 
 392:                                              ; preds = %393
@@ -16711,7 +16714,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_.exit.i:
   %399 = zext i16 %398 to i32
   %400 = lshr i32 %399, 5
   %401 = zext nneg i32 %400 to i64
-  %402 = getelementptr inbounds nuw i32, ptr %390, i64 %401
+  %402 = getelementptr inbounds nuw i32, ptr %389, i64 %401
   %403 = load i32, ptr %402, align 4, !tbaa !286
   %404 = and i32 %399, 31
   %405 = shl nuw i32 1, %404
@@ -16722,7 +16725,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_.exit.i:
 .critedge27.us.i.i:                               ; preds = %393
   %407 = add i32 %.02253.us.i.i, 1
   %408 = zext i32 %407 to i64
-  %.not.us.i.i = icmp samesign ult i64 %388, %408
+  %.not.us.i.i = icmp ult i32 %390, %407
   br i1 %.not.us.i.i, label %_ZN4llvm7CCState16AllocateRegBlockENS_8ArrayRefItEEj.exit.thread16.i, label %.preheader.us.i.i, !llvm.loop !790
 
 .critedge.i.i:                                    ; preds = %392, %.critedge.i.i

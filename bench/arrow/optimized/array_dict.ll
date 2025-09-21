@@ -81322,20 +81322,17 @@ _ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i:           ; preds = %_ZL20XXH3_accumulat
 
 ._crit_edge:                                      ; preds = %_ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i, %115
   %160 = mul nuw nsw i64 %117, 576
-  %161 = icmp ult i64 %.recomposed, 1152
-  tail call void @llvm.assume(i1 %161)
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 %160
+  %161 = lshr i64 %.recomposed, 6
+  %162 = icmp ult i64 %.recomposed, 1152
+  tail call void @llvm.assume(i1 %162)
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 %160
   %.not10 = icmp samesign ult i64 %.recomposed, 64
-  br i1 %.not10, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph8.preheader
+  br i1 %.not10, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph8
 
-.lr.ph8.preheader:                                ; preds = %._crit_edge
-  %163 = lshr i64 %.recomposed, 6
-  br label %.lr.ph8
-
-.lr.ph8:                                          ; preds = %.lr.ph8.preheader, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit7
-  %.0.i.i6 = phi i64 [ %186, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit7 ], [ 0, %.lr.ph8.preheader ]
+.lr.ph8:                                          ; preds = %._crit_edge, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit7
+  %.0.i.i6 = phi i64 [ %186, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit7 ], [ 0, %._crit_edge ]
   %164 = shl nuw nsw i64 %.0.i.i6, 6
-  %165 = getelementptr inbounds nuw i8, ptr %162, i64 %164
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 %164
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull %166, i32 0, i32 3, i32 1)
   %167 = shl nuw nsw i64 %.0.i.i6, 3
@@ -81367,7 +81364,7 @@ _ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i:           ; preds = %_ZL20XXH3_accumulat
 
 _ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit7:      ; preds = %169
   %186 = add nuw nsw i64 %.0.i.i6, 1
-  %exitcond15.not = icmp eq i64 %186, %163
+  %exitcond15.not = icmp eq i64 %186, %161
   br i1 %exitcond15.not, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph8, !llvm.loop !3448
 
 _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit7, %._crit_edge

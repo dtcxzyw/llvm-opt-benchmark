@@ -2921,8 +2921,7 @@ sbr_make_f_master.exit.thread:                    ; preds = %17, %157, %143, %.c
 .lr.ph.preheader.i:                               ; preds = %627
   %629 = and i32 %598, 1
   %630 = zext nneg i32 %629 to i64
-  %umax.i = call i32 @llvm.umax.i32(i32 %602, i32 1)
-  %631 = add nuw i32 %umax.i, 1
+  %631 = add nuw i32 %602, 1
   %wide.trip.count.i9 = zext i32 %631 to i64
   br label %.lr.ph.i10
 

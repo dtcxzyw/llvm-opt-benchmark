@@ -133,7 +133,7 @@ if.end3.i.i:                                      ; preds = %if.end
 
 while.cond8.preheader.i.i:                        ; preds = %if.end3.i.i, %if.then17.i.i
   %i.043.i.i = phi ptr [ %add.ptr29.i.i, %if.then17.i.i ], [ %value.coerce0, %if.end3.i.i ]
-  %skip.042.i.i = phi i64 [ %skip.1.i.i, %if.then17.i.i ], [ 0, %if.end3.i.i ]
+  %skip.042.i.i = phi i64 [ %spec.select, %if.then17.i.i ], [ 0, %if.end3.i.i ]
   br label %while.cond8.i.i
 
 while.cond8.i.i:                                  ; preds = %while.body10.i.i, %while.cond8.preheader.i.i
@@ -159,8 +159,8 @@ for.cond.i.i:                                     ; preds = %while.cond8.i.i, %i
 
 if.then17.i.i:                                    ; preds = %for.cond.i.i
   %cmp18.i.i = icmp eq i64 %skip.042.i.i, 0
-  %skip.1.i.i = select i1 %cmp18.i.i, i64 3, i64 %skip.042.i.i
-  %add.ptr29.i.i = getelementptr inbounds nuw i8, ptr %i.1.i.i, i64 %skip.1.i.i
+  %spec.select = select i1 %cmp18.i.i, i64 3, i64 %skip.042.i.i
+  %add.ptr29.i.i = getelementptr inbounds nuw i8, ptr %i.1.i.i, i64 %spec.select
   %cmp7.i.i = icmp ult ptr %add.ptr29.i.i, %add.ptr.i1.i
   br i1 %cmp7.i.i, label %while.cond8.preheader.i.i, label %sw.epilog, !llvm.loop !7
 

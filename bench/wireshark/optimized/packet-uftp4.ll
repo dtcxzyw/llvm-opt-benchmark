@@ -802,7 +802,7 @@ define internal i32 @dissect_uftp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %30 = xor i32 %23, 255
   %31 = uitofp nneg i32 %30 to double
   %32 = fdiv double %31, 1.300000e+01
-  %33 = tail call double @exp(double noundef %32) #4
+  %33 = tail call double @exp(double noundef %32) #3
   %34 = fdiv double 1.000000e+03, %33
   br label %unquantize_grtt.exit
 
@@ -1236,17 +1236,16 @@ dissect_uftp_encinfo.exit:                        ; preds = %135, %134
 dissect_uftp_encinfo.exit.thread:                 ; preds = %dissect_uftp_encinfo.exit, %.lr.ph, %52, %80, %60
   %141 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %142 = sub i32 %141, %12
+  %143 = lshr i32 %142, 2
   %.not124 = icmp ult i32 %142, 4
   br i1 %.not124, label %.loopexit, label %.lr.ph137.preheader
 
 .lr.ph137.preheader:                              ; preds = %dissect_uftp_encinfo.exit.thread
-  %143 = lshr i32 %142, 2
   %144 = load i32, ptr @hf_uftp_destlist, align 4
   %145 = and i32 %142, -4
   %146 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %144, ptr noundef %0, i32 noundef %12, i32 noundef %145, i32 noundef 0)
   %147 = load i32, ptr @ett_uftp_destlist, align 4
   %148 = tail call ptr @proto_item_add_subtree(ptr noundef %146, i32 noundef %147)
-  %umax = tail call i32 @llvm.umax.i32(i32 %143, i32 1)
   br label %.lr.ph137
 
 .lr.ph137:                                        ; preds = %.lr.ph137.preheader, %.lr.ph137
@@ -1256,7 +1255,7 @@ dissect_uftp_encinfo.exit.thread:                 ; preds = %dissect_uftp_encinf
   %150 = tail call ptr @proto_tree_add_item(ptr noundef %148, i32 noundef %149, ptr noundef %0, i32 noundef %.3135, i32 noundef 4, i32 noundef 0)
   %151 = add i32 %.3135, 4
   %152 = add nuw nsw i32 %.0115136, 1
-  %exitcond.not = icmp eq i32 %152, %umax
+  %exitcond.not = icmp eq i32 %152, %143
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph137, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph137, %dissect_uftp_encinfo.exit.thread, %15, %6
@@ -2759,7 +2758,7 @@ unquantize_rate.exit:                             ; preds = %.lr.ph.i, %19
   %63 = xor i32 %56, 255
   %64 = uitofp nneg i32 %63 to double
   %65 = fdiv double %64, 1.300000e+01
-  %66 = tail call double @exp(double noundef %65) #4
+  %66 = tail call double @exp(double noundef %65) #3
   %67 = fdiv double 1.000000e+03, %66
   br label %unquantize_grtt.exit
 
@@ -3148,14 +3147,10 @@ unquantize_rate.exit:                             ; preds = %.lr.ph.i, %19
   ret i32 %.0
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #3
-
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -1114,7 +1114,7 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %77 ], [ 0, %13 ]
   %52 = shl nuw nsw i64 %indvars.iv128, 5
   %53 = shl nuw nsw i64 %indvars.iv128, 3
-  %invariant.gep165 = getelementptr inbounds nuw i8, ptr %6, i64 %53
+  %invariant.gep163 = getelementptr inbounds nuw i8, ptr %6, i64 %53
   %invariant.gep = getelementptr inbounds nuw i8, ptr %5, i64 %52
   br label %.preheader94
 
@@ -1127,31 +1127,31 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
 .preheader94:                                     ; preds = %.preheader95, %75
   %indvars.iv125 = phi i64 [ 0, %.preheader95 ], [ %indvars.iv.next126, %75 ]
   %57 = lshr exact i64 %indvars.iv125, 1
-  %gep166 = getelementptr inbounds nuw i8, ptr %invariant.gep165, i64 %57
-  %gep167 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv125
+  %gep164 = getelementptr inbounds nuw i8, ptr %invariant.gep163, i64 %57
+  %gep165 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv125
   br label %58
 
 58:                                               ; preds = %.preheader94, %58
   %indvars.iv121 = phi i64 [ 0, %.preheader94 ], [ %indvars.iv.next122, %58 ]
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %gep164 = getelementptr inbounds nuw [1024 x i8], ptr %gep167, i64 %indvars.iv.next122
-  %59 = load i8, ptr %gep164, align 2, !tbaa !43
+  %gep162 = getelementptr inbounds nuw [1024 x i8], ptr %gep165, i64 %indvars.iv.next122
+  %59 = load i8, ptr %gep162, align 2, !tbaa !43
   %60 = zext i8 %59 to i16
-  %61 = getelementptr inbounds nuw i8, ptr %gep164, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %gep162, i64 1
   %62 = load i8, ptr %61, align 1, !tbaa !43
   %63 = zext i8 %62 to i16
   %64 = add nuw nsw i16 %63, %60
-  %65 = getelementptr inbounds nuw i8, ptr %gep164, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %gep162, i64 32
   %66 = load i8, ptr %65, align 2, !tbaa !43
   %67 = zext i8 %66 to i16
   %68 = add nuw nsw i16 %64, %67
-  %69 = getelementptr inbounds nuw i8, ptr %gep164, i64 33
+  %69 = getelementptr inbounds nuw i8, ptr %gep162, i64 33
   %70 = load i8, ptr %69, align 1, !tbaa !43
   %71 = zext i8 %70 to i16
   %72 = add nuw nsw i16 %68, %71
   %73 = lshr i16 %72, 2
   %74 = trunc nuw i16 %73 to i8
-  %gep = getelementptr inbounds nuw [256 x i8], ptr %gep166, i64 %indvars.iv121
+  %gep = getelementptr inbounds nuw [256 x i8], ptr %gep164, i64 %indvars.iv121
   store i8 %74, ptr %gep, align 1, !tbaa !43
   %exitcond124.not = icmp eq i64 %indvars.iv.next122, 3
   br i1 %exitcond124.not, label %75, label %58, !llvm.loop !78
@@ -1208,7 +1208,7 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
   br i1 %exitcond134.not, label %.preheader, label %88, !llvm.loop !81
 
 105:                                              ; preds = %.lr.ph112, %fic_alpha_blend.exit89
-  %indvars.iv157 = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next158, %fic_alpha_blend.exit89 ]
+  %indvars.iv155 = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next156, %fic_alpha_blend.exit89 ]
   %106 = phi ptr [ %.promoted115, %.lr.ph112 ], [ %196, %fic_alpha_blend.exit89 ]
   %107 = phi ptr [ %.promoted113, %.lr.ph112 ], [ %192, %fic_alpha_blend.exit89 ]
   %108 = phi ptr [ %.promoted, %.lr.ph112 ], [ %188, %fic_alpha_blend.exit89 ]
@@ -1216,15 +1216,14 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
   %110 = sub nsw i32 %109, %1
   %spec.select83 = tail call i32 @llvm.smin.i32(i32 %110, i32 32)
   %111 = sdiv i32 %spec.select83, 2
-  %112 = shl i64 %indvars.iv157, 5
+  %112 = shl i64 %indvars.iv155, 5
   %113 = getelementptr inbounds nuw i8, ptr %5, i64 %112
   %114 = getelementptr inbounds nuw i8, ptr %12, i64 %112
   %115 = icmp sgt i32 %110, 0
   br i1 %115, label %.lr.ph.preheader, label %fic_alpha_blend.exit89
 
 .lr.ph.preheader:                                 ; preds = %105
-  %smax = tail call i32 @llvm.smax.i32(i32 %spec.select83, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %spec.select83 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1257,8 +1256,7 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
   %134 = or disjoint i64 %112, 32
   %135 = getelementptr inbounds i8, ptr %5, i64 %134
   %136 = getelementptr inbounds i8, ptr %12, i64 %134
-  %smax142 = tail call i32 @llvm.smax.i32(i32 %spec.select83, i32 1)
-  %wide.trip.count143 = zext nneg i32 %smax142 to i64
+  %wide.trip.count142 = zext nneg i32 %spec.select83 to i64
   br label %.lr.ph105
 
 .lr.ph105:                                        ; preds = %.lr.ph105.preheader, %.lr.ph105
@@ -1279,31 +1277,31 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
   %150 = add i8 %141, %149
   store i8 %150, ptr %140, align 1, !tbaa !43
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %exitcond144.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count143
-  br i1 %exitcond144.not, label %fic_alpha_blend.exit85, label %.lr.ph105, !llvm.loop !82
+  %exitcond143.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count142
+  br i1 %exitcond143.not, label %fic_alpha_blend.exit85, label %.lr.ph105, !llvm.loop !82
 
 fic_alpha_blend.exit85:                           ; preds = %.lr.ph105
-  %151 = shl nuw nsw i64 %indvars.iv157, 3
+  %151 = shl nuw nsw i64 %indvars.iv155, 3
   %152 = getelementptr inbounds nuw i8, ptr %6, i64 %151
   %153 = getelementptr inbounds nuw i8, ptr %85, i64 %151
   %.not = icmp eq i32 %110, 1
   br i1 %.not, label %fic_alpha_blend.exit89, label %.lr.ph107.preheader
 
 .lr.ph107.preheader:                              ; preds = %fic_alpha_blend.exit85
-  %smax148 = tail call i32 @llvm.smax.i32(i32 %111, i32 1)
-  %wide.trip.count149 = zext nneg i32 %smax148 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %111, i32 1)
+  %wide.trip.count147 = zext nneg i32 %smax to i64
   br label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.lr.ph107.preheader, %.lr.ph107
-  %indvars.iv145 = phi i64 [ 0, %.lr.ph107.preheader ], [ %indvars.iv.next146, %.lr.ph107 ]
-  %154 = getelementptr inbounds nuw i8, ptr %152, i64 %indvars.iv145
+  %indvars.iv144 = phi i64 [ 0, %.lr.ph107.preheader ], [ %indvars.iv.next145, %.lr.ph107 ]
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 %indvars.iv144
   %155 = load i8, ptr %154, align 1, !tbaa !43
   %156 = zext i8 %155 to i16
-  %157 = getelementptr inbounds nuw i8, ptr %107, i64 %indvars.iv145
+  %157 = getelementptr inbounds nuw i8, ptr %107, i64 %indvars.iv144
   %158 = load i8, ptr %157, align 1, !tbaa !43
   %159 = zext i8 %158 to i16
   %160 = sub nsw i16 %156, %159
-  %161 = getelementptr inbounds nuw i8, ptr %153, i64 %indvars.iv145
+  %161 = getelementptr inbounds nuw i8, ptr %153, i64 %indvars.iv144
   %162 = load i8, ptr %161, align 1, !tbaa !43
   %163 = zext i8 %162 to i16
   %164 = mul i16 %160, %163
@@ -1311,26 +1309,26 @@ fic_alpha_blend.exit85:                           ; preds = %.lr.ph105
   %166 = trunc nuw i16 %165 to i8
   %167 = add i8 %158, %166
   store i8 %167, ptr %157, align 1, !tbaa !43
-  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %exitcond150.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count149
-  br i1 %exitcond150.not, label %.lr.ph109.preheader, label %.lr.ph107, !llvm.loop !82
+  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
+  %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
+  br i1 %exitcond148.not, label %.lr.ph109.preheader, label %.lr.ph107, !llvm.loop !82
 
 .lr.ph109.preheader:                              ; preds = %.lr.ph107
   %168 = getelementptr inbounds nuw i8, ptr %87, i64 %151
-  %smax154 = tail call i32 @llvm.smax.i32(i32 %111, i32 1)
-  %wide.trip.count155 = zext nneg i32 %smax154 to i64
+  %smax152 = tail call i32 @llvm.smax.i32(i32 %111, i32 1)
+  %wide.trip.count153 = zext nneg i32 %smax152 to i64
   br label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %.lr.ph109.preheader, %.lr.ph109
-  %indvars.iv151 = phi i64 [ 0, %.lr.ph109.preheader ], [ %indvars.iv.next152, %.lr.ph109 ]
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 %indvars.iv151
+  %indvars.iv149 = phi i64 [ 0, %.lr.ph109.preheader ], [ %indvars.iv.next150, %.lr.ph109 ]
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 %indvars.iv149
   %170 = load i8, ptr %169, align 1, !tbaa !43
   %171 = zext i8 %170 to i16
-  %172 = getelementptr inbounds nuw i8, ptr %106, i64 %indvars.iv151
+  %172 = getelementptr inbounds nuw i8, ptr %106, i64 %indvars.iv149
   %173 = load i8, ptr %172, align 1, !tbaa !43
   %174 = zext i8 %173 to i16
   %175 = sub nsw i16 %171, %174
-  %176 = getelementptr inbounds nuw i8, ptr %153, i64 %indvars.iv151
+  %176 = getelementptr inbounds nuw i8, ptr %153, i64 %indvars.iv149
   %177 = load i8, ptr %176, align 1, !tbaa !43
   %178 = zext i8 %177 to i16
   %179 = mul i16 %175, %178
@@ -1338,9 +1336,9 @@ fic_alpha_blend.exit85:                           ; preds = %.lr.ph105
   %181 = trunc nuw i16 %180 to i8
   %182 = add i8 %173, %181
   store i8 %182, ptr %172, align 1, !tbaa !43
-  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
-  %exitcond156.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count155
-  br i1 %exitcond156.not, label %fic_alpha_blend.exit89, label %.lr.ph109, !llvm.loop !82
+  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
+  %exitcond154.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count153
+  br i1 %exitcond154.not, label %fic_alpha_blend.exit89, label %.lr.ph109, !llvm.loop !82
 
 fic_alpha_blend.exit89:                           ; preds = %.lr.ph109, %105, %fic_alpha_blend.exit85
   %183 = load ptr, ptr %54, align 8, !tbaa !44
@@ -1357,13 +1355,13 @@ fic_alpha_blend.exit89:                           ; preds = %.lr.ph109, %105, %f
   %194 = load i32, ptr %193, align 8, !tbaa !65
   %195 = sext i32 %194 to i64
   %196 = getelementptr inbounds i8, ptr %106, i64 %195
-  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 2
+  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 2
   %197 = load i32, ptr %79, align 4, !tbaa !34
   %198 = sub nsw i32 %197, %2
   %199 = tail call i32 @llvm.smin.i32(i32 %198, i32 32)
   %spec.select = add nsw i32 %199, -1
   %200 = sext i32 %spec.select to i64
-  %201 = icmp slt i64 %indvars.iv.next158, %200
+  %201 = icmp slt i64 %indvars.iv.next156, %200
   br i1 %201, label %105, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %fic_alpha_blend.exit89, %.preheader

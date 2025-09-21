@@ -1061,7 +1061,6 @@ define internal i32 @tt_cmap4_validate(ptr noundef %0, ptr noundef %1) #0 {
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %138 = or disjoint i32 %54, %57
   %139 = lshr i32 %138, 1
-  %umax = tail call i32 @llvm.umax.i32(i32 %139, i32 1)
   br label %140
 
 140:                                              ; preds = %.lr.ph214, %.loopexit
@@ -1251,7 +1250,7 @@ define internal i32 @tt_cmap4_validate(ptr noundef %0, ptr noundef %1) #0 {
 
 .loopexit:                                        ; preds = %232, %188, %238, %242, %216
   %243 = add nuw nsw i32 %.0173206, 1
-  %exitcond.not = icmp eq i32 %243, %umax
+  %exitcond.not = icmp eq i32 %243, %139
   br i1 %exitcond.not, label %._crit_edge, label %140, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.loopexit, %133
@@ -1358,10 +1357,10 @@ define internal range(i32 0, 65536) i32 @tt_cmap6_char_next(ptr noundef readonly
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
-  %.043 = phi i32 [ %43, %41 ], [ %25, %.lr.ph.preheader ]
-  %.03342 = phi ptr [ %31, %41 ], [ %30, %.lr.ph.preheader ]
-  %.13641 = phi i32 [ %42, %41 ], [ %spec.select, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
+  %.043 = phi i32 [ %42, %40 ], [ %25, %.lr.ph.preheader ]
+  %.03342 = phi ptr [ %31, %40 ], [ %30, %.lr.ph.preheader ]
+  %.13641 = phi i32 [ %41, %40 ], [ %spec.select, %.lr.ph.preheader ]
   %31 = getelementptr inbounds nuw i8, ptr %.03342, i64 2
   %32 = load i8, ptr %.03342, align 1, !tbaa !15
   %33 = zext i8 %32 to i32
@@ -1374,18 +1373,18 @@ define internal range(i32 0, 65536) i32 @tt_cmap6_char_next(ptr noundef readonly
   br i1 %.not, label %39, label %._crit_edge
 
 39:                                               ; preds = %.lr.ph
-  %40 = icmp ugt i32 %.13641, 65534
-  br i1 %40, label %.loopexit, label %41
+  %exitcond = icmp eq i32 %.13641, 65535
+  br i1 %exitcond, label %.loopexit, label %40
 
-41:                                               ; preds = %39
-  %42 = add nuw nsw i32 %.13641, 1
-  %43 = add nuw nsw i32 %.043, 1
-  %44 = icmp ult i32 %43, %14
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+40:                                               ; preds = %39
+  %41 = add nuw nsw i32 %.13641, 1
+  %42 = add nuw nsw i32 %.043, 1
+  %43 = icmp ult i32 %42, %14
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
-._crit_edge:                                      ; preds = %41, %.lr.ph, %16
-  %.1 = phi i32 [ 0, %16 ], [ %38, %.lr.ph ], [ 0, %41 ]
-  %.032 = phi i32 [ 0, %16 ], [ %.13641, %.lr.ph ], [ 0, %41 ]
+._crit_edge:                                      ; preds = %40, %.lr.ph, %16
+  %.1 = phi i32 [ 0, %16 ], [ %38, %.lr.ph ], [ 0, %40 ]
+  %.032 = phi i32 [ 0, %16 ], [ %.13641, %.lr.ph ], [ 0, %40 ]
   store i32 %.032, ptr %1, align 4, !tbaa !16
   br label %.loopexit
 
@@ -24569,11 +24568,11 @@ define internal fastcc range(i32 0, 65536) i32 @tt_cmap4_char_map_linear(ptr rea
   %13 = load i8, ptr %12, align 1, !tbaa !15
   %14 = zext i8 %13 to i32
   %15 = or disjoint i32 %11, %14
+  %16 = lshr i32 %15, 1
   %.not = icmp samesign ult i32 %15, 2
   br i1 %.not, label %.thread14, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %16 = lshr i32 %15, 1
   %17 = and i32 %15, 65534
   %18 = zext nneg i32 %17 to i64
   %19 = load i32, ptr %0, align 4, !tbaa !16
@@ -24585,7 +24584,6 @@ define internal fastcc range(i32 0, 65536) i32 @tt_cmap4_char_map_linear(ptr rea
   %25 = add nsw i32 %16, -1
   %.not114 = icmp eq i8 %1, 0
   %26 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %umax204 = tail call i32 @llvm.umax.i32(i32 %16, i32 1)
   br i1 %.not114, label %.lr.ph.split.us.split.us, label %.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %.thread4.split.us.split.us.us.us
@@ -24602,9 +24600,9 @@ define internal fastcc range(i32 0, 65536) i32 @tt_cmap4_char_map_linear(ptr rea
   %33 = load i8, ptr %32, align 1, !tbaa !15
   %34 = zext i8 %33 to i32
   %35 = or disjoint i32 %31, %34
-  %.not216 = icmp ult i32 %.094104.us.us, %35
+  %.not215 = icmp ult i32 %.094104.us.us, %35
   %.094104.us.us.mux = tail call i32 @llvm.umax.i32(i32 %.094104.us.us, i32 %35)
-  br i1 %.not216, label %.thread14, label %.split.us.us.us
+  br i1 %.not215, label %.thread14, label %.split.us.us.us
 
 .split.us.us.us:                                  ; preds = %.lr.ph.split.us.split.us
   %36 = load i8, ptr %.092105.us.us, align 1, !tbaa !15
@@ -24648,8 +24646,8 @@ define internal fastcc range(i32 0, 65536) i32 @tt_cmap4_char_map_linear(ptr rea
 
 .thread4.split.us.split.us.us.us:                 ; preds = %43, %.split.us.us.us
   %61 = add nuw nsw i32 %.0101103.us.us, 1
-  %exitcond205.not = icmp eq i32 %61, %umax204
-  br i1 %exitcond205.not, label %.thread10, label %.lr.ph.split.us.split.us, !llvm.loop !773
+  %exitcond204.not = icmp eq i32 %61, %16
+  br i1 %exitcond204.not, label %.thread10, label %.lr.ph.split.us.split.us, !llvm.loop !773
 
 .split49.us.split.us.split.us:                    ; preds = %43
   %62 = getelementptr inbounds nuw i8, ptr %44, i64 1
@@ -24823,18 +24821,18 @@ define internal fastcc range(i32 0, 65536) i32 @tt_cmap4_char_map_linear(ptr rea
 
 select.unfold:                                    ; preds = %153, %158
   %.4 = phi i32 [ %160, %158 ], [ %155, %153 ]
-  %.not215 = icmp eq i32 %.4, 0
-  br i1 %.not215, label %.thread, label %.thread10
+  %.not214 = icmp eq i32 %.4, 0
+  br i1 %.not214, label %.thread, label %.thread10
 
 .thread:                                          ; preds = %172, %167, %145, %153, %select.unfold
-  %.599220 = phi i32 [ %.397, %select.unfold ], [ %narrow, %172 ], [ %168, %167 ], [ %.397, %145 ], [ %.397, %153 ]
-  %173 = icmp ugt i32 %.599220, 65534
-  %174 = add nuw nsw i32 %.599220, 1
+  %.599219 = phi i32 [ %.397, %select.unfold ], [ %narrow, %172 ], [ %168, %167 ], [ %.397, %145 ], [ %.397, %153 ]
+  %173 = icmp ugt i32 %.599219, 65534
+  %174 = add nuw nsw i32 %.599219, 1
   br i1 %173, label %.thread10.thread21, label %118
 
 .thread4.split:                                   ; preds = %169, %138, %119, %118
   %175 = add nuw nsw i32 %.0101103, 1
-  %exitcond.not = icmp eq i32 %175, %umax204
+  %exitcond.not = icmp eq i32 %175, %16
   br i1 %exitcond.not, label %.thread10, label %.split, !llvm.loop !773
 
 .thread10:                                        ; preds = %.thread4.split, %select.unfold, %.thread4.split.us.split.us.us.us, %106, %.split135.us.split.us
@@ -24845,7 +24843,7 @@ select.unfold:                                    ; preds = %153, %158
 
 .thread10.thread21:                               ; preds = %.thread, %.thread10
   %.126 = phi i32 [ %.1, %.thread10 ], [ 0, %.thread ]
-  %.19525 = phi i32 [ %.195, %.thread10 ], [ %.599220, %.thread ]
+  %.19525 = phi i32 [ %.195, %.thread10 ], [ %.599219, %.thread ]
   store i32 %.19525, ptr %0, align 4, !tbaa !16
   br label %.thread14
 
