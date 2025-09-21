@@ -303,8 +303,8 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %69, ptr noundef nonnull @.str.95, ptr noundef %71)
   %72 = add i32 %.0367389, 4
   %73 = add nuw nsw i32 %.0362390, 1
-  %exitcond401.not = icmp eq i32 %73, %66
-  br i1 %exitcond401.not, label %.loopexit, label %.lr.ph391, !llvm.loop !6
+  %exitcond402.not = icmp eq i32 %73, %66
+  br i1 %exitcond402.not, label %.loopexit, label %.lr.ph391, !llvm.loop !6
 
 74:                                               ; preds = %35
   %75 = load i32, ptr @ett_dsr_rrep_opt, align 4

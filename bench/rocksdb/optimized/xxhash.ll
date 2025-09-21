@@ -2195,8 +2195,8 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i:  ; preds = %15
   %41 = mul <8 x i64> %37, splat (i64 -7046029290881679360)
   %42 = add <8 x i64> %40, %41
   %43 = add nuw nsw i64 %.0.i12.i20, 1
-  %exitcond46.not = icmp eq i64 %43, %10
-  br i1 %exitcond46.not, label %._crit_edge23, label %12, !llvm.loop !30
+  %exitcond47.not = icmp eq i64 %43, %10
+  br i1 %exitcond47.not, label %._crit_edge23, label %12, !llvm.loop !30
 
 ._crit_edge23:                                    ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i, %8
   %.lcssa1518.lcssa = phi <8 x i64> [ %.promoted17, %8 ], [ %42, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i ]
@@ -2228,8 +2228,8 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i:  ; preds = %15
   %62 = add <8 x i64> %49, %61
   %63 = add <8 x i64> %62, %60
   %64 = add nuw nsw i64 %.0.i.i.i27, 1
-  %exitcond47.not = icmp eq i64 %64, %47
-  br i1 %exitcond47.not, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i, label %.lr.ph29, !llvm.loop !29
+  %exitcond48.not = icmp eq i64 %64, %47
+  br i1 %exitcond48.not, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i, label %.lr.ph29, !llvm.loop !29
 
 _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i: ; preds = %.lr.ph29, %._crit_edge23
   %.lcssa26 = phi <8 x i64> [ %.lcssa1518.lcssa, %._crit_edge23 ], [ %63, %.lr.ph29 ]
@@ -5531,8 +5531,8 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i16.i: ; preds = %15
   %41 = mul <8 x i64> %37, splat (i64 -7046029290881679360)
   %42 = add <8 x i64> %40, %41
   %43 = add nuw nsw i64 %.0.i.i11.i24, 1
-  %exitcond52.not = icmp eq i64 %43, %10
-  br i1 %exitcond52.not, label %._crit_edge27, label %12, !llvm.loop !30
+  %exitcond53.not = icmp eq i64 %43, %10
+  br i1 %exitcond53.not, label %._crit_edge27, label %12, !llvm.loop !30
 
 ._crit_edge27:                                    ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i16.i, %8
   %.lcssa1922.lcssa = phi <8 x i64> [ %.promoted21, %8 ], [ %42, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i16.i ]
@@ -5564,8 +5564,8 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i16.i: ; preds = %15
   %62 = add <8 x i64> %49, %61
   %63 = add <8 x i64> %62, %60
   %64 = add nuw nsw i64 %.0.i.i.i12.i31, 1
-  %exitcond53.not = icmp eq i64 %64, %47
-  br i1 %exitcond53.not, label %_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.exit17.i, label %.lr.ph33, !llvm.loop !29
+  %exitcond54.not = icmp eq i64 %64, %47
+  br i1 %exitcond54.not, label %_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.exit17.i, label %.lr.ph33, !llvm.loop !29
 
 _ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.exit17.i: ; preds = %.lr.ph33, %._crit_edge27
   %.lcssa30 = phi <8 x i64> [ %.lcssa1922.lcssa, %._crit_edge27 ], [ %63, %.lr.ph33 ]

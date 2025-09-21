@@ -25360,8 +25360,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN4absl12lts_2024011618container_inter
   br i1 %.not.i, label %.thread.i.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4
-  %.phi.trans.insert12 = getelementptr i8, ptr %1, i64 10
-  %.pre13 = load i8, ptr %.phi.trans.insert12, align 1, !tbaa !118
+  %.phi.trans.insert11 = getelementptr i8, ptr %1, i64 10
+  %.pre12 = load i8, ptr %.phi.trans.insert11, align 1, !tbaa !118
   br label %25
 
 .thread.i.i:                                      ; preds = %4
@@ -25400,7 +25400,7 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_
   br label %25
 
 25:                                               ; preds = %._crit_edge, %_ZN4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIPKdSt4lessIS6_ESaIS6_ELi256ELb0EEEEERKS6_PSC_EmmEv.exit
-  %26 = phi i8 [ %23, %_ZN4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIPKdSt4lessIS6_ESaIS6_ELi256ELb0EEEEERKS6_PSC_EmmEv.exit ], [ %.pre13, %._crit_edge ]
+  %26 = phi i8 [ %23, %_ZN4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIPKdSt4lessIS6_ESaIS6_ELi256ELb0EEEEERKS6_PSC_EmmEv.exit ], [ %.pre12, %._crit_edge ]
   %27 = phi i8 [ %.pre, %_ZN4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIPKdSt4lessIS6_ESaIS6_ELi256ELb0EEEEERKS6_PSC_EmmEv.exit ], [ %8, %._crit_edge ]
   %28 = phi ptr [ %storemerge.lcssa.i.i.i, %_ZN4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIPKdSt4lessIS6_ESaIS6_ELi256ELb0EEEEERKS6_PSC_EmmEv.exit ], [ %1, %._crit_edge ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -25510,20 +25510,20 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIPKdSt4le
   %81 = zext nneg i32 %77 to i64
   br label %82
 
-82:                                               ; preds = %82, %.lr.ph.i
-  %indvars.iv = phi i64 [ %83, %82 ], [ %80, %.lr.ph.i ]
-  %83 = add nsw i64 %indvars.iv, -1
+80:                                               ; preds = %80, %.lr.ph.i
+  %.019.i = phi i64 [ %83, %82 ], [ %80, %.lr.ph.i ]
+  %81 = add nsw i64 %.019.i, -1
   %84 = getelementptr inbounds nuw ptr, ptr %79, i64 %83
-  %85 = load ptr, ptr %84, align 8, !tbaa !73
-  %86 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv
-  store ptr %85, ptr %86, align 8, !tbaa !73
-  %87 = getelementptr i8, ptr %85, i64 8
-  %88 = trunc nuw i64 %indvars.iv to i8
+  %83 = load ptr, ptr %84, align 8, !tbaa !73
+  %86 = getelementptr inbounds nuw ptr, ptr %80, i64 %.0.in30
+  store ptr %85, ptr %87, align 8, !tbaa !73
+  %86 = getelementptr i8, ptr %85, i64 8
+  %88 = trunc nuw i64 %.019.i to i8
   store i8 %88, ptr %87, align 1, !tbaa !118
-  %.wide = icmp ugt i64 %83, %81
-  br i1 %.wide, label %82, label %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIPKdSt4lessIS5_ESaIS5_ELi256ELb0EEEE13emplace_valueIJRKS5_EEEvhPS8_DpOT_.exit, !llvm.loop !1154
+  %.wide = icmp ugt i64 %81, %81
+  br i1 %66, label %81, label %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIPKdSt4lessIS5_ESaIS5_ELi256ELb0EEEE13emplace_valueIJRKS5_EEEvhPS8_DpOT_.exit, !llvm.loop !1154
 
-_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIPKdSt4lessIS5_ESaIS5_ELi256ELb0EEEE13emplace_valueIJRKS5_EEEvhPS8_DpOT_.exit: ; preds = %82, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIPKdSt4lessIS5_ESaIS5_ELi256ELb0EEEE19transfer_n_backwardEmmmPSA_PS8_.exit.i, %75
+_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIPKdSt4lessIS5_ESaIS5_ELi256ELb0EEEE13emplace_valueIJRKS5_EEEvhPS8_DpOT_.exit:; preds = %82, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIPKdSt4lessIS5_ESaIS5_ELi256ELb0EEEE19transfer_n_backwardEmmmPSA_PS8_.exit.i, %75
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %90 = load i64, ptr %89, align 8, !tbaa !72
   %91 = add i64 %90, 1
@@ -26157,57 +26157,57 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIPKdSt4le
   %58 = zext nneg i32 %54 to i64
   br label %59
 
-59:                                               ; preds = %59, %.lr.ph.i27
-  %indvars.iv = phi i64 [ %60, %59 ], [ %57, %.lr.ph.i27 ]
-  %60 = add nsw i64 %indvars.iv, -1
+59:; preds = %59, %.lr.ph.i27
+  %.019.i = phi i64 [ %60, %59 ], [ %57, %.lr.ph.i27 ]
+  %60 = add nsw i64 %.019.i, -1
   %61 = getelementptr inbounds nuw ptr, ptr %56, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !73
-  %63 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw ptr, ptr %56, i64 %.021.i
   store ptr %62, ptr %63, align 8, !tbaa !73
   %64 = getelementptr i8, ptr %62, i64 8
-  %65 = trunc nuw i64 %indvars.iv to i8
+  %65 = trunc nuw i64 %.019.i to i8
   store i8 %65, ptr %64, align 1, !tbaa !118
-  %.wide = icmp ugt i64 %60, %58
-  br i1 %.wide, label %59, label %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIPKdSt4lessIS5_ESaIS5_ELi256ELb0EEEE13emplace_valueIJPS5_EEEvhPS8_DpOT_.exit, !llvm.loop !1160
+  %66 = icmp ugt i64 %60, %58
+  br i1 %66, label %59, label %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIPKdSt4lessIS5_ESaIS5_ELi256ELb0EEEE13emplace_valueIJPS5_EEEvhPS8_DpOT_.exit, !llvm.loop !1160
 
 _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIPKdSt4lessIS5_ESaIS5_ELi256ELb0EEEE13emplace_valueIJPS5_EEEvhPS8_DpOT_.exit: ; preds = %59, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIPKdSt4lessIS5_ESaIS5_ELi256ELb0EEEE19transfer_n_backwardEmmmPSA_PS8_.exit.i, %52
-  %66 = load ptr, ptr %0, align 8, !tbaa !73
-  %67 = load i8, ptr %32, align 8, !tbaa !118
-  %68 = add i8 %67, 1
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 256
-  %70 = zext i8 %68 to i64
-  %71 = getelementptr inbounds nuw ptr, ptr %69, i64 %70
-  store ptr %2, ptr %71, align 8, !tbaa !73
-  %72 = getelementptr i8, ptr %0, i64 11
-  %73 = load i8, ptr %72, align 1, !tbaa !118
-  %.not.i28 = icmp eq i8 %73, 0
-  br i1 %.not.i28, label %74, label %.loopexit
+  %67 = load ptr, ptr %0, align 8, !tbaa !73
+  %68 = load i8, ptr %32, align 8, !tbaa !118
+  %69 = add i8 %68, 1
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 256
+  %71 = zext i8 %69 to i64
+  %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %71
+  store ptr %2, ptr %72, align 8, !tbaa !73
+  %73 = getelementptr i8, ptr %0, i64 11
+  %74 = load i8, ptr %73, align 1, !tbaa !118
+  %.not.i28 = icmp eq i8 %74, 0
+  br i1 %.not.i28, label %75, label %.loopexit
 
-74:                                               ; preds = %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIPKdSt4lessIS5_ESaIS5_ELi256ELb0EEEE13emplace_valueIJPS5_EEEvhPS8_DpOT_.exit
-  %75 = load i8, ptr %15, align 1, !tbaa !118
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  br label %78
+75:                                               ; preds = %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIPKdSt4lessIS5_ESaIS5_ELi256ELb0EEEE13emplace_valueIJPS5_EEEvhPS8_DpOT_.exit
+  %76 = load i8, ptr %15, align 1, !tbaa !118
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 256
+  br label %79
 
-78:                                               ; preds = %74, %78
-  %.0.in30 = phi i8 [ %75, %74 ], [ %.0, %78 ]
-  %.02529 = phi i8 [ 0, %74 ], [ %85, %78 ]
+79:                                               ; preds = %75, %79
+  %.0.in30 = phi i8 [ %76, %74 ], [ %.0, %79 ]
+  %.02529 = phi i8 [ 0, %74 ], [ %86, %79 ]
   %.0 = add i8 %.0.in30, 1
-  %79 = zext i8 %.0 to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %76, i64 %79
-  %81 = load ptr, ptr %80, align 8, !tbaa !73
-  %82 = zext i8 %.02529 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %77, i64 %82
-  store ptr %81, ptr %83, align 8, !tbaa !73
-  %84 = getelementptr i8, ptr %81, i64 8
-  store i8 %.02529, ptr %84, align 1, !tbaa !118
-  store ptr %2, ptr %81, align 8, !tbaa !73
-  %85 = add i8 %.02529, 1
-  %86 = load i8, ptr %17, align 1, !tbaa !118
-  %.not = icmp ugt i8 %85, %86
-  br i1 %.not, label %.loopexit, label %78, !llvm.loop !1161
+  %80 = zext i8 %.0 to i64
+  %81 = getelementptr inbounds nuw ptr, ptr %77, i64 %80
+  %82 = load ptr, ptr %81, align 8, !tbaa !73
+  %83 = zext i8 %.02529 to i64
+  %84 = getelementptr inbounds nuw ptr, ptr %78, i64 %83
+  store ptr %82, ptr %84, align 8, !tbaa !73
+  %85 = getelementptr i8, ptr %82, i64 8
+  store i8 %.02529, ptr %85, align 1, !tbaa !118
+  store ptr %2, ptr %82, align 8, !tbaa !73
+  %86 = add i8 %.02529, 1
+  %87 = load i8, ptr %17, align 1, !tbaa !118
+  %.not = icmp ugt i8 %86, %87
+  br i1 %.not, label %.loopexit, label %79, !llvm.loop !1161
 
-.loopexit:                                        ; preds = %78, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIPKdSt4lessIS5_ESaIS5_ELi256ELb0EEEE13emplace_valueIJPS5_EEEvhPS8_DpOT_.exit
+.loopexit:                                        ; preds = %79, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIPKdSt4lessIS5_ESaIS5_ELi256ELb0EEEE13emplace_valueIJPS5_EEEvhPS8_DpOT_.exit
   ret void
 }
 
@@ -26761,8 +26761,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN4absl12lts_2024011618container_inter
   br i1 %.not.i, label %.thread.i.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6
-  %.phi.trans.insert14 = getelementptr i8, ptr %1, i64 10
-  %.pre15 = load i8, ptr %.phi.trans.insert14, align 1, !tbaa !118
+  %.phi.trans.insert13 = getelementptr i8, ptr %1, i64 10
+  %.pre14 = load i8, ptr %.phi.trans.insert13, align 1, !tbaa !118
   br label %27
 
 .thread.i.i:                                      ; preds = %6
@@ -26801,7 +26801,7 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_
   br label %27
 
 27:                                               ; preds = %._crit_edge, %_ZN4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIPKdiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEEERSB_PSB_EmmEv.exit
-  %28 = phi i8 [ %25, %_ZN4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIPKdiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEEERSB_PSB_EmmEv.exit ], [ %.pre15, %._crit_edge ]
+  %28 = phi i8 [ %25, %_ZN4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIPKdiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEEERSB_PSB_EmmEv.exit ], [ %.pre14, %._crit_edge ]
   %29 = phi i8 [ %.pre, %_ZN4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIPKdiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEEERSB_PSB_EmmEv.exit ], [ %10, %._crit_edge ]
   %30 = phi ptr [ %storemerge.lcssa.i.i.i, %_ZN4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIPKdiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEEERSB_PSB_EmmEv.exit ], [ %1, %._crit_edge ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -26910,20 +26910,20 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPKdiSt4l
   %83 = zext nneg i32 %79 to i64
   br label %84
 
-84:                                               ; preds = %84, %.lr.ph.i
-  %indvars.iv = phi i64 [ %85, %84 ], [ %82, %.lr.ph.i ]
-  %85 = add nsw i64 %indvars.iv, -1
+82:                                               ; preds = %82, %.lr.ph.i
+  %.021.i = phi i64 [ %85, %84 ], [ %82, %.lr.ph.i ]
+  %83 = add nsw i64 %.021.i, -1
   %86 = getelementptr inbounds nuw ptr, ptr %81, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !74
-  %88 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw ptr, ptr %81, i64 %.019.i
   store ptr %87, ptr %88, align 8, !tbaa !74
-  %89 = getelementptr i8, ptr %87, i64 8
-  %90 = trunc nuw i64 %indvars.iv to i8
+  %88 = getelementptr i8, ptr %87, i64 8
+  %90 = trunc nuw i64 %.0.in30 to i8
   store i8 %90, ptr %89, align 1, !tbaa !118
   %.wide = icmp ugt i64 %85, %83
-  br i1 %.wide, label %84, label %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPKdiSt4lessIS5_ESaISt4pairIKS5_iEELi256ELb0EEEE13emplace_valueIJRKSt21piecewise_construct_tSt5tupleIJRS9_EESI_IJEEEEEvhPSB_DpOT_.exit, !llvm.loop !1179
+  br i1 %66, label %84, label %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPKdiSt4lessIS5_ESaISt4pairIKS5_iEELi256ELb0EEEE13emplace_valueIJRKSt21piecewise_construct_tSt5tupleIJRS9_EESI_IJEEEEEvhPSB_DpOT_.exit, !llvm.loop !1179
 
-_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPKdiSt4lessIS5_ESaISt4pairIKS5_iEELi256ELb0EEEE13emplace_valueIJRKSt21piecewise_construct_tSt5tupleIJRS9_EESI_IJEEEEEvhPSB_DpOT_.exit: ; preds = %84, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPKdiSt4lessIS5_ESaISt4pairIKS5_iEELi256ELb0EEEE19transfer_n_backwardEmmmPSD_PSB_.exit.i, %77
+_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPKdiSt4lessIS5_ESaISt4pairIKS5_iEELi256ELb0EEEE13emplace_valueIJRKSt21piecewise_construct_tSt5tupleIJRS9_EESI_IJEEEEEvhPSB_DpOT_.exit:; preds = %84, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPKdiSt4lessIS5_ESaISt4pairIKS5_iEELi256ELb0EEEE19transfer_n_backwardEmmmPSD_PSB_.exit.i, %77
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %92 = load i64, ptr %91, align 8, !tbaa !60
   %93 = add i64 %92, 1
@@ -27542,9 +27542,9 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPKdiSt4l
   %54 = zext nneg i32 %50 to i64
   br label %55
 
-55:                                               ; preds = %55, %.lr.ph.i27
-  %indvars.iv = phi i64 [ %56, %55 ], [ %53, %.lr.ph.i27 ]
-  %56 = add nsw i64 %indvars.iv, -1
+75:                                               ; preds = %75, %.lr.ph.i27
+  %.0.in30 = phi i64 [ %56, %55 ], [ %53, %.lr.ph.i27 ]
+  %56 = add nsw i64 %.019.i, -1
   %57 = getelementptr inbounds nuw ptr, ptr %52, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !74
   %59 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
@@ -27578,21 +27578,21 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPKdiSt4l
   %.0.in30 = phi i8 [ %71, %70 ], [ %.0, %74 ]
   %.02529 = phi i8 [ 0, %70 ], [ %81, %74 ]
   %.0 = add i8 %.0.in30, 1
-  %75 = zext i8 %.0 to i64
-  %76 = getelementptr inbounds nuw ptr, ptr %72, i64 %75
-  %77 = load ptr, ptr %76, align 8, !tbaa !74
-  %78 = zext i8 %.02529 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr %73, i64 %78
-  store ptr %77, ptr %79, align 8, !tbaa !74
-  %80 = getelementptr i8, ptr %77, i64 8
-  store i8 %.02529, ptr %80, align 1, !tbaa !118
-  store ptr %2, ptr %77, align 8, !tbaa !74
-  %81 = add i8 %.02529, 1
-  %82 = load i8, ptr %17, align 1, !tbaa !118
-  %.not = icmp ugt i8 %81, %82
-  br i1 %.not, label %.loopexit, label %74, !llvm.loop !1186
+  %76 = zext i8 %.0 to i64
+  %77 = getelementptr inbounds nuw ptr, ptr %73, i64 %76
+  %78 = load ptr, ptr %77, align 8, !tbaa !74
+  %79 = zext i8 %.02529 to i64
+  %80 = getelementptr inbounds nuw ptr, ptr %74, i64 %79
+  store ptr %78, ptr %80, align 8, !tbaa !74
+  %81 = getelementptr i8, ptr %78, i64 8
+  store i8 %.02529, ptr %81, align 1, !tbaa !118
+  store ptr %2, ptr %78, align 8, !tbaa !74
+  %82 = add i8 %.02529, 1
+  %83 = load i8, ptr %17, align 1, !tbaa !118
+  %.not = icmp ugt i8 %82, %83
+  br i1 %.not, label %.loopexit, label %75, !llvm.loop !1186
 
-.loopexit:                                        ; preds = %74, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPKdiSt4lessIS5_ESaISt4pairIKS5_iEELi256ELb0EEEE13emplace_valueIJPNS1_13map_slot_typeIS5_iEEEEEvhPSB_DpOT_.exit
+.loopexit:                                        ; preds = %75, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPKdiSt4lessIS5_ESaISt4pairIKS5_iEELi256ELb0EEEE13emplace_valueIJPNS1_13map_slot_typeIS5_iEEEEEvhPSB_DpOT_.exit
   ret void
 }
 

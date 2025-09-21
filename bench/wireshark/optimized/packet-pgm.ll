@@ -1154,9 +1154,9 @@ paritystr.exit.i:                                 ; preds = %421, %420, %389
   %487 = load ptr, ptr %24, align 8
   %488 = call noalias dereferenceable_or_null(8192) ptr @wmem_alloc(ptr noundef %487, i64 noundef 8192) #7
   %.not534.i = icmp ult i8 %481, 4
-  br i1 %.not534.i, label %._crit_edge.thread.i, label %.lr.ph.i.outer
+  br i1 %.not534.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
-.lr.ph.i.outer:                                   ; preds = %468, %.thread.i
+.lr.ph.preheader.i:                               ; preds = %468, %.thread.i
   %indvars.iv.i.ph = phi i64 [ %indvars.iv.next589.i, %.thread.i ], [ 0, %468 ]
   %.0451527.i.ph = phi i1 [ false, %.thread.i ], [ true, %468 ]
   br label %.lr.ph.i

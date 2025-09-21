@@ -3293,8 +3293,8 @@ define internal fastcc void @decode_lpc(ptr noundef captures(none) %0, i32 nound
   store i32 %15, ptr %13, align 4, !tbaa !72
   %16 = getelementptr inbounds nuw i8, ptr %.07199, i64 8
   %17 = add nuw nsw i32 %.07298, 1
-  %exitcond113.not = icmp eq i32 %17, %10
-  br i1 %exitcond113.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !120
+  %exitcond114.not = icmp eq i32 %17, %10
+  br i1 %exitcond114.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !120
 
 ._crit_edge102:                                   ; preds = %.lr.ph101
   %18 = and i32 %9, 1
@@ -3302,11 +3302,11 @@ define internal fastcc void @decode_lpc(ptr noundef captures(none) %0, i32 nound
   br i1 %.not82, label %.loopexit, label %._crit_edge102.thread
 
 ._crit_edge102.thread:                            ; preds = %6, %._crit_edge102
-  %.071.lcssa118 = phi ptr [ %16, %._crit_edge102 ], [ %7, %6 ]
-  %.075.lcssa117 = phi i32 [ %15, %._crit_edge102 ], [ %8, %6 ]
-  %19 = load i32, ptr %.071.lcssa118, align 4, !tbaa !72
-  %20 = add i32 %19, %.075.lcssa117
-  store i32 %20, ptr %.071.lcssa118, align 4, !tbaa !72
+  %.071.lcssa119 = phi ptr [ %16, %._crit_edge102 ], [ %7, %6 ]
+  %.075.lcssa118 = phi i32 [ %15, %._crit_edge102 ], [ %8, %6 ]
+  %19 = load i32, ptr %.071.lcssa119, align 4, !tbaa !72
+  %20 = add i32 %19, %.075.lcssa118
+  store i32 %20, ptr %.071.lcssa119, align 4, !tbaa !72
   br label %.loopexit
 
 21:                                               ; preds = %5
@@ -3323,14 +3323,14 @@ define internal fastcc void @decode_lpc(ptr noundef captures(none) %0, i32 nound
   %27 = lshr i32 %26, 1
   %.188 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not106 = icmp samesign ult i32 %26, 2
-  br i1 %.not106, label %._crit_edge.thread, label %.lr.ph94
+  br i1 %.not106, label %._crit_edge.thread, label %.lr.ph94.preheader
 
-.lr.ph94:                                         ; preds = %.preheader, %.lr.ph94
+.lr.ph94.preheader:                               ; preds = %.preheader, %.lr.ph94
   %.193 = phi ptr [ %.1, %.lr.ph94 ], [ %.188, %.preheader ]
   %.pn92 = phi ptr [ %.193, %.lr.ph94 ], [ %0, %.preheader ]
   %.17391 = phi i32 [ %35, %.lr.ph94 ], [ 0, %.preheader ]
   %.07690 = phi i32 [ %34, %.lr.ph94 ], [ %25, %.preheader ]
-  %.07789 = phi i32 [ %33, %.lr.ph94 ], [ %23, %.preheader ]
+  %.193 = phi i32 [ %33, %.lr.ph94 ], [ %23, %.preheader ]
   %28 = load i32, ptr %.193, align 4, !tbaa !72
   %29 = add i32 %28, %.07789
   %30 = add i32 %29, %.07690
@@ -3351,13 +3351,13 @@ define internal fastcc void @decode_lpc(ptr noundef captures(none) %0, i32 nound
   br i1 %.not81, label %.loopexit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.1.lcssa125 = phi ptr [ %.1, %._crit_edge ], [ %.188, %.preheader ]
-  %.076.lcssa124 = phi i32 [ %34, %._crit_edge ], [ %25, %.preheader ]
-  %.077.lcssa123 = phi i32 [ %33, %._crit_edge ], [ %23, %.preheader ]
-  %37 = add i32 %.076.lcssa124, %.077.lcssa123
-  %38 = load i32, ptr %.1.lcssa125, align 4, !tbaa !72
+  %.1.lcssa126 = phi ptr [ %.1, %._crit_edge ], [ %.188, %.preheader ]
+  %.076.lcssa125 = phi i32 [ %34, %._crit_edge ], [ %25, %.preheader ]
+  %.077.lcssa124 = phi i32 [ %33, %._crit_edge ], [ %23, %.preheader ]
+  %37 = add i32 %.076.lcssa125, %.077.lcssa124
+  %38 = load i32, ptr %.1.lcssa126, align 4, !tbaa !72
   %39 = add i32 %37, %38
-  store i32 %39, ptr %.1.lcssa125, align 4, !tbaa !72
+  store i32 %39, ptr %.1.lcssa126, align 4, !tbaa !72
   br label %.loopexit
 
 40:                                               ; preds = %5
