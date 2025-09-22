@@ -2642,9 +2642,9 @@ define void @_ZN5ImGui17TableUpdateLayoutEP10ImGuiTable(ptr noundef initializes(
   %63 = load i32, ptr %53, align 4, !tbaa !339
   %64 = and i32 %63, 128
   %.not586 = icmp eq i32 %64, 0
-  br i1 %.not586, label %._crit_edge714, label %65
+  br i1 %.not586, label %._crit_edge713, label %65
 
-._crit_edge714:                                   ; preds = %62
+._crit_edge713:                                   ; preds = %62
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %53, i64 104
   %.pre = load i8, ptr %.phi.trans.insert, align 4, !tbaa !312, !range !153
   br label %67
@@ -2654,8 +2654,8 @@ define void @_ZN5ImGui17TableUpdateLayoutEP10ImGuiTable(ptr noundef initializes(
   store i8 1, ptr %66, align 4, !tbaa !312
   br label %67
 
-67:                                               ; preds = %._crit_edge714, %65
-  %68 = phi i8 [ %.pre, %._crit_edge714 ], [ 1, %65 ]
+67:                                               ; preds = %._crit_edge713, %65
+  %68 = phi i8 [ %.pre, %._crit_edge713 ], [ 1, %65 ]
   %69 = getelementptr inbounds nuw i8, ptr %53, i64 103
   %70 = load i8, ptr %69, align 1, !tbaa !313, !range !153, !noundef !154
   %.not587 = icmp eq i8 %70, %68
@@ -2688,9 +2688,9 @@ define void @_ZN5ImGui17TableUpdateLayoutEP10ImGuiTable(ptr noundef initializes(
   %84 = icmp slt i16 %83, 1
   %85 = and i32 %60, 67108864
   %.not589 = icmp ne i32 %85, 0
-  %or.cond640.not771 = or i1 %.not589, %84
-  %.not769 = and i1 %or.cond640.not771, %brmerge
-  br i1 %.not769, label %87, label %86
+  %or.cond640.not770 = or i1 %.not589, %84
+  %.not768 = and i1 %or.cond640.not770, %brmerge
+  br i1 %.not768, label %87, label %86
 
 86:                                               ; preds = %78
   store i8 1, ptr %36, align 2, !tbaa !295
@@ -2772,16 +2772,16 @@ define void @_ZN5ImGui17TableUpdateLayoutEP10ImGuiTable(ptr noundef initializes(
   %130 = getelementptr inbounds nuw i8, ptr %53, i64 109
   %131 = load i8, ptr %130, align 1, !tbaa !311, !range !153, !noundef !154
   %132 = trunc nuw i8 %131 to i1
-  br i1 %132, label %._crit_edge715, label %133
+  br i1 %132, label %._crit_edge714, label %133
 
-._crit_edge715:                                   ; preds = %107
-  %.pre716 = load i32, ptr %53, align 4, !tbaa !339
+._crit_edge714:                                   ; preds = %107
+  %.pre715 = load i32, ptr %53, align 4, !tbaa !339
   br label %168
 
 133:                                              ; preds = %107
   %134 = load i16, ptr %37, align 8, !tbaa !204
   %135 = icmp eq i16 %134, 0
-  %.pre717 = load i32, ptr %53, align 4, !tbaa !339
+  %.pre716 = load i32, ptr %53, align 4, !tbaa !339
   br i1 %135, label %136, label %168
 
 136:                                              ; preds = %133
@@ -2794,7 +2794,7 @@ define void @_ZN5ImGui17TableUpdateLayoutEP10ImGuiTable(ptr noundef initializes(
   %143 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %144 = load float, ptr %143, align 4, !tbaa !377
   %145 = fsub float %142, %144
-  %146 = and i32 %.pre717, 8192
+  %146 = and i32 %.pre716, 8192
   %.not.i = icmp eq i32 %146, 0
   br i1 %.not.i, label %147, label %153
 
@@ -2808,7 +2808,7 @@ define void @_ZN5ImGui17TableUpdateLayoutEP10ImGuiTable(ptr noundef initializes(
 
 153:                                              ; preds = %147, %136
   %.0.i = phi float [ %145, %136 ], [ %152, %147 ]
-  %154 = and i32 %.pre717, 16
+  %154 = and i32 %.pre716, 16
   %.not16.i = icmp eq i32 %154, 0
   br i1 %.not16.i, label %_ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit, label %155
 
@@ -2822,7 +2822,7 @@ define void @_ZN5ImGui17TableUpdateLayoutEP10ImGuiTable(ptr noundef initializes(
   %160 = load i32, ptr %4, align 4, !tbaa !205
   %161 = and i32 %160, 1
   %.not17.i = icmp ne i32 %161, 0
-  %162 = and i32 %.pre717, 32
+  %162 = and i32 %.pre716, 32
   %.not18.i = icmp eq i32 %162, 0
   %or.cond.i = and i1 %.not18.i, %.not17.i
   br i1 %or.cond.i, label %_ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit, label %163
@@ -2839,8 +2839,8 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
   store float %166, ptr %167, align 4, !tbaa !308
   br label %168
 
-168:                                              ; preds = %._crit_edge715, %_ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit, %133
-  %169 = phi i32 [ %.pre716, %._crit_edge715 ], [ %.pre717, %_ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit ], [ %.pre717, %133 ]
+168:                                              ; preds = %._crit_edge714, %_ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit, %133
+  %169 = phi i32 [ %.pre715, %._crit_edge714 ], [ %.pre716, %_ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit ], [ %.pre716, %133 ]
   %170 = and i32 %169, 32
   %171 = icmp eq i32 %170, 0
   %spec.select = select i1 %171, i8 1, i8 %.0508657
@@ -2990,11 +2990,11 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
 243:                                              ; preds = %.lr.ph673, %344
   %244 = phi i16 [ -1, %.lr.ph673 ], [ %345, %344 ]
   %245 = phi i16 [ -1, %.lr.ph673 ], [ %346, %344 ]
-  %indvars.iv701 = phi i64 [ 0, %.lr.ph673 ], [ %indvars.iv.next702, %344 ]
+  %indvars.iv700 = phi i64 [ 0, %.lr.ph673 ], [ %indvars.iv.next701, %344 ]
   %.0530672 = phi float [ 0.000000e+00, %.lr.ph673 ], [ %.1531, %344 ]
   %.0533671 = phi float [ 0.000000e+00, %.lr.ph673 ], [ %.1534, %344 ]
-  %246 = trunc nuw nsw i64 %indvars.iv701 to i32
-  %247 = lshr i64 %indvars.iv701, 5
+  %246 = trunc nuw nsw i64 %indvars.iv700 to i32
+  %247 = lshr i64 %indvars.iv700, 5
   %248 = and i64 %247, 134217727
   %249 = getelementptr inbounds nuw i32, ptr %217, i64 %248
   %250 = load i32, ptr %249, align 4, !tbaa !280
@@ -3006,7 +3006,7 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
 
 254:                                              ; preds = %243
   %255 = load ptr, ptr %218, align 8, !tbaa !278
-  %256 = getelementptr inbounds nuw %struct.ImGuiTableColumn, ptr %255, i64 %indvars.iv701
+  %256 = getelementptr inbounds nuw %struct.ImGuiTableColumn, ptr %255, i64 %indvars.iv700
   %257 = load i32, ptr %256, align 4, !tbaa !339
   %258 = and i32 %257, 32
   %259 = icmp eq i32 %258, 0
@@ -3019,19 +3019,19 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
   %263 = load float, ptr %262, align 4, !tbaa !308
   %264 = getelementptr inbounds nuw i8, ptr %256, i64 111
   %265 = load i8, ptr %264, align 1, !tbaa !343
-  br i1 %219, label %266, label %._crit_edge718
+  br i1 %219, label %266, label %._crit_edge717
 
 266:                                              ; preds = %261
   %267 = icmp eq i8 %265, 0
   %or.cond3 = and i1 %259, %267
-  br i1 %or.cond3, label %.thread, label %._crit_edge718
+  br i1 %or.cond3, label %.thread, label %._crit_edge717
 
-._crit_edge718:                                   ; preds = %261, %266
+._crit_edge717:                                   ; preds = %261, %266
   %268 = phi float [ %.0514.lcssa, %266 ], [ %263, %261 ]
   %.not582 = icmp eq i8 %265, 0
   br i1 %.not582, label %269, label %276
 
-269:                                              ; preds = %._crit_edge718
+269:                                              ; preds = %._crit_edge717
   br i1 %259, label %.thread, label %270
 
 270:                                              ; preds = %269
@@ -3045,7 +3045,7 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
   store float %268, ptr %275, align 4, !tbaa !319
   br label %.thread
 
-276:                                              ; preds = %._crit_edge718
+276:                                              ; preds = %._crit_edge717
   %277 = getelementptr inbounds nuw i8, ptr %256, i64 16
   store float %268, ptr %277, align 4, !tbaa !319
   %.not652 = icmp eq i8 %265, 1
@@ -3093,9 +3093,9 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
   %301 = getelementptr inbounds nuw i8, ptr %256, i64 32
   %302 = load float, ptr %301, align 4, !tbaa !340
   %303 = fcmp ogt float %302, 0.000000e+00
-  %brmerge768 = select i1 %303, i1 true, i1 %221
+  %brmerge767 = select i1 %303, i1 true, i1 %221
   %.mux = select i1 %303, float %302, float 1.000000e+00
-  br i1 %brmerge768, label %.sink.split, label %304
+  br i1 %brmerge767, label %.sink.split, label %304
 
 304:                                              ; preds = %300
   %305 = getelementptr inbounds nuw i8, ptr %256, i64 20
@@ -3105,13 +3105,13 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
   br label %.sink.split
 
 .sink.split:                                      ; preds = %300, %304
-  %.sink761 = phi float [ %308, %304 ], [ %.mux, %300 ]
+  %.sink760 = phi float [ %308, %304 ], [ %.mux, %300 ]
   %309 = getelementptr inbounds nuw i8, ptr %256, i64 28
-  store float %.sink761, ptr %309, align 4, !tbaa !341
+  store float %.sink760, ptr %309, align 4, !tbaa !341
   br label %310
 
 310:                                              ; preds = %.sink.split, %296
-  %311 = phi float [ %298, %296 ], [ %.sink761, %.sink.split ]
+  %311 = phi float [ %298, %296 ], [ %.sink760, %.sink.split ]
   %312 = fadd float %.0533671, %311
   %313 = icmp eq i16 %245, -1
   br i1 %313, label %322, label %314
@@ -3127,7 +3127,7 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
   br i1 %321, label %322, label %324
 
 322:                                              ; preds = %314, %310
-  %323 = trunc i64 %indvars.iv701 to i16
+  %323 = trunc i64 %indvars.iv700 to i16
   store i16 %323, ptr %215, align 8, !tbaa !363
   br label %324
 
@@ -3147,7 +3147,7 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
   br i1 %334, label %335, label %337
 
 335:                                              ; preds = %327, %324
-  %336 = trunc i64 %indvars.iv701 to i16
+  %336 = trunc i64 %indvars.iv700 to i16
   store i16 %336, ptr %214, align 2, !tbaa !382
   br label %337
 
@@ -3168,8 +3168,8 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
   %346 = phi i16 [ %339, %337 ], [ %245, %243 ]
   %.1534 = phi float [ %343, %337 ], [ %.0533671, %243 ]
   %.1531 = phi float [ %342, %337 ], [ %.0530672, %243 ]
-  %indvars.iv.next702 = add nuw nsw i64 %indvars.iv701, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next702, %wide.trip.count
+  %indvars.iv.next701 = add nuw nsw i64 %indvars.iv700, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next701, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge674.loopexit, label %243, !llvm.loop !386
 
 347:                                              ; preds = %._crit_edge674
@@ -3228,7 +3228,7 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
 .lr.ph680:                                        ; preds = %371
   %384 = load ptr, ptr %9, align 8, !tbaa !287
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count707 = zext nneg i32 %.lcssa653 to i64
+  %wide.trip.count706 = zext nneg i32 %.lcssa653 to i64
   br label %393
 
 ._crit_edge681:                                   ; preds = %437, %371
@@ -3238,24 +3238,24 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
   %.not558 = icmp eq i32 %387, 0
   %or.cond641 = and i1 %.not558, %386
   %388 = fcmp ogt float %.0533.lcssa, 0.000000e+00
-  %or.cond11685 = and i1 %216, %388
-  %or.cond763 = select i1 %or.cond641, i1 %or.cond11685, i1 false
-  br i1 %or.cond763, label %.lr.ph688.split.preheader, label %.critedge
+  %or.cond11684 = and i1 %388, %216
+  %or.cond762 = select i1 %or.cond641, i1 %or.cond11684, i1 false
+  br i1 %or.cond762, label %.lr.ph687.split.preheader, label %.critedge
 
-.lr.ph688.split.preheader:                        ; preds = %._crit_edge681
+.lr.ph687.split.preheader:                        ; preds = %._crit_edge681
   %389 = load ptr, ptr %17, align 8, !tbaa !286
   %390 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %391 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.0536683 = add nsw i32 %.lcssa653, -1
   %392 = zext nneg i32 %.0536683 to i64
-  br label %.lr.ph688.split
+  br label %.lr.ph687.split
 
 393:                                              ; preds = %.lr.ph680, %437
   %394 = phi float [ %382, %.lr.ph680 ], [ %438, %437 ]
-  %indvars.iv704 = phi i64 [ 0, %.lr.ph680 ], [ %indvars.iv.next705, %437 ]
+  %indvars.iv703 = phi i64 [ 0, %.lr.ph680 ], [ %indvars.iv.next704, %437 ]
   %.0540677 = phi float [ %377, %.lr.ph680 ], [ %.1541, %437 ]
-  %395 = trunc nuw nsw i64 %indvars.iv704 to i32
-  %396 = lshr i64 %indvars.iv704, 5
+  %395 = trunc nuw nsw i64 %indvars.iv703 to i32
+  %396 = lshr i64 %indvars.iv703, 5
   %397 = and i64 %396, 134217727
   %398 = getelementptr inbounds nuw i32, ptr %384, i64 %397
   %399 = load i32, ptr %398, align 4, !tbaa !280
@@ -3267,7 +3267,7 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
 
 403:                                              ; preds = %393
   %404 = load ptr, ptr %385, align 8, !tbaa !278
-  %405 = getelementptr inbounds nuw %struct.ImGuiTableColumn, ptr %404, i64 %indvars.iv704
+  %405 = getelementptr inbounds nuw %struct.ImGuiTableColumn, ptr %404, i64 %indvars.iv703
   %406 = load i32, ptr %405, align 4, !tbaa !339
   %407 = and i32 %406, 8
   %.not577 = icmp eq i32 %407, 0
@@ -3294,8 +3294,8 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
   %422 = getelementptr inbounds nuw i8, ptr %405, i64 92
   %423 = load i16, ptr %422, align 4, !tbaa !362
   %424 = icmp ne i16 %423, -1
-  %brmerge765 = select i1 %424, i1 true, i1 %.not578
-  br i1 %brmerge765, label %427, label %425
+  %brmerge764 = select i1 %424, i1 true, i1 %.not578
+  br i1 %brmerge764, label %427, label %425
 
 425:                                              ; preds = %421
   %426 = or i32 %406, 1073741824
@@ -3319,15 +3319,15 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
 437:                                              ; preds = %393, %427
   %438 = phi float [ %436, %427 ], [ %394, %393 ]
   %.1541 = phi float [ %.2542, %427 ], [ %.0540677, %393 ]
-  %indvars.iv.next705 = add nuw nsw i64 %indvars.iv704, 1
-  %exitcond708.not = icmp eq i64 %indvars.iv.next705, %wide.trip.count707
-  br i1 %exitcond708.not, label %._crit_edge681, label %393, !llvm.loop !389
+  %indvars.iv.next704 = add nuw nsw i64 %indvars.iv703, 1
+  %exitcond707.not = icmp eq i64 %indvars.iv.next704, %wide.trip.count706
+  br i1 %exitcond707.not, label %._crit_edge681, label %393, !llvm.loop !389
 
-.lr.ph688.split:                                  ; preds = %.lr.ph688.split.preheader, %464
-  %indvars.iv709 = phi i64 [ %392, %.lr.ph688.split.preheader ], [ %indvars.iv.next710, %464 ]
-  %.3686 = phi float [ %.0540.lcssa, %.lr.ph688.split.preheader ], [ %.4, %464 ]
-  %439 = trunc nuw nsw i64 %indvars.iv709 to i32
-  %440 = lshr i64 %indvars.iv709, 5
+.lr.ph687.split:                                  ; preds = %.lr.ph687.split.preheader, %464
+  %indvars.iv708 = phi i64 [ %392, %.lr.ph687.split.preheader ], [ %indvars.iv.next709, %464 ]
+  %.3685 = phi float [ %.0540.lcssa, %.lr.ph687.split.preheader ], [ %.4, %464 ]
+  %439 = trunc nuw nsw i64 %indvars.iv708 to i32
+  %440 = lshr i64 %indvars.iv708, 5
   %441 = and i64 %440, 134217727
   %442 = getelementptr inbounds nuw i32, ptr %389, i64 %441
   %443 = load i32, ptr %442, align 4, !tbaa !280
@@ -3337,9 +3337,9 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
   %.not559 = icmp eq i32 %446, 0
   br i1 %.not559, label %464, label %447
 
-447:                                              ; preds = %.lr.ph688.split
+447:                                              ; preds = %.lr.ph687.split
   %448 = load ptr, ptr %391, align 8, !tbaa !282
-  %449 = getelementptr inbounds nuw i16, ptr %448, i64 %indvars.iv709
+  %449 = getelementptr inbounds nuw i16, ptr %448, i64 %indvars.iv708
   %450 = load i16, ptr %449, align 2, !tbaa !305
   %451 = load ptr, ptr %390, align 8, !tbaa !278
   %452 = sext i16 %450 to i64
@@ -3358,16 +3358,16 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
   %461 = load float, ptr %460, align 4, !tbaa !361
   %462 = fadd float %461, 1.000000e+00
   store float %462, ptr %460, align 4, !tbaa !361
-  %463 = fadd float %.3686, -1.000000e+00
+  %463 = fadd float %.3685, -1.000000e+00
   br label %464
 
-464:                                              ; preds = %456, %447, %.lr.ph688.split
-  %.4 = phi float [ %.3686, %.lr.ph688.split ], [ %463, %456 ], [ %.3686, %447 ]
-  %indvars.iv.next710 = add nsw i64 %indvars.iv709, -1
+464:                                              ; preds = %456, %447, %.lr.ph687.split
+  %.4 = phi float [ %.3685, %.lr.ph687.split ], [ %463, %456 ], [ %.3685, %447 ]
+  %indvars.iv.next709 = add nsw i64 %indvars.iv708, -1
   %465 = fcmp oge float %.4, 1.000000e+00
-  %466 = icmp sgt i64 %indvars.iv709, 0
+  %466 = icmp sgt i64 %indvars.iv708, 0
   %or.cond11 = and i1 %465, %466
-  br i1 %or.cond11, label %.lr.ph688.split, label %.critedge, !llvm.loop !390
+  br i1 %or.cond11, label %.lr.ph687.split, label %.critedge, !llvm.loop !390
 
 .critedge:                                        ; preds = %464, %._crit_edge681
   %467 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -3486,9 +3486,9 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %470, %472
   call void @llvm.memset.p0.i64(ptr align 4 %532, i8 0, i64 %537, i1 false)
   %538 = load i32, ptr %11, align 4, !tbaa !209
   %539 = icmp sgt i32 %538, 0
-  br i1 %539, label %.lr.ph695, label %._crit_edge696.thread
+  br i1 %539, label %.lr.ph694, label %._crit_edge695.thread
 
-.lr.ph695:                                        ; preds = %.cont
+.lr.ph694:                                        ; preds = %.cont
   %540 = fadd float %527, %528
   %541 = fsub float %540, %529
   %542 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3511,24 +3511,24 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %470, %472
   %556 = select i1 %554, float %.sroa.9.0.copyload, float %.19.i18.i
   br label %558
 
-._crit_edge696:                                   ; preds = %785
+._crit_edge695:                                   ; preds = %785
   %557 = icmp eq i8 %.1524, 0
-  br i1 %557, label %._crit_edge696.thread, label %._crit_edge696._crit_edge
+  br i1 %557, label %._crit_edge695.thread, label %._crit_edge695._crit_edge
 
-._crit_edge696._crit_edge:                        ; preds = %._crit_edge696
-  %.phi.trans.insert721 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre722 = load ptr, ptr %.phi.trans.insert721, align 8, !tbaa !278
+._crit_edge695._crit_edge:                        ; preds = %._crit_edge695
+  %.phi.trans.insert720 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.pre721 = load ptr, ptr %.phi.trans.insert720, align 8, !tbaa !278
   br label %796
 
-558:                                              ; preds = %.lr.ph695, %785
-  %indvars.iv712 = phi i64 [ 0, %.lr.ph695 ], [ %indvars.iv.next713, %785 ]
-  %.0518693 = phi float [ %541, %.lr.ph695 ], [ %.2520, %785 ]
-  %.0521692 = phi i1 [ %526, %.lr.ph695 ], [ %.1522, %785 ]
-  %.0523691 = phi i8 [ 0, %.lr.ph695 ], [ %.1524, %785 ]
-  %.0526690 = phi i32 [ 0, %.lr.ph695 ], [ %.1527, %785 ]
-  %.sroa.0.0689 = phi float [ %.sroa.0.0.copyload, %.lr.ph695 ], [ %.sroa.0.1, %785 ]
+558:                                              ; preds = %.lr.ph694, %785
+  %indvars.iv711 = phi i64 [ 0, %.lr.ph694 ], [ %indvars.iv.next712, %785 ]
+  %.0518692 = phi float [ %541, %.lr.ph694 ], [ %.2520, %785 ]
+  %.0521691 = phi i1 [ %526, %.lr.ph694 ], [ %.1522, %785 ]
+  %.0523690 = phi i8 [ 0, %.lr.ph694 ], [ %.1524, %785 ]
+  %.0526689 = phi i32 [ 0, %.lr.ph694 ], [ %.1527, %785 ]
+  %.sroa.0.0688 = phi float [ %.sroa.0.0.copyload, %.lr.ph694 ], [ %.sroa.0.1, %785 ]
   %559 = load ptr, ptr %542, align 8, !tbaa !282
-  %560 = getelementptr inbounds nuw i16, ptr %559, i64 %indvars.iv712
+  %560 = getelementptr inbounds nuw i16, ptr %559, i64 %indvars.iv711
   %561 = load i16, ptr %560, align 2, !tbaa !305
   %562 = sext i16 %561 to i32
   %563 = load ptr, ptr %543, align 8, !tbaa !278
@@ -3546,29 +3546,29 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %470, %472
   %571 = phi i8 [ %569, %568 ], [ 1, %558 ]
   %572 = getelementptr inbounds nuw i8, ptr %565, i64 110
   store i8 %571, ptr %572, align 2, !tbaa !404
-  br i1 %.0521692, label %573, label %581
+  br i1 %.0521691, label %573, label %581
 
 573:                                              ; preds = %570
   %574 = load i16, ptr %524, align 4, !tbaa !402
   %575 = sext i16 %574 to i32
-  %576 = icmp eq i32 %.0526690, %575
+  %576 = icmp eq i32 %.0526689, %575
   br i1 %576, label %577, label %581
 
 577:                                              ; preds = %573
   %578 = load float, ptr %483, align 8, !tbaa !393
   %579 = fsub float %.sroa.0629.0.copyload, %578
-  %580 = fadd float %.0518693, %579
+  %580 = fadd float %.0518692, %579
   br label %581
 
 581:                                              ; preds = %577, %573, %570
   %.1522 = phi i1 [ false, %577 ], [ true, %573 ], [ false, %570 ]
-  %.1519 = phi float [ %580, %577 ], [ %.0518693, %573 ], [ %.0518693, %570 ]
+  %.1519 = phi float [ %580, %577 ], [ %.0518692, %573 ], [ %.0518692, %570 ]
   %582 = load i32, ptr %565, align 4, !tbaa !339
   %583 = and i32 %582, -251658241
   store i32 %583, ptr %565, align 4, !tbaa !339
   %584 = load ptr, ptr %17, align 8, !tbaa !286
-  %585 = trunc nuw nsw i64 %indvars.iv712 to i32
-  %586 = lshr i64 %indvars.iv712, 5
+  %585 = trunc nuw nsw i64 %indvars.iv711 to i32
+  %586 = lshr i64 %indvars.iv711, 5
   %587 = and i64 %586, 134217727
   %588 = getelementptr inbounds nuw i32, ptr %584, i64 %587
   %589 = load i32, ptr %588, align 4, !tbaa !280
@@ -3589,10 +3589,10 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %470, %472
   store float %.1519, ptr %598, align 4, !tbaa !406
   %599 = getelementptr inbounds nuw i8, ptr %565, i64 4
   store float 0.000000e+00, ptr %599, align 4, !tbaa !361
-  %600 = fcmp olt float %.1519, %.sroa.0.0689
+  %600 = fcmp olt float %.1519, %.sroa.0.0688
   %601 = fcmp ogt float %.1519, %.sroa.13.0.copyload
   %..i.i = select i1 %601, float %.sroa.13.0.copyload, float %.1519
-  %602 = select i1 %600, float %.sroa.0.0689, float %..i.i
+  %602 = select i1 %600, float %.sroa.0.0688, float %..i.i
   %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %602, i64 0
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %549, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %594, align 4
@@ -3709,17 +3709,17 @@ _ZN5ImGui23TableCalcMaxColumnWidthEPK10ImGuiTablei.exit: ; preds = %619, %624, %
   store float %683, ptr %684, align 4, !tbaa !410
   %685 = getelementptr inbounds nuw i8, ptr %565, i64 36
   %686 = getelementptr inbounds nuw i8, ptr %565, i64 44
-  %687 = fcmp olt float %.1519, %.sroa.0.0689
+  %687 = fcmp olt float %.1519, %.sroa.0.0688
   %688 = fcmp ogt float %.1519, %.sroa.13.0.copyload
   %..i.i613 = select i1 %688, float %.sroa.13.0.copyload, float %.1519
-  %689 = select i1 %687, float %.sroa.0.0689, float %..i.i613
+  %689 = select i1 %687, float %.sroa.0.0688, float %..i.i613
   %.sroa.0.0.vec.insert.i.i615 = insertelement <2 x float> poison, float %689, i64 0
   %.sroa.0.4.vec.insert.i.i616 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i615, float %549, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i616, ptr %685, align 4
-  %690 = fcmp olt float %672, %.sroa.0.0689
+  %690 = fcmp olt float %672, %.sroa.0.0688
   %691 = fcmp ogt float %672, %.sroa.13.0.copyload
   %..i17.i623 = select i1 %691, float %.sroa.13.0.copyload, float %672
-  %692 = select i1 %690, float %.sroa.0.0689, float %..i17.i623
+  %692 = select i1 %690, float %.sroa.0.0688, float %..i17.i623
   %.sroa.0.0.vec.insert.i19.i625 = insertelement <2 x float> poison, float %692, i64 0
   %.sroa.0.4.vec.insert.i20.i626 = insertelement <2 x float> %.sroa.0.0.vec.insert.i19.i625, float %553, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i20.i626, ptr %686, align 4
@@ -3768,16 +3768,16 @@ _ZN5ImGui23TableCalcMaxColumnWidthEPK10ImGuiTablei.exit: ; preds = %619, %624, %
 719:                                              ; preds = %713
   %720 = load i8, ptr %550, align 2, !tbaa !233, !range !153, !noundef !154
   %721 = trunc nuw i8 %720 to i1
-  %spec.select642 = select i1 %721, i8 %.0523691, i8 1
+  %spec.select642 = select i1 %721, i8 %.0523690, i8 1
   br label %.thread633
 
 .thread633:                                       ; preds = %713, %719
   %.sink = phi i8 [ %720, %719 ], [ 1, %713 ]
-  %722 = phi i8 [ %spec.select642, %719 ], [ %.0523691, %713 ]
+  %722 = phi i8 [ %spec.select642, %719 ], [ %.0523690, %713 ]
   %723 = getelementptr inbounds nuw i8, ptr %565, i64 108
   store i8 %.sink, ptr %723, align 4, !tbaa !409
   %724 = trunc nuw i8 %714 to i1
-  %.2525 = select i1 %724, i8 %722, i8 %.0523691
+  %.2525 = select i1 %724, i8 %722, i8 %.0523690
   %725 = load i32, ptr %565, align 4, !tbaa !339
   %storemerge.v = select i1 %693, i32 50331648, i32 16777216
   %storemerge = or i32 %725, %storemerge.v
@@ -3858,19 +3858,19 @@ _ZN5ImGui23TableCalcMaxColumnWidthEPK10ImGuiTablei.exit: ; preds = %619, %624, %
 .thread636:                                       ; preds = %.thread635, %760, %740
   %767 = load i16, ptr %524, align 4, !tbaa !402
   %768 = sext i16 %767 to i32
-  %769 = icmp slt i32 %.0526690, %768
+  %769 = icmp slt i32 %.0526689, %768
   br i1 %769, label %770, label %776
 
 770:                                              ; preds = %.thread636
   %771 = fadd float %672, 1.000000e+00
-  %772 = fcmp olt float %771, %.sroa.0.0689
+  %772 = fcmp olt float %771, %.sroa.0.0688
   %773 = fcmp ogt float %771, %.sroa.13.0.copyload
   %774 = select i1 %773, float %.sroa.13.0.copyload, float %771
-  %775 = select i1 %772, float %.sroa.0.0689, float %774
+  %775 = select i1 %772, float %.sroa.0.0688, float %774
   br label %776
 
 776:                                              ; preds = %770, %.thread636
-  %.sroa.0.2 = phi float [ %775, %770 ], [ %.sroa.0.0689, %.thread636 ]
+  %.sroa.0.2 = phi float [ %775, %770 ], [ %.sroa.0.0688, %.thread636 ]
   %777 = load float, ptr %229, align 4, !tbaa !245
   %778 = fadd float %668, %777
   %779 = load float, ptr %231, align 8, !tbaa !246
@@ -3878,22 +3878,22 @@ _ZN5ImGui23TableCalcMaxColumnWidthEPK10ImGuiTablei.exit: ; preds = %619, %624, %
   %781 = load float, ptr %378, align 8, !tbaa !247
   %782 = call float @llvm.fmuladd.f32(float %781, float 2.000000e+00, float %780)
   %783 = fadd float %.1519, %782
-  %784 = add nsw i32 %.0526690, 1
+  %784 = add nsw i32 %.0526689, 1
   br label %785
 
 785:                                              ; preds = %776, %593
-  %.sroa.0.1 = phi float [ %.sroa.0.0689, %593 ], [ %.sroa.0.2, %776 ]
-  %.1527 = phi i32 [ %.0526690, %593 ], [ %784, %776 ]
-  %.1524 = phi i8 [ %.0523691, %593 ], [ %.2525, %776 ]
+  %.sroa.0.1 = phi float [ %.sroa.0.0688, %593 ], [ %.sroa.0.2, %776 ]
+  %.1527 = phi i32 [ %.0526689, %593 ], [ %784, %776 ]
+  %.1524 = phi i8 [ %.0523690, %593 ], [ %.2525, %776 ]
   %.2520 = phi float [ %.1519, %593 ], [ %783, %776 ]
-  %indvars.iv.next713 = add nuw nsw i64 %indvars.iv712, 1
+  %indvars.iv.next712 = add nuw nsw i64 %indvars.iv711, 1
   %786 = load i32, ptr %11, align 4, !tbaa !209
   %787 = sext i32 %786 to i64
-  %788 = icmp slt i64 %indvars.iv.next713, %787
-  br i1 %788, label %558, label %._crit_edge696, !llvm.loop !416
+  %788 = icmp slt i64 %indvars.iv.next712, %787
+  br i1 %788, label %558, label %._crit_edge695, !llvm.loop !416
 
-._crit_edge696.thread:                            ; preds = %.cont, %._crit_edge696
-  %.lcssa757 = phi i32 [ %786, %._crit_edge696 ], [ %538, %.cont ]
+._crit_edge695.thread:                            ; preds = %.cont, %._crit_edge695
+  %.lcssa756 = phi i32 [ %786, %._crit_edge695 ], [ %538, %.cont ]
   %789 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %790 = load i16, ptr %24, align 4, !tbaa !369
   %791 = load ptr, ptr %789, align 8, !tbaa !278
@@ -3905,9 +3905,9 @@ _ZN5ImGui23TableCalcMaxColumnWidthEPK10ImGuiTablei.exit: ; preds = %619, %624, %
   store i8 0, ptr %795, align 4, !tbaa !409
   br label %796
 
-796:                                              ; preds = %._crit_edge696._crit_edge, %._crit_edge696.thread
-  %.lcssa756 = phi i32 [ %786, %._crit_edge696._crit_edge ], [ %.lcssa757, %._crit_edge696.thread ]
-  %797 = phi ptr [ %.pre722, %._crit_edge696._crit_edge ], [ %791, %._crit_edge696.thread ]
+796:                                              ; preds = %._crit_edge695._crit_edge, %._crit_edge695.thread
+  %.lcssa755 = phi i32 [ %786, %._crit_edge695._crit_edge ], [ %.lcssa756, %._crit_edge695.thread ]
+  %797 = phi ptr [ %.pre721, %._crit_edge695._crit_edge ], [ %791, %._crit_edge695.thread ]
   %798 = load float, ptr %226, align 8, !tbaa !417
   %799 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %800 = load i16, ptr %204, align 2, !tbaa !381
@@ -3927,24 +3927,24 @@ _ZN5ImGui23TableCalcMaxColumnWidthEPK10ImGuiTablei.exit: ; preds = %619, %624, %
   br i1 %or.cond603, label %813, label %811
 
 811:                                              ; preds = %807
-  %812 = trunc i32 %.lcssa756 to i16
+  %812 = trunc i32 %.lcssa755 to i16
   store i16 %812, ptr %482, align 2, !tbaa !303
   br label %813
 
 813:                                              ; preds = %811, %807, %796
-  %.pre723.pre = load i32, ptr %4, align 4, !tbaa !205
-  %814 = and i32 %.pre723.pre, 1
+  %.pre722.pre = load i32, ptr %4, align 4, !tbaa !205
+  %814 = and i32 %.pre722.pre, 1
   %.not561 = icmp eq i32 %814, 0
-  %or.cond766 = select i1 %.0508.lcssa, i1 true, i1 %.not561
-  br i1 %or.cond766, label %817, label %815
+  %or.cond765 = select i1 %.0508.lcssa, i1 true, i1 %.not561
+  br i1 %or.cond765, label %817, label %815
 
 815:                                              ; preds = %813
-  %816 = and i32 %.pre723.pre, -2
+  %816 = and i32 %.pre722.pre, -2
   store i32 %816, ptr %4, align 4, !tbaa !205
   br label %817
 
 817:                                              ; preds = %815, %813
-  %.pre723 = phi i32 [ %816, %815 ], [ %.pre723.pre, %813 ]
+  %.pre722 = phi i32 [ %816, %815 ], [ %.pre722.pre, %813 ]
   %818 = getelementptr inbounds nuw i8, ptr %3, i64 5136
   %819 = load i32, ptr %818, align 8, !tbaa !419
   %820 = icmp ne i32 %819, 0
@@ -3956,12 +3956,12 @@ _ZN5ImGui23TableCalcMaxColumnWidthEPK10ImGuiTablei.exit: ; preds = %619, %624, %
   br i1 %.not562, label %826, label %824
 
 824:                                              ; preds = %817
-  %825 = and i32 %.pre723, -65537
+  %825 = and i32 %.pre722, -65537
   store i32 %825, ptr %4, align 4, !tbaa !205
   br label %826
 
 826:                                              ; preds = %824, %817
-  %827 = phi i32 [ %825, %824 ], [ %.pre723, %817 ]
+  %827 = phi i32 [ %825, %824 ], [ %.pre722, %817 ]
   %828 = and i32 %827, 65536
   %.not563 = icmp eq i32 %828, 0
   br i1 %.not563, label %833, label %829
@@ -3993,7 +3993,7 @@ _ZN5ImGui23TableCalcMaxColumnWidthEPK10ImGuiTablei.exit: ; preds = %619, %624, %
 
 843:                                              ; preds = %833
   %844 = load float, ptr %489, align 4, !tbaa !396
-  %.pre724 = load ptr, ptr %834, align 8, !tbaa !207
+  %.pre723 = load ptr, ptr %834, align 8, !tbaa !207
   br label %856
 
 845:                                              ; preds = %833
@@ -4015,7 +4015,7 @@ _ZN5ImGui23TableCalcMaxColumnWidthEPK10ImGuiTablei.exit: ; preds = %619, %624, %
   br label %856
 
 856:                                              ; preds = %852, %843
-  %857 = phi ptr [ %.pre724, %843 ], [ %846, %852 ]
+  %857 = phi ptr [ %.pre723, %843 ], [ %846, %852 ]
   %.0499 = phi float [ %844, %843 ], [ %855, %852 ]
   %858 = getelementptr inbounds nuw i8, ptr %3, i64 3196
   %859 = load float, ptr %858, align 4, !tbaa !425
@@ -4124,10 +4124,10 @@ _ZN5ImGui23TableCalcMaxColumnWidthEPK10ImGuiTablei.exit: ; preds = %619, %624, %
   br i1 %917, label %.thread638.thread, label %_ZN5ImGui26TableBeginContextMenuPopupEP10ImGuiTable.exit.thread
 
 .thread638:                                       ; preds = %911
-  %.pre725 = load i16, ptr %467, align 8, !tbaa !204
-  %.phi.trans.insert726 = getelementptr inbounds nuw i8, ptr %0, i64 122
-  %.pre727 = load i16, ptr %.phi.trans.insert726, align 2, !tbaa !296
-  %918 = icmp eq i16 %.pre725, %.pre727
+  %.pre724 = load i16, ptr %467, align 8, !tbaa !204
+  %.phi.trans.insert725 = getelementptr inbounds nuw i8, ptr %0, i64 122
+  %.pre726 = load i16, ptr %.phi.trans.insert725, align 2, !tbaa !296
+  %918 = icmp eq i16 %.pre724, %.pre726
   br i1 %918, label %.thread638.thread, label %_ZN5ImGui26TableBeginContextMenuPopupEP10ImGuiTable.exit.thread
 
 .thread638.thread:                                ; preds = %.thread637, %.thread638
@@ -4166,7 +4166,7 @@ _ZN5ImGui26TableBeginContextMenuPopupEP10ImGuiTable.exit.thread: ; preds = %911,
   %932 = getelementptr inbounds nuw i8, ptr %0, i64 554
   %933 = load i16, ptr %932, align 2, !tbaa !411
   %934 = icmp sgt i16 %933, 0
-  %.pre728.pre = load ptr, ptr %834, align 8, !tbaa !207
+  %.pre727.pre = load ptr, ptr %834, align 8, !tbaa !207
   br i1 %934, label %935, label %951
 
 935:                                              ; preds = %931
@@ -4184,7 +4184,7 @@ _ZN5ImGui26TableBeginContextMenuPopupEP10ImGuiTable.exit.thread: ; preds = %911,
   %947 = load float, ptr %946, align 4, !tbaa !405
   %948 = load float, ptr %483, align 8, !tbaa !393
   %949 = fsub float %947, %948
-  %950 = getelementptr inbounds nuw i8, ptr %.pre728.pre, i64 128
+  %950 = getelementptr inbounds nuw i8, ptr %.pre727.pre, i64 128
   store float %949, ptr %950, align 8, !tbaa !433
   br label %951
 
@@ -4197,7 +4197,7 @@ _ZN5ImGui26TableBeginContextMenuPopupEP10ImGuiTable.exit.thread: ; preds = %911,
 955:                                              ; preds = %951
   %956 = getelementptr inbounds nuw i8, ptr %.0.i604, i64 12
   %957 = load float, ptr %956, align 4, !tbaa !435
-  %958 = getelementptr inbounds nuw i8, ptr %.pre728.pre, i64 132
+  %958 = getelementptr inbounds nuw i8, ptr %.pre727.pre, i64 132
   store float %957, ptr %958, align 4, !tbaa !436
   br label %959
 
@@ -4212,16 +4212,16 @@ _ZN5ImGui26TableBeginContextMenuPopupEP10ImGuiTable.exit.thread: ; preds = %911,
 963:                                              ; preds = %959
   %964 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %965 = load ptr, ptr %964, align 8, !tbaa !196
-  %966 = getelementptr inbounds nuw i8, ptr %.pre728.pre, i64 704
+  %966 = getelementptr inbounds nuw i8, ptr %.pre727.pre, i64 704
   %967 = load ptr, ptr %966, align 8, !tbaa !437
   call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %965, ptr noundef %967, i32 noundef 2)
   br label %973
 
 968:                                              ; preds = %959
-  %969 = getelementptr inbounds nuw i8, ptr %.pre728.pre, i64 704
+  %969 = getelementptr inbounds nuw i8, ptr %.pre727.pre, i64 704
   %970 = load ptr, ptr %969, align 8, !tbaa !437
-  %971 = getelementptr inbounds nuw i8, ptr %.pre728.pre, i64 552
-  %972 = getelementptr inbounds nuw i8, ptr %.pre728.pre, i64 560
+  %971 = getelementptr inbounds nuw i8, ptr %.pre727.pre, i64 552
+  %972 = getelementptr inbounds nuw i8, ptr %.pre727.pre, i64 560
   call void @_ZN10ImDrawList12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 8 dereferenceable(216) %970, ptr noundef nonnull align 4 dereferenceable(8) %971, ptr noundef nonnull align 4 dereferenceable(8) %972, i1 noundef zeroext false)
   br label %973
 

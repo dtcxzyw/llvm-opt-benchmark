@@ -8666,56 +8666,55 @@ _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.crited
   br i1 %spec.select, label %473, label %_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit1983.critedge
 
 473:                                              ; preds = %435
-  %474 = select i1 %35, float %436, float 0.000000e+00
-  %475 = fsub contract <4 x float> %72, %90
-  %476 = fmul contract <4 x float> %475, %475
-  %shift2392 = shufflevector <4 x float> %476, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop2393 = fadd contract <4 x float> %476, %shift2392
-  %shift2395 = shufflevector <4 x float> %476, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %474 = fsub contract <4 x float> %72, %90
+  %475 = fmul contract <4 x float> %474, %474
+  %shift2392 = shufflevector <4 x float> %475, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop2393 = fadd contract <4 x float> %475, %shift2392
+  %shift2395 = shufflevector <4 x float> %475, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop2396 = fadd contract <4 x float> %shift2395, %foldExtExtBinop2393
-  %477 = extractelement <4 x float> %foldExtExtBinop2396, i64 0
-  %478 = tail call contract noundef float @llvm.sqrt.f32(float %477)
-  %479 = fdiv contract float 1.000000e+00, %478
-  %480 = fmul contract float %.fca.1.extract, %479
-  %481 = fmul contract float %480, %474
+  %476 = extractelement <4 x float> %foldExtExtBinop2396, i64 0
+  %477 = tail call contract noundef float @llvm.sqrt.f32(float %476)
+  %478 = fdiv contract float 1.000000e+00, %477
+  %479 = fmul contract float %.fca.1.extract, %478
+  %480 = fmul contract float %479, %436
   br label %_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit1983.critedge
 
 _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit1983.critedge: ; preds = %473, %435
-  %storemerge = phi float [ %481, %473 ], [ 0.000000e+00, %435 ]
+  %storemerge = phi float [ %480, %473 ], [ 0.000000e+00, %435 ]
   store float %storemerge, ptr %20, align 4
-  %482 = fneg contract <4 x float> %446
-  %483 = fmul contract <4 x float> %447, %482
-  %484 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %449, <4 x float> %448, <4 x float> %483)
-  %485 = fmul contract <4 x float> %484, %484
-  %shift2398 = shufflevector <4 x float> %485, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop2399 = fadd contract <4 x float> %485, %shift2398
-  %shift2401 = shufflevector <4 x float> %485, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %481 = fneg contract <4 x float> %446
+  %482 = fmul contract <4 x float> %447, %481
+  %483 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %449, <4 x float> %448, <4 x float> %482)
+  %484 = fmul contract <4 x float> %483, %483
+  %shift2398 = shufflevector <4 x float> %484, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop2399 = fadd contract <4 x float> %484, %shift2398
+  %shift2401 = shufflevector <4 x float> %484, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop2402 = fadd contract <4 x float> %shift2401, %foldExtExtBinop2399
-  %486 = extractelement <4 x float> %foldExtExtBinop2402, i64 0
-  %487 = tail call contract noundef float @llvm.sqrt.f32(float %486)
-  store float %487, ptr %27, align 8
+  %485 = extractelement <4 x float> %foldExtExtBinop2402, i64 0
+  %486 = tail call contract noundef float @llvm.sqrt.f32(float %485)
+  store float %486, ptr %27, align 8
   store i32 %44, ptr %26, align 4
   store i32 %43, ptr %24, align 16
   store ptr %1, ptr %15, align 16
   store float 0.000000e+00, ptr %28, align 4
-  %488 = fcmp contract une float %storemerge, 0.000000e+00
-  %.not2336 = select i1 %488, i1 %35, i1 false
-  br i1 %.not2336, label %490, label %489
+  %487 = fcmp contract une float %storemerge, 0.000000e+00
+  %.not2336 = select i1 %487, i1 %35, i1 false
+  br i1 %.not2336, label %489, label %488
 
-489:                                              ; preds = %_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit1983.critedge
+488:                                              ; preds = %_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit1983.critedge
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   store <2 x float> zeroinitializer, ptr %18, align 16
   store i32 0, ptr %21, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.critedge, %489
-  %.sink2341 = phi ptr [ %19, %489 ], [ %12, %_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.critedge ]
-  %.sink = phi ptr [ %22, %489 ], [ %14, %_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.critedge ]
+.sink.split:                                      ; preds = %_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.critedge, %488
+  %.sink2341 = phi ptr [ %19, %488 ], [ %12, %_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.critedge ]
+  %.sink = phi ptr [ %22, %488 ], [ %14, %_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.critedge ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %.sink2341, i8 0, i64 9, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sink, i8 0, i64 64, i1 false)
-  br label %490
+  br label %489
 
-490:                                              ; preds = %.sink.split, %_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit1983.critedge
+489:                                              ; preds = %.sink.split, %_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit1983.critedge
   ret void
 }
 

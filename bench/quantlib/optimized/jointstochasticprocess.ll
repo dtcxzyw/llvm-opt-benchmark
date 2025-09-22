@@ -6492,7 +6492,7 @@ _ZNKSt4lessIN8QuantLib22JointStochasticProcess10CachingKeyEEclERKS2_S5_.exit20: 
   %dt_6.i.i18 = getelementptr inbounds nuw i8, ptr %__position.coerce, i64 40
   %18 = load double, ptr %dt_6.i.i18, align 8, !tbaa !133
   %cmp7.i.i19 = fcmp olt double %17, %18
-  br i1 %cmp7.i.i19, label %if.then17, label %if.else42
+  br i1 %cmp7.i.i19, label %if.then17, label %_ZNKSt4lessIN8QuantLib22JointStochasticProcess10CachingKeyEEclERKS2_S5_.exit89
 
 if.then17:                                        ; preds = %if.else12, %_ZNKSt4lessIN8QuantLib22JointStochasticProcess10CachingKeyEEclERKS2_S5_.exit20
   %_M_left.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -6604,15 +6604,11 @@ _ZNKSt4lessIN8QuantLib22JointStochasticProcess10CachingKeyEEclERKS2_S5_.exit11.i
 if.end17.i62:                                     ; preds = %_ZNKSt4lessIN8QuantLib22JointStochasticProcess10CachingKeyEEclERKS2_S5_.exit11.i67, %lor.rhs.i.i5.i60
   br label %cleanup76
 
-if.else42:                                        ; preds = %_ZNKSt4lessIN8QuantLib22JointStochasticProcess10CachingKeyEEclERKS2_S5_.exit20
-  %cmp.i.i82 = fcmp olt double %16, %15
-  br i1 %cmp.i.i82, label %if.then47, label %_ZNKSt4lessIN8QuantLib22JointStochasticProcess10CachingKeyEEclERKS2_S5_.exit89
-
 if.else42.thread:                                 ; preds = %lor.rhs.i.i14
   %cmp.i.i82209 = fcmp olt double %16, %15
   br i1 %cmp.i.i82209, label %if.then47, label %cleanup76
 
-_ZNKSt4lessIN8QuantLib22JointStochasticProcess10CachingKeyEEclERKS2_S5_.exit89: ; preds = %if.else42
+_ZNKSt4lessIN8QuantLib22JointStochasticProcess10CachingKeyEEclERKS2_S5_.exit89: ; preds = %_ZNKSt4lessIN8QuantLib22JointStochasticProcess10CachingKeyEEclERKS2_S5_.exit20
   %dt_.i.i86 = getelementptr inbounds nuw i8, ptr %__position.coerce, i64 40
   %30 = load double, ptr %dt_.i.i86, align 8, !tbaa !133
   %dt_6.i.i87 = getelementptr inbounds nuw i8, ptr %__k, i64 8
@@ -6620,7 +6616,7 @@ _ZNKSt4lessIN8QuantLib22JointStochasticProcess10CachingKeyEEclERKS2_S5_.exit89: 
   %cmp7.i.i88 = fcmp olt double %30, %31
   br i1 %cmp7.i.i88, label %if.then47, label %cleanup76
 
-if.then47:                                        ; preds = %if.else42.thread, %if.else42, %_ZNKSt4lessIN8QuantLib22JointStochasticProcess10CachingKeyEEclERKS2_S5_.exit89
+if.then47:                                        ; preds = %if.else42.thread, %_ZNKSt4lessIN8QuantLib22JointStochasticProcess10CachingKeyEEclERKS2_S5_.exit89
   %_M_right.i90 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %32 = load ptr, ptr %_M_right.i90, align 8, !tbaa !3
   %cmp50 = icmp eq ptr %32, %__position.coerce

@@ -2002,9 +2002,9 @@ _ZN12_GLOBAL__N_15int2DEii.exit348.i:             ; preds = %816
 
 .preheader417.i:                                  ; preds = %820
   %822 = icmp sgt i32 %778, 0
-  br i1 %822, label %.lr.ph448.i, label %._crit_edge449.i
+  br i1 %822, label %.lr.ph447.i, label %._crit_edge448.i
 
-.lr.ph448.i:                                      ; preds = %.preheader417.i
+.lr.ph447.i:                                      ; preds = %.preheader417.i
   %823 = add nsw i32 %778, -1
   %824 = add i32 %776, -1
   %.sroa.speculated.i147 = call i32 @llvm.smin.i32(i32 range(i32 1, -2147483648) %3, i32 %824)
@@ -2012,10 +2012,10 @@ _ZN12_GLOBAL__N_15int2DEii.exit348.i:             ; preds = %816
   %825 = getelementptr inbounds nuw i8, ptr %769, i64 16
   %826 = getelementptr inbounds nuw i8, ptr %769, i64 72
   %827 = add i32 %.sroa.speculated.i147, 1
-  %wide.trip.count491.i = zext nneg i32 %778 to i64
+  %wide.trip.count490.i = zext nneg i32 %778 to i64
   %.pre.i = load ptr, ptr %802, align 8, !tbaa !85
   %wide.trip.count.i148 = zext i32 %827 to i64
-  %wide.trip.count486.i = zext nneg i32 %776 to i64
+  %wide.trip.count485.i = zext nneg i32 %776 to i64
   br label %840
 
 828:                                              ; preds = %.noexc.i143, %801
@@ -2048,22 +2048,22 @@ _ZN12_GLOBAL__N_15int2DEii.exit348.i:             ; preds = %816
           cleanup
   br label %1182
 
-840:                                              ; preds = %._crit_edge446.i, %.lr.ph448.i
-  %indvars.iv488.i = phi i64 [ 0, %.lr.ph448.i ], [ %indvars.iv.next489.i, %._crit_edge446.i ]
-  %indvars.iv460.i = phi i32 [ %524, %.lr.ph448.i ], [ %indvars.iv.next461.i, %._crit_edge446.i ]
+840:                                              ; preds = %._crit_edge445.i, %.lr.ph447.i
+  %indvars.iv487.i = phi i64 [ 0, %.lr.ph447.i ], [ %indvars.iv.next488.i, %._crit_edge445.i ]
+  %indvars.iv459.i = phi i32 [ %524, %.lr.ph447.i ], [ %indvars.iv.next460.i, %._crit_edge445.i ]
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %807, i8 0, i64 %515, i1 false)
   call void @llvm.memset.p0.i64(ptr align 4 %.pre.i, i8 0, i64 %517, i1 false)
   br label %856
 
 841:                                              ; preds = %856
-  %smax479.i = call i32 @llvm.smax.i32(i32 %indvars.iv460.i, i32 0)
-  %842 = zext nneg i32 %smax479.i to i64
+  %smax478.i = call i32 @llvm.smax.i32(i32 %indvars.iv459.i, i32 0)
+  %842 = zext nneg i32 %smax478.i to i64
   store i32 0, ptr %821, align 4, !tbaa !47
   store i32 0, ptr %819, align 4, !tbaa !47
-  %843 = trunc i64 %indvars.iv488.i to i32
+  %843 = trunc i64 %indvars.iv487.i to i32
   %844 = add i32 %3, %843
   %.sroa.speculated383.i = call i32 @llvm.smin.i32(i32 %844, i32 %823)
-  br i1 %.not426.i, label %._crit_edge446.i, label %.lr.ph429.i
+  br i1 %.not426.i, label %._crit_edge445.i, label %.lr.ph429.i
 
 .lr.ph429.i:                                      ; preds = %841
   %845 = sub i32 %843, %3
@@ -2078,7 +2078,7 @@ _ZN12_GLOBAL__N_15int2DEii.exit348.i:             ; preds = %816
   %853 = load ptr, ptr %520, align 8, !tbaa !62, !noalias !80
   %854 = load i64, ptr %853, align 8, !tbaa !55
   %.not333424.i = icmp sgt i32 %.sroa.speculated389.i, %.sroa.speculated383.i
-  br i1 %.not333424.i, label %.lr.ph445.i, label %.lr.ph.preheader.i152
+  br i1 %.not333424.i, label %.lr.ph444.i, label %.lr.ph.preheader.i152
 
 .lr.ph.preheader.i152:                            ; preds = %.lr.ph429.i
   %855 = zext nneg i32 %.sroa.speculated383.i to i64
@@ -2096,17 +2096,17 @@ _ZN12_GLOBAL__N_15int2DEii.exit348.i:             ; preds = %816
   %exitcond.not.i151 = icmp eq i64 %indvars.iv.next.i150, 256
   br i1 %exitcond.not.i151, label %841, label %856, !llvm.loop !87
 
-.lr.ph445.i.loopexit:                             ; preds = %._crit_edge.i154
+.lr.ph444.i.loopexit:                             ; preds = %._crit_edge.i154
   %.pre248 = load ptr, ptr %825, align 8, !noalias !80
   %.pre249 = load ptr, ptr %826, align 8, !noalias !80
-  br label %.lr.ph445.i
+  br label %.lr.ph444.i
 
-.lr.ph445.i:                                      ; preds = %.lr.ph445.i.loopexit, %.lr.ph429.i
-  %861 = phi ptr [ %.pre249, %.lr.ph445.i.loopexit ], [ %847, %.lr.ph429.i ]
-  %862 = phi ptr [ %.pre248, %.lr.ph445.i.loopexit ], [ %846, %.lr.ph429.i ]
+.lr.ph444.i:                                      ; preds = %.lr.ph444.i.loopexit, %.lr.ph429.i
+  %861 = phi ptr [ %.pre249, %.lr.ph444.i.loopexit ], [ %847, %.lr.ph429.i ]
+  %862 = phi ptr [ %.pre248, %.lr.ph444.i.loopexit ], [ %846, %.lr.ph429.i ]
   %863 = getelementptr inbounds nuw i8, ptr %850, i64 8
   %864 = load i64, ptr %863, align 8, !tbaa !55
-  %865 = mul i64 %864, %indvars.iv488.i
+  %865 = mul i64 %864, %indvars.iv487.i
   %invariant.gep.i = getelementptr i8, ptr %849, i64 %865
   %866 = sext i32 %.sroa.speculated383.i to i64
   %867 = load ptr, ptr %521, align 8
@@ -2115,34 +2115,34 @@ _ZN12_GLOBAL__N_15int2DEii.exit348.i:             ; preds = %816
   br label %928
 
 .lr.ph.i153:                                      ; preds = %._crit_edge.i154, %.lr.ph.preheader.i152
-  %indvars.iv465.i = phi i64 [ 0, %.lr.ph.preheader.i152 ], [ %indvars.iv.next466.i, %._crit_edge.i154 ]
-  %870 = mul i64 %indvars.iv465.i, %848
+  %indvars.iv464.i = phi i64 [ 0, %.lr.ph.preheader.i152 ], [ %indvars.iv.next465.i, %._crit_edge.i154 ]
+  %870 = mul i64 %indvars.iv464.i, %848
   %871 = getelementptr inbounds nuw i8, ptr %846, i64 %870
-  %872 = mul i64 %indvars.iv465.i, %851
+  %872 = mul i64 %indvars.iv464.i, %851
   %873 = getelementptr inbounds nuw i8, ptr %849, i64 %872
-  %874 = mul i64 %indvars.iv465.i, %854
+  %874 = mul i64 %indvars.iv464.i, %854
   %875 = getelementptr inbounds nuw i8, ptr %852, i64 %874
   br label %876
 
 ._crit_edge.i154:                                 ; preds = %927
-  %indvars.iv.next466.i = add nuw nsw i64 %indvars.iv465.i, 1
-  %exitcond468.not.i = icmp eq i64 %indvars.iv.next466.i, %wide.trip.count.i148
-  br i1 %exitcond468.not.i, label %.lr.ph445.i.loopexit, label %.lr.ph.i153, !llvm.loop !88
+  %indvars.iv.next465.i = add nuw nsw i64 %indvars.iv464.i, 1
+  %exitcond467.not.i = icmp eq i64 %indvars.iv.next465.i, %wide.trip.count.i148
+  br i1 %exitcond467.not.i, label %.lr.ph444.i.loopexit, label %.lr.ph.i153, !llvm.loop !88
 
 876:                                              ; preds = %927, %.lr.ph.i153
-  %indvars.iv462.i = phi i64 [ %842, %.lr.ph.i153 ], [ %indvars.iv.next463.i, %927 ]
-  %877 = getelementptr inbounds nuw i8, ptr %875, i64 %indvars.iv462.i
+  %indvars.iv461.i = phi i64 [ %842, %.lr.ph.i153 ], [ %indvars.iv.next462.i, %927 ]
+  %877 = getelementptr inbounds nuw i8, ptr %875, i64 %indvars.iv461.i
   %878 = load i8, ptr %877, align 1, !tbaa !51
   %.not334.i = icmp eq i8 %878, 0
   br i1 %.not334.i, label %927, label %879
 
 879:                                              ; preds = %876
-  %880 = getelementptr inbounds nuw i32, ptr %871, i64 %indvars.iv462.i
+  %880 = getelementptr inbounds nuw i32, ptr %871, i64 %indvars.iv461.i
   %881 = load i32, ptr %880, align 4, !tbaa !47
   %882 = sext i32 %881 to i64
   %883 = getelementptr inbounds ptr, ptr %802, i64 %882
   %884 = load ptr, ptr %883, align 8, !tbaa !85
-  %885 = getelementptr inbounds nuw i32, ptr %873, i64 %indvars.iv462.i
+  %885 = getelementptr inbounds nuw i32, ptr %873, i64 %indvars.iv461.i
   %886 = load i32, ptr %885, align 4, !tbaa !47
   %887 = sext i32 %886 to i64
   %888 = getelementptr inbounds i32, ptr %884, i64 %887
@@ -2180,7 +2180,7 @@ _ZN12_GLOBAL__N_15int2DEii.exit348.i:             ; preds = %816
   br i1 %.not.i.i, label %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit_crit_edge.i, label %907
 
 ._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit_crit_edge.i: ; preds = %904
-  %.pre493.i = load i32, ptr %906, align 4, !tbaa !47
+  %.pre492.i = load i32, ptr %906, align 4, !tbaa !47
   br label %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit.i
 
 907:                                              ; preds = %904, %.thread.i157
@@ -2220,27 +2220,27 @@ _ZN12_GLOBAL__N_15int2DEii.exit348.i:             ; preds = %816
   br label %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit.i
 
 _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit.i:     ; preds = %.sink.split.i.i, %907, %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit_crit_edge.i
-  %924 = phi i32 [ %.pre493.i, %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit_crit_edge.i ], [ %909, %.sink.split.i.i ], [ %909, %907 ]
+  %924 = phi i32 [ %.pre492.i, %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit_crit_edge.i ], [ %909, %.sink.split.i.i ], [ %909, %907 ]
   %925 = phi ptr [ %906, %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit_crit_edge.i ], [ %908, %.sink.split.i.i ], [ %908, %907 ]
   %926 = add nsw i32 %924, -1
   store i32 %926, ptr %925, align 4, !tbaa !47
   br label %927
 
 927:                                              ; preds = %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit.i, %876
-  %indvars.iv.next463.i = add nuw nsw i64 %indvars.iv462.i, 1
-  %.not333.not.i = icmp samesign ult i64 %indvars.iv462.i, %855
+  %indvars.iv.next462.i = add nuw nsw i64 %indvars.iv461.i, 1
+  %.not333.not.i = icmp samesign ult i64 %indvars.iv461.i, %855
   br i1 %.not333.not.i, label %876, label %._crit_edge.i154, !llvm.loop !89
 
-._crit_edge446.i:                                 ; preds = %.loopexit.i155, %841
-  %indvars.iv.next489.i = add nuw nsw i64 %indvars.iv488.i, 1
-  %indvars.iv.next461.i = add nsw i32 %indvars.iv460.i, 1
-  %exitcond492.not.i = icmp eq i64 %indvars.iv.next489.i, %wide.trip.count491.i
-  br i1 %exitcond492.not.i, label %._crit_edge449.i, label %840, !llvm.loop !90
+._crit_edge445.i:                                 ; preds = %.loopexit.i155, %841
+  %indvars.iv.next488.i = add nuw nsw i64 %indvars.iv487.i, 1
+  %indvars.iv.next460.i = add nsw i32 %indvars.iv459.i, 1
+  %exitcond491.not.i = icmp eq i64 %indvars.iv.next488.i, %wide.trip.count490.i
+  br i1 %exitcond491.not.i, label %._crit_edge448.i, label %840, !llvm.loop !90
 
-928:                                              ; preds = %.loopexit.i155, %.lr.ph445.i
-  %indvars.iv483.i = phi i64 [ 0, %.lr.ph445.i ], [ %indvars.iv.next484.i, %.loopexit.i155 ]
-  %.0299443.i = phi i32 [ -1, %.lr.ph445.i ], [ %.2301405.i, %.loopexit.i155 ]
-  %929 = mul i64 %indvars.iv483.i, %851
+928:                                              ; preds = %.loopexit.i155, %.lr.ph444.i
+  %indvars.iv482.i = phi i64 [ 0, %.lr.ph444.i ], [ %indvars.iv.next483.i, %.loopexit.i155 ]
+  %.0299442.i = phi i32 [ -1, %.lr.ph444.i ], [ %.2301405.i, %.loopexit.i155 ]
+  %929 = mul i64 %indvars.iv482.i, %851
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %929
   %930 = load i32, ptr %gep.i, align 4, !tbaa !47
   %931 = sext i32 %930 to i64
@@ -2268,25 +2268,25 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit.i:     ; preds = %.sink.split.i.i, %9
   br i1 %945, label %985, label %.preheader414.i
 
 .preheader414.i:                                  ; preds = %944
-  %946 = icmp sgt i32 %.0299443.i, 0
-  br i1 %946, label %.lr.ph433.preheader.i, label %.critedge.i
+  %946 = icmp sgt i32 %.0299442.i, 0
+  br i1 %946, label %.lr.ph432.preheader.i, label %.critedge.i
 
-.lr.ph433.preheader.i:                            ; preds = %.preheader414.i
-  %947 = zext nneg i32 %.0299443.i to i64
-  br label %.lr.ph433.i
+.lr.ph432.preheader.i:                            ; preds = %.preheader414.i
+  %947 = zext nneg i32 %.0299442.i to i64
+  br label %.lr.ph432.i
 
-.lr.ph433.i:                                      ; preds = %981, %.lr.ph433.preheader.i
-  %indvars.iv469.i = phi i64 [ %947, %.lr.ph433.preheader.i ], [ %indvars.iv.next470.i, %981 ]
-  %.1278432.i = phi float [ %941, %.lr.ph433.preheader.i ], [ %982, %981 ]
-  %948 = getelementptr inbounds nuw ptr, ptr %802, i64 %indvars.iv469.i
+.lr.ph432.i:                                      ; preds = %981, %.lr.ph432.preheader.i
+  %indvars.iv468.i = phi i64 [ %947, %.lr.ph432.preheader.i ], [ %indvars.iv.next469.i, %981 ]
+  %.1278431.i = phi float [ %941, %.lr.ph432.preheader.i ], [ %982, %981 ]
+  %948 = getelementptr inbounds nuw ptr, ptr %802, i64 %indvars.iv468.i
   %949 = load ptr, ptr %948, align 8, !tbaa !85
-  %950 = getelementptr inbounds nuw ptr, ptr %809, i64 %indvars.iv469.i
+  %950 = getelementptr inbounds nuw ptr, ptr %809, i64 %indvars.iv468.i
   %951 = load ptr, ptr %950, align 8, !tbaa !85
   br label %952
 
-952:                                              ; preds = %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit357.i, %.lr.ph433.i
-  %.0284.i = phi i32 [ 0, %.lr.ph433.i ], [ %980, %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit357.i ]
-  %.0283.i = phi float [ 0.000000e+00, %.lr.ph433.i ], [ %960, %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit357.i ]
+952:                                              ; preds = %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit357.i, %.lr.ph432.i
+  %.0284.i = phi i32 [ 0, %.lr.ph432.i ], [ %980, %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit357.i ]
+  %.0283.i = phi float [ 0.000000e+00, %.lr.ph432.i ], [ %960, %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit357.i ]
   %953 = sext i32 %.0284.i to i64
   %954 = getelementptr inbounds i32, ptr %949, i64 %953
   %955 = load i32, ptr %954, align 4, !tbaa !47
@@ -2297,11 +2297,11 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit.i:     ; preds = %.sink.split.i.i, %9
   %960 = call float @llvm.fmuladd.f32(float %957, float %959, float %.0283.i)
   %961 = getelementptr inbounds i32, ptr %807, i64 %953
   %.not.i351.i = icmp eq i32 %.0284.i, 0
-  %.pre494.i = load i32, ptr %961, align 4, !tbaa !47
+  %.pre493.i = load i32, ptr %961, align 4, !tbaa !47
   br i1 %.not.i351.i, label %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit357.i, label %962
 
 962:                                              ; preds = %952
-  %.not21.i352.i = icmp eq i32 %.pre494.i, 0
+  %.not21.i352.i = icmp eq i32 %.pre493.i, 0
   br i1 %.not21.i352.i, label %963, label %968
 
 963:                                              ; preds = %962
@@ -2315,7 +2315,7 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit.i:     ; preds = %.sink.split.i.i, %9
   br label %.sink.split.i354.i
 
 968:                                              ; preds = %962
-  %.not22.i353.i = icmp eq i32 %.pre494.i, %956
+  %.not22.i353.i = icmp eq i32 %.pre493.i, %956
   br i1 %.not22.i353.i, label %969, label %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit357.i
 
 969:                                              ; preds = %968
@@ -2337,7 +2337,7 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit.i:     ; preds = %.sink.split.i.i, %9
   br label %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit357.i
 
 _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit357.i:  ; preds = %.sink.split.i354.i, %968, %952
-  %978 = sub nsw i32 %.pre494.i, %956
+  %978 = sub nsw i32 %.pre493.i, %956
   store i32 %978, ptr %961, align 4, !tbaa !47
   %979 = getelementptr inbounds i32, ptr %951, i64 %953
   %980 = load i32, ptr %979, align 4, !tbaa !47
@@ -2345,32 +2345,32 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit357.i:  ; preds = %.sink.split.i354.i,
   br i1 %.not332.i, label %981, label %952, !llvm.loop !92
 
 981:                                              ; preds = %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit357.i
-  %982 = fsub float %.1278432.i, %960
-  %indvars.iv.next470.i = add nsw i64 %indvars.iv469.i, -1
+  %982 = fsub float %.1278431.i, %960
+  %indvars.iv.next469.i = add nsw i64 %indvars.iv468.i, -1
   %983 = fcmp oge float %982, 0.000000e+00
-  %984 = icmp sgt i64 %indvars.iv469.i, 1
+  %984 = icmp sgt i64 %indvars.iv468.i, 1
   %or.cond335.i = and i1 %984, %983
-  br i1 %or.cond335.i, label %.lr.ph433.i, label %.critedge.loopexit450.i, !llvm.loop !93
+  br i1 %or.cond335.i, label %.lr.ph432.i, label %.critedge.loopexit449.i, !llvm.loop !93
 
 985:                                              ; preds = %944
   %986 = fcmp olt float %941, 0.000000e+00
   br i1 %986, label %.preheader.preheader.i, label %.critedge.i
 
 .preheader.preheader.i:                           ; preds = %985
-  %987 = sext i32 %.0299443.i to i64
+  %987 = sext i32 %.0299442.i to i64
   br label %.preheader.i156
 
 .preheader.i156:                                  ; preds = %1024, %.preheader.preheader.i
-  %indvars.iv472.i = phi i64 [ %987, %.preheader.preheader.i ], [ %indvars.iv.next473.i, %1024 ]
+  %indvars.iv471.i = phi i64 [ %987, %.preheader.preheader.i ], [ %indvars.iv.next472.i, %1024 ]
   %.3280.i = phi float [ %941, %.preheader.preheader.i ], [ %1025, %1024 ]
-  %988 = icmp eq i64 %indvars.iv472.i, 255
+  %988 = icmp eq i64 %indvars.iv471.i, 255
   br i1 %988, label %.critedge.thread.i, label %989
 
 989:                                              ; preds = %.preheader.i156
-  %indvars.iv.next473.i = add nsw i64 %indvars.iv472.i, 1
-  %990 = getelementptr inbounds ptr, ptr %802, i64 %indvars.iv.next473.i
+  %indvars.iv.next472.i = add nsw i64 %indvars.iv471.i, 1
+  %990 = getelementptr inbounds ptr, ptr %802, i64 %indvars.iv.next472.i
   %991 = load ptr, ptr %990, align 8, !tbaa !85
-  %992 = getelementptr inbounds ptr, ptr %809, i64 %indvars.iv.next473.i
+  %992 = getelementptr inbounds ptr, ptr %809, i64 %indvars.iv.next472.i
   %993 = load ptr, ptr %992, align 8, !tbaa !85
   br label %994
 
@@ -2387,11 +2387,11 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit357.i:  ; preds = %.sink.split.i354.i,
   %1002 = call float @llvm.fmuladd.f32(float %999, float %1001, float %.0285.i)
   %1003 = getelementptr inbounds i32, ptr %807, i64 %995
   %.not.i358.i = icmp eq i32 %.0286.i, 0
-  %.pre495.i = load i32, ptr %1003, align 4, !tbaa !47
+  %.pre494.i = load i32, ptr %1003, align 4, !tbaa !47
   br i1 %.not.i358.i, label %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit364.i, label %1004
 
 1004:                                             ; preds = %994
-  %.not21.i359.i = icmp eq i32 %.pre495.i, 0
+  %.not21.i359.i = icmp eq i32 %.pre494.i, 0
   br i1 %.not21.i359.i, label %1005, label %1010
 
 1005:                                             ; preds = %1004
@@ -2406,7 +2406,7 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit357.i:  ; preds = %.sink.split.i354.i,
 
 1010:                                             ; preds = %1004
   %1011 = sub i32 0, %998
-  %.not22.i360.i = icmp eq i32 %.pre495.i, %1011
+  %.not22.i360.i = icmp eq i32 %.pre494.i, %1011
   br i1 %.not22.i360.i, label %1012, label %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit364.i
 
 1012:                                             ; preds = %1010
@@ -2428,7 +2428,7 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit357.i:  ; preds = %.sink.split.i354.i,
   br label %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit364.i
 
 _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit364.i:  ; preds = %.sink.split.i361.i, %1010, %994
-  %1021 = add nsw i32 %.pre495.i, %998
+  %1021 = add nsw i32 %.pre494.i, %998
   store i32 %1021, ptr %1003, align 4, !tbaa !47
   %1022 = getelementptr inbounds i32, ptr %993, i64 %995
   %1023 = load i32, ptr %1022, align 4, !tbaa !47
@@ -2441,16 +2441,16 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit364.i:  ; preds = %.sink.split.i361.i,
   br i1 %.old8.i, label %.preheader.i156, label %.critedge.loopexit.i
 
 .critedge.loopexit.i:                             ; preds = %1024
-  %1026 = trunc nsw i64 %indvars.iv.next473.i to i32
+  %1026 = trunc nsw i64 %indvars.iv.next472.i to i32
   br label %.critedge.i
 
-.critedge.loopexit450.i:                          ; preds = %981
-  %1027 = trunc nuw nsw i64 %indvars.iv.next470.i to i32
+.critedge.loopexit449.i:                          ; preds = %981
+  %1027 = trunc nuw nsw i64 %indvars.iv.next469.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.critedge.loopexit450.i, %.critedge.loopexit.i, %985, %.preheader414.i
-  %.2301.i = phi i32 [ %.0299443.i, %985 ], [ %.0299443.i, %.preheader414.i ], [ %1026, %.critedge.loopexit.i ], [ %1027, %.critedge.loopexit450.i ]
-  %.2279.i = phi float [ %941, %985 ], [ %941, %.preheader414.i ], [ %1025, %.critedge.loopexit.i ], [ %982, %.critedge.loopexit450.i ]
+.critedge.i:                                      ; preds = %.critedge.loopexit449.i, %.critedge.loopexit.i, %985, %.preheader414.i
+  %.2301.i = phi i32 [ %.0299442.i, %985 ], [ %.0299442.i, %.preheader414.i ], [ %1026, %.critedge.loopexit.i ], [ %1027, %.critedge.loopexit449.i ]
+  %.2279.i = phi float [ %941, %985 ], [ %941, %.preheader414.i ], [ %1025, %.critedge.loopexit.i ], [ %982, %.critedge.loopexit449.i ]
   %.not325.i = icmp eq i32 %.2301.i, -1
   br i1 %.not325.i, label %1036, label %.critedge.thread.i
 
@@ -2461,17 +2461,17 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit364.i:  ; preds = %.sink.split.i361.i,
   %1029 = zext i1 %1028 to i32
   %.sink.i = add nuw nsw i32 %.2301404.i, %1029
   %1030 = load i64, ptr %868, align 8, !tbaa !55
-  %1031 = mul i64 %1030, %indvars.iv483.i
+  %1031 = mul i64 %1030, %indvars.iv482.i
   %1032 = getelementptr inbounds nuw i8, ptr %867, i64 %1031
   %1033 = load i64, ptr %869, align 8, !tbaa !55
-  %1034 = mul i64 %1033, %indvars.iv488.i
+  %1034 = mul i64 %1033, %indvars.iv487.i
   %1035 = getelementptr inbounds nuw i8, ptr %1032, i64 %1034
   store i32 %.sink.i, ptr %1035, align 4, !tbaa !47
   br label %1036
 
 1036:                                             ; preds = %.critedge.thread.i, %.critedge.i
   %.2301405.i = phi i32 [ -1, %.critedge.i ], [ %.2301404.i, %.critedge.thread.i ]
-  %1037 = add nuw nsw i64 %indvars.iv483.i, %525
+  %1037 = add nuw nsw i64 %indvars.iv482.i, %525
   %1038 = trunc nuw i64 %1037 to i32
   %1039 = icmp sgt i32 %776, %1038
   br i1 %1039, label %1040, label %.loopexit413.i
@@ -2484,22 +2484,22 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit364.i:  ; preds = %.sink.split.i361.i,
   %1045 = getelementptr inbounds nuw i8, ptr %849, i64 %1044
   %1046 = mul i64 %1037, %854
   %1047 = getelementptr inbounds nuw i8, ptr %852, i64 %1046
-  br i1 %.not333424.i, label %.loopexit.i155, label %.lr.ph438.i
+  br i1 %.not333424.i, label %.loopexit.i155, label %.lr.ph437.i
 
-.lr.ph438.i:                                      ; preds = %1040, %1104
-  %indvars.iv476.i = phi i64 [ %indvars.iv.next477.i, %1104 ], [ %842, %1040 ]
-  %1048 = getelementptr inbounds nuw i8, ptr %1047, i64 %indvars.iv476.i
+.lr.ph437.i:                                      ; preds = %1040, %1104
+  %indvars.iv475.i = phi i64 [ %indvars.iv.next476.i, %1104 ], [ %842, %1040 ]
+  %1048 = getelementptr inbounds nuw i8, ptr %1047, i64 %indvars.iv475.i
   %1049 = load i8, ptr %1048, align 1, !tbaa !51
   %.not330.i = icmp eq i8 %1049, 0
   br i1 %.not330.i, label %1104, label %1050
 
-1050:                                             ; preds = %.lr.ph438.i
-  %1051 = getelementptr inbounds nuw i32, ptr %1043, i64 %indvars.iv476.i
+1050:                                             ; preds = %.lr.ph437.i
+  %1051 = getelementptr inbounds nuw i32, ptr %1043, i64 %indvars.iv475.i
   %1052 = load i32, ptr %1051, align 4, !tbaa !47
   %1053 = sext i32 %1052 to i64
   %1054 = getelementptr inbounds ptr, ptr %802, i64 %1053
   %1055 = load ptr, ptr %1054, align 8, !tbaa !85
-  %1056 = getelementptr inbounds nuw i32, ptr %1045, i64 %indvars.iv476.i
+  %1056 = getelementptr inbounds nuw i32, ptr %1045, i64 %indvars.iv475.i
   %1057 = load i32, ptr %1056, align 4, !tbaa !47
   %1058 = sext i32 %1057 to i64
   %1059 = getelementptr inbounds i32, ptr %1055, i64 %1058
@@ -2541,7 +2541,7 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit364.i:  ; preds = %.sink.split.i361.i,
   br i1 %.not.i365.i, label %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit371_crit_edge.i, label %1080
 
 ._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit371_crit_edge.i: ; preds = %1076
-  %.pre496.i = load i32, ptr %1078, align 4, !tbaa !47
+  %.pre495.i = load i32, ptr %1078, align 4, !tbaa !47
   br label %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit371.i
 
 1080:                                             ; preds = %1076, %.thread407.i
@@ -2585,20 +2585,20 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit364.i:  ; preds = %.sink.split.i361.i,
   br label %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit371.i
 
 _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit371.i:  ; preds = %.sink.split.i368.i, %1089, %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit371_crit_edge.i
-  %1100 = phi i32 [ %.pre496.i, %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit371_crit_edge.i ], [ %1083, %1089 ], [ %1083, %.sink.split.i368.i ]
+  %1100 = phi i32 [ %.pre495.i, %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit371_crit_edge.i ], [ %1083, %1089 ], [ %1083, %.sink.split.i368.i ]
   %1101 = phi i32 [ %1079, %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit371_crit_edge.i ], [ %1081, %1089 ], [ %1081, %.sink.split.i368.i ]
   %1102 = phi ptr [ %1078, %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit371_crit_edge.i ], [ %1082, %1089 ], [ %1082, %.sink.split.i368.i ]
   %1103 = add nsw i32 %1101, %1100
   store i32 %1103, ptr %1102, align 4, !tbaa !47
   br label %1104
 
-1104:                                             ; preds = %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit371.i, %.lr.ph438.i
-  %indvars.iv.next477.i = add nuw nsw i64 %indvars.iv476.i, 1
-  %.not326.not.i = icmp slt i64 %indvars.iv476.i, %866
-  br i1 %.not326.not.i, label %.lr.ph438.i, label %.loopexit413.i, !llvm.loop !95
+1104:                                             ; preds = %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit371.i, %.lr.ph437.i
+  %indvars.iv.next476.i = add nuw nsw i64 %indvars.iv475.i, 1
+  %.not326.not.i = icmp slt i64 %indvars.iv475.i, %866
+  br i1 %.not326.not.i, label %.lr.ph437.i, label %.loopexit413.i, !llvm.loop !95
 
 .loopexit413.i:                                   ; preds = %1104, %1036
-  %1105 = sub nsw i64 %indvars.iv483.i, %526
+  %1105 = sub nsw i64 %indvars.iv482.i, %526
   %1106 = icmp sgt i64 %1105, -1
   br i1 %1106, label %1107, label %.loopexit.i155
 
@@ -2610,22 +2610,22 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit371.i:  ; preds = %.sink.split.i368.i,
   %1112 = getelementptr inbounds nuw i8, ptr %849, i64 %1111
   %1113 = mul i64 %1105, %854
   %1114 = getelementptr inbounds nuw i8, ptr %852, i64 %1113
-  br i1 %.not333424.i, label %.loopexit.i155, label %.lr.ph442.i
+  br i1 %.not333424.i, label %.loopexit.i155, label %.lr.ph441.i
 
-.lr.ph442.i:                                      ; preds = %1107, %1172
-  %indvars.iv480.i = phi i64 [ %indvars.iv.next481.i, %1172 ], [ %842, %1107 ]
-  %1115 = getelementptr inbounds nuw i8, ptr %1114, i64 %indvars.iv480.i
+.lr.ph441.i:                                      ; preds = %1107, %1172
+  %indvars.iv479.i = phi i64 [ %indvars.iv.next480.i, %1172 ], [ %842, %1107 ]
+  %1115 = getelementptr inbounds nuw i8, ptr %1114, i64 %indvars.iv479.i
   %1116 = load i8, ptr %1115, align 1, !tbaa !51
   %.not328.i = icmp eq i8 %1116, 0
   br i1 %.not328.i, label %1172, label %1117
 
-1117:                                             ; preds = %.lr.ph442.i
-  %1118 = getelementptr inbounds nuw i32, ptr %1110, i64 %indvars.iv480.i
+1117:                                             ; preds = %.lr.ph441.i
+  %1118 = getelementptr inbounds nuw i32, ptr %1110, i64 %indvars.iv479.i
   %1119 = load i32, ptr %1118, align 4, !tbaa !47
   %1120 = sext i32 %1119 to i64
   %1121 = getelementptr inbounds ptr, ptr %802, i64 %1120
   %1122 = load ptr, ptr %1121, align 8, !tbaa !85
-  %1123 = getelementptr inbounds nuw i32, ptr %1112, i64 %indvars.iv480.i
+  %1123 = getelementptr inbounds nuw i32, ptr %1112, i64 %indvars.iv479.i
   %1124 = load i32, ptr %1123, align 4, !tbaa !47
   %1125 = sext i32 %1124 to i64
   %1126 = getelementptr inbounds i32, ptr %1122, i64 %1125
@@ -2665,7 +2665,7 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit371.i:  ; preds = %.sink.split.i368.i,
   br i1 %.not.i372.i, label %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit378_crit_edge.i, label %1148
 
 ._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit378_crit_edge.i: ; preds = %1145
-  %.pre497.i = load i32, ptr %1146, align 4, !tbaa !47
+  %.pre496.i = load i32, ptr %1146, align 4, !tbaa !47
   br label %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit378.i
 
 1148:                                             ; preds = %1145, %.thread410.i
@@ -2709,24 +2709,24 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit371.i:  ; preds = %.sink.split.i368.i,
   br label %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit378.i
 
 _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit378.i:  ; preds = %.sink.split.i375.i, %1157, %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit378_crit_edge.i
-  %1168 = phi i32 [ %.pre497.i, %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit378_crit_edge.i ], [ %1151, %1157 ], [ %1151, %.sink.split.i375.i ]
+  %1168 = phi i32 [ %.pre496.i, %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit378_crit_edge.i ], [ %1151, %1157 ], [ %1151, %.sink.split.i375.i ]
   %1169 = phi i32 [ %1147, %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit378_crit_edge.i ], [ %1149, %1157 ], [ %1149, %.sink.split.i375.i ]
   %1170 = phi ptr [ %1146, %._ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit378_crit_edge.i ], [ %1150, %1157 ], [ %1150, %.sink.split.i375.i ]
   %1171 = add nsw i32 %1169, %1168
   store i32 %1171, ptr %1170, align 4, !tbaa !47
   br label %1172
 
-1172:                                             ; preds = %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit378.i, %.lr.ph442.i
-  %indvars.iv.next481.i = add nuw nsw i64 %indvars.iv480.i, 1
-  %.not327.not.i = icmp slt i64 %indvars.iv480.i, %866
-  br i1 %.not327.not.i, label %.lr.ph442.i, label %.loopexit.i155, !llvm.loop !96
+1172:                                             ; preds = %_ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit378.i, %.lr.ph441.i
+  %indvars.iv.next480.i = add nuw nsw i64 %indvars.iv479.i, 1
+  %.not327.not.i = icmp slt i64 %indvars.iv479.i, %866
+  br i1 %.not327.not.i, label %.lr.ph441.i, label %.loopexit.i155, !llvm.loop !96
 
 .loopexit.i155:                                   ; preds = %1172, %1040, %1107, %.loopexit413.i
-  %indvars.iv.next484.i = add nuw nsw i64 %indvars.iv483.i, 1
-  %exitcond487.not.i = icmp eq i64 %indvars.iv.next484.i, %wide.trip.count486.i
-  br i1 %exitcond487.not.i, label %._crit_edge446.i, label %928, !llvm.loop !97
+  %indvars.iv.next483.i = add nuw nsw i64 %indvars.iv482.i, 1
+  %exitcond486.not.i = icmp eq i64 %indvars.iv.next483.i, %wide.trip.count485.i
+  br i1 %exitcond486.not.i, label %._crit_edge445.i, label %928, !llvm.loop !97
 
-._crit_edge449.i:                                 ; preds = %._crit_edge446.i, %.preheader417.i
+._crit_edge448.i:                                 ; preds = %._crit_edge445.i, %.preheader417.i
   call void @_ZdaPv(ptr noundef nonnull %807) #17
   call void @_ZdaPv(ptr noundef nonnull %819) #17
   call void @_ZdaPv(ptr noundef nonnull %821) #17
@@ -2734,11 +2734,11 @@ _ZN12_GLOBAL__N_19updateBCBERiPiS1_ii.exit378.i:  ; preds = %.sink.split.i375.i,
   %1174 = icmp eq ptr %1173, null
   br i1 %1174, label %_ZN12_GLOBAL__N_113int2D_releaseEPPi.exit.i, label %1175
 
-1175:                                             ; preds = %._crit_edge449.i
+1175:                                             ; preds = %._crit_edge448.i
   call void @_ZdaPv(ptr noundef nonnull %1173) #17
   br label %_ZN12_GLOBAL__N_113int2D_releaseEPPi.exit.i
 
-_ZN12_GLOBAL__N_113int2D_releaseEPPi.exit.i:      ; preds = %1175, %._crit_edge449.i
+_ZN12_GLOBAL__N_113int2D_releaseEPPi.exit.i:      ; preds = %1175, %._crit_edge448.i
   call void @_ZdaPv(ptr noundef nonnull %802) #17
   %1176 = load ptr, ptr %809, align 8, !tbaa !85
   %1177 = icmp eq ptr %1176, null

@@ -4112,22 +4112,22 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %spec.store.select.i9.i = select i1 %72, i64 0, i64 %76
   %77 = getelementptr inbounds nuw float, ptr %69, i64 %spec.store.select.i9.i
   %78 = load float, ptr %77, align 4
-  %79 = zext nneg i32 %..i.i to i64
-  %spec.store.select.i.i = select i1 %72, i64 0, i64 %79
-  %80 = getelementptr inbounds nuw float, ptr %69, i64 %spec.store.select.i.i
-  %81 = load float, ptr %80, align 4
-  %82 = uitofp nneg i32 %..i.i to float
-  %83 = fsub contract float %73, %82
-  %84 = fneg contract float %81
-  %85 = tail call contract noundef float @llvm.fma.f32(float %84, float %83, float %81)
-  %86 = tail call contract noundef float @llvm.fma.f32(float %78, float %83, float %85)
+  %79 = uitofp nneg i32 %..i.i to float
+  %80 = fsub contract float %73, %79
+  %81 = zext nneg i32 %..i.i to i64
+  %spec.store.select.i.i = select i1 %72, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw float, ptr %69, i64 %spec.store.select.i.i
+  %83 = load float, ptr %82, align 4
+  %84 = fneg contract float %83
+  %85 = tail call contract noundef float @llvm.fma.f32(float %84, float %80, float %83)
+  %86 = tail call contract noundef float @llvm.fma.f32(float %78, float %80, float %85)
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %88 = load float, ptr %87, align 8
   %89 = fsub contract float 1.000000e+00, %88
   %90 = fmul contract float %86, %89
   %91 = fsub contract float 1.000000e+00, %86
-  %92 = fmul contract float %91, %88
-  %93 = fadd contract float %92, %90
+  %92 = fmul contract float %88, %91
+  %93 = fadd contract float %90, %92
   %94 = fdiv contract float %92, %93
   br label %95
 

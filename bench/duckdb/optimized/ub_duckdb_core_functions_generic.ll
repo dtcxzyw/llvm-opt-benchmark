@@ -1266,17 +1266,17 @@ define noundef double @_ZN6duckdb14MakeNumberNiceEddNS_12NiceRoundingE(double no
 
 5:                                                ; preds = %3
   %6 = fcmp olt double %1, 1.000000e+00
-  br i1 %6, label %.lr.ph14.i, label %.preheader11.i
+  br i1 %6, label %.preheader.i, label %.preheader11.i
 
 .preheader11.i:                                   ; preds = %5
   %7 = fcmp ogt double %1, 1.000000e+00
   br i1 %7, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph14.i:                                       ; preds = %5, %.lr.ph14.i
-  %.013.i = phi double [ %8, %.lr.ph14.i ], [ 1.000000e+00, %5 ]
+.preheader.i:                                     ; preds = %5, %.preheader.i
+  %.013.i = phi double [ %8, %.preheader.i ], [ 1.000000e+00, %5 ]
   %8 = fdiv double %.013.i, 1.000000e+01
   %9 = fcmp ogt double %8, %1
-  br i1 %9, label %.lr.ph14.i, label %_ZN6duckdbL21GetPreviousPowerOfTenEd.exit, !llvm.loop !90
+  br i1 %9, label %.preheader.i, label %_ZN6duckdbL21GetPreviousPowerOfTenEd.exit, !llvm.loop !90
 
 .lr.ph.i:                                         ; preds = %.preheader11.i, %.lr.ph.i
   %.112.i = phi double [ %10, %.lr.ph.i ], [ 1.000000e+00, %.preheader11.i ]
@@ -1289,8 +1289,8 @@ define noundef double @_ZN6duckdb14MakeNumberNiceEddNS_12NiceRoundingE(double no
   %12 = fdiv double %.1.lcssa.i, 1.000000e+01
   br label %_ZN6duckdbL21GetPreviousPowerOfTenEd.exit
 
-_ZN6duckdbL21GetPreviousPowerOfTenEd.exit:        ; preds = %.lr.ph14.i, %._crit_edge.i
-  %.010.i = phi double [ %12, %._crit_edge.i ], [ %8, %.lr.ph14.i ]
+_ZN6duckdbL21GetPreviousPowerOfTenEd.exit:        ; preds = %.preheader.i, %._crit_edge.i
+  %.010.i = phi double [ %12, %._crit_edge.i ], [ %8, %.preheader.i ]
   %13 = fmul double %.010.i, 2.000000e+00
   %14 = fmul double %.010.i, 3.000000e+00
   %15 = fcmp ugt double %14, %1
@@ -19046,7 +19046,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %19
   %33 = fsub double %31, %32
   %.046 = select i1 %27, double %30, double %33
   %34 = fcmp olt double %.046, 1.000000e+00
-  br i1 %34, label %.lr.ph14.i, label %.preheader11.i
+  br i1 %34, label %.preheader.i, label %.preheader11.i
 
 35:                                               ; preds = %25
   %36 = landingpad { ptr, i32 }
@@ -19057,11 +19057,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %19
   %37 = fcmp ogt double %.046, 1.000000e+00
   br i1 %37, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph14.i:                                       ; preds = %28, %.lr.ph14.i
-  %.013.i = phi double [ %38, %.lr.ph14.i ], [ 1.000000e+00, %28 ]
+.preheader.i:                                     ; preds = %28, %.preheader.i
+  %.013.i = phi double [ %38, %.preheader.i ], [ 1.000000e+00, %28 ]
   %38 = fdiv double %.013.i, 1.000000e+01
   %39 = fcmp ogt double %38, %.046
-  br i1 %39, label %.lr.ph14.i, label %_ZN6duckdbL21GetPreviousPowerOfTenEd.exit, !llvm.loop !90
+  br i1 %39, label %.preheader.i, label %_ZN6duckdbL21GetPreviousPowerOfTenEd.exit, !llvm.loop !90
 
 .lr.ph.i:                                         ; preds = %.preheader11.i, %.lr.ph.i
   %.112.i = phi double [ %40, %.lr.ph.i ], [ 1.000000e+00, %.preheader11.i ]
@@ -19074,8 +19074,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %19
   %42 = fdiv double %.1.lcssa.i, 1.000000e+01
   br label %_ZN6duckdbL21GetPreviousPowerOfTenEd.exit
 
-_ZN6duckdbL21GetPreviousPowerOfTenEd.exit:        ; preds = %.lr.ph14.i, %._crit_edge.i
-  %.010.i = phi double [ %42, %._crit_edge.i ], [ %38, %.lr.ph14.i ]
+_ZN6duckdbL21GetPreviousPowerOfTenEd.exit:        ; preds = %.preheader.i, %._crit_edge.i
+  %.010.i = phi double [ %42, %._crit_edge.i ], [ %38, %.preheader.i ]
   br i1 %5, label %43, label %76
 
 43:                                               ; preds = %_ZN6duckdbL21GetPreviousPowerOfTenEd.exit
@@ -19083,17 +19083,17 @@ _ZN6duckdbL21GetPreviousPowerOfTenEd.exit:        ; preds = %.lr.ph14.i, %._crit
   br i1 %44, label %_ZN6duckdb14MakeNumberNiceEddNS_12NiceRoundingE.exit, label %45
 
 45:                                               ; preds = %43
-  br i1 %34, label %.lr.ph14.i.i, label %.preheader11.i.i
+  br i1 %34, label %.preheader.i.i, label %.preheader11.i.i
 
 .preheader11.i.i:                                 ; preds = %45
   %46 = fcmp ogt double %.046, 1.000000e+00
   br i1 %46, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph14.i.i:                                     ; preds = %45, %.lr.ph14.i.i
-  %.013.i.i = phi double [ %47, %.lr.ph14.i.i ], [ 1.000000e+00, %45 ]
+.preheader.i.i:                                   ; preds = %45, %.preheader.i.i
+  %.013.i.i = phi double [ %47, %.preheader.i.i ], [ 1.000000e+00, %45 ]
   %47 = fdiv double %.013.i.i, 1.000000e+01
   %48 = fcmp ogt double %47, %.046
-  br i1 %48, label %.lr.ph14.i.i, label %_ZN6duckdbL21GetPreviousPowerOfTenEd.exit.i, !llvm.loop !90
+  br i1 %48, label %.preheader.i.i, label %_ZN6duckdbL21GetPreviousPowerOfTenEd.exit.i, !llvm.loop !90
 
 .lr.ph.i.i:                                       ; preds = %.preheader11.i.i, %.lr.ph.i.i
   %.112.i.i = phi double [ %49, %.lr.ph.i.i ], [ 1.000000e+00, %.preheader11.i.i ]
@@ -19106,8 +19106,8 @@ _ZN6duckdbL21GetPreviousPowerOfTenEd.exit:        ; preds = %.lr.ph14.i, %._crit
   %51 = fdiv double %.1.lcssa.i.i, 1.000000e+01
   br label %_ZN6duckdbL21GetPreviousPowerOfTenEd.exit.i
 
-_ZN6duckdbL21GetPreviousPowerOfTenEd.exit.i:      ; preds = %.lr.ph14.i.i, %._crit_edge.i.i
-  %.010.i.i = phi double [ %51, %._crit_edge.i.i ], [ %47, %.lr.ph14.i.i ]
+_ZN6duckdbL21GetPreviousPowerOfTenEd.exit.i:      ; preds = %.preheader.i.i, %._crit_edge.i.i
+  %.010.i.i = phi double [ %51, %._crit_edge.i.i ], [ %47, %.preheader.i.i ]
   %52 = fmul double %.010.i.i, 2.000000e+00
   %53 = fmul double %.010.i.i, 3.000000e+00
   %54 = fcmp ugt double %53, %.046

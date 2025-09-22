@@ -199,143 +199,95 @@ define void @_ZNK6open3d13visualization11ColorMapJet8GetColorEd(ptr dead_on_unwi
 
 6:                                                ; preds = %3
   %7 = fcmp ugt double %4, -2.500000e-01
-  br i1 %7, label %16, label %8
+  br i1 %7, label %11, label %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i
 
-8:                                                ; preds = %6
-  %9 = fcmp olt double %4, -7.500000e-01
-  br i1 %9, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit, label %10
-
-10:                                               ; preds = %8
-  %11 = fcmp ogt double %4, -2.500000e-01
-  br i1 %11, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit, label %12
-
-12:                                               ; preds = %10
-  %13 = fadd double %4, 7.500000e-01
-  %14 = fmul double %13, 2.000000e+00
-  %15 = fadd double %14, 0.000000e+00
+_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i: ; preds = %6
+  %8 = fadd double %4, 7.500000e-01
+  %9 = fmul double %8, 2.000000e+00
+  %10 = fadd double %9, 0.000000e+00
   br label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit
 
-16:                                               ; preds = %6
-  %17 = fcmp ugt double %4, 2.500000e-01
-  br i1 %17, label %18, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit
+11:                                               ; preds = %6
+  %12 = fcmp ugt double %4, 2.500000e-01
+  br i1 %12, label %13, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit
 
-18:                                               ; preds = %16
-  %19 = fcmp ugt double %4, 7.500000e-01
-  br i1 %19, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit, label %20
+13:                                               ; preds = %11
+  %14 = fcmp ugt double %4, 7.500000e-01
+  br i1 %14, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit, label %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i
 
-20:                                               ; preds = %18
-  %21 = fcmp olt double %4, 2.500000e-01
-  br i1 %21, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit, label %22
-
-22:                                               ; preds = %20
-  %23 = fcmp ogt double %4, 7.500000e-01
-  br i1 %23, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit, label %24
-
-24:                                               ; preds = %22
-  %25 = fadd double %4, -2.500000e-01
-  %26 = fmul double %25, 2.000000e+00
-  %27 = fsub double 1.000000e+00, %26
+_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i: ; preds = %13
+  %15 = fadd double %4, -2.500000e-01
+  %16 = fmul double %15, 2.000000e+00
+  %17 = fsub double 1.000000e+00, %16
   br label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit
 
-_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit: ; preds = %3, %8, %10, %12, %16, %18, %20, %22, %24
-  %.0.i = phi double [ 0.000000e+00, %3 ], [ 1.000000e+00, %16 ], [ 0.000000e+00, %18 ], [ %15, %12 ], [ 0.000000e+00, %8 ], [ 1.000000e+00, %10 ], [ %27, %24 ], [ 1.000000e+00, %20 ], [ 0.000000e+00, %22 ]
-  %28 = tail call double @llvm.fmuladd.f64(double %2, double 2.000000e+00, double -1.000000e+00)
-  %29 = fcmp ugt double %28, -7.500000e-01
-  br i1 %29, label %30, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit5
+_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit: ; preds = %3, %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i, %11, %13, %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i
+  %.0.i = phi double [ %10, %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i ], [ %17, %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i ], [ 0.000000e+00, %3 ], [ 1.000000e+00, %11 ], [ 0.000000e+00, %13 ]
+  %18 = tail call double @llvm.fmuladd.f64(double %2, double 2.000000e+00, double -1.000000e+00)
+  %19 = fcmp ugt double %18, -7.500000e-01
+  br i1 %19, label %20, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7
 
-30:                                               ; preds = %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit
-  %31 = fcmp ugt double %28, -2.500000e-01
-  br i1 %31, label %40, label %32
+20:                                               ; preds = %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit
+  %21 = fcmp ugt double %18, -2.500000e-01
+  br i1 %21, label %25, label %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i5
 
-32:                                               ; preds = %30
-  %33 = fcmp olt double %28, -7.500000e-01
-  br i1 %33, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit5, label %34
-
-34:                                               ; preds = %32
-  %35 = fcmp ogt double %28, -2.500000e-01
-  br i1 %35, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit5, label %36
-
-36:                                               ; preds = %34
-  %37 = fadd double %28, 7.500000e-01
-  %38 = fmul double %37, 2.000000e+00
-  %39 = fadd double %38, 0.000000e+00
-  br label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit5
-
-40:                                               ; preds = %30
-  %41 = fcmp ugt double %28, 2.500000e-01
-  br i1 %41, label %42, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit5
-
-42:                                               ; preds = %40
-  %43 = fcmp ugt double %28, 7.500000e-01
-  br i1 %43, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit5, label %44
-
-44:                                               ; preds = %42
-  %45 = fcmp olt double %28, 2.500000e-01
-  br i1 %45, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit5, label %46
-
-46:                                               ; preds = %44
-  %47 = fcmp ogt double %28, 7.500000e-01
-  br i1 %47, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit5, label %48
-
-48:                                               ; preds = %46
-  %49 = fadd double %28, -2.500000e-01
-  %50 = fmul double %49, 2.000000e+00
-  %51 = fsub double 1.000000e+00, %50
-  br label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit5
-
-_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit5: ; preds = %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit, %32, %34, %36, %40, %42, %44, %46, %48
-  %.0.i4 = phi double [ 0.000000e+00, %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit ], [ 1.000000e+00, %40 ], [ 0.000000e+00, %42 ], [ %39, %36 ], [ 0.000000e+00, %32 ], [ 1.000000e+00, %34 ], [ %51, %48 ], [ 1.000000e+00, %44 ], [ 0.000000e+00, %46 ]
-  %52 = tail call double @llvm.fmuladd.f64(double %2, double 2.000000e+00, double -5.000000e-01)
-  %53 = fcmp ugt double %52, -7.500000e-01
-  br i1 %53, label %54, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7
-
-54:                                               ; preds = %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit5
-  %55 = fcmp ugt double %52, -2.500000e-01
-  br i1 %55, label %64, label %56
-
-56:                                               ; preds = %54
-  %57 = fcmp olt double %52, -7.500000e-01
-  br i1 %57, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7, label %58
-
-58:                                               ; preds = %56
-  %59 = fcmp ogt double %52, -2.500000e-01
-  br i1 %59, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7, label %60
-
-60:                                               ; preds = %58
-  %61 = fadd double %52, 7.500000e-01
-  %62 = fmul double %61, 2.000000e+00
-  %63 = fadd double %62, 0.000000e+00
+_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i5: ; preds = %20
+  %22 = fadd double %18, 7.500000e-01
+  %23 = fmul double %22, 2.000000e+00
+  %24 = fadd double %23, 0.000000e+00
   br label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7
 
-64:                                               ; preds = %54
-  %65 = fcmp ugt double %52, 2.500000e-01
-  br i1 %65, label %66, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7
+25:                                               ; preds = %20
+  %26 = fcmp ugt double %18, 2.500000e-01
+  br i1 %26, label %27, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7
 
-66:                                               ; preds = %64
-  %67 = fcmp ugt double %52, 7.500000e-01
-  br i1 %67, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7, label %68
+27:                                               ; preds = %25
+  %28 = fcmp ugt double %18, 7.500000e-01
+  br i1 %28, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7, label %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i6
 
-68:                                               ; preds = %66
-  %69 = fcmp olt double %52, 2.500000e-01
-  br i1 %69, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7, label %70
-
-70:                                               ; preds = %68
-  %71 = fcmp ogt double %52, 7.500000e-01
-  br i1 %71, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7, label %72
-
-72:                                               ; preds = %70
-  %73 = fadd double %52, -2.500000e-01
-  %74 = fmul double %73, 2.000000e+00
-  %75 = fsub double 1.000000e+00, %74
+_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i6: ; preds = %27
+  %29 = fadd double %18, -2.500000e-01
+  %30 = fmul double %29, 2.000000e+00
+  %31 = fsub double 1.000000e+00, %30
   br label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7
 
-_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7: ; preds = %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit5, %56, %58, %60, %64, %66, %68, %70, %72
-  %.0.i6 = phi double [ 0.000000e+00, %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit5 ], [ 1.000000e+00, %64 ], [ 0.000000e+00, %66 ], [ %63, %60 ], [ 0.000000e+00, %56 ], [ 1.000000e+00, %58 ], [ %75, %72 ], [ 1.000000e+00, %68 ], [ 0.000000e+00, %70 ]
+_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7: ; preds = %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit, %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i5, %25, %27, %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i6
+  %.0.i4 = phi double [ %24, %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i5 ], [ %31, %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i6 ], [ 0.000000e+00, %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit ], [ 1.000000e+00, %25 ], [ 0.000000e+00, %27 ]
+  %32 = tail call double @llvm.fmuladd.f64(double %2, double 2.000000e+00, double -5.000000e-01)
+  %33 = fcmp ugt double %32, -7.500000e-01
+  br i1 %33, label %34, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit11
+
+34:                                               ; preds = %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7
+  %35 = fcmp ugt double %32, -2.500000e-01
+  br i1 %35, label %39, label %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i9
+
+_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i9: ; preds = %34
+  %36 = fadd double %32, 7.500000e-01
+  %37 = fmul double %36, 2.000000e+00
+  %38 = fadd double %37, 0.000000e+00
+  br label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit11
+
+39:                                               ; preds = %34
+  %40 = fcmp ugt double %32, 2.500000e-01
+  br i1 %40, label %41, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit11
+
+41:                                               ; preds = %39
+  %42 = fcmp ugt double %32, 7.500000e-01
+  br i1 %42, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit11, label %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i10
+
+_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i10: ; preds = %41
+  %43 = fadd double %32, -2.500000e-01
+  %44 = fmul double %43, 2.000000e+00
+  %45 = fsub double 1.000000e+00, %44
+  br label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit11
+
+_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit11: ; preds = %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7, %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i9, %39, %41, %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i10
+  %.0.i8 = phi double [ %38, %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i9 ], [ %45, %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i10 ], [ 0.000000e+00, %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7 ], [ 1.000000e+00, %39 ], [ 0.000000e+00, %41 ]
   store double %.0.i, ptr %0, align 8, !tbaa !4
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.0.i4, ptr %76, align 8, !tbaa !4
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %.0.i6, ptr %77, align 8, !tbaa !4
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %.0.i4, ptr %46, align 8, !tbaa !4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store double %.0.i8, ptr %47, align 8, !tbaa !4
   ret void
 }
 
@@ -439,96 +391,68 @@ define void @_ZNK6open3d13visualization11ColorMapHot8GetColorEd(ptr dead_on_unwi
   store <2 x double> splat (double 1.000000e+00), ptr %0, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double 1.000000e+00, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !8
-  br label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit
+  br label %38
 
 6:                                                ; preds = %3
   %7 = fcmp olt double %2, 0x3FD5555555555555
-  br i1 %7, label %8, label %19
+  br i1 %7, label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit, label %15
 
-8:                                                ; preds = %6
-  %9 = fcmp ogt double %2, 0x3FD5555555555555
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %8
-  store <2 x double> splat (double 1.000000e+00), ptr %0, align 8
-  %.sroa.15.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double 0.000000e+00, ptr %.sroa.15.24..sroa_idx, align 8, !tbaa !8
-  br label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit
-
-11:                                               ; preds = %8
+_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit: ; preds = %6
   %.sroa.3.24.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %2, i64 0
-  %12 = tail call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 0.000000e+00, double poison>, <2 x double> %.sroa.3.24.vec.insert.i.i.i.i.i.i.i)
-  %13 = fdiv <2 x double> %12, <double 0x3FD5555555555555, double poison>
-  %14 = fadd <2 x double> %13, <double 1.000000e+00, double poison>
-  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
-  store <2 x double> %15, ptr %0, align 8, !tbaa !8, !alias.scope !9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = fdiv double %2, 0x3FD5555555555555
-  %18 = fsub double 1.000000e+00, %17
-  store double %18, ptr %16, align 8, !tbaa !4, !alias.scope !9
-  br label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit
+  %8 = tail call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 0.000000e+00, double poison>, <2 x double> %.sroa.3.24.vec.insert.i.i.i.i.i.i.i)
+  %9 = fdiv <2 x double> %8, <double 0x3FD5555555555555, double poison>
+  %10 = fadd <2 x double> %9, <double 1.000000e+00, double poison>
+  %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> zeroinitializer
+  store <2 x double> %11, ptr %0, align 8, !tbaa !8, !alias.scope !9
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = fdiv double %2, 0x3FD5555555555555
+  %14 = fsub double 1.000000e+00, %13
+  store double %14, ptr %12, align 8, !tbaa !4, !alias.scope !9
+  br label %38
 
-19:                                               ; preds = %6
-  %20 = fcmp olt double %2, 0x3FE5555555555555
-  br i1 %20, label %21, label %34
+15:                                               ; preds = %6
+  %16 = fcmp olt double %2, 0x3FE5555555555555
+  br i1 %16, label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit9, label %26
 
-21:                                               ; preds = %19
-  %22 = fcmp ogt double %2, 0x3FE5555555555555
-  br i1 %22, label %23, label %24
+_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit9: ; preds = %15
+  %17 = fadd double %2, 0xBFD5555555555555
+  %.sroa.3.24.vec.insert.i.i.i.i.i.i.i8 = insertelement <2 x double> poison, double %17, i64 0
+  %18 = shufflevector <2 x double> %.sroa.3.24.vec.insert.i.i.i.i.i.i.i8, <2 x double> poison, <2 x i32> zeroinitializer
+  %19 = fmul <2 x double> %18, <double 0.000000e+00, double -1.000000e+00>
+  %20 = fdiv <2 x double> %19, splat (double 0x3FD5555555555555)
+  %21 = fadd <2 x double> %20, splat (double 1.000000e+00)
+  store <2 x double> %21, ptr %0, align 8, !tbaa !8, !alias.scope !12
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = fmul double %17, 0.000000e+00
+  %24 = fdiv double %23, 0x3FD5555555555555
+  %25 = fadd double %24, 0.000000e+00
+  store double %25, ptr %22, align 8, !tbaa !4, !alias.scope !12
+  br label %38
 
-23:                                               ; preds = %21
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %0, align 8
-  %.sroa.24.48..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double 0.000000e+00, ptr %.sroa.24.48..sroa_idx, align 8, !tbaa !8
-  br label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit
+26:                                               ; preds = %15
+  %27 = fcmp olt double %2, 1.000000e+00
+  br i1 %27, label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit11, label %37
 
-24:                                               ; preds = %21
-  %25 = fadd double %2, 0xBFD5555555555555
-  %.sroa.3.24.vec.insert.i.i.i.i.i.i.i8 = insertelement <2 x double> poison, double %25, i64 0
-  %26 = shufflevector <2 x double> %.sroa.3.24.vec.insert.i.i.i.i.i.i.i8, <2 x double> poison, <2 x i32> zeroinitializer
-  %27 = fmul <2 x double> %26, <double 0.000000e+00, double -1.000000e+00>
-  %28 = fdiv <2 x double> %27, splat (double 0x3FD5555555555555)
-  %29 = fadd <2 x double> %28, splat (double 1.000000e+00)
-  store <2 x double> %29, ptr %0, align 8, !tbaa !8, !alias.scope !12
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = fmul double %25, 0.000000e+00
-  %32 = fdiv double %31, 0x3FD5555555555555
-  %33 = fadd double %32, 0.000000e+00
-  store double %33, ptr %30, align 8, !tbaa !4, !alias.scope !12
-  br label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit
+_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit11: ; preds = %26
+  %28 = fadd double %2, 0xBFE5555555555555
+  %.sroa.3.24.vec.insert.i.i.i.i.i.i.i10 = insertelement <2 x double> poison, double %28, i64 0
+  %29 = shufflevector <2 x double> %.sroa.3.24.vec.insert.i.i.i.i.i.i.i10, <2 x double> poison, <2 x i32> zeroinitializer
+  %30 = fmul <2 x double> %29, <double -1.000000e+00, double 0.000000e+00>
+  %31 = fdiv <2 x double> %30, splat (double 0x3FD5555555555556)
+  %32 = fadd <2 x double> %31, <double 1.000000e+00, double 0.000000e+00>
+  store <2 x double> %32, ptr %0, align 8, !tbaa !8, !alias.scope !15
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = fmul double %28, 0.000000e+00
+  %35 = fdiv double %34, 0x3FD5555555555556
+  %36 = fadd double %35, 0.000000e+00
+  store double %36, ptr %33, align 8, !tbaa !4, !alias.scope !15
+  br label %38
 
-34:                                               ; preds = %19
-  %35 = fcmp olt double %2, 1.000000e+00
-  br i1 %35, label %36, label %49
-
-36:                                               ; preds = %34
-  %37 = fcmp ogt double %2, 1.000000e+00
-  br i1 %37, label %38, label %39
-
-38:                                               ; preds = %36
+37:                                               ; preds = %26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit
+  br label %38
 
-39:                                               ; preds = %36
-  %40 = fadd double %2, 0xBFE5555555555555
-  %.sroa.3.24.vec.insert.i.i.i.i.i.i.i10 = insertelement <2 x double> poison, double %40, i64 0
-  %41 = shufflevector <2 x double> %.sroa.3.24.vec.insert.i.i.i.i.i.i.i10, <2 x double> poison, <2 x i32> zeroinitializer
-  %42 = fmul <2 x double> %41, <double -1.000000e+00, double 0.000000e+00>
-  %43 = fdiv <2 x double> %42, splat (double 0x3FD5555555555556)
-  %44 = fadd <2 x double> %43, <double 1.000000e+00, double 0.000000e+00>
-  store <2 x double> %44, ptr %0, align 8, !tbaa !8, !alias.scope !15
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = fmul double %40, 0.000000e+00
-  %47 = fdiv double %46, 0x3FD5555555555556
-  %48 = fadd double %47, 0.000000e+00
-  store double %48, ptr %45, align 8, !tbaa !4, !alias.scope !15
-  br label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit
-
-49:                                               ; preds = %34
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit
-
-_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit: ; preds = %39, %38, %24, %23, %11, %10, %49, %5
+38:                                               ; preds = %37, %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit11, %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit9, %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit, %5
   ret void
 }
 

@@ -10939,11 +10939,9 @@ if.else347:                                       ; preds = %if.else309
 if.else.i816:                                     ; preds = %if.else347
   %conv.i817 = fpext float %134 to double
   %cmp4.i818 = fcmp nsz olt double %conv.i817, 1.000000e-03
-  %cmp7.i819 = fcmp nsz ogt float %134, 1.000000e+00
-  %or.cond.i820 = or i1 %cmp7.i819, %cmp4.i818
   %anim_time_counter.i821 = getelementptr inbounds nuw i8, ptr %this, i64 628
   %136 = load float, ptr %anim_time_counter.i821, align 4, !tbaa !35
-  br i1 %or.cond.i820, label %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828, label %if.else10.i822
+  br i1 %cmp4.i818, label %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828, label %if.else10.i822
 
 if.else10.i822:                                   ; preds = %if.else.i816
   %conv14.i823 = fpext float %136 to double

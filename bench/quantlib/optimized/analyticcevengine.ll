@@ -673,7 +673,6 @@ $_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib13CEVCalculatorEEE = comdat any
 @.str.78 = private unnamed_addr constant [34 x i8] c"boost::math::tgamma1pm1<%!%>(%1%)\00", align 1
 @.str.79 = private unnamed_addr constant [29 x i8] c"boost::math::expm1<%1%>(%1%)\00", align 1
 @.str.80 = private unnamed_addr constant [16 x i8] c"log1p<%1%>(%1%)\00", align 1
-@.str.81 = private unnamed_addr constant [43 x i8] c"log1p(x) requires x > -1, but got x = %1%.\00", align 1
 @_ZZN5boost4math6detail9powm1_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_RKT0_E8function = linkonce_odr local_unnamed_addr global ptr @.str.82, comdat, align 8
 @.str.82 = private unnamed_addr constant [34 x i8] c"boost::math::powm1<%1%>(%1%, %1%)\00", align 1
 @.str.83 = private unnamed_addr constant [57 x i8] c"For non-integral exponent, expected base > 0 but got %1%\00", align 1
@@ -12605,7 +12604,6 @@ define linkonce_odr noundef x86_fp80 @_ZN5boost4math6detail14tgammap1m1_impIeNS0
 entry:
   %ref.tmp.i.i53 = alloca %"struct.boost::math::policies::policy", align 1
   %ref.tmp1.i.i54 = alloca %"struct.boost::math::lanczos::lanczos17m64", align 1
-  %x.addr.i = alloca x86_fp80, align 16
   %ref.tmp.i.i = alloca %"struct.boost::math::policies::policy", align 1
   %ref.tmp1.i.i = alloca %"struct.boost::math::lanczos::lanczos17m64", align 1
   %ref.tmp = alloca %"struct.std::integral_constant.70", align 1
@@ -12615,7 +12613,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %cmp1 = fcmp olt x86_fp80 %dz, 0xKBFFE8000000000000000
-  br i1 %cmp1, label %if.then2, label %if.else
+  br i1 %cmp1, label %if.then2, label %if.end.i
 
 if.then2:                                         ; preds = %if.then
   %add = fadd x86_fp80 %dz, 0xK3FFF8000000000000000
@@ -12636,17 +12634,7 @@ _ZN5boost4math6tgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %sub = fadd x86_fp80 %call.i.i, 0xKBFFF8000000000000000
   br label %if.end23
 
-if.else:                                          ; preds = %if.then
-  call void @llvm.lifetime.start.p0(ptr nonnull %x.addr.i)
-  store x86_fp80 %dz, ptr %x.addr.i, align 16, !tbaa !159
-  %cmp.i = fcmp olt x86_fp80 %dz, 0xKBFFF8000000000000000
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.else
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_erroreEEvPKcS6_RKT0_(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, ptr noundef nonnull align 16 dereferenceable(16) %x.addr.i)
-  br label %_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit
-
-if.end.i:                                         ; preds = %if.else
+if.end.i:                                         ; preds = %if.then
   %cmp1.i = fcmp oeq x86_fp80 %dz, 0xKBFFF8000000000000000
   br i1 %cmp1.i, label %if.then2.i, label %if.end4.i
 
@@ -12658,9 +12646,8 @@ if.end4.i:                                        ; preds = %if.end.i
   %call5.i = tail call x86_fp80 @log1pl(x86_fp80 noundef %dz) #31, !tbaa !45
   br label %_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit
 
-_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit: ; preds = %if.then.i, %if.then2.i, %if.end4.i
-  %retval.0.i = phi x86_fp80 [ 0xK7FFFC000000000000000, %if.then.i ], [ 0xKFFFF8000000000000000, %if.then2.i ], [ %call5.i, %if.end4.i ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %x.addr.i)
+_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit: ; preds = %if.then2.i, %if.end4.i
+  %retval.0.i = phi x86_fp80 [ 0xKFFFF8000000000000000, %if.then2.i ], [ %call5.i, %if.end4.i ]
   %add4 = fadd x86_fp80 %dz, 0xK40008000000000000000
   %add5 = fadd x86_fp80 %dz, 0xK3FFF8000000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)

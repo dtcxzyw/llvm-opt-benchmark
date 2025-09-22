@@ -425,10 +425,10 @@ define noundef zeroext i1 @_ZN6Assimp23GenVertexNormalsProcess20GenMeshVertexNor
   %103 = fmul float %99, %99
   %104 = tail call float @llvm.fmuladd.f32(float %96, float %96, float %103)
   %105 = tail call noundef float @llvm.fmuladd.f32(float %102, float %102, float %104)
-  %or.cond.i = fcmp ule float %105, 0.000000e+00
-  br i1 %or.cond.i, label %.lr.ph.preheader, label %106
+  %106 = fcmp ogt float %105, 0.000000e+00
+  br i1 %106, label %_ZN10aiVector3tIfEdVEf.exit.i, label %.lr.ph.preheader
 
-106:                                              ; preds = %54
+_ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %54
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %105)
   %107 = fdiv float 1.000000e+00, %sqrt.i.i
   %108 = fmul float %96, %107
@@ -438,9 +438,9 @@ define noundef zeroext i1 @_ZN6Assimp23GenVertexNormalsProcess20GenMeshVertexNor
   %110 = fmul float %102, %107
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %106, %54
-  %.sroa.0207.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i143, %54 ], [ %.sroa.0207.4.vec.insert, %106 ]
-  %.sroa.8.0 = phi float [ %102, %54 ], [ %110, %106 ]
+.lr.ph.preheader:                                 ; preds = %_ZN10aiVector3tIfEdVEf.exit.i, %54
+  %.sroa.0207.0 = phi <2 x float> [ %.sroa.0207.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i ], [ %.sroa.0.4.vec.insert.i143, %54 ]
+  %.sroa.8.0 = phi float [ %110, %_ZN10aiVector3tIfEdVEf.exit.i ], [ %102, %54 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -614,10 +614,10 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit172:          ; preds = %161
   %189 = fmul float %.sroa.9187.0.lcssa, %.sroa.9187.0.lcssa
   %190 = call float @llvm.fmuladd.f32(float %.sroa.0185.0.lcssa, float %.sroa.0185.0.lcssa, float %189)
   %191 = call noundef float @llvm.fmuladd.f32(float %.sroa.14189.0.lcssa, float %.sroa.14189.0.lcssa, float %190)
-  %or.cond.i149 = fcmp ule float %191, 0.000000e+00
-  br i1 %or.cond.i149, label %_ZN10aiVector3tIfE13NormalizeSafeEv.exit151, label %192
+  %192 = fcmp ogt float %191, 0.000000e+00
+  br i1 %192, label %_ZN10aiVector3tIfEdVEf.exit.i149, label %_ZN10aiVector3tIfE13NormalizeSafeEv.exit151
 
-192:                                              ; preds = %._crit_edge253
+_ZN10aiVector3tIfEdVEf.exit.i149:                 ; preds = %._crit_edge253
   %sqrt.i.i150 = call noundef float @llvm.sqrt.f32(float %191)
   %193 = fdiv float 1.000000e+00, %sqrt.i.i150
   %194 = fmul float %.sroa.0185.0.lcssa, %193
@@ -625,10 +625,10 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit172:          ; preds = %161
   %196 = fmul float %.sroa.14189.0.lcssa, %193
   br label %_ZN10aiVector3tIfE13NormalizeSafeEv.exit151
 
-_ZN10aiVector3tIfE13NormalizeSafeEv.exit151:      ; preds = %._crit_edge253, %192
-  %.sroa.14189.2 = phi float [ %.sroa.14189.0.lcssa, %._crit_edge253 ], [ %196, %192 ]
-  %.sroa.9187.2 = phi float [ %.sroa.9187.0.lcssa, %._crit_edge253 ], [ %195, %192 ]
-  %.sroa.0185.2 = phi float [ %.sroa.0185.0.lcssa, %._crit_edge253 ], [ %194, %192 ]
+_ZN10aiVector3tIfE13NormalizeSafeEv.exit151:      ; preds = %._crit_edge253, %_ZN10aiVector3tIfEdVEf.exit.i149
+  %.sroa.14189.2 = phi float [ %196, %_ZN10aiVector3tIfEdVEf.exit.i149 ], [ %.sroa.14189.0.lcssa, %._crit_edge253 ]
+  %.sroa.9187.2 = phi float [ %195, %_ZN10aiVector3tIfEdVEf.exit.i149 ], [ %.sroa.9187.0.lcssa, %._crit_edge253 ]
+  %.sroa.0185.2 = phi float [ %194, %_ZN10aiVector3tIfEdVEf.exit.i149 ], [ %.sroa.0185.0.lcssa, %._crit_edge253 ]
   br i1 %.not278, label %.loopexit, label %.lr.ph257
 
 .thread228:                                       ; preds = %179
@@ -746,10 +746,10 @@ _ZN10aiVector3tIfE13NormalizeSafeEv.exit151:      ; preds = %._crit_edge253, %19
   %253 = fmul float %.sroa.9179.0.lcssa, %.sroa.9179.0.lcssa
   %254 = call float @llvm.fmuladd.f32(float %.sroa.0177.0.lcssa, float %.sroa.0177.0.lcssa, float %253)
   %255 = call noundef float @llvm.fmuladd.f32(float %.sroa.14.0.lcssa, float %.sroa.14.0.lcssa, float %254)
-  %or.cond.i161 = fcmp ule float %255, 0.000000e+00
-  br i1 %or.cond.i161, label %_ZN10aiVector3tIfE13NormalizeSafeEv.exit163, label %256
+  %256 = fcmp ogt float %255, 0.000000e+00
+  br i1 %256, label %_ZN10aiVector3tIfEdVEf.exit.i161, label %_ZN10aiVector3tIfE13NormalizeSafeEv.exit163
 
-256:                                              ; preds = %._crit_edge267
+_ZN10aiVector3tIfEdVEf.exit.i161:                 ; preds = %._crit_edge267
   %sqrt.i.i162 = call noundef float @llvm.sqrt.f32(float %255)
   %257 = fdiv float 1.000000e+00, %sqrt.i.i162
   %258 = fmul float %.sroa.0177.0.lcssa, %257
@@ -806,10 +806,10 @@ _ZN10aiVector3tIfE13NormalizeSafeEv.exit151:      ; preds = %._crit_edge253, %19
   %283 = icmp ugt i64 %252, %282
   br i1 %283, label %.lr.ph266, label %._crit_edge267, !llvm.loop !13
 
-_ZN10aiVector3tIfE13NormalizeSafeEv.exit163:      ; preds = %256, %._crit_edge267
-  %.sroa.14.2 = phi float [ %.sroa.14.0.lcssa, %._crit_edge267 ], [ %260, %256 ]
-  %.sroa.9179.2 = phi float [ %.sroa.9179.0.lcssa, %._crit_edge267 ], [ %259, %256 ]
-  %.sroa.0177.2 = phi float [ %.sroa.0177.0.lcssa, %._crit_edge267 ], [ %258, %256 ]
+_ZN10aiVector3tIfE13NormalizeSafeEv.exit163:      ; preds = %_ZN10aiVector3tIfEdVEf.exit.i161, %._crit_edge267
+  %.sroa.14.2 = phi float [ %260, %_ZN10aiVector3tIfEdVEf.exit.i161 ], [ %.sroa.14.0.lcssa, %._crit_edge267 ]
+  %.sroa.9179.2 = phi float [ %259, %_ZN10aiVector3tIfEdVEf.exit.i161 ], [ %.sroa.9179.0.lcssa, %._crit_edge267 ]
+  %.sroa.0177.2 = phi float [ %258, %_ZN10aiVector3tIfEdVEf.exit.i161 ], [ %.sroa.0177.0.lcssa, %._crit_edge267 ]
   %284 = getelementptr inbounds nuw %class.aiVector3t, ptr %147, i64 %indvars.iv293
   store float %.sroa.0177.2, ptr %284, align 4
   %.sroa.9179.0..sroa_idx = getelementptr inbounds nuw i8, ptr %284, i64 4
