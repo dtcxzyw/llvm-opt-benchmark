@@ -70192,18 +70192,18 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   br label %229
 
 ._crit_edge246:                                   ; preds = %._crit_edge231
-  %212 = icmp sgt i32 %.fr, 0
+  %212 = icmp sgt i32 %246, 0
   br i1 %212, label %213, label %217
 
 213:                                              ; preds = %._crit_edge246
-  %214 = uitofp nneg i32 %.fr to double
-  %215 = fdiv double %248, %214
+  %214 = uitofp nneg i32 %246 to double
+  %215 = fdiv double %249, %214
   %216 = fptrunc double %215 to float
   br label %217
 
 217:                                              ; preds = %._crit_edge246.thread, %._crit_edge246, %213
-  %218 = phi float [ %247, %213 ], [ %247, %._crit_edge246 ], [ %.pre290, %._crit_edge246.thread ]
-  %219 = phi float [ %246, %213 ], [ %246, %._crit_edge246 ], [ %.pre291, %._crit_edge246.thread ]
+  %218 = phi float [ %248, %213 ], [ %248, %._crit_edge246 ], [ %.pre290, %._crit_edge246.thread ]
+  %219 = phi float [ %247, %213 ], [ %247, %._crit_edge246 ], [ %.pre291, %._crit_edge246.thread ]
   %220 = phi float [ %216, %213 ], [ 0.000000e+00, %._crit_edge246 ], [ 0.000000e+00, %._crit_edge246.thread ]
   store float %220, ptr %193, align 8
   %221 = getelementptr inbounds nuw i8, ptr %190, i64 28
@@ -70229,10 +70229,10 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   %230 = phi i32 [ %.pre, %.lr.ph245 ], [ %244, %._crit_edge231 ]
   %231 = phi i32 [ %.pre, %.lr.ph245 ], [ %245, %._crit_edge231 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph245 ], [ %indvars.iv.next, %._crit_edge231 ]
-  %232 = phi double [ %.promoted, %.lr.ph245 ], [ %248, %._crit_edge231 ]
-  %233 = phi float [ %.promoted232, %.lr.ph245 ], [ %247, %._crit_edge231 ]
-  %234 = phi float [ %.promoted233, %.lr.ph245 ], [ %246, %._crit_edge231 ]
-  %235 = phi i32 [ 0, %.lr.ph245 ], [ %.fr, %._crit_edge231 ]
+  %232 = phi double [ %.promoted, %.lr.ph245 ], [ %249, %._crit_edge231 ]
+  %233 = phi float [ %.promoted232, %.lr.ph245 ], [ %248, %._crit_edge231 ]
+  %234 = phi float [ %.promoted233, %.lr.ph245 ], [ %247, %._crit_edge231 ]
+  %235 = phi i32 [ 0, %.lr.ph245 ], [ %246, %._crit_edge231 ]
   %236 = load i32, ptr %208, align 4
   %237 = icmp slt i32 %236, %231
   br i1 %237, label %.lr.ph230, label %._crit_edge231
@@ -70247,50 +70247,49 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   br i1 %243, label %.lr.ph230.split, label %._crit_edge231
 
 ._crit_edge231:                                   ; preds = %._crit_edge, %.lr.ph230, %229
-  %244 = phi i32 [ %230, %229 ], [ %230, %.lr.ph230 ], [ %257, %._crit_edge ]
-  %245 = phi i32 [ %231, %229 ], [ %231, %.lr.ph230 ], [ %257, %._crit_edge ]
-  %.fr = phi i32 [ %235, %229 ], [ %235, %.lr.ph230 ], [ %263, %._crit_edge ]
-  %246 = phi float [ %234, %229 ], [ %234, %.lr.ph230 ], [ %260, %._crit_edge ]
-  %247 = phi float [ %233, %229 ], [ %233, %.lr.ph230 ], [ %261, %._crit_edge ]
-  %248 = phi double [ %232, %229 ], [ %232, %.lr.ph230 ], [ %262, %._crit_edge ]
+  %244 = phi i32 [ %230, %229 ], [ %230, %.lr.ph230 ], [ %258, %._crit_edge ]
+  %245 = phi i32 [ %231, %229 ], [ %231, %.lr.ph230 ], [ %258, %._crit_edge ]
+  %246 = phi i32 [ %235, %229 ], [ %235, %.lr.ph230 ], [ %260, %._crit_edge ]
+  %247 = phi float [ %234, %229 ], [ %234, %.lr.ph230 ], [ %261, %._crit_edge ]
+  %248 = phi float [ %233, %229 ], [ %233, %.lr.ph230 ], [ %262, %._crit_edge ]
+  %249 = phi double [ %232, %229 ], [ %232, %.lr.ph230 ], [ %263, %._crit_edge ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge246, label %229, !llvm.loop !449
 
 .lr.ph230.split:                                  ; preds = %.lr.ph230, %._crit_edge
-  %249 = phi i32 [ %257, %._crit_edge ], [ %230, %.lr.ph230 ]
-  %250 = phi i32 [ %258, %._crit_edge ], [ %242, %.lr.ph230 ]
-  %251 = phi i32 [ %263, %._crit_edge ], [ %235, %.lr.ph230 ]
-  %252 = phi float [ %260, %._crit_edge ], [ %234, %.lr.ph230 ]
-  %253 = phi float [ %261, %._crit_edge ], [ %233, %.lr.ph230 ]
-  %254 = phi double [ %262, %._crit_edge ], [ %232, %.lr.ph230 ]
+  %250 = phi i32 [ %258, %._crit_edge ], [ %230, %.lr.ph230 ]
+  %251 = phi i32 [ %259, %._crit_edge ], [ %242, %.lr.ph230 ]
+  %252 = phi i32 [ %260, %._crit_edge ], [ %235, %.lr.ph230 ]
+  %253 = phi float [ %261, %._crit_edge ], [ %234, %.lr.ph230 ]
+  %254 = phi float [ %262, %._crit_edge ], [ %233, %.lr.ph230 ]
+  %255 = phi double [ %263, %._crit_edge ], [ %232, %.lr.ph230 ]
   %.078228 = phi i32 [ %264, %._crit_edge ], [ %236, %.lr.ph230 ]
-  %255 = load i32, ptr %207, align 4
-  %256 = icmp slt i32 %255, %250
-  br i1 %256, label %.lr.ph227, label %._crit_edge
+  %256 = load i32, ptr %207, align 4
+  %257 = icmp slt i32 %256, %251
+  br i1 %257, label %.lr.ph227, label %._crit_edge
 
 ._crit_edge.loopexit:                             ; preds = %285
   %.pre288 = load i32, ptr %210, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph230.split
-  %257 = phi i32 [ %249, %.lr.ph230.split ], [ %.pre288, %._crit_edge.loopexit ]
-  %258 = phi i32 [ %250, %.lr.ph230.split ], [ %291, %._crit_edge.loopexit ]
-  %259 = phi i32 [ %251, %.lr.ph230.split ], [ %286, %._crit_edge.loopexit ]
-  %260 = phi float [ %252, %.lr.ph230.split ], [ %287, %._crit_edge.loopexit ]
-  %261 = phi float [ %253, %.lr.ph230.split ], [ %288, %._crit_edge.loopexit ]
-  %262 = phi double [ %254, %.lr.ph230.split ], [ %289, %._crit_edge.loopexit ]
-  %263 = freeze i32 %259
+  %258 = phi i32 [ %250, %.lr.ph230.split ], [ %.pre288, %._crit_edge.loopexit ]
+  %259 = phi i32 [ %251, %.lr.ph230.split ], [ %291, %._crit_edge.loopexit ]
+  %260 = phi i32 [ %252, %.lr.ph230.split ], [ %286, %._crit_edge.loopexit ]
+  %261 = phi float [ %253, %.lr.ph230.split ], [ %287, %._crit_edge.loopexit ]
+  %262 = phi float [ %254, %.lr.ph230.split ], [ %288, %._crit_edge.loopexit ]
+  %263 = phi double [ %255, %.lr.ph230.split ], [ %289, %._crit_edge.loopexit ]
   %264 = add nsw i32 %.078228, 1
-  %265 = icmp slt i32 %264, %257
+  %265 = icmp slt i32 %264, %258
   br i1 %265, label %.lr.ph230.split, label %._crit_edge231, !llvm.loop !1245
 
 .lr.ph227:                                        ; preds = %.lr.ph230.split, %285
-  %266 = phi i32 [ %286, %285 ], [ %251, %.lr.ph230.split ]
-  %267 = phi float [ %287, %285 ], [ %252, %.lr.ph230.split ]
-  %268 = phi float [ %288, %285 ], [ %253, %.lr.ph230.split ]
-  %269 = phi double [ %289, %285 ], [ %254, %.lr.ph230.split ]
-  %.077226 = phi i32 [ %290, %285 ], [ %255, %.lr.ph230.split ]
+  %266 = phi i32 [ %286, %285 ], [ %252, %.lr.ph230.split ]
+  %267 = phi float [ %287, %285 ], [ %253, %.lr.ph230.split ]
+  %268 = phi float [ %288, %285 ], [ %254, %.lr.ph230.split ]
+  %269 = phi double [ %289, %285 ], [ %255, %.lr.ph230.split ]
+  %.077226 = phi i32 [ %290, %285 ], [ %256, %.lr.ph230.split ]
   store i32 %.077226, ptr %30, align 8
   store i32 %.078228, ptr %211, align 4
   %270 = load i64, ptr %30, align 8
@@ -70317,7 +70316,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   %283 = fcmp olt float %277, %267
   %.sroa.speculated = select i1 %283, float %277, float %267
   store float %.sroa.speculated, ptr %25, align 4
-  %284 = add nsw i32 %266, 1
+  %284 = add i32 %266, 1
   store i32 %284, ptr %29, align 4
   br label %285
 

@@ -9235,12 +9235,14 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i4.i161.i.i: ; preds 
   %984 = getelementptr inbounds nuw i8, ptr %965, i64 24
   %985 = load i64, ptr %984, align 8, !noalias !340
   %986 = getelementptr inbounds i8, ptr null, i64 %968
+  %.fr603 = freeze i64 %985
   br label %_ZN5boostanImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit168.i.i
 
 987:                                              ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i4.i161.i.i
   %988 = getelementptr inbounds nuw i8, ptr %982, i64 %968
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %982, ptr nonnull align 8 %971, i64 %968, i1 false), !noalias !340
   call void @_ZdlPv(ptr noundef nonnull %971) #26, !noalias !340
+  %.fr602 = freeze i64 %973
   br label %_ZN5boostanImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit168.i.i
 
 _ZN5boost14dynamic_bitsetImSaImEED2Ev.exit10.i162.i.i: ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i4.i161.i.i
@@ -9250,10 +9252,9 @@ _ZN5boost14dynamic_bitsetImSaImEED2Ev.exit10.i162.i.i: ; preds = %_ZNSt16allocat
   br label %.body166.i.i
 
 _ZN5boostanImSaImEEENS_14dynamic_bitsetIT_T0_EERKS5_S7_.exit168.i.i: ; preds = %987, %983
-  %.sroa.0439.0.i.i = phi ptr [ null, %983 ], [ %982, %987 ]
-  %.sroa.9.0.i.i = phi ptr [ %986, %983 ], [ %988, %987 ]
-  %.sroa.15.0.i.i = phi i64 [ %985, %983 ], [ %973, %987 ]
-  %.sroa.15.0.i.fr.i = freeze i64 %.sroa.15.0.i.i
+  %.sink601 = phi i64 [ %.fr602, %987 ], [ %.fr603, %983 ]
+  %.sroa.0439.0.i.i = phi ptr [ %982, %987 ], [ null, %983 ]
+  %.sroa.9.0.i.i = phi ptr [ %988, %987 ], [ %986, %983 ]
   %.not.i.i.i.i.i.i169.i.i = icmp eq ptr %.sroa.0446.1693700.i.i, null
   br i1 %.not.i.i.i.i.i.i169.i.i, label %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit.i.i, label %990
 
@@ -9419,8 +9420,8 @@ _ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit180.i.i: ; preds = %_ZN5boo
   br i1 %.not84583.i.i, label %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit178.thread.thread.i.i, label %.lr.ph585.i.i
 
 .lr.ph585.i.i:                                    ; preds = %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit180.i.i
-  %1043 = add i64 %.sroa.15.0.i.fr.i, -1
-  %1044 = icmp eq i64 %.sroa.15.0.i.fr.i, 0
+  %1043 = add i64 %.sink601, -1
+  %1044 = icmp eq i64 %.sink601, 0
   br i1 %1044, label %.lr.ph585.i.split.us.i, label %.lr.ph585.i.split.i
 
 .lr.ph585.i.split.us.i:                           ; preds = %.lr.ph585.i.i
@@ -9564,8 +9565,8 @@ _ZNKSt3mapIjN5boost14dynamic_bitsetImSaImEEESt4lessIjESaISt4pairIKjS3_EEE4findER
   br i1 %1110, label %.lr.ph.i195.i.i, label %_ZN5boost14dynamic_bitsetImSaImEEaNERKS2_.exit197.i.i, !llvm.loop !329
 
 _ZN5boost14dynamic_bitsetImSaImEEaNERKS2_.exit197.i.i: ; preds = %.lr.ph.i195.i.i, %_ZNKSt3mapIjN5boost14dynamic_bitsetImSaImEEESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit193.i.i
-  %.not69.i = icmp ult i64 %.0584.i.i, %1043
-  br i1 %.not69.i, label %1111, label %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit178.thread.thread.i.i
+  %.not70.i = icmp ult i64 %.0584.i.i, %1043
+  br i1 %.not70.i, label %1111, label %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit178.thread.thread.i.i
 
 1111:                                             ; preds = %_ZN5boost14dynamic_bitsetImSaImEEaNERKS2_.exit197.i.i
   %1112 = add nuw i64 %.0584.i.i, 1
@@ -9854,13 +9855,13 @@ _ZN5boosteqImSaImEEEbRKNS_14dynamic_bitsetIT_T0_EES7_.exit.thread: ; preds = %11
   %1209 = load i64, ptr %1208, align 8
   %1210 = getelementptr inbounds nuw i8, ptr %1205, i64 8
   %1211 = load ptr, ptr %1210, align 8
-  %.fr.i = freeze ptr %1211
+  %.fr.i340 = freeze ptr %1211
   %1212 = load ptr, ptr %1205, align 8
   %.fr24.i = freeze ptr %1212
-  %1213 = ptrtoint ptr %.fr.i to i64
+  %1213 = ptrtoint ptr %.fr.i340 to i64
   %1214 = ptrtoint ptr %.fr24.i to i64
   %1215 = sub i64 %1213, %1214
-  %.not.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %.fr.i, %.fr24.i
+  %.not.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %.fr.i340, %.fr24.i
   br i1 %.not.not.i.i.i.i.i.i.i.i.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i339, %_ZNKSt8__detail15_Hashtable_baseIN5boost14dynamic_bitsetImSaImEEESt4pairIKS4_tENS_10_Select1stESt8equal_toIS4_EN3ue219hash_dynamic_bitsetENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread.us.i
@@ -9911,8 +9912,8 @@ _ZNKSt8__detail15_Hashtable_baseIN5boost14dynamic_bitsetImSaImEEESt4pairIKS4_tEN
 
 _ZNKSt8__detail15_Hashtable_baseIN5boost14dynamic_bitsetImSaImEEESt4pairIKS4_tENS_10_Select1stESt8equal_toIS4_EN3ue219hash_dynamic_bitsetENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN5boost14dynamic_bitsetImSaImEEESt4pairIKS4_tENS_10_Select1stESt8equal_toIS4_EN3ue219hash_dynamic_bitsetENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i, %1231, %.lr.ph.split.i
   %.sroa.07.0.i = load ptr, ptr %.sroa.07.018.i, align 8
-  %.not.i340 = icmp eq ptr %.sroa.07.0.i, null
-  br i1 %.not.i340, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !343
+  %.not.i341 = icmp eq ptr %.sroa.07.0.i, null
+  br i1 %.not.i341, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !343
 
 1240:                                             ; preds = %_ZN5boosteqImSaImEEEbRKNS_14dynamic_bitsetIT_T0_EES7_.exit.thread
   %1241 = load ptr, ptr %1205, align 8

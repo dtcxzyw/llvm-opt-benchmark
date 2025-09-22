@@ -3887,9 +3887,8 @@ _ZNK2cv3Mat8elemSizeEv.exit.split:                ; preds = %_ZNK2cv3Mat8elemSiz
 
 .split188.us:                                     ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.split.us.split, %_ZNK2cv3Mat8elemSizeEv.exit.split.us.split.us
   %.us-phi189 = phi i64 [ %.076.us.us, %_ZNK2cv3Mat8elemSizeEv.exit.split.us.split.us ], [ %.076.us, %_ZNK2cv3Mat8elemSizeEv.exit.split.us.split ]
-  %.us-phi189.fr = freeze i64 %.us-phi189
-  %.not109 = icmp eq i64 %.us-phi189.fr, 0
-  %187 = uitofp i64 %.us-phi189.fr to double
+  %.not109 = icmp eq i64 %.us-phi189, 0
+  %187 = uitofp i64 %.us-phi189 to double
   %188 = fdiv double 1.000000e+00, %187
   br i1 %.not109, label %.split188.us.thread, label %189
 
@@ -4852,7 +4851,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.split.us.split.us:    ; preds = %_ZNK2cv3Mat8elemSiz
 332:                                              ; preds = %327
   %333 = sext i32 %331 to i64
   %334 = add nsw i64 %.1198363.us.us.us, %333
-  %335 = add nsw i64 %.1201362.us.us.us, %333
+  %335 = add i64 %.1201362.us.us.us, %333
   %.not255.us.us.us = icmp slt i64 %334, %invariant.op
   br i1 %.not255.us.us.us, label %336, label %.preheader
 
@@ -4949,7 +4948,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.split.us.split:       ; preds = %_ZNK2cv3Mat8elemSiz
 
 370:                                              ; preds = %.preheader348.us
   %371 = sext i32 %369 to i64
-  %372 = add nsw i64 %.0200.us, %371
+  %372 = add i64 %.0200.us, %371
   %373 = load ptr, ptr %321, align 8, !tbaa !119
   %.not258.us373 = icmp eq ptr %373, null
   br i1 %.not258.us373, label %._crit_edge.split.us374, label %374
@@ -4987,9 +4986,8 @@ _ZNK2cv3Mat8elemSizeEv.exit.split:                ; preds = %_ZNK2cv3Mat8elemSiz
 
 .split379.us:                                     ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.split.us.split, %_ZNK2cv3Mat8elemSizeEv.exit.split.us.split.us
   %.us-phi380 = phi i64 [ %.0200.us.us, %_ZNK2cv3Mat8elemSizeEv.exit.split.us.split.us ], [ %.0200.us, %_ZNK2cv3Mat8elemSizeEv.exit.split.us.split ]
-  %.us-phi380.fr = freeze i64 %.us-phi380
-  %.not244 = icmp eq i64 %.us-phi380.fr, 0
-  %384 = sitofp i64 %.us-phi380.fr to double
+  %.not244 = icmp eq i64 %.us-phi380, 0
+  %384 = sitofp i64 %.us-phi380 to double
   %385 = fdiv double 1.000000e+00, %384
   br i1 %.not244, label %.split379.us.thread, label %386
 

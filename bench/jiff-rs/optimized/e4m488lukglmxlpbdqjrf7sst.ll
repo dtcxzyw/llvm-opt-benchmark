@@ -5217,6 +5217,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i: ; preds = %_ZN4
   store i64 0, ptr %321, align 8, !noalias !276
   %322 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %17), !noalias !276
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !276
+  %.fr108 = freeze { ptr, i64 } %322
   br label %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i
 
 323:                                              ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i
@@ -5232,12 +5233,13 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i: ; preds = %_ZN4
   store i64 0, ptr %327, align 8, !noalias !276
   %328 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16), !noalias !276
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !276
+  %.fr107 = freeze { ptr, i64 } %328
   br label %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i
 
 _ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i: ; preds = %323, %317
-  %.pn.i36 = phi { ptr, i64 } [ %322, %317 ], [ %328, %323 ]
-  %.sroa.0.1.i37 = extractvalue { ptr, i64 } %.pn.i36, 0
-  %.sroa.17.sroa.0.1.in.in.i = extractvalue { ptr, i64 } %.pn.i36, 1
+  %.sink106 = phi { ptr, i64 } [ %.fr107, %323 ], [ %.fr108, %317 ]
+  %.sroa.0.1.i37 = extractvalue { ptr, i64 } %.sink106, 0
+  %.sroa.17.sroa.0.1.in.in.i = extractvalue { ptr, i64 } %.sink106, 1
   %.not52.i = icmp eq ptr %.sroa.0.1.i37, null
   br i1 %.not52.i, label %.thread.thread132.i, label %341
 
@@ -5302,12 +5304,13 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
   unreachable
 
 352:                                              ; preds = %341
+  %.fr.i = freeze { ptr, i64 } %347
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !279
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !279
   call void @"_ZN4core3ptr53drop_in_place$LT$jiff..shared..util..error..Error$GT$17he9f6cdd8d832c270E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15), !noalias !273
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !273
-  %353 = extractvalue { ptr, i64 } %347, 0
-  %354 = extractvalue { ptr, i64 } %347, 1
+  %353 = extractvalue { ptr, i64 } %.fr.i, 0
+  %354 = extractvalue { ptr, i64 } %.fr.i, 1
   %.not53.i = icmp eq ptr %353, null
   br i1 %.not53.i, label %.thread.thread132.i, label %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit.thread
 
@@ -5318,9 +5321,8 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
 
 .thread.thread132.i:                              ; preds = %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i, %352
   %.sroa.7.095109.in.i = phi i64 [ %354, %352 ], [ %.sroa.17.sroa.0.1.in.in.i, %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i ]
-  %.sroa.7.095109.in.fr.i = freeze i64 %.sroa.7.095109.in.i
-  %355 = trunc i64 %.sroa.7.095109.in.fr.i to i32
-  %.sroa.7.095109.i = trunc i64 %.sroa.7.095109.in.fr.i to i1
+  %355 = trunc i64 %.sroa.7.095109.in.i to i32
+  %.sroa.7.095109.i = trunc i64 %.sroa.7.095109.in.i to i1
   %356 = shl i32 %355, 16
   %357 = ashr i32 %356, 24
   %spec.select.i = select i1 %.sroa.7.095109.i, i32 %357, i32 1

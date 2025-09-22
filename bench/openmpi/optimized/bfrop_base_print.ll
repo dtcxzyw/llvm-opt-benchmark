@@ -1398,25 +1398,28 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_proc(ptr noundef %0, ptr no
 
 12:                                               ; preds = %7
   %13 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.49, ptr noundef nonnull %11, ptr noundef nonnull %2) #8
+  %.fr33 = freeze i32 %13
   br label %21
 
 14:                                               ; preds = %7
   %15 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.50, ptr noundef nonnull %11, ptr noundef nonnull %2) #8
+  %.fr34 = freeze i32 %15
   br label %21
 
 16:                                               ; preds = %7
   %17 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.51, ptr noundef nonnull %11, ptr noundef nonnull %2) #8
+  %.fr35 = freeze i32 %17
   br label %21
 
 18:                                               ; preds = %7
   %19 = zext i32 %9 to i64
   %20 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef nonnull %11, ptr noundef nonnull %2, i64 noundef %19) #8
+  %.fr36 = freeze i32 %20
   br label %21
 
 21:                                               ; preds = %12, %14, %16, %18
-  %.0 = phi i32 [ %20, %18 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ]
-  %.0.fr = freeze i32 %.0
-  %22 = icmp slt i32 %.0.fr, 0
+  %.sink32 = phi i32 [ %.fr33, %12 ], [ %.fr34, %14 ], [ %.fr35, %16 ], [ %.fr36, %18 ]
+  %22 = icmp slt i32 %.sink32, 0
   %spec.select = select i1 %22, i32 -32, i32 0
   br label %23
 

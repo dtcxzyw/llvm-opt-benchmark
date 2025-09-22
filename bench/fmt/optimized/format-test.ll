@@ -228104,27 +228104,28 @@ define linkonce_odr hidden ptr @_ZN3fmt3v116detail14do_write_floatIcNS0_14basic_
   %37 = zext i32 %36 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %38 = load i32, ptr %2, align 4, !tbaa !5036
-  %39 = and i32 %38, 16384
+  %.fr = freeze i32 %38
+  %39 = and i32 %.fr, 16384
   %.not130 = icmp eq i32 %39, 0
   br i1 %.not130, label %42, label %40
 
 40:                                               ; preds = %6
   %41 = tail call noundef signext i8 @_ZN3fmt3v116detail18decimal_point_implIcEET_NS1_10locale_refE(ptr %5)
   %.sroa.0.0.copyload.pre = load i32, ptr %2, align 4
+  %.sroa.0.0.copyload.pre.fr = freeze i32 %.sroa.0.0.copyload.pre
   br label %42
 
 42:                                               ; preds = %6, %40
-  %.sroa.0.0.copyload = phi i32 [ %.sroa.0.0.copyload.pre, %40 ], [ %38, %6 ]
+  %.sroa.0.0.copyload = phi i32 [ %.sroa.0.0.copyload.pre.fr, %40 ], [ %.fr, %6 ]
   %43 = phi i8 [ %41, %40 ], [ 46, %6 ]
   store i8 %43, ptr %11, align 1, !tbaa !39
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !6744
   %46 = add nsw i32 %34, %45
   %47 = add nsw i32 %46, -1
-  %.sroa.0.0.copyload.fr = freeze i32 %.sroa.0.0.copyload
   %.sroa.5121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
   %.sroa.5121.0.copyload = load i32, ptr %.sroa.5121.0..sroa_idx, align 4
-  %48 = trunc i32 %.sroa.0.0.copyload.fr to i8
+  %48 = trunc i32 %.sroa.0.0.copyload to i8
   %49 = and i8 %48, 7
   switch i8 %49, label %50 [
     i8 1, label %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10decimal_fpIdEENS1_14digit_groupingIcEEEET0_SA_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread
@@ -228142,7 +228143,7 @@ _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10dec
   br i1 %.not131.not, label %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10decimal_fpIdEENS1_14digit_groupingIcEEEET0_SA_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread, label %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10decimal_fpIdEENS1_14digit_groupingIcEEEET0_SA_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread123
 
 _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10decimal_fpIdEENS1_14digit_groupingIcEEEET0_SA_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread: ; preds = %50, %42, %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10decimal_fpIdEENS1_14digit_groupingIcEEEET0_SA_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit
-  %54 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %54 = and i32 %.sroa.0.0.copyload, 8192
   %.not136 = icmp eq i32 %54, 0
   br i1 %.not136, label %59, label %55
 
@@ -228176,7 +228177,7 @@ _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10dec
   %spec.select164 = select i1 %.not87.not, i64 2, i64 3
   %70 = add nuw nsw i64 %.0, %.072
   %71 = add nuw nsw i64 %70, %spec.select164
-  %72 = and i32 %.sroa.0.0.copyload.fr, 4096
+  %72 = and i32 %.sroa.0.0.copyload, 4096
   %.not137 = icmp eq i32 %72, 0
   %73 = select i1 %.not137, i8 101, i8 69
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -228203,7 +228204,7 @@ _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10dec
 84:                                               ; preds = %62
   %85 = zext nneg i32 %82 to i64
   %86 = tail call i64 @llvm.usub.sat.i64(i64 %85, i64 %71)
-  %87 = lshr i32 %.sroa.0.0.copyload.fr, 3
+  %87 = lshr i32 %.sroa.0.0.copyload, 3
   %88 = and i32 %87, 7
   %89 = zext nneg i32 %88 to i64
   %90 = getelementptr inbounds nuw i8, ptr @.str.2357, i64 %89
@@ -228212,7 +228213,7 @@ _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10dec
   %93 = and i64 %92, 4294967295
   %94 = lshr i64 %86, %93
   %95 = sub nsw i64 %86, %94
-  %96 = lshr i32 %.sroa.0.0.copyload.fr, 15
+  %96 = lshr i32 %.sroa.0.0.copyload, 15
   %97 = and i32 %96, 7
   %98 = zext nneg i32 %97 to i64
   %99 = mul nuw nsw i64 %86, %98
@@ -228285,7 +228286,7 @@ _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10dec
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %131 = sub nsw i32 %.sroa.5121.0.copyload, %46
   store i32 %131, ptr %14, align 4, !tbaa !54
-  %132 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %132 = and i32 %.sroa.0.0.copyload, 8192
   %.not135 = icmp eq i32 %132, 0
   br i1 %.not135, label %140, label %133
 
@@ -228311,7 +228312,7 @@ _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10dec
 140:                                              ; preds = %.thread, %136, %137, %128
   %.1 = phi i64 [ %139, %137 ], [ %134, %136 ], [ %130, %128 ], [ %134, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %141 = and i32 %.sroa.0.0.copyload.fr, 16384
+  %141 = and i32 %.sroa.0.0.copyload, 16384
   %142 = icmp ne i32 %141, 0
   call void @_ZN3fmt3v116detail14digit_groupingIcEC2INS1_10locale_refETnNSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueEiE4typeELi0EEES7_b(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr %5, i1 noundef zeroext %142)
   %143 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -228486,14 +228487,14 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit:   ; preds = %_ZNSt7__cxx1112basi
 
 221:                                              ; preds = %219
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %222 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %222 = and i32 %.sroa.0.0.copyload, 8192
   %.not134 = icmp eq i32 %222, 0
   %223 = sub nsw i32 %.sroa.5121.0.copyload, %34
   %224 = select i1 %.not134, i32 0, i32 %223
   store i32 %224, ptr %17, align 4, !tbaa !54
   %225 = tail call noundef i32 @llvm.smax.i32(i32 %224, i32 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %226 = and i32 %.sroa.0.0.copyload.fr, 16384
+  %226 = and i32 %.sroa.0.0.copyload, 16384
   %227 = icmp ne i32 %226, 0
   call void @_ZN3fmt3v116detail14digit_groupingIcEC2INS1_10locale_refETnNSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueEiE4typeELi0EEES7_b(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr %5, i1 noundef zeroext %227)
   %228 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -228644,7 +228645,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit115: ; preds = %_ZNSt7__cxx1112bas
   br label %286
 
 283:                                              ; preds = %281
-  %284 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %284 = and i32 %.sroa.0.0.copyload, 8192
   %.not133 = icmp eq i32 %284, 0
   %.lobit = lshr exact i32 %284, 13
   %285 = trunc nuw nsw i32 %.lobit to i8
@@ -228676,7 +228677,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit115: ; preds = %_ZNSt7__cxx1112bas
   %299 = load i32, ptr %298, align 4, !tbaa !6551
   %300 = zext i32 %299 to i64
   %301 = call i64 @llvm.usub.sat.i64(i64 %300, i64 %291)
-  %302 = lshr i32 %.sroa.0.0.copyload.fr, 3
+  %302 = lshr i32 %.sroa.0.0.copyload, 3
   %303 = and i32 %302, 7
   %304 = zext nneg i32 %303 to i64
   %305 = getelementptr inbounds nuw i8, ptr @.str.2357, i64 %304
@@ -228685,7 +228686,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit115: ; preds = %_ZNSt7__cxx1112bas
   %308 = and i64 %307, 4294967295
   %309 = lshr i64 %301, %308
   %310 = sub nsw i64 %301, %309
-  %311 = lshr i32 %.sroa.0.0.copyload.fr, 15
+  %311 = lshr i32 %.sroa.0.0.copyload, 15
   %312 = and i32 %311, 7
   %313 = zext nneg i32 %312 to i64
   %314 = mul nuw nsw i64 %301, %313
@@ -233741,27 +233742,28 @@ define linkonce_odr hidden ptr @_ZN3fmt3v116detail14do_write_floatIcNS0_14basic_
   %28 = zext i32 %27 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %29 = load i32, ptr %2, align 4, !tbaa !5036
-  %30 = and i32 %29, 16384
+  %.fr = freeze i32 %29
+  %30 = and i32 %.fr, 16384
   %.not130 = icmp eq i32 %30, 0
   br i1 %.not130, label %33, label %31
 
 31:                                               ; preds = %6
   %32 = tail call noundef signext i8 @_ZN3fmt3v116detail18decimal_point_implIcEET_NS1_10locale_refE(ptr %5)
   %.sroa.0.0.copyload.pre = load i32, ptr %2, align 4
+  %.sroa.0.0.copyload.pre.fr = freeze i32 %.sroa.0.0.copyload.pre
   br label %33
 
 33:                                               ; preds = %6, %31
-  %.sroa.0.0.copyload = phi i32 [ %.sroa.0.0.copyload.pre, %31 ], [ %29, %6 ]
+  %.sroa.0.0.copyload = phi i32 [ %.sroa.0.0.copyload.pre.fr, %31 ], [ %.fr, %6 ]
   %34 = phi i8 [ %32, %31 ], [ 46, %6 ]
   store i8 %34, ptr %11, align 1, !tbaa !39
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %36 = load i32, ptr %35, align 4, !tbaa !6731
   %37 = add nsw i32 %25, %36
   %38 = add nsw i32 %37, -1
-  %.sroa.0.0.copyload.fr = freeze i32 %.sroa.0.0.copyload
   %.sroa.5121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
   %.sroa.5121.0.copyload = load i32, ptr %.sroa.5121.0..sroa_idx, align 4
-  %39 = trunc i32 %.sroa.0.0.copyload.fr to i8
+  %39 = trunc i32 %.sroa.0.0.copyload to i8
   %40 = and i8 %39, 7
   switch i8 %40, label %41 [
     i8 1, label %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_14big_decimal_fpENS1_14digit_groupingIcEEEET0_S8_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread
@@ -233779,7 +233781,7 @@ _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_14big_decimal_f
   br i1 %.not131.not, label %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_14big_decimal_fpENS1_14digit_groupingIcEEEET0_S8_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread, label %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_14big_decimal_fpENS1_14digit_groupingIcEEEET0_S8_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread123
 
 _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_14big_decimal_fpENS1_14digit_groupingIcEEEET0_S8_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread: ; preds = %41, %33, %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_14big_decimal_fpENS1_14digit_groupingIcEEEET0_S8_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit
-  %45 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %45 = and i32 %.sroa.0.0.copyload, 8192
   %.not136 = icmp eq i32 %45, 0
   br i1 %.not136, label %50, label %46
 
@@ -233813,7 +233815,7 @@ _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_14big_decimal_f
   %spec.select164 = select i1 %.not87.not, i64 2, i64 3
   %61 = add nuw nsw i64 %.0, %.072
   %62 = add nuw nsw i64 %61, %spec.select164
-  %63 = and i32 %.sroa.0.0.copyload.fr, 4096
+  %63 = and i32 %.sroa.0.0.copyload, 4096
   %.not137 = icmp eq i32 %63, 0
   %64 = select i1 %.not137, i8 101, i8 69
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -233840,7 +233842,7 @@ _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_14big_decimal_f
 75:                                               ; preds = %53
   %76 = zext nneg i32 %73 to i64
   %77 = tail call i64 @llvm.usub.sat.i64(i64 %76, i64 %62)
-  %78 = lshr i32 %.sroa.0.0.copyload.fr, 3
+  %78 = lshr i32 %.sroa.0.0.copyload, 3
   %79 = and i32 %78, 7
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw i8, ptr @.str.2357, i64 %80
@@ -233849,7 +233851,7 @@ _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_14big_decimal_f
   %84 = and i64 %83, 4294967295
   %85 = lshr i64 %77, %84
   %86 = sub nsw i64 %77, %85
-  %87 = lshr i32 %.sroa.0.0.copyload.fr, 15
+  %87 = lshr i32 %.sroa.0.0.copyload, 15
   %88 = and i32 %87, 7
   %89 = zext nneg i32 %88 to i64
   %90 = mul nuw nsw i64 %77, %89
@@ -233922,7 +233924,7 @@ _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_14big_decimal_f
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %122 = sub nsw i32 %.sroa.5121.0.copyload, %37
   store i32 %122, ptr %14, align 4, !tbaa !54
-  %123 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %123 = and i32 %.sroa.0.0.copyload, 8192
   %.not135 = icmp eq i32 %123, 0
   br i1 %.not135, label %131, label %124
 
@@ -233948,7 +233950,7 @@ _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_14big_decimal_f
 131:                                              ; preds = %.thread, %127, %128, %119
   %.1 = phi i64 [ %130, %128 ], [ %125, %127 ], [ %121, %119 ], [ %125, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %132 = and i32 %.sroa.0.0.copyload.fr, 16384
+  %132 = and i32 %.sroa.0.0.copyload, 16384
   %133 = icmp ne i32 %132, 0
   call void @_ZN3fmt3v116detail14digit_groupingIcEC2INS1_10locale_refETnNSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueEiE4typeELi0EEES7_b(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr %5, i1 noundef zeroext %133)
   %134 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -234123,14 +234125,14 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit:   ; preds = %_ZNSt7__cxx1112basi
 
 212:                                              ; preds = %210
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %213 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %213 = and i32 %.sroa.0.0.copyload, 8192
   %.not134 = icmp eq i32 %213, 0
   %214 = sub nsw i32 %.sroa.5121.0.copyload, %25
   %215 = select i1 %.not134, i32 0, i32 %214
   store i32 %215, ptr %17, align 4, !tbaa !54
   %216 = tail call noundef i32 @llvm.smax.i32(i32 %215, i32 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %217 = and i32 %.sroa.0.0.copyload.fr, 16384
+  %217 = and i32 %.sroa.0.0.copyload, 16384
   %218 = icmp ne i32 %217, 0
   call void @_ZN3fmt3v116detail14digit_groupingIcEC2INS1_10locale_refETnNSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueEiE4typeELi0EEES7_b(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr %5, i1 noundef zeroext %218)
   %219 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -234281,7 +234283,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit115: ; preds = %_ZNSt7__cxx1112bas
   br label %277
 
 274:                                              ; preds = %272
-  %275 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %275 = and i32 %.sroa.0.0.copyload, 8192
   %.not133 = icmp eq i32 %275, 0
   %.lobit = lshr exact i32 %275, 13
   %276 = trunc nuw nsw i32 %.lobit to i8
@@ -234313,7 +234315,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit115: ; preds = %_ZNSt7__cxx1112bas
   %290 = load i32, ptr %289, align 4, !tbaa !6551
   %291 = zext i32 %290 to i64
   %292 = call i64 @llvm.usub.sat.i64(i64 %291, i64 %282)
-  %293 = lshr i32 %.sroa.0.0.copyload.fr, 3
+  %293 = lshr i32 %.sroa.0.0.copyload, 3
   %294 = and i32 %293, 7
   %295 = zext nneg i32 %294 to i64
   %296 = getelementptr inbounds nuw i8, ptr @.str.2357, i64 %295
@@ -234322,7 +234324,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit115: ; preds = %_ZNSt7__cxx1112bas
   %299 = and i64 %298, 4294967295
   %300 = lshr i64 %292, %299
   %301 = sub nsw i64 %292, %300
-  %302 = lshr i32 %.sroa.0.0.copyload.fr, 15
+  %302 = lshr i32 %.sroa.0.0.copyload, 15
   %303 = and i32 %302, 7
   %304 = zext nneg i32 %303 to i64
   %305 = mul nuw nsw i64 %292, %304

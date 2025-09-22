@@ -1946,26 +1946,31 @@ pmix_mca_base_var_get_value.exit:                 ; preds = %var_get.exit.thread
 41:                                               ; preds = %40
   %42 = load i32, ptr %32, align 8, !tbaa !30
   %43 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.93, i32 noundef %42) #25
+  %.fr67 = freeze i32 %43
   br label %66
 
 44:                                               ; preds = %40
   %45 = load i32, ptr %32, align 8, !tbaa !30
   %46 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.94, i32 noundef %45) #25
+  %.fr66 = freeze i32 %46
   br label %66
 
 47:                                               ; preds = %40
   %48 = load i64, ptr %32, align 8, !tbaa !30
   %49 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.95, i64 noundef %48) #25
+  %.fr65 = freeze i32 %49
   br label %66
 
 50:                                               ; preds = %40
   %51 = load i64, ptr %32, align 8, !tbaa !30
   %52 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.96, i64 noundef %51) #25
+  %.fr64 = freeze i32 %52
   br label %66
 
 53:                                               ; preds = %40
   %54 = load i64, ptr %32, align 8, !tbaa !30
   %55 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.95, i64 noundef %54) #25
+  %.fr63 = freeze i32 %55
   br label %66
 
 56:                                               ; preds = %40, %40
@@ -1973,23 +1978,25 @@ pmix_mca_base_var_get_value.exit:                 ; preds = %var_get.exit.thread
   %.not29 = icmp eq ptr %57, null
   %spec.select = select i1 %.not29, ptr @.str.86, ptr %57
   %58 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.64, ptr noundef nonnull %spec.select) #25
+  %.fr62 = freeze i32 %58
   br label %66
 
 59:                                               ; preds = %40
   %60 = load i8, ptr %32, align 8, !tbaa !30, !range !36, !noundef !37
   %61 = zext nneg i8 %60 to i32
   %62 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.93, i32 noundef %61) #25
+  %.fr61 = freeze i32 %62
   br label %66
 
 63:                                               ; preds = %40
   %64 = load double, ptr %32, align 8, !tbaa !30
   %65 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.97, double noundef %64) #25
+  %.fr60 = freeze i32 %65
   br label %66
 
 66:                                               ; preds = %63, %59, %56, %53, %50, %47, %44, %41
-  %.0 = phi i32 [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %62, %59 ], [ %65, %63 ]
-  %.0.fr = freeze i32 %.0
-  %67 = icmp slt i32 %.0.fr, 0
+  %.sink59 = phi i32 [ %.fr60, %63 ], [ %.fr61, %59 ], [ %.fr62, %56 ], [ %.fr63, %53 ], [ %.fr64, %50 ], [ %.fr65, %47 ], [ %.fr66, %44 ], [ %.fr67, %41 ]
+  %67 = icmp slt i32 %.sink59, 0
   br i1 %67, label %.thread, label %pmix_mca_base_var_get_value.exit.thread
 
 .thread:                                          ; preds = %40, %66

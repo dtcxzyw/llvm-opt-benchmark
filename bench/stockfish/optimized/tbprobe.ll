@@ -3722,7 +3722,7 @@ _ZN9Stockfish12_GLOBAL__N_111probe_tableILNS0_6TBTypeE1EiEET0_RKNS_8PositionEPNS
 
 _ZN9Stockfish12_GLOBAL__N_118dtz_before_zeroingENS_10Tablebases8WDLScoreE.exit66: ; preds = %811, %815
   %.pn = phi i32 [ %816, %815 ], [ %814, %811 ]
-  %817 = sub nsw i32 0, %.pn
+  %817 = sub i32 0, %.pn
   %818 = icmp eq i32 %.pn, -1
   br i1 %818, label %819, label %.critedge
 
@@ -3750,28 +3750,26 @@ _ZN9Stockfish12_GLOBAL__N_118dtz_before_zeroingENS_10Tablebases8WDLScoreE.exit66
   %isnotnull.i68 = icmp ne i32 %826, 0
   %isnotnull.zext.i69 = zext i1 %isnotnull.i68 to i32
   %828 = or i32 %.lobit.neg.i67, %isnotnull.zext.i69
-  %829 = sub nsw i32 %828, %.pn
+  %829 = sub i32 %828, %.pn
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %809, %.fold.split.i65, %811, %827, %.critedge
   %.182 = phi i32 [ %.1, %.critedge ], [ %.1, %827 ], [ %.055125, %811 ], [ %.055125, %.fold.split.i65 ], [ %.055125, %809 ]
   %.054 = phi i32 [ %826, %.critedge ], [ %829, %827 ], [ 101, %811 ], [ -101, %.fold.split.i65 ], [ -1, %809 ]
-  %.182.fr = freeze i32 %.182
-  %.054.fr = freeze i32 %.054
-  %830 = icmp slt i32 %.054.fr, %.182.fr
+  %830 = icmp slt i32 %.054, %.182
   br i1 %830, label %831, label %834
 
 831:                                              ; preds = %.critedge.thread
-  %.lobit.neg.i70 = ashr i32 %.054.fr, 31
-  %isnotnull.i71 = icmp ne i32 %.054.fr, 0
+  %.lobit.neg.i70 = ashr i32 %.054, 31
+  %isnotnull.i71 = icmp ne i32 %.054, 0
   %isnotnull.zext.i72 = zext i1 %isnotnull.i71 to i32
   %832 = or i32 %.lobit.neg.i70, %isnotnull.zext.i72
   %833 = icmp eq i32 %832, %788
-  %spec.select62 = select i1 %833, i32 %.054.fr, i32 %.182.fr
+  %spec.select62 = select i1 %833, i32 %.054, i32 %.182
   br label %834
 
 834:                                              ; preds = %831, %.critedge.thread
-  %.2 = phi i32 [ %.182.fr, %.critedge.thread ], [ %spec.select62, %831 ]
+  %.2 = phi i32 [ %.182, %.critedge.thread ], [ %spec.select62, %831 ]
   call void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %.sroa.06.0.copyload) #24
   %835 = load i32, ptr %1, align 4
   %836 = icmp eq i32 %835, 0

@@ -11611,8 +11611,9 @@ define { ptr, i64 } @_ZN4fish5wutil8wdirname17h166750eb276266a1E(ptr noalias nou
 
 42:                                               ; preds = %31
   %43 = tail call { ptr, i64 } @_ZN4fish9wchar_ext4WExt8slice_to17h657144eaa477ed92E(ptr noalias noundef nonnull readonly align 4 %.sroa.0.0.lcssa, i64 noundef %.sroa.16.0.lcssa, i64 noundef %.sroa.01.0.i.i)
-  %.sroa.0.153 = extractvalue { ptr, i64 } %43, 0
-  %.sroa.16.154 = extractvalue { ptr, i64 } %43, 1
+  %.fr = freeze { ptr, i64 } %43
+  %.sroa.0.153 = extractvalue { ptr, i64 } %.fr, 0
+  %.sroa.16.154 = extractvalue { ptr, i64 } %.fr, 1
   %44 = icmp ne ptr %.sroa.0.153, null
   tail call void @llvm.assume(i1 %44)
   %.not3155 = icmp eq i64 %.sroa.16.154, 0
@@ -11635,8 +11636,7 @@ define { ptr, i64 } @_ZN4fish5wutil8wdirname17h166750eb276266a1E(ptr noalias nou
   %.sroa.16.1.lcssa = phi i64 [ %.sroa.16.154, %42 ], [ %.sroa.16.1, %50 ]
   %.not31.lcssa = phi i1 [ %.not3155, %42 ], [ %.not31, %50 ]
   %..sroa.16.1 = tail call i64 @llvm.umax.i64(i64 %.sroa.16.1.lcssa, i64 1)
-  %cond.fr = freeze i1 %.not31.lcssa
-  %spec.select = select i1 %cond.fr, ptr @anon.91263fab832fb979df71ce1208d38572.223, ptr %.sroa.0.1.lcssa
+  %spec.select = select i1 %.not31.lcssa, ptr @anon.91263fab832fb979df71ce1208d38572.223, ptr %.sroa.0.1.lcssa
   br label %.loopexit
 
 50:                                               ; preds = %.lr.ph62
@@ -11644,8 +11644,9 @@ define { ptr, i64 } @_ZN4fish5wutil8wdirname17h166750eb276266a1E(ptr noalias nou
   %52 = extractvalue { ptr, i64 } %51, 1
   %53 = add i64 %52, -1
   %54 = tail call { ptr, i64 } @_ZN4fish9wchar_ext4WExt8slice_to17h657144eaa477ed92E(ptr noalias noundef nonnull readonly align 4 %.sroa.0.158, i64 noundef %.sroa.16.159, i64 noundef %53)
-  %.sroa.0.1 = extractvalue { ptr, i64 } %54, 0
-  %.sroa.16.1 = extractvalue { ptr, i64 } %54, 1
+  %.fr100 = freeze { ptr, i64 } %54
+  %.sroa.0.1 = extractvalue { ptr, i64 } %.fr100, 0
+  %.sroa.16.1 = extractvalue { ptr, i64 } %.fr100, 1
   %55 = icmp ne ptr %.sroa.0.1, null
   tail call void @llvm.assume(i1 %55)
   %.not31 = icmp eq i64 %.sroa.16.1, 0

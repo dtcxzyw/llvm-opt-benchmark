@@ -6783,8 +6783,8 @@ define range(i32 -322, 1) i32 @CheckHostName(ptr noundef readonly captures(addre
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %20 = load i32, ptr %19, align 8, !tbaa !252
   %21 = tail call i32 @MatchDomainName(ptr noundef %18, i32 noundef %20, ptr noundef %1, i32 noundef %5, i32 noundef %3)
-  %.not26 = icmp eq i32 %21, 0
-  %.9 = select i1 %.not26, i32 -322, i32 0
+  %.not27 = icmp eq i32 %21, 0
+  %.9 = select i1 %.not27, i32 -322, i32 0
   br label %.thread24
 
 .thread24:                                        ; preds = %.lr.ph.i, %15, %.thread22
@@ -6826,8 +6826,8 @@ define range(i32 -322, 1) i32 @CheckIPAddr(ptr noundef readonly captures(address
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %19 = load i32, ptr %18, align 8, !tbaa !252
   %20 = tail call i32 @MatchDomainName(ptr noundef %17, i32 noundef %19, ptr noundef nonnull readonly %1, i32 noundef %4, i32 noundef 0)
-  %.not26.i = icmp eq i32 %20, 0
-  %.9.i = select i1 %.not26.i, i32 -322, i32 0
+  %.not27.i = icmp eq i32 %20, 0
+  %.9.i = select i1 %.not27.i, i32 -322, i32 0
   br label %CheckHostName.exit
 
 CheckHostName.exit:                               ; preds = %.lr.ph.i.i, %14, %.thread22.i
@@ -7267,13 +7267,14 @@ define i32 @ProcessPeerCerts(ptr noundef initializes((1050, 1051)) %0, ptr nound
   %37 = add i32 %22, %23
   store i32 %37, ptr %11, align 8, !tbaa !278
   %38 = tail call ptr @wolfSSL_Malloc(i64 noundef 144) #27
+  %.fr = freeze ptr %38
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %38, ptr %39, align 8, !tbaa !281
-  %.not472 = icmp eq ptr %38, null
+  store ptr %.fr, ptr %39, align 8, !tbaa !281
+  %.not472 = icmp eq ptr %.fr, null
   br i1 %.not472, label %.loopexit487, label %40
 
 40:                                               ; preds = %36, %4
-  %41 = phi ptr [ %38, %36 ], [ null, %4 ]
+  %41 = phi ptr [ %.fr, %36 ], [ null, %4 ]
   %42 = phi i32 [ %37, %36 ], [ %10, %4 ]
   %43 = tail call ptr @wolfSSL_Malloc(i64 noundef 144) #27
   store ptr %43, ptr %5, align 16, !tbaa !267
@@ -7313,8 +7314,7 @@ define i32 @ProcessPeerCerts(ptr noundef initializes((1050, 1051)) %0, ptr nound
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 700
   %invariant.op = sub i32 3, %10
-  %.fr502 = freeze ptr %41
-  %68 = icmp eq ptr %.fr502, null
+  %68 = icmp eq ptr %41, null
   br i1 %68, label %.preheader485.split.us.split, label %.preheader485.split
 
 .preheader485.split.us.split:                     ; preds = %.preheader485
@@ -7484,7 +7484,7 @@ define i32 @ProcessPeerCerts(ptr noundef initializes((1050, 1051)) %0, ptr nound
   br i1 %164, label %.thread384, label %165
 
 165:                                              ; preds = %152
-  %166 = getelementptr inbounds %struct.WOLFSSL_BUFFER_INFO, ptr %.fr502, i64 %140
+  %166 = getelementptr inbounds %struct.WOLFSSL_BUFFER_INFO, ptr %41, i64 %140
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   store i32 %162, ptr %167, align 8, !tbaa !283
   %168 = zext i32 %160 to i64
@@ -12240,19 +12240,21 @@ RetrySendAlert.exit.i:                            ; preds = %17
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %182 = load ptr, ptr %181, align 8, !tbaa !116
   %183 = tail call i32 @wc_RsaSetRNG(ptr noundef %179, ptr noundef %182) #27
-  %.not.i221 = icmp eq i32 %183, 0
+  %.fr312 = freeze i32 %183
+  %.not.i221 = icmp eq i32 %.fr312, 0
   br i1 %.not.i221, label %184, label %RsaDec.exit
 
 184:                                              ; preds = %177
   %185 = zext i32 %175 to i64
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 %185
   %187 = call i32 @wc_RsaPrivateDecryptInline(ptr noundef %186, i32 noundef %173, ptr noundef nonnull %5, ptr noundef %179) #27
-  %188 = add i32 %187, -1
+  %.fr313 = freeze i32 %187
+  %188 = add i32 %.fr313, -1
   %189 = lshr i32 %188, 31
   %190 = trunc nuw nsw i32 %189 to i8
   %191 = add nsw i8 %190, -1
   %192 = sext i8 %191 to i32
-  %193 = and i32 %187, %192
+  %193 = and i32 %.fr313, %192
   store i32 %193, ptr %180, align 4, !tbaa !49
   br label %194
 
@@ -12279,7 +12281,7 @@ RsaDec.exit.thread:                               ; preds = %ctMaskCopy.exit.loo
   br label %DhAgree.exit.thread269
 
 RsaDec.exit:                                      ; preds = %ctMaskCopy.exit.loopexit.i, %177
-  %.0.i222 = phi i32 [ %183, %177 ], [ %187, %ctMaskCopy.exit.loopexit.i ]
+  %.0.i222 = phi i32 [ %.fr312, %177 ], [ %.fr313, %ctMaskCopy.exit.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %202 = icmp eq i32 %.0.i222, -173
   br i1 %202, label %SendAlert.exit, label %DhAgree.exit.thread269
@@ -12289,8 +12291,7 @@ DhAgree.exit.thread269:                           ; preds = %RsaDec.exit.thread,
   %203 = load i32, ptr %180, align 4, !tbaa !339
   %.fr = freeze i32 %203
   %.not205 = icmp eq i32 %.fr, 48
-  %.0.i222263.fr = freeze i32 %.0.i222263
-  %204 = select i1 %.not205, i32 %.0.i222263.fr, i32 -201
+  %204 = select i1 %.not205, i32 %.0.i222263, i32 -201
   br label %252
 
 205:                                              ; preds = %.thread256
@@ -12448,8 +12449,8 @@ ctMaskCopy.exit:                                  ; preds = %275
   %283 = load ptr, ptr %6, align 16, !tbaa !336
   %.not207 = icmp ne ptr %283, null
   %284 = icmp sgt i32 %.fr285, -1
-  %or.cond314 = and i1 %.not207, %284
-  br i1 %or.cond314, label %.preheader.split.us, label %.loopexit
+  %or.cond316 = and i1 %.not207, %284
+  br i1 %or.cond316, label %.preheader.split.us, label %.loopexit
 
 .preheader.split.us:                              ; preds = %ctMaskCopy.exit, %.preheader.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.split.us ], [ 2, %ctMaskCopy.exit ]

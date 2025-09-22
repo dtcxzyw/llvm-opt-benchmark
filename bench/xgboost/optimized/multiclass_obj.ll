@@ -14737,19 +14737,21 @@ _ZZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj20SoftmaxMultiClassObj9T
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZZNK7xgboost3obj20SoftmaxMultiClassObj9TransformEPNS_16HostDeviceVectorIfEEbENKUlmNS_6common4SpanIfLm18446744073709551615EEEE_clEmS7_(ptr noundef nonnull align 4 dereferenceable(4) %0, i64 noundef %1, i64 %2, ptr %3) local_unnamed_addr #6 comdat align 2 {
+  %.fr = freeze i64 %2
   %5 = load i32, ptr %0, align 4, !tbaa !448
-  %6 = sext i32 %5 to i64
+  %.fr9 = freeze i32 %5
+  %6 = sext i32 %.fr9 to i64
   %7 = mul i64 %1, %6
-  %8 = icmp eq i32 %5, -1
+  %8 = icmp eq i32 %.fr9, -1
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %4
-  %.not8.i = icmp ugt i64 %7, %2
+  %.not8.i = icmp ugt i64 %7, %.fr
   br i1 %.not8.i, label %12, label %13, !prof !125
 
 10:                                               ; preds = %4
   %11 = add i64 %7, %6
-  %.not.i = icmp ugt i64 %11, %2
+  %.not.i = icmp ugt i64 %11, %.fr
   br i1 %.not.i, label %12, label %15, !prof !125
 
 12:                                               ; preds = %10, %9
@@ -14757,14 +14759,13 @@ define linkonce_odr void @_ZZNK7xgboost3obj20SoftmaxMultiClassObj9TransformEPNS_
   unreachable
 
 13:                                               ; preds = %9
-  %14 = sub nuw i64 %2, %7
+  %14 = sub nuw i64 %.fr, %7
   br label %15
 
 15:                                               ; preds = %13, %10
   %16 = phi i64 [ %14, %13 ], [ %6, %10 ]
-  %.fr.i = freeze i64 %16
   %17 = icmp ne ptr %3, null
-  %18 = icmp eq i64 %.fr.i, 0
+  %18 = icmp eq i64 %16, 0
   %19 = or i1 %17, %18
   br i1 %19, label %_ZNK7xgboost6common4SpanIfLm18446744073709551615EE7subspanEmm.exit, label %20, !prof !237
 
@@ -14782,12 +14783,12 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EE7subspanEmm.exit: ; preds = %1
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZNK7xgboost6common4SpanIfLm18446744073709551615EE7subspanEmm.exit
   %23 = load float, ptr %21, align 4, !tbaa !407
-  %.not9 = icmp eq i64 %.fr.i, 1
-  br i1 %.not9, label %.preheader50.i, label %.lr.ph.split.preheader.i
+  %.not10 = icmp eq i64 %16, 1
+  br i1 %.not10, label %.preheader50.i, label %.lr.ph.split.preheader.i
 
 .lr.ph.split.preheader.i:                         ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0EEdeEv.exit.i
-  %24 = sub i64 0, %.fr.i
-  %25 = sub i64 1, %.fr.i
+  %24 = sub i64 0, %16
+  %25 = sub i64 1, %16
   %.not76.not.i = icmp ugt i64 %25, %24
   br i1 %.not76.not.i, label %.lr.ph.split.i, label %.split.us.i, !prof !237
 
@@ -14802,7 +14803,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0
   %27 = load float, ptr %26, align 4, !tbaa !407
   %28 = tail call float @llvm.maxnum.f32(float %27, float %.055.i)
   %.sroa.642.0.i = add nuw i64 %.sroa.642.056.i, 1
-  %.not68.i = icmp eq i64 %.sroa.642.0.i, %.fr.i
+  %.not68.i = icmp eq i64 %.sroa.642.0.i, %16
   br i1 %.not68.i, label %.preheader50.i, label %.lr.ph.split.i, !llvm.loop !449
 
 .split.us.i:                                      ; preds = %.lr.ph.split.preheader.i
@@ -14816,7 +14817,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0
 .lr.ph62.i:                                       ; preds = %.preheader50.i, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0EEppEv.exit24.i
   %.01761.i = phi double [ %36, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0EEppEv.exit24.i ], [ 0.000000e+00, %.preheader50.i ]
   %.sroa.8.060.i = phi i64 [ %37, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0EEppEv.exit24.i ], [ 0, %.preheader50.i ]
-  %exitcond.not = icmp eq i64 %.sroa.8.060.i, %.fr.i
+  %exitcond.not = icmp eq i64 %.sroa.8.060.i, %16
   br i1 %exitcond.not, label %30, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0EEppEv.exit24.i, !prof !125
 
 30:                                               ; preds = %.lr.ph62.i
@@ -14832,13 +14833,13 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0E
   %35 = fpext float %34 to double
   %36 = fadd double %.01761.i, %35
   %37 = add i64 %.sroa.8.060.i, 1
-  %.not.i7 = icmp eq i64 %37, %.fr.i
+  %.not.i7 = icmp eq i64 %37, %16
   br i1 %.not.i7, label %.preheader.i, label %.lr.ph62.i, !llvm.loop !450
 
 .lr.ph66.i:                                       ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0EEppEv.exit28.i, %.preheader.i
   %.sroa.6.065.i = phi i64 [ %42, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0EEppEv.exit28.i ], [ 0, %.preheader.i ]
-  %exitcond12.not = icmp eq i64 %.sroa.6.065.i, %.fr.i
-  br i1 %exitcond12.not, label %38, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0EEppEv.exit28.i, !prof !125
+  %exitcond13.not = icmp eq i64 %.sroa.6.065.i, %16
+  br i1 %exitcond13.not, label %38, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0EEppEv.exit28.i, !prof !125
 
 38:                                               ; preds = %.lr.ph66.i
   tail call void @_ZSt9terminatev() #37
@@ -14850,7 +14851,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0E
   %41 = fdiv float %40, %29
   store float %41, ptr %39, align 4, !tbaa !407
   %42 = add i64 %.sroa.6.065.i, 1
-  %.not49.i = icmp eq i64 %42, %.fr.i
+  %.not49.i = icmp eq i64 %42, %16
   br i1 %.not49.i, label %_ZN7xgboost6common7SoftmaxINS0_6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0EEEEEvT_S7_.exit, label %.lr.ph66.i, !llvm.loop !451
 
 _ZN7xgboost6common7SoftmaxINS0_6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0EEEEEvT_S7_.exit: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0EEppEv.exit28.i

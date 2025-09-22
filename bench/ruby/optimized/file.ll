@@ -7422,16 +7422,17 @@ define internal range(i64 0, 2) i64 @rb_file_flock(i64 noundef %0, i64 noundef %
 
 5:                                                ; preds = %2
   %6 = tail call i64 @rb_fix2int(i64 noundef %1) #22
+  %.fr = freeze i64 %6
   br label %rb_num2int_inline.exit
 
 7:                                                ; preds = %2
   %8 = tail call i64 @rb_num2int(i64 noundef %1) #22
+  %.fr39 = freeze i64 %8
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %5, %7
-  %.0.i = phi i64 [ %6, %5 ], [ %8, %7 ]
-  %.0.i.fr = freeze i64 %.0.i
-  %9 = trunc i64 %.0.i.fr to i32
+  %.sink38 = phi i64 [ %.fr, %5 ], [ %.fr39, %7 ]
+  %9 = trunc i64 %.sink38 to i32
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %9, ptr %10, align 4, !tbaa !26
   %11 = tail call i64 @rb_io_taint_check(i64 noundef %0) #22

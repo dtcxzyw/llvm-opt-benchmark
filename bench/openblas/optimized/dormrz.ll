@@ -131,8 +131,8 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 70:                                               ; preds = %68
   %71 = icmp eq i32 %47, 0
   %72 = icmp eq i32 %50, 0
-  %or.cond414 = or i1 %71, %72
-  br i1 %or.cond414, label %.sink.split, label %73
+  %or.cond415 = or i1 %71, %72
+  br i1 %or.cond415, label %.sink.split, label %73
 
 73:                                               ; preds = %70
   store i32 1, ptr %17, align 4, !tbaa !3
@@ -150,10 +150,10 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %78, label %.lr.ph332.preheader, label %.thread285
 
 .lr.ph332.preheader:                              ; preds = %73, %.preheader319
-  %.0216.lcssa387 = phi ptr [ %.1217.lcssa, %.preheader319 ], [ %18, %73 ]
-  %.0220.lcssa386 = phi i32 [ %83, %.preheader319 ], [ 2, %73 ]
-  %79 = zext nneg i32 %.0220.lcssa386 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0216.lcssa387, i8 32, i64 %79, i1 false), !tbaa !10
+  %.0216.lcssa388 = phi ptr [ %.1217.lcssa, %.preheader319 ], [ %18, %73 ]
+  %.0220.lcssa387 = phi i32 [ %83, %.preheader319 ], [ 2, %73 ]
+  %79 = zext nneg i32 %.0220.lcssa387 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0216.lcssa388, i8 32, i64 %79, i1 false), !tbaa !10
   br label %.thread285
 
 .lr.ph327:                                        ; preds = %73, %._crit_edge
@@ -251,7 +251,8 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 113:                                              ; preds = %111
   %114 = load i32, ptr %4, align 4, !tbaa !3
-  %115 = icmp slt i32 %.1230314, %114
+  %.fr = freeze i32 %114
+  %115 = icmp slt i32 %.1230314, %.fr
   br i1 %115, label %116, label %.thread296
 
 116:                                              ; preds = %113
@@ -279,10 +280,10 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %128, label %.lr.ph350.preheader, label %._crit_edge351
 
 .lr.ph350.preheader:                              ; preds = %121, %.preheader
-  %.0.lcssa395 = phi ptr [ %.1.lcssa, %.preheader ], [ %18, %121 ]
-  %.0211.lcssa394 = phi i32 [ %133, %.preheader ], [ 2, %121 ]
-  %129 = zext nneg i32 %.0211.lcssa394 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.lcssa395, i8 32, i64 %129, i1 false), !tbaa !10
+  %.0.lcssa396 = phi ptr [ %.1.lcssa, %.preheader ], [ %18, %121 ]
+  %.0211.lcssa395 = phi i32 [ %133, %.preheader ], [ 2, %121 ]
+  %129 = zext nneg i32 %.0211.lcssa395 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.lcssa396, i8 32, i64 %129, i1 false), !tbaa !10
   br label %._crit_edge351
 
 .lr.ph345:                                        ; preds = %121, %._crit_edge339
@@ -335,13 +336,13 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 ._crit_edge351..thread296_crit_edge:              ; preds = %._crit_edge351
   %.pre376 = load i32, ptr %4, align 4, !tbaa !3
+  %.pre376.fr = freeze i32 %.pre376
   br label %.thread296
 
 .thread296:                                       ; preds = %._crit_edge351..thread296_crit_edge, %113, %116
-  %148 = phi i32 [ %.pre376, %._crit_edge351..thread296_crit_edge ], [ %114, %116 ], [ %114, %113 ]
+  %148 = phi i32 [ %.pre376.fr, %._crit_edge351..thread296_crit_edge ], [ %.fr, %116 ], [ %.fr, %113 ]
   %.2231299 = phi i32 [ %123, %._crit_edge351..thread296_crit_edge ], [ %.1230314, %116 ], [ %.1230314, %113 ]
-  %.fr267 = freeze i32 %148
-  %.not266 = icmp slt i32 %.2231299, %.fr267
+  %.not266 = icmp slt i32 %.2231299, %148
   br i1 %.not266, label %149, label %.thread300
 
 .thread300:                                       ; preds = %111, %.thread296, %._crit_edge351
@@ -355,22 +356,22 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %or.cond277, label %157, label %152
 
 152:                                              ; preds = %149
-  %153 = add nsw i32 %.fr267, -1
+  %153 = add nsw i32 %148, -1
   %154 = urem i32 %153, %.2231299
-  %155 = sub i32 %.fr267, %154
+  %155 = sub i32 %148, %154
   %156 = sub nsw i32 0, %.2231299
   br label %157
 
 157:                                              ; preds = %149, %152
   %.0241 = phi i32 [ %155, %152 ], [ 1, %149 ]
-  %158 = phi i32 [ 1, %152 ], [ %.fr267, %149 ]
+  %158 = phi i32 [ 1, %152 ], [ %148, %149 ]
   %.0239 = phi i32 [ %156, %152 ], [ %.2231299, %149 ]
-  %.409 = select i1 %.not, ptr %3, ptr %2
-  %.410 = select i1 %.not, ptr %22, ptr %21
-  %.411 = select i1 %.not, ptr %2, ptr %3
-  %159 = load i32, ptr %.409, align 4, !tbaa !3
-  store i32 %159, ptr %.410, align 4, !tbaa !3
-  %160 = load i32, ptr %.411, align 4, !tbaa !3
+  %.410 = select i1 %.not, ptr %3, ptr %2
+  %.411 = select i1 %.not, ptr %22, ptr %21
+  %.412 = select i1 %.not, ptr %2, ptr %3
+  %159 = load i32, ptr %.410, align 4, !tbaa !3
+  store i32 %159, ptr %.411, align 4, !tbaa !3
+  %160 = load i32, ptr %.412, align 4, !tbaa !3
   %161 = load i32, ptr %5, align 4, !tbaa !3
   %. = select i1 %151, i8 84, i8 78
   store i8 %., ptr %24, align 1, !tbaa !10
@@ -391,8 +392,8 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %171 = sext i32 %166 to i64
   %invariant.gep = getelementptr double, ptr %27, i64 %171
   %172 = zext nneg i32 %158 to i64
-  %.412 = select i1 %.not, ptr %2, ptr %3
-  %.413 = select i1 %.not, ptr %21, ptr %22
+  %.413 = select i1 %.not, ptr %2, ptr %3
+  %.414 = select i1 %.not, ptr %21, ptr %22
   br label %173
 
 173:                                              ; preds = %.lr.ph359, %173
@@ -410,10 +411,10 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dlarzt_(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %5, ptr noundef nonnull %20, ptr noundef %gep, ptr noundef nonnull %7, ptr noundef nonnull %178, ptr noundef %168, ptr noundef nonnull @c__65) #5
   %..1237355 = select i1 %.not, i32 %175, i32 %.1237355
   %.1233356. = select i1 %.not, i32 %.1233356, i32 %175
-  %179 = load i32, ptr %.412, align 4, !tbaa !3
+  %179 = load i32, ptr %.413, align 4, !tbaa !3
   %reass.sub360 = sub i32 %179, %175
   %180 = add i32 %reass.sub360, 1
-  store i32 %180, ptr %.413, align 4, !tbaa !3
+  store i32 %180, ptr %.414, align 4, !tbaa !3
   %181 = mul nsw i32 %.1233356., %29
   %182 = add nsw i32 %181, %..1237355
   %183 = sext i32 %182 to i64

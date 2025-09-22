@@ -2513,6 +2513,7 @@ define range(i32 0, -2147483648) i32 @EVP_MD_CTX_ctrl(ptr noundef %0, i32 nounde
 
 34:                                               ; preds = %29
   %35 = call i32 %33(ptr noundef nonnull %28, ptr noundef nonnull %6) #8
+  %.fr60 = freeze i32 %35
   br label %EVP_MD_CTX_get_params.exit
 
 36:                                               ; preds = %29, %26, %24, %19
@@ -2530,6 +2531,7 @@ define range(i32 0, -2147483648) i32 @EVP_MD_CTX_ctrl(ptr noundef %0, i32 nounde
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %43 = load ptr, ptr %42, align 8, !tbaa !3
   %44 = call i32 %40(ptr noundef %43, ptr noundef nonnull %6) #8
+  %.fr59 = freeze i32 %44
   br label %EVP_MD_CTX_get_params.exit
 
 45:                                               ; preds = %16
@@ -2566,6 +2568,7 @@ define range(i32 0, -2147483648) i32 @EVP_MD_CTX_ctrl(ptr noundef %0, i32 nounde
 
 59:                                               ; preds = %54
   %60 = call i32 %58(ptr noundef nonnull %53, ptr noundef nonnull %6) #8
+  %.fr58 = freeze i32 %60
   br label %EVP_MD_CTX_get_params.exit
 
 61:                                               ; preds = %54, %51, %49, %.critedge
@@ -2583,6 +2586,7 @@ define range(i32 0, -2147483648) i32 @EVP_MD_CTX_ctrl(ptr noundef %0, i32 nounde
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %68 = load ptr, ptr %67, align 8, !tbaa !3
   %69 = call i32 %65(ptr noundef %68, ptr noundef nonnull %6) #8
+  %.fr57 = freeze i32 %69
   br label %EVP_MD_CTX_get_params.exit
 
 70:                                               ; preds = %12
@@ -2599,19 +2603,19 @@ define range(i32 0, -2147483648) i32 @EVP_MD_CTX_ctrl(ptr noundef %0, i32 nounde
 
 75:                                               ; preds = %70
   %76 = tail call i32 %72(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #8
+  %.fr61 = freeze i32 %76
   br label %EVP_MD_CTX_get_params.exit
 
 EVP_MD_CTX_get_params.exit:                       ; preds = %66, %59, %41, %34, %75
-  %.021 = phi i32 [ %76, %75 ], [ %35, %34 ], [ %44, %41 ], [ %60, %59 ], [ %69, %66 ]
-  %.021.fr = freeze i32 %.021
-  %77 = icmp slt i32 %.021.fr, 1
+  %.sink56 = phi i32 [ %.fr57, %66 ], [ %.fr58, %59 ], [ %.fr59, %41 ], [ %.fr60, %34 ], [ %.fr61, %75 ]
+  %77 = icmp slt i32 %.sink56, 1
   br i1 %77, label %EVP_MD_CTX_get_params.exit.thread, label %78
 
 EVP_MD_CTX_get_params.exit.thread:                ; preds = %61, %63, %36, %38, %16, %EVP_MD_CTX_get_params.exit
   br label %78
 
 78:                                               ; preds = %EVP_MD_CTX_get_params.exit.thread, %EVP_MD_CTX_get_params.exit, %74, %8
-  %.022 = phi i32 [ 0, %8 ], [ 0, %74 ], [ 0, %EVP_MD_CTX_get_params.exit.thread ], [ %.021.fr, %EVP_MD_CTX_get_params.exit ]
+  %.022 = phi i32 [ 0, %8 ], [ 0, %74 ], [ 0, %EVP_MD_CTX_get_params.exit.thread ], [ %.sink56, %EVP_MD_CTX_get_params.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.022

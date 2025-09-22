@@ -2130,6 +2130,7 @@ define hidden noundef range(i8 -1, 3) i8 @_ZN4core4iter6traits8iterator12iter_co
 14:                                               ; preds = %12
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i32, ptr %4, align 8, !alias.scope !262, !noalias !251
   store i8 6, ptr %4, align 8, !alias.scope !262, !noalias !251
+  %.sroa.0.0.copyload.i.i.i.i.i.i.fr = freeze i32 %.sroa.0.0.copyload.i.i.i.i.i.i
   br label %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i.i.i"
 
 15:                                               ; preds = %12
@@ -2142,26 +2143,26 @@ define hidden noundef range(i8 -1, 3) i8 @_ZN4core4iter6traits8iterator12iter_co
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store ptr %19, ptr %2, align 8, !alias.scope !268, !noalias !251
   %.sroa.02.0.copyload.i.i.i.i.i.i = load i32, ptr %6, align 1, !noalias !271
+  %.sroa.02.0.copyload.i.i.i.i.i.i.fr17 = freeze i32 %.sroa.02.0.copyload.i.i.i.i.i.i
   br label %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i.i.i"
 
 "_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i.i.i": ; preds = %18, %14
-  %20 = phi ptr [ %5, %14 ], [ %19, %18 ]
-  %21 = phi ptr [ null, %14 ], [ %19, %18 ]
-  %.sroa.0.0.i.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %14 ], [ %.sroa.02.0.copyload.i.i.i.i.i.i, %18 ]
-  %.sroa.0.0.i.fr.i.i.i.i = freeze i32 %.sroa.0.0.i.i.i.i.i
-  %22 = and i32 %.sroa.0.0.i.fr.i.i.i.i, 255
+  %.sroa.02.0.copyload.i.i.i.i.i.i.sink16 = phi i32 [ %.sroa.02.0.copyload.i.i.i.i.i.i.fr17, %18 ], [ %.sroa.0.0.copyload.i.i.i.i.i.i.fr, %14 ]
+  %20 = phi ptr [ %19, %18 ], [ %5, %14 ]
+  %21 = phi ptr [ %19, %18 ], [ null, %14 ]
+  %22 = and i32 %.sroa.02.0.copyload.i.i.i.i.i.i.sink16, 255
   %23 = icmp eq i32 %22, 6
   br i1 %23, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h4e00a8e6617dd036E.llvm.7808069312437652055.exit.thread, label %24
 
 24:                                               ; preds = %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i.i.i"
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i = trunc i32 %.fr.i.i.i.i to i8
-  %.sroa.01.0.extract.trunc.i.i.i.i.i.i = trunc i32 %.sroa.0.0.i.fr.i.i.i.i to i8
+  %.sroa.01.0.extract.trunc.i.i.i.i.i.i = trunc i32 %.sroa.02.0.copyload.i.i.i.i.i.i.sink16 to i8
   %25 = icmp eq i8 %.sroa.0.0.extract.trunc.i.i.i.i.i.i, %.sroa.01.0.extract.trunc.i.i.i.i.i.i
   br i1 %25, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h9688b5591ceea2c3E.exit.i.i.i.i", label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h4e00a8e6617dd036E.llvm.7808069312437652055.exit.thread
 
 "_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h9688b5591ceea2c3E.exit.i.i.i.i": ; preds = %24
   %26 = icmp eq i8 %.sroa.0.0.extract.trunc.i.i.i.i.i.i, 5
-  %.unshifted.i.i.i.i.i.i = xor i32 %.sroa.0.0.i.fr.i.i.i.i, %.fr.i.i.i.i
+  %.unshifted.i.i.i.i.i.i = xor i32 %.sroa.02.0.copyload.i.i.i.i.i.i.sink16, %.fr.i.i.i.i
   %27 = icmp ugt i32 %.unshifted.i.i.i.i.i.i, 255
   %spec.select.i.i.not.i.i.i.i.i = and i1 %26, %27
   br i1 %spec.select.i.i.not.i.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h4e00a8e6617dd036E.llvm.7808069312437652055.exit.thread, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hd0dfed1a8b695f14E.exit.i.i"
@@ -2240,6 +2241,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits8iterator8Iterator1
 15:                                               ; preds = %13
   %.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %5, align 8, !alias.scope !304, !noalias !285
   store i8 6, ptr %5, align 8, !alias.scope !304, !noalias !285
+  %.sroa.0.0.copyload.i.i.i.i.i.fr = freeze i32 %.sroa.0.0.copyload.i.i.i.i.i
   br label %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i.i"
 
 16:                                               ; preds = %13
@@ -2252,25 +2254,25 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits8iterator8Iterator1
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store ptr %20, ptr %1, align 8, !alias.scope !310, !noalias !285
   %.sroa.02.0.copyload.i.i.i.i.i = load i32, ptr %6, align 1, !noalias !313
+  %.sroa.02.0.copyload.i.i.i.i.i.fr3 = freeze i32 %.sroa.02.0.copyload.i.i.i.i.i
   br label %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i.i"
 
 "_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i.i": ; preds = %19, %15
-  %21 = phi ptr [ null, %15 ], [ %20, %19 ]
-  %.sroa.0.0.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i.i.i, %15 ], [ %.sroa.02.0.copyload.i.i.i.i.i, %19 ]
-  %.sroa.0.0.i.fr.i.i.i = freeze i32 %.sroa.0.0.i.i.i.i
-  %22 = and i32 %.sroa.0.0.i.fr.i.i.i, 255
+  %.sroa.02.0.copyload.i.i.i.i.i.sink2 = phi i32 [ %.sroa.02.0.copyload.i.i.i.i.i.fr3, %19 ], [ %.sroa.0.0.copyload.i.i.i.i.i.fr, %15 ]
+  %21 = phi ptr [ %20, %19 ], [ null, %15 ]
+  %22 = and i32 %.sroa.02.0.copyload.i.i.i.i.i.sink2, 255
   %23 = icmp eq i32 %22, 6
   br i1 %23, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h34e552c573b3760bE.llvm.7808069312437652055.exit, label %24
 
 24:                                               ; preds = %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i.i"
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i32 %.fr.i.i.i to i8
-  %.sroa.01.0.extract.trunc.i.i.i.i.i = trunc i32 %.sroa.0.0.i.fr.i.i.i to i8
+  %.sroa.01.0.extract.trunc.i.i.i.i.i = trunc i32 %.sroa.02.0.copyload.i.i.i.i.i.sink2 to i8
   %25 = icmp eq i8 %.sroa.0.0.extract.trunc.i.i.i.i.i, %.sroa.01.0.extract.trunc.i.i.i.i.i
   br i1 %25, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h9688b5591ceea2c3E.exit.i.i.i", label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h34e552c573b3760bE.llvm.7808069312437652055.exit
 
 "_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h9688b5591ceea2c3E.exit.i.i.i": ; preds = %24
   %26 = icmp eq i8 %.sroa.0.0.extract.trunc.i.i.i.i.i, 5
-  %.unshifted.i.i.i.i.i = xor i32 %.sroa.0.0.i.fr.i.i.i, %.fr.i.i.i
+  %.unshifted.i.i.i.i.i = xor i32 %.sroa.02.0.copyload.i.i.i.i.i.sink2, %.fr.i.i.i
   %27 = icmp ugt i32 %.unshifted.i.i.i.i.i, 255
   %spec.select.i.i.not.i.i.i.i = and i1 %26, %27
   br i1 %spec.select.i.i.not.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h34e552c573b3760bE.llvm.7808069312437652055.exit, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hd0dfed1a8b695f14E.exit.i"
@@ -2285,10 +2287,11 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !alias.scope !314
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !314
+  %.sroa.6.0.copyload.fr = freeze ptr %.sroa.6.0.copyload
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hd0dfed1a8b695f14E.exit.i.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hd0dfed1a8b695f14E.exit.i.i.i": ; preds = %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h9688b5591ceea2c3E.exit.i.i.i.i.i", %3
-  %.sroa.6.0 = phi ptr [ %.sroa.6.0.copyload, %3 ], [ %.sroa.6.1, %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h9688b5591ceea2c3E.exit.i.i.i.i.i" ]
+  %.sroa.6.0 = phi ptr [ %.sroa.6.0.copyload.fr, %3 ], [ %.sroa.6.1, %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h9688b5591ceea2c3E.exit.i.i.i.i.i" ]
   %4 = phi ptr [ %.sroa.0.0.copyload, %3 ], [ %21, %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h9688b5591ceea2c3E.exit.i.i.i.i.i" ]
   %5 = phi ptr [ %.sroa.0.0.copyload, %3 ], [ %22, %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h9688b5591ceea2c3E.exit.i.i.i.i.i" ]
   %6 = phi ptr [ %0, %3 ], [ %9, %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h9688b5591ceea2c3E.exit.i.i.i.i.i" ]
@@ -2326,27 +2329,27 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.02.0.copyload.i.i.i.i.i.i.i = load i32, ptr %5, align 1, !noalias !331
+  %.sroa.02.0.copyload.i.i.i.i.i.i.fr.i = freeze i32 %.sroa.02.0.copyload.i.i.i.i.i.i.i
   br label %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i.i.i.i"
 
 "_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i.i.i.i": ; preds = %19, %13
   %.sroa.6.1 = phi ptr [ %15, %13 ], [ %.sroa.6.0, %19 ]
+  %.sroa.02.0.copyload.i.i.i.i.i.i.sink.i = phi i32 [ %.sroa.6.8.extract.trunc, %13 ], [ %.sroa.02.0.copyload.i.i.i.i.i.i.fr.i, %19 ]
   %21 = phi ptr [ %4, %13 ], [ %20, %19 ]
   %22 = phi ptr [ null, %13 ], [ %20, %19 ]
-  %.sroa.0.0.i.i.i.i.i.i = phi i32 [ %.sroa.6.8.extract.trunc, %13 ], [ %.sroa.02.0.copyload.i.i.i.i.i.i.i, %19 ]
-  %.sroa.0.0.i.fr.i.i.i.i.i = freeze i32 %.sroa.0.0.i.i.i.i.i.i
-  %23 = and i32 %.sroa.0.0.i.fr.i.i.i.i.i, 255
+  %23 = and i32 %.sroa.02.0.copyload.i.i.i.i.i.i.sink.i, 255
   %24 = icmp eq i32 %23, 6
   br i1 %24, label %_ZN4core4iter6traits8iterator12iter_compare17hb3e3dac9d30ee57fE.llvm.7808069312437652055.exit, label %25
 
 25:                                               ; preds = %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i.i.i.i"
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i32 %.fr.i.i.i.i.i to i8
-  %.sroa.01.0.extract.trunc.i.i.i.i.i.i.i = trunc i32 %.sroa.0.0.i.fr.i.i.i.i.i to i8
+  %.sroa.01.0.extract.trunc.i.i.i.i.i.i.i = trunc i32 %.sroa.02.0.copyload.i.i.i.i.i.i.sink.i to i8
   %26 = icmp eq i8 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %.sroa.01.0.extract.trunc.i.i.i.i.i.i.i
   br i1 %26, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h9688b5591ceea2c3E.exit.i.i.i.i.i", label %_ZN4core4iter6traits8iterator12iter_compare17hb3e3dac9d30ee57fE.llvm.7808069312437652055.exit
 
 "_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h9688b5591ceea2c3E.exit.i.i.i.i.i": ; preds = %25
   %27 = icmp eq i8 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, 5
-  %.unshifted.i.i.i.i.i.i.i = xor i32 %.sroa.0.0.i.fr.i.i.i.i.i, %.fr.i.i.i.i.i
+  %.unshifted.i.i.i.i.i.i.i = xor i32 %.sroa.02.0.copyload.i.i.i.i.i.i.sink.i, %.fr.i.i.i.i.i
   %28 = icmp ugt i32 %.unshifted.i.i.i.i.i.i.i, 255
   %spec.select.i.i.not.i.i.i.i.i.i = and i1 %27, %28
   br i1 %spec.select.i.i.not.i.i.i.i.i.i, label %_ZN4core4iter6traits8iterator12iter_compare17hb3e3dac9d30ee57fE.llvm.7808069312437652055.exit, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hd0dfed1a8b695f14E.exit.i.i.i"
@@ -2419,6 +2422,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits8iterator8Iterator8
 15:                                               ; preds = %13
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %5, align 8, !alias.scope !354
   store i8 6, ptr %5, align 8, !alias.scope !354
+  %.sroa.0.0.copyload.i.i.i.i.fr = freeze i32 %.sroa.0.0.copyload.i.i.i.i
   br label %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i"
 
 16:                                               ; preds = %13
@@ -2431,25 +2435,25 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits8iterator8Iterator8
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store ptr %20, ptr %1, align 8, !alias.scope !360
   %.sroa.02.0.copyload.i.i.i.i = load i32, ptr %6, align 1, !noalias !363
+  %.sroa.02.0.copyload.i.i.i.i.fr19 = freeze i32 %.sroa.02.0.copyload.i.i.i.i
   br label %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i"
 
 "_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i": ; preds = %19, %15
-  %21 = phi ptr [ null, %15 ], [ %20, %19 ]
-  %.sroa.0.0.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i.i, %15 ], [ %.sroa.02.0.copyload.i.i.i.i, %19 ]
-  %.sroa.0.0.i.fr.i.i = freeze i32 %.sroa.0.0.i.i.i
-  %22 = and i32 %.sroa.0.0.i.fr.i.i, 255
+  %.sroa.02.0.copyload.i.i.i.i.sink18 = phi i32 [ %.sroa.02.0.copyload.i.i.i.i.fr19, %19 ], [ %.sroa.0.0.copyload.i.i.i.i.fr, %15 ]
+  %21 = phi ptr [ %20, %19 ], [ null, %15 ]
+  %22 = and i32 %.sroa.02.0.copyload.i.i.i.i.sink18, 255
   %23 = icmp eq i32 %22, 6
   br i1 %23, label %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe6169925af08d89E.exit.thread", label %24
 
 24:                                               ; preds = %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i"
   %.sroa.0.0.extract.trunc.i.i.i.i = trunc i32 %.fr.i.i to i8
-  %.sroa.01.0.extract.trunc.i.i.i.i = trunc i32 %.sroa.0.0.i.fr.i.i to i8
+  %.sroa.01.0.extract.trunc.i.i.i.i = trunc i32 %.sroa.02.0.copyload.i.i.i.i.sink18 to i8
   %25 = icmp eq i8 %.sroa.0.0.extract.trunc.i.i.i.i, %.sroa.01.0.extract.trunc.i.i.i.i
   br i1 %25, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h9688b5591ceea2c3E.exit.i.i", label %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe6169925af08d89E.exit.thread"
 
 "_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h9688b5591ceea2c3E.exit.i.i": ; preds = %24
   %26 = icmp eq i8 %.sroa.0.0.extract.trunc.i.i.i.i, 5
-  %.unshifted.i.i.i.i = xor i32 %.sroa.0.0.i.fr.i.i, %.fr.i.i
+  %.unshifted.i.i.i.i = xor i32 %.sroa.02.0.copyload.i.i.i.i.sink18, %.fr.i.i
   %27 = icmp ugt i32 %.unshifted.i.i.i.i, 255
   %spec.select.i.i.not.i.i.i = and i1 %26, %27
   br i1 %spec.select.i.i.not.i.i.i, label %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe6169925af08d89E.exit.thread", label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hd0dfed1a8b695f14E.exit"

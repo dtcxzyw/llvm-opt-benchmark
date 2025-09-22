@@ -31778,7 +31778,8 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit: ; preds
   %42 = add nuw nsw i64 %33, %41
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %43 = load i32, ptr %2, align 4, !tbaa !337
-  %44 = and i32 %43, 16384
+  %.fr = freeze i32 %43
+  %44 = and i32 %.fr, 16384
   %.not137 = icmp eq i32 %44, 0
   br i1 %.not137, label %56, label %45
 
@@ -31818,10 +31819,11 @@ _ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit: ; preds = %49
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load i32, ptr %10, align 4, !tbaa !54
   %.sroa.0.0.copyload.pre = load i32, ptr %2, align 4
+  %.sroa.0.0.copyload.pre.fr = freeze i32 %.sroa.0.0.copyload.pre
   br label %56
 
 56:                                               ; preds = %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit
-  %.sroa.0.0.copyload = phi i32 [ %.sroa.0.0.copyload.pre, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit ], [ %43, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit ]
+  %.sroa.0.0.copyload = phi i32 [ %.sroa.0.0.copyload.pre.fr, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit ], [ %.fr, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit ]
   %57 = phi i32 [ %.pre, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit ], [ %34, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit ]
   %58 = phi i8 [ %53, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit ], [ 46, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit ]
   store i8 %58, ptr %12, align 1, !tbaa !38
@@ -31829,10 +31831,9 @@ _ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit: ; preds = %49
   %60 = load i32, ptr %59, align 4, !tbaa !449
   %61 = add nsw i32 %57, %60
   %62 = add nsw i32 %61, -1
-  %.sroa.0.0.copyload.fr = freeze i32 %.sroa.0.0.copyload
   %.sroa.5121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
   %.sroa.5121.0.copyload = load i32, ptr %.sroa.5121.0..sroa_idx, align 4
-  %63 = trunc i32 %.sroa.0.0.copyload.fr to i8
+  %63 = trunc i32 %.sroa.0.0.copyload to i8
   %64 = and i8 %63, 7
   switch i8 %64, label %65 [
     i8 1, label %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10decimal_fpIfEENS1_14digit_groupingIcEEEET0_SA_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread
@@ -31850,7 +31851,7 @@ _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10dec
   br i1 %.not138.not, label %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10decimal_fpIfEENS1_14digit_groupingIcEEEET0_SA_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread, label %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10decimal_fpIfEENS1_14digit_groupingIcEEEET0_SA_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread123
 
 _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10decimal_fpIfEENS1_14digit_groupingIcEEEET0_SA_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread: ; preds = %65, %56, %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10decimal_fpIfEENS1_14digit_groupingIcEEEET0_SA_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit
-  %69 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %69 = and i32 %.sroa.0.0.copyload, 8192
   %.not143 = icmp eq i32 %69, 0
   br i1 %.not143, label %74, label %70
 
@@ -31884,7 +31885,7 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit89: ; pre
   %spec.select165 = select i1 %.not87.not, i64 2, i64 3
   %84 = add nuw nsw i64 %.0, %.072
   %85 = add nuw nsw i64 %84, %spec.select165
-  %86 = and i32 %.sroa.0.0.copyload.fr, 4096
+  %86 = and i32 %.sroa.0.0.copyload, 4096
   %.not144 = icmp eq i32 %86, 0
   %87 = select i1 %.not144, i8 101, i8 69
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -31950,7 +31951,7 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit90: ; pre
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %117 = sub nsw i32 %.sroa.5121.0.copyload, %61
   store i32 %117, ptr %15, align 4, !tbaa !54
-  %118 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %118 = and i32 %.sroa.0.0.copyload, 8192
   %.not142 = icmp eq i32 %118, 0
   br i1 %.not142, label %125, label %119
 
@@ -31976,7 +31977,7 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit91: ; pre
 125:                                              ; preds = %.thread, %122, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit91, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit90
   %.1 = phi i64 [ %124, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit91 ], [ %120, %122 ], [ %116, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit90 ], [ %120, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %126 = and i32 %.sroa.0.0.copyload.fr, 16384
+  %126 = and i32 %.sroa.0.0.copyload, 16384
   %127 = icmp ne i32 %126, 0
   call void @_ZN3fmt3v116detail14digit_groupingIcEC2INS1_10locale_refETnNSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueEiE4typeELi0EEES7_b(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr %5, i1 noundef zeroext %127)
   %128 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -32099,7 +32100,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit:   ; preds = %_ZNSt7__cxx1112basi
 
 173:                                              ; preds = %171
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %174 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %174 = and i32 %.sroa.0.0.copyload, 8192
   %.not141 = icmp eq i32 %174, 0
   %175 = sub nsw i32 %.sroa.5121.0.copyload, %57
   %176 = select i1 %.not141, i32 0, i32 %175
@@ -32109,7 +32110,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit:   ; preds = %_ZNSt7__cxx1112basi
   %179 = zext i32 %178 to i64
   %180 = add nuw nsw i64 %42, %179
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %181 = and i32 %.sroa.0.0.copyload.fr, 16384
+  %181 = and i32 %.sroa.0.0.copyload, 16384
   %182 = icmp ne i32 %181, 0
   call void @_ZN3fmt3v116detail14digit_groupingIcEC2INS1_10locale_refETnNSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueEiE4typeELi0EEES7_b(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr %5, i1 noundef zeroext %182)
   %183 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -32252,7 +32253,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit116: ; preds = %_ZNSt7__cxx1112bas
   br i1 %.not139, label %234, label %237
 
 234:                                              ; preds = %232
-  %235 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %235 = and i32 %.sroa.0.0.copyload, 8192
   %.not140 = icmp eq i32 %235, 0
   %.lobit = lshr exact i32 %235, 13
   %236 = trunc nuw nsw i32 %.lobit to i8
@@ -34779,7 +34780,8 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit: ; preds
   %44 = zext nneg i32 %43 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %45 = load i32, ptr %2, align 4, !tbaa !337
-  %46 = and i32 %45, 16384
+  %.fr = freeze i32 %45
+  %46 = and i32 %.fr, 16384
   %.not137 = icmp eq i32 %46, 0
   br i1 %.not137, label %58, label %47
 
@@ -34819,10 +34821,11 @@ _ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit: ; preds = %51
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load i32, ptr %10, align 4, !tbaa !54
   %.sroa.0.0.copyload.pre = load i32, ptr %2, align 4
+  %.sroa.0.0.copyload.pre.fr = freeze i32 %.sroa.0.0.copyload.pre
   br label %58
 
 58:                                               ; preds = %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit
-  %.sroa.0.0.copyload = phi i32 [ %.sroa.0.0.copyload.pre, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit ], [ %45, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit ]
+  %.sroa.0.0.copyload = phi i32 [ %.sroa.0.0.copyload.pre.fr, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit ], [ %.fr, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit ]
   %59 = phi i32 [ %.pre, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit ], [ %35, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit ]
   %60 = phi i8 [ %55, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit ], [ 46, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit ]
   store i8 %60, ptr %12, align 1, !tbaa !38
@@ -34830,10 +34833,9 @@ _ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit: ; preds = %51
   %62 = load i32, ptr %61, align 8, !tbaa !503
   %63 = add nsw i32 %59, %62
   %64 = add nsw i32 %63, -1
-  %.sroa.0.0.copyload.fr = freeze i32 %.sroa.0.0.copyload
   %.sroa.5121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
   %.sroa.5121.0.copyload = load i32, ptr %.sroa.5121.0..sroa_idx, align 4
-  %65 = trunc i32 %.sroa.0.0.copyload.fr to i8
+  %65 = trunc i32 %.sroa.0.0.copyload to i8
   %66 = and i8 %65, 7
   switch i8 %66, label %67 [
     i8 1, label %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10decimal_fpIdEENS1_14digit_groupingIcEEEET0_SA_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread
@@ -34851,7 +34853,7 @@ _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10dec
   br i1 %.not138.not, label %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10decimal_fpIdEENS1_14digit_groupingIcEEEET0_SA_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread, label %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10decimal_fpIdEENS1_14digit_groupingIcEEEET0_SA_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread123
 
 _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10decimal_fpIdEENS1_14digit_groupingIcEEEET0_SA_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread: ; preds = %67, %58, %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_9dragonbox10decimal_fpIdEENS1_14digit_groupingIcEEEET0_SA_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit
-  %71 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %71 = and i32 %.sroa.0.0.copyload, 8192
   %.not143 = icmp eq i32 %71, 0
   br i1 %.not143, label %75, label %72
 
@@ -34885,7 +34887,7 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit89: ; pre
   %spec.select167 = select i1 %.not87.not, i64 2, i64 3
   %85 = add nuw nsw i64 %.0, %.072
   %86 = add nuw nsw i64 %85, %spec.select167
-  %87 = and i32 %.sroa.0.0.copyload.fr, 4096
+  %87 = and i32 %.sroa.0.0.copyload, 4096
   %.not145 = icmp eq i32 %87, 0
   %88 = select i1 %.not145, i8 101, i8 69
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -34951,7 +34953,7 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit90: ; pre
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %117 = sub nsw i32 %.sroa.5121.0.copyload, %63
   store i32 %117, ptr %15, align 4, !tbaa !54
-  %118 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %118 = and i32 %.sroa.0.0.copyload, 8192
   %.not142 = icmp eq i32 %118, 0
   br i1 %.not142, label %125, label %119
 
@@ -34977,7 +34979,7 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit91: ; pre
 125:                                              ; preds = %.thread, %122, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit91, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit90
   %.1 = phi i64 [ %124, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit91 ], [ %120, %122 ], [ %116, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit90 ], [ %120, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %126 = and i32 %.sroa.0.0.copyload.fr, 16384
+  %126 = and i32 %.sroa.0.0.copyload, 16384
   %127 = icmp ne i32 %126, 0
   call void @_ZN3fmt3v116detail14digit_groupingIcEC2INS1_10locale_refETnNSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueEiE4typeELi0EEES7_b(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr %5, i1 noundef zeroext %127)
   %128 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -35100,7 +35102,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit:   ; preds = %_ZNSt7__cxx1112basi
 
 173:                                              ; preds = %171
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %174 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %174 = and i32 %.sroa.0.0.copyload, 8192
   %.not141 = icmp eq i32 %174, 0
   %175 = sub nsw i32 %.sroa.5121.0.copyload, %59
   %176 = select i1 %.not141, i32 0, i32 %175
@@ -35110,7 +35112,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit:   ; preds = %_ZNSt7__cxx1112basi
   %179 = zext i32 %178 to i64
   %180 = add nuw nsw i64 %179, %44
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %181 = and i32 %.sroa.0.0.copyload.fr, 16384
+  %181 = and i32 %.sroa.0.0.copyload, 16384
   %182 = icmp ne i32 %181, 0
   call void @_ZN3fmt3v116detail14digit_groupingIcEC2INS1_10locale_refETnNSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueEiE4typeELi0EEES7_b(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr %5, i1 noundef zeroext %182)
   %183 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -35253,7 +35255,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit116: ; preds = %_ZNSt7__cxx1112bas
   br i1 %.not139, label %234, label %237
 
 234:                                              ; preds = %232
-  %235 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %235 = and i32 %.sroa.0.0.copyload, 8192
   %.not140 = icmp eq i32 %235, 0
   %.lobit = lshr exact i32 %235, 13
   %236 = trunc nuw nsw i32 %.lobit to i8
@@ -39467,7 +39469,8 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit: ; preds
   %35 = zext i32 %34 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %36 = load i32, ptr %2, align 4, !tbaa !337
-  %37 = and i32 %36, 16384
+  %.fr = freeze i32 %36
+  %37 = and i32 %.fr, 16384
   %.not137 = icmp eq i32 %37, 0
   br i1 %.not137, label %49, label %38
 
@@ -39507,10 +39510,11 @@ _ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit: ; preds = %42
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load i32, ptr %10, align 4, !tbaa !54
   %.sroa.0.0.copyload.pre = load i32, ptr %2, align 4
+  %.sroa.0.0.copyload.pre.fr = freeze i32 %.sroa.0.0.copyload.pre
   br label %49
 
 49:                                               ; preds = %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit
-  %.sroa.0.0.copyload = phi i32 [ %.sroa.0.0.copyload.pre, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit ], [ %36, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit ]
+  %.sroa.0.0.copyload = phi i32 [ %.sroa.0.0.copyload.pre.fr, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit ], [ %.fr, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit ]
   %50 = phi i32 [ %.pre, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit ], [ %26, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit ]
   %51 = phi i8 [ %46, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit ], [ 46, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit ]
   store i8 %51, ptr %12, align 1, !tbaa !38
@@ -39518,10 +39522,9 @@ _ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit: ; preds = %42
   %53 = load i32, ptr %52, align 4, !tbaa !548
   %54 = add nsw i32 %50, %53
   %55 = add nsw i32 %54, -1
-  %.sroa.0.0.copyload.fr = freeze i32 %.sroa.0.0.copyload
   %.sroa.5121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
   %.sroa.5121.0.copyload = load i32, ptr %.sroa.5121.0..sroa_idx, align 4
-  %56 = trunc i32 %.sroa.0.0.copyload.fr to i8
+  %56 = trunc i32 %.sroa.0.0.copyload to i8
   %57 = and i8 %56, 7
   switch i8 %57, label %58 [
     i8 1, label %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_14big_decimal_fpENS1_14digit_groupingIcEEEET0_S8_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread
@@ -39539,7 +39542,7 @@ _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_14big_decimal_f
   br i1 %.not138.not, label %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_14big_decimal_fpENS1_14digit_groupingIcEEEET0_S8_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread, label %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_14big_decimal_fpENS1_14digit_groupingIcEEEET0_S8_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread123
 
 _ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_14big_decimal_fpENS1_14digit_groupingIcEEEET0_S8_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread: ; preds = %58, %49, %_ZZN3fmt3v116detail14do_write_floatIcNS0_14basic_appenderIcEENS1_14big_decimal_fpENS1_14digit_groupingIcEEEET0_S8_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit
-  %62 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %62 = and i32 %.sroa.0.0.copyload, 8192
   %.not143 = icmp eq i32 %62, 0
   br i1 %.not143, label %67, label %63
 
@@ -39573,7 +39576,7 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit89: ; pre
   %spec.select166 = select i1 %.not87.not, i64 2, i64 3
   %77 = add nuw nsw i64 %.0, %.072
   %78 = add nuw nsw i64 %77, %spec.select166
-  %79 = and i32 %.sroa.0.0.copyload.fr, 4096
+  %79 = and i32 %.sroa.0.0.copyload, 4096
   %.not144 = icmp eq i32 %79, 0
   %80 = select i1 %.not144, i8 101, i8 69
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -39639,7 +39642,7 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit90: ; pre
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %110 = sub nsw i32 %.sroa.5121.0.copyload, %54
   store i32 %110, ptr %15, align 4, !tbaa !54
-  %111 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %111 = and i32 %.sroa.0.0.copyload, 8192
   %.not142 = icmp eq i32 %111, 0
   br i1 %.not142, label %118, label %112
 
@@ -39665,7 +39668,7 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit91: ; pre
 118:                                              ; preds = %.thread, %115, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit91, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit90
   %.1 = phi i64 [ %117, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit91 ], [ %113, %115 ], [ %109, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit90 ], [ %113, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %119 = and i32 %.sroa.0.0.copyload.fr, 16384
+  %119 = and i32 %.sroa.0.0.copyload, 16384
   %120 = icmp ne i32 %119, 0
   call void @_ZN3fmt3v116detail14digit_groupingIcEC2INS1_10locale_refETnNSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueEiE4typeELi0EEES7_b(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr %5, i1 noundef zeroext %120)
   %121 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -39788,7 +39791,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit:   ; preds = %_ZNSt7__cxx1112basi
 
 166:                                              ; preds = %164
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %167 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %167 = and i32 %.sroa.0.0.copyload, 8192
   %.not141 = icmp eq i32 %167, 0
   %168 = sub nsw i32 %.sroa.5121.0.copyload, %50
   %169 = select i1 %.not141, i32 0, i32 %168
@@ -39798,7 +39801,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit:   ; preds = %_ZNSt7__cxx1112basi
   %172 = zext i32 %171 to i64
   %173 = add nuw nsw i64 %172, %35
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %174 = and i32 %.sroa.0.0.copyload.fr, 16384
+  %174 = and i32 %.sroa.0.0.copyload, 16384
   %175 = icmp ne i32 %174, 0
   call void @_ZN3fmt3v116detail14digit_groupingIcEC2INS1_10locale_refETnNSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueEiE4typeELi0EEES7_b(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr %5, i1 noundef zeroext %175)
   %176 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -39941,7 +39944,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit116: ; preds = %_ZNSt7__cxx1112bas
   br i1 %.not139, label %227, label %230
 
 227:                                              ; preds = %225
-  %228 = and i32 %.sroa.0.0.copyload.fr, 8192
+  %228 = and i32 %.sroa.0.0.copyload, 8192
   %.not140 = icmp eq i32 %228, 0
   %.lobit = lshr exact i32 %228, 13
   %229 = trunc nuw nsw i32 %.lobit to i8
@@ -50992,7 +50995,8 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit: ; preds
   %35 = zext i32 %34 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %36 = load i32, ptr %2, align 4, !tbaa !337
-  %37 = and i32 %36, 16384
+  %.fr = freeze i32 %36
+  %37 = and i32 %.fr, 16384
   %.not137 = icmp eq i32 %37, 0
   br i1 %.not137, label %49, label %38
 
@@ -51032,10 +51036,11 @@ _ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit: ; preds = %42
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load i32, ptr %10, align 4, !tbaa !54
   %.sroa.0.0.copyload119.pre = load i32, ptr %2, align 4
+  %.sroa.0.0.copyload119.pre.fr = freeze i32 %.sroa.0.0.copyload119.pre
   br label %49
 
 49:                                               ; preds = %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit
-  %.sroa.0.0.copyload119 = phi i32 [ %.sroa.0.0.copyload119.pre, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit ], [ %36, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit ]
+  %.sroa.0.0.copyload119 = phi i32 [ %.sroa.0.0.copyload119.pre.fr, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit ], [ %.fr, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit ]
   %50 = phi i32 [ %.pre, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit ], [ %26, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit ]
   %51 = phi i8 [ %46, %_ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit ], [ 46, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit ]
   store i8 %51, ptr %12, align 1, !tbaa !38
@@ -51043,10 +51048,9 @@ _ZN3fmt3v116detail13decimal_pointIcEET_NS1_10locale_refE.exit: ; preds = %42
   %53 = load i32, ptr %52, align 4, !tbaa !548
   %54 = add nsw i32 %50, %53
   %55 = add nsw i32 %54, -1
-  %.sroa.0.0.copyload119.fr = freeze i32 %.sroa.0.0.copyload119
   %.sroa.5120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
   %.sroa.5120.0.copyload = load i32, ptr %.sroa.5120.0..sroa_idx, align 4
-  %56 = trunc i32 %.sroa.0.0.copyload119.fr to i8
+  %56 = trunc i32 %.sroa.0.0.copyload119 to i8
   %57 = and i8 %56, 7
   switch i8 %57, label %58 [
     i8 1, label %_ZZN3fmt3v116detail14do_write_floatIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_14big_decimal_fpENS1_14digit_groupingIcEEEET0_SE_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread
@@ -51064,7 +51068,7 @@ _ZZN3fmt3v116detail14do_write_floatIcSt20back_insert_iteratorINSt7__cxx1112basic
   br i1 %.not138.not, label %_ZZN3fmt3v116detail14do_write_floatIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_14big_decimal_fpENS1_14digit_groupingIcEEEET0_SE_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread, label %_ZZN3fmt3v116detail14do_write_floatIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_14big_decimal_fpENS1_14digit_groupingIcEEEET0_SE_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread123
 
 _ZZN3fmt3v116detail14do_write_floatIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_14big_decimal_fpENS1_14digit_groupingIcEEEET0_SE_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit.thread: ; preds = %58, %49, %_ZZN3fmt3v116detail14do_write_floatIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_14big_decimal_fpENS1_14digit_groupingIcEEEET0_SE_RKT1_RKNS0_12format_specsENS0_4signEiNS1_10locale_refEENKUlvE_clEv.exit
-  %62 = and i32 %.sroa.0.0.copyload119.fr, 8192
+  %62 = and i32 %.sroa.0.0.copyload119, 8192
   %.not143 = icmp eq i32 %62, 0
   br i1 %.not143, label %67, label %63
 
@@ -51087,7 +51091,7 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit87: ; pre
   %70 = phi i8 [ %51, %63 ], [ 0, %69 ], [ %51, %67 ]
   %.069 = phi i32 [ %spec.store.select, %63 ], [ 0, %69 ], [ 0, %67 ]
   %.0 = phi i64 [ %66, %63 ], [ %35, %69 ], [ %35, %67 ]
-  %71 = and i32 %.sroa.0.0.copyload119.fr, 4096
+  %71 = and i32 %.sroa.0.0.copyload119, 4096
   %.not144 = icmp eq i32 %71, 0
   %72 = select i1 %.not144, i8 101, i8 69
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -51149,7 +51153,7 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit88: ; pre
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %102 = sub nsw i32 %.sroa.5120.0.copyload, %54
   store i32 %102, ptr %15, align 4, !tbaa !54
-  %103 = and i32 %.sroa.0.0.copyload119.fr, 8192
+  %103 = and i32 %.sroa.0.0.copyload119, 8192
   %.not142 = icmp eq i32 %103, 0
   br i1 %.not142, label %110, label %104
 
@@ -51175,7 +51179,7 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit89: ; pre
 110:                                              ; preds = %.thread, %107, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit89, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit88
   %.1 = phi i64 [ %109, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit89 ], [ %105, %107 ], [ %101, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit88 ], [ %105, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %111 = and i32 %.sroa.0.0.copyload119.fr, 16384
+  %111 = and i32 %.sroa.0.0.copyload119, 16384
   %112 = icmp ne i32 %111, 0
   call void @_ZN3fmt3v116detail14digit_groupingIcEC2INS1_10locale_refETnNSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueEiE4typeELi0EEES7_b(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr %5, i1 noundef zeroext %112)
   %113 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -51298,7 +51302,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit:   ; preds = %_ZNSt7__cxx1112basi
 
 158:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %159 = and i32 %.sroa.0.0.copyload119.fr, 8192
+  %159 = and i32 %.sroa.0.0.copyload119, 8192
   %.not141 = icmp eq i32 %159, 0
   %160 = sub nsw i32 %.sroa.5120.0.copyload, %50
   %161 = select i1 %.not141, i32 0, i32 %160
@@ -51308,7 +51312,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit:   ; preds = %_ZNSt7__cxx1112basi
   %164 = zext i32 %163 to i64
   %165 = add nuw nsw i64 %164, %35
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %166 = and i32 %.sroa.0.0.copyload119.fr, 16384
+  %166 = and i32 %.sroa.0.0.copyload119, 16384
   %167 = icmp ne i32 %166, 0
   call void @_ZN3fmt3v116detail14digit_groupingIcEC2INS1_10locale_refETnNSt9enable_ifIXsr3std7is_sameIT_S5_EE5valueEiE4typeELi0EEES7_b(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr %5, i1 noundef zeroext %167)
   %168 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -51451,7 +51455,7 @@ _ZN3fmt3v116detail14digit_groupingIcED2Ev.exit114: ; preds = %_ZNSt7__cxx1112bas
   br i1 %.not139, label %219, label %222
 
 219:                                              ; preds = %217
-  %220 = and i32 %.sroa.0.0.copyload119.fr, 8192
+  %220 = and i32 %.sroa.0.0.copyload119, 8192
   %.not140 = icmp eq i32 %220, 0
   %.lobit = lshr exact i32 %220, 13
   %221 = trunc nuw nsw i32 %.lobit to i8

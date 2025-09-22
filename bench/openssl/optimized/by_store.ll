@@ -220,18 +220,19 @@ define internal fastcc noundef i32 @cache_objects(ptr noundef %0, ptr noundef %1
 21:                                               ; preds = %.lr.ph.split.us
   %22 = tail call ptr @OSSL_STORE_INFO_get0_CRL(ptr noundef nonnull %16) #3
   %23 = tail call i32 @X509_STORE_add_crl(ptr noundef %7, ptr noundef %22) #3
+  %.fr87 = freeze i32 %23
   br label %27
 
 24:                                               ; preds = %.lr.ph.split.us
   %25 = tail call ptr @OSSL_STORE_INFO_get0_CERT(ptr noundef nonnull %16) #3
   %26 = tail call i32 @X509_STORE_add_cert(ptr noundef %7, ptr noundef %25) #3
+  %.fr86 = freeze i32 %26
   br label %27
 
 27:                                               ; preds = %24, %21
-  %.2.us = phi i32 [ %26, %24 ], [ %23, %21 ]
-  %.2.fr.us = freeze i32 %.2.us
+  %.sink85 = phi i32 [ %.fr86, %24 ], [ %.fr87, %21 ]
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %16) #3
-  %.not36.us = icmp eq i32 %.2.fr.us, 0
+  %.not36.us = icmp eq i32 %.sink85, 0
   br i1 %.not36.us, label %.loopexit, label %18
 
 28:                                               ; preds = %42
@@ -256,11 +257,13 @@ define internal fastcc noundef i32 @cache_objects(ptr noundef %0, ptr noundef %1
 36:                                               ; preds = %.lr.ph.split
   %37 = tail call ptr @OSSL_STORE_INFO_get0_CERT(ptr noundef nonnull %31) #3
   %38 = tail call i32 @X509_STORE_add_cert(ptr noundef %7, ptr noundef %37) #3
+  %.fr = freeze i32 %38
   br label %42
 
 39:                                               ; preds = %.lr.ph.split
   %40 = tail call ptr @OSSL_STORE_INFO_get0_CRL(ptr noundef nonnull %31) #3
   %41 = tail call i32 @X509_STORE_add_crl(ptr noundef %7, ptr noundef %40) #3
+  %.fr75 = freeze i32 %41
   br label %42
 
 .thread:                                          ; preds = %.lr.ph.split, %.lr.ph.split.us
@@ -269,14 +272,13 @@ define internal fastcc noundef i32 @cache_objects(ptr noundef %0, ptr noundef %1
   br label %.loopexit
 
 42:                                               ; preds = %36, %39, %33
-  %.2 = phi i32 [ %35, %33 ], [ %38, %36 ], [ %41, %39 ]
-  %.2.fr = freeze i32 %.2
+  %.sink74 = phi i32 [ %.fr, %36 ], [ %.fr75, %39 ], [ %35, %33 ]
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %31) #3
-  %.not36 = icmp eq i32 %.2.fr, 0
+  %.not36 = icmp eq i32 %.sink74, 0
   br i1 %.not36, label %.loopexit, label %28
 
 .loopexit:                                        ; preds = %28, %42, %18, %27, %13, %.thread
-  %.1.ph = phi i32 [ 0, %.thread ], [ 0, %13 ], [ %.2.fr.us, %18 ], [ 0, %27 ], [ %.2.fr, %28 ], [ 0, %42 ]
+  %.1.ph = phi i32 [ 0, %.thread ], [ 0, %13 ], [ %.sink85, %18 ], [ 0, %27 ], [ %.sink74, %28 ], [ 0, %42 ]
   %43 = tail call i32 @OSSL_STORE_close(ptr noundef nonnull %8) #3
   br label %44
 

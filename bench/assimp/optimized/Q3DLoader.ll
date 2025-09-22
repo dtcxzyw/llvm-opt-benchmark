@@ -3131,9 +3131,11 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit811.thread: ; preds = %_ZN6Assim
 
 1171:                                             ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit811.thread
   %1172 = load ptr, ptr %8, align 8
+  %.fr1570 = freeze ptr %1172
   %1173 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %1174 = load ptr, ptr %1173, align 8
-  %1175 = icmp eq ptr %1172, %1174
+  %.fr1569 = freeze ptr %1174
+  %1175 = icmp eq ptr %.fr1570, %.fr1569
   br i1 %1175, label %1176, label %1195
 
 1176:                                             ; preds = %1171
@@ -3185,15 +3187,15 @@ _ZNSt6vectorIN6Assimp11Q3DImporter8MaterialESaIS2_EE12emplace_backIJEEERS2_DpOT_
   store float %.sroa.9.2, ptr %1194, align 4
   %.pre1396 = load ptr, ptr %1173, align 8
   %.pre1397 = load ptr, ptr %8, align 8
+  %.pre1396.fr = freeze ptr %.pre1396
+  %.pre1397.fr = freeze ptr %.pre1397
   br label %1195
 
 1195:                                             ; preds = %_ZNSt6vectorIN6Assimp11Q3DImporter8MaterialESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit815, %1171
-  %1196 = phi ptr [ %.pre1397, %_ZNSt6vectorIN6Assimp11Q3DImporter8MaterialESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit815 ], [ %1172, %1171 ]
-  %1197 = phi ptr [ %.pre1396, %_ZNSt6vectorIN6Assimp11Q3DImporter8MaterialESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit815 ], [ %1174, %1171 ]
-  %.fr1570 = freeze ptr %1196
-  %.fr1569 = freeze ptr %1197
-  %1198 = ptrtoint ptr %.fr1569 to i64
-  %1199 = ptrtoint ptr %.fr1570 to i64
+  %1196 = phi ptr [ %.pre1397.fr, %_ZNSt6vectorIN6Assimp11Q3DImporter8MaterialESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit815 ], [ %.fr1570, %1171 ]
+  %1197 = phi ptr [ %.pre1396.fr, %_ZNSt6vectorIN6Assimp11Q3DImporter8MaterialESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit815 ], [ %.fr1569, %1171 ]
+  %1198 = ptrtoint ptr %1197 to i64
+  %1199 = ptrtoint ptr %1196 to i64
   %1200 = sub i64 %1198, %1199
   %1201 = sdiv i64 %1200, 1072
   %1202 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1201, i64 24)
@@ -3210,14 +3212,14 @@ _ZNSt6vectorIN6Assimp11Q3DImporter8MaterialESaIS2_EE12emplace_backIJEEERS2_DpOT_
 1211:                                             ; preds = %1195
   store i64 %1201, ptr %1210, align 16
   %.ptr502 = getelementptr i8, ptr %1210, i64 8
-  %1212 = icmp eq ptr %.fr1569, %.fr1570
+  %1212 = icmp eq ptr %1197, %1196
   br i1 %1212, label %.loopexit923, label %.loopexit923.loopexit
 
 .loopexit923.loopexit:                            ; preds = %1211
   %1213 = mul nsw i64 %1201, 24
   %1214 = add nsw i64 %1213, -24
   %1215 = urem i64 %1214, 24
-  %1216 = sub nuw nsw i64 %1214, %1215
+  %1216 = sub nsw i64 %1214, %1215
   %1217 = add nsw i64 %1216, 24
   call void @llvm.memset.p0.i64(ptr align 8 %.ptr502, i8 0, i64 %1217, i1 false)
   br label %.loopexit923

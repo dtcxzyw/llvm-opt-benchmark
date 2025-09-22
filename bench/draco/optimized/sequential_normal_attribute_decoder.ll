@@ -5578,15 +5578,16 @@ _ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE14IsInB
   %48 = load i32, ptr %2, align 4, !tbaa !152
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !152
+  %.sroa.2.0..sroa.2.4..fr = freeze i32 %50
   %51 = icmp eq i32 %48, 0
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE14IsInBottomLeftERKNS_7VectorDIiLi2EEE.exit
-  %53 = icmp eq i32 %50, 0
+  %53 = icmp eq i32 %.sroa.2.0..sroa.2.4..fr, 0
   br i1 %53, label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit, label %54
 
 54:                                               ; preds = %52
-  %.inv11.i = icmp slt i32 %50, 1
+  %.inv11.i = icmp slt i32 %.sroa.2.0..sroa.2.4..fr, 1
   %..i = select i1 %.inv11.i, i32 1, i32 3
   br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit
 
@@ -5595,25 +5596,24 @@ _ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE14IsInB
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %55
-  %58 = icmp sgt i32 %50, -1
+  %58 = icmp sgt i32 %.sroa.2.0..sroa.2.4..fr, -1
   %.9.i = select i1 %58, i32 2, i32 1
   br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit
 
 59:                                               ; preds = %55
-  %.inv.i = icmp sgt i32 %50, 0
+  %.inv.i = icmp sgt i32 %.sroa.2.0..sroa.2.4..fr, 0
   %.10.i = select i1 %.inv.i, i32 3, i32 0
   br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit
 
 _ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit: ; preds = %52, %54, %57, %59
   %.0.i8 = phi i32 [ 0, %52 ], [ %..i, %54 ], [ %.9.i, %57 ], [ %.10.i, %59 ]
-  %.0.i8.fr = freeze i32 %.0.i8
   br i1 %.0.i, label %70, label %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge
 
 _ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge: ; preds = %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit
   %60 = load i32, ptr %2, align 4, !tbaa !152
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !152
-  switch i32 %.0.i8.fr, label %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.unreachabledefault [
+  switch i32 %.0.i8, label %default.unreachable [
     i32 1, label %63
     i32 2, label %65
     i32 3, label %68
@@ -5633,7 +5633,7 @@ _ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge: ; preds = %_ZNK5draco58Predict
   %69 = sub nsw i32 0, %62
   br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit
 
-_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.unreachabledefault: ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge
+default.unreachable:                              ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge
   unreachable
 
 _ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit: ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge, %63, %65, %68
@@ -5705,10 +5705,9 @@ _ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge: ; preds = %_ZNK5draco45Predict
   %104 = load i32, ptr %0, align 4, !tbaa !152
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %106 = load i32, ptr %105, align 4, !tbaa !152
-  %107 = sub i32 4, %.0.i8.fr
-  %.urem = sub i32 0, %.0.i8.fr
-  %.cmp = icmp ult i32 %107, 4
-  %108 = select i1 %.cmp, i32 %107, i32 %.urem
+  %107 = sub nuw nsw i32 4, %.0.i8
+  %.cmp.not = icmp eq i32 %.0.i8, 0
+  %108 = select i1 %.cmp.not, i32 0, i32 %107
   switch i32 %108, label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit18 [
     i32 1, label %109
     i32 2, label %111

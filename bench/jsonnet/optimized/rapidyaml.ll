@@ -12607,7 +12607,6 @@ _ZNK2c415basic_substringIKcE4findEcm.exit.thread: ; preds = %79, %_ZNK2c415basic
 
 89:                                               ; preds = %_ZNK2c415basic_substringIKcE4findEcm.exit.thread, %_ZNK2c415basic_substringIKcE4findEcm.exit
   %spec.select.i.i220 = phi i64 [ -1, %_ZNK2c415basic_substringIKcE4findEcm.exit.thread ], [ %.0811.i.i, %_ZNK2c415basic_substringIKcE4findEcm.exit ]
-  %spec.select.i.i220.fr = freeze i64 %spec.select.i.i220
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %92 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -12621,7 +12620,7 @@ _ZNK2c415basic_substringIKcE4findEcm.exit.thread: ; preds = %79, %_ZNK2c415basic
   br label %100
 
 100:                                              ; preds = %_ZNK2c415basic_substringIKcE4findEcm.exit132, %89
-  %.067 = phi i64 [ %spec.select.i.i220.fr, %89 ], [ %.0811.i.i130, %_ZNK2c415basic_substringIKcE4findEcm.exit132 ]
+  %.067 = phi i64 [ %spec.select.i.i220, %89 ], [ %.0811.i.i130, %_ZNK2c415basic_substringIKcE4findEcm.exit132 ]
   %.166 = phi i64 [ %52, %89 ], [ %125, %_ZNK2c415basic_substringIKcE4findEcm.exit132 ]
   %101 = add i64 %.067, 1
   %.not1925.i = icmp ult i64 %101, %47
@@ -12765,7 +12764,6 @@ _ZNK2c415basic_substringIKcE4findEcm.exit138.thread: ; preds = %137, %_ZNK2c415b
 
 145:                                              ; preds = %_ZNK2c415basic_substringIKcE4findEcm.exit138.thread, %_ZNK2c415basic_substringIKcE4findEcm.exit138
   %spec.select.i.i134228 = phi i64 [ -1, %_ZNK2c415basic_substringIKcE4findEcm.exit138.thread ], [ %.0811.i.i136, %_ZNK2c415basic_substringIKcE4findEcm.exit138 ]
-  %spec.select.i.i134228.fr = freeze i64 %spec.select.i.i134228
   %146 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %147 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %148 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -12783,7 +12781,7 @@ _ZNK2c415basic_substringIKcE4findEcm.exit138.thread: ; preds = %137, %_ZNK2c415b
 158:                                              ; preds = %_ZNK2c415basic_substringIKcE4findEcm.exit154, %145
   %.0215 = phi i64 [ %133, %145 ], [ %207, %_ZNK2c415basic_substringIKcE4findEcm.exit154 ]
   %.071 = phi i64 [ 0, %145 ], [ %172, %_ZNK2c415basic_substringIKcE4findEcm.exit154 ]
-  %.168 = phi i64 [ %spec.select.i.i134228.fr, %145 ], [ %.0811.i.i152, %_ZNK2c415basic_substringIKcE4findEcm.exit154 ]
+  %.168 = phi i64 [ %spec.select.i.i134228, %145 ], [ %.0811.i.i152, %_ZNK2c415basic_substringIKcE4findEcm.exit154 ]
   %159 = add i64 %.168, 1
   %.not1925.i139 = icmp ult i64 %159, %47
   br i1 %.not1925.i139, label %.preheader.us.i143, label %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit148.thread

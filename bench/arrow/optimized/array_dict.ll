@@ -90225,9 +90225,11 @@ define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilder
   %38 = getelementptr inbounds i8, ptr %37, i64 -4
   %.0.copyload.i.i = load i32, ptr %38, align 1
   %.0.copyload.i29.i = load i32, ptr %2, align 1
-  %39 = zext i32 %.0.copyload.i.i to i64
+  %.0.copyload.i.i.fr = freeze i32 %.0.copyload.i.i
+  %39 = zext i32 %.0.copyload.i.i.fr to i64
   %40 = mul i64 %39, -7046029288634856825
-  %41 = zext i32 %.0.copyload.i29.i to i64
+  %.0.copyload.i29.i.fr = freeze i32 %.0.copyload.i29.i
+  %41 = zext i32 %.0.copyload.i29.i.fr to i64
   %42 = mul i64 %41, -4417276706812531889
   %43 = xor i64 %42, %40
   %44 = tail call i64 @llvm.bswap.i64(i64 %43)
@@ -90240,8 +90242,10 @@ define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilder
   %49 = getelementptr inbounds i8, ptr %48, i64 -8
   %.0.copyload.i30.i = load i64, ptr %49, align 1
   %.0.copyload.i31.i = load i64, ptr %2, align 1
-  %50 = mul i64 %.0.copyload.i30.i, -7046029288634856825
-  %51 = mul i64 %.0.copyload.i31.i, -4417276706812531889
+  %.0.copyload.i30.i.fr = freeze i64 %.0.copyload.i30.i
+  %50 = mul i64 %.0.copyload.i30.i.fr, -7046029288634856825
+  %.0.copyload.i31.i.fr = freeze i64 %.0.copyload.i31.i
+  %51 = mul i64 %.0.copyload.i31.i.fr, -4417276706812531889
   %52 = xor i64 %51, %50
   %53 = tail call i64 @llvm.bswap.i64(i64 %52)
   %54 = xor i64 %53, %47
@@ -90253,9 +90257,8 @@ define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilder
 
 _ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl.exit: ; preds = %18, %36, %46, %55
   %.1.i = phi i64 [ %56, %55 ], [ %35, %18 ], [ %45, %36 ], [ %54, %46 ]
-  %.1.i.fr = freeze i64 %.1.i
-  %57 = icmp eq i64 %.1.i.fr, 0
-  %spec.select = select i1 %57, i64 42, i64 %.1.i.fr
+  %57 = icmp eq i64 %.1.i, 0
+  %spec.select = select i1 %57, i64 42, i64 %.1.i
   br label %_ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl.exit.thread
 
 _ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl.exit.thread: ; preds = %16, %_ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl.exit
@@ -103544,9 +103547,11 @@ define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBu
   %40 = getelementptr inbounds i8, ptr %39, i64 -4
   %.0.copyload.i.i = load i32, ptr %40, align 1
   %.0.copyload.i29.i = load i32, ptr %2, align 1
-  %41 = zext i32 %.0.copyload.i.i to i64
+  %.0.copyload.i.i.fr = freeze i32 %.0.copyload.i.i
+  %41 = zext i32 %.0.copyload.i.i.fr to i64
   %42 = mul i64 %41, -7046029288634856825
-  %43 = zext i32 %.0.copyload.i29.i to i64
+  %.0.copyload.i29.i.fr = freeze i32 %.0.copyload.i29.i
+  %43 = zext i32 %.0.copyload.i29.i.fr to i64
   %44 = mul i64 %43, -4417276706812531889
   %45 = xor i64 %44, %42
   %46 = tail call i64 @llvm.bswap.i64(i64 %45)
@@ -103559,8 +103564,10 @@ define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBu
   %51 = getelementptr inbounds i8, ptr %50, i64 -8
   %.0.copyload.i30.i = load i64, ptr %51, align 1
   %.0.copyload.i31.i = load i64, ptr %2, align 1
-  %52 = mul i64 %.0.copyload.i30.i, -7046029288634856825
-  %53 = mul i64 %.0.copyload.i31.i, -4417276706812531889
+  %.0.copyload.i30.i.fr = freeze i64 %.0.copyload.i30.i
+  %52 = mul i64 %.0.copyload.i30.i.fr, -7046029288634856825
+  %.0.copyload.i31.i.fr = freeze i64 %.0.copyload.i31.i
+  %53 = mul i64 %.0.copyload.i31.i.fr, -4417276706812531889
   %54 = xor i64 %53, %52
   %55 = tail call i64 @llvm.bswap.i64(i64 %54)
   %56 = xor i64 %55, %49
@@ -103572,9 +103579,8 @@ define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBu
 
 _ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl.exit: ; preds = %18, %37, %48, %57
   %.1.i = phi i64 [ %58, %57 ], [ %36, %18 ], [ %47, %37 ], [ %56, %48 ]
-  %.1.i.fr = freeze i64 %.1.i
-  %59 = icmp eq i64 %.1.i.fr, 0
-  %spec.select = select i1 %59, i64 42, i64 %.1.i.fr
+  %59 = icmp eq i64 %.1.i, 0
+  %spec.select = select i1 %59, i64 42, i64 %.1.i
   br label %_ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl.exit.thread
 
 _ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl.exit.thread: ; preds = %16, %_ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl.exit

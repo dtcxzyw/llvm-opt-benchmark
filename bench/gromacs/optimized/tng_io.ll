@@ -32144,7 +32144,8 @@ define range(i32 0, 3) i32 @tng_util_num_frames_with_data_of_block_id_get(ptr no
   %12 = load ptr, ptr %9, align 8, !tbaa !137
   %13 = tail call i32 @fseeko64(ptr noundef %12, i64 noundef %8, i32 noundef 0)
   %14 = call i32 @tng_frame_set_n_frames_of_data_block_get(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %4)
-  %15 = icmp eq i32 %14, 0
+  %.fr = freeze i32 %14
+  %15 = icmp eq i32 %.fr, 0
   br i1 %15, label %.lr.ph, label %.critedge22
 
 .lr.ph:                                           ; preds = %6
@@ -32165,7 +32166,8 @@ define range(i32 0, 3) i32 @tng_util_num_frames_with_data_of_block_id_get(ptr no
   %24 = load i64, ptr %16, align 8, !tbaa !225
   %25 = tail call i32 @fseeko64(ptr noundef %22, i64 noundef %24, i32 noundef 0)
   %26 = call i32 @tng_frame_set_n_frames_of_data_block_get(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %4)
-  %27 = icmp eq i32 %26, 0
+  %.fr30 = freeze i32 %26
+  %27 = icmp eq i32 %.fr30, 0
   br i1 %27, label %17, label %.critedge22, !llvm.loop !424
 
 .critedge22.thread:                               ; preds = %17
@@ -32173,11 +32175,10 @@ define range(i32 0, 3) i32 @tng_util_num_frames_with_data_of_block_id_get(ptr no
   br label %32
 
 .critedge22:                                      ; preds = %23, %6
-  %.024 = phi i32 [ %14, %6 ], [ %26, %23 ]
+  %.024 = phi i32 [ %.fr, %6 ], [ %.fr30, %23 ]
   %29 = load ptr, ptr %9, align 8, !tbaa !137
   %30 = tail call i32 @fseeko64(ptr noundef %29, i64 noundef %11, i32 noundef 0)
-  %.024.fr = freeze i32 %.024
-  %31 = icmp eq i32 %.024.fr, 2
+  %31 = icmp eq i32 %.024, 2
   %spec.select = select i1 %31, i32 2, i32 0
   br label %32
 

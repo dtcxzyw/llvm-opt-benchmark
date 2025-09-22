@@ -28820,6 +28820,7 @@ if.end8:                                          ; preds = %if.end
   %vfn11 = getelementptr inbounds nuw i8, ptr %vtable10, i64 16
   %8 = load ptr, ptr %vfn11, align 8
   %call12 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(99) %call3)
+  %.fr66 = freeze ptr %7
   br i1 %call12, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %if.end8
@@ -28827,11 +28828,11 @@ if.then13:                                        ; preds = %if.end8
   %9 = load i32, ptr %length_.i.i15, align 8
   tail call void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(99) %this, i32 noundef %9, i1 noundef zeroext true)
   %10 = load ptr, ptr %rawNulls_, align 8
+  %.fr = freeze ptr %10
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then13, %if.end8
-  %rawNulls.0 = phi ptr [ %10, %if.then13 ], [ %7, %if.end8 ]
-  %rawNulls.0.fr = freeze ptr %rawNulls.0
+  %rawNulls.0 = phi ptr [ %.fr, %if.then13 ], [ %.fr66, %if.end8 ]
   %values_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %11 = load ptr, ptr %values_, align 8
   %cmp.i = icmp eq ptr %11, null
@@ -28896,7 +28897,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %cmp.not.i, label %_ZN8facebook5velox16applyToEachRangeIZNS0_10FlatVectorImE10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS4_9CopyRangeEEEEUlT_T0_T1_E_EEvSE_RKSF_.exit, label %for.body.i
 
 _ZN8facebook5velox16applyToEachRangeIZNS0_10FlatVectorImE10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS4_9CopyRangeEEEEUlT_T0_T1_E_EEvSE_RKSF_.exit: ; preds = %for.body.i, %if.end27
-  %tobool.not = icmp eq ptr %rawNulls.0.fr, null
+  %tobool.not = icmp eq ptr %rawNulls.0, null
   br i1 %tobool.not, label %if.end52, label %if.then29
 
 if.then29:                                        ; preds = %_ZN8facebook5velox16applyToEachRangeIZNS0_10FlatVectorImE10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS4_9CopyRangeEEEEUlT_T0_T1_E_EEvSE_RKSF_.exit
@@ -28904,11 +28905,11 @@ if.then29:                                        ; preds = %_ZN8facebook5velox1
   br i1 %tobool30.not, label %if.else, label %if.then31
 
 if.then31:                                        ; preds = %if.then29
-  tail call void @_ZN8facebook5velox10BaseVector9copyNullsEPmPKmRKN5folly5RangeIPKNS1_9CopyRangeEEE(ptr noundef nonnull %rawNulls.0.fr, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %ranges)
+  tail call void @_ZN8facebook5velox10BaseVector9copyNullsEPmPKmRKN5folly5RangeIPKNS1_9CopyRangeEEE(ptr noundef nonnull %rawNulls.0, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %ranges)
   br label %if.end52
 
 if.else:                                          ; preds = %if.then29
-  tail call void @_ZN8facebook5velox10BaseVector8setNullsEPmRKN5folly5RangeIPKNS1_9CopyRangeEEEb(ptr noundef nonnull %rawNulls.0.fr, ptr noundef nonnull align 8 dereferenceable(16) %ranges, i1 noundef zeroext false)
+  tail call void @_ZN8facebook5velox10BaseVector8setNullsEPmRKN5folly5RangeIPKNS1_9CopyRangeEEEb(ptr noundef nonnull %rawNulls.0, ptr noundef nonnull align 8 dereferenceable(16) %ranges, i1 noundef zeroext false)
   br label %if.end52
 
 if.then36:                                        ; preds = %if.end19
@@ -28919,7 +28920,7 @@ if.then36:                                        ; preds = %if.end19
   br i1 %call39, label %if.then40, label %if.end41
 
 if.then40:                                        ; preds = %if.then36
-  tail call void @_ZN8facebook5velox10BaseVector8setNullsEPmRKN5folly5RangeIPKNS1_9CopyRangeEEEb(ptr noundef %rawNulls.0.fr, ptr noundef nonnull align 8 dereferenceable(16) %ranges, i1 noundef zeroext true)
+  tail call void @_ZN8facebook5velox10BaseVector8setNullsEPmRKN5folly5RangeIPKNS1_9CopyRangeEEEb(ptr noundef %rawNulls.0, ptr noundef nonnull align 8 dereferenceable(16) %ranges, i1 noundef zeroext true)
   br label %if.end52
 
 if.end41:                                         ; preds = %if.then36
@@ -28965,11 +28966,11 @@ for.inc6.i:                                       ; preds = %for.body4.i, %for.c
   br i1 %cmp.not.i26, label %_ZN8facebook5velox14applyToEachRowIZNS0_10FlatVectorImE10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS4_9CopyRangeEEEEUlT_T0_E_EEvSE_RKSF_.exit, label %for.cond2.preheader.i
 
 _ZN8facebook5velox14applyToEachRowIZNS0_10FlatVectorImE10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS4_9CopyRangeEEEEUlT_T0_E_EEvSE_RKSF_.exit: ; preds = %for.inc6.i, %if.end41
-  %tobool45.not = icmp eq ptr %rawNulls.0.fr, null
+  %tobool45.not = icmp eq ptr %rawNulls.0, null
   br i1 %tobool45.not, label %if.end52, label %if.then46
 
 if.then46:                                        ; preds = %_ZN8facebook5velox14applyToEachRowIZNS0_10FlatVectorImE10copyRangesEPKNS0_10BaseVectorERKN5folly5RangeIPKNS4_9CopyRangeEEEEUlT_T0_E_EEvSE_RKSF_.exit
-  tail call void @_ZN8facebook5velox10BaseVector8setNullsEPmRKN5folly5RangeIPKNS1_9CopyRangeEEEb(ptr noundef nonnull %rawNulls.0.fr, ptr noundef nonnull align 8 dereferenceable(16) %ranges, i1 noundef zeroext false)
+  tail call void @_ZN8facebook5velox10BaseVector8setNullsEPmRKN5folly5RangeIPKNS1_9CopyRangeEEEb(ptr noundef nonnull %rawNulls.0, ptr noundef nonnull align 8 dereferenceable(16) %ranges, i1 noundef zeroext false)
   br label %if.end52
 
 if.else48:                                        ; preds = %if.end19
@@ -28981,7 +28982,7 @@ if.else48:                                        ; preds = %if.end19
 
 for.cond2.preheader.i34.preheader:                ; preds = %if.else48
   %rawValues_.i.i46 = getelementptr inbounds nuw i8, ptr %this, i64 152
-  %tobool.not.i.i = icmp eq ptr %rawNulls.0.fr, null
+  %tobool.not.i.i = icmp eq ptr %rawNulls.0, null
   br i1 %tobool.not.i.i, label %for.cond2.preheader.i34.us, label %for.cond2.preheader.i34
 
 for.cond2.preheader.i34.us:                       ; preds = %for.cond2.preheader.i34.preheader, %for.inc6.i38.us
@@ -29059,7 +29060,7 @@ if.then.i.i:                                      ; preds = %for.body4.i43
   %shl.i.i.i.i = shl nuw nsw i32 1, %rem.i.i.i.i
   %div2.i.i.i.i = lshr i32 %add.i45, 3
   %idxprom.i.i.i.i = zext nneg i32 %div2.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %rawNulls.0.fr, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %rawNulls.0, i64 %idxprom.i.i.i.i
   %46 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %47 = trunc nuw i32 %shl.i.i.i.i to i8
   %conv1.i.i.i.i = or i8 %46, %47
@@ -29073,7 +29074,7 @@ if.else.i.i:                                      ; preds = %for.body4.i43
   %48 = load i8, ptr %arrayidx.i.i6.i.i, align 1
   %div2.i.i7.i.i = lshr i32 %add.i45, 3
   %idxprom1.i.i.i.i = zext nneg i32 %div2.i.i7.i.i to i64
-  %arrayidx2.i.i.i.i = getelementptr inbounds nuw i8, ptr %rawNulls.0.fr, i64 %idxprom1.i.i.i.i
+  %arrayidx2.i.i.i.i = getelementptr inbounds nuw i8, ptr %rawNulls.0, i64 %idxprom1.i.i.i.i
   %49 = load i8, ptr %arrayidx2.i.i.i.i, align 1
   %and3.i.i.i.i = and i8 %49, %48
   store i8 %and3.i.i.i.i, ptr %arrayidx2.i.i.i.i, align 1

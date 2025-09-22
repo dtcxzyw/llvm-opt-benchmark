@@ -440,7 +440,8 @@ mqtt_send.exit:                                   ; preds = %19, %26
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %52 = call i32 @Curl_xfer_recv(ptr noundef nonnull %0, ptr noundef nonnull %51, i64 noundef 1, ptr noundef nonnull %10) #8
-  %.not93 = icmp eq i32 %52, 0
+  %.fr = freeze i32 %52
+  %.not93 = icmp eq i32 %.fr, 0
   br i1 %.not93, label %53, label %mqstate.exit
 
 53:                                               ; preds = %50
@@ -469,42 +470,47 @@ mqtt_send.exit:                                   ; preds = %19, %26
 
 62:                                               ; preds = %67, %59
   %63 = call i32 @Curl_xfer_recv(ptr noundef %0, ptr noundef nonnull %11, i64 noundef 1, ptr noundef nonnull %10) #8
-  %64 = icmp eq i32 %63, 0
+  %.fr123 = freeze i32 %63
+  %64 = icmp eq i32 %.fr123, 0
   %65 = load i64, ptr %10, align 8
-  %66 = icmp ne i64 %65, 0
-  %or.cond = select i1 %64, i1 %66, i1 false
+  %.fr151 = freeze i64 %65
+  %66 = icmp ne i64 %.fr151, 0
+  %or.cond = and i1 %64, %66
   br i1 %or.cond, label %67, label %.critedgesplit
 
 67:                                               ; preds = %62
   call void @Curl_debug(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %11, i64 noundef 1) #8
   %68 = load i8, ptr %11, align 1, !tbaa !7
+  %.fr152 = freeze i8 %68
   %69 = load i64, ptr %61, align 8, !tbaa !93
   %70 = add i64 %69, 1
   store i64 %70, ptr %61, align 8, !tbaa !93
   %71 = getelementptr inbounds nuw i8, ptr %60, i64 %69
-  store i8 %68, ptr %71, align 1, !tbaa !7
-  %.not95 = icmp slt i8 %68, 0
+  store i8 %.fr152, ptr %71, align 1, !tbaa !7
+  %.not95 = icmp slt i8 %.fr152, 0
   %72 = icmp ult i64 %70, 4
   %or.cond122 = and i1 %72, %.not95
   br i1 %or.cond122, label %62, label %..critedge_crit_edge, !llvm.loop !94
 
 ..critedge_crit_edge:                             ; preds = %67
   %.pre = load i64, ptr %10, align 8
+  %.pre.fr = freeze i64 %.pre
   br label %.critedge, !llvm.loop !94
 
 .critedgesplit:                                   ; preds = %62
-  %.pre127 = load i8, ptr %11, align 1
+  %.pre135 = load i8, ptr %11, align 1
+  %.pre135.fr = freeze i8 %.pre135
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedgesplit, %..critedge_crit_edge
-  %73 = phi i8 [ %68, %..critedge_crit_edge ], [ %.pre127, %.critedgesplit ]
-  %74 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %65, %.critedgesplit ]
-  %.lcssa125 = phi i1 [ true, %..critedge_crit_edge ], [ %64, %.critedgesplit ]
+  %73 = phi i8 [ %.fr152, %..critedge_crit_edge ], [ %.pre135.fr, %.critedgesplit ]
+  %74 = phi i64 [ %.pre.fr, %..critedge_crit_edge ], [ %.fr151, %.critedgesplit ]
+  %.lcssa134 = phi i1 [ true, %..critedge_crit_edge ], [ %64, %.critedgesplit ]
   %75 = icmp ne i64 %74, 0
-  %or.cond3 = select i1 %.lcssa125, i1 %75, i1 false
+  %or.cond3 = and i1 %.lcssa134, %75
   %.not96 = icmp sgt i8 %73, -1
   %spec.select = select i1 %.not96, i32 0, i32 8
-  %.2 = select i1 %or.cond3, i32 %spec.select, i32 %63
+  %.2 = select i1 %or.cond3, i32 %spec.select, i32 %.fr123
   %.not97 = icmp eq i32 %.2, 0
   br i1 %.not97, label %76, label %mqstate.exit
 
@@ -605,7 +611,8 @@ mqtt_decode_len.exit:                             ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %122 = sub nuw nsw i64 2, %119
   %123 = call i32 @Curl_xfer_recv(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef %122, ptr noundef nonnull %8) #8
-  %.not.i.i = icmp eq i32 %123, 0
+  %.fr132 = freeze i32 %123
+  %.not.i.i = icmp eq i32 %.fr132, 0
   br i1 %.not.i.i, label %124, label %.thread.i.i
 
 124:                                              ; preds = %121
@@ -615,7 +622,7 @@ mqtt_decode_len.exit:                             ; preds = %.lr.ph.i
   br i1 %.not21.i.i, label %127, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %124, %121
-  %.014.ph.i.i = phi i32 [ 27, %124 ], [ %123, %121 ]
+  %.014.ph.i.i = phi i32 [ 27, %124 ], [ %.fr132, %121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %mqstate.exit
@@ -669,23 +676,26 @@ mqtt_verify_connack.exit:                         ; preds = %141, %140
 
 147:                                              ; preds = %mqtt_verify_connack.exit
   %148 = call fastcc i32 @mqtt_publish(ptr noundef nonnull %0)
-  %.not92 = icmp eq i32 %148, 0
+  %.fr127 = freeze i32 %148
+  %.not92 = icmp eq i32 %.fr127, 0
   br i1 %.not92, label %149, label %151
 
 149:                                              ; preds = %147
   %150 = call fastcc i32 @mqtt_disconnect(ptr noundef nonnull %0)
   store i8 1, ptr %1, align 1, !tbaa !8
+  %.fr128 = freeze i32 %150
   br label %151
 
 151:                                              ; preds = %149, %147
-  %.3 = phi i32 [ %148, %147 ], [ %150, %149 ]
+  %.3 = phi i32 [ %.fr127, %147 ], [ %.fr128, %149 ]
   %152 = getelementptr inbounds nuw i8, ptr %13, i64 1092
   store i32 0, ptr %152, align 4, !tbaa !92
   br label %mqstate.exit
 
 153:                                              ; preds = %mqtt_verify_connack.exit
   %154 = call fastcc i32 @mqtt_subscribe(ptr noundef nonnull %0)
-  %.not91 = icmp eq i32 %154, 0
+  %.fr129 = freeze i32 %154
+  %.not91 = icmp eq i32 %.fr129, 0
   br i1 %.not91, label %155, label %mqstate.exit
 
 155:                                              ; preds = %153
@@ -727,7 +737,8 @@ mqtt_verify_connack.exit:                         ; preds = %141, %140
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %170 = sub nuw nsw i64 3, %167
   %171 = call i32 @Curl_xfer_recv(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %170, ptr noundef nonnull %4) #8
-  %.not.i.i.i = icmp eq i32 %171, 0
+  %.fr131 = freeze i32 %171
+  %.not.i.i.i = icmp eq i32 %.fr131, 0
   br i1 %.not.i.i.i, label %172, label %.thread.i.i.i
 
 172:                                              ; preds = %169
@@ -737,7 +748,7 @@ mqtt_verify_connack.exit:                         ; preds = %141, %140
   br i1 %.not21.i.i.i, label %175, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %172, %169
-  %.014.ph.i.i.i = phi i32 [ 27, %172 ], [ %171, %169 ]
+  %.014.ph.i.i.i = phi i32 [ 27, %172 ], [ %.fr131, %169 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %mqtt_read_publish.exit
@@ -950,7 +961,8 @@ mqtt_verify_suback.exit.i:                        ; preds = %197, %196
 
 268:                                              ; preds = %255
   %269 = call i32 @Curl_client_write(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %6, i64 noundef %256) #8
-  %.not88.i = icmp eq i32 %269, 0
+  %.fr130 = freeze i32 %269
+  %.not88.i = icmp eq i32 %.fr130, 0
   br i1 %.not88.i, label %270, label %277
 
 270:                                              ; preds = %268
@@ -970,7 +982,7 @@ mqtt_verify_suback.exit.i:                        ; preds = %197, %196
   br label %277
 
 277:                                              ; preds = %274, %270, %268, %267, %263, %257, %254, %250, %244, %240
-  %.1.i = phi i32 [ 81, %244 ], [ 81, %250 ], [ 81, %254 ], [ 18, %267 ], [ 18, %263 ], [ 18, %257 ], [ %269, %268 ], [ 0, %274 ], [ 0, %270 ], [ %243, %240 ]
+  %.1.i = phi i32 [ 81, %244 ], [ 81, %250 ], [ 81, %254 ], [ 18, %267 ], [ 18, %263 ], [ 18, %257 ], [ %.fr130, %268 ], [ 0, %274 ], [ 0, %270 ], [ %243, %240 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %mqtt_read_publish.exit
 
@@ -985,16 +997,15 @@ mqtt_read_publish.exit:                           ; preds = %158, %.thread.i.i.i
   br label %mqstate.exit.thread
 
 mqstate.exit:                                     ; preds = %.thread.i.i, %151, %153, %.critedge, %50, %mqtt_read_publish.exit
-  %.174 = phi i32 [ %52, %50 ], [ %.2, %.critedge ], [ %.3, %151 ], [ %154, %153 ], [ %.062.i, %mqtt_read_publish.exit ], [ %.014.ph.i.i, %.thread.i.i ]
-  %.174.fr = freeze i32 %.174
-  %279 = icmp eq i32 %.174.fr, 81
+  %.174 = phi i32 [ %.fr, %50 ], [ %.2, %.critedge ], [ %.3, %151 ], [ %.fr129, %153 ], [ %.062.i, %mqtt_read_publish.exit ], [ %.014.ph.i.i, %.thread.i.i ]
+  %279 = icmp eq i32 %.174, 81
   br i1 %279, label %mqstate.exit.thread116, label %mqstate.exit.thread
 
 mqstate.exit.thread116:                           ; preds = %127, %mqstate.exit
   br label %mqstate.exit.thread
 
 mqstate.exit.thread:                              ; preds = %mqstate.exit.thread119, %96, %91, %155, %55, %98, %115, %278, %mqstate.exit.thread116, %mqstate.exit, %mqtt_send.exit
-  %.1 = phi i32 [ %.0.i, %mqtt_send.exit ], [ 0, %mqstate.exit.thread116 ], [ %.174.fr, %mqstate.exit ], [ 0, %96 ], [ 0, %91 ], [ 0, %155 ], [ 56, %55 ], [ 0, %98 ], [ 0, %115 ], [ 0, %278 ], [ 8, %mqstate.exit.thread119 ]
+  %.1 = phi i32 [ %.0.i, %mqtt_send.exit ], [ 0, %mqstate.exit.thread116 ], [ %.174, %mqstate.exit ], [ 0, %96 ], [ 0, %91 ], [ 0, %155 ], [ 56, %55 ], [ 0, %98 ], [ 0, %115 ], [ 0, %278 ], [ 8, %mqstate.exit.thread119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.1

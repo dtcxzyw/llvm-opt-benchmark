@@ -132373,33 +132373,35 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost4asio6detail11timer_queueINS1_
 
 8:                                                ; preds = %2
   %9 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #37
+  %.fr = freeze i64 %9
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %4, align 8, !tbaa !100
-  %10 = icmp sgt i64 %.sroa.0.0.copyload.i.i.i.i, -1
-  %11 = icmp sgt i64 %9, -1
+  %.sroa.0.0.copyload.i.i.i.i.fr = freeze i64 %.sroa.0.0.copyload.i.i.i.i
+  %10 = icmp sgt i64 %.sroa.0.0.copyload.i.i.i.i.fr, -1
+  %11 = icmp sgt i64 %.fr, -1
   br i1 %10, label %12, label %20
 
 12:                                               ; preds = %8
   br i1 %11, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit, label %13
 
 13:                                               ; preds = %12
-  %14 = icmp eq i64 %9, -9223372036854775808
+  %14 = icmp eq i64 %.fr, -9223372036854775808
   br i1 %14, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit.thread7.thread, label %15
 
 15:                                               ; preds = %13
-  %16 = sub nuw nsw i64 9223372036854775807, %.sroa.0.0.copyload.i.i.i.i
-  %17 = sub nsw i64 0, %9
+  %16 = sub nuw nsw i64 9223372036854775807, %.sroa.0.0.copyload.i.i.i.i.fr
+  %17 = sub nsw i64 0, %.fr
   %18 = icmp samesign ult i64 %16, %17
-  %19 = sub nsw i64 %.sroa.0.0.copyload.i.i.i.i, %9
+  %19 = sub i64 %.sroa.0.0.copyload.i.i.i.i.fr, %.fr
   br i1 %18, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit.thread7.thread, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit.thread7
 
 20:                                               ; preds = %8
-  %.sroa.0.0.i = sub nsw i64 %.sroa.0.0.copyload.i.i.i.i, %9
+  %.sroa.0.0.i = sub i64 %.sroa.0.0.copyload.i.i.i.i.fr, %.fr
   %21 = icmp slt i64 %.sroa.0.0.i, 1
-  %or.cond = select i1 %11, i1 true, i1 %21
+  %or.cond = or i1 %11, %21
   br i1 %or.cond, label %_ZNK5boost4asio6detail11timer_queueINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS6_EEEEE7to_msecINS9_19posix_time_durationEEElRKT_l.exit, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit.thread7
 
 _ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit: ; preds = %12
-  %.sroa.0.0.i.old = sub nsw i64 %.sroa.0.0.copyload.i.i.i.i, %9
+  %.sroa.0.0.i.old = sub nsw i64 %.sroa.0.0.copyload.i.i.i.i.fr, %.fr
   %.old = icmp slt i64 %.sroa.0.0.i.old, 1
   br i1 %.old, label %_ZNK5boost4asio6detail11timer_queueINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS6_EEEEE7to_msecINS9_19posix_time_durationEEElRKT_l.exit, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit.thread7
 
@@ -132409,9 +132411,8 @@ _ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wai
 
 _ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit.thread7: ; preds = %20, %15, %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit
   %.sroa.0.0.i9 = phi i64 [ %.sroa.0.0.i.old, %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit ], [ %19, %15 ], [ %.sroa.0.0.i, %20 ]
-  %.sroa.0.0.i9.fr = freeze i64 %.sroa.0.0.i9
-  %22 = udiv i64 %.sroa.0.0.i9.fr, 1000000
-  %23 = icmp ult i64 %.sroa.0.0.i9.fr, 1000000
+  %22 = udiv i64 %.sroa.0.0.i9, 1000000
+  %23 = icmp ult i64 %.sroa.0.0.i9, 1000000
   %..i = tail call i64 @llvm.smin.i64(i64 %22, i64 %1)
   %spec.select = select i1 %23, i64 1, i64 %..i
   br label %_ZNK5boost4asio6detail11timer_queueINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS6_EEEEE7to_msecINS9_19posix_time_durationEEElRKT_l.exit
@@ -132432,33 +132433,35 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost4asio6detail11timer_queueINS1_
 
 8:                                                ; preds = %2
   %9 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #37
+  %.fr = freeze i64 %9
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %4, align 8, !tbaa !100
-  %10 = icmp sgt i64 %.sroa.0.0.copyload.i.i.i.i, -1
-  %11 = icmp sgt i64 %9, -1
+  %.sroa.0.0.copyload.i.i.i.i.fr = freeze i64 %.sroa.0.0.copyload.i.i.i.i
+  %10 = icmp sgt i64 %.sroa.0.0.copyload.i.i.i.i.fr, -1
+  %11 = icmp sgt i64 %.fr, -1
   br i1 %10, label %12, label %20
 
 12:                                               ; preds = %8
   br i1 %11, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit, label %13
 
 13:                                               ; preds = %12
-  %14 = icmp eq i64 %9, -9223372036854775808
+  %14 = icmp eq i64 %.fr, -9223372036854775808
   br i1 %14, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit.thread7.thread, label %15
 
 15:                                               ; preds = %13
-  %16 = sub nuw nsw i64 9223372036854775807, %.sroa.0.0.copyload.i.i.i.i
-  %17 = sub nsw i64 0, %9
+  %16 = sub nuw nsw i64 9223372036854775807, %.sroa.0.0.copyload.i.i.i.i.fr
+  %17 = sub nsw i64 0, %.fr
   %18 = icmp samesign ult i64 %16, %17
-  %19 = sub nsw i64 %.sroa.0.0.copyload.i.i.i.i, %9
+  %19 = sub i64 %.sroa.0.0.copyload.i.i.i.i.fr, %.fr
   br i1 %18, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit.thread7.thread, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit.thread7
 
 20:                                               ; preds = %8
-  %.sroa.0.0.i = sub nsw i64 %.sroa.0.0.copyload.i.i.i.i, %9
+  %.sroa.0.0.i = sub i64 %.sroa.0.0.copyload.i.i.i.i.fr, %.fr
   %21 = icmp slt i64 %.sroa.0.0.i, 1
-  %or.cond = select i1 %11, i1 true, i1 %21
+  %or.cond = or i1 %11, %21
   br i1 %or.cond, label %_ZNK5boost4asio6detail11timer_queueINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS6_EEEEE7to_usecINS9_19posix_time_durationEEElRKT_l.exit, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit.thread7
 
 _ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit: ; preds = %12
-  %.sroa.0.0.i.old = sub nsw i64 %.sroa.0.0.copyload.i.i.i.i, %9
+  %.sroa.0.0.i.old = sub nsw i64 %.sroa.0.0.copyload.i.i.i.i.fr, %.fr
   %.old = icmp slt i64 %.sroa.0.0.i.old, 1
   br i1 %.old, label %_ZNK5boost4asio6detail11timer_queueINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS6_EEEEE7to_usecINS9_19posix_time_durationEEElRKT_l.exit, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit.thread7
 
@@ -132468,9 +132471,8 @@ _ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wai
 
 _ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit.thread7: ; preds = %20, %15, %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit
   %.sroa.0.0.i9 = phi i64 [ %.sroa.0.0.i.old, %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit ], [ %19, %15 ], [ %.sroa.0.0.i, %20 ]
-  %.sroa.0.0.i9.fr = freeze i64 %.sroa.0.0.i9
-  %22 = udiv i64 %.sroa.0.0.i9.fr, 1000
-  %23 = icmp ult i64 %.sroa.0.0.i9.fr, 1000
+  %22 = udiv i64 %.sroa.0.0.i9, 1000
+  %23 = icmp ult i64 %.sroa.0.0.i9, 1000
   %..i = tail call i64 @llvm.smin.i64(i64 %22, i64 %1)
   %spec.select = select i1 %23, i64 1, i64 %..i
   br label %_ZNK5boost4asio6detail11timer_queueINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS6_EEEEE7to_usecINS9_19posix_time_durationEEElRKT_l.exit

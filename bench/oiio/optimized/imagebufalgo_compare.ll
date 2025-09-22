@@ -76043,8 +76043,9 @@ define internal void @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3_1_03ROIEEZNS1
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !1176
   %16 = load float, ptr %15, align 4, !tbaa !3
-  %17 = bitcast float %16 to i32
-  %18 = tail call float @llvm.fabs.f32(float %16)
+  %.fr36.i.i.i = freeze float %16
+  %17 = bitcast float %.fr36.i.i.i to i32
+  %18 = tail call float @llvm.fabs.f32(float %.fr36.i.i.i)
   %19 = bitcast float %18 to i32
   %20 = lshr i32 %17, 16
   %21 = trunc nuw i32 %20 to i16
@@ -76102,26 +76103,26 @@ define internal void @_ZNSt17_Function_handlerIFvN11OpenImageIO6v3_1_03ROIEEZNS1
   %57 = add nsw i32 %53, -94
   %58 = shl i32 %56, %57
   %59 = lshr i32 %56, %54
+  %.fr38.i.i.i = freeze i32 %59
   %60 = and i32 %20, 32768
-  %61 = or i32 %59, %60
-  %62 = trunc nuw i32 %61 to i16
+  %61 = or i32 %.fr38.i.i.i, %60
+  %62 = trunc i32 %61 to i16
   %63 = icmp ugt i32 %58, -2147483648
   br i1 %63, label %67, label %64
 
 64:                                               ; preds = %52
   %65 = icmp ne i32 %58, -2147483648
-  %66 = and i32 %59, 1
+  %66 = and i32 %.fr38.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i32 %66, 0
-  %or.cond.i.i.i.i.i.i = select i1 %65, i1 true, i1 %.not.i.i.i.i.i.i
+  %or.cond.i.i.i.i.i.i = or i1 %65, %.not.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_012convert_typeIfN9Imath_3_14halfEEET0_RKT_.exit.i.i.i, label %67
 
 67:                                               ; preds = %64, %52
-  %68 = add nuw i16 %62, 1
+  %68 = add i16 %62, 1
   br label %_ZN11OpenImageIO6v3_1_012convert_typeIfN9Imath_3_14halfEEET0_RKT_.exit.i.i.i
 
 _ZN11OpenImageIO6v3_1_012convert_typeIfN9Imath_3_14halfEEET0_RKT_.exit.i.i.i: ; preds = %67, %64, %50, %41, %39, %29, %26
   %.0.i.i.i.i.i.i = phi i16 [ %36, %29 ], [ %40, %39 ], [ %49, %41 ], [ %27, %26 ], [ %22, %50 ], [ %68, %67 ], [ %62, %64 ]
-  %.0.i.i.i.fr.i.i.i = freeze i16 %.0.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %69 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %70 = load ptr, ptr %69, align 8, !tbaa !1177
@@ -76135,10 +76136,10 @@ _ZN11OpenImageIO6v3_1_012convert_typeIfN9Imath_3_14halfEEET0_RKT_.exit.i.i.i: ; 
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %78 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %80 = zext i16 %.0.i.i.i.fr.i.i.i to i32
+  %80 = zext i16 %.0.i.i.i.i.i.i to i32
   %81 = shl nuw nsw i32 %80, 13
   %82 = and i32 %81, 268427264
-  %.signext.i.i15.i.i.i = sext i16 %.0.i.i.i.fr.i.i.i to i32
+  %.signext.i.i15.i.i.i = sext i16 %.0.i.i.i.i.i.i to i32
   %83 = and i32 %.signext.i.i15.i.i.i, -2147483648
   %84 = icmp samesign ugt i32 %82, 8388607
   %85 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %82, i1 true)

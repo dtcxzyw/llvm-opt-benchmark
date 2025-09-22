@@ -8262,10 +8262,12 @@ define hidden range(i32 0, 134) i32 @FT_Request_Metrics(ptr noundef readonly cap
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 138
   %17 = load i16, ptr %16, align 2, !tbaa !359
-  %18 = sext i16 %17 to i64
+  %.fr = freeze i16 %17
+  %18 = sext i16 %.fr to i64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %20 = load i16, ptr %19, align 4, !tbaa !361
-  %21 = sext i16 %20 to i64
+  %.fr138 = freeze i16 %20
+  %21 = sext i16 %.fr138 to i64
   %22 = sub nsw i64 %18, %21
   br label %.thread
 
@@ -8274,24 +8276,31 @@ define hidden range(i32 0, 134) i32 @FT_Request_Metrics(ptr noundef readonly cap
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %26 = load i64, ptr %25, align 8, !tbaa !366
   %27 = load i64, ptr %24, align 8, !tbaa !367
-  %28 = sub nsw i64 %26, %27
+  %.fr139 = freeze i64 %26
+  %.fr140 = freeze i64 %27
+  %28 = sub i64 %.fr139, %.fr140
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %30 = load i64, ptr %29, align 8, !tbaa !368
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %32 = load i64, ptr %31, align 8, !tbaa !369
-  %33 = sub nsw i64 %30, %32
+  %.fr142 = freeze i64 %30
+  %.fr143 = freeze i64 %32
+  %33 = sub i64 %.fr142, %.fr143
   br label %.thread
 
 34:                                               ; preds = %9
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %36 = load i16, ptr %35, align 8, !tbaa !364
-  %37 = sext i16 %36 to i64
+  %.fr141 = freeze i16 %36
+  %37 = sext i16 %.fr141 to i64
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 138
   %39 = load i16, ptr %38, align 2, !tbaa !359
-  %40 = sext i16 %39 to i64
+  %.fr144 = freeze i16 %39
+  %40 = sext i16 %.fr144 to i64
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %42 = load i16, ptr %41, align 4, !tbaa !361
-  %43 = sext i16 %42 to i64
+  %.fr145 = freeze i16 %42
+  %43 = sext i16 %.fr145 to i64
   %44 = sub nsw i64 %40, %43
   br label %.thread
 
@@ -8322,10 +8331,8 @@ define hidden range(i32 0, 134) i32 @FT_Request_Metrics(ptr noundef readonly cap
 .thread:                                          ; preds = %34, %23, %15
   %.091 = phi i64 [ %22, %15 ], [ %28, %23 ], [ %37, %34 ]
   %.089 = phi i64 [ %22, %15 ], [ %33, %23 ], [ %44, %34 ]
-  %.089.fr = freeze i64 %.089
-  %.091.fr = freeze i64 %.091
-  %spec.select = tail call i64 @llvm.abs.i64(i64 %.091.fr, i1 true)
-  %spec.select137 = tail call i64 @llvm.abs.i64(i64 %.089.fr, i1 true)
+  %spec.select = tail call i64 @llvm.abs.i64(i64 %.091, i1 true)
+  %spec.select137 = tail call i64 @llvm.abs.i64(i64 %.089, i1 true)
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread, %9, %11
@@ -8365,8 +8372,8 @@ define hidden range(i32 0, 134) i32 @FT_Request_Metrics(ptr noundef readonly cap
   %78 = phi i64 [ %76, %72 ], [ %71, %66 ]
   %.not107 = icmp ne i64 %71, 0
   %.not108 = icmp eq i64 %60, 0
-  %or.cond151 = select i1 %.not107, i1 true, i1 %.not108
-  br i1 %or.cond151, label %79, label %.thread149
+  %or.cond159 = select i1 %.not107, i1 true, i1 %.not108
+  br i1 %or.cond159, label %79, label %.thread157
 
 79:                                               ; preds = %77
   %80 = icmp eq i64 %56, 0
@@ -8384,13 +8391,13 @@ define hidden range(i32 0, 134) i32 @FT_Request_Metrics(ptr noundef readonly cap
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %88, ptr %89, align 8, !tbaa !139
   %.not109 = icmp eq i64 %60, 0
-  br i1 %.not109, label %FT_MulDiv.exit, label %.thread149
+  br i1 %.not109, label %FT_MulDiv.exit, label %.thread157
 
-.thread149:                                       ; preds = %77, %81
+.thread157:                                       ; preds = %77, %81
   %90 = icmp eq i64 %55, 0
   br i1 %90, label %208, label %FT_DivFix.exit115
 
-FT_DivFix.exit115:                                ; preds = %.thread149
+FT_DivFix.exit115:                                ; preds = %.thread157
   %.016.i114 = tail call i64 @llvm.abs.i64(i64 %67, i1 false)
   %91 = shl i64 %.016.i114, 16
   %92 = lshr i64 %55, 1
@@ -8572,14 +8579,14 @@ FT_MulDiv.exit122:                                ; preds = %111, %113
   br label %.sink.split
 
 .sink.split:                                      ; preds = %205, %155
-  %.sink153 = phi i64 [ 72, %155 ], [ 40, %205 ]
+  %.sink161 = phi i64 [ 72, %155 ], [ 40, %205 ]
   %.sink = phi i64 [ %204, %155 ], [ 65536, %205 ]
-  %207 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink153
+  %207 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink161
   store i64 %.sink, ptr %207, align 8, !tbaa !37
   br label %208
 
-208:                                              ; preds = %.sink.split, %79, %.thread149, %147
-  %.093 = phi i32 [ 133, %79 ], [ 133, %.thread149 ], [ 23, %147 ], [ 0, %.sink.split ]
+208:                                              ; preds = %.sink.split, %79, %.thread157, %147
+  %.093 = phi i32 [ 133, %79 ], [ 133, %.thread157 ], [ 23, %147 ], [ 0, %.sink.split ]
   ret i32 %.093
 }
 

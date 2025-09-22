@@ -74894,9 +74894,10 @@ _ZN5typst4math3row7MathRun12is_multiline17h59883323a7a6cfcfE.llvm.58573791672089
           to label %.noexc7 unwind label %36
 
 .noexc7:                                          ; preds = %25
-  %.sroa.4.0.extract.shift.i.i.i = lshr i16 %23, 8
+  %.fr.i.i = freeze i16 %23
+  %.sroa.4.0.extract.shift.i.i.i = lshr i16 %.fr.i.i, 8
   %.sroa.4.0.extract.trunc.i.i.i = trunc nuw i16 %.sroa.4.0.extract.shift.i.i.i to i8
-  %27 = and i16 %23, 255
+  %27 = and i16 %.fr.i.i, 255
   %switch.i.i.i = icmp eq i16 %27, 4
   %.04.i.i.i = select i1 %switch.i.i.i, i8 5, i8 %.sroa.4.0.extract.trunc.i.i.i
   %28 = icmp eq i8 %.04.i.i.i, 5
@@ -75252,9 +75253,10 @@ _ZN5typst11foundations6styles10StyleChain3get17hfacfd343ec90d3c5E.exit.i: ; pred
           to label %.noexc42 unwind label %49
 
 .noexc42:                                         ; preds = %72
-  %.sroa.4.0.extract.shift.i.i.i = lshr i16 %71, 8
+  %.fr.i.i = freeze i16 %71
+  %.sroa.4.0.extract.shift.i.i.i = lshr i16 %.fr.i.i, 8
   %.sroa.4.0.extract.trunc.i.i.i = trunc nuw i16 %.sroa.4.0.extract.shift.i.i.i to i8
-  %74 = and i16 %71, 255
+  %74 = and i16 %.fr.i.i, 255
   %switch.i.i.i = icmp eq i16 %74, 4
   %.04.i.i.i = select i1 %switch.i.i.i, i8 5, i8 %.sroa.4.0.extract.trunc.i.i.i
   %75 = icmp eq i8 %.04.i.i.i, 5

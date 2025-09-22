@@ -13867,9 +13867,11 @@ FlushRenderCommands.exit:                         ; preds = %SDL_RenderApplyWind
 
 236:                                              ; preds = %233
   %237 = call i64 @SDL_GetTicksNS_REAL() #15
+  %.fr24.i = freeze i64 %237
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %239 = load i64, ptr %238, align 8
-  %240 = sub i64 %237, %239
+  %.fr.i = freeze i64 %239
+  %240 = sub i64 %.fr24.i, %.fr.i
   %241 = icmp ult i64 %240, %235
   br i1 %241, label %242, label %245
 
@@ -13877,32 +13879,33 @@ FlushRenderCommands.exit:                         ; preds = %SDL_RenderApplyWind
   %243 = sub nuw i64 %235, %240
   call void @SDL_DelayPrecise_REAL(i64 noundef %243) #15
   %244 = call i64 @SDL_GetTicksNS_REAL() #15
+  %.fr23.i = freeze i64 %244
   %.pre.i = load i64, ptr %238, align 8
+  %.pre.fr.i = freeze i64 %.pre.i
+  %.pre = sub i64 %.fr23.i, %.pre.fr.i
   br label %245
 
 245:                                              ; preds = %242, %236
-  %246 = phi i64 [ %.pre.i, %242 ], [ %239, %236 ]
-  %.0.i16 = phi i64 [ %244, %242 ], [ %237, %236 ]
-  %.0.fr.i = freeze i64 %.0.i16
-  %.fr23.i = freeze i64 %246
-  %247 = sub i64 %.0.fr.i, %.fr23.i
-  %248 = icmp eq i64 %.fr23.i, 0
-  %249 = icmp ugt i64 %247, 1000000000
-  %or.cond.i17 = or i1 %248, %249
-  br i1 %or.cond.i17, label %253, label %250
+  %.pre-phi = phi i64 [ %.pre, %242 ], [ %240, %236 ]
+  %246 = phi i64 [ %.pre.fr.i, %242 ], [ %.fr.i, %236 ]
+  %.0.i16 = phi i64 [ %.fr23.i, %242 ], [ %.fr24.i, %236 ]
+  %247 = icmp eq i64 %246, 0
+  %248 = icmp ugt i64 %.pre-phi, 1000000000
+  %or.cond.i17 = or i1 %247, %248
+  br i1 %or.cond.i17, label %252, label %249
 
-250:                                              ; preds = %245
-  %251 = urem i64 %247, %235
-  %252 = sub i64 %.0.fr.i, %251
-  br label %253
+249:                                              ; preds = %245
+  %250 = urem i64 %.pre-phi, %235
+  %251 = sub i64 %.0.i16, %250
+  br label %252
 
-253:                                              ; preds = %250, %245
-  %storemerge.i = phi i64 [ %252, %250 ], [ %.0.fr.i, %245 ]
+252:                                              ; preds = %249, %245
+  %storemerge.i = phi i64 [ %251, %249 ], [ %.0.i16, %245 ]
   store i64 %storemerge.i, ptr %238, align 8
   br label %SDL_SimulateRenderVSync.exit
 
-SDL_SimulateRenderVSync.exit:                     ; preds = %253, %233, %228, %229, %18, %13, %7
-  %.013 = phi i1 [ false, %13 ], [ %19, %18 ], [ false, %7 ], [ true, %229 ], [ true, %228 ], [ true, %233 ], [ true, %253 ]
+SDL_SimulateRenderVSync.exit:                     ; preds = %252, %233, %228, %229, %18, %13, %7
+  %.013 = phi i1 [ false, %13 ], [ %19, %18 ], [ false, %7 ], [ true, %229 ], [ true, %228 ], [ true, %233 ], [ true, %252 ]
   ret i1 %.013
 }
 

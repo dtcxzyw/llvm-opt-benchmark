@@ -44131,11 +44131,10 @@ _ZN11fast_float27decimal7Decimal5round17h3b66c9d2f755a846E.exit.thread33.i.i.i.i
 209:                                              ; preds = %_ZN11fast_float27decimal7Decimal5round17h3b66c9d2f755a846E.exit.thread33.i.i.i.i, %_ZN11fast_float27decimal7Decimal5round17h3b66c9d2f755a846E.exit.i.i.i.i
   %.sroa.020.0.i.i.i.i = phi i64 [ %206, %_ZN11fast_float27decimal7Decimal5round17h3b66c9d2f755a846E.exit.thread33.i.i.i.i ], [ %.sroa.0.1.i.i.i.i.i, %_ZN11fast_float27decimal7Decimal5round17h3b66c9d2f755a846E.exit.i.i.i.i ]
   %.sroa.010.3.i.i.i.i = phi i32 [ %205, %_ZN11fast_float27decimal7Decimal5round17h3b66c9d2f755a846E.exit.thread33.i.i.i.i ], [ %.sroa.010.2.lcssa.i.i.i.i, %_ZN11fast_float27decimal7Decimal5round17h3b66c9d2f755a846E.exit.i.i.i.i ]
-  %.sroa.020.0.fr.i.i.i.i = freeze i64 %.sroa.020.0.i.i.i.i
-  %210 = icmp ult i64 %.sroa.020.0.fr.i.i.i.i, 8388608
+  %210 = icmp ult i64 %.sroa.020.0.i.i.i.i, 8388608
   %spec.select.v.i.i.i.i = select i1 %210, i32 126, i32 127
   %spec.select.i.i.i.i = add i32 %spec.select.v.i.i.i.i, %.sroa.010.3.i.i.i.i
-  %211 = and i64 %.sroa.020.0.fr.i.i.i.i, 8388607
+  %211 = and i64 %.sroa.020.0.i.i.i.i, 8388607
   br label %_ZN11fast_float26simple19parse_long_mantissa17h828fbcbc4fed8cfaE.exit.i.i.i
 
 212:                                              ; preds = %151
@@ -44668,11 +44667,10 @@ _ZN11fast_float27decimal7Decimal5round17h3b66c9d2f755a846E.exit.thread33.i.i.i.i
 209:                                              ; preds = %_ZN11fast_float27decimal7Decimal5round17h3b66c9d2f755a846E.exit.thread33.i.i.i.i, %_ZN11fast_float27decimal7Decimal5round17h3b66c9d2f755a846E.exit.i.i.i.i
   %.sroa.020.0.i.i.i.i = phi i64 [ %206, %_ZN11fast_float27decimal7Decimal5round17h3b66c9d2f755a846E.exit.thread33.i.i.i.i ], [ %.sroa.0.1.i.i.i.i.i, %_ZN11fast_float27decimal7Decimal5round17h3b66c9d2f755a846E.exit.i.i.i.i ]
   %.sroa.010.3.i.i.i.i = phi i32 [ %205, %_ZN11fast_float27decimal7Decimal5round17h3b66c9d2f755a846E.exit.thread33.i.i.i.i ], [ %.sroa.010.2.lcssa.i.i.i.i, %_ZN11fast_float27decimal7Decimal5round17h3b66c9d2f755a846E.exit.i.i.i.i ]
-  %.sroa.020.0.fr.i.i.i.i = freeze i64 %.sroa.020.0.i.i.i.i
-  %210 = icmp ult i64 %.sroa.020.0.fr.i.i.i.i, 4503599627370496
+  %210 = icmp ult i64 %.sroa.020.0.i.i.i.i, 4503599627370496
   %spec.select.v.i.i.i.i = select i1 %210, i32 1022, i32 1023
   %spec.select.i.i.i.i = add i32 %spec.select.v.i.i.i.i, %.sroa.010.3.i.i.i.i
-  %211 = and i64 %.sroa.020.0.fr.i.i.i.i, 4503599627370495
+  %211 = and i64 %.sroa.020.0.i.i.i.i, 4503599627370495
   br label %_ZN11fast_float26simple19parse_long_mantissa17h4c476e2e029fc565E.exit.i.i.i
 
 212:                                              ; preds = %151

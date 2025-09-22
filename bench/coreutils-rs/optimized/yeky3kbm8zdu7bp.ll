@@ -3286,8 +3286,7 @@ _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.i
 
 _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.i, %82, %77
   %.in.i = phi i8 [ %85, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.i ], [ %79, %77 ], [ %83, %82 ]
-  %.in.i.fr = freeze i8 %.in.i
-  %86 = zext i8 %.in.i.fr to i32
+  %86 = zext i8 %.in.i to i32
   %storemerge85.i = add i64 %3, -2
   %scevgep.i = getelementptr i8, ptr %5, i64 %3
   %scevgep92.i = getelementptr i8, ptr %5, i64 5
@@ -3343,8 +3342,7 @@ _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit64
 
 _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit64.thread.i: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit64.i, %100, %95
   %.ph.in.i = phi i8 [ %103, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit64.i ], [ %97, %95 ], [ %101, %100 ]
-  %.ph.in.i.fr = freeze i8 %.ph.in.i
-  %.ph.i41 = zext i8 %.ph.in.i.fr to i32
+  %.ph.i41 = zext i8 %.ph.in.i to i32
   %104 = shl i32 %.04386.i, 4
   %105 = add i32 %104, %.ph.i41
   %storemerge.i = add i64 %storemerge89.i, -1
@@ -3382,8 +3380,7 @@ _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.i
 
 _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.thread.i48: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.i46, %112, %107
   %.in.i49 = phi i8 [ %115, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit.i46 ], [ %109, %107 ], [ %113, %112 ]
-  %.in.i49.fr = freeze i8 %.in.i49
-  %116 = zext i8 %.in.i49.fr to i32
+  %116 = zext i8 %.in.i49 to i32
   %storemerge85.i50 = add i64 %3, -2
   %scevgep.i51 = getelementptr i8, ptr %5, i64 %3
   %scevgep92.i52 = getelementptr i8, ptr %5, i64 9
@@ -3439,8 +3436,7 @@ _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit64
 
 _ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit64.thread.i63: ; preds = %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit64.i61, %130, %125
   %.ph.in.i64 = phi i8 [ %133, %_ZN6uucore8features6format6escape4Base13convert_digit17h63e587e5a1301750E.exit64.i61 ], [ %127, %125 ], [ %131, %130 ]
-  %.ph.in.i64.fr = freeze i8 %.ph.in.i64
-  %.ph.i65 = zext i8 %.ph.in.i64.fr to i32
+  %.ph.i65 = zext i8 %.ph.in.i64 to i32
   %134 = shl i32 %.04386.i56, 4
   %135 = add i32 %134, %.ph.i65
   %storemerge.i66 = add i64 %storemerge89.i53, -1

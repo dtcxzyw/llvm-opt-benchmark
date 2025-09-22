@@ -5298,7 +5298,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i:  ; preds = %4
 58:                                               ; preds = %56
   %59 = icmp eq i32 %57, -1
   %spec.store.select1 = select i1 %59, i32 1024, i32 %57
-  %60 = mul nsw i32 %spec.store.select1, 3
+  %60 = mul i32 %spec.store.select1, 3
   %61 = sext i32 %60 to i64
   %62 = icmp ne i32 %spec.store.select1, 0
   call void @llvm.assume(i1 %62)
@@ -5369,7 +5369,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i280: ; preds = %.noexc287
   br label %.noexc133
 
 .noexc133:                                        ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i280, %.noexc287
-  %81 = getelementptr inbounds nuw float, ptr %79, i64 %61
+  %81 = getelementptr float, ptr %79, i64 %61
   invoke void @_ZN19OpenColorIO_v2_5dev21GenerateIdentityLut1DEPfii(ptr noundef nonnull %66, i32 noundef %spec.store.select1, i32 noundef 3)
           to label %82 unwind label %76
 
@@ -5668,8 +5668,8 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i295: ; preds = %189
   %194 = call noundef i32 @_ZNK19OpenColorIO_v2_5dev10ColorSpace13getAllocationEv(ptr noundef nonnull align 8 dereferenceable(8) %193) #30
   %195 = icmp eq i32 %194, 1
   %spec.select = select i1 %195, i32 2, i32 %.sroa.speculated
-  %196 = mul nuw nsw i32 %spec.select, 3
-  %197 = zext nneg i32 %196 to i64
+  %196 = mul i32 %spec.select, 3
+  %197 = zext i32 %196 to i64
   %198 = shl nuw nsw i64 %197, 2
   %199 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %198) #29
           to label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i312 unwind label %200
@@ -5696,7 +5696,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i312: ; preds = %_ZNKSt6vectorIfSa
   store float 0.000000e+00, ptr %204, align 4, !tbaa !55
   %206 = getelementptr i8, ptr %204, i64 4
   call void @llvm.memset.p0.i64(ptr align 4 %206, i8 0, i64 %.idx.i.i.i.i.i31.i298, i1 false), !tbaa !55
-  %207 = getelementptr inbounds nuw float, ptr %204, i64 %197
+  %207 = getelementptr float, ptr %204, i64 %197
   invoke void @_ZN19OpenColorIO_v2_5dev21GenerateIdentityLut1DEPfii(ptr noundef nonnull %199, i32 noundef %spec.select, i32 noundef 3)
           to label %208 unwind label %200
 
@@ -6171,7 +6171,6 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev10ColorSpaceELN9__gnu_cxx12_Lock_poli
   %.sroa.22.0 = phi ptr [ %207, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev10ColorSpaceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %81, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12CPUProcessorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit140 ]
   %.sroa.0340.2 = phi ptr [ %199, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev10ColorSpaceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %66, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12CPUProcessorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit140 ]
   %.sroa.16.0 = phi ptr [ %203, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev10ColorSpaceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %78, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12CPUProcessorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit140 ]
-  %.sroa.22.0.fr = freeze ptr %.sroa.22.0
   %392 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.45, i64 noundef 11)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %404
 
@@ -6280,7 +6279,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit188: ; preds = %._cr
   %445 = ptrtoint ptr %.sroa.16.0 to i64
   %446 = ptrtoint ptr %.sroa.0340.2 to i64
   %447 = sub i64 %445, %446
-  %448 = ptrtoint ptr %.sroa.22.0.fr to i64
+  %448 = ptrtoint ptr %.sroa.22.0 to i64
   %449 = ptrtoint ptr %.sroa.0357.2 to i64
   %450 = sub i64 %448, %449
   %451 = ashr i64 %450, 2
@@ -6308,7 +6307,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit188: ; preds = %._cr
   br label %.split
 
 459:                                              ; preds = %433
-  %460 = icmp eq ptr %.sroa.0357.2, %.sroa.22.0.fr
+  %460 = icmp eq ptr %.sroa.0357.2, %.sroa.22.0
   br i1 %460, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %459
@@ -6580,7 +6579,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6ConfigELN9__gnu_cxx12_Lock_policyE2E
 
 .split:                                           ; preds = %.split464.us, %.split.us, %.split.split, %406, %.split461.us, %528, %457, %455, %430, %76, %151, %404, %390
   %.sroa.0357.3 = phi ptr [ %.sroa.0357.2, %430 ], [ %.sroa.0357.2, %528 ], [ %.sroa.0357.2, %455 ], [ %.sroa.0357.2, %.split461.us ], [ %.sroa.0357.2, %457 ], [ %.sroa.0357.2, %406 ], [ %.sroa.0357.2, %404 ], [ %.sroa.0357.4, %390 ], [ %79, %151 ], [ %.sroa.0357.0, %76 ], [ %.sroa.0357.2, %.split.split ], [ %.sroa.0357.2, %.split.us ], [ %.sroa.0357.2, %.split464.us ]
-  %.sroa.37.3 = phi ptr [ %.sroa.22.0.fr, %430 ], [ %.sroa.22.0.fr, %528 ], [ %.sroa.22.0.fr, %455 ], [ %.sroa.22.0.fr, %.split461.us ], [ %.sroa.22.0.fr, %457 ], [ %.sroa.22.0.fr, %406 ], [ %.sroa.22.0.fr, %404 ], [ %.sroa.37.4, %390 ], [ %81, %151 ], [ %.sroa.37.0, %76 ], [ %.sroa.22.0.fr, %.split.split ], [ %.sroa.22.0.fr, %.split.us ], [ %.sroa.22.0.fr, %.split464.us ]
+  %.sroa.37.3 = phi ptr [ %.sroa.22.0, %430 ], [ %.sroa.22.0, %528 ], [ %.sroa.22.0, %455 ], [ %.sroa.22.0, %.split461.us ], [ %.sroa.22.0, %457 ], [ %.sroa.22.0, %406 ], [ %.sroa.22.0, %404 ], [ %.sroa.37.4, %390 ], [ %81, %151 ], [ %.sroa.37.0, %76 ], [ %.sroa.22.0, %.split.split ], [ %.sroa.22.0, %.split.us ], [ %.sroa.22.0, %.split464.us ]
   %.sroa.0340.3 = phi ptr [ %.sroa.0340.2, %430 ], [ %.sroa.0340.2, %528 ], [ %.sroa.0340.2, %455 ], [ %.sroa.0340.2, %.split461.us ], [ %.sroa.0340.2, %457 ], [ %.sroa.0340.2, %406 ], [ %.sroa.0340.2, %404 ], [ %.sroa.0340.4, %390 ], [ %66, %151 ], [ %.sroa.0340.0, %76 ], [ %.sroa.0340.2, %.split.split ], [ %.sroa.0340.2, %.split.us ], [ %.sroa.0340.2, %.split464.us ]
   %.sroa.27.3 = phi ptr [ %.sroa.16.0, %430 ], [ %.sroa.16.0, %528 ], [ %.sroa.16.0, %455 ], [ %.sroa.16.0, %.split461.us ], [ %.sroa.16.0, %457 ], [ %.sroa.16.0, %406 ], [ %.sroa.16.0, %404 ], [ %.sroa.27.4, %390 ], [ %78, %151 ], [ %.sroa.27.0, %76 ], [ %.sroa.16.0, %.split.split ], [ %.sroa.16.0, %.split.us ], [ %.sroa.16.0, %.split464.us ]
   %.pn119.pn.pn = phi { ptr, i32 } [ %431, %430 ], [ %529, %528 ], [ %456, %455 ], [ %493, %.split461.us ], [ %458, %457 ], [ %407, %406 ], [ %405, %404 ], [ %.pn105.pn.pn.pn.pn.pn.pn.pn.pn, %390 ], [ %.pn.pn.pn.pn, %151 ], [ %77, %76 ], [ %499, %.split.split ], [ %492, %.split.us ], [ %494, %.split464.us ]

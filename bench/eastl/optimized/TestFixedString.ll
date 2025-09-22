@@ -5538,11 +5538,12 @@ if.then:                                          ; preds = %entry
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %mnCapacity.i.i, align 8
-  %and.i.i = and i64 %2, 9223372036854775807
+  %.fr = freeze i64 %2
+  %and.i.i = and i64 %.fr, 9223372036854775807
   %retval.0.i = select i1 %tobool.i.i, i64 %and.i.i, i64 23
   %add = add i64 %cond.i, %n
   %cmp4 = icmp ugt i64 %add, %retval.0.i
-  %3 = lshr i64 %2, 56
+  %3 = lshr i64 %.fr, 56
   %4 = trunc nuw i64 %3 to i8
   br i1 %cmp4, label %if.then.i, label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit
 
@@ -5581,6 +5582,7 @@ if.then21.i.i:                                    ; preds = %if.then19.i.i
   store i8 0, ptr %add.ptr.i41.i.i, align 1
   %.pre = load i8, ptr %mRemainingSizeField.i.i, align 1
   %.pre23 = load i64, ptr %mnSize.i.i, align 8
+  %.pre.fr = freeze i8 %.pre
   br label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit
 
 _ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread: ; preds = %if.then19.i.i
@@ -5612,12 +5614,11 @@ _ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread31: ; preds = %if.then17
 
 _ZN5eastl28CharStringUninitializedFillNEPcmc.exit: ; preds = %if.then21.i.i, %lor.lhs.false.i.i, %if.then
   %9 = phi i64 [ %.pre23, %if.then21.i.i ], [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ]
-  %10 = phi i8 [ %.pre, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
-  %.fr = freeze i8 %10
-  %tobool.i.i13 = icmp slt i8 %.fr, 0
+  %10 = phi i8 [ %.pre.fr, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
+  %tobool.i.i13 = icmp slt i8 %10, 0
   %11 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %9
-  %conv.i.i.i15 = zext nneg i8 %.fr to i64
+  %conv.i.i.i15 = zext nneg i8 %10 to i64
   %sub.i.i.i16 = sub nsw i64 23, %conv.i.i.i15
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %this, i64 %sub.i.i.i16
   %spec.select = select i1 %tobool.i.i13, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
@@ -7052,11 +7053,12 @@ if.then:                                          ; preds = %entry
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %mnCapacity.i.i, align 8
-  %and.i.i = and i64 %2, 9223372036854775807
+  %.fr = freeze i64 %2
+  %and.i.i = and i64 %.fr, 9223372036854775807
   %retval.0.i = select i1 %tobool.i.i, i64 %and.i.i, i64 11
   %add = add i64 %cond.i, %n
   %cmp4 = icmp ugt i64 %add, %retval.0.i
-  %3 = lshr i64 %2, 56
+  %3 = lshr i64 %.fr, 56
   %4 = trunc nuw i64 %3 to i8
   br i1 %cmp4, label %if.then.i, label %if.end
 
@@ -7096,6 +7098,7 @@ if.then21.i.i:                                    ; preds = %if.then19.i.i
   store i16 0, ptr %add.ptr.i41.i.i, align 2
   %.pre = load i8, ptr %mnRemainingSize.i.i, align 1
   %.pre23 = load i64, ptr %mnSize.i.i, align 8
+  %.pre.fr = freeze i8 %.pre
   br label %if.end
 
 if.end.thread:                                    ; preds = %if.then19.i.i
@@ -7127,12 +7130,11 @@ if.end.thread31:                                  ; preds = %if.then17.i.i
 
 if.end:                                           ; preds = %if.then21.i.i, %lor.lhs.false.i.i, %if.then
   %9 = phi i64 [ %.pre23, %if.then21.i.i ], [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ]
-  %10 = phi i8 [ %.pre, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
-  %.fr = freeze i8 %10
-  %tobool.i.i13 = icmp slt i8 %.fr, 0
+  %10 = phi i8 [ %.pre.fr, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
+  %tobool.i.i13 = icmp slt i8 %10, 0
   %11 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i16, ptr %11, i64 %9
-  %conv.i.i.i15 = zext nneg i8 %.fr to i64
+  %conv.i.i.i15 = zext nneg i8 %10 to i64
   %sub.i.i.i16 = sub nsw i64 11, %conv.i.i.i15
   %add.ptr.i1.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i16
   %spec.select = select i1 %tobool.i.i13, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
@@ -8593,11 +8595,12 @@ if.then:                                          ; preds = %entry
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %mnCapacity.i.i, align 8
-  %and.i.i = and i64 %2, 9223372036854775807
+  %.fr = freeze i64 %2
+  %and.i.i = and i64 %.fr, 9223372036854775807
   %retval.0.i = select i1 %tobool.i.i, i64 %and.i.i, i64 5
   %add = add i64 %cond.i, %n
   %cmp4 = icmp ugt i64 %add, %retval.0.i
-  %3 = lshr i64 %2, 56
+  %3 = lshr i64 %.fr, 56
   %4 = trunc nuw i64 %3 to i8
   br i1 %cmp4, label %if.then.i, label %if.end
 
@@ -8637,6 +8640,7 @@ if.then21.i.i:                                    ; preds = %if.then19.i.i
   store i32 0, ptr %add.ptr.i41.i.i, align 4
   %.pre = load i8, ptr %mnRemainingSize.i.i, align 1
   %.pre23 = load i64, ptr %mnSize.i.i, align 8
+  %.pre.fr = freeze i8 %.pre
   br label %if.end
 
 if.end.thread:                                    ; preds = %if.then19.i.i
@@ -8668,12 +8672,11 @@ if.end.thread31:                                  ; preds = %if.then17.i.i
 
 if.end:                                           ; preds = %if.then21.i.i, %lor.lhs.false.i.i, %if.then
   %9 = phi i64 [ %.pre23, %if.then21.i.i ], [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ]
-  %10 = phi i8 [ %.pre, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
-  %.fr = freeze i8 %10
-  %tobool.i.i13 = icmp slt i8 %.fr, 0
+  %10 = phi i8 [ %.pre.fr, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
+  %tobool.i.i13 = icmp slt i8 %10, 0
   %11 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i32, ptr %11, i64 %9
-  %conv.i.i.i15 = zext nneg i8 %.fr to i64
+  %conv.i.i.i15 = zext nneg i8 %10 to i64
   %sub.i.i.i16 = sub nsw i64 5, %conv.i.i.i15
   %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i16
   %spec.select = select i1 %tobool.i.i13, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
@@ -14298,11 +14301,12 @@ if.then:                                          ; preds = %entry
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %mnCapacity.i.i, align 8
-  %and.i.i = and i64 %2, 9223372036854775807
+  %.fr = freeze i64 %2
+  %and.i.i = and i64 %.fr, 9223372036854775807
   %retval.0.i = select i1 %tobool.i.i, i64 %and.i.i, i64 23
   %add = add i64 %cond.i, %n
   %cmp4 = icmp ugt i64 %add, %retval.0.i
-  %3 = lshr i64 %2, 56
+  %3 = lshr i64 %.fr, 56
   %4 = trunc nuw i64 %3 to i8
   br i1 %cmp4, label %if.then.i, label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit
 
@@ -14341,6 +14345,7 @@ if.then21.i.i:                                    ; preds = %if.then19.i.i
   store i8 0, ptr %add.ptr.i41.i.i, align 1
   %.pre = load i8, ptr %mRemainingSizeField.i.i, align 1
   %.pre23 = load i64, ptr %mnSize.i.i, align 8
+  %.pre.fr = freeze i8 %.pre
   br label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit
 
 _ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread: ; preds = %if.then19.i.i
@@ -14372,12 +14377,11 @@ _ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread31: ; preds = %if.then17
 
 _ZN5eastl28CharStringUninitializedFillNEPcmc.exit: ; preds = %if.then21.i.i, %lor.lhs.false.i.i, %if.then
   %9 = phi i64 [ %.pre23, %if.then21.i.i ], [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ]
-  %10 = phi i8 [ %.pre, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
-  %.fr = freeze i8 %10
-  %tobool.i.i13 = icmp slt i8 %.fr, 0
+  %10 = phi i8 [ %.pre.fr, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
+  %tobool.i.i13 = icmp slt i8 %10, 0
   %11 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %9
-  %conv.i.i.i15 = zext nneg i8 %.fr to i64
+  %conv.i.i.i15 = zext nneg i8 %10 to i64
   %sub.i.i.i16 = sub nsw i64 23, %conv.i.i.i15
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %this, i64 %sub.i.i.i16
   %spec.select = select i1 %tobool.i.i13, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
@@ -15812,11 +15816,12 @@ if.then:                                          ; preds = %entry
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %mnCapacity.i.i, align 8
-  %and.i.i = and i64 %2, 9223372036854775807
+  %.fr = freeze i64 %2
+  %and.i.i = and i64 %.fr, 9223372036854775807
   %retval.0.i = select i1 %tobool.i.i, i64 %and.i.i, i64 11
   %add = add i64 %cond.i, %n
   %cmp4 = icmp ugt i64 %add, %retval.0.i
-  %3 = lshr i64 %2, 56
+  %3 = lshr i64 %.fr, 56
   %4 = trunc nuw i64 %3 to i8
   br i1 %cmp4, label %if.then.i, label %if.end
 
@@ -15856,6 +15861,7 @@ if.then21.i.i:                                    ; preds = %if.then19.i.i
   store i16 0, ptr %add.ptr.i41.i.i, align 2
   %.pre = load i8, ptr %mnRemainingSize.i.i, align 1
   %.pre23 = load i64, ptr %mnSize.i.i, align 8
+  %.pre.fr = freeze i8 %.pre
   br label %if.end
 
 if.end.thread:                                    ; preds = %if.then19.i.i
@@ -15887,12 +15893,11 @@ if.end.thread31:                                  ; preds = %if.then17.i.i
 
 if.end:                                           ; preds = %if.then21.i.i, %lor.lhs.false.i.i, %if.then
   %9 = phi i64 [ %.pre23, %if.then21.i.i ], [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ]
-  %10 = phi i8 [ %.pre, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
-  %.fr = freeze i8 %10
-  %tobool.i.i13 = icmp slt i8 %.fr, 0
+  %10 = phi i8 [ %.pre.fr, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
+  %tobool.i.i13 = icmp slt i8 %10, 0
   %11 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i16, ptr %11, i64 %9
-  %conv.i.i.i15 = zext nneg i8 %.fr to i64
+  %conv.i.i.i15 = zext nneg i8 %10 to i64
   %sub.i.i.i16 = sub nsw i64 11, %conv.i.i.i15
   %add.ptr.i1.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i16
   %spec.select = select i1 %tobool.i.i13, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
@@ -17353,11 +17358,12 @@ if.then:                                          ; preds = %entry
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %mnCapacity.i.i, align 8
-  %and.i.i = and i64 %2, 9223372036854775807
+  %.fr = freeze i64 %2
+  %and.i.i = and i64 %.fr, 9223372036854775807
   %retval.0.i = select i1 %tobool.i.i, i64 %and.i.i, i64 5
   %add = add i64 %cond.i, %n
   %cmp4 = icmp ugt i64 %add, %retval.0.i
-  %3 = lshr i64 %2, 56
+  %3 = lshr i64 %.fr, 56
   %4 = trunc nuw i64 %3 to i8
   br i1 %cmp4, label %if.then.i, label %if.end
 
@@ -17397,6 +17403,7 @@ if.then21.i.i:                                    ; preds = %if.then19.i.i
   store i32 0, ptr %add.ptr.i41.i.i, align 4
   %.pre = load i8, ptr %mnRemainingSize.i.i, align 1
   %.pre23 = load i64, ptr %mnSize.i.i, align 8
+  %.pre.fr = freeze i8 %.pre
   br label %if.end
 
 if.end.thread:                                    ; preds = %if.then19.i.i
@@ -17428,12 +17435,11 @@ if.end.thread31:                                  ; preds = %if.then17.i.i
 
 if.end:                                           ; preds = %if.then21.i.i, %lor.lhs.false.i.i, %if.then
   %9 = phi i64 [ %.pre23, %if.then21.i.i ], [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ]
-  %10 = phi i8 [ %.pre, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
-  %.fr = freeze i8 %10
-  %tobool.i.i13 = icmp slt i8 %.fr, 0
+  %10 = phi i8 [ %.pre.fr, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
+  %tobool.i.i13 = icmp slt i8 %10, 0
   %11 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i32, ptr %11, i64 %9
-  %conv.i.i.i15 = zext nneg i8 %.fr to i64
+  %conv.i.i.i15 = zext nneg i8 %10 to i64
   %sub.i.i.i16 = sub nsw i64 5, %conv.i.i.i15
   %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i16
   %spec.select = select i1 %tobool.i.i13, ptr %add.ptr.i.i, ptr %add.ptr.i1.i

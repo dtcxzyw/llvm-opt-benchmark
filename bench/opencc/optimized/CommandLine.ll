@@ -13958,7 +13958,8 @@ define linkonce_odr dso_local void @_ZNK5TCLAP9StdOutput10spacePrintERSoRKNSt7__
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !24
-  %11 = trunc i64 %10 to i32
+  %.fr = freeze i64 %10
+  %11 = trunc i64 %.fr to i32
   %12 = add nsw i32 %4, %11
   %13 = icmp sgt i32 %12, %3
   %14 = icmp sgt i32 %3, 0
@@ -13974,10 +13975,10 @@ define linkonce_odr dso_local void @_ZNK5TCLAP9StdOutput10spacePrintERSoRKNSt7__
   br i1 %17, label %.lr.ph129, label %.loopexit101
 
 .lr.ph129:                                        ; preds = %16
-  %18 = sub nsw i32 %3, %4
+  %18 = sub i32 %3, %4
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %21 = and i64 %10, 2147483647
+  %21 = and i64 %.fr, 2147483647
   br label %24
 
 .loopexit:                                        ; preds = %96
@@ -13989,7 +13990,8 @@ define linkonce_odr dso_local void @_ZNK5TCLAP9StdOutput10spacePrintERSoRKNSt7__
   %.062127 = phi i32 [ %4, %.lr.ph129 ], [ %.1, %.loopexit ]
   %.063124 = phi i32 [ 0, %.lr.ph129 ], [ %22, %.loopexit ]
   %.096123 = phi i32 [ %18, %.lr.ph129 ], [ %.197, %.loopexit ]
-  %25 = sub nsw i32 %11, %.063124
+  %.063124.fr = freeze i32 %.063124
+  %25 = sub i32 %11, %.063124.fr
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %.096123, i32 %25)
   %26 = icmp sle i32 %.096123, %25
   %27 = icmp sgt i32 %.sroa.speculated, -1
@@ -13999,7 +14001,7 @@ define linkonce_odr dso_local void @_ZNK5TCLAP9StdOutput10spacePrintERSoRKNSt7__
 .preheader100:                                    ; preds = %24
   %28 = load ptr, ptr %2, align 8, !tbaa !25
   %29 = sext i32 %.096123 to i64
-  %30 = sext i32 %.063124 to i64
+  %30 = sext i32 %.063124.fr to i64
   %invariant.gep = getelementptr i8, ptr %28, i64 %30
   br label %31
 
@@ -14019,14 +14021,13 @@ define linkonce_odr dso_local void @_ZNK5TCLAP9StdOutput10spacePrintERSoRKNSt7__
   br i1 %.old2, label %31, label %.critedge.thread
 
 .critedge.loopexit:                               ; preds = %31, %31, %31
-  %34 = trunc nuw nsw i64 %indvars.iv to i32
+  %34 = trunc i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %24
   %.067 = phi i32 [ %.sroa.speculated, %24 ], [ %34, %.critedge.loopexit ]
-  %.067.fr = freeze i32 %.067
-  %35 = icmp slt i32 %.067.fr, 1
-  %spec.select = select i1 %35, i32 %.096123, i32 %.067.fr
+  %35 = icmp slt i32 %.067, 1
+  %spec.select = select i1 %35, i32 %.096123, i32 %.067
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %33, %.critedge
@@ -14036,7 +14037,7 @@ define linkonce_odr dso_local void @_ZNK5TCLAP9StdOutput10spacePrintERSoRKNSt7__
 
 .lr.ph119:                                        ; preds = %.critedge.thread
   %38 = load ptr, ptr %2, align 8, !tbaa !25
-  %39 = sext i32 %.063124 to i64
+  %39 = sext i32 %.063124.fr to i64
   %invariant.gep171 = getelementptr i8, ptr %38, i64 %39
   br label %41
 
@@ -14059,12 +14060,12 @@ define linkonce_odr dso_local void @_ZNK5TCLAP9StdOutput10spacePrintERSoRKNSt7__
   br i1 %46, label %41, label %.preheader, !llvm.loop !285
 
 ._crit_edge122:                                   ; preds = %.lr.ph121, %.preheader
-  %47 = icmp eq i32 %.063124, 0
+  %47 = icmp eq i32 %.063124.fr, 0
   %48 = select i1 %47, i32 %5, i32 0
-  %.197 = sub nsw i32 %.096123, %48
+  %.197 = sub i32 %.096123, %48
   %.1 = add nsw i32 %48, %.062127
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %49 = sext i32 %.063124 to i64
+  %49 = sext i32 %.063124.fr to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !286)
   %50 = load i64, ptr %9, align 8, !tbaa !24, !noalias !286
   %51 = icmp ult i64 %50, %49
@@ -14234,7 +14235,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %103
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader103
-  %108 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %10, %.preheader103 ]
+  %108 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %.fr, %.preheader103 ]
   %109 = load ptr, ptr %2, align 8, !tbaa !25
   %110 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %109, i64 noundef %108)
   %111 = load ptr, ptr %110, align 8, !tbaa !22

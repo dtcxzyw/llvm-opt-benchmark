@@ -3678,20 +3678,24 @@ define dso_local void @sunionDiffGenericCommand(ptr noundef %0, ptr noundef read
   %57 = load i64, ptr %56, align 8, !tbaa !50
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %59 = load i64, ptr %58, align 8, !tbaa !50
-  %60 = add i64 %59, %57
+  %.fr = freeze i64 %59
+  %.fr363 = freeze i64 %57
+  %60 = add i64 %.fr, %.fr363
   br label %setTypeSize.exit
 
 61:                                               ; preds = %48
   %62 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !38
   %64 = tail call i32 @intsetLen(ptr noundef %63) #10
-  %65 = zext i32 %64 to i64
+  %.fr364 = freeze i32 %64
+  %65 = zext i32 %.fr364 to i64
   br label %setTypeSize.exit
 
 66:                                               ; preds = %48
   %67 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !38
   %69 = tail call i64 @lpLength(ptr noundef %68) #10
+  %.fr365 = freeze i64 %69
   br label %setTypeSize.exit
 
 70:                                               ; preds = %48
@@ -3700,9 +3704,8 @@ define dso_local void @sunionDiffGenericCommand(ptr noundef %0, ptr noundef read
   unreachable
 
 setTypeSize.exit:                                 ; preds = %53, %61, %66
-  %.0.i = phi i64 [ %60, %53 ], [ %65, %61 ], [ %69, %66 ]
-  %.0.i.fr = freeze i64 %.0.i
-  %71 = add i64 %.0.i.fr, %.0143230
+  %.0.i = phi i64 [ %60, %53 ], [ %65, %61 ], [ %.fr365, %66 ]
+  %71 = add i64 %.0.i, %.0143230
   %72 = load ptr, ptr %45, align 8, !tbaa !73
   %73 = load i32, ptr %72, align 8
   %74 = lshr i32 %73, 4
@@ -3720,20 +3723,24 @@ setTypeSize.exit:                                 ; preds = %53, %61, %66
   %80 = load i64, ptr %79, align 8, !tbaa !50
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %82 = load i64, ptr %81, align 8, !tbaa !50
-  %83 = add i64 %82, %80
+  %.fr367 = freeze i64 %82
+  %.fr368 = freeze i64 %80
+  %83 = add i64 %.fr367, %.fr368
   br label %setTypeSize.exit190
 
 84:                                               ; preds = %setTypeSize.exit
   %85 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !38
   %87 = tail call i32 @intsetLen(ptr noundef %86) #10
-  %88 = zext i32 %87 to i64
+  %.fr369 = freeze i32 %87
+  %88 = zext i32 %.fr369 to i64
   br label %setTypeSize.exit190
 
 89:                                               ; preds = %setTypeSize.exit
   %90 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !38
   %92 = tail call i64 @lpLength(ptr noundef %91) #10
+  %.fr370 = freeze i64 %92
   br label %setTypeSize.exit190
 
 93:                                               ; preds = %setTypeSize.exit
@@ -3742,9 +3749,8 @@ setTypeSize.exit:                                 ; preds = %53, %61, %66
   unreachable
 
 setTypeSize.exit190:                              ; preds = %76, %84, %89
-  %.0.i189 = phi i64 [ %83, %76 ], [ %88, %84 ], [ %92, %89 ]
-  %.0.i189.fr = freeze i64 %.0.i189
-  %94 = add i64 %.0.i189.fr, %.0231
+  %.0.i189 = phi i64 [ %83, %76 ], [ %88, %84 ], [ %.fr370, %89 ]
+  %94 = add i64 %.0.i189, %.0231
   br label %95
 
 95:                                               ; preds = %.lr.ph232, %setTypeSize.exit190

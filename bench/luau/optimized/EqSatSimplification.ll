@@ -37472,6 +37472,7 @@ _ZN4Luau5EqSat7NodeSetINS_19EqSatSimplification12IntersectionESt6vectorINS0_2IdE
   %552 = load ptr, ptr %430, align 8, !tbaa !60
   %553 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 40
   %554 = load i64, ptr %553, align 8, !tbaa !63
+  %.fr = freeze i64 %554
   %555 = load i64, ptr %84, align 8, !tbaa !52
   %556 = icmp eq i64 %555, 0
   br i1 %556, label %.loopexit668, label %557
@@ -37479,29 +37480,29 @@ _ZN4Luau5EqSat7NodeSetINS_19EqSatSimplification12IntersectionESt6vectorINS0_2IdE
 557:                                              ; preds = %_ZN4Luau5EqSat7NodeSetINS_19EqSatSimplification12IntersectionESt6vectorINS0_2IdESaIS5_EEED2Ev.exit
   %.sroa.0.0.copyload.i.i350 = load i64, ptr %85, align 8, !tbaa !45
   %.sroa.2.0.copyload.i.i352 = load ptr, ptr %.sroa.2.0..sroa_idx.i.i351, align 8, !tbaa !46
-  %558 = icmp eq i64 %554, %.sroa.0.0.copyload.i.i350
+  %558 = icmp eq i64 %.fr, %.sroa.0.0.copyload.i.i350
   br i1 %558, label %559, label %562
 
 559:                                              ; preds = %557
-  %560 = icmp eq i64 %554, 0
+  %560 = icmp eq i64 %.fr, 0
   br i1 %560, label %.loopexit668, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i372
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i372: ; preds = %559
-  %bcmp.i.i.i373 = call i32 @bcmp(ptr %552, ptr %.sroa.2.0.copyload.i.i352, i64 %554)
+  %bcmp.i.i.i373 = call i32 @bcmp(ptr %552, ptr %.sroa.2.0.copyload.i.i352, i64 %.fr)
   %561 = icmp eq i32 %bcmp.i.i.i373, 0
   br i1 %561, label %.loopexit668, label %562
 
 562:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i372, %557
   %563 = load i64, ptr %86, align 8, !tbaa !57
   %564 = add i64 %563, -1
-  %565 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %552, i64 noundef %554, i64 noundef 3339675911)
+  %565 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %552, i64 noundef %.fr, i64 noundef 3339675911)
           to label %_ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.preheader.i353 unwind label %569
 
 _ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.preheader.i353: ; preds = %562
   %566 = load ptr, ptr %83, align 8, !tbaa !857
   %.sroa.0.0.copyload.i37.i356 = load i64, ptr %85, align 8
   %.sroa.2.0.copyload.i39.i357 = load ptr, ptr %.sroa.2.0..sroa_idx.i.i351, align 8
-  %567 = icmp eq i64 %554, 0
+  %567 = icmp eq i64 %.fr, 0
   %568 = icmp eq i64 %.sroa.0.0.copyload.i37.i356, 0
   br label %572
 
@@ -37520,14 +37521,14 @@ _ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.preheader.i
   %.sroa.01.0.copyload.i24.i361 = load i64, ptr %573, align 8, !tbaa !45
   %.sroa.22.0..sroa_idx.i25.i362 = getelementptr inbounds nuw i8, ptr %573, i64 8
   %.sroa.22.0.copyload.i26.i363 = load ptr, ptr %.sroa.22.0..sroa_idx.i25.i362, align 8, !tbaa !46
-  %574 = icmp eq i64 %.sroa.01.0.copyload.i24.i361, %554
+  %574 = icmp eq i64 %.sroa.01.0.copyload.i24.i361, %.fr
   br i1 %574, label %575, label %577
 
 575:                                              ; preds = %572
   br i1 %567, label %.noexc155, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i30.i370
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i30.i370: ; preds = %575
-  %bcmp.i.i31.i371 = call i32 @bcmp(ptr %.sroa.22.0.copyload.i26.i363, ptr %552, i64 %554)
+  %bcmp.i.i31.i371 = call i32 @bcmp(ptr %.sroa.22.0.copyload.i26.i363, ptr %552, i64 %.fr)
   %576 = icmp eq i32 %bcmp.i.i31.i371, 0
   br i1 %576, label %.noexc155, label %577
 
@@ -37555,11 +37556,11 @@ _ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.i364: ; pre
   br label %_ZN4Luau19EqSatSimplification11StringCache3addESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 .loopexit668:                                     ; preds = %579, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i40.i368, %_ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.i364, %_ZN4Luau5EqSat7NodeSetINS_19EqSatSimplification12IntersectionESt6vectorINS0_2IdESaIS5_EEED2Ev.exit, %559, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i372
-  %585 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(88) %78, i64 noundef %554)
+  %585 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(88) %78, i64 noundef %.fr)
           to label %.noexc156 unwind label %.loopexit677
 
 .noexc156:                                        ; preds = %.loopexit668
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %585, ptr align 1 %552, i64 %554, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %585, ptr align 1 %552, i64 %.fr, i1 false)
   %586 = load ptr, ptr %88, align 8, !tbaa !39
   %587 = load ptr, ptr %87, align 8, !tbaa !42
   %588 = ptrtoint ptr %586 to i64
@@ -37572,7 +37573,7 @@ _ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.i364: ; pre
   br i1 %.not.i8.i151, label %597, label %594
 
 594:                                              ; preds = %.noexc156
-  store i64 %554, ptr %586, align 8, !tbaa !34
+  store i64 %.fr, ptr %586, align 8, !tbaa !34
   %595 = getelementptr inbounds nuw i8, ptr %586, i64 8
   store ptr %585, ptr %595, align 8, !tbaa !38
   %596 = getelementptr inbounds nuw i8, ptr %586, i64 16
@@ -37604,7 +37605,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
 
 .noexc158:                                        ; preds = %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %606 = getelementptr inbounds nuw i8, ptr %605, i64 %590
-  store i64 %554, ptr %606, align 8, !tbaa !34
+  store i64 %.fr, ptr %606, align 8, !tbaa !34
   %607 = getelementptr inbounds nuw i8, ptr %606, i64 8
   store ptr %585, ptr %607, align 8, !tbaa !38
   %.not10.i.i.i.i.i.i = icmp eq ptr %587, %586
@@ -37647,33 +37648,35 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJR
 617:                                              ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJRPcmEEERS3_DpOT_.exit.i
   %618 = icmp eq i64 %613, 0
   %.sroa.15.24.copyload.pre = load i64, ptr %85, align 8, !tbaa !45
+  %.sroa.15.24.copyload.pre.fr = freeze i64 %.sroa.15.24.copyload.pre
   %.sroa.17612.24.copyload.pre = load ptr, ptr %.sroa.2.0..sroa_idx.i.i351, align 8, !tbaa !46
   br i1 %618, label %.loopexit667, label %619
 
 619:                                              ; preds = %617
-  %620 = icmp eq i64 %554, %.sroa.15.24.copyload.pre
+  %620 = icmp eq i64 %.fr, %.sroa.15.24.copyload.pre.fr
   br i1 %620, label %621, label %624
 
 621:                                              ; preds = %619
-  %622 = icmp eq i64 %554, 0
+  %622 = icmp eq i64 %.fr, 0
   br i1 %622, label %.loopexit667, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i345
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i345: ; preds = %621
-  %bcmp.i.i.i346 = call i32 @bcmp(ptr %552, ptr %.sroa.17612.24.copyload.pre, i64 %554)
+  %bcmp.i.i.i346 = call i32 @bcmp(ptr %552, ptr %.sroa.17612.24.copyload.pre, i64 %.fr)
   %623 = icmp eq i32 %bcmp.i.i.i346, 0
   br i1 %623, label %.loopexit667, label %624
 
 624:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i345, %619
   %625 = add i64 %614, -1
-  %626 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %552, i64 noundef %554, i64 noundef 3339675911)
+  %626 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %552, i64 noundef %.fr, i64 noundef 3339675911)
           to label %_ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.preheader.i340 unwind label %630
 
 _ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.preheader.i340: ; preds = %624
   %627 = load ptr, ptr %83, align 8, !tbaa !857
   %.sroa.0.0.copyload.i37.i = load i64, ptr %85, align 8
+  %.sroa.0.0.copyload.i37.i.fr = freeze i64 %.sroa.0.0.copyload.i37.i
   %.sroa.2.0.copyload.i39.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i351, align 8
-  %628 = icmp eq i64 %554, 0
-  %629 = icmp eq i64 %.sroa.0.0.copyload.i37.i, 0
+  %628 = icmp eq i64 %.fr, 0
+  %629 = icmp eq i64 %.sroa.0.0.copyload.i37.i.fr, 0
   br label %633
 
 630:                                              ; preds = %624
@@ -37691,26 +37694,26 @@ _ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.preheader.i
   %.sroa.01.0.copyload.i24.i = load i64, ptr %634, align 8, !tbaa !45
   %.sroa.22.0..sroa_idx.i25.i = getelementptr inbounds nuw i8, ptr %634, i64 8
   %.sroa.22.0.copyload.i26.i = load ptr, ptr %.sroa.22.0..sroa_idx.i25.i, align 8, !tbaa !46
-  %635 = icmp eq i64 %.sroa.01.0.copyload.i24.i, %554
+  %635 = icmp eq i64 %.sroa.01.0.copyload.i24.i, %.fr
   br i1 %635, label %636, label %638
 
 636:                                              ; preds = %633
   br i1 %628, label %_ZN4Luau12DenseHashMapISt17basic_string_viewIcSt11char_traitsIcEEjSt4hashIS4_ESt8equal_toIS4_EEixERKS4_.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i30.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i30.i: ; preds = %636
-  %bcmp.i.i31.i = call i32 @bcmp(ptr %.sroa.22.0.copyload.i26.i, ptr %552, i64 %554)
+  %bcmp.i.i31.i = call i32 @bcmp(ptr %.sroa.22.0.copyload.i26.i, ptr %552, i64 %.fr)
   %637 = icmp eq i32 %bcmp.i.i31.i, 0
   br i1 %637, label %_ZN4Luau12DenseHashMapISt17basic_string_viewIcSt11char_traitsIcEEjSt4hashIS4_ESt8equal_toIS4_EEixERKS4_.exit.i, label %638
 
 638:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i30.i, %633
-  %639 = icmp eq i64 %.sroa.01.0.copyload.i24.i, %.sroa.0.0.copyload.i37.i
+  %639 = icmp eq i64 %.sroa.01.0.copyload.i24.i, %.sroa.0.0.copyload.i37.i.fr
   br i1 %639, label %640, label %_ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.i342
 
 640:                                              ; preds = %638
   br i1 %629, label %.loopexit667.loopexit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i40.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i40.i: ; preds = %640
-  %bcmp.i.i41.i = call i32 @bcmp(ptr %.sroa.22.0.copyload.i26.i, ptr %.sroa.2.0.copyload.i39.i, i64 %.sroa.0.0.copyload.i37.i)
+  %bcmp.i.i41.i = call i32 @bcmp(ptr %.sroa.22.0.copyload.i26.i, ptr %.sroa.2.0.copyload.i39.i, i64 %.sroa.0.0.copyload.i37.i.fr)
   %641 = icmp eq i32 %bcmp.i.i41.i, 0
   br i1 %641, label %.loopexit667.loopexit, label %_ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.i342
 
@@ -37726,12 +37729,11 @@ _ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.i342: ; pre
 
 .loopexit667:                                     ; preds = %.loopexit667.loopexit, %617, %621, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i345
   %.sroa.17612.24.copyload = phi ptr [ %.sroa.2.0.copyload.i39.i, %.loopexit667.loopexit ], [ %.sroa.17612.24.copyload.pre, %617 ], [ %.sroa.17612.24.copyload.pre, %621 ], [ %.sroa.17612.24.copyload.pre, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i345 ]
-  %.sroa.15.24.copyload = phi i64 [ %.sroa.0.0.copyload.i37.i, %.loopexit667.loopexit ], [ %.sroa.15.24.copyload.pre, %617 ], [ 0, %621 ], [ %554, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i345 ]
+  %.sroa.15.24.copyload = phi i64 [ %.sroa.0.0.copyload.i37.i.fr, %.loopexit667.loopexit ], [ %.sroa.15.24.copyload.pre.fr, %617 ], [ 0, %621 ], [ %.fr, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i345 ]
   %644 = phi i64 [ %.pre, %.loopexit667.loopexit ], [ %614, %617 ], [ %614, %621 ], [ %614, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i345 ]
   %645 = icmp eq i64 %644, 0
   %646 = shl i64 %644, 1
   %spec.select.i317 = select i1 %645, i64 16, i64 %646
-  %.sroa.15.24.copyload.fr = freeze i64 %.sroa.15.24.copyload
   %.not.i.i318 = icmp eq i64 %spec.select.i317, 0
   br i1 %.not.i.i318, label %_ZN4Luau6detail14DenseHashTableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIS5_jES6_IKS5_jENS0_16ItemInterfaceMapIS5_jEESt4hashIS5_ESt8equal_toIS5_EEC2ERS8_m.exit.i, label %647
 
@@ -37762,7 +37764,7 @@ _ZN4Luau6detail14DenseHashTableISt17basic_string_viewIcSt11char_traitsIcEESt4pai
 
 .lr.ph.i321:                                      ; preds = %_ZN4Luau6detail14DenseHashTableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIS5_jES6_IKS5_jENS0_16ItemInterfaceMapIS5_jEESt4hashIS5_ESt8equal_toIS5_EEC2ERS8_m.exit.i
   %654 = add i64 %spec.select.i317, -1
-  %655 = icmp eq i64 %.sroa.15.24.copyload.fr, 0
+  %655 = icmp eq i64 %.sroa.15.24.copyload, 0
   br label %658
 
 ._crit_edge.i:                                    ; preds = %_ZNKSt8equal_toISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i328, %_ZN4Luau6detail14DenseHashTableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIS5_jES6_IKS5_jENS0_16ItemInterfaceMapIS5_jEESt4hashIS5_ESt8equal_toIS5_EEC2ERS8_m.exit.i
@@ -37867,13 +37869,13 @@ _ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.preheader.i
   %.02343.i454.us1014 = and i64 %.pn.i452.us1012, %654
   %682 = getelementptr inbounds nuw %"struct.std::pair.505", ptr %.sroa.0608.11, i64 %.02343.i454.us1014
   %.sroa.01.0.copyload.i.i455.us1015 = load i64, ptr %682, align 8, !tbaa !45
-  %683 = icmp eq i64 %.sroa.01.0.copyload.i.i455.us1015, %.sroa.15.24.copyload.fr
+  %683 = icmp eq i64 %.sroa.01.0.copyload.i.i455.us1015, %.sroa.15.24.copyload
   br i1 %683, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i463.us, label %685
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i463.us: ; preds = %_ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.preheader.i446.split.split.us
   %.sroa.22.0..sroa_idx.i.i456.us1016 = getelementptr inbounds nuw i8, ptr %682, i64 8
   %.sroa.22.0.copyload.i.i457.us1017 = load ptr, ptr %.sroa.22.0..sroa_idx.i.i456.us1016, align 8, !tbaa !46
-  %bcmp.i.i.i464.us = call i32 @bcmp(ptr %.sroa.22.0.copyload.i.i457.us1017, ptr %.sroa.17612.24.copyload, i64 %.sroa.15.24.copyload.fr)
+  %bcmp.i.i.i464.us = call i32 @bcmp(ptr %.sroa.22.0.copyload.i.i457.us1017, ptr %.sroa.17612.24.copyload, i64 %.sroa.15.24.copyload)
   %684 = icmp eq i32 %bcmp.i.i.i464.us, 0
   br i1 %684, label %_ZNKSt8equal_toISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i465, label %685
 
@@ -37903,11 +37905,11 @@ _ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.preheader.i
   %.sroa.01.0.copyload.i.i455 = load i64, ptr %692, align 8, !tbaa !45
   %.sroa.22.0..sroa_idx.i.i456 = getelementptr inbounds nuw i8, ptr %692, i64 8
   %.sroa.22.0.copyload.i.i457 = load ptr, ptr %.sroa.22.0..sroa_idx.i.i456, align 8, !tbaa !46
-  %693 = icmp eq i64 %.sroa.01.0.copyload.i.i455, %.sroa.15.24.copyload.fr
+  %693 = icmp eq i64 %.sroa.01.0.copyload.i.i455, %.sroa.15.24.copyload
   br i1 %693, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i463, label %695
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i463: ; preds = %_ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.preheader.i446.split.split
-  %bcmp.i.i.i464 = call i32 @bcmp(ptr %.sroa.22.0.copyload.i.i457, ptr %.sroa.17612.24.copyload, i64 %.sroa.15.24.copyload.fr)
+  %bcmp.i.i.i464 = call i32 @bcmp(ptr %.sroa.22.0.copyload.i.i457, ptr %.sroa.17612.24.copyload, i64 %.sroa.15.24.copyload)
   %694 = icmp eq i32 %bcmp.i.i.i464, 0
   br i1 %694, label %_ZNKSt8equal_toISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i465, label %695
 
@@ -37953,7 +37955,7 @@ _ZNKSt8equal_toISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i328
 _ZN4Luau12DenseHashMapISt17basic_string_viewIcSt11char_traitsIcEEjSt4hashIS4_ESt8equal_toIS4_EEixERKS4_.exit.i: ; preds = %636, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i30.i, %._crit_edge.i, %657, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJRPcmEEERS3_DpOT_.exit.i
   %709 = load i64, ptr %86, align 8, !tbaa !57
   %710 = add i64 %709, -1
-  %711 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %552, i64 noundef %554, i64 noundef 3339675911)
+  %711 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %552, i64 noundef %.fr, i64 noundef 3339675911)
           to label %_ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.preheader.i unwind label %715
 
 _ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.preheader.i: ; preds = %_ZN4Luau12DenseHashMapISt17basic_string_viewIcSt11char_traitsIcEEjSt4hashIS4_ESt8equal_toIS4_EEixERKS4_.exit.i
@@ -37961,7 +37963,7 @@ _ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.preheader.i
   %.sroa.0.0.copyload.i.i314 = load i64, ptr %85, align 8, !tbaa !45
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i351, align 8, !tbaa !46
   %713 = icmp eq i64 %.sroa.0.0.copyload.i.i314, 0
-  %714 = icmp eq i64 %554, 0
+  %714 = icmp eq i64 %.fr, 0
   br label %718
 
 715:                                              ; preds = %_ZN4Luau12DenseHashMapISt17basic_string_viewIcSt11char_traitsIcEEjSt4hashIS4_ESt8equal_toIS4_EEixERKS4_.exit.i
@@ -37992,7 +37994,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %721
 
 _ZNKSt8equal_toISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %721
   %.sroa.22.0..sroa_idx.i.i.le = getelementptr inbounds nuw i8, ptr %719, i64 8
-  store i64 %554, ptr %719, align 8, !tbaa !45
+  store i64 %.fr, ptr %719, align 8, !tbaa !45
   store ptr %552, ptr %.sroa.22.0..sroa_idx.i.i.le, align 8, !tbaa !46
   %723 = load i64, ptr %84, align 8, !tbaa !52
   %724 = add i64 %723, 1
@@ -38000,14 +38002,14 @@ _ZNKSt8equal_toISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i: ;
   br label %.noexc161
 
 725:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %718
-  %726 = icmp eq i64 %.sroa.01.0.copyload.i.i, %554
+  %726 = icmp eq i64 %.sroa.01.0.copyload.i.i, %.fr
   br i1 %726, label %727, label %_ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.i
 
 727:                                              ; preds = %725
   br i1 %714, label %.noexc161, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i32.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i32.i: ; preds = %727
-  %bcmp.i.i33.i = call i32 @bcmp(ptr %.sroa.22.0.copyload.i.i, ptr %552, i64 %554)
+  %bcmp.i.i33.i = call i32 @bcmp(ptr %.sroa.22.0.copyload.i.i, ptr %552, i64 %.fr)
   %728 = icmp eq i32 %bcmp.i.i33.i, 0
   br i1 %728, label %.noexc161, label %_ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.i
 

@@ -493,7 +493,8 @@ declare noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef n
 define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
-  %5 = and i32 %4, 2048
+  %.fr157 = freeze i32 %4
+  %5 = and i32 %.fr157, 2048
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
@@ -501,10 +502,11 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i32 0, ptr %7, align 8
   %.pre = load i32, ptr %3, align 8
+  %.pre.fr = freeze i32 %.pre
   br label %8
 
 8:                                                ; preds = %6, %2
-  %9 = phi i32 [ %.pre, %6 ], [ %4, %2 ]
+  %9 = phi i32 [ %.pre.fr, %6 ], [ %.fr157, %2 ]
   %10 = and i32 %9, 2
   %.not69 = icmp eq i32 %10, 0
   br i1 %.not69, label %15, label %11
@@ -519,10 +521,11 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
   tail call void @_ZdaPv(ptr noundef nonnull %13) #14
   store ptr null, ptr %12, align 8
   %.pre139 = load i32, ptr %3, align 8
+  %.pre139.fr = freeze i32 %.pre139
   br label %15
 
 15:                                               ; preds = %14, %11, %8
-  %16 = phi i32 [ %.pre139, %14 ], [ %9, %11 ], [ %9, %8 ]
+  %16 = phi i32 [ %.pre139.fr, %14 ], [ %9, %11 ], [ %9, %8 ]
   %.062 = phi i1 [ true, %14 ], [ false, %11 ], [ false, %8 ]
   %17 = and i32 %16, 4
   %.not71 = icmp eq i32 %17, 0
@@ -549,13 +552,13 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
 26:                                               ; preds = %25, %21
   store ptr null, ptr %22, align 8
   %.pre140 = load i32, ptr %3, align 8
+  %.pre140.fr = freeze i32 %.pre140
   br label %27
 
 27:                                               ; preds = %26, %18, %15
-  %28 = phi i32 [ %.pre140, %26 ], [ %16, %18 ], [ %16, %15 ]
+  %28 = phi i32 [ %.pre140.fr, %26 ], [ %16, %18 ], [ %16, %15 ]
   %.163 = phi i1 [ true, %26 ], [ %.062, %18 ], [ %.062, %15 ]
-  %.fr112 = freeze i32 %28
-  %29 = and i32 %.fr112, 16
+  %29 = and i32 %28, 16
   %.not113 = icmp eq i32 %29, 0
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 168

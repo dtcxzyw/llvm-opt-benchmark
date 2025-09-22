@@ -40925,8 +40925,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFunEnum(ptr noundef captures(non
   %.not101 = icmp eq i32 %.074, 0
   %75 = select i1 %.not101, ptr @.str.551, ptr @.str.550
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2676, ptr noundef nonnull %75)
-  %.072195.fr = freeze i32 %.072195
-  %.not102 = icmp eq i32 %.072195.fr, 0
+  %.not102 = icmp eq i32 %.072195, 0
   %spec.select = select i1 %.not102, ptr @.str.551, ptr @.str.550
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2677, ptr noundef nonnull %spec.select)
   %.not103 = icmp eq i32 %.070189, 0

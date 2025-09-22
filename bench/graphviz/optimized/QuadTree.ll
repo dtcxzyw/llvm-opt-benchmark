@@ -1673,17 +1673,18 @@ define internal fastcc void @QuadTree_print_internal(ptr noundef nonnull capture
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !3
+  %.fr = freeze i32 %6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load double, ptr %9, align 8, !tbaa !28
-  %11 = add i32 %6, -4
+  %11 = add i32 %.fr, -4
   %or.cond.i = icmp ult i32 %11, -2
   br i1 %or.cond.i, label %draw_polygon.exit, label %12
 
 12:                                               ; preds = %4
   %13 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 15, i64 1, ptr nonnull %0)
-  %14 = icmp eq i32 %6, 2
+  %14 = icmp eq i32 %.fr, 2
   br i1 %14, label %15, label %42
 
 15:                                               ; preds = %12
@@ -1861,11 +1862,11 @@ define internal fastcc void @QuadTree_print_internal(ptr noundef nonnull capture
 176:                                              ; preds = %42, %15
   %177 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 12, i64 1, ptr nonnull %0)
   %.pre = load i32, ptr %5, align 8, !tbaa !3
+  %.pre.fr = freeze i32 %.pre
   br label %draw_polygon.exit
 
 draw_polygon.exit:                                ; preds = %4, %176
-  %178 = phi i32 [ %6, %4 ], [ %.pre, %176 ]
-  %.fr48 = freeze i32 %178
+  %178 = phi i32 [ %.fr, %4 ], [ %.pre.fr, %176 ]
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %180 = load ptr, ptr %179, align 8, !tbaa !37
   %.not36 = icmp eq ptr %180, null
@@ -1873,11 +1874,11 @@ draw_polygon.exit:                                ; preds = %4, %176
 
 181:                                              ; preds = %draw_polygon.exit
   %182 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6)
-  %183 = icmp sgt i32 %.fr48, 0
+  %183 = icmp sgt i32 %178, 0
   br i1 %183, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %181
-  %wide.trip.count = zext nneg i32 %.fr48 to i64
+  %wide.trip.count = zext nneg i32 %178 to i64
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %._crit_edge.us
@@ -1948,12 +1949,12 @@ draw_polygon.exit:                                ; preds = %4, %176
   %208 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %209 = load ptr, ptr %208, align 8, !tbaa !26
   %.not38 = icmp eq ptr %209, null
-  %.not49 = icmp eq i32 %.fr48, 31
+  %.not49 = icmp eq i32 %178, 31
   %or.cond = or i1 %.not38, %.not49
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %207
-  %210 = shl nuw nsw i32 1, %.fr48
+  %210 = shl nuw nsw i32 1, %178
   %211 = add nsw i32 %2, 1
   %wide.trip.count55 = zext nneg i32 %210 to i64
   br label %212

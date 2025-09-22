@@ -39174,6 +39174,7 @@ lean_obj_tag.exit:                                ; preds = %7, %10
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = load ptr, ptr %3, align 8, !tbaa !4
   %24 = load ptr, ptr %4, align 8, !tbaa !4
+  %.fr34 = freeze ptr %24
   %25 = ptrtoint ptr %20 to i64
   %26 = and i64 %25, 1
   %27 = icmp ne i64 %26, 0
@@ -39211,7 +39212,7 @@ lean_nat_eq.exit:                                 ; preds = %14
 lean_obj_tag.exit.i:                              ; preds = %40, %37
   %.0.i11.i = phi i32 [ %39, %37 ], [ %42, %40 ]
   %43 = icmp eq i32 %.0.i11.i, 0
-  %44 = ptrtoint ptr %24 to i64
+  %44 = ptrtoint ptr %.fr34 to i64
   %45 = and i64 %44, 1
   %.not.i12.i = icmp eq i64 %45, 0
   br i1 %43, label %46, label %54
@@ -39225,15 +39226,15 @@ lean_obj_tag.exit.i:                              ; preds = %40, %37
   br label %lean_obj_tag.exit15.i
 
 50:                                               ; preds = %46
-  %51 = getelementptr i8, ptr %24, i64 4
+  %51 = getelementptr i8, ptr %.fr34, i64 4
   %.val.i14.i = load i32, ptr %51, align 4
-  %52 = lshr i32 %.val.i14.i, 24
+  %.val.i14.i.fr = freeze i32 %.val.i14.i
+  %52 = lshr i32 %.val.i14.i.fr, 24
   br label %lean_obj_tag.exit15.i
 
 lean_obj_tag.exit15.i:                            ; preds = %50, %47
   %.0.i13.i = phi i32 [ %49, %47 ], [ %52, %50 ]
-  %.0.i13.i.fr = freeze i32 %.0.i13.i
-  %53 = icmp eq i32 %.0.i13.i.fr, 0
+  %53 = icmp eq i32 %.0.i13.i, 0
   br i1 %53, label %.critedge, label %.backedge.backedge
 
 54:                                               ; preds = %lean_obj_tag.exit.i
@@ -39245,7 +39246,7 @@ lean_obj_tag.exit15.i:                            ; preds = %50, %47
   br label %lean_obj_tag.exit19.i
 
 58:                                               ; preds = %54
-  %59 = getelementptr i8, ptr %24, i64 4
+  %59 = getelementptr i8, ptr %.fr34, i64 4
   %.val.i18.i = load i32, ptr %59, align 4
   %60 = lshr i32 %.val.i18.i, 24
   br label %lean_obj_tag.exit19.i
@@ -39259,7 +39260,7 @@ lean_obj_tag.exit19.i:                            ; preds = %58, %55
   %63 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !4
   %.fr = freeze ptr %64
-  %65 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.fr34, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !4
   %.fr33 = freeze ptr %66
   %67 = ptrtoint ptr %.fr to i64
