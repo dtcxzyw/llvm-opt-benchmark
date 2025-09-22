@@ -112,10 +112,10 @@ lv_tick_get.exit:                                 ; preds = %6
   br i1 %12, label %lv_tick_get.exit.split.us, label %lv_tick_get.exit.split
 
 lv_tick_get.exit.split.us:                        ; preds = %9, %lv_tick_get.exit
-  %.0.i21 = phi i32 [ %.fr10, %lv_tick_get.exit ], [ %.fr11, %9 ]
+  %.0.i.fr20 = phi i32 [ %.fr10, %lv_tick_get.exit ], [ %.fr11, %9 ]
   %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 328), align 8
   %.fr9 = freeze i32 %13
-  %.0.i7.us = sub i32 %.fr9, %.0.i21
+  %.0.i7.us = sub i32 %.fr9, %.0.i.fr20
   %14 = icmp ult i32 %.0.i7.us, %0
   br i1 %14, label %.preheader.i.i.us.us, label %.preheader.i.i.us
 
@@ -170,7 +170,7 @@ lv_tick_get.exit.split:                           ; preds = %lv_tick_get.exit, %
 
 23:                                               ; preds = %lv_tick_get.exit.split
   %24 = tail call i32 %21() #4
-  %.pre13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 336), align 8, !tbaa !10
+  %.pre11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 336), align 8, !tbaa !10
   br label %lv_tick_elaps.exit
 
 25:                                               ; preds = %25, %.preheader.i.i
@@ -180,7 +180,7 @@ lv_tick_get.exit.split:                           ; preds = %lv_tick_get.exit, %
   br i1 %.not7.i.i, label %25, label %lv_tick_elaps.exit, !llvm.loop !11
 
 lv_tick_elaps.exit:                               ; preds = %25, %23
-  %27 = phi ptr [ %.pre13, %23 ], [ null, %25 ]
+  %27 = phi ptr [ %.pre11, %23 ], [ null, %25 ]
   %.0.i.i = phi i32 [ %24, %23 ], [ %22, %25 ]
   %.0.i7 = sub i32 %.0.i.i, %.fr10
   %28 = icmp ult i32 %.0.i7, %0

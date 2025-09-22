@@ -12814,10 +12814,10 @@ define internal { i64, i32 } @LZ4MID_searchExtDict(ptr noundef %0, i32 noundef %
   br i1 %47, label %.lr.ph, label %._crit_edge, !prof !22
 
 .lr.ph:                                           ; preds = %46, %55
-  %.246.i80158 = phi ptr [ %56, %55 ], [ %.044.i77, %46 ]
-  %.251.i79157 = phi ptr [ %57, %55 ], [ %.049.i76, %46 ]
-  %.251.i79.val100 = load i64, ptr %.251.i79157, align 1, !tbaa !19
-  %.246.i80.val99 = load i64, ptr %.246.i80158, align 1, !tbaa !19
+  %.246.i80152 = phi ptr [ %56, %55 ], [ %.044.i77, %46 ]
+  %.251.i79151 = phi ptr [ %57, %55 ], [ %.049.i76, %46 ]
+  %.251.i79.val100 = load i64, ptr %.251.i79151, align 1, !tbaa !19
+  %.246.i80.val99 = load i64, ptr %.246.i80152, align 1, !tbaa !19
   %.not59.i89 = icmp eq i64 %.251.i79.val100, %.246.i80.val99
   br i1 %.not59.i89, label %55, label %.thread110
 
@@ -12825,15 +12825,15 @@ define internal { i64, i32 } @LZ4MID_searchExtDict(ptr noundef %0, i32 noundef %
   %48 = xor i64 %.246.i80.val99, %.251.i79.val100
   %49 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %48, i1 true)
   %50 = lshr i64 %49, 3
-  %51 = getelementptr inbounds nuw i8, ptr %.246.i80158, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %.246.i80152, i64 %50
   %52 = ptrtoint ptr %51 to i64
   %53 = sub i64 %52, %33
   %54 = trunc i64 %53 to i32
   br label %84
 
 55:                                               ; preds = %.lr.ph
-  %56 = getelementptr inbounds nuw i8, ptr %.246.i80158, i64 8
-  %57 = getelementptr inbounds nuw i8, ptr %.251.i79157, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.246.i80152, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.251.i79151, i64 8
   %58 = icmp ult ptr %56, %36
   br i1 %58, label %.lr.ph, label %._crit_edge, !prof !23
 
@@ -12948,17 +12948,17 @@ define internal { i64, i32 } @LZ4MID_searchExtDict(ptr noundef %0, i32 noundef %
   %.049.i = phi ptr [ %99, %95 ], [ %109, %.thread118 ]
   %.044.i = phi ptr [ %0, %95 ], [ %108, %.thread118 ]
   %116 = icmp ult ptr %.044.i, %105
-  br i1 %116, label %.lr.ph163, label %._crit_edge164, !prof !22
+  br i1 %116, label %.lr.ph157, label %._crit_edge158, !prof !22
 
-.lr.ph163:                                        ; preds = %115, %124
-  %.246.i161 = phi ptr [ %125, %124 ], [ %.044.i, %115 ]
-  %.251.i160 = phi ptr [ %126, %124 ], [ %.049.i, %115 ]
-  %.251.i.val104 = load i64, ptr %.251.i160, align 1, !tbaa !19
-  %.246.i.val103 = load i64, ptr %.246.i161, align 1, !tbaa !19
+.lr.ph157:                                        ; preds = %115, %124
+  %.246.i155 = phi ptr [ %125, %124 ], [ %.044.i, %115 ]
+  %.251.i154 = phi ptr [ %126, %124 ], [ %.049.i, %115 ]
+  %.251.i.val104 = load i64, ptr %.251.i154, align 1, !tbaa !19
+  %.246.i.val103 = load i64, ptr %.246.i155, align 1, !tbaa !19
   %.not59.i = icmp eq i64 %.251.i.val104, %.246.i.val103
   br i1 %.not59.i, label %124, label %.thread122
 
-.thread122:                                       ; preds = %.lr.ph163
+.thread122:                                       ; preds = %.lr.ph157
   %117 = xor i64 %.246.i.val103, %.251.i.val104
   %118 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %117, i1 true)
   %.fr146 = freeze i64 %118
@@ -12969,20 +12969,20 @@ define internal { i64, i32 } @LZ4MID_searchExtDict(ptr noundef %0, i32 noundef %
   %123 = trunc i64 %122 to i32
   br label %153
 
-124:                                              ; preds = %.lr.ph163
-  %125 = getelementptr i8, ptr %.246.i161, i64 8
-  %126 = getelementptr inbounds nuw i8, ptr %.251.i160, i64 8
+124:                                              ; preds = %.lr.ph157
+  %125 = getelementptr i8, ptr %.246.i155, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %.251.i154, i64 8
   %127 = icmp ult ptr %125, %105
-  br i1 %127, label %.lr.ph163, label %._crit_edge164, !prof !23
+  br i1 %127, label %.lr.ph157, label %._crit_edge158, !prof !23
 
-._crit_edge164:                                   ; preds = %124, %115
+._crit_edge158:                                   ; preds = %124, %115
   %.251.i.lcssa = phi ptr [ %.049.i, %115 ], [ %126, %124 ]
   %.246.i.lcssa = phi ptr [ %.044.i, %115 ], [ %125, %124 ]
   %128 = getelementptr inbounds i8, ptr %104, i64 -3
   %129 = icmp ult ptr %.246.i.lcssa, %128
   br i1 %129, label %130, label %135
 
-130:                                              ; preds = %._crit_edge164
+130:                                              ; preds = %._crit_edge158
   %.251.i.val = load i32, ptr %.251.i.lcssa, align 1, !tbaa !15
   %.246.i.val = load i32, ptr %.246.i.lcssa, align 1, !tbaa !15
   %131 = icmp eq i32 %.251.i.val, %.246.i.val
@@ -12993,7 +12993,7 @@ define internal { i64, i32 } @LZ4MID_searchExtDict(ptr noundef %0, i32 noundef %
   %134 = getelementptr inbounds nuw i8, ptr %.251.i.lcssa, i64 4
   br label %135
 
-135:                                              ; preds = %132, %130, %._crit_edge164
+135:                                              ; preds = %132, %130, %._crit_edge158
   %.453.i = phi ptr [ %134, %132 ], [ %.251.i.lcssa, %130 ], [ %.251.i.lcssa, %._crit_edge164 ]
   %.448.i = phi ptr [ %133, %132 ], [ %.246.i.lcssa, %130 ], [ %.246.i.lcssa, %._crit_edge164 ]
   %136 = getelementptr inbounds i8, ptr %104, i64 -1
@@ -13038,7 +13038,7 @@ define internal { i64, i32 } @LZ4MID_searchExtDict(ptr noundef %0, i32 noundef %
   %.2.i = phi i32 [ %152, %149 ], [ %114, %110 ], [ %123, %.thread122 ]
   %154 = icmp slt i32 %.2.i, 4
   %spec.select = select i1 %154, i32 0, i32 %.2.i
-  %spec.select147 = select i1 %154, i32 0, i32 %93
+  %spec.select = select i1 %154, i32 0, i32 %93
   br label %.thread136
 
 .thread136:                                       ; preds = %153, %.thread114, %84

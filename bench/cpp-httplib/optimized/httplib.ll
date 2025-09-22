@@ -58815,9 +58815,9 @@ _ZN7httplib39make_bearer_token_authentication_headerERKNSt7__cxx1112basic_string
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i598: ; preds = %_ZN7httplib39make_bearer_token_authentication_headerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit
   store ptr null, ptr %875, align 8, !tbaa !199
   %876 = getelementptr inbounds nuw i8, ptr %875, i64 8
-  %.ptr1035 = getelementptr inbounds nuw i8, ptr %875, i64 24
-  store ptr %.ptr1035, ptr %876, align 8, !tbaa !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %.ptr1035, ptr noundef nonnull align 8 dereferenceable(14) %863, i64 14, i1 false)
+  %.ptr1034 = getelementptr inbounds nuw i8, ptr %875, i64 24
+  store ptr %.ptr1034, ptr %876, align 8, !tbaa !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %.ptr1034, ptr noundef nonnull align 8 dereferenceable(14) %863, i64 14, i1 false)
   %877 = getelementptr inbounds nuw i8, ptr %875, i64 16
   store i64 13, ptr %877, align 8, !tbaa !7
   store ptr %863, ptr %50, align 8, !tbaa !13
@@ -58856,8 +58856,8 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %889 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %.sroa.0.052.i664 = load ptr, ptr %889, align 8
   %.not4053.i665 = icmp eq ptr %.sroa.0.052.i664, null
-  %or.cond1066 = select i1 %.not.not.i653, i1 true, i1 %.not4053.i665
-  br i1 %or.cond1066, label %tailrecurse.i.i.i.i656.preheader, label %.lr.ph.split.i669
+  %or.cond1064 = select i1 %.not.not.i653, i1 true, i1 %.not4053.i665
+  br i1 %or.cond1064, label %tailrecurse.i.i.i.i656.preheader, label %.lr.ph.split.i669
 
 .lr.ph.split.i669:                                ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN7httplib6detail11case_ignore8equal_toENSE_4hashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEE12_Scoped_nodeC2IJS6_IS5_S5_EEEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb1EEEEEEDpOT_.exit.i602, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stEN7httplib6detail11case_ignore8equal_toENSD_4hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit13.i671
   %.sroa.0.054.i670 = phi ptr [ %.sroa.0.0.i672, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stEN7httplib6detail11case_ignore8equal_toENSD_4hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit13.i671 ], [ %.sroa.0.052.i664, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN7httplib6detail11case_ignore8equal_toENSE_4hashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEE12_Scoped_nodeC2IJS6_IS5_S5_EEEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb1EEEEEEDpOT_.exit.i602 ]
@@ -58903,7 +58903,7 @@ tailrecurse.i.i.i.i656.preheader:                 ; preds = %_ZNKSt8__detail15_H
 tailrecurse.i.i.i.i656:                           ; preds = %tailrecurse.i.i.i.i656.preheader, %tailrecurse.i.i.i.i656
   %.tr811.i.i.i.i657 = phi i64 [ %915, %tailrecurse.i.i.i.i656 ], [ 0, %tailrecurse.i.i.i.i656.preheader ]
   %.tr710.i.i.i.i658 = phi i64 [ %907, %tailrecurse.i.i.i.i656 ], [ 13, %tailrecurse.i.i.i.i656.preheader ]
-  %.tr69.i.i.i.i659 = phi ptr [ %906, %tailrecurse.i.i.i.i656 ], [ %.ptr1035, %tailrecurse.i.i.i.i656.preheader ]
+  %.tr69.i.i.i.i659 = phi ptr [ %906, %tailrecurse.i.i.i.i656 ], [ %.ptr1034, %tailrecurse.i.i.i.i656.preheader ]
   %906 = getelementptr inbounds nuw i8, ptr %.tr69.i.i.i.i659, i64 1
   %907 = add i64 %.tr710.i.i.i.i658, -1
   %908 = mul nuw i64 %.tr811.i.i.i.i657, 33

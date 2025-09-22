@@ -1150,9 +1150,9 @@ _ZN5Eigen10QuaternionIdLi0EEC2INS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERKNS_10Matrix
   %381 = fmul <2 x double> %380, %380
   %382 = fmul <2 x double> %379, %379
   %383 = fadd <2 x double> %382, %381
-  %shift169 = shufflevector <2 x double> %383, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop170 = fadd <2 x double> %383, %shift169
-  %384 = extractelement <2 x double> %foldExtExtBinop170, i64 0
+  %shift160 = shufflevector <2 x double> %383, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop161 = fadd <2 x double> %383, %shift160
+  %384 = extractelement <2 x double> %foldExtExtBinop161, i64 0
   %385 = fcmp ogt double %384, 0.000000e+00
   br i1 %385, label %386, label %_ZN3g2o7SE3QuatC2ERKN5Eigen10QuaternionIdLi0EEERKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEE.exit
 

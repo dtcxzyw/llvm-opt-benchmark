@@ -11612,7 +11612,7 @@ define { ptr, i64 } @_ZN4fish5wutil8wdirname17h166750eb276266a1E(ptr noalias nou
 42:                                               ; preds = %31
   %43 = tail call { ptr, i64 } @_ZN4fish9wchar_ext4WExt8slice_to17h657144eaa477ed92E(ptr noalias noundef nonnull readonly align 4 %.sroa.0.0.lcssa, i64 noundef %.sroa.16.0.lcssa, i64 noundef %.sroa.01.0.i.i)
   %.fr = freeze { ptr, i64 } %43
-  %.sroa.0.153 = extractvalue { ptr, i64 } %.fr, 0
+  %.sroa.16.154 = extractvalue { ptr, i64 } %.fr, 0
   %.sroa.16.154 = extractvalue { ptr, i64 } %.fr, 1
   %44 = icmp ne ptr %.sroa.0.153, null
   tail call void @llvm.assume(i1 %44)
@@ -11645,7 +11645,7 @@ define { ptr, i64 } @_ZN4fish5wutil8wdirname17h166750eb276266a1E(ptr noalias nou
   %53 = add i64 %52, -1
   %54 = tail call { ptr, i64 } @_ZN4fish9wchar_ext4WExt8slice_to17h657144eaa477ed92E(ptr noalias noundef nonnull readonly align 4 %.sroa.0.158, i64 noundef %.sroa.16.159, i64 noundef %53)
   %.fr100 = freeze { ptr, i64 } %54
-  %.sroa.0.1 = extractvalue { ptr, i64 } %.fr100, 0
+  %.sroa.16.1 = extractvalue { ptr, i64 } %.fr100, 0
   %.sroa.16.1 = extractvalue { ptr, i64 } %.fr100, 1
   %55 = icmp ne ptr %.sroa.0.1, null
   tail call void @llvm.assume(i1 %55)

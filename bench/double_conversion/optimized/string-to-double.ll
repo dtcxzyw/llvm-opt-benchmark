@@ -3970,9 +3970,9 @@ _ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.us: ; preds = %32
   %40 = icmp eq ptr %39, %1
   br i1 %40, label %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit, label %44, !llvm.loop !59
 
-.backedge:                                        ; preds = %44, %51, %47, %56
-  %41 = phi ptr [ %45, %56 ], [ %39, %47 ], [ %39, %51 ], [ %39, %44 ]
-  %42 = load i8, ptr %41, align 1, !tbaa !15
+.backedgethread-pre-split:                        ; preds = %44, %51, %47, %56
+  %.ph = phi ptr [ %45, %56 ], [ %39, %47 ], [ %39, %51 ], [ %39, %44 ]
+  %.pr = load i8, ptr %.ph, align 1, !tbaa !15
   %.fr295 = freeze i8 %42
   %43 = icmp eq i8 %.fr295, 48
   br i1 %43, label %.lr.ph.split, label %.preheader205, !llvm.loop !59
@@ -3980,7 +3980,7 @@ _ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.us: ; preds = %32
 44:                                               ; preds = %.lr.ph.split
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %46 = icmp eq ptr %45, %1
-  br i1 %46, label %.backedge, label %47
+  br i1 %46, label %.backedgethread-pre-split, label %47
 
 47:                                               ; preds = %44
   %48 = load i8, ptr %39, align 1, !tbaa !15
@@ -3995,11 +3995,11 @@ _ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.us: ; preds = %32
   %or.cond.i25.i = icmp ult i32 %54, 10
   %55 = icmp ult i8 %52, 56
   %or.cond19.i26.i = and i1 %55, %or.cond.i25.i
-  br i1 %or.cond19.i26.i, label %56, label %.backedge
+  br i1 %or.cond19.i26.i, label %56, label %.backedgethread-pre-split
 
 56:                                               ; preds = %51
   store ptr %45, ptr %0, align 8, !tbaa !3
-  br label %.backedge
+  br label %.backedgethread-pre-split
 
 _ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit: ; preds = %.lr.ph.split, %.lr.ph.split.us
   store i8 0, ptr %7, align 1, !tbaa !28
@@ -4144,8 +4144,8 @@ _ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread: ; preds = %96, %1
 _ZN17double_conversionL7isDigitEii.exit:          ; preds = %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread, %87, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157
   %.promoted.i159 = phi ptr [ %106, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread ], [ %88, %87 ], [ %91, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157 ]
   %.not10.not.i160 = icmp eq ptr %.promoted.i159, %1
-  %or.cond343 = select i1 %4, i1 true, i1 %.not10.not.i160
-  br i1 %or.cond343, label %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit168.thread, label %.lr.ph.i161
+  %or.cond342 = select i1 %4, i1 true, i1 %.not10.not.i160
+  br i1 %or.cond342, label %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit168.thread, label %.lr.ph.i161
 
 .lr.ph.i161:                                      ; preds = %_ZN17double_conversionL7isDigitEii.exit, %120
   %114 = phi ptr [ %121, %120 ], [ %.promoted.i159, %_ZN17double_conversionL7isDigitEii.exit ]
@@ -4254,18 +4254,18 @@ _ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread: ; preds = %1
 
 160:                                              ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread.thread, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread
   %161 = phi i1 [ %153, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread.thread ], [ %159, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread ]
-  %.1117.ph301 = phi i64 [ %.1117.ph.ph, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread.thread ], [ %.4120, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread ]
+  %.1117.ph298 = phi i64 [ %.1117.ph.ph, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread.thread ], [ %.4120, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread ]
   br i1 %2, label %162, label %165
 
 162:                                              ; preds = %160
   br i1 %161, label %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread198, label %163
 
 163:                                              ; preds = %162
-  %164 = sub nsw i64 0, %.1117.ph301
+  %164 = sub nsw i64 0, %.1117.ph298
   br label %165
 
 165:                                              ; preds = %163, %160
-  %.6 = phi i64 [ %164, %163 ], [ %.1117.ph301, %160 ]
+  %.6 = phi i64 [ %164, %163 ], [ %.1117.ph298, %160 ]
   %166 = sitofp i64 %.6 to double
   br label %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread198
 

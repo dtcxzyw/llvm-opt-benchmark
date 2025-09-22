@@ -6783,8 +6783,8 @@ define range(i32 -322, 1) i32 @CheckHostName(ptr noundef readonly captures(addre
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %20 = load i32, ptr %19, align 8, !tbaa !252
   %21 = tail call i32 @MatchDomainName(ptr noundef %18, i32 noundef %20, ptr noundef %1, i32 noundef %5, i32 noundef %3)
-  %.not27 = icmp eq i32 %21, 0
-  %.9 = select i1 %.not27, i32 -322, i32 0
+  %.not26 = icmp eq i32 %21, 0
+  %.9 = select i1 %.not26, i32 -322, i32 0
   br label %.thread24
 
 .thread24:                                        ; preds = %.lr.ph.i, %15, %.thread22
@@ -6826,8 +6826,8 @@ define range(i32 -322, 1) i32 @CheckIPAddr(ptr noundef readonly captures(address
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %19 = load i32, ptr %18, align 8, !tbaa !252
   %20 = tail call i32 @MatchDomainName(ptr noundef %17, i32 noundef %19, ptr noundef nonnull readonly %1, i32 noundef %4, i32 noundef 0)
-  %.not27.i = icmp eq i32 %20, 0
-  %.9.i = select i1 %.not27.i, i32 -322, i32 0
+  %.not26.i = icmp eq i32 %20, 0
+  %.9.i = select i1 %.not26.i, i32 -322, i32 0
   br label %CheckHostName.exit
 
 CheckHostName.exit:                               ; preds = %.lr.ph.i.i, %14, %.thread22.i
@@ -12449,8 +12449,8 @@ ctMaskCopy.exit:                                  ; preds = %275
   %283 = load ptr, ptr %6, align 16, !tbaa !336
   %.not207 = icmp ne ptr %283, null
   %284 = icmp sgt i32 %.fr285, -1
-  %or.cond316 = and i1 %.not207, %284
-  br i1 %or.cond316, label %.preheader.split.us, label %.loopexit
+  %or.cond314 = and i1 %.not207, %284
+  br i1 %or.cond314, label %.preheader.split.us, label %.loopexit
 
 .preheader.split.us:                              ; preds = %ctMaskCopy.exit, %.preheader.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.split.us ], [ 2, %ctMaskCopy.exit ]

@@ -4249,8 +4249,8 @@ _ZN6LibRaw11ph1_bithuffEiPt.exit111:              ; preds = %122, %.noexc110
   %146 = sub nsw i32 64, %117
   %147 = zext nneg i32 %146 to i64
   %148 = lshr i64 %145, %147
-  %.fr222 = freeze i64 %148
-  %149 = trunc i64 %.fr222 to i32
+  %.fr228 = freeze i64 %148
+  %149 = trunc i64 %.fr228 to i32
   %150 = sub nsw i32 %139, %117
   store i32 %150, ptr %142, align 8, !tbaa !160
   %gep215 = getelementptr inbounds nuw i32, ptr %invariant.gep214, i64 %indvars.iv166

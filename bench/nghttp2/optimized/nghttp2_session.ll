@@ -8360,8 +8360,8 @@ nghttp2_session_want_read.exit:                   ; preds = %20
   %157 = load i32, ptr %76, align 4, !tbaa !35
   store i32 15, ptr %29, align 8, !tbaa !36
   %158 = call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %0, i32 noundef %157, i32 noundef 6, ptr noundef nonnull readonly @.str.48, i64 noundef 20, i8 noundef zeroext 1)
-  %.fr1955 = freeze i32 %158
-  %.not17.i.i = icmp eq i32 %.fr1955, 0
+  %.fr1957 = freeze i32 %158
+  %.not17.i.i = icmp eq i32 %.fr1957, 0
   br i1 %.not17.i.i, label %159, label %nghttp2_session_terminate_session_with_reason.exit
 
 159:                                              ; preds = %156
@@ -8371,8 +8371,8 @@ nghttp2_session_want_read.exit:                   ; preds = %20
   br label %nghttp2_session_terminate_session_with_reason.exit.thread
 
 nghttp2_session_terminate_session_with_reason.exit: ; preds = %156
-  %162 = icmp sgt i32 %.fr1955, -901
-  %163 = sext i32 %.fr1955 to i64
+  %162 = icmp sgt i32 %.fr1957, -901
+  %163 = sext i32 %.fr1957 to i64
   br i1 %162, label %nghttp2_session_terminate_session_with_reason.exit.thread, label %nghttp2_session_want_read.exit.thread
 
 nghttp2_session_terminate_session_with_reason.exit.thread: ; preds = %153, %159, %nghttp2_session_terminate_session_with_reason.exit
@@ -9531,8 +9531,8 @@ nghttp2_session_get_stream.exit105.split.split.i: ; preds = %nghttp2_session_get
   %667 = load i32, ptr %76, align 4, !tbaa !35
   store i32 15, ptr %29, align 8, !tbaa !36
   %668 = call i32 @nghttp2_session_add_goaway(ptr noundef nonnull %0, i32 noundef %667, i32 noundef 9, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1)
-  %.fr193.i = freeze i32 %668
-  %.not17.i.i.i = icmp eq i32 %.fr193.i, 0
+  %.fr.i = freeze i32 %668
+  %.not17.i.i.i = icmp eq i32 %.fr.i, 0
   br i1 %.not17.i.i.i, label %669, label %nghttp2_session_terminate_session.exit.i
 
 669:                                              ; preds = %666
@@ -9542,7 +9542,7 @@ nghttp2_session_get_stream.exit105.split.split.i: ; preds = %nghttp2_session_get
   br label %.sink.split
 
 nghttp2_session_terminate_session.exit.i:         ; preds = %666
-  %672 = icmp sgt i32 %.fr193.i, -901
+  %672 = icmp sgt i32 %.fr.i, -901
   br i1 %672, label %.sink.split, label %.loopexit.sink.split
 
 673:                                              ; preds = %651
@@ -9720,7 +9720,7 @@ inflate_header_block.exit:                        ; preds = %.thread124.i
   br i1 %776, label %778, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %nghttp2_session_terminate_session.exit.i, %.thread124.i, %658, %nghttp2_session_get_stream.exit105.split.us.i, %nghttp2_session_get_stream.exit105.split.split.i, %session_call_on_invalid_header.exit.thread118.i, %707, %765, %nghttp2_session_get_stream.exit105.split.split.us.i
-  %.1.i9551071.ph = phi i32 [ %635, %nghttp2_session_get_stream.exit105.split.split.us.i ], [ -902, %765 ], [ %649, %nghttp2_session_get_stream.exit105.split.split.i ], [ %723, %session_call_on_invalid_header.exit.thread118.i ], [ -902, %707 ], [ %621, %nghttp2_session_get_stream.exit105.split.us.i ], [ %661, %658 ], [ %740, %.thread124.i ], [ %.fr193.i, %nghttp2_session_terminate_session.exit.i ]
+  %.1.i9551071.ph = phi i32 [ %635, %nghttp2_session_get_stream.exit105.split.split.us.i ], [ -902, %765 ], [ %649, %nghttp2_session_get_stream.exit105.split.split.i ], [ %723, %session_call_on_invalid_header.exit.thread118.i ], [ -902, %707 ], [ %621, %nghttp2_session_get_stream.exit105.split.us.i ], [ %661, %658 ], [ %740, %.thread124.i ], [ %.fr.i, %nghttp2_session_terminate_session.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
@@ -10640,8 +10640,8 @@ nghttp2_session_consume.exit.thread1114:          ; preds = %1176, %nghttp2_sess
   br label %nghttp2_session_want_read.exit.thread
 
 nghttp2_session_consume.exit.thread:              ; preds = %1188, %1181, %1184, %1173, %nghttp2_session_consume.exit
-  %.pr1758 = load i32, ptr %29, align 8, !tbaa !95
-  %1202 = icmp eq i32 %.pr1758, 15
+  %.pr1760 = load i32, ptr %29, align 8, !tbaa !95
+  %1202 = icmp eq i32 %.pr1760, 15
   br i1 %1202, label %nghttp2_session_want_read.exit.thread, label %nghttp2_session_consume.exit.thread.thread
 
 nghttp2_session_consume.exit.thread.thread:       ; preds = %1170, %nghttp2_session_consume.exit.thread

@@ -118,8 +118,8 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 64:                                               ; preds = %62
   %65 = icmp eq i32 %43, 0
   %66 = icmp eq i32 %46, 0
-  %or.cond374 = or i1 %65, %66
-  br i1 %or.cond374, label %.sink.split, label %67
+  %or.cond373 = or i1 %65, %66
+  br i1 %or.cond373, label %.sink.split, label %67
 
 67:                                               ; preds = %64
   store i32 1, ptr %16, align 4, !tbaa !3
@@ -137,10 +137,10 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %72, label %.lr.ph301.preheader, label %.thread250
 
 .lr.ph301.preheader:                              ; preds = %67, %.preheader288
-  %.0196.lcssa350 = phi ptr [ %.1197.lcssa, %.preheader288 ], [ %18, %67 ]
-  %.0200.lcssa349 = phi i32 [ %77, %.preheader288 ], [ 2, %67 ]
-  %73 = zext nneg i32 %.0200.lcssa349 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0196.lcssa350, i8 32, i64 %73, i1 false), !tbaa !10
+  %.0196.lcssa349 = phi ptr [ %.1197.lcssa, %.preheader288 ], [ %18, %67 ]
+  %.0200.lcssa348 = phi i32 [ %77, %.preheader288 ], [ 2, %67 ]
+  %73 = zext nneg i32 %.0200.lcssa348 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0196.lcssa349, i8 32, i64 %73, i1 false), !tbaa !10
   br label %.thread250
 
 .lr.ph296:                                        ; preds = %67, %._crit_edge
@@ -263,10 +263,10 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %121, label %.lr.ph319.preheader, label %._crit_edge320
 
 .lr.ph319.preheader:                              ; preds = %114, %.preheader
-  %.0.lcssa358 = phi ptr [ %.1.lcssa, %.preheader ], [ %18, %114 ]
-  %.0191.lcssa357 = phi i32 [ %126, %.preheader ], [ 2, %114 ]
-  %122 = zext nneg i32 %.0191.lcssa357 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.lcssa358, i8 32, i64 %122, i1 false), !tbaa !10
+  %.0.lcssa357 = phi ptr [ %.1.lcssa, %.preheader ], [ %18, %114 ]
+  %.0191.lcssa356 = phi i32 [ %126, %.preheader ], [ 2, %114 ]
+  %122 = zext nneg i32 %.0191.lcssa356 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.lcssa357, i8 32, i64 %122, i1 false), !tbaa !10
   br label %._crit_edge320
 
 .lr.ph314:                                        ; preds = %114, %._crit_edge308
@@ -350,9 +350,9 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %151 = phi i32 [ 1, %145 ], [ %141, %142 ]
   %.0212 = phi i32 [ %149, %145 ], [ %.2211267, %142 ]
   %. = select i1 %32, ptr %3, ptr %2
-  %.371 = select i1 %32, ptr %22, ptr %21
+  %.370 = select i1 %32, ptr %22, ptr %21
   %152 = load i32, ptr %., align 4, !tbaa !3
-  store i32 %152, ptr %.371, align 4, !tbaa !3
+  store i32 %152, ptr %.370, align 4, !tbaa !3
   %153 = icmp slt i32 %.0212, 0
   %154 = icmp sge i32 %.0214, %151
   %155 = icmp sle i32 %.0214, %151
@@ -367,8 +367,8 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %160 = sext i32 %.0212 to i64
   %161 = sext i32 %24 to i64
   %162 = zext nneg i32 %151 to i64
-  %.372 = select i1 %32, ptr %2, ptr %3
-  %.373 = select i1 %32, ptr %21, ptr %22
+  %.371 = select i1 %32, ptr %2, ptr %3
+  %.372 = select i1 %32, ptr %21, ptr %22
   br label %163
 
 163:                                              ; preds = %.lr.ph324, %163
@@ -391,11 +391,11 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %175 = load i32, ptr %4, align 4, !tbaa !3
   %176 = load i32, ptr %20, align 4, !tbaa !3
   %177 = add i32 %165, -1
-  %178 = load i32, ptr %.372, align 4, !tbaa !3
+  %178 = load i32, ptr %.371, align 4, !tbaa !3
   %179 = add i32 %177, %178
   %180 = sub i32 %179, %175
   %181 = add i32 %180, %176
-  store i32 %181, ptr %.373, align 4, !tbaa !3
+  store i32 %181, ptr %.372, align 4, !tbaa !3
   call void @dlarfb_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %20, ptr noundef %173, ptr noundef nonnull %6, ptr noundef %158, ptr noundef nonnull @c__65, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %23) #5
   %indvars.iv.next335 = add nsw i64 %indvars.iv334, %160
   %182 = icmp sge i64 %indvars.iv.next335, %162

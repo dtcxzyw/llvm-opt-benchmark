@@ -20779,15 +20779,15 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5_
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.exit: ; preds = %103, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i
   %.sroa.0.0.lcssa.i.i = phi ptr [ %.sroa.09.0.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i ], [ %.sroa.0.1.i.i, %103 ]
   %105 = getelementptr i8, ptr %.sroa.0.0.lcssa.i.i, i64 4
-  %.pre147 = ptrtoint ptr %105 to i64
-  %.pre149 = sub i64 %.pre147, %17
-  %.pre151 = ashr i64 %.pre149, 2
+  %.pre146 = ptrtoint ptr %105 to i64
+  %.pre148 = sub i64 %.pre146, %17
+  %.pre150 = ashr i64 %.pre148, 2
   %106 = icmp eq ptr %.sroa.15.1, %105
-  %107 = icmp ugt i64 %.pre151, %19
+  %107 = icmp ugt i64 %.pre150, %19
   br i1 %107, label %108, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.exit.thread
 
 108:                                              ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.exit
-  %109 = sub nuw nsw i64 %.pre151, %19
+  %109 = sub nuw nsw i64 %.pre150, %19
   %110 = ptrtoint ptr %.sroa.26.1 to i64
   %111 = sub i64 %110, %16
   %112 = ashr exact i64 %111, 2
@@ -20867,11 +20867,11 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36.i: ; preds = %134, %_ZNSt6
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.exit.thread: ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.exit
-  %138 = icmp ult i64 %.pre151, %19
+  %138 = icmp ult i64 %.pre150, %19
   br i1 %138, label %139, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 139:                                              ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.exit.thread
-  %140 = getelementptr i8, ptr %.sroa.074.1, i64 %.pre149
+  %140 = getelementptr i8, ptr %.sroa.074.1, i64 %.pre148
   %spec.select = select i1 %106, ptr %.sroa.15.1, ptr %140
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
@@ -21185,9 +21185,9 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN7xgboost8BatchSe
 
 .lr.ph113:                                        ; preds = %.noexc56
   %266 = load ptr, ptr %265, align 8, !tbaa !493, !noalias !657
-  %.fr130 = freeze ptr %266
-  %.not131 = icmp eq ptr %.fr130, null
-  br i1 %.not131, label %.lr.ph113.split, label %.lr.ph113.split.us
+  %.fr129 = freeze ptr %266
+  %.not130 = icmp eq ptr %.fr129, null
+  br i1 %.not130, label %.lr.ph113.split, label %.lr.ph113.split.us
 
 .lr.ph113.split.us:                               ; preds = %.lr.ph113, %_ZN7xgboost6common11ParallelForImZNS_4tree8ColMaker7Builder21SetNonDefaultPositionERKSt6vectorIiSaIiEEPNS_7DMatrixERKNS_7RegTreeEEUlT_E_EEvSF_iOT0_.exit.us
   %.sroa.063.0111.us = phi ptr [ %278, %_ZN7xgboost6common11ParallelForImZNS_4tree8ColMaker7Builder21SetNonDefaultPositionERKSt6vectorIiSaIiEEPNS_7DMatrixERKNS_7RegTreeEEUlT_E_EEvSF_iOT0_.exit.us ], [ %.sroa.074.4, %.lr.ph113 ]
@@ -21201,7 +21201,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN7xgboost8BatchSe
   %271 = load i64, ptr %270, align 8, !tbaa !14
   %272 = load i64, ptr %269, align 8, !tbaa !14
   %273 = sub i64 %271, %272
-  %274 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %.fr130, i64 %272
+  %274 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %.fr129, i64 %272
   store i64 %273, ptr %9, align 8
   store ptr %274, ptr %158, align 8
   %275 = load ptr, ptr %141, align 8, !tbaa !504

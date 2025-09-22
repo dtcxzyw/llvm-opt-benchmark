@@ -2147,9 +2147,9 @@ define hidden noundef range(i8 -1, 3) i8 @_ZN4core4iter6traits8iterator12iter_co
   br label %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i.i.i"
 
 "_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i.i.i": ; preds = %18, %14
-  %.sroa.02.0.copyload.i.i.i.i.i.i.sink16 = phi i32 [ %.sroa.02.0.copyload.i.i.i.i.i.i.fr17, %18 ], [ %.sroa.0.0.copyload.i.i.i.i.i.i.fr, %14 ]
-  %20 = phi ptr [ %19, %18 ], [ %5, %14 ]
-  %21 = phi ptr [ %19, %18 ], [ null, %14 ]
+  %20 = phi i32 [ %.sroa.02.0.copyload.i.i.i.i.i.i.fr17, %18 ], [ %.sroa.0.0.copyload.i.i.i.i.i.i.fr, %14 ]
+  %21 = phi ptr [ %19, %18 ], [ %5, %14 ]
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %19, %18 ], [ null, %14 ]
   %22 = and i32 %.sroa.02.0.copyload.i.i.i.i.i.i.sink16, 255
   %23 = icmp eq i32 %22, 6
   br i1 %23, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h4e00a8e6617dd036E.llvm.7808069312437652055.exit.thread, label %24
@@ -2258,8 +2258,8 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits8iterator8Iterator1
   br label %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i.i"
 
 "_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i.i": ; preds = %19, %15
-  %.sroa.02.0.copyload.i.i.i.i.i.sink2 = phi i32 [ %.sroa.02.0.copyload.i.i.i.i.i.fr3, %19 ], [ %.sroa.0.0.copyload.i.i.i.i.i.fr, %15 ]
-  %21 = phi ptr [ %20, %19 ], [ null, %15 ]
+  %21 = phi i32 [ %.sroa.02.0.copyload.i.i.i.i.i.fr3, %19 ], [ %.sroa.0.0.copyload.i.i.i.i.i.fr, %15 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %20, %19 ], [ null, %15 ]
   %22 = and i32 %.sroa.02.0.copyload.i.i.i.i.i.sink2, 255
   %23 = icmp eq i32 %22, 6
   br i1 %23, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h34e552c573b3760bE.llvm.7808069312437652055.exit, label %24
@@ -2439,8 +2439,8 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits8iterator8Iterator8
   br label %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i"
 
 "_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6f21accce1ea9b1E.exit.i.i": ; preds = %19, %15
-  %.sroa.02.0.copyload.i.i.i.i.sink18 = phi i32 [ %.sroa.02.0.copyload.i.i.i.i.fr19, %19 ], [ %.sroa.0.0.copyload.i.i.i.i.fr, %15 ]
-  %21 = phi ptr [ %20, %19 ], [ null, %15 ]
+  %21 = phi i32 [ %.sroa.02.0.copyload.i.i.i.i.fr19, %19 ], [ %.sroa.0.0.copyload.i.i.i.i.fr, %15 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %20, %19 ], [ null, %15 ]
   %22 = and i32 %.sroa.02.0.copyload.i.i.i.i.sink18, 255
   %23 = icmp eq i32 %22, 6
   br i1 %23, label %"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe6169925af08d89E.exit.thread", label %24

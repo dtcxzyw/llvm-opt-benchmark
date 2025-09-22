@@ -132376,7 +132376,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost4asio6detail11timer_queueINS1_
   %.fr = freeze i64 %9
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %4, align 8, !tbaa !100
   %.sroa.0.0.copyload.i.i.i.i.fr = freeze i64 %.sroa.0.0.copyload.i.i.i.i
-  %10 = icmp sgt i64 %.sroa.0.0.copyload.i.i.i.i.fr, -1
+  %11 = icmp sgt i64 %.sroa.0.0.copyload.i.i.i.i.fr, -1
   %11 = icmp sgt i64 %.fr, -1
   br i1 %10, label %12, label %20
 
@@ -132436,7 +132436,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost4asio6detail11timer_queueINS1_
   %.fr = freeze i64 %9
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %4, align 8, !tbaa !100
   %.sroa.0.0.copyload.i.i.i.i.fr = freeze i64 %.sroa.0.0.copyload.i.i.i.i
-  %10 = icmp sgt i64 %.sroa.0.0.copyload.i.i.i.i.fr, -1
+  %11 = icmp sgt i64 %.sroa.0.0.copyload.i.i.i.i.fr, -1
   %11 = icmp sgt i64 %.fr, -1
   br i1 %10, label %12, label %20
 

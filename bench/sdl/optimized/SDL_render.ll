@@ -13886,20 +13886,20 @@ FlushRenderCommands.exit:                         ; preds = %SDL_RenderApplyWind
   br label %245
 
 245:                                              ; preds = %242, %236
-  %.pre-phi = phi i64 [ %.pre, %242 ], [ %240, %236 ]
-  %246 = phi i64 [ %.pre.fr.i, %242 ], [ %.fr.i, %236 ]
+  %246 = phi i64 [ %.pre, %242 ], [ %240, %236 ]
+  %.0.i16 = phi i64 [ %.pre.fr.i, %242 ], [ %.fr.i, %236 ]
   %.0.i16 = phi i64 [ %.fr23.i, %242 ], [ %.fr24.i, %236 ]
   %247 = icmp eq i64 %246, 0
   %248 = icmp ugt i64 %.pre-phi, 1000000000
   %or.cond.i17 = or i1 %247, %248
   br i1 %or.cond.i17, label %252, label %249
 
-249:                                              ; preds = %245
+249: ; preds = %245
   %250 = urem i64 %.pre-phi, %235
   %251 = sub i64 %.0.i16, %250
   br label %252
 
-252:                                              ; preds = %249, %245
+252:; preds = %249, %245
   %storemerge.i = phi i64 [ %251, %249 ], [ %.0.i16, %245 ]
   store i64 %storemerge.i, ptr %238, align 8
   br label %SDL_SimulateRenderVSync.exit

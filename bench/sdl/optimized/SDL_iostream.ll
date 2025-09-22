@@ -1523,8 +1523,8 @@ SDL_GetIOStatus_REAL.exit.us77:                   ; preds = %72, %74
   %87 = load ptr, ptr %38, align 8
   %88 = load ptr, ptr %40, align 8
   %89 = tail call i64 %87(ptr noundef %88, ptr noundef nonnull %80, i64 noundef %79, ptr noundef nonnull %39) #18
-  %.fr117 = freeze i64 %89
-  %90 = icmp eq i64 %.fr117, 0
+  %.fr116 = freeze i64 %89
+  %90 = icmp eq i64 %.fr116, 0
   br i1 %90, label %91, label %SDL_ReadIO_REAL.exit.split
 
 91:                                               ; preds = %85
@@ -1533,7 +1533,7 @@ SDL_GetIOStatus_REAL.exit.us77:                   ; preds = %72, %74
   br i1 %93, label %.split72.us.sink.split, label %SDL_GetIOStatus_REAL.exit
 
 SDL_ReadIO_REAL.exit.split:                       ; preds = %85
-  %94 = add i64 %.fr117, %.140.ph109
+  %94 = add i64 %.fr116, %.140.ph109
   %95 = sub nsw i64 %spec.select, %94
   %96 = icmp eq i64 %spec.select, %94
   br i1 %96, label %.outer.split.split.us.loopexit, label %.outer.split.split
@@ -1554,8 +1554,8 @@ SDL_GetIOStatus_REAL.exit:                        ; preds = %83, %91
   %100 = tail call ptr @SDL_GetError_REAL() #18
   %101 = load i8, ptr %100, align 1
   %.not18.i = icmp eq i8 %101, 0
-  %.167 = select i1 %.not18.i, i32 2, i32 1
-  store i32 %.167, ptr %39, align 8
+  %.166 = select i1 %.not18.i, i32 2, i32 1
+  store i32 %.166, ptr %39, align 8
   br label %.split72.us
 
 .split72.us:                                      ; preds = %SDL_GetIOStatus_REAL.exit, %SDL_GetIOStatus_REAL.exit.us77, %SDL_GetIOStatus_REAL.exit.us.us, %.split72.us.sink.split

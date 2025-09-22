@@ -1995,8 +1995,8 @@ pmix_mca_base_var_get_value.exit:                 ; preds = %var_get.exit.thread
   br label %66
 
 66:                                               ; preds = %63, %59, %56, %53, %50, %47, %44, %41
-  %.sink59 = phi i32 [ %.fr60, %63 ], [ %.fr61, %59 ], [ %.fr62, %56 ], [ %.fr63, %53 ], [ %.fr64, %50 ], [ %.fr65, %47 ], [ %.fr66, %44 ], [ %.fr67, %41 ]
-  %67 = icmp slt i32 %.sink59, 0
+  %.0 = phi i32 [ %.fr60, %63 ], [ %.fr61, %59 ], [ %.fr62, %56 ], [ %.fr63, %53 ], [ %.fr64, %50 ], [ %.fr65, %47 ], [ %.fr66, %44 ], [ %.fr67, %41 ]
+  %67 = icmp slt i32 %.0, 0
   br i1 %67, label %.thread, label %pmix_mca_base_var_get_value.exit.thread
 
 .thread:                                          ; preds = %40, %66

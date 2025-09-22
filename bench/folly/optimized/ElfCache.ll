@@ -278,7 +278,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE11lowe
   %48 = getelementptr i8, ptr %.1.i.i.i.i, i64 48
   %.val13.val14.i.i = load ptr, ptr %48, align 8, !tbaa !26, !noalias !20
   %.val13.val14.fr.i.i = freeze ptr %.val13.val14.i.i
-  %49 = ptrtoint ptr %.val13.val14.fr.i.i to i64
+  %50 = ptrtoint ptr %.val13.val14.fr.i.i to i64
   %50 = ptrtoint ptr %.val13.val.fr.i.i to i64
   %51 = sub i64 %49, %50
   %.sroa.speculated.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %51, i64 %28)
@@ -366,7 +366,7 @@ _ZN5boost9intrusive12avl_set_implINS0_8bhtraitsIN5folly10symbolizer18SignalSafeE
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.031.0, i64 80
   %79 = load i8, ptr %78, align 8, !tbaa !36, !range !13, !noundef !14
   %80 = trunc nuw i8 %79 to i1
-  br i1 %80, label %.thread51, label %81
+  br i1 %80, label %.thread52, label %81
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.031.0, i64 64
@@ -381,13 +381,13 @@ _ZN5boost9intrusive12avl_set_implINS0_8bhtraitsIN5folly10symbolizer18SignalSafeE
   %88 = icmp eq i32 %87, 0
   %89 = zext i1 %88 to i8
   store i8 %89, ptr %78, align 8, !tbaa !36
-  br i1 %88, label %.thread51, label %90
+  br i1 %88, label %.thread52, label %90
 
 90:                                               ; preds = %81
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer18SignalSafeElfCache7getFileENS_5RangeIPKcEEE3$_0Lb1EED2Ev.exit"
 
-.thread51:                                        ; preds = %77, %81
+.thread52:                                        ; preds = %77, %81
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.031.0, i64 64
   %92 = load ptr, ptr %91, align 8, !tbaa !53
   store ptr %92, ptr %0, align 8, !tbaa !53
@@ -398,7 +398,7 @@ _ZN5boost9intrusive12avl_set_implINS0_8bhtraitsIN5folly10symbolizer18SignalSafeE
   %.not.i.i.i = icmp eq ptr %95, null
   br i1 %.not.i.i.i, label %"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer18SignalSafeElfCache7getFileENS_5RangeIPKcEEE3$_0Lb1EED2Ev.exit", label %96
 
-96:                                               ; preds = %.thread51
+96:                                               ; preds = %.thread52
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !57
   %.not.i.i.i.i27 = icmp eq i8 %98, 0
@@ -414,7 +414,7 @@ _ZN5boost9intrusive12avl_set_implINS0_8bhtraitsIN5folly10symbolizer18SignalSafeE
   %103 = atomicrmw volatile add ptr %97, i32 1 acq_rel, align 4
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer18SignalSafeElfCache7getFileENS_5RangeIPKcEEE3$_0Lb1EED2Ev.exit"
 
-"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer18SignalSafeElfCache7getFileENS_5RangeIPKcEEE3$_0Lb1EED2Ev.exit": ; preds = %102, %99, %.thread51, %90
+"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer18SignalSafeElfCache7getFileENS_5RangeIPKcEEE3$_0Lb1EED2Ev.exit": ; preds = %102, %99, %.thread52, %90
   %104 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %7, ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

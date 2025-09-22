@@ -2909,7 +2909,7 @@ MoveToFrontTransform.exit:                        ; preds = %MoveToFront.exit.i,
   br i1 %127, label %.lr.ph98.i._crit_edge, label %.lr.ph98.i
 
 .lr.ph98.i._crit_edge:                            ; preds = %.lr.ph98.i, %.lr.ph98.preheader.i
-  %.lcssa120 = phi i64 [ %109, %.lr.ph98.preheader.i ], [ %137, %.lr.ph98.i ]
+  %.lcssa118 = phi i64 [ %109, %.lr.ph98.preheader.i ], [ %137, %.lr.ph98.i ]
   %.16797.i.lcssa = phi i32 [ %.066.lcssa114.i, %.lr.ph98.preheader.i ], [ %136, %.lr.ph98.i ]
   %128 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.16797.i.lcssa, i1 true)
   %129 = xor i32 %128, 31
@@ -2917,23 +2917,23 @@ MoveToFrontTransform.exit:                        ; preds = %MoveToFront.exit.i,
   %130 = add nsw i32 %.neg.i63, %.16797.i.lcssa
   %131 = shl nsw i32 %130, 9
   %132 = or disjoint i32 %131, %129
-  %133 = getelementptr inbounds nuw i32, ptr %52, i64 %.lcssa120
+  %133 = getelementptr inbounds nuw i32, ptr %52, i64 %.lcssa118
   store i32 %132, ptr %133, align 4, !tbaa !8, !alias.scope !457, !noalias !460
   br label %.loopexit.sink.split.i
 
 .lr.ph98.i:                                       ; preds = %.lr.ph98.preheader.i, %.lr.ph98.i
-  %.16797.i124 = phi i32 [ %136, %.lr.ph98.i ], [ %.066.lcssa114.i, %.lr.ph98.preheader.i ]
+  %.16797.i122 = phi i32 [ %136, %.lr.ph98.i ], [ %.066.lcssa114.i, %.lr.ph98.preheader.i ]
   %134 = phi i64 [ %137, %.lr.ph98.i ], [ %109, %.lr.ph98.preheader.i ]
   %135 = getelementptr inbounds nuw i32, ptr %52, i64 %134
   store i32 %107, ptr %135, align 4, !tbaa !8, !alias.scope !457, !noalias !460
-  %reass.sub.i = sub nuw i32 %.16797.i124, %104
+  %reass.sub.i = sub nuw i32 %.16797.i122, %104
   %136 = add nuw i32 %reass.sub.i, 1
   %137 = add i64 %134, 1
   %138 = icmp ult i32 %136, %104
   br i1 %138, label %.lr.ph98.i._crit_edge, label %.lr.ph98.i
 
 .loopexit.sink.split.i:                           ; preds = %.lr.ph98.i._crit_edge, %115
-  %.lcssa.sink.i = phi i64 [ %.lcssa120, %.lr.ph98.i._crit_edge ], [ %109, %115 ]
+  %.lcssa.sink.i = phi i64 [ %.lcssa118, %.lr.ph98.i._crit_edge ], [ %109, %115 ]
   %.4.ph.i = phi i64 [ %126, %.lr.ph98.i._crit_edge ], [ %118, %115 ]
   %139 = add i64 %.lcssa.sink.i, 1
   br label %.loopexit.i
@@ -2947,12 +2947,12 @@ MoveToFrontTransform.exit:                        ; preds = %MoveToFront.exit.i,
 
 RunLengthCodeZeros.exit:                          ; preds = %.loopexit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1088) %1, i8 0, i64 1088, i1 false)
-  %.not88 = icmp eq i64 %.172, 0
-  br i1 %.not88, label %._crit_edge, label %.lr.ph
+  %.not86 = icmp eq i64 %.172, 0
+  br i1 %.not86, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %RunLengthCodeZeros.exit, %.lr.ph
-  %.083 = phi i64 [ %149, %.lr.ph ], [ 0, %RunLengthCodeZeros.exit ]
-  %142 = getelementptr inbounds nuw i32, ptr %52, i64 %.083
+  %.081 = phi i64 [ %149, %.lr.ph ], [ 0, %RunLengthCodeZeros.exit ]
+  %142 = getelementptr inbounds nuw i32, ptr %52, i64 %.081
   %143 = load i32, ptr %142, align 4, !tbaa !8
   %144 = and i32 %143, 511
   %145 = zext nneg i32 %144 to i64
@@ -2960,7 +2960,7 @@ RunLengthCodeZeros.exit:                          ; preds = %.loopexit.i
   %147 = load i32, ptr %146, align 4, !tbaa !8
   %148 = add i32 %147, 1
   store i32 %148, ptr %146, align 4, !tbaa !8
-  %149 = add nuw i64 %.083, 1
+  %149 = add nuw i64 %.081, 1
   %exitcond.not = icmp eq i64 %149, %.172
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !468
 
@@ -3003,13 +3003,13 @@ RunLengthCodeZeros.exit:                          ; preds = %.loopexit.i
   %172 = zext nneg i32 %103 to i64
   %173 = add i64 %4, %172
   tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef nonnull %1, i64 noundef %173, i64 noundef %173, ptr noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %.pre100 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !479, !noalias !482
-  br i1 %.not88, label %._crit_edge87, label %.lr.ph86
+  %.pre98 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !479, !noalias !482
+  br i1 %.not86, label %._crit_edge85, label %.lr.ph84
 
-.lr.ph86:                                         ; preds = %171, %205
-  %174 = phi i64 [ %206, %205 ], [ %.pre100, %171 ]
-  %.184 = phi i64 [ %207, %205 ], [ 0, %171 ]
-  %175 = getelementptr inbounds nuw i32, ptr %52, i64 %.184
+.lr.ph84:                                         ; preds = %171, %205
+  %174 = phi i64 [ %206, %205 ], [ %.pre98, %171 ]
+  %.182 = phi i64 [ %207, %205 ], [ 0, %171 ]
+  %175 = getelementptr inbounds nuw i32, ptr %52, i64 %.182
   %176 = load i32, ptr %175, align 4, !tbaa !8
   %177 = and i32 %176, 511
   %178 = zext nneg i32 %177 to i64
@@ -3035,7 +3035,7 @@ RunLengthCodeZeros.exit:                          ; preds = %.loopexit.i
   %or.cond.not = icmp ult i32 %193, %103
   br i1 %or.cond.not, label %194, label %205
 
-194:                                              ; preds = %.lr.ph86
+194:                                              ; preds = %.lr.ph84
   %195 = lshr i32 %176, 9
   %196 = zext nneg i32 %195 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !489)
@@ -3052,14 +3052,14 @@ RunLengthCodeZeros.exit:                          ; preds = %.loopexit.i
   store i64 %204, ptr %6, align 8, !tbaa !3, !alias.scope !489, !noalias !492
   br label %205
 
-205:                                              ; preds = %194, %.lr.ph86
+205:                                              ; preds = %194, %.lr.ph84
   %206 = phi i64 [ %204, %194 ], [ %192, %.lr.ph86 ]
-  %207 = add nuw i64 %.184, 1
-  %exitcond99.not = icmp eq i64 %207, %.172
-  br i1 %exitcond99.not, label %._crit_edge87, label %.lr.ph86, !llvm.loop !494
+  %207 = add nuw i64 %.182, 1
+  %exitcond97.not = icmp eq i64 %207, %.172
+  br i1 %exitcond97.not, label %._crit_edge85, label %.lr.ph84, !llvm.loop !494
 
-._crit_edge87:                                    ; preds = %205, %171
-  %208 = phi i64 [ %.pre100, %171 ], [ %206, %205 ]
+._crit_edge85:                                    ; preds = %205, %171
+  %208 = phi i64 [ %.pre98, %171 ], [ %206, %205 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !479)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !482)
   %209 = lshr i64 %208, 3
@@ -3075,7 +3075,7 @@ RunLengthCodeZeros.exit:                          ; preds = %.loopexit.i
   tail call void @BrotliFree(ptr noundef %0, ptr noundef nonnull %52) #12
   br label %217
 
-217:                                              ; preds = %StoreVarLenUint8.exit.thread, %._crit_edge87
+217:                                              ; preds = %StoreVarLenUint8.exit.thread, %._crit_edge85
   ret void
 }
 

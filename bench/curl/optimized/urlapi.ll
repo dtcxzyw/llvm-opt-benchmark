@@ -412,8 +412,8 @@ Curl_parse_port.exit.thread49:                    ; preds = %99, %79, %76, %Curl
 
 .lr.ph:                                           ; preds = %111, %124
   %indvars.iv = phi i64 [ %indvars.iv.next, %124 ], [ 0, %111 ]
-  %.04365.i63 = phi ptr [ %125, %124 ], [ %108, %111 ]
-  %115 = call i64 @strtoul(ptr noundef nonnull %.04365.i63, ptr noundef nonnull %8, i32 noundef 0) #10
+  %.04362.i63 = phi ptr [ %125, %124 ], [ %108, %111 ]
+  %115 = call i64 @strtoul(ptr noundef nonnull %.04362.i63, ptr noundef nonnull %8, i32 noundef 0) #10
   %116 = load i32, ptr %112, align 4, !tbaa !22
   %.not54.i = icmp ne i32 %116, 0
   %117 = icmp ugt i64 %115, 4294967295
@@ -543,8 +543,8 @@ Curl_parse_port.exit.thread49:                    ; preds = %99, %79, %76, %Curl
   br label %189
 
 189:                                              ; preds = %183, %164, %147, %130
-  %.sink94 = phi i32 [ %.fr95, %183 ], [ %.fr96, %164 ], [ %.fr97, %147 ], [ %.fr98, %130 ]
-  %.not.i39 = icmp eq i32 %.sink94, 0
+  %.042.i = phi i32 [ %.fr95, %183 ], [ %.fr96, %164 ], [ %.fr97, %147 ], [ %.fr98, %130 ]
+  %.not.i39 = icmp eq i32 %.042.i, 0
   br i1 %.not.i39, label %ipv4_normalize.exit.thread57, label %200
 
 ipv4_normalize.exit.thread57:                     ; preds = %128, %189

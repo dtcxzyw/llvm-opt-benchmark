@@ -5237,9 +5237,9 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i: ; preds = %_ZN4
   br label %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i
 
 _ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i: ; preds = %323, %317
-  %.sink106 = phi { ptr, i64 } [ %.fr107, %323 ], [ %.fr108, %317 ]
-  %.sroa.0.1.i37 = extractvalue { ptr, i64 } %.sink106, 0
-  %.sroa.17.sroa.0.1.in.in.i = extractvalue { ptr, i64 } %.sink106, 1
+  %.pn.i36 = phi { ptr, i64 } [ %.fr107, %323 ], [ %.fr108, %317 ]
+  %.sroa.0.1.i37 = extractvalue { ptr, i64 } %.pn.i36, 0
+  %.sroa.17.sroa.0.1.in.in.i = extractvalue { ptr, i64 } %.pn.i36, 1
   %.not52.i = icmp eq ptr %.sroa.0.1.i37, null
   br i1 %.not52.i, label %.thread.thread132.i, label %341
 
@@ -5322,7 +5322,7 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
 .thread.thread132.i:                              ; preds = %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i, %352
   %.sroa.7.095109.in.i = phi i64 [ %354, %352 ], [ %.sroa.17.sroa.0.1.in.in.i, %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i ]
   %355 = trunc i64 %.sroa.7.095109.in.i to i32
-  %.sroa.7.095109.i = trunc i64 %.sroa.7.095109.in.i to i1
+  %355 = trunc i64 %.sroa.7.095109.in.i to i1
   %356 = shl i32 %355, 16
   %357 = ashr i32 %356, 24
   %spec.select.i = select i1 %.sroa.7.095109.i, i32 %357, i32 1

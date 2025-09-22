@@ -850,22 +850,22 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   br label %15
 
 15:                                               ; preds = %11, %9
-  %.sink112 = phi i64 [ %.fr113, %11 ], [ %.fr114, %9 ]
+  %.053 = phi i64 [ %.fr113, %11 ], [ %.fr114, %9 ]
   %.052 = phi ptr [ %13, %11 ], [ %2, %9 ]
   %16 = icmp ult i64 %5, %1
   %17 = sub nuw i64 %5, %1
-  %18 = icmp ult i64 %17, %.sink112
+  %18 = icmp ult i64 %17, %.053
   %or.cond = select i1 %16, i1 true, i1 %18
   br i1 %or.cond, label %.loopexit, label %19
 
 19:                                               ; preds = %15
-  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %.sink112, i64 8)
+  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %.053, i64 8)
   call void @CORD_set_pos(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %1) #16
-  %.not75 = icmp eq i64 %.sink112, 0
+  %.not75 = icmp eq i64 %.053, 0
   br i1 %.not75, label %.preheader.thread, label %.lr.ph
 
 .preheader.thread:                                ; preds = %19
-  %20 = sub nuw nsw i64 %5, %.sink112
+  %20 = sub nuw nsw i64 %5, %.053
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -878,9 +878,9 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   br label %65
 
 .preheader:                                       ; preds = %93
-  %27 = icmp ult i64 %.sink112, 9
-  %28 = sub nuw i64 %.sink112, %spec.store.select
-  %29 = sub i64 %5, %.sink112
+  %27 = icmp ult i64 %.053, 9
+  %28 = sub nuw i64 %.053, %spec.store.select
+  %29 = sub i64 %5, %.053
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -891,16 +891,16 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   %34 = phi ptr [ %22, %.preheader.thread ], [ %31, %.preheader ]
   %35 = phi ptr [ %21, %.preheader.thread ], [ %30, %.preheader ]
   %36 = phi i64 [ %20, %.preheader.thread ], [ %29, %.preheader ]
-  %.049.lcssa102 = phi i64 [ 0, %.preheader.thread ], [ %67, %.preheader ]
-  %.050.lcssa101 = phi i64 [ 0, %.preheader.thread ], [ %88, %.preheader ]
-  %.051.lcssa100 = phi i64 [ 0, %.preheader.thread ], [ %72, %.preheader ]
-  %37 = and i64 %.050.lcssa101, %.049.lcssa102
-  %38 = icmp eq i64 %37, %.051.lcssa100
+  %.049.lcssa100 = phi i64 [ 0, %.preheader.thread ], [ %67, %.preheader ]
+  %.050.lcssa99 = phi i64 [ 0, %.preheader.thread ], [ %88, %.preheader ]
+  %.051.lcssa98 = phi i64 [ 0, %.preheader.thread ], [ %72, %.preheader ]
+  %37 = and i64 %.050.lcssa99, %.049.lcssa100
+  %38 = icmp eq i64 %37, %.051.lcssa98
   br i1 %38, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %.preheader.split.us, %61
   %.0.us72 = phi i64 [ %62, %61 ], [ %1, %.preheader.split.us ]
-  %.1.us71 = phi i64 [ %56, %61 ], [ %.050.lcssa101, %.preheader.split.us ]
+  %.1.us71 = phi i64 [ %56, %61 ], [ %.050.lcssa99, %.preheader.split.us ]
   %39 = icmp eq i64 %.0.us72, %36
   br i1 %39, label %.loopexit, label %40
 
@@ -921,13 +921,13 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
 
 50:                                               ; preds = %40
   %51 = call signext i8 @CORD__pos_fetch(ptr noundef nonnull %4) #16
-  %.pre85 = load i64, ptr %4, align 16, !tbaa !18
-  %.pre86 = load i64, ptr %35, align 16, !tbaa !17
+  %.pre83 = load i64, ptr %4, align 16, !tbaa !18
+  %.pre84 = load i64, ptr %35, align 16, !tbaa !17
   br label %52
 
 52:                                               ; preds = %50, %43
-  %53 = phi i64 [ %42, %43 ], [ %.pre86, %50 ]
-  %54 = phi i64 [ %45, %43 ], [ %.pre85, %50 ]
+  %53 = phi i64 [ %42, %43 ], [ %.pre84, %50 ]
+  %54 = phi i64 [ %45, %43 ], [ %.pre83, %50 ]
   %.in.us = phi i8 [ %49, %43 ], [ %51, %50 ]
   %55 = zext i8 %.in.us to i64
   %56 = or disjoint i64 %41, %55
@@ -945,8 +945,8 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
 
 61:                                               ; preds = %60, %59
   %62 = add i64 %.0.us72, 1
-  %63 = and i64 %56, %.049.lcssa102
-  %64 = icmp eq i64 %63, %.051.lcssa100
+  %63 = and i64 %56, %.049.lcssa100
+  %64 = icmp eq i64 %63, %.051.lcssa98
   br i1 %64, label %.loopexit, label %.lr.ph73
 
 65:                                               ; preds = %.lr.ph, %93
@@ -978,11 +978,11 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
 82:                                               ; preds = %65
   %83 = call signext i8 @CORD__pos_fetch(ptr noundef nonnull %4) #16
   %.pre = load i64, ptr %4, align 16, !tbaa !18
-  %.pre82 = load i64, ptr %24, align 16, !tbaa !17
+  %.pre80 = load i64, ptr %24, align 16, !tbaa !17
   br label %84
 
 84:                                               ; preds = %82, %75
-  %85 = phi i64 [ %74, %75 ], [ %.pre82, %82 ]
+  %85 = phi i64 [ %74, %75 ], [ %.pre80, %82 ]
   %86 = phi i64 [ %77, %75 ], [ %.pre, %82 ]
   %.in62 = phi i8 [ %81, %75 ], [ %83, %82 ]
   %87 = zext i8 %.in62 to i64
@@ -1038,13 +1038,13 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
 
 113:                                              ; preds = %103
   %114 = call signext i8 @CORD__pos_fetch(ptr noundef nonnull %4) #16
-  %.pre83 = load i64, ptr %4, align 16, !tbaa !18
-  %.pre84 = load i64, ptr %30, align 16, !tbaa !17
+  %.pre81 = load i64, ptr %4, align 16, !tbaa !18
+  %.pre82 = load i64, ptr %30, align 16, !tbaa !17
   br label %115
 
 115:                                              ; preds = %113, %106
-  %116 = phi i64 [ %105, %106 ], [ %.pre84, %113 ]
-  %117 = phi i64 [ %108, %106 ], [ %.pre83, %113 ]
+  %116 = phi i64 [ %105, %106 ], [ %.pre82, %113 ]
+  %117 = phi i64 [ %108, %106 ], [ %.pre81, %113 ]
   %.in = phi i8 [ %112, %106 ], [ %114, %113 ]
   %118 = zext i8 %.in to i64
   %119 = or disjoint i64 %104, %118

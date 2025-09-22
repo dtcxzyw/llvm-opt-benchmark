@@ -1503,10 +1503,10 @@ define internal fastcc void @mi_arenas_try_purge(i1 noundef zeroext %0, i1 nound
   %41 = cmpxchg ptr %35, i64 %36, i64 0 acq_rel acquire, align 8
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %43 = load i64, ptr %42, align 8, !tbaa !17
-  %.not93.i = icmp eq i64 %43, 0
-  br i1 %.not93.i, label %mi_arena_try_purge.exit.thread, label %.lr.ph90.i
+  %.not91.i = icmp eq i64 %43, 0
+  br i1 %.not91.i, label %mi_arena_try_purge.exit.thread, label %.lr.ph88.i
 
-.lr.ph90.i:                                       ; preds = %40
+.lr.ph88.i:                                       ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 168
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %46 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -1516,72 +1516,72 @@ define internal fastcc void @mi_arenas_try_purge(i1 noundef zeroext %0, i1 nound
 ._crit_edge.i:                                    ; preds = %.loopexit.i
   br i1 %.156.i, label %mi_arena_try_purge.exit, label %117
 
-48:                                               ; preds = %.loopexit.i, %.lr.ph90.i
+48:                                               ; preds = %.loopexit.i, %.lr.ph88.i
   %49 = phi i64 [ %43, %.lr.ph90.i ], [ %114, %.loopexit.i ]
-  %.05389.i = phi i1 [ false, %.lr.ph90.i ], [ %.154.i, %.loopexit.i ]
-  %.05588.i = phi i1 [ true, %.lr.ph90.i ], [ %.156.i, %.loopexit.i ]
-  %.06287.i = phi i64 [ 0, %.lr.ph90.i ], [ %115, %.loopexit.i ]
+  %.05387.i = phi i1 [ false, %.lr.ph90.i ], [ %.154.i, %.loopexit.i ]
+  %.05586.i = phi i1 [ true, %.lr.ph90.i ], [ %.156.i, %.loopexit.i ]
+  %.06285.i = phi i64 [ 0, %.lr.ph90.i ], [ %115, %.loopexit.i ]
   %50 = load ptr, ptr %44, align 8, !tbaa !59
-  %51 = getelementptr inbounds nuw i64, ptr %50, i64 %.06287.i
+  %51 = getelementptr inbounds nuw i64, ptr %50, i64 %.06285.i
   %52 = load atomic i64, ptr %51 monotonic, align 8
   %.not.i = icmp eq i64 %52, 0
-  br i1 %.not.i, label %.loopexit.i, label %.preheader76.i
+  br i1 %.not.i, label %.loopexit.i, label %.preheader74.i
 
-.preheader76.i:                                   ; preds = %48
-  %53 = shl i64 %.06287.i, 6
+.preheader74.i:                                   ; preds = %48
+  %53 = shl i64 %.06285.i, 6
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.critedge71.i, %.preheader76.i
-  %.286.i = phi i1 [ %.05389.i, %.preheader76.i ], [ %.3.i, %.critedge71.i ]
-  %.25785.i = phi i1 [ %.05588.i, %.preheader76.i ], [ %.358.i, %.critedge71.i ]
-  %.06183.i = phi i64 [ 0, %.preheader76.i ], [ %112, %.critedge71.i ]
-  %.06382.i = phi i64 [ %52, %.preheader76.i ], [ %.164.i, %.critedge71.i ]
-  %54 = sub nuw nsw i64 64, %.06183.i
+.preheader.i:                                     ; preds = %.critedge71.i, %.preheader74.i
+  %.284.i = phi i1 [ %.05387.i, %.preheader76.i ], [ %.3.i, %.critedge71.i ]
+  %.25783.i = phi i1 [ %.05586.i, %.preheader76.i ], [ %.358.i, %.critedge71.i ]
+  %.06181.i = phi i64 [ 0, %.preheader76.i ], [ %112, %.critedge71.i ]
+  %.06380.i = phi i64 [ %52, %.preheader76.i ], [ %.164.i, %.critedge71.i ]
+  %54 = sub nuw nsw i64 64, %.06181.i
   br label %55
 
 55:                                               ; preds = %59, %.preheader.i
-  %.05979.i = phi i64 [ 0, %.preheader.i ], [ %60, %59 ]
-  %56 = add nuw nsw i64 %.05979.i, %.06183.i
+  %.05977.i = phi i64 [ 0, %.preheader.i ], [ %60, %59 ]
+  %56 = add nuw nsw i64 %.05977.i, %.06181.i
   %57 = shl nuw i64 1, %56
-  %58 = and i64 %57, %.06382.i
+  %58 = and i64 %57, %.06380.i
   %.not68.i = icmp eq i64 %58, 0
   br i1 %.not68.i, label %.critedge.i, label %59
 
 59:                                               ; preds = %55
-  %60 = add nuw nsw i64 %.05979.i, 1
+  %60 = add nuw nsw i64 %.05977.i, 1
   %exitcond.not.i = icmp eq i64 %60, %54
   br i1 %exitcond.not.i, label %.lr.ph.preheader.i, label %55, !llvm.loop !60
 
 .critedge.i:                                      ; preds = %55
-  %.not6980.i = icmp eq i64 %.05979.i, 0
-  br i1 %.not6980.i, label %.critedge71.i, label %.lr.ph.preheader.i
+  %.not6978.i = icmp eq i64 %.05977.i, 0
+  br i1 %.not6978.i, label %.critedge71.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %59, %.critedge.i
-  %.059.lcssa109.i = phi i64 [ %.05979.i, %.critedge.i ], [ %54, %59 ]
-  %61 = or disjoint i64 %.06183.i, %53
+  %.059.lcssa107.i = phi i64 [ %.05977.i, %.critedge.i ], [ %54, %59 ]
+  %61 = or disjoint i64 %.06181.i, %53
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %64, %.lr.ph.preheader.i
-  %.16081.i = phi i64 [ %65, %64 ], [ %.059.lcssa109.i, %.lr.ph.preheader.i ]
+  %.16079.i = phi i64 [ %65, %64 ], [ %.059.lcssa107.i, %.lr.ph.preheader.i ]
   %62 = load i64, ptr %42, align 8, !tbaa !17
-  %63 = tail call zeroext i1 @_mi_bitmap_try_claim(ptr noundef nonnull %45, i64 noundef %62, i64 noundef %.16081.i, i64 noundef %61) #20
+  %63 = tail call zeroext i1 @_mi_bitmap_try_claim(ptr noundef nonnull %45, i64 noundef %62, i64 noundef %.16079.i, i64 noundef %61) #20
   br i1 %63, label %66, label %64
 
 64:                                               ; preds = %.lr.ph.i
-  %65 = add nsw i64 %.16081.i, -1
+  %65 = add nsw i64 %.16079.i, -1
   %.not69.i = icmp eq i64 %65, 0
   br i1 %.not69.i, label %.critedge71.i, label %.lr.ph.i, !llvm.loop !61
 
 66:                                               ; preds = %.lr.ph.i
   %67 = load ptr, ptr %44, align 8, !tbaa !59
-  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %.06287.i
+  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %.06285.i
   %69 = load atomic i64, ptr %68 acquire, align 8
-  %70 = add i64 %.16081.i, %.06183.i
-  %71 = icmp ult i64 %.06183.i, %70
+  %70 = add i64 %.16079.i, %.06181.i
+  %71 = icmp ult i64 %.06181.i, %70
   br i1 %71, label %.preheader.i.i, label %mi_arena_purge_range.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %66, %104
-  %.029.i.i = phi i64 [ %106, %104 ], [ %.06183.i, %66 ]
+  %.029.i.i = phi i64 [ %106, %104 ], [ %.06181.i, %66 ]
   %.02328.i.i = phi i1 [ %.1.i.i, %104 ], [ false, %66 ]
   br label %72
 
@@ -1636,7 +1636,7 @@ define internal fastcc void @mi_arenas_try_purge(i1 noundef zeroext %0, i1 nound
   br label %mi_arena_purge.exit.i
 
 mi_arena_purge.exit.i:                            ; preds = %99, %94, %89
-  %103 = icmp eq i64 %.022.lcssa.i.i, %.16081.i
+  %103 = icmp eq i64 %.022.lcssa.i.i, %.16079.i
   %spec.select.i.i = or i1 %.02328.i.i, %103
   br label %104
 
@@ -1648,22 +1648,22 @@ mi_arena_purge.exit.i:                            ; preds = %99, %94, %89
   br i1 %107, label %.preheader.i.i, label %mi_arena_purge_range.exit.i, !llvm.loop !63
 
 mi_arena_purge_range.exit.i:                      ; preds = %104
-  %spec.select.i = select i1 %.1.i.i, i1 %.25785.i, i1 false
+  %spec.select.i = select i1 %.1.i.i, i1 %.25783.i, i1 false
   br label %mi_arena_purge_range.exit.thread.i
 
 mi_arena_purge_range.exit.thread.i:               ; preds = %mi_arena_purge_range.exit.i, %66
   %108 = phi i1 [ false, %66 ], [ %spec.select.i, %mi_arena_purge_range.exit.i ]
   %109 = load i64, ptr %42, align 8, !tbaa !17
-  %110 = tail call zeroext i1 @_mi_bitmap_unclaim(ptr noundef nonnull %45, i64 noundef %109, i64 noundef %.16081.i, i64 noundef %61) #20
+  %110 = tail call zeroext i1 @_mi_bitmap_unclaim(ptr noundef nonnull %45, i64 noundef %109, i64 noundef %.16079.i, i64 noundef %61) #20
   br label %.critedge71.i
 
 .critedge71.i:                                    ; preds = %64, %mi_arena_purge_range.exit.thread.i, %.critedge.i
-  %.16078.i = phi i64 [ %.16081.i, %mi_arena_purge_range.exit.thread.i ], [ 0, %.critedge.i ], [ 0, %64 ]
-  %.164.i = phi i64 [ %69, %mi_arena_purge_range.exit.thread.i ], [ %.06382.i, %.critedge.i ], [ %.06382.i, %64 ]
-  %.358.i = phi i1 [ %108, %mi_arena_purge_range.exit.thread.i ], [ %.25785.i, %.critedge.i ], [ %.25785.i, %64 ]
-  %.3.i = phi i1 [ true, %mi_arena_purge_range.exit.thread.i ], [ %.286.i, %.critedge.i ], [ %.286.i, %64 ]
-  %111 = add nuw nsw i64 %.06183.i, 1
-  %112 = add i64 %111, %.16078.i
+  %.16076.i = phi i64 [ %.16079.i, %mi_arena_purge_range.exit.thread.i ], [ 0, %.critedge.i ], [ 0, %64 ]
+  %.164.i = phi i64 [ %69, %mi_arena_purge_range.exit.thread.i ], [ %.06380.i, %.critedge.i ], [ %.06380.i, %64 ]
+  %.358.i = phi i1 [ %108, %mi_arena_purge_range.exit.thread.i ], [ %.25783.i, %.critedge.i ], [ %.25783.i, %64 ]
+  %.3.i = phi i1 [ true, %mi_arena_purge_range.exit.thread.i ], [ %.284.i, %.critedge.i ], [ %.284.i, %64 ]
+  %111 = add nuw nsw i64 %.06181.i, 1
+  %112 = add i64 %111, %.16076.i
   %113 = icmp ult i64 %112, 64
   br i1 %113, label %.preheader.i, label %.loopexit.loopexit.i, !llvm.loop !64
 
@@ -1673,9 +1673,9 @@ mi_arena_purge_range.exit.thread.i:               ; preds = %mi_arena_purge_rang
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %48
   %114 = phi i64 [ %49, %48 ], [ %.pre.i, %.loopexit.loopexit.i ]
-  %.156.i = phi i1 [ %.05588.i, %48 ], [ %.358.i, %.loopexit.loopexit.i ]
-  %.154.i = phi i1 [ %.05389.i, %48 ], [ %.3.i, %.loopexit.loopexit.i ]
-  %115 = add nuw i64 %.06287.i, 1
+  %.156.i = phi i1 [ %.05586.i, %48 ], [ %.358.i, %.loopexit.loopexit.i ]
+  %.154.i = phi i1 [ %.05387.i, %48 ], [ %.3.i, %.loopexit.loopexit.i ]
+  %115 = add nuw i64 %.06285.i, 1
   %116 = icmp ult i64 %115, %114
   br i1 %116, label %48, label %._crit_edge.i, !llvm.loop !65
 

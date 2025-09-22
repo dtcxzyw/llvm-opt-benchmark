@@ -5480,8 +5480,8 @@ mbedtls_mpi_cmp_int.exit17:                       ; preds = %16, %.preheader.i.i
 define internal fastcc range(i32 -14, 2) i32 @mpi_check_small_factors(ptr noundef readonly captures(none) %0) unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   %3 = load i64, ptr %2, align 8, !tbaa !17
-  %.fr39 = freeze i64 %3
-  %4 = and i64 %.fr39, 1
+  %.fr36 = freeze i64 %3
+  %4 = and i64 %.fr36, 1
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %mbedtls_mpi_mod_int.exit, label %.preheader
 
@@ -5491,10 +5491,10 @@ define internal fastcc range(i32 -14, 2) i32 @mpi_check_small_factors(ptr nounde
   br label %8
 
 8:                                                ; preds = %.preheader, %.critedge
-  %.033 = phi i32 [ 3, %.preheader ], [ %64, %.critedge ]
-  %.01032 = phi i64 [ 0, %.preheader ], [ %65, %.critedge ]
-  %9 = zext i32 %.033 to i64
-  switch i32 %.033, label %10 [
+  %.031 = phi i32 [ 3, %.preheader ], [ %64, %.critedge ]
+  %.01030 = phi i64 [ 0, %.preheader ], [ %65, %.critedge ]
+  %9 = zext i32 %.031 to i64
+  switch i32 %.031, label %10 [
     i32 0, label %mbedtls_mpi_mod_int.exit
     i32 1, label %..thread_crit_edge
   ]
@@ -5509,7 +5509,7 @@ define internal fastcc range(i32 -14, 2) i32 @mpi_check_small_factors(ptr nounde
   br i1 %12, label %.threadsplit, label %13
 
 13:                                               ; preds = %10
-  %14 = icmp eq i32 %.033, 2
+  %14 = icmp eq i32 %.031, 2
   br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %13
@@ -5544,13 +5544,13 @@ define internal fastcc range(i32 -14, 2) i32 @mpi_check_small_factors(ptr nounde
   br i1 %33, label %.threadsplit, label %.critedge
 
 .threadsplit:                                     ; preds = %28, %10
-  %34 = icmp ne i32 %.033, 0
+  %34 = icmp ne i32 %.031, 0
   %35 = zext i1 %34 to i64
   br label %.thread
 
 .thread:                                          ; preds = %.threadsplit, %..thread_crit_edge
   %36 = phi i16 [ %.pre, %..thread_crit_edge ], [ %11, %.threadsplit ]
-  %.033.lcssa42 = phi i64 [ 1, %..thread_crit_edge ], [ %35, %.threadsplit ]
+  %.031.lcssa39 = phi i64 [ 1, %..thread_crit_edge ], [ %35, %.threadsplit ]
   %.not44.i.i = icmp eq i16 %36, 0
   br i1 %.not44.i.i, label %.lr.ph51.i.i, label %.lr.ph.i.i
 
@@ -5573,12 +5573,12 @@ define internal fastcc range(i32 -14, 2) i32 @mpi_check_small_factors(ptr nounde
 
 .lr.ph51.i.i:                                     ; preds = %42, %38, %.thread
   %.035.lcssa.i.i = phi i64 [ 0, %.thread ], [ %.03545.i.i, %38 ], [ 0, %42 ]
-  %44 = or i64 %.035.lcssa.i.i, %.033.lcssa42
+  %44 = or i64 %.035.lcssa.i.i, %.031.lcssa39
   %or.cond.i.i = icmp eq i64 %44, 0
   br i1 %or.cond.i.i, label %mbedtls_mpi_cmp_int.exit.thread, label %45
 
 45:                                               ; preds = %.lr.ph51.i.i
-  %46 = icmp ugt i64 %.035.lcssa.i.i, %.033.lcssa42
+  %46 = icmp ugt i64 %.035.lcssa.i.i, %.031.lcssa39
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %45
@@ -5588,7 +5588,7 @@ define internal fastcc range(i32 -14, 2) i32 @mpi_check_small_factors(ptr nounde
   br label %mbedtls_mpi_cmp_int.exit
 
 50:                                               ; preds = %45
-  %51 = icmp samesign ult i64 %.035.lcssa.i.i, %.033.lcssa42
+  %51 = icmp samesign ult i64 %.035.lcssa.i.i, %.031.lcssa39
   br i1 %51, label %mbedtls_mpi_mod_int.exit, label %52
 
 52:                                               ; preds = %50
@@ -5599,27 +5599,27 @@ define internal fastcc range(i32 -14, 2) i32 @mpi_check_small_factors(ptr nounde
 
 .preheader.preheader.i.i:                         ; preds = %52
   %54 = icmp eq i64 %.035.lcssa.i.i, 0
-  %55 = icmp ugt i64 %.fr39, %9
+  %55 = icmp ugt i64 %.fr36, %9
   br i1 %55, label %.preheader.i.i.us, label %.preheader.preheader.i.i.split
 
 .preheader.i.i.us:                                ; preds = %.preheader.preheader.i.i
   br i1 %54, label %mbedtls_mpi_cmp_int.exit.thread, label %.split.us
 
 .preheader.preheader.i.i.split:                   ; preds = %.preheader.preheader.i.i
-  %56 = icmp uge i64 %.fr39, %9
+  %56 = icmp uge i64 %.fr36, %9
   %brmerge = or i1 %56, %54
-  br i1 %brmerge, label %mbedtls_mpi_cmp_int.exit.thread, label %.split.us37, !llvm.loop !38
+  br i1 %brmerge, label %mbedtls_mpi_cmp_int.exit.thread, label %.split.us34, !llvm.loop !38
 
 .split.us:                                        ; preds = %.preheader.i.i.us
   %57 = zext nneg i16 %.fr28 to i32
   br label %mbedtls_mpi_cmp_int.exit
 
-.split.us37:                                      ; preds = %.preheader.preheader.i.i.split
+.split.us34:                                      ; preds = %.preheader.preheader.i.i.split
   %58 = zext nneg i16 %.fr28 to i32
   %59 = sub nsw i32 0, %58
   br label %mbedtls_mpi_cmp_int.exit
 
-mbedtls_mpi_cmp_int.exit:                         ; preds = %47, %.split.us, %.split.us37
+mbedtls_mpi_cmp_int.exit:                         ; preds = %47, %.split.us, %.split.us34
   %.036.i.i = phi i32 [ %49, %47 ], [ %57, %.split.us ], [ %59, %.split.us37 ]
   %60 = icmp eq i32 %.036.i.i, 0
   br i1 %60, label %mbedtls_mpi_cmp_int.exit.thread, label %mbedtls_mpi_mod_int.exit
@@ -5628,11 +5628,11 @@ mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %.preheader.preheade
   br label %mbedtls_mpi_mod_int.exit
 
 .critedge:                                        ; preds = %13, %28
-  %61 = getelementptr inbounds nuw i8, ptr @small_prime_gaps, i64 %.01032
+  %61 = getelementptr inbounds nuw i8, ptr @small_prime_gaps, i64 %.01030
   %62 = load i8, ptr %61, align 1, !tbaa !24
   %63 = zext i8 %62 to i32
-  %64 = add i32 %.033, %63
-  %65 = add nuw nsw i64 %.01032, 1
+  %64 = add i32 %.031, %63
+  %65 = add nuw nsw i64 %.01030, 1
   %exitcond.not = icmp eq i64 %65, 167
   br i1 %exitcond.not, label %mbedtls_mpi_mod_int.exit, label %8, !llvm.loop !56
 

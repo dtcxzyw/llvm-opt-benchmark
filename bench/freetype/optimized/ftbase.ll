@@ -8372,8 +8372,8 @@ define hidden range(i32 0, 134) i32 @FT_Request_Metrics(ptr noundef readonly cap
   %78 = phi i64 [ %76, %72 ], [ %71, %66 ]
   %.not107 = icmp ne i64 %71, 0
   %.not108 = icmp eq i64 %60, 0
-  %or.cond159 = select i1 %.not107, i1 true, i1 %.not108
-  br i1 %or.cond159, label %79, label %.thread157
+  %or.cond151 = select i1 %.not107, i1 true, i1 %.not108
+  br i1 %or.cond151, label %79, label %.thread149
 
 79:                                               ; preds = %77
   %80 = icmp eq i64 %56, 0
@@ -8391,13 +8391,13 @@ define hidden range(i32 0, 134) i32 @FT_Request_Metrics(ptr noundef readonly cap
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %88, ptr %89, align 8, !tbaa !139
   %.not109 = icmp eq i64 %60, 0
-  br i1 %.not109, label %FT_MulDiv.exit, label %.thread157
+  br i1 %.not109, label %FT_MulDiv.exit, label %.thread149
 
-.thread157:                                       ; preds = %77, %81
+.thread149:                                       ; preds = %77, %81
   %90 = icmp eq i64 %55, 0
   br i1 %90, label %208, label %FT_DivFix.exit115
 
-FT_DivFix.exit115:                                ; preds = %.thread157
+FT_DivFix.exit115:                                ; preds = %.thread149
   %.016.i114 = tail call i64 @llvm.abs.i64(i64 %67, i1 false)
   %91 = shl i64 %.016.i114, 16
   %92 = lshr i64 %55, 1
@@ -8579,13 +8579,13 @@ FT_MulDiv.exit122:                                ; preds = %111, %113
   br label %.sink.split
 
 .sink.split:                                      ; preds = %205, %155
-  %.sink161 = phi i64 [ 72, %155 ], [ 40, %205 ]
+  %.sink153 = phi i64 [ 72, %155 ], [ 40, %205 ]
   %.sink = phi i64 [ %204, %155 ], [ 65536, %205 ]
-  %207 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink161
+  %207 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink153
   store i64 %.sink, ptr %207, align 8, !tbaa !37
   br label %208
 
-208:                                              ; preds = %.sink.split, %79, %.thread157, %147
+208:                                              ; preds = %.sink.split, %79, %.thread149, %147
   %.093 = phi i32 [ 133, %79 ], [ 133, %.thread157 ], [ 23, %147 ], [ 0, %.sink.split ]
   ret i32 %.093
 }

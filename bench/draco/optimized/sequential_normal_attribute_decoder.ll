@@ -5633,7 +5633,7 @@ _ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge: ; preds = %_ZNK5draco58Predict
   %69 = sub nsw i32 0, %62
   br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit
 
-default.unreachable:                              ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge
+_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.unreachabledefault: ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge
   unreachable
 
 _ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit: ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge, %63, %65, %68

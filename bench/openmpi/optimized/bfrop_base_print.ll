@@ -1418,8 +1418,8 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_proc(ptr noundef %0, ptr no
   br label %21
 
 21:                                               ; preds = %12, %14, %16, %18
-  %.sink32 = phi i32 [ %.fr33, %12 ], [ %.fr34, %14 ], [ %.fr35, %16 ], [ %.fr36, %18 ]
-  %22 = icmp slt i32 %.sink32, 0
+  %.0 = phi i32 [ %.fr33, %12 ], [ %.fr34, %14 ], [ %.fr35, %16 ], [ %.fr36, %18 ]
+  %22 = icmp slt i32 %.0, 0
   %spec.select = select i1 %22, i32 -32, i32 0
   br label %23
 

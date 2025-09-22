@@ -4271,8 +4271,8 @@ print_cmpd_type.exit:                             ; preds = %368, %365
   %422 = getelementptr inbounds nuw i8, ptr %415, i64 %421
   %423 = call i32 @H5Tget_member_value(i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %417, ptr noundef %422) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond66.not = icmp eq i64 %indvars.iv.next, %407
-  br i1 %exitcond66.not, label %424, label %416, !llvm.loop !114
+  %exitcond64.not = icmp eq i64 %indvars.iv.next, %407
+  br i1 %exitcond64.not, label %424, label %416, !llvm.loop !114
 
 424:                                              ; preds = %416
   %425 = icmp sgt i64 %.091.i, 0
@@ -4284,13 +4284,13 @@ print_cmpd_type.exit:                             ; preds = %368, %365
   br i1 %428, label %.preheader, label %.split.preheader
 
 .preheader:                                       ; preds = %426, %.preheader
-  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %.preheader ], [ 0, %426 ]
-  %429 = getelementptr inbounds nuw ptr, ptr %408, i64 %indvars.iv86
+  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %.preheader ], [ 0, %426 ]
+  %429 = getelementptr inbounds nuw ptr, ptr %408, i64 %indvars.iv84
   %430 = load ptr, ptr %429, align 8, !tbaa !19
   %431 = call i32 @H5free_memory(ptr noundef %430) #20
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %exitcond90.not = icmp eq i64 %indvars.iv.next87, %407
-  br i1 %exitcond90.not, label %.critedge.i, label %.preheader, !llvm.loop !115
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %407
+  br i1 %exitcond88.not, label %.critedge.i, label %.preheader, !llvm.loop !115
 
 .critedge.i:                                      ; preds = %.preheader
   call void @free(ptr noundef nonnull %408) #20
@@ -4307,9 +4307,9 @@ print_cmpd_type.exit:                             ; preds = %368, %365
   br label %.split
 
 .split.us:                                        ; preds = %433, %.loopexit.us
-  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %.loopexit.us ], [ 0, %433 ]
+  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.loopexit.us ], [ 0, %433 ]
   %435 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.198, i32 noundef %392, ptr noundef nonnull @.str.50) #20
-  %436 = getelementptr inbounds nuw ptr, ptr %408, i64 %indvars.iv74
+  %436 = getelementptr inbounds nuw ptr, ptr %408, i64 %indvars.iv72
   %437 = load ptr, ptr %436, align 8, !tbaa !19
   %438 = call fastcc i32 @print_string(ptr noundef nonnull %0, ptr noundef %437, i1 noundef zeroext true)
   %439 = sub nsw i32 16, %438
@@ -4325,23 +4325,23 @@ print_cmpd_type.exit:                             ; preds = %368, %365
   %446 = zext i8 %445 to i32
   %447 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.201, i32 noundef %446) #20
   %448 = add nuw i64 %.090.i55.us, 1
-  %exitcond73.not = icmp eq i64 %448, %.094.i
-  br i1 %exitcond73.not, label %.loopexit.us, label %443, !llvm.loop !116
+  %exitcond71.not = icmp eq i64 %448, %.094.i
+  br i1 %exitcond71.not, label %.loopexit.us, label %443, !llvm.loop !116
 
 .loopexit.us:                                     ; preds = %443, %.split.us
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond79.not = icmp eq i64 %indvars.iv.next75, %407
-  br i1 %exitcond79.not, label %.preheader52.preheader, label %.split.us, !llvm.loop !117
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %exitcond77.not = icmp eq i64 %indvars.iv.next73, %407
+  br i1 %exitcond77.not, label %.preheader52.preheader, label %.split.us, !llvm.loop !117
 
 .lr.ph56.us:                                      ; preds = %.split.us
-  %449 = mul i64 %.094.i, %indvars.iv74
+  %449 = mul i64 %.094.i, %indvars.iv72
   %450 = getelementptr i8, ptr %415, i64 %449
   br label %443
 
 .split:                                           ; preds = %.split.preheader, %.split
-  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.split ], [ 0, %.split.preheader ]
+  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.split ], [ 0, %.split.preheader ]
   %451 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.198, i32 noundef %392, ptr noundef nonnull @.str.50) #20
-  %452 = getelementptr inbounds nuw ptr, ptr %408, i64 %indvars.iv67
+  %452 = getelementptr inbounds nuw ptr, ptr %408, i64 %indvars.iv65
   %453 = load ptr, ptr %452, align 8, !tbaa !19
   %454 = call fastcc i32 @print_string(ptr noundef nonnull %0, ptr noundef %453, i1 noundef zeroext true)
   %455 = sub nsw i32 16, %454
@@ -4349,26 +4349,26 @@ print_cmpd_type.exit:                             ; preds = %368, %365
   %457 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.199, i32 noundef %456, ptr noundef nonnull @.str.50) #20
   %458 = call i32 @H5Tget_sign(i64 noundef %.091.i) #20
   %459 = icmp eq i32 %458, 0
-  %460 = mul i64 %.094.i, %indvars.iv67
+  %460 = mul i64 %.094.i, %indvars.iv65
   %461 = getelementptr inbounds nuw i8, ptr %415, i64 %460
   %.0.copyload1.i = load i64, ptr %461, align 1
   %.str.202..str.203 = select i1 %459, ptr @.str.202, ptr @.str.203
   %462 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull %.str.202..str.203, i64 noundef %.0.copyload1.i) #20
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %exitcond72.not = icmp eq i64 %indvars.iv.next68, %407
-  br i1 %exitcond72.not, label %.preheader52.preheader, label %.split, !llvm.loop !117
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %exitcond70.not = icmp eq i64 %indvars.iv.next66, %407
+  br i1 %exitcond70.not, label %.preheader52.preheader, label %.split, !llvm.loop !117
 
 .preheader52.preheader:                           ; preds = %.loopexit.us, %.split
   br label %.preheader52
 
 .preheader52:                                     ; preds = %.preheader52.preheader, %.preheader52
-  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.preheader52 ], [ 0, %.preheader52.preheader ]
-  %463 = getelementptr inbounds nuw ptr, ptr %408, i64 %indvars.iv80
+  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.preheader52 ], [ 0, %.preheader52.preheader ]
+  %463 = getelementptr inbounds nuw ptr, ptr %408, i64 %indvars.iv78
   %464 = load ptr, ptr %463, align 8, !tbaa !19
   %465 = call i32 @H5free_memory(ptr noundef %464) #20
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %exitcond85.not = icmp eq i64 %indvars.iv.next81, %407
-  br i1 %exitcond85.not, label %466, label %.preheader52, !llvm.loop !118
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %exitcond83.not = icmp eq i64 %indvars.iv.next79, %407
+  br i1 %exitcond83.not, label %466, label %.preheader52, !llvm.loop !118
 
 466:                                              ; preds = %.preheader52
   call void @free(ptr noundef nonnull %408) #20

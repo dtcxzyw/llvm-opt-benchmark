@@ -2607,15 +2607,15 @@ define range(i32 0, -2147483648) i32 @EVP_MD_CTX_ctrl(ptr noundef %0, i32 nounde
   br label %EVP_MD_CTX_get_params.exit
 
 EVP_MD_CTX_get_params.exit:                       ; preds = %66, %59, %41, %34, %75
-  %.sink56 = phi i32 [ %.fr57, %66 ], [ %.fr58, %59 ], [ %.fr59, %41 ], [ %.fr60, %34 ], [ %.fr61, %75 ]
-  %77 = icmp slt i32 %.sink56, 1
+  %.021 = phi i32 [ %.fr57, %66 ], [ %.fr58, %59 ], [ %.fr59, %41 ], [ %.fr60, %34 ], [ %.fr61, %75 ]
+  %77 = icmp slt i32 %.021, 1
   br i1 %77, label %EVP_MD_CTX_get_params.exit.thread, label %78
 
 EVP_MD_CTX_get_params.exit.thread:                ; preds = %61, %63, %36, %38, %16, %EVP_MD_CTX_get_params.exit
   br label %78
 
 78:                                               ; preds = %EVP_MD_CTX_get_params.exit.thread, %EVP_MD_CTX_get_params.exit, %74, %8
-  %.022 = phi i32 [ 0, %8 ], [ 0, %74 ], [ 0, %EVP_MD_CTX_get_params.exit.thread ], [ %.sink56, %EVP_MD_CTX_get_params.exit ]
+  %.022 = phi i32 [ 0, %8 ], [ 0, %74 ], [ 0, %EVP_MD_CTX_get_params.exit.thread ], [ %.021, %EVP_MD_CTX_get_params.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.022
