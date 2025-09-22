@@ -16141,141 +16141,141 @@ define hidden void @_m3d_inv(ptr noundef captures(none) %0) local_unnamed_addr #
   %95 = tail call float @llvm.fmuladd.f32(float %94, float %24, float %92)
   %96 = fmul float %27, %93
   %97 = tail call float @llvm.fmuladd.f32(float %96, float %43, float %95)
-  %98 = fcmp oeq float %97, 0.000000e+00
-  %99 = fdiv float 1.000000e+00, %97
-  %.0 = select i1 %98, float 1.000000e+00, float %99
-  %100 = fmul float %12, %16
-  %101 = tail call float @llvm.fmuladd.f32(float %7, float %10, float %100)
-  %102 = fneg float %10
-  %103 = fmul float %27, %102
-  %104 = tail call float @llvm.fmuladd.f32(float %12, float %24, float %103)
-  %105 = fmul float %20, %104
-  %106 = tail call float @llvm.fmuladd.f32(float %4, float %101, float %105)
-  %107 = fneg float %24
-  %108 = fmul float %7, %107
-  %109 = tail call float @llvm.fmuladd.f32(float %27, float %15, float %108)
-  %110 = tail call float @llvm.fmuladd.f32(float %32, float %109, float %106)
-  %111 = fmul float %110, %.0
-  %112 = fneg float %.0
-  %113 = fmul float %104, %65
-  %114 = tail call float @llvm.fmuladd.f32(float %40, float %101, float %113)
-  %115 = tail call float @llvm.fmuladd.f32(float %82, float %109, float %114)
-  %116 = fmul float %115, %112
-  %117 = fmul float %32, %16
-  %118 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %117)
-  %119 = fmul float %4, %102
-  %120 = tail call float @llvm.fmuladd.f32(float %32, float %24, float %119)
-  %121 = fmul float %120, %65
-  %122 = tail call float @llvm.fmuladd.f32(float %40, float %118, float %121)
-  %123 = fmul float %20, %107
-  %124 = tail call float @llvm.fmuladd.f32(float %4, float %15, float %123)
-  %125 = tail call float @llvm.fmuladd.f32(float %82, float %124, float %122)
-  %126 = fmul float %125, %.0
-  %127 = fmul float %32, %36
-  %128 = tail call float @llvm.fmuladd.f32(float %20, float %12, float %127)
-  %129 = fmul float %4, %44
-  %130 = tail call float @llvm.fmuladd.f32(float %32, float %27, float %129)
-  %131 = fmul float %130, %65
-  %132 = tail call float @llvm.fmuladd.f32(float %40, float %128, float %131)
-  %133 = fmul float %20, %28
-  %134 = tail call float @llvm.fmuladd.f32(float %4, float %7, float %133)
-  %135 = tail call float @llvm.fmuladd.f32(float %82, float %134, float %132)
-  %136 = fmul float %135, %112
-  %137 = fmul float %48, %102
-  %138 = tail call float @llvm.fmuladd.f32(float %12, float %43, float %137)
-  %139 = fmul float %20, %138
-  %140 = tail call float @llvm.fmuladd.f32(float %58, float %101, float %139)
-  %141 = fneg float %43
-  %142 = fmul float %7, %141
-  %143 = tail call float @llvm.fmuladd.f32(float %48, float %15, float %142)
-  %144 = tail call float @llvm.fmuladd.f32(float %32, float %143, float %140)
-  %145 = fmul float %144, %112
-  %146 = fmul float %65, %138
-  %147 = tail call float @llvm.fmuladd.f32(float %2, float %101, float %146)
-  %148 = tail call float @llvm.fmuladd.f32(float %82, float %143, float %147)
-  %149 = fmul float %148, %.0
-  %150 = fmul float %58, %102
-  %151 = tail call float @llvm.fmuladd.f32(float %32, float %43, float %150)
-  %152 = fmul float %65, %151
-  %153 = tail call float @llvm.fmuladd.f32(float %2, float %118, float %152)
-  %154 = fmul float %20, %141
-  %155 = tail call float @llvm.fmuladd.f32(float %58, float %15, float %154)
-  %156 = tail call float @llvm.fmuladd.f32(float %82, float %155, float %153)
-  %157 = fmul float %156, %112
-  %158 = fmul float %58, %44
-  %159 = tail call float @llvm.fmuladd.f32(float %32, float %48, float %158)
-  %160 = fmul float %65, %159
-  %161 = tail call float @llvm.fmuladd.f32(float %2, float %128, float %160)
-  %162 = fmul float %20, %52
-  %163 = tail call float @llvm.fmuladd.f32(float %58, float %7, float %162)
-  %164 = tail call float @llvm.fmuladd.f32(float %82, float %163, float %161)
-  %165 = fmul float %164, %.0
-  %166 = fmul float %12, %107
-  %167 = tail call float @llvm.fmuladd.f32(float %27, float %10, float %166)
-  %168 = fmul float %4, %138
-  %169 = tail call float @llvm.fmuladd.f32(float %58, float %167, float %168)
-  %170 = fmul float %27, %141
-  %171 = tail call float @llvm.fmuladd.f32(float %48, float %24, float %170)
-  %172 = tail call float @llvm.fmuladd.f32(float %32, float %171, float %169)
-  %173 = fmul float %172, %.0
-  %174 = fmul float %40, %138
-  %175 = tail call float @llvm.fmuladd.f32(float %2, float %167, float %174)
-  %176 = tail call float @llvm.fmuladd.f32(float %82, float %171, float %175)
-  %177 = fmul float %176, %112
-  %178 = fmul float %32, %107
-  %179 = tail call float @llvm.fmuladd.f32(float %4, float %10, float %178)
-  %180 = fmul float %40, %151
-  %181 = tail call float @llvm.fmuladd.f32(float %2, float %179, float %180)
-  %182 = fmul float %4, %141
-  %183 = tail call float @llvm.fmuladd.f32(float %58, float %24, float %182)
-  %184 = tail call float @llvm.fmuladd.f32(float %82, float %183, float %181)
-  %185 = fmul float %184, %.0
-  %186 = fmul float %32, %28
-  %187 = tail call float @llvm.fmuladd.f32(float %4, float %12, float %186)
-  %188 = fmul float %40, %159
-  %189 = tail call float @llvm.fmuladd.f32(float %2, float %187, float %188)
-  %190 = fmul float %4, %52
-  %191 = tail call float @llvm.fmuladd.f32(float %58, float %27, float %190)
-  %192 = tail call float @llvm.fmuladd.f32(float %82, float %191, float %189)
-  %193 = fmul float %192, %112
-  %194 = fmul float %48, %16
-  %195 = tail call float @llvm.fmuladd.f32(float %7, float %43, float %194)
-  %196 = fmul float %4, %195
-  %197 = tail call float @llvm.fmuladd.f32(float %58, float %109, float %196)
-  %198 = tail call float @llvm.fmuladd.f32(float %20, float %171, float %197)
-  %199 = fmul float %198, %112
-  %200 = fmul float %40, %195
-  %201 = tail call float @llvm.fmuladd.f32(float %2, float %109, float %200)
-  %202 = tail call float @llvm.fmuladd.f32(float %65, float %171, float %201)
-  %203 = fmul float %202, %.0
-  %204 = fmul float %58, %16
-  %205 = tail call float @llvm.fmuladd.f32(float %20, float %43, float %204)
-  %206 = fmul float %40, %205
-  %207 = tail call float @llvm.fmuladd.f32(float %2, float %124, float %206)
-  %208 = tail call float @llvm.fmuladd.f32(float %65, float %183, float %207)
-  %209 = fmul float %208, %112
-  %210 = fmul float %58, %36
-  %211 = tail call float @llvm.fmuladd.f32(float %20, float %48, float %210)
-  %212 = fmul float %40, %211
-  %213 = tail call float @llvm.fmuladd.f32(float %2, float %134, float %212)
-  %214 = tail call float @llvm.fmuladd.f32(float %65, float %191, float %213)
-  %215 = fmul float %214, %.0
-  store float %111, ptr %0, align 4
-  store float %116, ptr %39, align 4
-  store float %126, ptr %64, align 4
-  store float %136, ptr %81, align 4
-  store float %145, ptr %57, align 4
-  store float %149, ptr %3, align 4
-  store float %157, ptr %19, align 4
-  store float %165, ptr %31, align 4
-  store float %173, ptr %47, align 4
-  store float %177, ptr %26, align 4
-  store float %185, ptr %6, align 4
-  store float %193, ptr %11, align 4
-  store float %199, ptr %42, align 4
-  store float %203, ptr %23, align 4
-  store float %209, ptr %14, align 4
-  store float %215, ptr %9, align 4
+  %or.cond = fcmp oeq float %97, 0.000000e+00
+  %98 = fdiv float 1.000000e+00, %97
+  %.0 = select i1 %or.cond, float 1.000000e+00, float %98
+  %99 = fmul float %12, %16
+  %100 = tail call float @llvm.fmuladd.f32(float %7, float %10, float %99)
+  %101 = fneg float %10
+  %102 = fmul float %27, %101
+  %103 = tail call float @llvm.fmuladd.f32(float %12, float %24, float %102)
+  %104 = fmul float %20, %103
+  %105 = tail call float @llvm.fmuladd.f32(float %4, float %100, float %104)
+  %106 = fneg float %24
+  %107 = fmul float %7, %106
+  %108 = tail call float @llvm.fmuladd.f32(float %27, float %15, float %107)
+  %109 = tail call float @llvm.fmuladd.f32(float %32, float %108, float %105)
+  %110 = fmul float %109, %.0
+  %111 = fneg float %.0
+  %112 = fmul float %103, %65
+  %113 = tail call float @llvm.fmuladd.f32(float %40, float %100, float %112)
+  %114 = tail call float @llvm.fmuladd.f32(float %82, float %108, float %113)
+  %115 = fmul float %114, %111
+  %116 = fmul float %32, %16
+  %117 = tail call float @llvm.fmuladd.f32(float %20, float %10, float %116)
+  %118 = fmul float %4, %101
+  %119 = tail call float @llvm.fmuladd.f32(float %32, float %24, float %118)
+  %120 = fmul float %119, %65
+  %121 = tail call float @llvm.fmuladd.f32(float %40, float %117, float %120)
+  %122 = fmul float %20, %106
+  %123 = tail call float @llvm.fmuladd.f32(float %4, float %15, float %122)
+  %124 = tail call float @llvm.fmuladd.f32(float %82, float %123, float %121)
+  %125 = fmul float %124, %.0
+  %126 = fmul float %32, %36
+  %127 = tail call float @llvm.fmuladd.f32(float %20, float %12, float %126)
+  %128 = fmul float %4, %44
+  %129 = tail call float @llvm.fmuladd.f32(float %32, float %27, float %128)
+  %130 = fmul float %129, %65
+  %131 = tail call float @llvm.fmuladd.f32(float %40, float %127, float %130)
+  %132 = fmul float %20, %28
+  %133 = tail call float @llvm.fmuladd.f32(float %4, float %7, float %132)
+  %134 = tail call float @llvm.fmuladd.f32(float %82, float %133, float %131)
+  %135 = fmul float %134, %111
+  %136 = fmul float %48, %101
+  %137 = tail call float @llvm.fmuladd.f32(float %12, float %43, float %136)
+  %138 = fmul float %20, %137
+  %139 = tail call float @llvm.fmuladd.f32(float %58, float %100, float %138)
+  %140 = fneg float %43
+  %141 = fmul float %7, %140
+  %142 = tail call float @llvm.fmuladd.f32(float %48, float %15, float %141)
+  %143 = tail call float @llvm.fmuladd.f32(float %32, float %142, float %139)
+  %144 = fmul float %143, %111
+  %145 = fmul float %65, %137
+  %146 = tail call float @llvm.fmuladd.f32(float %2, float %100, float %145)
+  %147 = tail call float @llvm.fmuladd.f32(float %82, float %142, float %146)
+  %148 = fmul float %147, %.0
+  %149 = fmul float %58, %101
+  %150 = tail call float @llvm.fmuladd.f32(float %32, float %43, float %149)
+  %151 = fmul float %65, %150
+  %152 = tail call float @llvm.fmuladd.f32(float %2, float %117, float %151)
+  %153 = fmul float %20, %140
+  %154 = tail call float @llvm.fmuladd.f32(float %58, float %15, float %153)
+  %155 = tail call float @llvm.fmuladd.f32(float %82, float %154, float %152)
+  %156 = fmul float %155, %111
+  %157 = fmul float %58, %44
+  %158 = tail call float @llvm.fmuladd.f32(float %32, float %48, float %157)
+  %159 = fmul float %65, %158
+  %160 = tail call float @llvm.fmuladd.f32(float %2, float %127, float %159)
+  %161 = fmul float %20, %52
+  %162 = tail call float @llvm.fmuladd.f32(float %58, float %7, float %161)
+  %163 = tail call float @llvm.fmuladd.f32(float %82, float %162, float %160)
+  %164 = fmul float %163, %.0
+  %165 = fmul float %12, %106
+  %166 = tail call float @llvm.fmuladd.f32(float %27, float %10, float %165)
+  %167 = fmul float %4, %137
+  %168 = tail call float @llvm.fmuladd.f32(float %58, float %166, float %167)
+  %169 = fmul float %27, %140
+  %170 = tail call float @llvm.fmuladd.f32(float %48, float %24, float %169)
+  %171 = tail call float @llvm.fmuladd.f32(float %32, float %170, float %168)
+  %172 = fmul float %171, %.0
+  %173 = fmul float %40, %137
+  %174 = tail call float @llvm.fmuladd.f32(float %2, float %166, float %173)
+  %175 = tail call float @llvm.fmuladd.f32(float %82, float %170, float %174)
+  %176 = fmul float %175, %111
+  %177 = fmul float %32, %106
+  %178 = tail call float @llvm.fmuladd.f32(float %4, float %10, float %177)
+  %179 = fmul float %40, %150
+  %180 = tail call float @llvm.fmuladd.f32(float %2, float %178, float %179)
+  %181 = fmul float %4, %140
+  %182 = tail call float @llvm.fmuladd.f32(float %58, float %24, float %181)
+  %183 = tail call float @llvm.fmuladd.f32(float %82, float %182, float %180)
+  %184 = fmul float %183, %.0
+  %185 = fmul float %32, %28
+  %186 = tail call float @llvm.fmuladd.f32(float %4, float %12, float %185)
+  %187 = fmul float %40, %158
+  %188 = tail call float @llvm.fmuladd.f32(float %2, float %186, float %187)
+  %189 = fmul float %4, %52
+  %190 = tail call float @llvm.fmuladd.f32(float %58, float %27, float %189)
+  %191 = tail call float @llvm.fmuladd.f32(float %82, float %190, float %188)
+  %192 = fmul float %191, %111
+  %193 = fmul float %48, %16
+  %194 = tail call float @llvm.fmuladd.f32(float %7, float %43, float %193)
+  %195 = fmul float %4, %194
+  %196 = tail call float @llvm.fmuladd.f32(float %58, float %108, float %195)
+  %197 = tail call float @llvm.fmuladd.f32(float %20, float %170, float %196)
+  %198 = fmul float %197, %111
+  %199 = fmul float %40, %194
+  %200 = tail call float @llvm.fmuladd.f32(float %2, float %108, float %199)
+  %201 = tail call float @llvm.fmuladd.f32(float %65, float %170, float %200)
+  %202 = fmul float %201, %.0
+  %203 = fmul float %58, %16
+  %204 = tail call float @llvm.fmuladd.f32(float %20, float %43, float %203)
+  %205 = fmul float %40, %204
+  %206 = tail call float @llvm.fmuladd.f32(float %2, float %123, float %205)
+  %207 = tail call float @llvm.fmuladd.f32(float %65, float %182, float %206)
+  %208 = fmul float %207, %111
+  %209 = fmul float %58, %36
+  %210 = tail call float @llvm.fmuladd.f32(float %20, float %48, float %209)
+  %211 = fmul float %40, %210
+  %212 = tail call float @llvm.fmuladd.f32(float %2, float %133, float %211)
+  %213 = tail call float @llvm.fmuladd.f32(float %65, float %190, float %212)
+  %214 = fmul float %213, %.0
+  store float %110, ptr %0, align 4
+  store float %115, ptr %39, align 4
+  store float %125, ptr %64, align 4
+  store float %135, ptr %81, align 4
+  store float %144, ptr %57, align 4
+  store float %148, ptr %3, align 4
+  store float %156, ptr %19, align 4
+  store float %164, ptr %31, align 4
+  store float %172, ptr %47, align 4
+  store float %176, ptr %26, align 4
+  store float %184, ptr %6, align 4
+  store float %192, ptr %11, align 4
+  store float %198, ptr %42, align 4
+  store float %202, ptr %23, align 4
+  store float %208, ptr %14, align 4
+  store float %214, ptr %9, align 4
   ret void
 }
 

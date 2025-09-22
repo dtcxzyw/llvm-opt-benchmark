@@ -5307,13 +5307,13 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.
   %199 = fcmp contract oge <4 x double> %196, zeroinitializer
   %200 = fcmp contract ole <4 x double> %196, splat (double 1.000000e+00)
   %201 = and <4 x i1> %199, %200
-  %202 = fcmp contract oge <4 x double> %.sroa.01099.0, zeroinitializer
-  %203 = and <4 x i1> %202, %201
+  %201 = fcmp contract oge <4 x double> %.sroa.01099.0, zeroinitializer
+  %203 = and <4 x i1> %201, %200
   %204 = fcmp contract oge <4 x double> %198, zeroinitializer
-  %205 = fcmp contract ole <4 x double> %198, splat (double 1.000000e+00)
-  %206 = and <4 x i1> %204, %205
-  %207 = fcmp contract ole <4 x double> %.sroa.01098.0, %190
-  %208 = and <4 x i1> %207, %206
+  %204 = fcmp contract ole <4 x double> %198, splat (double 1.000000e+00)
+  %205 = and <4 x i1> %204, %205
+  %206 = fcmp contract ole <4 x double> %.sroa.01098.0, %190
+  %207 = and <4 x i1> %207, %206
   %209 = or <4 x i1> %208, %203
   %210 = tail call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %.sroa.01099.0)
   %211 = tail call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %.sroa.01098.0)
@@ -6125,16 +6125,16 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.
   %196 = and <8 x i1> %189, %.not1013.not
   %197 = fcmp contract oge <8 x double> %193, zeroinitializer
   %198 = fcmp contract ole <8 x double> %193, splat (double 1.000000e+00)
-  %199 = and <8 x i1> %197, %198
+  %198 = and <8 x i1> %197, %198
   %200 = fcmp contract oge <8 x double> %.sroa.01104.0, zeroinitializer
-  %201 = and <8 x i1> %200, %199
-  %202 = fcmp contract oge <8 x double> %195, zeroinitializer
+  %200 = and <8 x i1> %200, %199
+  %201 = fcmp contract oge <8 x double> %195, zeroinitializer
   %203 = fcmp contract ole <8 x double> %195, splat (double 1.000000e+00)
-  %204 = and <8 x i1> %202, %203
-  %205 = fcmp contract ole <8 x double> %.sroa.01103.0, %187
-  %206 = and <8 x i1> %205, %204
-  %207 = or <8 x i1> %206, %201
-  %208 = and <8 x i1> %196, %207
+  %204 = and <8 x i1> %201, %203
+  %204 = fcmp contract ole <8 x double> %.sroa.01103.0, %187
+  %205 = and <8 x i1> %205, %204
+  %206 = or <8 x i1> %205, %200
+  %207 = and <8 x i1> %196, %206
   %209 = tail call contract noundef <8 x float> @llvm.x86.avx512.mask.cvtpd2ps.512(<8 x double> %.sroa.01104.0, <8 x float> zeroinitializer, i8 -1, i32 4)
   %210 = tail call contract noundef <8 x float> @llvm.x86.avx512.mask.cvtpd2ps.512(<8 x double> %.sroa.01103.0, <8 x float> zeroinitializer, i8 -1, i32 4)
   %211 = select contract <8 x i1> %201, <8 x float> %209, <8 x float> %210
@@ -6532,18 +6532,18 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.
   %195 = and <8 x i1> %188, %.not906.not
   %196 = fcmp contract oge <8 x double> %192, zeroinitializer
   %197 = fcmp contract ole <8 x double> %192, splat (double 1.000000e+00)
-  %198 = and <8 x i1> %196, %197
-  %199 = fcmp contract oge <8 x double> %.sroa.0987.0, zeroinitializer
+  %197 = and <8 x i1> %196, %197
+  %198 = fcmp contract oge <8 x double> %.sroa.0987.0, zeroinitializer
   %200 = and <8 x i1> %199, %198
-  %201 = fcmp contract oge <8 x double> %194, zeroinitializer
-  %202 = fcmp contract ole <8 x double> %194, splat (double 1.000000e+00)
-  %203 = and <8 x i1> %201, %202
+  %200 = fcmp contract oge <8 x double> %194, zeroinitializer
+  %201 = fcmp contract ole <8 x double> %194, splat (double 1.000000e+00)
+  %203 = and <8 x i1> %200, %202
   %204 = fcmp contract ole <8 x double> %.sroa.0986.0, %186
-  %205 = and <8 x i1> %204, %203
-  %206 = or <8 x i1> %205, %200
-  %207 = and <8 x i1> %195, %206
-  %208 = bitcast <8 x i1> %207 to i8
-  ret i8 %208
+  %204 = and <8 x i1> %204, %203
+  %205 = or <8 x i1> %204, %200
+  %206 = and <8 x i1> %195, %205
+  %207 = bitcast <8 x i1> %206 to i8
+  ret i8 %207
 }
 
 ; Function Attrs: mustprogress uwtable

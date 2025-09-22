@@ -1620,13 +1620,13 @@ define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCor
   %10 = alloca float, align 4
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca i32, align 4
-  %.not17 = icmp eq ptr %.0.val, %.8.val
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq ptr %.0.val, %.8.val
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %25
-  %.01219 = phi double [ %26, %25 ], [ 0.000000e+00, %0 ]
-  %.sroa.01.018 = phi ptr [ %27, %25 ], [ %.0.val, %0 ]
-  %13 = load double, ptr %.sroa.01.018, align 8
+  %.01220 = phi double [ %26, %25 ], [ 0.000000e+00, %0 ]
+  %.sroa.01.019 = phi ptr [ %27, %25 ], [ %.0.val, %0 ]
+  %13 = load double, ptr %.sroa.01.019, align 8
   %14 = fcmp ult double %13, 0.000000e+00
   br i1 %14, label %15, label %19
 
@@ -1667,8 +1667,8 @@ define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCor
   br label %37
 
 25:                                               ; preds = %19
-  %26 = fadd double %.01219, %13
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.01.018, i64 72
+  %26 = fadd double %.01220, %13
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.01.019, i64 72
   %.not = icmp eq ptr %27, %.8.val
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 

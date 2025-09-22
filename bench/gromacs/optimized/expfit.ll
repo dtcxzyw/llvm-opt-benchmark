@@ -489,22 +489,22 @@ _ZL8safe_expd.exit:                               ; preds = %2, %12, %14
 22:                                               ; preds = %17
   %23 = fmul double %.0.i, 5.000000e-01
   %24 = fcmp ugt double %.sroa.speculated, -2.000000e+02
-  br i1 %24, label %25, label %_ZL8safe_expd.exit36
+  br i1 %24, label %26, label %_ZL8safe_expd.exit36
 
-25:                                               ; preds = %22
+26:                                               ; preds = %22
   %26 = fcmp ult double %.sroa.speculated, 2.000000e+02
   br i1 %26, label %27, label %_ZL8safe_expd.exit30
 
-27:                                               ; preds = %25
+27:                                               ; preds = %26
   %28 = tail call double @exp(double noundef %.sroa.speculated) #17, !tbaa !4
   br label %_ZL8safe_expd.exit30
 
-_ZL8safe_expd.exit30:                             ; preds = %25, %27
+_ZL8safe_expd.exit30:                             ; preds = %26, %27
   %.0.i29 = phi double [ %28, %27 ], [ 0x51F73F60EA79F5B9, %25 ]
   %29 = fcmp ult double %.sroa.speculated, 2.000000e+02
-  br i1 %29, label %31, label %_ZL8safe_expd.exit34
+  br i1 %29, label %31, label %_ZL8safe_expd.exit32
 
-_ZL8safe_expd.exit34:                             ; preds = %_ZL8safe_expd.exit30
+_ZL8safe_expd.exit32:                             ; preds = %_ZL8safe_expd.exit30
   %30 = fadd double %.0.i29, 0x2DE6061812054CFA
   br label %_ZL8safe_expd.exit36
 
@@ -516,11 +516,11 @@ _ZL8safe_expd.exit34:                             ; preds = %_ZL8safe_expd.exit3
   %36 = tail call double @exp(double noundef %32) #17, !tbaa !4
   br label %_ZL8safe_expd.exit36
 
-_ZL8safe_expd.exit36:                             ; preds = %22, %_ZL8safe_expd.exit34, %31
+_ZL8safe_expd.exit36:                             ; preds = %22, %_ZL8safe_expd.exit32, %31
   %.0.i3354 = phi double [ %35, %31 ], [ 0x51F73F60EA79F5B9, %_ZL8safe_expd.exit34 ], [ 0x2DE6061812054CFA, %22 ]
-  %.pn63 = phi double [ %34, %31 ], [ %30, %_ZL8safe_expd.exit34 ], [ 0x51F73F60EA79F5B9, %22 ]
+  %.pn67 = phi double [ %34, %31 ], [ %30, %_ZL8safe_expd.exit34 ], [ 0x51F73F60EA79F5B9, %22 ]
   %.0.i35 = phi double [ %36, %31 ], [ 0x2DE6061812054CFA, %_ZL8safe_expd.exit34 ], [ 0x51F73F60EA79F5B9, %22 ]
-  %37 = fmul double %23, %.pn63
+  %37 = fmul double %23, %.pn67
   %38 = fsub double %.0.i3354, %.0.i35
   %39 = fmul double %23, %38
   br label %45

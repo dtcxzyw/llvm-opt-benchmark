@@ -15924,7 +15924,7 @@ ri_end.exit51:                                    ; preds = %ri_end.exit50
 31:                                               ; preds = %ri_end.exit51
   %32 = load double, ptr %17, align 8, !tbaa !358
   %33 = fcmp reassoc nsz arcp contract afn ogt double %32, %29
-  br i1 %33, label %34, label %62
+  br i1 %33, label %34, label %63
 
 34:                                               ; preds = %31
   %35 = load double, ptr %0, align 8, !tbaa !358
@@ -15933,215 +15933,215 @@ ri_end.exit51:                                    ; preds = %ri_end.exit50
   %38 = fcmp reassoc nsz arcp contract afn ogt double %35, %32
   %39 = fcmp reassoc nsz arcp contract afn ogt double %35, %29
   %or.cond.i = or i1 %39, %38
-  br i1 %or.cond.i, label %40, label %41
+  br i1 %or.cond.i, label %40, label %42
 
-40:                                               ; preds = %34
+41:                                               ; preds = %34
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.175) #34
   tail call void @exit(i32 noundef 1) #38
   unreachable
 
-41:                                               ; preds = %34
-  %42 = fcmp reassoc nsz arcp contract afn oeq double %35, %32
-  br i1 %42, label %double_equal.exit.i, label %double_equal.exit.thread.i
+42:                                               ; preds = %34
+  %43 = fcmp reassoc nsz arcp contract afn oeq double %35, %32
+  br i1 %43, label %double_equal.exit.i, label %double_equal.exit.thread.i
 
-double_equal.exit.i:                              ; preds = %41
-  %43 = fcmp reassoc nsz arcp contract afn olt double %36, %37
-  br i1 %43, label %inter_low.exit, label %double_equal.exit35.i
+double_equal.exit.i:                              ; preds = %42
+  %44 = fcmp reassoc nsz arcp contract afn olt double %36, %37
+  br i1 %44, label %inter_low.exit, label %double_equal.exit35.i
 
-double_equal.exit.thread.i:                       ; preds = %41
-  %44 = fsub reassoc nsz arcp contract afn double %35, %32
-  %45 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %44)
-  %46 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %35)
-  %47 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %32)
-  %48 = fcmp reassoc nsz arcp contract afn ogt double %46, %47
-  %49 = select reassoc nsz arcp contract afn i1 %48, double %46, double %47
-  %50 = fcmp reassoc nsz arcp contract afn olt double %49, 0x10000000000000
-  %.0.i.i = select nsz i1 %50, double 0x10000000000000, double %49
-  %51 = fdiv reassoc nsz arcp contract afn double %45, %.0.i.i
-  %52 = fcmp reassoc nsz arcp contract afn ole double %51, 0x3D19000000000000
-  %53 = fcmp reassoc nsz arcp contract afn olt double %36, %37
-  %or.cond3138.i = and i1 %53, %52
+double_equal.exit.thread.i:                       ; preds = %42
+  %45 = fsub reassoc nsz arcp contract afn double %35, %32
+  %46 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %45)
+  %47 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %35)
+  %48 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %32)
+  %49 = fcmp reassoc nsz arcp contract afn ogt double %47, %48
+  %50 = select reassoc nsz arcp contract afn i1 %49, double %47, double %48
+  %51 = fcmp reassoc nsz arcp contract afn olt double %50, 0x10000000000000
+  %.0.i.i = select nsz i1 %51, double 0x10000000000000, double %50
+  %52 = fdiv reassoc nsz arcp contract afn double %46, %.0.i.i
+  %53 = fcmp reassoc nsz arcp contract afn ole double %52, 0x3D19000000000000
+  %54 = fcmp reassoc nsz arcp contract afn olt double %36, %37
+  %or.cond3138.i = and i1 %54, %53
   br i1 %or.cond3138.i, label %inter_low.exit, label %double_equal.exit35.i
 
 double_equal.exit35.i:                            ; preds = %double_equal.exit.thread.i, %double_equal.exit.i
-  %.013.i34.i = phi i1 [ true, %double_equal.exit.i ], [ %52, %double_equal.exit.thread.i ]
-  %54 = fcmp reassoc nsz arcp contract afn ogt double %36, %37
-  %or.cond32.i = and i1 %54, %.013.i34.i
-  br i1 %or.cond32.i, label %inter_low.exit, label %55
+  %.013.i34.i = phi i1 [ true, %double_equal.exit.i ], [ %53, %double_equal.exit.thread.i ]
+  %55 = fcmp reassoc nsz arcp contract afn ogt double %36, %37
+  %or.cond32.i = and i1 %55, %.013.i34.i
+  br i1 %or.cond32.i, label %inter_low.exit, label %56
 
-55:                                               ; preds = %double_equal.exit35.i
-  %56 = fsub reassoc nsz arcp contract afn double %29, %35
-  %57 = fsub reassoc nsz arcp contract afn double %37, %36
-  %58 = fmul reassoc nsz arcp contract afn double %57, %56
-  %59 = fsub reassoc nsz arcp contract afn double %32, %35
-  %60 = fdiv reassoc nsz arcp contract afn double %58, %59
-  %61 = fadd reassoc nsz arcp contract afn double %60, %36
+56:                                               ; preds = %double_equal.exit35.i
+  %57 = fsub reassoc nsz arcp contract afn double %29, %35
+  %58 = fsub reassoc nsz arcp contract afn double %37, %36
+  %59 = fmul reassoc nsz arcp contract afn double %58, %57
+  %60 = fsub reassoc nsz arcp contract afn double %32, %35
+  %61 = fdiv reassoc nsz arcp contract afn double %59, %60
+  %62 = fadd reassoc nsz arcp contract afn double %61, %36
   br label %inter_low.exit
 
-62:                                               ; preds = %31
-  %63 = load double, ptr %18, align 8, !tbaa !358
-  %64 = load double, ptr %19, align 8, !tbaa !358
-  %65 = fcmp reassoc nsz arcp contract afn ogt double %32, %7
-  br i1 %65, label %66, label %67
+63:                                               ; preds = %31
+  %64 = load double, ptr %18, align 8, !tbaa !358
+  %65 = load double, ptr %19, align 8, !tbaa !358
+  %66 = fcmp reassoc nsz arcp contract afn ogt double %32, %7
+  br i1 %66, label %67, label %68
 
-66:                                               ; preds = %62
+67:                                               ; preds = %63
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.175) #34
   tail call void @exit(i32 noundef 1) #38
   unreachable
 
-67:                                               ; preds = %62
-  %68 = fcmp reassoc nsz arcp contract afn oeq double %32, %7
-  br i1 %68, label %double_equal.exit.i61, label %double_equal.exit.thread.i54
+68:                                               ; preds = %63
+  %69 = fcmp reassoc nsz arcp contract afn oeq double %32, %7
+  br i1 %69, label %double_equal.exit.i61, label %double_equal.exit.thread.i54
 
-double_equal.exit.i61:                            ; preds = %67
-  %69 = fcmp reassoc nsz arcp contract afn olt double %63, %64
-  br i1 %69, label %inter_low.exit, label %double_equal.exit35.i57
+double_equal.exit.i61:                            ; preds = %68
+  %70 = fcmp reassoc nsz arcp contract afn olt double %64, %65
+  br i1 %70, label %inter_low.exit, label %double_equal.exit35.i57
 
-double_equal.exit.thread.i54:                     ; preds = %67
-  %70 = fsub reassoc nsz arcp contract afn double %32, %7
-  %71 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %70)
-  %72 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %32)
-  %73 = fcmp reassoc nsz arcp contract afn ogt double %72, %20
-  %74 = select reassoc nsz arcp contract afn i1 %73, double %72, double %20
-  %75 = fcmp reassoc nsz arcp contract afn olt double %74, 0x10000000000000
-  %.0.i.i55 = select nsz i1 %75, double 0x10000000000000, double %74
-  %76 = fdiv reassoc nsz arcp contract afn double %71, %.0.i.i55
-  %77 = fcmp reassoc nsz arcp contract afn ole double %76, 0x3D19000000000000
-  %78 = fcmp reassoc nsz arcp contract afn olt double %63, %64
-  %or.cond3138.i56 = and i1 %77, %78
+double_equal.exit.thread.i54:                     ; preds = %68
+  %71 = fsub reassoc nsz arcp contract afn double %32, %7
+  %72 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %71)
+  %73 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %32)
+  %74 = fcmp reassoc nsz arcp contract afn ogt double %73, %20
+  %75 = select reassoc nsz arcp contract afn i1 %74, double %73, double %20
+  %76 = fcmp reassoc nsz arcp contract afn olt double %75, 0x10000000000000
+  %.0.i.i55 = select nsz i1 %76, double 0x10000000000000, double %75
+  %77 = fdiv reassoc nsz arcp contract afn double %72, %.0.i.i55
+  %78 = fcmp reassoc nsz arcp contract afn ole double %77, 0x3D19000000000000
+  %79 = fcmp reassoc nsz arcp contract afn olt double %64, %65
+  %or.cond3138.i56 = and i1 %78, %79
   br i1 %or.cond3138.i56, label %inter_low.exit, label %double_equal.exit35.i57
 
 double_equal.exit35.i57:                          ; preds = %double_equal.exit.thread.i54, %double_equal.exit.i61
-  %.013.i34.i58 = phi i1 [ true, %double_equal.exit.i61 ], [ %77, %double_equal.exit.thread.i54 ]
-  %79 = fcmp reassoc nsz arcp contract afn ogt double %63, %64
-  %or.cond32.i59 = and i1 %79, %.013.i34.i58
-  br i1 %or.cond32.i59, label %inter_low.exit, label %80
+  %.013.i34.i58 = phi i1 [ true, %double_equal.exit.i61 ], [ %78, %double_equal.exit.thread.i54 ]
+  %80 = fcmp reassoc nsz arcp contract afn ogt double %64, %65
+  %or.cond32.i59 = and i1 %80, %.013.i34.i58
+  br i1 %or.cond32.i59, label %inter_low.exit, label %81
 
-80:                                               ; preds = %double_equal.exit35.i57
-  %81 = fsub reassoc nsz arcp contract afn double %29, %32
-  %82 = fsub reassoc nsz arcp contract afn double %64, %63
-  %83 = fmul reassoc nsz arcp contract afn double %82, %81
-  %84 = fsub reassoc nsz arcp contract afn double %7, %32
-  %85 = fdiv reassoc nsz arcp contract afn double %83, %84
-  %86 = fadd reassoc nsz arcp contract afn double %85, %63
+81:                                               ; preds = %double_equal.exit35.i57
+  %82 = fsub reassoc nsz arcp contract afn double %29, %32
+  %83 = fsub reassoc nsz arcp contract afn double %65, %64
+  %84 = fmul reassoc nsz arcp contract afn double %83, %82
+  %85 = fsub reassoc nsz arcp contract afn double %7, %32
+  %86 = fdiv reassoc nsz arcp contract afn double %84, %85
+  %87 = fadd reassoc nsz arcp contract afn double %86, %64
   br label %inter_low.exit
 
-inter_low.exit:                                   ; preds = %80, %double_equal.exit35.i57, %double_equal.exit.thread.i54, %double_equal.exit.i61, %55, %double_equal.exit35.i, %double_equal.exit.thread.i, %double_equal.exit.i
-  %87 = phi double [ %61, %55 ], [ %36, %double_equal.exit.i ], [ %37, %double_equal.exit35.i ], [ %36, %double_equal.exit.thread.i ], [ %86, %80 ], [ %63, %double_equal.exit.i61 ], [ %64, %double_equal.exit35.i57 ], [ %63, %double_equal.exit.thread.i54 ]
-  store double %87, ptr %21, align 8, !tbaa !589
-  %88 = load double, ptr %23, align 8, !tbaa !358
-  %89 = fcmp reassoc nsz arcp contract afn ogt double %88, %29
-  br i1 %89, label %90, label %118
+inter_low.exit:                                   ; preds = %81, %double_equal.exit35.i57, %double_equal.exit.thread.i54, %double_equal.exit.i61, %56, %double_equal.exit35.i, %double_equal.exit.thread.i, %double_equal.exit.i
+  %88 = phi double [ %62, %55 ], [ %36, %double_equal.exit.i ], [ %37, %double_equal.exit35.i ], [ %36, %double_equal.exit.thread.i ], [ %87, %80 ], [ %64, %double_equal.exit.i61 ], [ %65, %double_equal.exit35.i57 ], [ %64, %double_equal.exit.thread.i54 ]
+  store double %88, ptr %21, align 8, !tbaa !589
+  %89 = load double, ptr %23, align 8, !tbaa !358
+  %90 = fcmp reassoc nsz arcp contract afn ogt double %89, %29
+  br i1 %90, label %91, label %120
 
-90:                                               ; preds = %inter_low.exit
-  %91 = load double, ptr %0, align 8, !tbaa !358
-  %92 = load double, ptr %22, align 8, !tbaa !358
-  %93 = load double, ptr %24, align 8, !tbaa !358
-  %94 = fcmp reassoc nsz arcp contract afn ogt double %91, %88
-  %95 = fcmp reassoc nsz arcp contract afn ogt double %91, %29
-  %or.cond.i63 = or i1 %95, %94
+91:                                               ; preds = %inter_low.exit
+  %92 = load double, ptr %0, align 8, !tbaa !358
+  %93 = load double, ptr %22, align 8, !tbaa !358
+  %94 = load double, ptr %24, align 8, !tbaa !358
+  %95 = fcmp reassoc nsz arcp contract afn ogt double %92, %89
+  %96 = fcmp reassoc nsz arcp contract afn ogt double %92, %29
+  %or.cond.i63 = or i1 %96, %95
   br i1 %or.cond.i63, label %96, label %97
 
-96:                                               ; preds = %90
+96:; preds = %90
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.176) #34
   tail call void @exit(i32 noundef 1) #38
   unreachable
 
-97:                                               ; preds = %90
-  %98 = fcmp reassoc nsz arcp contract afn oeq double %91, %88
-  br i1 %98, label %double_equal.exit.i72, label %double_equal.exit.thread.i65
+99:                                               ; preds = %91
+  %100 = fcmp reassoc nsz arcp contract afn oeq double %92, %89
+  br i1 %100, label %double_equal.exit.i72, label %double_equal.exit.thread.i65
 
-double_equal.exit.i72:                            ; preds = %97
-  %99 = fcmp reassoc nsz arcp contract afn olt double %92, %93
-  br i1 %99, label %inter_hi.exit, label %double_equal.exit35.i68
+double_equal.exit.i72:                            ; preds = %99
+  %101 = fcmp reassoc nsz arcp contract afn olt double %93, %94
+  br i1 %101, label %inter_hi.exit, label %double_equal.exit35.i68
 
-double_equal.exit.thread.i65:                     ; preds = %97
-  %100 = fsub reassoc nsz arcp contract afn double %91, %88
-  %101 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %100)
-  %102 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %91)
-  %103 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %88)
-  %104 = fcmp reassoc nsz arcp contract afn ogt double %102, %103
-  %105 = select reassoc nsz arcp contract afn i1 %104, double %102, double %103
-  %106 = fcmp reassoc nsz arcp contract afn olt double %105, 0x10000000000000
-  %.0.i.i66 = select nsz i1 %106, double 0x10000000000000, double %105
-  %107 = fdiv reassoc nsz arcp contract afn double %101, %.0.i.i66
-  %108 = fcmp reassoc nsz arcp contract afn ole double %107, 0x3D19000000000000
-  %109 = fcmp reassoc nsz arcp contract afn olt double %92, %93
-  %or.cond3138.i67 = and i1 %109, %108
+double_equal.exit.thread.i65:                     ; preds = %99
+  %102 = fsub reassoc nsz arcp contract afn double %92, %89
+  %103 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %102)
+  %104 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %92)
+  %105 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %89)
+  %106 = fcmp reassoc nsz arcp contract afn ogt double %104, %105
+  %107 = select reassoc nsz arcp contract afn i1 %106, double %104, double %105
+  %108 = fcmp reassoc nsz arcp contract afn olt double %107, 0x10000000000000
+  %.0.i.i66 = select nsz i1 %108, double 0x10000000000000, double %107
+  %109 = fdiv reassoc nsz arcp contract afn double %103, %.0.i.i66
+  %110 = fcmp reassoc nsz arcp contract afn ole double %109, 0x3D19000000000000
+  %111 = fcmp reassoc nsz arcp contract afn olt double %93, %94
+  %or.cond3138.i67 = and i1 %111, %110
   br i1 %or.cond3138.i67, label %inter_hi.exit, label %double_equal.exit35.i68
 
 double_equal.exit35.i68:                          ; preds = %double_equal.exit.thread.i65, %double_equal.exit.i72
-  %.013.i34.i69 = phi i1 [ true, %double_equal.exit.i72 ], [ %108, %double_equal.exit.thread.i65 ]
-  %110 = fcmp reassoc nsz arcp contract afn ogt double %92, %93
-  %or.cond32.i70 = and i1 %110, %.013.i34.i69
-  br i1 %or.cond32.i70, label %inter_hi.exit, label %111
+  %.013.i34.i69 = phi i1 [ true, %double_equal.exit.i72 ], [ %110, %double_equal.exit.thread.i65 ]
+  %112 = fcmp reassoc nsz arcp contract afn ogt double %93, %94
+  %or.cond32.i70 = and i1 %112, %.013.i34.i69
+  br i1 %or.cond32.i70, label %inter_hi.exit, label %113
 
-111:                                              ; preds = %double_equal.exit35.i68
-  %112 = fsub reassoc nsz arcp contract afn double %29, %91
-  %113 = fsub reassoc nsz arcp contract afn double %93, %92
-  %114 = fmul reassoc nsz arcp contract afn double %113, %112
-  %115 = fsub reassoc nsz arcp contract afn double %88, %91
-  %116 = fdiv reassoc nsz arcp contract afn double %114, %115
-  %117 = fadd reassoc nsz arcp contract afn double %116, %92
+113:                                              ; preds = %double_equal.exit35.i68
+  %114 = fsub reassoc nsz arcp contract afn double %29, %92
+  %115 = fsub reassoc nsz arcp contract afn double %94, %93
+  %116 = fmul reassoc nsz arcp contract afn double %115, %114
+  %117 = fsub reassoc nsz arcp contract afn double %89, %92
+  %118 = fdiv reassoc nsz arcp contract afn double %116, %117
+  %119 = fadd reassoc nsz arcp contract afn double %118, %93
   br label %inter_hi.exit
 
-118:                                              ; preds = %inter_low.exit
-  %119 = load double, ptr %24, align 8, !tbaa !358
-  %120 = load double, ptr %19, align 8, !tbaa !358
-  %121 = fcmp reassoc nsz arcp contract afn ogt double %88, %7
-  br i1 %121, label %122, label %123
+120:                                              ; preds = %inter_low.exit
+  %121 = load double, ptr %24, align 8, !tbaa !358
+  %122 = load double, ptr %19, align 8, !tbaa !358
+  %123 = fcmp reassoc nsz arcp contract afn ogt double %89, %7
+  br i1 %123, label %124, label %125
 
-122:                                              ; preds = %118
+124:                                              ; preds = %120
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.176) #34
   tail call void @exit(i32 noundef 1) #38
   unreachable
 
-123:                                              ; preds = %118
-  %124 = fcmp reassoc nsz arcp contract afn oeq double %88, %7
-  br i1 %124, label %double_equal.exit.i82, label %double_equal.exit.thread.i75
+125:                                              ; preds = %120
+  %126 = fcmp reassoc nsz arcp contract afn oeq double %89, %7
+  br i1 %126, label %double_equal.exit.i82, label %double_equal.exit.thread.i75
 
-double_equal.exit.i82:                            ; preds = %123
-  %125 = fcmp reassoc nsz arcp contract afn olt double %119, %120
-  br i1 %125, label %inter_hi.exit, label %double_equal.exit35.i78
+double_equal.exit.i82:                            ; preds = %125
+  %127 = fcmp reassoc nsz arcp contract afn olt double %121, %122
+  br i1 %127, label %inter_hi.exit, label %double_equal.exit35.i78
 
-double_equal.exit.thread.i75:                     ; preds = %123
-  %126 = fsub reassoc nsz arcp contract afn double %88, %7
-  %127 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %126)
-  %128 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %88)
-  %129 = fcmp reassoc nsz arcp contract afn ogt double %128, %20
-  %130 = select reassoc nsz arcp contract afn i1 %129, double %128, double %20
-  %131 = fcmp reassoc nsz arcp contract afn olt double %130, 0x10000000000000
-  %.0.i.i76 = select nsz i1 %131, double 0x10000000000000, double %130
-  %132 = fdiv reassoc nsz arcp contract afn double %127, %.0.i.i76
-  %133 = fcmp reassoc nsz arcp contract afn ole double %132, 0x3D19000000000000
-  %134 = fcmp reassoc nsz arcp contract afn olt double %119, %120
-  %or.cond3138.i77 = and i1 %133, %134
+double_equal.exit.thread.i75:                     ; preds = %125
+  %128 = fsub reassoc nsz arcp contract afn double %89, %7
+  %129 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %128)
+  %130 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %89)
+  %131 = fcmp reassoc nsz arcp contract afn ogt double %130, %20
+  %132 = select reassoc nsz arcp contract afn i1 %131, double %130, double %20
+  %133 = fcmp reassoc nsz arcp contract afn olt double %132, 0x10000000000000
+  %.0.i.i76 = select nsz i1 %133, double 0x10000000000000, double %132
+  %134 = fdiv reassoc nsz arcp contract afn double %129, %.0.i.i76
+  %135 = fcmp reassoc nsz arcp contract afn ole double %134, 0x3D19000000000000
+  %136 = fcmp reassoc nsz arcp contract afn olt double %121, %122
+  %or.cond3138.i77 = and i1 %135, %136
   br i1 %or.cond3138.i77, label %inter_hi.exit, label %double_equal.exit35.i78
 
 double_equal.exit35.i78:                          ; preds = %double_equal.exit.thread.i75, %double_equal.exit.i82
-  %.013.i34.i79 = phi i1 [ true, %double_equal.exit.i82 ], [ %133, %double_equal.exit.thread.i75 ]
-  %135 = fcmp reassoc nsz arcp contract afn ogt double %119, %120
-  %or.cond32.i80 = and i1 %135, %.013.i34.i79
-  br i1 %or.cond32.i80, label %inter_hi.exit, label %136
+  %.013.i34.i79 = phi i1 [ true, %double_equal.exit.i82 ], [ %135, %double_equal.exit.thread.i75 ]
+  %137 = fcmp reassoc nsz arcp contract afn ogt double %121, %122
+  %or.cond32.i80 = and i1 %137, %.013.i34.i79
+  br i1 %or.cond32.i80, label %inter_hi.exit, label %138
 
-136:                                              ; preds = %double_equal.exit35.i78
-  %137 = fsub reassoc nsz arcp contract afn double %29, %88
-  %138 = fsub reassoc nsz arcp contract afn double %120, %119
-  %139 = fmul reassoc nsz arcp contract afn double %138, %137
-  %140 = fsub reassoc nsz arcp contract afn double %7, %88
-  %141 = fdiv reassoc nsz arcp contract afn double %139, %140
-  %142 = fadd reassoc nsz arcp contract afn double %141, %119
+138:                                              ; preds = %double_equal.exit35.i78
+  %139 = fsub reassoc nsz arcp contract afn double %29, %89
+  %140 = fsub reassoc nsz arcp contract afn double %122, %121
+  %141 = fmul reassoc nsz arcp contract afn double %140, %139
+  %142 = fsub reassoc nsz arcp contract afn double %7, %89
+  %143 = fdiv reassoc nsz arcp contract afn double %141, %142
+  %144 = fadd reassoc nsz arcp contract afn double %143, %121
   br label %inter_hi.exit
 
-inter_hi.exit:                                    ; preds = %136, %double_equal.exit35.i78, %double_equal.exit.thread.i75, %double_equal.exit.i82, %111, %double_equal.exit35.i68, %double_equal.exit.thread.i65, %double_equal.exit.i72
-  %storemerge = phi double [ %117, %111 ], [ %93, %double_equal.exit.i72 ], [ %92, %double_equal.exit35.i68 ], [ %93, %double_equal.exit.thread.i65 ], [ %142, %136 ], [ %120, %double_equal.exit.i82 ], [ %119, %double_equal.exit35.i78 ], [ %120, %double_equal.exit.thread.i75 ]
+inter_hi.exit:                                    ; preds = %138, %double_equal.exit35.i78, %double_equal.exit.thread.i75, %double_equal.exit.i82, %113, %double_equal.exit35.i68, %double_equal.exit.thread.i65, %double_equal.exit.i72
+  %storemerge = phi double [ %119, %111 ], [ %94, %double_equal.exit.i72 ], [ %93, %double_equal.exit35.i68 ], [ %94, %double_equal.exit.thread.i65 ], [ %144, %136 ], [ %122, %double_equal.exit.i82 ], [ %121, %double_equal.exit35.i78 ], [ %122, %double_equal.exit.thread.i75 ]
   store double %storemerge, ptr %14, align 8, !tbaa !588
-  %143 = tail call reassoc nsz arcp contract afn double @llvm.ceil.f64(double %87)
-  %144 = fptosi double %143 to i32
-  store i32 %144, ptr %13, align 4, !tbaa !587
-  %145 = sitofp i32 %144 to double
-  %146 = fcmp reassoc nsz arcp contract afn olt double %storemerge, %145
-  br i1 %146, label %ri_end.exit50, label %.critedge
+  %145 = tail call reassoc nsz arcp contract afn double @llvm.ceil.f64(double %88)
+  %146 = fptosi double %145 to i32
+  store i32 %146, ptr %13, align 4, !tbaa !587
+  %147 = sitofp i32 %146 to double
+  %148 = fcmp reassoc nsz arcp contract afn olt double %storemerge, %147
+  br i1 %148, label %ri_end.exit50, label %.critedge
 
 .critedge:                                        ; preds = %ri_end.exit50, %ri_end.exit51, %inter_hi.exit, %ri_end.exit._crit_edge
   ret void

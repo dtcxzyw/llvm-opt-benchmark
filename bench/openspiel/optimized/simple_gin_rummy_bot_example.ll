@@ -1270,8 +1270,8 @@ define dso_local void @_Z8PlayGameRKN10open_spiel4GameERKSt6vectorISt10unique_pt
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
   call void %85(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.35") align 8 %16, ptr noundef nonnull align 8 dereferenceable(280) %1)
-  %.sink340.sroa.gep = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %.sink340.sroa.gep379 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %.sink347.sroa.gep = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %.sink347.sroa.gep386 = getelementptr inbounds nuw i8, ptr %79, i64 16
   br label %86
 
 86:                                               ; preds = %10, %94
@@ -1400,8 +1400,8 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %_ZNSt6vectorIdSaIdE
 145:                                              ; preds = %140
   %146 = load ptr, ptr %17, align 8
   %147 = load ptr, ptr %99, align 8
-  %.not248 = icmp eq ptr %146, %147
-  br i1 %.not248, label %._crit_edge, label %.lr.ph
+  %.not255 = icmp eq ptr %146, %147
+  br i1 %.not255, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %165
   %.pre = load ptr, ptr %17, align 8
@@ -1421,8 +1421,8 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 .lr.ph:                                           ; preds = %145, %165
-  %.sroa.0215.0249 = phi ptr [ %166, %165 ], [ %146, %145 ]
-  %154 = load i64, ptr %.sroa.0215.0249, align 8
+  %.sroa.0215.0256 = phi ptr [ %166, %165 ], [ %146, %145 ]
+  %154 = load i64, ptr %.sroa.0215.0256, align 8
   %155 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.29)
           to label %156 unwind label %167
 
@@ -1444,7 +1444,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %_ZNSt6vectorIdSaIdE
 
 165:                                              ; preds = %163
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #22
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.0215.0249, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.0215.0256, i64 8
   %.not = icmp eq ptr %166, %147
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -2677,13 +2677,13 @@ _ZN4absl7debian27StrJoinISt6vectorIdSaIdEEEENSt7__cxx1112basic_stringIcSt11char_
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit unwind label %.loopexit.split-lp
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.sink.split:         ; preds = %569, %_ZNSt6vectorIlSaIlEED2Ev.exit138
-  %.sink340.sroa.phi = phi ptr [ %.sink340.sroa.gep, %_ZNSt6vectorIlSaIlEED2Ev.exit138 ], [ %.sink340.sroa.gep379, %569 ]
-  %.sink337 = phi ptr [ %526, %_ZNSt6vectorIlSaIlEED2Ev.exit138 ], [ %570, %569 ]
-  %642 = load ptr, ptr %.sink340.sroa.phi, align 8
+  %.sink347.sroa.phi = phi ptr [ %.sink347.sroa.gep, %_ZNSt6vectorIlSaIlEED2Ev.exit138 ], [ %.sink347.sroa.gep386, %569 ]
+  %.sink344 = phi ptr [ %526, %_ZNSt6vectorIlSaIlEED2Ev.exit138 ], [ %570, %569 ]
+  %642 = load ptr, ptr %.sink347.sroa.phi, align 8
   %643 = ptrtoint ptr %642 to i64
-  %644 = ptrtoint ptr %.sink337 to i64
+  %644 = ptrtoint ptr %.sink344 to i64
   %645 = sub i64 %643, %644
-  call void @_ZdlPvm(ptr noundef nonnull %.sink337, i64 noundef %645) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sink344, i64 noundef %645) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.sink.split, %569, %_ZNSt6vectorIlSaIlEED2Ev.exit138, %640, %580

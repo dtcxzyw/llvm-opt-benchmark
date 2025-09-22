@@ -9363,7 +9363,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %cmp1 = fcmp olt x86_fp80 %dz, 0xKBFFE8000000000000000
-  br i1 %cmp1, label %if.then2, label %if.end.i
+  br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
   %add = fadd x86_fp80 %dz, 0xK3FFF8000000000000000
@@ -9384,7 +9384,7 @@ _ZN5boost4math6tgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %sub = fadd x86_fp80 %call.i.i, 0xKBFFF8000000000000000
   br label %if.end23
 
-if.end.i:                                         ; preds = %if.then
+if.else:                                          ; preds = %if.then
   %cmp1.i = fcmp oeq x86_fp80 %dz, 0xKBFFF8000000000000000
   br i1 %cmp1.i, label %if.then2.i, label %if.end4.i
 
@@ -15560,14 +15560,14 @@ if.end15:                                         ; preds = %if.end3
   %16 = bitcast x86_fp80 %7 to i80
   %17 = xor i80 %16, %15
   %cmp18 = icmp sgt i80 %17, -1
-  br i1 %cmp18, label %if.then19, label %if.then24
+  br i1 %cmp18, label %if.then19, label %if.end22
 
 if.then19:                                        ; preds = %if.end15
   %18 = load ptr, ptr @_ZZN5boost4math5tools13toms748_solveINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS6_13promote_floatILb0EEENS6_14promote_doubleILb0EEENS6_14default_policyESC_SC_SC_SC_SC_SC_SC_SC_SC_SC_EEEEEEeNS1_13eps_toleranceIeEESD_EESt4pairIT0_SJ_ET_RKSJ_SN_SN_SN_T1_RmRKT2_E8function, align 8, !tbaa !60
   call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_erroreEEvPKcS6_RKT0_(ptr noundef %18, ptr noundef nonnull @.str.123, ptr noundef nonnull align 16 dereferenceable(16) %a)
   br label %cleanup164
 
-if.then24:                                        ; preds = %if.end15
+if.end22:                                         ; preds = %if.end15
   store x86_fp80 0xK400FC350000000000000, ptr %fd, align 16, !tbaa !22
   store x86_fp80 0xK400FC350000000000000, ptr %e, align 16, !tbaa !22
   store x86_fp80 0xK400FC350000000000000, ptr %fe, align 16, !tbaa !22
@@ -15580,13 +15580,13 @@ if.then24:                                        ; preds = %if.end15
   %cmp.i47 = fcmp ugt x86_fp80 %20, %21
   br i1 %cmp.i47, label %lor.lhs.false.i, label %if.then.i
 
-lor.lhs.false.i:                                  ; preds = %if.then24
+lor.lhs.false.i:                                  ; preds = %if.end22
   %neg7.i = fneg x86_fp80 %11
   %22 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %neg7.i, x86_fp80 0xK3FC2A000000000000000, x86_fp80 %4)
   %cmp8.i = fcmp ult x86_fp80 %20, %22
   br i1 %cmp8.i, label %_ZN5boost4math5tools6detail18secant_interpolateIeEET_RKS4_S6_S6_S6_.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %lor.lhs.false.i, %if.then24
+if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end22
   %add.i = fadd x86_fp80 %3, %4
   %div9.i = fmul x86_fp80 %add.i, 0xK3FFE8000000000000000
   br label %_ZN5boost4math5tools6detail18secant_interpolateIeEET_RKS4_S6_S6_S6_.exit

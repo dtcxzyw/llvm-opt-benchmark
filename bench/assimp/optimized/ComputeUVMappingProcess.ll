@@ -104,9 +104,9 @@ define hidden void @_Z13RemoveUVSeamsP6aiMeshP10aiVector3tIfE(ptr noundef readon
   ret void
 
 6:                                                ; preds = %.lr.ph96, %.loopexit
-  %indvars.iv106 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next107, %.loopexit ]
+  %indvars.iv107 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next108, %.loopexit ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw %struct.aiFace, ptr %7, i64 %indvars.iv106
+  %8 = getelementptr inbounds nuw %struct.aiFace, ptr %7, i64 %indvars.iv107
   %9 = load i32, ptr %8, align 8
   %10 = icmp ult i32 %9, 3
   br i1 %10, label %.loopexit, label %.preheader87
@@ -128,9 +128,9 @@ define hidden void @_Z13RemoveUVSeamsP6aiMeshP10aiVector3tIfE(ptr noundef readon
   br i1 %or.cond5, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph, %23
-  %indvars.iv103 = phi i64 [ %indvars.iv.next104, %23 ], [ 0, %.lr.ph ]
+  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %23 ], [ 0, %.lr.ph ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv103
+  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv104
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds nuw %class.aiVector3t, ptr %1, i64 %17
@@ -150,10 +150,10 @@ define hidden void @_Z13RemoveUVSeamsP6aiMeshP10aiVector3tIfE(ptr noundef readon
   br label %23
 
 23:                                               ; preds = %.sink.split, %21
-  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %24 = load i32, ptr %8, align 8
   %25 = zext i32 %24 to i64
-  %26 = icmp samesign ult i64 %indvars.iv.next104, %25
+  %26 = icmp samesign ult i64 %indvars.iv.next105, %25
   br i1 %26, label %.lr.ph.split.us.preheader, label %.loopexit, !llvm.loop !3
 
 27:                                               ; preds = %.preheader87, %41
@@ -189,46 +189,46 @@ define hidden void @_Z13RemoveUVSeamsP6aiMeshP10aiVector3tIfE(ptr noundef readon
 
 41:                                               ; preds = %27, %40, %38
   %.173 = phi i32 [ %35, %40 ], [ %35, %38 ], [ %.07289, %27 ]
-  %.169 = phi i1 [ true, %40 ], [ %.06891, %38 ], [ %.06891, %27 ]
+  %.173 = phi i1 [ true, %40 ], [ %.06891, %38 ], [ %.06891, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %13, label %27, !llvm.loop !5
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %51
-  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %51 ], [ 0, %.lr.ph ]
-  %42 = load ptr, ptr %11, align 8
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv100
-  %44 = load i32, ptr %43, align 4
-  %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %class.aiVector3t, ptr %1, i64 %45
-  %47 = load float, ptr %46, align 4
-  %48 = fcmp ule float %47, 0x3FECCCCCC0000000
-  %or.cond = select i1 %48, i1 true, i1 %.171
-  br i1 %or.cond, label %49, label %.sink.split110
+.lr.ph.split:                                     ; preds = %.lr.ph, %52
+  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %51 ], [ 0, %.lr.ph ]
+  %43 = load ptr, ptr %11, align 8
+  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv101
+  %45 = load i32, ptr %44, align 4
+  %46 = zext i32 %45 to i64
+  %47 = getelementptr inbounds nuw %class.aiVector3t, ptr %1, i64 %46
+  %48 = load float, ptr %47, align 4
+  %49 = fcmp ule float %48, 0x3FECCCCCC0000000
+  %or.cond = select i1 %49, i1 true, i1 %.171
+  br i1 %or.cond, label %50, label %.sink.split111
 
-49:                                               ; preds = %.lr.ph.split
-  %50 = fcmp uge float %47, 0x3FB99999A0000000
-  %or.cond3 = select i1 %50, i1 true, i1 %.169
-  br i1 %or.cond3, label %51, label %.sink.split110
+50:                                               ; preds = %.lr.ph.split
+  %51 = fcmp uge float %48, 0x3FB99999A0000000
+  %or.cond3 = select i1 %51, i1 true, i1 %.169
+  br i1 %or.cond3, label %52, label %.sink.split111
 
-.sink.split110:                                   ; preds = %49, %.lr.ph.split
-  %.sink111 = phi float [ 0.000000e+00, %.lr.ph.split ], [ 1.000000e+00, %49 ]
-  store float %.sink111, ptr %46, align 4
-  br label %51
+.sink.split111:                                   ; preds = %50, %.lr.ph.split
+  %.sink112 = phi float [ 0.000000e+00, %.lr.ph.split ], [ 1.000000e+00, %49 ]
+  store float %.sink112, ptr %47, align 4
+  br label %52
 
-51:                                               ; preds = %.sink.split110, %49
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %52 = load i32, ptr %8, align 8
-  %53 = zext i32 %52 to i64
-  %54 = icmp samesign ult i64 %indvars.iv.next101, %53
-  br i1 %54, label %.lr.ph.split, label %.loopexit, !llvm.loop !3
+52:                                               ; preds = %.sink.split111, %50
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %53 = load i32, ptr %8, align 8
+  %54 = zext i32 %53 to i64
+  %55 = icmp samesign ult i64 %indvars.iv.next102, %54
+  br i1 %55, label %.lr.ph.split, label %.loopexit, !llvm.loop !3
 
-.loopexit:                                        ; preds = %51, %23, %13, %6
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %55 = load i32, ptr %3, align 8
-  %56 = zext i32 %55 to i64
-  %57 = icmp samesign ult i64 %indvars.iv.next107, %56
-  br i1 %57, label %6, label %._crit_edge, !llvm.loop !6
+.loopexit:                                        ; preds = %52, %23, %13, %6
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %56 = load i32, ptr %3, align 8
+  %57 = zext i32 %56 to i64
+  %58 = icmp samesign ult i64 %indvars.iv.next108, %57
+  br i1 %58, label %6, label %._crit_edge, !llvm.loop !6
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -4126,8 +4126,8 @@ _ZNK5boost10shared_ptrIN8QuantLib7LatticeEEptEv.exit: ; preds = %entry, %cond.fa
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 456
   %4 = load ptr, ptr %_M_finish.i, align 8, !tbaa !70
   %5 = load ptr, ptr %dividends_, align 8, !tbaa !72
-  %cmp43.not = icmp eq ptr %4, %5
-  br i1 %cmp43.not, label %nrvo.skipdtor, label %for.body.lr.ph
+  %cmp44.not = icmp eq ptr %4, %5
+  br i1 %cmp44.not, label %nrvo.skipdtor, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK5boost10shared_ptrIN8QuantLib7LatticeEEptEv.exit
   %dividendTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 408
@@ -4140,12 +4140,12 @@ for.body.lr.ph:                                   ; preds = %_ZNK5boost10shared_
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
   %7 = phi ptr [ %5, %for.body.lr.ph ], [ %33, %if.end ]
-  %i.044 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end ]
+  %i.045 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end ]
   %8 = load ptr, ptr %dividendTimes_, align 8, !tbaa !59
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %8, i64 %i.044
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %8, i64 %i.045
   %9 = load double, ptr %add.ptr.i, align 8, !tbaa !73
-  %cmp6 = fcmp ult double %9, %0
-  br i1 %cmp6, label %if.end.i, label %if.then
+  %or.cond = fcmp ult double %9, %0
+  br i1 %or.cond, label %if.end.i, label %if.then
 
 if.end.i:                                         ; preds = %for.body
   %sub.i = fsub double %9, %0
@@ -4167,7 +4167,7 @@ _ZN8QuantLib5closeEdd.exit:                       ; preds = %if.end.i
   br i1 %12, label %if.then, label %if.end
 
 if.then:                                          ; preds = %if.then3.i, %_ZN8QuantLib5closeEdd.exit, %for.body
-  %add.ptr.i14 = getelementptr inbounds nuw %"class.boost::shared_ptr.52", ptr %7, i64 %i.044
+  %add.ptr.i14 = getelementptr inbounds nuw %"class.boost::shared_ptr.52", ptr %7, i64 %i.045
   %13 = load ptr, ptr %process_, align 8, !tbaa !65
   %cmp.not.i15 = icmp eq ptr %13, null
   br i1 %cmp.not.i15, label %cond.false.i16, label %invoke.cont11, !prof !76
@@ -4253,8 +4253,8 @@ invoke.cont30:                                    ; preds = %invoke.cont28
   %22 = load i64, ptr %n_.i, align 8, !tbaa !114
   %add.ptr.i32.idx = shl nuw nsw i64 %22, 3
   %add.ptr.i32 = getelementptr inbounds nuw i8, ptr %21, i64 %add.ptr.i32.idx
-  %cmp39.not37 = icmp eq i64 %22, 0
-  br i1 %cmp39.not37, label %if.end, label %for.body41
+  %cmp39.not38 = icmp eq i64 %22, 0
+  br i1 %cmp39.not38, label %if.end, label %for.body41
 
 lpad10:                                           ; preds = %cond.false.i28, %cond.false.i23, %cond.false.i19, %cond.false.i16, %invoke.cont28, %invoke.cont24, %invoke.cont22, %invoke.cont17, %invoke.cont13, %invoke.cont11
   %23 = landingpad { ptr, i32 }
@@ -4262,7 +4262,7 @@ lpad10:                                           ; preds = %cond.false.i28, %co
   br label %ehcleanup51
 
 for.body41:                                       ; preds = %invoke.cont30, %invoke.cont47
-  %__begin3.038 = phi ptr [ %incdec.ptr, %invoke.cont47 ], [ %21, %invoke.cont30 ]
+  %__begin3.039 = phi ptr [ %incdec.ptr, %invoke.cont47 ], [ %21, %invoke.cont30 ]
   %24 = load ptr, ptr %add.ptr.i14, align 8, !tbaa !74
   %cmp.not.i33 = icmp eq ptr %24, null
   br i1 %cmp.not.i33, label %cond.false.i34, label %invoke.cont43, !prof !76
@@ -4277,7 +4277,7 @@ cond.false.i34:                                   ; preds = %for.body41
 
 invoke.cont43:                                    ; preds = %.noexc36, %for.body41
   %25 = phi ptr [ %24, %for.body41 ], [ %.pre.i35, %.noexc36 ]
-  %26 = load double, ptr %__begin3.038, align 8, !tbaa !73
+  %26 = load double, ptr %__begin3.039, align 8, !tbaa !73
   %vtable45 = load ptr, ptr %25, align 8, !tbaa !14
   %vfn46 = getelementptr inbounds nuw i8, ptr %vtable45, i64 64
   %27 = load ptr, ptr %vfn46, align 8
@@ -4285,10 +4285,10 @@ invoke.cont43:                                    ; preds = %.noexc36, %for.body
           to label %invoke.cont47 unwind label %lpad42
 
 invoke.cont47:                                    ; preds = %invoke.cont43
-  %28 = load double, ptr %__begin3.038, align 8, !tbaa !73
+  %28 = load double, ptr %__begin3.039, align 8, !tbaa !73
   %29 = tail call double @llvm.fmuladd.f64(double %call48, double %div, double %28)
-  store double %29, ptr %__begin3.038, align 8, !tbaa !73
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.038, i64 8
+  store double %29, ptr %__begin3.039, align 8, !tbaa !73
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.039, i64 8
   %cmp39.not = icmp eq ptr %incdec.ptr, %add.ptr.i32
   br i1 %cmp39.not, label %if.end, label %for.body41
 
@@ -4312,7 +4312,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %ehcleanup51, %_ZNKS
   resume { ptr, i32 } %.pn
 
 if.end:                                           ; preds = %invoke.cont47, %invoke.cont30, %if.then3.i, %_ZN8QuantLib5closeEdd.exit
-  %inc = add nuw i64 %i.044, 1
+  %inc = add nuw i64 %i.045, 1
   %32 = load ptr, ptr %_M_finish.i, align 8, !tbaa !70
   %33 = load ptr, ptr %dividends_, align 8, !tbaa !72
   %sub.ptr.lhs.cast.i = ptrtoint ptr %32 to i64

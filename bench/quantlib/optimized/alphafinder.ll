@@ -643,8 +643,8 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   %10 = tail call double @llvm.fmuladd.f64(double %9, double %9, double %8)
   store double %10, ptr %constantPart_, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond123.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond123.not, label %for.cond.cleanup11, label %for.body12, !llvm.loop !37
+  %exitcond124.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond124.not, label %for.cond.cleanup11, label %for.body12, !llvm.loop !37
 
 if.end:                                           ; preds = %for.cond.cleanup11
   %call27 = tail call noundef double @_ZN8QuantLib11AlphaFinder19valueAtTurningPointEd(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %alphaMin)
@@ -664,20 +664,20 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %i32.0113 = phi i32 [ 1, %while.body.lr.ph ], [ %inc42, %while.body ]
-  %conv35 = uitofp nneg i32 %i32.0113 to double
+  %i32.0114 = phi i32 [ 1, %while.body.lr.ph ], [ %inc42, %while.body ]
+  %conv35 = uitofp nneg i32 %i32.0114 to double
   %mul37 = fmul double %sub, %conv35
   %div = fdiv double %mul37, %conv38
   %add40 = fadd double %alpha0, %div
   %call41 = tail call noundef double @_ZN8QuantLib11AlphaFinder19valueAtTurningPointEd(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %add40)
-  %inc42 = add nuw nsw i32 %i32.0113, 1
+  %inc42 = add nuw nsw i32 %i32.0114, 1
   %cmp33 = icmp slt i32 %inc42, %steps
   %cmp34 = fcmp ogt double %call41, %targetVariance
   %11 = and i1 %cmp34, %cmp33
   br i1 %11, label %while.body, label %while.end.loopexit, !llvm.loop !38
 
 while.end.loopexit:                               ; preds = %while.body
-  %12 = add nsw i32 %i32.0113, -1
+  %12 = add nsw i32 %i32.0114, -1
   %13 = sitofp i32 %12 to double
   br label %while.end
 
@@ -705,8 +705,8 @@ if.end54:                                         ; preds = %while.end, %if.then
   br i1 %or.cond80, label %while.cond60.preheader, label %if.end88
 
 while.cond60.preheader:                           ; preds = %if.end54
-  %cmp61116 = icmp sgt i32 %steps, 1
-  br i1 %cmp61116, label %while.body65.lr.ph, label %while.end76
+  %cmp61117 = icmp sgt i32 %steps, 1
+  br i1 %cmp61117, label %while.body65.lr.ph, label %while.end76
 
 while.body65.lr.ph:                               ; preds = %while.cond60.preheader
   %sub66 = fsub double %alphaMin, %alpha0
@@ -714,15 +714,15 @@ while.body65.lr.ph:                               ; preds = %while.cond60.prehea
   br label %while.body65
 
 while.body65:                                     ; preds = %while.body65.lr.ph, %while.body65
-  %i59.0117 = phi i32 [ 1, %while.body65.lr.ph ], [ %inc75, %while.body65 ]
-  %conv67 = uitofp nneg i32 %i59.0117 to double
+  %i59.0118 = phi i32 [ 1, %while.body65.lr.ph ], [ %inc75, %while.body65 ]
+  %conv67 = uitofp nneg i32 %i59.0118 to double
   %mul69 = fmul double %sub66, %conv67
   %div72 = fdiv double %mul69, %conv70
   %add73 = fadd double %alpha0, %div72
   %call74 = tail call noundef double @_ZN8QuantLib11AlphaFinder19valueAtTurningPointEd(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %add73)
-  %inc75 = add nuw nsw i32 %i59.0117, 1
-  %exitcond124.not = icmp eq i32 %inc75, %steps
-  br i1 %exitcond124.not, label %while.end76.loopexit, label %while.body65, !llvm.loop !39
+  %inc75 = add nuw nsw i32 %i59.0118, 1
+  %exitcond125.not = icmp eq i32 %inc75, %steps
+  br i1 %exitcond125.not, label %while.end76.loopexit, label %while.body65, !llvm.loop !39
 
 while.end76.loopexit:                             ; preds = %while.body65
   %14 = add nsw i32 %steps, -2

@@ -8854,44 +8854,44 @@ _ZN8ImVectorI21ImGuiListClipperRangeE10push_frontERKS0_.exit.i: ; preds = %72, %
   br label %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit
 
 .thread284.i:                                     ; preds = %58
-  %87 = fcmp ugt float %.pre17, 0.000000e+00
-  br i1 %87, label %._ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit_crit_edge.i, label %88
+  %90 = fcmp ugt float %.pre17, 0.000000e+00
+  br i1 %90, label %._ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit_crit_edge.i, label %91
 
-88:                                               ; preds = %.thread284.i
-  %89 = getelementptr inbounds nuw i8, ptr %15, i64 284
-  %90 = load float, ptr %89, align 4, !tbaa !333
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %92 = load float, ptr %91, align 8, !tbaa !330
-  %93 = fsub float %90, %92
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %95 = load i32, ptr %94, align 4, !tbaa !372
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %97 = load i32, ptr %96, align 8, !tbaa !371
-  %98 = sub nsw i32 %95, %97
-  %99 = sitofp i32 %98 to float
-  %100 = fdiv float %93, %99
-  store float %100, ptr %11, align 4, !tbaa !332
-  %101 = tail call float @llvm.fabs.f32(float %92)
-  %102 = fcmp oge float %101, 0x4170000000000000
-  %103 = tail call float @llvm.fabs.f32(float %90)
-  %104 = fcmp oge float %103, 0x4170000000000000
-  %or.cond245.i = select i1 %102, i1 true, i1 %104
+91:                                               ; preds = %.thread284.i
+  %92 = getelementptr inbounds nuw i8, ptr %15, i64 284
+  %93 = load float, ptr %92, align 4, !tbaa !333
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %95 = load float, ptr %94, align 8, !tbaa !330
+  %96 = fsub float %93, %95
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %98 = load i32, ptr %97, align 4, !tbaa !372
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %100 = load i32, ptr %99, align 8, !tbaa !371
+  %101 = sub nsw i32 %98, %100
+  %102 = sitofp i32 %101 to float
+  %103 = fdiv float %96, %102
+  store float %103, ptr %11, align 4, !tbaa !332
+  %104 = tail call float @llvm.fabs.f32(float %95)
+  %105 = fcmp oge float %104, 0x4170000000000000
+  %106 = tail call float @llvm.fabs.f32(float %93)
+  %107 = fcmp oge float %106, 0x4170000000000000
+  %or.cond245.i = select i1 %105, i1 true, i1 %107
   br i1 %or.cond245.i, label %.critedge.i, label %thread-pre-split.i
 
-.critedge.i:                                      ; preds = %88
-  %105 = getelementptr inbounds nuw i8, ptr %15, i64 332
-  %106 = load float, ptr %105, align 4, !tbaa !337
-  %107 = getelementptr inbounds nuw i8, ptr %10, i64 3096
-  %108 = load float, ptr %107, align 4, !tbaa !335
-  %109 = fadd float %106, %108
-  store float %109, ptr %11, align 4, !tbaa !332
+.critedge.i:                                      ; preds = %91
+  %108 = getelementptr inbounds nuw i8, ptr %15, i64 332
+  %109 = load float, ptr %108, align 4, !tbaa !337
+  %110 = getelementptr inbounds nuw i8, ptr %10, i64 3096
+  %111 = load float, ptr %110, align 4, !tbaa !335
+  %112 = fadd float %109, %111
+  store float %112, ptr %11, align 4, !tbaa !332
   br label %thread-pre-split.i
 
-thread-pre-split.i:                               ; preds = %.critedge.i, %88
-  %110 = phi float [ %109, %.critedge.i ], [ %100, %88 ]
-  %111 = fcmp oeq float %110, 0.000000e+00
-  %112 = icmp eq i32 %28, 2147483647
-  %or.cond246.i = and i1 %112, %111
+thread-pre-split.i:                               ; preds = %.critedge.i, %91
+  %113 = phi float [ %112, %.critedge.i ], [ %103, %90 ]
+  %114 = fcmp oeq float %113, 0.000000e+00
+  %115 = icmp eq i32 %28, 2147483647
+  %or.cond246.i = and i1 %115, %114
   br i1 %or.cond246.i, label %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.thread, label %.thread239.i
 
 113:                                              ; preds = %.thread.i
@@ -8907,9 +8907,9 @@ thread-pre-split.i:                               ; preds = %.critedge.i, %88
   br label %_ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit.i
 
 .thread239.i:                                     ; preds = %113, %thread-pre-split.i
-  %118 = phi float [ %59, %113 ], [ %110, %thread-pre-split.i ]
-  %119 = phi i32 [ %115, %113 ], [ %95, %thread-pre-split.i ]
-  %120 = phi ptr [ %114, %113 ], [ %94, %thread-pre-split.i ]
+  %118 = phi float [ %59, %113 ], [ %113, %thread-pre-split.i ]
+  %119 = phi i32 [ %115, %113 ], [ %98, %thread-pre-split.i ]
+  %120 = phi ptr [ %114, %113 ], [ %97, %thread-pre-split.i ]
   %121 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %122 = load float, ptr %121, align 8, !tbaa !377
   %123 = fpext float %122 to double
@@ -83824,7 +83824,7 @@ define internal fastcc noundef zeroext i1 @_ZN5ImGuiL12NavScoreItemEP16ImGuiNavI
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 7792
   %19 = load ptr, ptr %18, align 8, !tbaa !389
   %20 = icmp eq ptr %17, %19
-  br i1 %20, label %21, label %47
+  br i1 %20, label %21, label %49
 
 21:                                               ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 592
@@ -83875,32 +83875,32 @@ _ZNK6ImRect8OverlapsERKS_.exit:                   ; preds = %31
   %.sroa.0.4.vec.insert.i20.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i19.i, float %46, i64 1
   br label %47
 
-47:                                               ; preds = %36, %9
+49:                                               ; preds = %36, %9
   %.sroa.13.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i20.i, %36 ], [ %.sroa.13.0.copyload, %9 ]
   %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i, %36 ], [ %.sroa.0.0.copyload118, %9 ]
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.sroa.0.0, i64 0
   %.sroa.13.8.vec.extract128 = extractelement <2 x float> %.sroa.13.0, i64 0
-  %48 = fcmp olt float %.sroa.13.8.vec.extract128, %.sroa.0.0.copyload
-  br i1 %48, label %49, label %51
+  %50 = fcmp olt float %.sroa.13.8.vec.extract128, %.sroa.0.0.copyload
+  br i1 %50, label %51, label %53
 
-49:                                               ; preds = %47
-  %50 = fsub float %.sroa.13.8.vec.extract128, %.sroa.0.0.copyload
+51:                                               ; preds = %49
+  %52 = fsub float %.sroa.13.8.vec.extract128, %.sroa.0.0.copyload
   br label %_ZL24NavScoreItemDistIntervalffff.exit
 
-51:                                               ; preds = %47
-  %52 = fcmp olt float %.sroa.8.0.copyload, %.sroa.0.0.vec.extract
-  br i1 %52, label %53, label %_ZL24NavScoreItemDistIntervalffff.exit
+53:                                               ; preds = %49
+  %54 = fcmp olt float %.sroa.8.0.copyload, %.sroa.0.0.vec.extract
+  br i1 %54, label %55, label %_ZL24NavScoreItemDistIntervalffff.exit
 
-53:                                               ; preds = %51
-  %54 = fsub float %.sroa.0.0.vec.extract, %.sroa.8.0.copyload
+55:                                               ; preds = %53
+  %56 = fsub float %.sroa.0.0.vec.extract, %.sroa.8.0.copyload
   br label %_ZL24NavScoreItemDistIntervalffff.exit
 
-_ZL24NavScoreItemDistIntervalffff.exit:           ; preds = %49, %51, %53
-  %.0.i = phi float [ %50, %49 ], [ %54, %53 ], [ 0.000000e+00, %51 ]
+_ZL24NavScoreItemDistIntervalffff.exit:           ; preds = %51, %53, %55
+  %.0.i = phi float [ %52, %49 ], [ %56, %53 ], [ 0.000000e+00, %51 ]
   %.sroa.0.4.vec.extract122 = extractelement <2 x float> %.sroa.0.0, i64 1
   %.sroa.13.12.vec.extract = extractelement <2 x float> %.sroa.13.0, i64 1
-  %55 = fsub float %.sroa.13.12.vec.extract, %.sroa.0.4.vec.extract122
-  %56 = fmul float %55, 0x3FC99999A0000000
+  %57 = fsub float %.sroa.13.12.vec.extract, %.sroa.0.4.vec.extract122
+  %58 = fmul float %57, 0x3FC99999A0000000
   %57 = fadd float %.sroa.0.4.vec.extract122, %56
   %58 = fmul float %55, 0x3FE99999A0000000
   %59 = fadd float %.sroa.0.4.vec.extract122, %58
@@ -83912,183 +83912,183 @@ _ZL24NavScoreItemDistIntervalffff.exit:           ; preds = %49, %51, %53
   %65 = fcmp olt float %59, %62
   br i1 %65, label %66, label %68
 
-66:                                               ; preds = %_ZL24NavScoreItemDistIntervalffff.exit
-  %67 = fsub float %59, %62
-  br label %_ZL24NavScoreItemDistIntervalffff.exit109
-
 68:                                               ; preds = %_ZL24NavScoreItemDistIntervalffff.exit
-  %69 = fcmp olt float %64, %57
-  br i1 %69, label %70, label %_ZL24NavScoreItemDistIntervalffff.exit109.thread
-
-70:                                               ; preds = %68
-  %71 = fsub float %57, %64
+  %69 = fsub float %59, %62
   br label %_ZL24NavScoreItemDistIntervalffff.exit109
 
-_ZL24NavScoreItemDistIntervalffff.exit109:        ; preds = %66, %70
-  %.0.i108 = phi float [ %67, %66 ], [ %71, %70 ]
-  %72 = fcmp une float %.0.i108, 0.000000e+00
-  %73 = fcmp une float %.0.i, 0.000000e+00
-  %or.cond = and i1 %73, %72
-  br i1 %or.cond, label %74, label %_ZL24NavScoreItemDistIntervalffff.exit109.thread
+70:                                               ; preds = %_ZL24NavScoreItemDistIntervalffff.exit
+  %71 = fcmp olt float %64, %57
+  br i1 %71, label %72, label %_ZL24NavScoreItemDistIntervalffff.exit109.thread
 
-74:                                               ; preds = %_ZL24NavScoreItemDistIntervalffff.exit109
-  %75 = fdiv float %.0.i, 1.000000e+03
-  %76 = fcmp ogt float %.0.i, 0.000000e+00
-  %77 = select i1 %76, float 1.000000e+00, float -1.000000e+00
-  %78 = fadd float %75, %77
+72:                                               ; preds = %70
+  %73 = fsub float %57, %64
+  br label %_ZL24NavScoreItemDistIntervalffff.exit109
+
+_ZL24NavScoreItemDistIntervalffff.exit109:        ; preds = %68, %72
+  %.0.i108 = phi float [ %69, %66 ], [ %73, %70 ]
+  %74 = fcmp une float %.0.i108, 0.000000e+00
+  %75 = fcmp une float %.0.i, 0.000000e+00
+  %or.cond = and i1 %75, %74
+  br i1 %or.cond, label %76, label %_ZL24NavScoreItemDistIntervalffff.exit109.thread
+
+76:                                               ; preds = %_ZL24NavScoreItemDistIntervalffff.exit109
+  %77 = fdiv float %.0.i, 1.000000e+03
+  %78 = fcmp ogt float %.0.i, 0.000000e+00
+  %79 = select i1 %78, float 1.000000e+00, float -1.000000e+00
+  %80 = fadd float %77, %79
   br label %_ZL24NavScoreItemDistIntervalffff.exit109.thread
 
-_ZL24NavScoreItemDistIntervalffff.exit109.thread: ; preds = %68, %74, %_ZL24NavScoreItemDistIntervalffff.exit109
-  %79 = phi i1 [ true, %74 ], [ %72, %_ZL24NavScoreItemDistIntervalffff.exit109 ], [ false, %68 ]
+_ZL24NavScoreItemDistIntervalffff.exit109.thread: ; preds = %70, %76, %_ZL24NavScoreItemDistIntervalffff.exit109
+  %81 = phi i1 [ true, %74 ], [ %74, %_ZL24NavScoreItemDistIntervalffff.exit109 ], [ false, %68 ]
   %.0.i108143 = phi float [ %.0.i108, %74 ], [ %.0.i108, %_ZL24NavScoreItemDistIntervalffff.exit109 ], [ 0.000000e+00, %68 ]
-  %.098 = phi float [ %78, %74 ], [ %.0.i, %_ZL24NavScoreItemDistIntervalffff.exit109 ], [ %.0.i, %68 ]
-  %80 = tail call float @llvm.fabs.f32(float %.098)
-  %81 = tail call float @llvm.fabs.f32(float %.0.i108143)
-  %82 = fadd float %81, %80
+  %.098 = phi float [ %80, %74 ], [ %.0.i, %_ZL24NavScoreItemDistIntervalffff.exit109 ], [ %.0.i, %68 ]
+  %82 = tail call float @llvm.fabs.f32(float %.098)
+  %83 = tail call float @llvm.fabs.f32(float %.0.i108143)
+  %84 = fadd float %83, %82
   %foldExtExtBinop = fadd <2 x float> %.sroa.13.0, %.sroa.0.0
-  %83 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %84 = fadd float %.sroa.0.0.copyload, %.sroa.8.0.copyload
-  %85 = fsub float %83, %84
-  %86 = fadd float %.sroa.13.12.vec.extract, %.sroa.0.4.vec.extract122
-  %87 = fadd float %.sroa.5.0.copyload, %.sroa.10.0.copyload
-  %88 = fsub float %86, %87
-  %89 = tail call float @llvm.fabs.f32(float %85)
-  %90 = tail call float @llvm.fabs.f32(float %88)
-  %91 = fadd float %89, %90
-  %92 = fcmp une float %.098, 0.000000e+00
-  %or.cond3 = or i1 %79, %92
-  br i1 %or.cond3, label %93, label %99
+  %85 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %86 = fadd float %.sroa.0.0.copyload, %.sroa.8.0.copyload
+  %87 = fsub float %85, %86
+  %88 = fadd float %.sroa.13.12.vec.extract, %.sroa.0.4.vec.extract122
+  %89 = fadd float %.sroa.5.0.copyload, %.sroa.10.0.copyload
+  %90 = fsub float %88, %89
+  %91 = tail call float @llvm.fabs.f32(float %87)
+  %92 = tail call float @llvm.fabs.f32(float %91)
+  %93 = fadd float %91, %92
+  %94 = fcmp une float %.098, 0.000000e+00
+  %or.cond3 = or i1 %81, %94
+  br i1 %or.cond3, label %95, label %102
 
-93:                                               ; preds = %_ZL24NavScoreItemDistIntervalffff.exit109.thread
-  %94 = fcmp ogt float %80, %81
-  %95 = fcmp ogt float %.098, 0.000000e+00
-  %96 = zext i1 %95 to i32
-  %97 = fcmp ogt float %.0.i108143, 0.000000e+00
-  %98 = select i1 %97, i32 3, i32 2
-  %.0.i110 = select i1 %94, i32 %96, i32 %98
-  br label %114
+95:                                               ; preds = %_ZL24NavScoreItemDistIntervalffff.exit109.thread
+  %96 = fcmp ogt float %82, %83
+  %97 = fcmp ogt float %.098, 0.000000e+00
+  %98 = zext i1 %97 to i32
+  %99 = fcmp ogt float %.0.i108143, 0.000000e+00
+  %100 = select i1 %99, i32 3, i32 2
+  %.0.i110 = select i1 %96, i32 %98, i32 %100
+  br label %116
 
-99:                                               ; preds = %_ZL24NavScoreItemDistIntervalffff.exit109.thread
-  %100 = fcmp une float %85, 0.000000e+00
-  %101 = fcmp une float %88, 0.000000e+00
-  %or.cond5 = select i1 %100, i1 true, i1 %101
-  br i1 %or.cond5, label %102, label %108
+101:                                              ; preds = %_ZL24NavScoreItemDistIntervalffff.exit109.thread
+  %102 = fcmp une float %87, 0.000000e+00
+  %103 = fcmp une float %91, 0.000000e+00
+  %or.cond5 = select i1 %102, i1 true, i1 %103
+  br i1 %or.cond5, label %104, label %110
 
-102:                                              ; preds = %99
-  %103 = fcmp ogt float %89, %90
-  %104 = fcmp ogt float %85, 0.000000e+00
-  %105 = zext i1 %104 to i32
-  %106 = fcmp ogt float %88, 0.000000e+00
-  %107 = select i1 %106, i32 3, i32 2
-  %.0.i111 = select i1 %103, i32 %105, i32 %107
-  br label %114
+104:                                              ; preds = %102
+  %105 = fcmp ogt float %91, %92
+  %106 = fcmp ogt float %87, 0.000000e+00
+  %107 = zext i1 %106 to i32
+  %108 = fcmp ogt float %91, 0.000000e+00
+  %109 = select i1 %108, i32 3, i32 2
+  %.0.i111 = select i1 %105, i32 %107, i32 %109
+  br label %116
 
-108:                                              ; preds = %99
-  %109 = load i32, ptr %10, align 8, !tbaa !775
-  %110 = getelementptr inbounds nuw i8, ptr %2, i64 7800
-  %111 = load i32, ptr %110, align 8, !tbaa !397
-  %112 = icmp uge i32 %109, %111
-  %113 = zext i1 %112 to i32
-  br label %114
+110:                                              ; preds = %102
+  %111 = load i32, ptr %10, align 8, !tbaa !775
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 7800
+  %113 = load i32, ptr %112, align 8, !tbaa !397
+  %114 = icmp uge i32 %111, %113
+  %115 = zext i1 %114 to i32
+  br label %116
 
-114:                                              ; preds = %102, %108, %93
-  %.097 = phi i32 [ %.0.i110, %93 ], [ %.0.i111, %102 ], [ %113, %108 ]
-  %.096 = phi float [ %.098, %93 ], [ %85, %102 ], [ 0.000000e+00, %108 ]
-  %.095 = phi float [ %.0.i108143, %93 ], [ %88, %102 ], [ 0.000000e+00, %108 ]
-  %.094 = phi float [ %82, %93 ], [ %91, %102 ], [ 0.000000e+00, %108 ]
-  %115 = getelementptr inbounds nuw i8, ptr %2, i64 7960
-  %116 = load i32, ptr %115, align 8, !tbaa !613
-  %117 = icmp eq i32 %.097, %116
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %119 = load float, ptr %118, align 4, !tbaa !571
-  br i1 %117, label %120, label %._crit_edge
+116:                                              ; preds = %104, %110, %95
+  %.097 = phi i32 [ %.0.i110, %93 ], [ %.0.i111, %102 ], [ %115, %108 ]
+  %.096 = phi float [ %.098, %93 ], [ %87, %102 ], [ 0.000000e+00, %108 ]
+  %.095 = phi float [ %.0.i108143, %93 ], [ %91, %102 ], [ 0.000000e+00, %108 ]
+  %.094 = phi float [ %84, %93 ], [ %93, %102 ], [ 0.000000e+00, %108 ]
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 7960
+  %118 = load i32, ptr %117, align 8, !tbaa !613
+  %119 = icmp eq i32 %.097, %118
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %121 = load float, ptr %120, align 4, !tbaa !571
+  br i1 %119, label %122, label %._crit_edge
 
-120:                                              ; preds = %114
-  %121 = fcmp olt float %82, %119
-  br i1 %121, label %122, label %124
+122:                                              ; preds = %116
+  %123 = fcmp olt float %84, %121
+  br i1 %123, label %124, label %126
 
-122:                                              ; preds = %120
-  store float %82, ptr %118, align 4, !tbaa !571
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store float %91, ptr %123, align 8, !tbaa !570
+124:                                              ; preds = %122
+  store float %84, ptr %120, align 4, !tbaa !571
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store float %93, ptr %125, align 8, !tbaa !570
   br label %_ZNK6ImRect8OverlapsERKS_.exit.thread
 
-124:                                              ; preds = %120
-  %125 = fcmp oeq float %82, %119
-  br i1 %125, label %126, label %._crit_edge
+126:                                              ; preds = %122
+  %127 = fcmp oeq float %84, %121
+  br i1 %127, label %128, label %._crit_edge
 
-126:                                              ; preds = %124
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %128 = load float, ptr %127, align 8, !tbaa !570
-  %129 = fcmp olt float %91, %128
-  br i1 %129, label %130, label %131
+128:                                              ; preds = %126
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %130 = load float, ptr %129, align 8, !tbaa !570
+  %131 = fcmp olt float %93, %130
+  br i1 %131, label %132, label %133
 
-130:                                              ; preds = %126
-  store float %91, ptr %127, align 8, !tbaa !570
+132:                                              ; preds = %128
+  store float %93, ptr %129, align 8, !tbaa !570
   br label %._crit_edge
 
-131:                                              ; preds = %126
-  %132 = fcmp oeq float %91, %128
-  br i1 %132, label %133, label %._crit_edge
+133:                                              ; preds = %128
+  %134 = fcmp oeq float %93, %130
+  br i1 %134, label %135, label %._crit_edge
 
-133:                                              ; preds = %131
-  %134 = icmp samesign ugt i32 %.097, 1
-  %135 = select i1 %134, float %.0.i108143, float %.098
-  %136 = fcmp olt float %135, 0.000000e+00
-  br i1 %136, label %137, label %._crit_edge
+135:                                              ; preds = %133
+  %136 = icmp samesign ugt i32 %.097, 1
+  %137 = select i1 %136, float %.0.i108143, float %.098
+  %138 = fcmp olt float %137, 0.000000e+00
+  br i1 %138, label %139, label %._crit_edge
 
-137:                                              ; preds = %133
+139:                                              ; preds = %135
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %114, %124, %131, %137, %133, %130
+._crit_edge:                                      ; preds = %116, %126, %133, %139, %135, %132
   %.0 = phi i1 [ true, %130 ], [ true, %137 ], [ false, %133 ], [ false, %131 ], [ false, %124 ], [ false, %114 ]
-  %138 = fcmp oeq float %119, 0x47EFFFFFE0000000
-  br i1 %138, label %139, label %_ZNK6ImRect8OverlapsERKS_.exit.thread
+  %140 = fcmp oeq float %121, 0x47EFFFFFE0000000
+  br i1 %140, label %141, label %_ZNK6ImRect8OverlapsERKS_.exit.thread
 
-139:                                              ; preds = %._crit_edge
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %141 = load float, ptr %140, align 4, !tbaa !569
-  %142 = fcmp olt float %.094, %141
-  %143 = icmp eq i32 %6, 1
-  %or.cond144 = and i1 %143, %142
-  br i1 %or.cond144, label %144, label %_ZNK6ImRect8OverlapsERKS_.exit.thread
+141:                                              ; preds = %._crit_edge
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %143 = load float, ptr %142, align 4, !tbaa !569
+  %144 = fcmp olt float %.094, %143
+  %145 = icmp eq i32 %6, 1
+  %or.cond144 = and i1 %145, %144
+  br i1 %or.cond144, label %146, label %_ZNK6ImRect8OverlapsERKS_.exit.thread
 
-144:                                              ; preds = %139
-  %145 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  %146 = load i32, ptr %145, align 4, !tbaa !679
-  %147 = and i32 %146, 268435456
-  %.not107 = icmp eq i32 %147, 0
-  br i1 %.not107, label %148, label %_ZNK6ImRect8OverlapsERKS_.exit.thread
+146:                                              ; preds = %141
+  %147 = getelementptr inbounds nuw i8, ptr %19, i64 20
+  %148 = load i32, ptr %147, align 4, !tbaa !679
+  %149 = and i32 %148, 268435456
+  %.not107 = icmp eq i32 %149, 0
+  br i1 %.not107, label %150, label %_ZNK6ImRect8OverlapsERKS_.exit.thread
 
-148:                                              ; preds = %144
-  %149 = icmp eq i32 %116, 0
-  %150 = fcmp olt float %.096, 0.000000e+00
-  %or.cond9 = select i1 %149, i1 %150, i1 false
-  br i1 %or.cond9, label %160, label %151
+150:                                              ; preds = %146
+  %151 = icmp eq i32 %118, 0
+  %152 = fcmp olt float %.096, 0.000000e+00
+  %or.cond9 = select i1 %151, i1 %152, i1 false
+  br i1 %or.cond9, label %162, label %153
 
-151:                                              ; preds = %148
-  %152 = icmp eq i32 %116, 1
-  %153 = fcmp ogt float %.096, 0.000000e+00
-  %or.cond11 = select i1 %152, i1 %153, i1 false
-  br i1 %or.cond11, label %160, label %154
+153:                                              ; preds = %150
+  %154 = icmp eq i32 %118, 1
+  %155 = fcmp ogt float %.096, 0.000000e+00
+  %or.cond11 = select i1 %154, i1 %155, i1 false
+  br i1 %or.cond11, label %162, label %156
 
-154:                                              ; preds = %151
-  %155 = icmp eq i32 %116, 2
-  %156 = fcmp olt float %.095, 0.000000e+00
-  %or.cond13 = select i1 %155, i1 %156, i1 false
-  br i1 %or.cond13, label %160, label %157
+156:                                              ; preds = %153
+  %157 = icmp eq i32 %118, 2
+  %158 = fcmp olt float %.095, 0.000000e+00
+  %or.cond13 = select i1 %157, i1 %158, i1 false
+  br i1 %or.cond13, label %162, label %159
 
-157:                                              ; preds = %154
-  %158 = icmp eq i32 %116, 3
-  %159 = fcmp ogt float %.095, 0.000000e+00
-  %or.cond15 = select i1 %158, i1 %159, i1 false
-  br i1 %or.cond15, label %160, label %_ZNK6ImRect8OverlapsERKS_.exit.thread
+159:                                              ; preds = %156
+  %160 = icmp eq i32 %118, 3
+  %161 = fcmp ogt float %.095, 0.000000e+00
+  %or.cond15 = select i1 %160, i1 %161, i1 false
+  br i1 %or.cond15, label %162, label %_ZNK6ImRect8OverlapsERKS_.exit.thread
 
-160:                                              ; preds = %157, %154, %151, %148
-  store float %.094, ptr %140, align 4, !tbaa !569
+162:                                              ; preds = %159, %156, %153, %150
+  store float %.094, ptr %142, align 4, !tbaa !569
   br label %_ZNK6ImRect8OverlapsERKS_.exit.thread
 
-_ZNK6ImRect8OverlapsERKS_.exit.thread:            ; preds = %._crit_edge, %139, %157, %160, %144, %21, %27, %31, %_ZNK6ImRect8OverlapsERKS_.exit, %122, %1
+_ZNK6ImRect8OverlapsERKS_.exit.thread:            ; preds = %._crit_edge, %141, %159, %162, %146, %21, %27, %31, %_ZNK6ImRect8OverlapsERKS_.exit, %124, %1
   %.092 = phi i1 [ false, %1 ], [ false, %_ZNK6ImRect8OverlapsERKS_.exit ], [ true, %122 ], [ false, %31 ], [ false, %27 ], [ false, %21 ], [ %.0, %144 ], [ true, %160 ], [ %.0, %157 ], [ %.0, %139 ], [ %.0, %._crit_edge ]
   ret i1 %.092
 }

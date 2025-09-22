@@ -12613,7 +12613,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %cmp1 = fcmp olt x86_fp80 %dz, 0xKBFFE8000000000000000
-  br i1 %cmp1, label %if.then2, label %if.end.i
+  br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
   %add = fadd x86_fp80 %dz, 0xK3FFF8000000000000000
@@ -12634,7 +12634,7 @@ _ZN5boost4math6tgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %sub = fadd x86_fp80 %call.i.i, 0xKBFFF8000000000000000
   br label %if.end23
 
-if.end.i:                                         ; preds = %if.then
+if.else:                                          ; preds = %if.then
   %cmp1.i = fcmp oeq x86_fp80 %dz, 0xKBFFF8000000000000000
   br i1 %cmp1.i, label %if.then2.i, label %if.end4.i
 
