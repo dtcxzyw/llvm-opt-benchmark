@@ -2439,21 +2439,21 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %27, %24
 
 _ZN4llvm5ErrorD2Ev.exit7:                         ; preds = %_ZN4llvm5ErrorD2Ev.exit, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %39
+  br label %40
 
 _ZN4llvm5ErrorD2Ev.exit8:                         ; preds = %16, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %.0.copyload.i.i.i9 = load i32, ptr %14, align 1
   %37 = add i32 %.0.copyload.i.i.i9, -1
-  br label %39
+  br label %40
 
 _ZNK4llvm6object12coff_section22hasExtendedRelocationsEv.exit.thread: ; preds = %._ZNK4llvm6object12coff_section22hasExtendedRelocationsEv.exit.thread_crit_edge, %_ZNK4llvm6object12coff_section22hasExtendedRelocationsEv.exit
   %.0.copyload.i.i.i10 = phi i16 [ %.0.copyload.i.i.i10.pre, %._ZNK4llvm6object12coff_section22hasExtendedRelocationsEv.exit.thread_crit_edge ], [ %.0.copyload.i.i.i1.i, %_ZNK4llvm6object12coff_section22hasExtendedRelocationsEv.exit ]
   %38 = zext i16 %.0.copyload.i.i.i10 to i32
   br label %39
 
-39:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit8, %_ZN4llvm5ErrorD2Ev.exit7, %_ZNK4llvm6object12coff_section22hasExtendedRelocationsEv.exit.thread
+40:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit8, %_ZN4llvm5ErrorD2Ev.exit7, %_ZNK4llvm6object12coff_section22hasExtendedRelocationsEv.exit.thread
   %.2 = phi i32 [ %38, %_ZNK4llvm6object12coff_section22hasExtendedRelocationsEv.exit.thread ], [ %37, %_ZN4llvm5ErrorD2Ev.exit8 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit7 ]
   ret i32 %.2
 }

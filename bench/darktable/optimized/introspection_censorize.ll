@@ -92,7 +92,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %13 = load i32, ptr %12, align 4, !tbaa !6
   %14 = tail call i32 @dt_iop_have_required_input_format(i32 noundef 4, ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #15
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %167, label %15
+  br i1 %.not, label %170, label %15
 
 15:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -104,7 +104,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %18 = load i32, ptr %12, align 4, !tbaa !6
   %19 = sext i32 %18 to i64
   call void @dt_iop_copy_image_roi(ptr noundef %3, ptr noundef %2, i64 noundef %19, ptr noundef %4, ptr noundef %5) #15
-  br label %166
+  br label %169
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -345,92 +345,92 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .preheader.us.us.us:                              ; preds = %.preheader200.us.us, %._crit_edge.us.us.us
   %indvar = phi i64 [ %indvar.next, %._crit_edge.us.us.us ], [ 0, %.preheader200.us.us ]
-  %.0166207.us.us.us = phi i64 [ %144, %._crit_edge.us.us.us ], [ %umin, %.preheader200.us.us ]
+  %.0166207.us.us.us = phi i64 [ %147, %._crit_edge.us.us.us ], [ %umin, %.preheader200.us.us ]
   %138 = mul i64 %75, %indvar
   %invariant.gep = getelementptr i8, ptr %56, i64 %138
-  br label %139
+  br label %140
 
-139:                                              ; preds = %139, %.preheader.us.us.us
+140:                                              ; preds = %140, %.preheader.us.us.us
   %indvar233 = phi i64 [ %indvar.next234, %139 ], [ 0, %.preheader.us.us.us ]
-  %.0165206.us.us.us = phi i64 [ %142, %139 ], [ %umin232, %.preheader.us.us.us ]
-  %140 = add i64 %112, %indvar233
-  %141 = shl i64 %140, 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %141
+  %.0165206.us.us.us = phi i64 [ %145, %139 ], [ %umin232, %.preheader.us.us.us ]
+  %141 = add i64 %112, %indvar233
+  %142 = shl i64 %141, 4
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %142
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %gep, ptr noundef nonnull align 16 dereferenceable(16) %11, i64 16, i1 false), !tbaa !36
-  %142 = add nuw i64 %.0165206.us.us.us, 1
-  %143 = icmp ult i64 %142, %116
+  %145 = add nuw i64 %.0165206.us.us.us, 1
+  %146 = icmp ult i64 %145, %116
   %indvar.next234 = add nuw i64 %indvar233, 1
-  br i1 %143, label %139, label %._crit_edge.us.us.us
+  br i1 %146, label %140, label %._crit_edge.us.us.us
 
-._crit_edge.us.us.us:                             ; preds = %139
-  %144 = add nuw i64 %.0166207.us.us.us, 1
-  %145 = icmp ult i64 %144, %81
+._crit_edge.us.us.us:                             ; preds = %140
+  %147 = add nuw i64 %.0166207.us.us.us, 1
+  %148 = icmp ult i64 %147, %81
   %indvar.next = add nuw i64 %indvar, 1
-  br i1 %145, label %.preheader.us.us.us, label %._crit_edge208.us.us
+  br i1 %148, label %.preheader.us.us.us, label %._crit_edge208.us.us
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader201.lr.ph, %57, %55
   %.2 = phi ptr [ %.0168, %55 ], [ %56, %57 ], [ %56, %.preheader201.lr.ph ], [ %56, %._crit_edge.us ]
-  %146 = fcmp reassoc nsz arcp contract afn une float %42, 0.000000e+00
-  br i1 %146, label %147, label %155
+  %149 = fcmp reassoc nsz arcp contract afn une float %42, 0.000000e+00
+  br i1 %149, label %150, label %158
 
-147:                                              ; preds = %.loopexit
-  %148 = fcmp reassoc nsz arcp contract afn une float %48, 0.000000e+00
-  br i1 %148, label %149, label %152
+150:                                              ; preds = %.loopexit
+  %151 = fcmp reassoc nsz arcp contract afn une float %48, 0.000000e+00
+  br i1 %151, label %152, label %155
 
-149:                                              ; preds = %147
-  %150 = sext i32 %24 to i64
-  %151 = sext i32 %26 to i64
-  call fastcc void @make_noise(ptr noundef %3, float noundef %48, i64 noundef %150, i64 noundef %151)
-  br label %152
+152:                                              ; preds = %150
+  %153 = sext i32 %24 to i64
+  %154 = sext i32 %26 to i64
+  call fastcc void @make_noise(ptr noundef %3, float noundef %48, i64 noundef %153, i64 noundef %154)
+  br label %155
 
-152:                                              ; preds = %149, %147
-  %153 = call ptr @dt_gaussian_init(i32 noundef %24, i32 noundef %26, i32 noundef 4, ptr noundef nonnull %8, ptr noundef nonnull %9, float noundef %42, i32 noundef 0) #15
-  %.not196.not = icmp eq ptr %153, null
-  br i1 %.not196.not, label %.critedge, label %154
+155:                                              ; preds = %152, %150
+  %156 = call ptr @dt_gaussian_init(i32 noundef %24, i32 noundef %26, i32 noundef 4, ptr noundef nonnull %8, ptr noundef nonnull %9, float noundef %42, i32 noundef 0) #15
+  %.not196.not = icmp eq ptr %156, null
+  br i1 %.not196.not, label %.critedge, label %157
 
-154:                                              ; preds = %152
-  call void @dt_gaussian_blur_4c(ptr noundef nonnull %153, ptr noundef %.2, ptr noundef %3) #15
-  call void @dt_gaussian_free(ptr noundef nonnull %153) #15
+157:                                              ; preds = %155
+  call void @dt_gaussian_blur_4c(ptr noundef nonnull %156, ptr noundef %.2, ptr noundef %3) #15
+  call void @dt_gaussian_free(ptr noundef nonnull %156) #15
   br label %dt_simd_memcpy.exit
 
-155:                                              ; preds = %.loopexit
-  %156 = sext i32 %24 to i64
-  %157 = sext i32 %26 to i64
-  %158 = mul nsw i64 %157, %156
-  %.mask = and i64 %158, 4611686018427387903
+158:                                              ; preds = %.loopexit
+  %159 = sext i32 %24 to i64
+  %160 = sext i32 %26 to i64
+  %161 = mul nsw i64 %160, %159
+  %.mask = and i64 %161, 4611686018427387903
   %.not.i = icmp eq i64 %.mask, 0
   br i1 %.not.i, label %dt_simd_memcpy.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %155
-  %159 = shl i64 %158, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %3, ptr readonly align 4 %.2, i64 %159, i1 false), !tbaa !36, !alias.scope !43
+.lr.ph.preheader.i:                               ; preds = %158
+  %162 = shl i64 %161, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %3, ptr readonly align 4 %.2, i64 %162, i1 false), !tbaa !36, !alias.scope !43
   br label %dt_simd_memcpy.exit
 
-dt_simd_memcpy.exit:                              ; preds = %.lr.ph.preheader.i, %155, %154
-  %160 = fcmp reassoc nsz arcp contract afn une float %48, 0.000000e+00
-  br i1 %160, label %161, label %164
+dt_simd_memcpy.exit:                              ; preds = %.lr.ph.preheader.i, %158, %157
+  %163 = fcmp reassoc nsz arcp contract afn une float %48, 0.000000e+00
+  br i1 %163, label %164, label %167
 
-161:                                              ; preds = %dt_simd_memcpy.exit
-  %162 = sext i32 %24 to i64
-  %163 = sext i32 %26 to i64
-  call fastcc void @make_noise(ptr noundef %3, float noundef %48, i64 noundef %162, i64 noundef %163)
-  br label %164
-
-164:                                              ; preds = %161, %dt_simd_memcpy.exit
-  %165 = load ptr, ptr %7, align 8, !tbaa !37
-  call void @free(ptr noundef %165) #15
-  br label %.critedge
-
-.critedge:                                        ; preds = %152, %52, %164
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %166
-
-166:                                              ; preds = %.critedge, %17
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+164:                                              ; preds = %dt_simd_memcpy.exit
+  %165 = sext i32 %24 to i64
+  %166 = sext i32 %26 to i64
+  call fastcc void @make_noise(ptr noundef %3, float noundef %48, i64 noundef %165, i64 noundef %166)
   br label %167
 
-167:                                              ; preds = %6, %166
+167:                                              ; preds = %164, %dt_simd_memcpy.exit
+  %168 = load ptr, ptr %7, align 8, !tbaa !37
+  call void @free(ptr noundef %168) #15
+  br label %.critedge
+
+.critedge:                                        ; preds = %155, %52, %167
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %169
+
+169:                                              ; preds = %.critedge, %17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %170
+
+170:                                              ; preds = %6, %169
   ret void
 }
 

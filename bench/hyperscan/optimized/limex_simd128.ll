@@ -8290,7 +8290,7 @@ define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts128(ptr nounde
   %8 = phi i1 [ true, %5 ], [ false, %.critedge.i.thread ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %5 ], [ %.sroa.0.8.gep49.sroa_idx50, %.critedge.i.thread ]
   %indvars.iv.sroa.phi51.sroa.speculated = phi i64 [ %.sroa.053.0.vec.extract, %5 ], [ %.sroa.053.8.vec.extract, %.critedge.i.thread ]
-  %.033.i29 = phi i32 [ 0, %5 ], [ %37, %.critedge.i.thread ]
+  %.033.i29 = phi i32 [ 0, %5 ], [ %43, %.critedge.i.thread ]
   %.not.i23 = icmp eq i64 %indvars.iv.sroa.phi51.sroa.speculated, 0
   br i1 %.not.i23, label %..critedge.i.thread_crit_edge, label %.lr.ph26
 
@@ -8349,10 +8349,10 @@ limexRunAccept.exit.thread8:                      ; preds = %28, %24, %limexRunA
   br i1 %.not.i, label %.critedge.i.thread, label %.lr.ph26
 
 .critedge.i.thread:                               ; preds = %limexRunAccept.exit.thread8, %..critedge.i.thread_crit_edge
-  %34 = phi i64 [ %.pre, %..critedge.i.thread_crit_edge ], [ %12, %limexRunAccept.exit.thread8 ]
-  %35 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %34)
-  %36 = trunc nuw nsw i64 %35 to i32
-  %37 = add i32 %.033.i29, %36
+  %40 = phi i64 [ %.pre, %..critedge.i.thread_crit_edge ], [ %12, %limexRunAccept.exit.thread8 ]
+  %41 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %40)
+  %42 = trunc nuw nsw i64 %41 to i32
+  %43 = add i32 %.033.i29, %42
   br i1 %8, label %7, label %moProcessAcceptsImpl128.exit
 
 moProcessAcceptsImpl128.exit:                     ; preds = %.critedge.i.thread, %limexRunAccept.exit, %.lr.ph

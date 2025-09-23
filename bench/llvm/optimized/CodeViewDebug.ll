@@ -1000,10 +1000,10 @@ define hidden void @_ZN4llvm13CodeViewDebugC2EPNS_10AsmPrinterE(ptr noundef nonn
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, i8 0, i64 64, i1 false)
   store ptr %54, ptr %56, align 8, !tbaa !176
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  store ptr %54, ptr %57, align 8, !tbaa !177
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1304
-  store i64 0, ptr %58, align 8, !tbaa !178
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  store ptr %54, ptr %58, align 8, !tbaa !177
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 1304
+  store i64 0, ptr %59, align 8, !tbaa !178
   ret void
 }
 
