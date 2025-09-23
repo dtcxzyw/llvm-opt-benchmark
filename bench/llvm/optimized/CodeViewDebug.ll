@@ -993,19 +993,17 @@ define hidden void @_ZN4llvm13CodeViewDebugC2EPNS_10AsmPrinterE(ptr noundef nonn
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 1164
   store i32 4, ptr %52, align 4, !tbaa !65
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 1200
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1204
-  call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 1) ]
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  store i32 0, ptr %55, align 8, !tbaa !174
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1280
-  store ptr null, ptr %56, align 8, !tbaa !175
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1288
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1272
+  store i32 0, ptr %54, align 8, !tbaa !174
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1280
+  store ptr null, ptr %55, align 8, !tbaa !175
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, i8 0, i64 64, i1 false)
-  store ptr %55, ptr %57, align 8, !tbaa !176
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  store ptr %55, ptr %58, align 8, !tbaa !177
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 1304
-  store i64 0, ptr %59, align 8, !tbaa !178
+  store ptr %54, ptr %56, align 8, !tbaa !176
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  store ptr %54, ptr %57, align 8, !tbaa !177
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1304
+  store i64 0, ptr %58, align 8, !tbaa !178
   ret void
 }
 
