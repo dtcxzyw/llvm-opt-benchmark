@@ -70,7 +70,7 @@ define hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$
 
 23:                                               ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !8
-  invoke void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ad4b39122f596ed37abbdddfd414db22.4) #8
+  invoke void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ad4b39122f596ed37abbdddfd414db22.4) #7
           to label %.noexc3.i unwind label %24, !noalias !5
 
 .noexc3.i:                                        ; preds = %23
@@ -79,7 +79,7 @@ define hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$
 24:                                               ; preds = %23, %.noexc1.i, %21, %18
   %25 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..mem..replace..PanicGuard$GT$17hdc09885f71debb82E"(ptr noalias noundef nonnull align 1 %2) #9
+  invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..mem..replace..PanicGuard$GT$17hdc09885f71debb82E"(ptr noalias noundef nonnull align 1 %2) #8
           to label %28 unwind label %26, !noalias !5
 
 26:                                               ; preds = %24
@@ -105,7 +105,7 @@ _ZN5alloc11collections5btree3mem7replace17heac07d17250bf9abE.exit: ; preds = %.n
   br label %15
 
 31:                                               ; preds = %12
-  tail call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ad4b39122f596ed37abbdddfd414db22.2) #8
+  tail call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ad4b39122f596ed37abbdddfd414db22.2) #7
   unreachable
 }
 
@@ -234,13 +234,13 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
 30:                                               ; preds = %13
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$pingora_timeout..timer..Timer$GT$17h4a17a76a217a0b3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #9
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$pingora_timeout..timer..Timer$GT$17h4a17a76a217a0b3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #8
           to label %29 unwind label %31
 
 31:                                               ; preds = %30
   %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #10
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #9
   unreachable
 }
 
@@ -350,7 +350,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   br i1 %.not.i.i.i, label %21, label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$27deallocating_next_unchecked17h0c1601f4b262547aE.exit", !prof !4
 
 21:                                               ; preds = %.noexc.i.i
-  invoke void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ad4b39122f596ed37abbdddfd414db22.3) #8
+  invoke void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ad4b39122f596ed37abbdddfd414db22.3) #7
           to label %.noexc1.i.i unwind label %22, !noalias !43
 
 .noexc1.i.i:                                      ; preds = %21
@@ -359,7 +359,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
 22:                                               ; preds = %21, %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..mem..replace..PanicGuard$GT$17hdc09885f71debb82E"(ptr noalias noundef nonnull align 1 %3) #9
+  invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..mem..replace..PanicGuard$GT$17hdc09885f71debb82E"(ptr noalias noundef nonnull align 1 %3) #8
           to label %26 unwind label %24, !noalias !43
 
 24:                                               ; preds = %22
@@ -461,7 +461,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #7
+declare void @llvm.experimental.noalias.scope.decl(metadata) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

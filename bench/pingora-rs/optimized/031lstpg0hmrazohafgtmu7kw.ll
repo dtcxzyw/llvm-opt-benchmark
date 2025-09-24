@@ -7185,7 +7185,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq11Upda
   %39 = load i64, ptr %38, align 8, !noundef !3
   call void @llvm.assume(i1 true) [ "align"(ptr %.val134, i64 4) ]
   %40 = icmp ult i64 %2, %.val135
-  br i1 %40, label %41, label %45
+  br i1 %40, label %41, label %44
 
 41:                                               ; preds = %17
   %42 = getelementptr inbounds nuw float, ptr %.val134, i64 %2
@@ -7194,11 +7194,11 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq11Upda
   %44 = icmp ult i64 %39, %.val135
   br i1 %44, label %_ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h59350bbc21ff0457E.exit, label %46
 
-45:                                               ; preds = %17
+44:                                               ; preds = %17
   tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %2, i64 noundef %.val135, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c89078488ceecc213926f9c07f09b856.272) #20
   unreachable
 
-46:                                               ; preds = %41
+45:                                               ; preds = %41
   tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %39, i64 noundef %.val135, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c89078488ceecc213926f9c07f09b856.273) #20
   unreachable
 

@@ -8523,12 +8523,12 @@ _ZN6brotli3enc9metablock17MapStaticContexts17h10a0dc9605c16241E.exit: ; preds = 
   %266 = shl i64 %.sroa.06.016.i, 6
   br label %269
 
-267:                                              ; preds = %276
+267:                                              ; preds = %274
   %268 = add nuw i64 %.sroa.06.016.i, 1
   %exitcond21.not.i = icmp eq i64 %268, %254
   br i1 %exitcond21.not.i, label %_ZN6brotli3enc9metablock17MapStaticContexts17h10a0dc9605c16241E.exit, label %.lr.ph.i
 
-269:                                              ; preds = %276, %.lr.ph.i
+269:                                              ; preds = %274, %.lr.ph.i
   %.sroa.0.015.i = phi i64 [ 0, %.lr.ph.i ], [ %279, %276 ]
   %exitcond.not.i = icmp eq i64 %.sroa.0.015.i, %10
   br i1 %exitcond.not.i, label %275, label %270
@@ -8545,7 +8545,7 @@ _ZN6brotli3enc9metablock17MapStaticContexts17h10a0dc9605c16241E.exit: ; preds = 
   call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %10, i64 noundef %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e7500836e724f5eafa96e7ccf286267f.141) #27, !noalias !509
   unreachable
 
-276:                                              ; preds = %270
+274:                                              ; preds = %270
   %277 = add i32 %272, %265
   %278 = getelementptr inbounds nuw i32, ptr %258, i64 %273
   store i32 %277, ptr %278, align 4, !noalias !509
