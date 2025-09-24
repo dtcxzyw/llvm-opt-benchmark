@@ -64,7 +64,7 @@ def compare(v1, v2, type):
     ratio_mean = (sum2 / max(sum1, 1) - 1.0) * 100.0
 
     print("\n```")
-    print(f"Compilation time result (by {type}):")
+    print(f"Stat result (by {type}):")
     print(f"Top {topk} improvements:")
     for k, t1, t2 in improvement:
         diff = "{:+.2f}%".format((t2 - t1) / max(t1, 1) * 100.0)
