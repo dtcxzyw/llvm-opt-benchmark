@@ -16743,11 +16743,10 @@ BIGNUM_DIGITS.exit:                               ; preds = %29, %33
   br i1 %46, label %84, label %47
 
 47:                                               ; preds = %38
-  %48 = icmp sgt i64 %45, 54
+  %48 = icmp slt i64 %45, 55
   %49 = add nsw i64 %45, -54
   %50 = lshr i64 %49, 5
-  %.055 = select i1 %48, i64 %49, i64 0
-  %.054 = select i1 %48, i64 %50, i64 0
+  %.054 = select i1 %48, i64 0, i64 %50
   %51 = add i64 %.0.i70, -1
   %52 = icmp sgt i64 %51, %.054
   br i1 %52, label %.lr.ph, label %._crit_edge
@@ -16768,11 +16767,10 @@ BIGNUM_DIGITS.exit:                               ; preds = %29, %33
   %.lcssa = phi i64 [ %51, %47 ], [ %.054, %.lr.ph ]
   %60 = getelementptr i32, ptr %.0.i67, i64 %.lcssa
   %61 = load i32, ptr %60, align 4, !tbaa !18
-  %.not60 = icmp eq i64 %.055, 0
-  br i1 %.not60, label %.loopexit, label %62
+  br i1 %48, label %.loopexit, label %62
 
 62:                                               ; preds = %._crit_edge
-  %63 = trunc i64 %.055 to i32
+  %63 = trunc nuw nsw i64 %49 to i32
   %64 = and i32 %63, 31
   %65 = shl nuw i32 1, %64
   %66 = and i32 %61, %65

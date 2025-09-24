@@ -726,11 +726,7 @@ RelationGetSmgr.exit:                             ; preds = %94, %99
   %103 = phi ptr [ %.pre.i, %99 ], [ %97, %94 ]
   %104 = call i32 @smgrnblocks(ptr noundef %103, i32 noundef 0) #9
   %105 = icmp ult i32 %95, %104
-  br i1 %105, label %RelationGetSmgr.exit._crit_edge35, label %RelationGetSmgr.exit._crit_edge
-
-RelationGetSmgr.exit._crit_edge35:                ; preds = %RelationGetSmgr.exit
-  %.pre36 = load i64, ptr %15, align 8
-  br label %112
+  br i1 %105, label %112, label %RelationGetSmgr.exit._crit_edge
 
 RelationGetSmgr.exit._crit_edge:                  ; preds = %RelationGetSmgr.exit
   %.pre = load i32, ptr %24, align 8
@@ -746,35 +742,26 @@ RelationGetSmgr.exit._crit_edge:                  ; preds = %RelationGetSmgr.exi
   %111 = icmp sgt i64 %110, 4095
   br i1 %111, label %112, label %gistInitBuffering.exit
 
-112:                                              ; preds = %RelationGetSmgr.exit._crit_edge35, %109
-  %113 = phi i64 [ %.pre36, %RelationGetSmgr.exit._crit_edge35 ], [ %110, %109 ]
-  %114 = load ptr, ptr %5, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %116 = load i64, ptr %115, align 8
-  %117 = sub i64 8148, %116
-  %118 = load i64, ptr %21, align 8
-  %119 = sitofp i64 %118 to double
-  %120 = sitofp i64 %113 to double
-  %121 = fdiv double %119, %120
-  %122 = fptoui double %121 to i64
-  %123 = getelementptr inbounds nuw i8, ptr %114, i64 64
-  %124 = load ptr, ptr %123, align 8
-  %125 = load i32, ptr %124, align 8
-  %126 = icmp sgt i32 %125, 0
-  br i1 %126, label %.lr.ph.preheader.i, label %._crit_edge.i
+112:                                              ; preds = %109, %RelationGetSmgr.exit
+  %113 = load ptr, ptr %5, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 64
+  %115 = load ptr, ptr %114, align 8
+  %116 = load i32, ptr %115, align 8
+  %117 = icmp sgt i32 %116, 0
+  br i1 %117, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %112
-  %wide.trip.count.i = zext nneg i32 %125 to i64
+  %wide.trip.count.i = zext nneg i32 %116 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.03848.i = phi i64 [ 8, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
-  %127 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %124, i64 %indvars.iv.i
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 28
-  %129 = load i16, ptr %128, align 4
-  %130 = icmp slt i16 %129, 0
-  %narrow.i = select i1 %130, i16 4, i16 %129
+  %118 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %115, i64 %indvars.iv.i
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 28
+  %120 = load i16, ptr %119, align 4
+  %121 = icmp slt i16 %120, 0
+  %narrow.i = select i1 %121, i16 4, i16 %120
   %.1.v.i = zext i16 %narrow.i to i64
   %.1.i = add i64 %.03848.i, %.1.v.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -783,9 +770,18 @@ RelationGetSmgr.exit._crit_edge:                  ; preds = %RelationGetSmgr.exi
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %112
   %.038.lcssa.i = phi i64 [ 8, %112 ], [ %.1.i, %.lr.ph.i ]
-  %131 = udiv i64 %117, %122
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %123 = load i64, ptr %122, align 8
+  %124 = sub i64 8148, %123
+  %125 = load i64, ptr %21, align 8
+  %126 = sitofp i64 %125 to double
+  %127 = load i64, ptr %15, align 8
+  %128 = sitofp i64 %127 to double
+  %129 = fdiv double %126, %128
+  %130 = fptoui double %129 to i64
+  %131 = udiv i64 %124, %130
   %132 = uitofp i64 %131 to double
-  %133 = udiv i64 %117, %.038.lcssa.i
+  %133 = udiv i64 %124, %.038.lcssa.i
   %134 = uitofp i64 %133 to double
   %135 = fsub double 1.000000e+00, %132
   br label %136
@@ -832,8 +828,8 @@ select.unfold.i:                                  ; preds = %148, %136
   br label %gistInitBuffering.exit
 
 161:                                              ; preds = %select.unfold.i
-  %162 = uitofp i64 %117 to double
-  %163 = fdiv double %162, %121
+  %162 = uitofp i64 %124 to double
+  %163 = fdiv double %162, %129
   %164 = uitofp nneg i32 %154 to double
   %165 = call double @pow(double noundef %163, double noundef %164) #9
   br label %166
@@ -841,7 +837,7 @@ select.unfold.i:                                  ; preds = %148, %136
 166:                                              ; preds = %188, %161
   %.015.i.i = phi i32 [ 0, %161 ], [ %197, %188 ]
   %.014.i.i = phi i32 [ 0, %161 ], [ %198, %188 ]
-  %167 = call i32 @ReadBuffer(ptr noundef %114, i32 noundef %.015.i.i) #9
+  %167 = call i32 @ReadBuffer(ptr noundef %113, i32 noundef %.015.i.i) #9
   call void @LockBuffer(i32 noundef %167, i32 noundef 1) #9
   %168 = icmp slt i32 %167, 0
   br i1 %168, label %169, label %175

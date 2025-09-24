@@ -1529,37 +1529,34 @@ parse_uiv.exit715:                                ; preds = %.lr.ph.i711
   %408 = getelementptr inbounds nuw i8, ptr %248, i64 2
   %409 = load i8, ptr %408, align 1, !tbaa !46
   %410 = icmp eq i8 %409, 34
-  br i1 %410, label %.lr.ph.i747.preheader, label %zend_string_release_ex.exit691
+  br i1 %410, label %.lr.ph.i747, label %zend_string_release_ex.exit691
 
 411:                                              ; preds = %256
   %412 = getelementptr inbounds nuw i8, ptr %140, i64 3
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  br i1 %.not589, label %zend_string_release_ex.exit655, label %.lr.ph.i718.preheader
+  br i1 %.not589, label %zend_string_release_ex.exit655, label %.lr.ph.i718
 
-.lr.ph.i718.preheader:                            ; preds = %411
-  %413 = icmp eq i8 %29, 67
-  br label %.lr.ph.i718
-
-.lr.ph.i718:                                      ; preds = %.lr.ph.i718.preheader, %.lr.ph.i718
-  %414 = phi i8 [ %420, %.lr.ph.i718 ], [ %77, %.lr.ph.i718.preheader ]
-  %.012.i719 = phi i64 [ %418, %.lr.ph.i718 ], [ 0, %.lr.ph.i718.preheader ]
-  %.0811.i720 = phi ptr [ %419, %.lr.ph.i718 ], [ %76, %.lr.ph.i718.preheader ]
-  %415 = mul i64 %.012.i719, 10
-  %416 = and i8 %414, 15
-  %417 = zext nneg i8 %416 to i64
-  %418 = add i64 %415, %417
-  %419 = getelementptr inbounds nuw i8, ptr %.0811.i720, i64 1
-  %420 = load i8, ptr %419, align 1, !tbaa !46
-  %421 = add i8 %420, -48
-  %or.cond.i721 = icmp ult i8 %421, 10
+.lr.ph.i718:                                      ; preds = %411, %.lr.ph.i718
+  %413 = phi i8 [ %419, %.lr.ph.i718 ], [ %77, %411 ]
+  %.012.i719 = phi i64 [ %417, %.lr.ph.i718 ], [ 0, %411 ]
+  %.0811.i720 = phi ptr [ %418, %.lr.ph.i718 ], [ %76, %411 ]
+  %414 = mul i64 %.012.i719, 10
+  %415 = and i8 %413, 15
+  %416 = zext nneg i8 %415 to i64
+  %417 = add i64 %414, %416
+  %418 = getelementptr inbounds nuw i8, ptr %.0811.i720, i64 1
+  %419 = load i8, ptr %418, align 1, !tbaa !46
+  %420 = add i8 %419, -48
+  %or.cond.i721 = icmp ult i8 %420, 10
   br i1 %or.cond.i721, label %.lr.ph.i718, label %parse_uiv.exit722
 
 parse_uiv.exit722:                                ; preds = %.lr.ph.i718
+  %421 = icmp eq i8 %29, 67
   %422 = ptrtoint ptr %412 to i64
   %423 = sub i64 %30, %422
-  %424 = add i64 %418, -1
+  %424 = add i64 %417, -1
   %or.cond.not = icmp ult i64 %424, %423
   br i1 %or.cond.not, label %426, label %425
 
@@ -1568,7 +1565,7 @@ parse_uiv.exit722:                                ; preds = %.lr.ph.i718
   br label %zend_string_release_ex.exit655
 
 426:                                              ; preds = %parse_uiv.exit722
-  %427 = getelementptr inbounds nuw i8, ptr %412, i64 %418
+  %427 = getelementptr inbounds nuw i8, ptr %412, i64 %417
   store ptr %427, ptr %7, align 8, !tbaa !104
   %428 = load i8, ptr %427, align 1, !tbaa !46
   %.not624 = icmp eq i8 %428, 34
@@ -1597,7 +1594,7 @@ parse_uiv.exit722:                                ; preds = %.lr.ph.i718
 
 436:                                              ; preds = %434
   %437 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !105
-  %438 = tail call ptr %437(ptr noundef nonnull %412, i64 noundef %418, i1 noundef zeroext false) #16
+  %438 = tail call ptr %437(ptr noundef nonnull %412, i64 noundef %417, i1 noundef zeroext false) #16
   %439 = load ptr, ptr %3, align 8, !tbaa !41
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 24
   %441 = load ptr, ptr %440, align 8, !tbaa !100
@@ -2018,7 +2015,7 @@ zend_string_release_ex.exit669:                   ; preds = %608, %611, %616
   br label %zend_string_release_ex.exit655
 
 647:                                              ; preds = %629
-  br i1 %413, label %648, label %662
+  br i1 %421, label %648, label %662
 
 648:                                              ; preds = %647
   %649 = call fastcc i32 @object_custom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %.1527.ph)
@@ -2877,28 +2874,25 @@ zval_ptr_dtor_str.exit702:                        ; preds = %987, %982, %980, %9
   %1034 = icmp eq i8 %1033, 59
   br i1 %1034, label %sub_0, label %zend_string_release_ex.exit691
 
-.lr.ph.i747.preheader:                            ; preds = %407
-  %1035 = getelementptr inbounds nuw i8, ptr %248, i64 3
-  br label %.lr.ph.i747
-
-.lr.ph.i747:                                      ; preds = %.lr.ph.i747.preheader, %.lr.ph.i747
-  %1036 = phi i8 [ %1042, %.lr.ph.i747 ], [ %138, %.lr.ph.i747.preheader ]
-  %.012.i748 = phi i64 [ %1040, %.lr.ph.i747 ], [ 0, %.lr.ph.i747.preheader ]
-  %.0811.i749 = phi ptr [ %1041, %.lr.ph.i747 ], [ %137, %.lr.ph.i747.preheader ]
-  %1037 = mul i64 %.012.i748, 10
-  %1038 = and i8 %1036, 15
-  %1039 = zext nneg i8 %1038 to i64
-  %1040 = add i64 %1037, %1039
-  %1041 = getelementptr inbounds nuw i8, ptr %.0811.i749, i64 1
-  %1042 = load i8, ptr %1041, align 1, !tbaa !46
-  %1043 = add i8 %1042, -48
-  %or.cond.i750 = icmp ult i8 %1043, 10
+.lr.ph.i747:                                      ; preds = %407, %.lr.ph.i747
+  %1035 = phi i8 [ %1041, %.lr.ph.i747 ], [ %138, %407 ]
+  %.012.i748 = phi i64 [ %1039, %.lr.ph.i747 ], [ 0, %407 ]
+  %.0811.i749 = phi ptr [ %1040, %.lr.ph.i747 ], [ %137, %407 ]
+  %1036 = mul i64 %.012.i748, 10
+  %1037 = and i8 %1035, 15
+  %1038 = zext nneg i8 %1037 to i64
+  %1039 = add i64 %1036, %1038
+  %1040 = getelementptr inbounds nuw i8, ptr %.0811.i749, i64 1
+  %1041 = load i8, ptr %1040, align 1, !tbaa !46
+  %1042 = add i8 %1041, -48
+  %or.cond.i750 = icmp ult i8 %1042, 10
   br i1 %or.cond.i750, label %.lr.ph.i747, label %parse_uiv.exit751
 
 parse_uiv.exit751:                                ; preds = %.lr.ph.i747
-  %1044 = ptrtoint ptr %1035 to i64
+  %1043 = getelementptr inbounds nuw i8, ptr %248, i64 3
+  %1044 = ptrtoint ptr %1043 to i64
   %1045 = sub i64 %30, %1044
-  %1046 = icmp ult i64 %1045, %1040
+  %1046 = icmp ult i64 %1045, %1039
   br i1 %1046, label %1047, label %parse_uiv.exit751.thread
 
 1047:                                             ; preds = %parse_uiv.exit751
@@ -2906,7 +2900,7 @@ parse_uiv.exit751:                                ; preds = %.lr.ph.i747
   br label %zend_string_release_ex.exit691
 
 parse_uiv.exit751.thread:                         ; preds = %parse_uiv.exit751
-  %1048 = getelementptr inbounds nuw i8, ptr %1035, i64 %1040
+  %1048 = getelementptr inbounds nuw i8, ptr %1043, i64 %1039
   %1049 = load i8, ptr %1048, align 1, !tbaa !46
   %.not591 = icmp eq i8 %1049, 34
   br i1 %.not591, label %1051, label %1050
@@ -2933,7 +2927,7 @@ parse_uiv.exit751.thread:                         ; preds = %parse_uiv.exit751
 
 1057:                                             ; preds = %1055
   %1058 = load ptr, ptr @zend_string_init_existing_interned, align 8, !tbaa !105
-  %1059 = tail call ptr %1058(ptr noundef nonnull %1035, i64 noundef %1040, i1 noundef zeroext false) #16
+  %1059 = tail call ptr %1058(ptr noundef nonnull %1043, i64 noundef %1039, i1 noundef zeroext false) #16
   store ptr %1059, ptr %0, align 8, !tbaa !46
   %1060 = getelementptr inbounds nuw i8, ptr %1059, i64 4
   %1061 = load i32, ptr %1060, align 4, !tbaa !46
@@ -2945,11 +2939,11 @@ parse_uiv.exit751.thread:                         ; preds = %parse_uiv.exit751
   br label %zend_string_release_ex.exit691
 
 1065:                                             ; preds = %1055
-  %1066 = icmp ugt i64 %1040, 1
+  %1066 = icmp ugt i64 %1039, 1
   br i1 %1066, label %zend_string_alloc.exit, label %1075
 
 zend_string_alloc.exit:                           ; preds = %1065
-  %1067 = and i64 %1040, -8
+  %1067 = and i64 %1039, -8
   %1068 = add i64 %1067, 32
   %1069 = tail call noalias ptr @_emalloc(i64 noundef %1068) #15
   store i32 1, ptr %1069, align 4, !tbaa !63
@@ -2958,15 +2952,15 @@ zend_string_alloc.exit:                           ; preds = %1065
   %1071 = getelementptr inbounds nuw i8, ptr %1069, i64 8
   store i64 0, ptr %1071, align 8, !tbaa !129
   %1072 = getelementptr inbounds nuw i8, ptr %1069, i64 16
-  store i64 %1040, ptr %1072, align 8, !tbaa !131
+  store i64 %1039, ptr %1072, align 8, !tbaa !131
   %1073 = getelementptr inbounds nuw i8, ptr %1069, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1073, ptr nonnull align 1 %1035, i64 %1040, i1 false)
-  %1074 = getelementptr inbounds nuw i8, ptr %1073, i64 %1040
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1073, ptr nonnull align 1 %1043, i64 %1039, i1 false)
+  %1074 = getelementptr inbounds nuw i8, ptr %1073, i64 %1039
   store i8 0, ptr %1074, align 1, !tbaa !46
   br label %zend_string_init_fast.exit
 
 1075:                                             ; preds = %1065
-  %1076 = icmp eq i64 %1040, 0
+  %1076 = icmp eq i64 %1039, 0
   br i1 %1076, label %1077, label %1079
 
 1077:                                             ; preds = %1075
@@ -2974,7 +2968,7 @@ zend_string_alloc.exit:                           ; preds = %1065
   br label %zend_string_init_fast.exit
 
 1079:                                             ; preds = %1075
-  %1080 = load i8, ptr %1035, align 1, !tbaa !46
+  %1080 = load i8, ptr %1043, align 1, !tbaa !46
   %1081 = zext i8 %1080 to i64
   %1082 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %1081
   %1083 = load ptr, ptr %1082, align 8, !tbaa !58

@@ -9499,46 +9499,43 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb18OnDemandFileSystem25GetChildren
   %.0.i.i.i.i.i21.i = phi i32 [ %152, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i16.i ], [ %.0.i6.i.i.i.i.i25.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i22.i ]
   %154 = icmp slt i32 %.0.i.i.i.i.i21.i, 0
   %155 = getelementptr inbounds nuw i8, ptr %.sroa.023.1.i.i, i64 48
-  br i1 %154, label %149, label %.preheader.i.i.preheader, !llvm.loop !235
+  br i1 %154, label %149, label %.preheader.i.i, !llvm.loop !235
 
-.preheader.i.i.preheader:                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPSt6vectorINS2_3Env14FileAttributesESaISH_EEPNS2_14IODebugContextEE19FileAttributeSorterEclINS_17__normal_iteratorIPSH_SJ_EESS_EEbT_T0_.exit.i20.i
-  %156 = getelementptr i8, ptr %.sroa.023.1.i.i, i64 8
-  br label %.preheader.i.i
-
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPSt6vectorINS2_3Env14FileAttributesESaISH_EEPNS2_14IODebugContextEE19FileAttributeSorterEclINS_17__normal_iteratorIPSH_SJ_EESS_EEbT_T0_.exit20.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPSt6vectorINS2_3Env14FileAttributesESaISH_EEPNS2_14IODebugContextEE19FileAttributeSorterEclINS_17__normal_iteratorIPSH_SJ_EESS_EEbT_T0_.exit20.i.i ], [ %.sroa.0.0.i.i, %.preheader.i.i.preheader ]
+.preheader.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPSt6vectorINS2_3Env14FileAttributesESaISH_EEPNS2_14IODebugContextEE19FileAttributeSorterEclINS_17__normal_iteratorIPSH_SJ_EESS_EEbT_T0_.exit.i20.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPSt6vectorINS2_3Env14FileAttributesESaISH_EEPNS2_14IODebugContextEE19FileAttributeSorterEclINS_17__normal_iteratorIPSH_SJ_EESS_EEbT_T0_.exit20.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPSt6vectorINS2_3Env14FileAttributesESaISH_EEPNS2_14IODebugContextEE19FileAttributeSorterEclINS_17__normal_iteratorIPSH_SJ_EESS_EEbT_T0_.exit20.i.i ], [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPSt6vectorINS2_3Env14FileAttributesESaISH_EEPNS2_14IODebugContextEE19FileAttributeSorterEclINS_17__normal_iteratorIPSH_SJ_EESS_EEbT_T0_.exit.i20.i ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -48
-  %157 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -40
-  %.val3.i9.i.i = load i64, ptr %157, align 8, !tbaa !12
+  %156 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -40
+  %.val3.i9.i.i = load i64, ptr %156, align 8, !tbaa !12
   %.sroa.speculated.i.i.i.i10.i.i = call i64 @llvm.umin.i64(i64 %.val3.i9.i.i, i64 %.val3.i.i13.i)
-  %158 = icmp eq i64 %.sroa.speculated.i.i.i.i10.i.i, 0
-  br i1 %158, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i16.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i11.i.i
+  %157 = icmp eq i64 %.sroa.speculated.i.i.i.i10.i.i, 0
+  br i1 %157, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i16.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i11.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i11.i.i: ; preds = %.preheader.i.i
   %.val2.i12.i.i = load ptr, ptr %.sroa.0.1.i.i, align 8
   %.val.i13.i.i = load ptr, ptr %0, align 8
-  %159 = call i32 @memcmp(ptr noundef readonly %.val.i13.i.i, ptr noundef readonly %.val2.i12.i.i, i64 noundef %.sroa.speculated.i.i.i.i10.i.i) #22
-  %.not.i.i.i.i14.i.i = icmp eq i32 %159, 0
+  %158 = call i32 @memcmp(ptr noundef readonly %.val.i13.i.i, ptr noundef readonly %.val2.i12.i.i, i64 noundef %.sroa.speculated.i.i.i.i10.i.i) #22
+  %.not.i.i.i.i14.i.i = icmp eq i32 %158, 0
   br i1 %.not.i.i.i.i14.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i16.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPSt6vectorINS2_3Env14FileAttributesESaISH_EEPNS2_14IODebugContextEE19FileAttributeSorterEclINS_17__normal_iteratorIPSH_SJ_EESS_EEbT_T0_.exit20.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i16.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i11.i.i, %.preheader.i.i
-  %160 = sub i64 %.val3.i.i13.i, %.val3.i9.i.i
-  %spec.select7.i.i.i.i.i17.i.i = call i64 @llvm.smax.i64(i64 %160, i64 -2147483648)
+  %159 = sub i64 %.val3.i.i13.i, %.val3.i9.i.i
+  %spec.select7.i.i.i.i.i17.i.i = call i64 @llvm.smax.i64(i64 %159, i64 -2147483648)
   %.08.i.i.i.i.i18.i.i = call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i17.i.i, i64 2147483647)
   %.0.i6.i.i.i.i19.i.i = trunc nsw i64 %.08.i.i.i.i.i18.i.i to i32
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPSt6vectorINS2_3Env14FileAttributesESaISH_EEPNS2_14IODebugContextEE19FileAttributeSorterEclINS_17__normal_iteratorIPSH_SJ_EESS_EEbT_T0_.exit20.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPSt6vectorINS2_3Env14FileAttributesESaISH_EEPNS2_14IODebugContextEE19FileAttributeSorterEclINS_17__normal_iteratorIPSH_SJ_EESS_EEbT_T0_.exit20.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i16.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i11.i.i
-  %.0.i.i.i.i15.i.i = phi i32 [ %159, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i11.i.i ], [ %.0.i6.i.i.i.i19.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i16.i.i ]
-  %161 = icmp slt i32 %.0.i.i.i.i15.i.i, 0
-  br i1 %161, label %.preheader.i.i, label %162, !llvm.loop !236
+  %.0.i.i.i.i15.i.i = phi i32 [ %158, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i11.i.i ], [ %.0.i6.i.i.i.i19.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i16.i.i ]
+  %160 = icmp slt i32 %.0.i.i.i.i15.i.i, 0
+  br i1 %160, label %.preheader.i.i, label %161, !llvm.loop !236
 
-162:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPSt6vectorINS2_3Env14FileAttributesESaISH_EEPNS2_14IODebugContextEE19FileAttributeSorterEclINS_17__normal_iteratorIPSH_SJ_EESS_EEbT_T0_.exit20.i.i
+161:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPSt6vectorINS2_3Env14FileAttributesESaISH_EEPNS2_14IODebugContextEE19FileAttributeSorterEclINS_17__normal_iteratorIPSH_SJ_EESS_EEbT_T0_.exit20.i.i
+  %162 = getelementptr i8, ptr %.sroa.023.1.i.i, i64 8
   %163 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -40
   %164 = icmp ult ptr %.sroa.023.1.i.i, %.sroa.0.1.i.i
   br i1 %164, label %165, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb3Env14FileAttributesESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPS8_PNS2_14IODebugContextEE19FileAttributeSorterEEET_ST_ST_T0_.exit
 
-165:                                              ; preds = %162
+165:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %16, ptr %4, align 8, !tbaa !16
   %166 = load ptr, ptr %.sroa.023.1.i.i, align 8, !tbaa !4
@@ -9557,14 +9554,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %166, ptr %4, align 8, !tbaa !4
   %172 = load i64, ptr %167, align 8, !tbaa !18
   store i64 %172, ptr %16, align 8, !tbaa !18
-  %.pre.i19 = load i64, ptr %156, align 8, !tbaa !12
+  %.pre.i19 = load i64, ptr %162, align 8, !tbaa !12
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i20
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i20: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i17, %169
   %173 = phi i64 [ %.pre.i19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i17 ], [ %.val1.i.i14.i, %169 ]
   store i64 %173, ptr %17, align 8, !tbaa !12
   store ptr %167, ptr %.sroa.023.1.i.i, align 8, !tbaa !4
-  store i64 0, ptr %156, align 8, !tbaa !12
+  store i64 0, ptr %162, align 8, !tbaa !12
   store i8 0, ptr %167, align 8, !tbaa !18
   %174 = getelementptr inbounds nuw i8, ptr %.sroa.023.1.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %18, ptr noundef nonnull align 8 dereferenceable(9) %174, i64 9, i1 false)
@@ -9593,7 +9590,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i26: ; preds = %183, %181, %178
   %184 = load i64, ptr %163, align 8, !tbaa !12
-  store i64 %184, ptr %156, align 8, !tbaa !12
+  store i64 %184, ptr %162, align 8, !tbaa !12
   %185 = getelementptr inbounds nuw i8, ptr %167, i64 %184
   store i8 0, ptr %185, align 1, !tbaa !18
   %.pre.i.i.i27 = load ptr, ptr %.sroa.0.1.i.i, align 8, !tbaa !4
@@ -9602,7 +9599,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i2
 186:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i20
   store ptr %175, ptr %.sroa.023.1.i.i, align 8, !tbaa !4
   %187 = load i64, ptr %163, align 8, !tbaa !12
-  store i64 %187, ptr %156, align 8, !tbaa !12
+  store i64 %187, ptr %162, align 8, !tbaa !12
   %188 = load i64, ptr %176, align 8, !tbaa !18
   store i64 %188, ptr %167, align 8, !tbaa !18
   store ptr %176, ptr %.sroa.0.1.i.i, align 8, !tbaa !4
@@ -9703,7 +9700,7 @@ _ZSt4swapIN7rocksdb3Env14FileAttributesEENSt9enable_ifIXsr6__and_ISt6__not_ISt15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %148, !llvm.loop !237
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb3Env14FileAttributesESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPS8_PNS2_14IODebugContextEE19FileAttributeSorterEEET_ST_ST_T0_.exit: ; preds = %162
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb3Env14FileAttributesESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPS8_PNS2_14IODebugContextEE19FileAttributeSorterEEET_ST_ST_T0_.exit: ; preds = %161
   call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN7rocksdb3Env14FileAttributesESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPS8_PNS2_14IODebugContextEE19FileAttributeSorterEEEvT_ST_T0_T1_(ptr %.sroa.023.1.i.i, ptr %storemerge37, i64 noundef %118)
   %217 = ptrtoint ptr %.sroa.023.1.i.i to i64
   %218 = sub i64 %217, %9

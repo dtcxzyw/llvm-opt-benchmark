@@ -3940,38 +3940,38 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
   store i64 %1, ptr %24, align 8, !tbaa !152
   store ptr %4, ptr %23, align 16, !tbaa !168
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %1
-  %27 = ptrtoint ptr %26 to i64
-  %28 = add i64 %27, 15
-  %29 = and i64 %28, -16
-  %30 = inttoptr i64 %29 to ptr
   %.not56 = icmp eq i64 %9, 0
   br i1 %.not56, label %.preheader49, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %33
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  br label %28
 
-.preheader49:                                     ; preds = %33, %8
-  %32 = icmp ult i64 %9, %1
-  br i1 %32, label %.lr.ph55, label %_ZN5folly6detail14ScopeGuardImplIZNS_17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultISA_EEE9new_arrayEmRPNSD_5arrayEEUlvE_Lb1EED2Ev.exit
+.preheader49:                                     ; preds = %28, %8
+  %27 = icmp ult i64 %9, %1
+  br i1 %27, label %.lr.ph55, label %_ZN5folly6detail14ScopeGuardImplIZNS_17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultISA_EEE9new_arrayEmRPNSD_5arrayEEUlvE_Lb1EED2Ev.exit
 
-33:                                               ; preds = %.lr.ph, %33
-  %.03950 = phi i64 [ 0, %.lr.ph ], [ %37, %33 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %.03950
-  %35 = load ptr, ptr %34, align 8, !tbaa !90
-  %36 = getelementptr inbounds nuw ptr, ptr %25, i64 %.03950
-  store ptr %35, ptr %36, align 8, !tbaa !90
-  %37 = add nuw i64 %.03950, 1
-  %exitcond.not = icmp eq i64 %37, %9
-  br i1 %exitcond.not, label %.preheader49, label %33, !llvm.loop !220
+28:                                               ; preds = %.lr.ph, %28
+  %.03950 = phi i64 [ 0, %.lr.ph ], [ %32, %28 ]
+  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %.03950
+  %30 = load ptr, ptr %29, align 8, !tbaa !90
+  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %.03950
+  store ptr %30, ptr %31, align 8, !tbaa !90
+  %32 = add nuw i64 %.03950, 1
+  %exitcond.not = icmp eq i64 %32, %9
+  br i1 %exitcond.not, label %.preheader49, label %28, !llvm.loop !220
 
 .lr.ph55:                                         ; preds = %.preheader49
-  %38 = shl i64 %9, 3
-  %39 = getelementptr i8, ptr %23, i64 %38
-  %scevgep = getelementptr i8, ptr %39, i64 16
-  %40 = sub i64 %10, %38
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %40, i1 false), !tbaa !90
+  %33 = shl i64 %9, 3
+  %34 = getelementptr i8, ptr %23, i64 %33
+  %scevgep = getelementptr i8, ptr %34, i64 16
+  %35 = sub i64 %10, %33
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %35, i1 false), !tbaa !90
+  %36 = getelementptr inbounds nuw ptr, ptr %25, i64 %1
+  %37 = ptrtoint ptr %36 to i64
+  %38 = add i64 %37, 15
+  %39 = and i64 %38, -16
+  %40 = inttoptr i64 %39 to ptr
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %42
 
@@ -3985,7 +3985,7 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
 
 .critedge:                                        ; preds = %42
   %45 = sub nuw i64 %.03754, %9
-  %46 = getelementptr inbounds nuw %"struct.folly::Synchronized", ptr %30, i64 %45
+  %46 = getelementptr inbounds nuw %"struct.folly::Synchronized", ptr %40, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %46, i8 0, i64 88, i1 false), !alias.scope !221
@@ -5073,28 +5073,29 @@ define linkonce_odr void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull
   %32 = sub i64 %12, %31
   %33 = lshr i64 %32, 1
   %34 = add nuw i64 %33, %31
-  %35 = add nsw i64 %19, 1
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %35, i64 %12)
-  %36 = trunc i64 %19 to i32
-  %37 = add i32 %36, 1371501266
-  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %33
-  %39 = load i32, ptr %38, align 4, !tbaa !64
-  %40 = add i32 %39, 1371501266
-  store i32 %40, ptr %38, align 4, !tbaa !64
-  %41 = getelementptr inbounds nuw i32, ptr %1, i64 %34
-  %42 = load i32, ptr %41, align 4, !tbaa !64
-  %43 = add i32 %42, %37
-  store i32 %43, ptr %41, align 4, !tbaa !64
-  store i32 %37, ptr %1, align 4, !tbaa !64
+  %35 = trunc i64 %19 to i32
+  %36 = add i32 %35, 1371501266
+  %37 = getelementptr inbounds nuw i32, ptr %1, i64 %33
+  %38 = load i32, ptr %37, align 4, !tbaa !64
+  %39 = add i32 %38, 1371501266
+  store i32 %39, ptr %37, align 4, !tbaa !64
+  %40 = getelementptr inbounds nuw i32, ptr %1, i64 %34
+  %41 = load i32, ptr %40, align 4, !tbaa !64
+  %42 = add i32 %41, %36
+  store i32 %42, ptr %40, align 4, !tbaa !64
+  store i32 %36, ptr %1, align 4, !tbaa !64
   %.not130 = icmp eq ptr %14, %15
   br i1 %.not130, label %.preheader129, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %30
-  %umax = tail call i64 @llvm.umax.i64(i64 %35, i64 2)
+  %43 = add nsw i64 %19, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %43, i64 2)
   br label %.lr.ph
 
 .preheader129:                                    ; preds = %.lr.ph, %30
-  %44 = icmp ugt i64 %12, %35
+  %.pre-phi = phi i64 [ 1, %30 ], [ %43, %.lr.ph ]
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %.pre-phi, i64 %12)
+  %44 = icmp ugt i64 %12, %.pre-phi
   br i1 %44, label %.lr.ph133, label %.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -5139,7 +5140,7 @@ define linkonce_odr void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull
   br i1 %74, label %.lr.ph135, label %.loopexit
 
 .lr.ph133:                                        ; preds = %.preheader129, %.lr.ph133
-  %.0114132 = phi i64 [ %99, %.lr.ph133 ], [ %35, %.preheader129 ]
+  %.0114132 = phi i64 [ %99, %.lr.ph133 ], [ %.pre-phi, %.preheader129 ]
   %75 = urem i64 %.0114132, %12
   %76 = add i64 %.0114132, %33
   %77 = urem i64 %76, %12

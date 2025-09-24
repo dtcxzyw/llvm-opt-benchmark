@@ -22722,29 +22722,32 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 64
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %.050, ptr %41, align 8
   store i64 %.050, ptr %39, align 8
-  %42 = add i64 %.050, 15768000
-  %43 = icmp sgt i64 %.050, -9223372036839011409
-  br i1 %43, label %.lr.ph64.preheader, label %.preheader
+  %42 = icmp sgt i64 %.050, -9223372036839011409
+  br i1 %42, label %.lr.ph64.preheader, label %.preheader
 
 .lr.ph64.preheader:                               ; preds = %35
-  %44 = add i64 %.050, -15768000
+  %43 = add i64 %.050, -15768000
   br label %.lr.ph64
 
 .preheader.loopexit:                              ; preds = %62
-  %45 = getelementptr %struct.dst_table, ptr %.pre, i64 %38
-  %.phi.trans.insert71 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %44 = getelementptr %struct.dst_table, ptr %.pre, i64 %38
+  %.phi.trans.insert71 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %.pre72 = load i64, ptr %.phi.trans.insert71, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %35
-  %46 = phi i64 [ %.pre72, %.preheader.loopexit ], [ %.050, %35 ]
-  %47 = add i64 %.050, 15764400
-  %48 = icmp sgt i64 %47, %46
-  br i1 %48, label %.lr.ph66, label %.loopexit
+  %45 = phi i64 [ %.pre72, %.preheader.loopexit ], [ %.050, %35 ]
+  %46 = add i64 %.050, 15764400
+  %47 = icmp sgt i64 %46, %45
+  br i1 %47, label %.lr.ph66.preheader, label %.loopexit
+
+.lr.ph66.preheader:                               ; preds = %.preheader
+  %48 = add i64 %.050, 15768000
+  br label %.lr.ph66
 
 .lr.ph64:                                         ; preds = %.lr.ph64.preheader, %62
   %49 = phi i64 [ %63, %62 ], [ %.050, %.lr.ph64.preheader ]
-  %.04662 = phi i64 [ %.147, %62 ], [ %44, %.lr.ph64.preheader ]
+  %.04662 = phi i64 [ %.147, %62 ], [ %43, %.lr.ph64.preheader ]
   %50 = sub i64 %49, %.04662
   %51 = icmp sgt i64 %50, 1209600
   br i1 %51, label %52, label %54
@@ -22781,9 +22784,9 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 64
   %65 = icmp slt i64 %64, %63
   br i1 %65, label %.lr.ph64, label %.preheader.loopexit, !llvm.loop !28
 
-.lr.ph66:                                         ; preds = %.preheader, %79
-  %66 = phi i64 [ %80, %79 ], [ %46, %.preheader ]
-  %.065 = phi i64 [ %.1, %79 ], [ %42, %.preheader ]
+.lr.ph66:                                         ; preds = %.lr.ph66.preheader, %79
+  %66 = phi i64 [ %80, %79 ], [ %45, %.lr.ph66.preheader ]
+  %.065 = phi i64 [ %.1, %79 ], [ %48, %.lr.ph66.preheader ]
   %67 = sub i64 %.065, %66
   %68 = icmp sgt i64 %67, 1209600
   br i1 %68, label %69, label %71

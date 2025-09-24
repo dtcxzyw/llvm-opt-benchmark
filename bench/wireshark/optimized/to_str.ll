@@ -631,23 +631,26 @@ declare void @display_epoch_time(ptr noundef, i64 noundef, ptr noundef, i32 noun
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call i32 @llvm.smin.i32(i32 %2, i32 64)
-  %7 = add i32 %6, -1
-  %8 = zext nneg i32 %7 to i64
-  %9 = shl nuw i64 1, %8
-  %10 = add i32 %1, %2
-  %11 = sub i32 0, %10
+  %6 = add i32 %1, %2
+  %7 = sub i32 0, %6
   %.not71 = icmp slt i32 %4, 0
-  %.0.in = select i1 %.not71, i32 %11, i32 %1
+  %.0.in = select i1 %.not71, i32 %7, i32 %1
   %.0 = and i32 %.0.in, 7
-  %12 = tail call noalias dereferenceable_or_null(320) ptr @wmem_alloc0(ptr noundef %0, i64 noundef 320) #9
+  %8 = tail call noalias dereferenceable_or_null(320) ptr @wmem_alloc0(ptr noundef %0, i64 noundef 320) #9
   %.not = icmp eq i32 %.0, 0
   br i1 %.not, label %.preheader72, label %.lr.ph
 
 .preheader72:                                     ; preds = %19, %5
   %.054.lcssa = phi i32 [ 0, %5 ], [ %22, %19 ]
-  %13 = icmp sgt i32 %2, 0
-  br i1 %13, label %.lr.ph80, label %.preheader
+  %9 = tail call i32 @llvm.smin.i32(i32 %2, i32 64)
+  %10 = icmp sgt i32 %2, 0
+  br i1 %10, label %.lr.ph80.preheader, label %.preheader
+
+.lr.ph80.preheader:                               ; preds = %.preheader72
+  %11 = add nsw i32 %9, -1
+  %12 = zext nneg i32 %11 to i64
+  %13 = shl nuw i64 1, %12
+  br label %.lr.ph80
 
 .lr.ph:                                           ; preds = %5, %19
   %.05474 = phi i32 [ %22, %19 ], [ 0, %5 ]
@@ -660,7 +663,7 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
 
 15:                                               ; preds = %.lr.ph
   %16 = sext i32 %.05474 to i64
-  %17 = getelementptr i8, ptr %12, i64 %16
+  %17 = getelementptr i8, ptr %8, i64 %16
   store i8 32, ptr %17, align 1
   %18 = add i32 %.05474, 1
   br label %19
@@ -668,7 +671,7 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
 19:                                               ; preds = %15, %.lr.ph
   %.1 = phi i32 [ %18, %15 ], [ %.05474, %.lr.ph ]
   %20 = sext i32 %.1 to i64
-  %21 = getelementptr i8, ptr %12, i64 %20
+  %21 = getelementptr i8, ptr %8, i64 %20
   store i8 46, ptr %21, align 1
   %22 = add i32 %.1, 1
   %23 = add nuw nsw i32 %.05573, 1
@@ -676,7 +679,7 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
   br i1 %exitcond.not, label %.preheader72, label %.lr.ph, !llvm.loop !6
 
 .preheader.loopexit:                              ; preds = %37
-  %24 = add nuw nsw i32 %6, %.0
+  %24 = add nuw nsw i32 %9, %.0
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader72
@@ -686,11 +689,11 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
   %.not5883 = icmp eq i32 %25, 0
   br i1 %.not5883, label %._crit_edge, label %.lr.ph86
 
-.lr.ph80:                                         ; preds = %.preheader72, %37
-  %.05279 = phi i64 [ %42, %37 ], [ %9, %.preheader72 ]
-  %.05378 = phi i32 [ %43, %37 ], [ 0, %.preheader72 ]
-  %.277 = phi i32 [ %.5, %37 ], [ %.054.lcssa, %.preheader72 ]
-  %.15676 = phi i32 [ %38, %37 ], [ %.0, %.preheader72 ]
+.lr.ph80:                                         ; preds = %.lr.ph80.preheader, %37
+  %.05279 = phi i64 [ %42, %37 ], [ %13, %.lr.ph80.preheader ]
+  %.05378 = phi i32 [ %43, %37 ], [ 0, %.lr.ph80.preheader ]
+  %.277 = phi i32 [ %.5, %37 ], [ %.054.lcssa, %.lr.ph80.preheader ]
+  %.15676 = phi i32 [ %38, %37 ], [ %.0, %.lr.ph80.preheader ]
   %.not61 = icmp ne i32 %.15676, 0
   %26 = and i32 %.15676, 3
   %.not62 = icmp eq i32 %26, 0
@@ -699,7 +702,7 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
 
 27:                                               ; preds = %.lr.ph80
   %28 = sext i32 %.277 to i64
-  %29 = getelementptr i8, ptr %12, i64 %28
+  %29 = getelementptr i8, ptr %8, i64 %28
   store i8 32, ptr %29, align 1
   %30 = add i32 %.277, 1
   br label %31
@@ -713,7 +716,7 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
 
 33:                                               ; preds = %31
   %34 = sext i32 %.3 to i64
-  %35 = getelementptr i8, ptr %12, i64 %34
+  %35 = getelementptr i8, ptr %8, i64 %34
   store i8 32, ptr %35, align 1
   %36 = add i32 %.3, 1
   br label %37
@@ -724,13 +727,13 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
   %39 = and i64 %.05279, %3
   %.not64 = icmp eq i64 %39, 0
   %40 = sext i32 %.4 to i64
-  %41 = getelementptr i8, ptr %12, i64 %40
+  %41 = getelementptr i8, ptr %8, i64 %40
   %. = select i1 %.not64, i8 48, i8 49
   store i8 %., ptr %41, align 1
   %.5 = add i32 %.4, 1
   %42 = lshr i64 %.05279, 1
   %43 = add nuw nsw i32 %.05378, 1
-  %exitcond89.not = icmp eq i32 %43, %6
+  %exitcond89.not = icmp eq i32 %43, %9
   br i1 %exitcond89.not, label %.preheader.loopexit, label %.lr.ph80, !llvm.loop !8
 
 .lr.ph86:                                         ; preds = %.preheader, %49
@@ -742,7 +745,7 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
 
 45:                                               ; preds = %.lr.ph86
   %46 = sext i32 %.685 to i64
-  %47 = getelementptr i8, ptr %12, i64 %46
+  %47 = getelementptr i8, ptr %8, i64 %46
   store i8 32, ptr %47, align 1
   %48 = add i32 %.685, 1
   br label %49
@@ -750,7 +753,7 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
 49:                                               ; preds = %45, %.lr.ph86
   %.7 = phi i32 [ %48, %45 ], [ %.685, %.lr.ph86 ]
   %50 = sext i32 %.7 to i64
-  %51 = getelementptr i8, ptr %12, i64 %50
+  %51 = getelementptr i8, ptr %8, i64 %50
   store i8 46, ptr %51, align 1
   %52 = add i32 %.7, 1
   %53 = add nsw i32 %.25784, 1
@@ -759,7 +762,7 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
   br i1 %.not58, label %._crit_edge, label %.lr.ph86, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %49, %.preheader
-  ret ptr %12
+  ret ptr %8
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)

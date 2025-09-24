@@ -5912,8 +5912,8 @@ define internal fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float nounde
   %43 = select i1 %41, float %42, float %0
   br label %common.ret231
 
-common.ret231:                                    ; preds = %120, %._crit_edge160.thread, %67, %64, %60, %57, %55, %40, %28, %33, %31, %5, %2, %97, %50, %19, %14, %44
-  %common.ret231.op = phi float [ %47, %44 ], [ %101, %97 ], [ %15, %14 ], [ %., %19 ], [ %52, %50 ], [ 1.000000e+00, %2 ], [ %0, %5 ], [ %30, %28 ], [ %35, %33 ], [ 0x7FF8000000000000, %31 ], [ %43, %40 ], [ %59, %57 ], [ 0.000000e+00, %55 ], [ 1.000000e+00, %60 ], [ %70, %67 ], [ 0.000000e+00, %64 ], [ %125, %120 ], [ %129, %._crit_edge160.thread ]
+common.ret231:                                    ; preds = %122, %128, %67, %64, %60, %57, %55, %40, %28, %33, %31, %5, %2, %97, %50, %19, %14, %44
+  %common.ret231.op = phi float [ %47, %44 ], [ %101, %97 ], [ %15, %14 ], [ %., %19 ], [ %52, %50 ], [ 1.000000e+00, %2 ], [ %0, %5 ], [ %30, %28 ], [ %35, %33 ], [ 0x7FF8000000000000, %31 ], [ %43, %40 ], [ %59, %57 ], [ 0.000000e+00, %55 ], [ 1.000000e+00, %60 ], [ %70, %67 ], [ 0.000000e+00, %64 ], [ %127, %122 ], [ %133, %128 ]
   ret float %common.ret231.op
 
 44:                                               ; preds = %38
@@ -6052,52 +6052,58 @@ common.ret231:                                    ; preds = %120, %._crit_edge16
   %106 = tail call float @llvm.fmuladd.f32(float %105, float 0x3F7714C020000000, float 0x3FB2A62F00000000)
   %107 = tail call float @llvm.fmuladd.f32(float %105, float %106, float 0x3FDABCE160000000)
   %108 = tail call float @llvm.fmuladd.f32(float %105, float %107, float 1.000000e+00)
-  %109 = tail call float @llvm.fmuladd.f32(float %105, float 0x3F9810C360000000, float 0xBFD19FAA20000000)
-  %110 = tail call float @llvm.fmuladd.f32(float %105, float %109, float 1.000000e+00)
-  %111 = icmp slt i32 %103, -30
-  br i1 %111, label %.lr.ph154, label %.preheader
+  %109 = icmp slt i32 %103, -30
+  br i1 %109, label %.lr.ph154, label %.preheader
 
 .preheader:                                       ; preds = %102
-  %112 = icmp sgt i32 %103, 30
-  br i1 %112, label %.lr.ph159, label %._crit_edge160
+  %110 = icmp sgt i32 %103, 30
+  br i1 %110, label %.lr.ph159, label %._crit_edge160
 
 .lr.ph154:                                        ; preds = %102, %.lr.ph154
-  %.1152 = phi i32 [ %114, %.lr.ph154 ], [ %103, %102 ]
-  %.0114151 = phi float [ %113, %.lr.ph154 ], [ %108, %102 ]
-  %113 = fmul float %.0114151, 0x3E00000000000000
-  %114 = add nsw i32 %.1152, 31
-  %115 = icmp samesign ult i32 %.1152, -61
-  br i1 %115, label %.lr.ph154, label %._crit_edge160, !llvm.loop !140
+  %.1152 = phi i32 [ %112, %.lr.ph154 ], [ %103, %102 ]
+  %.0114151 = phi float [ %111, %.lr.ph154 ], [ %108, %102 ]
+  %111 = fmul float %.0114151, 0x3E00000000000000
+  %112 = add nsw i32 %.1152, 31
+  %113 = icmp samesign ult i32 %.1152, -61
+  br i1 %113, label %.lr.ph154, label %._crit_edge160, !llvm.loop !140
 
 .lr.ph159:                                        ; preds = %.preheader, %.lr.ph159
-  %.2158 = phi i32 [ %117, %.lr.ph159 ], [ %103, %.preheader ]
-  %.1115157 = phi float [ %116, %.lr.ph159 ], [ %108, %.preheader ]
-  %116 = fmul float %.1115157, 0x41E0000000000000
-  %117 = add nsw i32 %.2158, -31
-  %118 = icmp samesign ugt i32 %.2158, 61
-  br i1 %118, label %.lr.ph159, label %._crit_edge160.thread, !llvm.loop !141
+  %.2158 = phi i32 [ %115, %.lr.ph159 ], [ %103, %.preheader ]
+  %.1115157 = phi float [ %114, %.lr.ph159 ], [ %108, %.preheader ]
+  %114 = fmul float %.1115157, 0x41E0000000000000
+  %115 = add nsw i32 %.2158, -31
+  %116 = icmp samesign ugt i32 %.2158, 61
+  br i1 %116, label %.lr.ph159, label %._crit_edge160.thread, !llvm.loop !141
+
+._crit_edge160.thread:                            ; preds = %.lr.ph159
+  %117 = tail call float @llvm.fmuladd.f32(float %105, float 0x3F9810C360000000, float 0xBFD19FAA20000000)
+  %118 = tail call float @llvm.fmuladd.f32(float %105, float %117, float 1.000000e+00)
+  br label %128
 
 ._crit_edge160:                                   ; preds = %.lr.ph154, %.preheader
-  %.1115.lcssa = phi float [ %108, %.preheader ], [ %113, %.lr.ph154 ]
-  %.2.lcssa = phi i32 [ %103, %.preheader ], [ %114, %.lr.ph154 ]
-  %119 = icmp slt i32 %.2.lcssa, 0
-  br i1 %119, label %120, label %._crit_edge160.thread
+  %.1115.lcssa = phi float [ %108, %.preheader ], [ %111, %.lr.ph154 ]
+  %.2.lcssa = phi i32 [ %103, %.preheader ], [ %112, %.lr.ph154 ]
+  %119 = tail call float @llvm.fmuladd.f32(float %105, float 0x3F9810C360000000, float 0xBFD19FAA20000000)
+  %120 = tail call float @llvm.fmuladd.f32(float %105, float %119, float 1.000000e+00)
+  %121 = icmp slt i32 %.2.lcssa, 0
+  br i1 %121, label %122, label %128
 
-120:                                              ; preds = %._crit_edge160
-  %121 = sub nsw i32 0, %.2.lcssa
-  %122 = shl nuw nsw i32 1, %121
-  %123 = uitofp nneg i32 %122 to float
-  %124 = fmul float %110, %123
-  %125 = fdiv float %.1115.lcssa, %124
+122:                                              ; preds = %._crit_edge160
+  %123 = sub nsw i32 0, %.2.lcssa
+  %124 = shl nuw nsw i32 1, %123
+  %125 = uitofp nneg i32 %124 to float
+  %126 = fmul float %120, %125
+  %127 = fdiv float %.1115.lcssa, %126
   br label %common.ret231
 
-._crit_edge160.thread:                            ; preds = %.lr.ph159, %._crit_edge160
-  %.2.lcssa186 = phi i32 [ %.2.lcssa, %._crit_edge160 ], [ %117, %.lr.ph159 ]
-  %.1115.lcssa185 = phi float [ %.1115.lcssa, %._crit_edge160 ], [ %116, %.lr.ph159 ]
-  %126 = shl nuw nsw i32 1, %.2.lcssa186
-  %127 = uitofp nneg i32 %126 to float
-  %128 = fmul float %.1115.lcssa185, %127
-  %129 = fdiv float %128, %110
+128:                                              ; preds = %._crit_edge160.thread, %._crit_edge160
+  %129 = phi float [ %118, %._crit_edge160.thread ], [ %120, %._crit_edge160 ]
+  %.2.lcssa186 = phi i32 [ %115, %._crit_edge160.thread ], [ %.2.lcssa, %._crit_edge160 ]
+  %.1115.lcssa185 = phi float [ %114, %._crit_edge160.thread ], [ %.1115.lcssa, %._crit_edge160 ]
+  %130 = shl nuw nsw i32 1, %.2.lcssa186
+  %131 = uitofp nneg i32 %130 to float
+  %132 = fmul float %.1115.lcssa185, %131
+  %133 = fdiv float %132, %129
   br label %common.ret231
 }
 

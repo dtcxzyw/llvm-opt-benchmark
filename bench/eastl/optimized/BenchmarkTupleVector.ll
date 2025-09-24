@@ -4987,14 +4987,10 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %fo
   %6 = load i64, ptr %arrayidx2.i.i.i.i, align 8
   %cmp.i.i.i.i14 = icmp ult i64 %6, %5
   %inc.i.i.i = add i64 %first.sroa.0.1.i.i, 1
-  br i1 %cmp.i.i.i.i14, label %while.cond.i.i, label %while.cond3.i.i.preheader, !llvm.loop !124
+  br i1 %cmp.i.i.i.i14, label %while.cond.i.i, label %while.cond3.i.i, !llvm.loop !124
 
-while.cond3.i.i.preheader:                        ; preds = %while.cond.i.i
-  %arrayidx2.i.i.i.i.le = getelementptr inbounds i64, ptr %first.coerce1, i64 %first.sroa.0.1.i.i
-  br label %while.cond3.i.i
-
-while.cond3.i.i:                                  ; preds = %while.cond3.i.i.preheader, %while.cond3.i.i
-  %last.sroa.0.1.in.i.i = phi i64 [ %last.sroa.0.1.i.i, %while.cond3.i.i ], [ %last.sroa.0.0.i.i, %while.cond3.i.i.preheader ]
+while.cond3.i.i:                                  ; preds = %while.cond.i.i, %while.cond3.i.i
+  %last.sroa.0.1.in.i.i = phi i64 [ %last.sroa.0.1.i.i, %while.cond3.i.i ], [ %last.sroa.0.0.i.i, %while.cond.i.i ]
   %last.sroa.0.1.i.i = add i64 %last.sroa.0.1.in.i.i, -1
   %arrayidx2.i.i3.i.i = getelementptr inbounds i64, ptr %storemerge32, i64 %last.sroa.0.1.i.i
   %7 = load i64, ptr %arrayidx2.i.i3.i.i, align 8
@@ -5007,6 +5003,7 @@ while.end8.i.i:                                   ; preds = %while.cond3.i.i
 
 if.end.i.i:                                       ; preds = %while.end8.i.i
   %arrayidx2.i.i3.i.i.le = getelementptr inbounds i64, ptr %storemerge32, i64 %last.sroa.0.1.i.i
+  %arrayidx2.i.i.i.i.le = getelementptr inbounds i64, ptr %first.coerce1, i64 %first.sroa.0.1.i.i
   store i64 %7, ptr %arrayidx2.i.i.i.i.le, align 8
   store i64 %6, ptr %arrayidx2.i.i3.i.i.le, align 8
   br label %for.cond.i.i, !llvm.loop !126
@@ -5837,8 +5834,8 @@ while.end13.i.i:                                  ; preds = %while.cond6.i.i
   br i1 %cmp.i6.not.i.i, label %if.end.i.i, label %_ZN5eastl13get_partitionIN9__gnu_cxx17__normal_iteratorIPNS_5tupleIJm13PaddingStructEEESt6vectorIS5_SaIS5_EEEES5_ZN12_GLOBAL__N_113TestTupleSortIS9_EEvRN2EA4StdC9StopwatchERT_EUlSH_T0_E_EESH_SH_SH_RKSJ_T1_.exit
 
 if.end.i.i:                                       ; preds = %while.end13.i.i
-  %add.ptr.i.i.i.i.le.i.i = getelementptr inbounds nuw i8, ptr %first.sroa.0.1.i.i, i64 8
   %add.ptr.i.i.i.i3.le.i.i = getelementptr inbounds i8, ptr %last.sroa.0.0.pn.i.i, i64 -56
+  %add.ptr.i.i.i.i.le.i.i = getelementptr inbounds nuw i8, ptr %first.sroa.0.1.i.i, i64 8
   store i64 %7, ptr %first.sroa.0.1.i.i, align 8
   store i64 %6, ptr %last.sroa.0.1.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i.i.i.i.i)
@@ -6160,14 +6157,10 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %fo
   %agg.tmp.val.val.i.i = load i64, ptr %arrayidx2.i.i.i.i, align 8, !noalias !153
   %cmp.i.i.i22 = icmp ult i64 %agg.tmp.val.val.i.i, %pivotCopy.sroa.0.0.copyload.i
   %inc.i.i.i = add i64 %inc.i16.i.i, 1
-  br i1 %cmp.i.i.i22, label %while.cond.i.i, label %while.cond4.i.i.preheader, !llvm.loop !156
+  br i1 %cmp.i.i.i22, label %while.cond.i.i, label %while.cond4.i.i, !llvm.loop !156
 
-while.cond4.i.i.preheader:                        ; preds = %while.cond.i.i
-  %arrayidx2.i.i.i.i.le = getelementptr inbounds i64, ptr %agg.tmp.sroa.2.0.copyload, i64 %inc.i16.i.i
-  br label %while.cond4.i.i
-
-while.cond4.i.i:                                  ; preds = %while.cond4.i.i.preheader, %while.cond4.i.i
-  %storemerge.in.i.i = phi i64 [ %storemerge.i.i, %while.cond4.i.i ], [ %storemerge.lcssa1922.i.i, %while.cond4.i.i.preheader ]
+while.cond4.i.i:                                  ; preds = %while.cond.i.i, %while.cond4.i.i
+  %storemerge.in.i.i = phi i64 [ %storemerge.i.i, %while.cond4.i.i ], [ %storemerge.lcssa1922.i.i, %while.cond.i.i ]
   %storemerge.i.i = add i64 %storemerge.in.i.i, -1
   %arrayidx2.i.i3.i.i = getelementptr inbounds i64, ptr %agg.tmp.sroa.2.0.copyload50, i64 %storemerge.i.i
   %agg.tmp6.val.val.i.i = load i64, ptr %arrayidx2.i.i3.i.i, align 8, !noalias !153
@@ -6180,6 +6173,7 @@ while.end10.i.i:                                  ; preds = %while.cond4.i.i
 
 if.end.i.i:                                       ; preds = %while.end10.i.i
   %arrayidx2.i.i3.i.i.le = getelementptr inbounds i64, ptr %agg.tmp.sroa.2.0.copyload50, i64 %storemerge.i.i
+  %arrayidx2.i.i.i.i.le = getelementptr inbounds i64, ptr %agg.tmp.sroa.2.0.copyload, i64 %inc.i16.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.2.i.i.i.i)
   %arrayidx6.i.i.i.i.i.i = getelementptr inbounds %struct.PaddingStruct, ptr %agg.tmp.sroa.3.0.copyload, i64 %inc.i16.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %temp.sroa.2.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(56) %arrayidx6.i.i.i.i.i.i, i64 56, i1 false), !noalias !153

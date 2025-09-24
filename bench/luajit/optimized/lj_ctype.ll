@@ -426,9 +426,6 @@ define hidden i32 @lj_ctype_vlsize(ptr noundef readonly captures(none) %0, ptr n
   br i1 %5, label %6, label %ctype_raw.exit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !29
-  %9 = zext i32 %8 to i64
   %.017.in.in23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.017.in24 = load i16, ptr %.017.in.in23, align 8, !tbaa !32
   %.not25 = icmp eq i16 %.017.in24, 0
@@ -437,14 +434,14 @@ define hidden i32 @lj_ctype_vlsize(ptr noundef readonly captures(none) %0, ptr n
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.017.in27 = phi i16 [ %.017.in, %.lr.ph ], [ %.017.in24, %6 ]
   %.01826 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %6 ]
-  %10 = zext i16 %.017.in27 to i64
-  %11 = getelementptr inbounds nuw %struct.CType, ptr %.pre28, i64 %10
-  %12 = load i32, ptr %11, align 8, !tbaa !28
-  %.mask20 = and i32 %12, -268435456
-  %13 = icmp eq i32 %.mask20, -1879048192
-  %14 = and i32 %12, 65535
-  %spec.select = select i1 %13, i32 %14, i32 %.01826
-  %.017.in.in = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %7 = zext i16 %.017.in27 to i64
+  %8 = getelementptr inbounds nuw %struct.CType, ptr %.pre28, i64 %7
+  %9 = load i32, ptr %8, align 8, !tbaa !28
+  %.mask20 = and i32 %9, -268435456
+  %10 = icmp eq i32 %.mask20, -1879048192
+  %11 = and i32 %9, 65535
+  %spec.select = select i1 %10, i32 %11, i32 %.01826
+  %.017.in.in = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.017.in = load i16, ptr %.017.in.in, align 8, !tbaa !32
   %.not = icmp eq i16 %.017.in, 0
   br i1 %.not, label %._crit_edge.preheader, label %.lr.ph, !llvm.loop !40
@@ -454,17 +451,23 @@ define hidden i32 @lj_ctype_vlsize(ptr noundef readonly captures(none) %0, ptr n
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.preheader, %._crit_edge
-  %.pn22.in = phi i32 [ %17, %._crit_edge ], [ %.pn22.in.ph, %._crit_edge.preheader ]
+  %.pn22.in = phi i32 [ %14, %._crit_edge ], [ %.pn22.in.ph, %._crit_edge.preheader ]
   %.pn22 = zext nneg i32 %.pn22.in to i64
   %.0.i = getelementptr inbounds nuw %struct.CType, ptr %.pre28, i64 %.pn22
-  %15 = load i32, ptr %.0.i, align 8, !tbaa !28
-  %16 = icmp slt i32 %15, -1879048192
-  %17 = and i32 %15, 65535
-  br i1 %16, label %._crit_edge, label %ctype_raw.exit, !llvm.loop !39
+  %12 = load i32, ptr %.0.i, align 8, !tbaa !28
+  %13 = icmp slt i32 %12, -1879048192
+  %14 = and i32 %12, 65535
+  br i1 %13, label %._crit_edge, label %ctype_raw.exit.loopexit, !llvm.loop !39
 
-ctype_raw.exit:                                   ; preds = %._crit_edge, %3
-  %18 = phi i32 [ %4, %3 ], [ %15, %._crit_edge ]
-  %.019 = phi i64 [ 0, %3 ], [ %9, %._crit_edge ]
+ctype_raw.exit.loopexit:                          ; preds = %._crit_edge
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %16 = load i32, ptr %15, align 4, !tbaa !29
+  %17 = zext i32 %16 to i64
+  br label %ctype_raw.exit
+
+ctype_raw.exit:                                   ; preds = %ctype_raw.exit.loopexit, %3
+  %18 = phi i32 [ %4, %3 ], [ %12, %ctype_raw.exit.loopexit ]
+  %.019 = phi i64 [ 0, %3 ], [ %17, %ctype_raw.exit.loopexit ]
   br label %19
 
 19:                                               ; preds = %19, %ctype_raw.exit

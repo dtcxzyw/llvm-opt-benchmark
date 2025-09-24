@@ -37547,7 +37547,7 @@ size_align_up.exit649.i:                          ; preds = %1210, %1211
   %.sink = phi i1 [ %2442, %write_indent.exit795 ], [ %1228, %1224 ]
   %.0.i793.lcssa.sink5266 = phi ptr [ %.0.i793.lcssa, %write_indent.exit795 ], [ %1223, %1224 ]
   %.0482.i.sink = phi ptr [ %.0482.i, %write_indent.exit795 ], [ %0, %1224 ]
-  %.01079.ph.ph = phi i64 [ %2504, %write_indent.exit795 ], [ %1231, %1224 ]
+  %.01079.ph.ph = phi i64 [ %2506, %write_indent.exit795 ], [ %1231, %1224 ]
   %.0556.i.ph.ph = phi i64 [ %2507, %write_indent.exit795 ], [ 1, %1224 ]
   %.0545.i.ph.ph = phi i64 [ %.5550.i, %write_indent.exit795 ], [ %1222, %1224 ]
   %.0526.i.ph.ph = phi ptr [ %2499, %write_indent.exit795 ], [ %1225, %1224 ]
@@ -39810,23 +39810,23 @@ size_align_up.exit641.i:                          ; preds = %2475
   %2501 = shl i64 %.01079, 1
   %2502 = or disjoint i64 %2501, %2500
   store i64 %2502, ptr %2499, align 8, !tbaa !217
-  %2503 = zext i1 %2442 to i64
-  %2504 = shl nuw nsw i64 %2476, %2503
   %.not.i79425513378 = icmp eq i64 %.0556.i.ph, 0
   %.not.i7942551 = select i1 %.not583.i, i1 true, i1 %.not.i79425513378
   br i1 %.not.i7942551, label %write_indent.exit795, label %select.unfold1222
 
 select.unfold1222:                                ; preds = %2498, %select.unfold1222
-  %.0.i7932553 = phi ptr [ %2506, %select.unfold1222 ], [ %.10494.i, %2498 ]
-  %.04.i7922552 = phi i64 [ %2505, %select.unfold1222 ], [ %.0556.i.ph, %2498 ]
-  %2505 = add i64 %.04.i7922552, -1
+  %.0.i7932553 = phi ptr [ %2504, %select.unfold1222 ], [ %.10494.i, %2498 ]
+  %.04.i7922552 = phi i64 [ %2503, %select.unfold1222 ], [ %.0556.i.ph, %2498 ]
+  %2503 = add i64 %.04.i7922552, -1
   store i32 538976288, ptr %.0.i7932553, align 1
-  %2506 = getelementptr inbounds nuw i8, ptr %.0.i7932553, i64 %1215
-  %.not.i794 = icmp eq i64 %2505, 0
+  %2504 = getelementptr inbounds nuw i8, ptr %.0.i7932553, i64 %1215
+  %.not.i794 = icmp eq i64 %2503, 0
   br i1 %.not.i794, label %write_indent.exit795, label %select.unfold1222, !llvm.loop !216
 
 write_indent.exit795:                             ; preds = %select.unfold1222, %2498
-  %.0.i793.lcssa = phi ptr [ %.10494.i, %2498 ], [ %2506, %select.unfold1222 ]
+  %.0.i793.lcssa = phi ptr [ %.10494.i, %2498 ], [ %2504, %select.unfold1222 ]
+  %2505 = zext i1 %2442 to i64
+  %2506 = shl nuw nsw i64 %2476, %2505
   %2507 = add i64 %.0556.i.ph, 1
   br label %.outer1490.sink.split
 
@@ -45266,7 +45266,7 @@ get_enc_table_with_flag.exit.i34:                 ; preds = %1212, %1211
 .outer1029.sink.split.sink.split:                 ; preds = %write_indent.exit818.i, %1222
   %.sink4816 = phi ptr [ %1235, %1222 ], [ %2521, %write_indent.exit818.i ]
   %.0617.ph.ph.ph = phi i8 [ %1227, %1222 ], [ %2483, %write_indent.exit818.i ]
-  %.0616.ph.ph.ph = phi i64 [ %1230, %1222 ], [ %2513, %write_indent.exit818.i ]
+  %.0616.ph.ph.ph = phi i64 [ %1230, %1222 ], [ %2515, %write_indent.exit818.i ]
   %.0614.ph.ph.ph = phi ptr [ %0, %1222 ], [ %.0487.i, %write_indent.exit818.i ]
   %.0561.i.ph.ph.ph = phi i64 [ 1, %1222 ], [ %2516, %write_indent.exit818.i ]
   %.0550.i.ph.ph.ph = phi i64 [ %1220, %1222 ], [ %.5555.i, %write_indent.exit818.i ]
@@ -45294,7 +45294,7 @@ get_enc_table_with_flag.exit.i34:                 ; preds = %1212, %1211
 .outer1029.sink.split:                            ; preds = %.outer1029.sink.split.preheader, %write_indent.exit818.i
   %.pn592.i.sink = phi ptr [ %2521, %write_indent.exit818.i ], [ %.pn592.i.sink.ph, %.outer1029.sink.split.preheader ]
   %.0617.ph.ph = phi i8 [ %2483, %write_indent.exit818.i ], [ %.0617.ph.ph.ph5229, %.outer1029.sink.split.preheader ]
-  %.0616.ph.ph = phi i64 [ %2513, %write_indent.exit818.i ], [ %.0616.ph.ph.ph5230, %.outer1029.sink.split.preheader ]
+  %.0616.ph.ph = phi i64 [ %2515, %write_indent.exit818.i ], [ %.0616.ph.ph.ph5230, %.outer1029.sink.split.preheader ]
   %.0614.ph.ph = phi ptr [ %.0487.i, %write_indent.exit818.i ], [ %.0614.ph.ph.ph5231, %.outer1029.sink.split.preheader ]
   %.0561.i.ph.ph = phi i64 [ %2516, %write_indent.exit818.i ], [ %.0561.i.ph.ph.ph5232, %.outer1029.sink.split.preheader ]
   %.0550.i.ph.ph = phi i64 [ %.5555.i, %write_indent.exit818.i ], [ %.0550.i.ph.ph.ph5233, %.outer1029.sink.split.preheader ]
@@ -47558,23 +47558,23 @@ write_indent.exit822.i:                           ; preds = %select.unfold753, %
   store i64 %2510, ptr %2507, align 8, !tbaa !219
   %2511 = getelementptr inbounds i8, ptr %.9540.i, i64 -8
   store ptr %.0614.ph, ptr %2511, align 8, !tbaa !221
-  %2512 = zext i1 %2447 to i64
-  %2513 = shl nuw nsw i64 %2482, %2512
   %.not.i817.i20922925 = icmp eq i64 %.0561.i.ph, 0
   %.not.i817.i2092 = select i1 %.not588.i, i1 true, i1 %.not.i817.i20922925
   br i1 %.not.i817.i2092, label %write_indent.exit818.i, label %select.unfold761
 
 select.unfold761:                                 ; preds = %2506, %select.unfold761
-  %.0.i816.i2094 = phi ptr [ %2515, %select.unfold761 ], [ %.10499.i, %2506 ]
-  %.04.i815.i2093 = phi i64 [ %2514, %select.unfold761 ], [ %.0561.i.ph, %2506 ]
-  %2514 = add i64 %.04.i815.i2093, -1
+  %.0.i816.i2094 = phi ptr [ %2513, %select.unfold761 ], [ %.10499.i, %2506 ]
+  %.04.i815.i2093 = phi i64 [ %2512, %select.unfold761 ], [ %.0561.i.ph, %2506 ]
+  %2512 = add i64 %.04.i815.i2093, -1
   store i32 538976288, ptr %.0.i816.i2094, align 1
-  %2515 = getelementptr inbounds nuw i8, ptr %.0.i816.i2094, i64 %1216
-  %.not.i817.i = icmp eq i64 %2514, 0
+  %2513 = getelementptr inbounds nuw i8, ptr %.0.i816.i2094, i64 %1216
+  %.not.i817.i = icmp eq i64 %2512, 0
   br i1 %.not.i817.i, label %write_indent.exit818.i, label %select.unfold761, !llvm.loop !216
 
 write_indent.exit818.i:                           ; preds = %select.unfold761, %2506
-  %.0.i816.i.lcssa = phi ptr [ %.10499.i, %2506 ], [ %2515, %select.unfold761 ]
+  %.0.i816.i.lcssa = phi ptr [ %.10499.i, %2506 ], [ %2513, %select.unfold761 ]
+  %2514 = zext i1 %2447 to i64
+  %2515 = shl nuw nsw i64 %2482, %2514
   %2516 = add i64 %.0561.i.ph, 1
   %2517 = select i1 %2447, i8 123, i8 91
   %2518 = getelementptr inbounds nuw i8, ptr %.0.i816.i.lcssa, i64 1
@@ -50561,47 +50561,51 @@ define dso_local ptr @yyjson_mut_write_opts(ptr noundef readonly captures(addres
   br i1 %.not, label %yyjson_mut_doc_estimated_val_num.exit, label %6, !prof !4
 
 6:                                                ; preds = %5
-  %7 = load ptr, ptr %0, align 8, !tbaa !72
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %.0.i10 = load ptr, ptr %9, align 8, !tbaa !222
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %.0.i10 = load ptr, ptr %8, align 8, !tbaa !222
   %.not.i11 = icmp eq ptr %.0.i10, null
-  br i1 %.not.i11, label %yyjson_mut_doc_estimated_val_num.exit, label %.lr.ph
+  br i1 %.not.i11, label %yyjson_mut_doc_estimated_val_num.exit.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  br label %11
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  br label %10
 
-11:                                               ; preds = %.lr.ph, %25
-  %.0.i13 = phi ptr [ %.0.i10, %.lr.ph ], [ %.0.i, %25 ]
-  %.010.i12 = phi i64 [ 0, %.lr.ph ], [ %.1.i, %25 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !58
-  %14 = udiv i64 %13, 24
-  %15 = add i64 %.010.i12, -1
-  %16 = add i64 %15, %14
-  %17 = icmp eq ptr %.0.i13, %.0.i10
-  br i1 %17, label %18, label %25
+10:                                               ; preds = %.lr.ph, %24
+  %.0.i13 = phi ptr [ %.0.i10, %.lr.ph ], [ %.0.i, %24 ]
+  %.010.i12 = phi i64 [ 0, %.lr.ph ], [ %.1.i, %24 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 8
+  %12 = load i64, ptr %11, align 8, !tbaa !58
+  %13 = udiv i64 %12, 24
+  %14 = add i64 %.010.i12, -1
+  %15 = add i64 %14, %13
+  %16 = icmp eq ptr %.0.i13, %.0.i10
+  br i1 %16, label %17, label %24
 
-18:                                               ; preds = %11
-  %19 = load ptr, ptr %10, align 8, !tbaa !223
-  %20 = load ptr, ptr %8, align 8, !tbaa !224
+17:                                               ; preds = %10
+  %18 = load ptr, ptr %9, align 8, !tbaa !223
+  %19 = load ptr, ptr %7, align 8, !tbaa !224
+  %20 = ptrtoint ptr %18 to i64
   %21 = ptrtoint ptr %19 to i64
-  %22 = ptrtoint ptr %20 to i64
-  %23 = sub i64 %21, %22
-  %.neg.i = sdiv exact i64 %23, -24
-  %24 = add i64 %.neg.i, %16
-  br label %25
+  %22 = sub i64 %20, %21
+  %.neg.i = sdiv exact i64 %22, -24
+  %23 = add i64 %.neg.i, %15
+  br label %24
 
-25:                                               ; preds = %18, %11
-  %.1.i = phi i64 [ %24, %18 ], [ %16, %11 ]
+24:                                               ; preds = %17, %10
+  %.1.i = phi i64 [ %23, %17 ], [ %15, %10 ]
   %.0.i = load ptr, ptr %.0.i13, align 8, !tbaa !222
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %yyjson_mut_doc_estimated_val_num.exit, label %11, !llvm.loop !225
+  br i1 %.not.i, label %yyjson_mut_doc_estimated_val_num.exit.loopexit, label %10, !llvm.loop !225
 
-yyjson_mut_doc_estimated_val_num.exit:            ; preds = %25, %6, %5
-  %.08 = phi ptr [ null, %5 ], [ %7, %6 ], [ %7, %25 ]
-  %.0 = phi i64 [ 0, %5 ], [ 0, %6 ], [ %.1.i, %25 ]
+yyjson_mut_doc_estimated_val_num.exit.loopexit:   ; preds = %24, %6
+  %.010.i.lcssa = phi i64 [ 0, %6 ], [ %.1.i, %24 ]
+  %25 = load ptr, ptr %0, align 8, !tbaa !72
+  br label %yyjson_mut_doc_estimated_val_num.exit
+
+yyjson_mut_doc_estimated_val_num.exit:            ; preds = %yyjson_mut_doc_estimated_val_num.exit.loopexit, %5
+  %.08 = phi ptr [ null, %5 ], [ %25, %yyjson_mut_doc_estimated_val_num.exit.loopexit ]
+  %.0 = phi i64 [ 0, %5 ], [ %.010.i.lcssa, %yyjson_mut_doc_estimated_val_num.exit.loopexit ]
   %26 = tail call fastcc ptr @yyjson_mut_write_opts_impl(ptr noundef %.08, i64 noundef %.0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret ptr %26
 }

@@ -1270,34 +1270,31 @@ define void @_ZN7xgboost7Version4SaveEPNS_4JsonE(ptr noundef readonly captures(n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %26 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
-          to label %.noexc unwind label %117
+          to label %.lr.ph.i.i.i.i.i.i unwind label %117
 
-.noexc:                                           ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br label %.lr.ph.i.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %.noexc
-  %.015.i.i.i.i.i.i = phi ptr [ %33, %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %26, %.noexc ]
-  %.01214.i.i.i.i.i.i.idx = phi i64 [ %.01214.i.i.i.i.i.i.add, %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ 0, %.noexc ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %20, %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
+  %.015.i.i.i.i.i.i = phi ptr [ %31, %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %26, %20 ]
+  %.01214.i.i.i.i.i.i.idx = phi i64 [ %.01214.i.i.i.i.i.i.add, %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ 0, %20 ]
   %.01214.i.i.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.01214.i.i.i.i.i.i.idx
-  %29 = load ptr, ptr %.01214.i.i.i.i.i.i.ptr, align 8, !tbaa !3
-  store ptr %29, ptr %.015.i.i.i.i.i.i, align 8, !tbaa !3
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %30
+  %27 = load ptr, ptr %.01214.i.i.i.i.i.i.ptr, align 8, !tbaa !3
+  store ptr %27, ptr %.015.i.i.i.i.i.i, align 8, !tbaa !3
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %28
 
-30:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = atomicrmw add ptr %31, i32 1 monotonic, align 4
+28:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %30 = atomicrmw add ptr %29, i32 1 monotonic, align 4
   br label %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
 
-_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %30, %.lr.ph.i.i.i.i.i.i
+_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %28, %.lr.ph.i.i.i.i.i.i
   %.01214.i.i.i.i.i.i.add = add nuw nsw i64 %.01214.i.i.i.i.i.i.idx, 8
-  %33 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq i64 %.01214.i.i.i.i.i.i.add, 24
   br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !54
 
 ._crit_edge.i.i:                                  ; preds = %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %35, align 8, !tbaa !45
@@ -1307,9 +1304,9 @@ _ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %26, ptr %37, align 8, !tbaa !26
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %33, ptr %38, align 8, !tbaa !23
+  store ptr %31, ptr %38, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr %27, ptr %39, align 8, !tbaa !55
+  store ptr %32, ptr %39, align 8, !tbaa !55
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1455,7 +1452,7 @@ _ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_Destro
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EED2Ev.exit.preheader, label %95
 
 95:                                               ; preds = %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i
-  %96 = load ptr, ptr %28, align 8, !tbaa !55
+  %96 = load ptr, ptr %33, align 8, !tbaa !55
   %97 = ptrtoint ptr %96 to i64
   %98 = ptrtoint ptr %94 to i64
   %99 = sub i64 %97, %98
