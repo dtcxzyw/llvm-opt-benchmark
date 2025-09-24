@@ -3082,8 +3082,8 @@ define { ptr, ptr } @_ZN16wasmtime_runtime8instance9allocator8StorePtr6as_raw17h
   %3 = load ptr, ptr %2, align 8, !noundef !19
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr %0, align 8
-  %.sroa.0.0 = select i1 %4, ptr undef, ptr %5
-  %6 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %spec.select1 = select i1 %4, ptr undef, ptr %5
+  %6 = insertvalue { ptr, ptr } poison, ptr %spec.select1, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %3, 1
   ret { ptr, ptr } %7
 }
@@ -3094,8 +3094,8 @@ define hidden { ptr, ptr } @_ZN16wasmtime_runtime8instance9allocator8StorePtr3ge
   %3 = load ptr, ptr %2, align 8, !noundef !19
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr %0, align 8
-  %.sroa.0.0 = select i1 %4, ptr null, ptr %5
-  %6 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %spec.select = select i1 %4, ptr null, ptr %5
+  %6 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %3, 1
   ret { ptr, ptr } %7
 }

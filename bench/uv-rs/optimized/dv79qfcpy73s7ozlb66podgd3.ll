@@ -9865,6 +9865,8 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h423e90bfbb002d88E(pt
   br i1 %.not67.i, label %_ZN4core5slice4sort6shared17find_existing_run17h3c084eb9512aad6bE.exit.i, label %.lr.ph61.i
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit.i": ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17hbebc4fd3886fb6acE.exit7.i.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i.i.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i.i, i64 8) ]
   %45 = tail call fastcc noundef i8 @"_ZN70_$LT$uv_resolver..lock..PackageId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h519a1e51c168d5b2E"(ptr noalias noundef readonly align 8 dereferenceable(136) %.val.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(136) %.val1.i.i.i), !noalias !2123
   %46 = icmp eq i8 %45, -1
   br i1 %46, label %.preheader.i, label %.preheader41.i
@@ -9920,6 +9922,8 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h423e90bfbb002d88E(pt
   br i1 %65, label %_ZN4core5slice4sort6shared17find_existing_run17h3c084eb9512aad6bE.exit.i, label %68
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit20.i": ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17hbebc4fd3886fb6acE.exit7.i14.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i.i15.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i16.i, i64 8) ]
   %66 = tail call fastcc noundef i8 @"_ZN70_$LT$uv_resolver..lock..PackageId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h519a1e51c168d5b2E"(ptr noalias noundef readonly align 8 dereferenceable(136) %.val.i.i15.i, ptr noalias noundef readonly align 8 dereferenceable(136) %.val1.i.i16.i), !noalias !2123
   %67 = icmp eq i8 %66, -1
   br i1 %67, label %_ZN4core5slice4sort6shared17find_existing_run17h3c084eb9512aad6bE.exit.i, label %68
@@ -9976,6 +9980,8 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h423e90bfbb002d88E(pt
   br i1 %88, label %91, label %_ZN4core5slice4sort6shared17find_existing_run17h3c084eb9512aad6bE.exit.i
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit29.i": ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17hbebc4fd3886fb6acE.exit7.i23.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i.i24.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i25.i, i64 8) ]
   %89 = tail call fastcc noundef i8 @"_ZN70_$LT$uv_resolver..lock..PackageId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h519a1e51c168d5b2E"(ptr noalias noundef readonly align 8 dereferenceable(136) %.val.i.i24.i, ptr noalias noundef readonly align 8 dereferenceable(136) %.val1.i.i25.i), !noalias !2123
   %90 = icmp eq i8 %89, -1
   br i1 %90, label %91, label %_ZN4core5slice4sort6shared17find_existing_run17h3c084eb9512aad6bE.exit.i
@@ -18121,6 +18127,8 @@ default.unreachable:                              ; preds = %"_ZN11uv_resolver4l
   br label %"_ZN4core5tuple65_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$$LP$U$C$T$RP$$GT$2lt17h87db628b99c81cf8E.exit"
 
 94:                                               ; preds = %89
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i, i64 8) ]
   %95 = tail call fastcc noundef i8 @"_ZN70_$LT$uv_resolver..lock..PackageId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h519a1e51c168d5b2E"(ptr noalias noundef readonly align 8 dereferenceable(136) %.val.i.i, ptr noalias noundef readonly align 8 dereferenceable(136) %.val1.i.i), !noalias !3044
   %96 = icmp eq i8 %95, -1
   br label %"_ZN4core5tuple65_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$$LP$U$C$T$RP$$GT$2lt17h87db628b99c81cf8E.exit"

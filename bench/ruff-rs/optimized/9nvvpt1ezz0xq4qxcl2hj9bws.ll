@@ -181,14 +181,16 @@ define hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$
   resume { ptr, i32 } %25
 
 _ZN5alloc11collections5btree3mem7replace17h175378a1910e7b38E.exit: ; preds = %.noexc1.i
+  %29 = extractvalue { ptr, ptr } %22, 0
+  %30 = extractvalue { ptr, ptr } %22, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !5
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %29 = extractvalue { ptr, ptr } %22, 0
-  %30 = extractvalue { ptr, ptr } %22, 1
   br label %15
 
 31:                                               ; preds = %12
@@ -279,14 +281,16 @@ define hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$
   resume { ptr, i32 } %25
 
 _ZN5alloc11collections5btree3mem7replace17h783360dcf1b42292E.exit: ; preds = %.noexc1.i
+  %29 = extractvalue { ptr, ptr } %22, 0
+  %30 = extractvalue { ptr, ptr } %22, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !12
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !12
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %29 = extractvalue { ptr, ptr } %22, 0
-  %30 = extractvalue { ptr, ptr } %22, 1
   br label %15
 
 31:                                               ; preds = %12
@@ -377,14 +381,16 @@ define hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$
   resume { ptr, i32 } %25
 
 _ZN5alloc11collections5btree3mem7replace17h7a5e584c1203bce4E.exit: ; preds = %.noexc1.i
+  %29 = extractvalue { ptr, ptr } %22, 0
+  %30 = extractvalue { ptr, ptr } %22, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !19
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !19
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %29 = extractvalue { ptr, ptr } %22, 0
-  %30 = extractvalue { ptr, ptr } %22, 1
   br label %15
 
 31:                                               ; preds = %12

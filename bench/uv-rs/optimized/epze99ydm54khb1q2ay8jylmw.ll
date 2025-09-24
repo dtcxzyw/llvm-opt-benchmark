@@ -4976,6 +4976,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h4f638cc5
   br i1 %20, label %23, label %28
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit": ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17hbebc4fd3886fb6acE.exit7.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i, i64 8) ]
   %21 = tail call fastcc noundef i8 @"_ZN70_$LT$uv_resolver..lock..PackageId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h519a1e51c168d5b2E"(ptr noalias noundef readonly align 8 dereferenceable(136) %.val.i.i, ptr noalias noundef readonly align 8 dereferenceable(136) %.val1.i.i)
   %22 = icmp eq i8 %21, -1
   br i1 %22, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit._crit_edge", label %28
@@ -5040,6 +5042,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h4f638cc5
   br i1 %44, label %.backedge, label %._crit_edge
 
 45:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17hbebc4fd3886fb6acE.exit7.i15"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i.i16, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i17, i64 8) ]
   %46 = invoke fastcc noundef i8 @"_ZN70_$LT$uv_resolver..lock..PackageId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h519a1e51c168d5b2E"(ptr noalias noundef readonly align 8 dereferenceable(136) %.val.i.i16, ptr noalias noundef readonly align 8 dereferenceable(136) %.val1.i.i17)
           to label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit23" unwind label %.loopexit
 
@@ -6734,6 +6738,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit"
 
 21:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17hbebc4fd3886fb6acE.exit7.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i, i64 8) ]
   %22 = tail call fastcc noundef i8 @"_ZN70_$LT$uv_resolver..lock..PackageId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h519a1e51c168d5b2E"(ptr noalias noundef readonly align 8 dereferenceable(136) %.val.i.i, ptr noalias noundef readonly align 8 dereferenceable(136) %.val1.i.i)
   %23 = icmp eq i8 %22, -1
   %.val3.i32.pre = load ptr, ptr %.0.val, align 8
@@ -6785,6 +6791,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit40"
 
 41:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17hbebc4fd3886fb6acE.exit7.i34"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i.i35, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i36, i64 8) ]
   %42 = tail call fastcc noundef i8 @"_ZN70_$LT$uv_resolver..lock..PackageId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h519a1e51c168d5b2E"(ptr noalias noundef readonly align 8 dereferenceable(136) %.val.i.i35, ptr noalias noundef readonly align 8 dereferenceable(136) %.val1.i.i36)
   %43 = icmp eq i8 %42, -1
   %.val3.i41.pre = load ptr, ptr %.0.val, align 8
@@ -6843,6 +6851,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit49"
 
 68:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17hbebc4fd3886fb6acE.exit7.i43"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i.i44, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i45, i64 8) ]
   %69 = tail call fastcc noundef i8 @"_ZN70_$LT$uv_resolver..lock..PackageId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h519a1e51c168d5b2E"(ptr noalias noundef readonly align 8 dereferenceable(136) %.val.i.i44, ptr noalias noundef readonly align 8 dereferenceable(136) %.val1.i.i45)
   %70 = icmp eq i8 %69, -1
   %.val3.i50.pre = load ptr, ptr %.0.val, align 8
@@ -6892,6 +6902,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit58"
 
 86:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17hbebc4fd3886fb6acE.exit7.i52"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i.i53, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i54, i64 8) ]
   %87 = tail call fastcc noundef i8 @"_ZN70_$LT$uv_resolver..lock..PackageId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h519a1e51c168d5b2E"(ptr noalias noundef readonly align 8 dereferenceable(136) %.val.i.i53, ptr noalias noundef readonly align 8 dereferenceable(136) %.val1.i.i54)
   %88 = icmp eq i8 %87, -1
   %.val3.i59.pre = load ptr, ptr %.0.val, align 8
@@ -6945,6 +6957,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit67"
 
 104:                                              ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17hbebc4fd3886fb6acE.exit7.i61"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i.i62, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i63, i64 8) ]
   %105 = tail call fastcc noundef i8 @"_ZN70_$LT$uv_resolver..lock..PackageId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h519a1e51c168d5b2E"(ptr noalias noundef readonly align 8 dereferenceable(136) %.val.i.i62, ptr noalias noundef readonly align 8 dereferenceable(136) %.val1.i.i63)
   %106 = icmp eq i8 %105, -1
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit67"
@@ -13621,6 +13635,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit"
 
 32:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17hbebc4fd3886fb6acE.exit7.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i, i64 8) ]
   %33 = tail call fastcc noundef i8 @"_ZN70_$LT$uv_resolver..lock..PackageId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h519a1e51c168d5b2E"(ptr noalias noundef readonly align 8 dereferenceable(136) %.val.i.i, ptr noalias noundef readonly align 8 dereferenceable(136) %.val1.i.i)
   %34 = icmp eq i8 %33, -1
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit"
@@ -13677,6 +13693,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit33"
 
 58:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17hbebc4fd3886fb6acE.exit7.i27"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i.i28, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i29, i64 8) ]
   %59 = tail call fastcc noundef i8 @"_ZN70_$LT$uv_resolver..lock..PackageId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h519a1e51c168d5b2E"(ptr noalias noundef readonly align 8 dereferenceable(136) %.val.i.i28, ptr noalias noundef readonly align 8 dereferenceable(136) %.val1.i.i29)
   %60 = icmp eq i8 %59, -1
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit33"
@@ -17366,6 +17384,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   br i1 %61, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit._crit_edge.i", label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h4f638cc5021ef289E.llvm.4307772375316082757.exit
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit.i": ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17hbebc4fd3886fb6acE.exit7.i.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i.i.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i.i, i64 8) ]
   %62 = tail call fastcc noundef i8 @"_ZN70_$LT$uv_resolver..lock..PackageId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h519a1e51c168d5b2E"(ptr noalias noundef readonly align 8 dereferenceable(136) %.val.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(136) %.val1.i.i.i)
   %63 = icmp eq i8 %62, -1
   br i1 %63, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit._crit_edge.i", label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h4f638cc5021ef289E.llvm.4307772375316082757.exit
@@ -17416,6 +17436,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   br i1 %79, label %.backedge.i, label %._crit_edge.i
 
 80:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17hbebc4fd3886fb6acE.exit7.i15.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i.i16.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i17.i, i64 8) ]
   %81 = invoke fastcc noundef i8 @"_ZN70_$LT$uv_resolver..lock..PackageId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h519a1e51c168d5b2E"(ptr noalias noundef readonly align 8 dereferenceable(136) %.val.i.i16.i, ptr noalias noundef readonly align 8 dereferenceable(136) %.val1.i.i17.i)
           to label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit23.i" unwind label %.loopexit.i, !noalias !4303
 
@@ -30212,6 +30234,8 @@ default.unreachable:                              ; preds = %"_ZN11uv_resolver4l
   br label %"_ZN4core5tuple65_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$$LP$U$C$T$RP$$GT$2lt17h87db628b99c81cf8E.exit"
 
 94:                                               ; preds = %89
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val1.i.i, i64 8) ]
   %95 = tail call fastcc noundef i8 @"_ZN70_$LT$uv_resolver..lock..PackageId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h519a1e51c168d5b2E"(ptr noalias noundef readonly align 8 dereferenceable(136) %.val.i.i, ptr noalias noundef readonly align 8 dereferenceable(136) %.val1.i.i), !noalias !6524
   %96 = icmp eq i8 %95, -1
   br label %"_ZN4core5tuple65_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$$LP$U$C$T$RP$$GT$2lt17h87db628b99c81cf8E.exit"

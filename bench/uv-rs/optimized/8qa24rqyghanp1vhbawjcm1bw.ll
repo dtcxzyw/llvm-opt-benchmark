@@ -16717,13 +16717,14 @@ common.resume:                                    ; preds = %.body, %56, %48
   unreachable
 
 "_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hec6aac915c753aefE.exit.i.i": ; preds = %.noexc2.i.i.i.i
+  %88 = extractvalue { ptr, ptr } %84, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !4763
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !4763
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !4763
+  call void @llvm.assume(i1 true) [ "align"(ptr %88, i64 8) ], !noalias !4766
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !4763
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !4766
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %88 = extractvalue { ptr, ptr } %84, 0
   %89 = icmp eq ptr %88, null
   br i1 %89, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h3b87d29dc191b36eE.exit", label %90
 

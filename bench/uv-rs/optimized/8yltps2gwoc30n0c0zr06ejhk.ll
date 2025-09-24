@@ -234,6 +234,8 @@ _ZN5alloc11collections5btree3mem7replace17hba490b087b8f1af8E.exit: ; preds = %.l
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.i.i, i64 96
   %43 = getelementptr inbounds nuw { [3 x i64] }, ptr %42, i64 %.sroa.8.013.ph.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 8) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -366,6 +368,8 @@ _ZN5alloc11collections5btree3mem7replace17hd3f2cea3e1d85360E.exit: ; preds = %.l
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.i.i, i64 96
   %43 = getelementptr inbounds nuw { [3 x i64] }, ptr %42, i64 %.sroa.8.013.ph.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !16
+  call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 8) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -498,6 +502,8 @@ _ZN5alloc11collections5btree3mem7replace17h584ded757657f6dbE.llvm.15999240481245
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.i.i, i64 272
   %43 = getelementptr inbounds nuw { [3 x i64] }, ptr %42, i64 %.sroa.8.013.ph.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !27
+  call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 8) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -630,6 +636,8 @@ _ZN5alloc11collections5btree3mem7replace17h6accf92fcb101813E.llvm.15999240481245
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.i.i, i64 96
   %43 = getelementptr inbounds nuw { [107 x i64] }, ptr %42, i64 %.sroa.8.013.ph.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !38
+  call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 8) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -762,6 +770,8 @@ _ZN5alloc11collections5btree3mem7replace17hf25146f6a6f6d11eE.llvm.15999240481245
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.i.i, i64 96
   %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %.sroa.8.013.ph.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !49
+  call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 8) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -894,6 +904,8 @@ _ZN5alloc11collections5btree3mem7replace17hd8e54f63db167f3eE.llvm.15999240481245
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.i.i, i64 96
   %43 = getelementptr inbounds nuw { [3 x i64] }, ptr %42, i64 %.sroa.8.013.ph.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !60
+  call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 8) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -7644,6 +7656,8 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h584ded757
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.i, i64 272
   %30 = getelementptr inbounds nuw { [3 x i64] }, ptr %29, i64 %.sroa.8.013.ph.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %31 = insertvalue { ptr, ptr } poison, ptr %28, 0
@@ -7804,6 +7818,8 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h6accf92fc
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.i, i64 96
   %30 = getelementptr inbounds nuw { [107 x i64] }, ptr %29, i64 %.sroa.8.013.ph.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %31 = insertvalue { ptr, ptr } poison, ptr %28, 0
@@ -8070,6 +8086,8 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17hd8e54f63d
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.i, i64 96
   %30 = getelementptr inbounds nuw { [3 x i64] }, ptr %29, i64 %.sroa.8.013.ph.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %31 = insertvalue { ptr, ptr } poison, ptr %28, 0
@@ -8230,6 +8248,8 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17hf25146f6a
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.i, i64 96
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.sroa.8.013.ph.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %31 = insertvalue { ptr, ptr } poison, ptr %28, 0

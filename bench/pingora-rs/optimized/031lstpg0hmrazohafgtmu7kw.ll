@@ -451,6 +451,7 @@ define hidden void @"_ZN110_$LT$brotli..enc..stride_eval..StrideEval$LT$Alloc$GT
   store ptr %23, ptr %7, align 8
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %24, ptr %25, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 4) ]
   %.not6 = icmp ugt i64 %.val10, %24
   br i1 %.not6, label %26, label %32, !prof !11
 
@@ -7182,24 +7183,26 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq11Upda
   %37 = fadd float %34, %36
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %39 = load i64, ptr %38, align 8, !noundef !3
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val134, i64 4) ]
   %40 = icmp ult i64 %2, %.val135
-  br i1 %40, label %41, label %44
+  br i1 %40, label %41, label %45
 
 41:                                               ; preds = %17
   %42 = getelementptr inbounds nuw float, ptr %.val134, i64 %2
-  %43 = icmp ult i64 %39, %.val135
-  br i1 %43, label %_ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h59350bbc21ff0457E.exit, label %45
+  %43 = load float, ptr %42, align 4, !noundef !3
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val134, i64 4) ]
+  %44 = icmp ult i64 %39, %.val135
+  br i1 %44, label %_ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h59350bbc21ff0457E.exit, label %46
 
-44:                                               ; preds = %17
+45:                                               ; preds = %17
   tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %2, i64 noundef %.val135, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c89078488ceecc213926f9c07f09b856.272) #20
   unreachable
 
-45:                                               ; preds = %41
+46:                                               ; preds = %41
   tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %39, i64 noundef %.val135, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c89078488ceecc213926f9c07f09b856.273) #20
   unreachable
 
 _ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h59350bbc21ff0457E.exit: ; preds = %41
-  %46 = load float, ptr %42, align 4, !noundef !3
   %47 = getelementptr inbounds nuw float, ptr %.val134, i64 %39
   %48 = load float, ptr %47, align 4, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
@@ -7208,7 +7211,7 @@ _ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h59350bb
   br i1 %.not.i246, label %_ZN6brotli3enc19backward_references2hq24ComputeMinimumCopyLength17h618788677656bcdfE.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h59350bbc21ff0457E.exit
-  %50 = fsub float %46, %48
+  %50 = fsub float %43, %48
   %51 = fadd float %37, %50
   br label %.lr.ph
 
@@ -7357,6 +7360,7 @@ _ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h59350bb
   %131 = load i32, ptr %130, align 4, !noundef !3
   %132 = uitofp i32 %131 to float
   %133 = fadd float %129, %132
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val134, i64 4) ]
   %134 = load float, ptr %42, align 4, !noundef !3
   %135 = load float, ptr %.val134, align 4, !noundef !3
   %136 = fsub float %134, %135
@@ -8447,6 +8451,7 @@ define hidden void @_ZN6brotli3enc19backward_references2hq36BrotliCreateZopfliBa
   tail call void @llvm.assume(i1 %32)
   store ptr %.sroa.0.086, ptr %22, align 8
   store i64 %.sroa.5.087, ptr %30, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.086, i64 4) ]
   br label %._crit_edge
 
 .body.thread31:                                   ; preds = %.invoke, %203, %201, %199, %44, %46, %_ZN6brotli3enc19backward_references2hq28ComputeShortestPathFromNodes17he660bafdbd76cf5fE.exit.i
@@ -8462,6 +8467,7 @@ define hidden void @_ZN6brotli3enc19backward_references2hq36BrotliCreateZopfliBa
   tail call void @llvm.assume(i1 %34)
   store ptr %.sroa.0.0, ptr %22, align 8
   store i64 %.sroa.5.0, ptr %30, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0, i64 4) ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %209
@@ -9942,6 +9948,7 @@ _ZN6brotli3enc19backward_references2hq12EvaluateNode17h256d1811ffd68697E.exit.i:
           to label %396 unwind label %.loopexit373
 
 380:                                              ; preds = %377
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.06.0, i64 8) ]
   %.not109 = icmp ugt i64 %.sroa.09.0557, %.sroa.5.0
   br i1 %.not109, label %381, label %383, !prof !11
 

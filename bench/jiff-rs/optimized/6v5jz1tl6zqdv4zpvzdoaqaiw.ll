@@ -1219,6 +1219,7 @@ define hidden noundef i32 @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..P
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %58
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 4) ]
   %65 = call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %61)
   br label %66
 
@@ -1352,6 +1353,7 @@ define hidden noundef i32 @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..P
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %58
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %65 = call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %61)
   br label %66
 

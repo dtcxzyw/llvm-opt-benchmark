@@ -7794,6 +7794,7 @@ define hidden void @_ZN6brotli3enc14block_splitter16BrotliSplitBlock17hd34d72218
   store ptr %156, ptr %127, align 8, !noalias !265
   %158 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store i64 %157, ptr %158, align 8, !noalias !265
+  call void @llvm.assume(i1 true) [ "align"(ptr %156, i64 8) ]
   %159 = udiv i64 %133, %spec.store.select.i
   invoke void @_ZN6brotli3enc9histogram15ClearHistograms17h6475a47848603391E(ptr noalias noundef nonnull align 8 %156, i64 noundef %157, i64 noundef range(i64 1, 33909456017848442) %spec.store.select.i)
           to label %.noexc99.i unwind label %.thread.loopexit.split-lp.loopexit.split-lp.i, !noalias !260
@@ -8305,6 +8306,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h9470e8526edcced8E.exit.i: ;
   store ptr %337, ptr %114, align 8, !noalias !294
   %339 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i64 %338, ptr %339, align 8, !noalias !294
+  call void @llvm.assume(i1 true) [ "align"(ptr %337, i64 4) ]
   %340 = icmp ugt i64 %.sroa.092.0.lcssa.i.i, %338
   br i1 %340, label %341, label %342, !prof !13
 
@@ -8400,6 +8402,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h9470e8526edcced8E.exit.i: ;
   store ptr %366, ptr %107, align 8, !noalias !294
   %368 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store i64 %367, ptr %368, align 8, !noalias !294
+  call void @llvm.assume(i1 true) [ "align"(ptr %366, i64 4) ]
   %369 = icmp eq i64 %367, 0
   %.not259504840.i.i = icmp eq ptr %366, null
   %.not259841.i.i = or i1 %369, %.not259504840.i.i
@@ -8550,6 +8553,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h9470e8526edcced8E.exit.i: ;
   store ptr %420, ptr %104, align 8, !noalias !294
   %422 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store i64 %421, ptr %422, align 8, !noalias !294
+  call void @llvm.assume(i1 true) [ "align"(ptr %420, i64 4) ]
   %423 = icmp ugt i64 %.val404.i.i, %421
   br i1 %423, label %424, label %425, !prof !13
 
@@ -9032,6 +9036,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h196f578f145a4e42E.exit2
   %587 = extractvalue { ptr, i64 } %583, 1
   store ptr %586, ptr %109, align 8, !noalias !294
   store i64 %587, ptr %310, align 8, !noalias !294
+  call void @llvm.assume(i1 true) [ "align"(ptr %586, i64 8) ]
   %588 = icmp ugt i64 %.sroa.06.0829.i.i, %587
   br i1 %588, label %.invoke1485.i.i, label %591, !prof !13
 
@@ -9097,6 +9102,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h196f578f145a4e42E.exit2
   %609 = extractvalue { ptr, i64 } %605, 1
   store ptr %608, ptr %108, align 8, !noalias !294
   store i64 %609, ptr %311, align 8, !noalias !294
+  call void @llvm.assume(i1 true) [ "align"(ptr %608, i64 4) ]
   %610 = icmp ugt i64 %.sroa.017.0828.i.i, %609
   br i1 %610, label %.invoke1483.i.i, label %611, !prof !13
 
@@ -10201,6 +10207,7 @@ _ZN6brotli3enc14block_splitter20BuildBlockHistograms17h8eb2c873dc460cb9E.exit.i:
   store ptr %998, ptr %128, align 8, !noalias !265
   %1000 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store i64 %999, ptr %1000, align 8, !noalias !265
+  call void @llvm.assume(i1 true) [ "align"(ptr %998, i64 4) ]
   %1001 = icmp ugt i64 %.val94.i, %999
   br i1 %1001, label %1002, label %1003, !prof !13
 
@@ -10335,6 +10342,7 @@ _ZN6brotli3enc14block_splitter15SplitByteVector17h31306990866bdfa9E.exit: ; pred
   store ptr %1037, ptr %89, align 8, !noalias !454
   %1039 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i64 %1038, ptr %1039, align 8, !noalias !454
+  call void @llvm.assume(i1 true) [ "align"(ptr %1037, i64 8) ]
   %1040 = udiv i64 %3, %spec.store.select.i43
   invoke void @_ZN6brotli3enc9histogram15ClearHistograms17hfbaa9e99fb1f01ecE(ptr noalias noundef nonnull align 8 %1037, i64 noundef %1038, i64 noundef range(i64 1, 34805177497565193) %spec.store.select.i43)
           to label %.noexc99.i49 unwind label %.thread.loopexit.split-lp.loopexit.split-lp.i44, !noalias !449
@@ -10846,6 +10854,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h8c3c9009db553577E.exit.i: ;
   store ptr %1218, ptr %76, align 8, !noalias !483
   %1220 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i64 %1219, ptr %1220, align 8, !noalias !483
+  call void @llvm.assume(i1 true) [ "align"(ptr %1218, i64 4) ]
   %1221 = icmp ugt i64 %.sroa.092.0.lcssa.i.i363, %1219
   br i1 %1221, label %1222, label %1223, !prof !13
 
@@ -10941,6 +10950,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h8c3c9009db553577E.exit.i: ;
   store ptr %1247, ptr %69, align 8, !noalias !483
   %1249 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 %1248, ptr %1249, align 8, !noalias !483
+  call void @llvm.assume(i1 true) [ "align"(ptr %1247, i64 4) ]
   %1250 = icmp eq i64 %1248, 0
   %.not259504840.i.i383 = icmp eq ptr %1247, null
   %.not259841.i.i384 = or i1 %1250, %.not259504840.i.i383
@@ -11091,6 +11101,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h8c3c9009db553577E.exit.i: ;
   store ptr %1301, ptr %66, align 8, !noalias !483
   %1303 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i64 %1302, ptr %1303, align 8, !noalias !483
+  call void @llvm.assume(i1 true) [ "align"(ptr %1301, i64 4) ]
   %1304 = icmp ugt i64 %.val386.i.i, %1302
   br i1 %1304, label %1305, label %1306, !prof !13
 
@@ -11573,6 +11584,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h8e6f50bb6efdc9deE.exit2
   %1468 = extractvalue { ptr, i64 } %1464, 1
   store ptr %1467, ptr %71, align 8, !noalias !483
   store i64 %1468, ptr %1191, align 8, !noalias !483
+  call void @llvm.assume(i1 true) [ "align"(ptr %1467, i64 8) ]
   %1469 = icmp ugt i64 %.sroa.06.0829.i.i310, %1468
   br i1 %1469, label %.invoke1485.i.i496, label %1472, !prof !13
 
@@ -11638,6 +11650,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h8e6f50bb6efdc9deE.exit2
   %1490 = extractvalue { ptr, i64 } %1486, 1
   store ptr %1489, ptr %70, align 8, !noalias !483
   store i64 %1490, ptr %1192, align 8, !noalias !483
+  call void @llvm.assume(i1 true) [ "align"(ptr %1489, i64 4) ]
   %1491 = icmp ugt i64 %.sroa.017.0828.i.i311, %1490
   br i1 %1491, label %.invoke1483.i.i485, label %1492, !prof !13
 
@@ -12742,6 +12755,7 @@ _ZN6brotli3enc14block_splitter20BuildBlockHistograms17h76a0009526212306E.exit.i:
   store ptr %1879, ptr %90, align 8, !noalias !454
   %1881 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i64 %1880, ptr %1881, align 8, !noalias !454
+  call void @llvm.assume(i1 true) [ "align"(ptr %1879, i64 4) ]
   %1882 = icmp ugt i64 %.val86.i, %1880
   br i1 %1882, label %1883, label %1884, !prof !13
 
@@ -12871,6 +12885,7 @@ _ZN6brotli3enc14block_splitter15SplitByteVector17hd68bbe1c65977a5aE.exit: ; pred
   store ptr %1915, ptr %51, align 8, !noalias !642
   %1917 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %1916, ptr %1917, align 8, !noalias !642
+  call void @llvm.assume(i1 true) [ "align"(ptr %1915, i64 8) ]
   %1918 = udiv i64 %.sroa.08.1, %spec.store.select.i533
   invoke void @_ZN6brotli3enc9histogram15ClearHistograms17had979eb432e1976fE(ptr noalias noundef nonnull align 8 %1915, i64 noundef %1916, i64 noundef range(i64 1, 33909456017848442) %spec.store.select.i533)
           to label %.noexc99.i539 unwind label %.thread.loopexit.split-lp.loopexit.split-lp.i534, !noalias !637
@@ -13382,6 +13397,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h3573ab36b94fb891E.exit.i: ;
   store ptr %2096, ptr %38, align 8, !noalias !671
   %2098 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 %2097, ptr %2098, align 8, !noalias !671
+  call void @llvm.assume(i1 true) [ "align"(ptr %2096, i64 4) ]
   %2099 = icmp ugt i64 %.sroa.092.0.lcssa.i.i866, %2097
   br i1 %2099, label %2100, label %2101, !prof !13
 
@@ -13477,6 +13493,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h3573ab36b94fb891E.exit.i: ;
   store ptr %2125, ptr %31, align 8, !noalias !671
   %2127 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %2126, ptr %2127, align 8, !noalias !671
+  call void @llvm.assume(i1 true) [ "align"(ptr %2125, i64 4) ]
   %2128 = icmp eq i64 %2126, 0
   %.not259504840.i.i892 = icmp eq ptr %2125, null
   %.not259841.i.i893 = or i1 %2128, %.not259504840.i.i892
@@ -13627,6 +13644,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h3573ab36b94fb891E.exit.i: ;
   store ptr %2179, ptr %28, align 8, !noalias !671
   %2181 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %2180, ptr %2181, align 8, !noalias !671
+  call void @llvm.assume(i1 true) [ "align"(ptr %2179, i64 4) ]
   %2182 = icmp ugt i64 %.val386.i.i964, %2180
   br i1 %2182, label %2183, label %2184, !prof !13
 
@@ -14109,6 +14127,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hbd5292ca2d7f4f70E.exit2
   %2346 = extractvalue { ptr, i64 } %2342, 1
   store ptr %2345, ptr %33, align 8, !noalias !671
   store i64 %2346, ptr %2069, align 8, !noalias !671
+  call void @llvm.assume(i1 true) [ "align"(ptr %2345, i64 8) ]
   %2347 = icmp ugt i64 %.sroa.06.0829.i.i801, %2346
   br i1 %2347, label %.invoke1485.i.i1017, label %2350, !prof !13
 
@@ -14174,6 +14193,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hbd5292ca2d7f4f70E.exit2
   %2368 = extractvalue { ptr, i64 } %2364, 1
   store ptr %2367, ptr %32, align 8, !noalias !671
   store i64 %2368, ptr %2070, align 8, !noalias !671
+  call void @llvm.assume(i1 true) [ "align"(ptr %2367, i64 4) ]
   %2369 = icmp ugt i64 %.sroa.017.0828.i.i802, %2368
   br i1 %2369, label %.invoke1483.i.i1006, label %2370, !prof !13
 
@@ -15278,6 +15298,7 @@ _ZN6brotli3enc14block_splitter20BuildBlockHistograms17h450c30cec7ce6203E.exit.i:
   store ptr %2757, ptr %52, align 8, !noalias !642
   %2759 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 %2758, ptr %2759, align 8, !noalias !642
+  call void @llvm.assume(i1 true) [ "align"(ptr %2757, i64 4) ]
   %2760 = icmp ugt i64 %.val86.i1039, %2758
   br i1 %2760, label %2761, label %2762, !prof !13
 

@@ -448,6 +448,7 @@ define internal fastcc void @"_ZN118_$LT$brotli..enc..brotli_bit_stream..Command
   store ptr %18, ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %19, ptr %20, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %.not = icmp ugt i64 %7, %19
   br i1 %.not, label %21, label %27, !prof !6
 
@@ -13238,6 +13239,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h32ca9d6c08d19f0dE.ex
   %374 = extractvalue { ptr, i64 } %372, 1
   store ptr %373, ptr %21, align 8, !noalias !792
   store i64 %374, ptr %118, align 8, !noalias !792
+  call void @llvm.assume(i1 true) [ "align"(ptr %373, i64 8) ], !noalias !793
   %.not.i142 = icmp ugt i64 %365, %374
   br i1 %.not.i142, label %375, label %381, !prof !6
 
@@ -13344,6 +13346,7 @@ common.resume:                                    ; preds = %534, %492, %460, %4
   %406 = extractvalue { ptr, i64 } %404, 1
   store ptr %405, ptr %24, align 8, !noalias !804
   store i64 %406, ptr %121, align 8, !noalias !804
+  call void @llvm.assume(i1 true) [ "align"(ptr %405, i64 8) ], !noalias !793
   %.not.i = icmp ugt i64 %397, %406
   br i1 %.not.i, label %407, label %413, !prof !6
 
@@ -13477,6 +13480,7 @@ common.resume:                                    ; preds = %534, %492, %460, %4
   %443 = extractvalue { ptr, i64 } %441, 1
   store ptr %442, ptr %15, align 8, !noalias !826
   store i64 %443, ptr %126, align 8, !noalias !826
+  call void @llvm.assume(i1 true) [ "align"(ptr %442, i64 8) ], !noalias !827
   %.not.i156 = icmp ugt i64 %434, %443
   br i1 %.not.i156, label %444, label %450, !prof !6
 
@@ -13579,6 +13583,7 @@ common.resume:                                    ; preds = %534, %492, %460, %4
   %475 = extractvalue { ptr, i64 } %473, 1
   store ptr %474, ptr %18, align 8, !noalias !838
   store i64 %475, ptr %128, align 8, !noalias !838
+  call void @llvm.assume(i1 true) [ "align"(ptr %474, i64 8) ], !noalias !827
   %.not.i149 = icmp ugt i64 %466, %475
   br i1 %.not.i149, label %476, label %482, !prof !6
 
@@ -13696,6 +13701,7 @@ common.resume:                                    ; preds = %534, %492, %460, %4
   %517 = extractvalue { ptr, i64 } %515, 1
   store ptr %516, ptr %12, align 8, !noalias !852
   store i64 %517, ptr %140, align 8, !noalias !852
+  call void @llvm.assume(i1 true) [ "align"(ptr %516, i64 8) ]
   %.not.i163 = icmp ugt i64 %508, %517
   br i1 %.not.i163, label %518, label %524, !prof !6
 

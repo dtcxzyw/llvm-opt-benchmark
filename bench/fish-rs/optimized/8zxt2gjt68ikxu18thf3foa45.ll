@@ -41322,6 +41322,7 @@ thread-pre-split.i:                               ; preds = %.noexc14.i
           to label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$RF$fish..wutil..dir_iter..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h61bdfb9000f01e0aE.exit.i" unwind label %.loopexit.split-lp.i, !noalias !3711
 
 260:                                              ; preds = %255
+  call void @llvm.assume(i1 true) [ "align"(ptr %257, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3726)
   %261 = load ptr, ptr %43, align 8, !alias.scope !3729, !noalias !3718, !nonnull !3, !align !7, !noundef !3
   %262 = load ptr, ptr %45, align 8, !alias.scope !3729, !noalias !3718, !nonnull !3, !align !18, !noundef !3
@@ -41671,6 +41672,7 @@ _ZN4fish8wildcard21wildcard_has_internal17hceb02dc643764931E.exit: ; preds = %82
   br label %_ZN4fish8wildcard8expander16WildCardExpander19expand_last_segment17h2fbc6e22086d204cE.exit
 
 383:                                              ; preds = %.noexc115
+  call void @llvm.assume(i1 true) [ "align"(ptr %380, i64 8) ]
   %cond13.i = icmp eq i64 %379, 0
   br i1 %cond13.i, label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$RF$fish..wutil..dir_iter..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h61bdfb9000f01e0aE.exit4.i", label %384
 
@@ -42124,6 +42126,7 @@ _ZN4fish8wildcard8expander16WildCardExpander25interrupted_or_overflowed17hf81410
   br label %_ZN4fish8wildcard8expander16WildCardExpander25interrupted_or_overflowed17hf8141045d9132db7E.exit.thread
 
 81:                                               ; preds = %75
+  call void @llvm.assume(i1 true) [ "align"(ptr %78, i64 8) ]
   %cond51 = icmp eq i64 %77, 0
   br i1 %cond51, label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$RF$fish..wutil..dir_iter..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h61bdfb9000f01e0aE.exit15", label %82
 
@@ -42627,6 +42630,7 @@ _ZN4fish8wildcard8expander16WildCardExpander25interrupted_or_overflowed17hf81410
   br label %_ZN4fish8wildcard8expander16WildCardExpander25interrupted_or_overflowed17hf8141045d9132db7E.exit.thread
 
 55:                                               ; preds = %49
+  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 8) ]
   %cond39 = icmp eq i64 %51, 0
   br i1 %cond39, label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$RF$fish..wutil..dir_iter..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h61bdfb9000f01e0aE.exit23", label %56
 

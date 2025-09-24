@@ -15280,6 +15280,7 @@ _ZN6walrus16function_builder15InstrSeqBuilder7if_else17h19a3ccf0d4123c1eE.exit: 
   %163 = extractvalue { i64, i32 } %162, 0
   %164 = extractvalue { i64, i32 } %162, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !2943
+  call void @llvm.assume(i1 true) [ "align"(ptr %156, i64 4) ]
   %.idx1266 = shl nuw nsw i64 %158, 2
   %165 = getelementptr inbounds nuw i8, ptr %156, i64 %.idx1266
   %166 = icmp eq i64 %158, 0
@@ -15608,6 +15609,7 @@ _ZN6walrus16function_builder15InstrSeqBuilder5block17h4fecf484a7668243E.exit: ; 
   %304 = extractvalue { i64, i32 } %303, 0
   %305 = extractvalue { i64, i32 } %303, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !3090
+  call void @llvm.assume(i1 true) [ "align"(ptr %297, i64 4) ]
   %.idx1265 = shl nuw nsw i64 %299, 2
   %306 = getelementptr inbounds nuw i8, ptr %297, i64 %.idx1265
   %307 = icmp eq i64 %299, 0
@@ -54914,6 +54916,7 @@ select.unfold.us.i.i.i.i:                         ; preds = %.sink.split.i.us.i.
   call void @llvm.experimental.noalias.scope.decl(metadata !14308)
   call void @llvm.experimental.noalias.scope.decl(metadata !14311)
   call void @llvm.lifetime.start.p0(ptr nonnull %102), !noalias !14313
+  call void @llvm.assume(i1 true) [ "align"(ptr %882, i64 8) ]
   %892 = getelementptr i8, ptr %881, i64 -4
   %893 = load i8, ptr %892, align 4, !range !72, !noalias !14313, !noundef !6
   %894 = getelementptr inbounds nuw i8, ptr %0, i64 1728

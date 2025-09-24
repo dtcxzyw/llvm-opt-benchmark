@@ -9315,6 +9315,7 @@ default.unreachable:                              ; preds = %68
 
 68:                                               ; preds = %66, %65
   %69 = phi i64 [ %.pre, %66 ], [ %63, %65 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.7.2.ph, i64 8) ]
   %70 = add nsw i64 %69, -17
   %71 = call i64 @llvm.umin.i64(i64 %70, i64 2)
   switch i64 %71, label %default.unreachable [
@@ -9521,7 +9522,7 @@ _ZN3syn5token7Bracket8surround17h1c5a0ec9f4d05f43E.exit38: ; preds = %"_ZN3syn4a
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1337
   %136 = getelementptr inbounds nuw i8, ptr %.sroa.7.2.ph, i64 472
   call void @llvm.experimental.noalias.scope.decl(metadata !1369)
-  %137 = load i32, ptr %136, align 4, !alias.scope !1369, !noalias !1372, !noundef !5
+  %137 = load i32, ptr %136, align 8, !alias.scope !1369, !noalias !1372, !noundef !5
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1374
   call void @_ZN11proc_macro25Ident3new17h7da1a03a0b207f4dE(ptr noalias noundef nonnull sret({ { i64, [3 x i64] }, { {} } }) align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.26.llvm.15435319159651575738, i64 noundef 5, i32 noundef %137, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0d5d5001281b8245a926393d947a7215.24.llvm.858133952616893155), !noalias !1381
   call void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17hb05fa54c9b9cd6f6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %12), !noalias !1382
@@ -9535,7 +9536,7 @@ _ZN3syn5token7Bracket8surround17h1c5a0ec9f4d05f43E.exit38: ; preds = %"_ZN3syn4a
 
 140:                                              ; preds = %"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17h461c7d421261f82dE.exit"
   %141 = getelementptr inbounds nuw i8, ptr %.sroa.7.2.ph, i64 328
-  %142 = load i32, ptr %141, align 4, !range !163, !noalias !1383, !noundef !5
+  %142 = load i32, ptr %141, align 8, !range !163, !noalias !1383, !noundef !5
   %trunc.i29 = trunc nuw i32 %142 to i1
   br i1 %trunc.i29, label %145, label %143
 

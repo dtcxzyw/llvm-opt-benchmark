@@ -6397,6 +6397,7 @@ define noundef range(i8 0, 4) i8 @"_ZN21ruff_python_formatter10expression14expr_
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %19
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %32 = tail call { i64, ptr } @"_ZN131_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..ExprAttribute$GT$$GT$4from17h9d07467208e82b04E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
   %33 = extractvalue { i64, ptr } %32, 0
   %34 = extractvalue { i64, ptr } %32, 1
@@ -6431,6 +6432,7 @@ define noundef range(i8 0, 4) i8 @"_ZN21ruff_python_formatter10expression10expr_
   ret i8 %.sroa.0.0
 
 18:                                               ; preds = %6
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %19 = tail call { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..ExprAwait$GT$$GT$4from17ha9b5d94bf0ea18ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
   %20 = extractvalue { i64, ptr } %19, 0
   %21 = extractvalue { i64, ptr } %19, 1
@@ -6575,6 +6577,7 @@ define noundef range(i8 0, 4) i8 @"_ZN21ruff_python_formatter10expression9expr_c
   br i1 %29, label %35, label %30
 
 30:                                               ; preds = %19
+  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 8) ]
   %31 = tail call { i64, ptr } @"_ZN126_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..ExprCall$GT$$GT$4from17h3c922f7b71dcaaacE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
   %32 = extractvalue { i64, ptr } %31, 0
   %33 = extractvalue { i64, ptr } %31, 1
@@ -7386,6 +7389,7 @@ define noundef range(i8 0, 4) i8 @"_ZN21ruff_python_formatter10expression14expr_
   br i1 %25, label %54, label %26
 
 26:                                               ; preds = %15
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %27 = tail call { i64, ptr } @"_ZN131_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..ExprSubscript$GT$$GT$4from17hea26270eb6d2a23dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
@@ -7541,6 +7545,7 @@ _ZN21ruff_python_formatter8comments8Comments3has17hacb2d53fcc8612edE.exit: ; pre
 
 .loopexit:                                        ; preds = %._crit_edge.i.i.i, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %61 = call { i64, ptr } @"_ZN129_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..ExprUnaryOp$GT$$GT$4from17h652c0dcc963b8419E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %62 = extractvalue { i64, ptr } %61, 0
   %63 = extractvalue { i64, ptr } %61, 1

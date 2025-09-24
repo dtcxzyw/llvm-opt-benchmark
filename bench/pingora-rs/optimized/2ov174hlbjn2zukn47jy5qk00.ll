@@ -292,14 +292,16 @@ define hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$
   resume { ptr, i32 } %25
 
 _ZN5alloc11collections5btree3mem7replace17h2f28b33caa9cae4cE.exit: ; preds = %.noexc1.i
+  %29 = extractvalue { ptr, ptr } %22, 0
+  %30 = extractvalue { ptr, ptr } %22, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !5
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !5
+  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 8) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %29 = extractvalue { ptr, ptr } %22, 0
-  %30 = extractvalue { ptr, ptr } %22, 1
   br label %15
 
 31:                                               ; preds = %12
@@ -3763,6 +3765,7 @@ define hidden void @_ZN6brotli3enc19backward_references19hash_to_binary_tree14in
   %14 = tail call { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h6e520e4fe8e2b1fdE"(ptr noalias noundef nonnull align 1 %1, i64 noundef 131072)
   %15 = extractvalue { ptr, i64 } %14, 0
   %16 = extractvalue { ptr, i64 } %14, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 4) ]
   %.idx.i = shl nuw nsw i64 %16, 2
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
   %18 = icmp eq i64 %16, 0
@@ -7831,6 +7834,7 @@ define internal fastcc void @_ZN6brotli3enc9metablock34BrotliBuildMetaBlockGreed
   store ptr %61, ptr %30, align 8, !alias.scope !391, !noalias !407
   store i64 %62, ptr %64, align 8, !alias.scope !391, !noalias !407
   tail call void @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h4bb3750273934aaeE"(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull align 8 %63, i64 noundef %65), !noalias !399
+  call void @llvm.assume(i1 true) [ "align"(ptr %61, i64 8) ]
   %.not16.i = icmp eq i64 %62, 0
   br i1 %.not16.i, label %77, label %_ZN6brotli3enc9metablock17InitBlockSplitter17h0de096291d68fe30E.exit
 
@@ -7848,6 +7852,7 @@ define internal fastcc void @_ZN6brotli3enc9metablock34BrotliBuildMetaBlockGreed
   store ptr %70, ptr %22, align 8, !noalias !398
   %72 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %71, ptr %72, align 8, !noalias !398
+  call void @llvm.assume(i1 true) [ "align"(ptr %70, i64 4) ]
   %73 = icmp ugt i64 %.val27.i, %71
   br i1 %73, label %74, label %75, !prof !4
 
@@ -7895,7 +7900,7 @@ common.resume:                                    ; preds = %231, %234, %182, %1
 
 _ZN6brotli3enc9metablock17InitBlockSplitter17h0de096291d68fe30E.exit: ; preds = %58
   %82 = getelementptr inbounds nuw i8, ptr %61, i64 1032
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1032) %61, i8 0, i64 1032, i1 false), !noalias !399
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %61, i8 0, i64 1032, i1 false), !noalias !399
   store float 0x47EFFE0460000000, ptr %82, align 8, !alias.scope !414, !noalias !399
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.sroa.0, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.sroa.9.sroa.6, i8 0, i64 16, i1 false)
@@ -8023,6 +8028,7 @@ _ZN6brotli3enc9metablock17InitBlockSplitter17h0de096291d68fe30E.exit: ; preds = 
   br label %111
 
 125:                                              ; preds = %119
+  call void @llvm.assume(i1 true) [ "align"(ptr %121, i64 4) ]
   %126 = icmp ugt i64 %.val28.i, %122
   br i1 %126, label %127, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3fc5ecc25f6dc7aaE.exit.i", !prof !4
 
@@ -8194,6 +8200,7 @@ _ZN6brotli3enc9metablock24InitContextBlockSplitter17h11e389b747927375E.exit: ; p
   store ptr %165, ptr %139, align 8, !alias.scope !447, !noalias !463
   store i64 %166, ptr %168, align 8, !alias.scope !447, !noalias !463
   tail call void @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h0cb760615d6e2bf9E"(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull align 8 %167, i64 noundef %169), !noalias !455
+  call void @llvm.assume(i1 true) [ "align"(ptr %165, i64 8) ]
   %.not16.i83 = icmp eq i64 %166, 0
   br i1 %.not16.i83, label %181, label %_ZN6brotli3enc9metablock17InitBlockSplitter17hcc00a8d24cf79d4aE.exit
 
@@ -8211,6 +8218,7 @@ _ZN6brotli3enc9metablock24InitContextBlockSplitter17h11e389b747927375E.exit: ; p
   store ptr %174, ptr %18, align 8, !noalias !454
   %176 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %175, ptr %176, align 8, !noalias !454
+  call void @llvm.assume(i1 true) [ "align"(ptr %174, i64 4) ]
   %177 = icmp ugt i64 %.val27.i78, %175
   br i1 %177, label %178, label %179, !prof !4
 
@@ -8254,7 +8262,7 @@ _ZN6brotli3enc9metablock24InitContextBlockSplitter17h11e389b747927375E.exit: ; p
 
 _ZN6brotli3enc9metablock17InitBlockSplitter17hcc00a8d24cf79d4aE.exit: ; preds = %162
   %186 = getelementptr inbounds nuw i8, ptr %165, i64 2824
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2824) %165, i8 0, i64 2824, i1 false), !noalias !455
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %165, i8 0, i64 2824, i1 false), !noalias !455
   store float 0x47EFFE0460000000, ptr %186, align 8, !alias.scope !470, !noalias !455
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   %.sroa.5124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -8353,6 +8361,7 @@ _ZN6brotli3enc9metablock17InitBlockSplitter17hcc00a8d24cf79d4aE.exit: ; preds = 
   store ptr %214, ptr %188, align 8, !alias.scope !476, !noalias !492
   store i64 %215, ptr %217, align 8, !alias.scope !476, !noalias !492
   tail call void @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h63a11106f52e406aE"(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull align 8 %216, i64 noundef %218), !noalias !484
+  call void @llvm.assume(i1 true) [ "align"(ptr %214, i64 8) ]
   %.not16.i103 = icmp eq i64 %215, 0
   br i1 %.not16.i103, label %230, label %_ZN6brotli3enc9metablock17InitBlockSplitter17h9c235b8ba9b58f7eE.exit
 
@@ -8370,6 +8379,7 @@ _ZN6brotli3enc9metablock17InitBlockSplitter17hcc00a8d24cf79d4aE.exit: ; preds = 
   store ptr %223, ptr %16, align 8, !noalias !483
   %225 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %224, ptr %225, align 8, !noalias !483
+  call void @llvm.assume(i1 true) [ "align"(ptr %223, i64 4) ]
   %226 = icmp ugt i64 %.val27.i98, %224
   br i1 %226, label %227, label %228, !prof !4
 
@@ -8413,7 +8423,7 @@ _ZN6brotli3enc9metablock17InitBlockSplitter17hcc00a8d24cf79d4aE.exit: ; preds = 
 
 _ZN6brotli3enc9metablock17InitBlockSplitter17h9c235b8ba9b58f7eE.exit: ; preds = %211
   %235 = getelementptr inbounds nuw i8, ptr %214, i64 2184
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2184) %214, i8 0, i64 2184, i1 false), !noalias !484
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %214, i8 0, i64 2184, i1 false), !noalias !484
   store float 0x47EFFE0460000000, ptr %235, align 8, !alias.scope !499, !noalias !484
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %.sroa.5131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -8513,37 +8523,38 @@ _ZN6brotli3enc9metablock17MapStaticContexts17h10a0dc9605c16241E.exit: ; preds = 
   %266 = shl i64 %.sroa.06.016.i, 6
   br label %269
 
-267:                                              ; preds = %274
+267:                                              ; preds = %276
   %268 = add nuw i64 %.sroa.06.016.i, 1
   %exitcond21.not.i = icmp eq i64 %268, %254
   br i1 %exitcond21.not.i, label %_ZN6brotli3enc9metablock17MapStaticContexts17h10a0dc9605c16241E.exit, label %.lr.ph.i
 
-269:                                              ; preds = %274, %.lr.ph.i
-  %.sroa.0.015.i = phi i64 [ 0, %.lr.ph.i ], [ %279, %274 ]
+269:                                              ; preds = %276, %.lr.ph.i
+  %.sroa.0.015.i = phi i64 [ 0, %.lr.ph.i ], [ %279, %276 ]
   %exitcond.not.i = icmp eq i64 %.sroa.0.015.i, %10
-  br i1 %exitcond.not.i, label %273, label %270
+  br i1 %exitcond.not.i, label %275, label %270
 
 270:                                              ; preds = %269
-  %271 = add nuw nsw i64 %.sroa.0.015.i, %266
-  %272 = icmp ult i64 %271, %259
-  br i1 %272, label %274, label %280
+  %271 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.0.015.i
+  %272 = load i32, ptr %271, align 4, !alias.scope !502, !noalias !510, !noundef !3
+  call void @llvm.assume(i1 true) [ "align"(ptr %258, i64 4) ]
+  %273 = add nuw nsw i64 %.sroa.0.015.i, %266
+  %274 = icmp ult i64 %273, %259
+  br i1 %274, label %276, label %280
 
-273:                                              ; preds = %269
+275:                                              ; preds = %269
   call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %10, i64 noundef %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e7500836e724f5eafa96e7ccf286267f.141) #27, !noalias !509
   unreachable
 
-274:                                              ; preds = %270
-  %275 = getelementptr inbounds nuw i32, ptr %9, i64 %.sroa.0.015.i
-  %276 = load i32, ptr %275, align 4, !alias.scope !502, !noalias !510, !noundef !3
-  %277 = add i32 %276, %265
-  %278 = getelementptr inbounds nuw i32, ptr %258, i64 %271
+276:                                              ; preds = %270
+  %277 = add i32 %272, %265
+  %278 = getelementptr inbounds nuw i32, ptr %258, i64 %273
   store i32 %277, ptr %278, align 4, !noalias !509
   %279 = add nuw nsw i64 %.sroa.0.015.i, 1
   %exitcond20.not.i = icmp eq i64 %279, 64
   br i1 %exitcond20.not.i, label %267, label %269
 
 280:                                              ; preds = %270
-  call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %271, i64 noundef %259, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e7500836e724f5eafa96e7ccf286267f.142) #27, !noalias !509
+  call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %273, i64 noundef %259, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e7500836e724f5eafa96e7ccf286267f.142) #27, !noalias !509
   unreachable
 
 281:                                              ; preds = %247
