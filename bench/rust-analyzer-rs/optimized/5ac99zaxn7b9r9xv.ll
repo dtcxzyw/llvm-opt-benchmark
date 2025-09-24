@@ -2709,7 +2709,7 @@ switch.lookup:
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd7559bfe34ca2e31E.exit.i.i": ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 1
-  %112 = add i64 %110, 1
+  %112 = add nuw i64 %110, 1
   %113 = icmp eq ptr %111, %14
   br i1 %113, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hdc71df85e6e2fa4eE.exit.i, label %.lr.ph.i.i
 
@@ -3158,7 +3158,7 @@ switch.lookup:
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb704ce45f253958cE.exit.i.i": ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 1
-  %112 = add i64 %110, 1
+  %112 = add nuw i64 %110, 1
   %113 = icmp eq ptr %111, %11
   br i1 %113, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h62f556d7a17ba04eE.exit.i, label %.lr.ph.i.i
 
@@ -3622,7 +3622,7 @@ switch.lookup:
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8ee357f1fe44706eE.exit.i.i": ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 1
-  %114 = add i64 %112, 1
+  %114 = add nuw i64 %112, 1
   %115 = icmp eq ptr %113, %15
   br i1 %115, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0886ec014b5ce555E.exit.i, label %.lr.ph.i.i
 
@@ -4241,7 +4241,7 @@ switch.lookup:
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2c717dc1e7327fc5E.exit.i.i": ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 1
-  %112 = add i64 %110, 1
+  %112 = add nuw i64 %110, 1
   %113 = icmp eq ptr %111, %11
   br i1 %113, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc359db94cae769a8E.exit.i, label %.lr.ph.i.i
 
@@ -4700,7 +4700,7 @@ switch.lookup:
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdd3980e697f5554fE.exit.i.i": ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 1
-  %111 = add i64 %109, 1
+  %111 = add nuw i64 %109, 1
   %112 = icmp eq ptr %110, %12
   br i1 %112, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hb8353e33e96a1c5eE.exit.i, label %.lr.ph.i.i
 
@@ -5173,7 +5173,7 @@ switch.lookup:
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hff4763ca77855573E.exit.i.i": ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 1
-  %112 = add i64 %110, 1
+  %112 = add nuw i64 %110, 1
   %113 = icmp eq ptr %111, %14
   br i1 %113, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2cb9cdb61e4f6df6E.exit.i, label %.lr.ph.i.i
 
@@ -5622,7 +5622,7 @@ switch.lookup:
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6dd328ee4750437dE.exit.i.i": ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 1
-  %112 = add i64 %110, 1
+  %112 = add nuw i64 %110, 1
   %113 = icmp eq ptr %111, %11
   br i1 %113, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hce5c6c1854bc440cE.exit.i, label %.lr.ph.i.i
 
@@ -6085,7 +6085,7 @@ switch.lookup:
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h37df81150dfde811E.exit.i.i": ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 1
-  %113 = add i64 %111, 1
+  %113 = add nuw i64 %111, 1
   %114 = icmp eq ptr %112, %16
   br i1 %114, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h27bac6c900df8a36E.exit.i, label %.lr.ph.i.i
 
@@ -6651,7 +6651,7 @@ switch.lookup:
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd9c1b09db4420577E.exit.i.i": ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 1
-  %112 = add i64 %110, 1
+  %112 = add nuw i64 %110, 1
   %113 = icmp eq ptr %111, %11
   br i1 %113, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h42243ac7aa702be5E.exit.i, label %.lr.ph.i.i
 
