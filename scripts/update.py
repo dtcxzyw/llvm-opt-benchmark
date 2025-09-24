@@ -13,6 +13,11 @@ parser.add_argument("--stats",
                     action="store_true",
                     default=False,
                     help="Collect stats")
+parser.add_argument("--record-stat",
+                    action="store",
+                    default="",
+                    required=False,
+                    help="Collect specific stat")
 parser.add_argument("--no-diff",
                     action="store_true",
                     default=False,
@@ -48,6 +53,9 @@ if STATS_OUT:
     STATS_OUT = "stats.log"
 else:
     STATS_OUT = None
+STAT_OUT = None
+if args.record_stat != "":
+    STAT_OUT = "stat.log"
 COMPTIME_OUT = args.comptime
 if COMPTIME_OUT:
     COMPTIME_OUT = "comptime.log"
@@ -298,6 +306,7 @@ def regen_optimized():
     }
 
     comptime_res = []
+    stat_res = []
     with open("test.log", "w") as log:
         for fn, status, res, stats in pool.imap_unordered(run_opt, work_list):
             fn = os.path.relpath(fn, BENCH_DIR)
@@ -314,6 +323,8 @@ def regen_optimized():
                         if k in stats_nondeter_keys:
                             continue
                         stats_acc[k] = stats_acc.get(k, 0) + stats[k]
+                if STAT_OUT:
+                    stat_res.append((fn, stats.get(args.record_stat, 0)))
             progress.update()
         progress.close()
 
@@ -321,6 +332,11 @@ def regen_optimized():
         comptime_res.sort(key=lambda x: x[0])
         with open(COMPTIME_OUT, "w") as f:
             for k, v in comptime_res:
+                f.write(f"{k} {v}\n")
+    if STAT_OUT is not None:
+        stat_res.sort(key=lambda x: x[0])
+        with open(STAT_OUT, "w") as f:
+            for k, v in stat_res:
                 f.write(f"{k} {v}\n")
     if STATS_OUT is not None:
         with open(STATS_OUT, "w") as f:
@@ -393,6 +409,8 @@ def update_pr():
         lines.append("# Diff mode")
     if COMPTIME_OUT:
         lines.append("# Comptime mode")
+    if STAT_OUT:
+        lines.append("# Stat mode")
     lines.append("runner: {}".format(RUNNER_ID))
     lines.append(
         "baseline: https://github.com/llvm/llvm-project/commit/{}".format(

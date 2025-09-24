@@ -4,6 +4,8 @@ shopt -s inherit_errexit
 
 export GITHUB_PATCH_ID="<user_name>/llvm-project/commit/<commit_hash>"
 export COMPTIME_MODE=0
+export STAT_MODE=0
+export STAT_NAME=""
 
 # Please rebase manually
 # git fetch origin

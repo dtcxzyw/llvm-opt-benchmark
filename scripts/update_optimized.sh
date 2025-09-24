@@ -20,6 +20,14 @@ then
     python3 scripts/update.py --comptime --no-diff --bench bench --out scripts/pr-comment.md
     python3 scripts/comptime_diff.py comptime_baseline.log comptime.log >> scripts/pr-comment.md
     exit 0
+elif [ $STAT_MODE -eq 1 ]
+then
+    python3 scripts/update.py --record-stat $STAT_NAME --stats --no-diff --bench bench --out scripts/pr-comment.md
+    mv stat.log stat_baseline.log
+    git -C llvm/llvm-project apply --exclude=*/test/* ../../patch.diff
+    python3 scripts/update.py --record-stat $STAT_NAME --stats --no-diff --bench bench --out scripts/pr-comment.md
+    python3 scripts/stat_diff.py stat_baseline.log stat.log >> scripts/pr-comment.md
+    exit 0
 else
     git -C llvm/llvm-project apply --exclude=*/test/* ../../patch.diff
     python3 scripts/update.py --bench bench --stats --out scripts/pr-comment.md
