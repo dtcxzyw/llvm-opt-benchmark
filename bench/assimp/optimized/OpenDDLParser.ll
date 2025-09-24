@@ -2547,7 +2547,7 @@ _ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit: ; preds = %.lr.ph.i, %.crit
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %.02940, i64 1
-  %19 = add i64 %.03039, 1
+  %19 = add nuw i64 %.03039, 1
   %.not = icmp eq ptr %18, %1
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !12
 
@@ -5290,7 +5290,7 @@ switch.early.test:                                ; preds = %switch.early.test.p
 
 14:                                               ; preds = %switch.early.test
   %15 = getelementptr inbounds nuw i8, ptr %.02732, i64 1
-  %16 = add i64 %.033, 1
+  %16 = add nuw i64 %.033, 1
   %17 = icmp eq ptr %15, %1
   br i1 %17, label %switch.early.test._crit_edge, label %switch.early.test, !llvm.loop !33
 
