@@ -1953,7 +1953,7 @@ _ZN5boost6spirit2qi12extract_signIPKcEEbRT_RKS5_.exit.thread.i.i.i: ; preds = %_
 
 104:                                              ; preds = %.lr.ph.i
   %105 = getelementptr inbounds nuw i8, ptr %.050105.i, i64 1
-  %106 = add i64 %.0106.i, 1
+  %106 = add nuw i64 %.0106.i, 1
   %.not.i = icmp eq ptr %105, %34
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !37
 
@@ -2844,7 +2844,7 @@ _ZN5boost6spirit2qi12extract_signIPKcEEbRT_RKS5_.exit.thread.i.i.i: ; preds = %_
 
 104:                                              ; preds = %.lr.ph.i
   %105 = getelementptr inbounds nuw i8, ptr %.050105.i, i64 1
-  %106 = add i64 %.0106.i, 1
+  %106 = add nuw i64 %.0106.i, 1
   %.not.i = icmp eq ptr %105, %34
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !37
 
@@ -3735,7 +3735,7 @@ _ZN5boost6spirit2qi12extract_signIPKcEEbRT_RKS5_.exit.thread.i.i.i: ; preds = %_
 
 104:                                              ; preds = %.lr.ph.i
   %105 = getelementptr inbounds nuw i8, ptr %.050105.i, i64 1
-  %106 = add i64 %.0106.i, 1
+  %106 = add nuw i64 %.0106.i, 1
   %.not.i = icmp eq ptr %105, %34
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !37
 
@@ -4626,7 +4626,7 @@ _ZN5boost6spirit2qi12extract_signIPKcEEbRT_RKS5_.exit.thread.i.i.i: ; preds = %_
 
 104:                                              ; preds = %.lr.ph.i
   %105 = getelementptr inbounds nuw i8, ptr %.050105.i, i64 1
-  %106 = add i64 %.0106.i, 1
+  %106 = add nuw i64 %.0106.i, 1
   %.not.i = icmp eq ptr %105, %34
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !37
 
@@ -5517,7 +5517,7 @@ _ZN5boost6spirit2qi12extract_signIPKcEEbRT_RKS5_.exit.thread.i.i.i: ; preds = %_
 
 104:                                              ; preds = %.lr.ph.i
   %105 = getelementptr inbounds nuw i8, ptr %.050105.i, i64 1
-  %106 = add i64 %.0106.i, 1
+  %106 = add nuw i64 %.0106.i, 1
   %.not.i = icmp eq ptr %105, %34
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !37
 
@@ -6408,7 +6408,7 @@ _ZN5boost6spirit2qi12extract_signIPKcEEbRT_RKS5_.exit.thread.i.i.i: ; preds = %_
 
 104:                                              ; preds = %.lr.ph.i
   %105 = getelementptr inbounds nuw i8, ptr %.050105.i, i64 1
-  %106 = add i64 %.0106.i, 1
+  %106 = add nuw i64 %.0106.i, 1
   %.not.i = icmp eq ptr %105, %34
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !37
 
@@ -14983,7 +14983,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKcdEEbRT_RKS7_RT0_.exit: ; pre
 
 77:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %78 = getelementptr inbounds nuw i8, ptr %.04459.i.i.i.i.i.i.i, i64 1
-  %79 = add i64 %.060.i.i.i.i.i.i.i, 1
+  %79 = add nuw i64 %.060.i.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i = icmp eq ptr %78, %18
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_infIPKcdEEbRT_RKS7_RT0_.exit.thread, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !92
 
@@ -15098,7 +15098,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_infIPKcdEEbRT_RKS7_RT0_.exit.thread
 
 121:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i72
   %122 = getelementptr inbounds nuw i8, ptr %.04459.i.i.i.i.i.i.i74, i64 1
-  %123 = add i64 %.060.i.i.i.i.i.i.i73, 1
+  %123 = add nuw i64 %.060.i.i.i.i.i.i.i73, 1
   %.not.i.i.i.i.i.i.i85 = icmp eq ptr %122, %114
   br i1 %.not.i.i.i.i.i.i.i85, label %.loopexit.i.i.i77, label %.lr.ph.i.i.i.i.i.i.i72, !llvm.loop !92
 
@@ -15758,7 +15758,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit2qi14ureal_polici
 
 70:                                               ; preds = %.lr.ph.i.i.i.i
   %71 = getelementptr inbounds nuw i8, ptr %.04459.i.i.i.i, i64 1
-  %72 = add i64 %.060.i.i.i.i, 1
+  %72 = add nuw i64 %.060.i.i.i.i, 1
   %.not.i.i.i.i = icmp eq ptr %71, %64
   br i1 %.not.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !92
 
@@ -15843,7 +15843,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit2qi6detail11extra
 
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %.050110, i64 1
-  %13 = add i64 %.0111, 1
+  %13 = add nuw i64 %.0111, 1
   %.not = icmp eq ptr %12, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
@@ -16043,7 +16043,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit2qi6detail11extra
 
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %.050105, i64 1
-  %13 = add i64 %.0106, 1
+  %13 = add nuw i64 %.0106, 1
   %.not = icmp eq ptr %12, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99
 
@@ -17696,7 +17696,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit2qi6detail11extra
 
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %.050110, i64 1
-  %13 = add i64 %.0111, 1
+  %13 = add nuw i64 %.0111, 1
   %.not = icmp eq ptr %12, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !160
 
