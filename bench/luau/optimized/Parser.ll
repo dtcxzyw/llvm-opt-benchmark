@@ -3982,7 +3982,7 @@ _ZNSt6vectorIN4Luau6Parser8FunctionESaIS2_EE9push_backERKS2_.exit: ; preds = %_Z
   %120 = invoke noalias noundef nonnull dereferenceable(1244) ptr @_Znwm(i64 noundef 1244) #33
           to label %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader unwind label %258
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %119
+.noexc95:                                         ; preds = %119
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1244) %120, i8 0, i64 1244, i1 false), !tbaa !4
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 1244
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -3992,7 +3992,7 @@ _ZNSt6vectorIN4Luau6Parser8FunctionESaIS2_EE9push_backERKS2_.exit: ; preds = %_Z
   %.not.i.i.i.i94 = icmp eq ptr %114, null
   br i1 %.not.i.i.i.i94, label %_ZNSt6vectorIjSaIjEE6assignEmRKj.exit, label %123
 
-123:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader
+123:                                              ; preds = %.noexc95
   call void @_ZdlPvm(ptr noundef nonnull %114, i64 noundef %117) #31
   %.pre = load ptr, ptr %45, align 8, !tbaa !155
   br label %_ZNSt6vectorIjSaIjEE6assignEmRKj.exit
@@ -4003,9 +4003,9 @@ _ZNSt6vectorIN4Luau6Parser8FunctionESaIS2_EE9push_backERKS2_.exit: ; preds = %_Z
   %127 = ptrtoint ptr %126 to i64
   %128 = sub i64 %127, %116
   %129 = icmp ult i64 %128, 1244
-  br i1 %129, label %131, label %.lr.ph.i.i.i.i12.i.preheader
+  br i1 %129, label %131, label %130
 
-.lr.ph.i.i.i.i12.i.preheader:                     ; preds = %124
+130:                                              ; preds = %124
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1244) %114, i8 0, i64 1244, i1 false), !tbaa !4
   %130 = getelementptr inbounds nuw i8, ptr %114, i64 1244
   %.not.i.i92 = icmp eq ptr %126, %130
@@ -4016,16 +4016,16 @@ _ZNSt6vectorIN4Luau6Parser8FunctionESaIS2_EE9push_backERKS2_.exit: ; preds = %_Z
   br i1 %.not5.i.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit.i, label %.lr.ph.i.i.i.i.i93.preheader
 
 .lr.ph.i.i.i.i.i93.preheader:                     ; preds = %131
-  %132 = add i64 %127, -4
-  %133 = sub i64 %132, %116
-  %134 = and i64 %133, -4
-  %135 = add i64 %134, 4
-  call void @llvm.memset.p0.i64(ptr align 4 %114, i8 0, i64 %135, i1 false), !tbaa !4
+  %131 = add i64 %127, -4
+  %132 = sub i64 %131, %116
+  %133 = and i64 %132, -4
+  %134 = add i64 %133, 4
+  call void @llvm.memset.p0.i64(ptr align 4 %114, i8 0, i64 %134, i1 false), !tbaa !4
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i93.preheader, %131
   %.idx.i.i.i.i.i.i = sub nuw nsw i64 1244, %128
-  %136 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx.i.i.i.i.i.i
+  %139 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx.i.i.i.i.i.i
   %137 = add i64 %116, 1240
   %138 = sub i64 %137, %127
   %139 = and i64 %138, -4
@@ -4034,11 +4034,11 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit
   store ptr %136, ptr %125, align 8, !tbaa !261
   br label %_ZNSt6vectorIjSaIjEE6assignEmRKj.exit
 
-141:                                              ; preds = %.lr.ph.i.i.i.i12.i.preheader
+_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i:            ; preds = %130
   store ptr %130, ptr %125, align 8, !tbaa !261
   br label %_ZNSt6vectorIjSaIjEE6assignEmRKj.exit
 
-_ZNSt6vectorIjSaIjEE6assignEmRKj.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader, %123, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit.i, %.lr.ph.i.i.i.i12.i.preheader, %141
+_ZNSt6vectorIjSaIjEE6assignEmRKj.exit:            ; preds = %.noexc95, %123, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit.i, %130, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i
   %142 = phi ptr [ %120, %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader ], [ %.pre, %123 ], [ %114, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit.i ], [ %114, %.lr.ph.i.i.i.i12.i.preheader ], [ %114, %141 ]
   store i32 1, ptr %142, align 4, !tbaa !4
   invoke void @_ZN4Luau5Lexer15setSkipCommentsEb(ptr noundef nonnull align 8 dereferenceable(120) %19, i1 noundef zeroext true)
@@ -15438,7 +15438,7 @@ define dso_local range(i64 0, -4294967294) i64 @_ZN4Luau6Parser17validateAttribu
   %37 = shl nuw i64 %36, 32
   br label %38
 
-38:                                               ; preds = %.loopexit, %13, %14
+38:; preds = %.loopexit, %13, %14
   %.02229 = phi i64 [ 0, %13 ], [ 0, %14 ], [ %37, %.loopexit ]
   %.126 = phi i64 [ 0, %13 ], [ 0, %14 ], [ 1, %.loopexit ]
   %.sroa.020.0.insert.insert = or disjoint i64 %.02229, %.126

@@ -794,13 +794,13 @@ emit_table_size.exit.thread:                      ; preds = %count_encoded_lengt
   %35 = lshr i64 %.02529.i.i, 7
   %.024.i.i = getelementptr inbounds nuw i8, ptr %.02430.i.i, i64 1
   %36 = icmp ugt i64 %.02529.i.i, 16383
-  br i1 %36, label %.lr.ph.i11.i, label %._crit_edge.i.loopexit.i, !llvm.loop !80
+  br i1 %36, label %.lr.ph.i11.i, label %._crit_edge.i.i.loopexit, !llvm.loop !80
 
-._crit_edge.i.loopexit.i:                         ; preds = %.lr.ph.i11.i
+._crit_edge.i.i.loopexit:                         ; preds = %.lr.ph.i11.i
   %37 = add nuw nsw i64 %.016.i.i, 2
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %32
+._crit_edge.i.i:                                  ; preds = %._crit_edge.i.i.loopexit, %32
   %.011.i131626.i = phi i64 [ 2, %32 ], [ %37, %._crit_edge.i.loopexit.i ]
   %.025.lcssa.i.i = phi i64 [ %23, %32 ], [ %35, %._crit_edge.i.loopexit.i ]
   %.024.lcssa.i.i = phi ptr [ %.02428.i.i, %32 ], [ %.024.i.i, %._crit_edge.i.loopexit.i ]
@@ -840,9 +840,9 @@ thread-pre-split:                                 ; preds = %emit_table_size.exi
 
 count_encoded_length.exit.i49:                    ; preds = %.lr.ph.i.i46
   %49 = icmp samesign ugt i64 %.016.i.i47, 14
-  br i1 %49, label %emit_table_size.exit57.thread, label %.lr.ph.i11.preheader.i50
+  br i1 %49, label %emit_table_size.exit56.thread, label %.lr.ph.i11.preheader.i50
 
-emit_table_size.exit57.thread:                    ; preds = %count_encoded_length.exit.i49
+emit_table_size.exit56.thread:                    ; preds = %count_encoded_length.exit.i49
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
@@ -850,7 +850,7 @@ emit_table_size.exit57.thread:                    ; preds = %count_encoded_lengt
   %51 = trunc nuw nsw i64 %41 to i8
   %52 = or disjoint i8 %51, 32
   store i8 %52, ptr %7, align 16, !tbaa !11
-  br label %emit_table_size.exit57
+  br label %emit_table_size.exit56
 
 53:                                               ; preds = %43
   store i8 63, ptr %7, align 16, !tbaa !11
@@ -871,21 +871,21 @@ emit_table_size.exit57.thread:                    ; preds = %count_encoded_lengt
   %56 = lshr i64 %.02529.i.i54, 7
   %.024.i.i55 = getelementptr inbounds nuw i8, ptr %.02430.i.i53, i64 1
   %57 = icmp ugt i64 %.02529.i.i54, 16383
-  br i1 %57, label %.lr.ph.i11.i52, label %._crit_edge.i.loopexit.i56, !llvm.loop !80
+  br i1 %57, label %.lr.ph.i11.i52, label %._crit_edge.i.i39.loopexit, !llvm.loop !80
 
-._crit_edge.i.loopexit.i56:                       ; preds = %.lr.ph.i11.i52
+._crit_edge.i.i39.loopexit:                       ; preds = %.lr.ph.i11.i52
   %58 = add nuw nsw i64 %.016.i.i47, 2
   br label %._crit_edge.i.i39
 
-._crit_edge.i.i39:                                ; preds = %._crit_edge.i.loopexit.i56, %53
+._crit_edge.i.i39:                                ; preds = %._crit_edge.i.i39.loopexit, %53
   %.011.i131626.i40 = phi i64 [ 2, %53 ], [ %58, %._crit_edge.i.loopexit.i56 ]
   %.025.lcssa.i.i41 = phi i64 [ %44, %53 ], [ %56, %._crit_edge.i.loopexit.i56 ]
   %.024.lcssa.i.i42 = phi ptr [ %.02428.i.i38, %53 ], [ %.024.i.i55, %._crit_edge.i.loopexit.i56 ]
   %59 = trunc nuw nsw i64 %.025.lcssa.i.i41 to i8
   store i8 %59, ptr %.024.lcssa.i.i42, align 1, !tbaa !11
-  br label %emit_table_size.exit57
+  br label %emit_table_size.exit56
 
-emit_table_size.exit57:                           ; preds = %50, %._crit_edge.i.i39
+emit_table_size.exit56:                           ; preds = %50, %._crit_edge.i.i39
   %.011.i1315.i44 = phi i64 [ 1, %50 ], [ %.011.i131626.i40, %._crit_edge.i.i39 ]
   %60 = call i32 @nghttp2_bufs_add(ptr noundef %1, ptr noundef nonnull %7, i64 noundef %.011.i1315.i44) #12
   %.fr = freeze i32 %60
@@ -893,9 +893,9 @@ emit_table_size.exit57:                           ; preds = %50, %._crit_edge.i.
   %.not34 = icmp eq i32 %.fr, 0
   br i1 %.not34, label %61, label %.thread
 
-61:                                               ; preds = %emit_table_size.exit57, %11
-  %.not84 = icmp eq i64 %3, 0
-  br i1 %.not84, label %.loopexit, label %.lr.ph
+61:                                               ; preds = %emit_table_size.exit56, %11
+  %.not83 = icmp eq i64 %3, 0
+  br i1 %.not83, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %61
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -912,13 +912,13 @@ emit_table_size.exit57:                           ; preds = %50, %._crit_edge.i.
   br label %74
 
 72:                                               ; preds = %deflate_nv.exit
-  %73 = add nuw i64 %.02683, 1
+  %73 = add nuw i64 %.02682, 1
   %exitcond.not = icmp eq i64 %73, %3
   br i1 %exitcond.not, label %.loopexit, label %74, !llvm.loop !81
 
 74:                                               ; preds = %.lr.ph, %72
-  %.02683 = phi i64 [ 0, %.lr.ph ], [ %73, %72 ]
-  %75 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %2, i64 %.02683
+  %.02682 = phi i64 [ 0, %.lr.ph ], [ %73, %72 ]
+  %75 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %2, i64 %.02682
   %76 = load ptr, ptr %62, align 8, !tbaa !82
   %77 = load ptr, ptr %75, align 8, !tbaa !83
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
@@ -929,9 +929,9 @@ emit_table_size.exit57:                           ; preds = %50, %._crit_edge.i.
 
 82:                                               ; preds = %74
   %.not.i.i = icmp eq i64 %79, 0
-  br i1 %.not.i.i, label %name_hash.exit.thread.i, label %.lr.ph.i.i58
+  br i1 %.not.i.i, label %name_hash.exit.thread.i, label %.lr.ph.i.i57
 
-.lr.ph.i.i58:                                     ; preds = %82, %.lr.ph.i.i58
+.lr.ph.i.i57:                                     ; preds = %82, %.lr.ph.i.i57
   %.014.i.i = phi i64 [ %88, %.lr.ph.i.i58 ], [ 0, %82 ]
   %.01213.i.i = phi i32 [ %87, %.lr.ph.i.i58 ], [ -2128831035, %82 ]
   %83 = getelementptr inbounds nuw i8, ptr %77, i64 %.014.i.i
@@ -941,7 +941,7 @@ emit_table_size.exit57:                           ; preds = %50, %._crit_edge.i.
   %87 = mul i32 %86, 16777619
   %88 = add nuw i64 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %88, %79
-  br i1 %exitcond.not.i.i, label %name_hash.exit.thread.i, label %.lr.ph.i.i58, !llvm.loop !85
+  br i1 %exitcond.not.i.i, label %name_hash.exit.thread.i, label %.lr.ph.i.i57, !llvm.loop !85
 
 89:                                               ; preds = %74
   %90 = icmp samesign ult i32 %80, 61
@@ -967,7 +967,7 @@ name_hash.exit.i:                                 ; preds = %91, %89
   %99 = icmp ult i64 %98, 20
   br i1 %99, label %hd_deflate_decide_indexing.exit.i, label %name_hash.exit.thread.i
 
-name_hash.exit.thread.i:                          ; preds = %.lr.ph.i.i58, %96, %name_hash.exit.i, %82
+name_hash.exit.thread.i:                          ; preds = %.lr.ph.i.i57, %96, %name_hash.exit.i, %82
   %.05983.i = phi i32 [ %.059.i, %name_hash.exit.i ], [ %.059.i, %96 ], [ -2128831035, %82 ], [ %87, %.lr.ph.i.i58 ]
   %100 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %101 = load i8, ptr %100, align 8, !tbaa !88
@@ -1269,13 +1269,13 @@ count_encoded_length.exit.i.i:                    ; preds = %.lr.ph.i.i78.i
   %219 = lshr i64 %.02529.i.i.i, 7
   %.024.i.i.i = getelementptr inbounds nuw i8, ptr %.02430.i.i.i, i64 1
   %220 = icmp ugt i64 %.02529.i.i.i, 16383
-  br i1 %220, label %.lr.ph.i11.i.i, label %._crit_edge.i.loopexit.i.i, !llvm.loop !80
+  br i1 %220, label %.lr.ph.i11.i.i, label %._crit_edge.i.i.loopexit.i, !llvm.loop !80
 
-._crit_edge.i.loopexit.i.i:                       ; preds = %.lr.ph.i11.i.i
+._crit_edge.i.i.loopexit.i:                       ; preds = %.lr.ph.i11.i.i
   %221 = add nuw nsw i64 %.016.i.i.i, 2
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.loopexit.i.i, %216
+._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.i.loopexit.i, %216
   %.011.i131626.i.i = phi i64 [ 2, %216 ], [ %221, %._crit_edge.i.loopexit.i.i ]
   %.025.lcssa.i.i.i = phi i64 [ %206, %216 ], [ %219, %._crit_edge.i.loopexit.i.i ]
   %.024.lcssa.i.i.i = phi ptr [ %.02428.i.i.i, %216 ], [ %.024.i.i.i, %._crit_edge.i.loopexit.i.i ]
@@ -1429,7 +1429,7 @@ deflate_nv.exit:                                  ; preds = %emit_indexed_block.
   %.not35 = icmp eq i32 %.057.i, 0
   br i1 %.not35, label %72, label %.thread
 
-.thread:                                          ; preds = %263, %pack_first_byte.exit.i.i, %255, %deflate_nv.exit, %.thread.i, %emit_table_size.exit57.thread, %emit_table_size.exit57, %emit_table_size.exit.thread, %emit_table_size.exit
+.thread:                                          ; preds = %263, %pack_first_byte.exit.i.i, %255, %deflate_nv.exit, %.thread.i, %emit_table_size.exit56.thread, %emit_table_size.exit56, %emit_table_size.exit.thread, %emit_table_size.exit
   %.1 = phi i32 [ -523, %emit_table_size.exit57.thread ], [ %.fr, %emit_table_size.exit57 ], [ -523, %emit_table_size.exit.thread ], [ %39, %emit_table_size.exit ], [ %.1.ph.i, %.thread.i ], [ -523, %255 ], [ %262, %pack_first_byte.exit.i.i ], [ %266, %263 ], [ %.057.i, %deflate_nv.exit ]
   store i8 1, ptr %9, align 4, !tbaa !78
   br label %.loopexit
@@ -3412,13 +3412,13 @@ count_encoded_length.exit.i:                      ; preds = %.lr.ph.i.i
   %18 = lshr i64 %.02529.i.i, 7
   %.024.i.i = getelementptr inbounds nuw i8, ptr %.02430.i.i, i64 1
   %19 = icmp ugt i64 %.02529.i.i, 16383
-  br i1 %19, label %.lr.ph.i11.i, label %._crit_edge.i.loopexit.i, !llvm.loop !80
+  br i1 %19, label %.lr.ph.i11.i, label %._crit_edge.i.i.loopexit, !llvm.loop !80
 
-._crit_edge.i.loopexit.i:                         ; preds = %.lr.ph.i11.i
+._crit_edge.i.i.loopexit:                         ; preds = %.lr.ph.i11.i
   %20 = add nuw nsw i64 %.016.i.i, 2
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %15
+._crit_edge.i.i:                                  ; preds = %._crit_edge.i.i.loopexit, %15
   %.011.i131626.i = phi i64 [ 2, %15 ], [ %20, %._crit_edge.i.loopexit.i ]
   %.025.lcssa.i.i = phi i64 [ %6, %15 ], [ %18, %._crit_edge.i.loopexit.i ]
   %.024.lcssa.i.i = phi ptr [ %.02428.i.i, %15 ], [ %.024.i.i, %._crit_edge.i.loopexit.i ]
@@ -4535,16 +4535,16 @@ count_encoded_length.exit:                        ; preds = %.lr.ph.i
 
 .lr.ph.i33:                                       ; preds = %.lr.ph.i33.preheader, %.lr.ph.i33
   %.02430.i = phi ptr [ %.024.i, %.lr.ph.i33 ], [ %.02428.i48, %.lr.ph.i33.preheader ]
-  %.02529.i = phi i64 [ %23, %.lr.ph.i33 ], [ %8, %.lr.ph.i33.preheader ]
-  %21 = trunc i64 %.02529.i to i8
-  %22 = or i8 %21, -128
-  store i8 %22, ptr %.02430.i, align 1, !tbaa !11
-  %23 = lshr i64 %.02529.i, 7
+  %.02529.i = phi i64 [ %24, %.lr.ph.i33 ], [ %8, %.lr.ph.i33.preheader ]
+  %22 = trunc i64 %.02529.i to i8
+  %23 = or i8 %22, -128
+  store i8 %23, ptr %.02430.i, align 1, !tbaa !11
+  %24 = lshr i64 %.02529.i, 7
   %.024.i = getelementptr inbounds nuw i8, ptr %.02430.i, i64 1
-  %24 = icmp ugt i64 %.02529.i, 16383
-  br i1 %24, label %.lr.ph.i33, label %._crit_edge.i.loopexit, !llvm.loop !80
+  %25 = icmp ugt i64 %.02529.i, 16383
+  br i1 %25, label %.lr.ph.i33, label %._crit_edge.i, !llvm.loop !80
 
-._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i33
+._crit_edge.i:                                    ; preds = %.lr.ph.i33
   %25 = add nuw nsw i64 %.016.i, 2
   br label %._crit_edge.i
 

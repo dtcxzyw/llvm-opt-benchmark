@@ -1338,9 +1338,9 @@ define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %0, ptr noundef cap
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %71 = call fastcc i32 @bio_io(ptr noundef nonnull %0, ptr noundef nonnull %70, i32 noundef %21, i64 noundef 24, i32 noundef 2, ptr noundef nonnull %6)
   %.not70 = icmp eq i32 %71, %21
-  br i1 %.not70, label %.lr.ph, label %bio_read_all.exit.thread
+  br i1 %.not70, label %.lr.ph.preheader, label %bio_read_all.exit.thread
 
-.lr.ph:                                           ; preds = %69, %.lr.ph
+.lr.ph.preheader:                                 ; preds = %69, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %69 ]
   %.05788 = phi i32 [ %77, %.lr.ph ], [ 0, %69 ]
   %72 = shl i32 %.05788, 8
@@ -1354,8 +1354,8 @@ define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %0, ptr noundef cap
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %78 = icmp ult i32 %77, 128
-  br i1 %78, label %bio_read_all.exit.thread, label %bio_read_all.exit
+  %79 = icmp ult i32 %77, 128
+  br i1 %79, label %bio_read_all.exit.thread, label %bio_read_all.exit
 
 bio_read_all.exit:                                ; preds = %._crit_edge
   %79 = add nuw nsw i64 %22, 2

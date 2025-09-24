@@ -4097,11 +4097,11 @@ read_vlc_prefix.exit.thread:                      ; preds = %441
   br i1 %.not.i.i.i, label %get_bitsz.exit.us.preheader.i.i, label %.split.i.i
 
 get_bitsz.exit.us.preheader.i.i:                  ; preds = %462
-  %476 = shl i32 %468, 1
-  %477 = and i32 %476, 6
-  %narrow.i.i = add nuw nsw i32 %477, 2
-  %478 = zext nneg i32 %narrow.i.i to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %11, i8 0, i64 %478, i1 false), !tbaa !122
+  %477 = shl i32 %468, 1
+  %478 = and i32 %477, 6
+  %narrow.i.i = add nuw nsw i32 %478, 2
+  %479 = zext nneg i32 %narrow.i.i to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %11, i8 0, i64 %479, i1 false), !tbaa !122
   %.pre.i.i = add nuw nsw i32 %469, 1
   br label %.split32.us.i.i
 

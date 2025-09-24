@@ -18397,19 +18397,19 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %303
 
 .lr.ph.i243:                                      ; preds = %.lr.ph.i243, %.lr.ph.preheader.i241
   %indvars.iv.i244 = phi i64 [ 0, %.lr.ph.preheader.i241 ], [ %indvars.iv.next.i246, %.lr.ph.i243 ]
-  %.0231.i245 = phi i32 [ 1, %.lr.ph.preheader.i241 ], [ %318, %.lr.ph.i243 ]
-  %316 = getelementptr inbounds nuw i32, ptr %.sroa.0360.0615, i64 %indvars.iv.i244
-  %317 = load i32, ptr %316, align 4, !tbaa !16
-  %318 = mul nsw i32 %317, %.0231.i245
+  %.0231.i245 = phi i32 [ 1, %.lr.ph.preheader.i241 ], [ %319, %.lr.ph.i243 ]
+  %317 = getelementptr inbounds nuw i32, ptr %.sroa.0360.0615, i64 %indvars.iv.i244
+  %318 = load i32, ptr %317, align 4, !tbaa !16
+  %319 = mul nsw i32 %318, %.0231.i245
   %indvars.iv.next.i246 = add nuw nsw i64 %indvars.iv.i244, 1
   %exitcond.not.i247 = icmp eq i64 %indvars.iv.next.i246, %wide.trip.count.i242
   br i1 %exitcond.not.i247, label %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit250.loopexit, label %.lr.ph.i243, !llvm.loop !116
 
-_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit250.loopexit: ; preds = %.lr.ph.i243
+_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit250.sink.split: ; preds = %.lr.ph.i243
   %319 = mul nsw i32 %315, %276
   br label %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit250
 
-_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit250: ; preds = %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit250.loopexit, %.preheader.i239.thread, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
+_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit250: ; preds = %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit250.sink.split, %.preheader.i239.thread, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %320 = phi i32 [ 0, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ], [ %276, %.preheader.i239.thread ], [ %319, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit250.loopexit ]
   %.024.i248 = phi i32 [ 0, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ], [ 1, %.preheader.i239.thread ], [ %318, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit250.loopexit ]
   store i32 %.024.i248, ptr %114, align 4, !tbaa !16

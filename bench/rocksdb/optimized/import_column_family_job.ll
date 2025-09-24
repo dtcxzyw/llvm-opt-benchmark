@@ -16862,44 +16862,44 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %264 = getelementptr inbounds nuw i8, ptr %.sroa.016.1.i.i, i64 64
-  br i1 %263, label %253, label %.preheader.i.i, !llvm.loop !788
+  br i1 %263, label %253, label %.preheader.i.i.preheader, !llvm.loop !788
 
-.preheader.i.i:                                   ; preds = %253, %.preheader.i.i
+.preheader.i.i.preheader:                         ; preds = %253, %.preheader.i.i
   %.sroa.013.0.pn.i.i = phi ptr [ %.sroa.013.1.i.i, %.preheader.i.i ], [ %.sroa.013.0.i.i, %253 ]
   %.sroa.013.1.i.i = getelementptr inbounds i8, ptr %.sroa.013.0.pn.i.i, i64 -64
   %.val.val.i16.i = load ptr, ptr %30, align 8, !tbaa !97
-  %265 = getelementptr i8, ptr %.val.val.i16.i, i64 72
-  %.val.val.val.i17.i = load ptr, ptr %265, align 8, !tbaa !168
+  %266 = getelementptr i8, ptr %.val.val.i16.i, i64 72
+  %.val.val.val.i17.i = load ptr, ptr %266, align 8, !tbaa !168
   %.val1.i9.i.i = load ptr, ptr %0, align 8, !tbaa !11
   %.val2.i10.i.i = load i64, ptr %42, align 8, !tbaa !22
   %.val3.i11.i.i = load ptr, ptr %.sroa.013.1.i.i, align 8, !tbaa !11
-  %266 = getelementptr i8, ptr %.sroa.013.0.pn.i.i, i64 -56
-  %.val4.i12.i.i = load i64, ptr %266, align 8, !tbaa !22
-  %267 = getelementptr inbounds nuw i8, ptr %.val.val.val.i17.i, i64 32
+  %267 = getelementptr i8, ptr %.sroa.013.0.pn.i.i, i64 -56
+  %.val4.i12.i.i = load i64, ptr %267, align 8, !tbaa !22
+  %268 = getelementptr inbounds nuw i8, ptr %.val.val.val.i17.i, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %268 = add i64 %.val2.i10.i.i, -8
+  %269 = add i64 %.val2.i10.i.i, -8
   store ptr %.val1.i9.i.i, ptr %8, align 8
-  store i64 %268, ptr %45, align 8
+  store i64 %269, ptr %45, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %269 = add i64 %.val4.i12.i.i, -8
+  %270 = add i64 %.val4.i12.i.i, -8
   store ptr %.val3.i11.i.i, ptr %9, align 8
-  store i64 %269, ptr %46, align 8
-  %270 = load ptr, ptr %267, align 8, !tbaa !171
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 16
-  %272 = load ptr, ptr %271, align 8
-  %273 = call noundef i32 %272(ptr noundef nonnull align 8 dereferenceable(8) %267, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
-  %274 = icmp slt i32 %273, 0
+  store i64 %270, ptr %46, align 8
+  %271 = load ptr, ptr %268, align 8, !tbaa !171
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 16
+  %273 = load ptr, ptr %272, align 8
+  %274 = call noundef i32 %272(ptr noundef nonnull align 8 dereferenceable(8) %268, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %275 = icmp slt i32 %274, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %274, label %.preheader.i.i, label %275, !llvm.loop !789
+  br i1 %275, label %.preheader.i.i, label %276, !llvm.loop !789
 
-275:                                              ; preds = %.preheader.i.i
+276:                                              ; preds = %.preheader.i.i
   %276 = getelementptr i8, ptr %.sroa.016.1.i.i, i64 8
   %277 = getelementptr i8, ptr %.sroa.013.0.pn.i.i, i64 -56
   %278 = icmp ult ptr %.sroa.016.1.i.i, %.sroa.013.1.i.i
   br i1 %278, label %279, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb21ImportColumnFamilyJob26ColumnFamilyIngestFileInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_7PrepareEmPNS2_12SuperVersionEE3$_0EEET_SG_SG_T0_.exit"
 
-279:                                              ; preds = %275
+279:                                              ; preds = %276
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %47, ptr %5, align 8, !tbaa !21
   %280 = load ptr, ptr %.sroa.016.1.i.i, align 8, !tbaa !11
@@ -17281,7 +17281,7 @@ _ZSt4swapIN7rocksdb21ImportColumnFamilyJob26ColumnFamilyIngestFileInfoEENSt9enab
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %252, !llvm.loop !790
 
-"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb21ImportColumnFamilyJob26ColumnFamilyIngestFileInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_7PrepareEmPNS2_12SuperVersionEE3$_0EEET_SG_SG_T0_.exit": ; preds = %275
+"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb21ImportColumnFamilyJob26ColumnFamilyIngestFileInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_7PrepareEmPNS2_12SuperVersionEE3$_0EEET_SG_SG_T0_.exit": ; preds = %276
   call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN7rocksdb21ImportColumnFamilyJob26ColumnFamilyIngestFileInfoESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_7PrepareEmPNS2_12SuperVersionEE3$_0EEEvT_SG_T0_T1_"(ptr nonnull %.sroa.016.1.i.i, ptr %storemerge59169, i64 noundef %200, ptr nonnull %3)
   %404 = ptrtoint ptr %.sroa.016.1.i.i to i64
   %405 = sub i64 %404, %24

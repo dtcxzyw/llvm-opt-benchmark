@@ -184,31 +184,31 @@ define internal double @AccumulateSSIM(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %8, label %.preheader96.lr.ph, label %.preheader95
 
 .preheader96.lr.ph:                               ; preds = %6
-  %9 = icmp sgt i32 %4, 0
-  br i1 %9, label %.preheader96.us, label %.preheader95
+  %12 = icmp sgt i32 %4, 0
+  br i1 %12, label %.preheader96.us, label %.preheader95
 
 .preheader96.us:                                  ; preds = %.preheader96.lr.ph, %._crit_edge.us
-  %.079100.us = phi i32 [ %15, %._crit_edge.us ], [ 0, %.preheader96.lr.ph ]
-  %.08299.us = phi double [ %13, %._crit_edge.us ], [ 0.000000e+00, %.preheader96.lr.ph ]
-  br label %10
+  %.079100.us = phi i32 [ %18, %._crit_edge.us ], [ 0, %.preheader96.lr.ph ]
+  %.08299.us = phi double [ %16, %._crit_edge.us ], [ 0.000000e+00, %.preheader96.lr.ph ]
+  br label %13
 
-10:                                               ; preds = %.preheader96.us, %10
-  %.098.us = phi i32 [ 0, %.preheader96.us ], [ %14, %10 ]
-  %.18397.us = phi double [ %.08299.us, %.preheader96.us ], [ %13, %10 ]
-  %11 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !14
-  %12 = tail call double %11(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.098.us, i32 noundef %.079100.us, i32 noundef %4, i32 noundef %5) #6
-  %13 = fadd double %.18397.us, %12
-  %14 = add nuw nsw i32 %.098.us, 1
-  %exitcond.not = icmp eq i32 %14, %4
-  br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !17
+13:                                               ; preds = %.preheader96.us, %13
+  %.098.us = phi i32 [ 0, %.preheader96.us ], [ %17, %10 ]
+  %.18397.us = phi double [ %.08299.us, %.preheader96.us ], [ %16, %10 ]
+  %14 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !14
+  %15 = tail call double %11(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.098.us, i32 noundef %.079100.us, i32 noundef %4, i32 noundef %5) #6
+  %16 = fadd double %.18397.us, %15
+  %17 = add nuw nsw i32 %.098.us, 1
+  %exitcond.not = icmp eq i32 %17, %4
+  br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !17
 
-._crit_edge.us:                                   ; preds = %10
-  %15 = add nuw nsw i32 %.079100.us, 1
-  %exitcond141.not = icmp eq i32 %15, %7
+._crit_edge.us:                                   ; preds = %13
+  %18 = add nuw nsw i32 %.079100.us, 1
+  %exitcond141.not = icmp eq i32 %18, %7
   br i1 %exitcond141.not, label %.preheader95, label %.preheader96.us, !llvm.loop !18
 
 .preheader95:                                     ; preds = %._crit_edge.us, %.preheader96.lr.ph, %6
-  %.082.lcssa = phi double [ 0.000000e+00, %6 ], [ 0.000000e+00, %.preheader96.lr.ph ], [ %13, %._crit_edge.us ]
+  %.082.lcssa = phi double [ 0.000000e+00, %6 ], [ 0.000000e+00, %.preheader96.lr.ph ], [ %16, %._crit_edge.us ]
   %.079.lcssa = phi i32 [ 0, %6 ], [ %7, %.preheader96.lr.ph ], [ %7, %._crit_edge.us ]
   %16 = tail call i32 @llvm.smin.i32(i32 %4, i32 3)
   %17 = add i32 %4, -4
@@ -275,7 +275,7 @@ define internal double @AccumulateSSIM(ptr noundef %0, i32 noundef %1, ptr nound
   %36 = mul nsw i64 %34, %22
   %37 = zext nneg i32 %.1.lcssa to i64
   %invariant.gep = getelementptr i8, ptr %0, i64 %35
-  %invariant.gep168 = getelementptr i8, ptr %2, i64 %36
+  %invariant.gep164 = getelementptr i8, ptr %2, i64 %36
   br label %44
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -304,8 +304,8 @@ define internal double @AccumulateSSIM(ptr noundef %0, i32 noundef %1, ptr nound
   %45 = add nsw i64 %indvars.iv, -3
   %46 = load ptr, ptr @VP8SSIMGet, align 8, !tbaa !14
   %gep = getelementptr i8, ptr %invariant.gep, i64 %45
-  %gep169 = getelementptr i8, ptr %invariant.gep168, i64 %45
-  %47 = tail call double %46(ptr noundef %gep, i32 noundef %1, ptr noundef %gep169, i32 noundef %3) #6
+  %gep165 = getelementptr i8, ptr %invariant.gep164, i64 %45
+  %47 = tail call double %46(ptr noundef %gep, i32 noundef %1, ptr noundef %gep165, i32 noundef %3) #6
   %48 = fadd double %.486107, %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

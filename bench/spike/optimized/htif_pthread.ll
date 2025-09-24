@@ -1136,24 +1136,24 @@ _ZStplRKSt15_Deque_iteratorIcRcPcEl.exit.thread128: ; preds = %134
   br label %.lr.ph.i.i
 
 _ZStplRKSt15_Deque_iteratorIcRcPcEl.exit:         ; preds = %125
-  %140 = ashr i64 %132, 6
-  %.idx = and i64 %140, -8
-  %141 = getelementptr inbounds i8, ptr %126, i64 %.idx
-  %142 = load ptr, ptr %141, align 8, !tbaa !98, !noalias !211
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 512
-  %144 = and i64 %132, 511
-  %145 = getelementptr inbounds nuw i8, ptr %142, i64 %144
+  %143 = ashr i64 %132, 6
+  %.idx = and i64 %143, -8
+  %144 = getelementptr inbounds i8, ptr %126, i64 %.idx
+  %145 = load ptr, ptr %144, align 8, !tbaa !98, !noalias !211
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 512
+  %147 = and i64 %132, 511
+  %148 = getelementptr inbounds nuw i8, ptr %145, i64 %147
   br label %_ZNSt5dequeIcSaIcEE17_M_erase_at_beginESt15_Deque_iteratorIcRcPcE.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZStplRKSt15_Deque_iteratorIcRcPcEl.exit.thread128, %.lr.ph.i.i
-  %.06.i.i = phi ptr [ %147, %.lr.ph.i.i ], [ %126, %_ZStplRKSt15_Deque_iteratorIcRcPcEl.exit.thread128 ]
-  %146 = load ptr, ptr %.06.i.i, align 8, !tbaa !98
-  call void @_ZdlPvm(ptr noundef %146, i64 noundef 512) #19
-  %147 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
-  %148 = icmp ult ptr %147, %138
-  br i1 %148, label %.lr.ph.i.i, label %_ZNSt5dequeIcSaIcEE17_M_erase_at_beginESt15_Deque_iteratorIcRcPcE.exit.loopexit, !llvm.loop !99
+  %.06.i.i = phi ptr [ %150, %.lr.ph.i.i ], [ %126, %_ZStplRKSt15_Deque_iteratorIcRcPcEl.exit.thread128 ]
+  %149 = load ptr, ptr %.06.i.i, align 8, !tbaa !98
+  call void @_ZdlPvm(ptr noundef %149, i64 noundef 512) #19
+  %150 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
+  %151 = icmp ult ptr %150, %138
+  br i1 %151, label %.lr.ph.i.i, label %_ZNSt5dequeIcSaIcEE17_M_erase_at_beginESt15_Deque_iteratorIcRcPcE.exit, !llvm.loop !99
 
-_ZNSt5dequeIcSaIcEE17_M_erase_at_beginESt15_Deque_iteratorIcRcPcE.exit.loopexit: ; preds = %.lr.ph.i.i
+_ZNSt5dequeIcSaIcEE17_M_erase_at_beginESt15_Deque_iteratorIcRcPcE.exit: ; preds = %.lr.ph.i.i
   %149 = getelementptr inbounds nuw i8, ptr %139, i64 512
   %150 = and i64 %132, 511
   %151 = getelementptr inbounds nuw i8, ptr %139, i64 %150
@@ -1244,24 +1244,24 @@ _ZStmiRKSt15_Deque_iteratorIcRcPcEl.exit.thread130: ; preds = %168
   br label %.lr.ph.i.i6
 
 _ZStmiRKSt15_Deque_iteratorIcRcPcEl.exit:         ; preds = %176
-  %182 = lshr i64 %174, 6
-  %.idx90 = and i64 %182, 144115188075855864
-  %183 = getelementptr inbounds nuw i8, ptr %169, i64 %.idx90
-  %184 = load ptr, ptr %183, align 8, !tbaa !98, !noalias !229
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 512
-  %186 = and i64 %174, 511
-  %187 = getelementptr inbounds nuw i8, ptr %184, i64 %186
+  %185 = lshr i64 %174, 6
+  %.idx90 = and i64 %185, 144115188075855864
+  %186 = getelementptr inbounds nuw i8, ptr %169, i64 %.idx90
+  %187 = load ptr, ptr %186, align 8, !tbaa !98, !noalias !229
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 512
+  %189 = and i64 %174, 511
+  %190 = getelementptr inbounds nuw i8, ptr %187, i64 %189
   br label %_ZNSt5dequeIcSaIcEE15_M_erase_at_endESt15_Deque_iteratorIcRcPcE.exit
 
 .lr.ph.i.i6:                                      ; preds = %_ZStmiRKSt15_Deque_iteratorIcRcPcEl.exit.thread130, %.lr.ph.i.i6
   %.06.i.pn.i = phi ptr [ %.06.i.i7, %.lr.ph.i.i6 ], [ %180, %_ZStmiRKSt15_Deque_iteratorIcRcPcEl.exit.thread130 ]
   %.06.i.i7 = getelementptr inbounds nuw i8, ptr %.06.i.pn.i, i64 8
-  %188 = load ptr, ptr %.06.i.i7, align 8, !tbaa !98
-  call void @_ZdlPvm(ptr noundef %188, i64 noundef 512) #19
-  %189 = icmp ult ptr %.06.i.i7, %169
-  br i1 %189, label %.lr.ph.i.i6, label %_ZNSt5dequeIcSaIcEE15_M_erase_at_endESt15_Deque_iteratorIcRcPcE.exit.loopexit, !llvm.loop !99
+  %191 = load ptr, ptr %.06.i.i7, align 8, !tbaa !98
+  call void @_ZdlPvm(ptr noundef %191, i64 noundef 512) #19
+  %192 = icmp ult ptr %.06.i.i7, %169
+  br i1 %192, label %.lr.ph.i.i6, label %_ZNSt5dequeIcSaIcEE15_M_erase_at_endESt15_Deque_iteratorIcRcPcE.exit, !llvm.loop !99
 
-_ZNSt5dequeIcSaIcEE15_M_erase_at_endESt15_Deque_iteratorIcRcPcE.exit.loopexit: ; preds = %.lr.ph.i.i6
+_ZNSt5dequeIcSaIcEE15_M_erase_at_endESt15_Deque_iteratorIcRcPcE.exit: ; preds = %.lr.ph.i.i6
   %190 = getelementptr inbounds nuw i8, ptr %181, i64 512
   %191 = and i64 %174, 511
   %192 = getelementptr inbounds nuw i8, ptr %181, i64 %191

@@ -3944,29 +3944,29 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
   br i1 %.not56, label %.preheader49, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %28
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  br label %33
 
-.preheader49:                                     ; preds = %28, %8
-  %27 = icmp ult i64 %9, %1
-  br i1 %27, label %.lr.ph55, label %_ZN5folly6detail14ScopeGuardImplIZNS_17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultISA_EEE9new_arrayEmRPNSD_5arrayEEUlvE_Lb1EED2Ev.exit
+.preheader49:                                     ; preds = %33, %8
+  %32 = icmp ult i64 %9, %1
+  br i1 %32, label %.lr.ph55, label %_ZN5folly6detail14ScopeGuardImplIZNS_17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultISA_EEE9new_arrayEmRPNSD_5arrayEEUlvE_Lb1EED2Ev.exit
 
-28:                                               ; preds = %.lr.ph, %28
-  %.03950 = phi i64 [ 0, %.lr.ph ], [ %32, %28 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %.03950
-  %30 = load ptr, ptr %29, align 8, !tbaa !90
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %.03950
-  store ptr %30, ptr %31, align 8, !tbaa !90
-  %32 = add nuw i64 %.03950, 1
-  %exitcond.not = icmp eq i64 %32, %9
-  br i1 %exitcond.not, label %.preheader49, label %28, !llvm.loop !220
+33:                                               ; preds = %.lr.ph, %33
+  %.03950 = phi i64 [ 0, %.lr.ph ], [ %37, %28 ]
+  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %.03950
+  %35 = load ptr, ptr %34, align 8, !tbaa !90
+  %36 = getelementptr inbounds nuw ptr, ptr %25, i64 %.03950
+  store ptr %35, ptr %36, align 8, !tbaa !90
+  %37 = add nuw i64 %.03950, 1
+  %exitcond.not = icmp eq i64 %37, %9
+  br i1 %exitcond.not, label %.preheader49, label %33, !llvm.loop !220
 
 .lr.ph55:                                         ; preds = %.preheader49
-  %33 = shl i64 %9, 3
-  %34 = getelementptr i8, ptr %23, i64 %33
-  %scevgep = getelementptr i8, ptr %34, i64 16
-  %35 = sub i64 %10, %33
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %35, i1 false), !tbaa !90
+  %38 = shl i64 %9, 3
+  %39 = getelementptr i8, ptr %23, i64 %38
+  %scevgep = getelementptr i8, ptr %39, i64 16
+  %40 = sub i64 %10, %38
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %40, i1 false), !tbaa !90
   %36 = getelementptr inbounds nuw ptr, ptr %25, i64 %1
   %37 = ptrtoint ptr %36 to i64
   %38 = add i64 %37, 15
@@ -5079,7 +5079,7 @@ define linkonce_odr void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull
   %38 = load i32, ptr %37, align 4, !tbaa !64
   %39 = add i32 %38, 1371501266
   store i32 %39, ptr %37, align 4, !tbaa !64
-  %40 = getelementptr inbounds nuw i32, ptr %1, i64 %34
+  %40 = getelementptr inbounds nuw i32, ptr %1, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !64
   %42 = add i32 %41, %36
   store i32 %42, ptr %40, align 4, !tbaa !64
@@ -5093,7 +5093,7 @@ define linkonce_odr void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull
   br label %.lr.ph
 
 .preheader129:                                    ; preds = %.lr.ph, %30
-  %.pre-phi = phi i64 [ 1, %30 ], [ %43, %.lr.ph ]
+  %.pre-phi = phi i64 [ 1, %35 ], [ %43, %.lr.ph ]
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %.pre-phi, i64 %12)
   %44 = icmp ugt i64 %12, %.pre-phi
   br i1 %44, label %.lr.ph133, label %.preheader

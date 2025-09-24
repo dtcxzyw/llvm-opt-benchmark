@@ -4301,44 +4301,44 @@ _ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %1
   %176 = uitofp nneg i32 %49 to float
   %177 = fpext float %176 to double
   %wide.trip.count.i = zext nneg i32 %49 to i64
-  br label %178
+  br label %179
 
-178:                                              ; preds = %178, %.lr.ph.i
+179:                                              ; preds = %179, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %178 ]
-  %179 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %180 = uitofp nneg i32 %179 to float
-  %181 = fdiv float %180, 0x3FF9E377A0000000
-  %182 = call noundef float @llvm.floor.f32(float %181)
-  %183 = fsub float %181, %182
-  %184 = fpext float %183 to double
-  %185 = fmul double %184, 0x401921FB54442D18
-  %186 = fptrunc double %185 to float
-  %187 = shl i32 %179, 1
-  %188 = or disjoint i32 %187, 1
-  %189 = uitofp nneg i32 %188 to double
-  %190 = fdiv double %189, %177
-  %191 = fsub double 1.000000e+00, %190
-  %192 = fptrunc double %191 to float
-  %193 = fneg float %192
-  %194 = call float @llvm.fmuladd.f32(float %193, float %192, float 1.000000e+00)
-  %195 = fcmp ogt float %194, 0.000000e+00
-  %.sroa.speculated15.i.i = select i1 %195, float %194, float 0.000000e+00
-  %196 = fcmp olt float %.sroa.speculated15.i.i, 1.000000e+00
-  %.sroa.speculated.i.i = select i1 %196, float %.sroa.speculated15.i.i, float 1.000000e+00
+  %180 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %181 = uitofp nneg i32 %180 to float
+  %182 = fdiv float %181, 0x3FF9E377A0000000
+  %183 = call noundef float @llvm.floor.f32(float %182)
+  %184 = fsub float %182, %183
+  %185 = fpext float %184 to double
+  %186 = fmul double %185, 0x401921FB54442D18
+  %187 = fptrunc double %186 to float
+  %188 = shl i32 %180, 1
+  %189 = or disjoint i32 %188, 1
+  %190 = uitofp nneg i32 %189 to double
+  %191 = fdiv double %190, %177
+  %192 = fsub double 1.000000e+00, %191
+  %193 = fptrunc double %192 to float
+  %194 = fneg float %193
+  %195 = call float @llvm.fmuladd.f32(float %194, float %193, float 1.000000e+00)
+  %196 = fcmp ogt float %195, 0.000000e+00
+  %.sroa.speculated15.i.i = select i1 %196, float %195, float 0.000000e+00
+  %197 = fcmp olt float %.sroa.speculated15.i.i, 1.000000e+00
+  %.sroa.speculated.i.i = select i1 %197, float %.sroa.speculated15.i.i, float 1.000000e+00
   %sqrt.i.i = call float @llvm.sqrt.f32(float %.sroa.speculated.i.i)
-  %197 = call noundef float @cosf(float noundef %186) #28
-  %198 = fmul float %197, %sqrt.i.i
-  %199 = call noundef float @sinf(float noundef %186) #28
-  %200 = fmul float %199, %sqrt.i.i
-  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %198, i64 0
-  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %200, i64 1
-  %201 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %175, i64 %indvars.iv.i
-  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %201, align 4
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %201, i64 8
-  store float %192, ptr %.sroa.22.0..sroa_idx.i, align 4
+  %198 = call noundef float @cosf(float noundef %187) #28
+  %199 = fmul float %198, %sqrt.i.i
+  %200 = call noundef float @sinf(float noundef %187) #28
+  %201 = fmul float %200, %sqrt.i.i
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %199, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %201, i64 1
+  %202 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %175, i64 %indvars.iv.i
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %202, align 4
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %202, i64 8
+  store float %193, ptr %.sroa.22.0..sroa_idx.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit.loopexit, label %178, !llvm.loop !29
+  br i1 %exitcond.not.i, label %_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit.loopexit, label %179, !llvm.loop !29
 
 _ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit.loopexit: ; preds = %178
   %202 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %175, i64 %170

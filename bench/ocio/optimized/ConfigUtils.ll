@@ -1749,14 +1749,14 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
   %.sroa.13.0 = phi i64 [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %21, %.noexc26 ]
   %.sroa.030.0 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %15, %.noexc26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %22 = lshr i64 %13, 2
-  invoke void @_ZN19OpenColorIO_v2_5dev15PackedImageDescC1EPvllNS_15ChannelOrderingE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %9, i64 noundef %22, i64 noundef 1, i32 noundef 0)
+  %21 = lshr i64 %13, 2
+  invoke void @_ZN19OpenColorIO_v2_5dev15PackedImageDescC1EPvllNS_15ChannelOrderingE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %9, i64 noundef %21, i64 noundef 1, i32 noundef 0)
           to label %23 unwind label %80
 
-23:                                               ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit
+22:                                               ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %24 = load ptr, ptr %7, align 8, !tbaa !47
-  %25 = load ptr, ptr %1, align 8, !tbaa !50
+  %23 = load ptr, ptr %7, align 8, !tbaa !47
+  %24 = load ptr, ptr %1, align 8, !tbaa !50
   %26 = ptrtoint ptr %24 to i64
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
@@ -1767,16 +1767,16 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
 
 31:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %32 = load ptr, ptr %0, align 8, !tbaa !53
-  invoke void @_ZNK19OpenColorIO_v2_5dev9Processor24getOptimizedCPUProcessorENS_17OptimizationFlagsE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.10") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %32, i64 noundef 0)
+  %31 = load ptr, ptr %0, align 8, !tbaa !53
+  invoke void @_ZNK19OpenColorIO_v2_5dev9Processor24getOptimizedCPUProcessorENS_17OptimizationFlagsE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.10") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %31, i64 noundef 0)
           to label %33 unwind label %41
 
-33:                                               ; preds = %31
-  %34 = load ptr, ptr %6, align 8, !tbaa !56
-  invoke void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor5applyERKNS_9ImageDescERS1_(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %6, align 8, !tbaa !56
+  invoke void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor5applyERKNS_9ImageDescERS1_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %.preheader unwind label %43
 
-.preheader:                                       ; preds = %33
+.preheader:                                       ; preds = %32
   %35 = ptrtoint ptr %.sroa.030.0 to i64
   %36 = sub i64 %.sroa.13.0, %35
   %.not43 = icmp eq i64 %.sroa.13.0, %35
@@ -1787,7 +1787,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
   %38 = load ptr, ptr %1, align 8, !tbaa !50
   br label %45
 
-39:                                               ; preds = %23
+39:                                               ; preds = %22
   %40 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -1797,7 +1797,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
           cleanup
   br label %79
 
-43:                                               ; preds = %33
+43:                                               ; preds = %32
   %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12CPUProcessorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #23

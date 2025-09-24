@@ -1889,15 +1889,15 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn12LRNLayerImpl8getFLOPSERKSt6
 
 .lr.ph.i39.us:                                    ; preds = %.lr.ph.i39.us.preheader, %.lr.ph.i39.us
   %indvars.iv.i40.us = phi i64 [ %indvars.iv.next.i42.us, %.lr.ph.i39.us ], [ 2, %.lr.ph.i39.us.preheader ]
-  %.0231.i41.us = phi i32 [ %42, %.lr.ph.i39.us ], [ 1, %.lr.ph.i39.us.preheader ]
-  %40 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i40.us
-  %41 = load i32, ptr %40, align 4, !tbaa !76
-  %42 = mul nsw i32 %41, %.0231.i41.us
+  %.0231.i41.us = phi i32 [ %43, %.lr.ph.i39.us ], [ 1, %.lr.ph.i39.us.preheader ]
+  %41 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i40.us
+  %42 = load i32, ptr %41, align 4, !tbaa !76
+  %43 = mul nsw i32 %42, %.0231.i41.us
   %indvars.iv.next.i42.us = add nuw nsw i64 %indvars.iv.i40.us, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next.i42.us, %wide.trip.count109
-  br i1 %exitcond110.not, label %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit43.us.loopexit, label %.lr.ph.i39.us, !llvm.loop !78
+  br i1 %exitcond110.not, label %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit43.us, label %.lr.ph.i39.us, !llvm.loop !78
 
-_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit43.us.loopexit: ; preds = %.lr.ph.i39.us
+_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit43.us: ; preds = %.lr.ph.i39.us
   %43 = mul nsw i32 %39, %28
   br label %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit43.us
 

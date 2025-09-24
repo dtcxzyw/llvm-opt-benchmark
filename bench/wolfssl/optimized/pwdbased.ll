@@ -508,8 +508,8 @@ define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly captures(address_is_null) %
   br i1 %63, label %.lr.ph, label %.preheader175, !llvm.loop !14
 
 .preheader173:                                    ; preds = %.lr.ph178, %.preheader175
-  %.not223 = icmp eq i32 %6, 0
-  br i1 %.not223, label %.thread164, label %.lr.ph186
+  %.not222 = icmp eq i32 %6, 0
+  br i1 %.not222, label %.thread164, label %.lr.ph186
 
 .lr.ph186:                                        ; preds = %.preheader173
   %64 = icmp sgt i32 %5, 1
@@ -530,7 +530,7 @@ define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly captures(address_is_null) %
   %72 = icmp samesign ult i64 %indvars.iv.next196, %56
   br i1 %72, label %.lr.ph178, label %.preheader173, !llvm.loop !15
 
-73:                                               ; preds = %.lr.ph186, %.thread159.thread219
+73:                                               ; preds = %.lr.ph186, %.thread159.thread218
   %.0119185 = phi ptr [ %0, %.lr.ph186 ], [ %137, %.thread159.thread219 ]
   %.0122184 = phi i32 [ %6, %.lr.ph186 ], [ %138, %.thread159.thread219 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -617,7 +617,7 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   br i1 %.not148, label %.preheader, label %.thread164.sink.split
 
 .preheader:                                       ; preds = %103
-  br i1 %.not192, label %.thread159.thread219, label %.lr.ph181
+  br i1 %.not192, label %.thread159.thread218, label %.lr.ph181
 
 .lr.ph181:                                        ; preds = %.preheader, %130
   %.3131180 = phi i32 [ %132, %130 ], [ 0, %.preheader ]
@@ -685,10 +685,10 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
 
 .thread159:                                       ; preds = %130
   %134 = icmp slt i32 %.7.fr, 0
-  br i1 %134, label %.thread164.sink.split, label %.thread159.thread219
+  br i1 %134, label %.thread164.sink.split, label %.thread159.thread218
 
-.thread159.thread219:                             ; preds = %.preheader, %.thread159
-  %.5221 = phi i32 [ %.7.fr, %.thread159 ], [ 0, %.preheader ]
+.thread159.thread218:                             ; preds = %.preheader, %.thread159
+  %.5220 = phi i32 [ %.7.fr, %.thread159 ], [ 0, %.preheader ]
   %135 = call noundef i32 @llvm.umin.i32(i32 %.0122184, i32 range(i32 -2147483647, -2147483648) %25)
   %136 = zext nneg i32 %135 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0119185, ptr nonnull align 16 %13, i64 %136, i1 false)
@@ -703,8 +703,8 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   call void @sp_clear(ptr noundef nonnull %15) #6
   br label %.thread164
 
-.thread164:                                       ; preds = %.thread159.thread219, %DoPKCS12Hash.exit, %.thread164.sink.split, %.preheader173
-  %.1127 = phi i32 [ %.fr145, %.preheader173 ], [ %.1127.ph, %.thread164.sink.split ], [ %.5221, %.thread159.thread219 ], [ %.0.i, %DoPKCS12Hash.exit ]
+.thread164:                                       ; preds = %.thread159.thread218, %DoPKCS12Hash.exit, %.thread164.sink.split, %.preheader173
+  %.1127 = phi i32 [ %.fr145, %.preheader173 ], [ %.1127.ph, %.thread164.sink.split ], [ %.5220, %.thread159.thread219 ], [ %.0.i, %DoPKCS12Hash.exit ]
   br i1 %45, label %141, label %140
 
 140:                                              ; preds = %.thread164

@@ -42,11 +42,11 @@ define hidden i32 @internal_exr_apply_piz(ptr noundef %0) local_unnamed_addr #0 
   br i1 %25, label %.lr.ph198, label %._crit_edge199
 
 .lr.ph198:                                        ; preds = %20
-  %26 = load ptr, ptr %22, align 8, !tbaa !18
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre = load i16, ptr %28, align 8, !tbaa !19
+  %28 = load ptr, ptr %22, align 8, !tbaa !18
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre = load i16, ptr %30, align 8, !tbaa !19
   br label %87
 
 ._crit_edge199:                                   ; preds = %._crit_edge, %20
@@ -198,9 +198,9 @@ applyLut.exit:                                    ; preds = %.lr.ph25.i, %.prehe
   %89 = phi i16 [ %.pre, %.lr.ph198 ], [ %96, %._crit_edge ]
   %90 = phi i16 [ %.pre, %.lr.ph198 ], [ %97, %._crit_edge ]
   %.0139196 = phi i32 [ 0, %.lr.ph198 ], [ %98, %._crit_edge ]
-  %.0144195 = phi ptr [ %26, %.lr.ph198 ], [ %.1145.lcssa, %._crit_edge ]
+  %.0144195 = phi ptr [ %28, %.lr.ph198 ], [ %.1145.lcssa, %._crit_edge ]
   %.lcssa187193194 = phi i64 [ undef, %.lr.ph198 ], [ %.lcssa187, %._crit_edge ]
-  %91 = load i32, ptr %27, align 8, !tbaa !37
+  %91 = load i32, ptr %29, align 8, !tbaa !37
   %92 = add nsw i32 %91, %.0139196
   %93 = icmp sgt i16 %90, 0
   br i1 %93, label %.lr.ph.preheader, label %._crit_edge
@@ -229,7 +229,7 @@ applyLut.exit:                                    ; preds = %.lr.ph25.i, %.prehe
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %126 ]
   %.0141189 = phi ptr [ %94, %.lr.ph.preheader ], [ %.1142, %126 ]
   %.1145188 = phi ptr [ %.0144195, %.lr.ph.preheader ], [ %.2, %126 ]
-  %101 = load ptr, ptr %29, align 8, !tbaa !39
+  %101 = load ptr, ptr %31, align 8, !tbaa !39
   %102 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %101, i64 %indvars.iv
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 12
   %104 = load i32, ptr %103, align 4, !tbaa !40
@@ -268,7 +268,7 @@ applyLut.exit:                                    ; preds = %.lr.ph25.i, %.prehe
   %.0143 = getelementptr inbounds nuw i8, ptr %.0141189, i64 %.pn
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0143, ptr align 1 %.1145188, i64 %111, i1 false)
   %125 = getelementptr inbounds nuw i8, ptr %.1145188, i64 %111
-  %.pre223 = load i16, ptr %28, align 8, !tbaa !19
+  %.pre223 = load i16, ptr %30, align 8, !tbaa !19
   br label %126
 
 126:                                              ; preds = %120, %.lr.ph, %124
@@ -920,7 +920,7 @@ reverseLutFromBitmap.exit:                        ; preds = %.preheader.i, %.lr.
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %82
-  %94 = tail call i32 @llvm.smin.i32(i32 %86, i32 %88)
+  %95 = tail call i32 @llvm.smin.i32(i32 %86, i32 %88)
   %95 = mul i32 %86, %92
   %wide.trip.count = zext nneg i32 %92 to i64
   br label %102
@@ -930,7 +930,7 @@ reverseLutFromBitmap.exit:                        ; preds = %.preheader.i, %.lr.
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %._crit_edge.loopexit
-  %.pre-phi = phi i32 [ %.pre211, %.._crit_edge_crit_edge ], [ %95, %._crit_edge.loopexit ]
+  %96 = phi i32 [ %.pre211, %.._crit_edge_crit_edge ], [ %95, %._crit_edge.loopexit ]
   %96 = phi i16 [ %83, %.._crit_edge_crit_edge ], [ %.pre, %._crit_edge.loopexit ]
   %97 = mul i32 %.pre-phi, %88
   %98 = sext i32 %97 to i64
@@ -946,7 +946,7 @@ reverseLutFromBitmap.exit:                        ; preds = %.preheader.i, %.lr.
 
 103:                                              ; preds = %103, %102
   %.0.i = phi i32 [ 1, %102 ], [ %104, %103 ]
-  %.not.i172 = icmp sgt i32 %.0.i, %94
+  %.not.i172 = icmp sgt i32 %.0.i, %95
   %104 = shl i32 %.0.i, 1
   br i1 %.not.i172, label %105, label %103, !llvm.loop !68
 

@@ -607,14 +607,14 @@ define dso_local i32 @register_all_submodule_odb_as_alternates() local_unnamed_a
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
-  %2 = load ptr, ptr @added_submodule_odb_paths, align 8, !tbaa !55
-  %3 = getelementptr inbounds nuw %struct.string_list_item, ptr %2, i64 %indvars.iv
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
-  tail call void @add_to_alternates_memory(ptr noundef %4) #18
+  %3 = load ptr, ptr @added_submodule_odb_paths, align 8, !tbaa !55
+  %4 = getelementptr inbounds nuw %struct.string_list_item, ptr %3, i64 %indvars.iv
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  tail call void @add_to_alternates_memory(ptr noundef %5) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @added_submodule_odb_paths, i64 8), align 8, !tbaa !52
-  %6 = icmp ugt i64 %5, %indvars.iv.next
-  br i1 %6, label %.lr.ph, label %._crit_edge, !llvm.loop !58
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @added_submodule_odb_paths, i64 8), align 8, !tbaa !52
+  %7 = icmp ugt i64 %6, %indvars.iv.next
+  br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %7 = trunc i64 %1 to i32

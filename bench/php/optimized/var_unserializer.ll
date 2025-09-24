@@ -1529,16 +1529,16 @@ parse_uiv.exit715:                                ; preds = %.lr.ph.i711
   %408 = getelementptr inbounds nuw i8, ptr %248, i64 2
   %409 = load i8, ptr %408, align 1, !tbaa !46
   %410 = icmp eq i8 %409, 34
-  br i1 %410, label %.lr.ph.i747, label %zend_string_release_ex.exit691
+  br i1 %410, label %.lr.ph.i747.preheader, label %zend_string_release_ex.exit691
 
 411:                                              ; preds = %256
   %412 = getelementptr inbounds nuw i8, ptr %140, i64 3
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  br i1 %.not589, label %zend_string_release_ex.exit655, label %.lr.ph.i718
+  br i1 %.not589, label %zend_string_release_ex.exit655, label %.lr.ph.i718.preheader
 
-.lr.ph.i718:                                      ; preds = %411, %.lr.ph.i718
+.lr.ph.i718.preheader:                            ; preds = %411, %.lr.ph.i718
   %413 = phi i8 [ %419, %.lr.ph.i718 ], [ %77, %411 ]
   %.012.i719 = phi i64 [ %417, %.lr.ph.i718 ], [ 0, %411 ]
   %.0811.i720 = phi ptr [ %418, %.lr.ph.i718 ], [ %76, %411 ]
@@ -2874,7 +2874,7 @@ zval_ptr_dtor_str.exit702:                        ; preds = %987, %982, %980, %9
   %1034 = icmp eq i8 %1033, 59
   br i1 %1034, label %sub_0, label %zend_string_release_ex.exit691
 
-.lr.ph.i747:                                      ; preds = %407, %.lr.ph.i747
+.lr.ph.i747.preheader:                            ; preds = %407, %.lr.ph.i747
   %1035 = phi i8 [ %1041, %.lr.ph.i747 ], [ %138, %407 ]
   %.012.i748 = phi i64 [ %1039, %.lr.ph.i747 ], [ 0, %407 ]
   %.0811.i749 = phi ptr [ %1040, %.lr.ph.i747 ], [ %137, %407 ]

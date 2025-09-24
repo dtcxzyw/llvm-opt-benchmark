@@ -51,8 +51,8 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly ca
 
 13:                                               ; preds = %12, %19
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %19 ]
-  %.2131 = phi ptr [ %.160, %12 ], [ %20, %19 ]
-  %14 = load i8, ptr %.2131, align 1
+  %.2132 = phi ptr [ %.160, %12 ], [ %20, %19 ]
+  %14 = load i8, ptr %.2132, align 1
   %15 = or i8 %14, 32
   %16 = getelementptr inbounds nuw i8, ptr @.str, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1
@@ -60,7 +60,7 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly ca
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds nuw i8, ptr %.2131, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.2132, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.critedge.thread, label %13, !llvm.loop !8
@@ -73,12 +73,12 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly ca
   ]
 
 .critedge.thread:                                 ; preds = %19, %.critedge, %.critedge
-  %.2.lcssa186 = phi ptr [ %.2131, %.critedge ], [ %.2131, %.critedge ], [ %scevgep, %19 ]
+  %.2.lcssa187 = phi ptr [ %.2132, %.critedge ], [ %.2132, %.critedge ], [ %scevgep, %19 ]
   %.not69 = icmp eq ptr %1, null
   br i1 %.not69, label %23, label %22
 
 22:                                               ; preds = %.critedge.thread
-  store ptr %.2.lcssa186, ptr %1, align 8
+  store ptr %.2.lcssa187, ptr %1, align 8
   br label %23
 
 23:                                               ; preds = %.critedge.thread, %22
@@ -88,39 +88,39 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly ca
 25:                                               ; preds = %.critedge
   %26 = and i64 %indvars.iv, 4294967295
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds i8, ptr %.2131, i64 %27
+  %28 = getelementptr inbounds i8, ptr %.2132, i64 %27
   %29 = sub nsw i64 3, %26
-  %scevgep176 = getelementptr i8, ptr %.2131, i64 %29
+  %scevgep177 = getelementptr i8, ptr %.2132, i64 %29
   br label %30
 
 30:                                               ; preds = %25, %36
-  %indvars.iv174 = phi i64 [ 0, %25 ], [ %indvars.iv.next175, %36 ]
-  %.3133 = phi ptr [ %28, %25 ], [ %37, %36 ]
-  %31 = load i8, ptr %.3133, align 1
+  %indvars.iv175 = phi i64 [ 0, %25 ], [ %indvars.iv.next176, %36 ]
+  %.3134 = phi ptr [ %28, %25 ], [ %37, %36 ]
+  %31 = load i8, ptr %.3134, align 1
   %32 = or i8 %31, 32
-  %33 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %indvars.iv174
+  %33 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %indvars.iv175
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %32, %34
   br i1 %35, label %36, label %.critedge3.thread
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %.3133, i64 1
-  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
-  %exitcond178.not = icmp eq i64 %indvars.iv.next175, 3
-  br i1 %exitcond178.not, label %.critedge3, label %30, !llvm.loop !9
+  %37 = getelementptr inbounds nuw i8, ptr %.3134, i64 1
+  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
+  %exitcond179.not = icmp eq i64 %indvars.iv.next176, 3
+  br i1 %exitcond179.not, label %.critedge3, label %30, !llvm.loop !9
 
 .critedge3:                                       ; preds = %36
   %.not68 = icmp eq ptr %1, null
   br i1 %.not68, label %284, label %38
 
 38:                                               ; preds = %.critedge3
-  store ptr %scevgep176, ptr %1, align 8
+  store ptr %scevgep177, ptr %1, align 8
   br label %284
 
 .critedge3.thread:                                ; preds = %30
-  %39 = and i64 %indvars.iv174, 4294967295
+  %39 = and i64 %indvars.iv175, 4294967295
   %40 = sub nsw i64 0, %39
-  %41 = getelementptr inbounds i8, ptr %.3133, i64 %40
+  %41 = getelementptr inbounds i8, ptr %.3134, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 48
   br i1 %43, label %44, label %178
@@ -286,32 +286,32 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly ca
   br i1 %95, label %.lr.ph210.preheader.i, label %._crit_edge211.i
 
 .lr.ph210.preheader.i:                            ; preds = %94, %._crit_edge.thread.i
-  %.2160.lcssa246273.i = phi ptr [ %.2160.lcssa.i, %94 ], [ %.0158.i, %._crit_edge.thread.i ]
-  %.3114.in.lcssa247271.i = phi i8 [ %.3114.in.lcssa.i, %94 ], [ %.1112.in.i, %._crit_edge.thread.i ]
-  %.1106.lcssa249269.i = phi i32 [ %.1106.lcssa.i, %94 ], [ %.0105.i, %._crit_edge.thread.i ]
-  %.094.lcssa250267.i = phi i32 [ %.094.lcssa.i, %94 ], [ 0, %._crit_edge.thread.i ]
-  %.089.lcssa251266.i = phi x86_fp80 [ %.089.lcssa.i, %94 ], [ 0xK00000000000000000000, %._crit_edge.thread.i ]
-  %.284.lcssa252264.i = phi i64 [ %.284.lcssa.i, %94 ], [ %.082.i, %._crit_edge.thread.i ]
+  %spec.select133272.i = phi ptr [ %.2160.lcssa.i, %94 ], [ %.0158.i, %._crit_edge.thread.i ]
+  %.2160.lcssa246270.i = phi i8 [ %.3114.in.lcssa.i, %94 ], [ %.1112.in.i, %._crit_edge.thread.i ]
+  %.3114.in.lcssa247268.i = phi i32 [ %.1106.lcssa.i, %94 ], [ %.0105.i, %._crit_edge.thread.i ]
+  %.094.lcssa250266.i = phi i32 [ %.094.lcssa.i, %94 ], [ 0, %._crit_edge.thread.i ]
+  %.089.lcssa251265.i = phi x86_fp80 [ %.089.lcssa.i, %94 ], [ 0xK00000000000000000000, %._crit_edge.thread.i ]
+  %.080.lcssa253263.i = phi i64 [ %.284.lcssa.i, %94 ], [ %.082.i, %._crit_edge.thread.i ]
   %.080.lcssa253262.i = phi i64 [ %.080.lcssa.i, %94 ], [ 0, %._crit_edge.thread.i ]
   br label %.lr.ph210.i
 
 .lr.ph210.i:                                      ; preds = %.lr.ph210.i, %.lr.ph210.preheader.i
   %.2208.i = phi i64 [ %97, %.lr.ph210.i ], [ %.080.lcssa253262.i, %.lr.ph210.preheader.i ]
-  %.397207.i = phi i32 [ %96, %.lr.ph210.i ], [ %.094.lcssa250267.i, %.lr.ph210.preheader.i ]
+  %.397207.i = phi i32 [ %96, %.lr.ph210.i ], [ %.094.lcssa250266.i, %.lr.ph210.preheader.i ]
   %96 = shl i32 %.397207.i, 4
   %97 = add i64 %.2208.i, 1
   %exitcond.not.i = icmp eq i64 %97, 8
   br i1 %exitcond.not.i, label %._crit_edge211.i, label %.lr.ph210.i, !llvm.loop !13
 
 ._crit_edge211.i:                                 ; preds = %.lr.ph210.i, %94
-  %.2160.lcssa246272.i = phi ptr [ %.2160.lcssa.i, %94 ], [ %.2160.lcssa246273.i, %.lr.ph210.i ]
-  %.3114.in.lcssa247270.i = phi i8 [ %.3114.in.lcssa.i, %94 ], [ %.3114.in.lcssa247271.i, %.lr.ph210.i ]
-  %.1106.lcssa249268.i = phi i32 [ %.1106.lcssa.i, %94 ], [ %.1106.lcssa249269.i, %.lr.ph210.i ]
-  %.089.lcssa251265.i = phi x86_fp80 [ %.089.lcssa.i, %94 ], [ %.089.lcssa251266.i, %.lr.ph210.i ]
+  %spec.select133271.i = phi ptr [ %.2160.lcssa.i, %94 ], [ %spec.select133272.i, %.lr.ph210.i ]
+  %.2160.lcssa246269.i = phi i8 [ %.3114.in.lcssa.i, %94 ], [ %.2160.lcssa246270.i, %.lr.ph210.i ]
+  %.3114.in.lcssa247267.i = phi i32 [ %.1106.lcssa.i, %94 ], [ %.3114.in.lcssa247268.i, %.lr.ph210.i ]
+  %.089.lcssa251264.i = phi x86_fp80 [ %.089.lcssa.i, %94 ], [ %.089.lcssa251265.i, %.lr.ph210.i ]
   %.284.lcssa252263.i = phi i64 [ %.284.lcssa.i, %94 ], [ %.284.lcssa252264.i, %.lr.ph210.i ]
   %.080.lcssa253261.i = phi i64 [ %.080.lcssa.i, %94 ], [ %.080.lcssa253262.i, %.lr.ph210.i ]
   %.397.lcssa.i = phi i32 [ %.094.lcssa.i, %94 ], [ %96, %.lr.ph210.i ]
-  %.not125.i = icmp eq i32 %.1106.lcssa249268.i, 0
+  %.not125.i = icmp eq i32 %.3114.in.lcssa247267.i, 0
   %spec.select133.i = select i1 %.not125.i, i64 %.080.lcssa253261.i, i64 %.284.lcssa252263.i
   %98 = and i8 %.3114.in.lcssa247270.i, -33
   %99 = icmp eq i8 %98, 80
@@ -419,7 +419,7 @@ scanexp.exit.i:                                   ; preds = %.lr.ph.i.i, %110
 
 .lr.ph216.i:                                      ; preds = %.preheader.i, %.lr.ph216.i
   %.1215.i = phi i64 [ %143, %.lr.ph216.i ], [ %128, %.preheader.i ]
-  %.392214.i = phi x86_fp80 [ %.493.i, %.lr.ph216.i ], [ %.089.lcssa251265.i, %.preheader.i ]
+  %.392214.i = phi x86_fp80 [ %.493.i, %.lr.ph216.i ], [ %.089.lcssa251264.i, %.preheader.i ]
   %.498213.i = phi i32 [ %.599.i, %.lr.ph216.i ], [ %.397.lcssa.i, %.preheader.i ]
   %140 = fcmp oge x86_fp80 %.392214.i, 0xK3FFE8000000000000000
   %reass.add.i = shl nuw i32 %.498213.i, 1
@@ -434,7 +434,7 @@ scanexp.exit.i:                                   ; preds = %.lr.ph.i.i, %110
 
 ._crit_edge217.i:                                 ; preds = %.lr.ph216.i, %.preheader.i
   %.498.lcssa.i = phi i32 [ %.397.lcssa.i, %.preheader.i ], [ %.599.i, %.lr.ph216.i ]
-  %.392.lcssa.i = phi x86_fp80 [ %.089.lcssa251265.i, %.preheader.i ], [ %.493.i, %.lr.ph216.i ]
+  %.392.lcssa.i = phi x86_fp80 [ %.089.lcssa251264.i, %.preheader.i ], [ %.493.i, %.lr.ph216.i ]
   %.1.lcssa.i = phi i64 [ %128, %.preheader.i ], [ %143, %.lr.ph216.i ]
   %145 = zext nneg i32 %. to i64
   %narrow221.i = sub nsw i32 32, %.70
@@ -552,19 +552,19 @@ scalbnx.exit.i:                                   ; preds = %.lr.ph.split.i.i, %
   br i1 %186, label %.thread, label %ifallzero.exit.i.preheader, !llvm.loop !17
 
 ifallzero.exit.i.preheader:                       ; preds = %.thread
-  %.044.i136 = sext i8 %.0.in.i.i to i32
-  %isdigittmp.i137 = add nsw i32 %.044.i136, -48
-  %isdigit.i138 = icmp ult i32 %isdigittmp.i137, 10
-  br i1 %isdigit.i138, label %ifallzero.exitthread-pre-split.i.lr.ph, label %189, !llvm.loop !18
+  %.044.i137 = sext i8 %.0.in.i.i to i32
+  %isdigittmp.i138 = add nsw i32 %.044.i137, -48
+  %isdigit.i139 = icmp ult i32 %isdigittmp.i138, 10
+  br i1 %isdigit.i139, label %ifallzero.exitthread-pre-split.i.lr.ph, label %189, !llvm.loop !18
 
 ifallzero.exitthread-pre-split.i.lr.ph:           ; preds = %ifallzero.exit.i.preheader
   br label %ifallzero.exitthread-pre-split.i, !llvm.loop !18
 
 ifallzero.exitthread-pre-split.i:                 ; preds = %ifallzero.exitthread-pre-split.i.lr.ph, %ifallzero.exitthread-pre-split.i
   %187 = phi i64 [ 1, %ifallzero.exitthread-pre-split.i.lr.ph ], [ %188, %ifallzero.exitthread-pre-split.i ]
-  %storemerge63.i139 = phi ptr [ %.08.i.i, %ifallzero.exitthread-pre-split.i.lr.ph ], [ %storemerge63.i, %ifallzero.exitthread-pre-split.i ]
-  %.044.in.pr.i = load i8, ptr %storemerge63.i139, align 1
-  %storemerge63.i = getelementptr inbounds nuw i8, ptr %storemerge63.i139, i64 1
+  %storemerge63.i140 = phi ptr [ %.08.i.i, %ifallzero.exitthread-pre-split.i.lr.ph ], [ %storemerge63.i, %ifallzero.exitthread-pre-split.i ]
+  %.044.in.pr.i = load i8, ptr %storemerge63.i140, align 1
+  %storemerge63.i = getelementptr inbounds nuw i8, ptr %storemerge63.i140, i64 1
   %.044.i = sext i8 %.044.in.pr.i to i32
   %isdigittmp.i = add nsw i32 %.044.i, -48
   %isdigit.i = icmp ult i32 %isdigittmp.i, 10
@@ -576,11 +576,11 @@ ifallzero.exit.i._crit_edge:                      ; preds = %ifallzero.exitthrea
 
 189:                                              ; preds = %ifallzero.exit.i._crit_edge, %ifallzero.exit.i.preheader
   %.044.in.i.lcssa = phi i8 [ %.044.in.pr.i, %ifallzero.exit.i._crit_edge ], [ %.0.in.i.i, %ifallzero.exit.i.preheader ]
-  %.0101.i.lcssa = phi ptr [ %storemerge63.i139, %ifallzero.exit.i._crit_edge ], [ %.0.in.in.i.i, %ifallzero.exit.i.preheader ]
+  %.0101.i.lcssa = phi ptr [ %storemerge63.i140, %ifallzero.exit.i._crit_edge ], [ %.0.in.in.i.i, %ifallzero.exit.i.preheader ]
   %.035.i.lcssa = phi i64 [ %187, %ifallzero.exit.i._crit_edge ], [ 0, %ifallzero.exit.i.preheader ]
   %storemerge63.i.lcssa = phi ptr [ %storemerge63.i, %ifallzero.exit.i._crit_edge ], [ %.08.i.i, %ifallzero.exit.i.preheader ]
-  %.044.i.lcssa = phi i32 [ %.044.i, %ifallzero.exit.i._crit_edge ], [ %.044.i136, %ifallzero.exit.i.preheader ]
-  %.lcssa125 = phi i64 [ %188, %ifallzero.exit.i._crit_edge ], [ 1, %ifallzero.exit.i.preheader ]
+  %.044.i.lcssa = phi i32 [ %.044.i, %ifallzero.exit.i._crit_edge ], [ %.044.i137, %ifallzero.exit.i.preheader ]
+  %.lcssa126 = phi i64 [ %188, %ifallzero.exit.i._crit_edge ], [ 1, %ifallzero.exit.i.preheader ]
   %190 = icmp eq i8 %.044.in.i.lcssa, 46
   br i1 %190, label %.preheader111.i, label %.loopexit.i71
 
@@ -603,9 +603,9 @@ ifallzero.exit69.i:                               ; preds = %.preheader111.i
   %.246118.i = sext i8 %.246.in117.i to i32
   %isdigittmp54119.i = add nsw i32 %.246118.i, -48
   %isdigit55120.i = icmp ult i32 %isdigittmp54119.i, 10
-  br i1 %isdigit55120.i, label %.lr.ph.i100, label %.loopexit.i71
+  br i1 %isdigit55120.i, label %.lr.ph.i101, label %.loopexit.i71
 
-.lr.ph.i100:                                      ; preds = %.preheader110.i, %.lr.ph.i100
+.lr.ph.i101:                                      ; preds = %.preheader110.i, %.lr.ph.i101
   %storemerge123.i = phi ptr [ %storemerge.i, %.lr.ph.i100 ], [ %storemerge116.i, %.preheader110.i ]
   %.1122.i = phi i64 [ %194, %.lr.ph.i100 ], [ 0, %.preheader110.i ]
   %.237121.i = phi i64 [ %193, %.lr.ph.i100 ], [ %.035.i.lcssa, %.preheader110.i ]
@@ -616,12 +616,12 @@ ifallzero.exit69.i:                               ; preds = %.preheader111.i
   %.246.i = sext i8 %.246.in.i to i32
   %isdigittmp54.i = add nsw i32 %.246.i, -48
   %isdigit55.i = icmp ult i32 %isdigittmp54.i, 10
-  br i1 %isdigit55.i, label %.lr.ph.i100, label %.loopexit.i71, !llvm.loop !19
+  br i1 %isdigit55.i, label %.lr.ph.i101, label %.loopexit.i71, !llvm.loop !19
 
-.loopexit.i71:                                    ; preds = %.lr.ph.i100, %.preheader110.i, %ifallzero.exit69.i, %189
+.loopexit.i71:                                    ; preds = %.lr.ph.i101, %.preheader110.i, %ifallzero.exit69.i, %189
   %.1102.i = phi ptr [ %storemerge63.i.lcssa, %189 ], [ %storemerge116.i, %.preheader110.i ], [ %.08.i66.i, %ifallzero.exit69.i ], [ %storemerge.i, %.lr.ph.i100 ]
   %.145.i = phi i32 [ %.044.i.lcssa, %189 ], [ %.246118.i, %.preheader110.i ], [ %.0.i67.i, %ifallzero.exit69.i ], [ %.246.i, %.lr.ph.i100 ]
-  %.136.i = phi i64 [ %.035.i.lcssa, %189 ], [ %.035.i.lcssa, %.preheader110.i ], [ %.lcssa125, %ifallzero.exit69.i ], [ %193, %.lr.ph.i100 ]
+  %.136.i = phi i64 [ %.035.i.lcssa, %189 ], [ %.035.i.lcssa, %.preheader110.i ], [ %.lcssa126, %ifallzero.exit69.i ], [ %193, %.lr.ph.i100 ]
   %.034.i = phi i64 [ 0, %189 ], [ 0, %.preheader110.i ], [ 0, %ifallzero.exit69.i ], [ %194, %.lr.ph.i100 ]
   %195 = and i32 %.145.i, -33
   %196 = icmp eq i32 %195, 69
@@ -661,16 +661,16 @@ ifallzero.exit69.i:                               ; preds = %.preheader111.i
   %210 = sext i8 %209 to i32
   %isdigittmp.i.i90 = add nsw i32 %210, -48
   %isdigit.i70.i = icmp ult i32 %isdigittmp.i.i90, 10
-  br i1 %isdigit.i70.i, label %.thread.i, label %212
+  br i1 %isdigit.i70.i, label %.thread.i100, label %212
 
-.thread.i:                                        ; preds = %208
+.thread.i100:                                     ; preds = %208
   %211 = getelementptr inbounds nuw i8, ptr %.1102.i, i64 2
   br label %.lr.ph.i.preheader.i
 
 212:                                              ; preds = %208, %205
   br i1 %isdigit57.i, label %.lr.ph.i.preheader.i, label %scanexp.exit.i92.thread
 
-.lr.ph.i.preheader.i:                             ; preds = %212, %.thread.i
+.lr.ph.i.preheader.i:                             ; preds = %212, %.thread.i100
   %.0.i71146.i = phi i1 [ %207, %.thread.i ], [ false, %212 ]
   %.022.i144.i = phi i32 [ %210, %.thread.i ], [ %199, %212 ]
   %.023.i143.i = phi ptr [ %211, %.thread.i ], [ %206, %212 ]

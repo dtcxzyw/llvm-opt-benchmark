@@ -57191,13 +57191,13 @@ while.cond1.i.i:                                  ; preds = %while.cond1.i.i, %w
   %__first.addr.1.val.i.i = load i32, ptr %65, align 8
   %cmp.i.i.i10.i = icmp ult i32 %__first.addr.1.val.i.i, %__pivot.val11.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.i.i, i64 48
-  br i1 %cmp.i.i.i10.i, label %while.cond1.i.i, label %while.cond4.i.i, !llvm.loop !109
+  br i1 %cmp.i.i.i10.i, label %while.cond1.i.i, label %while.cond4.i.i.preheader, !llvm.loop !109
 
-while.cond4.i.i:                                  ; preds = %while.cond1.i.i, %while.cond4.i.i
+while.cond4.i.i.preheader:                        ; preds = %while.cond1.i.i, %while.cond4.i.i
   %__last.addr.0.pn.i.i = phi ptr [ %__last.addr.1.i.i, %while.cond4.i.i ], [ %__last.addr.0.i.i, %while.cond1.i.i ]
   %__last.addr.1.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.i.i, i64 -48
-  %66 = getelementptr i8, ptr %__last.addr.0.pn.i.i, i64 -40
-  %__last.addr.1.val.i.i = load i32, ptr %66, align 8
+  %67 = getelementptr i8, ptr %__last.addr.0.pn.i.i, i64 -40
+  %__last.addr.1.val.i.i = load i32, ptr %67, align 8
   %cmp.i.i12.i.i = icmp ult i32 %__pivot.val11.i.i, %__last.addr.1.val.i.i
   br i1 %cmp.i.i12.i.i, label %while.cond4.i.i, label %while.end8.i.i, !llvm.loop !110
 
@@ -57206,7 +57206,7 @@ while.end8.i.i:                                   ; preds = %while.cond4.i.i
   br i1 %cmp.i.i, label %if.end.i.i, label %"_ZSt27__unguarded_partition_pivotIPN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS3_3hbc7HBCISel13SwitchImmInfoEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS7_17generateJumpTableEvE3$_0EEET_SG_SG_T0_.exit"
 
 if.end.i.i:                                       ; preds = %while.end8.i.i
-  %67 = getelementptr i8, ptr %__last.addr.0.pn.i.i, i64 -40
+  %68 = getelementptr i8, ptr %__last.addr.0.pn.i.i, i64 -40
   %68 = getelementptr i8, ptr %__first.addr.1.i.i, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.2.i.i.i9.i)
   %69 = load ptr, ptr %__first.addr.1.i.i, align 8
@@ -57220,7 +57220,7 @@ if.end.i.i:                                       ; preds = %while.end8.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %table3.i.i.i.i.i.i12.i, i8 0, i64 24, i1 false)
   %73 = load ptr, ptr %__last.addr.1.i.i, align 8
   store ptr %73, ptr %__first.addr.1.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %68, ptr noundef nonnull align 8 dereferenceable(40) %67, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %68, ptr noundef nonnull align 8 dereferenceable(40) %68, i64 16, i1 false)
   %table3.i.i.i6.i.i.i15.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.i.i, i64 -24
   %74 = load ptr, ptr %table3.i.i.i6.i.i.i15.i, align 8
   store ptr %74, ptr %table3.i.i.i.i.i.i12.i, align 8
@@ -57231,7 +57231,7 @@ if.end.i.i:                                       ; preds = %while.end8.i.i
   %76 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i.i.i.i17.i, align 8
   store ptr %76, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i14.i, align 8
   store ptr %69, ptr %__last.addr.1.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.2.i.i.i9.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.2.i.i.i9.i, i64 16, i1 false)
   store ptr %70, ptr %table3.i.i.i6.i.i.i15.i, align 8
   store ptr %71, ptr %_M_finish.i2.i.i.i.i.i.i.i.i.i16.i, align 8
   store ptr %72, ptr %_M_end_of_storage.i4.i.i.i.i.i.i.i.i.i17.i, align 8

@@ -1572,11 +1572,11 @@ define hidden noundef float @_ZNK6Assimp21BlenderTessellatorP2T21FindLargestMatr
   %.0820 = phi i32 [ 0, %2 ], [ %15, %.split.us ]
   %.0919 = phi float [ 0.000000e+00, %2 ], [ %.us-phi, %.split.us ]
   switch i32 %.0820, label %_ZNK12aiMatrix3x3tIfEixEj.exit [
-    i32 2, label %_ZNK12aiMatrix3x3tIfEixEj.exit.us.preheader
+    i32 2, label %_ZNK12aiMatrix3x3tIfEixEj.exit.us
     i32 1, label %_ZNK12aiMatrix3x3tIfEixEj.exit.us15
   ]
 
-_ZNK12aiMatrix3x3tIfEixEj.exit.us.preheader:      ; preds = %.preheader
+_ZNK12aiMatrix3x3tIfEixEj.exit.us:                ; preds = %.preheader
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %_ZNK12aiMatrix3x3tIfEixEj.exit.us
 
@@ -1650,11 +1650,11 @@ define hidden void @_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix
 .preheader:                                       ; preds = %.split.us, %4
   %.0921 = phi i32 [ 0, %4 ], [ %21, %.split.us ]
   switch i32 %.0921, label %_ZNK12aiMatrix3x3tIfEixEj.exit [
-    i32 2, label %_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us.preheader
+    i32 2, label %_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us
     i32 1, label %_ZNK12aiMatrix3x3tIfEixEj.exit.thread12.us
   ]
 
-_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us.preheader: ; preds = %.preheader
+_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us:         ; preds = %.preheader
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us
 
@@ -1709,11 +1709,11 @@ define hidden { <2 x float>, float } @_ZNK6Assimp21BlenderTessellatorP2T35GetEig
   %.0820.i = phi i32 [ 0, %2 ], [ %16, %.split.us.i ]
   %.0919.i = phi float [ 0.000000e+00, %2 ], [ %.us-phi.i, %.split.us.i ]
   switch i32 %.0820.i, label %_ZNK12aiMatrix3x3tIfEixEj.exit.i [
-    i32 2, label %_ZNK12aiMatrix3x3tIfEixEj.exit.us.preheader.i
+    i32 2, label %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i.preheader
     i32 1, label %_ZNK12aiMatrix3x3tIfEixEj.exit.us15.i
   ]
 
-_ZNK12aiMatrix3x3tIfEixEj.exit.us.preheader.i:    ; preds = %.preheader.i
+_ZNK12aiMatrix3x3tIfEixEj.exit.us.i.preheader:    ; preds = %.preheader.i
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i
 

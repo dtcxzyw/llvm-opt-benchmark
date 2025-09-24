@@ -714,10 +714,10 @@ define dso_local void @onig_vsnprintf_with_pattern(ptr noundef %0, i32 noundef %
   br i1 %47, label %.lr.ph99, label %.loopexit90, !llvm.loop !31
 
 .lr.ph99:                                         ; preds = %.preheader92, %.loopexit
-  %.in = phi i32 [ %48, %.loopexit ], [ %38, %.preheader92 ]
+  %.in = phi i32 [ %47, %.loopexit ], [ %38, %.preheader92 ]
   %.298 = phi ptr [ %.3.lcssa, %.loopexit ], [ %.071121, %.preheader92 ]
   %.27597 = phi ptr [ %46, %.loopexit ], [ %.073120, %.preheader92 ]
-  %48 = add nsw i32 %.in, -1
+  %47 = add nsw i32 %.in, -1
   %49 = load i8, ptr %.27597, align 1, !tbaa !21
   %50 = zext i8 %49 to i32
   %51 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %8, i64 noundef 5, ptr noundef nonnull @.str.66, i32 noundef %50) #8
@@ -761,7 +761,7 @@ define dso_local void @onig_vsnprintf_with_pattern(ptr noundef %0, i32 noundef %
   br i1 %67, label %select.unfold, label %.thread
 
 .thread:                                          ; preds = %66
-  %.5108140 = getelementptr i8, ptr %.071121, i64 1
+  %.5108141 = getelementptr i8, ptr %.071121, i64 1
   br label %.loopexit90
 
 68:                                               ; preds = %61
@@ -800,7 +800,7 @@ select.unfold:                                    ; preds = %66, %68
   %83 = load ptr, ptr %27, align 8, !tbaa !34
   %84 = call i32 %83(i32 noundef %82, i32 noundef 7, ptr noundef %2) #8
   %.not86 = icmp eq i32 %84, 0
-  br i1 %.not86, label %85, label %106
+  br i1 %.not86, label %85, label %107
 
 85:                                               ; preds = %81
   %86 = load ptr, ptr %27, align 8, !tbaa !34
@@ -816,7 +816,7 @@ select.unfold:                                    ; preds = %66, %68
   %93 = zext i8 %92 to i32
   %94 = call i32 %91(i32 noundef %93, i32 noundef 3, ptr noundef nonnull %2) #8
   %.not88 = icmp eq i32 %94, 0
-  br i1 %.not88, label %106, label %95
+  br i1 %.not88, label %107, label %95
 
 95:                                               ; preds = %90, %85
   %96 = load i8, ptr %.073120, align 1, !tbaa !21
@@ -827,30 +827,30 @@ select.unfold:                                    ; preds = %66, %68
   br i1 %100, label %.lr.ph118.preheader, label %.loopexit89
 
 .lr.ph118.preheader:                              ; preds = %95
-  %101 = zext nneg i32 %99 to i64
-  %102 = getelementptr i8, ptr %8, i64 %101
-  %scevgep131 = getelementptr i8, ptr %102, i64 -1
+  %102 = zext nneg i32 %99 to i64
+  %103 = getelementptr i8, ptr %8, i64 %102
+  %scevgep132 = getelementptr i8, ptr %103, i64 -1
   br label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %.lr.ph118.preheader, %.lr.ph118
-  %.1117 = phi ptr [ %103, %.lr.ph118 ], [ %8, %.lr.ph118.preheader ]
-  %.6116 = phi ptr [ %105, %.lr.ph118 ], [ %.071121, %.lr.ph118.preheader ]
-  %103 = getelementptr i8, ptr %.1117, i64 1
-  %104 = load i8, ptr %.1117, align 1, !tbaa !21
-  %105 = getelementptr i8, ptr %.6116, i64 1
-  store i8 %104, ptr %.6116, align 1, !tbaa !21
-  %exitcond132.not = icmp eq ptr %.1117, %scevgep131
-  br i1 %exitcond132.not, label %.loopexit89, label %.lr.ph118, !llvm.loop !35
+  %.1117 = phi ptr [ %104, %.lr.ph118 ], [ %8, %.lr.ph118.preheader ]
+  %.6116 = phi ptr [ %106, %.lr.ph118 ], [ %.071121, %.lr.ph118.preheader ]
+  %104 = getelementptr i8, ptr %.1117, i64 1
+  %105 = load i8, ptr %.1117, align 1, !tbaa !21
+  %106 = getelementptr i8, ptr %.6116, i64 1
+  store i8 %105, ptr %.6116, align 1, !tbaa !21
+  %exitcond133.not = icmp eq ptr %.1117, %scevgep132
+  br i1 %exitcond133.not, label %.loopexit89, label %.lr.ph118, !llvm.loop !35
 
-106:                                              ; preds = %90, %81
-  %107 = getelementptr i8, ptr %.073120, i64 1
-  %108 = load i8, ptr %.073120, align 1, !tbaa !21
-  %109 = getelementptr i8, ptr %.071121, i64 1
-  store i8 %108, ptr %.071121, align 1, !tbaa !21
+107:                                              ; preds = %90, %81
+  %108 = getelementptr i8, ptr %.073120, i64 1
+  %109 = load i8, ptr %.073120, align 1, !tbaa !21
+  %110 = getelementptr i8, ptr %.071121, i64 1
+  store i8 %109, ptr %.071121, align 1, !tbaa !21
   br label %.loopexit90
 
 .loopexit89:                                      ; preds = %.lr.ph118, %95
-  %.6.lcssa = phi ptr [ %.071121, %95 ], [ %105, %.lr.ph118 ]
+  %.376 = phi ptr [ %.071121, %95 ], [ %105, %.lr.ph118 ]
   %110 = getelementptr i8, ptr %.073120, i64 1
   br label %.loopexit90
 

@@ -16746,7 +16746,7 @@ BIGNUM_DIGITS.exit:                               ; preds = %29, %33
   %48 = icmp slt i64 %45, 55
   %49 = add nsw i64 %45, -54
   %50 = lshr i64 %49, 5
-  %.054 = select i1 %48, i64 0, i64 %50
+  %.055 = select i1 %48, i64 0, i64 %50
   %51 = add i64 %.0.i70, -1
   %52 = icmp sgt i64 %51, %.054
   br i1 %52, label %.lr.ph, label %._crit_edge

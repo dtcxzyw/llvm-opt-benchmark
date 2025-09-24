@@ -167,7 +167,7 @@ define dso_local range(i32 -1, 1) i32 @crypto_core_ed25519_from_string(ptr nound
   %exitcond.not.i = icmp eq i64 %13, 48
   br i1 %exitcond.not.i, label %_string_to_points.exit.loopexit, label %.preheader.preheader.i, !llvm.loop !4
 
-_string_to_points.exit.loopexit:                  ; preds = %.preheader.preheader.i
+_string_to_points.exit.loopexit:; preds = %.preheader.preheader.i
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 noundef 0, i64 noundef range(i64 64, 17) 16, i1 noundef false) #6
   call void @_sodium_ge25519_from_hash(ptr noundef nonnull %0, ptr noundef nonnull %6) #6

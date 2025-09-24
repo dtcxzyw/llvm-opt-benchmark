@@ -62655,12 +62655,12 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i: ; preds = %22
   store ptr %27, ptr %28, align 8, !tbaa !1595
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 %25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %26, i8 0, i64 %25, i1 false), !tbaa !84
-  %30 = icmp ult i32 %17, 13
-  %31 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %32 = select i1 %30, ptr %31, ptr %1
-  %33 = icmp ult i32 %19, 13
-  %34 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %35 = select i1 %33, ptr %34, ptr %3
+  %29 = icmp ult i32 %17, 13
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %31 = select i1 %29, ptr %30, ptr %1
+  %32 = icmp ult i32 %19, 13
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %34 = select i1 %32, ptr %33, ptr %3
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %29, ptr %36, align 8, !tbaa !1596
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -62727,7 +62727,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i: ; preds = %22
   %64 = ptrtoint ptr %.fr142.i.i.i to i64
   %65 = sub i64 %63, %64
   %66 = ashr i64 %65, 3
-  %67 = getelementptr inbounds nuw i8, ptr %32, i64 %.037139.i.i.i
+  %67 = getelementptr inbounds nuw i8, ptr %31, i64 %.037139.i.i.i
   %injected.cond.not.i.i.i = icmp ugt i64 %60, %66
   br i1 %injected.cond.not.i.i.i, label %.split.preheader.i.i.i, label %.split.us.preheader.i.i.i
 
@@ -62753,7 +62753,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i: ; preds = %22
   %76 = getelementptr inbounds nuw i64, ptr %.fr140.i.i.i, i64 %.0133.us.i.i.i
   %77 = load i64, ptr %76, align 8, !tbaa !84
   %78 = load i8, ptr %67, align 1, !tbaa !65
-  %79 = getelementptr inbounds nuw i8, ptr %35, i64 %.0133.us.i.i.i
+  %79 = getelementptr inbounds nuw i8, ptr %34, i64 %.0133.us.i.i.i
   %80 = load i8, ptr %79, align 1, !tbaa !65
   %.not48.us.i.i.i = icmp ne i8 %78, %80
   %81 = zext i1 %.not48.us.i.i.i to i64
@@ -63061,7 +63061,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i88.i.i.i: ; 
   %161 = getelementptr inbounds nuw i64, ptr %.fr140.i.i.i, i64 %.0133.i.i.i
   %162 = load i64, ptr %161, align 8, !tbaa !84
   %163 = load i8, ptr %67, align 1, !tbaa !65
-  %164 = getelementptr inbounds nuw i8, ptr %35, i64 %.0133.i.i.i
+  %164 = getelementptr inbounds nuw i8, ptr %34, i64 %.0133.i.i.i
   %165 = load i8, ptr %164, align 1, !tbaa !65
   %.not48.i.i.i = icmp ne i8 %163, %165
   %166 = zext i1 %.not48.i.i.i to i64
@@ -120041,22 +120041,22 @@ define linkonce_odr void @_ZN10duckdb_fmt2v68internal24handle_cstring_type_specI
   %15 = ptrtoint ptr %14 to i64
   br label %16
 
-16:                                               ; preds = %16, %12
-  %.03.i.i.i.i = phi i64 [ %15, %12 ], [ %18, %16 ]
-  %.0.i.i.i.i = phi i32 [ 0, %12 ], [ %17, %16 ]
-  %17 = add nuw nsw i32 %.0.i.i.i.i, 1
-  %18 = lshr i64 %.03.i.i.i.i, 4
+19:                                               ; preds = %19, %12
+  %.03.i.i.i.i = phi i64 [ %15, %12 ], [ %21, %16 ]
+  %.0.i.i.i.i = phi i32 [ 0, %12 ], [ %20, %16 ]
+  %20 = add nuw nsw i32 %.0.i.i.i.i, 1
+  %21 = lshr i64 %.03.i.i.i.i, 4
   %.not.i.i.i.i = icmp ult i64 %.03.i.i.i.i, 16
-  br i1 %.not.i.i.i.i, label %_ZN10duckdb_fmt2v68internal12count_digitsILj4EmEEiT0_.exit.i.i.i, label %16, !llvm.loop !2227
+  br i1 %.not.i.i.i.i, label %_ZN10duckdb_fmt2v68internal12count_digitsILj4EmEEiT0_.exit.i.i.i, label %19, !llvm.loop !2227
 
-_ZN10duckdb_fmt2v68internal12count_digitsILj4EmEEiT0_.exit.i.i.i: ; preds = %16
+_ZN10duckdb_fmt2v68internal12count_digitsILj4EmEEiT0_.exit.i.i.i: ; preds = %19
   %19 = load ptr, ptr %1, align 8, !tbaa !2493
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !2038
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %15, ptr %3, align 8, !tbaa !2494
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %17, ptr %22, align 8, !tbaa !2496
+  store i32 %20, ptr %22, align 8, !tbaa !2496
   %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %23, label %48
 
@@ -120087,7 +120087,7 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
   store i8 48, ptr %37, align 1, !tbaa !65
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 2
   store i8 120, ptr %38, align 1, !tbaa !65
-  %40 = zext nneg i32 %17 to i64
+  %40 = zext nneg i32 %20 to i64
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 %40
   br label %42
 
@@ -120578,7 +120578,7 @@ define linkonce_odr ptr @_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12b
 
 13:                                               ; preds = %13, %11
   %.03.i.i.i = phi i64 [ %12, %11 ], [ %15, %13 ]
-  %.0.i.i.i = phi i32 [ 0, %11 ], [ %14, %13 ]
+  %.03.i.i.i = phi i32 [ 0, %11 ], [ %14, %13 ]
   %14 = add nuw nsw i32 %.0.i.i.i, 1
   %15 = lshr i64 %.03.i.i.i, 4
   %.not.i.i.i = icmp ult i64 %.03.i.i.i, 16

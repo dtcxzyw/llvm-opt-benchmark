@@ -2362,7 +2362,7 @@ _ZN6vectorISt4pairIN3sat7literalES2_ELb0EjE3endEv.exit: ; preds = %174
   %192 = load ptr, ptr %163, align 8, !tbaa !61
   br label %193
 
-193:                                              ; preds = %193, %190
+193:; preds = %193, %190
   %.08.i.i = phi i32 [ %191, %190 ], [ %196, %193 ]
   %194 = zext i32 %.08.i.i to i64
   %195 = getelementptr inbounds nuw i32, ptr %192, i64 %194

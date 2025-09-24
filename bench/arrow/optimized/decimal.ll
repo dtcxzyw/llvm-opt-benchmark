@@ -11968,19 +11968,19 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17
   %27 = zext nneg i32 %26 to i64
   %28 = sext i32 %11 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 3)
-  %29 = add nuw nsw i32 %smax, 1
-  %wide.trip.count52 = zext nneg i32 %29 to i64
+  %38 = add nuw nsw i32 %smax, 1
+  %wide.trip.count52 = zext nneg i32 %38 to i64
   br label %.lr.ph45.split
 
 .lr.ph45.split.us.preheader:                      ; preds = %._crit_edge
-  %30 = shl nsw i64 %17, 3
-  %scevgep = getelementptr i8, ptr %4, i64 %30
+  %39 = shl nsw i64 %17, 3
+  %scevgep = getelementptr i8, ptr %4, i64 %39
   %smax54 = tail call i32 @llvm.smax.i32(i32 %11, i32 3)
-  %31 = sub nsw i32 %smax54, %11
-  %32 = zext i32 %31 to i64
-  %33 = shl nuw nsw i64 %32, 3
-  %34 = add nuw nsw i64 %33, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i64 %34, i1 false), !tbaa !155
+  %40 = sub nsw i32 %smax54, %11
+  %41 = zext i32 %40 to i64
+  %42 = shl nuw nsw i64 %41, 3
+  %43 = add nuw nsw i64 %42, 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i64 %43, i1 false), !tbaa !155
   br label %._crit_edge46
 
 ._crit_edge46.loopexit:                           ; preds = %56

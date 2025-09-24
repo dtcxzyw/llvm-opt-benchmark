@@ -1766,9 +1766,9 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   %11 = getelementptr i8, ptr %0, i64 10
   %12 = load i8, ptr %11, align 1, !tbaa !124
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %.loopexit.sink.split, label %.lr.ph
+  br i1 %13, label %.loopexit.sink.split, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %10, %.lr.ph
+.lr.ph.preheader:                                 ; preds = %10, %.lr.ph
   %.04963 = phi ptr [ %15, %.lr.ph ], [ %0, %10 ]
   %14 = getelementptr inbounds nuw i8, ptr %.04963, i64 256
   %15 = load ptr, ptr %14, align 8, !tbaa !120

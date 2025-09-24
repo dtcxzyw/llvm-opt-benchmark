@@ -541,9 +541,9 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
 38:                                               ; preds = %26, %38
   %39 = phi i1 [ true, %26 ], [ false, %38 ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %26 ], [ %.sroa.4, %38 ]
-  %indvars.iv.sroa.phi444.sroa.speculated = phi i32 [ %32, %26 ], [ %37, %38 ]
-  %indvars.iv.sroa.phi449.sroa.speculated = phi i32 [ %31, %26 ], [ %36, %38 ]
-  %40 = sext i32 %indvars.iv.sroa.phi449.sroa.speculated to i64
+  %indvars.iv.sroa.phi443.sroa.speculated = phi i32 [ %32, %26 ], [ %37, %38 ]
+  %indvars.iv.sroa.phi448.sroa.speculated = phi i32 [ %31, %26 ], [ %36, %38 ]
+  %40 = sext i32 %indvars.iv.sroa.phi448.sroa.speculated to i64
   %41 = getelementptr inbounds i16, ptr @ff_silk_stereo_weights, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !36
   %43 = sext i16 %42 to i32
@@ -553,7 +553,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   %47 = sub nsw i32 %46, %43
   %48 = mul nsw i32 %47, 6554
   %49 = ashr i32 %48, 16
-  %50 = shl nsw i32 %indvars.iv.sroa.phi444.sroa.speculated, 1
+  %50 = shl nsw i32 %indvars.iv.sroa.phi443.sroa.speculated, 1
   %51 = or disjoint i32 %50, 1
   %52 = mul nsw i32 %49, %51
   %53 = add nsw i32 %52, %43
@@ -1004,15 +1004,15 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   %304 = icmp sgt i32 %131, %spec.select176.i.i
   br i1 %304, label %.lr.ph196.preheader.i.i, label %._crit_edge.._crit_edge197_crit_edge.i.i
 
-._crit_edge.._crit_edge197_crit_edge.i.i:         ; preds = %._crit_edge.i.i
-  %.pre.i.i = zext nneg i32 %spec.select176.i.i to i64
+._crit_edge.._crit_edge197_crit_edge.i.i:; preds = %._crit_edge.i.i
+  %308 = zext nneg i32 %spec.select176.i.i to i64
   br label %._crit_edge197.i.i
 
-.lr.ph196.preheader.i.i:                          ; preds = %._crit_edge.i.i
+.lr.ph196.preheader.i.i:; preds = %._crit_edge.i.i
   %305 = sext i32 %spec.select176.i.i to i64
   br label %.lr.ph196.i.i
 
-.lr.ph196.i.i:                                    ; preds = %.lr.ph196.i.i, %.lr.ph196.preheader.i.i
+.lr.ph196.i.i: ; preds = %.lr.ph196.i.i, %.lr.ph196.preheader.i.i
   %indvars.iv218.i.i = phi i64 [ %wide.trip.count.i, %.lr.ph196.preheader.i.i ], [ %indvars.iv.next219.i.i, %.lr.ph196.i.i ]
   %.0149194.i.i = phi i32 [ 32768, %.lr.ph196.preheader.i.i ], [ %309, %.lr.ph196.i.i ]
   %306 = getelementptr inbounds i16, ptr %263, i64 %indvars.iv218.i.i
@@ -1020,13 +1020,13 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   %308 = zext i16 %307 to i32
   %309 = sub nsw i32 %.0149194.i.i, %308
   %indvars.iv.next219.i.i = add nsw i64 %indvars.iv218.i.i, -1
-  %310 = icmp sgt i64 %indvars.iv.next219.i.i, %305
-  br i1 %310, label %.lr.ph196.i.i, label %._crit_edge197.i.i, !llvm.loop !49
+  %315 = icmp sgt i64 %indvars.iv.next219.i.i, %305
+  br i1 %315, label %.lr.ph196.i.i, label %._crit_edge197.i.i, !llvm.loop !49
 
 ._crit_edge197.i.i:                               ; preds = %.lr.ph196.i.i, %._crit_edge.._crit_edge197_crit_edge.i.i
-  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %._crit_edge.._crit_edge197_crit_edge.i.i ], [ %305, %.lr.ph196.i.i ]
+  %.0149.lcssa.i.i = phi i64 [ %308, %._crit_edge.._crit_edge197_crit_edge.i.i ], [ %305, %.lr.ph196.i.i ]
   %.0149.lcssa.i.i = phi i32 [ 32768, %._crit_edge.._crit_edge197_crit_edge.i.i ], [ %309, %.lr.ph196.i.i ]
-  %311 = getelementptr inbounds i16, ptr %263, i64 %.pre-phi.i.i
+  %317 = getelementptr inbounds i16, ptr %263, i64 %.0149.lcssa.i.i
   %312 = load i16, ptr %311, align 2, !tbaa !36
   %313 = lshr i16 %312, 1
   %314 = zext nneg i16 %313 to i32
@@ -1226,9 +1226,9 @@ silk_stabilize_lsf.exit.i:                        ; preds = %289, %389
 
 silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.exit.i, %393, %395, %413, %414
   %416 = phi i1 [ false, %393 ], [ false, %395 ], [ true, %414 ], [ true, %413 ], [ false, %silk_stabilize_lsf.exit.i ]
-  %.sink176.i = phi i32 [ 4, %393 ], [ 4, %395 ], [ 0, %414 ], [ %394, %413 ], [ 4, %silk_stabilize_lsf.exit.i ]
+  %.sink175.i = phi i32 [ 4, %393 ], [ 4, %395 ], [ 0, %414 ], [ %394, %413 ], [ 4, %silk_stabilize_lsf.exit.i ]
   %417 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.sink176.i, ptr %417, align 4, !tbaa !56
+  store i32 %.sink175.i, ptr %417, align 4, !tbaa !56
   call fastcc void @silk_lsf2lpc(ptr noundef %15, ptr noundef nonnull %18, i32 noundef %131)
   %418 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %419 = shl nuw nsw i64 %wide.trip.count.i, 1
