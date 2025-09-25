@@ -1950,7 +1950,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   store ptr %22, ptr %0, align 8, !tbaa !193
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8, !tbaa !259
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 1) ]
   %.0.copyload.i.i.i.i = load i32, ptr %22, align 1
   %25 = zext i32 %.0.copyload.i.i.i.i to i64
   %26 = sub i64 0, %24
@@ -1958,7 +1957,6 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %28 = add i64 %27, %25
   %29 = and i64 %28, %26
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 1) ]
   %.0.copyload.i.i.i2.i = load i32, ptr %30, align 1
   %31 = zext i32 %.0.copyload.i.i.i2.i to i64
   %32 = add i64 %24, -1

@@ -15499,7 +15499,6 @@ _ZN4llvm9StringRefC2EPKc.exit.i3:                 ; preds = %31
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit6
 
 _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %31, %46, %48, %49
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %1, align 1
   %52 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.i)
   %53 = load ptr, ptr %32, align 8, !tbaa !295

@@ -2144,11 +2144,9 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4l
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview9TypeIndexEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit, label %8
 
 8:                                                ; preds = %2
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i32, ptr %1, align 1
   %9 = mul i32 %.0.copyload.i.i.i.i.i.i.i, 37
   %10 = add i32 %6, -1
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   %.02749.i = and i32 %9, %10
   %11 = zext i32 %.02749.i to i64
   %12 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %11
@@ -11391,11 +11389,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   br i1 %7, label %._crit_edge, label %8
 
 8:                                                ; preds = %3
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %1, align 1
   %9 = mul i32 %.0.copyload.i.i.i.i.i.i, 37
   %10 = add i32 %6, -1
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   %.02749 = and i32 %9, %10
   %11 = zext i32 %.02749 to i64
   %12 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %11

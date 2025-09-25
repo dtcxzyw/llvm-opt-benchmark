@@ -786,8 +786,8 @@ _ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit: ; preds = %27, %30, %33
   %83 = getelementptr inbounds nuw i8, ptr %62, i64 28
   %.0.copyload.i.i.i42 = load i32, ptr %83, align 1
   %84 = add i32 %.0.copyload.i.i.i42, -262145
-  %or.cond84 = icmp ult i32 %84, -258049
-  br i1 %or.cond84, label %85, label %90
+  %or.cond79 = icmp ult i32 %84, -258049
+  br i1 %or.cond79, label %85, label %90
 
 85:                                               ; preds = %82
   call void @llvm.experimental.noalias.scope.decl(metadata !111)
@@ -811,8 +811,8 @@ _ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit: ; preds = %27, %30, %33
   %.0.copyload.i.i.i44 = load i32, ptr %92, align 1
   call void @_ZN4llvm18BinaryStreamReader13readSubstreamERNS_18BinarySubstreamRefEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(56) %91, i32 noundef %.0.copyload.i.i.i44) #22
   %93 = load ptr, ptr %0, align 8, !tbaa !76
-  %.not79 = icmp eq ptr %93, null
-  br i1 %.not79, label %_ZN4llvm5ErrorD2Ev.exit45, label %.critedge
+  %.not80 = icmp eq ptr %93, null
+  br i1 %.not80, label %_ZN4llvm5ErrorD2Ev.exit45, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit45:                        ; preds = %90
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -879,8 +879,8 @@ _ZNK4llvm18BinarySubstreamRef4sizeEv.exit:        ; preds = %113, %116, %118
   %126 = trunc i64 %.0.i.i to i32
   call void @_ZN4llvm18BinaryStreamReader9readArrayINS_8codeview8CVRecordINS2_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS5_EEEENS_5ErrorERNS_14VarStreamArrayIT_T0_EEjj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(56) %109, i32 noundef %126, i32 noundef 0)
   %127 = load ptr, ptr %0, align 8, !tbaa !76
-  %.not80 = icmp eq ptr %127, null
-  br i1 %.not80, label %_ZN4llvm5ErrorD2Ev.exit46, label %.critedge31
+  %.not81 = icmp eq ptr %127, null
+  br i1 %.not81, label %_ZN4llvm5ErrorD2Ev.exit46, label %.critedge31
 
 _ZN4llvm5ErrorD2Ev.exit46:                        ; preds = %_ZNK4llvm18BinarySubstreamRef4sizeEv.exit
   %128 = load ptr, ptr %51, align 8, !tbaa !118
@@ -971,8 +971,8 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_3msf17MappedBlockStreamESt14default_deleteIS
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 144
   call void @_ZN4llvm18BinaryStreamReader9readArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorERNS_16FixedStreamArrayIT_EEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(48) %163, i32 noundef %152)
   %164 = load ptr, ptr %0, align 8, !tbaa !76
-  %.not81 = icmp eq ptr %164, null
-  br i1 %.not81, label %_ZN4llvm5ErrorD2Ev.exit52, label %.critedge31.critedge
+  %.not82 = icmp eq ptr %164, null
+  br i1 %.not82, label %_ZN4llvm5ErrorD2Ev.exit52, label %.critedge31.critedge
 
 _ZN4llvm5ErrorD2Ev.exit52:                        ; preds = %159
   %165 = load ptr, ptr %51, align 8, !tbaa !118
@@ -986,8 +986,8 @@ _ZN4llvm5ErrorD2Ev.exit52:                        ; preds = %159
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 192
   call void @_ZN4llvm18BinaryStreamReader9readArrayINS_8codeview15TypeIndexOffsetEEENS_5ErrorERNS_16FixedStreamArrayIT_EEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(48) %170, i32 noundef %169)
   %171 = load ptr, ptr %0, align 8, !tbaa !76
-  %.not82 = icmp eq ptr %171, null
-  br i1 %.not82, label %_ZN4llvm5ErrorD2Ev.exit55, label %.critedge31.critedge
+  %.not83 = icmp eq ptr %171, null
+  br i1 %.not83, label %_ZN4llvm5ErrorD2Ev.exit55, label %.critedge31.critedge
 
 _ZN4llvm5ErrorD2Ev.exit55:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit52
   %172 = load ptr, ptr %51, align 8, !tbaa !118
@@ -1004,8 +1004,8 @@ _ZN4llvm5ErrorD2Ev.exit55:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 240
   call void @_ZN4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE4loadERNS_18BinaryStreamReaderE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %177, ptr noundef nonnull align 8 dereferenceable(64) %17)
   %178 = load ptr, ptr %0, align 8, !tbaa !76
-  %.not83 = icmp eq ptr %178, null
-  br i1 %.not83, label %.critedge35, label %.critedge31.critedge
+  %.not84 = icmp eq ptr %178, null
+  br i1 %.not84, label %.critedge35, label %.critedge31.critedge
 
 .critedge35:                                      ; preds = %174, %_ZN4llvm5ErrorD2Ev.exit55
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 136

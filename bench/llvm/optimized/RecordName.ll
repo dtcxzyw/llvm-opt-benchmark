@@ -1774,7 +1774,6 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.i: ; preds = %4, %_ZN4llvm15Sm
 
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 1) ]
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 16

@@ -6218,7 +6218,6 @@ _ZN4llvm5ErrorD2Ev.exit144:                       ; preds = %_ZN4llvm5ErrorD2Ev.
 285:                                              ; preds = %279
   %286 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %287 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 1) ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(8) %286, i8 0, i64 6, i1 false)
   store i8 1, ptr %287, align 2, !tbaa !290
   br label %_ZNK4llvm8codeview16CodeViewRecordIO9isReadingEv.exit.thread

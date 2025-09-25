@@ -4389,7 +4389,6 @@ define internal void @_ZZN4llvm3pdb13NativeSession20parseSectionContribsEvEN7Vis
 define internal void @_ZZN4llvm3pdb13NativeSession20parseSectionContribsEvEN7Visitor5visitERKNS0_14SectionContribE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(28) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::IntervalMap<unsigned long, unsigned short, 8, llvm::IntervalMapHalfOpenInfo<unsigned long>>::const_iterator", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %4, align 1
   %5 = icmp eq i32 %.0.copyload.i.i.i, 0
   br i1 %5, label %45, label %6
@@ -4397,18 +4396,15 @@ define internal void @_ZZN4llvm3pdb13NativeSession20parseSectionContribsEvEN7Vis
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !510
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   %.0.copyload.i.i.i10 = load i16, ptr %1, align 1
   %9 = zext i16 %.0.copyload.i.i.i10 to i32
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   %.0.copyload.i.i.i11 = load i32, ptr %10, align 1
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 312
   %12 = load i64, ptr %11, align 8, !tbaa !283
   %13 = tail call noundef i32 @_ZNK4llvm3pdb13NativeSession20getRVAFromSectOffsetEjj(ptr noundef nonnull readonly align 8 dereferenceable(584) %8, i32 noundef %9, i32 noundef %.0.copyload.i.i.i11)
   %14 = zext i32 %13 to i64
   %15 = add i64 %12, %14
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i12 = load i32, ptr %4, align 1
   %16 = sext i32 %.0.copyload.i.i.i12 to i64
   %17 = add i64 %15, %16
@@ -4466,7 +4462,6 @@ _ZNK4llvm11IntervalMapImtLj8ENS_23IntervalMapHalfOpenInfoImEEE8overlapsEmm.exit:
 42:                                               ; preds = %_ZNK4llvm11IntervalMapImtLj8ENS_23IntervalMapHalfOpenInfoImEEE8overlapsEmm.exit
   %43 = load ptr, ptr %18, align 8, !tbaa !513
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 1) ]
   %.0.copyload.i.i.i13 = load i16, ptr %44, align 1
   call void @_ZN4llvm11IntervalMapImtLj8ENS_23IntervalMapHalfOpenInfoImEEE6insertEmmt(ptr noundef nonnull align 8 dereferenceable(160) %43, i64 noundef %15, i64 noundef %17, i16 noundef zeroext %.0.copyload.i.i.i13)
   br label %45

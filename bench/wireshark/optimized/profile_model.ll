@@ -2514,7 +2514,6 @@ _ZNK17QArrayDataPointerIP11profile_defE11needsDetachEv.exit.i: ; preds = %_ZN5QL
 _ZN17QArrayDataPointerIP11profile_defE17allocatedCapacityEv.exit.i: ; preds = %_ZN5QListIP11profile_defEC2ERKS2_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 8, i64 noundef 0, i32 noundef 1) #26
-  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %19 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5QListIP11profile_defE5clearEv.exit
@@ -2524,7 +2523,6 @@ _ZN17QArrayDataPointerIP11profile_defE5derefEv.exit.i.i: ; preds = %_ZNK17QArray
   %21 = load i64, ptr %20, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 8, i64 noundef %21, i32 noundef 1) #26
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %23 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %24 = atomicrmw sub ptr %13, i32 1 seq_cst, align 4

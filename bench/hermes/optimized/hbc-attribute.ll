@@ -4547,7 +4547,6 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   ]
 
 sw.bb.i:                                          ; preds = %for.body
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i, i64 1) ]
   %ret.0.copyload.i.i = load i8, ptr %add.ptr.i, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %key.i66)
   store ptr @.str.43, ptr %key.i66, align 8
@@ -4601,7 +4600,6 @@ _ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj.exit81: ; pred
   br label %sw.epilog.sink.split.i
 
 sw.bb7.i:                                         ; preds = %for.body
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i, i64 1) ]
   %ret.0.copyload.i26.i = load i16, ptr %add.ptr.i, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %key.i48)
   store ptr @.str.44, ptr %key.i48, align 8
@@ -4655,7 +4653,6 @@ _ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj.exit63: ; pred
   br label %sw.epilog.sink.split.i
 
 sw.bb15.i:                                        ; preds = %for.body
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i, i64 1) ]
   %ret.0.copyload.i27.i = load i32, ptr %add.ptr.i, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %key.i30)
   store ptr @.str.45, ptr %key.i30, align 8

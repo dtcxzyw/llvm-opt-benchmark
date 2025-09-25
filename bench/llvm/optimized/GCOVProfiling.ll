@@ -16746,7 +16746,6 @@ _ZN4llvm13IRBuilderBase13CreateRetVoidEv.exit:    ; preds = %.lr.ph.i.i.i, %245
   store i16 257, ptr %304, align 8
   %361 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateGlobalStringENS_9StringRefERKNS_5TwineEjPNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(128) %46, ptr %359, i64 %360, ptr noundef nonnull align 8 dereferenceable(34) %55, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #27
   store ptr %361, ptr %54, align 8, !tbaa !563
-  call void @llvm.assume(i1 true) [ "align"(ptr %306, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %306, align 2
   %362 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.i)
   %363 = load ptr, ptr %134, align 8, !tbaa !253

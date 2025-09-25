@@ -402,9 +402,9 @@ _ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endi
   %.0.copyload.i.i.i = load i32, ptr %19, align 1
   %20 = load ptr, ptr %1, align 8, !tbaa !63
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %.val = load i32, ptr %21, align 1
   %22 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #17, !noalias !76
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i)
-  %.0.copyload.i.i.i.i.i = load i32, ptr %21, align 1, !noalias !76
   %23 = load ptr, ptr %2, align 8, !tbaa !40, !noalias !76
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !41, !noalias !76
@@ -432,7 +432,7 @@ _ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i.i:       ; preds = %32, %29, %_ZNSt6vec
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %34, i64 32, i1 false), !noalias !76
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm3msf17MappedBlockStreamE, i64 16), ptr %22, align 8, !tbaa !3, !noalias !76
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i32 %.0.copyload.i.i.i.i.i, ptr %35, align 8, !tbaa !6, !noalias !76
+  store i32 %.val, ptr %35, align 8, !tbaa !6, !noalias !76
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 %.0.copyload.i.i.i, ptr %36, align 8, !tbaa !34, !noalias !76
   %37 = getelementptr inbounds nuw i8, ptr %22, i64 24

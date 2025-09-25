@@ -156568,22 +156568,9 @@ _ZSt25__unguarded_linear_insertIPSt4pairIN5clang15DeclarationNameENS1_23DeclCont
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN4llvm25array_pod_sort_comparatorIN5clang13serialization18ObjCCategoriesInfoEEEiPKvS5_(ptr noundef %0, ptr noundef %1) #11 comdat {
-  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %0, align 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   %.0.copyload.i.i.i.i2.i.i = load i64, ptr %1, align 1
-  %3 = icmp ult i64 %.0.copyload.i.i.i.i.i.i, %.0.copyload.i.i.i.i2.i.i
-  br i1 %3, label %6, label %4
-
-4:                                                ; preds = %2
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 1) ]
-  %5 = icmp ult i64 %.0.copyload.i.i.i.i2.i.i, %.0.copyload.i.i.i.i.i.i
-  %. = zext i1 %5 to i32
-  br label %6
-
-6:                                                ; preds = %4, %2
-  %.0 = phi i32 [ -1, %2 ], [ %., %4 ]
+  %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %.0.copyload.i.i.i.i.i.i, i64 %.0.copyload.i.i.i.i2.i.i)
   ret i32 %.0
 }
 
@@ -162591,6 +162578,9 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #33
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #33

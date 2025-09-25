@@ -7904,7 +7904,6 @@ define dso_local void @_ZNK4llvm6X86_MC18X86MCInstrAnalysis14findPltEntriesEmNS_
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i32, ptr %26, align 1, !noalias !106
   %27 = add i64 %.034.i, %2
   %28 = zext i32 %.0.copyload.i.i.i.i.i.i.i to i64
@@ -7976,7 +7975,6 @@ _ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJmmEEEvN9__gnu_cxx17__normal
 
 53:                                               ; preds = %22
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 1) ]
   %.0.copyload.i.i.i.i.i.i17.i = load i32, ptr %54, align 1, !noalias !106
   %55 = add i64 %.034.i, %2
   %56 = zext i32 %.0.copyload.i.i.i.i.i.i17.i to i64
@@ -8090,7 +8088,6 @@ _ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJmmEEERS1_DpOT_.exit.i: ; preds =
 
 103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw i8, ptr %96, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %104, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i8 = load i32, ptr %104, align 1, !noalias !122
   %105 = add i64 %.020.i, %2
   %106 = add i64 %105, 6

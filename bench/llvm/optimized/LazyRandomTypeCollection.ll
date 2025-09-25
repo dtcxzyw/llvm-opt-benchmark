@@ -2007,8 +2007,8 @@ _ZN4llvm24FixedStreamArrayIteratorINS_8codeview15TypeIndexOffsetEEC2ERKS3_.exit1
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !133
   %209 = load ptr, ptr %23, align 8, !tbaa !104, !noalias !133
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !133
-  %.0.copyload.i.i.i.i2.i.i.i.i.i.i = load i32, ptr %209, align 1, !noalias !133
-  %210 = icmp ult i32 %2, %.0.copyload.i.i.i.i2.i.i.i.i.i.i
+  %.val.i.i.i.i = load i32, ptr %209, align 1, !noalias !133
+  %210 = icmp ult i32 %2, %.val.i.i.i.i
   %211 = load ptr, ptr %174, align 8, !tbaa !33, !noalias !133
   %.not.i.i.i.i.i21.i.i.i = icmp eq ptr %211, null
   br i1 %.not.i.i.i.i.i21.i.i.i, label %_ZN4llvm24FixedStreamArrayIteratorINS_8codeview15TypeIndexOffsetEED2Ev.exit25.i.i.i, label %212
@@ -2903,7 +2903,6 @@ define dso_local void @_ZN4llvm8codeview24LazyRandomTypeCollection15fullScanForT
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %15, align 4
   %16 = and i32 %.0.copyload.i.i.i.i.i, 2147483647
   %17 = add nsw i32 %16, -4096
@@ -3121,7 +3120,6 @@ _ZN4llvm22VarStreamArrayIteratorINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_2
 
 _ZN4llvm8codeview24LazyRandomTypeCollection17ensureCapacityForENS0_9TypeIndexE.exit: ; preds = %96, %113, %115, %117, %119
   %120 = phi ptr [ %.pre33, %96 ], [ %.pre, %113 ], [ %.pre33, %115 ], [ %.pre33, %117 ], [ %.pre33, %119 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %94, align 4
   %.sroa.speculated = call i32 @llvm.umax.i32(i32 %.0.copyload.i.i.i.i.i.i, i32 %.sroa.023.132)
   store i32 %.sroa.speculated, ptr %94, align 4, !tbaa !34
@@ -3274,7 +3272,6 @@ _ZN4llvm8codeview24LazyRandomTypeCollection17ensureCapacityForENS0_9TypeIndexE.e
 
 .lr.ph:                                           ; preds = %_ZN4llvm8codeview24LazyRandomTypeCollection17ensureCapacityForENS0_9TypeIndexE.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 1) ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 84
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8

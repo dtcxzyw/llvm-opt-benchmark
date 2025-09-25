@@ -15288,14 +15288,12 @@ define internal void @_ZNK12_GLOBAL__N_122AArch64MCInstrAnalysis14findPltEntries
   %.02135 = phi i64 [ 0, %.lr.ph ], [ %65, %62 ]
   %12 = phi ptr [ null, %.lr.ph ], [ %64, %62 ]
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 %.02135
-  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %13, align 1
   %14 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, -721214369
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 1) ]
   %.0.copyload.i.i.i.i.i.i23 = load i32, ptr %16, align 1
   br label %17
 
@@ -15309,7 +15307,6 @@ define internal void @_ZNK12_GLOBAL__N_122AArch64MCInstrAnalysis14findPltEntries
 19:                                               ; preds = %17
   %20 = add i64 %.02135, %2
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 %.0
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 1) ]
   %.0.copyload.i.i.i.i.i.i24 = load i32, ptr %21, align 1
   %.mask = and i32 %.0.copyload.i.i.i.i.i.i24, -4194304
   %22 = icmp eq i32 %.mask, -113246208

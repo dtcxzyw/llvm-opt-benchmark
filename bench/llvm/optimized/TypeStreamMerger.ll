@@ -910,7 +910,6 @@ _ZN4llvm5ErrorD2Ev.exit6.i.i.i.i:                 ; preds = %88
 
 118:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit6.i.i.i.i
   %119 = load i32, ptr %53, align 4, !tbaa !137, !noalias !134
-  call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i32, ptr %58, align 8, !noalias !134
   %120 = and i32 %.0.copyload.i.i.i.i.i.i.i.i.i, 2147483647
   %121 = add nsw i32 %120, -4096
@@ -953,7 +952,6 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit.i.i.i: ; preds = %1
   %.0.i.i.i.i = phi i64 [ %131, %130 ], [ 56, %thread-pre-split.i.i.i ]
   %.in14.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i.i.i.i
   %133 = load ptr, ptr %.in14.i.i.i, align 8, !tbaa !163, !noalias !161
-  call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 1) ]
   %.0.copyload.i.i.i.i.i15.i.i.i = load i32, ptr %58, align 8, !noalias !161
   %134 = and i32 %.0.copyload.i.i.i.i.i15.i.i.i, 2147483647
   %135 = add nsw i32 %134, -4096
@@ -1176,10 +1174,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview9TypeIndexELb1EE9push_backES2_.exi
   br label %"_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.exit.thread.i"
 
 "_ZZN12_GLOBAL__N_116TypeStreamMerger13remapAllTypesERKN4llvm14VarStreamArrayINS1_8codeview8CVRecordINS3_12TypeLeafKindEEENS1_23VarStreamArrayExtractorIS6_EEEEENK3$_0clERKS6_.exit.thread.i": ; preds = %238, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview9TypeIndexELb1EE9push_backES2_.exit.i.i.i.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 1) ]
   %.0.copyload.i.i.i.i.i23.i.i.i = load i32, ptr %58, align 8, !noalias !161
   %243 = add i32 %.0.copyload.i.i.i.i.i23.i.i.i, 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 1) ]
   store i32 %243, ptr %58, align 8, !noalias !161
   store ptr null, ptr %0, align 8, !tbaa !52, !alias.scope !161
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !133
@@ -1484,7 +1480,6 @@ define internal fastcc { ptr, i64 } @"_ZZN12_GLOBAL__N_116TypeStreamMerger9remap
   %38 = load ptr, ptr %37, align 8, !tbaa !205
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !43
-  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i = load i32, ptr %33, align 1
   %41 = icmp ult i32 %.0.copyload.i.i.i.i.i.i.i.i, 4096
   br i1 %41, label %.critedge.i, label %42
@@ -1517,7 +1512,6 @@ _ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeInde
 52:                                               ; preds = %49
   %.sroa.0.0.copyload.i.i = load ptr, ptr %24, align 8, !tbaa !61
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !62
-  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i54.i = load i32, ptr %33, align 1
   %53 = icmp ult i32 %.0.copyload.i.i.i.i.i.i.i54.i, 4096
   br i1 %53, label %.critedge.i, label %54
@@ -1539,7 +1533,6 @@ _ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeInde
   %62 = load ptr, ptr %61, align 8, !tbaa !205
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %64 = load i32, ptr %63, align 8, !tbaa !43
-  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 1) ]
   %.0.copyload.i.i.i.i.i.i4.i.i = load i32, ptr %33, align 1
   %65 = icmp ult i32 %.0.copyload.i.i.i.i.i.i4.i.i, 4096
   br i1 %65, label %.critedge.i, label %66
@@ -1583,11 +1576,9 @@ _ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeInde
 
 77:                                               ; preds = %.critedge52.i
   %78 = trunc nuw nsw i32 %10 to i16
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i16, ptr %1, align 1
   %reass.sub = sub i16 %.0.copyload.i.i.i.i.i, %78
   %79 = add i16 %reass.sub, 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   store i16 %79, ptr %1, align 1
   %80 = load i64, ptr %7, align 8, !tbaa !229
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 %80

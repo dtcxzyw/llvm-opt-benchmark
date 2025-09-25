@@ -235,7 +235,6 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   br label %_ZL24handleMethodOverloadListN4llvm8ArrayRefIhEERNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit
 
 61:                                               ; preds = %4
-  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %0, align 1
   %.not141 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %.not141, label %_ZL24handleMethodOverloadListN4llvm8ArrayRefIhEERNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit, label %62
@@ -270,7 +269,6 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   br label %_ZL24handleMethodOverloadListN4llvm8ArrayRefIhEERNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit
 
 77:                                               ; preds = %4
-  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 1) ]
   %.0.copyload.i.i.i.i.i.i158 = load i16, ptr %0, align 1
   %.not140 = icmp eq i16 %.0.copyload.i.i.i.i.i.i158, 0
   br i1 %.not140, label %_ZL24handleMethodOverloadListN4llvm8ArrayRefIhEERNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit, label %78
@@ -520,7 +518,6 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   br label %_ZL24handleMethodOverloadListN4llvm8ArrayRefIhEERNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit
 
 202:                                              ; preds = %4
-  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 1) ]
   %.0.copyload.i.i.i.i.i.i195 = load i32, ptr %0, align 1
   %.not = icmp eq i32 %.0.copyload.i.i.i.i.i.i195, 0
   br i1 %.not, label %_ZL24handleMethodOverloadListN4llvm8ArrayRefIhEERNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit, label %203
@@ -1251,7 +1248,6 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %566 = add i32 %565, 1
   store i32 %566, ptr %553, align 8, !tbaa !11
   %567 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %567, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i231 = load i32, ptr %567, align 1
   %568 = and i32 %.0.copyload.i.i.i.i.i.i.i231, 192
   %569 = icmp eq i32 %568, 64
@@ -1333,7 +1329,6 @@ define dso_local void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERN
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 4, ptr %7, align 4, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %8, align 1
   %9 = add i64 %1, -4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1361,7 +1356,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_11TiReferenceEEE(ptr readonly captures(none) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   %5 = add i64 %1, -4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2125,7 +2119,6 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   br label %229
 
 184:                                              ; preds = %3, %3, %3
-  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %0, align 1
   %185 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %186 = load i32, ptr %185, align 8, !tbaa !11
@@ -2224,7 +2217,6 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm8codeview27discoverTypeIndicesInSymbolENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_11TiReferenceEEE(ptr readonly captures(none) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = tail call fastcc noundef zeroext i1 @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview10SymbolKindERNS_15SmallVectorImplINS2_11TiReferenceEEE(ptr nonnull %5, i16 noundef zeroext %.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %2)
@@ -2242,7 +2234,6 @@ define dso_local noundef zeroext i1 @_ZN4llvm8codeview27discoverTypeIndicesInSym
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 2, ptr %7, align 4, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %8, align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = call fastcc noundef zeroext i1 @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview10SymbolKindERNS_15SmallVectorImplINS2_11TiReferenceEEE(ptr nonnull readonly %9, i16 noundef zeroext %.0.copyload.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4)

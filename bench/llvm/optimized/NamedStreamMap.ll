@@ -2852,7 +2852,6 @@ _ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJRKNS_7support6detail31p
   store i8 0, ptr %22, align 1, !tbaa !14
   store i64 %2, ptr %19, align 8, !tbaa !225
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %4, align 1
   store i32 %.0.copyload.i.i.i.i.i.i, ptr %23, align 8, !tbaa !227
   store ptr %19, ptr %9, align 8, !tbaa !221
