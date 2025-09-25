@@ -1219,6 +1219,7 @@ define hidden noundef i32 @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..P
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %58
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 4) ]
   %65 = call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %61)
   br label %66
 
@@ -1352,6 +1353,7 @@ define hidden noundef i32 @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..P
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %58
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %65 = call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %61)
   br label %66
 
@@ -1482,6 +1484,7 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !166
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !160
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %64, label %70, label %74
 
 65:                                               ; preds = %4
@@ -1494,20 +1497,20 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   store ptr %.val10, ptr %0, align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.val11, ptr %69, align 8
-  br label %79
+  br label %78
 
 70:                                               ; preds = %59
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %71 = call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %62)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val8 = load ptr, ptr %72, align 8, !nonnull !3, !align !4, !noundef !3
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val9 = load i64, ptr %73, align 8, !noundef !3
   store ptr %.val8, ptr %0, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.val9, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %71, ptr %.sroa.53.0..sroa_idx, align 8
-  br label %79
+  br label %78
 
 74:                                               ; preds = %59
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1517,11 +1520,10 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %9, ptr %77, align 8
   store ptr %.val, ptr %0, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.val7, ptr %78, align 8
-  br label %79
+  store i64 %.val7, ptr %.sroa.42.0..sroa_idx, align 8
+  br label %78
 
-79:                                               ; preds = %70, %74, %65
+78:                                               ; preds = %70, %74, %65
   %.sink = phi i8 [ 1, %70 ], [ 0, %74 ], [ 0, %65 ]
   %.sroa.64.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %.sink, ptr %.sroa.64.0..sroa_idx, align 4
@@ -1650,6 +1652,7 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !183
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !177
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %64, label %72, label %78
 
 65:                                               ; preds = %4
@@ -1662,20 +1665,20 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   store ptr %68, ptr %0, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %69, ptr %71, align 8
-  br label %85
+  br label %84
 
 72:                                               ; preds = %59
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 4) ]
   %73 = call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %62)
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %75 = call { ptr, i64 } @"_ZN100_$LT$jiff..shared..util..array_str..ArrayStr$LT$_$GT$$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h0bfc697eb4a8e8d2E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(31) %74)
   %76 = extractvalue { ptr, i64 } %75, 0
   %77 = extractvalue { ptr, i64 } %75, 1
   store ptr %76, ptr %0, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %77, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %73, ptr %.sroa.53.0..sroa_idx, align 8
-  br label %85
+  br label %84
 
 78:                                               ; preds = %59
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1685,11 +1688,10 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %9, ptr %83, align 8
   store ptr %81, ptr %0, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %82, ptr %84, align 8
-  br label %85
+  store i64 %82, ptr %.sroa.42.0..sroa_idx, align 8
+  br label %84
 
-85:                                               ; preds = %72, %78, %65
+84:                                               ; preds = %72, %78, %65
   %.sink = phi i8 [ 1, %72 ], [ 0, %78 ], [ 0, %65 ]
   %.sroa.64.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %.sink, ptr %.sroa.64.0..sroa_idx, align 4

@@ -11647,6 +11647,7 @@ define hidden void @_ZN5prost8encoding6string6encode17h8afc05a8e64e60b9E(i32 nou
   tail call fastcc void @_ZN5prost8encoding13encode_varint17h3baa26124614b5a5E(i64 noundef %10, ptr %.val2)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val2, i64 8) ]
   %14 = getelementptr inbounds nuw i8, ptr %.val2, i64 8
   %15 = load i64, ptr %14, align 8, !noalias !704, !noundef !4
   %16 = xor i64 %15, -1
@@ -12644,6 +12645,7 @@ define hidden noundef i64 @"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20
   %52 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %.sroa.03.sroa.0.0.copyload, i64 %.sroa.613.029
   %53 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %.sroa.03.sroa.3.0.copyload, i64 %.sroa.613.029
   %54 = add i64 %.sroa.914.030, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 8) ]
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load i64, ptr %55, align 8, !noundef !4
   %.not10 = icmp ugt i64 %.sroa.06.031, %56
@@ -12818,6 +12820,7 @@ default.unreachable:                              ; preds = %9
   %59 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %.sroa.03.sroa.0.0.copyload, i64 %.sroa.613.031
   %60 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %.sroa.03.sroa.3.0.copyload, i64 %.sroa.613.031
   %61 = add i64 %.sroa.914.032, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 8) ]
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = load i64, ptr %62, align 8, !noundef !4
   %.not10 = icmp ugt i64 %.sroa.06.033, %63
@@ -17379,6 +17382,7 @@ define hidden { i64, ptr } @"_ZN95_$LT$hyper..common..io..rewind..Rewind$LT$T$GT
 11:                                               ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1240)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1243)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.copyload, i64 8) ]
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 32
   %13 = load ptr, ptr %12, align 8, !noalias !1246, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -17463,6 +17467,7 @@ define hidden { i64, ptr } @"_ZN95_$LT$hyper..common..io..rewind..Rewind$LT$T$GT
 47:                                               ; preds = %44
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1260)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1263)
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %49 = load ptr, ptr %48, align 8, !noalias !1266, !nonnull !4, !noundef !4
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -20094,6 +20099,7 @@ _ZN11foundations9telemetry3log4init14get_root_drain17he617b9c8b679280cE.exit.i: 
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !1465
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sink.i51, i64 8) ]
   invoke void @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4push17hb68af4dcd303d5cbE"(ptr noundef nonnull align 8 %60, ptr noundef nonnull align 1 %.sink50.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sink.i51)
           to label %342 unwind label %.body.thread84
 

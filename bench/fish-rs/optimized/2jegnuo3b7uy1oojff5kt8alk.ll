@@ -8600,7 +8600,7 @@ define internal fastcc void @_ZN4fish3ast11TokenStream13next_from_tok17hf85e69a0
   store i64 %27, ptr %13, align 8, !noalias !546
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !553
   call void @_ZN4fish3ast16unescape_keyword17hf84e0bb956d79998E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i8 noundef range(i8 0, 11) %23, ptr noalias noundef nonnull readonly align 4 %26, i64 noundef %27), !noalias !550
-  %28 = load ptr, ptr %14, align 8, !noalias !553, !nonnull !4
+  %28 = load ptr, ptr %14, align 8, !noalias !553, !nonnull !4, !align !53
   %29 = load i64, ptr %15, align 8, !noalias !553
   %30 = invoke noundef i8 @"_ZN115_$LT$fish..parse_constants..ParseKeyword$u20$as$u20$core..convert..From$LT$$RF$widestring..utfstr..Utf32Str$GT$$GT$4from17h1ecd7ee6674c0760E"(ptr noalias noundef nonnull readonly align 4 %28, i64 noundef %29)
           to label %36 unwind label %31, !noalias !550
@@ -28222,6 +28222,7 @@ define range(i64 0, 8589934592) i64 @_ZN4fish8builtins15fish_key_reader15fish_ke
   br label %32
 
 30:                                               ; preds = %22, %14
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val12, i64 8) ]
   %31 = tail call noundef zeroext i1 @_ZN4fish2io12OutputStream8appendln17h2f98ccba54e846b4E(ptr noalias noundef align 8 dereferenceable(32) %.val12, ptr noalias noundef nonnull readonly align 1 @anon.c3855246c02a9407b3365b2c3e5c0e37.604, i64 noundef 32)
   br label %18
 
@@ -30121,7 +30122,7 @@ define { i32, i32 } @"_ZN97_$LT$fish..builtins..string..split..Split$u20$as$u20$
   store i64 %.sroa.0161.0.copyload162, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7163.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7163, i64 16, i1 false)
   %181 = load ptr, ptr %144, align 8, !nonnull !4, !align !45, !noundef !4
-  %182 = load ptr, ptr %.sroa.7163.0..sroa_idx, align 8, !nonnull !4
+  %182 = load ptr, ptr %.sroa.7163.0..sroa_idx, align 8, !nonnull !4, !align !53
   %183 = load i64, ptr %145, align 8
   %184 = invoke noundef zeroext i1 @_ZN4fish2io12OutputStream22append_with_separation17h959eb9e5ac1b4cdbE(ptr noalias noundef nonnull align 8 dereferenceable(32) %181, ptr noalias noundef nonnull readonly align 4 %182, i64 noundef %183, i1 noundef zeroext true, i1 noundef zeroext true)
           to label %191 unwind label %186
@@ -30607,13 +30608,13 @@ define { i32, i32 } @"_ZN105_$LT$fish..builtins..string..transform..Transform$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %25 = load ptr, ptr %14, align 8, !nonnull !4
+  %25 = load ptr, ptr %14, align 8, !nonnull !4, !align !53
   %26 = load i64, ptr %15, align 8
   invoke void %13(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 4 %25, i64 noundef %26)
           to label %27 unwind label %.loopexit23.split.us
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr %14, align 8, !nonnull !4
+  %28 = load ptr, ptr %14, align 8, !nonnull !4, !align !53
   %29 = load i64, ptr %15, align 8
   %30 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
   %31 = load i64, ptr %17, align 8, !noundef !4
@@ -30689,7 +30690,7 @@ define { i32, i32 } @"_ZN105_$LT$fish..builtins..string..transform..Transform$u2
   %42 = load i8, ptr %12, align 8, !range !139, !noundef !4
   %43 = trunc nuw i8 %42 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %44 = load ptr, ptr %14, align 8, !nonnull !4
+  %44 = load ptr, ptr %14, align 8, !nonnull !4, !align !53
   %45 = load i64, ptr %15, align 8
   invoke void %13(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 4 %44, i64 noundef %45)
           to label %53 unwind label %.loopexit23.split
@@ -30729,7 +30730,7 @@ define { i32, i32 } @"_ZN105_$LT$fish..builtins..string..transform..Transform$u2
   br label %.loopexit23
 
 53:                                               ; preds = %41
-  %54 = load ptr, ptr %14, align 8, !nonnull !4
+  %54 = load ptr, ptr %14, align 8, !nonnull !4, !align !53
   %55 = load i64, ptr %15, align 8
   %56 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
   %57 = load i64, ptr %17, align 8, !noundef !4

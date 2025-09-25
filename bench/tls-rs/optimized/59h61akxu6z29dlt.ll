@@ -7222,6 +7222,7 @@ define hidden void @_ZN6rustls5tls1312key_schedule11KeySchedule11derive_next17h7
   %.fca.1.extract = extractvalue { ptr, ptr } %17, 1
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1928)
   %18 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 40
   %19 = load ptr, ptr %18, align 8, !invariant.load !4, !alias.scope !1928, !noalias !1931, !nonnull !4
@@ -7349,6 +7350,7 @@ define hidden void @_ZN6rustls5tls1312key_schedule11KeySchedule17derive_ticket_p
   %.fca.1.extract = extractvalue { ptr, ptr } %19, 1
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1957)
   %20 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 40
   %21 = load ptr, ptr %20, align 8, !invariant.load !4, !alias.scope !1957, !noalias !1960, !nonnull !4
@@ -7494,6 +7496,7 @@ define hidden void @_ZN6rustls5tls1312key_schedule11KeySchedule22export_keying_m
   %.fca.1.extract = extractvalue { ptr, ptr } %37, 1
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract, i64 8) ]
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %39 = load i64, ptr %38, align 8, !alias.scope !1986, !noundef !4
   %40 = icmp ugt i64 %39, 64
@@ -7651,6 +7654,7 @@ common.resume:                                    ; preds = %.lr.ph.i.i.i.i, %42
   %.fca.1.extract4 = extractvalue { ptr, ptr } %98, 1
   %.fca.1.gep5 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %.fca.1.extract4, ptr %.fca.1.gep5, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract4, i64 8) ]
   %100 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %101 = load i64, ptr %100, align 8, !alias.scope !2030, !noundef !4
   %102 = icmp ugt i64 %101, 64
@@ -10710,6 +10714,7 @@ define internal fastcc noundef zeroext i1 @_ZN6rustls6server5tls1312client_hello
   %.fca.1.extract.i = extractvalue { ptr, ptr } %28, 1
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8, !noalias !2613
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract.i, i64 8) ]
   %29 = getelementptr inbounds nuw i8, ptr %.fca.1.extract.i, i64 48
   %30 = load ptr, ptr %29, align 8, !invariant.load !4, !noalias !2613, !nonnull !4
   invoke void %30(ptr noundef align 1 %.fca.0.extract.i, ptr noalias noundef nonnull readonly align 1 %21, i64 noundef %23)
@@ -12623,6 +12628,7 @@ _ZN6rustls6server5tls1312client_hello13emit_fake_ccs17he996375f99b9cc44E.exit425
   br i1 %.not.i431, label %_ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154E.exit, label %671
 
 671:                                              ; preds = %666
+  call void @llvm.assume(i1 true) [ "align"(ptr %670, i64 8) ]
   invoke void @_ZN6rustls12common_state11CommonState15flush_plaintext17hb0dc319bf79a5d5eE.llvm.12428379203013389814(ptr noalias noundef nonnull align 8 dereferenceable(776) %667, ptr noalias noundef nonnull align 8 dereferenceable(48) %670)
           to label %_ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154E.exit unwind label %731
 
@@ -13296,6 +13302,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello17emit_server_
   %.fca.1.extract.i = extractvalue { ptr, ptr } %147, 1
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8, !noalias !3050
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract.i, i64 8) ]
   %148 = getelementptr inbounds nuw i8, ptr %.fca.1.extract.i, i64 48
   %149 = load ptr, ptr %148, align 8, !invariant.load !4, !noalias !3050, !nonnull !4
   invoke void %149(ptr noundef align 1 %.fca.0.extract.i, ptr noalias noundef nonnull readonly align 1 @anon.c12b500a9dbc3a7785a3e66a12bc69a1.2.llvm.3875224068774112026, i64 noundef 0)
@@ -16743,6 +16750,7 @@ define internal fastcc void @_ZN6rustls4quic7Secrets6update17h1e7634e9eb17047aE(
   %.fca.1.extract = extractvalue { ptr, ptr } %23, 1
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract, i64 8) ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %.val = load i8, ptr %24, align 8, !range !176, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3877)
@@ -16882,6 +16890,7 @@ common.resume:                                    ; preds = %28, %67, %102, %110
   %.fca.1.extract3 = extractvalue { ptr, ptr } %78, 1
   %.fca.1.gep4 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %.fca.1.extract3, ptr %.fca.1.gep4, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract3, i64 8) ]
   %.val9 = load i8, ptr %24, align 8, !range !176, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !3918)
   %79 = getelementptr inbounds nuw i8, ptr %.fca.1.extract3, i64 40
@@ -17026,6 +17035,7 @@ define void @_ZN6rustls4quic15DirectionalKeys3new17h4f4853f21709bfc4E(ptr noalia
   store ptr %3, ptr %23, align 8, !alias.scope !3959, !noalias !3968
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !3969, !nonnull !4
   %26 = invoke noundef i64 %25(ptr noundef nonnull align 1 %2)

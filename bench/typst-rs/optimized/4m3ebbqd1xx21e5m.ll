@@ -1929,6 +1929,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h7a0eaca80c0b3ee7E.exit.i: ; preds 
   br i1 %.not15, label %.critedge, label %18
 
 18:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb6d04025abb062d5E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load i64, ptr %19, align 8, !noundef !4
   %.sroa.022.0.copyload = load ptr, ptr %1, align 8
@@ -4480,6 +4481,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 
 17:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   call void @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h3ea5e8d21702bb86E.llvm.16978709814855407318(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %14, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !1447
   %18 = load i64, ptr %6, align 8, !range !860, !alias.scope !1452, !noalias !1455, !noundef !4
   %19 = icmp eq i64 %18, -9223372036854775807
@@ -6491,7 +6493,7 @@ define hidden void @_ZN10serde_yaml2de12Deserializer2de17h142d4f7c352566fcE(ptr 
   %35 = load i64, ptr %21, align 8, !range !44, !noundef !4
   %trunc = trunc nuw i64 %35 to i1
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %37 = load ptr, ptr %36, align 8
+  %37 = load ptr, ptr %36, align 8, !align !60
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %39 = load i64, ptr %38, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -68584,6 +68586,7 @@ _ZN5typst6layout6inline7shaping11ShapedGlyph12is_cj_script17h4d7fb1628f7f6339E.e
   br i1 %560, label %"_ZN4core3ptr100drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$typst..layout..inline..shaping..ShapedGlyph$u5d$$GT$$GT$17h5108d2f9ffcb7b21E.llvm.16978709814855407318.exit.i277", label %"_ZN5alloc6borrow12Cow$LT$B$GT$6to_mut17h41df2a1e7035700dE.exit280.thread"
 
 "_ZN4core3ptr100drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$typst..layout..inline..shaping..ShapedGlyph$u5d$$GT$$GT$17h5108d2f9ffcb7b21E.llvm.16978709814855407318.exit.i277": ; preds = %557
+  call void @llvm.assume(i1 true) [ "align"(ptr %.pn3.i249, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !12283
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17he8389acc0b84b8c1E.llvm.14728845296163125433"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 %.pn3.i249, i64 noundef %.pn1.i247)
           to label %.noexc278 unwind label %480

@@ -3364,7 +3364,11 @@ process_visualize.exit:                           ; preds = %._crit_edge.us.i, %
   %271 = mul i64 %269, 6
   %272 = tail call ptr @dt_alloc_aligned(i64 noundef %271) #30
   %.not.i.i = icmp eq ptr %272, null
-  br i1 %.not.i.i, label %.thread2.i, label %273
+  br i1 %.not.i.i, label %.thread4.i, label %273
+
+.thread4.i:                                       ; preds = %270
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 64) ]
+  br label %.thread2.i
 
 273:                                              ; preds = %270
   tail call void @llvm.memset.p0.i64(ptr nonnull align 64 %272, i8 0, i64 %271, i1 false)
@@ -3658,7 +3662,7 @@ process_visualize.exit:                           ; preds = %._crit_edge.us.i, %
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.thread2.i
 
-.thread2.i:                                       ; preds = %.loopexit.i, %270, %.thread1.i
+.thread2.i:                                       ; preds = %.loopexit.i, %.thread4.i, %.thread1.i
   %415 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %416 = load i32, ptr %415, align 4, !tbaa !83
   %417 = sext i32 %416 to i64
@@ -9418,7 +9422,11 @@ _opposed_hash.exit:                               ; preds = %121
   %135 = mul i64 %82, 6
   %136 = tail call ptr @dt_alloc_aligned(i64 noundef %135) #30
   %.not.i = icmp eq ptr %136, null
-  br i1 %.not.i, label %.thread358, label %137
+  br i1 %.not.i, label %.thread360, label %137
+
+.thread360:                                       ; preds = %134
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 64) ]
+  br label %.thread358
 
 137:                                              ; preds = %134
   tail call void @llvm.memset.p0.i64(ptr nonnull align 64 %136, i8 0, i64 %135, i1 false)
@@ -9978,8 +9986,8 @@ _opposed_parhash.exit:                            ; preds = %408
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread358
 
-.thread358:                                       ; preds = %134, %133, %421
-  %422 = phi ptr [ %136, %421 ], [ null, %133 ], [ null, %134 ]
+.thread358:                                       ; preds = %133, %.thread360, %421
+  %422 = phi ptr [ %136, %421 ], [ null, %.thread360 ], [ null, %133 ]
   tail call void @free(ptr noundef %422) #30
   br label %423
 

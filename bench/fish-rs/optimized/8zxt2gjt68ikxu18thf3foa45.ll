@@ -16876,6 +16876,7 @@ define void @"_ZN103_$LT$fish..builtins..string..unescape..Unescape$u20$as$u20$f
   unreachable
 
 "_ZN116_$LT$fish..common..UnescapeStringStyle$u20$as$u20$core..convert..TryFrom$LT$$RF$widestring..utfstr..Utf32Str$GT$$GT$8try_from17he7d3f98cc9efd931E.exit": ; preds = %24
+  call void @llvm.assume(i1 true) [ "align"(ptr @anon.21a3d60d47e9a7a4b9c3e30d929412c3.151, i64 4) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1558
   store i64 0, ptr %13, align 8, !noalias !1558
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -17070,7 +17071,7 @@ define { i32, i32 } @"_ZN103_$LT$fish..builtins..string..unescape..Unescape$u20$
   %25 = load i8, ptr %12, align 8, !range !8, !noundef !3
   %26 = trunc nuw i8 %25 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %27 = load ptr, ptr %13, align 8, !nonnull !3
+  %27 = load ptr, ptr %13, align 8, !nonnull !3, !align !10
   %28 = load i64, ptr %14, align 8
   invoke void @_ZN4fish6common15unescape_string17h616701c9b434bf44E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 4 %27, i64 noundef %28, i32 noundef %15, i32 %17)
           to label %38 unwind label %33
@@ -30793,6 +30794,7 @@ _ZN4fish10parse_util32parse_util_locate_cmdsubst_range17h83dee32d4ab4d607E.exit.
           to label %111 unwind label %.loopexit
 
 111:                                              ; preds = %104
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val38, i64 8) ]
   br i1 %.not34, label %116, label %112
 
 112:                                              ; preds = %111
@@ -39602,6 +39604,7 @@ _ZN4fish7wgetopt9WGetopter15handle_long_opt17h7a454af7e968ec49E.exit: ; preds = 
   br label %235
 
 230:                                              ; preds = %227
+  call void @llvm.assume(i1 true) [ "align"(ptr %181, i64 4) ]
   store ptr %181, ptr %48, align 8, !alias.scope !3513
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %180, ptr %231, align 8, !alias.scope !3513
@@ -39626,6 +39629,7 @@ _ZN4fish7wgetopt9WGetopter15handle_long_opt17h7a454af7e968ec49E.exit: ; preds = 
   br i1 %241, label %249, label %247
 
 242:                                              ; preds = %228
+  call void @llvm.assume(i1 true) [ "align"(ptr %181, i64 4) ]
   store ptr %181, ptr %48, align 8, !alias.scope !3513
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %180, ptr %243, align 8, !alias.scope !3513
@@ -41322,6 +41326,7 @@ thread-pre-split.i:                               ; preds = %.noexc14.i
           to label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$RF$fish..wutil..dir_iter..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h61bdfb9000f01e0aE.exit.i" unwind label %.loopexit.split-lp.i, !noalias !3711
 
 260:                                              ; preds = %255
+  call void @llvm.assume(i1 true) [ "align"(ptr %257, i64 8) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3726)
   %261 = load ptr, ptr %43, align 8, !alias.scope !3729, !noalias !3718, !nonnull !3, !align !7, !noundef !3
   %262 = load ptr, ptr %45, align 8, !alias.scope !3729, !noalias !3718, !nonnull !3, !align !18, !noundef !3
@@ -41671,6 +41676,7 @@ _ZN4fish8wildcard21wildcard_has_internal17hceb02dc643764931E.exit: ; preds = %82
   br label %_ZN4fish8wildcard8expander16WildCardExpander19expand_last_segment17h2fbc6e22086d204cE.exit
 
 383:                                              ; preds = %.noexc115
+  call void @llvm.assume(i1 true) [ "align"(ptr %380, i64 8) ]
   %cond13.i = icmp eq i64 %379, 0
   br i1 %cond13.i, label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$RF$fish..wutil..dir_iter..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h61bdfb9000f01e0aE.exit4.i", label %384
 
@@ -42124,6 +42130,7 @@ _ZN4fish8wildcard8expander16WildCardExpander25interrupted_or_overflowed17hf81410
   br label %_ZN4fish8wildcard8expander16WildCardExpander25interrupted_or_overflowed17hf8141045d9132db7E.exit.thread
 
 81:                                               ; preds = %75
+  call void @llvm.assume(i1 true) [ "align"(ptr %78, i64 8) ]
   %cond51 = icmp eq i64 %77, 0
   br i1 %cond51, label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$RF$fish..wutil..dir_iter..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h61bdfb9000f01e0aE.exit15", label %82
 
@@ -42627,6 +42634,7 @@ _ZN4fish8wildcard8expander16WildCardExpander25interrupted_or_overflowed17hf81410
   br label %_ZN4fish8wildcard8expander16WildCardExpander25interrupted_or_overflowed17hf8141045d9132db7E.exit.thread
 
 55:                                               ; preds = %49
+  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 8) ]
   %cond39 = icmp eq i64 %51, 0
   br i1 %cond39, label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$RF$fish..wutil..dir_iter..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h61bdfb9000f01e0aE.exit23", label %56
 
@@ -43896,6 +43904,7 @@ thread-pre-split.i:                               ; preds = %313, %317
           to label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$RF$fish..wutil..dir_iter..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h61bdfb9000f01e0aE.exit.i" unwind label %.loopexit.split-lp.i, !noalias !4054
 
 294:                                              ; preds = %289
+  call void @llvm.assume(i1 true) [ "align"(ptr %291, i64 8) ]
   %295 = getelementptr inbounds nuw i8, ptr %291, i64 16
   %296 = load i64, ptr %295, align 8, !noalias !4054, !noundef !3
   %297 = icmp ult i64 %296, 2305843009213693952

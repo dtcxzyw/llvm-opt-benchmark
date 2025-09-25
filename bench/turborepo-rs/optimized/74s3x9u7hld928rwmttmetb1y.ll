@@ -1097,9 +1097,9 @@ define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecRDNtNtCseG2FYMysgNb_3w
 define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecRINtNtCseG2FYMysgNb_3wax5token5TokenuEE16extend_desugaredINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtB1K_6option8IntoIterBG_EINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB1G_8peekable8PeekableB2t_ENCNCNCINvBK_10componentsuINtB2w_6OptionBG_EE000EEEBM_(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
@@ -1110,8 +1110,8 @@ define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecRINtNtCseG2FYMysgNb_3w
   br i1 %trunc.i.i, label %12, label %16
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr %6, align 8, !alias.scope !210, !align !14, !noundef !4
-  store ptr null, ptr %6, align 8, !alias.scope !210
+  %13 = load ptr, ptr %5, align 8, !alias.scope !210, !align !14, !noundef !4
+  store ptr null, ptr %5, align 8, !alias.scope !210
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableBZ_ENCNCNCINvB1r_10componentsuINtB12_6OptionB1n_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1t_.exit.thread8
 
@@ -1120,12 +1120,13 @@ define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecRINtNtCseG2FYMysgNb_3w
   br label %16
 
 16:                                               ; preds = %15, %10
-  %17 = load ptr, ptr %7, align 8, !alias.scope !215, !noalias !220, !noundef !4
+  %17 = load ptr, ptr %6, align 8, !alias.scope !215, !noalias !220, !noundef !4
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableBZ_ENCNCNCINvB1r_10componentsuINtB12_6OptionB1n_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1t_.exit.thread, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableBZ_ENCNCNCINvB1r_10componentsuINtB12_6OptionB1n_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1t_.exit
 
 _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableBZ_ENCNCNCINvB1r_10componentsuINtB12_6OptionB1n_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1t_.exit: ; preds = %16
-  %19 = tail call noundef align 8 dereferenceable_or_null(48) ptr @_RINvXs_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtBY_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEENtB5_11PeekingNext12peeking_nextQNCNCNCINvB2f_10componentsuINtB1Q_6OptionB2b_EE000EB2h_(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, ptr noalias noundef nonnull align 1 %5), !noalias !220
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
+  %19 = tail call noundef align 8 dereferenceable_or_null(48) ptr @_RINvXs_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtBY_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEENtB5_11PeekingNext12peeking_nextQNCNCNCINvB2f_10componentsuINtB1Q_6OptionB2b_EE000EB2h_(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, ptr noalias noundef nonnull align 1 %7), !noalias !220
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableBZ_ENCNCNCINvB1r_10componentsuINtB12_6OptionB1n_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1t_.exit.thread, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableBZ_ENCNCNCINvB1r_10componentsuINtB12_6OptionB1n_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1t_.exit.thread8
 
@@ -1140,7 +1141,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
   %25 = load i64, ptr %1, align 8, !range !204, !alias.scope !222, !noalias !225, !noundef !4
   %trunc.i = trunc nuw i64 %25 to i1
-  %26 = load ptr, ptr %7, align 8, !alias.scope !222, !noalias !225, !noundef !4
+  %26 = load ptr, ptr %6, align 8, !alias.scope !222, !noalias !225, !noundef !4
   %27 = icmp eq ptr %26, null
   br i1 %trunc.i, label %29, label %28
 
@@ -1148,18 +1149,20 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
   br i1 %27, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableBZ_ENCNCNCINvB1r_10componentsuINtB12_6OptionB1n_EE000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1t_.exit.thread, label %30
 
 29:                                               ; preds = %24
-  %.val.i = load ptr, ptr %6, align 8, !alias.scope !222, !noalias !225, !noundef !4
+  %.val.i = load ptr, ptr %5, align 8, !alias.scope !222, !noalias !225, !noundef !4
   %.not = icmp eq ptr %.val.i, null
   br i1 %27, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableBZ_ENCNCNCINvB1r_10componentsuINtB12_6OptionB1n_EE000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1t_.exit, label %31
 
 30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !227
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   call void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26), !noalias !227
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !227
   br label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableBZ_ENCNCNCINvB1r_10componentsuINtB12_6OptionB1n_EE000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1t_.exit.thread
 
 31:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !231
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   call void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26), !noalias !231
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !231
   br i1 %.not, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableBZ_ENCNCNCINvB1r_10componentsuINtB12_6OptionB1n_EE000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1t_.exit.thread, label %32
@@ -1198,9 +1201,9 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
 define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecRNtNtCseG2FYMysgNb_3wax5token5TokenE16extend_desugaredINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtB1H_6option8IntoIterBG_EINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB1D_8peekable8PeekableIB3Z_INtNtNtB1H_5slice4iter4IterBH_EEENCNCNCINvBJ_10componentsTjjEB4p_E000EEEBL_(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
@@ -1211,8 +1214,8 @@ define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecRNtNtCseG2FYMysgNb_3wa
   br i1 %trunc.i.i, label %12, label %16
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr %6, align 8, !alias.scope !240, !align !14, !noundef !4
-  store ptr null, ptr %6, align 8, !alias.scope !240
+  %13 = load ptr, ptr %5, align 8, !alias.scope !240, !align !14, !noundef !4
+  store ptr null, ptr %5, align 8, !alias.scope !240
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableIB33_INtNtNtBa_5slice4iter4IterB1o_EEENCNCNCINvB1q_10componentsTjjEB3s_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread8
 
@@ -1221,12 +1224,13 @@ define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecRNtNtCseG2FYMysgNb_3wa
   br label %16
 
 16:                                               ; preds = %15, %10
-  %17 = load ptr, ptr %7, align 8, !alias.scope !245, !noalias !250, !noundef !4
+  %17 = load ptr, ptr %6, align 8, !alias.scope !245, !noalias !250, !noundef !4
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableIB33_INtNtNtBa_5slice4iter4IterB1o_EEENCNCNCINvB1q_10componentsTjjEB3s_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableIB33_INtNtNtBa_5slice4iter4IterB1o_EEENCNCNCINvB1q_10componentsTjjEB3s_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit
 
 _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableIB33_INtNtNtBa_5slice4iter4IterB1o_EEENCNCNCINvB1q_10componentsTjjEB3s_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit: ; preds = %16
-  %19 = tail call noundef align 8 dereferenceable_or_null(64) ptr @_RINvXs_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableIBQ_INtNtNtBY_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENtB5_11PeekingNext12peeking_nextQNCNCNCINvB2j_10componentsTjjEB1N_E000EB2l_(ptr noalias noundef nonnull align 8 dereferenceable(48) %17, ptr noalias noundef nonnull align 1 %5), !noalias !250
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
+  %19 = tail call noundef align 8 dereferenceable_or_null(64) ptr @_RINvXs_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableIBQ_INtNtNtBY_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENtB5_11PeekingNext12peeking_nextQNCNCNCINvB2j_10componentsTjjEB1N_E000EB2l_(ptr noalias noundef nonnull align 8 dereferenceable(48) %17, ptr noalias noundef nonnull align 1 %7), !noalias !250
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableIB33_INtNtNtBa_5slice4iter4IterB1o_EEENCNCNCINvB1q_10componentsTjjEB3s_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableIB33_INtNtNtBa_5slice4iter4IterB1o_EEENCNCNCINvB1q_10componentsTjjEB3s_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread8
 
@@ -1241,7 +1245,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   %25 = load i64, ptr %1, align 8, !range !204, !alias.scope !252, !noalias !255, !noundef !4
   %trunc.i = trunc nuw i64 %25 to i1
-  %26 = load ptr, ptr %7, align 8, !alias.scope !252, !noalias !255, !noundef !4
+  %26 = load ptr, ptr %6, align 8, !alias.scope !252, !noalias !255, !noundef !4
   %27 = icmp eq ptr %26, null
   br i1 %trunc.i, label %29, label %28
 
@@ -1249,18 +1253,20 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
   br i1 %27, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableIB33_INtNtNtBa_5slice4iter4IterB1o_EEENCNCNCINvB1q_10componentsTjjEB3s_E000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit.thread, label %30
 
 29:                                               ; preds = %24
-  %.val.i = load ptr, ptr %6, align 8, !alias.scope !252, !noalias !255, !noundef !4
+  %.val.i = load ptr, ptr %5, align 8, !alias.scope !252, !noalias !255, !noundef !4
   %.not = icmp eq ptr %.val.i, null
   br i1 %27, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableIB33_INtNtNtBa_5slice4iter4IterB1o_EEENCNCNCINvB1q_10componentsTjjEB3s_E000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit, label %31
 
 30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !257
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   call void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableIBR_INtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENtNtNtB8_6traits8iterator8Iterator9size_hintB1D_.llvm.2038835765883349039(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %26), !noalias !257
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !257
   br label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableIB33_INtNtNtBa_5slice4iter4IterB1o_EEENCNCNCINvB1q_10componentsTjjEB3s_E000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit.thread
 
 31:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !261
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   call void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableIBR_INtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENtNtNtB8_6traits8iterator8Iterator9size_hintB1D_.llvm.2038835765883349039(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %26), !noalias !261
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !261
   br i1 %.not, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableIB33_INtNtNtBa_5slice4iter4IterB1o_EEENCNCNCINvB1q_10componentsTjjEB3s_E000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit.thread, label %32
@@ -1299,9 +1305,9 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
 define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecRNtNtCseG2FYMysgNb_3wax5token5TokenE16extend_desugaredINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtB1H_6option8IntoIterBG_EINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB1D_8peekable8PeekableINtNtNtB1H_5slice4iter4IterBH_EENCNCNCINvBJ_10componentsTjjERIBx_BH_EE000EEEBL_(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
@@ -1312,8 +1318,8 @@ define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecRNtNtCseG2FYMysgNb_3wa
   br i1 %trunc.i.i, label %12, label %16
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr %6, align 8, !alias.scope !270, !align !14, !noundef !4
-  store ptr null, ptr %6, align 8, !alias.scope !270
+  %13 = load ptr, ptr %5, align 8, !alias.scope !270, !align !14, !noundef !4
+  store ptr null, ptr %5, align 8, !alias.scope !270
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB1o_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread8
 
@@ -1322,12 +1328,13 @@ define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecRNtNtCseG2FYMysgNb_3wa
   br label %16
 
 16:                                               ; preds = %15, %10
-  %17 = load ptr, ptr %7, align 8, !alias.scope !275, !noalias !280, !noundef !4
+  %17 = load ptr, ptr %6, align 8, !alias.scope !275, !noalias !280, !noundef !4
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB1o_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB1o_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit
 
 _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB1o_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit: ; preds = %16
-  %19 = tail call noundef align 8 dereferenceable_or_null(64) ptr @_RINvXs_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtBY_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtB5_11PeekingNext12peeking_nextQNCNCNCINvB2f_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB2d_EE000EB2h_(ptr noalias noundef nonnull align 8 dereferenceable(32) %17, ptr noalias noundef nonnull align 1 %5), !noalias !280
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
+  %19 = tail call noundef align 8 dereferenceable_or_null(64) ptr @_RINvXs_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtBY_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtB5_11PeekingNext12peeking_nextQNCNCNCINvB2f_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB2d_EE000EB2h_(ptr noalias noundef nonnull align 8 dereferenceable(32) %17, ptr noalias noundef nonnull align 1 %7), !noalias !280
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB1o_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB1o_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread8
 
@@ -1342,7 +1349,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !282)
   %25 = load i64, ptr %1, align 8, !range !204, !alias.scope !282, !noalias !285, !noundef !4
   %trunc.i = trunc nuw i64 %25 to i1
-  %26 = load ptr, ptr %7, align 8, !alias.scope !282, !noalias !285, !noundef !4
+  %26 = load ptr, ptr %6, align 8, !alias.scope !282, !noalias !285, !noundef !4
   %27 = icmp eq ptr %26, null
   br i1 %trunc.i, label %29, label %28
 
@@ -1350,18 +1357,20 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
   br i1 %27, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB1o_EE000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit.thread, label %30
 
 29:                                               ; preds = %24
-  %.val.i = load ptr, ptr %6, align 8, !alias.scope !282, !noalias !285, !noundef !4
+  %.val.i = load ptr, ptr %5, align 8, !alias.scope !282, !noalias !285, !noundef !4
   %.not = icmp eq ptr %.val.i, null
   br i1 %27, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB1o_EE000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit, label %31
 
 30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !287
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   call void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %26), !noalias !287
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !287
   br label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB1o_EE000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit.thread
 
 31:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !291
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   call void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %26), !noalias !291
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !291
   br i1 %.not, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB1o_EE000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit.thread, label %32
@@ -1400,9 +1409,9 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
 define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecRNtNtCseG2FYMysgNb_3wax5token5TokenE16extend_desugaredINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtB1H_6option8IntoIterBG_EINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB1D_8peekable8PeekableINtNtNtB1H_5slice4iter4IterBH_EENCNCNCINvBJ_10componentsTjjERSBH_E000EEEBL_(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
@@ -1413,8 +1422,8 @@ define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecRNtNtCseG2FYMysgNb_3wa
   br i1 %trunc.i.i, label %12, label %16
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr %6, align 8, !alias.scope !300, !align !14, !noundef !4
-  store ptr null, ptr %6, align 8, !alias.scope !300
+  %13 = load ptr, ptr %5, align 8, !alias.scope !300, !align !14, !noundef !4
+  store ptr null, ptr %5, align 8, !alias.scope !300
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERSB1o_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread8
 
@@ -1423,12 +1432,13 @@ define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecRNtNtCseG2FYMysgNb_3wa
   br label %16
 
 16:                                               ; preds = %15, %10
-  %17 = load ptr, ptr %7, align 8, !alias.scope !305, !noalias !310, !noundef !4
+  %17 = load ptr, ptr %6, align 8, !alias.scope !305, !noalias !310, !noundef !4
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERSB1o_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERSB1o_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit
 
 _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERSB1o_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit: ; preds = %16
-  %19 = tail call noundef align 8 dereferenceable_or_null(64) ptr @_RINvXs_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtBY_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtB5_11PeekingNext12peeking_nextQNCNCNCINvB2f_10componentsTjjERSB2d_E000EB2h_(ptr noalias noundef nonnull align 8 dereferenceable(32) %17, ptr noalias noundef nonnull align 1 %5), !noalias !310
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
+  %19 = tail call noundef align 8 dereferenceable_or_null(64) ptr @_RINvXs_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtBY_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtB5_11PeekingNext12peeking_nextQNCNCNCINvB2f_10componentsTjjERSB2d_E000EB2h_(ptr noalias noundef nonnull align 8 dereferenceable(32) %17, ptr noalias noundef nonnull align 1 %7), !noalias !310
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERSB1o_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERSB1o_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread8
 
@@ -1443,7 +1453,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !312)
   %25 = load i64, ptr %1, align 8, !range !204, !alias.scope !312, !noalias !315, !noundef !4
   %trunc.i = trunc nuw i64 %25 to i1
-  %26 = load ptr, ptr %7, align 8, !alias.scope !312, !noalias !315, !noundef !4
+  %26 = load ptr, ptr %6, align 8, !alias.scope !312, !noalias !315, !noundef !4
   %27 = icmp eq ptr %26, null
   br i1 %trunc.i, label %29, label %28
 
@@ -1451,18 +1461,20 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
   br i1 %27, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERSB1o_E000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit.thread, label %30
 
 29:                                               ; preds = %24
-  %.val.i = load ptr, ptr %6, align 8, !alias.scope !312, !noalias !315, !noundef !4
+  %.val.i = load ptr, ptr %5, align 8, !alias.scope !312, !noalias !315, !noundef !4
   %.not = icmp eq ptr %.val.i, null
   br i1 %27, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERSB1o_E000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit, label %31
 
 30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !317
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   call void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %26), !noalias !317
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !317
   br label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERSB1o_E000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit.thread
 
 31:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !321
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   call void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %26), !noalias !321
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !321
   br i1 %.not, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERSB1o_E000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit.thread, label %32
@@ -3612,6 +3624,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
   br i1 %20, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableBZ_ENCNCNCINvB1r_10componentsuINtB12_6OptionB1n_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1t_.exit.thread, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableBZ_ENCNCNCINvB1r_10componentsuINtB12_6OptionB1n_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1t_.exit
 
 _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableBZ_ENCNCNCINvB1r_10componentsuINtB12_6OptionB1n_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1t_.exit: ; preds = %17
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = tail call noundef align 8 dereferenceable_or_null(48) ptr @_RINvXs_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtBY_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEENtB5_11PeekingNext12peeking_nextQNCNCNCINvB2f_10componentsuINtB1Q_6OptionB2b_EE000EB2h_(ptr noalias noundef nonnull align 8 dereferenceable(24) %19, ptr noalias noundef nonnull align 1 %21), !noalias !762
   %23 = icmp eq ptr %22, null
@@ -3642,6 +3655,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
 
 32:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !766
+  call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 8) ]
   call void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28), !noalias !766
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !766
   br label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableBZ_ENCNCNCINvB1r_10componentsuINtB12_6OptionB1n_EE000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1t_.exit
@@ -3650,6 +3664,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
   %.sroa.02.0.i.i101819 = phi ptr [ %11, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableBZ_ENCNCNCINvB1r_10componentsuINtB12_6OptionB1n_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1t_.exit.thread8.thread ], [ %22, %31 ]
   %34 = phi ptr [ %14, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableBZ_ENCNCNCINvB1r_10componentsuINtB12_6OptionB1n_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1t_.exit.thread8.thread ], [ %28, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !770
+  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 8) ]
   call void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34), !noalias !770
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !770
   br label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableBZ_ENCNCNCINvB1r_10componentsuINtB12_6OptionB1n_EE000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1t_.exit
@@ -3749,6 +3764,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
   br i1 %20, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableIB33_INtNtNtBa_5slice4iter4IterB1o_EEENCNCNCINvB1q_10componentsTjjEB3s_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableIB33_INtNtNtBa_5slice4iter4IterB1o_EEENCNCNCINvB1q_10componentsTjjEB3s_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit
 
 _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableIB33_INtNtNtBa_5slice4iter4IterB1o_EEENCNCNCINvB1q_10componentsTjjEB3s_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit: ; preds = %17
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = tail call noundef align 8 dereferenceable_or_null(64) ptr @_RINvXs_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableIBQ_INtNtNtBY_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENtB5_11PeekingNext12peeking_nextQNCNCNCINvB2j_10componentsTjjEB1N_E000EB2l_(ptr noalias noundef nonnull align 8 dereferenceable(48) %19, ptr noalias noundef nonnull align 1 %21), !noalias !809
   %23 = icmp eq ptr %22, null
@@ -3779,6 +3795,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
 
 32:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !813
+  call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 8) ]
   call void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableIBR_INtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENtNtNtB8_6traits8iterator8Iterator9size_hintB1D_.llvm.2038835765883349039(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %28), !noalias !813
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !813
   br label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableIB33_INtNtNtBa_5slice4iter4IterB1o_EEENCNCNCINvB1q_10componentsTjjEB3s_E000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit
@@ -3787,6 +3804,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
   %.sroa.02.0.i.i101819 = phi ptr [ %11, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableIB33_INtNtNtBa_5slice4iter4IterB1o_EEENCNCNCINvB1q_10componentsTjjEB3s_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread8.thread ], [ %22, %31 ]
   %34 = phi ptr [ %14, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableIB33_INtNtNtBa_5slice4iter4IterB1o_EEENCNCNCINvB1q_10componentsTjjEB3s_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread8.thread ], [ %28, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !817
+  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 8) ]
   call void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableIBR_INtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENtNtNtB8_6traits8iterator8Iterator9size_hintB1D_.llvm.2038835765883349039(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %34), !noalias !817
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !817
   br label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableIB33_INtNtNtBa_5slice4iter4IterB1o_EEENCNCNCINvB1q_10componentsTjjEB3s_E000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit
@@ -3886,6 +3904,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
   br i1 %20, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB1o_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB1o_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit
 
 _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB1o_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit: ; preds = %17
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = tail call noundef align 8 dereferenceable_or_null(64) ptr @_RINvXs_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtBY_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtB5_11PeekingNext12peeking_nextQNCNCNCINvB2f_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB2d_EE000EB2h_(ptr noalias noundef nonnull align 8 dereferenceable(32) %19, ptr noalias noundef nonnull align 1 %21), !noalias !856
   %23 = icmp eq ptr %22, null
@@ -3916,6 +3935,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
 
 32:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !860
+  call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 8) ]
   call void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %28), !noalias !860
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !860
   br label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB1o_EE000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit
@@ -3924,6 +3944,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
   %.sroa.02.0.i.i101819 = phi ptr [ %11, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB1o_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread8.thread ], [ %22, %31 ]
   %34 = phi ptr [ %14, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB1o_EE000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread8.thread ], [ %28, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !864
+  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 8) ]
   call void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %34), !noalias !864
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !864
   br label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB1o_EE000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit
@@ -4023,6 +4044,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
   br i1 %20, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERSB1o_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERSB1o_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit
 
 _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERSB1o_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit: ; preds = %17
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = tail call noundef align 8 dereferenceable_or_null(64) ptr @_RINvXs_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtBY_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtB5_11PeekingNext12peeking_nextQNCNCNCINvB2f_10componentsTjjERSB2d_E000EB2h_(ptr noalias noundef nonnull align 8 dereferenceable(32) %19, ptr noalias noundef nonnull align 1 %21), !noalias !903
   %23 = icmp eq ptr %22, null
@@ -4053,6 +4075,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
 
 32:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !907
+  call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 8) ]
   call void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %28), !noalias !907
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !907
   br label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERSB1o_E000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit
@@ -4061,6 +4084,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8
   %.sroa.02.0.i.i101819 = phi ptr [ %11, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERSB1o_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread8.thread ], [ %22, %31 ]
   %34 = phi ptr [ %14, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERSB1o_E000EENtNtNtB8_6traits8iterator8Iterator4nextB1s_.exit.thread8.thread ], [ %28, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !911
+  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 8) ]
   call void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %34), !noalias !911
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !911
   br label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainINtNtBa_6option8IntoIterRNtNtCseG2FYMysgNb_3wax5token5TokenEINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB6_8peekable8PeekableINtNtNtBa_5slice4iter4IterB1o_EENCNCNCINvB1q_10componentsTjjERSB1o_E000EENtNtNtB8_6traits8iterator8Iterator9size_hintB1s_.exit

@@ -35296,6 +35296,7 @@ define hidden void @"_ZN4core3ptr366drop_in_place$LT$regex_automata..util..pool.
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8, !alias.scope !3316, !nonnull !8, !align !39, !noundef !8
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
   %19 = invoke noundef i64 @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17ha1bd0504fc0a89acE"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.828c7d0e2a3e1195b6b60d15d45f1915.35)
           to label %20 unwind label %.loopexit.split-lp.i.i.i, !noalias !3317
 
@@ -94148,6 +94149,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   store i64 %85, ptr %36, align 8, !alias.scope !11193
   store ptr %84, ptr %45, align 8, !alias.scope !11193
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %61, i64 8) ]
   %.val1.i23.i = load ptr, ptr %86, align 8, !alias.scope !11193, !nonnull !8, !align !39, !noundef !8
   %87 = getelementptr inbounds nuw i8, ptr %61, i64 44
   %88 = load i32, ptr %87, align 4, !noundef !8
@@ -94159,6 +94161,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %93 = ptrtoint ptr %.v.i24.i to i64
   store i64 %93, ptr %86, align 8, !alias.scope !11193
   store ptr %92, ptr %55, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 8) ]
   %94 = getelementptr inbounds nuw i8, ptr %43, i64 44
   %95 = load i32, ptr %94, align 4, !noundef !8
   %96 = getelementptr inbounds nuw i8, ptr %52, i64 44
@@ -94169,6 +94173,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %100 = ptrtoint ptr %.v.i27.i to i64
   store i64 %100, ptr %46, align 8, !alias.scope !11193
   store ptr %99, ptr %37, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %70, i64 8) ]
   %101 = getelementptr inbounds nuw i8, ptr %34, i64 44
   %102 = load i32, ptr %101, align 4, !noundef !8
   %103 = getelementptr inbounds nuw i8, ptr %70, i64 44
@@ -94200,6 +94206,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %121 = ptrtoint ptr %.v.i36.i to i64
   store i64 %121, ptr %27, align 8, !alias.scope !11193
   store ptr %120, ptr %36, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %77, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %84, i64 8) ]
   %122 = getelementptr inbounds nuw i8, ptr %77, i64 44
   %123 = load i32, ptr %122, align 4, !noundef !8
   %124 = getelementptr inbounds nuw i8, ptr %84, i64 44
@@ -94220,6 +94228,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %135 = ptrtoint ptr %.v.i42.i to i64
   store i64 %135, ptr %46, align 8, !alias.scope !11193
   store ptr %134, ptr %64, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %106, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %99, i64 8) ]
   %136 = getelementptr inbounds nuw i8, ptr %106, i64 44
   %137 = load i32, ptr %136, align 4, !noundef !8
   %138 = getelementptr inbounds nuw i8, ptr %99, i64 44
@@ -94230,6 +94240,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %142 = ptrtoint ptr %.v.i45.i to i64
   store i64 %142, ptr %37, align 8, !alias.scope !11193
   store ptr %141, ptr %28, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %92, i64 8) ]
   %143 = getelementptr inbounds nuw i8, ptr %25, i64 44
   %144 = load i32, ptr %143, align 4, !noundef !8
   %145 = getelementptr inbounds nuw i8, ptr %92, i64 44
@@ -94240,6 +94252,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %149 = ptrtoint ptr %.v.i48.i to i64
   store i64 %149, ptr %55, align 8, !alias.scope !11193
   store ptr %148, ptr %19, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %113, i64 8) ]
   %150 = getelementptr inbounds nuw i8, ptr %127, i64 44
   %151 = load i32, ptr %150, align 4, !noundef !8
   %152 = getelementptr inbounds nuw i8, ptr %113, i64 44
@@ -94261,6 +94275,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %163 = ptrtoint ptr %.v.i54.i to i64
   store i64 %163, ptr %54, align 8, !alias.scope !11193
   store ptr %162, ptr %37, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %134, i64 8) ]
   %164 = getelementptr inbounds nuw i8, ptr %.v.i48.i, i64 44
   %165 = load i32, ptr %164, align 4, !noundef !8
   %166 = getelementptr inbounds nuw i8, ptr %134, i64 44
@@ -94271,6 +94286,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %170 = ptrtoint ptr %.v.i57.i to i64
   store i64 %170, ptr %64, align 8, !alias.scope !11193
   store ptr %169, ptr %55, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %148, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %141, i64 8) ]
   %171 = getelementptr inbounds nuw i8, ptr %148, i64 44
   %172 = load i32, ptr %171, align 4, !noundef !8
   %173 = getelementptr inbounds nuw i8, ptr %141, i64 44
@@ -94281,13 +94298,14 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %177 = ptrtoint ptr %.v.i60.i to i64
   store i64 %177, ptr %28, align 8, !alias.scope !11193
   store ptr %176, ptr %19, align 8, !alias.scope !11193
+  %.val1.i62.i = load ptr, ptr %.sroa.01.0, align 8, !alias.scope !11193, !nonnull !8, !align !39, !noundef !8
   %178 = getelementptr inbounds nuw i8, ptr %.v.i54.i, i64 44
   %179 = load i32, ptr %178, align 4, !noundef !8
-  %180 = getelementptr inbounds nuw i8, ptr %.v.i33.i, i64 44
+  %180 = getelementptr inbounds nuw i8, ptr %.val1.i62.i, i64 44
   %181 = load i32, ptr %180, align 4, !noundef !8
   %182 = icmp ult i32 %179, %181
-  %183 = select i1 %182, ptr %.v.i33.i, ptr %.v.i54.i
-  %.v.i63.i = select i1 %182, ptr %.v.i54.i, ptr %.v.i33.i
+  %183 = select i1 %182, ptr %.val1.i62.i, ptr %.v.i54.i
+  %.v.i63.i = select i1 %182, ptr %.v.i54.i, ptr %.val1.i62.i
   %184 = ptrtoint ptr %.v.i63.i to i64
   store i64 %184, ptr %.sroa.01.0, align 8, !alias.scope !11193
   store ptr %183, ptr %54, align 8, !alias.scope !11193
@@ -94311,6 +94329,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %198 = ptrtoint ptr %.v.i69.i to i64
   store i64 %198, ptr %86, align 8, !alias.scope !11193
   store ptr %197, ptr %46, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %169, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %155, i64 8) ]
   %199 = getelementptr inbounds nuw i8, ptr %169, i64 44
   %200 = load i32, ptr %199, align 4, !noundef !8
   %201 = getelementptr inbounds nuw i8, ptr %155, i64 44
@@ -94321,6 +94341,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %205 = ptrtoint ptr %.v.i72.i to i64
   store i64 %205, ptr %63, align 8, !alias.scope !11193
   store ptr %204, ptr %55, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %162, i64 8) ]
   %206 = getelementptr inbounds nuw i8, ptr %.v.i60.i, i64 44
   %207 = load i32, ptr %206, align 4, !noundef !8
   %208 = getelementptr inbounds nuw i8, ptr %162, i64 44
@@ -94342,6 +94363,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %219 = ptrtoint ptr %.v.i78.i to i64
   store i64 %219, ptr %.sroa.01.0, align 8, !alias.scope !11193
   store ptr %218, ptr %27, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %183, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %120, i64 8) ]
   %220 = getelementptr inbounds nuw i8, ptr %183, i64 44
   %221 = load i32, ptr %220, align 4, !noundef !8
   %222 = getelementptr inbounds nuw i8, ptr %120, i64 44
@@ -94362,6 +94385,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %233 = ptrtoint ptr %.v.i84.i to i64
   store i64 %233, ptr %63, align 8, !alias.scope !11193
   store ptr %232, ptr %37, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %190, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %197, i64 8) ]
   %234 = getelementptr inbounds nuw i8, ptr %190, i64 44
   %235 = load i32, ptr %234, align 4, !noundef !8
   %236 = getelementptr inbounds nuw i8, ptr %197, i64 44
@@ -94372,6 +94397,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %240 = ptrtoint ptr %.v.i87.i to i64
   store i64 %240, ptr %46, align 8, !alias.scope !11193
   store ptr %239, ptr %64, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %204, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %211, i64 8) ]
   %241 = getelementptr inbounds nuw i8, ptr %204, i64 44
   %242 = load i32, ptr %241, align 4, !noundef !8
   %243 = getelementptr inbounds nuw i8, ptr %211, i64 44
@@ -94382,6 +94409,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %247 = ptrtoint ptr %.v.i90.i to i64
   store i64 %247, ptr %28, align 8, !alias.scope !11193
   store ptr %246, ptr %55, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %218, i64 8) ]
   %248 = getelementptr inbounds nuw i8, ptr %.v.i66.i, i64 44
   %249 = load i32, ptr %248, align 4, !noundef !8
   %250 = getelementptr inbounds nuw i8, ptr %218, i64 44
@@ -94402,6 +94430,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %261 = ptrtoint ptr %.v.i96.i to i64
   store i64 %261, ptr %36, align 8, !alias.scope !11193
   store ptr %260, ptr %86, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %225, i64 8) ]
   %262 = getelementptr inbounds nuw i8, ptr %.v.i84.i, i64 44
   %263 = load i32, ptr %262, align 4, !noundef !8
   %264 = getelementptr inbounds nuw i8, ptr %225, i64 44
@@ -94412,6 +94441,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %268 = ptrtoint ptr %.v.i99.i to i64
   store i64 %268, ptr %54, align 8, !alias.scope !11193
   store ptr %267, ptr %63, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %232, i64 8) ]
   %269 = getelementptr inbounds nuw i8, ptr %.v.i90.i, i64 44
   %270 = load i32, ptr %269, align 4, !noundef !8
   %271 = getelementptr inbounds nuw i8, ptr %232, i64 44
@@ -94432,6 +94462,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %282 = ptrtoint ptr %.v.i105.i to i64
   store i64 %282, ptr %27, align 8, !alias.scope !11193
   store ptr %281, ptr %36, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %260, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %253, i64 8) ]
   %283 = getelementptr inbounds nuw i8, ptr %260, i64 44
   %284 = load i32, ptr %283, align 4, !noundef !8
   %285 = getelementptr inbounds nuw i8, ptr %253, i64 44
@@ -94452,6 +94484,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %296 = ptrtoint ptr %.v.i111.i to i64
   store i64 %296, ptr %54, align 8, !alias.scope !11193
   store ptr %295, ptr %46, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %239, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %267, i64 8) ]
   %297 = getelementptr inbounds nuw i8, ptr %239, i64 44
   %298 = load i32, ptr %297, align 4, !noundef !8
   %299 = getelementptr inbounds nuw i8, ptr %267, i64 44
@@ -94462,6 +94496,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %303 = ptrtoint ptr %.v.i114.i to i64
   store i64 %303, ptr %63, align 8, !alias.scope !11193
   store ptr %302, ptr %64, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %281, i64 8) ]
   %304 = getelementptr inbounds nuw i8, ptr %.v.i108.i, i64 44
   %305 = load i32, ptr %304, align 4, !noundef !8
   %306 = getelementptr inbounds nuw i8, ptr %281, i64 44
@@ -94472,6 +94507,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %310 = ptrtoint ptr %.v.i117.i to i64
   store i64 %310, ptr %36, align 8, !alias.scope !11193
   store ptr %309, ptr %45, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %288, i64 8) ]
   %311 = getelementptr inbounds nuw i8, ptr %.v.i111.i, i64 44
   %312 = load i32, ptr %311, align 4, !noundef !8
   %313 = getelementptr inbounds nuw i8, ptr %288, i64 44
@@ -94482,6 +94518,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %317 = ptrtoint ptr %.v.i120.i to i64
   store i64 %317, ptr %86, align 8, !alias.scope !11193
   store ptr %316, ptr %54, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %295, i64 8) ]
   %318 = getelementptr inbounds nuw i8, ptr %295, i64 44
   %319 = load i32, ptr %318, align 4, !noundef !8
   %320 = getelementptr inbounds nuw i8, ptr %.v.i114.i, i64 44
@@ -94492,6 +94529,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %324 = ptrtoint ptr %.v.i123.i to i64
   store i64 %324, ptr %63, align 8, !alias.scope !11193
   store ptr %323, ptr %46, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %302, i64 8) ]
   %325 = getelementptr inbounds nuw i8, ptr %.v.i102.i, i64 44
   %326 = load i32, ptr %325, align 4, !noundef !8
   %327 = getelementptr inbounds nuw i8, ptr %302, i64 44
@@ -94502,6 +94540,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %331 = ptrtoint ptr %.v.i126.i to i64
   store i64 %331, ptr %64, align 8, !alias.scope !11193
   store ptr %330, ptr %37, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %309, i64 8) ]
   %332 = getelementptr inbounds nuw i8, ptr %.v.i120.i, i64 44
   %333 = load i32, ptr %332, align 4, !noundef !8
   %334 = getelementptr inbounds nuw i8, ptr %309, i64 44
@@ -94512,6 +94551,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %338 = ptrtoint ptr %.v.i129.i to i64
   store i64 %338, ptr %45, align 8, !alias.scope !11193
   store ptr %337, ptr %86, align 8, !alias.scope !11193
+  call void @llvm.assume(i1 true) [ "align"(ptr %316, i64 8) ]
   %339 = getelementptr inbounds nuw i8, ptr %.v.i123.i, i64 44
   %340 = load i32, ptr %339, align 4, !noundef !8
   %341 = getelementptr inbounds nuw i8, ptr %316, i64 44
@@ -94569,6 +94609,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %376 = icmp ult i32 %373, %375
   %377 = select i1 %376, ptr %.val1.i8.i21, ptr %.val.i7.i20
   %.v.i9.i22 = select i1 %376, ptr %.val.i7.i20, ptr %.val1.i8.i21
+  call void @llvm.assume(i1 true) [ "align"(ptr %361, i64 8) ]
   %378 = getelementptr inbounds nuw i8, ptr %361, i64 44
   %379 = load i32, ptr %378, align 4, !noalias !11196, !noundef !8
   %380 = getelementptr inbounds nuw i8, ptr %.v.i.i13, i64 44
@@ -94583,6 +94624,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %388 = icmp ult i32 %385, %387
   %389 = select i1 %388, ptr %.v.i6.i19, ptr %.v.i9.i22
   %.v.i15.i24 = select i1 %388, ptr %.v.i9.i22, ptr %.v.i6.i19
+  call void @llvm.assume(i1 true) [ "align"(ptr %377, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %353, i64 8) ]
   %390 = getelementptr inbounds nuw i8, ptr %377, i64 44
   %391 = load i32, ptr %390, align 4, !noalias !11196, !noundef !8
   %392 = getelementptr inbounds nuw i8, ptr %353, i64 44
@@ -94592,6 +94635,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %.v.i18.i25 = select i1 %394, ptr %377, ptr %353
   %396 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 48
   %.val.i19.i = load ptr, ptr %396, align 8, !alias.scope !11196, !nonnull !8, !align !39, !noundef !8
+  call void @llvm.assume(i1 true) [ "align"(ptr %369, i64 8) ]
   %397 = getelementptr inbounds nuw i8, ptr %.val.i19.i, i64 44
   %398 = load i32, ptr %397, align 4, !noalias !11196, !noundef !8
   %399 = getelementptr inbounds nuw i8, ptr %369, i64 44
@@ -94613,6 +94657,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %413 = icmp ult i32 %410, %412
   %414 = select i1 %413, ptr %.v.i3.i16, ptr %.v.i18.i25
   %.v.i27.i28 = select i1 %413, ptr %.v.i18.i25, ptr %.v.i3.i16
+  call void @llvm.assume(i1 true) [ "align"(ptr %389, i64 8) ]
   %415 = getelementptr inbounds nuw i8, ptr %.v.i21.i26, i64 44
   %416 = load i32, ptr %415, align 4, !noalias !11196, !noundef !8
   %417 = getelementptr inbounds nuw i8, ptr %389, i64 44
@@ -94620,6 +94665,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %419 = icmp ult i32 %416, %418
   %420 = select i1 %419, ptr %389, ptr %.v.i21.i26
   %.v.i30.i29 = select i1 %419, ptr %.v.i21.i26, ptr %389
+  call void @llvm.assume(i1 true) [ "align"(ptr %395, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %383, i64 8) ]
   %421 = getelementptr inbounds nuw i8, ptr %395, i64 44
   %422 = load i32, ptr %421, align 4, !noalias !11196, !noundef !8
   %423 = getelementptr inbounds nuw i8, ptr %383, i64 44
@@ -94634,6 +94681,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %431 = icmp ult i32 %428, %430
   %432 = select i1 %431, ptr %.v.i27.i28, ptr %.v.i30.i29
   %.v.i36.i31 = select i1 %431, ptr %.v.i30.i29, ptr %.v.i27.i28
+  call void @llvm.assume(i1 true) [ "align"(ptr %402, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %414, i64 8) ]
   %433 = getelementptr inbounds nuw i8, ptr %402, i64 44
   %434 = load i32, ptr %433, align 4, !noalias !11196, !noundef !8
   %435 = getelementptr inbounds nuw i8, ptr %414, i64 44
@@ -94641,6 +94690,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %437 = icmp ult i32 %434, %436
   %438 = select i1 %437, ptr %414, ptr %402
   %.v.i39.i32 = select i1 %437, ptr %402, ptr %414
+  call void @llvm.assume(i1 true) [ "align"(ptr %420, i64 8) ]
   %439 = getelementptr inbounds nuw i8, ptr %.v.i33.i30, i64 44
   %440 = load i32, ptr %439, align 4, !noalias !11196, !noundef !8
   %441 = getelementptr inbounds nuw i8, ptr %420, i64 44
@@ -94657,6 +94707,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %.v.i45.i34 = select i1 %449, ptr %.v.i36.i31, ptr %.v.i24.i27
   %451 = ptrtoint ptr %.v.i45.i34 to i64
   store i64 %451, ptr %.sroa.01.0, align 8, !alias.scope !11196
+  call void @llvm.assume(i1 true) [ "align"(ptr %432, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %408, i64 8) ]
   %452 = getelementptr inbounds nuw i8, ptr %432, i64 44
   %453 = load i32, ptr %452, align 4, !noalias !11196, !noundef !8
   %454 = getelementptr inbounds nuw i8, ptr %408, i64 44
@@ -94671,6 +94723,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %462 = icmp ult i32 %459, %461
   %463 = select i1 %462, ptr %.v.i39.i32, ptr %.v.i42.i33
   %.v.i51.i36 = select i1 %462, ptr %.v.i42.i33, ptr %.v.i39.i32
+  call void @llvm.assume(i1 true) [ "align"(ptr %426, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %438, i64 8) ]
   %464 = getelementptr inbounds nuw i8, ptr %426, i64 44
   %465 = load i32, ptr %464, align 4, !noalias !11196, !noundef !8
   %466 = getelementptr inbounds nuw i8, ptr %438, i64 44
@@ -94686,6 +94740,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %474 = icmp ult i32 %471, %473
   %475 = select i1 %474, ptr %.v.i48.i35, ptr %.v.i51.i36
   %.v.i57.i38 = select i1 %474, ptr %.v.i51.i36, ptr %.v.i48.i35
+  call void @llvm.assume(i1 true) [ "align"(ptr %463, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %457, i64 8) ]
   %476 = getelementptr inbounds nuw i8, ptr %463, i64 44
   %477 = load i32, ptr %476, align 4, !noalias !11196, !noundef !8
   %478 = getelementptr inbounds nuw i8, ptr %457, i64 44
@@ -94693,6 +94749,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %480 = icmp ult i32 %477, %479
   %481 = select i1 %480, ptr %457, ptr %463
   %.v.i60.i39 = select i1 %480, ptr %463, ptr %457
+  call void @llvm.assume(i1 true) [ "align"(ptr %444, i64 8) ]
   %482 = getelementptr inbounds nuw i8, ptr %444, i64 44
   %483 = load i32, ptr %482, align 4, !noalias !11196, !noundef !8
   %484 = getelementptr inbounds nuw i8, ptr %.v.i54.i37, i64 44
@@ -94701,6 +94758,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %487 = select i1 %486, ptr %.v.i54.i37, ptr %444
   %.v.i63.i40 = select i1 %486, ptr %444, ptr %.v.i54.i37
   store ptr %487, ptr %355, align 8, !alias.scope !11196
+  call void @llvm.assume(i1 true) [ "align"(ptr %450, i64 8) ]
   %488 = getelementptr inbounds nuw i8, ptr %.v.i57.i38, i64 44
   %489 = load i32, ptr %488, align 4, !noalias !11196, !noundef !8
   %490 = getelementptr inbounds nuw i8, ptr %450, i64 44
@@ -94711,6 +94769,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %494 = ptrtoint ptr %.v.i66.i41 to i64
   store i64 %494, ptr %354, align 8, !alias.scope !11196
   store ptr %493, ptr %362, align 8, !alias.scope !11196
+  call void @llvm.assume(i1 true) [ "align"(ptr %475, i64 8) ]
   %495 = getelementptr inbounds nuw i8, ptr %.v.i60.i39, i64 44
   %496 = load i32, ptr %495, align 4, !noalias !11196, !noundef !8
   %497 = getelementptr inbounds nuw i8, ptr %475, i64 44
@@ -94721,6 +94780,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf
   %501 = ptrtoint ptr %.v.i69.i42 to i64
   store i64 %501, ptr %347, align 8, !alias.scope !11196
   store ptr %500, ptr %370, align 8, !alias.scope !11196
+  call void @llvm.assume(i1 true) [ "align"(ptr %481, i64 8) ]
   %502 = getelementptr inbounds nuw i8, ptr %.v.i63.i40, i64 44
   %503 = load i32, ptr %502, align 4, !noalias !11196, !noundef !8
   %504 = getelementptr inbounds nuw i8, ptr %481, i64 44

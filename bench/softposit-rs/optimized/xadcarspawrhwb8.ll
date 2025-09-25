@@ -5,7 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @anon.5c5618c1b510649a6d086749e7299d2c.6 = private unnamed_addr constant <{ [64 x i8] }> <{ [64 x i8] c"\00\00\00\00\00\00\00\80\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }>, align 8
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @rust_eh_personality {
 _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit:
   %4 = alloca [8 x i64], align 8
@@ -300,6 +300,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113: ; preds = %132
   %142 = getelementptr inbounds i64, ptr %4, i64 %141
   %143 = getelementptr inbounds i64, ptr %6, i64 %141
   %144 = getelementptr inbounds i64, ptr %5, i64 %141
+  call void @llvm.assume(i1 true) [ "align"(ptr %142, i64 8) ]
   %145 = load i64, ptr %143, align 8, !noundef !4
   %146 = load i64, ptr %144, align 8, !noundef !4
   %147 = icmp eq i64 %141, 7
@@ -375,7 +376,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113.thread: ; preds =
   br i1 %.not189, label %132, label %140
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define void @_ZN9softposit7quire323ops7fdp_one17hd833077eedd377c3E(ptr noalias noundef align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @rust_eh_personality {
 _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit:
   %3 = alloca [8 x i64], align 8
@@ -598,6 +599,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86: ; preds = %99
   %109 = getelementptr inbounds i64, ptr %3, i64 %108
   %110 = getelementptr inbounds i64, ptr %5, i64 %108
   %111 = getelementptr inbounds i64, ptr %4, i64 %108
+  call void @llvm.assume(i1 true) [ "align"(ptr %109, i64 8) ]
   %112 = load i64, ptr %110, align 8, !noundef !4
   %113 = load i64, ptr %111, align 8, !noundef !4
   %114 = icmp eq i64 %108, 7
@@ -679,27 +681,31 @@ declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #3
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #5
+declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
+declare i32 @llvm.smax.i32(i32, i32) #6
 
-attributes #0 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #0 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

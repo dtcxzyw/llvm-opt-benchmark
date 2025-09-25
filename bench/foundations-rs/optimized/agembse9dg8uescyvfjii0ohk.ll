@@ -7203,6 +7203,7 @@ define hidden noundef ptr @"_ZN56_$LT$slog_json..Json$LT$W$GT$$u20$as$u20$slog..
   store ptr %24, ptr %16, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !682)
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !685
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !688)
   %30 = load i64, ptr %24, align 8, !range !78, !alias.scope !688, !noalias !691, !noundef !7
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7421,6 +7422,7 @@ _ZN10serde_json3ser9Formatter10end_object17h76c67996dfdcb53fE.exit.i.i: ; preds 
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !742
   tail call void @llvm.experimental.noalias.scope.decl(metadata !744)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !747)
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !750)
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !753, !noalias !754
   store i8 0, ptr %.sroa.621.0..sroa_idx, align 8, !alias.scope !753, !noalias !754
@@ -7875,6 +7877,7 @@ define hidden noundef ptr @"_ZN56_$LT$slog_json..Json$LT$W$GT$$u20$as$u20$slog..
   store ptr %24, ptr %16, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !846)
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !849
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !852)
   %30 = load i64, ptr %24, align 8, !range !78, !alias.scope !852, !noalias !855, !noundef !7
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8093,6 +8096,7 @@ _ZN10serde_json3ser9Formatter10end_object17hf2a13f7c58e50bb7E.exit.i.i: ; preds 
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !904
   tail call void @llvm.experimental.noalias.scope.decl(metadata !906)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !909)
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !912)
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !915, !noalias !916
   store i8 0, ptr %.sroa.621.0..sroa_idx, align 8, !alias.scope !915, !noalias !916

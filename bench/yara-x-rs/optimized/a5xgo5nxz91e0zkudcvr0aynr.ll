@@ -4101,6 +4101,7 @@ define internal noundef ptr @_ZN3std2io5Write18write_all_vectored17h4888ccabbd8f
 .lr.ph:                                           ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h45e5a65f938b6c4aE.exit.i"
   %21 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %.sroa.0.0.lcssa.i
   %22 = sub nuw i64 %2, %.sroa.0.0.lcssa.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %24
 
@@ -4200,6 +4201,7 @@ default.unreachable:                              ; preds = %30
   br label %.invoke
 
 54:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h45e5a65f938b6c4aE.exit.i14"
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %56 = load i64, ptr %55, align 8, !noalias !366, !noundef !4
   %57 = icmp ult i64 %56, %.sroa.02.0.lcssa.i12
@@ -4343,6 +4345,7 @@ define internal noundef ptr @_ZN3std2io5Write18write_all_vectored17h6c21fa3f45ed
 .lr.ph:                                           ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h45e5a65f938b6c4aE.exit.i"
   %21 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %.sroa.0.0.lcssa.i
   %22 = sub nuw i64 %2, %.sroa.0.0.lcssa.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %24
 
@@ -4442,6 +4445,7 @@ default.unreachable:                              ; preds = %30
   br label %.invoke
 
 54:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h45e5a65f938b6c4aE.exit.i14"
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %56 = load i64, ptr %55, align 8, !noalias !376, !noundef !4
   %57 = icmp ult i64 %56, %.sroa.02.0.lcssa.i12
@@ -4585,6 +4589,7 @@ define internal noundef ptr @_ZN3std2io5Write18write_all_vectored17h8489c5677514
 .lr.ph:                                           ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h45e5a65f938b6c4aE.exit.i"
   %21 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %.sroa.0.0.lcssa.i
   %22 = sub nuw i64 %2, %.sroa.0.0.lcssa.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %24
 
@@ -4684,6 +4689,7 @@ default.unreachable:                              ; preds = %30
   br label %.invoke
 
 54:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h45e5a65f938b6c4aE.exit.i14"
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %56 = load i64, ptr %55, align 8, !noalias !385, !noundef !4
   %57 = icmp ult i64 %56, %.sroa.02.0.lcssa.i12
@@ -4827,6 +4833,7 @@ define internal noundef ptr @_ZN3std2io5Write18write_all_vectored17ha7c586a7d913
 .lr.ph:                                           ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h45e5a65f938b6c4aE.exit.i"
   %21 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %.sroa.0.0.lcssa.i
   %22 = sub nuw i64 %2, %.sroa.0.0.lcssa.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %24
 
@@ -4926,6 +4933,7 @@ default.unreachable:                              ; preds = %30
   br label %.invoke
 
 54:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h45e5a65f938b6c4aE.exit.i14"
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %56 = load i64, ptr %55, align 8, !noalias !394, !noundef !4
   %57 = icmp ult i64 %56, %.sroa.02.0.lcssa.i12
@@ -5069,6 +5077,7 @@ define internal noundef ptr @_ZN3std2io5Write18write_all_vectored17hb260aeb328e3
 .lr.ph:                                           ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h45e5a65f938b6c4aE.exit.i"
   %21 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %.sroa.0.0.lcssa.i
   %22 = sub nuw i64 %2, %.sroa.0.0.lcssa.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %24
 
@@ -5168,6 +5177,7 @@ default.unreachable:                              ; preds = %30
   br label %.invoke
 
 54:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h45e5a65f938b6c4aE.exit.i14"
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %56 = load i64, ptr %55, align 8, !noalias !403, !noundef !4
   %57 = icmp ult i64 %56, %.sroa.02.0.lcssa.i12
@@ -5311,6 +5321,7 @@ define internal noundef ptr @_ZN3std2io5Write18write_all_vectored17hfe3c2018c54d
 .lr.ph:                                           ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h45e5a65f938b6c4aE.exit.i"
   %21 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %.sroa.0.0.lcssa.i
   %22 = sub nuw i64 %2, %.sroa.0.0.lcssa.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %24
 
@@ -5410,6 +5421,7 @@ default.unreachable:                              ; preds = %30
   br label %.invoke
 
 54:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h45e5a65f938b6c4aE.exit.i14"
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %56 = load i64, ptr %55, align 8, !noalias !412, !noundef !4
   %57 = icmp ult i64 %56, %.sroa.02.0.lcssa.i12

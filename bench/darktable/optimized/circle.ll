@@ -561,13 +561,12 @@ _points_to_transform.exit.i:                      ; preds = %17
 82:                                               ; preds = %74
   %83 = load float, ptr %9, align 4, !tbaa !20
   %84 = load ptr, ptr %2, align 8, !tbaa !109
-  %85 = load float, ptr %84, align 64, !tbaa !20
+  %85 = load float, ptr %84, align 4, !tbaa !20
   %86 = fsub reassoc nsz arcp contract afn float %83, %85
   %87 = load float, ptr %76, align 4, !tbaa !20
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %89 = load float, ptr %88, align 4, !tbaa !20
   %90 = fsub reassoc nsz arcp contract afn float %87, %89
-  call void @llvm.assume(i1 true) [ "align"(ptr %84, i64 64) ]
   %91 = load i32, ptr %3, align 4, !tbaa !22
   %92 = icmp sgt i32 %91, 0
   br i1 %92, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -589,9 +588,9 @@ _points_to_transform.exit.i:                      ; preds = %17
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.idx.i = shl nuw nsw i64 %indvars.iv.i, 3
   %98 = getelementptr inbounds nuw i8, ptr %84, i64 %.idx.i
-  %99 = load float, ptr %98, align 8, !tbaa !20
+  %99 = load float, ptr %98, align 4, !tbaa !20
   %100 = fadd reassoc nsz arcp contract afn float %86, %99
-  store float %100, ptr %98, align 8, !tbaa !20
+  store float %100, ptr %98, align 4, !tbaa !20
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %102 = load float, ptr %101, align 4, !tbaa !20
   %103 = fadd reassoc nsz arcp contract afn float %90, %102

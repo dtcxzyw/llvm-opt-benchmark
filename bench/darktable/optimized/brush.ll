@@ -980,6 +980,7 @@ _brush_bounding_box.exit:                         ; preds = %.lr.ph.split.i.i, %
   br i1 %.not.i46, label %137, label %139
 
 137:                                              ; preds = %129
+  call void @llvm.assume(i1 true) [ "align"(ptr null, i64 64) ]
   store ptr null, ptr %3, align 8, !tbaa !125
   call void @free(ptr noundef %62) #19
   call void @free(ptr noundef %63) #19
@@ -7028,13 +7029,12 @@ dt_masks_dynbuf_free.exit670:                     ; preds = %673, %680
   %716 = load float, ptr %29, align 4, !tbaa !93
   %717 = load ptr, ptr %5, align 8, !tbaa !125
   %718 = getelementptr inbounds nuw i8, ptr %717, i64 8
-  %719 = load float, ptr %718, align 8, !tbaa !93
+  %719 = load float, ptr %718, align 4, !tbaa !93
   %720 = fsub reassoc nsz arcp contract afn float %716, %719
   %721 = load float, ptr %710, align 4, !tbaa !93
   %722 = getelementptr inbounds nuw i8, ptr %717, i64 12
   %723 = load float, ptr %722, align 4, !tbaa !93
   %724 = fsub reassoc nsz arcp contract afn float %721, %723
-  call void @llvm.assume(i1 true) [ "align"(ptr %717, i64 64) ]
   %725 = load i32, ptr %6, align 4, !tbaa !97
   %726 = icmp sgt i32 %725, 0
   br i1 %726, label %.lr.ph747.preheader, label %._crit_edge748
@@ -7053,9 +7053,9 @@ dt_masks_dynbuf_free.exit670:                     ; preds = %673, %680
   %indvars.iv = phi i64 [ 0, %.lr.ph747.preheader ], [ %indvars.iv.next, %.lr.ph747 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 3
   %729 = getelementptr inbounds nuw i8, ptr %717, i64 %.idx
-  %730 = load float, ptr %729, align 8, !tbaa !93
+  %730 = load float, ptr %729, align 4, !tbaa !93
   %731 = fadd reassoc nsz arcp contract afn float %720, %730
-  store float %731, ptr %729, align 8, !tbaa !93
+  store float %731, ptr %729, align 4, !tbaa !93
   %732 = getelementptr inbounds nuw i8, ptr %729, i64 4
   %733 = load float, ptr %732, align 4, !tbaa !93
   %734 = fadd reassoc nsz arcp contract afn float %724, %733

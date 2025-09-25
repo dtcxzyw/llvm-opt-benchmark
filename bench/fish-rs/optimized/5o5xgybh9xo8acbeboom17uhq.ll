@@ -22394,6 +22394,7 @@ define void @"_ZN99_$LT$fish..builtins..string..escape..Escape$u20$as$u20$fish..
   unreachable
 
 23:                                               ; preds = %20
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 4) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !3261
   store i64 0, ptr %13, align 8, !noalias !3261
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -22601,7 +22602,7 @@ define { i32, i32 } @"_ZN99_$LT$fish..builtins..string..escape..Escape$u20$as$u2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %31 = load i8, ptr %19, align 8, !range !108, !noundef !17
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %32 = load ptr, ptr %20, align 8, !nonnull !17
+  %32 = load ptr, ptr %20, align 8, !nonnull !17, !align !22
   %33 = load i64, ptr %21, align 8
   invoke void @_ZN4fish6common13escape_string17h018461580787c460E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 4 %32, i64 noundef %33, i32 noundef %.sroa.03.0, i32 %.sroa.34.0)
           to label %43 unwind label %41
@@ -23637,7 +23638,7 @@ define { i32, i32 } @"_ZN93_$LT$fish..builtins..string..pad..Pad$u20$as$u20$fish
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   %34 = load i8, ptr %24, align 8, !range !108, !noundef !17
   %35 = trunc nuw i8 %34 to i1
-  %36 = load ptr, ptr %25, align 8, !nonnull !17
+  %36 = load ptr, ptr %25, align 8, !nonnull !17, !align !22
   %37 = load i64, ptr %26, align 8
   %38 = invoke noundef i64 @_ZN4fish8builtins6string21width_without_escapes17h0e088a05f0edbc0dE(ptr noalias noundef nonnull readonly align 4 %36, i64 noundef %37, i64 noundef 0)
           to label %116 unwind label %132
@@ -23751,7 +23752,7 @@ define { i32, i32 } @"_ZN93_$LT$fish..builtins..string..pad..Pad$u20$as$u20$fish
   %65 = udiv i64 %64, %.fr115
   %66 = urem i64 %64, %.fr115
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %67 = load ptr, ptr %.sroa.7.0..sroa_idx67, align 8, !nonnull !17
+  %67 = load ptr, ptr %.sroa.7.0..sroa_idx67, align 8, !nonnull !17, !align !22
   %68 = load i64, ptr %54, align 8
   br i1 %51, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6c4853c9e2fcb613E.exit.i.i.i", label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha2c99c78fb87b757E.exit.i.i.i"
 
@@ -24342,7 +24343,7 @@ define { i32, i32 } @"_ZN101_$LT$fish..builtins..string..shorten..Shorten$u20$as
 58:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
-  %59 = load ptr, ptr %39, align 8, !nonnull !17
+  %59 = load ptr, ptr %39, align 8, !nonnull !17, !align !22
   %60 = load i64, ptr %40, align 8
   %.idx.i.i.i.us = shl nuw nsw i64 %60, 2
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx.i.i.i.us
@@ -25192,7 +25193,7 @@ define { i32, i32 } @"_ZN101_$LT$fish..builtins..string..shorten..Shorten$u20$as
 .preheader323:                                    ; preds = %124
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
-  %322 = load ptr, ptr %39, align 8, !nonnull !17
+  %322 = load ptr, ptr %39, align 8, !nonnull !17, !align !22
   %323 = load i64, ptr %40, align 8
   br label %330
 
