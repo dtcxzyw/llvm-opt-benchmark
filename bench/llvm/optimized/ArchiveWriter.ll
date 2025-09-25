@@ -8494,7 +8494,7 @@ _ZN4llvm16dyn_cast_or_nullINS_6object15XCOFFObjectFileENS1_12SymbolicFileEEEDaPT
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(96) %0) #21
-  br i1 %9, label %10, label %25
+  br i1 %9, label %10, label %26
 
 10:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_6object15XCOFFObjectFileENS1_12SymbolicFileEEEDaPT0_.exit
   %11 = tail call noundef ptr @_ZNK4llvm6object15XCOFFObjectFile12fileHeader64Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #21
@@ -8521,21 +8521,21 @@ _ZN4llvm16dyn_cast_or_nullINS_6object15XCOFFObjectFileENS1_12SymbolicFileEEEDaPT
   %.0.copyload.i.i.i5.i.i = load i16, ptr %21, align 1
   %rev.i.i.i.i.i.i.i6.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i5.i.i)
   %22 = icmp ult i16 %rev.i.i.i.i.i.i.i.i.i, %rev.i.i.i.i.i.i.i6.i.i
-  %.0.copyload.i.i.i9.i = select i1 %22, i16 %.0.copyload.i.i.i5.i.i, i16 %.0.copyload.i.i.i.i.i
-  %rev.i.i.i.i.i.i.i10.i = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i9.i)
-  %23 = tail call i16 @llvm.umin.i16(i16 %rev.i.i.i.i.i.i.i10.i, i16 12)
-  %24 = shl nuw nsw i16 1, %23
+  %23 = select i1 %22, i16 %.0.copyload.i.i.i5.i.i, i16 %.0.copyload.i.i.i.i.i
+  %rev.i.i.i.i.i.i.i10.i = tail call noundef i16 @llvm.bswap.i16(i16 %23)
+  %24 = tail call i16 @llvm.umin.i16(i16 %rev.i.i.i.i.i.i.i10.i, i16 12)
+  %25 = shl nuw nsw i16 1, %24
   br label %_Z18getAuxMaxAlignmentIKN4llvm6object22XCOFFAuxiliaryHeader64EEttPT_t.exit
 
-25:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_6object15XCOFFObjectFileENS1_12SymbolicFileEEEDaPT0_.exit
-  %26 = tail call noundef ptr @_ZNK4llvm6object15XCOFFObjectFile12fileHeader32Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #21
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %.0.copyload.i.i.i8 = load i16, ptr %27, align 1
+26:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_6object15XCOFFObjectFileENS1_12SymbolicFileEEEDaPT0_.exit
+  %27 = tail call noundef ptr @_ZNK4llvm6object15XCOFFObjectFile12fileHeader32Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #21
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %.0.copyload.i.i.i8 = load i16, ptr %28, align 1
   %rev.i.i.i.i.i.i.i9 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i8)
-  %28 = tail call noundef ptr @_ZNK4llvm6object15XCOFFObjectFile17auxiliaryHeader32Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #21
-  %29 = icmp eq ptr %28, null
-  %30 = icmp ult i16 %rev.i.i.i.i.i.i.i9, 48
-  %or.cond.i10 = or i1 %30, %29
+  %29 = tail call noundef ptr @_ZNK4llvm6object15XCOFFObjectFile17auxiliaryHeader32Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #21
+  %30 = icmp eq ptr %29, null
+  %31 = icmp ult i16 %rev.i.i.i.i.i.i.i9, 48
+  %or.cond.i10 = or i1 %31, %30
   br i1 %or.cond.i10, label %_Z18getAuxMaxAlignmentIKN4llvm6object22XCOFFAuxiliaryHeader64EEttPT_t.exit, label %31
 
 31:                                               ; preds = %25
@@ -8544,28 +8544,28 @@ _ZN4llvm16dyn_cast_or_nullINS_6object15XCOFFObjectFileENS1_12SymbolicFileEEEDaPT
   %33 = icmp eq i16 %.0.copyload.i.i.i.i11, 0
   br i1 %33, label %_Z18getAuxMaxAlignmentIKN4llvm6object22XCOFFAuxiliaryHeader64EEttPT_t.exit, label %34
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i8, ptr %28, i64 44
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 44
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 46
   %.0.copyload.i.i.i.i.i12 = load i16, ptr %35, align 1
   %rev.i.i.i.i.i.i.i.i.i13 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i12)
   %.0.copyload.i.i.i5.i.i14 = load i16, ptr %36, align 1
   %rev.i.i.i.i.i.i.i6.i.i15 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i5.i.i14)
-  %37 = icmp ult i16 %rev.i.i.i.i.i.i.i.i.i13, %rev.i.i.i.i.i.i.i6.i.i15
-  %.0.copyload.i.i.i9.i16 = select i1 %37, i16 %.0.copyload.i.i.i5.i.i14, i16 %.0.copyload.i.i.i.i.i12
-  %rev.i.i.i.i.i.i.i10.i17 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i9.i16)
-  %38 = icmp ugt i16 %rev.i.i.i.i.i.i.i10.i17, 12
-  %39 = shl nuw nsw i16 1, %rev.i.i.i.i.i.i.i10.i17
-  %40 = select i1 %38, i16 4, i16 %39
+  %38 = icmp ult i16 %rev.i.i.i.i.i.i.i.i.i13, %rev.i.i.i.i.i.i.i6.i.i15
+  %39 = select i1 %38, i16 %.0.copyload.i.i.i5.i.i14, i16 %.0.copyload.i.i.i.i.i12
+  %rev.i.i.i.i.i.i.i10.i16 = tail call noundef i16 @llvm.bswap.i16(i16 %39)
+  %40 = icmp ugt i16 %rev.i.i.i.i.i.i.i10.i16, 12
+  %41 = shl nuw nsw i16 1, %rev.i.i.i.i.i.i.i10.i16
+  %42 = select i1 %40, i16 4, i16 %41
   br label %_Z18getAuxMaxAlignmentIKN4llvm6object22XCOFFAuxiliaryHeader64EEttPT_t.exit
 
-_Z18getAuxMaxAlignmentIKN4llvm6object22XCOFFAuxiliaryHeader64EEttPT_t.exit: ; preds = %34, %31, %25, %19, %16, %10
-  %41 = phi i16 [ %24, %19 ], [ 2, %10 ], [ 2, %16 ], [ %40, %34 ], [ 2, %25 ], [ 2, %31 ]
-  %42 = zext nneg i16 %41 to i32
+_Z18getAuxMaxAlignmentIKN4llvm6object22XCOFFAuxiliaryHeader64EEttPT_t.exit: ; preds = %34, %31, %26, %19, %16, %10
+  %43 = phi i16 [ %25, %19 ], [ 2, %10 ], [ 2, %16 ], [ %42, %34 ], [ 2, %25 ], [ 2, %31 ]
+  %44 = zext nneg i16 %43 to i32
   br label %_ZN4llvm16dyn_cast_or_nullINS_6object15XCOFFObjectFileENS1_12SymbolicFileEEEDaPT0_.exit.thread
 
 _ZN4llvm16dyn_cast_or_nullINS_6object15XCOFFObjectFileENS1_12SymbolicFileEEEDaPT0_.exit.thread: ; preds = %1, %2, %_Z18getAuxMaxAlignmentIKN4llvm6object22XCOFFAuxiliaryHeader64EEttPT_t.exit
-  %.0 = phi i32 [ %42, %_Z18getAuxMaxAlignmentIKN4llvm6object22XCOFFAuxiliaryHeader64EEttPT_t.exit ], [ 2, %2 ], [ 2, %1 ]
+  %.0 = phi i32 [ %44, %_Z18getAuxMaxAlignmentIKN4llvm6object22XCOFFAuxiliaryHeader64EEttPT_t.exit ], [ 2, %2 ], [ 2, %1 ]
   ret i32 %.0
 }
 

@@ -83,10 +83,10 @@ $_ZN4llvm15SmallVectorImplINS_9MCOperandEE15insert_one_implIS1_EEPS1_S4_OT_ = co
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @LLVMInitializeRISCVDisassembler() local_unnamed_addr #0 {
-  %1 = tail call noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm19getTheRISCV32TargetEv() #11
+  %1 = tail call noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm19getTheRISCV32TargetEv() #12
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr @_ZL23createRISCVDisassemblerRKN4llvm6TargetERKNS_15MCSubtargetInfoERNS_9MCContextE, ptr %2, align 8, !tbaa !3
-  %3 = tail call noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm19getTheRISCV64TargetEv() #11
+  %3 = tail call noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm19getTheRISCV64TargetEv() #12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store ptr @_ZL23createRISCVDisassemblerRKN4llvm6TargetERKNS_15MCSubtargetInfoERNS_9MCContextE, ptr %4, align 8, !tbaa !3
   ret void
@@ -96,14 +96,14 @@ declare noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm19getTheRISCV3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noalias noundef nonnull ptr @_ZL23createRISCVDisassemblerRKN4llvm6TargetERKNS_15MCSubtargetInfoERNS_9MCContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(304) %1, ptr noundef nonnull align 8 dereferenceable(2432) %2) #0 {
-  %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12
+  %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZNK4llvm6Target17createMCInstrInfoEv.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call noundef ptr %6() #11
+  %8 = tail call noundef ptr %6() #12
   br label %_ZNK4llvm6Target17createMCInstrInfoEv.exit
 
 _ZNK4llvm6Target17createMCInstrInfoEv.exit:       ; preds = %3, %7
@@ -134,12 +134,12 @@ define internal void @_ZN12_GLOBAL__N_117RISCVDisassemblerD2Ev(ptr noundef nonnu
   br i1 %.not.i, label %_ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i: ; preds = %1
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 48) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 48) #14
   br label %_ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i
   store ptr null, ptr %2, align 8, !tbaa !18
-  tail call void @_ZN4llvm14MCDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #11
+  tail call void @_ZN4llvm14MCDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #12
   ret void
 }
 
@@ -152,13 +152,13 @@ define internal void @_ZN12_GLOBAL__N_117RISCVDisassemblerD0Ev(ptr noundef nonnu
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_117RISCVDisassemblerD2Ev.exit, label %_ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i.i: ; preds = %1
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 48) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 48) #14
   br label %_ZN12_GLOBAL__N_117RISCVDisassemblerD2Ev.exit
 
 _ZN12_GLOBAL__N_117RISCVDisassemblerD2Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i.i
   store ptr null, ptr %2, align 8, !tbaa !18
-  tail call void @_ZN4llvm14MCDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #11
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #13
+  tail call void @_ZN4llvm14MCDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #12
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #14
   ret void
 }
 
@@ -1256,8 +1256,8 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 406:                                              ; preds = %.backedge.i.i
   %407 = ptrtoint ptr %.025.i.i to i64
   %408 = sub i64 %407, ptrtoint (ptr @_ZN4llvmL20DecoderTableXqcilo48E to i64)
-  %409 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #11
-  %410 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %409, i64 noundef %408) #11
+  %409 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #12
+  %410 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %409, i64 noundef %408) #12
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 24
   %412 = load ptr, ptr %411, align 8, !tbaa !58
   %413 = getelementptr inbounds nuw i8, ptr %410, i64 32
@@ -1269,7 +1269,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %418, label %419, label %421
 
 419:                                              ; preds = %406
-  %420 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %410, ptr noundef nonnull @.str, i64 noundef 34) #11
+  %420 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %410, ptr noundef nonnull @.str, i64 noundef 34) #12
   br label %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.thread.i
 
 421:                                              ; preds = %406
@@ -1757,7 +1757,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138.i.i: ; preds = %thread-pre-spli
 
 685:                                              ; preds = %682
   store i32 0, ptr %402, align 8, !tbaa !66
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(112) %400, ptr noundef nonnull %404, i64 noundef %675, i64 noundef 16) #11
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(112) %400, ptr noundef nonnull %404, i64 noundef %675, i64 noundef 16) #12
   br label %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i
 
 686:                                              ; preds = %682
@@ -1814,7 +1814,7 @@ _ZN4llvm6MCInstaSERKS0_.exit.i.i:                 ; preds = %698, %.sink.split.i
   br i1 %708, label %_ZN4llvm6MCInstD2Ev.exit.i.i, label %709
 
 709:                                              ; preds = %_ZN4llvm6MCInstaSERKS0_.exit.i.i
-  call void @free(ptr noundef %707) #11
+  call void @free(ptr noundef %707) #12
   br label %_ZN4llvm6MCInstD2Ev.exit.i.i
 
 _ZN4llvm6MCInstD2Ev.exit.i.i:                     ; preds = %709, %_ZN4llvm6MCInstaSERKS0_.exit.i.i
@@ -2033,8 +2033,8 @@ define internal fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisas
   %25 = ptrtoint ptr %.0186 to i64
   %26 = ptrtoint ptr %0 to i64
   %27 = sub i64 %25, %26
-  %28 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #11
-  %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %28, i64 noundef %27) #11
+  %28 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #12
+  %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %28, i64 noundef %27) #12
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !58
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -2046,7 +2046,7 @@ define internal fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisas
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %24
-  %39 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull @.str, i64 noundef 34) #11
+  %39 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull @.str, i64 noundef 34) #12
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.thread
 
 40:                                               ; preds = %24
@@ -2536,7 +2536,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138: ; preds = %271, %thread-pre-sp
 
 306:                                              ; preds = %303
   store i32 0, ptr %20, align 8, !tbaa !66
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(112) %18, ptr noundef nonnull %22, i64 noundef %296, i64 noundef 16) #11
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(112) %18, ptr noundef nonnull %22, i64 noundef %296, i64 noundef 16) #12
   br label %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i
 
 307:                                              ; preds = %303
@@ -2593,7 +2593,7 @@ _ZN4llvm6MCInstaSERKS0_.exit:                     ; preds = %.sink.split.i.i.i, 
   br i1 %329, label %_ZN4llvm6MCInstD2Ev.exit, label %330
 
 330:                                              ; preds = %_ZN4llvm6MCInstaSERKS0_.exit
-  call void @free(ptr noundef %328) #11
+  call void @free(ptr noundef %328) #12
   br label %_ZN4llvm6MCInstD2Ev.exit
 
 _ZN4llvm6MCInstD2Ev.exit:                         ; preds = %_ZN4llvm6MCInstaSERKS0_.exit, %330
@@ -11785,7 +11785,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeGPRCRegisterClass
   %12 = zext i32 %8 to i64
   %13 = add nuw nsw i64 %12, 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %7, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -11825,7 +11825,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL24decodeUImmNonZeroOperan
   %11 = zext i32 %7 to i64
   %12 = add nuw nsw i64 %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 16) #12
   %.pre.i.i.i = load i32, ptr %6, align 8, !tbaa !66
   br label %_ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
@@ -11881,7 +11881,7 @@ define internal fastcc void @_ZL26decodeRVCInstrRdRs1ImmZeroRN4llvm6MCInstEjmPKN
   %21 = zext i32 %17 to i64
   %22 = add nuw nsw i64 %21, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %23, i64 noundef %22, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %23, i64 noundef %22, i64 noundef 16) #12
   %.pre.i.i.i.i = load i32, ptr %16, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i.i
 
@@ -11915,7 +11915,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit: ; p
   %37 = zext i32 %33 to i64
   %38 = add nuw nsw i64 %37, 1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull %39, i64 noundef %38, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull %39, i64 noundef %38, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %32, align 8, !tbaa !66
   %.pre = load ptr, ptr %30, align 8, !tbaa !54
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
@@ -11939,7 +11939,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %_ZL26DecodeGPRNoX0R
   %48 = zext i32 %45 to i64
   %49 = add nuw nsw i64 %48, 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull %50, i64 noundef %49, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull %50, i64 noundef %49, i64 noundef 16) #12
   %.pre.i.i10 = load i32, ptr %32, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit12
 
@@ -11975,7 +11975,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL24decodeSImmNonZeroOperan
   %11 = zext i32 %7 to i64
   %12 = add nuw nsw i64 %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 16) #12
   %.pre.i.i.i = load i32, ptr %6, align 8, !tbaa !66
   br label %_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
@@ -12033,7 +12033,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL26DecodeGPRNoX0RegisterCl
   %20 = zext i32 %16 to i64
   %21 = add nuw nsw i64 %20, 1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %22, i64 noundef %21, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %22, i64 noundef %21, i64 noundef 16) #12
   %.pre.i.i.i = load i32, ptr %15, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i
 
@@ -12080,7 +12080,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL22DecodeGPRRegisterClassR
   %15 = zext i32 %11 to i64
   %16 = add nuw nsw i64 %15, 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %17, i64 noundef %16, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %17, i64 noundef %16, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %10, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -12116,7 +12116,7 @@ define internal fastcc void @_ZL23decodeRVCInstrRdRs1UImmRN4llvm6MCInstEjmPKNS_1
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -12143,7 +12143,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %21 = zext i32 %17 to i64
   %22 = add nuw nsw i64 %21, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %23, i64 noundef %22, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %23, i64 noundef %22, i64 noundef 16) #12
   %.pre.i.i11 = load i32, ptr %4, align 8, !tbaa !66
   %.pre = load ptr, ptr %3, align 8, !tbaa !54
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit13
@@ -12167,7 +12167,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit13: ; preds = %_ZN4llvm6MCInst10a
   %32 = zext i32 %29 to i64
   %33 = add nuw nsw i64 %32, 1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %34, i64 noundef %33, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %34, i64 noundef %33, i64 noundef 16) #12
   %.pre.i.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
@@ -12221,7 +12221,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL32decodeUImmLog2XLenNonZe
   %19 = zext i32 %15 to i64
   %20 = add nuw nsw i64 %19, 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %21, i64 noundef %20, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %21, i64 noundef %20, i64 noundef 16) #12
   %.pre.i.i.i = load i32, ptr %14, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i
 
@@ -12263,7 +12263,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL25DecodeFPR64CRegisterCla
   %12 = zext i32 %8 to i64
   %13 = add nuw nsw i64 %12, 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %7, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -12299,7 +12299,7 @@ define internal fastcc void @_ZL17decodeUImmOperandILj8EEN4llvm14MCDisassembler1
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -12332,7 +12332,7 @@ define internal fastcc void @_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler1
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -12373,7 +12373,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL24DecodeFPR64RegisterClas
   %12 = zext i32 %8 to i64
   %13 = add nuw nsw i64 %12, 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %7, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -12409,7 +12409,7 @@ define internal fastcc void @_ZL17decodeUImmOperandILj9EEN4llvm14MCDisassembler1
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -12442,7 +12442,7 @@ define internal fastcc void @_ZL17decodeUImmOperandILj7EEN4llvm14MCDisassembler1
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -12475,7 +12475,7 @@ define internal fastcc void @_ZL20decodeRVCInstrRdSImmRN4llvm6MCInstEjmPKNS_14MC
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -12498,7 +12498,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %20 = zext i32 %17 to i64
   %21 = add nuw nsw i64 %20, 1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %22, i64 noundef %21, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %22, i64 noundef %21, i64 noundef 16) #12
   %.pre.i.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
@@ -12542,7 +12542,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL24decodeSImmNonZeroOperan
   %11 = zext i32 %7 to i64
   %12 = add nuw nsw i64 %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 16) #12
   %.pre.i.i.i = load i32, ptr %6, align 8, !tbaa !66
   br label %_ZL17decodeSImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
@@ -12605,7 +12605,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL28DecodeGPRNoX0X2Register
   %23 = zext i32 %19 to i64
   %24 = add nuw nsw i64 %23, 1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %25, i64 noundef %24, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %25, i64 noundef %24, i64 noundef 16) #12
   %.pre.i.i.i.i = load i32, ptr %18, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i.i
 
@@ -12641,7 +12641,7 @@ define internal fastcc void @_ZL20decodeCLUIImmOperandRN4llvm6MCInstEjlPKNS_14MC
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -12681,7 +12681,7 @@ define internal fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler1
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -12731,7 +12731,7 @@ define internal fastcc void @_ZL19decodeRVCInstrRdRs2RN4llvm6MCInstEjmPKNS_14MCD
   %21 = zext i32 %17 to i64
   %22 = add nuw nsw i64 %21, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %23, i64 noundef %22, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %23, i64 noundef %22, i64 noundef 16) #12
   %.pre.i.i.i = load i32, ptr %16, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i
 
@@ -12774,7 +12774,7 @@ _ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit: ; preds
   %40 = zext i32 %36 to i64
   %41 = add nuw nsw i64 %40, 1
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %42, i64 noundef %41, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %42, i64 noundef %41, i64 noundef 16) #12
   %.pre.i.i.i14 = load i32, ptr %35, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i15
 
@@ -12831,7 +12831,7 @@ define internal fastcc void @_ZL22decodeRVCInstrRdRs1Rs2RN4llvm6MCInstEjmPKNS_14
   %21 = zext i32 %17 to i64
   %22 = add nuw nsw i64 %21, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %23, i64 noundef %22, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %23, i64 noundef %22, i64 noundef 16) #12
   %.pre.i.i.i = load i32, ptr %16, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i
 
@@ -12865,7 +12865,7 @@ _ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit: ; preds
   %37 = zext i32 %30 to i64
   %38 = add nuw nsw i64 %37, 1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull %39, i64 noundef %38, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull %39, i64 noundef %38, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %33, align 8, !tbaa !66
   %.pre23 = load ptr, ptr %31, align 8, !tbaa !54
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
@@ -12901,7 +12901,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %_ZL22DecodeGPRRegis
   %54 = zext i32 %45 to i64
   %55 = add nuw nsw i64 %54, 1
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull %56, i64 noundef %55, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull %56, i64 noundef %55, i64 noundef 16) #12
   %.pre.i.i.i17 = load i32, ptr %33, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i18
 
@@ -12936,7 +12936,7 @@ define internal fastcc void @_ZL24decodeSImmOperandAndLsl1ILj12EEN4llvm14MCDisas
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -12972,7 +12972,7 @@ define internal fastcc void @_ZL24decodeSImmOperandAndLsl1ILj9EEN4llvm14MCDisass
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13008,7 +13008,7 @@ define internal fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13049,7 +13049,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL21DecodeVRRegisterClassRN
   %12 = zext i32 %8 to i64
   %13 = add nuw nsw i64 %12, 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %7, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13091,7 +13091,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL14decodeVMaskRegRN4llvm6M
   %12 = zext i32 %8 to i64
   %13 = add nuw nsw i64 %12, 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %7, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13125,7 +13125,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeVRM2RegisterClass
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %9 = load ptr, ptr %8, align 8, !tbaa !76
   %10 = add nuw nsw i32 %1, 11
-  %11 = tail call i32 @_ZNK4llvm14MCRegisterInfo19getMatchingSuperRegENS_10MCRegisterEjPKNS_15MCRegisterClassE(ptr noundef nonnull align 8 dereferenceable(232) %9, i32 %10, i32 noundef 5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1696)) #11
+  %11 = tail call i32 @_ZNK4llvm14MCRegisterInfo19getMatchingSuperRegENS_10MCRegisterEjPKNS_15MCRegisterClassE(ptr noundef nonnull align 8 dereferenceable(232) %9, i32 %10, i32 noundef 5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 1696)) #12
   %.sroa.3.8.insert.ext.i = zext i32 %11 to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -13139,7 +13139,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeVRM2RegisterClass
   %18 = zext i32 %14 to i64
   %19 = add nuw nsw i64 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %20, i64 noundef %19, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %20, i64 noundef %19, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %13, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13173,7 +13173,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeVRM4RegisterClass
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %9 = load ptr, ptr %8, align 8, !tbaa !76
   %10 = add nuw nsw i32 %1, 11
-  %11 = tail call i32 @_ZNK4llvm14MCRegisterInfo19getMatchingSuperRegENS_10MCRegisterEjPKNS_15MCRegisterClassE(ptr noundef nonnull align 8 dereferenceable(232) %9, i32 %10, i32 noundef 5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 2048)) #11
+  %11 = tail call i32 @_ZNK4llvm14MCRegisterInfo19getMatchingSuperRegENS_10MCRegisterEjPKNS_15MCRegisterClassE(ptr noundef nonnull align 8 dereferenceable(232) %9, i32 %10, i32 noundef 5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 2048)) #12
   %.sroa.3.8.insert.ext.i = zext i32 %11 to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -13187,7 +13187,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeVRM4RegisterClass
   %18 = zext i32 %14 to i64
   %19 = add nuw nsw i64 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %20, i64 noundef %19, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %20, i64 noundef %19, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %13, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13221,7 +13221,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeVRM8RegisterClass
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %9 = load ptr, ptr %8, align 8, !tbaa !76
   %10 = add nuw nsw i32 %1, 11
-  %11 = tail call i32 @_ZNK4llvm14MCRegisterInfo19getMatchingSuperRegENS_10MCRegisterEjPKNS_15MCRegisterClassE(ptr noundef nonnull align 8 dereferenceable(232) %9, i32 %10, i32 noundef 5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 2784)) #11
+  %11 = tail call i32 @_ZNK4llvm14MCRegisterInfo19getMatchingSuperRegENS_10MCRegisterEjPKNS_15MCRegisterClassE(ptr noundef nonnull align 8 dereferenceable(232) %9, i32 %10, i32 noundef 5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 2784)) #12
   %.sroa.3.8.insert.ext.i = zext i32 %11 to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -13235,7 +13235,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeVRM8RegisterClass
   %18 = zext i32 %14 to i64
   %19 = add nuw nsw i64 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %20, i64 noundef %19, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %20, i64 noundef %19, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %13, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13277,7 +13277,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL24DecodeFPR16RegisterClas
   %12 = zext i32 %8 to i64
   %13 = add nuw nsw i64 %12, 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %7, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13319,7 +13319,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL24DecodeFPR32RegisterClas
   %12 = zext i32 %8 to i64
   %13 = add nuw nsw i64 %12, 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %7, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13355,7 +13355,7 @@ define internal fastcc void @_ZL17decodeUImmOperandILj4EEN4llvm14MCDisassembler1
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13396,7 +13396,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL25decodeUImmLog2XLenOpera
   %14 = zext i32 %10 to i64
   %15 = add nuw nsw i64 %14, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %16, i64 noundef %15, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %16, i64 noundef %15, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %9, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13432,7 +13432,7 @@ define internal fastcc void @_ZL17decodeUImmOperandILj20EEN4llvm14MCDisassembler
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13465,7 +13465,7 @@ define internal fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler1
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13496,7 +13496,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL26DecodeGPRPairRegisterCl
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %9 = load ptr, ptr %8, align 8, !tbaa !76
   %10 = add nuw nsw i32 %1, 43
-  %11 = tail call i32 @_ZNK4llvm14MCRegisterInfo19getMatchingSuperRegENS_10MCRegisterEjPKNS_15MCRegisterClassE(ptr noundef nonnull align 8 dereferenceable(232) %9, i32 %10, i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 960)) #11
+  %11 = tail call i32 @_ZNK4llvm14MCRegisterInfo19getMatchingSuperRegENS_10MCRegisterEjPKNS_15MCRegisterClassE(ptr noundef nonnull align 8 dereferenceable(232) %9, i32 %10, i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4llvm22RISCVMCRegisterClassesE, i64 960)) #12
   %.sroa.3.8.insert.ext.i = zext i32 %11 to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -13510,7 +13510,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL26DecodeGPRPairRegisterCl
   %18 = zext i32 %14 to i64
   %19 = add nuw nsw i64 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %20, i64 noundef %19, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %20, i64 noundef %19, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %13, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13557,7 +13557,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL12decodeFRMArgRN4llvm6MCI
   %11 = zext i32 %7 to i64
   %12 = add nuw nsw i64 %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %6, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13597,7 +13597,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL12decodeRTZArgRN4llvm6MCI
   %10 = zext i32 %6 to i64
   %11 = add nuw nsw i64 %10, 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %12, i64 noundef %11, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %12, i64 noundef %11, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %5, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13633,7 +13633,7 @@ define linkonce_odr hidden void @_ZN4llvm6MCInst10addOperandENS_9MCOperandE(ptr 
   %10 = zext i32 %6 to i64
   %11 = add nuw nsw i64 %10, 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %12, i64 noundef %11, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %12, i64 noundef %11, i64 noundef 16) #12
   %.pre.i = load i32, ptr %5, align 8, !tbaa !66
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE9push_backES1_.exit
 
@@ -13669,7 +13669,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeVMV0RegisterClass
   %10 = zext i32 %6 to i64
   %11 = add nuw nsw i64 %10, 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %12, i64 noundef %11, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %12, i64 noundef %11, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %5, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13705,7 +13705,7 @@ define internal fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler1
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13740,7 +13740,7 @@ define internal fastcc void @_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler1
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13773,7 +13773,7 @@ define internal fastcc void @_ZL17decodeUImmOperandILj11EEN4llvm14MCDisassembler
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13806,7 +13806,7 @@ define internal fastcc void @_ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13839,7 +13839,7 @@ define internal fastcc void @_ZL24decodeSImmOperandAndLsl1ILj13EEN4llvm14MCDisas
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13875,7 +13875,7 @@ define internal fastcc void @_ZL24decodeSImmOperandAndLsl1ILj21EEN4llvm14MCDisas
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13911,7 +13911,7 @@ define internal fastcc void @_ZL17decodeUImmOperandILj12EEN4llvm14MCDisassembler
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13952,7 +13952,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL26DecodeGPRX1X5RegisterCl
   %11 = zext i32 %7 to i64
   %12 = add nuw nsw i64 %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %6, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -13994,7 +13994,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL25DecodeFPR32CRegisterCla
   %12 = zext i32 %8 to i64
   %13 = add nuw nsw i64 %12, 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %7, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -14041,7 +14041,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL25DecodeGPRF32RegisterCla
   %15 = zext i32 %11 to i64
   %16 = add nuw nsw i64 %15, 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %17, i64 noundef %16, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %17, i64 noundef %16, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %10, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -14088,7 +14088,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL25DecodeGPRF16RegisterCla
   %15 = zext i32 %11 to i64
   %16 = add nuw nsw i64 %15, 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %17, i64 noundef %16, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %17, i64 noundef %16, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %10, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -14132,7 +14132,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeSR07RegisterClass
   %13 = zext i32 %9 to i64
   %14 = add nuw nsw i64 %13, 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %15, i64 noundef %14, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %15, i64 noundef %14, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %8, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -14173,7 +14173,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL15decodeZcmpRlistRN4llvm6
   %12 = zext i32 %8 to i64
   %13 = add nuw nsw i64 %12, 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %7, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -14209,7 +14209,7 @@ define internal fastcc void @_ZL15decodeZcmpSpimmRN4llvm6MCInstEjmPKv(ptr nounde
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -14258,7 +14258,7 @@ define internal fastcc void @_ZL12decodeRegRegRN4llvm6MCInstEjmPKNS_14MCDisassem
   %20 = zext i32 %16 to i64
   %21 = add nuw nsw i64 %20, 1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %22, i64 noundef %21, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %22, i64 noundef %21, i64 noundef 16) #12
   %.pre.i.i.i = load i32, ptr %15, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i
 
@@ -14301,7 +14301,7 @@ _ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit: ; preds
   %39 = zext i32 %35 to i64
   %40 = add nuw nsw i64 %39, 1
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %41, i64 noundef %40, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %41, i64 noundef %40, i64 noundef 16) #12
   %.pre.i.i.i13 = load i32, ptr %34, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i14
 
@@ -14336,7 +14336,7 @@ define internal fastcc void @_ZL17decodeUImmOperandILj3EEN4llvm14MCDisassembler1
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -14369,7 +14369,7 @@ define internal fastcc void @_ZL17decodeUImmOperandILj1EEN4llvm14MCDisassembler1
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -14423,7 +14423,7 @@ define internal fastcc void @_ZL19decodeXTHeadMemPairRN4llvm6MCInstEjmPKNS_14MCD
   %25 = zext i32 %21 to i64
   %26 = add nuw nsw i64 %25, 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %27, i64 noundef %26, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %27, i64 noundef %26, i64 noundef 16) #12
   %.pre.i.i.i = load i32, ptr %20, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i
 
@@ -14466,7 +14466,7 @@ _ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit: ; preds
   %44 = zext i32 %40 to i64
   %45 = add nuw nsw i64 %44, 1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull %46, i64 noundef %45, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull %46, i64 noundef %45, i64 noundef 16) #12
   %.pre.i.i.i35 = load i32, ptr %39, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i36
 
@@ -14514,7 +14514,7 @@ _ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit39._ZL22D
   %63 = zext i32 %59 to i64
   %64 = add nuw nsw i64 %63, 1
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull %65, i64 noundef %64, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull %65, i64 noundef %64, i64 noundef 16) #12
   %.pre.i.i.i44 = load i32, ptr %58, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i45
 
@@ -14544,7 +14544,7 @@ _ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit48: ; pre
   %78 = zext i32 %72 to i64
   %79 = add nuw nsw i64 %78, 1
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull %80, i64 noundef %79, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull %80, i64 noundef %79, i64 noundef 16) #12
   %.pre.i.i.i50 = load i32, ptr %74, align 8, !tbaa !66
   br label %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
@@ -14582,7 +14582,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split: ; preds = %.critedge
   %92 = zext i32 %87 to i64
   %93 = add nuw nsw i64 %92, 1
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull %94, i64 noundef %93, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull %94, i64 noundef %93, i64 noundef 16) #12
   %.pre.i.i54 = load i32, ptr %74, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -14615,7 +14615,7 @@ define internal fastcc void @_ZL17decodeSImmOperandILj26EEN4llvm14MCDisassembler
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #12
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -14654,7 +14654,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL24decodeUImmNonZeroOperan
   %11 = zext i32 %7 to i64
   %12 = add nuw nsw i64 %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 16) #12
   %.pre.i.i.i = load i32, ptr %6, align 8, !tbaa !66
   br label %_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
@@ -14701,7 +14701,7 @@ define internal fastcc void @_ZL19decodeCSSPushPopchkRN4llvm6MCInstEjmPKNS_14MCD
   %13 = zext i32 %9 to i64
   %14 = add nuw nsw i64 %13, 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %15, i64 noundef %14, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %15, i64 noundef %14, i64 noundef 16) #12
   %.pre.i.i.i = load i32, ptr %8, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i
 
@@ -14730,7 +14730,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull ali
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplINS_9MCOperandEE15insert_one_implIS1_EEPS1_S4_OT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
@@ -14754,7 +14754,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplINS_9MCOperandE
 13:                                               ; preds = %12
   %14 = add nuw nsw i64 %7, 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %15, i64 noundef %14, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %15, i64 noundef %14, i64 noundef 16) #12
   %.pre.i = load i32, ptr %5, align 8, !tbaa !66
   %.pre14 = load ptr, ptr %0, align 8, !tbaa !54
   %.pre15 = zext i32 %.pre.i to i64
@@ -14785,7 +14785,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE9push_backES1_.exit: ; pred
 28:                                               ; preds = %24
   %29 = add nuw nsw i64 %7, 1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %30, i64 noundef %29, i64 noundef 16) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %30, i64 noundef %29, i64 noundef 16) #12
   %.pre = load ptr, ptr %0, align 8, !tbaa !54
   %.pre12 = load i32, ptr %5, align 8, !tbaa !66
   %.pre16 = zext i32 %.pre12 to i64
@@ -22406,10 +22406,10 @@ define internal fastcc noundef i32 @_ZN4llvmL14decodeToMCInstImEENS_14MCDisassem
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -22419,9 +22419,9 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 attributes #12 = { builtin nounwind allocsize(0) }
 attributes #13 = { builtin nounwind }

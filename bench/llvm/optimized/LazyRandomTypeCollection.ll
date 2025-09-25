@@ -2007,8 +2007,8 @@ _ZN4llvm24FixedStreamArrayIteratorINS_8codeview15TypeIndexOffsetEEC2ERKS3_.exit1
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !133
   %209 = load ptr, ptr %23, align 8, !tbaa !104, !noalias !133
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !133
-  %.val.i.i.i.i = load i32, ptr %209, align 1, !noalias !133
-  %210 = icmp ult i32 %2, %.val.i.i.i.i
+  %.0.copyload.i.i.i.i2.i.i.i.i.i.i = load i32, ptr %209, align 1, !noalias !133
+  %210 = icmp ult i32 %2, %.0.copyload.i.i.i.i2.i.i.i.i.i.i
   %211 = load ptr, ptr %174, align 8, !tbaa !33, !noalias !133
   %.not.i.i.i.i.i21.i.i.i = icmp eq ptr %211, null
   br i1 %.not.i.i.i.i.i21.i.i.i, label %_ZN4llvm24FixedStreamArrayIteratorINS_8codeview15TypeIndexOffsetEED2Ev.exit25.i.i.i, label %212

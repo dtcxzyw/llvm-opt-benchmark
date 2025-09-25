@@ -12,16 +12,16 @@ define dso_local range(i64 0, 139637976793088) i64 @_ZN4llvm3ARM5WinEH17SavedReg
   %.0.copyload.i.i.i.i = load i32, ptr %3, align 1
   %4 = lshr i32 %.0.copyload.i.i.i.i, 16
   %5 = and i32 %.0.copyload.i.i.i.i, 524288
-  %.not40 = icmp eq i32 %5, 0
+  %.not43 = icmp eq i32 %5, 0
   %6 = and i32 %.0.copyload.i.i.i.i, 1048576
-  %.not41 = icmp eq i32 %6, 0
+  %.not44 = icmp eq i32 %6, 0
   %7 = lshr i32 %.0.copyload.i.i.i.i, 10
   %8 = trunc i32 %7 to i16
   %9 = and i16 %8, 2048
   br i1 %1, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = select i1 %.not41, i16 0, i16 16384
+  %11 = select i1 %.not44, i16 0, i16 16384
   %12 = or disjoint i16 %11, %9
   br label %23
 
@@ -31,23 +31,23 @@ define dso_local range(i64 0, 139637976793088) i64 @_ZN4llvm3ARM5WinEH17SavedReg
   br i1 %.not22, label %18, label %15
 
 15:                                               ; preds = %13
-  %16 = select i1 %.not41, i16 0, i16 16384
+  %16 = select i1 %.not44, i16 0, i16 16384
   %17 = or disjoint i16 %16, %9
   br label %23
 
 18:                                               ; preds = %13
   %19 = and i32 %.0.copyload.i.i.i.i, 32768
-  %.not43 = icmp eq i32 %19, 0
-  br i1 %.not43, label %20, label %23
+  %.not46 = icmp eq i32 %19, 0
+  br i1 %.not46, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = select i1 %.not41, i16 0, i16 -32768
+  %21 = select i1 %.not44, i16 0, i16 -32768
   %22 = or disjoint i16 %21, %9
   br label %23
 
 23:                                               ; preds = %15, %20, %18, %10
   %.039 = phi i16 [ %12, %10 ], [ %9, %18 ], [ %22, %20 ], [ %17, %15 ]
-  br i1 %.not40, label %31, label %24
+  br i1 %.not43, label %31, label %24
 
 24:                                               ; preds = %23
   %25 = add nuw nsw i32 %4, 1
@@ -73,11 +73,11 @@ define dso_local range(i64 0, 139637976793088) i64 @_ZN4llvm3ARM5WinEH17SavedReg
   %38 = icmp ugt i32 %.0.copyload.i.i.i.i, -50331649
   %39 = and i32 %.0.copyload.i.i.i.i, 16777216
   %40 = icmp ne i32 %39, 0
-  %41 = and i1 %38, %40
-  %or.cond = and i1 %1, %41
+  %or.cond = and i1 %38, %40
+  %or.cond = and i1 %1, %or.cond
   br i1 %or.cond, label %46, label %42
 
-42:                                               ; preds = %37
+42:    ; preds = %37
   %43 = and i32 %.0.copyload.i.i.i.i, 33554432
   %44 = icmp ne i32 %43, 0
   %45 = and i1 %38, %44
@@ -85,12 +85,12 @@ define dso_local range(i64 0, 139637976793088) i64 @_ZN4llvm3ARM5WinEH17SavedReg
   %or.cond3 = or i1 %1, %.not
   br i1 %or.cond3, label %54, label %46
 
-46:                                               ; preds = %42, %37
-  %47 = lshr i32 %.0.copyload.i.i.i.i, 22
-  %48 = trunc nuw nsw i32 %47 to i16
-  %49 = and i16 %48, 3
-  %notmask23 = shl nsw i16 -2, %49
-  %50 = xor i16 %notmask23, -1
+46:    ; preds = %42, %37
+  %43 = lshr i32 %.0.copyload.i.i.i.i, 22
+  %44 = trunc nuw nsw i32 %43 to i16
+  %45 = and i16 %44, 3
+  %notmask23 = shl nsw i16 -2, %45
+  %46 = xor i16 %notmask23, -1
   %51 = xor i16 %49, 3
   %52 = shl nuw nsw i16 %50, %51
   %53 = or i16 %.1, %52

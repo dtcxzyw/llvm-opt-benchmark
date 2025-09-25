@@ -21,31 +21,31 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   %12 = xor i64 %.val, 7816392313619706465
   %13 = xor i64 %.val2, 7237128888997146477
   %14 = xor i64 %.val, 8317987319222330741
-  %.not6.i = icmp eq i64 %6, 0
-  br i1 %.not6.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not167.i = icmp eq i64 %6, 0
+  br i1 %.not167.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %32
-  %.014011.i = phi ptr [ %34, %32 ], [ %0, %4 ]
-  %.014110.i = phi i64 [ %33, %32 ], [ %14, %4 ]
-  %.01489.i = phi i64 [ %30, %32 ], [ %13, %4 ]
-  %.01528.i = phi i64 [ %31, %32 ], [ %12, %4 ]
-  %.01567.i = phi i64 [ %27, %32 ], [ %11, %4 ]
-  %.0.copyload.i.i.i.i.i.i161.i = load i64, ptr %.014011.i, align 1
-  %15 = xor i64 %.0.copyload.i.i.i.i.i.i161.i, %.01567.i
+  %.0140172.i = phi ptr [ %34, %32 ], [ %0, %4 ]
+  %.0141171.i = phi i64 [ %33, %32 ], [ %14, %4 ]
+  %.0148170.i = phi i64 [ %30, %32 ], [ %13, %4 ]
+  %.0152169.i = phi i64 [ %31, %32 ], [ %12, %4 ]
+  %.0156168.i = phi i64 [ %27, %32 ], [ %11, %4 ]
+  %.0.copyload.i.i.i.i.i.i161.i = load i64, ptr %.0140172.i, align 1
+  %15 = xor i64 %.0.copyload.i.i.i.i.i.i161.i, %.0156168.i
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph.i
-  %.11425.i = phi i64 [ %.014110.i, %.lr.ph.i ], [ %25, %16 ]
+  %.1142166.i = phi i64 [ %.0141171.i, %.lr.ph.i ], [ %25, %16 ]
   %17 = phi i1 [ true, %.lr.ph.i ], [ false, %16 ]
-  %.11493.i = phi i64 [ %.01489.i, %.lr.ph.i ], [ %30, %16 ]
-  %.11532.i = phi i64 [ %.01528.i, %.lr.ph.i ], [ %31, %16 ]
-  %.11571.i = phi i64 [ %15, %.lr.ph.i ], [ %27, %16 ]
-  %18 = add i64 %.11493.i, %.11425.i
-  %19 = tail call i64 @llvm.fshl.i64(i64 %.11493.i, i64 %.11493.i, i64 13)
+  %.1149164.i = phi i64 [ %.0148170.i, %.lr.ph.i ], [ %30, %16 ]
+  %.1153163.i = phi i64 [ %.0152169.i, %.lr.ph.i ], [ %31, %16 ]
+  %.1157162.i = phi i64 [ %15, %.lr.ph.i ], [ %27, %16 ]
+  %18 = add i64 %.1149164.i, %.1142166.i
+  %19 = tail call i64 @llvm.fshl.i64(i64 %.1149164.i, i64 %.1149164.i, i64 13)
   %20 = xor i64 %18, %19
   %21 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 32)
-  %22 = add i64 %.11571.i, %.11532.i
-  %23 = tail call i64 @llvm.fshl.i64(i64 %.11571.i, i64 %.11571.i, i64 16)
+  %22 = add i64 %.1157162.i, %.1153163.i
+  %23 = tail call i64 @llvm.fshl.i64(i64 %.1157162.i, i64 %.1157162.i, i64 16)
   %24 = xor i64 %22, %23
   %25 = add i64 %24, %21
   %26 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 21)
@@ -58,7 +58,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
 
 32:                                               ; preds = %16
   %33 = xor i64 %25, %.0.copyload.i.i.i.i.i.i161.i
-  %34 = getelementptr inbounds nuw i8, ptr %.014011.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.0140172.i, i64 8
   %.not.i = icmp eq ptr %34, %7
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
@@ -148,17 +148,17 @@ default.unreachable:                              ; preds = %._crit_edge.i
   br label %77
 
 77:                                               ; preds = %77, %75
-  %.214320.i = phi i64 [ %.0141.lcssa.i, %75 ], [ %86, %77 ]
+  %.2143181.i = phi i64 [ %.0141.lcssa.i, %75 ], [ %86, %77 ]
   %78 = phi i1 [ true, %75 ], [ false, %77 ]
-  %.215018.i = phi i64 [ %.0148.lcssa.i, %75 ], [ %91, %77 ]
-  %.215417.i = phi i64 [ %.0152.lcssa.i, %75 ], [ %92, %77 ]
-  %.215816.i = phi i64 [ %76, %75 ], [ %88, %77 ]
-  %79 = add i64 %.215018.i, %.214320.i
-  %80 = tail call i64 @llvm.fshl.i64(i64 %.215018.i, i64 %.215018.i, i64 13)
+  %.2150179.i = phi i64 [ %.0148.lcssa.i, %75 ], [ %91, %77 ]
+  %.2154178.i = phi i64 [ %.0152.lcssa.i, %75 ], [ %92, %77 ]
+  %.2158177.i = phi i64 [ %76, %75 ], [ %88, %77 ]
+  %79 = add i64 %.2150179.i, %.2143181.i
+  %80 = tail call i64 @llvm.fshl.i64(i64 %.2150179.i, i64 %.2150179.i, i64 13)
   %81 = xor i64 %79, %80
   %82 = tail call i64 @llvm.fshl.i64(i64 %79, i64 %79, i64 32)
-  %83 = add i64 %.215816.i, %.215417.i
-  %84 = tail call i64 @llvm.fshl.i64(i64 %.215816.i, i64 %.215816.i, i64 16)
+  %83 = add i64 %.2158177.i, %.2154178.i
+  %84 = tail call i64 @llvm.fshl.i64(i64 %.2158177.i, i64 %.2158177.i, i64 16)
   %85 = xor i64 %83, %84
   %86 = add i64 %85, %82
   %87 = tail call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 21)
@@ -175,17 +175,17 @@ default.unreachable:                              ; preds = %._crit_edge.i
   br label %96
 
 96:                                               ; preds = %96, %93
-  %.314425.i = phi i64 [ %94, %93 ], [ %104, %96 ]
-  %.214724.i = phi i32 [ 0, %93 ], [ %111, %96 ]
-  %.315123.i = phi i64 [ %91, %93 ], [ %109, %96 ]
-  %.315522.i = phi i64 [ %95, %93 ], [ %110, %96 ]
-  %.315921.i = phi i64 [ %88, %93 ], [ %106, %96 ]
-  %97 = add i64 %.315123.i, %.314425.i
-  %98 = tail call i64 @llvm.fshl.i64(i64 %.315123.i, i64 %.315123.i, i64 13)
+  %.3144186.i = phi i64 [ %94, %93 ], [ %104, %96 ]
+  %.2147185.i = phi i32 [ 0, %93 ], [ %111, %96 ]
+  %.3151184.i = phi i64 [ %91, %93 ], [ %109, %96 ]
+  %.3155183.i = phi i64 [ %95, %93 ], [ %110, %96 ]
+  %.3159182.i = phi i64 [ %88, %93 ], [ %106, %96 ]
+  %97 = add i64 %.3151184.i, %.3144186.i
+  %98 = tail call i64 @llvm.fshl.i64(i64 %.3151184.i, i64 %.3151184.i, i64 13)
   %99 = xor i64 %97, %98
   %100 = tail call i64 @llvm.fshl.i64(i64 %97, i64 %97, i64 32)
-  %101 = add i64 %.315921.i, %.315522.i
-  %102 = tail call i64 @llvm.fshl.i64(i64 %.315921.i, i64 %.315921.i, i64 16)
+  %101 = add i64 %.3159182.i, %.3155183.i
+  %102 = tail call i64 @llvm.fshl.i64(i64 %.3159182.i, i64 %.3159182.i, i64 16)
   %103 = xor i64 %101, %102
   %104 = add i64 %103, %100
   %105 = tail call i64 @llvm.fshl.i64(i64 %103, i64 %103, i64 21)
@@ -194,7 +194,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   %108 = tail call i64 @llvm.fshl.i64(i64 %99, i64 %99, i64 17)
   %109 = xor i64 %107, %108
   %110 = tail call i64 @llvm.fshl.i64(i64 %107, i64 %107, i64 32)
-  %111 = add nuw nsw i32 %.214724.i, 1
+  %111 = add nuw nsw i32 %.2147185.i, 1
   %exitcond.not.i = icmp eq i32 %111, 4
   br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_17siphashILi2ELi4ELm8EEEvPKhmRA16_S1_RAT1__h.exit, label %96, !llvm.loop !10
 
@@ -219,31 +219,31 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   %12 = xor i64 %.val, 7816392313619706465
   %13 = xor i64 %.val, 8317987319222330741
   %14 = xor i64 %.val2, 7237128888997146499
-  %.not6.i = icmp eq i64 %6, 0
-  br i1 %.not6.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not210.i = icmp eq i64 %6, 0
+  br i1 %.not210.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %32
-  %.017811.i = phi ptr [ %34, %32 ], [ %0, %4 ]
-  %.017910.i = phi i64 [ %33, %32 ], [ %13, %4 ]
-  %.01889.i = phi i64 [ %30, %32 ], [ %14, %4 ]
-  %.01938.i = phi i64 [ %31, %32 ], [ %12, %4 ]
-  %.01987.i = phi i64 [ %27, %32 ], [ %11, %4 ]
-  %.0.copyload.i.i.i.i.i.i204.i = load i64, ptr %.017811.i, align 1
-  %15 = xor i64 %.0.copyload.i.i.i.i.i.i204.i, %.01987.i
+  %.0178215.i = phi ptr [ %34, %32 ], [ %0, %4 ]
+  %.0179214.i = phi i64 [ %33, %32 ], [ %13, %4 ]
+  %.0188213.i = phi i64 [ %30, %32 ], [ %14, %4 ]
+  %.0193212.i = phi i64 [ %31, %32 ], [ %12, %4 ]
+  %.0198211.i = phi i64 [ %27, %32 ], [ %11, %4 ]
+  %.0.copyload.i.i.i.i.i.i204.i = load i64, ptr %.0178215.i, align 1
+  %15 = xor i64 %.0.copyload.i.i.i.i.i.i204.i, %.0198211.i
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph.i
-  %.11805.i = phi i64 [ %.017910.i, %.lr.ph.i ], [ %25, %16 ]
+  %.1180209.i = phi i64 [ %.0179214.i, %.lr.ph.i ], [ %25, %16 ]
   %17 = phi i1 [ true, %.lr.ph.i ], [ false, %16 ]
-  %.11893.i = phi i64 [ %.01889.i, %.lr.ph.i ], [ %30, %16 ]
-  %.11942.i = phi i64 [ %.01938.i, %.lr.ph.i ], [ %31, %16 ]
-  %.11991.i = phi i64 [ %15, %.lr.ph.i ], [ %27, %16 ]
-  %18 = add i64 %.11893.i, %.11805.i
-  %19 = tail call i64 @llvm.fshl.i64(i64 %.11893.i, i64 %.11893.i, i64 13)
+  %.1189207.i = phi i64 [ %.0188213.i, %.lr.ph.i ], [ %30, %16 ]
+  %.1194206.i = phi i64 [ %.0193212.i, %.lr.ph.i ], [ %31, %16 ]
+  %.1199205.i = phi i64 [ %15, %.lr.ph.i ], [ %27, %16 ]
+  %18 = add i64 %.1189207.i, %.1180209.i
+  %19 = tail call i64 @llvm.fshl.i64(i64 %.1189207.i, i64 %.1189207.i, i64 13)
   %20 = xor i64 %18, %19
   %21 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 32)
-  %22 = add i64 %.11991.i, %.11942.i
-  %23 = tail call i64 @llvm.fshl.i64(i64 %.11991.i, i64 %.11991.i, i64 16)
+  %22 = add i64 %.1199205.i, %.1194206.i
+  %23 = tail call i64 @llvm.fshl.i64(i64 %.1199205.i, i64 %.1199205.i, i64 16)
   %24 = xor i64 %22, %23
   %25 = add i64 %24, %21
   %26 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 21)
@@ -256,7 +256,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
 
 32:                                               ; preds = %16
   %33 = xor i64 %25, %.0.copyload.i.i.i.i.i.i204.i
-  %34 = getelementptr inbounds nuw i8, ptr %.017811.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.0178215.i, i64 8
   %.not.i = icmp eq ptr %34, %7
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
@@ -346,17 +346,17 @@ default.unreachable:                              ; preds = %._crit_edge.i
   br label %77
 
 77:                                               ; preds = %77, %75
-  %.218120.i = phi i64 [ %.0179.lcssa.i, %75 ], [ %86, %77 ]
+  %.2181224.i = phi i64 [ %.0179.lcssa.i, %75 ], [ %86, %77 ]
   %78 = phi i1 [ true, %75 ], [ false, %77 ]
-  %.219018.i = phi i64 [ %.0188.lcssa.i, %75 ], [ %91, %77 ]
-  %.219517.i = phi i64 [ %.0193.lcssa.i, %75 ], [ %92, %77 ]
-  %.220016.i = phi i64 [ %76, %75 ], [ %88, %77 ]
-  %79 = add i64 %.219018.i, %.218120.i
-  %80 = tail call i64 @llvm.fshl.i64(i64 %.219018.i, i64 %.219018.i, i64 13)
+  %.2190222.i = phi i64 [ %.0188.lcssa.i, %75 ], [ %91, %77 ]
+  %.2195221.i = phi i64 [ %.0193.lcssa.i, %75 ], [ %92, %77 ]
+  %.2200220.i = phi i64 [ %76, %75 ], [ %88, %77 ]
+  %79 = add i64 %.2190222.i, %.2181224.i
+  %80 = tail call i64 @llvm.fshl.i64(i64 %.2190222.i, i64 %.2190222.i, i64 13)
   %81 = xor i64 %79, %80
   %82 = tail call i64 @llvm.fshl.i64(i64 %79, i64 %79, i64 32)
-  %83 = add i64 %.220016.i, %.219517.i
-  %84 = tail call i64 @llvm.fshl.i64(i64 %.220016.i, i64 %.220016.i, i64 16)
+  %83 = add i64 %.2200220.i, %.2195221.i
+  %84 = tail call i64 @llvm.fshl.i64(i64 %.2200220.i, i64 %.2200220.i, i64 16)
   %85 = xor i64 %83, %84
   %86 = add i64 %85, %82
   %87 = tail call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 21)
@@ -373,17 +373,17 @@ default.unreachable:                              ; preds = %._crit_edge.i
   br label %96
 
 96:                                               ; preds = %96, %93
-  %.318225.i = phi i64 [ %94, %93 ], [ %104, %96 ]
-  %.218624.i = phi i32 [ 0, %93 ], [ %111, %96 ]
-  %.319123.i = phi i64 [ %91, %93 ], [ %109, %96 ]
-  %.319622.i = phi i64 [ %95, %93 ], [ %110, %96 ]
-  %.320121.i = phi i64 [ %88, %93 ], [ %106, %96 ]
-  %97 = add i64 %.319123.i, %.318225.i
-  %98 = tail call i64 @llvm.fshl.i64(i64 %.319123.i, i64 %.319123.i, i64 13)
+  %.3182229.i = phi i64 [ %94, %93 ], [ %104, %96 ]
+  %.2186228.i = phi i32 [ 0, %93 ], [ %111, %96 ]
+  %.3191227.i = phi i64 [ %91, %93 ], [ %109, %96 ]
+  %.3196226.i = phi i64 [ %95, %93 ], [ %110, %96 ]
+  %.3201225.i = phi i64 [ %88, %93 ], [ %106, %96 ]
+  %97 = add i64 %.3191227.i, %.3182229.i
+  %98 = tail call i64 @llvm.fshl.i64(i64 %.3191227.i, i64 %.3191227.i, i64 13)
   %99 = xor i64 %97, %98
   %100 = tail call i64 @llvm.fshl.i64(i64 %97, i64 %97, i64 32)
-  %101 = add i64 %.320121.i, %.319622.i
-  %102 = tail call i64 @llvm.fshl.i64(i64 %.320121.i, i64 %.320121.i, i64 16)
+  %101 = add i64 %.3201225.i, %.3196226.i
+  %102 = tail call i64 @llvm.fshl.i64(i64 %.3201225.i, i64 %.3201225.i, i64 16)
   %103 = xor i64 %101, %102
   %104 = add i64 %103, %100
   %105 = tail call i64 @llvm.fshl.i64(i64 %103, i64 %103, i64 21)
@@ -392,7 +392,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   %108 = tail call i64 @llvm.fshl.i64(i64 %99, i64 %99, i64 17)
   %109 = xor i64 %107, %108
   %110 = tail call i64 @llvm.fshl.i64(i64 %107, i64 %107, i64 32)
-  %111 = add nuw nsw i32 %.218624.i, 1
+  %111 = add nuw nsw i32 %.2186228.i, 1
   %exitcond.not.i = icmp eq i32 %111, 4
   br i1 %exitcond.not.i, label %112, label %96, !llvm.loop !14
 
@@ -404,17 +404,17 @@ default.unreachable:                              ; preds = %._crit_edge.i
   br label %116
 
 116:                                              ; preds = %116, %112
-  %.418330.i = phi i64 [ %104, %112 ], [ %124, %116 ]
-  %.318729.i = phi i32 [ 0, %112 ], [ %131, %116 ]
-  %.419228.i = phi i64 [ %115, %112 ], [ %129, %116 ]
-  %.419727.i = phi i64 [ %110, %112 ], [ %130, %116 ]
-  %.420226.i = phi i64 [ %106, %112 ], [ %126, %116 ]
-  %117 = add i64 %.419228.i, %.418330.i
-  %118 = tail call i64 @llvm.fshl.i64(i64 %.419228.i, i64 %.419228.i, i64 13)
+  %.4183234.i = phi i64 [ %104, %112 ], [ %124, %116 ]
+  %.3187233.i = phi i32 [ 0, %112 ], [ %131, %116 ]
+  %.4192232.i = phi i64 [ %115, %112 ], [ %129, %116 ]
+  %.4197231.i = phi i64 [ %110, %112 ], [ %130, %116 ]
+  %.4202230.i = phi i64 [ %106, %112 ], [ %126, %116 ]
+  %117 = add i64 %.4192232.i, %.4183234.i
+  %118 = tail call i64 @llvm.fshl.i64(i64 %.4192232.i, i64 %.4192232.i, i64 13)
   %119 = xor i64 %117, %118
   %120 = tail call i64 @llvm.fshl.i64(i64 %117, i64 %117, i64 32)
-  %121 = add i64 %.420226.i, %.419727.i
-  %122 = tail call i64 @llvm.fshl.i64(i64 %.420226.i, i64 %.420226.i, i64 16)
+  %121 = add i64 %.4202230.i, %.4197231.i
+  %122 = tail call i64 @llvm.fshl.i64(i64 %.4202230.i, i64 %.4202230.i, i64 16)
   %123 = xor i64 %121, %122
   %124 = add i64 %123, %120
   %125 = tail call i64 @llvm.fshl.i64(i64 %123, i64 %123, i64 21)
@@ -423,9 +423,9 @@ default.unreachable:                              ; preds = %._crit_edge.i
   %128 = tail call i64 @llvm.fshl.i64(i64 %119, i64 %119, i64 17)
   %129 = xor i64 %127, %128
   %130 = tail call i64 @llvm.fshl.i64(i64 %127, i64 %127, i64 32)
-  %131 = add nuw nsw i32 %.318729.i, 1
-  %exitcond48.not.i = icmp eq i32 %131, 4
-  br i1 %exitcond48.not.i, label %_ZN12_GLOBAL__N_17siphashILi2ELi4ELm16EEEvPKhmRA16_S1_RAT1__h.exit, label %116, !llvm.loop !15
+  %131 = add nuw nsw i32 %.3187233.i, 1
+  %exitcond252.not.i = icmp eq i32 %131, 4
+  br i1 %exitcond252.not.i, label %_ZN12_GLOBAL__N_17siphashILi2ELi4ELm16EEEvPKhmRA16_S1_RAT1__h.exit, label %116, !llvm.loop !15
 
 _ZN12_GLOBAL__N_17siphashILi2ELi4ELm16EEEvPKhmRA16_S1_RAT1__h.exit: ; preds = %116
   %132 = xor i64 %129, %130
@@ -449,16 +449,16 @@ define dso_local noundef zeroext range(i16 1, 0) i16 @_ZN4llvm27getPointerAuthSt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #2
+declare i64 @llvm.fshl.i64(i64, i64, i64) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
