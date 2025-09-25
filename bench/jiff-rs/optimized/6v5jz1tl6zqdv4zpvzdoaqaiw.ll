@@ -1497,7 +1497,7 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   store ptr %.val10, ptr %0, align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.val11, ptr %69, align 8
-  br label %78
+  br label %79
 
 70:                                               ; preds = %59
   call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
@@ -1510,7 +1510,7 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   store i64 %.val9, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %71, ptr %.sroa.53.0..sroa_idx, align 8
-  br label %78
+  br label %79
 
 74:                                               ; preds = %59
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1523,7 +1523,7 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   store i64 %.val7, ptr %.sroa.42.0..sroa_idx, align 8
   br label %78
 
-78:                                               ; preds = %70, %74, %65
+79:                                               ; preds = %70, %74, %65
   %.sink = phi i8 [ 1, %70 ], [ 0, %74 ], [ 0, %65 ]
   %.sroa.64.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %.sink, ptr %.sroa.64.0..sroa_idx, align 4
@@ -1665,7 +1665,7 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   store ptr %68, ptr %0, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %69, ptr %71, align 8
-  br label %84
+  br label %85
 
 72:                                               ; preds = %59
   call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 4) ]
@@ -1678,7 +1678,7 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   store i64 %77, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %73, ptr %.sroa.53.0..sroa_idx, align 8
-  br label %84
+  br label %85
 
 78:                                               ; preds = %59
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1691,7 +1691,7 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   store i64 %82, ptr %.sroa.42.0..sroa_idx, align 8
   br label %84
 
-84:                                               ; preds = %72, %78, %65
+85:                                               ; preds = %72, %78, %65
   %.sink = phi i8 [ 1, %72 ], [ 0, %78 ], [ 0, %65 ]
   %.sroa.64.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %.sink, ptr %.sroa.64.0..sroa_idx, align 4

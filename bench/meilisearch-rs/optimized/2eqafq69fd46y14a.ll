@@ -17802,16 +17802,16 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h8a79d47d24f1725fE"(p
   store ptr %1, ptr %0, align 8
   br label %12
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775808, ptr %11, align 8
   br i1 %9, label %12, label %13
 
-12:                                               ; preds = %.thread, %10, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h45d6c1cf4b3656a9E.exit"
+12:                                               ; preds = %.thread, %11, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h45d6c1cf4b3656a9E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-13:                                               ; preds = %10
+13:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3491
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8

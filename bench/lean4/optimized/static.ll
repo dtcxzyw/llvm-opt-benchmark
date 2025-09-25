@@ -14744,29 +14744,29 @@ _Z22_mi_os_good_alloc_sizem.exit.i.i:             ; preds = %22, %19, %.thread19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %29 = trunc nuw i8 %27 to i1
-  br i1 %29, label %30, label %.sink.split
+  br i1 %29, label %31, label %.sink.split
 
 _Z21_mi_arena_meta_zallocmP10mi_memid_s.exit:     ; preds = %_Z22_mi_os_good_alloc_sizem.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %37
+  br label %38
 
 .sink.split:                                      ; preds = %26, %_ZL22mi_arena_static_zallocmmP10mi_memid_s.exit.i
-  %.sink36 = phi ptr [ %13, %_ZL22mi_arena_static_zallocmmP10mi_memid_s.exit.i ], [ %25, %26 ]
+  %.sink = phi ptr [ %13, %_ZL22mi_arena_static_zallocmmP10mi_memid_s.exit.i ], [ %25, %26 ]
   %.sroa.8.0.ph.ph = phi i8 [ 0, %_ZL22mi_arena_static_zallocmmP10mi_memid_s.exit.i ], [ %28, %26 ]
   %.sroa.9.0.ph.ph = phi i8 [ 0, %_ZL22mi_arena_static_zallocmmP10mi_memid_s.exit.i ], [ 1, %26 ]
   %.sroa.14.0.ph.ph = phi i32 [ 2, %_ZL22mi_arena_static_zallocmmP10mi_memid_s.exit.i ], [ 3, %26 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sink36, i64 8) ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sink36, i8 0, i64 136, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sink, i64 8) ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sink, i8 0, i64 136, i1 false)
   br label %30
 
-30:                                               ; preds = %.sink.split, %26
+31:                                               ; preds = %.sink.split, %26
   %.sroa.8.0.ph = phi i8 [ %28, %26 ], [ %.sroa.8.0.ph.ph, %.sink.split ]
   %.sroa.9.0.ph = phi i8 [ 1, %26 ], [ %.sroa.9.0.ph.ph, %.sink.split ]
   %.sroa.14.0.ph = phi i32 [ 3, %26 ], [ %.sroa.14.0.ph.ph, %.sink.split ]
-  %.0.i.ph = phi ptr [ %25, %26 ], [ %.sink36, %.sink.split ]
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false), !tbaa.struct !166
+  %.0.i.ph = phi ptr [ %25, %26 ], [ %.sink, %.sink.split ]
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 112
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false), !tbaa.struct !166
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 128
   store i8 %.sroa.8.0.ph, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !88
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 129
@@ -14777,15 +14777,15 @@ _Z21_mi_arena_meta_zallocmP10mi_memid_s.exit:     ; preds = %_Z22_mi_os_good_all
   store i8 0, ptr %.sroa.13.0..sroa_idx, align 1
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 132
   store i32 %.sroa.14.0.ph, ptr %.sroa.14.0..sroa_idx, align 4, !tbaa !129
-  %32 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 96
-  store ptr null, ptr %32, align 8, !tbaa !83
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 16
-  %34 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %33, ptr noundef null) #55
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 56
-  %36 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %35, ptr noundef null) #55
-  br label %37
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 96
+  store ptr null, ptr %33, align 8, !tbaa !83
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 16
+  %35 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %34, ptr noundef null) #55
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 56
+  %37 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %36, ptr noundef null) #55
+  br label %38
 
-37:                                               ; preds = %_Z21_mi_arena_meta_zallocmP10mi_memid_s.exit, %30
+38:                                               ; preds = %_Z21_mi_arena_meta_zallocmP10mi_memid_s.exit, %31
   %.0 = phi ptr [ %.0.i.ph, %30 ], [ null, %_Z21_mi_arena_meta_zallocmP10mi_memid_s.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   ret ptr %.0

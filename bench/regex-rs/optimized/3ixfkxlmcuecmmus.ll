@@ -2028,10 +2028,10 @@ common.resume:                                    ; preds = %.body, %213, %.body
   unreachable
 
 224:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h052fc83196357305E.exit", %430
-  %.sink738 = phi i8 [ %432, %430 ], [ 2, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h052fc83196357305E.exit" ]
+  %.sink737 = phi i8 [ %432, %430 ], [ 2, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h052fc83196357305E.exit" ]
   %.val101.i = phi ptr [ %.val, %430 ], [ undef, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h052fc83196357305E.exit" ]
   %.sroa.551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store i8 %.sink738, ptr %.sroa.551.0..sroa_idx, align 8
+  store i8 %.sink737, ptr %.sroa.551.0..sroa_idx, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !329)
   call void @llvm.experimental.noalias.scope.decl(metadata !332)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5227.i.sroa.4)
@@ -2180,7 +2180,7 @@ common.resume:                                    ; preds = %.body, %213, %.body
   call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !334
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5199.i.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !334
-  %276 = icmp eq i8 %.sink738, 2
+  %276 = icmp eq i8 %.sink737, 2
   br i1 %276, label %282, label %277
 
 277:                                              ; preds = %275
@@ -2196,7 +2196,7 @@ common.resume:                                    ; preds = %.body, %213, %.body
 
 282:                                              ; preds = %286, %275
   %.sroa.548.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store i8 %.sink738, ptr %.sroa.548.0..sroa_idx.i, align 8, !noalias !334
+  store i8 %.sink737, ptr %.sroa.548.0..sroa_idx.i, align 8, !noalias !334
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !393
   invoke void @_ZN14regex_automata4meta8wrappers12PikeVMEngine3new17h0ec05a79dbc58bbcE.llvm.4719928553755522418(ptr noalias noundef nonnull sret({ i64, [16 x i64] }) align 8 captures(none) dereferenceable(136) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %47, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %46)
           to label %.noexc109.i unwind label %273, !noalias !364
@@ -2261,7 +2261,7 @@ common.resume:                                    ; preds = %.body, %213, %.body
 
 295:                                              ; preds = %301, %288
   %.sroa.556.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store i8 %.sink738, ptr %.sroa.556.0..sroa_idx.i, align 8, !noalias !334
+  store i8 %.sink737, ptr %.sroa.556.0..sroa_idx.i, align 8, !noalias !334
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !408
   invoke void @_ZN14regex_automata4meta8wrappers24BoundedBacktrackerEngine3new17head97d988185b6e7E.llvm.4719928553755522418(ptr noalias noundef nonnull sret({ i64, [16 x i64] }) align 8 captures(none) dereferenceable(136) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %47, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %46)
           to label %.noexc111.i unwind label %299, !noalias !364
@@ -2483,7 +2483,7 @@ common.resume:                                    ; preds = %.body, %213, %.body
 
 349:                                              ; preds = %350, %343
   %.sroa.582.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i8 %.sink738, ptr %.sroa.582.0..sroa_idx.i, align 8, !noalias !334
+  store i8 %.sink737, ptr %.sroa.582.0..sroa_idx.i, align 8, !noalias !334
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !471
   invoke void @_ZN14regex_automata4meta8wrappers12HybridEngine3new17ha963b013f0666278E.llvm.4719928553755522418(ptr noalias noundef nonnull sret({ i64, [171 x i64] }) align 8 captures(none) dereferenceable(1376) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %47, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %37)
           to label %352 unwind label %331, !noalias !364

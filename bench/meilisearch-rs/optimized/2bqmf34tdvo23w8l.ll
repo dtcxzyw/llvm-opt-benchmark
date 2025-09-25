@@ -69163,12 +69163,12 @@ define void @_ZN11meilisearch9analytics17segment_analytics13write_user_id17h695d
   %or.cond.i = select i1 %48, i1 true, i1 %51
   br i1 %or.cond.i, label %52, label %"_ZN4core6option15Option$LT$T$GT$3zip17h8a79d47d24f1725fE.exit"
 
-52:                                               ; preds = %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17hfc7487f1e9f54b12E.exit"
+53:                                               ; preds = %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17hfc7487f1e9f54b12E.exit"
   %53 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 -9223372036854775808, ptr %53, align 8, !alias.scope !12631, !noalias !12639
   br i1 %51, label %71, label %54
 
-54:                                               ; preds = %52
+54:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !12640
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %49), !noalias !12653
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -69215,7 +69215,7 @@ define void @_ZN11meilisearch9analytics17segment_analytics13write_user_id17h695d
   %70 = invoke noundef ptr @_ZN3std2fs10DirBuilder7_create17h322610c67dfeae9fE(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 1 %68, i64 noundef %69)
           to label %73 unwind label %101
 
-71:                                               ; preds = %52, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h45d6c1cf4b3656a9E.exit.i"
+71:                                               ; preds = %53, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h45d6c1cf4b3656a9E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !12636
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %72 = getelementptr inbounds nuw i8, ptr %20, i64 8
