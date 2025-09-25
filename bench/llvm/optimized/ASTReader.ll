@@ -89224,7 +89224,6 @@ define internal fastcc void @"_ZZN5clang9ASTReader24FindExternalLexicalDeclsEPKN
 15:                                               ; preds = %.lr.ph, %_ZNK5clang11DeclContext24isDeclInLexicalTraversalEPKNS_4DeclE.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5clang11DeclContext24isDeclInLexicalTraversalEPKNS_4DeclE.exit.thread ]
   %16 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %2, i64 %indvars.iv
-  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 1) ]
   %.0.copyload.i.i.i = load i64, ptr %16, align 1
   %17 = trunc i64 %.0.copyload.i.i.i to i32
   %18 = load ptr, ptr %0, align 8, !tbaa !3595
@@ -89236,7 +89235,6 @@ define internal fastcc void @"_ZZN5clang9ASTReader24FindExternalLexicalDeclsEPKN
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 1) ]
   %.0.copyload.i.i.i18 = load i64, ptr %24, align 1
   %25 = icmp ult i64 %.0.copyload.i.i.i18, 19
   br i1 %25, label %26, label %31

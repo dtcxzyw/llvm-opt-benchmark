@@ -10174,7 +10174,6 @@ define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !256
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %7, align 2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load i16, ptr %8, align 8, !tbaa !46
@@ -10220,7 +10219,6 @@ define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN
 _ZN4llvm13ScopedPrinter9printEnumIttEEvNS_9StringRefET_NS_8ArrayRefINS_9EnumEntryIT0_EEEE.exit: ; preds = %.thread27.i, %._crit_edge.i
   %26 = load ptr, ptr %5, align 8, !tbaa !256
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 1) ]
   %.0.copyload.i.i.i6 = load i16, ptr %27, align 4
   %28 = load ptr, ptr %26, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
@@ -10316,7 +10314,6 @@ define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !256
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %7, align 2
   %8 = load ptr, ptr %6, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -10412,7 +10409,6 @@ define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !256
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %7, align 2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load i16, ptr %8, align 8, !tbaa !46
@@ -10458,7 +10454,6 @@ define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN
 _ZN4llvm13ScopedPrinter9printEnumIttEEvNS_9StringRefET_NS_8ArrayRefINS_9EnumEntryIT0_EEEE.exit: ; preds = %.thread27.i, %._crit_edge.i
   %26 = load ptr, ptr %5, align 8, !tbaa !256
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 1) ]
   %.0.copyload.i.i.i7 = load i16, ptr %27, align 4
   %28 = load ptr, ptr %26, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
@@ -10466,7 +10461,6 @@ _ZN4llvm13ScopedPrinter9printEnumIttEEvNS_9StringRefET_NS_8ArrayRefINS_9EnumEntr
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(44) %26, ptr nonnull @.str.132, i64 13, i16 noundef zeroext %.0.copyload.i.i.i7) #19
   %31 = load ptr, ptr %5, align 8, !tbaa !256
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 1) ]
   %.0.copyload.i.i.i8 = load i32, ptr %32, align 2
   %33 = load ptr, ptr %31, align 8, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
@@ -10577,7 +10571,6 @@ define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !256
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %7, align 2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load i16, ptr %8, align 8, !tbaa !46
@@ -10623,7 +10616,6 @@ define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN
 _ZN4llvm13ScopedPrinter9printEnumIttEEvNS_9StringRefET_NS_8ArrayRefINS_9EnumEntryIT0_EEEE.exit: ; preds = %.thread27.i, %._crit_edge.i
   %26 = load ptr, ptr %5, align 8, !tbaa !256
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %27, align 4
   %28 = and i16 %.0.copyload.i.i.i.i, 1
   %29 = icmp ne i16 %28, 0
@@ -10632,7 +10624,6 @@ _ZN4llvm13ScopedPrinter9printEnumIttEEvNS_9StringRefET_NS_8ArrayRefINS_9EnumEntr
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(44) %26, ptr nonnull @.str.134, i64 19, i1 noundef zeroext %29) #19
   %33 = load ptr, ptr %5, align 8, !tbaa !256
-  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 1) ]
   %.0.copyload.i.i.i.i8 = load i16, ptr %27, align 4
   %34 = lshr i16 %.0.copyload.i.i.i.i8, 4
   %35 = load ptr, ptr %33, align 8, !tbaa !3
@@ -10641,7 +10632,6 @@ _ZN4llvm13ScopedPrinter9printEnumIttEEvNS_9StringRefET_NS_8ArrayRefINS_9EnumEntr
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(44) %33, ptr nonnull @.str.130, i64 14, i16 noundef zeroext %34) #19
   %38 = load ptr, ptr %5, align 8, !tbaa !256
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 1) ]
   %.0.copyload.i.i.i9 = load i32, ptr %39, align 2
   %40 = load ptr, ptr %38, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 56

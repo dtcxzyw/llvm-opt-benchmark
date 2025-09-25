@@ -709,7 +709,7 @@ _ZN4llvm5ErrorD2Ev.exit26.i51:                    ; preds = %166
   %.sroa.0.0.copyload.i.i60 = load i32, ptr %171, align 1, !tbaa !12
   %172 = icmp eq i32 %.sroa.0.0.copyload.i.i60, 50331648
   %.0.copyload.i.i.i.i.i.pre.i61 = load i32, ptr %.sroa.049.091.i59, align 1
-  %173 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.pre.i61)
+  %173 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.pre.i61)
   %.not.i28112.i = icmp eq i32 %.0.copyload.i.i.i.i.i.pre.i61, 67108864
   %or.cond.i62 = select i1 %172, i1 %.not.i28112.i, i1 false
   br i1 %or.cond.i62, label %_ZN4llvmeqENS_9StringRefES0_.exit.i75, label %.critedge.i63
@@ -1239,7 +1239,7 @@ _ZN4llvm5ErrorD2Ev.exit26.i166:                   ; preds = %360
   %.sroa.0.0.copyload.i.i175 = load i32, ptr %365, align 1, !tbaa !12
   %366 = icmp eq i32 %.sroa.0.0.copyload.i.i175, 50331648
   %.0.copyload.i.i.i.i.i.pre.i176 = load i32, ptr %.sroa.049.091.i174, align 1
-  %367 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.pre.i176)
+  %367 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.pre.i176)
   %.not.i28112.i177 = icmp eq i32 %.0.copyload.i.i.i.i.i.pre.i176, 67108864
   %or.cond.i178 = select i1 %366, i1 %.not.i28112.i177, i1 false
   br i1 %or.cond.i178, label %_ZN4llvmeqENS_9StringRefES0_.exit.i191, label %.critedge.i179

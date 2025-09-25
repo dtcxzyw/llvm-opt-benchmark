@@ -230,7 +230,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm19BinaryStr
 60:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
   %.0.copyload.i.i.i23 = load i32, ptr %52, align 1
   %61 = select i1 %.not, i32 8, i32 12
-  %62 = mul i32 %61, %.0.copyload.i.i.i23
+  %62 = mul i32 %.0.copyload.i.i.i23, %61
   %63 = add i32 %.0.copyload.i.i.i24, -12
   %64 = icmp ugt i32 %62, %63
   br i1 %64, label %65, label %70

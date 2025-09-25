@@ -55,7 +55,7 @@ _ZN4llvm15SmallVectorImplINS_8ArrayRefIhEEE7reserveEm.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %2, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm8codeview20SimpleTypeSerializerC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
+  tail call void @_ZN4llvm8codeview20SimpleTypeSerializerC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -72,7 +72,7 @@ _ZN4llvm15SmallVectorImplINS_8ArrayRefIhEEE7reserveEm.exit:
   store i32 0, ptr %11, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 2, ptr %12, align 4, !tbaa !14
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, i64 noundef 4096, i64 noundef 16) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, i64 noundef 4096, i64 noundef 16) #14
   ret void
 }
 
@@ -88,7 +88,7 @@ define dso_local void @_ZN4llvm8codeview22GlobalTypeTableBuilderD2Ev(ptr noundef
   br i1 %5, label %_ZN4llvm11SmallVectorINS_8codeview18GloballyHashedTypeELj2EED2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #15
+  tail call void @free(ptr noundef %3) #14
   br label %_ZN4llvm11SmallVectorINS_8codeview18GloballyHashedTypeELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_8codeview18GloballyHashedTypeELj2EED2Ev.exit: ; preds = %1, %6
@@ -99,7 +99,7 @@ _ZN4llvm11SmallVectorINS_8codeview18GloballyHashedTypeELj2EED2Ev.exit: ; preds =
   br i1 %10, label %_ZN4llvm11SmallVectorINS_8ArrayRefIhEELj2EED2Ev.exit, label %11
 
 11:                                               ; preds = %_ZN4llvm11SmallVectorINS_8codeview18GloballyHashedTypeELj2EED2Ev.exit
-  tail call void @free(ptr noundef %8) #15
+  tail call void @free(ptr noundef %8) #14
   br label %_ZN4llvm11SmallVectorINS_8ArrayRefIhEELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_8ArrayRefIhEELj2EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorINS_8codeview18GloballyHashedTypeELj2EED2Ev.exit, %11
@@ -109,9 +109,9 @@ _ZN4llvm11SmallVectorINS_8ArrayRefIhEELj2EED2Ev.exit: ; preds = %_ZN4llvm11Small
   %15 = load i32, ptr %14, align 8, !tbaa !18
   %16 = zext i32 %15 to i64
   %17 = mul nuw nsw i64 %16, 12
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %13, i64 noundef %17, i64 noundef 1) #15
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %13, i64 noundef %17, i64 noundef 1) #14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm8codeview20SimpleTypeSerializerD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
+  tail call void @_ZN4llvm8codeview20SimpleTypeSerializerD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
   ret void
 }
 
@@ -120,8 +120,8 @@ declare void @_ZN4llvm8codeview20SimpleTypeSerializerD1Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm8codeview22GlobalTypeTableBuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZN4llvm8codeview22GlobalTypeTableBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #16
+  tail call void @_ZN4llvm8codeview22GlobalTypeTableBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #15
   ret void
 }
 
@@ -133,7 +133,7 @@ define dso_local noundef range(i40 4096, 4294971393) i40 @_ZN4llvm8codeview22Glo
   %2 = load ptr, ptr %0, align 8, !tbaa !9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %.not = icmp eq i32 %5, 0
   %.sroa.01.0.insert.insert = select i1 %.not, i40 4096, i40 4294971392
   ret i40 %.sroa.01.0.insert.insert
@@ -288,7 +288,7 @@ define dso_local i32 @_ZN4llvm8codeview22GlobalTypeTableBuilder17insertRecordByt
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = load i32, ptr %9, align 8, !tbaa !3
   %11 = zext i32 %10 to i64
-  %12 = tail call i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_(ptr %1, i64 %2, ptr %8, i64 %11, ptr %8, i64 %11) #15
+  %12 = tail call i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_(ptr %1, i64 %2, ptr %8, i64 %11, ptr %8, i64 %11) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %12, ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -378,7 +378,7 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   %53 = zext i32 %49 to i64
   %54 = add nuw nsw i64 %53, 1
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull %55, i64 noundef %54, i64 noundef 16) #15
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull %55, i64 noundef %54, i64 noundef 16) #14
   %.pre.i8 = load i32, ptr %14, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_8ArrayRefIhEELb1EE9push_backES2_.exit
 
@@ -404,7 +404,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8ArrayRefIhEELb1EE9push_backES2_.exit: ; pr
   %66 = zext i32 %62 to i64
   %67 = add nuw nsw i64 %66, 1
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %68, i64 noundef %67, i64 noundef 8) #15
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %68, i64 noundef %67, i64 noundef 8) #14
   %.pre.i6 = load i32, ptr %9, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview18GloballyHashedTypeELb1EE9push_backES2_.exit
 
@@ -435,7 +435,7 @@ define dso_local i32 @_ZN4llvm8codeview22GlobalTypeTableBuilder12insertRecordERN
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8, !tbaa !3
   %6 = add i32 %5, 4096
-  call void @_ZN4llvm8codeview25ContinuationRecordBuilder3endENS0_9TypeIndexE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.18") align 8 %3, ptr noundef nonnull align 8 dereferenceable(248) %1, i32 %6) #15
+  call void @_ZN4llvm8codeview25ContinuationRecordBuilder3endENS0_9TypeIndexE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.18") align 8 %3, ptr noundef nonnull align 8 dereferenceable(248) %1, i32 %6) #14
   %7 = load ptr, ptr %3, align 8, !tbaa !65
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !65
@@ -458,7 +458,7 @@ define dso_local i32 @_ZN4llvm8codeview22GlobalTypeTableBuilder12insertRecordERN
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %10 to i64
   %16 = sub i64 %14, %15
-  call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %16) #16
+  call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %16) #15
   br label %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EED2Ev.exit: ; preds = %._crit_edge, %11
@@ -489,11 +489,10 @@ define dso_local noundef zeroext i1 @_ZN4llvm8codeview22GlobalTypeTableBuilder11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load i32, ptr %11, align 8, !tbaa !3
   %13 = zext i32 %12 to i64
-  %14 = tail call i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_(ptr %2, i64 %3, ptr %10, i64 %13, ptr %10, i64 %13) #15
+  %14 = tail call i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_(ptr %2, i64 %3, ptr %10, i64 %13, ptr %10, i64 %13) #14
   store i64 %14, ptr %7, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %1, align 1
   %16 = and i32 %.0.copyload.i.i.i.i.i, 2147483647
   %17 = add nsw i32 %16, -4096
@@ -552,7 +551,6 @@ _ZL9stabilizeRN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm
 43:                                               ; preds = %_ZL9stabilizeRN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEENS_8ArrayRefIhEE.exit, %23
   %.sroa.04.0 = phi ptr [ %.0.i.i.i.i.i, %_ZL9stabilizeRN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEENS_8ArrayRefIhEE.exit ], [ %2, %23 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   %.0.copyload.i.i.i.i.i13 = load i32, ptr %1, align 1
   %45 = and i32 %.0.copyload.i.i.i.i.i13, 2147483647
   %46 = add nsw i32 %45, -4096
@@ -562,7 +560,6 @@ _ZL9stabilizeRN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm
   store ptr %.sroa.04.0, ptr %49, align 8, !tbaa !19
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 %3, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !21
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   %.0.copyload.i.i.i.i.i14 = load i32, ptr %1, align 1
   %50 = and i32 %.0.copyload.i.i.i.i.i14, 2147483647
   %51 = add nsw i32 %50, -4096
@@ -579,11 +576,8 @@ _ZL9stabilizeRN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm
   ret i1 %57
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
-
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, i64 noundef %2, i8 %3) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, i64 noundef %2, i8 %3) local_unnamed_addr #8 comdat align 2 {
   %5 = zext nneg i8 %3 to i64
   %6 = shl nuw i64 1, %5
   %7 = add i64 %6, -1
@@ -592,7 +586,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplIN
   br i1 %9, label %10, label %32
 
 10:                                               ; preds = %4
-  %11 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %8, i64 noundef 16) #15
+  %11 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %8, i64 noundef 16) #14
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i32, ptr %13, align 8, !tbaa !3
@@ -605,7 +599,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplIN
   %18 = zext i32 %14 to i64
   %19 = add nuw nsw i64 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %20, i64 noundef %19, i64 noundef 16) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %20, i64 noundef %19, i64 noundef 16) #14
   %.pre.i = load i32, ptr %13, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
 
@@ -635,7 +629,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %37 = tail call i32 @llvm.umin.i32(i32 %36, i32 30)
   %.sroa.speculated.i.i = zext nneg i32 %37 to i64
   %38 = shl nuw nsw i64 4096, %.sroa.speculated.i.i
-  %39 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %38, i64 noundef 16) #15
+  %39 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %38, i64 noundef 16) #14
   %40 = load i32, ptr %34, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %42 = load i32, ptr %41, align 4, !tbaa !14
@@ -646,7 +640,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %44 = zext i32 %40 to i64
   %45 = add nuw nsw i64 %44, 1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %46, i64 noundef %45, i64 noundef 8) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %46, i64 noundef %45, i64 noundef 8) #14
   %.pre.i.i = load i32, ptr %34, align 8, !tbaa !3
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit
 
@@ -683,7 +677,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull ali
 declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm8DenseMapINS_8codeview18GloballyHashedTypeENS1_9TypeIndexENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(20) %0) local_unnamed_addr #1 comdat align 2 {
@@ -730,7 +724,7 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapINS_8codeview18GloballyHashedT
   %20 = load ptr, ptr %0, align 8, !tbaa !15
   %21 = zext i32 %3 to i64
   %22 = mul nuw nsw i64 %21, 12
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %20, i64 noundef %22, i64 noundef 1) #15
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %20, i64 noundef %22, i64 noundef 1) #14
   %23 = icmp eq i32 %.0, 0
   br i1 %23, label %49, label %24
 
@@ -754,7 +748,7 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapINS_8codeview18GloballyHashedT
   store i32 %40, ptr %2, align 8, !tbaa !18
   %41 = zext i32 %40 to i64
   %42 = mul nuw nsw i64 %41, 12
-  %43 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %42, i64 noundef 1) #15
+  %43 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %42, i64 noundef 1) #14
   store ptr %43, ptr %0, align 8, !tbaa !15
   store i32 0, ptr %4, align 8, !tbaa !23
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -783,7 +777,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview18GloballyHashedTypeENS2_9TypeIn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview18GloballyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E15LookupBucketForIS3_EEbRKT_RPS9_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 comdat align 2 {
@@ -929,7 +923,7 @@ _ZN4llvm8DenseMapINS_8codeview18GloballyHashedTypeENS1_9TypeIndexENS_12DenseMapI
   store i32 %.sroa.speculated, ptr %2, align 8, !tbaa !18
   %19 = zext i32 %.sroa.speculated to i64
   %20 = mul nuw nsw i64 %19, 12
-  %21 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %20, i64 noundef 1) #15
+  %21 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %20, i64 noundef 1) #14
   store ptr %21, ptr %0, align 8, !tbaa !15
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %22, label %29
@@ -959,7 +953,7 @@ _ZN4llvm8DenseMapINS_8codeview18GloballyHashedTypeENS1_9TypeIndexENS_12DenseMapI
   %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
   tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview18GloballyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4, ptr noundef nonnull %31)
   %32 = mul nuw nsw i64 %30, 12
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %32, i64 noundef 1) #15
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %32, i64 noundef 1) #14
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview18GloballyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E9initEmptyEv.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview18GloballyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E9initEmptyEv.exit: ; preds = %.lr.ph.i, %22, %29
@@ -1099,22 +1093,22 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview18GloballyHashedTypeENS2_9TypeIn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #14
+declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #14
+declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1124,15 +1118,14 @@ attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { builtin nounwind }
+attributes #8 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

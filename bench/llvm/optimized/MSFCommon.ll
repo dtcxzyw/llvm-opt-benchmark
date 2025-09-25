@@ -83,11 +83,10 @@ define dso_local void @_ZN4llvm3msf18validateSuperBlockERKNS0_10SuperBlockE(ptr 
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %11, align 8, !tbaa !16, !noalias !6
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !6
   store ptr %11, ptr %0, align 8, !tbaa !18, !alias.scope !3
-  br label %56
+  br label %55
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %16, align 1
   switch i32 %.0.copyload.i.i.i, label %_ZN4llvm3msf16isValidBlockSizeEj.exit [
     i32 512, label %21
@@ -113,11 +112,10 @@ _ZN4llvm3msf16isValidBlockSizeEj.exit:            ; preds = %15
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %17, align 8, !tbaa !16, !noalias !25
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !25
   store ptr %17, ptr %0, align 8, !tbaa !18, !alias.scope !22
-  br label %56
+  br label %55
 
 21:                                               ; preds = %15, %15, %15, %15, %15, %15, %15
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 1) ]
   %.0.copyload.i.i.i15 = load i32, ptr %22, align 1
   %23 = and i32 %.0.copyload.i.i.i15, 3
   %.not11 = icmp eq i32 %23, 0
@@ -137,19 +135,16 @@ _ZN4llvm3msf16isValidBlockSizeEj.exit:            ; preds = %15
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %25, align 8, !tbaa !16, !noalias !31
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !31
   store ptr %25, ptr %0, align 8, !tbaa !18, !alias.scope !28
-  br label %56
+  br label %55
 
 29:                                               ; preds = %21
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 1) ]
   %30 = zext i32 %.0.copyload.i.i.i15 to i64
-  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 1) ]
   %31 = zext nneg i32 %.0.copyload.i.i.i to i64
   %32 = icmp ne i32 %.0.copyload.i.i.i15, 0
   %33 = zext i1 %32 to i64
   %34 = sub nsw i64 %30, %33
   %35 = udiv i64 %34, %31
   %36 = add nuw nsw i64 %35, %33
-  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 1) ]
   %37 = lshr i32 %.0.copyload.i.i.i, 2
   %38 = zext nneg i32 %37 to i64
   %39 = icmp samesign ugt i64 %36, %38
@@ -169,11 +164,10 @@ _ZN4llvm3msf16isValidBlockSizeEj.exit:            ; preds = %15
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3msf8MSFErrorE, i64 16), ptr %41, align 8, !tbaa !16, !noalias !37
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !37
   store ptr %41, ptr %0, align 8, !tbaa !18, !alias.scope !34
-  br label %56
+  br label %55
 
 45:                                               ; preds = %29
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 1) ]
   %.0.copyload.i.i.i19 = load i32, ptr %46, align 1
   %47 = icmp eq i32 %.0.copyload.i.i.i19, 0
   br i1 %47, label %48, label %49
@@ -183,12 +177,10 @@ _ZN4llvm3msf16isValidBlockSizeEj.exit:            ; preds = %15
   store i32 5, ptr %7, align 4, !tbaa !40
   call void @_ZN4llvm10make_errorINS_3msf8MSFErrorEJNS1_14msf_error_codeERA20_KcEEENS_5ErrorEDpOT0_(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 1 dereferenceable(20) @.str.4)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %56
+  br label %55
 
 49:                                               ; preds = %45
-  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 1) ]
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 1) ]
   %.0.copyload.i.i.i21 = load i32, ptr %50, align 1
   %.not12 = icmp ult i32 %.0.copyload.i.i.i19, %.0.copyload.i.i.i21
   br i1 %.not12, label %52, label %51
@@ -198,32 +190,27 @@ _ZN4llvm3msf16isValidBlockSizeEj.exit:            ; preds = %15
   store i32 5, ptr %8, align 4, !tbaa !40
   call void @_ZN4llvm10make_errorINS_3msf8MSFErrorEJNS1_14msf_error_codeERA30_KcEEENS_5ErrorEDpOT0_(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 1 dereferenceable(30) @.str.5)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %56
+  br label %55
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 1) ]
   %.0.copyload.i.i.i22 = load i32, ptr %53, align 1
-  %.not13 = icmp eq i32 %.0.copyload.i.i.i22, 1
-  br i1 %.not13, label %_ZN4llvm5ErrorD2Ev.exit, label %54
+  %.0.copyload.i.i.i22.off = add i32 %.0.copyload.i.i.i22, -1
+  %switch = icmp ult i32 %.0.copyload.i.i.i22.off, 2
+  br i1 %switch, label %_ZN4llvm5ErrorD2Ev.exit, label %54
 
 54:                                               ; preds = %52
-  call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 1) ]
-  %.not14 = icmp eq i32 %.0.copyload.i.i.i22, 2
-  br i1 %.not14, label %_ZN4llvm5ErrorD2Ev.exit, label %55
-
-55:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 5, ptr %9, align 4, !tbaa !40
   call void @_ZN4llvm10make_errorINS_3msf8MSFErrorEJNS1_14msf_error_codeERA48_KcEEENS_5ErrorEDpOT0_(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 1 dereferenceable(48) @.str.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %56
+  br label %55
 
-_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %52, %54
+_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %52
   store ptr null, ptr %0, align 8, !tbaa !18
-  br label %56
+  br label %55
 
-56:                                               ; preds = %40, %48, %51, %55, %_ZN4llvm5ErrorD2Ev.exit, %24, %_ZN4llvm3msf16isValidBlockSizeEj.exit, %10
+55:                                               ; preds = %40, %48, %51, %54, %_ZN4llvm5ErrorD2Ev.exit, %24, %_ZN4llvm3msf16isValidBlockSizeEj.exit, %10
   ret void
 }
 

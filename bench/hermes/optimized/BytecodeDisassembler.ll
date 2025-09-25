@@ -1703,7 +1703,6 @@ sw.bb:                                            ; preds = %entry
   %1 = load i32, ptr %ind, align 4
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %buff, i64 %idx.ext
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr, i64 1) ]
   %ret.0.copyload.i = load i8, ptr %add.ptr, align 1
   %add = add nsw i32 %1, 1
   store i32 %add, ptr %ind, align 4
@@ -1747,7 +1746,6 @@ sw.bb6:                                           ; preds = %entry
   %2 = load i32, ptr %ind, align 4
   %idx.ext8 = sext i32 %2 to i64
   %add.ptr9 = getelementptr inbounds i8, ptr %buff, i64 %idx.ext8
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr9, i64 1) ]
   %ret.0.copyload.i19 = load i16, ptr %add.ptr9, align 1
   %add11 = add nsw i32 %2, 2
   store i32 %add11, ptr %ind, align 4
@@ -1791,7 +1789,6 @@ sw.bb17:                                          ; preds = %entry
   %3 = load i32, ptr %ind, align 4
   %idx.ext19 = sext i32 %3 to i64
   %add.ptr20 = getelementptr inbounds i8, ptr %buff, i64 %idx.ext19
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr20, i64 1) ]
   %ret.0.copyload.i38 = load i32, ptr %add.ptr20, align 1
   %add22 = add nsw i32 %3, 4
   store i32 %add22, ptr %ind, align 4
@@ -1834,7 +1831,6 @@ sw.bb27:                                          ; preds = %entry
   %4 = load i32, ptr %ind, align 4
   %idx.ext29 = sext i32 %4 to i64
   %add.ptr30 = getelementptr inbounds i8, ptr %buff, i64 %idx.ext29
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr30, i64 1) ]
   %ret.0.copyload.i57 = load double, ptr %add.ptr30, align 1
   %add32 = add nsw i32 %4, 8
   store i32 %add32, ptr %ind, align 4
@@ -1877,7 +1873,6 @@ sw.bb37:                                          ; preds = %entry
   %5 = load i32, ptr %ind, align 4
   %idx.ext39 = sext i32 %5 to i64
   %add.ptr40 = getelementptr inbounds i8, ptr %buff, i64 %idx.ext39
-  call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr40, i64 1) ]
   %ret.0.copyload.i76 = load i32, ptr %add.ptr40, align 1
   %add42 = add nsw i32 %5, 4
   store i32 %add42, ptr %ind, align 4
