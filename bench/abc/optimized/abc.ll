@@ -7549,8 +7549,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintSymms(ptr noundef %0, i32 n
   %.not49 = icmp eq i32 %5, -1
   br i1 %.not49, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %17
-  %6 = phi i32 [ %18, %17 ], [ %5, %3 ]
+.lr.ph:                                           ; preds = %3, %18
+  %6 = phi i32 [ %19, %17 ], [ %5, %3 ]
   %.053 = phi i32 [ %.1, %17 ], [ 0, %3 ]
   %.02752 = phi i32 [ %.128, %17 ], [ 1, %3 ]
   %.02951 = phi i32 [ %.130, %17 ], [ 0, %3 ]
@@ -7564,87 +7564,87 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintSymms(ptr noundef %0, i32 n
     i32 5, label %15
   ]
 
-9:                                                ; preds = %.lr.ph
-  %10 = xor i32 %.03150, 1
-  br label %17
+10:                                               ; preds = %.lr.ph
+  %11 = xor i32 %.03150, 1
+  br label %18
 
-11:                                               ; preds = %.lr.ph
-  %12 = xor i32 %.02951, 1
-  br label %17
+12:                                               ; preds = %.lr.ph
+  %13 = xor i32 %.02951, 1
+  br label %18
 
-13:                                               ; preds = %.lr.ph
-  %14 = xor i32 %.02752, 1
-  br label %17
+14:                                               ; preds = %.lr.ph
+  %15 = xor i32 %.02752, 1
+  br label %18
 
-15:                                               ; preds = %.lr.ph
-  %16 = xor i32 %.053, 1
-  br label %17
+16:                                               ; preds = %.lr.ph
+  %17 = xor i32 %.053, 1
+  br label %18
 
-17:                                               ; preds = %15, %13, %11, %9
-  %.132 = phi i32 [ %10, %9 ], [ %.03150, %11 ], [ %.03150, %13 ], [ %.03150, %15 ]
-  %.130 = phi i32 [ %.02951, %9 ], [ %12, %11 ], [ %.02951, %13 ], [ %.02951, %15 ]
-  %.128 = phi i32 [ %.02752, %9 ], [ %.02752, %11 ], [ %14, %13 ], [ %.02752, %15 ]
-  %.1 = phi i32 [ %.053, %9 ], [ %.053, %11 ], [ %.053, %13 ], [ %16, %15 ]
-  %18 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.675) #32
-  %.not = icmp eq i32 %18, -1
+18:                                               ; preds = %16, %14, %12, %10
+  %.132 = phi i32 [ %11, %9 ], [ %.03150, %11 ], [ %.03150, %13 ], [ %.03150, %15 ]
+  %.130 = phi i32 [ %.02951, %9 ], [ %13, %11 ], [ %.02951, %13 ], [ %.02951, %15 ]
+  %.128 = phi i32 [ %.02752, %9 ], [ %.02752, %11 ], [ %15, %13 ], [ %.02752, %15 ]
+  %.1 = phi i32 [ %.053, %9 ], [ %.053, %11 ], [ %.053, %13 ], [ %17, %15 ]
+  %19 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.675) #32
+  %.not = icmp eq i32 %19, -1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !103
 
-._crit_edge:                                      ; preds = %17, %3
+._crit_edge:                                      ; preds = %18, %3
   %.031.lcssa = phi i32 [ 0, %3 ], [ %.132, %17 ]
   %.029.lcssa = phi i32 [ 0, %3 ], [ %.130, %17 ]
   %.027.lcssa = phi i32 [ 1, %3 ], [ %.128, %17 ]
   %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %17 ]
-  %19 = icmp eq ptr %4, null
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %._crit_edge
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.592)
-  br label %33
+  %20 = icmp eq ptr %4, null
+  br i1 %20, label %21, label %22
 
 21:                                               ; preds = %._crit_edge
-  %22 = getelementptr i8, ptr %4, i64 128
-  %.val42 = load i32, ptr %22, align 8, !tbaa !43
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.592)
+  br label %34
+
+22:                                               ; preds = %._crit_edge
+  %23 = getelementptr i8, ptr %4, i64 128
+  %.val42 = load i32, ptr %23, align 8, !tbaa !43
   %.not43 = icmp eq i32 %.val42, 0
-  br i1 %.not43, label %24, label %23
+  br i1 %.not43, label %25, label %24
 
-23:                                               ; preds = %21
+24:                                               ; preds = %22
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.665)
-  br label %33
+  br label %34
 
-24:                                               ; preds = %21
+25:                                               ; preds = %22
   %.val = load i32, ptr %4, align 8, !tbaa !72
   %.not44 = icmp eq i32 %.val, 3
-  br i1 %.not44, label %25, label %26
+  br i1 %.not44, label %26, label %27
 
-25:                                               ; preds = %24
+26:                                               ; preds = %25
   tail call void @Abc_NtkSymmetries(ptr noundef nonnull %4, i32 noundef %.031.lcssa, i32 noundef %.029.lcssa, i32 noundef %.027.lcssa, i32 noundef %.0.lcssa) #32
-  br label %33
+  br label %34
 
-26:                                               ; preds = %24
-  %27 = tail call ptr @Abc_NtkStrash(ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef 0) #32
-  tail call void @Abc_NtkSymmetries(ptr noundef %27, i32 noundef %.031.lcssa, i32 noundef %.029.lcssa, i32 noundef %.027.lcssa, i32 noundef %.0.lcssa) #32
-  tail call void @Abc_NtkDelete(ptr noundef %27) #32
-  br label %33
+27:                                               ; preds = %25
+  %28 = tail call ptr @Abc_NtkStrash(ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef 0) #32
+  tail call void @Abc_NtkSymmetries(ptr noundef %28, i32 noundef %.031.lcssa, i32 noundef %.029.lcssa, i32 noundef %.027.lcssa, i32 noundef %.0.lcssa) #32
+  tail call void @Abc_NtkDelete(ptr noundef %28) #32
+  br label %34
 
-28:                                               ; preds = %.lr.ph
+29:                                               ; preds = %.lr.ph
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.676)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.677)
   %.not38 = icmp eq i32 %.03150, 0
-  %29 = select i1 %.not38, ptr @.str.680, ptr @.str.679
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.678, ptr noundef nonnull %29)
+  %30 = select i1 %.not38, ptr @.str.680, ptr @.str.679
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.678, ptr noundef nonnull %210)
   %.not39 = icmp eq i32 %.02951, 0
-  %30 = select i1 %.not39, ptr @.str.551, ptr @.str.550
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.681, ptr noundef nonnull %30)
+  %31 = select i1 %.not39, ptr @.str.551, ptr @.str.550
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.681, ptr noundef nonnull %31)
   %.not40 = icmp eq i32 %.02752, 0
-  %31 = select i1 %.not40, ptr @.str.551, ptr @.str.550
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.682, ptr noundef nonnull %31)
+  %32 = select i1 %.not40, ptr @.str.551, ptr @.str.550
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.682, ptr noundef nonnull %32)
   %.not41 = icmp eq i32 %.053, 0
-  %32 = select i1 %.not41, ptr @.str.551, ptr @.str.550
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.683, ptr noundef nonnull %32)
+  %33 = select i1 %.not41, ptr @.str.551, ptr @.str.550
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.683, ptr noundef nonnull %33)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.552)
-  br label %33
+  br label %34
 
-33:                                               ; preds = %25, %26, %28, %23, %20
+34:                                               ; preds = %26, %27, %29, %24, %21
   %.033 = phi i32 [ 1, %28 ], [ 1, %20 ], [ 1, %23 ], [ 0, %26 ], [ 0, %25 ]
   ret i32 %.033
 }

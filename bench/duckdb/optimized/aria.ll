@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x [4 x i32]], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  switch i32 %2, label %338 [
+  switch i32 %2, label %339 [
     i32 256, label %5
     i32 192, label %5
     i32 128, label %5
@@ -236,7 +236,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr noundef writeon
   %201 = tail call i32 @llvm.bswap.i32(i32 %185)
   %202 = tail call i32 @llvm.bswap.i32(i32 %193)
   %203 = load i32, ptr %4, align 16, !tbaa !3
-  %204 = xor i32 %203, %199
+  %204 = xor i32 %204, %199
   %205 = xor i32 %204, %170
   store i32 %205, ptr %42, align 16, !tbaa !3
   %206 = load i32, ptr %9, align 4, !tbaa !3
@@ -247,7 +247,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr noundef writeon
   store i32 %209, ptr %210, align 4, !tbaa !3
   %211 = load i32, ptr %12, align 8, !tbaa !3
   %212 = xor i32 %202, %211
-  %213 = xor i32 %212, %200
+  %213 = xor i32 %213, %201
   %214 = xor i32 %213, %176
   %215 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %214, ptr %215, align 8, !tbaa !3
@@ -261,186 +261,186 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr noundef writeon
   %222 = add nuw nsw i32 %41, 1
   %223 = select i1 %221, i32 %222, i32 0
   %224 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %225 = zext nneg i32 %223 to i64
+  %225 = zext nneg i32 %224 to i64
   %226 = getelementptr inbounds nuw [4 x i32], ptr @__const.mbedtls_aria_setkey_enc.rc, i64 %225
   call fastcc void @_ZL11aria_fo_xorPjPKjS1_S1_(ptr noundef %224, ptr noundef %42, ptr noundef %226, ptr noundef %16)
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %228
 
-228:                                              ; preds = %.thread, %_ZL11aria_rot128PjPKjS1_h.exit88
+229:                                              ; preds = %.thread, %_ZL11aria_rot128PjPKjS1_h.exit88
   %indvars.iv = phi i64 [ 0, %.thread ], [ %indvars.iv.next, %_ZL11aria_rot128PjPKjS1_h.exit88 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %229 = and i64 %indvars.iv.next, 3
-  %230 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 %229
-  %231 = getelementptr inbounds nuw [4 x i32], ptr %227, i64 %indvars.iv
-  %232 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 %indvars.iv
-  %233 = getelementptr inbounds nuw i8, ptr %230, i64 12
-  %234 = load i32, ptr %233, align 4, !tbaa !3
-  %235 = tail call i32 @llvm.bswap.i32(i32 %234)
-  br label %236
+  %230 = and i64 %indvars.iv.next, 3
+  %231 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 %230
+  %232 = getelementptr inbounds nuw [4 x i32], ptr %228, i64 %indvars.iv
+  %233 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 %indvars.iv
+  %234 = getelementptr inbounds nuw i8, ptr %231, i64 12
+  %235 = load i32, ptr %234, align 4, !tbaa !3
+  %236 = tail call i32 @llvm.bswap.i32(i32 %235)
+  br label %237
 
-236:                                              ; preds = %236, %228
-  %indvars.iv.i = phi i64 [ 0, %228 ], [ %indvars.iv.next.i, %236 ]
-  %.03740.i = phi i8 [ 3, %228 ], [ %238, %236 ]
-  %.03839.i = phi i32 [ %235, %228 ], [ %242, %236 ]
-  %237 = add nuw nsw i8 %.03740.i, 1
-  %238 = and i8 %237, 3
-  %239 = zext nneg i8 %238 to i64
-  %240 = getelementptr inbounds nuw i32, ptr %230, i64 %239
-  %241 = load i32, ptr %240, align 4, !tbaa !3
-  %242 = tail call i32 @llvm.bswap.i32(i32 %241)
-  %243 = tail call i32 @llvm.fshl.i32(i32 %.03839.i, i32 %242, i32 13)
-  %244 = lshr i32 %243, 8
-  %245 = and i32 %244, 16711935
-  %246 = shl i32 %243, 8
-  %247 = and i32 %246, -16711936
-  %248 = or disjoint i32 %245, %247
-  %249 = tail call i32 @llvm.fshl.i32(i32 %248, i32 %248, i32 16)
-  %250 = getelementptr inbounds nuw i32, ptr %232, i64 %indvars.iv.i
-  %251 = load i32, ptr %250, align 4, !tbaa !3
-  %252 = xor i32 %249, %251
-  %253 = getelementptr inbounds nuw i32, ptr %231, i64 %indvars.iv.i
-  store i32 %252, ptr %253, align 4, !tbaa !3
+237:                                              ; preds = %237, %229
+  %indvars.iv.i = phi i64 [ 0, %229 ], [ %indvars.iv.next.i, %237 ]
+  %.03740.i = phi i8 [ 3, %229 ], [ %239, %237 ]
+  %.03839.i = phi i32 [ %236, %229 ], [ %243, %237 ]
+  %238 = add nuw nsw i8 %.03740.i, 1
+  %239 = and i8 %238, 3
+  %240 = zext nneg i8 %239 to i64
+  %241 = getelementptr inbounds nuw i32, ptr %231, i64 %240
+  %242 = load i32, ptr %241, align 4, !tbaa !3
+  %243 = tail call i32 @llvm.bswap.i32(i32 %242)
+  %244 = tail call i32 @llvm.fshl.i32(i32 %.03839.i, i32 %243, i32 13)
+  %245 = lshr i32 %244, 8
+  %246 = and i32 %245, 16711935
+  %247 = shl i32 %244, 8
+  %248 = and i32 %247, -16711936
+  %249 = or disjoint i32 %246, %248
+  %250 = tail call i32 @llvm.fshl.i32(i32 %249, i32 %249, i32 16)
+  %251 = getelementptr inbounds nuw i32, ptr %233, i64 %indvars.iv.i
+  %252 = load i32, ptr %251, align 4, !tbaa !3
+  %253 = xor i32 %250, %252
+  %254 = getelementptr inbounds nuw i32, ptr %232, i64 %indvars.iv.i
+  store i32 %253, ptr %254, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZL11aria_rot128PjPKjS1_h.exit, label %236, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZL11aria_rot128PjPKjS1_h.exit, label %237, !llvm.loop !10
 
-_ZL11aria_rot128PjPKjS1_h.exit:                   ; preds = %236
-  %254 = getelementptr inbounds nuw i8, ptr %231, i64 64
-  br label %255
+_ZL11aria_rot128PjPKjS1_h.exit:                   ; preds = %237
+  %255 = getelementptr inbounds nuw i8, ptr %232, i64 64
+  br label %256
 
-255:                                              ; preds = %255, %_ZL11aria_rot128PjPKjS1_h.exit
-  %indvars.iv.i71 = phi i64 [ 0, %_ZL11aria_rot128PjPKjS1_h.exit ], [ %indvars.iv.next.i74, %255 ]
-  %.03740.i72 = phi i8 [ 3, %_ZL11aria_rot128PjPKjS1_h.exit ], [ %257, %255 ]
-  %.03839.i73 = phi i32 [ %235, %_ZL11aria_rot128PjPKjS1_h.exit ], [ %261, %255 ]
-  %256 = add nuw nsw i8 %.03740.i72, 1
-  %257 = and i8 %256, 3
-  %258 = zext nneg i8 %257 to i64
-  %259 = getelementptr inbounds nuw i32, ptr %230, i64 %258
-  %260 = load i32, ptr %259, align 4, !tbaa !3
-  %261 = tail call i32 @llvm.bswap.i32(i32 %260)
-  %262 = tail call i32 @llvm.fshl.i32(i32 %.03839.i73, i32 %261, i32 1)
-  %263 = lshr i32 %262, 8
-  %264 = and i32 %263, 16711935
-  %265 = shl i32 %262, 8
-  %266 = and i32 %265, -16711936
-  %267 = or disjoint i32 %264, %266
-  %268 = tail call i32 @llvm.fshl.i32(i32 %267, i32 %267, i32 16)
-  %269 = getelementptr inbounds nuw i32, ptr %232, i64 %indvars.iv.i71
-  %270 = load i32, ptr %269, align 4, !tbaa !3
-  %271 = xor i32 %268, %270
-  %272 = getelementptr inbounds nuw i32, ptr %254, i64 %indvars.iv.i71
-  store i32 %271, ptr %272, align 4, !tbaa !3
+256:                                              ; preds = %256, %_ZL11aria_rot128PjPKjS1_h.exit
+  %indvars.iv.i71 = phi i64 [ 0, %_ZL11aria_rot128PjPKjS1_h.exit ], [ %indvars.iv.next.i74, %256 ]
+  %.03740.i72 = phi i8 [ 3, %_ZL11aria_rot128PjPKjS1_h.exit ], [ %258, %256 ]
+  %.03839.i73 = phi i32 [ %236, %_ZL11aria_rot128PjPKjS1_h.exit ], [ %262, %256 ]
+  %257 = add nuw nsw i8 %.03740.i72, 1
+  %258 = and i8 %257, 3
+  %259 = zext nneg i8 %258 to i64
+  %260 = getelementptr inbounds nuw i32, ptr %231, i64 %259
+  %261 = load i32, ptr %260, align 4, !tbaa !3
+  %262 = tail call i32 @llvm.bswap.i32(i32 %261)
+  %263 = tail call i32 @llvm.fshl.i32(i32 %.03839.i73, i32 %262, i32 1)
+  %264 = lshr i32 %263, 8
+  %265 = and i32 %264, 16711935
+  %266 = shl i32 %263, 8
+  %267 = and i32 %266, -16711936
+  %268 = or disjoint i32 %265, %267
+  %269 = tail call i32 @llvm.fshl.i32(i32 %268, i32 %268, i32 16)
+  %270 = getelementptr inbounds nuw i32, ptr %233, i64 %indvars.iv.i71
+  %271 = load i32, ptr %270, align 4, !tbaa !3
+  %272 = xor i32 %269, %271
+  %273 = getelementptr inbounds nuw i32, ptr %255, i64 %indvars.iv.i71
+  store i32 %272, ptr %273, align 4, !tbaa !3
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i71, 1
   %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i74, 4
-  br i1 %exitcond.not.i75, label %_ZL11aria_rot128PjPKjS1_h.exit76, label %255, !llvm.loop !10
+  br i1 %exitcond.not.i75, label %_ZL11aria_rot128PjPKjS1_h.exit76, label %256, !llvm.loop !10
 
-_ZL11aria_rot128PjPKjS1_h.exit76:                 ; preds = %255
-  %273 = getelementptr inbounds nuw i8, ptr %231, i64 128
-  %274 = getelementptr inbounds nuw i8, ptr %230, i64 4
-  %275 = load i32, ptr %274, align 4, !tbaa !3
-  %276 = tail call i32 @llvm.bswap.i32(i32 %275)
-  br label %277
+_ZL11aria_rot128PjPKjS1_h.exit76:                 ; preds = %256
+  %274 = getelementptr inbounds nuw i8, ptr %232, i64 128
+  %275 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %276 = load i32, ptr %275, align 4, !tbaa !3
+  %277 = tail call i32 @llvm.bswap.i32(i32 %276)
+  br label %278
 
-277:                                              ; preds = %277, %_ZL11aria_rot128PjPKjS1_h.exit76
-  %indvars.iv.i77 = phi i64 [ 0, %_ZL11aria_rot128PjPKjS1_h.exit76 ], [ %indvars.iv.next.i80, %277 ]
-  %.03740.i78 = phi i8 [ 1, %_ZL11aria_rot128PjPKjS1_h.exit76 ], [ %279, %277 ]
-  %.03839.i79 = phi i32 [ %276, %_ZL11aria_rot128PjPKjS1_h.exit76 ], [ %283, %277 ]
-  %278 = add nuw nsw i8 %.03740.i78, 1
-  %279 = and i8 %278, 3
-  %280 = zext nneg i8 %279 to i64
-  %281 = getelementptr inbounds nuw i32, ptr %230, i64 %280
-  %282 = load i32, ptr %281, align 4, !tbaa !3
-  %283 = tail call i32 @llvm.bswap.i32(i32 %282)
-  %284 = tail call i32 @llvm.fshl.i32(i32 %.03839.i79, i32 %283, i32 29)
-  %285 = lshr i32 %284, 8
-  %286 = and i32 %285, 16711935
-  %287 = shl i32 %284, 8
-  %288 = and i32 %287, -16711936
-  %289 = or disjoint i32 %286, %288
-  %290 = tail call i32 @llvm.fshl.i32(i32 %289, i32 %289, i32 16)
-  %291 = getelementptr inbounds nuw i32, ptr %232, i64 %indvars.iv.i77
-  %292 = load i32, ptr %291, align 4, !tbaa !3
-  %293 = xor i32 %290, %292
-  %294 = getelementptr inbounds nuw i32, ptr %273, i64 %indvars.iv.i77
-  store i32 %293, ptr %294, align 4, !tbaa !3
+278:                                              ; preds = %278, %_ZL11aria_rot128PjPKjS1_h.exit76
+  %indvars.iv.i77 = phi i64 [ 0, %_ZL11aria_rot128PjPKjS1_h.exit76 ], [ %indvars.iv.next.i80, %278 ]
+  %.03740.i78 = phi i8 [ 1, %_ZL11aria_rot128PjPKjS1_h.exit76 ], [ %280, %278 ]
+  %.03839.i79 = phi i32 [ %277, %_ZL11aria_rot128PjPKjS1_h.exit76 ], [ %284, %278 ]
+  %279 = add nuw nsw i8 %.03740.i78, 1
+  %280 = and i8 %279, 3
+  %281 = zext nneg i8 %280 to i64
+  %282 = getelementptr inbounds nuw i32, ptr %231, i64 %281
+  %283 = load i32, ptr %282, align 4, !tbaa !3
+  %284 = tail call i32 @llvm.bswap.i32(i32 %283)
+  %285 = tail call i32 @llvm.fshl.i32(i32 %.03839.i79, i32 %284, i32 29)
+  %286 = lshr i32 %285, 8
+  %287 = and i32 %286, 16711935
+  %288 = shl i32 %285, 8
+  %289 = and i32 %288, -16711936
+  %290 = or disjoint i32 %287, %289
+  %291 = tail call i32 @llvm.fshl.i32(i32 %290, i32 %290, i32 16)
+  %292 = getelementptr inbounds nuw i32, ptr %233, i64 %indvars.iv.i77
+  %293 = load i32, ptr %292, align 4, !tbaa !3
+  %294 = xor i32 %291, %293
+  %295 = getelementptr inbounds nuw i32, ptr %274, i64 %indvars.iv.i77
+  store i32 %294, ptr %295, align 4, !tbaa !3
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i77, 1
   %exitcond.not.i81 = icmp eq i64 %indvars.iv.next.i80, 4
-  br i1 %exitcond.not.i81, label %_ZL11aria_rot128PjPKjS1_h.exit82, label %277, !llvm.loop !10
+  br i1 %exitcond.not.i81, label %_ZL11aria_rot128PjPKjS1_h.exit82, label %278, !llvm.loop !10
 
-_ZL11aria_rot128PjPKjS1_h.exit82:                 ; preds = %277
-  %295 = getelementptr inbounds nuw i8, ptr %231, i64 192
-  %296 = load i32, ptr %230, align 16, !tbaa !3
-  %297 = tail call i32 @llvm.bswap.i32(i32 %296)
-  br label %298
+_ZL11aria_rot128PjPKjS1_h.exit82:                 ; preds = %278
+  %296 = getelementptr inbounds nuw i8, ptr %232, i64 192
+  %297 = load i32, ptr %231, align 16, !tbaa !3
+  %298 = tail call i32 @llvm.bswap.i32(i32 %297)
+  br label %299
 
-298:                                              ; preds = %298, %_ZL11aria_rot128PjPKjS1_h.exit82
+299:                                              ; preds = %299, %_ZL11aria_rot128PjPKjS1_h.exit82
   %indvars.iv.i83 = phi i64 [ 0, %_ZL11aria_rot128PjPKjS1_h.exit82 ], [ %indvars.iv.next.i86, %298 ]
-  %.03740.i84 = phi i8 [ 0, %_ZL11aria_rot128PjPKjS1_h.exit82 ], [ %300, %298 ]
-  %.03839.i85 = phi i32 [ %297, %_ZL11aria_rot128PjPKjS1_h.exit82 ], [ %304, %298 ]
-  %299 = add nuw nsw i8 %.03740.i84, 1
-  %300 = and i8 %299, 3
-  %301 = zext nneg i8 %300 to i64
-  %302 = getelementptr inbounds nuw i32, ptr %230, i64 %301
-  %303 = load i32, ptr %302, align 4, !tbaa !3
-  %304 = tail call i32 @llvm.bswap.i32(i32 %303)
-  %305 = tail call i32 @llvm.fshl.i32(i32 %.03839.i85, i32 %304, i32 31)
-  %306 = lshr i32 %305, 8
-  %307 = and i32 %306, 16711935
-  %308 = shl i32 %305, 8
-  %309 = and i32 %308, -16711936
-  %310 = or disjoint i32 %307, %309
-  %311 = tail call i32 @llvm.fshl.i32(i32 %310, i32 %310, i32 16)
-  %312 = getelementptr inbounds nuw i32, ptr %232, i64 %indvars.iv.i83
-  %313 = load i32, ptr %312, align 4, !tbaa !3
-  %314 = xor i32 %311, %313
-  %315 = getelementptr inbounds nuw i32, ptr %295, i64 %indvars.iv.i83
-  store i32 %314, ptr %315, align 4, !tbaa !3
+  %.03740.i84 = phi i8 [ 0, %_ZL11aria_rot128PjPKjS1_h.exit82 ], [ %301, %298 ]
+  %.03839.i85 = phi i32 [ %298, %_ZL11aria_rot128PjPKjS1_h.exit82 ], [ %305, %298 ]
+  %300 = add nuw nsw i8 %.03740.i84, 1
+  %301 = and i8 %300, 3
+  %302 = zext nneg i8 %301 to i64
+  %303 = getelementptr inbounds nuw i32, ptr %231, i64 %302
+  %304 = load i32, ptr %303, align 4, !tbaa !3
+  %305 = tail call i32 @llvm.bswap.i32(i32 %304)
+  %306 = tail call i32 @llvm.fshl.i32(i32 %.03839.i85, i32 %305, i32 31)
+  %307 = lshr i32 %306, 8
+  %308 = and i32 %307, 16711935
+  %309 = shl i32 %306, 8
+  %310 = and i32 %309, -16711936
+  %311 = or disjoint i32 %308, %310
+  %312 = tail call i32 @llvm.fshl.i32(i32 %311, i32 %311, i32 16)
+  %313 = getelementptr inbounds nuw i32, ptr %233, i64 %indvars.iv.i83
+  %314 = load i32, ptr %313, align 4, !tbaa !3
+  %315 = xor i32 %312, %314
+  %316 = getelementptr inbounds nuw i32, ptr %296, i64 %indvars.iv.i83
+  store i32 %315, ptr %316, align 4, !tbaa !3
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, 4
-  br i1 %exitcond.not.i87, label %_ZL11aria_rot128PjPKjS1_h.exit88, label %298, !llvm.loop !10
+  br i1 %exitcond.not.i87, label %_ZL11aria_rot128PjPKjS1_h.exit88, label %299, !llvm.loop !10
 
-_ZL11aria_rot128PjPKjS1_h.exit88:                 ; preds = %298
+_ZL11aria_rot128PjPKjS1_h.exit88:                 ; preds = %299
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %316, label %228, !llvm.loop !12
+  br i1 %exitcond.not, label %317, label %229, !llvm.loop !12
 
-316:                                              ; preds = %_ZL11aria_rot128PjPKjS1_h.exit88
-  %317 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %318 = load i32, ptr %16, align 16, !tbaa !3
-  %319 = tail call i32 @llvm.bswap.i32(i32 %318)
-  br label %320
+317:                                              ; preds = %_ZL11aria_rot128PjPKjS1_h.exit88
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 260
+  %319 = load i32, ptr %16, align 16, !tbaa !3
+  %320 = tail call i32 @llvm.bswap.i32(i32 %319)
+  br label %321
 
-320:                                              ; preds = %320, %316
-  %indvars.iv.i89 = phi i64 [ 0, %316 ], [ %indvars.iv.next.i92, %320 ]
-  %.03740.i90 = phi i8 [ 0, %316 ], [ %322, %320 ]
-  %.03839.i91 = phi i32 [ %319, %316 ], [ %326, %320 ]
-  %321 = add nuw nsw i8 %.03740.i90, 1
-  %322 = and i8 %321, 3
-  %323 = zext nneg i8 %322 to i64
-  %324 = getelementptr inbounds nuw i32, ptr %16, i64 %323
-  %325 = load i32, ptr %324, align 4, !tbaa !3
-  %326 = tail call i32 @llvm.bswap.i32(i32 %325)
-  %327 = tail call i32 @llvm.fshl.i32(i32 %.03839.i91, i32 %326, i32 19)
-  %328 = lshr i32 %327, 8
-  %329 = and i32 %328, 16711935
-  %330 = shl i32 %327, 8
-  %331 = and i32 %330, -16711936
-  %332 = or disjoint i32 %329, %331
-  %333 = tail call i32 @llvm.fshl.i32(i32 %332, i32 %332, i32 16)
-  %334 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i89
-  %335 = load i32, ptr %334, align 4, !tbaa !3
-  %336 = xor i32 %333, %335
-  %337 = getelementptr inbounds nuw i32, ptr %317, i64 %indvars.iv.i89
-  store i32 %336, ptr %337, align 4, !tbaa !3
+321:                                              ; preds = %321, %317
+  %indvars.iv.i89 = phi i64 [ 0, %317 ], [ %indvars.iv.next.i92, %321 ]
+  %.03740.i90 = phi i8 [ 0, %317 ], [ %323, %321 ]
+  %.03839.i91 = phi i32 [ %320, %317 ], [ %327, %321 ]
+  %322 = add nuw nsw i8 %.03740.i90, 1
+  %323 = and i8 %322, 3
+  %324 = zext nneg i8 %323 to i64
+  %325 = getelementptr inbounds nuw i32, ptr %16, i64 %324
+  %326 = load i32, ptr %325, align 4, !tbaa !3
+  %327 = tail call i32 @llvm.bswap.i32(i32 %326)
+  %328 = tail call i32 @llvm.fshl.i32(i32 %.03839.i91, i32 %327, i32 19)
+  %329 = lshr i32 %328, 8
+  %330 = and i32 %329, 16711935
+  %331 = shl i32 %328, 8
+  %332 = and i32 %331, -16711936
+  %333 = or disjoint i32 %330, %332
+  %334 = tail call i32 @llvm.fshl.i32(i32 %333, i32 %333, i32 16)
+  %335 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i89
+  %336 = load i32, ptr %335, align 4, !tbaa !3
+  %337 = xor i32 %334, %336
+  %338 = getelementptr inbounds nuw i32, ptr %318, i64 %indvars.iv.i89
+  store i32 %337, ptr %338, align 4, !tbaa !3
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i89, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, 4
-  br i1 %exitcond.not.i93, label %_ZL11aria_rot128PjPKjS1_h.exit94, label %320, !llvm.loop !10
+  br i1 %exitcond.not.i93, label %_ZL11aria_rot128PjPKjS1_h.exit94, label %321, !llvm.loop !10
 
-_ZL11aria_rot128PjPKjS1_h.exit94:                 ; preds = %320
+_ZL11aria_rot128PjPKjS1_h.exit94:                 ; preds = %321
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64)
-  br label %338
+  br label %339
 
-338:                                              ; preds = %3, %_ZL11aria_rot128PjPKjS1_h.exit94
+339:                                              ; preds = %3, %_ZL11aria_rot128PjPKjS1_h.exit94
   %.0 = phi i32 [ 0, %_ZL11aria_rot128PjPKjS1_h.exit94 ], [ -92, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -762,10 +762,10 @@ define hidden noundef i32 @mbedtls_aria_crypt_ecb(ptr noundef readonly captures(
   %13 = zext i8 %12 to i64
   br label %14
 
-14:                                               ; preds = %298, %3
+14:                                               ; preds = %299, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %298 ], [ 0, %3 ]
   %.0110 = phi i32 [ %331, %298 ], [ %4, %3 ]
-  %.0109 = phi i32 [ %324, %298 ], [ %6, %3 ]
+  %.0109 = phi i32 [ %325, %298 ], [ %6, %3 ]
   %.0108 = phi i32 [ %338, %298 ], [ %8, %3 ]
   %.0107 = phi i32 [ %335, %298 ], [ %10, %3 ]
   %15 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 %indvars.iv
@@ -940,185 +940,185 @@ define hidden noundef i32 @mbedtls_aria_crypt_ecb(ptr noundef readonly captures(
   %184 = xor i32 %183, %157
   %185 = xor i32 %184, %139
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %186 = and i32 %170, 255
-  %187 = zext nneg i32 %186 to i64
-  %188 = getelementptr inbounds nuw i8, ptr @_ZL8aria_is1, i64 %187
-  %189 = load i8, ptr %188, align 1, !tbaa !9
-  %190 = zext i8 %189 to i32
-  %191 = lshr i32 %170, 8
-  %192 = and i32 %191, 255
-  %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw i8, ptr @_ZL8aria_is2, i64 %193
-  %195 = load i8, ptr %194, align 1, !tbaa !9
-  %196 = zext i8 %195 to i32
-  %197 = shl nuw nsw i32 %196, 8
-  %198 = or disjoint i32 %197, %190
-  %199 = lshr i32 %170, 16
-  %200 = and i32 %199, 255
-  %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds nuw i8, ptr @_ZL8aria_sb1, i64 %201
-  %203 = load i8, ptr %202, align 1, !tbaa !9
-  %204 = zext i8 %203 to i32
-  %205 = shl nuw nsw i32 %204, 16
-  %206 = or disjoint i32 %198, %205
-  %207 = lshr i32 %170, 24
-  %208 = zext nneg i32 %207 to i64
-  %209 = getelementptr inbounds nuw i8, ptr @_ZL8aria_sb2, i64 %208
-  %210 = load i8, ptr %209, align 1, !tbaa !9
-  %211 = zext i8 %210 to i32
-  %212 = shl nuw i32 %211, 24
-  %213 = or disjoint i32 %206, %212
-  %214 = and i32 %175, 255
-  %215 = zext nneg i32 %214 to i64
-  %216 = getelementptr inbounds nuw i8, ptr @_ZL8aria_is1, i64 %215
-  %217 = load i8, ptr %216, align 1, !tbaa !9
-  %218 = zext i8 %217 to i32
-  %219 = lshr i32 %175, 8
-  %220 = and i32 %219, 255
-  %221 = zext nneg i32 %220 to i64
-  %222 = getelementptr inbounds nuw i8, ptr @_ZL8aria_is2, i64 %221
-  %223 = load i8, ptr %222, align 1, !tbaa !9
-  %224 = zext i8 %223 to i32
-  %225 = shl nuw nsw i32 %224, 8
-  %226 = or disjoint i32 %225, %218
-  %227 = lshr i32 %175, 16
-  %228 = and i32 %227, 255
-  %229 = zext nneg i32 %228 to i64
-  %230 = getelementptr inbounds nuw i8, ptr @_ZL8aria_sb1, i64 %229
-  %231 = load i8, ptr %230, align 1, !tbaa !9
-  %232 = zext i8 %231 to i32
-  %233 = shl nuw nsw i32 %232, 16
-  %234 = or disjoint i32 %226, %233
-  %235 = lshr i32 %175, 24
-  %236 = zext nneg i32 %235 to i64
-  %237 = getelementptr inbounds nuw i8, ptr @_ZL8aria_sb2, i64 %236
-  %238 = load i8, ptr %237, align 1, !tbaa !9
-  %239 = zext i8 %238 to i32
-  %240 = shl nuw i32 %239, 24
-  %241 = or disjoint i32 %234, %240
-  %242 = and i32 %180, 255
-  %243 = zext nneg i32 %242 to i64
-  %244 = getelementptr inbounds nuw i8, ptr @_ZL8aria_is1, i64 %243
-  %245 = load i8, ptr %244, align 1, !tbaa !9
-  %246 = zext i8 %245 to i32
-  %247 = lshr i32 %180, 8
-  %248 = and i32 %247, 255
-  %249 = zext nneg i32 %248 to i64
-  %250 = getelementptr inbounds nuw i8, ptr @_ZL8aria_is2, i64 %249
-  %251 = load i8, ptr %250, align 1, !tbaa !9
-  %252 = zext i8 %251 to i32
-  %253 = shl nuw nsw i32 %252, 8
-  %254 = or disjoint i32 %253, %246
-  %255 = lshr i32 %180, 16
-  %256 = and i32 %255, 255
-  %257 = zext nneg i32 %256 to i64
-  %258 = getelementptr inbounds nuw i8, ptr @_ZL8aria_sb1, i64 %257
-  %259 = load i8, ptr %258, align 1, !tbaa !9
-  %260 = zext i8 %259 to i32
-  %261 = shl nuw nsw i32 %260, 16
-  %262 = or disjoint i32 %254, %261
-  %263 = lshr i32 %180, 24
-  %264 = zext nneg i32 %263 to i64
-  %265 = getelementptr inbounds nuw i8, ptr @_ZL8aria_sb2, i64 %264
-  %266 = load i8, ptr %265, align 1, !tbaa !9
-  %267 = zext i8 %266 to i32
-  %268 = shl nuw i32 %267, 24
-  %269 = or disjoint i32 %262, %268
-  %270 = and i32 %185, 255
-  %271 = zext nneg i32 %270 to i64
-  %272 = getelementptr inbounds nuw i8, ptr @_ZL8aria_is1, i64 %271
-  %273 = load i8, ptr %272, align 1, !tbaa !9
-  %274 = zext i8 %273 to i32
-  %275 = lshr i32 %185, 8
-  %276 = and i32 %275, 255
-  %277 = zext nneg i32 %276 to i64
-  %278 = getelementptr inbounds nuw i8, ptr @_ZL8aria_is2, i64 %277
-  %279 = load i8, ptr %278, align 1, !tbaa !9
-  %280 = zext i8 %279 to i32
-  %281 = shl nuw nsw i32 %280, 8
-  %282 = or disjoint i32 %281, %274
-  %283 = lshr i32 %185, 16
-  %284 = and i32 %283, 255
-  %285 = zext nneg i32 %284 to i64
-  %286 = getelementptr inbounds nuw i8, ptr @_ZL8aria_sb1, i64 %285
-  %287 = load i8, ptr %286, align 1, !tbaa !9
-  %288 = zext i8 %287 to i32
-  %289 = shl nuw nsw i32 %288, 16
-  %290 = or disjoint i32 %282, %289
-  %291 = lshr i32 %185, 24
-  %292 = zext nneg i32 %291 to i64
-  %293 = getelementptr inbounds nuw i8, ptr @_ZL8aria_sb2, i64 %292
-  %294 = load i8, ptr %293, align 1, !tbaa !9
-  %295 = zext i8 %294 to i32
-  %296 = shl nuw i32 %295, 24
-  %297 = or disjoint i32 %290, %296
+  %187 = and i32 %170, 255
+  %188 = zext nneg i32 %187 to i64
+  %189 = getelementptr inbounds nuw i8, ptr @_ZL8aria_is1, i64 %188
+  %190 = load i8, ptr %189, align 1, !tbaa !9
+  %191 = zext i8 %190 to i32
+  %192 = lshr i32 %170, 8
+  %193 = and i32 %192, 255
+  %194 = zext nneg i32 %193 to i64
+  %195 = getelementptr inbounds nuw i8, ptr @_ZL8aria_is2, i64 %194
+  %196 = load i8, ptr %195, align 1, !tbaa !9
+  %197 = zext i8 %196 to i32
+  %198 = shl nuw nsw i32 %197, 8
+  %199 = or disjoint i32 %198, %191
+  %200 = lshr i32 %170, 16
+  %201 = and i32 %200, 255
+  %202 = zext nneg i32 %201 to i64
+  %203 = getelementptr inbounds nuw i8, ptr @_ZL8aria_sb1, i64 %202
+  %204 = load i8, ptr %203, align 1, !tbaa !9
+  %205 = zext i8 %204 to i32
+  %206 = shl nuw nsw i32 %205, 16
+  %207 = or disjoint i32 %199, %206
+  %208 = lshr i32 %170, 24
+  %209 = zext nneg i32 %208 to i64
+  %210 = getelementptr inbounds nuw i8, ptr @_ZL8aria_sb2, i64 %209
+  %211 = load i8, ptr %210, align 1, !tbaa !9
+  %212 = zext i8 %211 to i32
+  %213 = shl nuw i32 %212, 24
+  %214 = or disjoint i32 %207, %213
+  %215 = and i32 %175, 255
+  %216 = zext nneg i32 %215 to i64
+  %217 = getelementptr inbounds nuw i8, ptr @_ZL8aria_is1, i64 %216
+  %218 = load i8, ptr %217, align 1, !tbaa !9
+  %219 = zext i8 %218 to i32
+  %220 = lshr i32 %175, 8
+  %221 = and i32 %220, 255
+  %222 = zext nneg i32 %221 to i64
+  %223 = getelementptr inbounds nuw i8, ptr @_ZL8aria_is2, i64 %222
+  %224 = load i8, ptr %223, align 1, !tbaa !9
+  %225 = zext i8 %224 to i32
+  %226 = shl nuw nsw i32 %225, 8
+  %227 = or disjoint i32 %226, %219
+  %228 = lshr i32 %175, 16
+  %229 = and i32 %228, 255
+  %230 = zext nneg i32 %229 to i64
+  %231 = getelementptr inbounds nuw i8, ptr @_ZL8aria_sb1, i64 %230
+  %232 = load i8, ptr %231, align 1, !tbaa !9
+  %233 = zext i8 %232 to i32
+  %234 = shl nuw nsw i32 %233, 16
+  %235 = or disjoint i32 %227, %234
+  %236 = lshr i32 %175, 24
+  %237 = zext nneg i32 %236 to i64
+  %238 = getelementptr inbounds nuw i8, ptr @_ZL8aria_sb2, i64 %237
+  %239 = load i8, ptr %238, align 1, !tbaa !9
+  %240 = zext i8 %239 to i32
+  %241 = shl nuw i32 %240, 24
+  %242 = or disjoint i32 %235, %241
+  %243 = and i32 %180, 255
+  %244 = zext nneg i32 %243 to i64
+  %245 = getelementptr inbounds nuw i8, ptr @_ZL8aria_is1, i64 %244
+  %246 = load i8, ptr %245, align 1, !tbaa !9
+  %247 = zext i8 %246 to i32
+  %248 = lshr i32 %180, 8
+  %249 = and i32 %248, 255
+  %250 = zext nneg i32 %249 to i64
+  %251 = getelementptr inbounds nuw i8, ptr @_ZL8aria_is2, i64 %250
+  %252 = load i8, ptr %251, align 1, !tbaa !9
+  %253 = zext i8 %252 to i32
+  %254 = shl nuw nsw i32 %253, 8
+  %255 = or disjoint i32 %254, %247
+  %256 = lshr i32 %180, 16
+  %257 = and i32 %256, 255
+  %258 = zext nneg i32 %257 to i64
+  %259 = getelementptr inbounds nuw i8, ptr @_ZL8aria_sb1, i64 %258
+  %260 = load i8, ptr %259, align 1, !tbaa !9
+  %261 = zext i8 %260 to i32
+  %262 = shl nuw nsw i32 %261, 16
+  %263 = or disjoint i32 %255, %262
+  %264 = lshr i32 %180, 24
+  %265 = zext nneg i32 %264 to i64
+  %266 = getelementptr inbounds nuw i8, ptr @_ZL8aria_sb2, i64 %265
+  %267 = load i8, ptr %266, align 1, !tbaa !9
+  %268 = zext i8 %267 to i32
+  %269 = shl nuw i32 %268, 24
+  %270 = or disjoint i32 %263, %269
+  %271 = and i32 %185, 255
+  %272 = zext nneg i32 %271 to i64
+  %273 = getelementptr inbounds nuw i8, ptr @_ZL8aria_is1, i64 %272
+  %274 = load i8, ptr %273, align 1, !tbaa !9
+  %275 = zext i8 %274 to i32
+  %276 = lshr i32 %185, 8
+  %277 = and i32 %276, 255
+  %278 = zext nneg i32 %277 to i64
+  %279 = getelementptr inbounds nuw i8, ptr @_ZL8aria_is2, i64 %278
+  %280 = load i8, ptr %279, align 1, !tbaa !9
+  %281 = zext i8 %280 to i32
+  %282 = shl nuw nsw i32 %281, 8
+  %283 = or disjoint i32 %282, %275
+  %284 = lshr i32 %185, 16
+  %285 = and i32 %284, 255
+  %286 = zext nneg i32 %285 to i64
+  %287 = getelementptr inbounds nuw i8, ptr @_ZL8aria_sb1, i64 %286
+  %288 = load i8, ptr %287, align 1, !tbaa !9
+  %289 = zext i8 %288 to i32
+  %290 = shl nuw nsw i32 %289, 16
+  %291 = or disjoint i32 %283, %290
+  %292 = lshr i32 %185, 24
+  %293 = zext nneg i32 %292 to i64
+  %294 = getelementptr inbounds nuw i8, ptr @_ZL8aria_sb2, i64 %293
+  %295 = load i8, ptr %294, align 1, !tbaa !9
+  %296 = zext i8 %295 to i32
+  %297 = shl nuw i32 %296, 24
+  %298 = or disjoint i32 %291, %297
   %.not = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %.not, label %298, label %339
+  br i1 %.not, label %299, label %341
 
-298:                                              ; preds = %14
-  %299 = tail call i32 @llvm.fshl.i32(i32 %241, i32 %241, i32 16)
-  %300 = lshr i32 %269, 8
-  %301 = and i32 %300, 16711935
-  %302 = shl nuw i32 %262, 8
-  %303 = and i32 %302, -16711936
-  %304 = or disjoint i32 %301, %303
-  %305 = tail call i32 @llvm.bswap.i32(i32 %297)
-  %306 = xor i32 %304, %241
-  %307 = tail call i32 @llvm.fshl.i32(i32 %213, i32 %213, i32 16)
-  %308 = lshr i32 %306, 8
-  %309 = and i32 %308, 16711935
-  %310 = shl i32 %306, 8
-  %311 = and i32 %310, -16711936
-  %312 = or disjoint i32 %309, %311
-  %313 = xor i32 %307, %312
-  %314 = xor i32 %313, %305
-  %315 = xor i32 %297, %304
-  %316 = tail call i32 @llvm.fshl.i32(i32 %315, i32 %315, i32 16)
-  %317 = lshr i32 %299, 8
-  %318 = and i32 %317, 16711935
-  %319 = shl i32 %299, 8
-  %320 = and i32 %319, -16711936
-  %321 = or disjoint i32 %318, %320
-  %322 = xor i32 %321, %307
-  %323 = xor i32 %316, %213
-  %324 = xor i32 %323, %314
-  %325 = xor i32 %314, %315
-  %326 = lshr i32 %325, 8
-  %327 = and i32 %326, 16711935
-  %328 = shl i32 %325, 8
-  %329 = and i32 %328, -16711936
-  %330 = or disjoint i32 %327, %329
-  %331 = xor i32 %330, %299
-  %332 = tail call i32 @llvm.fshl.i32(i32 %314, i32 %314, i32 16)
-  %333 = tail call i32 @llvm.bswap.i32(i32 %314)
-  %334 = xor i32 %322, %333
-  %335 = xor i32 %334, %304
-  %336 = tail call i32 @llvm.bswap.i32(i32 %322)
-  %337 = xor i32 %336, %332
-  %338 = xor i32 %337, %305
+299:                                              ; preds = %14
+  %300 = tail call i32 @llvm.fshl.i32(i32 %242, i32 %242, i32 16)
+  %301 = lshr i32 %270, 8
+  %302 = and i32 %301, 16711935
+  %303 = shl nuw i32 %263, 8
+  %304 = and i32 %303, -16711936
+  %305 = or disjoint i32 %302, %304
+  %306 = tail call i32 @llvm.bswap.i32(i32 %298)
+  %307 = xor i32 %305, %242
+  %308 = tail call i32 @llvm.fshl.i32(i32 %214, i32 %214, i32 16)
+  %309 = lshr i32 %307, 8
+  %310 = and i32 %309, 16711935
+  %311 = shl i32 %307, 8
+  %312 = and i32 %311, -16711936
+  %313 = or disjoint i32 %310, %312
+  %314 = xor i32 %308, %313
+  %315 = xor i32 %314, %306
+  %316 = xor i32 %298, %305
+  %317 = tail call i32 @llvm.fshl.i32(i32 %316, i32 %316, i32 16)
+  %318 = lshr i32 %300, 8
+  %319 = and i32 %318, 16711935
+  %320 = shl i32 %300, 8
+  %321 = and i32 %320, -16711936
+  %322 = or disjoint i32 %319, %321
+  %323 = xor i32 %322, %308
+  %324 = xor i32 %317, %214
+  %325 = xor i32 %324, %315
+  %326 = xor i32 %314, %316
+  %327 = lshr i32 %325, 8
+  %328 = and i32 %327, 16711935
+  %329 = shl i32 %325, 8
+  %330 = and i32 %328, -16711936
+  %331 = or disjoint i32 %327, %329
+  %332 = xor i32 %330, %301
+  %333 = tail call i32 @llvm.fshl.i32(i32 %314, i32 %314, i32 16)
+  %334 = tail call i32 @llvm.bswap.i32(i32 %315)
+  %335 = xor i32 %322, %333
+  %336 = xor i32 %334, %305
+  %337 = tail call i32 @llvm.bswap.i32(i32 %323)
+  %338 = xor i32 %336, %332
+  %339 = xor i32 %338, %305
   br label %14, !llvm.loop !16
 
-339:                                              ; preds = %14
-  %340 = and i64 %indvars.iv.next, 4294967294
-  %341 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 %340
-  %342 = load i32, ptr %341, align 4, !tbaa !3
-  %343 = xor i32 %342, %213
-  %344 = getelementptr inbounds nuw i8, ptr %341, i64 4
-  %345 = load i32, ptr %344, align 4, !tbaa !3
-  %346 = xor i32 %345, %241
-  %347 = getelementptr inbounds nuw i8, ptr %341, i64 8
-  %348 = load i32, ptr %347, align 4, !tbaa !3
-  %349 = xor i32 %348, %269
-  %350 = getelementptr inbounds nuw i8, ptr %341, i64 12
-  %351 = load i32, ptr %350, align 4, !tbaa !3
-  %352 = xor i32 %351, %297
-  store i32 %343, ptr %2, align 1
-  %353 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %346, ptr %353, align 1
-  %354 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %349, ptr %354, align 1
-  %355 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %352, ptr %355, align 1
+341:                                              ; preds = %14
+  %342 = and i64 %indvars.iv.next, 4294967294
+  %343 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 %342
+  %344 = load i32, ptr %343, align 4, !tbaa !3
+  %345 = xor i32 %344, %214
+  %346 = getelementptr inbounds nuw i8, ptr %343, i64 4
+  %347 = load i32, ptr %346, align 4, !tbaa !3
+  %348 = xor i32 %347, %242
+  %349 = getelementptr inbounds nuw i8, ptr %343, i64 8
+  %350 = load i32, ptr %349, align 4, !tbaa !3
+  %351 = xor i32 %350, %270
+  %352 = getelementptr inbounds nuw i8, ptr %343, i64 12
+  %353 = load i32, ptr %352, align 4, !tbaa !3
+  %354 = xor i32 %353, %298
+  store i32 %345, ptr %2, align 1
+  %355 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 %348, ptr %355, align 1
+  %356 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %351, ptr %356, align 1
+  %357 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 %354, ptr %357, align 1
   ret i32 0
 }
 
