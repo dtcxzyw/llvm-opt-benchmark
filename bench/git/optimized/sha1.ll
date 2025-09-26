@@ -1595,7 +1595,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %152 = add i32 %151, %148
   %153 = sub i32 %.neg427, %152
   %154 = call i32 @llvm.fshl.i32(i32 %135, i32 %135, i32 2)
-  %155 = call i32 @llvm.fshl.i32(i32 %144, i32 %144, i32 5)
+  %155 = call i32 @llvm.fshl.i32(i32 %143, i32 %143, i32 7)
   %156 = and i32 %154, %137
   %157 = xor i32 %154, %137
   %158 = and i32 %153, %157
@@ -1606,7 +1606,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %163 = add i32 %162, %158
   %164 = sub i32 %160, %163
   %165 = call i32 @llvm.fshl.i32(i32 %137, i32 %137, i32 2)
-  %166 = call i32 @llvm.fshl.i32(i32 %154, i32 %154, i32 5)
+  %166 = call i32 @llvm.fshl.i32(i32 %135, i32 %135, i32 7)
   %167 = and i32 %153, %165
   %168 = xor i32 %153, %165
   %169 = and i32 %164, %168
@@ -1617,7 +1617,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %174 = add i32 %173, %169
   %175 = sub i32 %171, %174
   %176 = call i32 @llvm.fshl.i32(i32 %153, i32 %153, i32 2)
-  %177 = call i32 @llvm.fshl.i32(i32 %165, i32 %165, i32 5)
+  %177 = call i32 @llvm.fshl.i32(i32 %137, i32 %137, i32 7)
   %178 = and i32 %164, %176
   %179 = xor i32 %164, %176
   %180 = and i32 %175, %179
@@ -1628,7 +1628,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %184 = add i32 %183, %180
   %185 = sub i32 %.neg448, %184
   %186 = call i32 @llvm.fshl.i32(i32 %164, i32 %164, i32 2)
-  %187 = call i32 @llvm.fshl.i32(i32 %176, i32 %176, i32 5)
+  %187 = call i32 @llvm.fshl.i32(i32 %153, i32 %153, i32 7)
   %188 = and i32 %175, %186
   %189 = xor i32 %175, %186
   %190 = and i32 %185, %189
@@ -1639,7 +1639,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %194 = add i32 %193, %190
   %195 = sub i32 %.neg455, %194
   %196 = call i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 2)
-  %197 = call i32 @llvm.fshl.i32(i32 %186, i32 %186, i32 5)
+  %197 = call i32 @llvm.fshl.i32(i32 %164, i32 %164, i32 7)
   %198 = and i32 %185, %196
   %199 = xor i32 %185, %196
   %200 = and i32 %195, %199
@@ -1650,7 +1650,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %205 = add i32 %204, %200
   %206 = sub i32 %202, %205
   %207 = call i32 @llvm.fshl.i32(i32 %185, i32 %185, i32 2)
-  %208 = call i32 @llvm.fshl.i32(i32 %196, i32 %196, i32 5)
+  %208 = call i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 7)
   %209 = and i32 %195, %207
   %210 = xor i32 %195, %207
   %211 = and i32 %206, %210
@@ -1661,7 +1661,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %216 = add i32 %215, %211
   %217 = sub i32 %213, %216
   %218 = call i32 @llvm.fshl.i32(i32 %195, i32 %195, i32 2)
-  %219 = call i32 @llvm.fshl.i32(i32 %207, i32 %207, i32 5)
+  %219 = call i32 @llvm.fshl.i32(i32 %185, i32 %185, i32 7)
   %220 = and i32 %206, %218
   %221 = xor i32 %206, %218
   %222 = and i32 %217, %221
@@ -1672,7 +1672,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %227 = add i32 %226, %222
   %228 = sub i32 %224, %227
   %229 = call i32 @llvm.fshl.i32(i32 %206, i32 %206, i32 2)
-  %230 = call i32 @llvm.fshl.i32(i32 %218, i32 %218, i32 5)
+  %230 = call i32 @llvm.fshl.i32(i32 %195, i32 %195, i32 7)
   %231 = and i32 %217, %229
   %232 = xor i32 %217, %229
   %233 = and i32 %228, %232
@@ -1683,7 +1683,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %238 = add i32 %237, %233
   %239 = sub i32 %235, %238
   %240 = call i32 @llvm.fshl.i32(i32 %217, i32 %217, i32 2)
-  %241 = call i32 @llvm.fshl.i32(i32 %229, i32 %229, i32 5)
+  %241 = call i32 @llvm.fshl.i32(i32 %206, i32 %206, i32 7)
   %242 = and i32 %228, %240
   %243 = xor i32 %228, %240
   %244 = and i32 %239, %243
@@ -1694,7 +1694,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %249 = add i32 %248, %244
   %250 = sub i32 %246, %249
   %251 = call i32 @llvm.fshl.i32(i32 %228, i32 %228, i32 2)
-  %252 = call i32 @llvm.fshl.i32(i32 %240, i32 %240, i32 5)
+  %252 = call i32 @llvm.fshl.i32(i32 %217, i32 %217, i32 7)
   %253 = and i32 %239, %251
   %254 = xor i32 %239, %251
   %255 = and i32 %250, %254
@@ -1705,7 +1705,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %260 = add i32 %259, %255
   %261 = sub i32 %257, %260
   %262 = call i32 @llvm.fshl.i32(i32 %239, i32 %239, i32 2)
-  %263 = call i32 @llvm.fshl.i32(i32 %251, i32 %251, i32 5)
+  %263 = call i32 @llvm.fshl.i32(i32 %228, i32 %228, i32 7)
   %264 = and i32 %250, %262
   %265 = xor i32 %250, %262
   %266 = and i32 %261, %265
@@ -1716,7 +1716,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %271 = add i32 %270, %266
   %272 = sub i32 %268, %271
   %273 = call i32 @llvm.fshl.i32(i32 %250, i32 %250, i32 2)
-  %274 = call i32 @llvm.fshl.i32(i32 %262, i32 %262, i32 5)
+  %274 = call i32 @llvm.fshl.i32(i32 %239, i32 %239, i32 7)
   %275 = and i32 %261, %273
   %276 = xor i32 %261, %273
   %277 = and i32 %272, %276
@@ -1727,7 +1727,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %282 = add i32 %281, %277
   %283 = sub i32 %279, %282
   %284 = call i32 @llvm.fshl.i32(i32 %261, i32 %261, i32 2)
-  %285 = call i32 @llvm.fshl.i32(i32 %273, i32 %273, i32 5)
+  %285 = call i32 @llvm.fshl.i32(i32 %250, i32 %250, i32 7)
   %286 = and i32 %272, %284
   %287 = xor i32 %272, %284
   %288 = and i32 %283, %287
@@ -1738,7 +1738,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %293 = add i32 %292, %288
   %294 = sub i32 %290, %293
   %295 = call i32 @llvm.fshl.i32(i32 %272, i32 %272, i32 2)
-  %296 = call i32 @llvm.fshl.i32(i32 %284, i32 %284, i32 5)
+  %296 = call i32 @llvm.fshl.i32(i32 %261, i32 %261, i32 7)
   %297 = and i32 %283, %295
   %298 = xor i32 %283, %295
   %299 = and i32 %294, %298
@@ -1749,7 +1749,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %304 = add i32 %303, %299
   %305 = sub i32 %301, %304
   %306 = call i32 @llvm.fshl.i32(i32 %283, i32 %283, i32 2)
-  %307 = call i32 @llvm.fshl.i32(i32 %295, i32 %295, i32 5)
+  %307 = call i32 @llvm.fshl.i32(i32 %272, i32 %272, i32 7)
   %308 = and i32 %294, %306
   %309 = xor i32 %294, %306
   %310 = and i32 %305, %309
@@ -1760,7 +1760,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %315 = add i32 %314, %310
   %316 = sub i32 %312, %315
   %317 = call i32 @llvm.fshl.i32(i32 %294, i32 %294, i32 2)
-  %318 = call i32 @llvm.fshl.i32(i32 %306, i32 %306, i32 5)
+  %318 = call i32 @llvm.fshl.i32(i32 %283, i32 %283, i32 7)
   %319 = and i32 %305, %317
   %320 = xor i32 %305, %317
   %321 = and i32 %316, %320
@@ -1771,7 +1771,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %326 = add i32 %325, %321
   %327 = sub i32 %323, %326
   %328 = call i32 @llvm.fshl.i32(i32 %305, i32 %305, i32 2)
-  %329 = call i32 @llvm.fshl.i32(i32 %317, i32 %317, i32 5)
+  %329 = call i32 @llvm.fshl.i32(i32 %294, i32 %294, i32 7)
   %330 = and i32 %316, %328
   %331 = xor i32 %316, %328
   %332 = and i32 %327, %331
@@ -1782,7 +1782,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %337 = add i32 %336, %332
   %338 = sub i32 %334, %337
   %339 = call i32 @llvm.fshl.i32(i32 %316, i32 %316, i32 2)
-  %340 = call i32 @llvm.fshl.i32(i32 %328, i32 %328, i32 5)
+  %340 = call i32 @llvm.fshl.i32(i32 %305, i32 %305, i32 7)
   %341 = xor i32 %327, %339
   %342 = xor i32 %341, %338
   %343 = load i32, ptr %56, align 4, !tbaa !4
@@ -1791,7 +1791,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %346 = add i32 %345, %342
   %347 = sub i32 %344, %346
   %348 = call i32 @llvm.fshl.i32(i32 %327, i32 %327, i32 2)
-  %349 = call i32 @llvm.fshl.i32(i32 %339, i32 %339, i32 5)
+  %349 = call i32 @llvm.fshl.i32(i32 %316, i32 %316, i32 7)
   %350 = xor i32 %338, %348
   %351 = xor i32 %350, %347
   %352 = load i32, ptr %57, align 4, !tbaa !4
@@ -1800,7 +1800,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %355 = add i32 %354, %351
   %356 = sub i32 %353, %355
   %357 = call i32 @llvm.fshl.i32(i32 %338, i32 %338, i32 2)
-  %358 = call i32 @llvm.fshl.i32(i32 %348, i32 %348, i32 5)
+  %358 = call i32 @llvm.fshl.i32(i32 %327, i32 %327, i32 7)
   %359 = xor i32 %347, %357
   %360 = xor i32 %359, %356
   %361 = load i32, ptr %58, align 4, !tbaa !4
@@ -1809,7 +1809,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %364 = add i32 %363, %360
   %365 = sub i32 %362, %364
   %366 = call i32 @llvm.fshl.i32(i32 %347, i32 %347, i32 2)
-  %367 = call i32 @llvm.fshl.i32(i32 %357, i32 %357, i32 5)
+  %367 = call i32 @llvm.fshl.i32(i32 %338, i32 %338, i32 7)
   %368 = xor i32 %356, %366
   %369 = xor i32 %368, %365
   %370 = load i32, ptr %59, align 4, !tbaa !4
@@ -1818,7 +1818,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %373 = add i32 %372, %369
   %374 = sub i32 %371, %373
   %375 = call i32 @llvm.fshl.i32(i32 %356, i32 %356, i32 2)
-  %376 = call i32 @llvm.fshl.i32(i32 %366, i32 %366, i32 5)
+  %376 = call i32 @llvm.fshl.i32(i32 %347, i32 %347, i32 7)
   %377 = xor i32 %365, %375
   %378 = xor i32 %377, %374
   %379 = load i32, ptr %60, align 4, !tbaa !4
@@ -1827,7 +1827,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %382 = add i32 %381, %378
   %383 = sub i32 %380, %382
   %384 = call i32 @llvm.fshl.i32(i32 %365, i32 %365, i32 2)
-  %385 = call i32 @llvm.fshl.i32(i32 %375, i32 %375, i32 5)
+  %385 = call i32 @llvm.fshl.i32(i32 %356, i32 %356, i32 7)
   %386 = xor i32 %374, %384
   %387 = xor i32 %386, %383
   %388 = load i32, ptr %61, align 4, !tbaa !4
@@ -1836,7 +1836,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %391 = add i32 %390, %387
   %392 = sub i32 %389, %391
   %393 = call i32 @llvm.fshl.i32(i32 %374, i32 %374, i32 2)
-  %394 = call i32 @llvm.fshl.i32(i32 %384, i32 %384, i32 5)
+  %394 = call i32 @llvm.fshl.i32(i32 %365, i32 %365, i32 7)
   %395 = xor i32 %383, %393
   %396 = xor i32 %395, %392
   %397 = load i32, ptr %62, align 4, !tbaa !4
@@ -1845,7 +1845,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %400 = add i32 %399, %396
   %401 = sub i32 %398, %400
   %402 = call i32 @llvm.fshl.i32(i32 %383, i32 %383, i32 2)
-  %403 = call i32 @llvm.fshl.i32(i32 %393, i32 %393, i32 5)
+  %403 = call i32 @llvm.fshl.i32(i32 %374, i32 %374, i32 7)
   %404 = xor i32 %392, %402
   %405 = xor i32 %404, %401
   %406 = load i32, ptr %63, align 4, !tbaa !4
@@ -1854,7 +1854,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %409 = add i32 %408, %405
   %410 = sub i32 %407, %409
   %411 = call i32 @llvm.fshl.i32(i32 %392, i32 %392, i32 2)
-  %412 = call i32 @llvm.fshl.i32(i32 %402, i32 %402, i32 5)
+  %412 = call i32 @llvm.fshl.i32(i32 %383, i32 %383, i32 7)
   %413 = xor i32 %401, %411
   %414 = xor i32 %413, %410
   %415 = load i32, ptr %64, align 4, !tbaa !4
@@ -1863,7 +1863,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %418 = add i32 %417, %414
   %419 = sub i32 %416, %418
   %420 = call i32 @llvm.fshl.i32(i32 %401, i32 %401, i32 2)
-  %421 = call i32 @llvm.fshl.i32(i32 %411, i32 %411, i32 5)
+  %421 = call i32 @llvm.fshl.i32(i32 %392, i32 %392, i32 7)
   %422 = xor i32 %410, %420
   %423 = xor i32 %422, %419
   %424 = load i32, ptr %65, align 4, !tbaa !4
@@ -1872,7 +1872,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %427 = add i32 %426, %423
   %428 = sub i32 %425, %427
   %429 = call i32 @llvm.fshl.i32(i32 %410, i32 %410, i32 2)
-  %430 = call i32 @llvm.fshl.i32(i32 %420, i32 %420, i32 5)
+  %430 = call i32 @llvm.fshl.i32(i32 %401, i32 %401, i32 7)
   %431 = xor i32 %419, %429
   %432 = xor i32 %431, %428
   %433 = load i32, ptr %66, align 4, !tbaa !4
@@ -1881,7 +1881,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %436 = add i32 %435, %432
   %437 = sub i32 %434, %436
   %438 = call i32 @llvm.fshl.i32(i32 %419, i32 %419, i32 2)
-  %439 = call i32 @llvm.fshl.i32(i32 %429, i32 %429, i32 5)
+  %439 = call i32 @llvm.fshl.i32(i32 %410, i32 %410, i32 7)
   %440 = xor i32 %428, %438
   %441 = xor i32 %440, %437
   %442 = load i32, ptr %67, align 4, !tbaa !4
@@ -1890,7 +1890,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %445 = add i32 %444, %441
   %446 = sub i32 %443, %445
   %447 = call i32 @llvm.fshl.i32(i32 %428, i32 %428, i32 2)
-  %448 = call i32 @llvm.fshl.i32(i32 %438, i32 %438, i32 5)
+  %448 = call i32 @llvm.fshl.i32(i32 %419, i32 %419, i32 7)
   %449 = xor i32 %437, %447
   %450 = xor i32 %449, %446
   %451 = load i32, ptr %68, align 4, !tbaa !4
@@ -1899,7 +1899,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %454 = add i32 %453, %450
   %455 = sub i32 %452, %454
   %456 = call i32 @llvm.fshl.i32(i32 %437, i32 %437, i32 2)
-  %457 = call i32 @llvm.fshl.i32(i32 %447, i32 %447, i32 5)
+  %457 = call i32 @llvm.fshl.i32(i32 %428, i32 %428, i32 7)
   %458 = xor i32 %446, %456
   %459 = xor i32 %458, %455
   %460 = load i32, ptr %69, align 4, !tbaa !4
@@ -1908,7 +1908,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %463 = add i32 %462, %459
   %464 = sub i32 %461, %463
   %465 = call i32 @llvm.fshl.i32(i32 %446, i32 %446, i32 2)
-  %466 = call i32 @llvm.fshl.i32(i32 %456, i32 %456, i32 5)
+  %466 = call i32 @llvm.fshl.i32(i32 %437, i32 %437, i32 7)
   %467 = xor i32 %455, %465
   %468 = xor i32 %467, %464
   %469 = load i32, ptr %70, align 4, !tbaa !4
@@ -1917,7 +1917,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %472 = add i32 %471, %468
   %473 = sub i32 %470, %472
   %474 = call i32 @llvm.fshl.i32(i32 %455, i32 %455, i32 2)
-  %475 = call i32 @llvm.fshl.i32(i32 %465, i32 %465, i32 5)
+  %475 = call i32 @llvm.fshl.i32(i32 %446, i32 %446, i32 7)
   %476 = xor i32 %464, %474
   %477 = xor i32 %476, %473
   %478 = load i32, ptr %71, align 4, !tbaa !4
@@ -1926,7 +1926,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %481 = add i32 %480, %477
   %482 = sub i32 %479, %481
   %483 = call i32 @llvm.fshl.i32(i32 %464, i32 %464, i32 2)
-  %484 = call i32 @llvm.fshl.i32(i32 %474, i32 %474, i32 5)
+  %484 = call i32 @llvm.fshl.i32(i32 %455, i32 %455, i32 7)
   %485 = xor i32 %473, %483
   %486 = xor i32 %485, %482
   %487 = load i32, ptr %72, align 4, !tbaa !4
@@ -1935,7 +1935,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %490 = add i32 %489, %486
   %491 = sub i32 %488, %490
   %492 = call i32 @llvm.fshl.i32(i32 %473, i32 %473, i32 2)
-  %493 = call i32 @llvm.fshl.i32(i32 %483, i32 %483, i32 5)
+  %493 = call i32 @llvm.fshl.i32(i32 %464, i32 %464, i32 7)
   %494 = xor i32 %482, %492
   %495 = xor i32 %494, %491
   %496 = load i32, ptr %73, align 4, !tbaa !4
@@ -1944,7 +1944,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %499 = add i32 %498, %495
   %500 = sub i32 %497, %499
   %501 = call i32 @llvm.fshl.i32(i32 %482, i32 %482, i32 2)
-  %502 = call i32 @llvm.fshl.i32(i32 %492, i32 %492, i32 5)
+  %502 = call i32 @llvm.fshl.i32(i32 %473, i32 %473, i32 7)
   %503 = xor i32 %491, %501
   %504 = xor i32 %503, %500
   %505 = load i32, ptr %74, align 4, !tbaa !4
@@ -1953,7 +1953,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %508 = add i32 %507, %504
   %509 = sub i32 %506, %508
   %510 = call i32 @llvm.fshl.i32(i32 %491, i32 %491, i32 2)
-  %511 = call i32 @llvm.fshl.i32(i32 %501, i32 %501, i32 5)
+  %511 = call i32 @llvm.fshl.i32(i32 %482, i32 %482, i32 7)
   %512 = xor i32 %500, %510
   %513 = xor i32 %512, %509
   %514 = load i32, ptr %75, align 4, !tbaa !4
@@ -1962,7 +1962,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %517 = add i32 %516, %513
   %518 = sub i32 %515, %517
   %519 = call i32 @llvm.fshl.i32(i32 %500, i32 %500, i32 2)
-  %520 = call i32 @llvm.fshl.i32(i32 %510, i32 %510, i32 5)
+  %520 = call i32 @llvm.fshl.i32(i32 %491, i32 %491, i32 7)
   %521 = xor i32 %518, %509
   %522 = and i32 %521, %519
   %523 = xor i32 %522, %518
@@ -1972,7 +1972,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %527 = add i32 %526, %523
   %528 = sub i32 %525, %527
   %529 = call i32 @llvm.fshl.i32(i32 %509, i32 %509, i32 2)
-  %530 = call i32 @llvm.fshl.i32(i32 %519, i32 %519, i32 5)
+  %530 = call i32 @llvm.fshl.i32(i32 %500, i32 %500, i32 7)
   %531 = xor i32 %528, %518
   %532 = and i32 %531, %529
   %533 = xor i32 %532, %528
@@ -1982,7 +1982,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %537 = add i32 %536, %533
   %538 = sub i32 %535, %537
   %539 = call i32 @llvm.fshl.i32(i32 %518, i32 %518, i32 2)
-  %540 = call i32 @llvm.fshl.i32(i32 %529, i32 %529, i32 5)
+  %540 = call i32 @llvm.fshl.i32(i32 %509, i32 %509, i32 7)
   %541 = xor i32 %538, %528
   %542 = and i32 %541, %539
   %543 = xor i32 %542, %538
@@ -1992,7 +1992,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %547 = add i32 %546, %543
   %548 = sub i32 %545, %547
   %549 = call i32 @llvm.fshl.i32(i32 %528, i32 %528, i32 2)
-  %550 = call i32 @llvm.fshl.i32(i32 %539, i32 %539, i32 5)
+  %550 = call i32 @llvm.fshl.i32(i32 %518, i32 %518, i32 7)
   %551 = xor i32 %548, %538
   %552 = and i32 %551, %549
   %553 = xor i32 %552, %548
@@ -2002,7 +2002,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %557 = add i32 %556, %553
   %558 = sub i32 %555, %557
   %559 = call i32 @llvm.fshl.i32(i32 %538, i32 %538, i32 2)
-  %560 = call i32 @llvm.fshl.i32(i32 %549, i32 %549, i32 5)
+  %560 = call i32 @llvm.fshl.i32(i32 %528, i32 %528, i32 7)
   %561 = xor i32 %558, %548
   %562 = and i32 %561, %559
   %563 = xor i32 %562, %558
@@ -2012,7 +2012,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %567 = add i32 %566, %563
   %568 = sub i32 %565, %567
   %569 = call i32 @llvm.fshl.i32(i32 %548, i32 %548, i32 2)
-  %570 = call i32 @llvm.fshl.i32(i32 %559, i32 %559, i32 5)
+  %570 = call i32 @llvm.fshl.i32(i32 %538, i32 %538, i32 7)
   %571 = xor i32 %568, %558
   %572 = and i32 %571, %569
   %573 = xor i32 %572, %568
@@ -2022,7 +2022,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %577 = add i32 %576, %573
   %578 = sub i32 %575, %577
   %579 = call i32 @llvm.fshl.i32(i32 %558, i32 %558, i32 2)
-  %580 = call i32 @llvm.fshl.i32(i32 %569, i32 %569, i32 5)
+  %580 = call i32 @llvm.fshl.i32(i32 %548, i32 %548, i32 7)
   %581 = xor i32 %578, %568
   %582 = and i32 %581, %579
   %583 = xor i32 %582, %578
@@ -2032,7 +2032,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %587 = add i32 %586, %583
   %588 = sub i32 %585, %587
   %589 = call i32 @llvm.fshl.i32(i32 %568, i32 %568, i32 2)
-  %590 = call i32 @llvm.fshl.i32(i32 %579, i32 %579, i32 5)
+  %590 = call i32 @llvm.fshl.i32(i32 %558, i32 %558, i32 7)
   %591 = xor i32 %588, %578
   %592 = and i32 %591, %589
   %593 = xor i32 %592, %588
@@ -2042,7 +2042,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %597 = add i32 %596, %593
   %598 = sub i32 %595, %597
   %599 = call i32 @llvm.fshl.i32(i32 %578, i32 %578, i32 2)
-  %600 = call i32 @llvm.fshl.i32(i32 %589, i32 %589, i32 5)
+  %600 = call i32 @llvm.fshl.i32(i32 %568, i32 %568, i32 7)
   %601 = xor i32 %598, %588
   %602 = and i32 %601, %599
   %603 = xor i32 %602, %598
@@ -2052,7 +2052,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %607 = add i32 %606, %603
   %608 = sub i32 %605, %607
   %609 = call i32 @llvm.fshl.i32(i32 %588, i32 %588, i32 2)
-  %610 = call i32 @llvm.fshl.i32(i32 %599, i32 %599, i32 5)
+  %610 = call i32 @llvm.fshl.i32(i32 %578, i32 %578, i32 7)
   %611 = xor i32 %608, %598
   %612 = and i32 %611, %609
   %613 = xor i32 %612, %608
@@ -2062,7 +2062,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %617 = add i32 %616, %613
   %618 = sub i32 %615, %617
   %619 = call i32 @llvm.fshl.i32(i32 %598, i32 %598, i32 2)
-  %620 = call i32 @llvm.fshl.i32(i32 %609, i32 %609, i32 5)
+  %620 = call i32 @llvm.fshl.i32(i32 %588, i32 %588, i32 7)
   %621 = xor i32 %618, %608
   %622 = and i32 %621, %619
   %623 = xor i32 %622, %618
@@ -2072,7 +2072,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %627 = add i32 %626, %623
   %628 = sub i32 %625, %627
   %629 = call i32 @llvm.fshl.i32(i32 %608, i32 %608, i32 2)
-  %630 = call i32 @llvm.fshl.i32(i32 %619, i32 %619, i32 5)
+  %630 = call i32 @llvm.fshl.i32(i32 %598, i32 %598, i32 7)
   %631 = xor i32 %628, %618
   %632 = and i32 %631, %629
   %633 = xor i32 %632, %628
@@ -2082,7 +2082,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %637 = add i32 %636, %633
   %638 = sub i32 %635, %637
   %639 = call i32 @llvm.fshl.i32(i32 %618, i32 %618, i32 2)
-  %640 = call i32 @llvm.fshl.i32(i32 %629, i32 %629, i32 5)
+  %640 = call i32 @llvm.fshl.i32(i32 %608, i32 %608, i32 7)
   %641 = xor i32 %638, %628
   %642 = and i32 %641, %639
   %643 = xor i32 %642, %638
@@ -2092,7 +2092,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %647 = add i32 %646, %643
   %648 = sub i32 %645, %647
   %649 = call i32 @llvm.fshl.i32(i32 %628, i32 %628, i32 2)
-  %650 = call i32 @llvm.fshl.i32(i32 %639, i32 %639, i32 5)
+  %650 = call i32 @llvm.fshl.i32(i32 %618, i32 %618, i32 7)
   %651 = xor i32 %648, %638
   %652 = and i32 %651, %649
   %653 = xor i32 %652, %648
@@ -2102,7 +2102,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %657 = add i32 %656, %653
   %658 = sub i32 %655, %657
   %659 = call i32 @llvm.fshl.i32(i32 %638, i32 %638, i32 2)
-  %660 = call i32 @llvm.fshl.i32(i32 %649, i32 %649, i32 5)
+  %660 = call i32 @llvm.fshl.i32(i32 %628, i32 %628, i32 7)
   %661 = xor i32 %658, %648
   %662 = and i32 %661, %659
   %663 = xor i32 %662, %658
@@ -2112,7 +2112,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %667 = add i32 %666, %663
   %668 = sub i32 %665, %667
   %669 = call i32 @llvm.fshl.i32(i32 %648, i32 %648, i32 2)
-  %670 = call i32 @llvm.fshl.i32(i32 %659, i32 %659, i32 5)
+  %670 = call i32 @llvm.fshl.i32(i32 %638, i32 %638, i32 7)
   %671 = xor i32 %668, %658
   %672 = and i32 %671, %669
   %673 = xor i32 %672, %668
@@ -2122,7 +2122,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %677 = add i32 %676, %673
   %678 = sub i32 %675, %677
   %679 = call i32 @llvm.fshl.i32(i32 %658, i32 %658, i32 2)
-  %680 = call i32 @llvm.fshl.i32(i32 %669, i32 %669, i32 5)
+  %680 = call i32 @llvm.fshl.i32(i32 %648, i32 %648, i32 7)
   %681 = xor i32 %678, %668
   %682 = and i32 %681, %679
   %683 = xor i32 %682, %678
@@ -2132,7 +2132,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %687 = add i32 %686, %683
   %688 = sub i32 %685, %687
   %689 = call i32 @llvm.fshl.i32(i32 %668, i32 %668, i32 2)
-  %690 = call i32 @llvm.fshl.i32(i32 %679, i32 %679, i32 5)
+  %690 = call i32 @llvm.fshl.i32(i32 %658, i32 %658, i32 7)
   %691 = xor i32 %688, %678
   %692 = and i32 %691, %689
   %693 = xor i32 %692, %688
@@ -2142,7 +2142,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %697 = add i32 %696, %693
   %698 = sub i32 %695, %697
   %699 = call i32 @llvm.fshl.i32(i32 %678, i32 %678, i32 2)
-  %700 = call i32 @llvm.fshl.i32(i32 %689, i32 %689, i32 5)
+  %700 = call i32 @llvm.fshl.i32(i32 %668, i32 %668, i32 7)
   %701 = xor i32 %698, %688
   %702 = and i32 %701, %699
   %703 = xor i32 %702, %698
@@ -2152,7 +2152,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %707 = add i32 %706, %703
   %708 = sub i32 %705, %707
   %709 = call i32 @llvm.fshl.i32(i32 %688, i32 %688, i32 2)
-  %710 = call i32 @llvm.fshl.i32(i32 %699, i32 %699, i32 5)
+  %710 = call i32 @llvm.fshl.i32(i32 %678, i32 %678, i32 7)
   %711 = xor i32 %708, %698
   %712 = and i32 %711, %709
   %713 = xor i32 %712, %708
@@ -2400,7 +2400,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %947 = add i32 %946, %945
   %948 = sub i32 %.neg63, %947
   %949 = call i32 @llvm.fshl.i32(i32 %938, i32 %938, i32 2)
-  %950 = call i32 @llvm.fshl.i32(i32 %941, i32 %941, i32 5)
+  %950 = call i32 @llvm.fshl.i32(i32 %936, i32 %936, i32 7)
   %951 = xor i32 %949, %940
   %952 = xor i32 %951, %948
   %953 = load i32, ptr %32, align 4, !tbaa !4
@@ -2409,7 +2409,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %955 = add i32 %954, %952
   %956 = sub i32 %.neg67, %955
   %957 = call i32 @llvm.fshl.i32(i32 %940, i32 %940, i32 2)
-  %958 = call i32 @llvm.fshl.i32(i32 %949, i32 %949, i32 5)
+  %958 = call i32 @llvm.fshl.i32(i32 %938, i32 %938, i32 7)
   %959 = xor i32 %948, %957
   %960 = xor i32 %959, %956
   %961 = load i32, ptr %33, align 4, !tbaa !4
@@ -2418,7 +2418,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %963 = add i32 %962, %960
   %964 = sub i32 %.neg72, %963
   %965 = call i32 @llvm.fshl.i32(i32 %948, i32 %948, i32 2)
-  %966 = call i32 @llvm.fshl.i32(i32 %957, i32 %957, i32 5)
+  %966 = call i32 @llvm.fshl.i32(i32 %940, i32 %940, i32 7)
   %967 = xor i32 %956, %965
   %968 = xor i32 %967, %964
   %969 = load i32, ptr %34, align 4, !tbaa !4
@@ -2427,7 +2427,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %971 = add i32 %970, %968
   %972 = sub i32 %.neg77, %971
   %973 = call i32 @llvm.fshl.i32(i32 %956, i32 %956, i32 2)
-  %974 = call i32 @llvm.fshl.i32(i32 %965, i32 %965, i32 5)
+  %974 = call i32 @llvm.fshl.i32(i32 %948, i32 %948, i32 7)
   %975 = xor i32 %964, %973
   %976 = xor i32 %975, %972
   %977 = load i32, ptr %35, align 4, !tbaa !4
@@ -2436,7 +2436,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %979 = add i32 %978, %976
   %980 = sub i32 %.neg82, %979
   %981 = call i32 @llvm.fshl.i32(i32 %964, i32 %964, i32 2)
-  %982 = call i32 @llvm.fshl.i32(i32 %973, i32 %973, i32 5)
+  %982 = call i32 @llvm.fshl.i32(i32 %956, i32 %956, i32 7)
   %983 = and i32 %972, %981
   %984 = xor i32 %972, %981
   %985 = and i32 %980, %984
@@ -2447,7 +2447,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %989 = add i32 %988, %985
   %990 = sub i32 %.neg87, %989
   %991 = call i32 @llvm.fshl.i32(i32 %972, i32 %972, i32 2)
-  %992 = call i32 @llvm.fshl.i32(i32 %981, i32 %981, i32 5)
+  %992 = call i32 @llvm.fshl.i32(i32 %964, i32 %964, i32 7)
   %993 = and i32 %980, %991
   %994 = xor i32 %980, %991
   %995 = and i32 %990, %994
@@ -2458,7 +2458,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1000 = add i32 %999, %995
   %1001 = sub i32 %997, %1000
   %1002 = call i32 @llvm.fshl.i32(i32 %980, i32 %980, i32 2)
-  %1003 = call i32 @llvm.fshl.i32(i32 %991, i32 %991, i32 5)
+  %1003 = call i32 @llvm.fshl.i32(i32 %972, i32 %972, i32 7)
   %1004 = and i32 %990, %1002
   %1005 = xor i32 %990, %1002
   %1006 = and i32 %1001, %1005
@@ -2469,7 +2469,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1011 = add i32 %1010, %1006
   %1012 = sub i32 %1008, %1011
   %1013 = call i32 @llvm.fshl.i32(i32 %990, i32 %990, i32 2)
-  %1014 = call i32 @llvm.fshl.i32(i32 %1002, i32 %1002, i32 5)
+  %1014 = call i32 @llvm.fshl.i32(i32 %980, i32 %980, i32 7)
   %1015 = and i32 %1001, %1013
   %1016 = xor i32 %1001, %1013
   %1017 = and i32 %1012, %1016
@@ -2480,7 +2480,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1022 = add i32 %1021, %1017
   %1023 = sub i32 %1019, %1022
   %1024 = call i32 @llvm.fshl.i32(i32 %1001, i32 %1001, i32 2)
-  %1025 = call i32 @llvm.fshl.i32(i32 %1013, i32 %1013, i32 5)
+  %1025 = call i32 @llvm.fshl.i32(i32 %990, i32 %990, i32 7)
   %1026 = and i32 %1012, %1024
   %1027 = xor i32 %1012, %1024
   %1028 = and i32 %1023, %1027
@@ -2491,7 +2491,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1033 = add i32 %1032, %1028
   %1034 = sub i32 %1030, %1033
   %1035 = call i32 @llvm.fshl.i32(i32 %1012, i32 %1012, i32 2)
-  %1036 = call i32 @llvm.fshl.i32(i32 %1024, i32 %1024, i32 5)
+  %1036 = call i32 @llvm.fshl.i32(i32 %1001, i32 %1001, i32 7)
   %1037 = and i32 %1023, %1035
   %1038 = xor i32 %1023, %1035
   %1039 = and i32 %1034, %1038
@@ -2502,7 +2502,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1044 = add i32 %1043, %1039
   %1045 = sub i32 %1041, %1044
   %1046 = call i32 @llvm.fshl.i32(i32 %1023, i32 %1023, i32 2)
-  %1047 = call i32 @llvm.fshl.i32(i32 %1035, i32 %1035, i32 5)
+  %1047 = call i32 @llvm.fshl.i32(i32 %1012, i32 %1012, i32 7)
   %1048 = and i32 %1034, %1046
   %1049 = xor i32 %1034, %1046
   %1050 = and i32 %1045, %1049
@@ -2513,7 +2513,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1055 = add i32 %1054, %1050
   %1056 = sub i32 %1052, %1055
   %1057 = call i32 @llvm.fshl.i32(i32 %1034, i32 %1034, i32 2)
-  %1058 = call i32 @llvm.fshl.i32(i32 %1046, i32 %1046, i32 5)
+  %1058 = call i32 @llvm.fshl.i32(i32 %1023, i32 %1023, i32 7)
   %1059 = and i32 %1045, %1057
   %1060 = xor i32 %1045, %1057
   %1061 = and i32 %1056, %1060
@@ -2524,7 +2524,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1066 = add i32 %1065, %1061
   %1067 = sub i32 %1063, %1066
   %1068 = call i32 @llvm.fshl.i32(i32 %1045, i32 %1045, i32 2)
-  %1069 = call i32 @llvm.fshl.i32(i32 %1057, i32 %1057, i32 5)
+  %1069 = call i32 @llvm.fshl.i32(i32 %1034, i32 %1034, i32 7)
   %1070 = and i32 %1056, %1068
   %1071 = xor i32 %1056, %1068
   %1072 = and i32 %1067, %1071
@@ -2535,7 +2535,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1077 = add i32 %1076, %1072
   %1078 = sub i32 %1074, %1077
   %1079 = call i32 @llvm.fshl.i32(i32 %1056, i32 %1056, i32 2)
-  %1080 = call i32 @llvm.fshl.i32(i32 %1068, i32 %1068, i32 5)
+  %1080 = call i32 @llvm.fshl.i32(i32 %1045, i32 %1045, i32 7)
   %1081 = and i32 %1067, %1079
   %1082 = xor i32 %1067, %1079
   %1083 = and i32 %1078, %1082
@@ -2546,7 +2546,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1088 = add i32 %1087, %1083
   %1089 = sub i32 %1085, %1088
   %1090 = call i32 @llvm.fshl.i32(i32 %1067, i32 %1067, i32 2)
-  %1091 = call i32 @llvm.fshl.i32(i32 %1079, i32 %1079, i32 5)
+  %1091 = call i32 @llvm.fshl.i32(i32 %1056, i32 %1056, i32 7)
   %1092 = and i32 %1078, %1090
   %1093 = xor i32 %1078, %1090
   %1094 = and i32 %1089, %1093
@@ -2557,7 +2557,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1099 = add i32 %1098, %1094
   %1100 = sub i32 %1096, %1099
   %1101 = call i32 @llvm.fshl.i32(i32 %1078, i32 %1078, i32 2)
-  %1102 = call i32 @llvm.fshl.i32(i32 %1090, i32 %1090, i32 5)
+  %1102 = call i32 @llvm.fshl.i32(i32 %1067, i32 %1067, i32 7)
   %1103 = and i32 %1089, %1101
   %1104 = xor i32 %1089, %1101
   %1105 = and i32 %1100, %1104
@@ -2568,7 +2568,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1110 = add i32 %1109, %1105
   %1111 = sub i32 %1107, %1110
   %1112 = call i32 @llvm.fshl.i32(i32 %1089, i32 %1089, i32 2)
-  %1113 = call i32 @llvm.fshl.i32(i32 %1101, i32 %1101, i32 5)
+  %1113 = call i32 @llvm.fshl.i32(i32 %1078, i32 %1078, i32 7)
   %1114 = and i32 %1100, %1112
   %1115 = xor i32 %1100, %1112
   %1116 = and i32 %1111, %1115
@@ -2579,7 +2579,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1121 = add i32 %1120, %1116
   %1122 = sub i32 %1118, %1121
   %1123 = call i32 @llvm.fshl.i32(i32 %1100, i32 %1100, i32 2)
-  %1124 = call i32 @llvm.fshl.i32(i32 %1112, i32 %1112, i32 5)
+  %1124 = call i32 @llvm.fshl.i32(i32 %1089, i32 %1089, i32 7)
   %1125 = and i32 %1111, %1123
   %1126 = xor i32 %1111, %1123
   %1127 = and i32 %1122, %1126
@@ -2590,7 +2590,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1132 = add i32 %1131, %1127
   %1133 = sub i32 %1129, %1132
   %1134 = call i32 @llvm.fshl.i32(i32 %1111, i32 %1111, i32 2)
-  %1135 = call i32 @llvm.fshl.i32(i32 %1123, i32 %1123, i32 5)
+  %1135 = call i32 @llvm.fshl.i32(i32 %1100, i32 %1100, i32 7)
   %1136 = and i32 %1122, %1134
   %1137 = xor i32 %1122, %1134
   %1138 = and i32 %1133, %1137
@@ -2601,7 +2601,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1143 = add i32 %1142, %1138
   %1144 = sub i32 %1140, %1143
   %1145 = call i32 @llvm.fshl.i32(i32 %1122, i32 %1122, i32 2)
-  %1146 = call i32 @llvm.fshl.i32(i32 %1134, i32 %1134, i32 5)
+  %1146 = call i32 @llvm.fshl.i32(i32 %1111, i32 %1111, i32 7)
   %1147 = and i32 %1133, %1145
   %1148 = xor i32 %1133, %1145
   %1149 = and i32 %1144, %1148
@@ -2612,7 +2612,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1154 = add i32 %1153, %1149
   %1155 = sub i32 %1151, %1154
   %1156 = call i32 @llvm.fshl.i32(i32 %1133, i32 %1133, i32 2)
-  %1157 = call i32 @llvm.fshl.i32(i32 %1145, i32 %1145, i32 5)
+  %1157 = call i32 @llvm.fshl.i32(i32 %1122, i32 %1122, i32 7)
   %1158 = and i32 %1144, %1156
   %1159 = xor i32 %1144, %1156
   %1160 = and i32 %1155, %1159
@@ -2623,7 +2623,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1165 = add i32 %1164, %1160
   %1166 = sub i32 %1162, %1165
   %1167 = call i32 @llvm.fshl.i32(i32 %1144, i32 %1144, i32 2)
-  %1168 = call i32 @llvm.fshl.i32(i32 %1156, i32 %1156, i32 5)
+  %1168 = call i32 @llvm.fshl.i32(i32 %1133, i32 %1133, i32 7)
   %1169 = and i32 %1155, %1167
   %1170 = xor i32 %1155, %1167
   %1171 = and i32 %1166, %1170
@@ -2634,7 +2634,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1176 = add i32 %1175, %1171
   %1177 = sub i32 %1173, %1176
   %1178 = call i32 @llvm.fshl.i32(i32 %1155, i32 %1155, i32 2)
-  %1179 = call i32 @llvm.fshl.i32(i32 %1167, i32 %1167, i32 5)
+  %1179 = call i32 @llvm.fshl.i32(i32 %1144, i32 %1144, i32 7)
   %1180 = and i32 %1166, %1178
   %1181 = xor i32 %1166, %1178
   %1182 = and i32 %1177, %1181
@@ -2645,7 +2645,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1187 = add i32 %1186, %1182
   %1188 = sub i32 %1184, %1187
   %1189 = call i32 @llvm.fshl.i32(i32 %1166, i32 %1166, i32 2)
-  %1190 = call i32 @llvm.fshl.i32(i32 %1178, i32 %1178, i32 5)
+  %1190 = call i32 @llvm.fshl.i32(i32 %1155, i32 %1155, i32 7)
   %1191 = and i32 %1177, %1189
   %1192 = xor i32 %1177, %1189
   %1193 = and i32 %1188, %1192
@@ -2656,7 +2656,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1198 = add i32 %1197, %1193
   %1199 = sub i32 %1195, %1198
   %1200 = call i32 @llvm.fshl.i32(i32 %1177, i32 %1177, i32 2)
-  %1201 = call i32 @llvm.fshl.i32(i32 %1189, i32 %1189, i32 5)
+  %1201 = call i32 @llvm.fshl.i32(i32 %1166, i32 %1166, i32 7)
   %1202 = xor i32 %1188, %1200
   %1203 = xor i32 %1202, %1199
   %1204 = load i32, ptr %56, align 4, !tbaa !4
@@ -2665,7 +2665,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1207 = add i32 %1206, %1203
   %1208 = sub i32 %1205, %1207
   %1209 = call i32 @llvm.fshl.i32(i32 %1188, i32 %1188, i32 2)
-  %1210 = call i32 @llvm.fshl.i32(i32 %1200, i32 %1200, i32 5)
+  %1210 = call i32 @llvm.fshl.i32(i32 %1177, i32 %1177, i32 7)
   %1211 = xor i32 %1199, %1209
   %1212 = xor i32 %1211, %1208
   %1213 = load i32, ptr %57, align 4, !tbaa !4
@@ -2674,7 +2674,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1216 = add i32 %1215, %1212
   %1217 = sub i32 %1214, %1216
   %1218 = call i32 @llvm.fshl.i32(i32 %1199, i32 %1199, i32 2)
-  %1219 = call i32 @llvm.fshl.i32(i32 %1209, i32 %1209, i32 5)
+  %1219 = call i32 @llvm.fshl.i32(i32 %1188, i32 %1188, i32 7)
   %1220 = xor i32 %1208, %1218
   %1221 = xor i32 %1220, %1217
   %1222 = load i32, ptr %58, align 4, !tbaa !4
@@ -2683,7 +2683,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1225 = add i32 %1224, %1221
   %1226 = sub i32 %1223, %1225
   %1227 = call i32 @llvm.fshl.i32(i32 %1208, i32 %1208, i32 2)
-  %1228 = call i32 @llvm.fshl.i32(i32 %1218, i32 %1218, i32 5)
+  %1228 = call i32 @llvm.fshl.i32(i32 %1199, i32 %1199, i32 7)
   %1229 = xor i32 %1217, %1227
   %1230 = xor i32 %1229, %1226
   %1231 = load i32, ptr %59, align 4, !tbaa !4
@@ -2692,7 +2692,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1234 = add i32 %1233, %1230
   %1235 = sub i32 %1232, %1234
   %1236 = call i32 @llvm.fshl.i32(i32 %1217, i32 %1217, i32 2)
-  %1237 = call i32 @llvm.fshl.i32(i32 %1227, i32 %1227, i32 5)
+  %1237 = call i32 @llvm.fshl.i32(i32 %1208, i32 %1208, i32 7)
   %1238 = xor i32 %1226, %1236
   %1239 = xor i32 %1238, %1235
   %1240 = load i32, ptr %60, align 4, !tbaa !4
@@ -2701,7 +2701,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1243 = add i32 %1242, %1239
   %1244 = sub i32 %1241, %1243
   %1245 = call i32 @llvm.fshl.i32(i32 %1226, i32 %1226, i32 2)
-  %1246 = call i32 @llvm.fshl.i32(i32 %1236, i32 %1236, i32 5)
+  %1246 = call i32 @llvm.fshl.i32(i32 %1217, i32 %1217, i32 7)
   %1247 = xor i32 %1235, %1245
   %1248 = xor i32 %1247, %1244
   %1249 = load i32, ptr %61, align 4, !tbaa !4
@@ -2710,7 +2710,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1252 = add i32 %1251, %1248
   %1253 = sub i32 %1250, %1252
   %1254 = call i32 @llvm.fshl.i32(i32 %1235, i32 %1235, i32 2)
-  %1255 = call i32 @llvm.fshl.i32(i32 %1245, i32 %1245, i32 5)
+  %1255 = call i32 @llvm.fshl.i32(i32 %1226, i32 %1226, i32 7)
   %1256 = xor i32 %1244, %1254
   %1257 = xor i32 %1256, %1253
   %1258 = load i32, ptr %62, align 4, !tbaa !4
@@ -2719,7 +2719,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1261 = add i32 %1260, %1257
   %1262 = sub i32 %1259, %1261
   %1263 = call i32 @llvm.fshl.i32(i32 %1244, i32 %1244, i32 2)
-  %1264 = call i32 @llvm.fshl.i32(i32 %1254, i32 %1254, i32 5)
+  %1264 = call i32 @llvm.fshl.i32(i32 %1235, i32 %1235, i32 7)
   %1265 = xor i32 %1253, %1263
   %1266 = xor i32 %1265, %1262
   %1267 = load i32, ptr %63, align 4, !tbaa !4
@@ -2728,7 +2728,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1270 = add i32 %1269, %1266
   %1271 = sub i32 %1268, %1270
   %1272 = call i32 @llvm.fshl.i32(i32 %1253, i32 %1253, i32 2)
-  %1273 = call i32 @llvm.fshl.i32(i32 %1263, i32 %1263, i32 5)
+  %1273 = call i32 @llvm.fshl.i32(i32 %1244, i32 %1244, i32 7)
   %1274 = xor i32 %1262, %1272
   %1275 = xor i32 %1274, %1271
   %1276 = load i32, ptr %64, align 4, !tbaa !4
@@ -2737,7 +2737,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1279 = add i32 %1278, %1275
   %1280 = sub i32 %1277, %1279
   %1281 = call i32 @llvm.fshl.i32(i32 %1262, i32 %1262, i32 2)
-  %1282 = call i32 @llvm.fshl.i32(i32 %1272, i32 %1272, i32 5)
+  %1282 = call i32 @llvm.fshl.i32(i32 %1253, i32 %1253, i32 7)
   %1283 = xor i32 %1271, %1281
   %1284 = xor i32 %1283, %1280
   %1285 = load i32, ptr %65, align 4, !tbaa !4
@@ -2746,7 +2746,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1288 = add i32 %1287, %1284
   %1289 = sub i32 %1286, %1288
   %1290 = call i32 @llvm.fshl.i32(i32 %1271, i32 %1271, i32 2)
-  %1291 = call i32 @llvm.fshl.i32(i32 %1281, i32 %1281, i32 5)
+  %1291 = call i32 @llvm.fshl.i32(i32 %1262, i32 %1262, i32 7)
   %1292 = xor i32 %1280, %1290
   %1293 = xor i32 %1292, %1289
   %1294 = load i32, ptr %66, align 4, !tbaa !4
@@ -2755,7 +2755,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1297 = add i32 %1296, %1293
   %1298 = sub i32 %1295, %1297
   %1299 = call i32 @llvm.fshl.i32(i32 %1280, i32 %1280, i32 2)
-  %1300 = call i32 @llvm.fshl.i32(i32 %1290, i32 %1290, i32 5)
+  %1300 = call i32 @llvm.fshl.i32(i32 %1271, i32 %1271, i32 7)
   %1301 = xor i32 %1289, %1299
   %1302 = xor i32 %1301, %1298
   %1303 = load i32, ptr %67, align 4, !tbaa !4
@@ -2764,7 +2764,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1306 = add i32 %1305, %1302
   %1307 = sub i32 %1304, %1306
   %1308 = call i32 @llvm.fshl.i32(i32 %1289, i32 %1289, i32 2)
-  %1309 = call i32 @llvm.fshl.i32(i32 %1299, i32 %1299, i32 5)
+  %1309 = call i32 @llvm.fshl.i32(i32 %1280, i32 %1280, i32 7)
   %1310 = xor i32 %1298, %1308
   %1311 = xor i32 %1310, %1307
   %1312 = load i32, ptr %68, align 4, !tbaa !4
@@ -2773,7 +2773,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1315 = add i32 %1314, %1311
   %1316 = sub i32 %1313, %1315
   %1317 = call i32 @llvm.fshl.i32(i32 %1298, i32 %1298, i32 2)
-  %1318 = call i32 @llvm.fshl.i32(i32 %1308, i32 %1308, i32 5)
+  %1318 = call i32 @llvm.fshl.i32(i32 %1289, i32 %1289, i32 7)
   %1319 = xor i32 %1307, %1317
   %1320 = xor i32 %1319, %1316
   %1321 = load i32, ptr %69, align 4, !tbaa !4
@@ -2782,7 +2782,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1324 = add i32 %1323, %1320
   %1325 = sub i32 %1322, %1324
   %1326 = call i32 @llvm.fshl.i32(i32 %1307, i32 %1307, i32 2)
-  %1327 = call i32 @llvm.fshl.i32(i32 %1317, i32 %1317, i32 5)
+  %1327 = call i32 @llvm.fshl.i32(i32 %1298, i32 %1298, i32 7)
   %1328 = xor i32 %1316, %1326
   %1329 = xor i32 %1328, %1325
   %1330 = load i32, ptr %70, align 4, !tbaa !4
@@ -2791,7 +2791,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1333 = add i32 %1332, %1329
   %1334 = sub i32 %1331, %1333
   %1335 = call i32 @llvm.fshl.i32(i32 %1316, i32 %1316, i32 2)
-  %1336 = call i32 @llvm.fshl.i32(i32 %1326, i32 %1326, i32 5)
+  %1336 = call i32 @llvm.fshl.i32(i32 %1307, i32 %1307, i32 7)
   %1337 = xor i32 %1325, %1335
   %1338 = xor i32 %1337, %1334
   %1339 = load i32, ptr %71, align 4, !tbaa !4
@@ -2800,7 +2800,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1342 = add i32 %1341, %1338
   %1343 = sub i32 %1340, %1342
   %1344 = call i32 @llvm.fshl.i32(i32 %1325, i32 %1325, i32 2)
-  %1345 = call i32 @llvm.fshl.i32(i32 %1335, i32 %1335, i32 5)
+  %1345 = call i32 @llvm.fshl.i32(i32 %1316, i32 %1316, i32 7)
   %1346 = xor i32 %1334, %1344
   %1347 = xor i32 %1346, %1343
   %1348 = load i32, ptr %72, align 4, !tbaa !4
@@ -2809,7 +2809,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1351 = add i32 %1350, %1347
   %1352 = sub i32 %1349, %1351
   %1353 = call i32 @llvm.fshl.i32(i32 %1334, i32 %1334, i32 2)
-  %1354 = call i32 @llvm.fshl.i32(i32 %1344, i32 %1344, i32 5)
+  %1354 = call i32 @llvm.fshl.i32(i32 %1325, i32 %1325, i32 7)
   %1355 = xor i32 %1343, %1353
   %1356 = xor i32 %1355, %1352
   %1357 = load i32, ptr %73, align 4, !tbaa !4
@@ -2818,7 +2818,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1360 = add i32 %1359, %1356
   %1361 = sub i32 %1358, %1360
   %1362 = call i32 @llvm.fshl.i32(i32 %1343, i32 %1343, i32 2)
-  %1363 = call i32 @llvm.fshl.i32(i32 %1353, i32 %1353, i32 5)
+  %1363 = call i32 @llvm.fshl.i32(i32 %1334, i32 %1334, i32 7)
   %1364 = xor i32 %1352, %1362
   %1365 = xor i32 %1364, %1361
   %1366 = load i32, ptr %74, align 4, !tbaa !4
@@ -2827,7 +2827,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1369 = add i32 %1368, %1365
   %1370 = sub i32 %1367, %1369
   %1371 = call i32 @llvm.fshl.i32(i32 %1352, i32 %1352, i32 2)
-  %1372 = call i32 @llvm.fshl.i32(i32 %1362, i32 %1362, i32 5)
+  %1372 = call i32 @llvm.fshl.i32(i32 %1343, i32 %1343, i32 7)
   %1373 = xor i32 %1361, %1371
   %1374 = xor i32 %1373, %1370
   %1375 = load i32, ptr %75, align 4, !tbaa !4
@@ -2836,7 +2836,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1378 = add i32 %1377, %1374
   %1379 = sub i32 %1376, %1378
   %1380 = call i32 @llvm.fshl.i32(i32 %1361, i32 %1361, i32 2)
-  %1381 = call i32 @llvm.fshl.i32(i32 %1371, i32 %1371, i32 5)
+  %1381 = call i32 @llvm.fshl.i32(i32 %1352, i32 %1352, i32 7)
   %1382 = xor i32 %1379, %1370
   %1383 = and i32 %1382, %1380
   %1384 = xor i32 %1383, %1379
@@ -2846,7 +2846,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1388 = add i32 %1387, %1384
   %1389 = sub i32 %1386, %1388
   %1390 = call i32 @llvm.fshl.i32(i32 %1370, i32 %1370, i32 2)
-  %1391 = call i32 @llvm.fshl.i32(i32 %1380, i32 %1380, i32 5)
+  %1391 = call i32 @llvm.fshl.i32(i32 %1361, i32 %1361, i32 7)
   %1392 = xor i32 %1389, %1379
   %1393 = and i32 %1392, %1390
   %1394 = xor i32 %1393, %1389
@@ -2856,7 +2856,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1398 = add i32 %1397, %1394
   %1399 = sub i32 %1396, %1398
   %1400 = call i32 @llvm.fshl.i32(i32 %1379, i32 %1379, i32 2)
-  %1401 = call i32 @llvm.fshl.i32(i32 %1390, i32 %1390, i32 5)
+  %1401 = call i32 @llvm.fshl.i32(i32 %1370, i32 %1370, i32 7)
   %1402 = xor i32 %1399, %1389
   %1403 = and i32 %1402, %1400
   %1404 = xor i32 %1403, %1399
@@ -2866,7 +2866,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1408 = add i32 %1407, %1404
   %1409 = sub i32 %1406, %1408
   %1410 = call i32 @llvm.fshl.i32(i32 %1389, i32 %1389, i32 2)
-  %1411 = call i32 @llvm.fshl.i32(i32 %1400, i32 %1400, i32 5)
+  %1411 = call i32 @llvm.fshl.i32(i32 %1379, i32 %1379, i32 7)
   %1412 = xor i32 %1409, %1399
   %1413 = and i32 %1412, %1410
   %1414 = xor i32 %1413, %1409
@@ -2876,7 +2876,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1418 = add i32 %1417, %1414
   %1419 = sub i32 %1416, %1418
   %1420 = call i32 @llvm.fshl.i32(i32 %1399, i32 %1399, i32 2)
-  %1421 = call i32 @llvm.fshl.i32(i32 %1410, i32 %1410, i32 5)
+  %1421 = call i32 @llvm.fshl.i32(i32 %1389, i32 %1389, i32 7)
   %1422 = xor i32 %1419, %1409
   %1423 = and i32 %1422, %1420
   %1424 = xor i32 %1423, %1419
@@ -2886,7 +2886,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1428 = add i32 %1427, %1424
   %1429 = sub i32 %1426, %1428
   %1430 = call i32 @llvm.fshl.i32(i32 %1409, i32 %1409, i32 2)
-  %1431 = call i32 @llvm.fshl.i32(i32 %1420, i32 %1420, i32 5)
+  %1431 = call i32 @llvm.fshl.i32(i32 %1399, i32 %1399, i32 7)
   %1432 = xor i32 %1429, %1419
   %1433 = and i32 %1432, %1430
   %1434 = xor i32 %1433, %1429
@@ -2896,7 +2896,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1438 = add i32 %1437, %1434
   %1439 = sub i32 %1436, %1438
   %1440 = call i32 @llvm.fshl.i32(i32 %1419, i32 %1419, i32 2)
-  %1441 = call i32 @llvm.fshl.i32(i32 %1430, i32 %1430, i32 5)
+  %1441 = call i32 @llvm.fshl.i32(i32 %1409, i32 %1409, i32 7)
   %1442 = xor i32 %1439, %1429
   %1443 = and i32 %1442, %1440
   %1444 = xor i32 %1443, %1439
@@ -2906,7 +2906,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1448 = add i32 %1447, %1444
   %1449 = sub i32 %1446, %1448
   %1450 = call i32 @llvm.fshl.i32(i32 %1429, i32 %1429, i32 2)
-  %1451 = call i32 @llvm.fshl.i32(i32 %1440, i32 %1440, i32 5)
+  %1451 = call i32 @llvm.fshl.i32(i32 %1419, i32 %1419, i32 7)
   %1452 = xor i32 %1449, %1439
   %1453 = and i32 %1452, %1450
   %1454 = xor i32 %1453, %1449
@@ -2916,7 +2916,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1458 = add i32 %1457, %1454
   %1459 = sub i32 %1456, %1458
   %1460 = call i32 @llvm.fshl.i32(i32 %1439, i32 %1439, i32 2)
-  %1461 = call i32 @llvm.fshl.i32(i32 %1450, i32 %1450, i32 5)
+  %1461 = call i32 @llvm.fshl.i32(i32 %1429, i32 %1429, i32 7)
   %1462 = xor i32 %1459, %1449
   %1463 = and i32 %1462, %1460
   %1464 = xor i32 %1463, %1459
@@ -2926,7 +2926,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1468 = add i32 %1467, %1464
   %1469 = sub i32 %1466, %1468
   %1470 = call i32 @llvm.fshl.i32(i32 %1449, i32 %1449, i32 2)
-  %1471 = call i32 @llvm.fshl.i32(i32 %1460, i32 %1460, i32 5)
+  %1471 = call i32 @llvm.fshl.i32(i32 %1439, i32 %1439, i32 7)
   %1472 = xor i32 %1469, %1459
   %1473 = and i32 %1472, %1470
   %1474 = xor i32 %1473, %1469
@@ -2936,7 +2936,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1478 = add i32 %1477, %1474
   %1479 = sub i32 %1476, %1478
   %1480 = call i32 @llvm.fshl.i32(i32 %1459, i32 %1459, i32 2)
-  %1481 = call i32 @llvm.fshl.i32(i32 %1470, i32 %1470, i32 5)
+  %1481 = call i32 @llvm.fshl.i32(i32 %1449, i32 %1449, i32 7)
   %1482 = xor i32 %1479, %1469
   %1483 = and i32 %1482, %1480
   %1484 = xor i32 %1483, %1479
@@ -2946,7 +2946,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1488 = add i32 %1487, %1484
   %1489 = sub i32 %1486, %1488
   %1490 = call i32 @llvm.fshl.i32(i32 %1469, i32 %1469, i32 2)
-  %1491 = call i32 @llvm.fshl.i32(i32 %1480, i32 %1480, i32 5)
+  %1491 = call i32 @llvm.fshl.i32(i32 %1459, i32 %1459, i32 7)
   %1492 = xor i32 %1489, %1479
   %1493 = and i32 %1492, %1490
   %1494 = xor i32 %1493, %1489
@@ -2956,7 +2956,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1498 = add i32 %1497, %1494
   %1499 = sub i32 %1496, %1498
   %1500 = call i32 @llvm.fshl.i32(i32 %1479, i32 %1479, i32 2)
-  %1501 = call i32 @llvm.fshl.i32(i32 %1490, i32 %1490, i32 5)
+  %1501 = call i32 @llvm.fshl.i32(i32 %1469, i32 %1469, i32 7)
   %1502 = xor i32 %1499, %1489
   %1503 = and i32 %1502, %1500
   %1504 = xor i32 %1503, %1499
@@ -2966,7 +2966,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1508 = add i32 %1507, %1504
   %1509 = sub i32 %1506, %1508
   %1510 = call i32 @llvm.fshl.i32(i32 %1489, i32 %1489, i32 2)
-  %1511 = call i32 @llvm.fshl.i32(i32 %1500, i32 %1500, i32 5)
+  %1511 = call i32 @llvm.fshl.i32(i32 %1479, i32 %1479, i32 7)
   %1512 = xor i32 %1509, %1499
   %1513 = and i32 %1512, %1510
   %1514 = xor i32 %1513, %1509
@@ -2976,7 +2976,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1518 = add i32 %1517, %1514
   %1519 = sub i32 %1516, %1518
   %1520 = call i32 @llvm.fshl.i32(i32 %1499, i32 %1499, i32 2)
-  %1521 = call i32 @llvm.fshl.i32(i32 %1510, i32 %1510, i32 5)
+  %1521 = call i32 @llvm.fshl.i32(i32 %1489, i32 %1489, i32 7)
   %1522 = xor i32 %1519, %1509
   %1523 = and i32 %1522, %1520
   %1524 = xor i32 %1523, %1519
@@ -2986,7 +2986,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1528 = add i32 %1527, %1524
   %1529 = sub i32 %1526, %1528
   %1530 = call i32 @llvm.fshl.i32(i32 %1509, i32 %1509, i32 2)
-  %1531 = call i32 @llvm.fshl.i32(i32 %1520, i32 %1520, i32 5)
+  %1531 = call i32 @llvm.fshl.i32(i32 %1499, i32 %1499, i32 7)
   %1532 = xor i32 %1529, %1519
   %1533 = and i32 %1532, %1530
   %1534 = xor i32 %1533, %1529
@@ -2996,7 +2996,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1538 = add i32 %1537, %1534
   %1539 = sub i32 %1536, %1538
   %1540 = call i32 @llvm.fshl.i32(i32 %1519, i32 %1519, i32 2)
-  %1541 = call i32 @llvm.fshl.i32(i32 %1530, i32 %1530, i32 5)
+  %1541 = call i32 @llvm.fshl.i32(i32 %1509, i32 %1509, i32 7)
   %1542 = xor i32 %1539, %1529
   %1543 = and i32 %1542, %1540
   %1544 = xor i32 %1543, %1539
@@ -3006,7 +3006,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1548 = add i32 %1547, %1544
   %1549 = sub i32 %1546, %1548
   %1550 = call i32 @llvm.fshl.i32(i32 %1529, i32 %1529, i32 2)
-  %1551 = call i32 @llvm.fshl.i32(i32 %1540, i32 %1540, i32 5)
+  %1551 = call i32 @llvm.fshl.i32(i32 %1519, i32 %1519, i32 7)
   %1552 = xor i32 %1549, %1539
   %1553 = and i32 %1552, %1550
   %1554 = xor i32 %1553, %1549
@@ -3016,7 +3016,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1558 = add i32 %1557, %1554
   %1559 = sub i32 %1556, %1558
   %1560 = call i32 @llvm.fshl.i32(i32 %1539, i32 %1539, i32 2)
-  %1561 = call i32 @llvm.fshl.i32(i32 %1550, i32 %1550, i32 5)
+  %1561 = call i32 @llvm.fshl.i32(i32 %1529, i32 %1529, i32 7)
   %1562 = xor i32 %1559, %1549
   %1563 = and i32 %1562, %1560
   %1564 = xor i32 %1563, %1559
@@ -3026,7 +3026,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %1568 = add i32 %1567, %1564
   %1569 = sub i32 %1566, %1568
   %1570 = call i32 @llvm.fshl.i32(i32 %1549, i32 %1549, i32 2)
-  %1571 = call i32 @llvm.fshl.i32(i32 %1560, i32 %1560, i32 5)
+  %1571 = call i32 @llvm.fshl.i32(i32 %1539, i32 %1539, i32 7)
   %1572 = xor i32 %1569, %1559
   %1573 = and i32 %1572, %1570
   %1574 = xor i32 %1573, %1569

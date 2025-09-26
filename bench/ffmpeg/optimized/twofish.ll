@@ -1215,7 +1215,7 @@ define void @av_twofish_crypt(ptr noundef readonly captures(none) %0, ptr nounde
   %130 = getelementptr inbounds nuw i32, ptr %15, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !10
   %132 = xor i32 %127, %131
-  %133 = tail call i32 @llvm.fshl.i32(i32 %111, i32 %111, i32 8)
+  %133 = tail call i32 @llvm.fshl.i32(i32 %110, i32 %110, i32 7)
   %134 = and i32 %133, 255
   %135 = zext nneg i32 %134 to i64
   %136 = getelementptr inbounds nuw i32, ptr %12, i64 %135
