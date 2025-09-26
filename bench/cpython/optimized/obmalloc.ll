@@ -12291,6 +12291,7 @@ mi_heap_get_default.exit:                         ; preds = %0, %_mi_stat_increa
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_heap_init_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #1 {
   call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr @_mi_heap_empty, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3064) %0, ptr noundef nonnull readonly align 64 dereferenceable(3064) @_mi_heap_empty, i64 3064, i1 false)
   store ptr %1, ptr %0, align 8, !tbaa !19
   %6 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #61, !srcloc !52
@@ -14243,6 +14244,7 @@ define hidden void @_mi_thread_data_collect() local_unnamed_addr #1 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @_mi_tld_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #25 {
   call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr @tld_empty, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1608) %0, ptr noundef nonnull readonly align 64 dereferenceable(1608) @tld_empty, i64 1608, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 928
@@ -14691,6 +14693,7 @@ mi_thread_data_zalloc.exit:                       ; preds = %33
 35:                                               ; preds = %mi_thread_data_zalloc.exit.thread, %mi_thread_data_zalloc.exit
   %36 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3064
   call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr @tld_empty, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1608) %36, ptr noundef nonnull readonly align 64 dereferenceable(1608) @tld_empty, i64 1608, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4032
   %38 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3992

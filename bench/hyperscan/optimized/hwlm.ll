@@ -1203,6 +1203,7 @@ run_hwlm_accel.exit.thread:                       ; preds = %19, %run_hwlm_accel
   %319 = load i8, ptr %318, align 2
   %320 = insertelement <16 x i8> poison, i8 %319, i64 0
   %321 = shufflevector <16 x i8> %320, <16 x i8> poison, <16 x i32> zeroinitializer
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 16) ]
   %322 = load <16 x i8>, ptr %7, align 16
   %323 = icmp eq <16 x i8> %321, %322
   %324 = bitcast <16 x i1> %323 to i16
@@ -1240,6 +1241,7 @@ vermUnalign.exit187:                              ; preds = %vermSearchAligned.e
   %339 = load i8, ptr %338, align 2
   %340 = insertelement <16 x i8> poison, i8 %339, i64 0
   %341 = shufflevector <16 x i8> %340, <16 x i8> poison, <16 x i32> zeroinitializer
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 16) ]
   %342 = load <16 x i8>, ptr %7, align 16
   %343 = and <16 x i8> %342, splat (i8 -33)
   %344 = icmp eq <16 x i8> %341, %343
@@ -1284,6 +1286,7 @@ vermUnalignNocase.exit171:                        ; preds = %vermSearchAlignedNo
   %366 = insertelement <16 x i8> poison, i8 %363, i64 0
   %367 = shufflevector <16 x i8> %366, <16 x i8> poison, <16 x i32> zeroinitializer
   %.ptr504 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 16) ]
   %368 = load <16 x i8>, ptr %7, align 16
   %369 = icmp eq <16 x i8> %365, %368
   %370 = icmp eq <16 x i8> %367, %368
@@ -1349,6 +1352,7 @@ dvermPrecondition.exit274:                        ; preds = %dvermSearchAligned.
   %407 = shufflevector <16 x i8> %406, <16 x i8> poison, <16 x i32> zeroinitializer
   %408 = insertelement <16 x i8> poison, i8 %405, i64 0
   %409 = shufflevector <16 x i8> %408, <16 x i8> poison, <16 x i32> zeroinitializer
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 16) ]
   %410 = load <16 x i8>, ptr %7, align 16
   %411 = and <16 x i8> %410, splat (i8 -33)
   %412 = icmp eq <16 x i8> %407, %411

@@ -2048,8 +2048,7 @@ define dso_local noundef ptr @_ZN5clang4Sema25FindFirstQualifierInScopeEPNS_5Sco
 
 45:                                               ; preds = %12
   %46 = load ptr, ptr %21, align 8, !tbaa !1093
-  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %46, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %46, align 1
   %47 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %48 = inttoptr i64 %47 to ptr
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
@@ -2800,8 +2799,7 @@ _ZN5clang9FixItHintD2Ev.exit:                     ; preds = %_ZNK5clang8SemaBase
 
 276:                                              ; preds = %_ZN5clang9FixItHintD2Ev.exit
   %277 = load ptr, ptr %154, align 8, !tbaa !1093
-  call void @llvm.assume(i1 true) [ "align"(ptr %277, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %277, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %277, align 1
   %278 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %279 = inttoptr i64 %278 to ptr
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 28
@@ -3293,8 +3291,7 @@ _ZN5clang14TypoCorrectionD2Ev.exit:               ; preds = %_ZNSt6vectorIN5clan
 
 458:                                              ; preds = %455
   %459 = load ptr, ptr %67, align 8, !tbaa !1093
-  call void @llvm.assume(i1 true) [ "align"(ptr %459, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %459, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %459, align 1
   %460 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %461 = inttoptr i64 %460 to ptr
   br label %462
@@ -4149,8 +4146,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12LookupResult11getAsSingleINS
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !1093
-  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %5, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %5, align 1
   %6 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -4394,8 +4390,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12LookupResult11getAsSingleINS
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !1093
-  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %5, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %5, align 1
   %6 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -4437,8 +4432,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12LookupResult11getAsSingleINS
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !1093
-  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %5, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %5, align 1
   %6 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 28

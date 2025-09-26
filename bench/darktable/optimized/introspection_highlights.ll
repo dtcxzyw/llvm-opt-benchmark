@@ -3658,7 +3658,7 @@ process_visualize.exit:                           ; preds = %._crit_edge.us.i, %
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.thread2.i
 
-.thread2.i:                                       ; preds = %.loopexit.i, %270, %.thread1.i
+.thread2.i:                                       ; preds = %270, %.loopexit.i, %.thread1.i
   %415 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %416 = load i32, ptr %415, align 4, !tbaa !83
   %417 = sext i32 %416 to i64

@@ -1287,8 +1287,6 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_strin
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %128, %135
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.17.0, i64 8) ]
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit

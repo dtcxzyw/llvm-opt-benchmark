@@ -20083,11 +20083,9 @@ _ZN4llvm13TinyPtrVectorIPN5clang13serialization10ModuleFileEE3endEv.exit: ; pred
   %46 = call noundef ptr @_ZN4llvm13TinyPtrVectorIPN5clang13serialization10ModuleFileEE6insertIPS4_EES7_S7_T_S8_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %.0.i, ptr noundef %42, ptr noundef %45)
   %47 = zext i32 %.0.copyload.i.i.i to i64
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 %47
-  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 4) ]
-  %.0.copyload.i.i.i.i918 = load i32, ptr %48, align 4
+  %.0.copyload.i.i.i.i918 = load i32, ptr %48, align 1
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 4) ]
-  %.0.copyload.i.i.i2.i = load i32, ptr %49, align 4
+  %.0.copyload.i.i.i2.i = load i32, ptr %49, align 1
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %51 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #40
   store ptr %1, ptr %51, align 8, !tbaa !1515
@@ -45458,11 +45456,9 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang9ASTReader10UpdateDataELb1EE9push_backE
 861:                                              ; preds = %857
   %862 = getelementptr inbounds nuw i8, ptr %858, i64 %860
   %863 = getelementptr inbounds nuw i8, ptr %858, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %862, i64 4) ]
-  %.0.copyload.i.i.i.i4.i = load i32, ptr %862, align 4
+  %.0.copyload.i.i.i.i4.i = load i32, ptr %862, align 1
   %864 = getelementptr inbounds nuw i8, ptr %862, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %864, i64 4) ]
-  %.0.copyload.i.i.i2.i.i = load i32, ptr %864, align 4
+  %.0.copyload.i.i.i2.i.i = load i32, ptr %864, align 1
   %865 = getelementptr inbounds nuw i8, ptr %862, i64 8
   %866 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #40
   store i32 %.0.copyload.i.i.i.i4.i, ptr %866, align 8, !tbaa !2586
@@ -46370,11 +46366,9 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit657: ; preds = %_ZNK5cl
 
 1336:                                             ; preds = %1332
   %1337 = getelementptr inbounds nuw i8, ptr %1333, i64 %1335
-  call void @llvm.assume(i1 true) [ "align"(ptr %1337, i64 4) ]
-  %.0.copyload.i.i.i.i3.i = load i32, ptr %1337, align 4
+  %.0.copyload.i.i.i.i3.i = load i32, ptr %1337, align 1
   %1338 = getelementptr inbounds nuw i8, ptr %1337, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %1338, i64 4) ]
-  %.0.copyload.i.i.i2.i.i658 = load i32, ptr %1338, align 4
+  %.0.copyload.i.i.i2.i.i658 = load i32, ptr %1338, align 1
   %1339 = getelementptr inbounds nuw i8, ptr %1337, i64 8
   %1340 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #40
   store i32 %.0.copyload.i.i.i.i3.i, ptr %1340, align 8, !tbaa !2614
@@ -48138,11 +48132,9 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12GlobalDeclIDELb1EE9push_backES2_.exit
 
 2189:                                             ; preds = %2182
   %2190 = getelementptr inbounds nuw i8, ptr %2183, i64 %2188
-  call void @llvm.assume(i1 true) [ "align"(ptr %2190, i64 4) ]
-  %.0.copyload.i.i.i.i3.i796 = load i32, ptr %2190, align 4
+  %.0.copyload.i.i.i.i3.i796 = load i32, ptr %2190, align 1
   %2191 = getelementptr inbounds nuw i8, ptr %2190, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %2191, i64 4) ]
-  %.0.copyload.i.i.i2.i.i797 = load i32, ptr %2191, align 4
+  %.0.copyload.i.i.i2.i.i797 = load i32, ptr %2191, align 1
   %2192 = getelementptr inbounds nuw i8, ptr %2190, i64 8
   %2193 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #40
   store i32 %.0.copyload.i.i.i.i3.i796, ptr %2193, align 8, !tbaa !2644
@@ -88505,8 +88497,7 @@ _ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader33LazySpecializationIn
   %133 = zext i32 %130 to i64
   %134 = shl nuw nsw i64 %133, 2
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 %134
-  call void @llvm.assume(i1 true) [ "align"(ptr %135, i64 4) ]
-  %.0.copyload.i.i.i.i = load i32, ptr %135, align 4, !noalias !3568
+  %.0.copyload.i.i.i.i = load i32, ptr %135, align 1, !noalias !3568
   %136 = icmp eq i32 %.0.copyload.i.i.i.i, 0
   br i1 %136, label %_ZN5clang13serialization6reader33LazySpecializationInfoLookupTrait12ReadDataIntoEjPKhjRNS2_17data_type_builderE.exit, label %137
 
@@ -90585,8 +90576,7 @@ _ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLo
   %145 = zext i32 %142 to i64
   %146 = shl nuw nsw i64 %145, 2
   %147 = getelementptr inbounds nuw i8, ptr %144, i64 %146
-  call void @llvm.assume(i1 true) [ "align"(ptr %147, i64 4) ]
-  %.0.copyload.i.i.i.i = load i32, ptr %147, align 4, !noalias !3644
+  %.0.copyload.i.i.i.i = load i32, ptr %147, align 1, !noalias !3644
   %148 = icmp eq i32 %.0.copyload.i.i.i.i, 0
   br i1 %148, label %_ZN5clang13serialization6reader29ASTDeclContextNameLookupTrait12ReadDataIntoENS0_18DeclarationNameKeyEPKhjRNS1_33ASTDeclContextNameLookupTraitBase17data_type_builderE.exit, label %149
 
@@ -91639,8 +91629,7 @@ _ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader26ModuleLocalNameLooku
   %160 = zext i32 %157 to i64
   %161 = shl nuw nsw i64 %160, 2
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 %161
-  call void @llvm.assume(i1 true) [ "align"(ptr %162, i64 4) ]
-  %.0.copyload.i.i.i.i = load i32, ptr %162, align 4, !noalias !3676
+  %.0.copyload.i.i.i.i = load i32, ptr %162, align 1, !noalias !3676
   %163 = icmp eq i32 %.0.copyload.i.i.i.i, 0
   br i1 %163, label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader26ModuleLocalNameLookupTraitEE11find_hashedERKSt4pairINS2_18DeclarationNameKeyEjEjPS4_.exit.thread, label %164
 
@@ -95491,8 +95480,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123IdentifierLookupVi
   %31 = zext i32 %28 to i64
   %32 = shl nuw nsw i64 %31, 2
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 %32
-  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 4) ]
-  %.0.copyload.i.i.i.i = load i32, ptr %33, align 4, !noalias !4375
+  %.0.copyload.i.i.i.i = load i32, ptr %33, align 1, !noalias !4375
   %34 = icmp eq i32 %.0.copyload.i.i.i.i, 0
   br i1 %34, label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader24ASTIdentifierLookupTraitEE11find_hashedERKNS_9StringRefEjPS4_.exit.thread, label %35
 
@@ -170081,8 +170069,7 @@ define linkonce_odr hidden void @_ZN4llvm22OnDiskChainedHashTableIN5clang13seria
   %14 = zext i32 %11 to i64
   %15 = shl nuw nsw i64 %14, 2
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 %15
-  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 4) ]
-  %.0.copyload.i.i.i = load i32, ptr %16, align 4
+  %.0.copyload.i.i.i = load i32, ptr %16, align 1
   %17 = icmp eq i32 %.0.copyload.i.i.i, 0
   br i1 %17, label %18, label %20
 
@@ -183325,8 +183312,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang13serialization21ReadMet
   %25 = zext i32 %22 to i64
   %26 = shl nuw nsw i64 %25, 2
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 %26
-  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %27, align 4, !noalias !6397
+  %.0.copyload.i.i.i.i.i = load i32, ptr %27, align 1, !noalias !6397
   %28 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %28, label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader22ASTSelectorLookupTraitEE4findERKNS1_8SelectorEPS4_.exit.thread, label %29
 
