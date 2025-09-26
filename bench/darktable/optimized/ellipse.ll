@@ -801,14 +801,13 @@ define internal range(i32 0, 2) i32 @_ellipse_get_points_border(ptr noundef %0, 
 53:                                               ; preds = %45
   %54 = load float, ptr %9, align 4, !tbaa !24
   %55 = load ptr, ptr %2, align 8, !tbaa !113
-  %56 = load float, ptr %55, align 64, !tbaa !24
+  %56 = load float, ptr %55, align 4, !tbaa !24
   %57 = fsub reassoc nsz arcp contract afn float %54, %56
   %58 = load float, ptr %47, align 4, !tbaa !24
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %60 = load float, ptr %59, align 4, !tbaa !24
   %61 = fsub reassoc nsz arcp contract afn float %58, %60
-  call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 64) ]
-  store float %54, ptr %55, align 64, !tbaa !24
+  store float %54, ptr %55, align 4, !tbaa !24
   %62 = load float, ptr %47, align 4, !tbaa !24
   store float %62, ptr %59, align 4, !tbaa !24
   %63 = load i32, ptr %3, align 4, !tbaa !30
@@ -832,9 +831,9 @@ define internal range(i32 0, 2) i32 @_ellipse_get_points_border(ptr noundef %0, 
   %indvars.iv.i = phi i64 [ 5, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.idx.i = shl nuw nsw i64 %indvars.iv.i, 3
   %70 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i
-  %71 = load float, ptr %70, align 8, !tbaa !24
+  %71 = load float, ptr %70, align 4, !tbaa !24
   %72 = fadd reassoc nsz arcp contract afn float %57, %71
-  store float %72, ptr %70, align 8, !tbaa !24
+  store float %72, ptr %70, align 4, !tbaa !24
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %74 = load float, ptr %73, align 4, !tbaa !24
   %75 = fadd reassoc nsz arcp contract afn float %61, %74

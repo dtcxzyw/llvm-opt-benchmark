@@ -7611,6 +7611,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %522, %525, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN5boost4asio6detail7binder0IZNS_7process2v213basic_processINS0_15any_io_executorEE14async_wait_op_clIRNS1_11composed_opIS8_NS1_13composed_workIFvS6_EEEZN11with_target15exit_code_async11test_methodEvE3$_0JFvNS_6system10error_codeEiEEEEEEvOT_E9completerEC2EOSP_.exit.i.i.i.i.i.i.i.i.i.i.i.i"
   %527 = call noalias align 16 dereferenceable_or_null(128) ptr @aligned_alloc(i64 noundef 16, i64 noundef 128) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %527, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %527, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %528, label %"_ZN5boost4asio6detail17executor_function4implINS1_7binder0IZNS_7process2v213basic_processINS0_15any_io_executorEE14async_wait_op_clIRNS1_11composed_opISA_NS1_13composed_workIFvS8_EEEZN11with_target15exit_code_async11test_methodEvE3$_0JFvNS_6system10error_codeEiEEEEEEvOT_E9completerEESaIvEE3ptr8allocateERKSS_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -8711,6 +8712,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i159:     ; preds = %1011, %1014, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i146, %"_ZN5boost4asio6detail7binder0IZNS_7process2v213basic_processINS0_15any_io_executorEE14async_wait_op_clIRNS1_11composed_opIS8_NS1_13composed_workIFvS6_EEEZN11with_target15exit_code_async11test_methodEvE3$_1JFvNS_6system10error_codeEiEEEEEEvOT_E9completerEC2EOSP_.exit.i.i.i.i.i.i.i.i.i.i.i.i"
   %1016 = call noalias align 16 dereferenceable_or_null(128) ptr @aligned_alloc(i64 noundef 16, i64 noundef 128) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %1016, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i160 = icmp eq ptr %1016, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i160, label %1017, label %"_ZN5boost4asio6detail17executor_function4implINS1_7binder0IZNS_7process2v213basic_processINS0_15any_io_executorEE14async_wait_op_clIRNS1_11composed_opISA_NS1_13composed_workIFvS8_EEEZN11with_target15exit_code_async11test_methodEvE3$_1JFvNS_6system10error_codeEiEEEEEEvOT_E9completerEESaIvEE3ptr8allocateERKSS_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -9811,6 +9813,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i225:     ; preds = %1500, %1503, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i212, %"_ZN5boost4asio6detail7binder0IZNS_7process2v213basic_processINS0_15any_io_executorEE14async_wait_op_clIRNS1_11composed_opIS8_NS1_13composed_workIFvS6_EEEZN11with_target15exit_code_async11test_methodEvE3$_2JFvNS_6system10error_codeEiEEEEEEvOT_E9completerEC2EOSP_.exit.i.i.i.i.i.i.i.i.i.i.i.i"
   %1505 = call noalias align 16 dereferenceable_or_null(128) ptr @aligned_alloc(i64 noundef 16, i64 noundef 128) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %1505, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i226 = icmp eq ptr %1505, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i226, label %1506, label %"_ZN5boost4asio6detail17executor_function4implINS1_7binder0IZNS_7process2v213basic_processINS0_15any_io_executorEE14async_wait_op_clIRNS1_11composed_opISA_NS1_13composed_workIFvS8_EEEZN11with_target15exit_code_async11test_methodEvE3$_2JFvNS_6system10error_codeEiEEEEEEvOT_E9completerEESaIvEE3ptr8allocateERKSS_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -10911,6 +10914,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i291:     ; preds = %1989, %1992, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i278, %"_ZN5boost4asio6detail7binder0IZNS_7process2v213basic_processINS0_15any_io_executorEE14async_wait_op_clIRNS1_11composed_opIS8_NS1_13composed_workIFvS6_EEEZN11with_target15exit_code_async11test_methodEvE3$_3JFvNS_6system10error_codeEiEEEEEEvOT_E9completerEC2EOSP_.exit.i.i.i.i.i.i.i.i.i.i.i.i"
   %1994 = call noalias align 16 dereferenceable_or_null(128) ptr @aligned_alloc(i64 noundef 16, i64 noundef 128) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %1994, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i292 = icmp eq ptr %1994, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i292, label %1995, label %"_ZN5boost4asio6detail17executor_function4implINS1_7binder0IZNS_7process2v213basic_processINS0_15any_io_executorEE14async_wait_op_clIRNS1_11composed_opISA_NS1_13composed_workIFvS8_EEEZN11with_target15exit_code_async11test_methodEvE3$_3JFvNS_6system10error_codeEiEEEEEEvOT_E9completerEESaIvEE3ptr8allocateERKSS_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -12011,6 +12015,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i357:     ; preds = %2478, %2481, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i344, %"_ZN5boost4asio6detail7binder0IZNS_7process2v213basic_processINS0_15any_io_executorEE14async_wait_op_clIRNS1_11composed_opIS8_NS1_13composed_workIFvS6_EEEZN11with_target15exit_code_async11test_methodEvE3$_4JFvNS_6system10error_codeEiEEEEEEvOT_E9completerEC2EOSP_.exit.i.i.i.i.i.i.i.i.i.i.i.i"
   %2483 = call noalias align 16 dereferenceable_or_null(128) ptr @aligned_alloc(i64 noundef 16, i64 noundef 128) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %2483, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i358 = icmp eq ptr %2483, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i358, label %2484, label %"_ZN5boost4asio6detail17executor_function4implINS1_7binder0IZNS_7process2v213basic_processINS0_15any_io_executorEE14async_wait_op_clIRNS1_11composed_opISA_NS1_13composed_workIFvS8_EEEZN11with_target15exit_code_async11test_methodEvE3$_4JFvNS_6system10error_codeEiEEEEEEvOT_E9completerEESaIvEE3ptr8allocateERKSS_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -13789,6 +13794,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %3267, %3270, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %3251
   %3272 = call noalias align 16 dereferenceable_or_null(208) ptr @aligned_alloc(i64 noundef 16, i64 noundef 208) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %3272, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %3272, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %3273, label %3277
 
@@ -15728,6 +15734,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i504: ; preds = %4103, %4106, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i491, %4087
   %4108 = call noalias align 16 dereferenceable_or_null(208) ptr @aligned_alloc(i64 noundef 16, i64 noundef 208) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %4108, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i505 = icmp eq ptr %4108, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i505, label %4109, label %4113
 
@@ -42047,6 +42054,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %326, %329, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN5boost4asio6detail7binder0IZNS_7process2v213basic_processINS0_15any_io_executorEE14async_wait_op_clIRNS1_11composed_opIS8_NS1_13composed_workIFvS6_EEEZN11with_target18exit_code_as_error11test_methodEvE3$_0JFvNS_6system10error_codeEiEEEEEEvOT_E9completerEC2EOSP_.exit.i.i.i.i.i.i.i.i.i.i.i.i"
   %331 = call noalias align 16 dereferenceable_or_null(128) ptr @aligned_alloc(i64 noundef 16, i64 noundef 128) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %331, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %331, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %332, label %"_ZN5boost4asio6detail17executor_function4implINS1_7binder0IZNS_7process2v213basic_processINS0_15any_io_executorEE14async_wait_op_clIRNS1_11composed_opISA_NS1_13composed_workIFvS8_EEEZN11with_target18exit_code_as_error11test_methodEvE3$_0JFvNS_6system10error_codeEiEEEEEEvOT_E9completerEESaIvEE3ptr8allocateERKSS_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -43144,6 +43152,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i75:      ; preds = %811, %814, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i62, %"_ZN5boost4asio6detail7binder0IZNS_7process2v213basic_processINS0_15any_io_executorEE14async_wait_op_clIRNS1_11composed_opIS8_NS1_13composed_workIFvS6_EEEZN11with_target18exit_code_as_error11test_methodEvE3$_1JFvNS_6system10error_codeEiEEEEEEvOT_E9completerEC2EOSP_.exit.i.i.i.i.i.i.i.i.i.i.i.i"
   %816 = call noalias align 16 dereferenceable_or_null(128) ptr @aligned_alloc(i64 noundef 16, i64 noundef 128) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %816, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %816, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i76, label %817, label %"_ZN5boost4asio6detail17executor_function4implINS1_7binder0IZNS_7process2v213basic_processINS0_15any_io_executorEE14async_wait_op_clIRNS1_11composed_opISA_NS1_13composed_workIFvS8_EEEZN11with_target18exit_code_as_error11test_methodEvE3$_1JFvNS_6system10error_codeEiEEEEEEvOT_E9completerEESaIvEE3ptr8allocateERKSS_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -44241,6 +44250,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i140:     ; preds = %1296, %1299, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i127, %"_ZN5boost4asio6detail7binder0IZNS_7process2v213basic_processINS0_15any_io_executorEE14async_wait_op_clIRNS1_11composed_opIS8_NS1_13composed_workIFvS6_EEEZN11with_target18exit_code_as_error11test_methodEvE3$_2JFvNS_6system10error_codeEiEEEEEEvOT_E9completerEC2EOSP_.exit.i.i.i.i.i.i.i.i.i.i.i.i"
   %1301 = call noalias align 16 dereferenceable_or_null(128) ptr @aligned_alloc(i64 noundef 16, i64 noundef 128) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %1301, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i141 = icmp eq ptr %1301, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i141, label %1302, label %"_ZN5boost4asio6detail17executor_function4implINS1_7binder0IZNS_7process2v213basic_processINS0_15any_io_executorEE14async_wait_op_clIRNS1_11composed_opISA_NS1_13composed_workIFvS8_EEEZN11with_target18exit_code_as_error11test_methodEvE3$_2JFvNS_6system10error_codeEiEEEEEEvOT_E9completerEESaIvEE3ptr8allocateERKSS_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -49935,6 +49945,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %699, %702, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %683
   %704 = call noalias align 16 dereferenceable_or_null(224) ptr @aligned_alloc(i64 noundef 16, i64 noundef 224) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %704, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %704, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %705, label %709
 
@@ -50778,6 +50789,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i:                        ; preds = %1036, %1040, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i, %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEED2Ev.exit
   %1042 = call noalias align 16 dereferenceable_or_null(128) ptr @aligned_alloc(i64 noundef 16, i64 noundef 128) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %1042, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i = icmp eq ptr %1042, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i, label %1043, label %1047
 
@@ -53385,6 +53397,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %696, %699, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %680
   %701 = call noalias align 16 dereferenceable_or_null(224) ptr @aligned_alloc(i64 noundef 16, i64 noundef 224) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %701, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %701, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %702, label %706
 
@@ -54228,6 +54241,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i:                        ; preds = %1033, %1037, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i, %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEED2Ev.exit
   %1039 = call noalias align 16 dereferenceable_or_null(128) ptr @aligned_alloc(i64 noundef 16, i64 noundef 128) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %1039, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i = icmp eq ptr %1039, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i, label %1040, label %1044
 
@@ -62362,6 +62376,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %121, %125, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %100
   %127 = call noalias align 16 dereferenceable_or_null(368) ptr @aligned_alloc(i64 noundef 16, i64 noundef 368) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %127, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %128, label %"_ZN5boost4asio6detail16reactive_wait_opINS1_11composed_opINS_7process2v26detail23basic_process_handle_fdINS0_15any_io_executorEE14async_wait_op_ENS1_13composed_workIFvS8_EEENS3_INS5_13basic_processIS8_E14async_wait_op_ESD_ZN11with_target15exit_code_async11test_methodEvE3$_0JFvNS_6system10error_codeEiEEEEJSM_EEES8_E3ptr8allocateERSO_.exit.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -63331,6 +63346,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %550, %553, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %534
   %555 = call noalias align 16 dereferenceable_or_null(224) ptr @aligned_alloc(i64 noundef 16, i64 noundef 224) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %555, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %555, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %556, label %560
 
@@ -65362,6 +65378,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit8.i: ; pre
 
 .loopexit.i:                                      ; preds = %47, %_ZN5boost4asio6detail16thread_info_base10deallocateINS2_23cancellation_signal_tagEEEvT_PS2_Pvm.exit.i, %50, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit8.i
   %52 = tail call noalias align 16 dereferenceable_or_null(48) ptr @aligned_alloc(i64 noundef 16, i64 noundef 48) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 16) ]
   %.not.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i, label %53, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_23cancellation_signal_tagEEEPvT_PS2_mm.exit
 
@@ -65732,6 +65749,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %149, %152, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %133
   %154 = call noalias align 16 dereferenceable_or_null(224) ptr @aligned_alloc(i64 noundef 16, i64 noundef 224) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %154, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %154, null
   br i1 %.not.i.i1.i.i.i.i.i.i, label %155, label %159
 
@@ -68313,6 +68331,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %121, %125, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %100
   %127 = call noalias align 16 dereferenceable_or_null(368) ptr @aligned_alloc(i64 noundef 16, i64 noundef 368) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %127, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %128, label %"_ZN5boost4asio6detail16reactive_wait_opINS1_11composed_opINS_7process2v26detail23basic_process_handle_fdINS0_15any_io_executorEE14async_wait_op_ENS1_13composed_workIFvS8_EEENS3_INS5_13basic_processIS8_E14async_wait_op_ESD_ZN11with_target15exit_code_async11test_methodEvE3$_1JFvNS_6system10error_codeEiEEEEJSM_EEES8_E3ptr8allocateERSO_.exit.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -69282,6 +69301,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %550, %553, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %534
   %555 = call noalias align 16 dereferenceable_or_null(224) ptr @aligned_alloc(i64 noundef 16, i64 noundef 224) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %555, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %555, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %556, label %560
 
@@ -70801,6 +70821,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %149, %152, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %133
   %154 = call noalias align 16 dereferenceable_or_null(224) ptr @aligned_alloc(i64 noundef 16, i64 noundef 224) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %154, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %154, null
   br i1 %.not.i.i1.i.i.i.i.i.i, label %155, label %159
 
@@ -72553,6 +72574,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %121, %125, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %100
   %127 = call noalias align 16 dereferenceable_or_null(368) ptr @aligned_alloc(i64 noundef 16, i64 noundef 368) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %127, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %128, label %"_ZN5boost4asio6detail16reactive_wait_opINS1_11composed_opINS_7process2v26detail23basic_process_handle_fdINS0_15any_io_executorEE14async_wait_op_ENS1_13composed_workIFvS8_EEENS3_INS5_13basic_processIS8_E14async_wait_op_ESD_ZN11with_target15exit_code_async11test_methodEvE3$_2JFvNS_6system10error_codeEiEEEEJSM_EEES8_E3ptr8allocateERSO_.exit.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -73522,6 +73544,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %550, %553, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %534
   %555 = call noalias align 16 dereferenceable_or_null(224) ptr @aligned_alloc(i64 noundef 16, i64 noundef 224) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %555, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %555, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %556, label %560
 
@@ -75041,6 +75064,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %149, %152, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %133
   %154 = call noalias align 16 dereferenceable_or_null(224) ptr @aligned_alloc(i64 noundef 16, i64 noundef 224) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %154, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %154, null
   br i1 %.not.i.i1.i.i.i.i.i.i, label %155, label %159
 
@@ -76793,6 +76817,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %121, %125, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %100
   %127 = call noalias align 16 dereferenceable_or_null(368) ptr @aligned_alloc(i64 noundef 16, i64 noundef 368) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %127, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %128, label %"_ZN5boost4asio6detail16reactive_wait_opINS1_11composed_opINS_7process2v26detail23basic_process_handle_fdINS0_15any_io_executorEE14async_wait_op_ENS1_13composed_workIFvS8_EEENS3_INS5_13basic_processIS8_E14async_wait_op_ESD_ZN11with_target15exit_code_async11test_methodEvE3$_3JFvNS_6system10error_codeEiEEEEJSM_EEES8_E3ptr8allocateERSO_.exit.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -77762,6 +77787,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %550, %553, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %534
   %555 = call noalias align 16 dereferenceable_or_null(224) ptr @aligned_alloc(i64 noundef 16, i64 noundef 224) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %555, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %555, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %556, label %560
 
@@ -79281,6 +79307,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %149, %152, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %133
   %154 = call noalias align 16 dereferenceable_or_null(224) ptr @aligned_alloc(i64 noundef 16, i64 noundef 224) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %154, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %154, null
   br i1 %.not.i.i1.i.i.i.i.i.i, label %155, label %159
 
@@ -81033,6 +81060,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %121, %125, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %100
   %127 = call noalias align 16 dereferenceable_or_null(368) ptr @aligned_alloc(i64 noundef 16, i64 noundef 368) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %127, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %128, label %"_ZN5boost4asio6detail16reactive_wait_opINS1_11composed_opINS_7process2v26detail23basic_process_handle_fdINS0_15any_io_executorEE14async_wait_op_ENS1_13composed_workIFvS8_EEENS3_INS5_13basic_processIS8_E14async_wait_op_ESD_ZN11with_target15exit_code_async11test_methodEvE3$_4JFvNS_6system10error_codeEiEEEEJSM_EEES8_E3ptr8allocateERSO_.exit.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -82002,6 +82030,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %550, %553, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %534
   %555 = call noalias align 16 dereferenceable_or_null(224) ptr @aligned_alloc(i64 noundef 16, i64 noundef 224) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %555, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %555, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %556, label %560
 
@@ -83521,6 +83550,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %149, %152, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %133
   %154 = call noalias align 16 dereferenceable_or_null(224) ptr @aligned_alloc(i64 noundef 16, i64 noundef 224) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %154, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %154, null
   br i1 %.not.i.i1.i.i.i.i.i.i, label %155, label %159
 
@@ -85246,6 +85276,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit8.i: ; pre
 
 .loopexit.i:                                      ; preds = %44, %_ZN5boost4asio6detail16thread_info_base10deallocateINS2_23cancellation_signal_tagEEEvT_PS2_Pvm.exit.i, %47, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit8.i
   %49 = tail call noalias align 16 dereferenceable_or_null(32) ptr @aligned_alloc(i64 noundef 16, i64 noundef 32) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %49, i64 16) ]
   %.not.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i, label %50, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_23cancellation_signal_tagEEEPvT_PS2_mm.exit
 
@@ -85558,6 +85589,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit8.i: ; pre
 
 .loopexit.i:                                      ; preds = %45, %_ZN5boost4asio6detail16thread_info_base10deallocateINS2_23cancellation_signal_tagEEEvT_PS2_Pvm.exit.i, %48, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit8.i
   %50 = tail call noalias align 16 dereferenceable_or_null(48) ptr @aligned_alloc(i64 noundef 16, i64 noundef 48) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 16) ]
   %.not.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i, label %51, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_23cancellation_signal_tagEEEPvT_PS2_mm.exit
 
@@ -86122,6 +86154,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %188, %192, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %167
   %194 = call noalias align 16 dereferenceable_or_null(464) ptr @aligned_alloc(i64 noundef 16, i64 noundef 464) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %194, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %194, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %195, label %"_ZN5boost4asio6detail16reactive_wait_opINS1_11composed_opINS_7process2v26detail23basic_process_handle_fdINS0_15any_io_executorEE14async_wait_op_ENS1_13composed_workIFvS8_EEENS3_INS5_13basic_processIS8_E14async_wait_op_ESD_NS0_24cancellation_slot_binderINS3_INS6_10execute_opIS8_EESD_ZN11with_target15exit_code_async11test_methodEvE3$_5JFvNS_6system10error_codeEiEEEENS0_17cancellation_slotEEEJSP_EEEJSP_EEES8_E3ptr8allocateERSU_.exit.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -86865,6 +86898,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %503, %506, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %486
   %508 = call noalias align 16 dereferenceable_or_null(320) ptr @aligned_alloc(i64 noundef 16, i64 noundef 320) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %508, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %508, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %509, label %513
 
@@ -88615,6 +88649,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %97, %100, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %80
   %102 = call noalias align 16 dereferenceable_or_null(320) ptr @aligned_alloc(i64 noundef 16, i64 noundef 320) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %102, null
   br i1 %.not.i.i1.i.i.i.i.i.i, label %103, label %107
 
@@ -90376,6 +90411,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %188, %192, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %167
   %194 = call noalias align 16 dereferenceable_or_null(464) ptr @aligned_alloc(i64 noundef 16, i64 noundef 464) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %194, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %194, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %195, label %"_ZN5boost4asio6detail16reactive_wait_opINS1_11composed_opINS_7process2v26detail23basic_process_handle_fdINS0_15any_io_executorEE14async_wait_op_ENS1_13composed_workIFvS8_EEENS3_INS5_13basic_processIS8_E14async_wait_op_ESD_NS0_24cancellation_slot_binderINS3_INS6_10execute_opIS8_EESD_ZN11with_target15exit_code_async11test_methodEvE3$_6JFvNS_6system10error_codeEiEEEENS0_17cancellation_slotEEEJSP_EEEJSP_EEES8_E3ptr8allocateERSU_.exit.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -91119,6 +91155,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %503, %506, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %486
   %508 = call noalias align 16 dereferenceable_or_null(320) ptr @aligned_alloc(i64 noundef 16, i64 noundef 320) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %508, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %508, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %509, label %513
 
@@ -92869,6 +92906,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %97, %100, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %80
   %102 = call noalias align 16 dereferenceable_or_null(320) ptr @aligned_alloc(i64 noundef 16, i64 noundef 320) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %102, null
   br i1 %.not.i.i1.i.i.i.i.i.i, label %103, label %107
 
@@ -96163,6 +96201,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %120, %124, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %99
   %126 = call noalias align 16 dereferenceable_or_null(368) ptr @aligned_alloc(i64 noundef 16, i64 noundef 368) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %126, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %126, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %127, label %"_ZN5boost4asio6detail16reactive_wait_opINS1_11composed_opINS_7process2v26detail23basic_process_handle_fdINS0_15any_io_executorEE14async_wait_op_ENS1_13composed_workIFvS8_EEENS3_INS5_13basic_processIS8_E14async_wait_op_ESD_ZN11with_target18exit_code_as_error11test_methodEvE3$_0JFvNS_6system10error_codeEiEEEEJSM_EEES8_E3ptr8allocateERSO_.exit.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -97129,6 +97168,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %546, %549, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %530
   %551 = call noalias align 16 dereferenceable_or_null(240) ptr @aligned_alloc(i64 noundef 16, i64 noundef 240) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %551, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %551, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %552, label %556
 
@@ -98533,6 +98573,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %148, %151, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %132
   %153 = call noalias align 16 dereferenceable_or_null(224) ptr @aligned_alloc(i64 noundef 16, i64 noundef 224) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %153, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %153, null
   br i1 %.not.i.i1.i.i.i.i.i.i, label %154, label %158
 
@@ -100276,6 +100317,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %120, %124, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %99
   %126 = call noalias align 16 dereferenceable_or_null(368) ptr @aligned_alloc(i64 noundef 16, i64 noundef 368) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %126, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %126, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %127, label %"_ZN5boost4asio6detail16reactive_wait_opINS1_11composed_opINS_7process2v26detail23basic_process_handle_fdINS0_15any_io_executorEE14async_wait_op_ENS1_13composed_workIFvS8_EEENS3_INS5_13basic_processIS8_E14async_wait_op_ESD_ZN11with_target18exit_code_as_error11test_methodEvE3$_1JFvNS_6system10error_codeEiEEEEJSM_EEES8_E3ptr8allocateERSO_.exit.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -101242,6 +101284,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %546, %549, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %530
   %551 = call noalias align 16 dereferenceable_or_null(240) ptr @aligned_alloc(i64 noundef 16, i64 noundef 240) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %551, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %551, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %552, label %556
 
@@ -102651,6 +102694,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %148, %151, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %132
   %153 = call noalias align 16 dereferenceable_or_null(224) ptr @aligned_alloc(i64 noundef 16, i64 noundef 224) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %153, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %153, null
   br i1 %.not.i.i1.i.i.i.i.i.i, label %154, label %158
 
@@ -104394,6 +104438,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %120, %124, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %99
   %126 = call noalias align 16 dereferenceable_or_null(368) ptr @aligned_alloc(i64 noundef 16, i64 noundef 368) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %126, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %126, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %127, label %"_ZN5boost4asio6detail16reactive_wait_opINS1_11composed_opINS_7process2v26detail23basic_process_handle_fdINS0_15any_io_executorEE14async_wait_op_ENS1_13composed_workIFvS8_EEENS3_INS5_13basic_processIS8_E14async_wait_op_ESD_ZN11with_target18exit_code_as_error11test_methodEvE3$_2JFvNS_6system10error_codeEiEEEEJSM_EEES8_E3ptr8allocateERSO_.exit.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -105360,6 +105405,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %546, %549, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %530
   %551 = call noalias align 16 dereferenceable_or_null(240) ptr @aligned_alloc(i64 noundef 16, i64 noundef 240) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %551, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %551, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %552, label %556
 
@@ -106769,6 +106815,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %148, %151, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %132
   %153 = call noalias align 16 dereferenceable_or_null(224) ptr @aligned_alloc(i64 noundef 16, i64 noundef 224) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %153, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %153, null
   br i1 %.not.i.i1.i.i.i.i.i.i, label %154, label %158
 
@@ -108443,6 +108490,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit8.i: ; pre
 
 .loopexit.i:                                      ; preds = %45, %_ZN5boost4asio6detail16thread_info_base10deallocateINS2_23cancellation_signal_tagEEEvT_PS2_Pvm.exit.i, %48, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit8.i
   %50 = tail call noalias align 16 dereferenceable_or_null(48) ptr @aligned_alloc(i64 noundef 16, i64 noundef 48) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 16) ]
   %.not.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i, label %51, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_23cancellation_signal_tagEEEPvT_PS2_mm.exit
 
@@ -109039,6 +109087,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %190, %194, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %169
   %196 = call noalias align 16 dereferenceable_or_null(480) ptr @aligned_alloc(i64 noundef 16, i64 noundef 480) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %196, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %196, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %197, label %"_ZN5boost4asio6detail16reactive_wait_opINS1_11composed_opINS_7process2v26detail23basic_process_handle_fdINS0_15any_io_executorEE14async_wait_op_ENS1_13composed_workIFvS8_EEENS3_INS5_13basic_processIS8_E14async_wait_op_ESD_NS0_24cancellation_slot_binderINS3_INS6_10execute_opIS8_EESD_NSH_IZN11with_target15async_interrupt11test_methodEvE3$_0NS0_17cancellation_slotEEEJFvNS_6system10error_codeEiEEEESN_EEJSR_EEEJSR_EEES8_E3ptr8allocateERSV_.exit.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -109782,6 +109831,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %505, %508, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %488
   %510 = call noalias align 16 dereferenceable_or_null(336) ptr @aligned_alloc(i64 noundef 16, i64 noundef 336) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %510, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %510, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %511, label %515
 
@@ -111590,6 +111640,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %97, %100, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %80
   %102 = call noalias align 16 dereferenceable_or_null(336) ptr @aligned_alloc(i64 noundef 16, i64 noundef 336) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %102, null
   br i1 %.not.i.i1.i.i.i.i.i.i, label %103, label %107
 
@@ -113387,6 +113438,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %190, %194, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %169
   %196 = call noalias align 16 dereferenceable_or_null(480) ptr @aligned_alloc(i64 noundef 16, i64 noundef 480) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %196, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %196, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %197, label %"_ZN5boost4asio6detail16reactive_wait_opINS1_11composed_opINS_7process2v26detail23basic_process_handle_fdINS0_15any_io_executorEE14async_wait_op_ENS1_13composed_workIFvS8_EEENS3_INS5_13basic_processIS8_E14async_wait_op_ESD_NS0_24cancellation_slot_binderINS3_INS6_10execute_opIS8_EESD_NSH_IZN11with_target18async_request_exit11test_methodEvE3$_0NS0_17cancellation_slotEEEJFvNS_6system10error_codeEiEEEESN_EEJSR_EEEJSR_EEES8_E3ptr8allocateERSV_.exit.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -114130,6 +114182,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %505, %508, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %488
   %510 = call noalias align 16 dereferenceable_or_null(336) ptr @aligned_alloc(i64 noundef 16, i64 noundef 336) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %510, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %510, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %511, label %515
 
@@ -115938,6 +115991,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %97, %100, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %80
   %102 = call noalias align 16 dereferenceable_or_null(336) ptr @aligned_alloc(i64 noundef 16, i64 noundef 336) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %102, null
   br i1 %.not.i.i1.i.i.i.i.i.i, label %103, label %107
 
@@ -121360,6 +121414,7 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_func
 
 .loopexit.i:                                      ; preds = %16, %1, %20, %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_functionESaIvENS1_19scheduler_operationEEENS1_16thread_info_base11default_tagEE8allocateEm.exit
   %22 = tail call noalias align 16 dereferenceable_or_null(48) ptr @aligned_alloc(i64 noundef 16, i64 noundef 48) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 16) ]
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_11default_tagEEEPvT_PS2_mm.exit
 
@@ -133432,6 +133487,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %80, %83, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %64
   %85 = call noalias align 16 dereferenceable_or_null(64) ptr @aligned_alloc(i64 noundef 16, i64 noundef 64) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %85, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %85, null
   br i1 %.not.i.i1.i.i.i.i.i.i, label %86, label %"_ZN5boost4asio6detail17executor_functionC2INS1_7binder1IZN11with_target15async_interrupt11test_methodEvE3$_1NS_6system10error_codeEEESaIvEEET_RKT0_.exit.i.i.i"
 
@@ -134179,6 +134235,7 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %80, %83, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i.i.i.i.i, %64
   %85 = call noalias align 16 dereferenceable_or_null(64) ptr @aligned_alloc(i64 noundef 16, i64 noundef 64) #43
+  call void @llvm.assume(i1 true) [ "align"(ptr %85, i64 16) ]
   %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %85, null
   br i1 %.not.i.i1.i.i.i.i.i.i, label %86, label %"_ZN5boost4asio6detail17executor_functionC2INS1_7binder1IZN11with_target18async_request_exit11test_methodEvE3$_1NS_6system10error_codeEEESaIvEEET_RKT0_.exit.i.i.i"
 
