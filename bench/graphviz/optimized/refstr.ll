@@ -568,8 +568,8 @@ gv_calloc.exit:                                   ; preds = %21
   store i64 0, ptr %32, align 8, !tbaa !29
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %23, ptr %33, align 8, !tbaa !25
-  %.not56 = icmp eq i64 %25, 0
-  br i1 %.not56, label %._crit_edge, label %.lr.ph
+  %.not55 = icmp eq i64 %25, 0
+  br i1 %.not55, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %39
   %.pre = load ptr, ptr %0, align 8, !tbaa !23
@@ -581,13 +581,13 @@ gv_calloc.exit:                                   ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre59 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !25
+  %.pre58 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !25
   br label %41
 
 .lr.ph:                                           ; preds = %gv_calloc.exit, %39
-  %.04152 = phi i64 [ %40, %39 ], [ 0, %gv_calloc.exit ]
+  %.04151 = phi i64 [ %40, %39 ], [ 0, %gv_calloc.exit ]
   %35 = load ptr, ptr %0, align 8, !tbaa !23
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.04152
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.04151
   %37 = load ptr, ptr %36, align 8, !tbaa !20
   %magicptr = ptrtoint ptr %37 to i64
   %magicptr.off = add i64 %magicptr, -1
@@ -599,12 +599,12 @@ gv_calloc.exit:                                   ; preds = %21
   br label %39
 
 39:                                               ; preds = %.lr.ph, %38
-  %40 = add nuw i64 %.04152, 1
+  %40 = add nuw i64 %.04151, 1
   %exitcond.not = icmp eq i64 %40, %25
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !33
 
 41:                                               ; preds = %._crit_edge, %6
-  %42 = phi i64 [ %.pre59, %._crit_edge ], [ %8, %6 ]
+  %42 = phi i64 [ %.pre58, %._crit_edge ], [ %8, %6 ]
   %43 = phi ptr [ %24, %._crit_edge ], [ %9, %6 ]
   %44 = shl nuw i64 1, %42
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -620,7 +620,7 @@ gv_calloc.exit:                                   ; preds = %21
   %exitcond58.not = icmp eq i64 %52, %44
   br i1 %exitcond58.not, label %.critedge48, label %53, !llvm.loop !34
 
-53:                                               ; preds = %41, %51
+53:; preds = %41, %51
   %.04055 = phi i64 [ 0, %41 ], [ %52, %51 ]
   %54 = add i64 %.04055, %48
   %55 = and i64 %54, %49

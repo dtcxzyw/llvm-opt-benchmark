@@ -4914,13 +4914,13 @@ _ZN17pyo3_build_config5impl_25load_cross_compile_config17h3df21c1adc49da8dE.exit
   %234 = icmp eq i8 %232, 3
   br i1 %234, label %235, label %239
 
-235:                                              ; preds = %227
+235: ; preds = %227
   %236 = getelementptr inbounds nuw i8, ptr %52, i64 153
   %237 = load i8, ptr %236, align 1, !noalias !42
   %238 = call i8 @llvm.ucmp.i8.i8(i8 %.sroa.33.0.extract.trunc.i, i8 %237)
   br label %239
 
-239:                                              ; preds = %235, %227
+239:; preds = %235, %227
   %.sroa.04.0.i = phi i8 [ %238, %235 ], [ %233, %227 ]
   %.sroa.04.0.off.i = add nsw i8 %.sroa.04.0.i, -1
   %switch.i = icmp ult i8 %.sroa.04.0.off.i, -2

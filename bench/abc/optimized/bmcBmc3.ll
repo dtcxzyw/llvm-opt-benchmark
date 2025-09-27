@@ -3507,17 +3507,17 @@ Saig_ObjIsPi.exit.thread:                         ; preds = %Saig_ObjIsPi.exit
   %.val110.pre = load i32, ptr %7, align 4, !tbaa !27
   %.phi.trans.insert = getelementptr i8, ptr %.val108.pre, i64 8
   %.val108.val.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !71
-  %.phi.trans.insert174 = getelementptr i8, ptr %.val109.pre, i64 8
-  %.val109.val.pre = load ptr, ptr %.phi.trans.insert174, align 8, !tbaa !23
-  %.phi.trans.insert176 = getelementptr inbounds ptr, ptr %.val109.val.pre, i64 %13
-  %.pre = load ptr, ptr %.phi.trans.insert176, align 8, !tbaa !25
-  %.phi.trans.insert177 = getelementptr i8, ptr %.pre, i64 8
-  %.val9.i.pre = load ptr, ptr %.phi.trans.insert177, align 8, !tbaa !71
-  %.pre179 = sext i32 %.val110.pre to i64
+  %.phi.trans.insert173 = getelementptr i8, ptr %.val109.pre, i64 8
+  %.val109.val.pre = load ptr, ptr %.phi.trans.insert173, align 8, !tbaa !23
+  %.phi.trans.insert175 = getelementptr inbounds ptr, ptr %.val109.val.pre, i64 %13
+  %.pre = load ptr, ptr %.phi.trans.insert175, align 8, !tbaa !25
+  %.phi.trans.insert176 = getelementptr i8, ptr %.pre, i64 8
+  %.val9.i.pre = load ptr, ptr %.phi.trans.insert176, align 8, !tbaa !71
+  %.pre178 = sext i32 %.val110.pre to i64
   br label %42
 
 42:                                               ; preds = %Saig_ObjIsPi.exit.thread, %26
-  %.pre-phi = phi i64 [ %.pre179, %Saig_ObjIsPi.exit.thread ], [ %10, %26 ]
+  %.pre-phi = phi i64 [ %.pre178, %Saig_ObjIsPi.exit.thread ], [ %10, %26 ]
   %.val9.i = phi ptr [ %.val9.i.pre, %Saig_ObjIsPi.exit.thread ], [ %.val6.i, %26 ]
   %.val108.val = phi ptr [ %.val108.val.pre, %Saig_ObjIsPi.exit.thread ], [ %.val105.val, %26 ]
   %.088 = phi i32 [ %41, %Saig_ObjIsPi.exit.thread ], [ %30, %26 ]
@@ -3728,8 +3728,8 @@ Saig_ManBmcCofEqual.exit.thread.i.us145:          ; preds = %120, %Saig_ManBmcCo
   %123 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv31.i.us149
   %124 = load i32, ptr %123, align 4, !tbaa !28
   %125 = icmp ne i32 %124, -1
-  %switch157 = icmp eq i64 %indvars.iv31.i.us149, 0
-  %or.cond = and i1 %125, %switch157
+  %switch156 = icmp eq i64 %indvars.iv31.i.us149, 0
+  %or.cond = and i1 %125, %switch156
   br i1 %or.cond, label %Saig_ManBmcCofEqual.exit.i.us150, label %126
 
 Saig_ManBmcCofEqual.exit.i.us150:                 ; preds = %.preheader.i.split.split.split.split.us
@@ -3844,9 +3844,9 @@ Saig_ManBmcReduceTruth.exit:                      ; preds = %126, %122, %116, %1
   br label %177
 
 177:                                              ; preds = %168, %Vec_IntPush.exit
-  %indvars.iv166 = phi i64 [ 0, %168 ], [ %indvars.iv.next167, %Vec_IntPush.exit ]
+  %indvars.iv165 = phi i64 [ 0, %168 ], [ %indvars.iv.next166, %Vec_IntPush.exit ]
   %178 = load ptr, ptr %174, align 8, !tbaa !119
-  %179 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv166
+  %179 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv165
   %180 = load i32, ptr %179, align 4, !tbaa !28
   %181 = getelementptr inbounds nuw i8, ptr %178, i64 4
   %182 = load i32, ptr %181, align 4, !tbaa !83
@@ -3914,9 +3914,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %210 = sext i32 %208 to i64
   %211 = getelementptr inbounds i32, ptr %207, i64 %210
   store i32 %180, ptr %211, align 4, !tbaa !28
-  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
-  %exitcond169.not = icmp eq i64 %indvars.iv.next167, 5
-  br i1 %exitcond169.not, label %212, label %177, !llvm.loop !168
+  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
+  %exitcond168.not = icmp eq i64 %indvars.iv.next166, 5
+  br i1 %exitcond168.not, label %212, label %177, !llvm.loop !168
 
 212:                                              ; preds = %Vec_IntPush.exit
   %213 = sdiv i32 %.val123, 5
@@ -3985,11 +3985,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %42, %44, %148, %244
-  %.sink194.in = phi ptr [ %248, %244 ], [ %154, %148 ], [ %56, %44 ], [ %43, %42 ]
+  %.sink193.in = phi ptr [ %248, %244 ], [ %154, %148 ], [ %56, %44 ], [ %43, %42 ]
   %.val9.i131.sink = phi ptr [ %.val9.i131, %244 ], [ %.val9.i130, %148 ], [ %.val9.i127, %44 ], [ %.val9.i, %42 ]
   %.2.sink = phi i32 [ %.2, %244 ], [ %150, %148 ], [ %spec.select, %44 ], [ %.088, %42 ]
-  %.sink194 = load i32, ptr %.sink194.in, align 4, !tbaa !28
-  %252 = sext i32 %.sink194 to i64
+  %.sink193 = load i32, ptr %.sink193.in, align 4, !tbaa !28
+  %252 = sext i32 %.sink193 to i64
   %253 = getelementptr inbounds i32, ptr %.val9.i131.sink, i64 %252
   store i32 %.2.sink, ptr %253, align 4, !tbaa !28
   br label %254

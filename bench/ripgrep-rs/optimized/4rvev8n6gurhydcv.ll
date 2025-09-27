@@ -7913,8 +7913,8 @@ common.resume:                                    ; preds = %6, %32
   %34 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8
   %35 = icmp ult i64 %34, 6
   tail call void @llvm.assume(i1 %35)
-  %switch13 = icmp samesign ugt i64 %34, 1
-  br i1 %switch13, label %36, label %8
+  %switch.selectcmp13 = icmp samesign ugt i64 %34, 1
+  br i1 %switch.selectcmp13, label %36, label %8
 
 36:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

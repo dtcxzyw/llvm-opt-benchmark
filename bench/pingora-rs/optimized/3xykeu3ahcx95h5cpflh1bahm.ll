@@ -12474,7 +12474,7 @@ define void @"_ZN138_$LT$pingora_core..protocols..l4..socket..SocketAddr$u20$as$
   %.not10 = icmp eq i32 %.pre, 2
   %11 = trunc i32 %.pre to i1
   %or.cond = or i1 %.not10, %11
-  br i1 %or.cond, label %12, label %.thread19
+  br i1 %or.cond, label %12, label %18
 
 12:                                               ; preds = %.thread, %9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -12483,8 +12483,8 @@ define void @"_ZN138_$LT$pingora_core..protocols..l4..socket..SocketAddr$u20$as$
   store ptr @"_ZN77_$LT$tokio..net..unix..socketaddr..SocketAddr$u20$as$u20$core..fmt..Debug$GT$3fmt17h6c9c83ddb0380144E", ptr %.sroa.46.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1174
   store ptr @anon.37e46a1dd809dbd3f1a25a0465fcd5e0.240, ptr %3, align 8, !noalias !1181
-  %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 2, ptr %.sroa.414.0..sroa_idx, align 8, !noalias !1181
+  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 2, ptr %.sroa.413.0..sroa_idx, align 8, !noalias !1181
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %4, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !1181
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -12506,14 +12506,14 @@ define void @"_ZN138_$LT$pingora_core..protocols..l4..socket..SocketAddr$u20$as$
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdd4a828948364accE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
           to label %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$std..io..error..Error$GT$$GT$$GT$17ha16e912fbadb112fE.exit" unwind label %24
 
-.thread19:                                        ; preds = %9
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 4
+18:                                               ; preds = %9
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(116) %18, i64 116, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(116) %19, i64 116, i1 false)
   store i32 1, ptr %0, align 8
   br label %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$std..io..error..Error$GT$$GT$$GT$17ha16e912fbadb112fE.exit12"
 
-19:                                               ; preds = %12
+20:                                               ; preds = %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1174
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12523,12 +12523,12 @@ define void @"_ZN138_$LT$pingora_core..protocols..l4..socket..SocketAddr$u20$as$
   %21 = icmp eq i32 %.pre15, 1
   br i1 %21, label %22, label %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$std..io..error..Error$GT$$GT$$GT$17ha16e912fbadb112fE.exit12"
 
-22:                                               ; preds = %19
+22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdd4a828948364accE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %23)
-  br label %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$std..io..error..Error$GT$$GT$$GT$17ha16e912fbadb112fE.exit12"
+  br label %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$std..io..error..Error$GT$$GT$$GT$17ha16e912fbadb112fE.exit11"
 
-"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$std..io..error..Error$GT$$GT$$GT$17ha16e912fbadb112fE.exit12": ; preds = %.thread19, %19, %22
+"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$std..io..error..Error$GT$$GT$$GT$17ha16e912fbadb112fE.exit11": ; preds = %18, %19, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 

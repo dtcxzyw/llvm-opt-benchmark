@@ -1753,9 +1753,9 @@ BufferGetPage.exit.i.i:                           ; preds = %704, %698
   %719 = add nuw nsw i32 %718, 262120
   %720 = lshr i32 %719, 2
   %721 = trunc i32 %720 to i16
-  %.not3437.i.i.i = icmp eq i16 %721, 0
-  %.not34.i.i.i = select i1 %717, i1 true, i1 %.not3437.i.i.i
-  br i1 %.not34.i.i.i, label %ScanSourceDatabasePgClassPage.exit.i.i, label %.lr.ph.i.i.i
+  %.not3538.i.i.i = icmp eq i16 %721, 0
+  %.not35.i.i.i = select i1 %717, i1 true, i1 %.not3538.i.i.i
+  br i1 %.not35.i.i.i, label %ScanSourceDatabasePgClassPage.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %715
   %722 = getelementptr i8, ptr %.0.i.i.i.i, i64 20
@@ -1765,9 +1765,9 @@ BufferGetPage.exit.i.i:                           ; preds = %704, %698
   br label %726
 
 726:                                              ; preds = %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i, %.lr.ph.i.i.i
-  %.036.i.i.i = phi ptr [ %.03033.i.i, %.lr.ph.i.i.i ], [ %.1.i.i.i, %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i ]
-  %.02335.i.i.i = phi i16 [ 1, %.lr.ph.i.i.i ], [ %774, %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i ]
-  %727 = zext i16 %.02335.i.i.i to i64
+  %.037.i.i.i = phi ptr [ %.03033.i.i, %.lr.ph.i.i.i ], [ %.1.i.i.i, %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i ]
+  %.02336.i.i.i = phi i16 [ 1, %.lr.ph.i.i.i ], [ %774, %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i ]
+  %727 = zext i16 %.02336.i.i.i to i64
   %728 = getelementptr %struct.ItemIdData, ptr %722, i64 %727
   %729 = load i32, ptr %728, align 4
   %730 = and i32 %729, 98304
@@ -1777,7 +1777,7 @@ BufferGetPage.exit.i.i:                           ; preds = %704, %698
 731:                                              ; preds = %726
   store i16 %724, ptr %687, align 4
   store i16 %725, ptr %688, align 2
-  store i16 %.02335.i.i.i, ptr %689, align 8
+  store i16 %.02336.i.i.i, ptr %689, align 8
   %732 = and i32 %729, 32767
   %733 = zext nneg i32 %732 to i64
   %734 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %733
@@ -1789,11 +1789,11 @@ BufferGetPage.exit.i.i:                           ; preds = %704, %698
   br i1 %736, label %737, label %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i
 
 737:                                              ; preds = %731
-  %.val30.i.i.i = load ptr, ptr %690, align 8
-  %738 = getelementptr inbounds nuw i8, ptr %.val30.i.i.i, i64 22
+  %.val31.i.i.i = load ptr, ptr %690, align 8
+  %738 = getelementptr inbounds nuw i8, ptr %.val31.i.i.i, i64 22
   %739 = load i8, ptr %738, align 2
   %740 = zext i8 %739 to i64
-  %741 = getelementptr inbounds nuw i8, ptr %.val30.i.i.i, i64 %740
+  %741 = getelementptr inbounds nuw i8, ptr %.val31.i.i.i, i64 %740
   %742 = getelementptr inbounds nuw i8, ptr %741, i64 92
   %743 = load i32, ptr %742, align 4
   %744 = icmp eq i32 %743, 1664
@@ -1854,12 +1854,12 @@ BufferGetPage.exit.i.i:                           ; preds = %704, %698
   %771 = getelementptr inbounds nuw i8, ptr %763, i64 16
   %772 = zext i1 %770 to i8
   store i8 %772, ptr %771, align 4
-  %773 = call ptr @lappend(ptr noundef %.036.i.i.i, ptr noundef nonnull %763) #17
+  %773 = call ptr @lappend(ptr noundef %.037.i.i.i, ptr noundef nonnull %763) #17
   br label %ScanSourceDatabasePgClassTuple.exit.thread.i.i.i
 
 ScanSourceDatabasePgClassTuple.exit.thread.i.i.i: ; preds = %762, %748, %745, %737, %731, %726
-  %.1.i.i.i = phi ptr [ %.036.i.i.i, %726 ], [ %.036.i.i.i, %731 ], [ %773, %762 ], [ %.036.i.i.i, %745 ], [ %.036.i.i.i, %748 ], [ %.036.i.i.i, %737 ]
-  %774 = add i16 %.02335.i.i.i, 1
+  %.1.i.i.i = phi ptr [ %.037.i.i.i, %726 ], [ %.037.i.i.i, %731 ], [ %773, %762 ], [ %.037.i.i.i, %745 ], [ %.037.i.i.i, %748 ], [ %.037.i.i.i, %737 ]
+  %774 = add i16 %.02336.i.i.i, 1
   %.not.i.i.i = icmp ugt i16 %774, %721
   br i1 %.not.i.i.i, label %ScanSourceDatabasePgClassPage.exit.i.i, label %726, !llvm.loop !9
 

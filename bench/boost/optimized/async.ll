@@ -162943,8 +162943,8 @@ _ZN5boost9gregorian8greg_dayC2Et.exit:            ; preds = %32, %31, %34
 _ZN5boost10posix_time13time_durationC2Ellll.exit: ; preds = %46, %50
   %.0.i.i.i = phi i64 [ %.neg30.i.i.i, %46 ], [ %56, %50 ]
   %.sroa.01.0.copyload = load i32, ptr %5, align 4
-  %.off.i.i.i.i = add i32 %.sroa.01.0.copyload, -1
-  %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, -3
+  %switch.tableidx = add i32 %.sroa.01.0.copyload, -1
+  %57 = icmp ult i32 %switch.tableidx, -3
   br i1 %switch.i.i.i.i, label %57, label %.thread.i.i.i.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %_ZN5boost10posix_time13time_durationC2Ellll.exit
@@ -162959,7 +162959,7 @@ _ZN5boost10posix_time13time_durationC2Ellll.exit: ; preds = %46, %50
   %60 = add nsw i64 %59, %.0.i.i.i
   br label %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit
 
-_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit: ; preds = %.thread.i.i.i.i.i, %57
+_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit:; preds = %.thread.i.i.i.i.i, %57
   %storemerge.i.i.i.i = phi i64 [ %60, %57 ], [ %switch.offset, %.thread.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -150,7 +150,7 @@ define dso_local { i32, ptr } @_ZNSt3__14__fs10filesystem15directory_entry12__do
 
 30:                                               ; preds = %26, %1
   invoke void @_ZNSt3__14__fs10filesystem6detail18create_file_statusB8ne210000ERNS_10error_codeERKNS1_4pathERK4statPS3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::__fs::filesystem::file_status") align 4 %6, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull %4)
-          to label %31 unwind label %88
+          to label %31 unwind label %85
 
 31:                                               ; preds = %30
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !25
@@ -159,7 +159,7 @@ define dso_local { i32, ptr } @_ZNSt3__14__fs10filesystem15directory_entry12__do
   %.not = icmp eq i8 %.sroa.018.0.extract.trunc, 0
   %33 = lshr i64 %32, 32
   %34 = trunc nuw i64 %33 to i32
-  br i1 %.not, label %35, label %36
+  br i1 %.not, label %35, label %.thread30
 
 35:                                               ; preds = %31
   store i8 0, ptr %10, align 1, !tbaa !4
@@ -171,9 +171,9 @@ define dso_local { i32, ptr } @_ZNSt3__14__fs10filesystem15directory_entry12__do
   store i64 -9223372036854775808, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !18
   %.sroa.022.0.copyload = load i32, ptr %4, align 8, !tbaa !28
   %.sroa.427.0.copyload = load ptr, ptr %15, align 8, !tbaa !29
-  br label %87
+  br label %84
 
-36:                                               ; preds = %31
+.thread30:                                        ; preds = %31
   %37 = and i64 %32, 255
   %38 = add nsw i64 %37, -255
   %switch = icmp ult i64 %38, -254
@@ -185,129 +185,129 @@ define dso_local { i32, ptr } @_ZNSt3__14__fs10filesystem15directory_entry12__do
   store i8 5, ptr %10, align 1, !tbaa !30
   store i8 %.sroa.018.0.extract.trunc, ptr %11, align 8, !tbaa !34
   store i32 %34, ptr %12, align 4, !tbaa !35
-  br label %61
+  br label %57
 
-40:                                               ; preds = %36
+36:                                               ; preds = %36
   store i32 %34, ptr %13, align 16, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 8, !tbaa !19
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %16, ptr %41, align 8, !tbaa !24
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %16, ptr %37, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !37
   store i32 0, ptr %2, align 8, !tbaa !19, !noalias !37
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %16, ptr %42, align 8, !tbaa !24, !noalias !37
-  %43 = load i8, ptr %0, align 16, !noalias !37
-  %44 = and i8 %43, 1
-  %.not.i.i.i.i.i4 = icmp eq i8 %44, 0
-  %45 = load ptr, ptr %20, align 16, !noalias !37
-  %46 = select i1 %.not.i.i.i.i.i4, ptr %22, ptr %45
-  %47 = call i32 @stat(ptr noundef %46, ptr noundef nonnull align 8 dereferenceable(144) %5) #24, !noalias !37
-  %48 = icmp eq i32 %47, -1
-  br i1 %48, label %49, label %53
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %16, ptr %38, align 8, !tbaa !24, !noalias !37
+  %39 = load i8, ptr %0, align 16, !noalias !37
+  %40 = and i8 %39, 1
+  %.not.i.i.i.i.i4 = icmp eq i8 %40, 0
+  %41 = load ptr, ptr %20, align 16, !noalias !37
+  %42 = select i1 %.not.i.i.i.i.i4, ptr %22, ptr %41
+  %43 = call i32 @stat(ptr noundef %42, ptr noundef nonnull align 8 dereferenceable(144) %5) #24, !noalias !37
+  %44 = icmp eq i32 %43, -1
+  br i1 %44, label %45, label %49
 
-49:                                               ; preds = %40
-  %50 = tail call ptr @__errno_location() #23
-  %51 = load i32, ptr %50, align 4, !tbaa !28, !noalias !37
-  %52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__116generic_categoryEv() #23
-  store i32 %51, ptr %2, align 8, !tbaa !28, !noalias !37
-  store ptr %52, ptr %42, align 8, !tbaa !29, !noalias !37
-  br label %53
+45:                                               ; preds = %36
+  %46 = tail call ptr @__errno_location() #23
+  %47 = load i32, ptr %46, align 4, !tbaa !28, !noalias !37
+  %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__116generic_categoryEv() #23
+  store i32 %47, ptr %2, align 8, !tbaa !28, !noalias !37
+  store ptr %48, ptr %38, align 8, !tbaa !29, !noalias !37
+  br label %49
 
-53:                                               ; preds = %49, %40
+49:                                               ; preds = %45, %36
   invoke void @_ZNSt3__14__fs10filesystem6detail18create_file_statusB8ne210000ERNS_10error_codeERKNS1_4pathERK4statPS3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::__fs::filesystem::file_status") align 4 %8, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull %7)
-          to label %54 unwind label %88
+          to label %54 unwind label %85
 
-54:                                               ; preds = %53
+50:                                               ; preds = %49
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !37
-  %55 = load i64, ptr %8, align 8
+  %51 = load i64, ptr %8, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %56 = trunc i64 %55 to i8
-  store i8 %56, ptr %11, align 8, !tbaa !34
-  %57 = lshr i64 %55, 32
-  %58 = trunc nuw i64 %57 to i32
-  store i32 %58, ptr %12, align 4, !tbaa !35
-  %59 = and i64 %55, 255
-  %.not36 = icmp eq i64 %59, 0
-  br i1 %.not36, label %60, label %.thread31
+  %52 = trunc i64 %51 to i8
+  store i8 %52, ptr %11, align 8, !tbaa !34
+  %53 = lshr i64 %51, 32
+  %54 = trunc nuw i64 %53 to i32
+  store i32 %54, ptr %12, align 4, !tbaa !35
+  %55 = and i64 %51, 255
+  %.not34 = icmp eq i64 %55, 0
+  br i1 %.not34, label %56, label %.thread31
 
-.thread31:                                        ; preds = %54
+.thread31:                                        ; preds = %50
   store i8 3, ptr %10, align 1, !tbaa !30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %61
+  br label %57
 
-60:                                               ; preds = %54
+56:                                               ; preds = %50
   store i8 4, ptr %10, align 1, !tbaa !30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %87
+  br label %84
 
-61:                                               ; preds = %.thread31, %.thread30
-  %62 = phi i64 [ %55, %.thread31 ], [ %32, %.thread30 ]
-  %63 = and i64 %62, 255
-  %64 = icmp eq i64 %63, 1
-  br i1 %64, label %.thread, label %67
+57:                                               ; preds = %.thread31, %.thread30
+  %58 = phi i64 [ %51, %.thread31 ], [ %32, %.thread30 ]
+  %59 = and i64 %58, 255
+  %60 = icmp eq i64 %59, 1
+  br i1 %60, label %61, label %64
 
-.thread:                                          ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %66 = load i64, ptr %65, align 8, !tbaa !40
-  store i64 %66, ptr %9, align 16, !tbaa !43
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %63 = load i64, ptr %62, align 8, !tbaa !40
+  store i64 %63, ptr %9, align 16, !tbaa !43
   br label %68
 
-67:                                               ; preds = %61
-  %.off34 = add nsw i64 %63, -1
+64:                                               ; preds = %61
+  %.off34 = add nsw i64 %59, -1
   %switch35 = icmp ult i64 %.off34, 254
-  br i1 %switch35, label %68, label %86
+  br i1 %switch35, label %68, label %83
 
 68:                                               ; preds = %.thread, %67
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %70 = load i64, ptr %69, align 8, !tbaa !44
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %70, ptr %71, align 8, !tbaa !45
-  %72 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %.sroa.0.0.copyload.i.i = load i64, ptr %72, align 8, !tbaa !46
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i64 %70, ptr %66, align 8, !tbaa !45
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %.sroa.0.0.copyload.i.i = load i64, ptr %68, align 8, !tbaa !46
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 96
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !46
-  %73 = icmp sgt i64 %.sroa.0.0.copyload.i.i, -1
-  %74 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
-  %or.cond.i.i = select i1 %73, i1 true, i1 %74
-  br i1 %or.cond.i.i, label %75, label %79
+  %70 = icmp sgt i64 %.sroa.0.0.copyload.i.i, -1
+  %71 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  %or.cond.i.i = select i1 %70, i1 true, i1 %71
+  br i1 %or.cond.i.i, label %72, label %76
 
-75:                                               ; preds = %68
-  %76 = sext i64 %.sroa.0.0.copyload.i.i to i128
-  %77 = mul nsw i128 %76, 1000000000
+72:                                               ; preds = %68
+  %73 = sext i64 %.sroa.0.0.copyload.i.i to i128
+  %74 = mul nsw i128 %73, 1000000000
   %.sroa.029.0.insert.insert.i.i = sext i64 %.sroa.2.0.copyload.i.i to i128
-  %78 = add nsw i128 %77, %.sroa.029.0.insert.insert.i.i
-  %extract.t46 = trunc i128 %78 to i64
-  %extract49 = lshr i128 %78, 64
-  %extract.t50 = trunc nuw i128 %extract49 to i64
-  br label %85
+  %75 = add nsw i128 %74, %.sroa.029.0.insert.insert.i.i
+  %extract.t43 = trunc i128 %75 to i64
+  %extract46 = lshr i128 %75, 64
+  %extract.t47 = trunc nuw i128 %extract46 to i64
+  br label %82
 
-79:                                               ; preds = %68
-  %80 = sext i64 %.sroa.2.0.copyload.i.i to i128
-  %.neg.i.i = add nsw i128 %80, -1000000000
-  %81 = add nsw i64 %.sroa.0.0.copyload.i.i, 1
-  %82 = sext i64 %81 to i128
-  %83 = mul nsw i128 %82, 1000000000
-  %84 = add nsw i128 %.neg.i.i, %83
-  %extract.t45 = trunc i128 %84 to i64
-  %extract47 = lshr i128 %84, 64
-  %extract.t48 = trunc nuw i128 %extract47 to i64
-  br label %85
+76:                                               ; preds = %68
+  %77 = sext i64 %.sroa.2.0.copyload.i.i to i128
+  %.neg.i.i = add nsw i128 %77, -1000000000
+  %78 = add nsw i64 %.sroa.0.0.copyload.i.i, 1
+  %79 = sext i64 %78 to i128
+  %80 = mul nsw i128 %79, 1000000000
+  %81 = add nsw i128 %.neg.i.i, %80
+  %extract.t42 = trunc i128 %81 to i64
+  %extract44 = lshr i128 %81, 64
+  %extract.t45 = trunc nuw i128 %extract44 to i64
+  br label %82
 
-85:                                               ; preds = %79, %75
-  %.sink44.off0 = phi i64 [ %extract.t45, %79 ], [ %extract.t46, %75 ]
-  %.sink44.off64 = phi i64 [ %extract.t48, %79 ], [ %extract.t50, %75 ]
-  store i64 %.sink44.off0, ptr %14, align 16
-  store i64 %.sink44.off64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !18
-  br label %86
+82:                                               ; preds = %76, %72
+  %.sink41.off0 = phi i64 [ %extract.t42, %79 ], [ %extract.t43, %75 ]
+  %.sink41.off64 = phi i64 [ %extract.t45, %79 ], [ %extract.t47, %75 ]
+  store i64 %.sink41.off0, ptr %14, align 16
+  store i64 %.sink41.off64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !18
+  br label %83
 
-86:                                               ; preds = %67, %85
+83:                                               ; preds = %64, %82
   %.sroa.022.0.copyload23 = load i32, ptr %4, align 8, !tbaa !28
   %.sroa.427.0.copyload29 = load ptr, ptr %15, align 8, !tbaa !29
-  br label %87
+  br label %84
 
-87:                                               ; preds = %60, %86, %35
+84:                                               ; preds = %56, %83, %35
   %.sroa.022.0 = phi i32 [ %.sroa.022.0.copyload23, %86 ], [ 0, %60 ], [ %.sroa.022.0.copyload, %35 ]
   %.sroa.427.0 = phi ptr [ %.sroa.427.0.copyload29, %86 ], [ %16, %60 ], [ %.sroa.427.0.copyload, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -317,11 +317,11 @@ define dso_local { i32, ptr } @_ZNSt3__14__fs10filesystem15directory_entry12__do
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.427.0, 1
   ret { i32, ptr } %.fca.1.insert
 
-88:                                               ; preds = %53, %30
-  %89 = landingpad { ptr, i32 }
+85:                                               ; preds = %49, %30
+  %86 = landingpad { ptr, i32 }
           catch ptr null
-  %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #25
+  %87 = extractvalue { ptr, i32 } %86, 0
+  call void @__clang_call_terminate(ptr %87) #25
   unreachable
 }
 

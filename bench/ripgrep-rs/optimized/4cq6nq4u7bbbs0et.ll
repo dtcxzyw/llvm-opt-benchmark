@@ -127,7 +127,7 @@ _ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.e
   %44 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8
   %45 = icmp ult i64 %44, 6
   call void @llvm.assume(i1 %45)
-  %switch31 = icmp samesign ugt i64 %44, 3
+  %switch.selectcmp28 = icmp samesign ugt i64 %44, 3
   br i1 %.not, label %64, label %48
 
 46:                                               ; preds = %65, %49
@@ -137,7 +137,7 @@ _ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.e
           to label %74 unwind label %72
 
 48:                                               ; preds = %42
-  br i1 %switch31, label %49, label %59
+  br i1 %switch.selectcmp28, label %49, label %59
 
 49:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -194,7 +194,7 @@ _ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.e
   br label %36
 
 64:                                               ; preds = %42
-  br i1 %switch31, label %65, label %59
+  br i1 %switch.selectcmp28, label %65, label %59
 
 65:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
