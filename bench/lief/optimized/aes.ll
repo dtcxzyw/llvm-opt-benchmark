@@ -188,13 +188,13 @@ define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 no
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !9
   %45 = tail call i8 @llvm.fshl.i8(i8 %44, i8 %44, i8 1)
-  %46 = tail call i8 @llvm.fshl.i8(i8 %45, i8 %45, i8 1)
-  %47 = tail call i8 @llvm.fshl.i8(i8 %46, i8 %46, i8 1)
-  %48 = tail call i8 @llvm.fshl.i8(i8 %47, i8 %47, i8 1)
-  %49 = xor i8 %45, %48
-  %50 = xor i8 %49, %44
-  %51 = xor i8 %50, %46
-  %52 = xor i8 %51, %47
+  %46 = tail call i8 @llvm.fshl.i8(i8 %44, i8 %44, i8 2)
+  %47 = tail call i8 @llvm.fshl.i8(i8 %44, i8 %44, i8 3)
+  %48 = tail call i8 @llvm.fshl.i8(i8 %44, i8 %44, i8 4)
+  %49 = xor i8 %45, %46
+  %50 = xor i8 %49, %47
+  %51 = xor i8 %50, %48
+  %52 = xor i8 %51, %44
   %53 = xor i8 %52, 99
   %54 = getelementptr inbounds nuw i8, ptr @FSb, i64 %indvars.iv102.i
   store i8 %53, ptr %54, align 1, !tbaa !9
@@ -233,7 +233,7 @@ define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 no
   %78 = tail call i32 @llvm.fshl.i32(i32 %76, i32 %76, i32 8)
   %79 = getelementptr inbounds nuw i32, ptr @FT2, i64 %indvars.iv106.i
   store i32 %78, ptr %79, align 4, !tbaa !12
-  %80 = tail call i32 @llvm.fshl.i32(i32 %78, i32 %78, i32 8)
+  %80 = tail call i32 @llvm.fshl.i32(i32 %76, i32 %76, i32 16)
   %81 = getelementptr inbounds nuw i32, ptr @FT3, i64 %indvars.iv106.i
   store i32 %80, ptr %81, align 4, !tbaa !12
   %82 = getelementptr inbounds nuw i8, ptr @RSb, i64 %indvars.iv106.i
@@ -285,10 +285,10 @@ define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 no
   %117 = tail call i32 @llvm.fshl.i32(i32 %115, i32 %115, i32 8)
   %118 = getelementptr inbounds nuw i32, ptr @RT1, i64 %indvars.iv106.i
   store i32 %117, ptr %118, align 4, !tbaa !12
-  %119 = tail call i32 @llvm.fshl.i32(i32 %117, i32 %117, i32 8)
+  %119 = tail call i32 @llvm.fshl.i32(i32 %115, i32 %115, i32 16)
   %120 = getelementptr inbounds nuw i32, ptr @RT2, i64 %indvars.iv106.i
   store i32 %119, ptr %120, align 4, !tbaa !12
-  %121 = tail call i32 @llvm.fshl.i32(i32 %119, i32 %119, i32 8)
+  %121 = tail call i32 @llvm.fshl.i32(i32 %115, i32 %115, i32 24)
   %122 = getelementptr inbounds nuw i32, ptr @RT3, i64 %indvars.iv106.i
   store i32 %121, ptr %122, align 4, !tbaa !12
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1

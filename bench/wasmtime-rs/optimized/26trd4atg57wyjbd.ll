@@ -6767,8 +6767,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
 
 .thread.i.i:                                      ; preds = %84, %.lr.ph.i.i, %73
   %.sroa.5.0.lcssa.i.i = phi ptr [ %65, %73 ], [ %0, %84 ], [ %.sroa.5.014.i.i, %.lr.ph.i.i ]
-  %.sroa.0.0.insert.insert4.i.i = tail call i64 @llvm.fshl.i64(i64 %67, i64 %67, i64 32)
-  store i64 %.sroa.0.0.insert.insert4.i.i, ptr %.sroa.5.0.lcssa.i.i, align 4, !alias.scope !850
+  store i64 %63, ptr %.sroa.5.0.lcssa.i.i, align 4, !alias.scope !850
   br label %_ZN4core5slice4sort11insert_tail17hf6a36c2329bd9b0eE.exit.i
 
 .lr.ph.i.i:                                       ; preds = %73, %84
@@ -15002,8 +15001,7 @@ _ZN4core5slice4sort12choose_pivot17h32a5ea1cc0084b70E.exit: ; preds = %"_ZN4core
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2113
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2113
   %297 = add i64 %.0.i.i, %.022.lcssa.ph.i
-  %.sroa.0.0.insert.insert7.i = call i64 @llvm.fshl.i64(i64 %173, i64 %173, i64 32)
-  store i64 %.sroa.0.0.insert.insert7.i, ptr %.sroa.0.0109.lcssa135, align 4, !alias.scope !2101
+  store i64 %172, ptr %.sroa.0.0109.lcssa135, align 4, !alias.scope !2101
   call void @llvm.experimental.noalias.scope.decl(metadata !2114)
   %298 = icmp ult i64 %297, %.sroa.14.0108.lcssa127
   br i1 %298, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h014c930fcf413735E.exit", label %299, !prof !441
@@ -15017,7 +15015,7 @@ _ZN4core5slice4sort12choose_pivot17h32a5ea1cc0084b70E.exit: ; preds = %"_ZN4core
   %301 = getelementptr inbounds { i32, i32 }, ptr %.sroa.0.0109.lcssa135, i64 %297
   %302 = load i64, ptr %301, align 4, !alias.scope !2117, !noalias !2118
   store i64 %302, ptr %.sroa.0.0109.lcssa135, align 4, !alias.scope !2117, !noalias !2118
-  store i64 %.sroa.0.0.insert.insert7.i, ptr %301, align 4, !alias.scope !2117, !noalias !2118
+  store i64 %172, ptr %301, align 4, !alias.scope !2117, !noalias !2118
   %303 = sub nuw i64 %.sroa.14.0108.lcssa127, %297
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %297, i64 %303)
   %304 = lshr i64 %.sroa.14.0108.lcssa127, 3

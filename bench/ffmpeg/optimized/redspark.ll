@@ -17,8 +17,8 @@ define internal range(i32 0, 101) i32 @redspark_probe(ptr noundef readonly captu
   %5 = xor i32 %4, 1399088466
   %6 = tail call i32 @llvm.bswap.i32(i32 %5)
   %7 = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 11)
-  %8 = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 3)
-  %9 = add i32 %8, %7
+  %8 = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 14)
+  %9 = add i32 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = load i32, ptr %10, align 1, !tbaa !11
   %12 = tail call i32 @llvm.bswap.i32(i32 %9)

@@ -193,7 +193,7 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   %84 = tail call i32 @llvm.fshl.i32(i32 %82, i32 %82, i32 8)
   %85 = getelementptr inbounds nuw i32, ptr @_ZL3FT2, i64 %indvars.iv114.i
   store i32 %84, ptr %85, align 4, !tbaa !11
-  %86 = tail call i32 @llvm.fshl.i32(i32 %84, i32 %84, i32 8)
+  %86 = tail call i32 @llvm.fshl.i32(i32 %82, i32 %82, i32 16)
   %87 = getelementptr inbounds nuw i32, ptr @_ZL3FT3, i64 %indvars.iv114.i
   store i32 %86, ptr %87, align 4, !tbaa !11
   %88 = getelementptr inbounds nuw i8, ptr @_ZL3RSb, i64 %indvars.iv114.i
@@ -240,10 +240,10 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   %122 = tail call i32 @llvm.fshl.i32(i32 %120, i32 %120, i32 8)
   %123 = getelementptr inbounds nuw i32, ptr @_ZL3RT1, i64 %indvars.iv114.i
   store i32 %122, ptr %123, align 4, !tbaa !11
-  %124 = tail call i32 @llvm.fshl.i32(i32 %122, i32 %122, i32 8)
+  %124 = tail call i32 @llvm.fshl.i32(i32 %120, i32 %120, i32 16)
   %125 = getelementptr inbounds nuw i32, ptr @_ZL3RT2, i64 %indvars.iv114.i
   store i32 %124, ptr %125, align 4, !tbaa !11
-  %126 = tail call i32 @llvm.fshl.i32(i32 %124, i32 %124, i32 8)
+  %126 = tail call i32 @llvm.fshl.i32(i32 %120, i32 %120, i32 24)
   %127 = getelementptr inbounds nuw i32, ptr @_ZL3RT3, i64 %indvars.iv114.i
   store i32 %126, ptr %127, align 4, !tbaa !11
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1

@@ -86,8 +86,8 @@ define hidden range(i32 0, -1) i32 @lj_ctype_intern(ptr noundef %0, i32 noundef 
   %4 = xor i32 %2, %1
   %5 = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 14)
   %6 = sub i32 %4, %5
-  %7 = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 5)
-  %8 = xor i32 %7, %6
+  %7 = lshr i32 %2, 13
+  %8 = xor i32 %6, %7
   %9 = lshr i32 %6, 19
   %10 = sub i32 %8, %9
   %11 = and i32 %10, 127
@@ -188,8 +188,8 @@ define hidden void @lj_ctype_addname(ptr noundef captures(none) %0, ptr noundef 
   %8 = xor i32 %7, %6
   %9 = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 14)
   %10 = sub i32 %8, %9
-  %11 = tail call i32 @llvm.fshl.i32(i32 %9, i32 %9, i32 5)
-  %12 = xor i32 %11, %10
+  %11 = lshr i32 %7, 13
+  %12 = xor i32 %10, %11
   %13 = lshr i32 %10, 19
   %14 = sub i32 %12, %13
   %15 = and i32 %14, 127
@@ -213,8 +213,8 @@ define hidden range(i32 0, 65536) i32 @lj_ctype_getname(ptr noundef readonly cap
   %9 = xor i32 %8, %7
   %10 = tail call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 14)
   %11 = sub i32 %9, %10
-  %12 = tail call i32 @llvm.fshl.i32(i32 %10, i32 %10, i32 5)
-  %13 = xor i32 %12, %11
+  %12 = lshr i32 %8, 13
+  %13 = xor i32 %11, %12
   %14 = lshr i32 %11, 19
   %15 = sub i32 %13, %14
   %16 = and i32 %15, 127
@@ -2389,8 +2389,8 @@ define hidden ptr @lj_ctype_init(ptr noundef %0) local_unnamed_addr #0 {
   %34 = xor i32 %33, %32
   %35 = tail call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 14)
   %36 = sub i32 %34, %35
-  %37 = tail call i32 @llvm.fshl.i32(i32 %35, i32 %35, i32 5)
-  %38 = xor i32 %37, %36
+  %37 = lshr i32 %33, 13
+  %38 = xor i32 %36, %37
   %39 = lshr i32 %36, 19
   %40 = sub i32 %38, %39
   %41 = and i32 %40, 127
@@ -2415,8 +2415,8 @@ define hidden ptr @lj_ctype_init(ptr noundef %0) local_unnamed_addr #0 {
   %52 = xor i32 %17, %19
   %53 = tail call i32 @llvm.fshl.i32(i32 %17, i32 %17, i32 14)
   %54 = sub i32 %52, %53
-  %55 = tail call i32 @llvm.fshl.i32(i32 %53, i32 %53, i32 5)
-  %56 = xor i32 %55, %54
+  %55 = lshr i32 %17, 13
+  %56 = xor i32 %54, %55
   %57 = lshr i32 %54, 19
   %58 = sub i32 %56, %57
   %59 = and i32 %58, 127
