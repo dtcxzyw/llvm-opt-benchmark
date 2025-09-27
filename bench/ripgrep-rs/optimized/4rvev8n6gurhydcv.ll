@@ -3223,10 +3223,8 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..met
   tail call fastcc void @"_ZN4core3ptr76drop_in_place$LT$regex_automata..meta..wrappers..BoundedBacktrackerCache$GT$17h6e8fee2144bb15c7E"(ptr noalias noundef align 8 dereferenceable(56) %19) #18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %.val = load i64, ptr %20, align 8, !range !344, !noundef !23
-  switch i64 %.val, label %35 [
-    i64 -9223372036854775808, label %"_ZN4core3ptr65drop_in_place$LT$regex_automata..meta..wrappers..OnePassCache$GT$17hc4fcf3eb64b8c72fE.exit"
-    i64 0, label %"_ZN4core3ptr65drop_in_place$LT$regex_automata..meta..wrappers..OnePassCache$GT$17hc4fcf3eb64b8c72fE.exit"
-  ]
+  %switch16 = icmp sgt i64 %.val, 0
+  br i1 %switch16, label %35, label %"_ZN4core3ptr65drop_in_place$LT$regex_automata..meta..wrappers..OnePassCache$GT$17hc4fcf3eb64b8c72fE.exit"
 
 "_ZN4core3ptr61drop_in_place$LT$regex_automata..util..captures..Captures$GT$17h4c97716e7e17cb35E.exit": ; preds = %15, %"_ZN4core3ptr62drop_in_place$LT$regex_automata..util..captures..GroupInfo$GT$17h5e22f166bd89f5fbE.exit.i"
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1096
@@ -3273,10 +3271,8 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..met
 "_ZN4core3ptr76drop_in_place$LT$regex_automata..meta..wrappers..BoundedBacktrackerCache$GT$17h6e8fee2144bb15c7E.exit": ; preds = %32, %"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$regex_automata..nfa..thompson..backtrack..Frame$GT$$GT$17ha97673de14c40b72E.exit.i.i.i", %"_ZN4core3ptr61drop_in_place$LT$regex_automata..util..captures..Captures$GT$17h4c97716e7e17cb35E.exit"
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %.val9 = load i64, ptr %38, align 8, !range !344, !noundef !23
-  switch i64 %.val9, label %39 [
-    i64 -9223372036854775808, label %"_ZN4core3ptr65drop_in_place$LT$regex_automata..meta..wrappers..OnePassCache$GT$17hc4fcf3eb64b8c72fE.exit11"
-    i64 0, label %"_ZN4core3ptr65drop_in_place$LT$regex_automata..meta..wrappers..OnePassCache$GT$17hc4fcf3eb64b8c72fE.exit11"
-  ]
+  %switch = icmp sgt i64 %.val9, 0
+  br i1 %switch, label %39, label %"_ZN4core3ptr65drop_in_place$LT$regex_automata..meta..wrappers..OnePassCache$GT$17hc4fcf3eb64b8c72fE.exit11"
 
 39:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$regex_automata..meta..wrappers..BoundedBacktrackerCache$GT$17h6e8fee2144bb15c7E.exit"
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1376
@@ -3285,11 +3281,11 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..met
   tail call void @__rust_dealloc(ptr noundef nonnull %.val10, i64 noundef %41, i64 noundef 8) #17
   br label %"_ZN4core3ptr65drop_in_place$LT$regex_automata..meta..wrappers..OnePassCache$GT$17hc4fcf3eb64b8c72fE.exit11"
 
-"_ZN4core3ptr65drop_in_place$LT$regex_automata..meta..wrappers..OnePassCache$GT$17hc4fcf3eb64b8c72fE.exit": ; preds = %35, %.body, %.body
+"_ZN4core3ptr65drop_in_place$LT$regex_automata..meta..wrappers..OnePassCache$GT$17hc4fcf3eb64b8c72fE.exit": ; preds = %.body, %35
   invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..wrappers..HybridCache$GT$17hab9b64338e9148b3E"(ptr noalias noundef align 8 dereferenceable(704) %0) #18
           to label %.body12 unwind label %61
 
-"_ZN4core3ptr65drop_in_place$LT$regex_automata..meta..wrappers..OnePassCache$GT$17hc4fcf3eb64b8c72fE.exit11": ; preds = %39, %"_ZN4core3ptr76drop_in_place$LT$regex_automata..meta..wrappers..BoundedBacktrackerCache$GT$17h6e8fee2144bb15c7E.exit", %"_ZN4core3ptr76drop_in_place$LT$regex_automata..meta..wrappers..BoundedBacktrackerCache$GT$17h6e8fee2144bb15c7E.exit"
+"_ZN4core3ptr65drop_in_place$LT$regex_automata..meta..wrappers..OnePassCache$GT$17hc4fcf3eb64b8c72fE.exit11": ; preds = %"_ZN4core3ptr76drop_in_place$LT$regex_automata..meta..wrappers..BoundedBacktrackerCache$GT$17h6e8fee2144bb15c7E.exit", %39
   %42 = load i64, ptr %0, align 8, !range !1189, !alias.scope !1190, !noundef !23
   %43 = icmp eq i64 %42, 2
   br i1 %43, label %"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..wrappers..HybridCache$GT$17hab9b64338e9148b3E.exit", label %44
@@ -7917,8 +7913,8 @@ common.resume:                                    ; preds = %6, %32
   %34 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8
   %35 = icmp ult i64 %34, 6
   tail call void @llvm.assume(i1 %35)
-  %switch.selectcmp13 = icmp samesign ugt i64 %34, 1
-  br i1 %switch.selectcmp13, label %36, label %8
+  %switch13 = icmp samesign ugt i64 %34, 1
+  br i1 %switch13, label %36, label %8
 
 36:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

@@ -6276,15 +6276,11 @@ _ZN3ue28flat_mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIjS3_EEEixERKj.exit.i: ; 
   %725 = phi ptr [ %716, %.lr.ph.i79 ], [ %777, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.i ]
   %.sroa.025.058.i = phi ptr [ %720, %.lr.ph.i79 ], [ %778, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.i ]
   %726 = load i32, ptr %.sroa.025.058.i, align 4
-  switch i32 %726, label %752 [
-    i32 -1, label %727
-    i32 3, label %727
-    i32 2, label %727
-    i32 1, label %727
-    i32 0, label %727
-  ]
+  %.off.i = add i32 %726, -4
+  %switch.i = icmp ult i32 %.off.i, -5
+  br i1 %switch.i, label %752, label %727
 
-727:                                              ; preds = %724, %724, %724, %724, %724
+727:                                              ; preds = %724
   %728 = load ptr, ptr %723, align 8
   %.not.i.i80 = icmp eq ptr %725, %728
   br i1 %.not.i.i80, label %732, label %729

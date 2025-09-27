@@ -1952,10 +1952,9 @@ bits_read_signed_nz_le.exit278.i:                 ; preds = %bits_priv_refill_32
   %437 = shl nsw i32 %436, %416
   %438 = trunc nsw i32 %437 to i16
   store i16 %438, ptr %185, align 2, !tbaa !78
-  switch i32 %220, label %439 [
-    i32 15, label %.loopexit.i
-    i32 0, label %.loopexit.i
-  ]
+  %.off.i = add nsw i32 %220, -1
+  %switch.i = icmp ult i32 %.off.i, 14
+  br i1 %switch.i, label %439, label %.loopexit.i
 
 439:                                              ; preds = %bits_read_signed_nz_le.exit278.i
   %.not.i279.i = icmp eq i32 %430, %342
@@ -1992,10 +1991,9 @@ bits_read_bit_le.exit286.i:                       ; preds = %445, %441
   %.promoted316.i = phi i64 [ %448, %445 ], [ %432, %441 ]
   %.promoted.i = phi i32 [ %447, %445 ], [ 0, %441 ]
   %.0.i283.i = phi i32 [ %450, %445 ], [ 0, %441 ]
-  switch i64 %221, label %.lr.ph.i [
-    i64 15, label %.loopexit.i
-    i64 0, label %.loopexit.i
-  ]
+  %.off554.i = add nsw i64 %221, -1
+  %switch555.i = icmp ult i64 %.off554.i, 14
+  br i1 %switch555.i, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %bits_read_bit_le.exit286.i
   %umax.i = tail call i32 @llvm.umax.i32(i32 %224, i32 5)
@@ -2099,7 +2097,7 @@ bits_read_signed_nz_le.exit298.i:                 ; preds = %bits_priv_refill_32
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %452, !llvm.loop !99
 
-.loopexit.i:                                      ; preds = %bits_read_signed_nz_le.exit298.i, %bits_read_bit_le.exit286.i, %bits_read_bit_le.exit286.i, %bits_read_signed_nz_le.exit278.i, %bits_read_signed_nz_le.exit278.i
+.loopexit.i:                                      ; preds = %bits_read_signed_nz_le.exit298.i, %bits_read_bit_le.exit286.i, %bits_read_signed_nz_le.exit278.i
   %508 = ashr exact i32 %372, 16
   store i32 %508, ptr %3, align 16, !tbaa !72
   %.not359.i = icmp eq i64 %221, 15

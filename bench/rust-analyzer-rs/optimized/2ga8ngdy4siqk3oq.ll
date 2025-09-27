@@ -5802,12 +5802,8 @@ define internal fastcc void @"_ZN4core3ptr133drop_in_place$LT$la_arena..map..Are
   %5 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val.i, i64 %.010.i.i.i
   %6 = add nuw i64 %.010.i.i.i, 1
   %.val8.i.i.i = load i64, ptr %5, align 8, !range !2119, !alias.scope !2116, !noalias !2113, !noundef !4
-  switch i64 %.val8.i.i.i, label %7 [
-    i64 -9223372036854775806, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$hir_ty..mir..borrowck..MutabilityReason$GT$$GT$17hc78aec4c7b9e0c1eE.exit.i.i.i"
-    i64 -9223372036854775807, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$hir_ty..mir..borrowck..MutabilityReason$GT$$GT$17hc78aec4c7b9e0c1eE.exit.i.i.i"
-    i64 -9223372036854775808, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$hir_ty..mir..borrowck..MutabilityReason$GT$$GT$17hc78aec4c7b9e0c1eE.exit.i.i.i"
-    i64 0, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$hir_ty..mir..borrowck..MutabilityReason$GT$$GT$17hc78aec4c7b9e0c1eE.exit.i.i.i"
-  ]
+  %switch.i.i.i = icmp sgt i64 %.val8.i.i.i, 0
+  br i1 %switch.i.i.i, label %7, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$hir_ty..mir..borrowck..MutabilityReason$GT$$GT$17hc78aec4c7b9e0c1eE.exit.i.i.i"
 
 7:                                                ; preds = %.lr.ph.i.i.i
   %8 = getelementptr i8, ptr %5, i64 8
@@ -5816,7 +5812,7 @@ define internal fastcc void @"_ZN4core3ptr133drop_in_place$LT$la_arena..map..Are
   tail call void @__rust_dealloc(ptr noundef nonnull %.val9.i.i.i, i64 noundef %9, i64 noundef 4) #23, !noalias !2120
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$hir_ty..mir..borrowck..MutabilityReason$GT$$GT$17hc78aec4c7b9e0c1eE.exit.i.i.i"
 
-"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$hir_ty..mir..borrowck..MutabilityReason$GT$$GT$17hc78aec4c7b9e0c1eE.exit.i.i.i": ; preds = %7, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i
+"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$hir_ty..mir..borrowck..MutabilityReason$GT$$GT$17hc78aec4c7b9e0c1eE.exit.i.i.i": ; preds = %7, %.lr.ph.i.i.i
   %10 = icmp eq i64 %6, %.val1.i
   br i1 %10, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb24bd43d7c397632E.exit.i", label %.lr.ph.i.i.i
 
@@ -29996,12 +29992,8 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$hir_ty..mir..borrowck..Borro
   %15 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val.i.i, i64 %.010.i.i.i.i
   %16 = add nuw i64 %.010.i.i.i.i, 1
   %.val8.i.i.i.i = load i64, ptr %15, align 8, !range !2119, !alias.scope !11173, !noalias !11172, !noundef !4
-  switch i64 %.val8.i.i.i.i, label %17 [
-    i64 -9223372036854775806, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$hir_ty..mir..borrowck..MutabilityReason$GT$$GT$17hc78aec4c7b9e0c1eE.exit.i.i.i.i"
-    i64 -9223372036854775807, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$hir_ty..mir..borrowck..MutabilityReason$GT$$GT$17hc78aec4c7b9e0c1eE.exit.i.i.i.i"
-    i64 -9223372036854775808, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$hir_ty..mir..borrowck..MutabilityReason$GT$$GT$17hc78aec4c7b9e0c1eE.exit.i.i.i.i"
-    i64 0, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$hir_ty..mir..borrowck..MutabilityReason$GT$$GT$17hc78aec4c7b9e0c1eE.exit.i.i.i.i"
-  ]
+  %switch.i.i.i.i = icmp sgt i64 %.val8.i.i.i.i, 0
+  br i1 %switch.i.i.i.i, label %17, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$hir_ty..mir..borrowck..MutabilityReason$GT$$GT$17hc78aec4c7b9e0c1eE.exit.i.i.i.i"
 
 17:                                               ; preds = %.lr.ph.i.i.i.i
   %18 = getelementptr i8, ptr %15, i64 8
@@ -30010,7 +30002,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$hir_ty..mir..borrowck..Borro
   tail call void @__rust_dealloc(ptr noundef nonnull %.val9.i.i.i.i, i64 noundef %19, i64 noundef 4) #23, !noalias !11176
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$hir_ty..mir..borrowck..MutabilityReason$GT$$GT$17hc78aec4c7b9e0c1eE.exit.i.i.i.i"
 
-"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$hir_ty..mir..borrowck..MutabilityReason$GT$$GT$17hc78aec4c7b9e0c1eE.exit.i.i.i.i": ; preds = %17, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i
+"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$hir_ty..mir..borrowck..MutabilityReason$GT$$GT$17hc78aec4c7b9e0c1eE.exit.i.i.i.i": ; preds = %17, %.lr.ph.i.i.i.i
   %20 = icmp eq i64 %16, %.val1.i.i
   br i1 %20, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb24bd43d7c397632E.exit.i.i", label %.lr.ph.i.i.i.i
 

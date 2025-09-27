@@ -70,9 +70,11 @@ define hidden { i64, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   %22 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %8, i64 %19
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i64, ptr %23, align 8, !alias.scope !6, !noalias !21, !noundef !4
-  %switch.i.i.i.i = icmp sgt i64 %.sroa.05.0.i, %24
+  %.0.i.i.i.i.i.i.i.i = tail call noundef i8 @llvm.scmp.i8.i64(i64 %.sroa.05.0.i, i64 %24)
+  %.off.i.i.i.i = add nsw i8 %.0.i.i.i.i.i.i.i.i, -1
+  %switch.i.i.i.i = icmp ult i8 %.off.i.i.i.i, -2
   %.sroa.3.0.i.i.i.i = select i1 %switch.i.i.i.i, ptr %18, ptr %.sroa.6.0.i
-  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %.sroa.05.0.i, i64 %24)
+  %.sroa.0.0.sroa.speculated.i.i.i.i = select i1 %switch.i.i.i.i, i64 %24, i64 %.sroa.05.0.i
   %25 = add nuw i64 %.0.i, 1
   %26 = icmp eq i64 %25, %16
   br i1 %26, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3fada96517ba0a4eE.llvm.2093655606052473966.exit", label %17
@@ -1188,9 +1190,11 @@ define hidden { i64, ptr } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
   %19 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %4, i64 %16
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !263, !noundef !4
-  %switch.i.i.i = icmp sgt i64 %.sroa.05.0, %21
+  %.0.i.i.i.i.i.i.i = tail call noundef i8 @llvm.scmp.i8.i64(i64 %.sroa.05.0, i64 %21)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
   %.sroa.3.0.i.i.i = select i1 %switch.i.i.i, ptr %15, ptr %.sroa.6.0
-  %.sroa.0.0.sroa.speculated.i.i.i = tail call i64 @llvm.smin.i64(i64 %.sroa.05.0, i64 %21)
+  %.sroa.0.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 %21, i64 %.sroa.05.0
   %22 = add nuw i64 %.0, 1
   %23 = icmp eq i64 %22, %13
   br i1 %23, label %.loopexit, label %14
@@ -1362,7 +1366,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #18
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #18
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

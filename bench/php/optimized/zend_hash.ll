@@ -2034,10 +2034,9 @@ define dso_local i32 @zend_hash_iterator_pos(i32 noundef %0, ptr noundef %1) loc
 
 15:                                               ; preds = %.preheader28
   %magicptr.i = ptrtoint ptr %7 to i64
-  switch i64 %magicptr.i, label %16 [
-    i64 0, label %21
-    i64 -1, label %21
-  ], !prof !73
+  %magicptr.off.i = add i64 %magicptr.i, -1
+  %switch.i = icmp ult i64 %magicptr.off.i, -2
+  br i1 %switch.i, label %16, label %21, !prof !73
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 10
@@ -2050,7 +2049,7 @@ define dso_local i32 @zend_hash_iterator_pos(i32 noundef %0, ptr noundef %1) loc
   store i8 %20, ptr %17, align 2, !tbaa !5
   br label %21
 
-21:                                               ; preds = %19, %16, %15, %15
+21:                                               ; preds = %19, %16, %15
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %23 = load i8, ptr %22, align 2, !tbaa !5
   %.not35.i = icmp eq i8 %23, -1
@@ -2085,10 +2084,9 @@ zend_hash_iterator_find_copy_pos.exit:            ; preds = %24, %21
 33:                                               ; preds = %.thread, %8
   %34 = phi ptr [ %.pre, %.thread ], [ %7, %8 ]
   %magicptr = ptrtoint ptr %34 to i64
-  switch i64 %magicptr, label %35 [
-    i64 0, label %40
-    i64 -1, label %40
-  ], !prof !73
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %35, label %40, !prof !73
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 10
@@ -2101,7 +2099,7 @@ zend_hash_iterator_find_copy_pos.exit:            ; preds = %24, %21
   store i8 %39, ptr %36, align 2, !tbaa !5
   br label %40
 
-40:                                               ; preds = %33, %33, %38, %35
+40:                                               ; preds = %33, %38, %35
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %42 = load i8, ptr %41, align 2, !tbaa !5
   %.not22 = icmp eq i8 %42, -1
@@ -2219,10 +2217,9 @@ define dso_local i32 @zend_hash_iterator_pos_ex(i32 noundef %0, ptr noundef capt
 
 16:                                               ; preds = %.preheader40
   %magicptr.i = ptrtoint ptr %8 to i64
-  switch i64 %magicptr.i, label %17 [
-    i64 0, label %22
-    i64 -1, label %22
-  ], !prof !73
+  %magicptr.off.i = add i64 %magicptr.i, -1
+  %switch.i = icmp ult i64 %magicptr.off.i, -2
+  br i1 %switch.i, label %17, label %22, !prof !73
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 10
@@ -2235,7 +2232,7 @@ define dso_local i32 @zend_hash_iterator_pos_ex(i32 noundef %0, ptr noundef capt
   store i8 %21, ptr %18, align 2, !tbaa !5
   br label %22
 
-22:                                               ; preds = %20, %17, %16, %16
+22:                                               ; preds = %20, %17, %16
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %24 = load i8, ptr %23, align 2, !tbaa !5
   %.not35.i = icmp eq i8 %24, -1
@@ -2270,10 +2267,9 @@ zend_hash_iterator_find_copy_pos.exit:            ; preds = %25, %22
 34:                                               ; preds = %.thread, %9
   %35 = phi ptr [ %.pre, %.thread ], [ %8, %9 ]
   %magicptr = ptrtoint ptr %35 to i64
-  switch i64 %magicptr, label %36 [
-    i64 0, label %43
-    i64 -1, label %43
-  ], !prof !73
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %36, label %43, !prof !73
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 10
@@ -2288,7 +2284,7 @@ zend_hash_iterator_find_copy_pos.exit:            ; preds = %25, %22
   store i8 %42, ptr %40, align 2, !tbaa !5
   br label %43
 
-43:                                               ; preds = %34, %34, %36, %39
+43:                                               ; preds = %34, %36, %39
   %44 = load ptr, ptr %1, align 8, !tbaa !5
   %45 = load i32, ptr %44, align 4, !tbaa !26
   %46 = icmp ugt i32 %45, 1
@@ -4965,10 +4961,9 @@ define dso_local void @zend_hash_iterator_del(i32 noundef %0) local_unnamed_addr
   tail call void @llvm.assume(i1 %5)
   %6 = load ptr, ptr %4, align 8, !tbaa !63
   %magicptr = ptrtoint ptr %6 to i64
-  switch i64 %magicptr, label %7 [
-    i64 0, label %13
-    i64 -1, label %13
-  ], !prof !73
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %7, label %13, !prof !73
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 10
@@ -4983,7 +4978,7 @@ define dso_local void @zend_hash_iterator_del(i32 noundef %0) local_unnamed_addr
   store i8 %12, ptr %8, align 2, !tbaa !5
   br label %13
 
-13:                                               ; preds = %1, %1, %10, %7
+13:                                               ; preds = %1, %10, %7
   store ptr null, ptr %4, align 8, !tbaa !63
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4, !tbaa !72
@@ -5052,10 +5047,9 @@ define internal fastcc void @zend_hash_remove_iterator_copies(i32 noundef range(
   tail call void @llvm.assume(i1 %13)
   %14 = load ptr, ptr %12, align 8, !tbaa !63
   %magicptr.i = ptrtoint ptr %14 to i64
-  switch i64 %magicptr.i, label %15 [
-    i64 0, label %21
-    i64 -1, label %21
-  ], !prof !73
+  %magicptr.off.i = add i64 %magicptr.i, -1
+  %switch.i = icmp ult i64 %magicptr.off.i, -2
+  br i1 %switch.i, label %15, label %21, !prof !73
 
 15:                                               ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 10
@@ -5070,7 +5064,7 @@ define internal fastcc void @zend_hash_remove_iterator_copies(i32 noundef range(
   store i8 %20, ptr %16, align 2, !tbaa !5
   br label %21
 
-21:                                               ; preds = %18, %15, %.lr.ph, %.lr.ph
+21:                                               ; preds = %18, %15, %.lr.ph
   store ptr null, ptr %12, align 8, !tbaa !63
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !72
@@ -18105,7 +18099,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !70 = !{!"branch_weights", i32 2000, i32 2002}
 !71 = !{!34, !12, i64 1104}
 !72 = !{!64, !12, i64 12}
-!73 = !{!"branch_weights", i32 4000000, i32 2001, i32 2000}
+!73 = !{!"branch_weights", i32 4000000, i32 4001}
 !74 = distinct !{!74, !69}
 !75 = distinct !{!75, !69}
 !76 = distinct !{!76, !69}

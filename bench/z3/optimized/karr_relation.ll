@@ -1032,9 +1032,9 @@ _ZN8rationalD2Ev.exit62:                          ; preds = %.noexc.i61
   %129 = icmp eq ptr %128, null
   br i1 %129, label %.critedge, label %_ZNK7datalog6matrix4sizeEv.exit, !llvm.loop !77
 
-_ZNK6vectorIS_I8rationalLb1EjELb1EjE5emptyEv.exit: ; preds = %_ZNK7datalog6matrix4sizeEv.exit, %.critedge120
-  %130 = phi ptr [ %142, %.critedge120 ], [ %46, %_ZNK7datalog6matrix4sizeEv.exit ]
-  %.040122 = phi i32 [ %141, %.critedge120 ], [ 0, %_ZNK7datalog6matrix4sizeEv.exit ]
+_ZNK6vectorIS_I8rationalLb1EjELb1EjE5emptyEv.exit: ; preds = %_ZNK7datalog6matrix4sizeEv.exit, %.critedge122
+  %130 = phi ptr [ %142, %.critedge122 ], [ %46, %_ZNK7datalog6matrix4sizeEv.exit ]
+  %.040124 = phi i32 [ %141, %.critedge122 ], [ 0, %_ZNK7datalog6matrix4sizeEv.exit ]
   %131 = getelementptr inbounds i8, ptr %130, i64 -4
   %132 = load i32, ptr %131, align 4, !tbaa !14
   %133 = icmp eq i32 %132, 0
@@ -1048,16 +1048,16 @@ _ZNK6vectorIS_I8rationalLb1EjELb1EjE5emptyEv.exit: ; preds = %_ZNK7datalog6matri
 _ZNK6vectorI8rationalLb1EjE4sizeEv.exit:          ; preds = %134
   %137 = getelementptr inbounds i8, ptr %135, i64 -4
   %138 = load i32, ptr %137, align 4, !tbaa !14
-  %139 = icmp ult i32 %.040122, %138
-  br i1 %139, label %.critedge120, label %.critedge
+  %139 = icmp ult i32 %.040124, %138
+  br i1 %139, label %.critedge122, label %.critedge
 
-.critedge:                                        ; preds = %127, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE5emptyEv.exit, %.critedge120, %134, %_ZN7datalog6matrix5resetEv.exit
+.critedge:                                        ; preds = %127, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE5emptyEv.exit, %.critedge122, %134, %_ZN7datalog6matrix5resetEv.exit
   %140 = invoke noundef i32 @_ZN13hilbert_basis8saturateEv(ptr noundef nonnull align 8 dereferenceable(127) %31)
           to label %147 unwind label %.thread
 
-.critedge120:                                     ; preds = %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit
-  call void @_ZN13hilbert_basis10set_is_intEj(ptr noundef nonnull align 8 dereferenceable(127) %31, i32 noundef %.040122)
-  %141 = add nuw i32 %.040122, 1
+.critedge122:                                     ; preds = %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit
+  call void @_ZN13hilbert_basis10set_is_intEj(ptr noundef nonnull align 8 dereferenceable(127) %31, i32 noundef %.040124)
+  %141 = add nuw i32 %.040124, 1
   %142 = load ptr, ptr %2, align 8, !tbaa !58
   %143 = icmp eq ptr %142, null
   br i1 %143, label %.critedge, label %_ZNK6vectorIS_I8rationalLb1EjELb1EjE5emptyEv.exit, !llvm.loop !78
@@ -1072,10 +1072,9 @@ _ZNK6vectorI8rationalLb1EjE4sizeEv.exit:          ; preds = %134
 
 147:                                              ; preds = %.critedge
   %148 = icmp ne i32 %140, -1
-  switch i32 %140, label %149 [
-    i32 -1, label %.loopexit
-    i32 0, label %.loopexit
-  ]
+  %.039.off = add i32 %140, -1
+  %switch = icmp ult i32 %.039.off, -2
+  br i1 %switch, label %149, label %.loopexit
 
 149:                                              ; preds = %147
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1103,18 +1102,18 @@ _ZNK13hilbert_basis14get_basis_sizeEv.exit:       ; preds = %149
   br label %165
 
 165:                                              ; preds = %.lr.ph, %_ZN6vectorI8rationalLb1EjED2Ev.exit
-  %.0124 = phi i32 [ 0, %.lr.ph ], [ %416, %_ZN6vectorI8rationalLb1EjED2Ev.exit ]
-  %.037123 = phi i1 [ true, %.lr.ph ], [ %.1, %_ZN6vectorI8rationalLb1EjED2Ev.exit ]
+  %.0126 = phi i32 [ 0, %.lr.ph ], [ %416, %_ZN6vectorI8rationalLb1EjED2Ev.exit ]
+  %.037125 = phi i1 [ true, %.lr.ph ], [ %.1, %_ZN6vectorI8rationalLb1EjED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !59
-  invoke void @_ZN13hilbert_basis18get_basis_solutionEjR6vectorI8rationalLb1EjERb(ptr noundef nonnull align 8 dereferenceable(127) %31, i32 noundef %.0124, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZN13hilbert_basis18get_basis_solutionEjR6vectorI8rationalLb1EjERb(ptr noundef nonnull align 8 dereferenceable(127) %31, i32 noundef %.0126, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %166 unwind label %274
 
 166:                                              ; preds = %165
   %167 = load i8, ptr %6, align 1, !tbaa !64, !range !65, !noundef !66
   %168 = trunc nuw i8 %167 to i1
-  %or.cond = select i1 %168, i1 %.037123, i1 false
+  %or.cond = select i1 %168, i1 %.037125, i1 false
   br i1 %or.cond, label %169, label %283
 
 169:                                              ; preds = %166
@@ -1572,26 +1571,26 @@ _ZN8rationalD2Ev.exit100:                         ; preds = %.noexc.i99
   br label %417
 
 .sink.split.sink.split:                           ; preds = %388, %273
-  %.1.ph.ph = phi i1 [ false, %273 ], [ %.037123, %388 ]
+  %.1.ph.ph = phi i1 [ false, %273 ], [ %.037125, %388 ]
   %.pre.i101 = load ptr, ptr %27, align 8, !tbaa !63
   %.phi.trans.insert.i102 = getelementptr inbounds i8, ptr %.pre.i101, i64 -4
   %.pre2.i103 = load i32, ptr %.phi.trans.insert.i102, align 4, !tbaa !14
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %382, %267
-  %.sink169 = phi ptr [ %265, %267 ], [ %380, %382 ], [ %.pre.i101, %.sink.split.sink.split ]
+  %.sink171 = phi ptr [ %265, %267 ], [ %380, %382 ], [ %.pre.i101, %.sink.split.sink.split ]
   %.sink = phi i32 [ %269, %267 ], [ %384, %382 ], [ %.pre2.i103, %.sink.split.sink.split ]
-  %.1.ph = phi i1 [ false, %267 ], [ %.037123, %382 ], [ %.1.ph.ph, %.sink.split.sink.split ]
-  %396 = getelementptr inbounds i8, ptr %.sink169, i64 -4
+  %.1.ph = phi i1 [ false, %267 ], [ %.037125, %382 ], [ %.1.ph.ph, %.sink.split.sink.split ]
+  %396 = getelementptr inbounds i8, ptr %.sink171, i64 -4
   %397 = zext i32 %.sink to i64
-  %398 = getelementptr inbounds nuw i8, ptr %.sink169, i64 %397
+  %398 = getelementptr inbounds nuw i8, ptr %.sink171, i64 %397
   store i8 1, ptr %398, align 1, !tbaa !64
   %399 = add i32 %.sink, 1
   store i32 %399, ptr %396, align 4, !tbaa !14
   br label %400
 
 400:                                              ; preds = %.sink.split, %283
-  %.1 = phi i1 [ %.037123, %283 ], [ %.1.ph, %.sink.split ]
+  %.1 = phi i1 [ %.037125, %283 ], [ %.1.ph, %.sink.split ]
   %401 = load ptr, ptr %7, align 8, !tbaa !59
   %.not.i.i106 = icmp eq ptr %401, null
   br i1 %.not.i.i106, label %_ZN6vectorI8rationalLb1EjED2Ev.exit, label %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit.i.i.i107
@@ -1647,7 +1646,7 @@ _ZN6vectorI8rationalLb1EjE16destroy_elementsEv.exit.i.i117: ; preds = %_ZN6vecto
 _ZN6vectorI8rationalLb1EjED2Ev.exit:              ; preds = %400, %_ZN6vectorI8rationalLb1EjE16destroy_elementsEv.exit.i.i117
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %416 = add nuw i32 %.0124, 1
+  %416 = add nuw i32 %.0126, 1
   %exitcond.not = icmp eq i32 %416, %154
   br i1 %exitcond.not, label %.loopexit, label %165, !llvm.loop !83
 
@@ -1658,8 +1657,8 @@ _ZN6vectorI8rationalLb1EjED2Ev.exit:              ; preds = %400, %_ZN6vectorI8r
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
-.loopexit:                                        ; preds = %_ZN6vectorI8rationalLb1EjED2Ev.exit, %149, %_ZNK13hilbert_basis14get_basis_sizeEv.exit, %.thread, %147, %147
-  %418 = phi i1 [ true, %.thread ], [ %148, %147 ], [ %148, %147 ], [ %148, %_ZNK13hilbert_basis14get_basis_sizeEv.exit ], [ %148, %149 ], [ %148, %_ZN6vectorI8rationalLb1EjED2Ev.exit ]
+.loopexit:                                        ; preds = %_ZN6vectorI8rationalLb1EjED2Ev.exit, %149, %_ZNK13hilbert_basis14get_basis_sizeEv.exit, %.thread, %147
+  %418 = phi i1 [ true, %.thread ], [ %148, %147 ], [ %148, %_ZNK13hilbert_basis14get_basis_sizeEv.exit ], [ %148, %149 ], [ %148, %_ZN6vectorI8rationalLb1EjED2Ev.exit ]
   ret i1 %418
 }
 

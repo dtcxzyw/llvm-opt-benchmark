@@ -465,8 +465,8 @@ define noundef nonnull ptr @"_ZN10serde_json5error103_$LT$impl$u20$core..convert
   br i1 %5, label %"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h473c4b3520d12712E.exit", label %6
 
 6:                                                ; preds = %1
-  %.off = add nsw i64 %4, -2
-  %switch = icmp ult i64 %.off, 4
+  %.off = add nsw i64 %4, -1
+  %switch = icmp ult i64 %.off, 5
   br i1 %switch, label %_ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit, label %7
 
 7:                                                ; preds = %6

@@ -651,10 +651,9 @@ define hidden void @"_ZN4core3ptr119drop_in_place$LT$core..cell..Cell$LT$core..o
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
   %2 = load ptr, ptr %0, align 8, !alias.scope !223, !noundef !4
   %magicptr.i.i = ptrtoint ptr %2 to i64
-  switch i64 %magicptr.i.i, label %3 [
-    i64 0, label %"_ZN4core3ptr125drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17h4c881dd0ae7cf0caE.llvm.10022686776672290337.exit"
-    i64 -1, label %"_ZN4core3ptr125drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17h4c881dd0ae7cf0caE.llvm.10022686776672290337.exit"
-  ]
+  %magicptr.off.i.i = add i64 %magicptr.i.i, -1
+  %switch.i.i = icmp ult i64 %magicptr.off.i.i, -2
+  br i1 %switch.i.i, label %3, label %"_ZN4core3ptr125drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17h4c881dd0ae7cf0caE.llvm.10022686776672290337.exit"
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -668,7 +667,7 @@ define hidden void @"_ZN4core3ptr119drop_in_place$LT$core..cell..Cell$LT$core..o
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 136, i64 noundef 8) #22, !noalias !224
   br label %"_ZN4core3ptr125drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17h4c881dd0ae7cf0caE.llvm.10022686776672290337.exit"
 
-"_ZN4core3ptr125drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17h4c881dd0ae7cf0caE.llvm.10022686776672290337.exit": ; preds = %1, %1, %3, %8
+"_ZN4core3ptr125drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17h4c881dd0ae7cf0caE.llvm.10022686776672290337.exit": ; preds = %1, %3, %8
   ret void
 }
 
@@ -741,10 +740,9 @@ define hidden void @"_ZN4core3ptr125drop_in_place$LT$core..cell..UnsafeCell$LT$c
   tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
   %2 = load ptr, ptr %0, align 8, !alias.scope !250, !noundef !4
   %magicptr.i = ptrtoint ptr %2 to i64
-  switch i64 %magicptr.i, label %3 [
-    i64 0, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17he56a477076105f75E.llvm.10022686776672290337.exit"
-    i64 -1, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17he56a477076105f75E.llvm.10022686776672290337.exit"
-  ]
+  %magicptr.off.i = add i64 %magicptr.i, -1
+  %switch.i = icmp ult i64 %magicptr.off.i, -2
+  br i1 %switch.i, label %3, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17he56a477076105f75E.llvm.10022686776672290337.exit"
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -758,7 +756,7 @@ define hidden void @"_ZN4core3ptr125drop_in_place$LT$core..cell..UnsafeCell$LT$c
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 136, i64 noundef 8) #22, !noalias !253
   br label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17he56a477076105f75E.llvm.10022686776672290337.exit"
 
-"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17he56a477076105f75E.llvm.10022686776672290337.exit": ; preds = %1, %1, %3, %8
+"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17he56a477076105f75E.llvm.10022686776672290337.exit": ; preds = %1, %3, %8
   ret void
 }
 
@@ -1149,10 +1147,9 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !398)
   %8 = load ptr, ptr %7, align 8, !alias.scope !401, !noundef !4
   %magicptr.i.i.i = ptrtoint ptr %8 to i64
-  switch i64 %magicptr.i.i.i, label %9 [
-    i64 0, label %"_ZN4core3ptr119drop_in_place$LT$core..cell..Cell$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17hf1b98de9b91f2366E.llvm.10022686776672290337.exit"
-    i64 -1, label %"_ZN4core3ptr119drop_in_place$LT$core..cell..Cell$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17hf1b98de9b91f2366E.llvm.10022686776672290337.exit"
-  ]
+  %magicptr.off.i.i.i = add i64 %magicptr.i.i.i, -1
+  %switch.i.i.i = icmp ult i64 %magicptr.off.i.i.i, -2
+  br i1 %switch.i.i.i, label %9, label %"_ZN4core3ptr119drop_in_place$LT$core..cell..Cell$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17hf1b98de9b91f2366E.llvm.10022686776672290337.exit"
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1166,7 +1163,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$1
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 136, i64 noundef 8) #22, !noalias !402
   br label %"_ZN4core3ptr119drop_in_place$LT$core..cell..Cell$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17hf1b98de9b91f2366E.llvm.10022686776672290337.exit"
 
-"_ZN4core3ptr119drop_in_place$LT$core..cell..Cell$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17hf1b98de9b91f2366E.llvm.10022686776672290337.exit": ; preds = %14, %9, %6, %6
+"_ZN4core3ptr119drop_in_place$LT$core..cell..Cell$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17hf1b98de9b91f2366E.llvm.10022686776672290337.exit": ; preds = %14, %9, %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.experimental.noalias.scope.decl(metadata !407)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2741,12 +2738,11 @@ define hidden void @"_ZN4core3ptr95drop_in_place$LT$core..cell..Ref$LT$tendril..
 define hidden void @"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17he56a477076105f75E.llvm.10022686776672290337"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %magicptr = ptrtoint ptr %2 to i64
-  switch i64 %magicptr, label %3 [
-    i64 0, label %"_ZN4core3ptr67drop_in_place$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$17h614a7f44b369244bE.exit"
-    i64 -1, label %"_ZN4core3ptr67drop_in_place$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$17h614a7f44b369244bE.exit"
-  ]
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %3, label %"_ZN4core3ptr67drop_in_place$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$17h614a7f44b369244bE.exit"
 
-"_ZN4core3ptr67drop_in_place$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$17h614a7f44b369244bE.exit": ; preds = %1, %1, %8, %3
+"_ZN4core3ptr67drop_in_place$LT$alloc..rc..Weak$LT$markup5ever_rcdom..Node$GT$$GT$17h614a7f44b369244bE.exit": ; preds = %1, %8, %3
   ret void
 
 3:                                                ; preds = %1

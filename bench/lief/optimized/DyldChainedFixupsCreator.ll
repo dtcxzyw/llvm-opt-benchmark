@@ -739,21 +739,17 @@ define hidden { i64, i8 } @_ZN4LIEF5MachO24DyldChainedFixupsCreator7lib2ordERKNS
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 58
   %10 = load i16, ptr %9, align 2, !tbaa !23
   %11 = lshr i16 %10, 8
-  %12 = zext nneg i16 %11 to i32
+  %12 = zext nneg i16 %11 to i64
   %trunc = trunc nuw i16 %11 to i8
-  switch i8 %trunc, label %.thread [
-    i8 -1, label %_ZN4LIEF5MachO6Symbol22is_valid_index_ordinalEi.exit
-    i8 0, label %_ZN4LIEF5MachO6Symbol22is_valid_index_ordinalEi.exit
-    i8 -2, label %_ZN4LIEF5MachO6Symbol22is_valid_index_ordinalEi.exit
-  ]
-
-_ZN4LIEF5MachO6Symbol22is_valid_index_ordinalEi.exit: ; preds = %4, %4, %4
+  %trunc.off = add i8 %trunc, -1
+  %switch = icmp ult i8 %trunc.off, -3
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !35
+  %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %.thread, label %16
+  %or.cond = select i1 %switch, i1 true, i1 %15
+  br i1 %or.cond, label %.thread, label %16
 
-16:                                               ; preds = %_ZN4LIEF5MachO6Symbol22is_valid_index_ordinalEi.exit
+16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %18 = tail call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %.not = icmp eq ptr %18, null
@@ -762,7 +758,6 @@ _ZN4LIEF5MachO6Symbol22is_valid_index_ordinalEi.exit: ; preds = %4, %4, %4
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %21 = load i64, ptr %20, align 8, !tbaa !8
-  %.sroa.045.0.extract.trunc47 = trunc i64 %21 to i32
   %.sroa.749.0.extract.shift52 = and i64 %21, -4294967296
   br label %.thread
 
@@ -885,15 +880,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmED2Ev.exit: ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEC2IRS6_RmTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.sroa.045.0.extract.trunc48 = trunc i64 %.lcssa.i.i.i to i32
   %.sroa.749.0.extract.shift54 = and i64 %.lcssa.i.i.i, 9223372032559808512
   br label %.thread
 
-.thread:                                          ; preds = %_ZN4LIEF5MachO6Symbol22is_valid_index_ordinalEi.exit, %4, %.critedge.i.i.i.thread, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmED2Ev.exit, %19, %25
-  %.sroa.045.1 = phi i32 [ 2, %25 ], [ %.sroa.045.0.extract.trunc47, %19 ], [ 2, %.critedge.i.i.i.thread ], [ %.sroa.045.0.extract.trunc48, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmED2Ev.exit ], [ %12, %4 ], [ %12, %_ZN4LIEF5MachO6Symbol22is_valid_index_ordinalEi.exit ]
-  %.sroa.749.sroa.0.1 = phi i64 [ 0, %25 ], [ %.sroa.749.0.extract.shift52, %19 ], [ 0, %.critedge.i.i.i.thread ], [ %.sroa.749.0.extract.shift54, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmED2Ev.exit ], [ 0, %4 ], [ 0, %_ZN4LIEF5MachO6Symbol22is_valid_index_ordinalEi.exit ]
-  %.sroa.749.sroa.5.1 = phi i8 [ 0, %25 ], [ 1, %19 ], [ 0, %.critedge.i.i.i.thread ], [ 1, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmED2Ev.exit ], [ 1, %4 ], [ 1, %_ZN4LIEF5MachO6Symbol22is_valid_index_ordinalEi.exit ]
-  %.sroa.045.0.insert.ext = zext i32 %.sroa.045.1 to i64
+.thread:                                          ; preds = %4, %.critedge.i.i.i.thread, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmED2Ev.exit, %19, %25
+  %.sroa.045.1 = phi i64 [ 2, %25 ], [ %21, %19 ], [ 2, %.critedge.i.i.i.thread ], [ %.lcssa.i.i.i, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmED2Ev.exit ], [ %12, %4 ]
+  %.sroa.749.sroa.0.1 = phi i64 [ 0, %25 ], [ %.sroa.749.0.extract.shift52, %19 ], [ 0, %.critedge.i.i.i.thread ], [ %.sroa.749.0.extract.shift54, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmED2Ev.exit ], [ 0, %4 ]
+  %.sroa.749.sroa.5.1 = phi i8 [ 0, %25 ], [ 1, %19 ], [ 0, %.critedge.i.i.i.thread ], [ 1, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmED2Ev.exit ], [ 1, %4 ]
+  %.sroa.045.0.insert.ext = and i64 %.sroa.045.1, 4294967295
   %.sroa.045.0.insert.insert = or disjoint i64 %.sroa.749.sroa.0.1, %.sroa.045.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.045.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.749.sroa.5.1, 1

@@ -3088,12 +3088,9 @@ define internal void @_ZN5folly11compression12_GLOBAL__N_118NoCompressionCodec6c
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %2, ptr %7, align 8, !tbaa !73, !noalias !102
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5folly11compression12_GLOBAL__N_118NoCompressionCodecE, i64 16), ptr %6, align 8, !tbaa !7, !noalias !102
-  switch i32 %1, label %8 [
-    i32 -1, label %_ZNSt10unique_ptrIN5folly11compression12_GLOBAL__N_118NoCompressionCodecESt14default_deleteIS3_EED2Ev.exit
-    i32 -2, label %_ZNSt10unique_ptrIN5folly11compression12_GLOBAL__N_118NoCompressionCodecESt14default_deleteIS3_EED2Ev.exit
-    i32 -3, label %_ZNSt10unique_ptrIN5folly11compression12_GLOBAL__N_118NoCompressionCodecESt14default_deleteIS3_EED2Ev.exit
-    i32 0, label %_ZNSt10unique_ptrIN5folly11compression12_GLOBAL__N_118NoCompressionCodecESt14default_deleteIS3_EED2Ev.exit
-  ]
+  %.off.i.i = add i32 %1, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, -4
+  br i1 %switch.i.i, label %8, label %_ZNSt10unique_ptrIN5folly11compression12_GLOBAL__N_118NoCompressionCodecESt14default_deleteIS3_EED2Ev.exit
 
 8:                                                ; preds = %3
   %9 = tail call ptr @__cxa_allocate_exception(i64 16) #31, !noalias !102
@@ -3148,7 +3145,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 16) #32, !noalias !102
   resume { ptr, i32 } %eh.lpad-body.i
 
-_ZNSt10unique_ptrIN5folly11compression12_GLOBAL__N_118NoCompressionCodecESt14default_deleteIS3_EED2Ev.exit: ; preds = %3, %3, %3, %3
+_ZNSt10unique_ptrIN5folly11compression12_GLOBAL__N_118NoCompressionCodecESt14default_deleteIS3_EED2Ev.exit: ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !102
   store ptr %6, ptr %0, align 8, !tbaa !107
   ret void

@@ -90,7 +90,8 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator6reduce17h2e08
   %.0.i.i = phi i64 [ 0, %12 ], [ %21, %17 ]
   %18 = getelementptr inbounds { i32, i16, i16 }, ptr %7, i64 %.0.i.i
   %19 = tail call noundef i8 @"_ZN58_$LT$salsa..DatabaseKeyIndex$u20$as$u20$core..cmp..Ord$GT$3cmp17h561c8876f79b38dcE.llvm.12611796297594801985"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.6.0.i.i, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %18), !range !16, !noalias !17
-  %switch.i.i.i.i.i = icmp eq i8 %19, 1
+  %.off.i.i.i.i.i = add nsw i8 %19, -1
+  %switch.i.i.i.i.i = icmp ult i8 %.off.i.i.i.i.i, -2
   %.sroa.3.0.i.i.i.i.i = select i1 %switch.i.i.i.i.i, ptr %18, ptr %.sroa.6.0.i.i
   %.sroa.0.0.sroa.speculated.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 %.022.i.i, i64 %.sroa.05.0.i.i
   %20 = add i64 %.022.i.i, 1
@@ -157,7 +158,8 @@ define hidden { i64, i64 } @_ZN9itertools9Itertools12position_min17h6dfda8075a43
   %.0.i.i.i = phi i64 [ 0, %8 ], [ %17, %13 ]
   %14 = getelementptr inbounds { i32, i16, i16 }, ptr %6, i64 %.0.i.i.i
   %15 = tail call noundef i8 @"_ZN58_$LT$salsa..DatabaseKeyIndex$u20$as$u20$core..cmp..Ord$GT$3cmp17h561c8876f79b38dcE.llvm.12611796297594801985"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.6.0.i.i.i, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %14), !range !16, !noalias !36
-  %switch.i.i.i.i.i.i = icmp eq i8 %15, 1
+  %.off.i.i.i.i.i.i = add nsw i8 %15, -1
+  %switch.i.i.i.i.i.i = icmp ult i8 %.off.i.i.i.i.i.i, -2
   %.sroa.3.0.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, ptr %14, ptr %.sroa.6.0.i.i.i
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 %.022.i.i.i, i64 %.sroa.05.0.i.i.i
   %16 = add i64 %.022.i.i.i, 1

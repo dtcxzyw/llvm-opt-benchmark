@@ -10469,10 +10469,9 @@ define { i64, i32 } @_ZN5tokio4time8interval8Interval9poll_tick17h3ccd193c126e82
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1736)
   %9 = load ptr, ptr %8, align 8, !alias.scope !1739, !noalias !1742, !nonnull !5, !align !45, !noundef !5
   %10 = tail call noundef i8 @_ZN5tokio4time5sleep5Sleep12poll_elapsed17h3ffd96ef949876a5E.llvm.10338052584253536188(ptr noundef nonnull align 8 %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %1), !range !1744, !noalias !1736
-  switch i8 %10, label %11 [
-    i8 4, label %65
-    i8 0, label %13
-  ]
+  %.off.i.i = add nsw i8 %10, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, 3
+  br i1 %switch.i.i, label %11, label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2b6896cb7d98c60dE.exit"
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1745
@@ -10486,7 +10485,11 @@ define { i64, i32 } @_ZN5tokio4time8interval8Interval9poll_tick17h3ccd193c126e82
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a3654876b431c0fa1f523517c2a30401.141.llvm.10338052584253536188) #27, !noalias !1736
   unreachable
 
-13:                                               ; preds = %2
+"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2b6896cb7d98c60dE.exit": ; preds = %2
+  %.not = icmp eq i8 %10, 4
+  br i1 %.not, label %65, label %13
+
+13:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2b6896cb7d98c60dE.exit"
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !5
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -10600,9 +10603,9 @@ _ZN5tokio4time8interval18MissedTickBehavior12next_timeout17h96cfaac423d9087fE.ex
   call void @_ZN5tokio7runtime4time5entry10TimerEntry5reset17hdc331dc409af032fE(ptr noundef nonnull align 8 %9, i64 noundef %.sroa.015.0, i32 noundef %.sroa.3.0, i1 noundef zeroext false)
   br label %65
 
-65:                                               ; preds = %2, %_ZN5tokio4time8interval18MissedTickBehavior12next_timeout17h96cfaac423d9087fE.exit
-  %.sroa.2.0 = phi i32 [ %17, %_ZN5tokio4time8interval18MissedTickBehavior12next_timeout17h96cfaac423d9087fE.exit ], [ 1000000000, %2 ]
-  %.sroa.0.0 = phi i64 [ %15, %_ZN5tokio4time8interval18MissedTickBehavior12next_timeout17h96cfaac423d9087fE.exit ], [ undef, %2 ]
+65:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2b6896cb7d98c60dE.exit", %_ZN5tokio4time8interval18MissedTickBehavior12next_timeout17h96cfaac423d9087fE.exit
+  %.sroa.2.0 = phi i32 [ %17, %_ZN5tokio4time8interval18MissedTickBehavior12next_timeout17h96cfaac423d9087fE.exit ], [ 1000000000, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2b6896cb7d98c60dE.exit" ]
+  %.sroa.0.0 = phi i64 [ %15, %_ZN5tokio4time8interval18MissedTickBehavior12next_timeout17h96cfaac423d9087fE.exit ], [ undef, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2b6896cb7d98c60dE.exit" ]
   %66 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
   %67 = insertvalue { i64, i32 } %66, i32 %.sroa.2.0, 1
   ret { i64, i32 } %67

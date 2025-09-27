@@ -3637,10 +3637,8 @@ default.unreachable:                              ; preds = %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.750.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6115.0..sroa_idx.i, i64 16, i1 false), !noalias !98
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !98
   %63 = load i64, ptr %10, align 8, !range !104, !alias.scope !109, !noalias !98, !noundef !3
-  switch i64 %63, label %64 [
-    i64 2, label %"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$$GT$17h457a3cb6408de6aaE.exit.i"
-    i64 0, label %"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$$GT$17h457a3cb6408de6aaE.exit.i"
-  ]
+  %switch.i.i = icmp eq i64 %63, 1
+  br i1 %switch.i.i, label %64, label %"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$$GT$17h457a3cb6408de6aaE.exit.i"
 
 64:                                               ; preds = %62
   invoke void @"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h29288e8ad792791fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
@@ -3654,7 +3652,7 @@ default.unreachable:                              ; preds = %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.750.0..sroa_idx51.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.750.i, i64 16, i1 false), !noalias !98
   br label %108
 
-"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$$GT$17h457a3cb6408de6aaE.exit.i": ; preds = %64, %62, %62
+"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$$GT$17h457a3cb6408de6aaE.exit.i": ; preds = %64, %62
   store i64 %58, ptr %10, align 8, !noalias !98
   store ptr %60, ptr %19, align 8, !noalias !98
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.750.0..sroa_idx51.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.750.i, i64 16, i1 false), !noalias !98
@@ -3719,10 +3717,8 @@ default.unreachable:                              ; preds = %27
 .loopexit:                                        ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hfd2c14becd83693eE.exit.i", %.invoke, %78, %95, %72, %61, %50, %41, %24
   %.sroa.18.0 = phi ptr [ %26, %24 ], [ %94, %95 ], [ %43, %41 ], [ %49, %50 ], [ %60, %61 ], [ %73, %72 ], [ %82, %78 ], [ %68, %.invoke ], [ %37, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hfd2c14becd83693eE.exit.i" ]
   %87 = load i64, ptr %10, align 8, !range !104, !noalias !98, !noundef !3
-  switch i64 %87, label %103 [
-    i64 2, label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17h745b17276a4896b1E.exit.i"
-    i64 0, label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17h745b17276a4896b1E.exit.i"
-  ]
+  %switch.i = icmp eq i64 %87, 1
+  br i1 %switch.i, label %103, label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17h745b17276a4896b1E.exit.i"
 
 88:                                               ; preds = %85
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.629.0..sroa_idx30.i, align 8, !noalias !98
@@ -3769,7 +3765,7 @@ default.unreachable:                              ; preds = %27
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #16, !noalias !102
   unreachable
 
-"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17h745b17276a4896b1E.exit.i": ; preds = %103, %.loopexit, %.loopexit
+"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17h745b17276a4896b1E.exit.i": ; preds = %103, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !98
   %102 = load i64, ptr %11, align 8, !range !51, !noalias !98, !noundef !3
   %.not144.i = icmp eq i64 %102, -9223372036854775808
@@ -26811,10 +26807,8 @@ default.unreachable:                              ; preds = %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.776.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5179.0..sroa_idx.i, i64 16, i1 false), !noalias !832
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !832
   %83 = load i64, ptr %17, align 8, !range !104, !alias.scope !843, !noalias !832, !noundef !3
-  switch i64 %83, label %84 [
-    i64 2, label %"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$$GT$17h457a3cb6408de6aaE.exit.i"
-    i64 0, label %"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$$GT$17h457a3cb6408de6aaE.exit.i"
-  ]
+  %switch.i.i = icmp eq i64 %83, 1
+  br i1 %switch.i.i, label %84, label %"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$$GT$17h457a3cb6408de6aaE.exit.i"
 
 84:                                               ; preds = %82
   invoke void @"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h29288e8ad792791fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26)
@@ -26828,7 +26822,7 @@ default.unreachable:                              ; preds = %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.776.0..sroa_idx77.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.776.i, i64 16, i1 false), !noalias !832
   br label %.loopexit.i
 
-"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$$GT$17h457a3cb6408de6aaE.exit.i": ; preds = %84, %82, %82
+"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$$GT$17h457a3cb6408de6aaE.exit.i": ; preds = %84, %82
   store i64 %78, ptr %17, align 8, !noalias !832
   store ptr %80, ptr %26, align 8, !noalias !832
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.776.0..sroa_idx77.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.776.i, i64 16, i1 false), !noalias !832
@@ -39794,10 +39788,8 @@ default.unreachable:                              ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.649.0..sroa_idx.i, i64 16, i1 false), !noalias !1244
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1244
   %37 = load i64, ptr %7, align 8, !range !104, !alias.scope !1249, !noalias !1244, !noundef !3
-  switch i64 %37, label %38 [
-    i64 2, label %"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$$GT$17h457a3cb6408de6aaE.exit.i"
-    i64 0, label %"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$$GT$17h457a3cb6408de6aaE.exit.i"
-  ]
+  %switch.i.i = icmp eq i64 %37, 1
+  br i1 %switch.i.i, label %38, label %"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$$GT$17h457a3cb6408de6aaE.exit.i"
 
 38:                                               ; preds = %36
   invoke void @"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h29288e8ad792791fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
@@ -39811,7 +39803,7 @@ default.unreachable:                              ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx22.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.i, i64 16, i1 false), !noalias !1244
   br label %15
 
-"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$$GT$17h457a3cb6408de6aaE.exit.i": ; preds = %38, %36, %36
+"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$$GT$17h457a3cb6408de6aaE.exit.i": ; preds = %38, %36
   store i64 %32, ptr %7, align 8, !noalias !1244
   store ptr %34, ptr %13, align 8, !noalias !1244
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx22.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.i, i64 16, i1 false), !noalias !1244
@@ -39903,18 +39895,14 @@ default.unreachable:                              ; preds = %21
 "_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$lsp_types..notebook..notification_params..NotebookDocumentCellChange$GT$$GT$17h46290bf666f37c1eE.exit.i": ; preds = %60, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1244
   %61 = load i64, ptr %7, align 8, !range !104, !noalias !1244, !noundef !3
-  switch i64 %61, label %65 [
-    i64 2, label %75
-    i64 0, label %75
-  ]
+  %switch108.i = icmp eq i64 %61, 1
+  br i1 %switch108.i, label %65, label %75
 
 "_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$lsp_types..notebook..notification_params..NotebookDocumentCellChange$GT$$GT$17h46290bf666f37c1eE.exit101.i": ; preds = %69, %66, %63, %15
   %.pn88.i = phi { ptr, i32 } [ %64, %63 ], [ %.pn.ph.i, %15 ], [ %.pn106.i, %69 ], [ %.pn106.i, %66 ]
   %62 = load i64, ptr %7, align 8, !range !104, !noalias !1244, !noundef !3
-  switch i64 %62, label %72 [
-    i64 2, label %.body
-    i64 0, label %.body
-  ]
+  %switch110.i = icmp eq i64 %62, 1
+  br i1 %switch110.i, label %72, label %.body
 
 63:                                               ; preds = %60
   %64 = landingpad { ptr, i32 }
@@ -39945,8 +39933,8 @@ default.unreachable:                              ; preds = %21
   invoke void @"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h29288e8ad792791fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
           to label %.body unwind label %70, !noalias !1248
 
-.body:                                            ; preds = %73, %72, %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$lsp_types..notebook..notification_params..NotebookDocumentCellChange$GT$$GT$17h46290bf666f37c1eE.exit101.i", %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$lsp_types..notebook..notification_params..NotebookDocumentCellChange$GT$$GT$17h46290bf666f37c1eE.exit101.i", %85
-  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %74, %73 ], [ %.pn88.i, %72 ], [ %.pn88.i, %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$lsp_types..notebook..notification_params..NotebookDocumentCellChange$GT$$GT$17h46290bf666f37c1eE.exit101.i" ], [ %.pn88.i, %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$lsp_types..notebook..notification_params..NotebookDocumentCellChange$GT$$GT$17h46290bf666f37c1eE.exit101.i" ]
+.body:                                            ; preds = %73, %72, %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$lsp_types..notebook..notification_params..NotebookDocumentCellChange$GT$$GT$17h46290bf666f37c1eE.exit101.i", %85
+  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %74, %73 ], [ %.pn88.i, %72 ], [ %.pn88.i, %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$lsp_types..notebook..notification_params..NotebookDocumentCellChange$GT$$GT$17h46290bf666f37c1eE.exit101.i" ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde_json..value..de..MapDeserializer$GT$17h0c638acf21f6ce0cE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %9) #15
           to label %92 unwind label %90
 
@@ -39955,7 +39943,7 @@ default.unreachable:                              ; preds = %21
           cleanup
   br label %.body
 
-75:                                               ; preds = %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$lsp_types..notebook..notification_params..NotebookDocumentCellChange$GT$$GT$17h46290bf666f37c1eE.exit.i", %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$lsp_types..notebook..notification_params..NotebookDocumentCellChange$GT$$GT$17h46290bf666f37c1eE.exit.i", %65
+75:                                               ; preds = %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$lsp_types..notebook..notification_params..NotebookDocumentCellChange$GT$$GT$17h46290bf666f37c1eE.exit.i", %65
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1244
   %76 = icmp ne ptr %.sroa.12.0, null
   call void @llvm.assume(i1 %76)

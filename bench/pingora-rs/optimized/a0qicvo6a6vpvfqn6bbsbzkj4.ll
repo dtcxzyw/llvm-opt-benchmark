@@ -1008,10 +1008,9 @@ define noundef align 8 dereferenceable_or_null(8) ptr @"_ZN114_$LT$pingora_lru..
 _ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E.exit: ; preds = %10, %12, %14
   %.sroa.0.0.i.i = phi ptr [ %17, %14 ], [ %11, %10 ], [ %13, %12 ]
   %19 = load i64, ptr %.sroa.0.0.i.i, align 8, !noundef !3
-  switch i64 %19, label %20 [
-    i64 0, label %37
-    i64 -1, label %37
-  ]
+  %.off = add i64 %19, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %20, label %37
 
 20:                                               ; preds = %_ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E.exit
   store i64 %19, ptr %3, align 8
@@ -1050,8 +1049,8 @@ _ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E.ex
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i1, i64 16
   br label %37
 
-37:                                               ; preds = %_ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E.exit, %_ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E.exit, %_ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E.exit
-  %.sroa.0.0 = phi ptr [ %36, %_ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E.exit ], [ null, %_ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E.exit ], [ null, %_ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E.exit ]
+37:                                               ; preds = %_ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E.exit, %_ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E.exit
+  %.sroa.0.0 = phi ptr [ %36, %_ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E.exit ], [ null, %_ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E.exit ]
   ret ptr %.sroa.0.0
 }
 

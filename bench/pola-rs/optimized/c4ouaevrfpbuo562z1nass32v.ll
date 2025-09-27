@@ -29373,10 +29373,8 @@ _ZN5tokio4task4coop11with_budget17h19753fc134f797e7E.exit.i.i.i.i: ; preds = %"_
 
 86:                                               ; preds = %90, %88, %81
   %.pn.i.i.i = phi { ptr, i32 } [ %89, %88 ], [ %82, %81 ], [ %91, %90 ]
-  switch i64 %72, label %87 [
-    i64 2, label %.loopexit.split-lp
-    i64 0, label %.loopexit.split-lp
-  ]
+  %switch.i.i.i.i = icmp eq i64 %72, 1
+  br i1 %switch.i.i.i.i, label %87, label %.loopexit.split-lp
 
 87:                                               ; preds = %86
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1f8e568c3a52d77aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %35)
@@ -29693,8 +29691,8 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.thread2.i.i.i23.
   store ptr %17, ptr %1, align 8
   ret void
 
-.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %168, %.thread20.i.i.i, %153, %148, %140, %136, %134, %92, %87, %86, %86, %68, %66, %.body.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn45.i.i, %168 ], [ %67, %68 ], [ %67, %66 ], [ %55, %.body.i.i.i ], [ %93, %92 ], [ %.pn.i.i.i, %87 ], [ %.pn.i.i.i, %86 ], [ %.pn.i.i.i, %86 ], [ %135, %134 ], [ %135, %136 ], [ %141, %140 ], [ %.pn23.i.i.i, %.thread20.i.i.i ], [ %149, %148 ], [ %154, %153 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit11, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp12, %.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %168, %.thread20.i.i.i, %153, %148, %140, %136, %134, %92, %87, %86, %68, %66, %.body.i.i.i
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn45.i.i, %168 ], [ %67, %68 ], [ %67, %66 ], [ %55, %.body.i.i.i ], [ %93, %92 ], [ %.pn.i.i.i, %87 ], [ %.pn.i.i.i, %86 ], [ %135, %134 ], [ %135, %136 ], [ %141, %140 ], [ %.pn23.i.i.i, %.thread20.i.i.i ], [ %149, %148 ], [ %154, %153 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit11, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp12, %.loopexit.split-lp.loopexit.split-lp ]
   store ptr %17, ptr %1, align 8
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -31647,10 +31645,8 @@ _ZN5tokio4task4coop11with_budget17h57ad057f4e1b0f47E.exit.i.i.i.i: ; preds = %"_
 
 86:                                               ; preds = %90, %88, %81
   %.pn.i.i.i = phi { ptr, i32 } [ %89, %88 ], [ %82, %81 ], [ %91, %90 ]
-  switch i64 %72, label %87 [
-    i64 2, label %.loopexit.split-lp
-    i64 0, label %.loopexit.split-lp
-  ]
+  %switch.i.i.i.i = icmp eq i64 %72, 1
+  br i1 %switch.i.i.i.i, label %87, label %.loopexit.split-lp
 
 87:                                               ; preds = %86
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1f8e568c3a52d77aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %35)
@@ -31967,8 +31963,8 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.thread2.i.i.i23.
   store ptr %17, ptr %1, align 8
   ret void
 
-.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %168, %.thread20.i.i.i, %153, %148, %140, %136, %134, %92, %87, %86, %86, %68, %66, %.body.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn45.i.i, %168 ], [ %67, %68 ], [ %67, %66 ], [ %55, %.body.i.i.i ], [ %93, %92 ], [ %.pn.i.i.i, %87 ], [ %.pn.i.i.i, %86 ], [ %.pn.i.i.i, %86 ], [ %135, %134 ], [ %135, %136 ], [ %141, %140 ], [ %.pn23.i.i.i, %.thread20.i.i.i ], [ %149, %148 ], [ %154, %153 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit11, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp12, %.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %168, %.thread20.i.i.i, %153, %148, %140, %136, %134, %92, %87, %86, %68, %66, %.body.i.i.i
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn45.i.i, %168 ], [ %67, %68 ], [ %67, %66 ], [ %55, %.body.i.i.i ], [ %93, %92 ], [ %.pn.i.i.i, %87 ], [ %.pn.i.i.i, %86 ], [ %135, %134 ], [ %135, %136 ], [ %141, %140 ], [ %.pn23.i.i.i, %.thread20.i.i.i ], [ %149, %148 ], [ %154, %153 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit11, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp12, %.loopexit.split-lp.loopexit.split-lp ]
   store ptr %17, ptr %1, align 8
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -47310,10 +47306,8 @@ define hidden { i64, ptr } @_ZN5tokio7runtime9scheduler14current_thread13Current
 
 76:                                               ; preds = %80, %78, %.body.i.i.i.i
   %.pn.i.i.i.i = phi { ptr, i32 } [ %79, %78 ], [ %74, %.body.i.i.i.i ], [ %81, %80 ]
-  switch i64 %64, label %77 [
-    i64 2, label %.thread.i.i.i.i
-    i64 0, label %.thread.i.i.i.i
-  ]
+  %switch.i.i.i.i.i = icmp eq i64 %64, 1
+  br i1 %switch.i.i.i.i.i, label %77, label %.thread.i.i.i.i
 
 77:                                               ; preds = %76
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1f8e568c3a52d77aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %67)
@@ -47336,8 +47330,8 @@ define hidden { i64, ptr } @_ZN5tokio7runtime9scheduler14current_thread13Current
   invoke fastcc void @"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..current_thread..Core$GT$$GT$17h38390e0ac20d2335E"(ptr %48) #28
           to label %.thread.i.i.i.i unwind label %55, !noalias !4446
 
-.thread.i.i.i.i:                                  ; preds = %82, %77, %76, %76, %57, %52, %39
-  %.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %83, %82 ], [ %58, %57 ], [ %53, %52 ], [ %40, %39 ], [ %.pn.i.i.i.i, %76 ], [ %.pn.i.i.i.i, %76 ], [ %.pn.i.i.i.i, %77 ]
+.thread.i.i.i.i:                                  ; preds = %82, %77, %76, %57, %52, %39
+  %.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %83, %82 ], [ %58, %57 ], [ %53, %52 ], [ %40, %39 ], [ %.pn.i.i.i.i, %76 ], [ %.pn.i.i.i.i, %77 ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$tokio..runtime..scheduler..current_thread..CoreGuard$GT$17h20e3ca502e5603f0E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %16) #28
           to label %.body.i unwind label %55, !noalias !4444
 
@@ -47375,8 +47369,8 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h3b23d8e8af37f3f1E.
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !4445
   br label %129
 
-.body.thread.i.i:                                 ; preds = %122, %108, %108, %.thread.i.i, %99, %95
-  %.pn.i.i = phi { ptr, i32 } [ %109, %108 ], [ %96, %95 ], [ %lpad.phi.i.i, %99 ], [ %106, %.thread.i.i ], [ %109, %122 ], [ %109, %108 ]
+.body.thread.i.i:                                 ; preds = %122, %108, %.thread.i.i, %99, %95
+  %.pn.i.i = phi { ptr, i32 } [ %96, %95 ], [ %lpad.phi.i.i, %99 ], [ %106, %.thread.i.i ], [ %109, %122 ], [ %109, %108 ]
   %91 = load i64, ptr %19, align 8, !range !3, !noalias !4445, !noundef !4
   %.not14.i.i = icmp eq i64 %91, 2
   br i1 %.not14.i.i, label %.body.i, label %123
@@ -47459,10 +47453,8 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h3b23d8e8af37f3f1E.
   %109 = landingpad { ptr, i32 }
           cleanup
   %110 = load i64, ptr %12, align 8, !range !3, !noalias !4445, !noundef !4
-  switch i64 %110, label %122 [
-    i64 2, label %.body.thread.i.i
-    i64 0, label %.body.thread.i.i
-  ]
+  %switch.i.i = icmp eq i64 %110, 1
+  br i1 %switch.i.i, label %122, label %.body.thread.i.i
 
 111:                                              ; preds = %105
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !4445
@@ -47480,16 +47472,14 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h3b23d8e8af37f3f1E.
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !4445
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !4445
   %115 = load i64, ptr %12, align 8, !range !3, !alias.scope !4455, !noalias !4445, !noundef !4
-  switch i64 %115, label %116 [
-    i64 2, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17hb103a1a8dbbffc23E.exit.i.i"
-    i64 0, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17hb103a1a8dbbffc23E.exit.i.i"
-  ]
+  %switch.i.i.i = icmp eq i64 %115, 1
+  br i1 %switch.i.i.i, label %116, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17hb103a1a8dbbffc23E.exit.i.i"
 
 116:                                              ; preds = %114
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1f8e568c3a52d77aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %31)
           to label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17hb103a1a8dbbffc23E.exit.i.i" unwind label %95, !noalias !4444
 
-"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17hb103a1a8dbbffc23E.exit.i.i": ; preds = %116, %114, %114
+"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17hb103a1a8dbbffc23E.exit.i.i": ; preds = %116, %114
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !4445
   %117 = load i64, ptr %19, align 8, !range !3, !alias.scope !4458, !noalias !4445, !noundef !4
   %118 = icmp eq i64 %117, 2
@@ -52247,10 +52237,8 @@ define hidden { i64, ptr } @_ZN5tokio7runtime9scheduler14current_thread13Current
 
 75:                                               ; preds = %79, %77, %.body.i.i.i.i
   %.pn.i.i.i.i = phi { ptr, i32 } [ %78, %77 ], [ %73, %.body.i.i.i.i ], [ %80, %79 ]
-  switch i64 %63, label %76 [
-    i64 2, label %.thread.i.i.i.i
-    i64 0, label %.thread.i.i.i.i
-  ]
+  %switch.i.i.i.i.i = icmp eq i64 %63, 1
+  br i1 %switch.i.i.i.i.i, label %76, label %.thread.i.i.i.i
 
 76:                                               ; preds = %75
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1f8e568c3a52d77aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %66)
@@ -52273,8 +52261,8 @@ define hidden { i64, ptr } @_ZN5tokio7runtime9scheduler14current_thread13Current
   invoke fastcc void @"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..current_thread..Core$GT$$GT$17h38390e0ac20d2335E"(ptr %47) #28
           to label %.thread.i.i.i.i unwind label %54, !noalias !4846
 
-.thread.i.i.i.i:                                  ; preds = %81, %76, %75, %75, %56, %51, %38
-  %.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %82, %81 ], [ %57, %56 ], [ %52, %51 ], [ %39, %38 ], [ %.pn.i.i.i.i, %75 ], [ %.pn.i.i.i.i, %75 ], [ %.pn.i.i.i.i, %76 ]
+.thread.i.i.i.i:                                  ; preds = %81, %76, %75, %56, %51, %38
+  %.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %82, %81 ], [ %57, %56 ], [ %52, %51 ], [ %39, %38 ], [ %.pn.i.i.i.i, %75 ], [ %.pn.i.i.i.i, %76 ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$tokio..runtime..scheduler..current_thread..CoreGuard$GT$17h20e3ca502e5603f0E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %15) #28
           to label %.body.i unwind label %54, !noalias !4846
 
@@ -52312,8 +52300,8 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h195da166089b8fa8E.
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !4847
   br label %127
 
-.body.thread.i.i:                                 ; preds = %121, %107, %107, %.thread.i.i, %98, %94
-  %.pn.i.i = phi { ptr, i32 } [ %108, %107 ], [ %95, %94 ], [ %lpad.phi.i.i, %98 ], [ %105, %.thread.i.i ], [ %108, %121 ], [ %108, %107 ]
+.body.thread.i.i:                                 ; preds = %121, %107, %.thread.i.i, %98, %94
+  %.pn.i.i = phi { ptr, i32 } [ %95, %94 ], [ %lpad.phi.i.i, %98 ], [ %105, %.thread.i.i ], [ %108, %121 ], [ %108, %107 ]
   %90 = load i64, ptr %18, align 8, !range !3, !noalias !4847, !noundef !4
   %.not14.i.i = icmp eq i64 %90, 2
   br i1 %.not14.i.i, label %.body.i, label %122
@@ -52396,10 +52384,8 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h195da166089b8fa8E.
   %108 = landingpad { ptr, i32 }
           cleanup
   %109 = load i64, ptr %11, align 8, !range !3, !noalias !4847, !noundef !4
-  switch i64 %109, label %121 [
-    i64 2, label %.body.thread.i.i
-    i64 0, label %.body.thread.i.i
-  ]
+  %switch.i.i = icmp eq i64 %109, 1
+  br i1 %switch.i.i, label %121, label %.body.thread.i.i
 
 110:                                              ; preds = %104
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !4847
@@ -52417,16 +52403,14 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h195da166089b8fa8E.
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !4847
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !4847
   %114 = load i64, ptr %11, align 8, !range !3, !alias.scope !4854, !noalias !4847, !noundef !4
-  switch i64 %114, label %115 [
-    i64 2, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17hb103a1a8dbbffc23E.exit.i.i"
-    i64 0, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17hb103a1a8dbbffc23E.exit.i.i"
-  ]
+  %switch.i.i.i = icmp eq i64 %114, 1
+  br i1 %switch.i.i.i, label %115, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17hb103a1a8dbbffc23E.exit.i.i"
 
 115:                                              ; preds = %113
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1f8e568c3a52d77aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
           to label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17hb103a1a8dbbffc23E.exit.i.i" unwind label %94, !noalias !4846
 
-"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17hb103a1a8dbbffc23E.exit.i.i": ; preds = %115, %113, %113
+"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17hb103a1a8dbbffc23E.exit.i.i": ; preds = %115, %113
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !4847
   %116 = load i64, ptr %18, align 8, !range !3, !alias.scope !4857, !noalias !4847, !noundef !4
   %117 = icmp eq i64 %116, 2

@@ -17036,7 +17036,7 @@ define hidden { i64, ptr } @"_ZN95_$LT$tokio_io_timeout..TimeoutWriter$LT$W$GT$$
           to label %.noexc11 unwind label %33
 
 .noexc11:                                         ; preds = %28
-  %.pre16 = load i64, ptr %5, align 8, !range !29
+  %.pre17 = load i64, ptr %5, align 8, !range !29
   br i1 %29, label %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread, label %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit
 
 30:                                               ; preds = %4
@@ -17048,33 +17048,29 @@ define hidden { i64, ptr } @"_ZN95_$LT$tokio_io_timeout..TimeoutWriter$LT$W$GT$$
   %34 = landingpad { ptr, i32 }
           cleanup
   %35 = load i64, ptr %5, align 8, !range !29, !alias.scope !2357, !noundef !7
-  switch i64 %35, label %36 [
-    i64 2, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit"
-    i64 0, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit"
-  ]
+  %switch.i = icmp eq i64 %35, 1
+  br i1 %switch.i, label %36, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit"
 
 36:                                               ; preds = %33
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h39ce46b790451054E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
           to label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit" unwind label %47
 
 _ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit: ; preds = %.noexc11
-  switch i64 %.pre16, label %37 [
-    i64 2, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit13"
-    i64 0, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit13"
-  ]
+  %switch.i13 = icmp eq i64 %.pre17, 1
+  br i1 %switch.i13, label %37, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit14"
 
 37:                                               ; preds = %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h39ce46b790451054E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
-  br label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit13"
+  br label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit14"
 
 _ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread: ; preds = %._ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread_crit_edge, %.noexc11, %13, %30
-  %38 = phi i64 [ %.pre, %._ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread_crit_edge ], [ %.pre16, %.noexc11 ], [ 2, %13 ], [ %8, %30 ]
+  %38 = phi i64 [ %.pre, %._ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread_crit_edge ], [ %.pre17, %.noexc11 ], [ 2, %13 ], [ %8, %30 ]
   %39 = load ptr, ptr %10, align 8
-  br label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit13"
+  br label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit14"
 
-"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit13": ; preds = %37, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread
-  %.sroa.3.0 = phi ptr [ %39, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread ], [ inttoptr (i64 94489280515 to ptr), %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit ], [ inttoptr (i64 94489280515 to ptr), %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit ], [ inttoptr (i64 94489280515 to ptr), %37 ]
-  %.sroa.0.0 = phi i64 [ %38, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread ], [ 1, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit ], [ 1, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit ], [ 1, %37 ]
+"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit14": ; preds = %37, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread
+  %.sroa.3.0 = phi ptr [ %39, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread ], [ inttoptr (i64 94489280515 to ptr), %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit ], [ inttoptr (i64 94489280515 to ptr), %37 ]
+  %.sroa.0.0 = phi i64 [ %38, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread ], [ 1, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit ], [ 1, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %40 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %41 = insertvalue { i64, ptr } %40, ptr %.sroa.3.0, 1
@@ -17101,7 +17097,7 @@ _ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread:
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #29
   unreachable
 
-"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit": ; preds = %33, %33, %36
+"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit": ; preds = %33, %36
   resume { ptr, i32 } %34
 }
 
@@ -17278,7 +17274,7 @@ define hidden { i64, ptr } @"_ZN95_$LT$tokio_io_timeout..TimeoutWriter$LT$W$GT$$
           to label %.noexc11 unwind label %33
 
 .noexc11:                                         ; preds = %28
-  %.pre16 = load i64, ptr %5, align 8, !range !29
+  %.pre17 = load i64, ptr %5, align 8, !range !29
   br i1 %29, label %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread, label %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit
 
 30:                                               ; preds = %4
@@ -17290,33 +17286,29 @@ define hidden { i64, ptr } @"_ZN95_$LT$tokio_io_timeout..TimeoutWriter$LT$W$GT$$
   %34 = landingpad { ptr, i32 }
           cleanup
   %35 = load i64, ptr %5, align 8, !range !29, !alias.scope !2369, !noundef !7
-  switch i64 %35, label %36 [
-    i64 2, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit"
-    i64 0, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit"
-  ]
+  %switch.i = icmp eq i64 %35, 1
+  br i1 %switch.i, label %36, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit"
 
 36:                                               ; preds = %33
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h39ce46b790451054E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
           to label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit" unwind label %47
 
 _ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit: ; preds = %.noexc11
-  switch i64 %.pre16, label %37 [
-    i64 2, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit13"
-    i64 0, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit13"
-  ]
+  %switch.i13 = icmp eq i64 %.pre17, 1
+  br i1 %switch.i13, label %37, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit14"
 
 37:                                               ; preds = %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h39ce46b790451054E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
-  br label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit13"
+  br label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit14"
 
 _ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread: ; preds = %._ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread_crit_edge, %.noexc11, %13, %30
-  %38 = phi i64 [ %.pre, %._ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread_crit_edge ], [ %.pre16, %.noexc11 ], [ 2, %13 ], [ %8, %30 ]
+  %38 = phi i64 [ %.pre, %._ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread_crit_edge ], [ %.pre17, %.noexc11 ], [ 2, %13 ], [ %8, %30 ]
   %39 = load ptr, ptr %10, align 8
-  br label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit13"
+  br label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit14"
 
-"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit13": ; preds = %37, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread
-  %.sroa.3.0 = phi ptr [ %39, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread ], [ inttoptr (i64 94489280515 to ptr), %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit ], [ inttoptr (i64 94489280515 to ptr), %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit ], [ inttoptr (i64 94489280515 to ptr), %37 ]
-  %.sroa.0.0 = phi i64 [ %38, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread ], [ 1, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit ], [ 1, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit ], [ 1, %37 ]
+"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit14": ; preds = %37, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread
+  %.sroa.3.0 = phi ptr [ %39, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread ], [ inttoptr (i64 94489280515 to ptr), %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit ], [ inttoptr (i64 94489280515 to ptr), %37 ]
+  %.sroa.0.0 = phi i64 [ %38, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread ], [ 1, %_ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit ], [ 1, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %40 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %41 = insertvalue { i64, ptr } %40, ptr %.sroa.3.0, 1
@@ -17343,7 +17335,7 @@ _ZN16tokio_io_timeout12TimeoutState10poll_check17h9a410ac6ab0831adE.exit.thread:
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #29
   unreachable
 
-"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit": ; preds = %33, %33, %36
+"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h757dc58cde96af97E.exit": ; preds = %33, %36
   resume { ptr, i32 } %34
 }
 

@@ -18269,7 +18269,7 @@ select.unfold:                                    ; preds = %ft_mem_qalloc.exit.
   br label %ft_mem_alloc.exit.thread101
 
 .preheader.i71:                                   ; preds = %54, %28
-  %.08098120 = phi i32 [ %.1, %54 ], [ 64, %28 ]
+  %.08098121 = phi i32 [ %.1, %54 ], [ 64, %28 ]
   %94 = getelementptr inbounds nuw i8, ptr %.0.i17.i.ph, i64 72
   %95 = load i32, ptr %94, align 8, !tbaa !336
   %96 = icmp sgt i32 %95, 0
@@ -18326,41 +18326,41 @@ ft_mem_free.exit.i:                               ; preds = %._crit_edge.thread.
   br label %destroy_charmaps.exit
 
 destroy_charmaps.exit:                            ; preds = %ft_mem_qalloc.exit.thread.i, %ft_mem_qalloc.exit.i, %ft_mem_free.exit.i
-  %.not.i70111 = phi i1 [ false, %ft_mem_free.exit.i ], [ true, %ft_mem_qalloc.exit.i ], [ true, %ft_mem_qalloc.exit.thread.i ]
-  %.0.i17.i8597110 = phi ptr [ %.0.i17.i.ph, %ft_mem_free.exit.i ], [ null, %ft_mem_qalloc.exit.i ], [ null, %ft_mem_qalloc.exit.thread.i ]
-  %.08098109 = phi i32 [ %.08098120, %ft_mem_free.exit.i ], [ 64, %ft_mem_qalloc.exit.i ], [ 6, %ft_mem_qalloc.exit.thread.i ]
-  %.052100108 = phi ptr [ %31, %ft_mem_free.exit.i ], [ null, %ft_mem_qalloc.exit.i ], [ null, %ft_mem_qalloc.exit.thread.i ]
+  %.not.i70112 = phi i1 [ false, %ft_mem_free.exit.i ], [ true, %ft_mem_qalloc.exit.i ], [ true, %ft_mem_qalloc.exit.thread.i ]
+  %.0.i17.i8597111 = phi ptr [ %.0.i17.i.ph, %ft_mem_free.exit.i ], [ null, %ft_mem_qalloc.exit.i ], [ null, %ft_mem_qalloc.exit.thread.i ]
+  %.08098110 = phi i32 [ %.08098121, %ft_mem_free.exit.i ], [ 64, %ft_mem_qalloc.exit.i ], [ 6, %ft_mem_qalloc.exit.thread.i ]
+  %.052100109 = phi ptr [ %31, %ft_mem_free.exit.i ], [ null, %ft_mem_qalloc.exit.i ], [ null, %ft_mem_qalloc.exit.thread.i ]
   %119 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %120 = load ptr, ptr %119, align 8, !tbaa !342
   %.not64 = icmp eq ptr %120, null
   br i1 %.not64, label %122, label %121
 
 121:                                              ; preds = %destroy_charmaps.exit
-  tail call void %120(ptr noundef %.0.i17.i8597110) #34
+  tail call void %120(ptr noundef %.0.i17.i8597111) #34
   br label %122
 
 122:                                              ; preds = %destroy_charmaps.exit, %121
-  %.not.i73 = icmp eq ptr %.052100108, null
+  %.not.i73 = icmp eq ptr %.052100109, null
   br i1 %.not.i73, label %ft_mem_free.exit, label %123
 
 123:                                              ; preds = %122
   %124 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !61
-  tail call void %125(ptr noundef %11, ptr noundef nonnull %.052100108) #34
+  tail call void %125(ptr noundef %11, ptr noundef nonnull %.052100109) #34
   br label %ft_mem_free.exit
 
 ft_mem_free.exit:                                 ; preds = %122, %123
-  br i1 %.not.i70111, label %ft_mem_alloc.exit.thread101, label %126
+  br i1 %.not.i70112, label %ft_mem_alloc.exit.thread101, label %126
 
 126:                                              ; preds = %ft_mem_free.exit
   %127 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %128 = load ptr, ptr %127, align 8, !tbaa !61
-  tail call void %128(ptr noundef %11, ptr noundef nonnull %.0.i17.i8597110) #34
+  tail call void %128(ptr noundef %11, ptr noundef nonnull %.0.i17.i8597111) #34
   br label %ft_mem_alloc.exit.thread101
 
 ft_mem_alloc.exit.thread101:                      ; preds = %.preheader.i, %126, %ft_mem_free.exit, %.loopexit.sink.split.i, %61
   %.0.i17.i.ph.sink = phi ptr [ %.0.i17.i.ph, %61 ], [ %.0.i17.i.ph, %.loopexit.sink.split.i ], [ null, %ft_mem_free.exit ], [ null, %126 ], [ %.0.i17.i.ph, %.preheader.i ]
-  %.08099 = phi i32 [ 0, %61 ], [ 0, %.loopexit.sink.split.i ], [ %.08098109, %ft_mem_free.exit ], [ %.08098109, %126 ], [ 0, %.preheader.i ]
+  %.08099 = phi i32 [ 0, %61 ], [ 0, %.loopexit.sink.split.i ], [ %.08098110, %ft_mem_free.exit ], [ %.08098110, %126 ], [ 0, %.preheader.i ]
   store ptr %.0.i17.i.ph.sink, ptr %6, align 8, !tbaa !298
   ret i32 %.08099
 }

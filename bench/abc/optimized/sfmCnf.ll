@@ -76,12 +76,11 @@ define i32 @Sfm_TruthToCnf(i64 noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   br label %.lr.ph
 
 12:                                               ; preds = %5
-  switch i64 %0, label %._crit_edge167.thread [
-    i64 0, label %13
-    i64 -1, label %13
-  ]
+  %.off = add i64 %0, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %._crit_edge167.thread, label %13
 
-13:                                               ; preds = %12, %12
+13:                                               ; preds = %12
   %14 = icmp eq i64 %0, 0
   %15 = zext i1 %14 to i8
   %16 = load i32, ptr %4, align 8, !tbaa !16

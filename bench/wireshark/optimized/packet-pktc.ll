@@ -610,13 +610,10 @@ define internal fastcc noundef i32 @dissect_pktc_app_specific_data(ptr noundef %
   br label %49
 
 40:                                               ; preds = %6
-  switch i8 %5, label %45 [
-    i8 2, label %41
-    i8 3, label %41
-    i8 5, label %41
-  ]
+  %switch68 = icmp eq i8 %5, 4
+  br i1 %switch68, label %45, label %41
 
-41:                                               ; preds = %40, %40, %40
+41:                                               ; preds = %40
   %42 = load i32, ptr @hf_pktc_ipsec_spi, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %42, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %44 = add i32 %3, 4

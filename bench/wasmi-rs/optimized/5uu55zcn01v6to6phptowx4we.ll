@@ -12422,15 +12422,15 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 40, i1 false), !noalias !1931
   %101 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 %30, ptr %101, align 8, !noalias !1936
-  %.not9.i.i = icmp eq i32 %36, 0
-  br i1 %.not9.i.i, label %.loopexit55.i, label %.lr.ph.i.i
+  %.not10.i.i = icmp eq i32 %36, 0
+  br i1 %.not10.i.i, label %.loopexit55.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %103
 
 103:                                              ; preds = %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$u32$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$$GT$17hdf264ebced6fb3a0E.exit.i.i", %.lr.ph.i.i
-  %.sroa.01.08.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %106, %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$u32$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$$GT$17hdf264ebced6fb3a0E.exit.i.i" ]
+  %.sroa.01.09.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %106, %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$u32$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$$GT$17hdf264ebced6fb3a0E.exit.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1964
   invoke void @"_ZN100_$LT$wasmparser..binary_reader..BrTableTargets$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb17d1a3ea22f8704E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %10)
           to label %.noexc26.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !1934
@@ -12441,9 +12441,9 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not.i.i, label %.thread.i, label %105
 
 105:                                              ; preds = %.noexc26.i
-  %106 = add nuw nsw i64 %.sroa.01.08.i.i, 1
-  %cond.i.i = icmp eq i32 %104, 0
-  br i1 %cond.i.i, label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$u32$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$$GT$17hdf264ebced6fb3a0E.exit.i.i", label %107
+  %106 = add nuw nsw i64 %.sroa.01.09.i.i, 1
+  %switch.i.i.i = icmp eq i32 %104, 1
+  br i1 %switch.i.i.i, label %107, label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$u32$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$$GT$17hdf264ebced6fb3a0E.exit.i.i"
 
 107:                                              ; preds = %105
   invoke void @"_ZN4core3ptr65drop_in_place$LT$wasmparser..binary_reader..BinaryReaderError$GT$17h8021be9d56cccb25E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %102)
@@ -12460,7 +12460,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
 
 .thread.i:                                        ; preds = %.noexc26.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1964
-  %108 = icmp ne i64 %.sroa.01.08.i.i, %100
+  %108 = icmp ne i64 %.sroa.01.09.i.i, %100
   call void @llvm.assume(i1 %108)
   br label %.thread48.i
 

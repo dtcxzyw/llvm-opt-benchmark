@@ -5350,7 +5350,8 @@ define hidden noundef zeroext i1 @"_ZN4jiff6shared5posix21DstInfo$LT$ABBREV$GT$6
 
 "_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h209047b5aa6838aeE.exit": ; preds = %47, %40, %33, %26, %18
   %.sroa.02.1 = phi i8 [ %.sroa.02.0, %18 ], [ %50, %47 ], [ %45, %40 ], [ %38, %33 ], [ %31, %26 ]
-  %switch = icmp eq i8 %.sroa.02.1, 1
+  %.sroa.02.1.off = add nsw i8 %.sroa.02.1, -1
+  %switch = icmp ult i8 %.sroa.02.1.off, -2
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load i16, ptr %51, align 4, !noundef !4
   br i1 %switch, label %53, label %56
@@ -5424,7 +5425,8 @@ define hidden noundef zeroext i1 @"_ZN4jiff6shared5posix21DstInfo$LT$ABBREV$GT$6
 
 "_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h209047b5aa6838aeE.exit51": ; preds = %95, %88, %81, %74, %66
   %.sroa.09.1 = phi i8 [ %.sroa.09.0, %66 ], [ %98, %95 ], [ %93, %88 ], [ %86, %81 ], [ %79, %74 ]
-  %switch46 = icmp eq i8 %.sroa.09.1, 1
+  %.sroa.09.1.off = add nsw i8 %.sroa.09.1, -1
+  %switch46 = icmp ult i8 %.sroa.09.1.off, -2
   br i1 %switch46, label %143, label %99
 
 99:                                               ; preds = %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h209047b5aa6838aeE.exit51"
@@ -5557,7 +5559,8 @@ define hidden noundef zeroext i1 @"_ZN4jiff6shared5posix21DstInfo$LT$ABBREV$GT$6
 
 "_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h209047b5aa6838aeE.exit55": ; preds = %180, %173, %166, %159, %151
   %.sroa.023.1 = phi i8 [ %.sroa.023.0, %151 ], [ %183, %180 ], [ %178, %173 ], [ %171, %166 ], [ %164, %159 ]
-  %switch48 = icmp eq i8 %.sroa.023.1, 1
+  %.sroa.023.1.off = add nsw i8 %.sroa.023.1, -1
+  %switch48 = icmp ult i8 %.sroa.023.1.off, -2
   br i1 %switch48, label %143, label %184
 
 184:                                              ; preds = %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h209047b5aa6838aeE.exit55"
@@ -5699,7 +5702,8 @@ define hidden noundef zeroext i1 @"_ZN4jiff6shared5posix21DstInfo$LT$ABBREV$GT$6
 
 "_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h209047b5aa6838aeE.exit": ; preds = %47, %40, %33, %26, %18
   %.sroa.02.1 = phi i8 [ %.sroa.02.0, %18 ], [ %50, %47 ], [ %45, %40 ], [ %38, %33 ], [ %31, %26 ]
-  %switch = icmp eq i8 %.sroa.02.1, 1
+  %.sroa.02.1.off = add nsw i8 %.sroa.02.1, -1
+  %switch = icmp ult i8 %.sroa.02.1.off, -2
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load i16, ptr %51, align 4, !noundef !4
   br i1 %switch, label %53, label %56
@@ -5773,7 +5777,8 @@ define hidden noundef zeroext i1 @"_ZN4jiff6shared5posix21DstInfo$LT$ABBREV$GT$6
 
 "_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h209047b5aa6838aeE.exit51": ; preds = %95, %88, %81, %74, %66
   %.sroa.09.1 = phi i8 [ %.sroa.09.0, %66 ], [ %98, %95 ], [ %93, %88 ], [ %86, %81 ], [ %79, %74 ]
-  %switch46 = icmp eq i8 %.sroa.09.1, 1
+  %.sroa.09.1.off = add nsw i8 %.sroa.09.1, -1
+  %switch46 = icmp ult i8 %.sroa.09.1.off, -2
   br i1 %switch46, label %143, label %99
 
 99:                                               ; preds = %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h209047b5aa6838aeE.exit51"
@@ -5906,7 +5911,8 @@ define hidden noundef zeroext i1 @"_ZN4jiff6shared5posix21DstInfo$LT$ABBREV$GT$6
 
 "_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h209047b5aa6838aeE.exit55": ; preds = %180, %173, %166, %159, %151
   %.sroa.023.1 = phi i8 [ %.sroa.023.0, %151 ], [ %183, %180 ], [ %178, %173 ], [ %171, %166 ], [ %164, %159 ]
-  %switch48 = icmp eq i8 %.sroa.023.1, 1
+  %.sroa.023.1.off = add nsw i8 %.sroa.023.1, -1
+  %switch48 = icmp ult i8 %.sroa.023.1.off, -2
   br i1 %switch48, label %143, label %184
 
 184:                                              ; preds = %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h209047b5aa6838aeE.exit55"

@@ -5146,16 +5146,11 @@ _ZN12clap_builder6output5usage5Usage17needs_options_tag17he0f20c589d0e4de5E.exit
 .critedge30.i:                                    ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit37.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit.i", %138, %135
   %142 = getelementptr inbounds nuw i8, ptr %128, i64 548
   %143 = load i8, ptr %142, align 4, !range !1541, !alias.scope !1542, !noundef !17
-  switch i8 %143, label %.backedge414 [
-    i8 9, label %144
-    i8 4, label %144
-    i8 3, label %144
-    i8 2, label %144
-    i8 1, label %144
-    i8 0, label %144
-  ]
+  %.off.i = add nsw i8 %143, -5
+  %switch.i = icmp ult i8 %.off.i, 4
+  br i1 %switch.i, label %.backedge414, label %144
 
-144:                                              ; preds = %.critedge30.i, %.critedge30.i, %.critedge30.i, %.critedge30.i, %.critedge30.i, %.critedge30.i
+144:                                              ; preds = %.critedge30.i
   %145 = getelementptr inbounds nuw i8, ptr %128, i64 544
   %146 = load i32, ptr %145, align 4, !alias.scope !1545, !noundef !17
   %147 = and i32 %146, 5

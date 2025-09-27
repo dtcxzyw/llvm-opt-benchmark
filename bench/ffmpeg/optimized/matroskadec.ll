@@ -3450,8 +3450,8 @@ mkv_parse_video_codec.exit.i.i:                   ; preds = %855
   %.val.i233.i = load ptr, ptr %184, align 8, !tbaa !151
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %.not.i158.i.i = icmp eq ptr %.val.i233.i, null
-  br i1 %.not.i158.i.i, label %944, label %935
+  %.not.i160.i.i = icmp eq ptr %.val.i233.i, null
+  br i1 %.not.i160.i.i, label %944, label %935
 
 935:                                              ; preds = %932
   %936 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %.val.i233.i, ptr noundef nonnull @.str.153, ptr noundef nonnull %10, ptr noundef nonnull %11) #15
@@ -3468,7 +3468,7 @@ mkv_parse_video_codec.exit.i.i:                   ; preds = %855
   br label %944
 
 944:                                              ; preds = %938, %935, %932
-  %.0.i159.i.i = phi i1 [ %943, %938 ], [ true, %935 ], [ true, %932 ]
+  %.0.i161.i.i = phi i1 [ %943, %938 ], [ true, %935 ], [ true, %932 ]
   switch i64 %934, label %951 [
     i64 0, label %mkv_field_order.exit.i.i
     i64 9, label %949
@@ -3484,11 +3484,11 @@ mkv_parse_video_codec.exit.i.i:                   ; preds = %855
   br label %mkv_field_order.exit.i.i
 
 947:                                              ; preds = %944
-  %948 = select i1 %.0.i159.i.i, i32 5, i32 4
+  %948 = select i1 %.0.i161.i.i, i32 5, i32 4
   br label %mkv_field_order.exit.i.i
 
 949:                                              ; preds = %944
-  %950 = select i1 %.0.i159.i.i, i32 4, i32 5
+  %950 = select i1 %.0.i161.i.i, i32 4, i32 5
   br label %mkv_field_order.exit.i.i
 
 951:                                              ; preds = %944
@@ -3550,21 +3550,18 @@ mkv_stereo_mode_display_mul.exit.i.i:             ; preds = %.sink.split.i.i.i, 
 966:                                              ; preds = %963
   %967 = getelementptr inbounds nuw i8, ptr %188, i64 184
   %968 = load i64, ptr %967, align 8, !tbaa !168
-  %.not135.i.i = icmp eq i64 %.fr.i.i, -1
-  br i1 %.not135.i.i, label %991, label %switch.early.test.i.i
+  %.not135.i.i = icmp ne i64 %.fr.i.i, -1
+  %.off.i.i = add i64 %968, -1
+  %switch.i.i = icmp ult i64 %.off.i.i, -2
+  %or.cond157.i.i = select i1 %.not135.i.i, i1 %switch.i.i, i1 false
+  br i1 %or.cond157.i.i, label %969, label %991
 
-switch.early.test.i.i:                            ; preds = %966
-  switch i64 %968, label %969 [
-    i64 -1, label %991
-    i64 0, label %991
-  ]
-
-969:                                              ; preds = %switch.early.test.i.i
+969:                                              ; preds = %966
   %970 = getelementptr inbounds nuw i8, ptr %188, i64 216
   %971 = load i64, ptr %970, align 8, !tbaa !165
   %972 = udiv i64 9223372036854775807, %.fr.i.i
-  %.0..0..0..0..0..0..0.178.i.i = load i32, ptr %14, align 4, !tbaa !211
-  %973 = sext i32 %.0..0..0..0..0..0..0.178.i.i to i64
+  %.0..0..0..0..0..0..0.180.i.i = load i32, ptr %14, align 4, !tbaa !211
+  %973 = sext i32 %.0..0..0..0..0..0..0.180.i.i to i64
   %974 = udiv i64 %972, %973
   %975 = icmp ult i64 %971, %974
   br i1 %975, label %976, label %991
@@ -3573,8 +3570,8 @@ switch.early.test.i.i:                            ; preds = %966
   %977 = getelementptr inbounds nuw i8, ptr %188, i64 208
   %978 = load i64, ptr %977, align 8, !tbaa !164
   %979 = udiv i64 9223372036854775807, %968
-  %.0..0..0..0..0..0..0.177.i.i = load i32, ptr %15, align 4, !tbaa !211
-  %980 = sext i32 %.0..0..0..0..0..0..0.177.i.i to i64
+  %.0..0..0..0..0..0..0.179.i.i = load i32, ptr %15, align 4, !tbaa !211
+  %980 = sext i32 %.0..0..0..0..0..0..0.179.i.i to i64
   %981 = udiv i64 %979, %980
   %982 = icmp ult i64 %978, %981
   br i1 %982, label %983, label %991
@@ -3589,7 +3586,7 @@ switch.early.test.i.i:                            ; preds = %966
   %990 = call i32 @av_reduce(ptr noundef nonnull %984, ptr noundef nonnull %985, i64 noundef %987, i64 noundef %989, i64 noundef 2147483647) #15
   br label %991
 
-991:                                              ; preds = %983, %976, %969, %switch.early.test.i.i, %switch.early.test.i.i, %966, %963, %mkv_stereo_mode_display_mul.exit.i.i
+991:                                              ; preds = %983, %976, %969, %966, %963, %mkv_stereo_mode_display_mul.exit.i.i
   %992 = getelementptr inbounds nuw i8, ptr %188, i64 208
   %993 = load i64, ptr %992, align 8, !tbaa !164
   %994 = load i64, ptr %922, align 8, !tbaa !162
@@ -3703,29 +3700,29 @@ switch.early.test.i.i:                            ; preds = %966
   %1061 = load ptr, ptr %1060, align 8, !tbaa !251
   %1062 = load i32, ptr %1059, align 8, !tbaa !252
   %1063 = icmp sgt i32 %1062, 0
-  br i1 %1063, label %.lr.ph188.i.i, label %._crit_edge.i.i
+  br i1 %1063, label %.lr.ph190.i.i, label %._crit_edge.i.i
 
-.lr.ph188.i.i:                                    ; preds = %1058
+.lr.ph190.i.i:                                    ; preds = %1058
   %1064 = getelementptr inbounds nuw i8, ptr %351, i64 8
   br label %1067
 
 ._crit_edge.i.i:                                  ; preds = %.loopexit.i.i, %1058
   %1065 = load i64, ptr %954, align 8, !tbaa !245
-  %.fr185.i.i = freeze i64 %1065
-  %1066 = icmp ugt i64 %.fr185.i.i, 14
+  %.fr187.i.i = freeze i64 %1065
+  %1066 = icmp ugt i64 %.fr187.i.i, 14
   br i1 %1066, label %1112, label %switch.early.test155.i.i
 
 switch.early.test155.i.i:                         ; preds = %._crit_edge.i.i
-  switch i64 %.fr185.i.i, label %1096 [
+  switch i64 %.fr187.i.i, label %1096 [
     i64 12, label %1112
     i64 10, label %1112
   ]
 
-1067:                                             ; preds = %.loopexit.i.i, %.lr.ph188.i.i
-  %indvars.iv190.i.i = phi i64 [ 0, %.lr.ph188.i.i ], [ %indvars.iv.next191.i.i, %.loopexit.i.i ]
+1067:                                             ; preds = %.loopexit.i.i, %.lr.ph190.i.i
+  %indvars.iv192.i.i = phi i64 [ 0, %.lr.ph190.i.i ], [ %indvars.iv.next193.i.i, %.loopexit.i.i ]
   %1068 = load ptr, ptr %178, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %1069 = getelementptr inbounds nuw %struct.MatroskaTrackPlane, ptr %1061, i64 %indvars.iv190.i.i
+  %1069 = getelementptr inbounds nuw %struct.MatroskaTrackPlane, ptr %1061, i64 %indvars.iv192.i.i
   %1070 = getelementptr inbounds nuw i8, ptr %1069, i64 8
   %1071 = load i64, ptr %1070, align 8, !tbaa !253
   %1072 = icmp ugt i64 %1071, 2
@@ -3771,10 +3768,10 @@ switch.early.test155.i.i:                         ; preds = %._crit_edge.i.i
 
 .loopexit.i.i:                                    ; preds = %1092, %1089, %1073, %1067
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %indvars.iv.next191.i.i = add nuw nsw i64 %indvars.iv190.i.i, 1
+  %indvars.iv.next193.i.i = add nuw nsw i64 %indvars.iv192.i.i, 1
   %1093 = load i32, ptr %1059, align 8, !tbaa !252
   %1094 = sext i32 %1093 to i64
-  %1095 = icmp slt i64 %indvars.iv.next191.i.i, %1094
+  %1095 = icmp slt i64 %indvars.iv.next193.i.i, %1094
   br i1 %1095, label %1067, label %._crit_edge.i.i, !llvm.loop !259
 
 1096:                                             ; preds = %switch.early.test155.i.i
@@ -3782,11 +3779,11 @@ switch.early.test155.i.i:                         ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1097 = call ptr @av_stereo3d_alloc_size(ptr noundef nonnull %9) #15
   store ptr %1097, ptr %8, align 8, !tbaa !260
-  %.not.i160.i.i = icmp eq ptr %1097, null
-  br i1 %.not.i160.i.i, label %mkv_stereo3d_conv.exit.thread.i.i, label %1098
+  %.not.i162.i.i = icmp eq ptr %1097, null
+  br i1 %.not.i162.i.i, label %mkv_stereo3d_conv.exit.thread.i.i, label %1098
 
 1098:                                             ; preds = %1096
-  %1099 = getelementptr inbounds nuw %struct.anon.4, ptr @mkv_stereo3d_conv.stereo_mode_conv, i64 %.fr185.i.i
+  %1099 = getelementptr inbounds nuw %struct.anon.4, ptr @mkv_stereo3d_conv.stereo_mode_conv, i64 %.fr187.i.i
   %1100 = load i8, ptr %1099, align 2, !tbaa !262
   %1101 = sext i8 %1100 to i32
   store i32 %1101, ptr %1097, align 4, !tbaa !264
@@ -3819,65 +3816,65 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
 
 1112:                                             ; preds = %mkv_stereo3d_conv.exit.i.i, %switch.early.test155.i.i, %switch.early.test155.i.i, %._crit_edge.i.i
   %1113 = getelementptr i8, ptr %188, i64 328
-  %.val156.i.i = load i32, ptr %1113, align 8, !tbaa !268
+  %.val158.i.i = load i32, ptr %1113, align 8, !tbaa !268
   %1114 = getelementptr i8, ptr %188, i64 336
-  %.val157.i.i = load ptr, ptr %1114, align 8, !tbaa !269
-  %.not.i162.i.i = icmp eq i32 %.val156.i.i, 0
-  br i1 %.not.i162.i.i, label %1278, label %1115
+  %.val159.i.i = load ptr, ptr %1114, align 8, !tbaa !269
+  %.not.i164.i.i = icmp eq i32 %.val158.i.i, 0
+  br i1 %.not.i164.i.i, label %1278, label %1115
 
 1115:                                             ; preds = %1112
-  %1116 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 104
+  %1116 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 104
   %1117 = load double, ptr %1116, align 8, !tbaa !270
   %1118 = fcmp nsz ogt double %1117, 0.000000e+00
   br i1 %1118, label %1119, label %1147
 
 1119:                                             ; preds = %1115
-  %1120 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 112
+  %1120 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 112
   %1121 = load double, ptr %1120, align 8, !tbaa !272
   %1122 = fcmp nsz ogt double %1121, 0.000000e+00
   br i1 %1122, label %1123, label %1147
 
 1123:                                             ; preds = %1119
-  %1124 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 120
+  %1124 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 120
   %1125 = load double, ptr %1124, align 8, !tbaa !273
   %1126 = fcmp nsz ogt double %1125, 0.000000e+00
   br i1 %1126, label %1127, label %1147
 
 1127:                                             ; preds = %1123
-  %1128 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 128
+  %1128 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 128
   %1129 = load double, ptr %1128, align 8, !tbaa !274
   %1130 = fcmp nsz ogt double %1129, 0.000000e+00
   br i1 %1130, label %1131, label %1147
 
 1131:                                             ; preds = %1127
-  %1132 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 136
+  %1132 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 136
   %1133 = load double, ptr %1132, align 8, !tbaa !275
   %1134 = fcmp nsz ogt double %1133, 0.000000e+00
   br i1 %1134, label %1135, label %1147
 
 1135:                                             ; preds = %1131
-  %1136 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 144
+  %1136 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 144
   %1137 = load double, ptr %1136, align 8, !tbaa !276
   %1138 = fcmp nsz ogt double %1137, 0.000000e+00
   br i1 %1138, label %1139, label %1147
 
 1139:                                             ; preds = %1135
-  %1140 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 152
+  %1140 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 152
   %1141 = load double, ptr %1140, align 8, !tbaa !277
   %1142 = fcmp nsz ogt double %1141, 0.000000e+00
   br i1 %1142, label %1143, label %1147
 
 1143:                                             ; preds = %1139
-  %1144 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 160
+  %1144 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 160
   %1145 = load double, ptr %1144, align 8, !tbaa !278
   %1146 = fcmp nsz ogt double %1145, 0.000000e+00
   br label %1147
 
 1147:                                             ; preds = %1143, %1139, %1135, %1131, %1127, %1123, %1119, %1115
   %1148 = phi i1 [ false, %1139 ], [ false, %1135 ], [ false, %1131 ], [ false, %1127 ], [ false, %1123 ], [ false, %1119 ], [ false, %1115 ], [ %1146, %1143 ]
-  %1149 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 168
+  %1149 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 168
   %1150 = load double, ptr %1149, align 8, !tbaa !279
-  %1151 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 176
+  %1151 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 176
   %1152 = load double, ptr %1151, align 8, !tbaa !119
   %1153 = fcmp nsz ule double %1150, %1152
   %1154 = fcmp nsz ult double %1152, 0.000000e+00
@@ -3885,14 +3882,14 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   br i1 %or.cond98.i.i.i, label %1159, label %1155
 
 1155:                                             ; preds = %1147
-  %1156 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 184
+  %1156 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 184
   %1157 = load i32, ptr %1156, align 8, !tbaa !280
   %1158 = icmp ne i32 %1157, 0
   br label %1159
 
 1159:                                             ; preds = %1155, %1147
   %1160 = phi i1 [ false, %1147 ], [ %1158, %1155 ]
-  %1161 = load i64, ptr %.val157.i.i, align 8, !tbaa !281
+  %1161 = load i64, ptr %.val159.i.i, align 8, !tbaa !281
   %.not83.i.i.i = icmp eq i64 %1161, 3
   br i1 %.not83.i.i.i, label %1166, label %1162
 
@@ -3904,7 +3901,7 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   br label %1166
 
 1166:                                             ; preds = %1162, %1159
-  %1167 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 80
+  %1167 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 80
   %1168 = load i64, ptr %1167, align 8, !tbaa !284
   switch i64 %1168, label %1169 [
     i64 3, label %1173
@@ -3919,7 +3916,7 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   br label %1173
 
 1173:                                             ; preds = %1169, %1166, %1166
-  %1174 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 72
+  %1174 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 72
   %1175 = load i64, ptr %1174, align 8, !tbaa !286
   switch i64 %1175, label %1176 [
     i64 3, label %1180
@@ -3934,7 +3931,7 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   br label %1180
 
 1180:                                             ; preds = %1176, %1173, %1173
-  %1181 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 64
+  %1181 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 64
   %1182 = load i64, ptr %1181, align 8, !tbaa !288
   %1183 = add i64 %1182, -1
   %or.cond99.i.i.i = icmp ult i64 %1183, 2
@@ -3948,13 +3945,13 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   br label %1188
 
 1188:                                             ; preds = %1184, %1180
-  %1189 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 48
+  %1189 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 48
   %1190 = load i64, ptr %1189, align 8, !tbaa !290
   %.not89.i.i.i = icmp eq i64 %1190, 0
   br i1 %.not89.i.i.i, label %1205, label %1191
 
 1191:                                             ; preds = %1188
-  %1192 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 56
+  %1192 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 56
   %1193 = load i64, ptr %1192, align 8, !tbaa !291
   %1194 = icmp ult i64 %1190, 3
   %1195 = add i64 %1193, -1
@@ -3976,13 +3973,13 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   br label %1205
 
 1205:                                             ; preds = %1197, %1191, %1188
-  %1206 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 88
+  %1206 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 88
   %1207 = load i64, ptr %1206, align 8, !tbaa !293
   %.not92.i.i.i = icmp eq i64 %1207, 0
   br i1 %.not92.i.i.i, label %1225, label %1208
 
 1208:                                             ; preds = %1205
-  %1209 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 96
+  %1209 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 96
   %1210 = load i64, ptr %1209, align 8, !tbaa !294
   %.not93.i.i.i = icmp eq i64 %1210, 0
   br i1 %.not93.i.i.i, label %1225, label %1211
@@ -4027,8 +4024,8 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   br label %mkv_parse_video.exit.thread.i
 
 1225:                                             ; preds = %.critedge.i.i.i, %1208, %1205
-  %or.cond.i163.i.i = select i1 %1148, i1 true, i1 %1160
-  br i1 %or.cond.i163.i.i, label %1226, label %1278
+  %or.cond.i165.i.i = select i1 %1148, i1 true, i1 %1160
+  br i1 %or.cond.i165.i.i, label %1226, label %1278
 
 1226:                                             ; preds = %1225
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -4060,37 +4057,37 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   %1238 = call i64 @av_d2q(double noundef %1237, i32 noundef 2147483647) #17
   store i64 %1238, ptr %1227, align 4
   %1239 = getelementptr inbounds nuw i8, ptr %1227, i64 8
-  %1240 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 112
+  %1240 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 112
   %1241 = load double, ptr %1240, align 8, !tbaa !272
   %1242 = call i64 @av_d2q(double noundef %1241, i32 noundef 2147483647) #17
   store i64 %1242, ptr %1239, align 4
   %1243 = getelementptr inbounds nuw i8, ptr %1227, i64 16
-  %1244 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 120
+  %1244 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 120
   %1245 = load double, ptr %1244, align 8, !tbaa !273
   %1246 = call i64 @av_d2q(double noundef %1245, i32 noundef 2147483647) #17
   store i64 %1246, ptr %1243, align 4
   %1247 = getelementptr inbounds nuw i8, ptr %1227, i64 24
-  %1248 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 128
+  %1248 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 128
   %1249 = load double, ptr %1248, align 8, !tbaa !274
   %1250 = call i64 @av_d2q(double noundef %1249, i32 noundef 2147483647) #17
   store i64 %1250, ptr %1247, align 4
   %1251 = getelementptr inbounds nuw i8, ptr %1227, i64 32
-  %1252 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 136
+  %1252 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 136
   %1253 = load double, ptr %1252, align 8, !tbaa !275
   %1254 = call i64 @av_d2q(double noundef %1253, i32 noundef 2147483647) #17
   store i64 %1254, ptr %1251, align 4
   %1255 = getelementptr inbounds nuw i8, ptr %1227, i64 40
-  %1256 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 144
+  %1256 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 144
   %1257 = load double, ptr %1256, align 8, !tbaa !276
   %1258 = call i64 @av_d2q(double noundef %1257, i32 noundef 2147483647) #17
   store i64 %1258, ptr %1255, align 4
   %1259 = getelementptr inbounds nuw i8, ptr %1227, i64 48
-  %1260 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 152
+  %1260 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 152
   %1261 = load double, ptr %1260, align 8, !tbaa !277
   %1262 = call i64 @av_d2q(double noundef %1261, i32 noundef 2147483647) #17
   store i64 %1262, ptr %1259, align 4
   %1263 = getelementptr inbounds nuw i8, ptr %1227, i64 56
-  %1264 = getelementptr inbounds nuw i8, ptr %.val157.i.i, i64 160
+  %1264 = getelementptr inbounds nuw i8, ptr %.val159.i.i, i64 160
   %1265 = load double, ptr %1264, align 8, !tbaa !278
   %1266 = call i64 @av_d2q(double noundef %1265, i32 noundef 2147483647) #17
   store i64 %1266, ptr %1263, align 4
@@ -4133,8 +4130,8 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   %1283 = load ptr, ptr %1282, align 8, !tbaa !305
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %1284 = load i32, ptr %1281, align 8, !tbaa !306
-  %.not.i165.i.i = icmp eq i32 %1284, 0
-  br i1 %.not.i165.i.i, label %1288, label %1285
+  %.not.i167.i.i = icmp eq i32 %1284, 0
+  br i1 %.not.i167.i.i, label %1288, label %1285
 
 1285:                                             ; preds = %1278
   %1286 = load i8, ptr %1283, align 1, !tbaa !119
@@ -4192,8 +4189,8 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   %1313 = getelementptr inbounds nuw i8, ptr %1312, i64 32
   %1314 = getelementptr inbounds nuw i8, ptr %1312, i64 40
   %1315 = call ptr @av_packet_side_data_new(ptr noundef nonnull %1313, ptr noundef nonnull %1314, i32 noundef 5, i64 noundef 36, i32 noundef 0) #15
-  %.not.i.i169.i.i = icmp eq ptr %1315, null
-  br i1 %.not.i.i169.i.i, label %.loopexit295.i, label %1316
+  %.not.i.i171.i.i = icmp eq ptr %1315, null
+  br i1 %.not.i.i171.i.i, label %.loopexit295.i, label %1316
 
 1316:                                             ; preds = %1311
   %1317 = load ptr, ptr %1315, align 8, !tbaa !246
@@ -4227,8 +4224,8 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   %.not79.i.i.i = icmp ult i32 %1328, %1335
   %1336 = xor i32 %1331, -1
   %.not80.i.i.i = icmp ult i32 %1334, %1336
-  %or.cond.i168.i.i = select i1 %.not79.i.i.i, i1 %.not80.i.i.i, i1 false
-  br i1 %or.cond.i168.i.i, label %1339, label %1337
+  %or.cond.i170.i.i = select i1 %.not79.i.i.i, i1 %.not80.i.i.i, i1 false
+  br i1 %or.cond.i170.i.i, label %1339, label %1337
 
 1337:                                             ; preds = %1322
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1279, i32 noundef 16, ptr noundef nonnull @.str.158, i32 noundef %1331, i32 noundef %1325, i32 noundef %1334, i32 noundef %1328) #15
@@ -4270,9 +4267,9 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   %1350 = getelementptr inbounds nuw i8, ptr %1283, i64 4
   %1351 = load i32, ptr %1350, align 1, !tbaa !119
   %.not77.i.i.i = icmp eq i32 %1351, 0
-  br i1 %.not77.i.i.i, label %.thread.i167.i.i, label %1355
+  br i1 %.not77.i.i.i, label %.thread.i169.i.i, label %1355
 
-.thread.i167.i.i:                                 ; preds = %1349
+.thread.i169.i.i:                                 ; preds = %1349
   %1352 = getelementptr inbounds nuw i8, ptr %1283, i64 8
   %1353 = load i32, ptr %1352, align 1, !tbaa !119
   %1354 = call i32 @llvm.bswap.i32(i32 %1353)
@@ -4291,13 +4288,13 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1279, i32 noundef 24, ptr noundef nonnull @.str.161, i64 noundef %1289) #15
   br label %mkv_parse_video.exit.i
 
-1359:                                             ; preds = %.thread.i167.i.i, %1339
-  %.068.i.i.i = phi i32 [ %..i.i231.i, %1339 ], [ 1, %.thread.i167.i.i ]
-  %.167.i.i.i = phi i32 [ %.066..i.i.i, %1339 ], [ 0, %.thread.i167.i.i ]
-  %.165.i.i.i = phi i32 [ %.064..i.i.i, %1339 ], [ 0, %.thread.i167.i.i ]
-  %.163.i.i.i = phi i32 [ %.062.i.i.i, %1339 ], [ 0, %.thread.i167.i.i ]
-  %.161.i.i.i = phi i32 [ %.060..i.i.i, %1339 ], [ 0, %.thread.i167.i.i ]
-  %.058.i.i.i = phi i32 [ 0, %1339 ], [ %1354, %.thread.i167.i.i ]
+1359:                                             ; preds = %.thread.i169.i.i, %1339
+  %.068.i.i.i = phi i32 [ %..i.i231.i, %1339 ], [ 1, %.thread.i169.i.i ]
+  %.167.i.i.i = phi i32 [ %.066..i.i.i, %1339 ], [ 0, %.thread.i169.i.i ]
+  %.165.i.i.i = phi i32 [ %.064..i.i.i, %1339 ], [ 0, %.thread.i169.i.i ]
+  %.163.i.i.i = phi i32 [ %.062.i.i.i, %1339 ], [ 0, %.thread.i169.i.i ]
+  %.161.i.i.i = phi i32 [ %.060..i.i.i, %1339 ], [ 0, %.thread.i169.i.i ]
+  %.058.i.i.i = phi i32 [ 0, %1339 ], [ %1354, %.thread.i169.i.i ]
   %1360 = call ptr @av_spherical_alloc(ptr noundef nonnull %3) #15
   store ptr %1360, ptr %2, align 8, !tbaa !311
   %.not81.i.i.i = icmp eq ptr %1360, null
@@ -4346,13 +4343,13 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   br label %.loopexit295.i
 
 .loopexit295.i:                                   ; preds = %1359, %1311, %1387, %1357, %1346, %1338, %1337
-  %.0.i166.ph.i.i = phi i32 [ -1094995529, %1357 ], [ -1094995529, %1346 ], [ -1094995529, %1338 ], [ -12, %1387 ], [ -1094995529, %1337 ], [ -12, %1311 ], [ -12, %1359 ]
+  %.0.i168.ph.i.i = phi i32 [ -1094995529, %1357 ], [ -1094995529, %1346 ], [ -1094995529, %1338 ], [ -12, %1387 ], [ -1094995529, %1337 ], [ -12, %1311 ], [ -12, %1359 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %mkv_parse_video.exit.thread.i
 
 mkv_parse_video.exit.thread.i:                    ; preds = %999, %.loopexit295.i, %.critedge103.i.i.i, %.loopexit.i, %mkv_stereo3d_conv.exit.thread.i.i, %mkv_parse_video_codec.exit.i.i
-  %.0.i229.ph.i = phi i32 [ %.0.i166.ph.i.i, %.loopexit295.i ], [ -12, %.critedge103.i.i.i ], [ -12, %.loopexit.i ], [ -12, %mkv_stereo3d_conv.exit.thread.i.i ], [ %860, %mkv_parse_video_codec.exit.i.i ], [ -12, %999 ]
+  %.0.i229.ph.i = phi i32 [ %.0.i168.ph.i.i, %.loopexit295.i ], [ -12, %.critedge103.i.i.i ], [ -12, %.loopexit.i ], [ -12, %mkv_stereo3d_conv.exit.thread.i.i ], [ %860, %mkv_parse_video_codec.exit.i.i ], [ -12, %999 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %matroska_convert_tags.exit

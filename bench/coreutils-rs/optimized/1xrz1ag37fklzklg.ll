@@ -1153,13 +1153,8 @@ define void @_ZN8uu_mkdir6uu_app17hae33f3d3d2a08902E(ptr noalias noundef writeon
   call void @llvm.experimental.noalias.scope.decl(metadata !291)
   %155 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %156 = load i64, ptr %155, align 8, !range !294, !alias.scope !295, !noalias !299, !noundef !5
-  switch i64 %156, label %157 [
-    i64 5, label %163
-    i64 3, label %163
-    i64 2, label %163
-    i64 1, label %163
-    i64 0, label %163
-  ]
+  %switch.i.i = icmp eq i64 %156, 4
+  br i1 %switch.i.i, label %157, label %163
 
 157:                                              ; preds = %153
   %158 = getelementptr inbounds nuw i8, ptr %14, i64 88
@@ -1179,7 +1174,7 @@ define void @_ZN8uu_mkdir6uu_app17hae33f3d3d2a08902E(ptr noalias noundef writeon
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15, !noalias !299
   unreachable
 
-163:                                              ; preds = %153, %153, %153, %153, %153, %157
+163:                                              ; preds = %153, %157
   store i64 2, ptr %155, align 8, !alias.scope !301, !noalias !299
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(589) %2, ptr noundef nonnull align 8 dereferenceable(589) %14, i64 589, i1 false)

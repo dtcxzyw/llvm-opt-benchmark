@@ -2980,10 +2980,8 @@ define hidden void @_ZN5tokio7runtime4task3raw15try_read_output17hc90b32183bf99e
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17h9080bb9ba9fe6fccE.llvm.988330105026117730"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noundef nonnull %8), !noalias !626
   %9 = load i64, ptr %1, align 8, !range !22, !alias.scope !631, !noalias !634, !noundef !5
-  switch i64 %9, label %10 [
-    i64 2, label %"_ZN4core3ptr128drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h950aa946fc5ee185E.llvm.988330105026117730.exit.i"
-    i64 0, label %"_ZN4core3ptr128drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h950aa946fc5ee185E.llvm.988330105026117730.exit.i"
-  ]
+  %switch.i.i = icmp eq i64 %9, 1
+  br i1 %switch.i.i, label %10, label %"_ZN4core3ptr128drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h950aa946fc5ee185E.llvm.988330105026117730.exit.i"
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3001,7 +2999,7 @@ define hidden void @_ZN5tokio7runtime4task3raw15try_read_output17hc90b32183bf99e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !634
   resume { ptr, i32 } %16
 
-"_ZN4core3ptr128drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h950aa946fc5ee185E.llvm.988330105026117730.exit.i": ; preds = %14, %10, %7, %7
+"_ZN4core3ptr128drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h950aa946fc5ee185E.llvm.988330105026117730.exit.i": ; preds = %14, %10, %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !634
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !629
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$15try_read_output17hb757af1f18d5a5feE.exit"
@@ -3023,10 +3021,8 @@ define hidden void @_ZN5tokio7runtime4task3raw15try_read_output17hdfdadf7b2b5376
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17h076f86f74a49bcd4E.llvm.988330105026117730"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noundef nonnull %8), !noalias !642
   %9 = load i64, ptr %1, align 8, !range !22, !alias.scope !647, !noalias !650, !noundef !5
-  switch i64 %9, label %10 [
-    i64 2, label %"_ZN4core3ptr128drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h950aa946fc5ee185E.llvm.988330105026117730.exit.i"
-    i64 0, label %"_ZN4core3ptr128drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h950aa946fc5ee185E.llvm.988330105026117730.exit.i"
-  ]
+  %switch.i.i = icmp eq i64 %9, 1
+  br i1 %switch.i.i, label %10, label %"_ZN4core3ptr128drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h950aa946fc5ee185E.llvm.988330105026117730.exit.i"
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3044,7 +3040,7 @@ define hidden void @_ZN5tokio7runtime4task3raw15try_read_output17hdfdadf7b2b5376
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !650
   resume { ptr, i32 } %16
 
-"_ZN4core3ptr128drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h950aa946fc5ee185E.llvm.988330105026117730.exit.i": ; preds = %14, %10, %7, %7
+"_ZN4core3ptr128drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h950aa946fc5ee185E.llvm.988330105026117730.exit.i": ; preds = %14, %10, %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !650
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !645
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$15try_read_output17ha6accf492a436c7fE.exit"

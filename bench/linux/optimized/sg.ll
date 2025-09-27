@@ -3548,19 +3548,11 @@ sg_add_request.exit:                              ; preds = %10, %30
 118:                                              ; preds = %109
   %119 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %120 = load i8, ptr %119, align 8
-  switch i8 %120, label %140 [
-    i8 -1, label %121
-    i8 -2, label %121
-    i8 -3, label %121
-    i8 5, label %121
-    i8 4, label %121
-    i8 3, label %121
-    i8 2, label %121
-    i8 1, label %121
-    i8 0, label %121
-  ]
+  %.off = add i8 %120, -6
+  %switch = icmp ult i8 %.off, -9
+  br i1 %switch, label %140, label %121
 
-121:                                              ; preds = %109, %118, %118, %118, %118, %118, %118, %118, %118, %118
+121:                                              ; preds = %109, %118
   %122 = load volatile ptr, ptr %15, align 8
   %123 = icmp eq ptr %122, %15
   br i1 %123, label %159, label %124

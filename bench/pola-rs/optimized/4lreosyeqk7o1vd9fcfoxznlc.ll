@@ -9756,10 +9756,8 @@ define hidden void @_ZN10libloading2os4unix7Library4open17h4282081692d82879E(ptr
   %cond.i.i = icmp eq i64 %.sroa.012.0.copyload.fr, 2
   %spec.select = select i1 %cond.i.i, ptr null, ptr %.sroa.5.sroa.0.0.copyload
   %12 = tail call noundef ptr @dlopen(ptr noundef %spec.select, i32 noundef %2) #35, !noalias !696
-  switch i64 %.sroa.012.0.copyload.fr, label %13 [
-    i64 2, label %"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17h1f06fc79dff2c543E.exit.i"
-    i64 0, label %"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17h1f06fc79dff2c543E.exit.i"
-  ]
+  %switch.i.i = icmp eq i64 %.sroa.012.0.copyload.fr, 1
+  br i1 %switch.i.i, label %13, label %"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17h1f06fc79dff2c543E.exit.i"
 
 13:                                               ; preds = %11
   %14 = icmp ne ptr %.sroa.5.sroa.0.0.copyload, null
@@ -9772,8 +9770,8 @@ define hidden void @_ZN10libloading2os4unix7Library4open17h4282081692d82879E(ptr
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.5.sroa.0.0.copyload, i64 noundef %.sroa.5.sroa.5.0.copyload, i64 noundef 1) #35, !noalias !703
   br label %"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17h1f06fc79dff2c543E.exit.i"
 
-"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17h1f06fc79dff2c543E.exit.i": ; preds = %.thread57, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i.i5.i.i.i.i.i", %13, %11, %11
-  %16 = phi ptr [ %5, %.thread57 ], [ %12, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i.i5.i.i.i.i.i" ], [ %12, %13 ], [ %12, %11 ], [ %12, %11 ]
+"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17h1f06fc79dff2c543E.exit.i": ; preds = %.thread57, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i.i5.i.i.i.i.i", %13, %11
+  %16 = phi ptr [ %5, %.thread57 ], [ %12, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i.i5.i.i.i.i.i" ], [ %12, %13 ], [ %12, %11 ]
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %_ZN10libloading2os4unix12with_dlerror17h1df53b5ec0968f14E.exit
 
@@ -73332,10 +73330,8 @@ define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$tokio..sync..batch_
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr594drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$polars_plan..plans..expr_ir..ExprIR$GT$$C$polars_plan..plans..ir..tree_format..TreeFmtNode..node_data..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..array..iter..IntoIter$LT$polars_plan..plans..ir..tree_format..TreeFmtNode$C$1_usize$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$polars_plan..plans..expr_ir..ExprIR$GT$$C$polars_plan..plans..ir..tree_format..TreeFmtNode..node_data..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h68d861312a1ac54bE"(ptr noalias noundef align 8 dereferenceable(136) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !298, !alias.scope !10808, !noundef !8
-  switch i64 %2, label %3 [
-    i64 2, label %"_ZN4core3ptr382drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$polars_plan..plans..expr_ir..ExprIR$GT$$C$polars_plan..plans..ir..tree_format..TreeFmtNode..node_data..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..array..iter..IntoIter$LT$polars_plan..plans..ir..tree_format..TreeFmtNode$C$1_usize$GT$$GT$$GT$$GT$17hb96fbc8f0e3261b3E.exit"
-    i64 0, label %"_ZN4core3ptr382drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$polars_plan..plans..expr_ir..ExprIR$GT$$C$polars_plan..plans..ir..tree_format..TreeFmtNode..node_data..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..array..iter..IntoIter$LT$polars_plan..plans..ir..tree_format..TreeFmtNode$C$1_usize$GT$$GT$$GT$$GT$17hb96fbc8f0e3261b3E.exit"
-  ]
+  %switch.i = icmp eq i64 %2, 1
+  br i1 %switch.i, label %3, label %"_ZN4core3ptr382drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$polars_plan..plans..expr_ir..ExprIR$GT$$C$polars_plan..plans..ir..tree_format..TreeFmtNode..node_data..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..array..iter..IntoIter$LT$polars_plan..plans..ir..tree_format..TreeFmtNode$C$1_usize$GT$$GT$$GT$$GT$17hb96fbc8f0e3261b3E.exit"
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -73346,7 +73342,7 @@ define hidden void @"_ZN4core3ptr594drop_in_place$LT$core..iter..adapters..chain
   tail call void @"_ZN129_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$GT$$u3b$$u20$N$u5d$$u20$as$u20$core..array..iter..iter_inner..PartialDrop$GT$12partial_drop17h090fafd9ee4446fdE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i64 noundef %6, i64 noundef %8)
   br label %"_ZN4core3ptr382drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$polars_plan..plans..expr_ir..ExprIR$GT$$C$polars_plan..plans..ir..tree_format..TreeFmtNode..node_data..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..array..iter..IntoIter$LT$polars_plan..plans..ir..tree_format..TreeFmtNode$C$1_usize$GT$$GT$$GT$$GT$17hb96fbc8f0e3261b3E.exit"
 
-"_ZN4core3ptr382drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$polars_plan..plans..expr_ir..ExprIR$GT$$C$polars_plan..plans..ir..tree_format..TreeFmtNode..node_data..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..array..iter..IntoIter$LT$polars_plan..plans..ir..tree_format..TreeFmtNode$C$1_usize$GT$$GT$$GT$$GT$17hb96fbc8f0e3261b3E.exit": ; preds = %1, %1, %3
+"_ZN4core3ptr382drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$polars_plan..plans..expr_ir..ExprIR$GT$$C$polars_plan..plans..ir..tree_format..TreeFmtNode..node_data..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..array..iter..IntoIter$LT$polars_plan..plans..ir..tree_format..TreeFmtNode$C$1_usize$GT$$GT$$GT$$GT$17hb96fbc8f0e3261b3E.exit": ; preds = %1, %3
   ret void
 }
 
@@ -87436,8 +87432,8 @@ common.resume:                                    ; preds = %2, %5
 define hidden void @"_ZN4core3ptr732drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$polars_plan..plans..expr_ir..ExprIR$GT$$C$polars_plan..plans..ir..tree_format..TreeFmtNode..node_data..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..array..iter..IntoIter$LT$polars_plan..plans..ir..tree_format..TreeFmtNode$C$1_usize$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$polars_plan..plans..expr_ir..ExprIR$GT$$C$polars_plan..plans..ir..tree_format..TreeFmtNode..node_data..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..array..iter..IntoIter$LT$polars_plan..plans..ir..tree_format..TreeFmtNode$C$1_usize$GT$$GT$$GT$17h1df6a684b33c89bdE"(ptr noalias noundef align 8 dereferenceable(224) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8, !range !1046, !alias.scope !13766, !noundef !8
-  %switch.i = icmp eq i64 %3, 1
-  br i1 %switch.i, label %4, label %"_ZN4core3ptr622drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$polars_plan..plans..expr_ir..ExprIR$GT$$C$polars_plan..plans..ir..tree_format..TreeFmtNode..node_data..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..array..iter..IntoIter$LT$polars_plan..plans..ir..tree_format..TreeFmtNode$C$1_usize$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$polars_plan..plans..expr_ir..ExprIR$GT$$C$polars_plan..plans..ir..tree_format..TreeFmtNode..node_data..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h24415165af381018E.exit"
+  %cond.i = icmp eq i64 %3, 1
+  br i1 %cond.i, label %4, label %"_ZN4core3ptr622drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$polars_plan..plans..expr_ir..ExprIR$GT$$C$polars_plan..plans..ir..tree_format..TreeFmtNode..node_data..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..array..iter..IntoIter$LT$polars_plan..plans..ir..tree_format..TreeFmtNode$C$1_usize$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$polars_plan..plans..expr_ir..ExprIR$GT$$C$polars_plan..plans..ir..tree_format..TreeFmtNode..node_data..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h24415165af381018E.exit"
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96

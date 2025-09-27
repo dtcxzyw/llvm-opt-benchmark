@@ -3143,8 +3143,9 @@ define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr noundef readonly cap
   br label %set_gaierror.exit
 
 .critedge:                                        ; preds = %64
-  %cond = icmp eq i32 %4, 0
-  br i1 %cond, label %69, label %.thread
+  %.off = add nsw i32 %4, -1
+  %switch = icmp ult i32 %.off, 9
+  br i1 %switch, label %.thread, label %69
 
 69:                                               ; preds = %.critedge, %63
   %70 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 37) #15
@@ -3162,7 +3163,7 @@ define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr noundef readonly cap
   store i16 10, ptr %2, align 4, !tbaa !76
   br label %set_gaierror.exit
 
-.thread:                                          ; preds = %.critedge, %71, %63, %69
+.thread:                                          ; preds = %71, %.critedge, %63, %69
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %4, ptr %76, align 4, !tbaa !51
