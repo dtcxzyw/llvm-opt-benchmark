@@ -8025,7 +8025,10 @@ _ZN14regex_automata4util8captures14GroupInfoInner14small_slot_len17h3561db71db15
 
 48:                                               ; preds = %_ZN14regex_automata4util8captures14GroupInfoInner14small_slot_len17h3561db71db15b5a2E.exit.i
   %49 = shl nuw i64 %45, 1
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 range(i64 0, 4294967296) %.0.i.i.i, i64 %49)
+  %.0.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 range(i64 0, 4294967296) %.0.i.i.i, i64 %49)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %.0.i.i.i, i64 %49
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %.0.sroa.speculated.i.i, ptr %50, align 8, !alias.scope !1594, !noalias !1608
   %51 = load i64, ptr %6, align 8, !noalias !1597, !noundef !4
@@ -8116,7 +8119,10 @@ _ZN14regex_automata4util8captures14GroupInfoInner14small_slot_len17h3561db71db15
 
 23:                                               ; preds = %_ZN14regex_automata4util8captures14GroupInfoInner14small_slot_len17h3561db71db15b5a2E.exit
   %24 = shl nuw i64 %20, 1
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 range(i64 0, 4294967296) %.0.i.i, i64 %24)
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 range(i64 0, 4294967296) %.0.i.i, i64 %24)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %.0.i.i, i64 %24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.0.sroa.speculated.i, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -16346,11 +16352,11 @@ declare i64 @llvm.umin.i64(i64, i64) #28
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #30
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #28
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #31
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #28
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

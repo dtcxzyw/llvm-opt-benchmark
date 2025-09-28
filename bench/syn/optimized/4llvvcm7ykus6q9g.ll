@@ -9450,10 +9450,8 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$$u5b$proc_macro2..TokenTree$
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load i64, ptr %11, align 8, !range !127, !alias.scope !4333, !noundef !4
-  switch i64 %12, label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.sink.split" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit"
-    i64 0, label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit"
-  ]
+  %switch = icmp sgt i64 %12, 0
+  br i1 %switch, label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.sink.split", label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit"
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -9466,7 +9464,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$$u5b$proc_macro2..TokenTree$
     i64 0, label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit"
   ]
 
-"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.sink.split": ; preds = %15, %10
+"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.sink.split": ; preds = %10, %15
   %.sink = phi i64 [ 16, %10 ], [ 8, %15 ]
   %.sink17 = phi i64 [ %12, %10 ], [ %6, %15 ]
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink
@@ -9474,7 +9472,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$$u5b$proc_macro2..TokenTree$
   tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %.sink17, i64 noundef 1) #17, !noalias !4
   br label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit"
 
-"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit": ; preds = %15, %15, %10, %10, %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.sink.split", %13, %.lr.ph
+"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit": ; preds = %10, %15, %15, %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.sink.split", %13, %.lr.ph
   %18 = icmp eq i64 %5, %1
   br i1 %18, label %._crit_edge, label %.lr.ph
 
@@ -10953,10 +10951,8 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$proc_macr
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i64, ptr %14, align 8, !range !127, !alias.scope !4970, !noundef !4
-  switch i64 %15, label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.i.sink.split" [
-    i64 -9223372036854775808, label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.i"
-    i64 0, label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.i"
-  ]
+  %switch = icmp sgt i64 %15, 0
+  br i1 %switch, label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.i.sink.split", label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.i"
 
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -10969,7 +10965,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$proc_macr
     i64 0, label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.i"
   ]
 
-"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.i.sink.split": ; preds = %18, %13
+"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.i.sink.split": ; preds = %13, %18
   %.sink = phi i64 [ 16, %13 ], [ 8, %18 ]
   %.sink14 = phi i64 [ %15, %13 ], [ %9, %18 ]
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink
@@ -10977,7 +10973,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$proc_macr
   tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %.sink14, i64 noundef 1) #17, !noalias !4
   br label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.i"
 
-"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.i": ; preds = %18, %18, %13, %13, %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.i.sink.split", %16, %.lr.ph
+"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.i": ; preds = %13, %18, %18, %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE.llvm.8351105841907204142.exit.i.sink.split", %16, %.lr.ph
   %21 = icmp eq i64 %8, %5
   br i1 %21, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00f1fc48ced0a79aE.llvm.8351105841907204142.exit", label %.lr.ph
 

@@ -217,12 +217,11 @@ _mi_os_good_alloc_size.exit.thread:               ; preds = %14, %_mi_os_good_al
 .thread131.i:                                     ; preds = %30, %_mi_os_good_alloc_size.exit.thread
   %32 = tail call ptr @mmap(ptr noundef null, i64 noundef range(i64 1, 0) %.010.i9, i32 noundef range(i32 0, 4) 3, i32 noundef range(i32 34, 2013528099) %spec.select.i, i32 noundef -1, i64 noundef 0) #10
   %magicptr = ptrtoint ptr %32 to i64
-  switch i64 %magicptr, label %mi_unix_mmap.exit [
-    i64 -1, label %mi_unix_mmap.exit.thread
-    i64 0, label %mi_unix_mmap.exit.thread
-  ]
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %mi_unix_mmap.exit, label %mi_unix_mmap.exit.thread
 
-mi_unix_mmap.exit.thread:                         ; preds = %.thread131.i, %.thread131.i
+mi_unix_mmap.exit.thread:                         ; preds = %.thread131.i
   %33 = tail call ptr @__errno_location() #11
   %34 = load i32, ptr %33, align 4, !tbaa !13
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.5, i64 noundef range(i64 1, 0) %.010.i9, i32 noundef %34, ptr noundef null, i32 noundef 0, i32 noundef 0) #10
@@ -508,12 +507,11 @@ mi_os_mem_free.exit.i:                            ; preds = %74, %73
   store i8 0, ptr %47, align 1, !tbaa !3
   %85 = tail call ptr @mmap(ptr noundef null, i64 noundef range(i64 1, 0) %78, i32 noundef range(i32 0, 4) %spec.select.i.i, i32 noundef range(i32 34, 2013528099) %spec.select.i85.i, i32 noundef -1, i64 noundef 0) #10
   %magicptr.i = ptrtoint ptr %85 to i64
-  switch i64 %magicptr.i, label %mi_unix_mmap.exit.i [
-    i64 -1, label %mi_unix_mmap.exit.thread.i
-    i64 0, label %mi_unix_mmap.exit.thread.i
-  ]
+  %magicptr.off.i = add i64 %magicptr.i, -1
+  %switch.i = icmp ult i64 %magicptr.off.i, -2
+  br i1 %switch.i, label %mi_unix_mmap.exit.i, label %mi_unix_mmap.exit.thread.i
 
-mi_unix_mmap.exit.thread.i:                       ; preds = %.thread131.i.i, %.thread131.i.i
+mi_unix_mmap.exit.thread.i:                       ; preds = %.thread131.i.i
   %86 = tail call ptr @__errno_location() #11
   %87 = load i32, ptr %86, align 4, !tbaa !13
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.5, i64 noundef range(i64 1, 0) %78, i32 noundef %87, ptr noundef null, i32 noundef 0, i32 noundef 0) #10
@@ -1117,8 +1115,8 @@ define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i6
 27:                                               ; preds = %22
   %28 = inttoptr i64 %.0.i to ptr
   %29 = tail call i64 @_mi_clock_start() #10
-  %.not80 = icmp eq i64 %0, 0
-  br i1 %.not80, label %.thread68, label %.lr.ph
+  %.not78 = icmp eq i64 %0, 0
+  br i1 %.not78, label %.thread68, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
   %or.cond.i = icmp ult i32 %1, 64
@@ -1138,22 +1136,20 @@ define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i6
   %..i.i = select i1 %.b.i.i, i32 1409548322, i32 2013528098
   %39 = call ptr @mmap(ptr noundef nonnull %37, i64 noundef range(i64 1, 0) 1073741824, i32 noundef range(i32 0, 4) 3, i32 noundef range(i32 34, 2013528099) %..i.i, i32 noundef -1, i64 noundef 0) #10
   %magicptr.i = ptrtoint ptr %39 to i64
-  switch i64 %magicptr.i, label %mi_unix_mmap.exit.thread15.i [
-    i64 -1, label %mi_unix_mmapx.exit.thread.i.i
-    i64 0, label %mi_unix_mmapx.exit.thread.i.i
-  ]
+  %magicptr.off.i = add i64 %magicptr.i, -1
+  %switch.i = icmp ult i64 %magicptr.off.i, -2
+  br i1 %switch.i, label %mi_unix_mmap.exit.thread15.i, label %mi_unix_mmapx.exit.thread.i.i
 
-mi_unix_mmapx.exit.thread.i.i:                    ; preds = %35, %35
+mi_unix_mmapx.exit.thread.i.i:                    ; preds = %35
   store i1 true, ptr @mi_unix_mmap.mi_huge_pages_available, align 1
   %40 = tail call ptr @__errno_location() #11
   %41 = load i32, ptr %40, align 4, !tbaa !13
   call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.4, i32 noundef %41) #10
   %42 = call ptr @mmap(ptr noundef nonnull %37, i64 noundef range(i64 1, 0) 1073741824, i32 noundef range(i32 0, 4) 3, i32 noundef 1409548322, i32 noundef -1, i64 noundef 0) #10
   %magicptr18.i = ptrtoint ptr %42 to i64
-  switch i64 %magicptr18.i, label %mi_unix_mmap.exit.thread15.i [
-    i64 -1, label %.thread68
-    i64 0, label %.thread68
-  ]
+  %magicptr18.off.i = add i64 %magicptr18.i, -1
+  %switch19.i = icmp ult i64 %magicptr18.off.i, -2
+  br i1 %switch19.i, label %mi_unix_mmap.exit.thread15.i, label %.thread68
 
 mi_unix_mmap.exit.thread15.i:                     ; preds = %mi_unix_mmapx.exit.thread.i.i, %35
   %.3.i17.i = phi ptr [ %39, %35 ], [ %42, %mi_unix_mmapx.exit.thread.i.i ]
@@ -1235,8 +1231,8 @@ _mi_os_free_ex.exit:                              ; preds = %51, %53
   %exitcond.not = icmp eq i64 %67, %0
   br i1 %exitcond.not, label %.thread68, label %35, !llvm.loop !21
 
-.thread68:                                        ; preds = %66, %mi_unix_mmapx.exit.thread.i.i, %mi_unix_mmapx.exit.thread.i.i, %27, %.thread66, %50, %_mi_os_free_ex.exit
-  %.04373 = phi i64 [ %.04376, %.thread66 ], [ %.04376, %50 ], [ %.04376, %_mi_os_free_ex.exit ], [ 0, %27 ], [ %0, %66 ], [ %.04376, %mi_unix_mmapx.exit.thread.i.i ], [ %.04376, %mi_unix_mmapx.exit.thread.i.i ]
+.thread68:                                        ; preds = %66, %mi_unix_mmapx.exit.thread.i.i, %27, %.thread66, %50, %_mi_os_free_ex.exit
+  %.04373 = phi i64 [ %.04376, %.thread66 ], [ %.04376, %50 ], [ %.04376, %_mi_os_free_ex.exit ], [ 0, %27 ], [ %0, %66 ], [ %.04376, %mi_unix_mmapx.exit.thread.i.i ]
   br i1 %.not53, label %69, label %68
 
 68:                                               ; preds = %.thread68

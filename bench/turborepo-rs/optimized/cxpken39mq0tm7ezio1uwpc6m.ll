@@ -16,7 +16,10 @@ define hidden noundef i64 @_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionINtNtN
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_RINvNtCs1LoaDTb72WA_4core3cmp6min_byjNvYjNtB2_3Ord3cmpECs8mTrBI1stz4_15turborepo_vt100.llvm.10109814100354086291(i64 noundef %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.0.0.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
+  %3 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
+  %.off = add nsw i8 %3, -1
+  %switch = icmp ult i8 %.off, -2
+  %.sroa.0.0.sroa.speculated = select i1 %switch, i64 %1, i64 %0
   ret i64 %.sroa.0.0.sroa.speculated
 }
 
@@ -264,33 +267,39 @@ define noundef i64 @_RNvXs1_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4it
   %7 = ptrtoint ptr %5 to i64
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 5
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %1)
-  %10 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %5, i64 %.sroa.0.0.sroa.speculated.i.i
-  store ptr %10, ptr %0, align 8, !alias.scope !104
-  %.not = icmp ugt i64 %1, %9
-  br i1 %.not, label %11, label %23
+  %10 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %9, i64 %1)
+  %.off.i.i = add nsw i8 %10, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.sroa.0.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %1, i64 %9
+  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %5, i64 %.sroa.0.0.sroa.speculated.i.i
+  store ptr %11, ptr %0, align 8, !alias.scope !104
+  %12 = icmp eq i64 %1, %.sroa.0.0.sroa.speculated.i.i
+  br i1 %12, label %26, label %13
 
-11:                                               ; preds = %2
-  %12 = sub i64 %1, %.sroa.0.0.sroa.speculated.i.i
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
-  store ptr %10, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %14, align 8
-  %15 = load ptr, ptr %3, align 8, !alias.scope !107, !nonnull !5, !noundef !5
-  %16 = load ptr, ptr %0, align 8, !alias.scope !107, !nonnull !5, !noundef !5
-  %17 = ptrtoint ptr %15 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub nuw i64 %17, %18
-  %20 = lshr exact i64 %19, 5
-  %.sroa.0.0.sroa.speculated.i.i3 = tail call noundef i64 @llvm.umin.i64(i64 %20, i64 %12)
-  %21 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %16, i64 %.sroa.0.0.sroa.speculated.i.i3
-  store ptr %21, ptr %0, align 8, !alias.scope !107
-  %22 = sub i64 %12, %.sroa.0.0.sroa.speculated.i.i3
-  br label %23
+13:                                               ; preds = %2
+  %14 = sub i64 %1, %.sroa.0.0.sroa.speculated.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
+  store ptr %11, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %4, ptr %16, align 8
+  %17 = load ptr, ptr %3, align 8, !alias.scope !107, !nonnull !5, !noundef !5
+  %18 = load ptr, ptr %0, align 8, !alias.scope !107, !nonnull !5, !noundef !5
+  %19 = ptrtoint ptr %17 to i64
+  %20 = ptrtoint ptr %18 to i64
+  %21 = sub nuw i64 %19, %20
+  %22 = lshr exact i64 %21, 5
+  %23 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %22, i64 %14)
+  %.off.i.i3 = add nsw i8 %23, -1
+  %switch.i.i4 = icmp ult i8 %.off.i.i3, -2
+  %.sroa.0.0.sroa.speculated.i.i5 = select i1 %switch.i.i4, i64 %14, i64 %22
+  %24 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %18, i64 %.sroa.0.0.sroa.speculated.i.i5
+  store ptr %24, ptr %0, align 8, !alias.scope !107
+  %25 = sub i64 %14, %.sroa.0.0.sroa.speculated.i.i5
+  br label %26
 
-23:                                               ; preds = %2, %11
-  %.sroa.0.0 = phi i64 [ %22, %11 ], [ 0, %2 ]
+26:                                               ; preds = %2, %13
+  %.sroa.0.0 = phi i64 [ %25, %13 ], [ 0, %2 ]
   ret i64 %.sroa.0.0
 }
 
@@ -303,11 +312,14 @@ define hidden noundef i64 @_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4Ite
   %7 = ptrtoint ptr %5 to i64
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 5
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %1)
-  %10 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %5, i64 %.sroa.0.0.sroa.speculated.i
-  store ptr %10, ptr %0, align 8
-  %11 = sub i64 %1, %.sroa.0.0.sroa.speculated.i
-  ret i64 %11
+  %10 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %9, i64 %1)
+  %.off.i = add nsw i8 %10, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.sroa.0.0.sroa.speculated.i = select i1 %switch.i, i64 %1, i64 %9
+  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %5, i64 %.sroa.0.0.sroa.speculated.i
+  store ptr %11, ptr %0, align 8
+  %12 = sub i64 %1, %.sroa.0.0.sroa.speculated.i
+  ret i64 %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -506,7 +518,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16

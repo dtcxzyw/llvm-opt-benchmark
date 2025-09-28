@@ -1788,7 +1788,10 @@ _ZN4core5slice4sort12choose_pivot17hb244ba6ab6f4f2faE.exit: ; preds = %"_ZN4core
   %213 = ptrtoint ptr %.1151.i.i to i64
   %214 = ptrtoint ptr %.1147.i.i to i64
   %215 = sub i64 %213, %214
-  %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %212, i64 %215)
+  %.0.i.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %212, i64 %215)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
+  %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 %215, i64 %212
   %.not.i.i = icmp eq i64 %.0.sroa.speculated.i.i.i, 0
   br i1 %.not.i.i, label %223, label %227
 
@@ -1955,7 +1958,10 @@ _ZN4core5slice4sort12choose_pivot17hb244ba6ab6f4f2faE.exit: ; preds = %"_ZN4core
   store i64 %289, ptr %.sroa.0.0109.lcssa135, align 4, !alias.scope !213, !noalias !214
   store i64 %.sroa.0.0.insert.insert7.i, ptr %288, align 4, !alias.scope !213, !noalias !214
   %290 = sub nuw i64 %.sroa.14.0108.lcssa127, %282
-  %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %282, i64 %290)
+  %.0.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %282, i64 %290)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %290, i64 %282
   %291 = lshr i64 %.sroa.14.0108.lcssa127, 3
   %292 = icmp uge i64 %.0.sroa.speculated.i, %291
   %293 = getelementptr inbounds nuw i8, ptr %288, i64 8
@@ -2669,7 +2675,10 @@ _ZN4core5slice4sort12choose_pivot17h96db4cefb14b0787E.exit: ; preds = %"_ZN4core
   %213 = ptrtoint ptr %.1151.i.i to i64
   %214 = ptrtoint ptr %.1147.i.i to i64
   %215 = sub i64 %213, %214
-  %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %212, i64 %215)
+  %.0.i.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %212, i64 %215)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
+  %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 %215, i64 %212
   %.not.i.i = icmp eq i64 %.0.sroa.speculated.i.i.i, 0
   br i1 %.not.i.i, label %223, label %227
 
@@ -2822,7 +2831,10 @@ _ZN4core5slice4sort12choose_pivot17h96db4cefb14b0787E.exit: ; preds = %"_ZN4core
   store i64 %287, ptr %.sroa.0.0101.lcssa127, align 4, !alias.scope !343, !noalias !344
   store i64 %161, ptr %286, align 4, !alias.scope !343, !noalias !344
   %288 = sub nuw i64 %.sroa.14.0100.lcssa119, %282
-  %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %282, i64 %288)
+  %.0.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %282, i64 %288)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %288, i64 %282
   %289 = lshr i64 %.sroa.14.0100.lcssa119, 3
   %290 = icmp uge i64 %.0.sroa.speculated.i, %289
   %291 = getelementptr inbounds nuw i8, ptr %286, i64 8
@@ -3532,7 +3544,10 @@ _ZN4core5slice4sort12choose_pivot17hccf106d57e647929E.exit: ; preds = %"_ZN4core
   %213 = ptrtoint ptr %.1151.i.i to i64
   %214 = ptrtoint ptr %.1147.i.i to i64
   %215 = sub i64 %213, %214
-  %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %212, i64 %215)
+  %.0.i.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %212, i64 %215)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
+  %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 %215, i64 %212
   %.not.i.i = icmp eq i64 %.0.sroa.speculated.i.i.i, 0
   br i1 %.not.i.i, label %223, label %227
 
@@ -3699,7 +3714,10 @@ _ZN4core5slice4sort12choose_pivot17hccf106d57e647929E.exit: ; preds = %"_ZN4core
   store i64 %289, ptr %.sroa.0.0109.lcssa135, align 4, !alias.scope !474, !noalias !475
   store i64 %.sroa.0.0.insert.insert7.i, ptr %288, align 4, !alias.scope !474, !noalias !475
   %290 = sub nuw i64 %.sroa.14.0108.lcssa127, %282
-  %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %282, i64 %290)
+  %.0.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %282, i64 %290)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %290, i64 %282
   %291 = lshr i64 %.sroa.14.0108.lcssa127, 3
   %292 = icmp uge i64 %.0.sroa.speculated.i, %291
   %293 = getelementptr inbounds nuw i8, ptr %288, i64 8
@@ -4419,7 +4437,10 @@ _ZN4core5slice4sort12choose_pivot17h665733fe8d2d3eabE.exit: ; preds = %"_ZN4core
   %216 = ptrtoint ptr %.1152.i.i to i64
   %217 = ptrtoint ptr %.1148.i.i to i64
   %218 = sub i64 %216, %217
-  %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %215, i64 %218)
+  %.0.i.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %215, i64 %218)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
+  %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 %218, i64 %215
   %.not.i.i = icmp eq i64 %.0.sroa.speculated.i.i.i, 0
   br i1 %.not.i.i, label %226, label %230
 
@@ -4574,7 +4595,10 @@ _ZN4core5slice4sort12choose_pivot17h665733fe8d2d3eabE.exit: ; preds = %"_ZN4core
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %282, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !noalias !604
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %283 = sub nuw i64 %.sroa.14.0100.lcssa119, %278
-  %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %278, i64 %283)
+  %.0.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %278, i64 %283)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %283, i64 %278
   %284 = lshr i64 %.sroa.14.0100.lcssa119, 3
   %285 = icmp uge i64 %.0.sroa.speculated.i, %284
   %286 = getelementptr inbounds nuw i8, ptr %282, i64 16
@@ -9708,7 +9732,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #16

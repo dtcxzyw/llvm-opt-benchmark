@@ -10305,8 +10305,10 @@ switch.lookup:                                    ; preds = %214, %195, %255
   call void @llvm.experimental.noalias.scope.decl(metadata !1617)
   call void @llvm.experimental.noalias.scope.decl(metadata !1618)
   %343 = load i64, ptr %342, align 8, !alias.scope !1619, !noalias !1620, !noundef !19
-  %switch.i.i.i.i.i = icmp ugt i64 %341, %343
-  %344 = call i64 @llvm.umax.i64(i64 %341, i64 %343)
+  %.0.i.i.i.i.i.i.i.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %341, i64 %343)
+  %.off.i.i.i.i.i = add nsw i8 %.0.i.i.i.i.i.i.i.i.i, -1
+  %switch.i.i.i.i.i = icmp ult i8 %.off.i.i.i.i.i, -2
+  %344 = select i1 %switch.i.i.i.i.i, i64 %341, i64 %343
   %.0.sroa.speculated.i.i.i.i.i = select i1 %switch.i.i.i.i.i, ptr %.018.i.i.i, ptr %342
   %345 = add nuw i64 %.017.i.i.i, 1
   %346 = icmp eq i64 %345, %339
@@ -11510,8 +11512,10 @@ switch.lookup:                                    ; preds = %204, %185, %245
   call void @llvm.experimental.noalias.scope.decl(metadata !1834)
   call void @llvm.experimental.noalias.scope.decl(metadata !1835)
   %333 = load i64, ptr %332, align 8, !alias.scope !1836, !noalias !1837, !noundef !19
-  %switch.i.i.i.i.i = icmp ugt i64 %331, %333
-  %334 = call i64 @llvm.umax.i64(i64 %331, i64 %333)
+  %.0.i.i.i.i.i.i.i.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %331, i64 %333)
+  %.off.i.i.i.i.i = add nsw i8 %.0.i.i.i.i.i.i.i.i.i, -1
+  %switch.i.i.i.i.i = icmp ult i8 %.off.i.i.i.i.i, -2
+  %334 = select i1 %switch.i.i.i.i.i, i64 %331, i64 %333
   %.0.sroa.speculated.i.i.i.i.i = select i1 %switch.i.i.i.i.i, ptr %.018.i.i.i, ptr %332
   %335 = add nuw i64 %.017.i.i.i, 1
   %336 = icmp eq i64 %335, %329
@@ -12712,8 +12716,10 @@ switch.lookup:                                    ; preds = %219, %200, %260
   call void @llvm.experimental.noalias.scope.decl(metadata !2038)
   call void @llvm.experimental.noalias.scope.decl(metadata !2039)
   %349 = load i64, ptr %348, align 8, !alias.scope !2040, !noalias !2041, !noundef !19
-  %switch.i.i.i.i.i = icmp ugt i64 %347, %349
-  %350 = call i64 @llvm.umax.i64(i64 %347, i64 %349)
+  %.0.i.i.i.i.i.i.i.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %347, i64 %349)
+  %.off.i.i.i.i.i = add nsw i8 %.0.i.i.i.i.i.i.i.i.i, -1
+  %switch.i.i.i.i.i = icmp ult i8 %.off.i.i.i.i.i, -2
+  %350 = select i1 %switch.i.i.i.i.i, i64 %347, i64 %349
   %.0.sroa.speculated.i.i.i.i.i = select i1 %switch.i.i.i.i.i, ptr %.018.i.i.i, ptr %348
   %351 = add nuw i64 %.017.i.i.i, 1
   %352 = icmp eq i64 %351, %345
@@ -13690,7 +13696,11 @@ switch.lookup:                                    ; preds = %188
   store i64 %217, ptr %204, align 8, !noalias !2204
   store i64 0, ptr %205, align 8, !noalias !2204
   %218 = load i64, ptr %207, align 8, !alias.scope !2197, !noalias !2200, !noundef !19
-  store i64 %218, ptr %206, align 8, !noalias !2204
+  %.0.i.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 0, i64 %218)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
+  %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 0, i64 %218
+  store i64 %.0.sroa.speculated.i.i.i, ptr %206, align 8, !noalias !2204
   %219 = call noundef ptr @"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h8dea1e44d684a36aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %202, ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0), !noalias !2205
   %220 = icmp eq ptr %219, null
   br i1 %220, label %221, label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h52794bf5723a12c7E.exit.thread.i
@@ -13772,7 +13782,10 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h52794bf5723a12c7E.exit.i:
   %243 = load i64, ptr %200, align 8, !alias.scope !2192, !noalias !2195, !noundef !19
   %244 = add i64 %243, %.sroa.027.0.copyload.i
   %245 = load i64, ptr %201, align 8, !alias.scope !2192, !noalias !2195, !noundef !19
-  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %244, i64 %245)
+  %.0.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %244, i64 %245)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %245, i64 %244
   store i64 %.0.sroa.speculated.i.i, ptr %200, align 8, !alias.scope !2192, !noalias !2195
   switch i8 %236, label %253 [
     i8 2, label %259
@@ -14488,7 +14501,11 @@ switch.lookup:                                    ; preds = %188
   store i64 %217, ptr %204, align 8, !noalias !2319
   store i64 0, ptr %205, align 8, !noalias !2319
   %218 = load i64, ptr %207, align 8, !alias.scope !2312, !noalias !2315, !noundef !19
-  store i64 %218, ptr %206, align 8, !noalias !2319
+  %.0.i.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 0, i64 %218)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
+  %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 0, i64 %218
+  store i64 %.0.sroa.speculated.i.i.i, ptr %206, align 8, !noalias !2319
   %219 = call noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h93e0ba42834caaa8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %202, ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0), !noalias !2320
   %220 = icmp eq ptr %219, null
   br i1 %220, label %221, label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hfdb8927b23dc05d6E.exit.thread.i
@@ -14570,7 +14587,10 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hfdb8927b23dc05d6E.exit.i:
   %243 = load i64, ptr %200, align 8, !alias.scope !2307, !noalias !2310, !noundef !19
   %244 = add i64 %243, %.sroa.027.0.copyload.i
   %245 = load i64, ptr %201, align 8, !alias.scope !2307, !noalias !2310, !noundef !19
-  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %244, i64 %245)
+  %.0.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %244, i64 %245)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %245, i64 %244
   store i64 %.0.sroa.speculated.i.i, ptr %200, align 8, !alias.scope !2307, !noalias !2310
   switch i8 %236, label %253 [
     i8 2, label %259
@@ -17116,7 +17136,11 @@ define internal fastcc void @"_ZN3png7decoder20ReadDecoder$LT$R$GT$11decode_next
   store i64 %23, ptr %14, align 8, !noalias !2536
   store i64 0, ptr %15, align 8, !noalias !2536
   %24 = load i64, ptr %17, align 8, !alias.scope !2530, !noalias !2533, !noundef !19
-  store i64 %24, ptr %16, align 8, !noalias !2536
+  %.0.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 0, i64 %24)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 0, i64 %24
+  store i64 %.0.sroa.speculated.i.i, ptr %16, align 8, !noalias !2536
   %25 = call noundef ptr @"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h8dea1e44d684a36aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0), !noalias !2537
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h52794bf5723a12c7E.exit.thread
@@ -17191,7 +17215,10 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h52794bf5723a12c7E.exit: ;
   %47 = load i64, ptr %10, align 8, !noundef !19
   %48 = add i64 %47, %.sroa.023.0.copyload
   %49 = load i64, ptr %11, align 8, !noundef !19
-  %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %48, i64 %49)
+  %.0.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %48, i64 %49)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %49, i64 %48
   store i64 %.0.sroa.speculated.i, ptr %10, align 8
   switch i8 %44, label %52 [
     i8 2, label %54
@@ -17275,7 +17302,11 @@ define internal fastcc void @"_ZN3png7decoder20ReadDecoder$LT$R$GT$11decode_next
   store i64 %23, ptr %14, align 8, !noalias !2544
   store i64 0, ptr %15, align 8, !noalias !2544
   %24 = load i64, ptr %17, align 8, !alias.scope !2538, !noalias !2541, !noundef !19
-  store i64 %24, ptr %16, align 8, !noalias !2544
+  %.0.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 0, i64 %24)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 0, i64 %24
+  store i64 %.0.sroa.speculated.i.i, ptr %16, align 8, !noalias !2544
   %25 = call noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h93e0ba42834caaa8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %12, ptr noalias noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0), !noalias !2545
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hfdb8927b23dc05d6E.exit.thread
@@ -17350,7 +17381,10 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hfdb8927b23dc05d6E.exit: ;
   %47 = load i64, ptr %10, align 8, !noundef !19
   %48 = add i64 %47, %.sroa.023.0.copyload
   %49 = load i64, ptr %11, align 8, !noundef !19
-  %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %48, i64 %49)
+  %.0.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %48, i64 %49)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %49, i64 %48
   store i64 %.0.sroa.speculated.i, ptr %10, align 8
   switch i8 %44, label %52 [
     i8 2, label %54
@@ -25072,7 +25106,10 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3040)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !3043
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 32768)
+  %.0.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 32768, i64 %5)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %5, i64 32768
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3045)
   %29 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0685f8b8d660cb99E"(i64 noundef %.0.sroa.speculated.i.i, i1 noundef zeroext false), !noalias !3048
   %30 = extractvalue { i64, ptr } %29, 1
@@ -25490,7 +25527,10 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3093)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !3096
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 32768)
+  %.0.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 32768, i64 %5)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %5, i64 32768
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3098)
   %29 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0685f8b8d660cb99E"(i64 noundef %.0.sroa.speculated.i.i, i1 noundef zeroext false), !noalias !3101
   %30 = extractvalue { i64, ptr } %29, 1
@@ -35777,9 +35817,6 @@ declare i8 @llvm.cttz.i8(i8, i1 immarg) #18
 declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
@@ -35787,6 +35824,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #18

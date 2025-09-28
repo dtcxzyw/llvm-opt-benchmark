@@ -1588,7 +1588,10 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h7df865265a8f2d6
   %9 = load i64, ptr %6, align 8, !noalias !311, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !311
   %spec.select.i.i.i = call noundef i64 @llvm.usub.sat.i64(i64 %4, i64 %3)
-  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %9, i64 %spec.select.i.i.i)
+  %.0.i.i.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %9, i64 %spec.select.i.i.i)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %spec.select.i.i.i, i64 %9
   store ptr %1, ptr %0, align 8, !alias.scope !308
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %10, align 8, !alias.scope !308
@@ -7104,7 +7107,10 @@ define hidden void @"_ZN9typst_pdf17Remapper$LT$T$GT$11pdf_indices17h29d0534b61f
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4f478b57c238e171E.llvm.14530723680166322716"(ptr noalias noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !noalias !1076
   %11 = load i64, ptr %5, align 8, !noalias !1077, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1077
-  %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %11, i64 %9)
+  %.0.i.i.i.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %11, i64 %9)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
+  %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 %9, i64 %11
   store ptr %2, ptr %0, align 8, !alias.scope !1076
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %12, align 8, !alias.scope !1076
@@ -7139,7 +7145,10 @@ define hidden void @"_ZN9typst_pdf17Remapper$LT$T$GT$11pdf_indices17h359bafa159c
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4f478b57c238e171E.llvm.14530723680166322716"(ptr noalias noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !noalias !1086
   %11 = load i64, ptr %5, align 8, !noalias !1087, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1087
-  %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %11, i64 %9)
+  %.0.i.i.i.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %11, i64 %9)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
+  %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 %9, i64 %11
   store ptr %2, ptr %0, align 8, !alias.scope !1086
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %12, align 8, !alias.scope !1086
@@ -7174,7 +7183,10 @@ define hidden void @"_ZN9typst_pdf17Remapper$LT$T$GT$11pdf_indices17h40ca6e76c46
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4f478b57c238e171E.llvm.14530723680166322716"(ptr noalias noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !noalias !1096
   %11 = load i64, ptr %5, align 8, !noalias !1097, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1097
-  %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %11, i64 %9)
+  %.0.i.i.i.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %11, i64 %9)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
+  %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 %9, i64 %11
   store ptr %2, ptr %0, align 8, !alias.scope !1096
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %12, align 8, !alias.scope !1096
@@ -7209,7 +7221,10 @@ define hidden void @"_ZN9typst_pdf17Remapper$LT$T$GT$11pdf_indices17h455e313698d
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4f478b57c238e171E.llvm.14530723680166322716"(ptr noalias noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !noalias !1106
   %11 = load i64, ptr %5, align 8, !noalias !1107, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1107
-  %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %11, i64 %9)
+  %.0.i.i.i.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %11, i64 %9)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
+  %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 %9, i64 %11
   store ptr %2, ptr %0, align 8, !alias.scope !1106
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %12, align 8, !alias.scope !1106
@@ -7244,7 +7259,10 @@ define hidden void @"_ZN9typst_pdf17Remapper$LT$T$GT$11pdf_indices17h7256879c2be
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4f478b57c238e171E.llvm.14530723680166322716"(ptr noalias noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !noalias !1116
   %11 = load i64, ptr %5, align 8, !noalias !1117, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1117
-  %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %11, i64 %9)
+  %.0.i.i.i.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %11, i64 %9)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
+  %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 %9, i64 %11
   store ptr %2, ptr %0, align 8, !alias.scope !1116
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %12, align 8, !alias.scope !1116
@@ -8946,6 +8964,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #27
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #27
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

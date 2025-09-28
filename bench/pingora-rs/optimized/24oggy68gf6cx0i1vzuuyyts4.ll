@@ -13398,10 +13398,8 @@ _ZN12pingora_core9protocols2l46stream6Stream10stream_mut17h9b96ba16ae0c5a73E.exi
 27:                                               ; preds = %"_ZN108_$LT$pingora_core..protocols..l4..stream..RawStreamWrapper$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_write17hab21804f18590298E.exit"
   %28 = landingpad { ptr, i32 }
           cleanup
-  switch i64 %22, label %29 [
-    i64 2, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h15933d9899160efaE.exit"
-    i64 0, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h15933d9899160efaE.exit"
-  ]
+  %switch.i = icmp eq i64 %22, 1
+  br i1 %switch.i, label %29, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h15933d9899160efaE.exit"
 
 29:                                               ; preds = %27
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdd4a828948364accE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26)
@@ -13417,7 +13415,7 @@ _ZN12pingora_core9protocols2l46stream6Stream10stream_mut17h9b96ba16ae0c5a73E.exi
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #27
   unreachable
 
-"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h15933d9899160efaE.exit": ; preds = %27, %27, %29
+"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h15933d9899160efaE.exit": ; preds = %27, %29
   resume { ptr, i32 } %28
 }
 
@@ -13638,10 +13636,8 @@ _ZN12pingora_core9protocols2l46stream6Stream10stream_mut17h9b96ba16ae0c5a73E.exi
 33:                                               ; preds = %"_ZN108_$LT$pingora_core..protocols..l4..stream..RawStreamWrapper$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$19poll_write_vectored17ha8482035afa20cd3E.exit"
   %34 = landingpad { ptr, i32 }
           cleanup
-  switch i64 %28, label %35 [
-    i64 2, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h15933d9899160efaE.exit"
-    i64 0, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h15933d9899160efaE.exit"
-  ]
+  %switch.i = icmp eq i64 %28, 1
+  br i1 %switch.i, label %35, label %"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h15933d9899160efaE.exit"
 
 35:                                               ; preds = %33
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdd4a828948364accE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %32)
@@ -13657,7 +13653,7 @@ _ZN12pingora_core9protocols2l46stream6Stream10stream_mut17h9b96ba16ae0c5a73E.exi
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #27
   unreachable
 
-"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h15933d9899160efaE.exit": ; preds = %33, %33, %35
+"_ZN4core3ptr108drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$$GT$17h15933d9899160efaE.exit": ; preds = %33, %35
   resume { ptr, i32 } %34
 }
 

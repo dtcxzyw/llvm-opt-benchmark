@@ -137,7 +137,8 @@ define hidden noundef double @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$
   store double %.017.i, ptr %5, align 8, !noalias !60
   store double %15, ptr %4, align 8, !noalias !60
   %16 = call noundef i8 @"_ZN62_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..Ord$GT$3cmp17h0ae961c8dbcd3ce9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !range !63
-  %switch.i.i.i.i = icmp eq i8 %16, 1
+  %.off.i.i.i.i = add nsw i8 %16, -1
+  %switch.i.i.i.i = icmp ult i8 %.off.i.i.i.i, -2
   %.0.i.i.i.i = select i1 %switch.i.i.i.i, double %.017.i, double %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !60
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !60
@@ -1067,7 +1068,8 @@ define hidden noundef double @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as
   store double %.017, ptr %5, align 8, !noalias !310
   store double %15, ptr %4, align 8, !noalias !310
   %16 = call noundef i8 @"_ZN62_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..Ord$GT$3cmp17h0ae961c8dbcd3ce9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !range !63
-  %switch.i.i.i = icmp eq i8 %16, 1
+  %.off.i.i.i = add nsw i8 %16, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
   %.0.i.i.i = select i1 %switch.i.i.i, double %.017, double %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !310
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !310

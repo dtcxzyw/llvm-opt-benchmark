@@ -130,7 +130,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 _ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.thread.i.i: ; preds = %58
   %61 = zext nneg i8 %59 to i32
-  br label %93
+  br label %.thread27.i.i
 
 .preheader.i.i.i:                                 ; preds = %58, %_ZN4bstr4utf811decode_step17hd73b69ac4a47e274E.exit.i.i.i
   %.025.i.i.i = phi i64 [ %87, %_ZN4bstr4utf811decode_step17hd73b69ac4a47e274E.exit.i.i.i ], [ 12, %58 ]
@@ -181,7 +181,7 @@ _ZN4bstr4utf811decode_step17hd73b69ac4a47e274E.exit.i.i.i: ; preds = %80
   %88 = add i64 %.016.i.i.i, 1
   switch i8 %86, label %.preheader.i.i.i [
     i8 12, label %89
-    i8 0, label %.thread27.i.i
+    i8 0, label %91
   ]
 
 89:                                               ; preds = %_ZN4bstr4utf811decode_step17hd73b69ac4a47e274E.exit.i.i.i
@@ -189,23 +189,25 @@ _ZN4bstr4utf811decode_step17hd73b69ac4a47e274E.exit.i.i.i: ; preds = %80
   call void @llvm.assume(i1 %90)
   br label %_ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.i.i
 
-.thread27.i.i:                                    ; preds = %_ZN4bstr4utf811decode_step17hd73b69ac4a47e274E.exit.i.i.i
-  %.0.sroa.speculated.i.i.i.i = call noundef range(i64 1, -1) i64 @llvm.umax.i64(i64 range(i64 0, -1) %.016.i.i.i, i64 1)
-  br label %93
+91:                                               ; preds = %_ZN4bstr4utf811decode_step17hd73b69ac4a47e274E.exit.i.i.i
+  %.0.i.i.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 1, i64 range(i64 0, -1) %.016.i.i.i)
+  %.off.i.i.i.i = add nsw i8 %.0.i.i.i.i.i.i, -1
+  %switch.i.i.i.i = icmp ult i8 %.off.i.i.i.i, -2
+  br i1 %switch.i.i.i.i, label %.thread27.i.i, label %_ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.i.i
 
-_ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.i.i: ; preds = %.preheader.i.i.i, %89
-  %.sroa.6.1.i24.i.i = phi i64 [ %88, %89 ], [ %.sroa.6.0137.i, %.preheader.i.i.i ]
-  %91 = phi i32 [ %storemerge.i.i.i.i, %89 ], [ 65533, %.preheader.i.i.i ]
-  %92 = icmp eq i64 %.sroa.6.1.i24.i.i, 0
-  br i1 %92, label %._crit_edge.i, label %93
+_ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.i.i: ; preds = %.preheader.i.i.i, %91, %89
+  %.sroa.6.1.i24.i.i = phi i64 [ %.016.i.i.i, %91 ], [ %88, %89 ], [ %.sroa.6.0137.i, %.preheader.i.i.i ]
+  %92 = phi i32 [ 65533, %91 ], [ %storemerge.i.i.i.i, %89 ], [ 65533, %.preheader.i.i.i ]
+  %93 = icmp eq i64 %.sroa.6.1.i24.i.i, 0
+  br i1 %93, label %._crit_edge.i, label %.thread27.i.i
 
-93:                                               ; preds = %_ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.i.i, %.thread27.i.i, %_ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.thread.i.i
-  %94 = phi i32 [ 65533, %.thread27.i.i ], [ %91, %_ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.i.i ], [ %61, %_ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.thread.i.i ]
-  %.sroa.6.1.i2429.i.i = phi i64 [ %.0.sroa.speculated.i.i.i.i, %.thread27.i.i ], [ %.sroa.6.1.i24.i.i, %_ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.i.i ], [ 1, %_ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.thread.i.i ]
+.thread27.i.i:                                    ; preds = %_ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.i.i, %91, %_ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.thread.i.i
+  %94 = phi i32 [ %92, %_ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.i.i ], [ 65533, %91 ], [ %61, %_ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.thread.i.i ]
+  %.sroa.6.1.i2429.i.i = phi i64 [ %.sroa.6.1.i24.i.i, %_ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.i.i ], [ 1, %91 ], [ 1, %_ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.thread.i.i ]
   %95 = icmp ugt i64 %.sroa.6.1.i2429.i.i, %.sroa.6.0137.i
   br i1 %95, label %96, label %102
 
-96:                                               ; preds = %93
+96:                                               ; preds = %.thread27.i.i
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 noundef %.sroa.6.1.i2429.i.i, i64 noundef %.sroa.6.0137.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d6d12b08d7e2b70a53c87c5ea5e84c79.36) #13, !noalias !26
   unreachable
 
@@ -224,7 +226,7 @@ _ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.i.i: ; preds = %.preheader.i.i.i, 
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !10
   br label %"_ZN4bstr5impls4bstr63_$LT$impl$u20$core..fmt..Debug$u20$for$u20$bstr..bstr..BStr$GT$3fmt17hb1bfcfa6678dd513E.exit"
 
-102:                                              ; preds = %93
+102:                                              ; preds = %.thread27.i.i
   %103 = sub nuw i64 %.sroa.6.0137.i, %.sroa.6.1.i2429.i.i
   %104 = getelementptr inbounds i8, ptr %.sroa.0.0138.i, i64 %.sroa.6.1.i2429.i.i
   %105 = add i64 %.sroa.6.1.i2429.i.i, %.sroa.9.0136.i
@@ -812,9 +814,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

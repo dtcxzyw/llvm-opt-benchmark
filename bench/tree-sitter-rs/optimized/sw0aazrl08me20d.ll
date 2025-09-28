@@ -32,7 +32,10 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %11 = ptrtoint ptr %4 to i64
   %12 = ptrtoint ptr %3 to i64
   %13 = sub nuw i64 %11, %12
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %13)
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %9, i64 %13)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %13, i64 %9
   store ptr %1, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %14, align 8
@@ -68,7 +71,10 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$cor
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN4core3cmp6min_by17h539dc6b9d6b2204bE.llvm.10656028015950752036(i64 noundef %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %.0.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
+  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
+  %.off = add nsw i8 %.0.i.i, -1
+  %switch = icmp ult i8 %.off, -2
+  %.0.sroa.speculated = select i1 %switch, i64 %1, i64 %0
   ret i64 %.0.sroa.speculated
 }
 
@@ -1357,7 +1363,10 @@ _ZN4core3ops8function5FnMut8call_mut17h4af8ed04e0d01e85E.exit.i.i: ; preds = %12
   %140 = ptrtoint ptr %.1151.i.i to i64
   %141 = ptrtoint ptr %.1147.i.i to i64
   %142 = sub i64 %140, %141
-  %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %139, i64 %142)
+  %.0.i.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %139, i64 %142)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
+  %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 %142, i64 %139
   %.not.i.i = icmp eq i64 %.0.sroa.speculated.i.i.i, 0
   br i1 %.not.i.i, label %157, label %161
 
@@ -1534,7 +1543,10 @@ _ZN4core3ops8function5FnMut8call_mut17h4af8ed04e0d01e85E.exit175.i.i: ; preds = 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %213, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i38.i, i64 32, i1 false), !noalias !401
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i38.i)
   %214 = sub nuw i64 %.sroa.14.0107.lcssa130, %209
-  %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %209, i64 %214)
+  %.0.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %209, i64 %214)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %214, i64 %209
   %215 = lshr i64 %.sroa.14.0107.lcssa130, 3
   %216 = icmp uge i64 %.0.sroa.speculated.i, %215
   %217 = getelementptr inbounds nuw i8, ptr %213, i64 32

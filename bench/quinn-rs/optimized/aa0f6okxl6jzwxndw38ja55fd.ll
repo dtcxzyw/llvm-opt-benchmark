@@ -5196,17 +5196,11 @@ define hidden noundef zeroext i1 @_ZN11quinn_proto10connection4mtud12MtuDiscover
   %24 = load i64, ptr %23, align 8, !alias.scope !298
   %.fr.i = freeze i64 %24
   %25 = icmp eq i64 %.fr.i, %2
-  br i1 %25, label %switch.early.test.i, label %.thread
+  %switch.i = icmp eq i64 %20, 1
+  %or.cond.i = and i1 %switch.i, %25
+  br i1 %or.cond.i, label %26, label %.thread
 
-switch.early.test.i:                              ; preds = %21
-  switch i64 %20, label %26 [
-    i64 4, label %.thread
-    i64 3, label %.thread
-    i64 2, label %.thread
-    i64 0, label %.thread
-  ]
-
-26:                                               ; preds = %switch.early.test.i
+26:                                               ; preds = %21
   store i64 0, ptr %19, align 8, !alias.scope !298
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %27, align 8, !alias.scope !298
@@ -5218,7 +5212,7 @@ switch.early.test.i:                              ; preds = %21
   %.not91 = icmp eq i64 %31, 5
   br i1 %.not91, label %.critedge, label %37
 
-.thread:                                          ; preds = %21, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %18
+.thread:                                          ; preds = %21, %18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !301)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 %3, ptr %5, align 2, !noalias !301

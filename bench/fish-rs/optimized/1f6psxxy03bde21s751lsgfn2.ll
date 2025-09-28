@@ -32670,12 +32670,10 @@ define internal fastcc void @_ZN4fish6reader10ReaderData39update_command_line_fr
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   %13 = load i8, ptr %12, align 8, !range !701, !noundef !12
   store i8 2, ptr %12, align 8
-  switch i8 %13, label %15 [
-    i8 2, label %_ZN4fish6reader10ReaderData4undo17h9871b0e9ecb827f2E.exit
-    i8 0, label %_ZN4fish6reader10ReaderData4undo17h9871b0e9ecb827f2E.exit
-  ]
+  %switch = icmp eq i8 %13, 1
+  br i1 %switch, label %15, label %_ZN4fish6reader10ReaderData4undo17h9871b0e9ecb827f2E.exit
 
-_ZN4fish6reader10ReaderData4undo17h9871b0e9ecb827f2E.exit: ; preds = %_ZN4fish6reader10ReaderData20command_line_changed17hab8cd0d8e9d09f3bE.exit, %15, %11, %11
+_ZN4fish6reader10ReaderData4undo17h9871b0e9ecb827f2E.exit: ; preds = %_ZN4fish6reader10ReaderData20command_line_changed17hab8cd0d8e9d09f3bE.exit, %15, %11
   %14 = call noundef zeroext i1 @_ZN4fish21reader_history_search19ReaderHistorySearch13is_at_present17hfd36c929674d6a8fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(296) %8)
   br i1 %14, label %100, label %34
 

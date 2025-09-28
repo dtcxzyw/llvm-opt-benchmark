@@ -202,13 +202,19 @@ _RNCNvMs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB7_8PeekableINtNtB9
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_RINvNtCs1LoaDTb72WA_4core3cmp6max_byjNvYjNtB2_3Ord3cmpECseG2FYMysgNb_3wax.llvm.2038835765883349039(i64 noundef %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %.sroa.0.0.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %0, i64 %1)
+  %3 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
+  %.off = add nsw i8 %3, -1
+  %switch = icmp ult i8 %.off, -2
+  %.sroa.0.0.sroa.speculated = select i1 %switch, i64 %0, i64 %1
   ret i64 %.sroa.0.0.sroa.speculated
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_RINvNtCs1LoaDTb72WA_4core3cmp6min_byjNvYjNtB2_3Ord3cmpECseG2FYMysgNb_3wax.llvm.2038835765883349039(i64 noundef %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %.sroa.0.0.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
+  %3 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
+  %.off = add nsw i8 %3, -1
+  %switch = icmp ult i8 %.off, -2
+  %.sroa.0.0.sroa.speculated = select i1 %switch, i64 %1, i64 %0
   ret i64 %.sroa.0.0.sroa.speculated
 }
 
@@ -3053,18 +3059,24 @@ define hidden void @_ZN4core4hint21unreachable_unchecked18precondition_check17hb
 define { i64, i64 } @_RNvXNtCseG2FYMysgNb_3wax11diagnosticsTjjENtB2_7SpanExt5union(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #18 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !noundef !5
   %4 = load i64, ptr %1, align 8, !noundef !5
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %3, i64 %4)
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !noundef !5
-  %7 = add i64 %6, %3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i64, ptr %8, align 8, !noundef !5
-  %10 = add i64 %9, %4
-  %.sroa.0.0.sroa.speculated.i1 = tail call noundef i64 @llvm.umax.i64(i64 %7, i64 %10)
-  %11 = sub i64 %.sroa.0.0.sroa.speculated.i1, %.sroa.0.0.sroa.speculated.i
-  %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.sroa.speculated.i, 0
-  %13 = insertvalue { i64, i64 } %12, i64 %11, 1
-  ret { i64, i64 } %13
+  %5 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
+  %.off.i = add nsw i8 %5, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.sroa.0.0.sroa.speculated.i = select i1 %switch.i, i64 %4, i64 %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load i64, ptr %6, align 8, !noundef !5
+  %8 = add i64 %7, %3
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = load i64, ptr %9, align 8, !noundef !5
+  %11 = add i64 %10, %4
+  %12 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %8, i64 %11)
+  %.off.i1 = add nsw i8 %12, -1
+  %switch.i2 = icmp ult i8 %.off.i1, -2
+  %.sroa.0.0.sroa.speculated.i3 = select i1 %switch.i2, i64 %8, i64 %11
+  %13 = sub i64 %.sroa.0.0.sroa.speculated.i3, %.sroa.0.0.sroa.speculated.i
+  %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.sroa.speculated.i, 0
+  %15 = insertvalue { i64, i64 } %14, i64 %13, 1
+  ret { i64, i64 } %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -5246,12 +5258,6 @@ declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #32
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #31
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #31
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #33

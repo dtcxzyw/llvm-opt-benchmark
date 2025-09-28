@@ -69408,7 +69408,9 @@ invoke.cont141:                                   ; preds = %invoke.cont136
   store ptr %80, ptr %_awaiter.i.i.i, align 8, !alias.scope !812
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 264
   %81 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !812
-  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %81, 2
+  %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %81 to i64
+  %conv.i.off.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -2
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %conv.i.off.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -3
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN12async_simple4coro6detail10getAwaiterINS_6FutureINS_4UnitEEEEEDaOT_.exit.i.i.i
 
 sw.bb3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %invoke.cont141
@@ -87155,7 +87157,9 @@ invoke.cont142:                                   ; preds = %if.end138
   store ptr %106, ptr %_awaiter.i.i.i, align 8, !alias.scope !1240
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 400
   %107 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1240
-  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %107, 2
+  %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %107 to i64
+  %conv.i.off.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -2
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %conv.i.off.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -3
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN12async_simple4coro6detail10getAwaiterINS_6FutureINS_4UnitEEEEEDaOT_.exit.i.i.i
 
 sw.bb3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %invoke.cont142

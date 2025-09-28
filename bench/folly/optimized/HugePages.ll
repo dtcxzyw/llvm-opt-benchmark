@@ -67683,34 +67683,27 @@ define noundef ptr @_ZN5folly24getHugePageSizeForDeviceEm(i64 noundef %0) local_
 _ZN5folly16getHugePageSizesEv.exit:               ; preds = %1, %4, %7
   %11 = load ptr, ptr @_ZZN5folly16getHugePageSizesEvE5sizes, align 8, !tbaa !85
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly16getHugePageSizesEvE5sizes, i64 8), align 8, !tbaa !85
-  %.not13 = icmp eq ptr %11, %12
-  br i1 %.not13, label %._crit_edge, label %.lr.ph
+  %.not14 = icmp eq ptr %11, %12
+  br i1 %.not14, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN5folly16getHugePageSizesEv.exit, %19
-  %.015 = phi ptr [ %.2, %19 ], [ undef, %_ZN5folly16getHugePageSizesEv.exit ]
-  %.sroa.010.014 = phi ptr [ %20, %19 ], [ %11, %_ZN5folly16getHugePageSizesEv.exit ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !18
-  %15 = icmp eq i64 %14, 0
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 40
-  %17 = load i64, ptr %16, align 8
-  %18 = icmp eq i64 %0, %17
-  %. = zext i1 %18 to i32
-  %..0 = select i1 %18, ptr %.sroa.010.014, ptr %.015
-  %.19 = select i1 %15, i32 3, i32 %.
-  %.2 = select i1 %15, ptr %.015, ptr %..0
-  switch i32 %.19, label %._crit_edge [
-    i32 0, label %19
-    i32 3, label %19
-  ]
-
-19:                                               ; preds = %.lr.ph, %.lr.ph
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 48
-  %.not = icmp eq ptr %20, %12
+13:                                               ; preds = %.lr.ph
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 48
+  %.not = icmp eq ptr %14, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %19, %_ZN5folly16getHugePageSizesEv.exit
-  %spec.select = phi ptr [ null, %_ZN5folly16getHugePageSizesEv.exit ], [ null, %19 ], [ %.2, %.lr.ph ]
+.lr.ph:                                           ; preds = %_ZN5folly16getHugePageSizesEv.exit, %13
+  %.sroa.011.015 = phi ptr [ %14, %13 ], [ %11, %_ZN5folly16getHugePageSizesEv.exit ]
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 16
+  %16 = load i64, ptr %15, align 8, !tbaa !18
+  %17 = icmp ne i64 %16, 0
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 40
+  %19 = load i64, ptr %18, align 8
+  %20 = icmp eq i64 %0, %19
+  %21 = select i1 %17, i1 %20, i1 false
+  br i1 %21, label %._crit_edge, label %13
+
+._crit_edge:                                      ; preds = %13, %.lr.ph, %_ZN5folly16getHugePageSizesEv.exit
+  %spec.select = phi ptr [ null, %_ZN5folly16getHugePageSizesEv.exit ], [ %.sroa.011.015, %.lr.ph ], [ null, %13 ]
   ret ptr %spec.select
 }
 

@@ -3396,11 +3396,8 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$validator..types..Validation
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.4482545766329047864.exit.i.i1.i.i.i", %4, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val3 = load i64, ptr %8, align 8, !range !241, !noundef !4
-  switch i64 %.val3, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.4482545766329047864.exit.i.i1.i.i.i.i5" [
-    i64 -9223372036854775807, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h87533781efd4aa0aE.exit6"
-    i64 -9223372036854775808, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h87533781efd4aa0aE.exit6"
-    i64 0, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h87533781efd4aa0aE.exit6"
-  ]
+  %switch = icmp sgt i64 %.val3, 0
+  br i1 %switch, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.4482545766329047864.exit.i.i1.i.i.i.i5", label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h87533781efd4aa0aE.exit6"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.4482545766329047864.exit.i.i1.i.i.i.i5": ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit"
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3408,7 +3405,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$validator..types..Validation
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %.val3, i64 noundef 1) #18, !noalias !1537
   br label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h87533781efd4aa0aE.exit6"
 
-"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h87533781efd4aa0aE.exit6": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.4482545766329047864.exit.i.i1.i.i.i.i5", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit"
+"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h87533781efd4aa0aE.exit6": ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.4482545766329047864.exit.i.i1.i.i.i.i5"
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9180e02f40fc90beE(ptr noalias noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef 56, i64 noundef 16)
@@ -4535,11 +4532,8 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$$u5b$validator..types..Valid
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.4482545766329047864.exit.i.i1.i.i.i.i", %9, %4
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.val3.i = load i64, ptr %13, align 8, !range !241, !alias.scope !1948, !noundef !4
-  switch i64 %.val3.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.4482545766329047864.exit.i.i1.i.i.i.i5.i" [
-    i64 -9223372036854775807, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h87533781efd4aa0aE.exit6.i"
-    i64 -9223372036854775808, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h87533781efd4aa0aE.exit6.i"
-    i64 0, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h87533781efd4aa0aE.exit6.i"
-  ]
+  %switch.i = icmp sgt i64 %.val3.i, 0
+  br i1 %switch.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.4482545766329047864.exit.i.i1.i.i.i.i5.i", label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h87533781efd4aa0aE.exit6.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.4482545766329047864.exit.i.i1.i.i.i.i5.i": ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit.i"
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -4547,7 +4541,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$$u5b$validator..types..Valid
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4.i, i64 noundef %.val3.i, i64 noundef 1) #18, !noalias !1973
   br label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h87533781efd4aa0aE.exit6.i"
 
-"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h87533781efd4aa0aE.exit6.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.4482545766329047864.exit.i.i1.i.i.i.i5.i", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit.i", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit.i", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit.i"
+"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h87533781efd4aa0aE.exit6.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.4482545766329047864.exit.i.i1.i.i.i.i5.i", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ce6cac8246f0f89E.llvm.4482545766329047864.exit.i"
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 80
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9180e02f40fc90beE(ptr noalias noundef nonnull align 8 dereferenceable(48) %15, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef 56, i64 noundef 16)

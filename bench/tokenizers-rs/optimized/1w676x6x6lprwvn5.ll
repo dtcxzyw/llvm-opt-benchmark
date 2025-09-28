@@ -1546,7 +1546,10 @@ _ZN4core5slice6memchr12memchr_naive17h89d8dd2667be9f97E.exit.i.i: ; preds = %36,
   %54 = load i64, ptr %12, align 8, !alias.scope !112, !noalias !115, !noundef !9
   %55 = add i64 %54, %16
   %56 = load i64, ptr %13, align 8, !alias.scope !112, !noalias !115, !noundef !9
-  %.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %55, i64 %56)
+  %.0.i.i.i.i.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %55, i64 %56)
+  %.off.i.i.i.i = add nsw i8 %.0.i.i.i.i.i.i, -1
+  %switch.i.i.i.i = icmp ult i8 %.off.i.i.i.i, -2
+  %.0.sroa.speculated.i.i.i.i = select i1 %switch.i.i.i.i, i64 %56, i64 %55
   store i64 %.0.sroa.speculated.i.i.i.i, ptr %12, align 8, !alias.scope !112, !noalias !115
   %57 = add i64 %16, %.0.ph.i.i
   %58 = icmp eq i64 %16, 0
@@ -1608,8 +1611,11 @@ _ZN4core5slice6memchr12memchr_naive17h89d8dd2667be9f97E.exit.i.i: ; preds = %36,
   %77 = load i64, ptr %12, align 8, !alias.scope !128, !noalias !115, !noundef !9
   %78 = add i64 %77, %62
   %79 = load i64, ptr %13, align 8, !alias.scope !128, !noalias !115, !noundef !9
-  %.0.sroa.speculated.i.i25.i.i = call noundef i64 @llvm.umin.i64(i64 %78, i64 %79)
-  store i64 %.0.sroa.speculated.i.i25.i.i, ptr %12, align 8, !alias.scope !128, !noalias !115
+  %.0.i.i.i.i25.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %78, i64 %79)
+  %.off.i.i26.i.i = add nsw i8 %.0.i.i.i.i25.i.i, -1
+  %switch.i.i27.i.i = icmp ult i8 %.off.i.i26.i.i, -2
+  %.0.sroa.speculated.i.i28.i.i = select i1 %switch.i.i27.i.i, i64 %79, i64 %78
+  store i64 %.0.sroa.speculated.i.i28.i.i, ptr %12, align 8, !alias.scope !128, !noalias !115
   %80 = add i64 %62, %.0.ph.i.i
   br label %.loopexit.i.i
 
@@ -26421,13 +26427,16 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.experimental.noalias.scope.decl(metadata) #44
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #42
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #42
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #42
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #42
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #42
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

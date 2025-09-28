@@ -15,7 +15,10 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %11 = ptrtoint ptr %4 to i64
   %12 = ptrtoint ptr %3 to i64
   %13 = sub nuw i64 %11, %12
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %13)
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %9, i64 %13)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %13, i64 %9
   store ptr %1, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %14, align 8
@@ -42,7 +45,10 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$cor
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN4core3cmp6min_by17h39cc58f7a5c9a1beE.llvm.1918764568648123415(i64 noundef %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %.0.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
+  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
+  %.off = add nsw i8 %.0.i.i, -1
+  %switch = icmp ult i8 %.off, -2
+  %.0.sroa.speculated = select i1 %switch, i64 %1, i64 %0
   ret i64 %.0.sroa.speculated
 }
 
@@ -305,9 +311,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11

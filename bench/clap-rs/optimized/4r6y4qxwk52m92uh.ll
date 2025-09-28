@@ -242,34 +242,43 @@ define void @_ZN8clap_lex7RawArgs4seek17h509ee55157aa1c36E(ptr noalias noundef r
   %4 = load i64, ptr %2, align 8, !range !25, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
-  switch i64 %4, label %default.unreachable5 [
+  switch i64 %4, label %default.unreachable11 [
     i64 0, label %14
     i64 1, label %7
     i64 2, label %11
   ]
 
-default.unreachable5:                             ; preds = %3
+default.unreachable11:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = tail call i64 @llvm.sadd.sat.i64(i64 %9, i64 %6)
-  %.0.sroa.speculated.i = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %10, i64 0)
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %10, i64 0)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %10, i64 0
   br label %14
 
 11:                                               ; preds = %3
   %12 = load i64, ptr %1, align 8, !noundef !4
   %13 = tail call i64 @llvm.sadd.sat.i64(i64 %12, i64 %6)
-  %.0.sroa.speculated.i3 = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %13, i64 0)
+  %.0.i.i.i3 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %13, i64 0)
+  %.off.i4 = add nsw i8 %.0.i.i.i3, -1
+  %switch.i5 = icmp ult i8 %.off.i4, -2
+  %.0.sroa.speculated.i6 = select i1 %switch.i5, i64 %13, i64 0
   br label %14
 
 14:                                               ; preds = %3, %11, %7
-  %.0 = phi i64 [ %.0.sroa.speculated.i, %7 ], [ %.0.sroa.speculated.i3, %11 ], [ %6, %3 ]
+  %.0 = phi i64 [ %.0.sroa.speculated.i, %7 ], [ %.0.sroa.speculated.i6, %11 ], [ %6, %3 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %.0.sroa.speculated.i4 = tail call noundef i64 @llvm.umin.i64(i64 %.0, i64 %16)
-  store i64 %.0.sroa.speculated.i4, ptr %1, align 8
+  %.0.i.i.i7 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.0, i64 %16)
+  %.off.i8 = add nsw i8 %.0.i.i.i7, -1
+  %switch.i9 = icmp ult i8 %.off.i8, -2
+  %.0.sroa.speculated.i10 = select i1 %switch.i9, i64 %16, i64 %.0
+  store i64 %.0.sroa.speculated.i10, ptr %1, align 8
   ret void
 }
 
@@ -1293,10 +1302,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #22
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #22
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #22
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

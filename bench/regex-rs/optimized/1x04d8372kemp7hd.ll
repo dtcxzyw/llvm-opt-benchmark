@@ -150,7 +150,10 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %12 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %.017.i
   %13 = getelementptr i8, ptr %12, i64 8
   %.val22.i = load i64, ptr %13, align 8, !noundef !9
-  %.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.018.i, i64 %.val22.i)
+  %.0.i.i.i.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %.018.i, i64 %.val22.i)
+  %.off.i.i.i.i = add nsw i8 %.0.i.i.i.i.i.i.i, -1
+  %switch.i.i.i.i = icmp ult i8 %.off.i.i.i.i, -2
+  %.0.sroa.speculated.i.i.i.i = select i1 %switch.i.i.i.i, i64 %.val22.i, i64 %.018.i
   %14 = add nuw i64 %.017.i, 1
   %15 = icmp eq i64 %14, %10
   br i1 %15, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1d7e99d365d8fafeE.llvm.8347807780687254574.exit", label %11
@@ -295,7 +298,10 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %12 = getelementptr inbounds { { { i64, ptr }, i64 }, i8, [7 x i8] }, ptr %0, i64 %.017.i
   %13 = tail call { ptr, i64 } @"_ZN96_$LT$regex_syntax..hir..literal..Literal$u20$as$u20$core..convert..AsRef$LT$$u5b$u8$u5d$$GT$$GT$6as_ref17he73dc7ad7c96e382E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %12)
   %14 = extractvalue { ptr, i64 } %13, 1
-  %.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.018.i, i64 %14)
+  %.0.i.i.i.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %.018.i, i64 %14)
+  %.off.i.i.i.i = add nsw i8 %.0.i.i.i.i.i.i.i, -1
+  %switch.i.i.i.i = icmp ult i8 %.off.i.i.i.i, -2
+  %.0.sroa.speculated.i.i.i.i = select i1 %switch.i.i.i.i, i64 %14, i64 %.018.i
   %15 = add nuw i64 %.017.i, 1
   %16 = icmp eq i64 %15, %10
   br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h82786164ad7b6426E.llvm.8347807780687254574.exit", label %11
@@ -1639,7 +1645,10 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %12 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %.017
   %13 = getelementptr i8, ptr %12, i64 8
   %.val22 = load i64, ptr %13, align 8, !noundef !9
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.018, i64 %.val22)
+  %.0.i.i.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %.018, i64 %.val22)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
+  %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 %.val22, i64 %.018
   %14 = add nuw i64 %.017, 1
   %15 = icmp eq i64 %14, %10
   br i1 %15, label %.loopexit, label %11
@@ -1817,7 +1826,10 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %12 = getelementptr inbounds { { { i64, ptr }, i64 }, i8, [7 x i8] }, ptr %0, i64 %.017
   %13 = tail call { ptr, i64 } @"_ZN96_$LT$regex_syntax..hir..literal..Literal$u20$as$u20$core..convert..AsRef$LT$$u5b$u8$u5d$$GT$$GT$6as_ref17he73dc7ad7c96e382E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %12)
   %14 = extractvalue { ptr, i64 } %13, 1
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.018, i64 %14)
+  %.0.i.i.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %.018, i64 %14)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
+  %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 %14, i64 %.018
   %15 = add nuw i64 %.017, 1
   %16 = icmp eq i64 %15, %10
   br i1 %16, label %.loopexit, label %11
@@ -15121,7 +15133,7 @@ declare i32 @llvm.umin.i32(i32, i32) #43
 declare void @llvm.experimental.noalias.scope.decl(metadata) #44
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #43
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #43
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -13033,25 +13033,28 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread.i.i.i
   %.sink.i.i.i = phi i64 [ 0, %388 ], [ %376, %409 ], [ 0, %422 ]
   %.ph91.i.i.i = phi i64 [ %389, %388 ], [ %410, %409 ], [ %424, %422 ]
   %390 = add i64 %.ph91.i.i.i, %368
-  %.not38.i16.i.i = icmp ult i64 %390, %362
-  br i1 %.not38.i16.i.i, label %377, label %.thread25.i.i.i.i
+  %.not38.i15.i.i = icmp ult i64 %390, %362
+  br i1 %.not38.i15.i.i, label %377, label %.thread25.i.i.i.i
 
 391:                                              ; preds = %377
-  %.0.sroa.speculated.i.i11.i.i = tail call i64 @llvm.umax.i64(i64 %373, i64 %379)
+  %.0.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %373, i64 %379)
+  %.off.i.i.i.i = add nsw i8 %.0.i.i.i.i.i.i, -1
+  %switch.i.i.i.i = icmp ult i8 %.off.i.i.i.i, -2
+  %.0.sroa.speculated.i.i.i.i = select i1 %switch.i.i.i.i, i64 %373, i64 %379
   br label %392
 
 392:                                              ; preds = %414, %391
-  %.sroa.04.0.i12.i.i = phi i64 [ %.0.sroa.speculated.i.i11.i.i, %391 ], [ %415, %414 ]
-  %393 = icmp ult i64 %.sroa.04.0.i12.i.i, %366
+  %.sroa.04.0.i11.i.i = phi i64 [ %.0.sroa.speculated.i.i.i.i, %391 ], [ %415, %414 ]
+  %393 = icmp ult i64 %.sroa.04.0.i11.i.i, %366
   br i1 %393, label %411, label %.preheader4.i.i
 
 .preheader4.i.i:                                  ; preds = %392, %404
-  %.sroa.5.0.i13.i.i = phi i64 [ %396, %404 ], [ %373, %392 ]
-  %394 = icmp ult i64 %379, %.sroa.5.0.i13.i.i
+  %.sroa.5.0.i12.i.i = phi i64 [ %396, %404 ], [ %373, %392 ]
+  %394 = icmp ult i64 %379, %.sroa.5.0.i12.i.i
   br i1 %394, label %395, label %.loopexit315.i
 
 395:                                              ; preds = %.preheader4.i.i
-  %396 = add i64 %.sroa.5.0.i13.i.i, -1
+  %396 = add i64 %.sroa.5.0.i12.i.i, -1
   %397 = icmp ult i64 %396, %366
   br i1 %397, label %398, label %.invoke495.i, !prof !595
 
@@ -13061,7 +13064,7 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread.i.i.i
   br i1 %400, label %404, label %.invoke495.i, !prof !595
 
 .invoke495.i:                                     ; preds = %398, %395, %448, %467, %.preheader.i.i, %420
-  %401 = phi i64 [ %umax.i17.i.i, %420 ], [ %umax.i.i.i, %467 ], [ %432, %.preheader.i.i ], [ %450, %448 ], [ %399, %398 ], [ %396, %395 ]
+  %401 = phi i64 [ %umax.i16.i.i, %420 ], [ %umax.i.i.i, %467 ], [ %432, %.preheader.i.i ], [ %450, %448 ], [ %399, %398 ], [ %396, %395 ]
   %402 = phi i64 [ %362, %420 ], [ %362, %467 ], [ %366, %.preheader.i.i ], [ %362, %448 ], [ %362, %398 ], [ %366, %395 ]
   %403 = phi ptr [ @anon.ed16137989d64f70c3f50139d1d1d1dc.12, %420 ], [ @anon.ed16137989d64f70c3f50139d1d1d1dc.12, %467 ], [ @anon.ed16137989d64f70c3f50139d1d1d1dc.9, %.preheader.i.i ], [ @anon.ed16137989d64f70c3f50139d1d1d1dc.10, %448 ], [ @anon.ed16137989d64f70c3f50139d1d1d1dc.10, %398 ], [ @anon.ed16137989d64f70c3f50139d1d1d1dc.9, %395 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %401, i64 noundef %402, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %403) #23
@@ -13075,36 +13078,36 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread.i.i.i
   %406 = load i8, ptr %405, align 1, !alias.scope !1498, !noalias !1503, !noundef !5
   %407 = getelementptr inbounds i8, ptr %360, i64 %399
   %408 = load i8, ptr %407, align 1, !alias.scope !1496, !noalias !1502, !noundef !5
-  %.not26.i14.i.i = icmp eq i8 %406, %408
-  br i1 %.not26.i14.i.i, label %.preheader4.i.i, label %409
+  %.not26.i13.i.i = icmp eq i8 %406, %408
+  br i1 %.not26.i13.i.i, label %.preheader4.i.i, label %409
 
 409:                                              ; preds = %404
   %410 = add i64 %378, %375
   br label %.backedge.sink.split.i.i.i
 
 411:                                              ; preds = %392
-  %412 = add i64 %.sroa.04.0.i12.i.i, %378
+  %412 = add i64 %.sroa.04.0.i11.i.i, %378
   %413 = icmp ult i64 %412, %362
   br i1 %413, label %414, label %420, !prof !595
 
 414:                                              ; preds = %411
-  %415 = add nuw i64 %.sroa.04.0.i12.i.i, 1
-  %416 = getelementptr inbounds i8, ptr %364, i64 %.sroa.04.0.i12.i.i
+  %415 = add nuw i64 %.sroa.04.0.i11.i.i, 1
+  %416 = getelementptr inbounds i8, ptr %364, i64 %.sroa.04.0.i11.i.i
   %417 = load i8, ptr %416, align 1, !alias.scope !1498, !noalias !1503, !noundef !5
   %418 = getelementptr inbounds i8, ptr %360, i64 %412
   %419 = load i8, ptr %418, align 1, !alias.scope !1496, !noalias !1502, !noundef !5
-  %.not.i18.i.i = icmp eq i8 %417, %419
-  br i1 %.not.i18.i.i, label %392, label %422
+  %.not.i17.i.i = icmp eq i8 %417, %419
+  br i1 %.not.i17.i.i, label %392, label %422
 
 420:                                              ; preds = %411
-  %421 = add i64 %.0.sroa.speculated.i.i11.i.i, %378
-  %umax.i17.i.i = tail call i64 @llvm.umax.i64(i64 %362, i64 %421)
+  %421 = add i64 %.0.sroa.speculated.i.i.i.i, %378
+  %umax.i16.i.i = tail call i64 @llvm.umax.i64(i64 %362, i64 %421)
   br label %.invoke495.i
 
 422:                                              ; preds = %414
   %reass.sub = sub i64 %378, %373
   %423 = add i64 %reass.sub, 1
-  %424 = add i64 %423, %.sroa.04.0.i12.i.i
+  %424 = add i64 %423, %.sroa.04.0.i11.i.i
   br label %.backedge.sink.split.i.i.i
 
 425:                                              ; preds = %355
@@ -15927,6 +15930,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

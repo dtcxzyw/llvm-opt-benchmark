@@ -50,20 +50,23 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %13 = ptrtoint ptr %3 to i64
   %14 = sub nuw i64 %12, %13
   %15 = lshr exact i64 %14, 5
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %15)
+  %16 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %10, i64 %15)
+  %.off.i = add nsw i8 %16, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.sroa.0.0.sroa.speculated.i = select i1 %switch.i, i64 %15, i64 %10
   store ptr %1, ptr %0, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %3, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.sroa.0.0.sroa.speculated.i, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %10, ptr %21, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %2, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %3, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %4, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 0, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %.sroa.0.0.sroa.speculated.i, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %10, ptr %22, align 8
   ret void
 }
 
@@ -81,20 +84,23 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %13 = ptrtoint ptr %3 to i64
   %14 = sub nuw i64 %12, %13
   %15 = lshr exact i64 %14, 3
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %15)
+  %16 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %10, i64 %15)
+  %.off.i = add nsw i8 %16, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.sroa.0.0.sroa.speculated.i = select i1 %switch.i, i64 %15, i64 %10
   store ptr %1, ptr %0, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %3, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.sroa.0.0.sroa.speculated.i, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %10, ptr %21, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %2, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %3, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %4, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 0, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %.sroa.0.0.sroa.speculated.i, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %10, ptr %22, align 8
   ret void
 }
 
@@ -112,20 +118,23 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %13 = ptrtoint ptr %3 to i64
   %14 = sub nuw i64 %12, %13
   %15 = lshr exact i64 %14, 3
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %15)
+  %16 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %10, i64 %15)
+  %.off.i = add nsw i8 %16, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.sroa.0.0.sroa.speculated.i = select i1 %switch.i, i64 %15, i64 %10
   store ptr %1, ptr %0, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %3, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.sroa.0.0.sroa.speculated.i, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %10, ptr %21, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %2, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %3, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %4, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 0, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %.sroa.0.0.sroa.speculated.i, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %10, ptr %22, align 8
   ret void
 }
 
@@ -151,7 +160,10 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$cor
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN4core3cmp6min_by17h6ead4a51dc8dd204E.llvm.3055797631587932725(i64 noundef %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %.sroa.0.0.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
+  %3 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
+  %.off = add nsw i8 %3, -1
+  %switch = icmp ult i8 %.off, -2
+  %.sroa.0.0.sroa.speculated = select i1 %switch, i64 %1, i64 %0
   ret i64 %.sroa.0.0.sroa.speculated
 }
 
@@ -853,9 +865,6 @@ declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

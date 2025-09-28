@@ -29082,7 +29082,10 @@ define void @"_ZN106_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$a
 .noexc26:                                         ; preds = %.noexc
   %56 = load i64, ptr %12, align 8, !noalias !7391, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !7391
-  %.0.sroa.speculated.i.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %55, i64 %56)
+  %.0.i.i.i.i.i.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %55, i64 %56)
+  %.off.i.i.i.i.i = add nsw i8 %.0.i.i.i.i.i.i.i, -1
+  %switch.i.i.i.i.i = icmp ult i8 %.off.i.i.i.i.i, -2
+  %.0.sroa.speculated.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 %56, i64 %55
   %57 = load ptr, ptr %15, align 8, !noalias !7387, !nonnull !4, !noundef !4
   %58 = load ptr, ptr %27, align 8, !noalias !7387, !noundef !4
   store ptr %57, ptr %16, align 8, !alias.scope !7394, !noalias !7395
@@ -29178,7 +29181,10 @@ _ZN10tokenizers9tokenizer8encoding8Encoding15set_sequence_id17hb7c26fd98fbbf98aE
 .noexc30:                                         ; preds = %.noexc29
   %84 = load i64, ptr %5, align 8, !noalias !7434, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !7434
-  %.0.sroa.speculated.i.i.i.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %83, i64 %84)
+  %.0.i.i.i.i.i.i.i.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %83, i64 %84)
+  %.off.i.i.i.i.i.i.i = add nsw i8 %.0.i.i.i.i.i.i.i.i.i, -1
+  %switch.i.i.i.i.i.i.i = icmp ult i8 %.off.i.i.i.i.i.i.i, -2
+  %.0.sroa.speculated.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i, i64 %84, i64 %83
   %85 = load ptr, ptr %8, align 8, !noalias !7430, !nonnull !4, !noundef !4
   %86 = load ptr, ptr %35, align 8, !noalias !7430, !noundef !4
   store ptr %85, ptr %9, align 8, !alias.scope !7437, !noalias !7438
@@ -29253,7 +29259,10 @@ define void @_ZN10tokenizers14pre_tokenizers10byte_level15process_offsets17h7dd0
   call void @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3ef740ddbca988e4E.llvm.13080012565599917794"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5), !noalias !7457
   %23 = load i64, ptr %3, align 8, !noalias !7461, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !7461
-  %.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %22, i64 %23)
+  %.0.i.i.i.i.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %22, i64 %23)
+  %.off.i.i.i.i = add nsw i8 %.0.i.i.i.i.i.i, -1
+  %switch.i.i.i.i = icmp ult i8 %.off.i.i.i.i, -2
+  %.0.sroa.speculated.i.i.i.i = select i1 %switch.i.i.i.i, i64 %23, i64 %22
   %24 = load ptr, ptr %6, align 8, !noalias !7457, !nonnull !4, !noundef !4
   %25 = load ptr, ptr %20, align 8, !noalias !7457, !noundef !4
   store ptr %24, ptr %7, align 8, !alias.scope !7464, !noalias !7465
@@ -29628,7 +29637,10 @@ define void @"_ZN107_$LT$tokenizers..processors..roberta..RobertaProcessing$u20$
 .noexc31:                                         ; preds = %.noexc
   %61 = load i64, ptr %13, align 8, !noalias !7512, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !7512
-  %.0.sroa.speculated.i.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %60, i64 %61)
+  %.0.i.i.i.i.i.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %60, i64 %61)
+  %.off.i.i.i.i.i = add nsw i8 %.0.i.i.i.i.i.i.i, -1
+  %switch.i.i.i.i.i = icmp ult i8 %.off.i.i.i.i.i, -2
+  %.0.sroa.speculated.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 %61, i64 %60
   %62 = load ptr, ptr %16, align 8, !noalias !7508, !nonnull !4, !noundef !4
   %63 = load ptr, ptr %30, align 8, !noalias !7508, !noundef !4
   store ptr %62, ptr %17, align 8, !alias.scope !7515, !noalias !7516
@@ -29823,7 +29835,10 @@ define void @"_ZN107_$LT$tokenizers..processors..roberta..RobertaProcessing$u20$
 .noexc39:                                         ; preds = %.noexc38
   %118 = load i64, ptr %5, align 8, !noalias !7574, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !7574
-  %.0.sroa.speculated.i.i.i.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %117, i64 %118)
+  %.0.i.i.i.i.i.i.i.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %117, i64 %118)
+  %.off.i.i.i.i.i.i.i = add nsw i8 %.0.i.i.i.i.i.i.i.i.i, -1
+  %switch.i.i.i.i.i.i.i = icmp ult i8 %.off.i.i.i.i.i.i.i, -2
+  %.0.sroa.speculated.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i, i64 %118, i64 %117
   %119 = load ptr, ptr %8, align 8, !noalias !7570, !nonnull !4, !noundef !4
   %120 = load ptr, ptr %38, align 8, !noalias !7570, !noundef !4
   store ptr %119, ptr %9, align 8, !alias.scope !7577, !noalias !7578
@@ -37266,7 +37281,7 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #33
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #33
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #33
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #37

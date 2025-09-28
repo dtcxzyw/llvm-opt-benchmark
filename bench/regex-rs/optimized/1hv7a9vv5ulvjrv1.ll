@@ -3806,24 +3806,33 @@ _ZN12regex_syntax3hir9translate8HirFrame17unwrap_repetition17hb893e4b2ea7c3361E.
   %822 = icmp eq i64 %821, 0
   br i1 %822, label %826, label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %826, %819, %807
-  %823 = phi i32 [ %spec.select26.i.i, %826 ], [ %.sroa.7.0.i, %819 ], [ %.sroa.7.0.i, %807 ]
-  %824 = phi i32 [ 1, %826 ], [ %.sroa.0.0.i296, %819 ], [ %.sroa.0.0.i296, %807 ]
-  %825 = phi i32 [ %.0.sroa.speculated.i.i.i, %826 ], [ %.07.i, %819 ], [ %.07.i, %807 ]
+.critedge.i.i:                                    ; preds = %828, %819, %807
+  %823 = phi i32 [ %spec.select26.i.i, %828 ], [ %.sroa.7.0.i, %819 ], [ %.sroa.7.0.i, %807 ]
+  %824 = phi i32 [ 1, %828 ], [ %.sroa.0.0.i296, %819 ], [ %.sroa.0.0.i296, %807 ]
+  %825 = phi i32 [ %.0.sroa.speculated.i.i.i, %828 ], [ %.07.i, %819 ], [ %.07.i, %807 ]
   switch i32 %825, label %.thread.i.i [
     i32 0, label %829
     i32 1, label %844
   ]
 
 826:                                              ; preds = %819
-  %827 = icmp ne i32 %.07.i, 0
-  %.0.sroa.speculated.i.i.i = zext i1 %827 to i32
+  %.0.i.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %.07.i, i32 1)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
+  %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i32 1, i32 %.07.i
   store i32 %.0.sroa.speculated.i.i.i, ptr %811, align 8, !alias.scope !829, !noalias !832
-  %828 = icmp ne i32 %.sroa.7.0.i, 0
-  %trunc18.i.i = trunc nuw i32 %.sroa.0.0.i296 to i1
-  %switch24.i.i = xor i1 %trunc18.i.i, true
-  %narrow.i.i = or i1 %828, %switch24.i.i
-  %spec.select26.i.i = zext i1 %narrow.i.i to i32
+  %trunc17.i.i = trunc nuw i32 %.sroa.0.0.i296 to i1
+  br i1 %trunc17.i.i, label %827, label %828
+
+827:                                              ; preds = %826
+  %.0.i.i.i34.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %.sroa.7.0.i, i32 1)
+  %.off.i35.i.i = add nsw i8 %.0.i.i.i34.i.i, -1
+  %switch.i36.i.i = icmp ult i8 %.off.i35.i.i, -2
+  %.0.sroa.speculated.i37.i.i = select i1 %switch.i36.i.i, i32 1, i32 %.sroa.7.0.i
+  br label %828
+
+828:                                              ; preds = %827, %826
+  %spec.select26.i.i = phi i32 [ 1, %826 ], [ %.0.sroa.speculated.i37.i.i, %827 ]
   store i32 1, ptr %32, align 8, !alias.scope !829, !noalias !832
   store i32 %spec.select26.i.i, ptr %812, align 4, !alias.scope !829, !noalias !832
   br label %.critedge.i.i
@@ -3845,9 +3854,9 @@ _ZN12regex_syntax3hir9translate8HirFrame17unwrap_repetition17hb893e4b2ea7c3361E.
 
 834:                                              ; preds = %.noexc.i.i301
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 80) #26
-          to label %.noexc35.i.i unwind label %817, !noalias !831
+          to label %.noexc38.i.i unwind label %817, !noalias !831
 
-.noexc35.i.i:                                     ; preds = %834
+.noexc38.i.i:                                     ; preds = %834
   unreachable
 
 .critedge30.i.i:                                  ; preds = %.noexc.i.i301
@@ -11175,6 +11184,9 @@ declare i8 @llvm.umin.i8(i8, i8) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #20
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

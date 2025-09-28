@@ -2956,31 +2956,25 @@ define internal fastcc range(i32 0, 2) i32 @GetCombinedHistogramEntropy(ptr noun
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 3244
   %37 = load i32, ptr %36, align 4, !tbaa !53
   %38 = icmp eq i32 %34, %37
-  br i1 %38, label %39, label %46
+  %39 = add i32 %34, 16777216
+  %or.cond = icmp ult i32 %39, 33554432
+  %or.cond76 = and i1 %or.cond, %38
+  br i1 %or.cond76, label %40, label %46
 
-39:                                               ; preds = %35
-  %40 = and i32 %34, 255
-  %41 = add i32 %34, 16777216
-  %or.cond = icmp ult i32 %41, 33554432
-  br i1 %or.cond, label %42, label %46
-
-42:                                               ; preds = %39
-  %43 = lshr i32 %34, 16
-  %trunc = trunc i32 %43 to i8
-  switch i8 %trunc, label %46 [
-    i8 -1, label %44
-    i8 0, label %44
-  ]
-
-44:                                               ; preds = %42, %42
-  %switch.selectcmp.case1 = icmp eq i32 %40, 255
-  %switch.selectcmp.case2 = icmp eq i32 %40, 0
-  %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %45 = zext i1 %switch.selectcmp to i32
+40:                                               ; preds = %35
+  %41 = and i32 %34, 255
+  %42 = lshr i32 %34, 16
+  %43 = and i32 %42, 255
+  %44 = add nsw i32 %43, -255
+  %switch = icmp ult i32 %44, -254
+  %45 = add nsw i32 %41, -255
+  %switch74 = icmp ult i32 %45, -254
+  %or.cond75.not = and i1 %switch74, %switch
+  %spec.select = zext i1 %or.cond75.not to i32
   br label %46
 
-46:                                               ; preds = %44, %39, %42, %35, %32
-  %.065 = phi i32 [ 0, %35 ], [ 0, %32 ], [ 0, %42 ], [ 0, %39 ], [ %45, %44 ]
+46:                                               ; preds = %40, %35, %32
+  %.065 = phi i32 [ 0, %35 ], [ 0, %32 ], [ %spec.select, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 3281

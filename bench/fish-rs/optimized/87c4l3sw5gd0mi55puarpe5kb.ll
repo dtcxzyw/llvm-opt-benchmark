@@ -2748,7 +2748,8 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   br i1 %34, label %35, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hdde7293461716594E.exit26"
 
 35:                                               ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hdde7293461716594E.exit"
-  %switch = icmp eq i8 %31, 1
+  %.off = add nsw i8 %31, -1
+  %switch = icmp ult i8 %.off, -2
   br i1 %switch, label %36, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hdde7293461716594E.exit26.thr_comm"
 
 36:                                               ; preds = %35
@@ -3548,7 +3549,8 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   br i1 %54, label %55, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hfcb01dcdd360dd94E.exit27"
 
 55:                                               ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hfcb01dcdd360dd94E.exit"
-  %switch = icmp eq i8 %51, 1
+  %.off = add nsw i8 %51, -1
+  %switch = icmp ult i8 %.off, -2
   br i1 %switch, label %56, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hfcb01dcdd360dd94E.exit27.thr_comm"
 
 56:                                               ; preds = %55
@@ -4414,7 +4416,8 @@ define hidden noundef range(i64 0, 768614336404564651) i64 @_ZN4core5slice4sort6
   br i1 %27, label %28, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hdde7293461716594E.exit19"
 
 28:                                               ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hdde7293461716594E.exit"
-  %switch = icmp eq i8 %24, 1
+  %.off = add nsw i8 %24, -1
+  %switch = icmp ult i8 %.off, -2
   br i1 %switch, label %29, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hdde7293461716594E.exit19.thr_comm"
 
 29:                                               ; preds = %28
@@ -5307,7 +5310,8 @@ define hidden noundef range(i64 0, 768614336404564651) i64 @_ZN4core5slice4sort6
   br i1 %46, label %47, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hfcb01dcdd360dd94E.exit20"
 
 47:                                               ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hfcb01dcdd360dd94E.exit"
-  %switch = icmp eq i8 %43, 1
+  %.off = add nsw i8 %43, -1
+  %switch = icmp ult i8 %.off, -2
   br i1 %switch, label %48, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hfcb01dcdd360dd94E.exit20.thr_comm"
 
 48:                                               ; preds = %47
@@ -6089,7 +6093,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort11insert_tail17
   br i1 %23, label %24, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hfcb01dcdd360dd94E.exit"
 
 24:                                               ; preds = %2
-  %switch = icmp eq i8 %20, 1
+  %.off = add nsw i8 %20, -1
+  %switch = icmp ult i8 %.off, -2
   br i1 %switch, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hfcb01dcdd360dd94E.exit.thread2", label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hfcb01dcdd360dd94E.exit.thread"
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hfcb01dcdd360dd94E.exit": ; preds = %2
@@ -6157,7 +6162,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort11insert_tail17
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %.noexc22
-  %switch6 = icmp eq i8 %45, 1
+  %.off5 = add nsw i8 %45, -1
+  %switch6 = icmp ult i8 %.off5, -2
   br i1 %switch6, label %52, label %.thread
 
 50:                                               ; preds = %.noexc21, %.noexc, %33
@@ -6577,7 +6583,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort11insert_tail17
   br i1 %13, label %14, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hdde7293461716594E.exit"
 
 14:                                               ; preds = %2
-  %switch = icmp eq i8 %10, 1
+  %.off = add nsw i8 %10, -1
+  %switch = icmp ult i8 %.off, -2
   br i1 %switch, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hdde7293461716594E.exit.thread2", label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hdde7293461716594E.exit.thread"
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hdde7293461716594E.exit": ; preds = %2
@@ -6628,7 +6635,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort11insert_tail17
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %.noexc
-  %switch6 = icmp eq i8 %26, 1
+  %.off5 = add nsw i8 %26, -1
+  %switch6 = icmp ult i8 %.off5, -2
   br i1 %switch6, label %33, label %.thread
 
 31:                                               ; preds = %23
@@ -13491,7 +13499,8 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hde81caa990211398E.ex
   br i1 %139, label %140, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hfcb01dcdd360dd94E.exit.i35"
 
 140:                                              ; preds = %.noexc39
-  %switch.i = icmp eq i8 %136, 1
+  %.off.i = add nsw i8 %136, -1
+  %switch.i = icmp ult i8 %.off.i, -2
   br i1 %switch.i, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hfcb01dcdd360dd94E.exit.thread2.i", label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h5994809514df6c7aE.exit
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hfcb01dcdd360dd94E.exit.i35": ; preds = %.noexc39
@@ -13552,7 +13561,8 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hde81caa990211398E.ex
   br i1 %160, label %161, label %164
 
 161:                                              ; preds = %.noexc22.i
-  %switch6.i = icmp eq i8 %157, 1
+  %.off5.i = add nsw i8 %157, -1
+  %switch6.i = icmp ult i8 %.off5.i, -2
   br i1 %switch6.i, label %164, label %.thread.i
 
 162:                                              ; preds = %.noexc21.i, %.noexc.i, %145
@@ -13857,7 +13867,8 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h118749a928c52695E.ex
   br i1 %110, label %111, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hdde7293461716594E.exit.i30"
 
 111:                                              ; preds = %.noexc32
-  %switch.i = icmp eq i8 %107, 1
+  %.off.i = add nsw i8 %107, -1
+  %switch.i = icmp ult i8 %.off.i, -2
   br i1 %switch.i, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hdde7293461716594E.exit.thread2.i", label %_ZN4core5slice4sort6shared9smallsort11insert_tail17hb072bce9df6fe697E.exit
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hdde7293461716594E.exit.i30": ; preds = %.noexc32
@@ -13901,7 +13912,8 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h118749a928c52695E.ex
   br i1 %122, label %123, label %126
 
 123:                                              ; preds = %.noexc.i
-  %switch6.i = icmp eq i8 %119, 1
+  %.off5.i = add nsw i8 %119, -1
+  %switch6.i = icmp ult i8 %.off5.i, -2
   br i1 %switch6.i, label %126, label %.thread.i
 
 124:                                              ; preds = %116

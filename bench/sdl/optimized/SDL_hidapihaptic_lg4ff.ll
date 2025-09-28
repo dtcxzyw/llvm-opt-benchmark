@@ -983,10 +983,9 @@ define internal noundef i32 @SDL_HIDAPI_HapticDriverLg4ff_ThreadFunction(ptr nou
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %48, i64 20
   %.0.i.i = load i32, ptr %.0.in.i.i, align 4
   %.0.fr.i.i = freeze i32 %.0.i.i
-  switch i32 %.0.fr.i.i, label %57 [
-    i32 -1, label %get_effect_replay_length.exit.thread.i
-    i32 0, label %get_effect_replay_length.exit.thread.i
-  ]
+  %.0.fr.i.off.i = add i32 %.0.fr.i.i, -1
+  %switch.i = icmp ult i32 %.0.fr.i.off.i, -2
+  br i1 %switch.i, label %57, label %get_effect_replay_length.exit.thread.i
 
 57:                                               ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 88
@@ -1015,8 +1014,8 @@ define internal noundef i32 @SDL_HIDAPI_HapticDriverLg4ff_ThreadFunction(ptr nou
   store i64 %59, ptr %68, align 8
   br label %get_effect_replay_length.exit.thread.i
 
-get_effect_replay_length.exit.thread.i:           ; preds = %67, %57, %56, %56, %55, %52
-  %69 = phi i32 [ %50, %55 ], [ %50, %56 ], [ %50, %56 ], [ %50, %52 ], [ 1, %67 ], [ %50, %57 ]
+get_effect_replay_length.exit.thread.i:           ; preds = %67, %57, %56, %55, %52
+  %69 = phi i32 [ %50, %55 ], [ %50, %56 ], [ %50, %52 ], [ 1, %67 ], [ %50, %57 ]
   switch i16 %.val.i.i.pr.pre.i, label %get_effect_direction.exit.i.i [
     i16 2, label %70
     i16 8, label %70
@@ -1395,10 +1394,9 @@ effect_is_periodic.exit.i.i:                      ; preds = %252, %252, %252, %2
   %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %48, i64 20
   %.0.i86.i.i = load i32, ptr %.0.in.i.i.i, align 4
   %.0.fr.i.i.i = freeze i32 %.0.i86.i.i
-  switch i32 %.0.fr.i.i.i, label %266 [
-    i32 -1, label %get_effect_replay_length.exit.thread.i.i
-    i32 0, label %get_effect_replay_length.exit.thread.i.i
-  ]
+  %.0.fr.i.off.i.i = add i32 %.0.fr.i.i.i, -1
+  %switch.i.i = icmp ult i32 %.0.fr.i.off.i.i, -2
+  br i1 %switch.i.i, label %266, label %get_effect_replay_length.exit.thread.i.i
 
 266:                                              ; preds = %265
   %267 = load i64, ptr %248, align 8
@@ -1426,8 +1424,8 @@ get_effect_replay_length.exit92.i.i:              ; preds = %268, %266
   store i64 %271, ptr %272, align 8
   br label %get_effect_replay_length.exit.thread.i.i
 
-get_effect_replay_length.exit.thread.i.i:         ; preds = %get_effect_replay_length.exit92.i.i, %265, %265, %effect_is_periodic.exit.i.i, %252, %get_effect_direction.exit.i.i
-  %.val142.i = phi i16 [ %.val.i76.i, %265 ], [ %.val.i76.i, %265 ], [ %.val.i76.i, %252 ], [ %.val.i76.i, %effect_is_periodic.exit.i.i ], [ %.val.i76.i, %get_effect_replay_length.exit92.i.i ], [ %.val143.i, %get_effect_direction.exit.i.i ]
+get_effect_replay_length.exit.thread.i.i:         ; preds = %get_effect_replay_length.exit92.i.i, %265, %effect_is_periodic.exit.i.i, %252, %get_effect_direction.exit.i.i
+  %.val142.i = phi i16 [ %.val.i76.i, %265 ], [ %.val.i76.i, %252 ], [ %.val.i76.i, %effect_is_periodic.exit.i.i ], [ %.val.i76.i, %get_effect_replay_length.exit92.i.i ], [ %.val143.i, %get_effect_direction.exit.i.i ]
   %273 = load i32, ptr %49, align 8
   %274 = or i32 %273, 2
   %275 = and i32 %273, 8
@@ -1485,10 +1483,9 @@ get_effect_replay_delay.exit96.i.i:               ; preds = %.sink.split.i94.i.i
   %.0.in.i98.i.i = getelementptr inbounds nuw i8, ptr %48, i64 20
   %.0.i99.i.i = load i32, ptr %.0.in.i98.i.i, align 4
   %.0.fr.i100.i.i = freeze i32 %.0.i99.i.i
-  switch i32 %.0.fr.i100.i.i, label %289 [
-    i32 -1, label %get_effect_replay_length.exit102.thread.i.i
-    i32 0, label %get_effect_replay_length.exit102.thread.i.i
-  ]
+  %.0.fr.i100.off.i.i = add i32 %.0.fr.i100.i.i, -1
+  %switch121.i.i = icmp ult i32 %.0.fr.i100.off.i.i, -2
+  br i1 %switch121.i.i, label %289, label %get_effect_replay_length.exit102.thread.i.i
 
 289:                                              ; preds = %288
   %290 = load i64, ptr %278, align 8
@@ -1516,7 +1513,7 @@ get_effect_replay_length.exit108.i.i:             ; preds = %291, %289
   store i64 %294, ptr %295, align 8
   br label %get_effect_replay_length.exit102.thread.i.i
 
-get_effect_replay_length.exit102.thread.i.i:      ; preds = %get_effect_replay_length.exit108.i.i, %288, %288
+get_effect_replay_length.exit102.thread.i.i:      ; preds = %get_effect_replay_length.exit108.i.i, %288
   switch i16 %.val.i97.i.i, label %get_effect_replay_length.exit102.thread.i.effect_is_periodic.exit109.i_crit_edge.i [
     i16 2, label %296
     i16 8, label %296
@@ -1618,10 +1615,9 @@ effect_is_periodic.exit109.i.i:                   ; preds = %get_effect_replay_l
   %.0.in.i111.i.i = getelementptr inbounds nuw i8, ptr %48, i64 20
   %.0.i112.i.i = load i32, ptr %.0.in.i111.i.i, align 4
   %.0.fr.i113.i.i = freeze i32 %.0.i112.i.i
-  switch i32 %.0.fr.i113.i.i, label %339 [
-    i32 -1, label %get_effect_replay_length.exit115.thread.i.i
-    i32 0, label %get_effect_replay_length.exit115.thread.i.i
-  ]
+  %.0.fr.i113.off.i.i = add i32 %.0.fr.i113.i.i, -1
+  %switch122.i.i = icmp ult i32 %.0.fr.i113.off.i.i, -2
+  br i1 %switch122.i.i, label %339, label %get_effect_replay_length.exit115.thread.i.i
 
 339:                                              ; preds = %338
   %340 = getelementptr inbounds nuw i8, ptr %48, i64 88
@@ -1629,7 +1625,7 @@ effect_is_periodic.exit109.i.i:                   ; preds = %get_effect_replay_l
   %342 = icmp ult i64 %30, %341
   br i1 %342, label %get_effect_replay_length.exit115.thread.i.i, label %344
 
-get_effect_replay_length.exit115.thread.i.i:      ; preds = %339, %338, %338, %337
+get_effect_replay_length.exit115.thread.i.i:      ; preds = %339, %338, %337
   %343 = or disjoint i32 %331, 4
   store i32 %343, ptr %49, align 8
   br label %344

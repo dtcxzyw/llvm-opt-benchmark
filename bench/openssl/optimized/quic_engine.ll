@@ -103,16 +103,13 @@ define i64 @ossl_quic_engine_make_real_time(ptr noundef readonly captures(none) 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %.fr = freeze ptr %4
-  %.not = icmp eq ptr %.fr, null
-  br i1 %.not, label %10, label %switch.early.test
+  %.not = icmp ne ptr %.fr, null
+  %.off = add i64 %1, -1
+  %switch = icmp ult i64 %.off, -2
+  %or.cond = select i1 %.not, i1 %switch, i1 false
+  br i1 %or.cond, label %5, label %10
 
-switch.early.test:                                ; preds = %2
-  switch i64 %1, label %5 [
-    i64 -1, label %10
-    i64 0, label %10
-  ]
-
-5:                                                ; preds = %switch.early.test
+5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = tail call i64 %.fr(ptr noundef %7) #10
@@ -121,8 +118,8 @@ switch.early.test:                                ; preds = %2
   %.sroa.03.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %..i, i64 %9)
   br label %10
 
-10:                                               ; preds = %switch.early.test, %switch.early.test, %2, %5
-  %.sroa.07.0 = phi i64 [ %.sroa.03.0.i, %5 ], [ %1, %switch.early.test ], [ %1, %2 ], [ %1, %switch.early.test ]
+10:                                               ; preds = %2, %5
+  %.sroa.07.0 = phi i64 [ %.sroa.03.0.i, %5 ], [ %1, %2 ]
   ret i64 %.sroa.07.0
 }
 

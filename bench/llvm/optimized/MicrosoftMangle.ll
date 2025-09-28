@@ -19809,7 +19809,8 @@ _ZNK5clang8QualType18getLocalQualifiersEv.exit30.i: ; preds = %527, %.lr.ph.i410
   %.sroa.0.0.i29.i = phi i64 [ %.sroa.0.0.copyload.i.i28.i, %527 ], [ 0, %.lr.ph.i410 ]
   %531 = and i64 %525, 7
   %532 = or i64 %.sroa.0.0.i29.i, %531
-  %switch.i = icmp eq i32 %.tr109129.i, 1
+  %.off.i = add nsw i32 %.tr109129.i, -1
+  %switch.i = icmp ult i32 %.off.i, 2
   br i1 %switch.i, label %533, label %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler16mangleQualifiersEN5clang10QualifiersEb.exit35.i
 
 533:                                              ; preds = %_ZNK5clang8QualType18getLocalQualifiersEv.exit30.i

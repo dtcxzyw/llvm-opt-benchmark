@@ -19611,10 +19611,9 @@ define range(i32 0, 3) i32 @tng_frame_set_new(ptr noundef %0, i64 noundef %1, i6
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %38 = load i64, ptr %37, align 8, !tbaa !261
-  switch i64 %38, label %39 [
-    i64 -1, label %137
-    i64 0, label %137
-  ]
+  %.off = add i64 %38, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %39, label %137
 
 39:                                               ; preds = %36
   %40 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #28
@@ -19655,7 +19654,7 @@ tng_block_init.exit:                              ; preds = %41, %44
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 11557) #29
   store ptr %6, ptr %5, align 8, !tbaa !137
   call fastcc void @tng_block_destroy(ptr noundef %4)
-  br label %154
+  br label %151
 
 58:                                               ; preds = %tng_block_init.exit
   %59 = load ptr, ptr %7, align 8, !tbaa !138
@@ -19673,7 +19672,7 @@ tng_block_init.exit:                              ; preds = %41, %44
   %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 11571) #29
   store ptr %6, ptr %5, align 8, !tbaa !137
   call fastcc void @tng_block_destroy(ptr noundef %4)
-  br label %154
+  br label %151
 
 70:                                               ; preds = %58
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -19748,10 +19747,9 @@ tng_block_destroy.exit:                           ; preds = %86, %89
 103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %105 = load i64, ptr %104, align 8, !tbaa !259
-  switch i64 %105, label %106 [
-    i64 -1, label %134
-    i64 0, label %134
-  ]
+  %.off101 = add i64 %105, -1
+  %switch102 = icmp ult i64 %.off101, -2
+  br i1 %switch102, label %106, label %134
 
 106:                                              ; preds = %103
   call fastcc void @tng_block_init(ptr noundef %4)
@@ -19769,7 +19767,7 @@ tng_block_destroy.exit:                           ; preds = %86, %89
   %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 11610) #29
   store ptr %6, ptr %5, align 8, !tbaa !137
   call fastcc void @tng_block_destroy(ptr noundef %4)
-  br label %154
+  br label %151
 
 115:                                              ; preds = %106
   %116 = load ptr, ptr %7, align 8, !tbaa !138
@@ -19787,7 +19785,7 @@ tng_block_destroy.exit:                           ; preds = %86, %89
   %125 = load ptr, ptr @stderr, align 8, !tbaa !14
   %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 11628) #29
   store ptr %6, ptr %5, align 8, !tbaa !137
-  br label %154
+  br label %151
 
 127:                                              ; preds = %115
   %128 = load ptr, ptr %71, align 8, !tbaa !198
@@ -19804,13 +19802,15 @@ tng_block_destroy.exit:                           ; preds = %86, %89
   %133 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 11640) #29
   br label %134
 
-134:                                              ; preds = %103, %103, %99, %127, %131, %129, %95
+134:                                              ; preds = %103, %99, %127, %131, %129, %95
   store ptr %6, ptr %5, align 8, !tbaa !137
   %135 = load ptr, ptr %7, align 8, !tbaa !138
   %136 = tail call i32 @fseeko64(ptr noundef %135, i64 noundef %50, i32 noundef 0)
+  %.pre.pre.pre = load i64, ptr %24, align 8, !tbaa !186
   br label %137
 
-137:                                              ; preds = %36, %36, %34, %134, %30
+137:                                              ; preds = %36, %34, %134, %30
+  %.pre.pre = phi i64 [ %23, %36 ], [ %23, %34 ], [ %.pre.pre.pre, %134 ], [ %23, %30 ]
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i64 %1, ptr %138, align 8, !tbaa !128
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -19821,36 +19821,29 @@ tng_block_destroy.exit:                           ; preds = %86, %89
   store double -1.000000e+00, ptr %141, align 8, !tbaa !133
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %143 = load i64, ptr %142, align 8, !tbaa !195
-  switch i64 %143, label %146 [
-    i64 -1, label %144
-    i64 0, label %144
-  ]
+  %.off103 = add i64 %143, -1
+  %switch104 = icmp ult i64 %.off103, -2
+  br i1 %switch104, label %145, label %144
 
-144:                                              ; preds = %137, %137
-  %145 = load i64, ptr %24, align 8, !tbaa !186
-  store i64 %145, ptr %142, align 8, !tbaa !195
-  br label %146
+144:                                              ; preds = %137
+  store i64 %.pre.pre, ptr %142, align 8, !tbaa !195
+  br label %145
 
-146:                                              ; preds = %137, %144
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %148 = load i64, ptr %147, align 8, !tbaa !196
-  switch i64 %148, label %149 [
-    i64 -1, label %152
-    i64 0, label %152
-  ]
+145:                                              ; preds = %137, %144
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %147 = load i64, ptr %146, align 8, !tbaa !196
+  %148 = add i64 %147, 1
+  %switch106 = icmp ult i64 %148, 2
+  %149 = icmp slt i64 %147, %.pre.pre
+  %or.cond = select i1 %switch106, i1 true, i1 %149
+  br i1 %or.cond, label %150, label %151
 
-149:                                              ; preds = %146
-  %150 = load i64, ptr %24, align 8, !tbaa !186
-  %151 = icmp slt i64 %148, %150
-  br i1 %151, label %152, label %154
+150:                                              ; preds = %145
+  store i64 %.pre.pre, ptr %146, align 8, !tbaa !196
+  br label %151
 
-152:                                              ; preds = %146, %146, %149
-  %153 = load i64, ptr %24, align 8, !tbaa !186
-  store i64 %153, ptr %147, align 8, !tbaa !196
-  br label %154
-
-154:                                              ; preds = %149, %152, %124, %112, %67, %55
-  %.0 = phi i32 [ 2, %55 ], [ 2, %67 ], [ 2, %112 ], [ 2, %124 ], [ 0, %152 ], [ 0, %149 ]
+151:                                              ; preds = %145, %150, %124, %112, %67, %55
+  %.0 = phi i32 [ 2, %55 ], [ 2, %67 ], [ 2, %112 ], [ 2, %124 ], [ 0, %150 ], [ 0, %145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

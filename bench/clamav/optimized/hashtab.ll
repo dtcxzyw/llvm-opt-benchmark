@@ -290,25 +290,24 @@ define noundef ptr @cli_htu32_next(ptr noundef readonly captures(address_is_null
 .lr.ph:                                           ; preds = %15
   %17 = load ptr, ptr %0, align 8, !tbaa !13
   %18 = add i64 %5, -1
-  br label %19
+  br label %21
 
-19:                                               ; preds = %.lr.ph, %23
-  %.12035 = phi i64 [ %.019, %.lr.ph ], [ %24, %23 ]
-  %20 = and i64 %.12035, %18
-  %21 = getelementptr inbounds nuw %struct.cli_htu32_element, ptr %17, i64 %20
-  %22 = load i32, ptr %21, align 8, !tbaa !24
-  switch i32 %22, label %.loopexit [
-    i32 0, label %23
-    i32 -1, label %23
-  ]
+19:                                               ; preds = %21
+  %20 = add i64 %.12033, 1
+  %exitcond.not = icmp eq i64 %20, %5
+  br i1 %exitcond.not, label %.loopexit, label %21
 
-23:                                               ; preds = %19, %19
-  %24 = add i64 %.12035, 1
-  %exitcond.not = icmp eq i64 %24, %5
-  br i1 %exitcond.not, label %.loopexit, label %19
+21:                                               ; preds = %.lr.ph, %19
+  %.12033 = phi i64 [ %.019, %.lr.ph ], [ %20, %19 ]
+  %22 = and i64 %.12033, %18
+  %23 = getelementptr inbounds nuw %struct.cli_htu32_element, ptr %17, i64 %22
+  %24 = load i32, ptr %23, align 8, !tbaa !24
+  %25 = add i32 %24, 1
+  %switch = icmp ult i32 %25, 2
+  br i1 %switch, label %19, label %.loopexit
 
-.loopexit:                                        ; preds = %23, %19, %15, %7, %2, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %2 ], [ null, %7 ], [ null, %15 ], [ null, %23 ], [ %21, %19 ]
+.loopexit:                                        ; preds = %21, %19, %15, %7, %2, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %2 ], [ null, %7 ], [ null, %15 ], [ %23, %21 ], [ null, %19 ]
   ret ptr %.0
 }
 
@@ -822,10 +821,9 @@ nearest_power.exit:                               ; preds = %6, %8
   %19 = load ptr, ptr %0, align 8, !tbaa !13
   %20 = getelementptr inbounds nuw %struct.cli_htu32_element, ptr %19, i64 %.05064
   %21 = load i32, ptr %20, align 8, !tbaa !24
-  switch i32 %21, label %22 [
-    i32 0, label %45
-    i32 -1, label %45
-  ]
+  %.off = add i32 %21, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %22, label %45
 
 22:                                               ; preds = %17
   %23 = xor i32 %21, -1
@@ -873,9 +871,9 @@ nearest_power.exit:                               ; preds = %6, %8
   %.pre = load i64, ptr %3, align 8, !tbaa !16
   br label %45
 
-45:                                               ; preds = %._crit_edge.thread, %17, %17
-  %46 = phi i64 [ %.pre, %._crit_edge.thread ], [ %18, %17 ], [ %18, %17 ]
-  %.2 = phi i64 [ %44, %._crit_edge.thread ], [ %.04865, %17 ], [ %.04865, %17 ]
+45:                                               ; preds = %._crit_edge.thread, %17
+  %46 = phi i64 [ %.pre, %._crit_edge.thread ], [ %18, %17 ]
+  %.2 = phi i64 [ %44, %._crit_edge.thread ], [ %.04865, %17 ]
   %47 = add nuw i64 %.05064, 1
   %48 = icmp ult i64 %47, %46
   br i1 %48, label %17, label %._crit_edge67

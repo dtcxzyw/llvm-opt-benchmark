@@ -646,7 +646,10 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h3e06c6da5840c6f
   %13 = ptrtoint ptr %3 to i64
   %14 = sub nuw i64 %12, %13
   %15 = lshr exact i64 %14, 3
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %15)
+  %.0.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %10, i64 %15)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %15, i64 %10
   store ptr %1, ptr %0, align 8, !alias.scope !105
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %16, align 8, !alias.scope !105
@@ -18012,11 +18015,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #26
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #27
+declare void @llvm.experimental.noalias.scope.decl(metadata) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #27
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -18044,8 +18047,8 @@ attributes #22 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #23 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #24 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #27 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #28 = { noreturn }
 attributes #29 = { cold noreturn nounwind }
 attributes #30 = { cold }

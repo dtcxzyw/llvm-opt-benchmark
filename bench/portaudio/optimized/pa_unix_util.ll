@@ -151,10 +151,9 @@ define noundef i32 @PaUtil_CancelThreading(ptr noundef readonly captures(none) %
   %12 = call i32 @pthread_join(i64 noundef %11, ptr noundef nonnull %4) #16
   %13 = load ptr, ptr %4, align 8, !tbaa !15
   %magicptr = ptrtoint ptr %13 to i64
-  switch i64 %magicptr, label %14 [
-    i64 -1, label %18
-    i64 0, label %18
-  ]
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %14, label %18
 
 14:                                               ; preds = %10
   br i1 %.not, label %17, label %15
@@ -168,7 +167,7 @@ define noundef i32 @PaUtil_CancelThreading(ptr noundef readonly captures(none) %
   call void @free(ptr noundef %13) #16
   br label %18
 
-18:                                               ; preds = %10, %10, %17
+18:                                               ; preds = %10, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
@@ -562,10 +561,9 @@ define range(i32 -9999, 1) i32 @PaUnixThread_Terminate(ptr noundef initializes((
 21:                                               ; preds = %11
   %22 = load ptr, ptr %4, align 8, !tbaa !15
   %magicptr = ptrtoint ptr %22 to i64
-  switch i64 %magicptr, label %23 [
-    i64 -1, label %27
-    i64 0, label %27
-  ]
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %23, label %27
 
 23:                                               ; preds = %21
   br i1 %.not, label %26, label %24
@@ -579,8 +577,8 @@ define range(i32 -9999, 1) i32 @PaUnixThread_Terminate(ptr noundef initializes((
   call void @free(ptr noundef %22) #16
   br label %27
 
-27:                                               ; preds = %21, %21, %26, %20
-  %.0 = phi i32 [ -9999, %20 ], [ 0, %26 ], [ 0, %21 ], [ 0, %21 ]
+27:                                               ; preds = %21, %26, %20
+  %.0 = phi i32 [ -9999, %20 ], [ 0, %26 ], [ 0, %21 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %28) #16
   store i32 0, ptr @paUtilErr_, align 4, !tbaa !11

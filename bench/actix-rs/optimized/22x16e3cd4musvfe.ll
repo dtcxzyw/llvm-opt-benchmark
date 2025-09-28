@@ -2037,7 +2037,10 @@ define hidden noundef range(i32 0, 4) i32 @_ZN19brotli_decompressor6decode22Brot
 60:                                               ; preds = %50
   %61 = zext i32 %52 to i64
   %62 = sub nsw i64 8, %61
-  %.0.sroa.speculated.i = tail call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 range(i64 -4294967287, 8) %62, i64 range(i64 0, 4294967296) %34)
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 range(i64 -4294967287, 8) %62, i64 range(i64 0, 4294967296) %34)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %34, i64 %62
   %.not = icmp eq i64 %.0.sroa.speculated.i, 0
   br i1 %.not, label %120, label %122
 
@@ -2110,10 +2113,10 @@ define hidden noundef range(i32 0, 4) i32 @_ZN19brotli_decompressor6decode22Brot
   br label %63
 
 122:                                              ; preds = %60
-  %123 = add nuw nsw i64 %.0.sroa.speculated.i, %61
+  %123 = add nsw i64 %.0.sroa.speculated.i, %61
   %124 = call fastcc { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4d3929009b4e866E"(i64 noundef %61, i64 noundef %123, ptr noalias noundef nonnull align 1 %27, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ef1a8dfc954e6e945538d4598650d6d8.41)
   %125 = extractvalue { ptr, i64 } %124, 1
-  %126 = add nuw nsw i64 %.0.sroa.speculated.i, %37
+  %126 = add nsw i64 %.0.sroa.speculated.i, %37
   %127 = call fastcc { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd69ca6984ea4b8f5E"(i64 noundef %37, i64 noundef %126, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ef1a8dfc954e6e945538d4598650d6d8.42)
   %128 = extractvalue { ptr, i64 } %127, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !168)
@@ -2131,7 +2134,7 @@ define hidden noundef range(i32 0, 4) i32 @_ZN19brotli_decompressor6decode22Brot
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %131, ptr nonnull readonly align 1 %130, i64 %125, i1 false), !alias.scope !173, !noalias !174
   %132 = load i32, ptr %51, align 4, !noundef !12
   %133 = zext i32 %132 to i64
-  %134 = add nuw nsw i64 %.0.sroa.speculated.i, %133
+  %134 = add nsw i64 %.0.sroa.speculated.i, %133
   %135 = call fastcc { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4d3929009b4e866E"(i64 noundef %133, i64 noundef %134, ptr noalias noundef nonnull align 1 %28, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ef1a8dfc954e6e945538d4598650d6d8.44)
   %136 = extractvalue { ptr, i64 } %135, 1
   %137 = call fastcc { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd69ca6984ea4b8f5E"(i64 noundef %37, i64 noundef %126, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ef1a8dfc954e6e945538d4598650d6d8.45)
@@ -9418,6 +9421,9 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #23

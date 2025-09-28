@@ -386,13 +386,16 @@ define hidden void @"_ZN10primeorder10projective24ProjectivePoint$LT$C$GT$3mul17
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha330e8190b24b968E.llvm.10553303005396541960"(ptr noalias noundef nonnull sret({ i64, { i64, i64 } }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !noalias !76
   %34 = load i64, ptr %5, align 8, !noalias !73, !noundef !17
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !73
+  %.0.i.i.i.i.i.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %34, i64 4)
+  %.off.i.i.i.i.i = add nsw i8 %.0.i.i.i.i.i.i.i, -1
+  %switch.i.i.i.i.i = icmp ult i8 %.off.i.i.i.i.i, -2
+  %.0.sroa.speculated.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 4, i64 %34
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !62
-  %.not.i.i = icmp eq i64 %34, 0
+  %.not.i.i = icmp eq i64 %.0.sroa.speculated.i.i.i.i.i, 0
   br i1 %.not.i.i, label %"_ZN13crypto_bigint4uint5array100_$LT$impl$u20$crypto_bigint..array..ArrayEncoding$u20$for$u20$crypto_bigint..uint..Uint$LT$_$GT$$GT$16to_le_byte_array17h96e63127e64b49a4E.exit", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.preheader.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.preheader.i.i": ; preds = %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17h454c24609fb39fdfE.exit.i"
-  %.0.sroa.speculated.i.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %34, i64 4)
-  %35 = shl nuw nsw i64 %.0.sroa.speculated.i.i.i.i.i, 3
+  %35 = shl nuw i64 %.0.sroa.speculated.i.i.i.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i, ptr nonnull readonly align 8 dereferenceable(32) %23, i64 %35, i1 false)
   br label %"_ZN13crypto_bigint4uint5array100_$LT$impl$u20$crypto_bigint..array..ArrayEncoding$u20$for$u20$crypto_bigint..uint..Uint$LT$_$GT$$GT$16to_le_byte_array17h96e63127e64b49a4E.exit"
 
@@ -9560,7 +9563,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #27
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #27
 
 attributes #0 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

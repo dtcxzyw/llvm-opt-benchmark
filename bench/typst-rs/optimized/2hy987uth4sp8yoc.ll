@@ -204,7 +204,10 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN4core3cmp6min_by17heddc20f649d809eeE.llvm.17794941744620341598(i64 noundef %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %.0.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
+  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
+  %.off = add nsw i8 %.0.i.i, -1
+  %switch = icmp ult i8 %.off, -2
+  %.0.sroa.speculated = select i1 %switch, i64 %1, i64 %0
   ret i64 %.0.sroa.speculated
 }
 
@@ -14409,11 +14412,17 @@ define hidden void @_ZN12typst_syntax6parser6Parser11wrap_within17hd2ead4882fe35
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load i64, ptr %10, align 8, !noundef !4
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %11)
-  %.0.sroa.speculated.i1 = tail call noundef i64 @llvm.umin.i64(i64 %1, i64 %.0.sroa.speculated.i)
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %2, i64 %11)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %11, i64 %2
+  %.0.i.i.i1 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %1, i64 %.0.sroa.speculated.i)
+  %.off.i2 = add nsw i8 %.0.i.i.i1, -1
+  %switch.i3 = icmp ult i8 %.off.i2, -2
+  %.0.sroa.speculated.i4 = select i1 %switch.i3, i64 %.0.sroa.speculated.i, i64 %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3411)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3414)
-  %12 = tail call { i64, i64 } @_ZN4core5slice5index5range17hcd550d7dfb1dd288E(i64 noundef %.0.sroa.speculated.i1, i64 noundef %.0.sroa.speculated.i, i64 noundef %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5ab2de7f43314cdaa70b1332ba871678.29.llvm.13506474886552808233), !noalias !3416
+  %12 = tail call { i64, i64 } @_ZN4core5slice5index5range17hcd550d7dfb1dd288E(i64 noundef %.0.sroa.speculated.i4, i64 noundef %.0.sroa.speculated.i, i64 noundef %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5ab2de7f43314cdaa70b1332ba871678.29.llvm.13506474886552808233), !noalias !3416
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = extractvalue { i64, i64 } %12, 1
   store i64 %13, ptr %10, align 8, !alias.scope !3414, !noalias !3411
@@ -14488,8 +14497,8 @@ _ZN12typst_syntax4node10SyntaxNode5inner17h663e2a0e3d635b85E.exit: ; preds = %.n
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdca6fe0f0368177eE.llvm.13506474886552808233.exit.i": ; preds = %37, %_ZN12typst_syntax4node10SyntaxNode5inner17h663e2a0e3d635b85E.exit
   %38 = load ptr, ptr %15, align 8, !alias.scope !3423, !noalias !3426, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %38, i64 %.0.sroa.speculated.i1
-  %40 = icmp ult i64 %.0.sroa.speculated.i1, %34
+  %39 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %38, i64 %.0.sroa.speculated.i4
+  %40 = icmp ult i64 %.0.sroa.speculated.i4, %34
   br i1 %40, label %45, label %43
 
 41:                                               ; preds = %49, %37
@@ -14499,18 +14508,18 @@ _ZN12typst_syntax4node10SyntaxNode5inner17h663e2a0e3d635b85E.exit: ; preds = %.n
           to label %common.resume unwind label %51
 
 43:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdca6fe0f0368177eE.llvm.13506474886552808233.exit.i"
-  %44 = icmp eq i64 %.0.sroa.speculated.i1, %34
+  %44 = icmp eq i64 %.0.sroa.speculated.i4, %34
   br i1 %44, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hbdf98353bdd3022bE.exit", label %49
 
 45:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdca6fe0f0368177eE.llvm.13506474886552808233.exit.i"
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %47 = sub nuw i64 %34, %.0.sroa.speculated.i1
+  %47 = sub nuw i64 %34, %.0.sroa.speculated.i4
   %48 = shl i64 %47, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 8 %39, i64 %48, i1 false), !noalias !3426
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hbdf98353bdd3022bE.exit"
 
 49:                                               ; preds = %43
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert13assert_failed17ha96fae3da14a930aE"(i64 noundef %.0.sroa.speculated.i1, i64 noundef %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5ab2de7f43314cdaa70b1332ba871678.30.llvm.13506474886552808233) #23
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert13assert_failed17ha96fae3da14a930aE"(i64 noundef %.0.sroa.speculated.i4, i64 noundef %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5ab2de7f43314cdaa70b1332ba871678.30.llvm.13506474886552808233) #23
           to label %50 unwind label %41, !noalias !3426
 
 50:                                               ; preds = %49
@@ -16488,7 +16497,7 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #20
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.usub.sat.i8(i8, i8) #20

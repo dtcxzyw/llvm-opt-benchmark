@@ -68,16 +68,19 @@ define noundef i128 @_ZN3egg4test10percentile17h86d6f65026f76f59E(double noundef
   %9 = fmul double %0, %8
   %10 = tail call i64 @llvm.fptoui.sat.i64.f64(double %9)
   %11 = add i64 %2, -1
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %11)
-  %12 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, %2
-  br i1 %12, label %13, label %16, !prof !7
+  %12 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %10, i64 %11)
+  %.off.i = add nsw i8 %12, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.sroa.0.0.sroa.speculated.i = select i1 %switch.i, i64 %11, i64 %10
+  %13 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, %2
+  br i1 %13, label %14, label %17, !prof !7
 
-13:                                               ; preds = %7
-  %14 = getelementptr inbounds i128, ptr %1, i64 %.sroa.0.0.sroa.speculated.i
-  %15 = load i128, ptr %14, align 16, !noundef !4
-  ret i128 %15
+14:                                               ; preds = %7
+  %15 = getelementptr inbounds i128, ptr %1, i64 %.sroa.0.0.sroa.speculated.i
+  %16 = load i128, ptr %15, align 16, !noundef !4
+  ret i128 %16
 
-16:                                               ; preds = %7
+17:                                               ; preds = %7
   tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.0.0.sroa.speculated.i, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6b0be5cd40001bab02b1e37fd09b8e37.5) #12
   unreachable
 }
@@ -275,11 +278,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #10
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #11
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
+declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -291,8 +294,8 @@ attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #7 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #12 = { noreturn }
 attributes #13 = { cold }
 attributes #14 = { nounwind }

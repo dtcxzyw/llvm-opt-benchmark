@@ -1918,7 +1918,10 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %18 = load i64, ptr %5, align 8, !noundef !28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %19 = tail call i64 @llvm.uadd.sat.i64(i64 %18, i64 1)
-  %.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %19, i64 4)
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 range(i64 1, 0) %19)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 4, i64 %19
   %20 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h3ab97a64aea5dc85E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
   %21 = extractvalue { i64, ptr } %20, 0
   %22 = extractvalue { i64, ptr } %20, 1
@@ -2642,7 +2645,10 @@ common.resume:                                    ; preds = %93, %.body, %21, %"
   %42 = load i64, ptr %7, align 8, !noundef !28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %43 = tail call i64 @llvm.uadd.sat.i64(i64 %42, i64 1)
-  %.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %43, i64 4)
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 range(i64 1, 0) %43)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 4, i64 %43
   %44 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h5ba5ef0af6e01f84E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %45 unwind label %39
 
@@ -2999,7 +3005,10 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %20 = load i64, ptr %7, align 8, !noundef !28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %21 = tail call i64 @llvm.uadd.sat.i64(i64 %20, i64 1)
-  %.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %21, i64 4)
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 range(i64 1, 0) %21)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 4, i64 %21
   %22 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf539f13ab3db1912E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %23 unwind label %17
 
@@ -3517,9 +3526,12 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17he27fc6aafcde29daE.exit63.i.i.i": ; preds = %55, %49, %46, %45, %"_ZN4core6option15Option$LT$T$GT$6map_or17he27fc6aafcde29daE.exit.i.i.i"
   %.sroa.767.0.i.i.i = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17he27fc6aafcde29daE.exit.i.i.i" ], [ %61, %55 ], [ %54, %49 ], [ %spec.select.i.i.i.i61.i.i.i, %46 ], [ 0, %45 ]
-  %62 = add nuw nsw i64 %.sroa.767.0.i.i.i, %.sroa.7.0.i.i.i
-  %63 = tail call i64 @llvm.umax.i64(i64 %62, i64 3)
-  %.0.sroa.speculated.i = add nuw nsw i64 %63, 1
+  %62 = add nuw nsw i64 %.sroa.7.0.i.i.i, 1
+  %63 = add nuw nsw i64 %62, %.sroa.767.0.i.i.i
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 range(i64 1, 0) %63)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 4, i64 %63
   %64 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h2e4b2e061946c7c4E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %68 unwind label %66
 
@@ -6118,8 +6130,11 @@ common.resume:                                    ; preds = %138, %.body, %37
   %.sroa.0.0.i.pn.i.i33 = phi ptr [ %.sroa.0.0.i.pn.i.i, %.noexc7 ], [ %.sroa.0.0.i.pn.i.i3438, %46 ], [ %.sroa.0.0.i.pn.i.i, %44 ], [ %.sroa.0.0.i.pn.i.i, %.noexc8 ]
   %.sroa.3.0.i.pn.i.i31 = phi i64 [ %.sroa.3.0.i.pn.i.i, %.noexc7 ], [ %.sroa.3.0.i.pn.i.i3239, %46 ], [ %.sroa.3.0.i.pn.i.i, %44 ], [ %.sroa.3.0.i.pn.i.i, %.noexc8 ]
   %.sink.i = phi i64 [ 0, %.noexc7 ], [ %52, %46 ], [ 0, %44 ], [ %60, %.noexc8 ]
-  %64 = tail call i64 @llvm.umax.i64(i64 %.sink.i, i64 3)
-  %.0.sroa.speculated.i = add nuw nsw i64 %64, 1
+  %64 = add nuw nsw i64 %.sink.i, 1
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 range(i64 1, 0) %64)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 4, i64 %64
   %65 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h3ab97a64aea5dc85E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %66 unwind label %61
 
@@ -7307,7 +7322,10 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h9319c83ddf65d3a
   %13 = ptrtoint ptr %3 to i64
   %14 = sub nuw i64 %12, %13
   %15 = udiv exact i64 %14, 24
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %15)
+  %.0.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %10, i64 %15)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %15, i64 %10
   store ptr %1, ptr %0, align 8, !alias.scope !2231
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %16, align 8, !alias.scope !2231
@@ -14872,10 +14890,7 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #21
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #21
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

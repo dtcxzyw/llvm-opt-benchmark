@@ -1569,7 +1569,10 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h677cc6890c2b765
   %13 = ptrtoint ptr %3 to i64
   %14 = sub nuw i64 %12, %13
   %15 = udiv exact i64 %14, 24
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %15)
+  %.0.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %10, i64 %15)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %15, i64 %10
   store ptr %1, ptr %0, align 8, !alias.scope !378
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %16, align 8, !alias.scope !378
@@ -9378,8 +9381,17 @@ _ZN12clap_builder6parser7matches11matched_arg10MatchedArg7new_arg17ha6c5a010810e
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 105
   %46 = load i8, ptr %45, align 1, !range !142, !alias.scope !2027, !noundef !5
   %.not.i = icmp eq i8 %46, 3
-  %.0.sroa.speculated.i.i = tail call i8 @llvm.umax.i8(i8 %46, i8 %2)
-  %storemerge.i = select i1 %.not.i, i8 %2, i8 %.0.sroa.speculated.i.i
+  br i1 %.not.i, label %_ZN12clap_builder6parser7matches11matched_arg10MatchedArg10set_source17hd85a9e2506a7266eE.exit, label %47
+
+47:                                               ; preds = %_ZN12clap_builder6parser7matches11matched_arg10MatchedArg7new_arg17ha6c5a010810eeeeeE.exit
+  %.0.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i8(i8 %46, i8 %2)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i8 %46, i8 %2
+  br label %_ZN12clap_builder6parser7matches11matched_arg10MatchedArg10set_source17hd85a9e2506a7266eE.exit
+
+_ZN12clap_builder6parser7matches11matched_arg10MatchedArg10set_source17hd85a9e2506a7266eE.exit: ; preds = %_ZN12clap_builder6parser7matches11matched_arg10MatchedArg7new_arg17ha6c5a010810eeeeeE.exit, %47
+  %storemerge.i = phi i8 [ %.0.sroa.speculated.i.i, %47 ], [ %2, %_ZN12clap_builder6parser7matches11matched_arg10MatchedArg7new_arg17ha6c5a010810eeeeeE.exit ]
   store i8 %storemerge.i, ptr %45, align 1, !alias.scope !2027
   tail call void @_ZN12clap_builder6parser7matches11matched_arg10MatchedArg13new_val_group17hfa969a504daea6e5E(ptr noalias noundef nonnull align 8 dereferenceable(104) %44)
   ret void
@@ -9418,8 +9430,17 @@ define hidden void @_ZN12clap_builder6parser11arg_matcher10ArgMatcher18start_cus
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 105
   %13 = load i8, ptr %12, align 1, !range !142, !alias.scope !2033, !noundef !5
   %.not.i = icmp eq i8 %13, 3
-  %.0.sroa.speculated.i.i = tail call i8 @llvm.umax.i8(i8 %13, i8 %3)
-  %storemerge.i = select i1 %.not.i, i8 %3, i8 %.0.sroa.speculated.i.i
+  br i1 %.not.i, label %_ZN12clap_builder6parser7matches11matched_arg10MatchedArg10set_source17hd85a9e2506a7266eE.exit, label %14
+
+14:                                               ; preds = %4
+  %.0.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i8(i8 %13, i8 %3)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i8 %13, i8 %3
+  br label %_ZN12clap_builder6parser7matches11matched_arg10MatchedArg10set_source17hd85a9e2506a7266eE.exit
+
+_ZN12clap_builder6parser7matches11matched_arg10MatchedArg10set_source17hd85a9e2506a7266eE.exit: ; preds = %4, %14
+  %storemerge.i = phi i8 [ %.0.sroa.speculated.i.i, %14 ], [ %3, %4 ]
   store i8 %storemerge.i, ptr %12, align 1, !alias.scope !2033
   tail call void @_ZN12clap_builder6parser7matches11matched_arg10MatchedArg13new_val_group17hfa969a504daea6e5E(ptr noalias noundef nonnull align 8 dereferenceable(104) %11)
   ret void
@@ -9542,7 +9563,20 @@ _ZN12clap_builder6parser7matches11matched_arg10MatchedArg12new_external17hd2a812
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 105
-  store i8 2, ptr %45, align 1, !alias.scope !2058
+  %46 = load i8, ptr %45, align 1, !range !142, !alias.scope !2058, !noundef !5
+  %.not.i = icmp eq i8 %46, 3
+  br i1 %.not.i, label %_ZN12clap_builder6parser7matches11matched_arg10MatchedArg10set_source17hd85a9e2506a7266eE.exit, label %47
+
+47:                                               ; preds = %_ZN12clap_builder6parser7matches11matched_arg10MatchedArg12new_external17hd2a8121d1b542cd4E.exit
+  %.0.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i8(i8 %46, i8 2)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i8 %46, i8 2
+  br label %_ZN12clap_builder6parser7matches11matched_arg10MatchedArg10set_source17hd85a9e2506a7266eE.exit
+
+_ZN12clap_builder6parser7matches11matched_arg10MatchedArg10set_source17hd85a9e2506a7266eE.exit: ; preds = %_ZN12clap_builder6parser7matches11matched_arg10MatchedArg12new_external17hd2a8121d1b542cd4E.exit, %47
+  %storemerge.i = phi i8 [ %.0.sroa.speculated.i.i, %47 ], [ 2, %_ZN12clap_builder6parser7matches11matched_arg10MatchedArg12new_external17hd2a8121d1b542cd4E.exit ]
+  store i8 %storemerge.i, ptr %45, align 1, !alias.scope !2058
   tail call void @_ZN12clap_builder6parser7matches11matched_arg10MatchedArg13new_val_group17hfa969a504daea6e5E(ptr noalias noundef nonnull align 8 dereferenceable(104) %44)
   ret void
 }
@@ -10560,10 +10594,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.experimental.noalias.scope.decl(metadata) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #37
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #37
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8, i8) #37
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

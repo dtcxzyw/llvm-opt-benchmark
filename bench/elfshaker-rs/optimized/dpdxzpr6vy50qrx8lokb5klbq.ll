@@ -7078,9 +7078,9 @@ _ZN4core3ops8function6FnOnce9call_once17h8ac06c4c8c8c57c6E.exit.i4.i.i.i.i.i: ; 
 
 _ZN4core3ops8function6FnOnce9call_once17h8ac06c4c8c8c57c6E.exit.thread.i9.i.i.i.i.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h8ac06c4c8c8c57c6E.exit.i4.i.i.i.i.i, %104
   invoke void @"_ZN4core3ptr136drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$core..result..Result$LT$$u5b$u8$u3b$$u20$20$u5d$$C$std..io..error..Error$GT$$GT$$GT$17h9c2919cead84fa62E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %83)
-          to label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f17de8d1e2d61ebE.exit.thread6.i.i.i" unwind label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$u5b$u8$u3b$$u20$20$u5d$$C$std..io..error..Error$GT$$GT$$GT$17he48ae708c3c21fc3E.exit.i7.i.i.i.i.i", !noalias !1711
+          to label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f17de8d1e2d61ebE.exit.thread5.i.i.i" unwind label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$u5b$u8$u3b$$u20$20$u5d$$C$std..io..error..Error$GT$$GT$$GT$17he48ae708c3c21fc3E.exit.i7.i.i.i.i.i", !noalias !1711
 
-"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f17de8d1e2d61ebE.exit.thread6.i.i.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h8ac06c4c8c8c57c6E.exit.thread.i9.i.i.i.i.i
+"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f17de8d1e2d61ebE.exit.thread5.i.i.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h8ac06c4c8c8c57c6E.exit.thread.i9.i.i.i.i.i
   store ptr null, ptr %83, align 8, !alias.scope !1697, !noalias !1698
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h44e2315d00ea189dE.exit.i.i"
 
@@ -7112,10 +7112,10 @@ _ZN4core3ops8function6FnOnce9call_once17h8ac06c4c8c8c57c6E.exit.thread.i9.i.i.i.
           to label %.body7.i unwind label %141, !noalias !1622
 
 "_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f17de8d1e2d61ebE.exit.i.i.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h8ac06c4c8c8c57c6E.exit.i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h8ac06c4c8c8c57c6E.exit.i4.i.i.i.i.i
-  %.pn27.i.i.i = phi ptr [ %106, %_ZN4core3ops8function6FnOnce9call_once17h8ac06c4c8c8c57c6E.exit.i4.i.i.i.i.i ], [ %92, %_ZN4core3ops8function6FnOnce9call_once17h8ac06c4c8c8c57c6E.exit.i.i.i.i.i.i ]
+  %.pn26.i.i.i = phi ptr [ %106, %_ZN4core3ops8function6FnOnce9call_once17h8ac06c4c8c8c57c6E.exit.i4.i.i.i.i.i ], [ %92, %_ZN4core3ops8function6FnOnce9call_once17h8ac06c4c8c8c57c6E.exit.i.i.i.i.i.i ]
   %113 = phi ptr [ %96, %_ZN4core3ops8function6FnOnce9call_once17h8ac06c4c8c8c57c6E.exit.i4.i.i.i.i.i ], [ %89, %_ZN4core3ops8function6FnOnce9call_once17h8ac06c4c8c8c57c6E.exit.i.i.i.i.i.i ]
   %114 = phi i8 [ %.sroa.030.0.copyload.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h8ac06c4c8c8c57c6E.exit.i4.i.i.i.i.i ], [ %.sroa.026.0.copyload.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h8ac06c4c8c8c57c6E.exit.i.i.i.i.i.i ]
-  %.sroa.632.0..sroa_idx.i.i.sink.i.i.i = getelementptr inbounds nuw i8, ptr %.pn27.i.i.i, i64 1
+  %.sroa.632.0..sroa_idx.i.i.sink.i.i.i = getelementptr inbounds nuw i8, ptr %.pn26.i.i.i, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1714
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.8.0..sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.632.0..sroa_idx.i.i.sink.i.i.i, i64 23, i1 false), !noalias !1622
   store i8 %114, ptr %4, align 8, !noalias !1714
@@ -7187,7 +7187,7 @@ _ZN4core3ops8function6FnOnce9call_once17h8ac06c4c8c8c57c6E.exit.thread.i9.i.i.i.
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #18, !noalias !1622
   unreachable
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h44e2315d00ea189dE.exit.i.i": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h1d85a48fa7da7ea1E.exit.thread.i.i.i.i.i", %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f17de8d1e2d61ebE.exit.thread6.i.i.i"
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h44e2315d00ea189dE.exit.i.i": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h1d85a48fa7da7ea1E.exit.thread.i.i.i.i.i", %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f17de8d1e2d61ebE.exit.thread5.i.i.i"
   invoke void @"_ZN4core3ptr205drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$core..result..Result$LT$$u5b$u8$u3b$$u20$20$u5d$$C$std..io..error..Error$GT$$GT$$GT$$GT$$GT$17h1878b7f32b22d769E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %6)
           to label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hab869bc849431726E.exit.i" unwind label %143, !noalias !1622
 

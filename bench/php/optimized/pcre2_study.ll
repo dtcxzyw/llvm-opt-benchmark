@@ -950,11 +950,9 @@ thread-pre-split:                                 ; preds = %5
 186:                                              ; preds = %.backedge, %.backedge, %.backedge
   %187 = getelementptr inbounds nuw i8, ptr %.1288519, i64 1
   %188 = call fastcc i32 @set_start_bits(ptr noundef %0, ptr noundef nonnull %187, i32 noundef %2, i32 noundef %3, ptr noundef %4)
-  switch i32 %188, label %.preheader478 [
-    i32 4, label %.thread470.loopexit611
-    i32 3, label %.thread470.loopexit611
-    i32 0, label %.thread470.loopexit611
-  ]
+  %.off = add nsw i32 %188, -1
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %.preheader478, label %.thread470.loopexit611
 
 .preheader478:                                    ; preds = %186, %.preheader478
   %.9 = phi ptr [ %197, %.preheader478 ], [ %187, %186 ]
@@ -2086,8 +2084,8 @@ study_char_list.exit:                             ; preds = %.loopexit83.i, %571
   %759 = icmp eq i8 %758, 121
   br i1 %759, label %29, label %.thread470
 
-.thread470.loopexit611:                           ; preds = %542, %391, %186, %186, %186, %143, %.backedge
-  %.0.ph = phi i32 [ 3, %.backedge ], [ %144, %143 ], [ %188, %186 ], [ %188, %186 ], [ %188, %186 ], [ 0, %391 ], [ 0, %542 ]
+.thread470.loopexit611:                           ; preds = %542, %391, %143, %.backedge, %186
+  %.0.ph = phi i32 [ 3, %.backedge ], [ %144, %143 ], [ %188, %186 ], [ 0, %391 ], [ 0, %542 ]
   br label %.thread470
 
 .thread470.loopexit647:                           ; preds = %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge

@@ -2125,16 +2125,12 @@ define noundef zeroext i1 @_ZN3g2o10fileExistsESt17basic_string_viewIcSt11char_t
   %10 = icmp ne i64 %9, 0
   %11 = icmp ne i64 %9, 255
   %.not5.not7 = and i1 %10, %11
-  br i1 %2, label %switch.early.test, label %16
+  %.off = add nsw i64 %9, -1
+  %switch = icmp ult i64 %.off, 254
+  %or.cond = select i1 %2, i1 %switch, i1 false
+  br i1 %or.cond, label %12, label %16
 
-switch.early.test:                                ; preds = %8
-  %trunc = trunc i64 %7 to i8
-  switch i8 %trunc, label %12 [
-    i8 -1, label %16
-    i8 0, label %16
-  ]
-
-12:                                               ; preds = %switch.early.test
+12:                                               ; preds = %8
   %13 = invoke i64 @_ZNSt10filesystem6statusERKNS_7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %_ZNSt10filesystem15is_regular_fileERKNS_7__cxx114pathE.exit unwind label %26
 
@@ -2143,8 +2139,8 @@ _ZNSt10filesystem15is_regular_fileERKNS_7__cxx114pathE.exit: ; preds = %12
   %15 = icmp eq i64 %14, 1
   br label %16
 
-16:                                               ; preds = %switch.early.test, %switch.early.test, %8, %_ZNSt10filesystem15is_regular_fileERKNS_7__cxx114pathE.exit
-  %17 = phi i1 [ %.not5.not7, %switch.early.test ], [ %15, %_ZNSt10filesystem15is_regular_fileERKNS_7__cxx114pathE.exit ], [ %.not5.not7, %8 ], [ %.not5.not7, %switch.early.test ]
+16:                                               ; preds = %8, %_ZNSt10filesystem15is_regular_fileERKNS_7__cxx114pathE.exit
+  %17 = phi i1 [ %15, %_ZNSt10filesystem15is_regular_fileERKNS_7__cxx114pathE.exit ], [ %.not5.not7, %8 ]
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !22
   %.not.i.i.i = icmp eq ptr %19, null

@@ -4228,17 +4228,15 @@ define internal void @VULKAN_DestroyRenderer(ptr noundef readonly captures(addre
 define internal zeroext i1 @VULKAN_SetVSync(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %4 = load ptr, ptr %3, align 8
-  switch i32 %1, label %5 [
-    i32 -1, label %7
-    i32 0, label %7
-    i32 1, label %7
-  ]
+  %.off = add i32 %1, -2
+  %switch = icmp ult i32 %.off, -3
+  br i1 %switch, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.46) #7
   br label %12
 
-7:                                                ; preds = %2, %2, %2
+7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1772
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %1, %9

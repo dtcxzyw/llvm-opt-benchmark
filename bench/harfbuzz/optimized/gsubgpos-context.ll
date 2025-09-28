@@ -1007,7 +1007,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjPN5graph6Lo
 _ZL9hb_memsetPvij.exit:                           ; preds = %24, %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %29 = load i32, ptr %28, align 4, !tbaa !79
-  %30 = add i32 %29, 1
+  %.fr = freeze i32 %29
+  %30 = add i32 %.fr, 1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1033,17 +1034,15 @@ _ZN12hb_hashmap_tIjPN5graph6LookupELb0EE9prime_forEj.exit: ; preds = %_ZL9hb_mem
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i16 %41, ptr %42, align 2, !tbaa !106
   store ptr %22, ptr %31, align 8, !tbaa !25
-  switch i32 %29, label %.lr.ph.split.preheader [
-    i32 -1, label %._crit_edge
-    i32 0, label %._crit_edge
-  ]
+  %.off = add i32 %.fr, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %.lr.ph.split.preheader, label %._crit_edge
 
 .lr.ph.split.preheader:                           ; preds = %_ZN12hb_hashmap_tIjPN5graph6LookupELb0EE9prime_forEj.exit
-  %umax = tail call i32 @llvm.umax.i32(i32 %30, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %30 to i64
   br label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %51, %_ZN12hb_hashmap_tIjPN5graph6LookupELb0EE9prime_forEj.exit, %_ZN12hb_hashmap_tIjPN5graph6LookupELb0EE9prime_forEj.exit
+._crit_edge:                                      ; preds = %51, %_ZN12hb_hashmap_tIjPN5graph6LookupELb0EE9prime_forEj.exit
   tail call void @free(ptr noundef %32) #12
   br label %52
 
@@ -2269,7 +2268,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb0EE5allo
 _ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %27 = load i32, ptr %26, align 4, !tbaa !114
-  %28 = add i32 %27, 1
+  %.fr = freeze i32 %27
+  %28 = add i32 %.fr, 1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2295,17 +2295,15 @@ _ZN12hb_hashmap_tIjjLb0EE9prime_forEj.exit:       ; preds = %_ZL9hb_memsetPvij.e
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i16 %38, ptr %39, align 2, !tbaa !155
   store ptr %21, ptr %29, align 8, !tbaa !27
-  switch i32 %27, label %.lr.ph.split.preheader [
-    i32 -1, label %._crit_edge
-    i32 0, label %._crit_edge
-  ]
+  %.off = add i32 %.fr, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %.lr.ph.split.preheader, label %._crit_edge
 
 .lr.ph.split.preheader:                           ; preds = %_ZN12hb_hashmap_tIjjLb0EE9prime_forEj.exit
-  %umax = tail call i32 @llvm.umax.i32(i32 %28, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %28 to i64
   br label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %48, %_ZN12hb_hashmap_tIjjLb0EE9prime_forEj.exit, %_ZN12hb_hashmap_tIjjLb0EE9prime_forEj.exit
+._crit_edge:                                      ; preds = %48, %_ZN12hb_hashmap_tIjjLb0EE9prime_forEj.exit
   tail call void @free(ptr noundef %30) #12
   br label %49
 

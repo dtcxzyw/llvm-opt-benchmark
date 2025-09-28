@@ -9252,21 +9252,19 @@ _ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parent
   %30 = extractvalue { ptr, i64 } %29, 0
   %31 = extractvalue { ptr, i64 } %29, 1
   %32 = call noundef zeroext i1 @_ZN21ruff_python_formatter10expression11parentheses27is_expression_parenthesized17h1473e2ab1b593624E(i64 noundef %25, ptr noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 1 %30, i64 noundef %31)
-  br i1 %32, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit14, label %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i
+  br i1 %32, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit14, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread
 
-_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i: ; preds = %23, %20
-  switch i8 %21, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit14 [
-    i8 2, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread
-    i8 0, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread
-  ]
+_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i: ; preds = %20
+  %switch18.old = icmp eq i8 %21, 1
+  br i1 %switch18.old, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit14, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread
 
-_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread: ; preds = %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i, %17, %15
+_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread: ; preds = %23, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i, %17, %15
   %33 = load i64, ptr %3, align 8, !range !6, !noundef !3
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load ptr, ptr %34, align 8
   %switch.i = icmp samesign ult i64 %33, 2
-  %.not519 = icmp eq ptr %35, null
-  %.not5 = select i1 %switch.i, i1 true, i1 %.not519
+  %.not521 = icmp eq ptr %35, null
+  %.not5 = select i1 %switch.i, i1 true, i1 %.not521
   br i1 %.not5, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit14, label %36
 
 36:                                               ; preds = %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread

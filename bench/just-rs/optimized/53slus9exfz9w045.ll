@@ -380,7 +380,10 @@ define hidden noundef i64 @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %25 = load i64, ptr %24, align 8, !alias.scope !40, !noundef !4
-  %.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umax.i64(i64 %.011.i, i64 %25)
+  %.0.i.i.i.i.i.i.i = call noundef i8 @llvm.ucmp.i8.i64(i64 %.011.i, i64 %25)
+  %.off.i.i.i.i = add nsw i8 %.0.i.i.i.i.i.i.i, -1
+  %switch.i.i.i.i = icmp ult i8 %.off.i.i.i.i, -2
+  %.0.sroa.speculated.i.i.i.i = select i1 %switch.i.i.i.i, i64 %.011.i, i64 %25
   %26 = load i64, ptr %8, align 8, !alias.scope !43, !noundef !4
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %_ZN4core4iter6traits8iterator8Iterator4fold17h0dfdb559e38c8b95E.llvm.16801050463324468979.exit, label %12
@@ -980,8 +983,11 @@ define hidden noundef zeroext i1 @"_ZN13generic_array3hex91_$LT$impl$u20$core..f
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %3, i8 0, i64 64, i1 false), !alias.scope !191
   tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 32)
-  %.not.i = icmp eq i64 %10, 0
+  %.0.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %10, i64 32)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 32, i64 %10
+  %.not.i = icmp eq i64 %.0.sroa.speculated.i.i, 0
   br i1 %.not.i, label %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17h3972cab476063c54E.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
@@ -1033,7 +1039,10 @@ define hidden noundef zeroext i1 @"_ZN13generic_array3hex91_$LT$impl$u20$core..f
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN4core3cmp6max_by17hdd99d1fc37df8cfcE.llvm.16801050463324468979(i64 noundef %0, i64 noundef %1, ptr noalias noundef nonnull readnone align 1 captures(none) %2) unnamed_addr #9 personality ptr @rust_eh_personality {
-  %.0.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %0, i64 %1)
+  %.0.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
+  %.off = add nsw i8 %.0.i.i.i, -1
+  %switch = icmp ult i8 %.off, -2
+  %.0.sroa.speculated = select i1 %switch, i64 %0, i64 %1
   ret i64 %.0.sroa.speculated
 }
 
@@ -3314,7 +3323,10 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0dfdb55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %24 = load i64, ptr %23, align 8, !alias.scope !951, !noundef !4
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.011, i64 %24)
+  %.0.i.i.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %.011, i64 %24)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
+  %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 %.011, i64 %24
   %25 = load i64, ptr %7, align 8, !alias.scope !954, !noundef !4
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %._crit_edge, label %11
@@ -3326,7 +3338,10 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0dfdb55
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @"_ZN4core4iter6traits8iterator8Iterator6max_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17hc7ff9b5ddbb15e24E.llvm.16801050463324468979"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #9 personality ptr @rust_eh_personality {
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %1, i64 %2)
+  %.0.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %1, i64 %2)
+  %.off.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %1, i64 %2
   ret i64 %.0.sroa.speculated.i
 }
 
@@ -3370,7 +3385,10 @@ define hidden noundef range(i8 0, 35) i8 @_ZN4core4iter6traits8iterator8Iterator
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0866d153b93d7296E.llvm.16801050463324468979"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %4 = load i64, ptr %2, align 8, !noundef !4
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %1, i64 %4)
+  %.0.i.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %1, i64 %4)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %1, i64 %4
   ret i64 %.0.sroa.speculated.i.i
 }
 
@@ -14844,9 +14862,9 @@ define hidden void @_ZN4just10positional10Positional19override_from_value17h7b73
   %.sroa.015.0.i = phi ptr [ %.sroa.015.628.i, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4cf35177bdba05b4E.exit.thread.i" ], [ %1, %.preheader.i ]
   %.not.i.i27 = phi i1 [ true, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4cf35177bdba05b4E.exit.thread.i" ], [ false, %.preheader.i ]
   %81 = icmp eq ptr %.sroa.015.0.i, %27
-  br i1 %.not.i.i27, label %82, label %..lr.ph49.i_crit_edge.i.i.preheader.i
+  br i1 %.not.i.i27, label %82, label %..lr.ph55.i_crit_edge.i.i.preheader.i
 
-..lr.ph49.i_crit_edge.i.i.preheader.i:            ; preds = %80
+..lr.ph55.i_crit_edge.i.i.preheader.i:            ; preds = %80
   br i1 %81, label %159, label %.loopexit.i.i.i
 
 82:                                               ; preds = %80
@@ -14890,7 +14908,7 @@ define hidden void @_ZN4just10positional10Positional19override_from_value17h7b73
   %108 = icmp samesign ugt i8 %85, -17
   br i1 %108, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4cf35177bdba05b4E.exit.i", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4cf35177bdba05b4E.exit.thread.i"
 
-.loopexit.i.i.i:                                  ; preds = %..lr.ph49.i_crit_edge.i.i.preheader.i
+.loopexit.i.i.i:                                  ; preds = %..lr.ph55.i_crit_edge.i.i.preheader.i
   %109 = ptrtoint ptr %.sroa.015.0.i to i64
   %110 = sub nuw i64 %79, %109
   %111 = load i8, ptr %.sroa.015.0.i, align 1, !alias.scope !2597, !noalias !2610, !noundef !4
@@ -14898,8 +14916,12 @@ define hidden void @_ZN4just10positional10Positional19override_from_value17h7b73
   %113 = getelementptr inbounds nuw i8, ptr @anon.caf4ea2b214629a3b5d633b8bc0e9fab.56, i64 %112
   %114 = load i8, ptr %113, align 1, !noalias !2615, !noundef !4
   %115 = zext i8 %114 to i64
-  %116 = getelementptr inbounds nuw i8, ptr %.sroa.015.0.i, i64 %115
-  %117 = icmp uge i64 %110, %115
+  %.0.i.i.i.i32.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %110, i64 %115)
+  %.off.i.i33.i.i.i.i = add nsw i8 %.0.i.i.i.i32.i.i.i.i, -1
+  %switch.i.i34.i.i.i.i = icmp ult i8 %.off.i.i33.i.i.i.i, -2
+  %.0.sroa.speculated.i.i35.i.i.i.i = select i1 %switch.i.i34.i.i.i.i, i64 %115, i64 %110
+  %116 = getelementptr inbounds i8, ptr %.sroa.015.0.i, i64 %.0.sroa.speculated.i.i35.i.i.i.i
+  %117 = icmp eq i64 %.0.sroa.speculated.i.i35.i.i.i.i, %115
   tail call void @llvm.assume(i1 %117)
   %118 = icmp eq ptr %116, %27
   br i1 %118, label %159, label %119
@@ -14980,7 +15002,7 @@ _ZN4just5lexer5Lexer13is_identifier17h86959368456b6d4eE.exit: ; preds = %"_ZN100
   store i64 -9223372036854775808, ptr %0, align 8
   br label %171
 
-159:                                              ; preds = %.loopexit.i.i.i, %82, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4cf35177bdba05b4E.exit.i", %..lr.ph49.i_crit_edge.i.i.preheader.i
+159:                                              ; preds = %.loopexit.i.i.i, %82, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4cf35177bdba05b4E.exit.i", %..lr.ph55.i_crit_edge.i.i.preheader.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.017)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %160 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hdbf984e918f80b5eE"(i64 noundef %.sroa.6.0, i1 noundef zeroext false)
@@ -19624,7 +19646,7 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #25
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #25
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nofree norecurse nosync nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

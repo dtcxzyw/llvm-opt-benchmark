@@ -320,20 +320,23 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h5e8264817a2f3af
   %13 = ptrtoint ptr %3 to i64
   %14 = sub nuw i64 %12, %13
   %15 = lshr exact i64 %14, 3
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %15)
+  %16 = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %10, i64 %15)
+  %.off.i.i = add nsw i8 %16, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.sroa.0.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %15, i64 %10
   store ptr %1, ptr %0, align 8, !alias.scope !15
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr %16, align 8, !alias.scope !15
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %3, ptr %17, align 8, !alias.scope !15
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %18, align 8, !alias.scope !15
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %19, align 8, !alias.scope !15
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %20, align 8, !alias.scope !15
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %10, ptr %21, align 8, !alias.scope !15
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %2, ptr %17, align 8, !alias.scope !15
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %3, ptr %18, align 8, !alias.scope !15
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %4, ptr %19, align 8, !alias.scope !15
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 0, ptr %20, align 8, !alias.scope !15
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %21, align 8, !alias.scope !15
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %10, ptr %22, align 8, !alias.scope !15
   ret void
 }
 
@@ -3719,11 +3722,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #15
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
+declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -3740,8 +3743,8 @@ attributes #11 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inl
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #17 = { noreturn }
 attributes #18 = { cold }
 attributes #19 = { cold noreturn nounwind }

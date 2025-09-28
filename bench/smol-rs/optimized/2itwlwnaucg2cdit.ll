@@ -191,7 +191,10 @@ default.unreachable15:                            ; preds = %23, %8
   %.sroa.6.0 = phi i64 [ %12, %10 ], [ 1, %8 ]
   %14 = tail call noundef i64 @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3len17h682c8f28e584a57eE"(ptr noundef nonnull align 128 %1)
   %15 = sub i64 %.sroa.6.0, %14
-  %.0.sroa.speculated.i = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.umin.i64(i64 range(i64 1, -9223372036854775808) %7, i64 %15)
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 range(i64 1, -9223372036854775808) %7, i64 %15)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %15, i64 %7
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %13
@@ -208,7 +211,7 @@ default.unreachable15:                            ; preds = %23, %8
 
 19:                                               ; preds = %.lr.ph, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17h9643a667c588e5feE.exit"
   %.sroa.04.012 = phi i64 [ 0, %.lr.ph ], [ %20, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17h9643a667c588e5feE.exit" ]
-  %20 = add nuw nsw i64 %.sroa.04.012, 1
+  %20 = add nuw i64 %.sroa.04.012, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17hda207cbcc38696a6E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull align 128 %0)
   %21 = load i8, ptr %4, align 8, !range !12, !noundef !10
@@ -1413,7 +1416,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #16
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

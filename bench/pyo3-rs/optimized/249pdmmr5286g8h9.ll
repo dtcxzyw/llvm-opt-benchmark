@@ -4910,24 +4910,27 @@ _ZN17pyo3_build_config5impl_25load_cross_compile_config17h3df21c1adc49da8dE.exit
   %230 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %231 = getelementptr inbounds nuw i8, ptr %52, i64 152
   %232 = load i8, ptr %231, align 8, !noalias !42
-  %233 = icmp eq i8 %232, 3
-  br i1 %233, label %234, label %238
+  %233 = call i8 @llvm.ucmp.i8.i8(i8 3, i8 %232)
+  %234 = icmp eq i8 %232, 3
+  br i1 %234, label %235, label %239
 
-234:                                              ; preds = %227
-  %235 = getelementptr inbounds nuw i8, ptr %52, i64 153
-  %236 = load i8, ptr %235, align 1, !noalias !42
-  %237 = icmp ult i8 %236, %.sroa.33.0.extract.trunc.i
-  br i1 %237, label %241, label %240
+235:                                              ; preds = %227
+  %236 = getelementptr inbounds nuw i8, ptr %52, i64 153
+  %237 = load i8, ptr %236, align 1, !noalias !42
+  %238 = call i8 @llvm.ucmp.i8.i8(i8 %.sroa.33.0.extract.trunc.i, i8 %237)
+  br label %239
 
-238:                                              ; preds = %227
-  %239 = icmp ult i8 %232, 3
-  br i1 %239, label %241, label %240
+239:                                              ; preds = %235, %227
+  %.sroa.04.0.i = phi i8 [ %238, %235 ], [ %233, %227 ]
+  %.sroa.04.0.off.i = add nsw i8 %.sroa.04.0.i, -1
+  %switch.i = icmp ult i8 %.sroa.04.0.off.i, -2
+  br i1 %switch.i, label %241, label %240
 
-240:                                              ; preds = %238, %234
+240:                                              ; preds = %239
   store i16 %229, ptr %231, align 8, !noalias !42
   br label %.thread
 
-241:                                              ; preds = %238, %234
+241:                                              ; preds = %239
   store ptr %7, ptr %3, align 8, !noalias !42
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN78_$LT$pyo3_build_config..impl_..PythonVersion$u20$as$u20$core..fmt..Display$GT$3fmt17hdf102beba5d9c3bdE", ptr %.sroa.210.0..sroa_idx.i, align 8, !noalias !42
@@ -5662,6 +5665,9 @@ declare void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h77dcb242a2f38bc0E"(ptr align 8, ptr align 8) unnamed_addr #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8, i8) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7

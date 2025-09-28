@@ -4263,7 +4263,10 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %47 = sub i64 %46, %43
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %49 = load i64, ptr %48, align 8, !noalias !882, !noundef !13
-  %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %47, i64 %49)
+  %.0.i.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %47, i64 %49)
+  %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
+  %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 %49, i64 %47
   invoke void @_ZN5bytes5bytes5Bytes5slice17hc298e7c9fd9af475E(ptr noalias noundef nonnull sret({ ptr, ptr, i64, { ptr } }) align 8 captures(none) dereferenceable(32) %.sroa.0.i, ptr noundef nonnull align 8 %41, i64 noundef %44, i64 noundef %.0.sroa.speculated.i.i.i)
           to label %50 unwind label %.loopexit
 
@@ -4556,6 +4559,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22

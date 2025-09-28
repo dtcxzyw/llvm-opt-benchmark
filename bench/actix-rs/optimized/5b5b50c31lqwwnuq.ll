@@ -1194,7 +1194,10 @@ _ZN4core3ops8function6FnOnce9call_once17h1caa876bf058f9dcE.exit.i1.i.i.i: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.713)
   %77 = tail call i64 @llvm.uadd.sat.i64(i64 %64, i64 1)
-  %.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %77, i64 4)
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 range(i64 1, 0) %77)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 4, i64 %77
   %78 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1fa3be4e1bf8eb64E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %79 unwind label %74
 
@@ -5549,7 +5552,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #13
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

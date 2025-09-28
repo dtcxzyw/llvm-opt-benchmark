@@ -269,7 +269,10 @@ default.unreachable:                              ; preds = %1
   %3 = tail call noundef i64 @_ZN6common3cpu12get_num_cpus17h977909401643c6caE()
   %4 = sub i64 0, %0
   %5 = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %4)
-  %.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %5, i64 1)
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %5, i64 1)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %5, i64 1
   br label %21
 
 6:                                                ; preds = %1
@@ -304,11 +307,14 @@ default.unreachable:                              ; preds = %1
 _ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit: ; preds = %6, %9, %11, %13, %15, %17, %19
   %.0.i.neg = phi i64 [ %.neg.i.neg, %19 ], [ 0, %6 ], [ 1, %9 ], [ 2, %11 ], [ 3, %13 ], [ 4, %15 ], [ 6, %17 ]
   %20 = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 %.0.i.neg)
-  %.0.sroa.speculated.i9 = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %20, i64 1)
+  %.0.i.i.i9 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %20, i64 1)
+  %.off.i10 = add nsw i8 %.0.i.i.i9, -1
+  %switch.i11 = icmp ult i8 %.off.i10, -2
+  %.0.sroa.speculated.i12 = select i1 %switch.i11, i64 %20, i64 1
   br label %21
 
 21:                                               ; preds = %1, %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit, %2
-  %.07 = phi i64 [ %.0.sroa.speculated.i, %2 ], [ %.0.sroa.speculated.i9, %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit ], [ %0, %1 ]
+  %.07 = phi i64 [ %.0.sroa.speculated.i, %2 ], [ %.0.sroa.speculated.i12, %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit ], [ %0, %1 ]
   ret i64 %.07
 }
 
@@ -342,7 +348,10 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %1
 define noundef range(i64 0, -9223372036854775807) i64 @_ZN6common3cpu9CpuBudget11min_permits17h6c9d540e1d53e0bdE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !5
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %1, i64 %4)
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %1, i64 %4)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %4, i64 %1
   %5 = lshr i64 %.0.sroa.speculated.i, 1
   %.0.i = sub i64 %.0.sroa.speculated.i, %5
   ret i64 %.0.i
@@ -355,14 +364,20 @@ define void @_ZN6common3cpu9CpuBudget11try_acquire17hd560b5c1f76ddff5E(ptr noali
   %6 = alloca { ptr, [1 x i64] }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !alias.scope !71, !noundef !5
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %8)
+  %.0.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %2, i64 %8)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %8, i64 %2
   %9 = lshr i64 %.0.sroa.speculated.i.i, 1
   %.0.i.i = sub i64 %.0.sroa.speculated.i.i, %9
   %10 = trunc i64 %.0.i.i to i32
   %11 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = tail call noundef i64 @_ZN5tokio4sync9semaphore9Semaphore17available_permits17h894e3f33b16c9931E(ptr noundef nonnull align 8 %12)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %13, i64 %2)
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %13, i64 %2)
+  %.off.i = add nsw i8 %.0.i.i.i, -1
+  %switch.i = icmp ult i8 %.off.i, -2
+  %.0.sroa.speculated.i = select i1 %switch.i, i64 %2, i64 %13
   %14 = trunc i64 %.0.sroa.speculated.i to i32
   %15 = icmp eq i64 %2, 0
   %16 = icmp ult i32 %14, %10
@@ -434,7 +449,10 @@ define void @_ZN6common3cpu9CpuBudget11try_acquire17hd560b5c1f76ddff5E(ptr noali
 define noundef zeroext i1 @_ZN6common3cpu9CpuBudget10has_budget17hf593fdaf96cdc1b6E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !80, !noundef !5
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %1, i64 %4)
+  %.0.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %1, i64 %4)
+  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %4, i64 %1
   %5 = lshr i64 %.0.sroa.speculated.i.i, 1
   %.0.i.i = sub i64 %.0.sroa.speculated.i.i, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
@@ -498,9 +516,12 @@ define { ptr, i64 } @"_ZN65_$LT$common..cpu..CpuBudget$u20$as$u20$core..default.
 _ZN6common3cpu14get_cpu_budget17hf0884385e486daffE.exit: ; preds = %0, %3, %5, %7, %9, %11, %13
   %.0.i.neg.i = phi i64 [ %.neg.i.neg.i, %13 ], [ 0, %0 ], [ 1, %3 ], [ 2, %5 ], [ 3, %7 ], [ 4, %9 ], [ 6, %11 ]
   %14 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %.0.i.neg.i)
-  %.0.sroa.speculated.i9.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %14, i64 1)
+  %.0.i.i.i9.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %14, i64 1)
+  %.off.i10.i = add nsw i8 %.0.i.i.i9.i, -1
+  %switch.i11.i = icmp ult i8 %.off.i10.i, -2
+  %.0.sroa.speculated.i12.i = select i1 %switch.i11.i, i64 %14, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
-  call void @_ZN5tokio4sync9semaphore9Semaphore3new17hfd3968a7889ce3e0E(ptr noalias noundef nonnull sret({ { { {}, { { { i8 } }, [7 x i8], { { { ptr, ptr, {} }, i8, [7 x i8] } } } }, { { { i64 } } } } }) align 8 captures(none) dereferenceable(40) %.sroa.5.i, i64 noundef %.0.sroa.speculated.i9.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a6d557859d0675d687d6045e54bc0e3d.9)
+  call void @_ZN5tokio4sync9semaphore9Semaphore3new17hfd3968a7889ce3e0E(ptr noalias noundef nonnull sret({ { { {}, { { { i8 } }, [7 x i8], { { { ptr, ptr, {} }, i8, [7 x i8] } } } }, { { { i64 } } } } }) align 8 captures(none) dereferenceable(40) %.sroa.5.i, i64 noundef %.0.sroa.speculated.i12.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a6d557859d0675d687d6045e54bc0e3d.9)
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !86
   %16 = tail call noundef align 8 dereferenceable_or_null(56) ptr @__rust_alloc(i64 noundef 56, i64 noundef 8) #15, !noalias !86
   %17 = icmp eq ptr %16, null
@@ -518,7 +539,7 @@ _ZN6common3cpu9CpuBudget3new17h4c4933f1c18335abE.exit: ; preds = %_ZN6common3cpu
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
-  %20 = insertvalue { ptr, i64 } %19, i64 %.0.sroa.speculated.i9.i, 1
+  %20 = insertvalue { ptr, i64 } %19, i64 %.0.sroa.speculated.i12.i, 1
   ret { ptr, i64 } %20
 }
 
@@ -853,13 +874,10 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #12
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
