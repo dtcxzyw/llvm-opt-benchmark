@@ -3824,7 +3824,7 @@ _ZN12regex_syntax3hir9translate8HirFrame17unwrap_repetition17hb893e4b2ea7c3361E.
   %trunc17.i.i = trunc nuw i32 %.sroa.0.0.i296 to i1
   br i1 %trunc17.i.i, label %827, label %828
 
-827:                                              ; preds = %826
+827:; preds = %826
   %.0.i.i.i34.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %.sroa.7.0.i, i32 1)
   %.off.i35.i.i = add nsw i8 %.0.i.i.i34.i.i, -1
   %switch.i36.i.i = icmp ult i8 %.off.i35.i.i, -2
@@ -3856,7 +3856,7 @@ _ZN12regex_syntax3hir9translate8HirFrame17unwrap_repetition17hb893e4b2ea7c3361E.
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 80) #26
           to label %.noexc38.i.i unwind label %817, !noalias !831
 
-.noexc38.i.i:                                     ; preds = %834
+.noexc35.i.i:                                     ; preds = %834
   unreachable
 
 .critedge30.i.i:                                  ; preds = %.noexc.i.i301

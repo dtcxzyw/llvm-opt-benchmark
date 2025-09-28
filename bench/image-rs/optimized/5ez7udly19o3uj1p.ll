@@ -13782,7 +13782,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h52794bf5723a12c7E.exit.i:
   %243 = load i64, ptr %200, align 8, !alias.scope !2192, !noalias !2195, !noundef !19
   %244 = add i64 %243, %.sroa.027.0.copyload.i
   %245 = load i64, ptr %201, align 8, !alias.scope !2192, !noalias !2195, !noundef !19
-  %.0.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %244, i64 %245)
+  %.0.sroa.speculated.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %244, i64 %245)
   %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
   %switch.i.i = icmp ult i8 %.off.i.i, -2
   %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %245, i64 %244
@@ -14587,7 +14587,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hfdb8927b23dc05d6E.exit.i:
   %243 = load i64, ptr %200, align 8, !alias.scope !2307, !noalias !2310, !noundef !19
   %244 = add i64 %243, %.sroa.027.0.copyload.i
   %245 = load i64, ptr %201, align 8, !alias.scope !2307, !noalias !2310, !noundef !19
-  %.0.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %244, i64 %245)
+  %.0.sroa.speculated.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %244, i64 %245)
   %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
   %switch.i.i = icmp ult i8 %.off.i.i, -2
   %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %245, i64 %244
@@ -17136,7 +17136,7 @@ define internal fastcc void @"_ZN3png7decoder20ReadDecoder$LT$R$GT$11decode_next
   store i64 %23, ptr %14, align 8, !noalias !2536
   store i64 0, ptr %15, align 8, !noalias !2536
   %24 = load i64, ptr %17, align 8, !alias.scope !2530, !noalias !2533, !noundef !19
-  %.0.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 0, i64 %24)
+  %.0.sroa.speculated.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 0, i64 %24)
   %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
   %switch.i.i = icmp ult i8 %.off.i.i, -2
   %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 0, i64 %24
@@ -17215,7 +17215,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h52794bf5723a12c7E.exit: ;
   %47 = load i64, ptr %10, align 8, !noundef !19
   %48 = add i64 %47, %.sroa.023.0.copyload
   %49 = load i64, ptr %11, align 8, !noundef !19
-  %.0.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %48, i64 %49)
+  %.0.sroa.speculated.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %48, i64 %49)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i64 %49, i64 %48
@@ -17302,7 +17302,7 @@ define internal fastcc void @"_ZN3png7decoder20ReadDecoder$LT$R$GT$11decode_next
   store i64 %23, ptr %14, align 8, !noalias !2544
   store i64 0, ptr %15, align 8, !noalias !2544
   %24 = load i64, ptr %17, align 8, !alias.scope !2538, !noalias !2541, !noundef !19
-  %.0.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 0, i64 %24)
+  %.0.sroa.speculated.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 0, i64 %24)
   %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
   %switch.i.i = icmp ult i8 %.off.i.i, -2
   %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 0, i64 %24
@@ -17381,7 +17381,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hfdb8927b23dc05d6E.exit: ;
   %47 = load i64, ptr %10, align 8, !noundef !19
   %48 = add i64 %47, %.sroa.023.0.copyload
   %49 = load i64, ptr %11, align 8, !noundef !19
-  %.0.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %48, i64 %49)
+  %.0.sroa.speculated.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %48, i64 %49)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i64 %49, i64 %48
@@ -25106,7 +25106,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3040)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !3043
-  %.0.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 32768, i64 %5)
+  %.0.sroa.speculated.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 32768, i64 %5)
   %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
   %switch.i.i = icmp ult i8 %.off.i.i, -2
   %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %5, i64 32768
@@ -25527,7 +25527,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3093)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !3096
-  %.0.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 32768, i64 %5)
+  %.0.sroa.speculated.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 32768, i64 %5)
   %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
   %switch.i.i = icmp ult i8 %.off.i.i, -2
   %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %5, i64 32768

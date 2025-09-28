@@ -3085,7 +3085,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$cor
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN4core3cmp6max_by17h16b41a9bbd3e20dbE.llvm.9964311202002838858(i64 noundef %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
+  %.0.sroa.speculated = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
   %.off = add nsw i8 %.0.i.i, -1
   %switch = icmp ult i8 %.off, -2
   %.0.sroa.speculated = select i1 %switch, i64 %0, i64 %1
@@ -6281,7 +6281,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$9shrink_to17h3286ab676ab2cfb
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %7, i64 %1)
+  %.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %7, i64 %1)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i64 %7, i64 %1
@@ -14485,7 +14485,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %.sroa.4.0.insert.insert.i = or disjoint i32 %27, %.sroa.4.0.insert.shift.i
   %28 = tail call i32 @llvm.bswap.i32(i32 %.sroa.4.0.insert.insert.i)
   %29 = zext nneg i32 %28 to i64
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 range(i64 0, 4294967296) %29, i64 65536)
+  %.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 range(i64 0, 4294967296) %29, i64 65536)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i64 65536, i64 %29
@@ -14904,7 +14904,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %.sroa.4.0.insert.insert.i = or disjoint i32 %27, %.sroa.4.0.insert.shift.i
   %28 = tail call i32 @llvm.bswap.i32(i32 %.sroa.4.0.insert.insert.i)
   %29 = zext nneg i32 %28 to i64
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 range(i64 0, 4294967296) %29, i64 65536)
+  %.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 range(i64 0, 4294967296) %29, i64 65536)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i64 65536, i64 %29
@@ -14946,10 +14946,10 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
 41:                                               ; preds = %35
   %42 = getelementptr inbounds i8, ptr %15, i64 %14
   store ptr %42, ptr %6, align 8
-  %.sroa.4110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.0.sroa.speculated.i, ptr %.sroa.4110.0..sroa_idx, align 8
-  %.sroa.5111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 0, ptr %.sroa.5111.0..sroa_idx, align 8
+  %.sroa.4109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %.0.sroa.speculated.i, ptr %.sroa.4109.0..sroa_idx, align 8
+  %.sroa.5110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 0, ptr %.sroa.5110.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -15050,13 +15050,13 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   br label %68
 
 68:                                               ; preds = %70, %64
-  %.0.i.i.i90 = phi i64 [ 0, %64 ], [ %72, %70 ]
-  %69 = icmp eq i64 %.0.i.i.i90, %67
+  %.0.i.i.i = phi i64 [ 0, %64 ], [ %72, %70 ]
+  %69 = icmp eq i64 %.0.i.i.i, %67
   br i1 %69, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h28f1c3d60133541fE.llvm.4248407042397360440.exit.i", label %70
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds { { { i64, ptr }, i64 }, { { { i64, [2 x i64] } } } }, ptr %66, i64 %.0.i.i.i90
-  %72 = add i64 %.0.i.i.i90, 1
+  %71 = getelementptr inbounds { { { i64, ptr }, i64 }, { { { i64, [2 x i64] } } } }, ptr %66, i64 %.0.i.i.i
+  %72 = add i64 %.0.i.i.i, 1
   invoke void @"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateEntry$GT$17h3aeb49fc1659038fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %71)
           to label %68 unwind label %75, !noalias !3268
 
@@ -15121,8 +15121,8 @@ common.resume:                                    ; preds = %.body, %.body.i, %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %93, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   %94 = add i64 %91, 1
   store i64 %94, ptr %44, align 8, !alias.scope !3257, !noalias !3260
-  %95 = load i64, ptr %.sroa.5111.0..sroa_idx, align 8, !alias.scope !3293, !noundef !4
-  %96 = load i64, ptr %.sroa.4110.0..sroa_idx, align 8, !alias.scope !3293, !noundef !4
+  %95 = load i64, ptr %.sroa.5110.0..sroa_idx, align 8, !alias.scope !3293, !noundef !4
+  %96 = load i64, ptr %.sroa.4109.0..sroa_idx, align 8, !alias.scope !3293, !noundef !4
   %97 = icmp ult i64 %95, %96
   br i1 %97, label %50, label %._crit_edge
 

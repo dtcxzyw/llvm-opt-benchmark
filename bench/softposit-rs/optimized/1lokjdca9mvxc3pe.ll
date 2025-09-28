@@ -51,7 +51,7 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %13 = ptrtoint ptr %3 to i64
   %14 = sub nuw i64 %12, %13
   %15 = lshr exact i64 %14, 3
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %10, i64 %15)
+  %.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %10, i64 %15)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i64 %15, i64 %10
@@ -83,7 +83,7 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %12 = load i64, ptr %11, align 8, !alias.scope !15, !noalias !22, !noundef !9
   %13 = sub i64 %10, %12
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.sink3.i.i, i64 %13)
+  %.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.sink3.i.i, i64 %13)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i64 %13, i64 %.sink3.i.i
@@ -114,7 +114,7 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %13 = load i64, ptr %12, align 8, !alias.scope !25, !noalias !32, !noundef !9
   %14 = sub i64 %11, %13
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %9, i64 %14)
+  %.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %9, i64 %14)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i64 %14, i64 %9
@@ -172,7 +172,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$cor
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN4core3cmp6min_by17hcb809012105e59e2E.llvm.15081571903896253854(i64 noundef %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
-  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
+  %.0.sroa.speculated = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
   %.off = add nsw i8 %.0.i.i, -1
   %switch = icmp ult i8 %.off, -2
   %.0.sroa.speculated = select i1 %switch, i64 %1, i64 %0

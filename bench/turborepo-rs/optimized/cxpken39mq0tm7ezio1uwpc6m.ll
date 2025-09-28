@@ -16,7 +16,7 @@ define hidden noundef i64 @_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionINtNtN
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_RINvNtCs1LoaDTb72WA_4core3cmp6min_byjNvYjNtB2_3Ord3cmpECs8mTrBI1stz4_15turborepo_vt100.llvm.10109814100354086291(i64 noundef %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
+  %.sroa.0.0.sroa.speculated = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
   %.off = add nsw i8 %3, -1
   %switch = icmp ult i8 %.off, -2
   %.sroa.0.0.sroa.speculated = select i1 %switch, i64 %1, i64 %0
@@ -267,8 +267,8 @@ define noundef i64 @_RNvXs1_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4it
   %7 = ptrtoint ptr %5 to i64
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 5
-  %10 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %9, i64 %1)
-  %.off.i.i = add nsw i8 %10, -1
+  %.sroa.0.0.sroa.speculated.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %9, i64 %1)
+  %.off.i.i = add nsw i8 %.sroa.0.0.sroa.speculated.i.i, -1
   %switch.i.i = icmp ult i8 %.off.i.i, -2
   %.sroa.0.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %1, i64 %9
   %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %5, i64 %.sroa.0.0.sroa.speculated.i.i
@@ -276,9 +276,9 @@ define noundef i64 @_RNvXs1_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4it
   %12 = icmp eq i64 %1, %.sroa.0.0.sroa.speculated.i.i
   br i1 %12, label %26, label %13
 
-13:                                               ; preds = %2
+13:   ; preds = %2
   %14 = sub i64 %1, %.sroa.0.0.sroa.speculated.i.i
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
   store ptr %11, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -312,8 +312,8 @@ define hidden noundef i64 @_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4Ite
   %7 = ptrtoint ptr %5 to i64
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 5
-  %10 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %9, i64 %1)
-  %.off.i = add nsw i8 %10, -1
+  %.sroa.0.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %9, i64 %1)
+  %.off.i = add nsw i8 %.sroa.0.0.sroa.speculated.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.sroa.0.0.sroa.speculated.i = select i1 %switch.i, i64 %1, i64 %9
   %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %5, i64 %.sroa.0.0.sroa.speculated.i

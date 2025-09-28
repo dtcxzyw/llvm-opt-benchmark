@@ -646,7 +646,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h3e06c6da5840c6f
   %13 = ptrtoint ptr %3 to i64
   %14 = sub nuw i64 %12, %13
   %15 = lshr exact i64 %14, 3
-  %.0.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %10, i64 %15)
+  %.0.sroa.speculated.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %10, i64 %15)
   %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
   %switch.i.i = icmp ult i8 %.off.i.i, -2
   %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %15, i64 %10
@@ -18016,7 +18016,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #26
+declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #27

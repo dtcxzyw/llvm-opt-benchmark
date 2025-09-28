@@ -3247,7 +3247,7 @@ define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..fl
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$3max17hf12e750befd7eaecE"(i32 noundef %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32 %0, i32 %1)
+  %.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32 %0, i32 %1)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i32 %0, i32 %1
@@ -3256,7 +3256,7 @@ define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..fl
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$3min17hc3dc355e723de6f8E"(i32 noundef %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32 %0, i32 %1)
+  %.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32 %0, i32 %1)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i32 %1, i32 %0

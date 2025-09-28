@@ -19654,7 +19654,7 @@ tng_block_init.exit:                              ; preds = %41, %44
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 11557) #29
   store ptr %6, ptr %5, align 8, !tbaa !137
   call fastcc void @tng_block_destroy(ptr noundef %4)
-  br label %151
+  br label %154
 
 58:                                               ; preds = %tng_block_init.exit
   %59 = load ptr, ptr %7, align 8, !tbaa !138
@@ -19672,7 +19672,7 @@ tng_block_init.exit:                              ; preds = %41, %44
   %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 11571) #29
   store ptr %6, ptr %5, align 8, !tbaa !137
   call fastcc void @tng_block_destroy(ptr noundef %4)
-  br label %151
+  br label %154
 
 70:                                               ; preds = %58
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -19767,7 +19767,7 @@ tng_block_destroy.exit:                           ; preds = %86, %89
   %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 11610) #29
   store ptr %6, ptr %5, align 8, !tbaa !137
   call fastcc void @tng_block_destroy(ptr noundef %4)
-  br label %151
+  br label %154
 
 115:                                              ; preds = %106
   %116 = load ptr, ptr %7, align 8, !tbaa !138
@@ -19785,7 +19785,7 @@ tng_block_destroy.exit:                           ; preds = %86, %89
   %125 = load ptr, ptr @stderr, align 8, !tbaa !14
   %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 11628) #29
   store ptr %6, ptr %5, align 8, !tbaa !137
-  br label %151
+  br label %154
 
 127:                                              ; preds = %115
   %128 = load ptr, ptr %71, align 8, !tbaa !198
@@ -19825,11 +19825,11 @@ tng_block_destroy.exit:                           ; preds = %86, %89
   %switch104 = icmp ult i64 %.off103, -2
   br i1 %switch104, label %145, label %144
 
-144:                                              ; preds = %137
+149:                                              ; preds = %137
   store i64 %.pre.pre, ptr %142, align 8, !tbaa !195
   br label %145
 
-145:                                              ; preds = %137, %144
+152:                                              ; preds = %137, %144
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %147 = load i64, ptr %146, align 8, !tbaa !196
   %148 = add i64 %147, 1
@@ -19842,7 +19842,7 @@ tng_block_destroy.exit:                           ; preds = %86, %89
   store i64 %.pre.pre, ptr %146, align 8, !tbaa !196
   br label %151
 
-151:                                              ; preds = %145, %150, %124, %112, %67, %55
+154:                                              ; preds = %145, %150, %124, %112, %67, %55
   %.0 = phi i32 [ 2, %55 ], [ 2, %67 ], [ 2, %112 ], [ 2, %124 ], [ 0, %150 ], [ 0, %145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

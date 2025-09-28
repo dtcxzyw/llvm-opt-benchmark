@@ -8744,8 +8744,8 @@ _ZN4core5slice4sort6stable5drift10create_run17h28a6bf82e5e3e447E.exit: ; preds =
   call void @llvm.assume(i1 %216)
   %217 = load i8, ptr %.val1.i.i22.i, align 1, !range !786, !noalias !1482, !noundef !23
   %218 = trunc nuw i8 %217 to i1
-  %switch.offset144 = sub nsw i8 0, %215
-  %.sroa.0.0.i.i.i24.i = select i1 %218, i8 %switch.offset144, i8 %215
+  %switch.offset143 = sub nsw i8 0, %215
+  %.sroa.0.0.i.i.i24.i = select i1 %218, i8 %switch.offset143, i8 %215
   %219 = icmp eq i8 %.sroa.0.0.i.i.i24.i, -1
   %220 = xor i1 %219, true
   %.sroa.05.0.i.i = select i1 %219, ptr %.sroa.0.02.i.i, ptr %201
@@ -9797,8 +9797,8 @@ _ZN4core5slice4sort6stable5drift10create_run17hb59c673f66ee2135E.exit: ; preds =
   call void @llvm.assume(i1 %177)
   %178 = load i8, ptr %.val.i.i19.i, align 1, !range !786, !noalias !1651, !noundef !23
   %179 = trunc nuw i8 %178 to i1
-  %switch.offset133 = sub nsw i8 0, %176
-  %.sroa.0.0.i.i.i21.i = select i1 %179, i8 %switch.offset133, i8 %176
+  %switch.offset132 = sub nsw i8 0, %176
+  %.sroa.0.0.i.i.i21.i = select i1 %179, i8 %switch.offset132, i8 %176
   %180 = icmp eq i8 %.sroa.0.0.i.i.i21.i, -1
   %181 = xor i1 %180, true
   %.sroa.05.0.i.i = select i1 %180, ptr %.sroa.0.02.i.i, ptr %171

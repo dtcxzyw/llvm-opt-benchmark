@@ -2130,7 +2130,7 @@ define noundef zeroext i1 @_ZN3g2o10fileExistsESt17basic_string_viewIcSt11char_t
   %or.cond = select i1 %2, i1 %switch, i1 false
   br i1 %or.cond, label %12, label %16
 
-12:                                               ; preds = %8
+switch.early.test:                                ; preds = %8
   %13 = invoke i64 @_ZNSt10filesystem6statusERKNS_7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %_ZNSt10filesystem15is_regular_fileERKNS_7__cxx114pathE.exit unwind label %26
 

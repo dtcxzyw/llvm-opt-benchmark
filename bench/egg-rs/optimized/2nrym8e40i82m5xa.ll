@@ -68,14 +68,14 @@ define noundef i128 @_ZN3egg4test10percentile17h86d6f65026f76f59E(double noundef
   %9 = fmul double %0, %8
   %10 = tail call i64 @llvm.fptoui.sat.i64.f64(double %9)
   %11 = add i64 %2, -1
-  %12 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %10, i64 %11)
-  %.off.i = add nsw i8 %12, -1
+  %.sroa.0.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %10, i64 %11)
+  %.off.i = add nsw i8 %.sroa.0.0.sroa.speculated.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.sroa.0.0.sroa.speculated.i = select i1 %switch.i, i64 %11, i64 %10
   %13 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, %2
   br i1 %13, label %14, label %17, !prof !7
 
-14:                                               ; preds = %7
+14:; preds = %7
   %15 = getelementptr inbounds i128, ptr %1, i64 %.sroa.0.0.sroa.speculated.i
   %16 = load i128, ptr %15, align 16, !noundef !4
   ret i128 %16
@@ -279,7 +279,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #10
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

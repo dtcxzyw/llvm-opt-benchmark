@@ -3552,9 +3552,9 @@ define internal fastcc noundef zeroext i1 @_ZN12typst_render16render_svg_glyph17
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 2
   %.val.i.i.i.i46.i.i.i.i.i.i = load i16, ptr %64, align 1, !alias.scope !699, !noalias !684
   %65 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i46.i.i.i.i.i.i)
-  %switch.i.not.i.i.i.i.i = icmp ule i16 %63, %3
-  %switch.i20.i.i.i.i.i = icmp ule i16 %3, %65
-  %spec.select.i.i.i.i = select i1 %switch.i.not.i.i.i.i.i, i1 %switch.i20.i.i.i.i.i, i1 false
+  %switch.selectcmp.i.not.i.i.i.i.i = icmp ule i16 %63, %3
+  %switch.selectcmp.i20.i.i.i.i.i = icmp ule i16 %3, %65
+  %spec.select.i.i.i.i = select i1 %switch.selectcmp.i.not.i.i.i.i.i, i1 %switch.selectcmp.i20.i.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i, label %69, label %66
 
 66:                                               ; preds = %"_ZN103_$LT$ttf_parser..parser..LazyArrayIter16$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4911c87654e9889eE.exit.i.i"
@@ -6716,7 +6716,7 @@ define internal fastcc void @_ZN12typst_render11to_sk_paint17ha2304611818b8021E(
     i32 2, label %50
   ]
 
-default.unreachable65:                            ; preds = %9
+default.unreachable62:                            ; preds = %9
   unreachable
 
 36:                                               ; preds = %9
@@ -6774,7 +6774,7 @@ default.unreachable65:                            ; preds = %9
   invoke void @"_ZN4core3ptr47drop_in_place$LT$tiny_skia..shaders..Shader$GT$17h4053a3e3732bc231E.llvm.7454132670541690561"(ptr noalias noundef nonnull align 8 dereferenceable(96) %31)
           to label %"_ZN4core3ptr46drop_in_place$LT$tiny_skia..painter..Paint$GT$17h5b1f7cf881dc7454E.exit" unwind label %190
 
-53:                                               ; preds = %.invoke, %144, %87, %83, %76, %46, %.noexc47, %.noexc, %36, %185, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tiny_skia..pixmap..Pixmap$GT$$GT$$GT$17hd535db59a25e3fb7E.exit62", %149, %133, %126, %122, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tiny_skia..pixmap..Pixmap$GT$$GT$$GT$17hd535db59a25e3fb7E.exit", %80, %65, %55, %50, %47
+53:                                               ; preds = %.invoke, %144, %87, %83, %76, %46, %.noexc47, %.noexc, %36, %185, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tiny_skia..pixmap..Pixmap$GT$$GT$$GT$17hd535db59a25e3fb7E.exit59", %149, %133, %126, %122, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tiny_skia..pixmap..Pixmap$GT$$GT$$GT$17hd535db59a25e3fb7E.exit", %80, %65, %55, %50, %47
   %54 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -6873,14 +6873,14 @@ default.unreachable65:                            ; preds = %9
   %93 = load float, ptr %84, align 8, !noundef !37
   %94 = tail call float @llvm.ceil.f32(float %93)
   %95 = tail call i32 @llvm.fptoui.sat.i32.f32(float %94)
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %92, i32 %95)
+  %.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %92, i32 %95)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i32 %92, i32 %95
   %96 = fmul float %93, %89
   %97 = tail call float @llvm.ceil.f32(float %96)
   %98 = tail call i32 @llvm.fptoui.sat.i32.f32(float %97)
-  %.0.i.i.i54 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %98, i32 %95)
+  %.0.sroa.speculated.i54 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %98, i32 %95)
   %.off.i55 = add nsw i8 %.0.i.i.i54, -1
   %switch.i56 = icmp ult i8 %.off.i55, -2
   %.0.sroa.speculated.i57 = select i1 %switch.i56, i32 %98, i32 %95
@@ -7053,7 +7053,7 @@ default.unreachable65:                            ; preds = %9
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef 48) #19
           to label %.noexc60 unwind label %159
 
-.noexc60:                                         ; preds = %158
+.noexc57:                                         ; preds = %158
   unreachable
 
 159:                                              ; preds = %158
@@ -7074,12 +7074,12 @@ default.unreachable65:                            ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1124)
   %164 = load ptr, ptr %7, align 8, !alias.scope !1124, !noundef !37
   %165 = icmp eq ptr %164, null
-  br i1 %165, label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tiny_skia..pixmap..Pixmap$GT$$GT$$GT$17hd535db59a25e3fb7E.exit62", label %166
+  br i1 %165, label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tiny_skia..pixmap..Pixmap$GT$$GT$$GT$17hd535db59a25e3fb7E.exit59", label %166
 
 166:                                              ; preds = %163
   %167 = atomicrmw sub ptr %164, i64 1 release, align 8, !noalias !1127
   %168 = icmp eq i64 %167, 1
-  br i1 %168, label %169, label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tiny_skia..pixmap..Pixmap$GT$$GT$$GT$17hd535db59a25e3fb7E.exit62"
+  br i1 %168, label %169, label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tiny_skia..pixmap..Pixmap$GT$$GT$$GT$17hd535db59a25e3fb7E.exit59"
 
 169:                                              ; preds = %166
   fence acquire
@@ -7092,7 +7092,7 @@ default.unreachable65:                            ; preds = %9
   store ptr %156, ptr %7, align 8
   br label %.body
 
-"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tiny_skia..pixmap..Pixmap$GT$$GT$$GT$17hd535db59a25e3fb7E.exit62": ; preds = %166, %163, %169
+"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tiny_skia..pixmap..Pixmap$GT$$GT$$GT$17hd535db59a25e3fb7E.exit59": ; preds = %166, %163, %169
   store ptr %156, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -7117,7 +7117,7 @@ default.unreachable65:                            ; preds = %9
   invoke void @_ZN14tiny_skia_path9transform9Transform9pre_scale17h05f217645c7beeb5E(ptr noalias noundef nonnull sret({ float, float, float, float, float, float }) align 4 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %22, float noundef %184, float noundef %184)
           to label %185 unwind label %53
 
-185:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tiny_skia..pixmap..Pixmap$GT$$GT$$GT$17hd535db59a25e3fb7E.exit62"
+185:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tiny_skia..pixmap..Pixmap$GT$$GT$$GT$17hd535db59a25e3fb7E.exit59"
   invoke void @_ZN9tiny_skia7shaders7pattern7Pattern3new17h0538ecbf793af895E(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %17, i8 noundef 2, i8 noundef 0, float noundef 1.000000e+00, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %16)
           to label %186 unwind label %53
 

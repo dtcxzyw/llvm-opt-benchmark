@@ -320,23 +320,23 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h5e8264817a2f3af
   %13 = ptrtoint ptr %3 to i64
   %14 = sub nuw i64 %12, %13
   %15 = lshr exact i64 %14, 3
-  %16 = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %10, i64 %15)
+  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %10, i64 %15)
   %.off.i.i = add nsw i8 %16, -1
   %switch.i.i = icmp ult i8 %.off.i.i, -2
   %.sroa.0.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %15, i64 %10
   store ptr %1, ptr %0, align 8, !alias.scope !15
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr %17, align 8, !alias.scope !15
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %3, ptr %18, align 8, !alias.scope !15
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %19, align 8, !alias.scope !15
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %20, align 8, !alias.scope !15
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %21, align 8, !alias.scope !15
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %10, ptr %22, align 8, !alias.scope !15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %2, ptr %16, align 8, !alias.scope !15
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %3, ptr %17, align 8, !alias.scope !15
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %4, ptr %18, align 8, !alias.scope !15
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 0, ptr %19, align 8, !alias.scope !15
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %20, align 8, !alias.scope !15
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %10, ptr %21, align 8, !alias.scope !15
   ret void
 }
 
@@ -3723,7 +3723,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #15
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16

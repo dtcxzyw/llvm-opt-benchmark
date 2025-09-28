@@ -67683,16 +67683,16 @@ define noundef ptr @_ZN5folly24getHugePageSizeForDeviceEm(i64 noundef %0) local_
 _ZN5folly16getHugePageSizesEv.exit:               ; preds = %1, %4, %7
   %11 = load ptr, ptr @_ZZN5folly16getHugePageSizesEvE5sizes, align 8, !tbaa !85
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly16getHugePageSizesEvE5sizes, i64 8), align 8, !tbaa !85
-  %.not14 = icmp eq ptr %11, %12
-  br i1 %.not14, label %._crit_edge, label %.lr.ph
+  %.not13 = icmp eq ptr %11, %12
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
-13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 48
-  %.not = icmp eq ptr %14, %12
+19:                                               ; preds = %.lr.ph
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 48
+  %.not = icmp eq ptr %20, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN5folly16getHugePageSizesEv.exit, %13
-  %.sroa.011.015 = phi ptr [ %14, %13 ], [ %11, %_ZN5folly16getHugePageSizesEv.exit ]
+._crit_edge:                                      ; preds = %_ZN5folly16getHugePageSizesEv.exit, %13
+  %spec.select = phi ptr [ %14, %13 ], [ %11, %_ZN5folly16getHugePageSizesEv.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !18
   %17 = icmp ne i64 %16, 0

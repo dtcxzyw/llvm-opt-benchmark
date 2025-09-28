@@ -8025,7 +8025,7 @@ _ZN14regex_automata4util8captures14GroupInfoInner14small_slot_len17h3561db71db15
 
 48:                                               ; preds = %_ZN14regex_automata4util8captures14GroupInfoInner14small_slot_len17h3561db71db15b5a2E.exit.i
   %49 = shl nuw i64 %45, 1
-  %.0.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 range(i64 0, 4294967296) %.0.i.i.i, i64 %49)
+  %.0.sroa.speculated.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 range(i64 0, 4294967296) %.0.i.i.i, i64 %49)
   %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
   %switch.i.i = icmp ult i8 %.off.i.i, -2
   %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %.0.i.i.i, i64 %49
@@ -8119,7 +8119,7 @@ _ZN14regex_automata4util8captures14GroupInfoInner14small_slot_len17h3561db71db15
 
 23:                                               ; preds = %_ZN14regex_automata4util8captures14GroupInfoInner14small_slot_len17h3561db71db15b5a2E.exit
   %24 = shl nuw i64 %20, 1
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 range(i64 0, 4294967296) %.0.i.i, i64 %24)
+  %.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 range(i64 0, 4294967296) %.0.i.i, i64 %24)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i64 %.0.i.i, i64 %24

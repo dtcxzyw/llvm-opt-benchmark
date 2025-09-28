@@ -1115,8 +1115,8 @@ define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i6
 27:                                               ; preds = %22
   %28 = inttoptr i64 %.0.i to ptr
   %29 = tail call i64 @_mi_clock_start() #10
-  %.not78 = icmp eq i64 %0, 0
-  br i1 %.not78, label %.thread68, label %.lr.ph
+  %.not80 = icmp eq i64 %0, 0
+  br i1 %.not80, label %.thread68, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
   %or.cond.i = icmp ult i32 %1, 64

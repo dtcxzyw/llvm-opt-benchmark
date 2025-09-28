@@ -4263,7 +4263,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %47 = sub i64 %46, %43
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %49 = load i64, ptr %48, align 8, !noalias !882, !noundef !13
-  %.0.i.i.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %47, i64 %49)
+  %.0.sroa.speculated.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %47, i64 %49)
   %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i, -1
   %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
   %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 %49, i64 %47

@@ -407,7 +407,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h681eb80b63aee58
   %13 = ptrtoint ptr %3 to i64
   %14 = sub nuw i64 %12, %13
   %15 = lshr exact i64 %14, 3
-  %.0.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %10, i64 %15)
+  %.0.sroa.speculated.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %10, i64 %15)
   %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
   %switch.i.i = icmp ult i8 %.off.i.i, -2
   %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %15, i64 %10
@@ -1332,7 +1332,7 @@ define hidden void @_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE(ptr noal
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %.0.i.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %1, i64 %3)
+  %.0.sroa.speculated.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %1, i64 %3)
   %.off.i.i.i = add nsw i8 %.0.i.i.i.i.i, -1
   %switch.i.i.i = icmp ult i8 %.off.i.i.i, -2
   %.0.sroa.speculated.i.i.i = select i1 %switch.i.i.i, i64 %3, i64 %1

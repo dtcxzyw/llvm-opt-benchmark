@@ -696,7 +696,7 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$4push17h6dd832
   br label %.outer
 
 .outer:                                           ; preds = %._crit_edge.i, %3
-  %.042.ph = phi ptr [ %.244, %._crit_edge.i ], [ null, %3 ]
+  %.043.ph = phi ptr [ %.245, %._crit_edge.i ], [ null, %3 ]
   %.0.ph = phi i32 [ %spec.select, %._crit_edge.i ], [ 0, %3 ]
   %.023.ph = phi i64 [ %33, %._crit_edge.i ], [ %6, %3 ]
   %.022.in.ph = phi i64 [ %54, %._crit_edge.i ], [ %8, %3 ]
@@ -711,13 +711,13 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$4push17h6dd832
   %.023.lcssa = phi i64 [ %.023.ph, %.outer ], [ %63, %62 ]
   %.lcssa = phi i64 [ %10, %.outer ], [ %66, %62 ]
   %12 = icmp samesign ugt i64 %.lcssa, 61
-  %.not = icmp eq ptr %.042.ph, null
+  %.not = icmp eq ptr %.043.ph, null
   %or.cond = select i1 %12, i1 %.not, i1 false
   br i1 %or.cond, label %19, label %29
 
 .lr.ph:                                           ; preds = %.outer, %62
-  %.071 = phi i32 [ %.141, %62 ], [ %.0.ph, %.outer ]
-  %13 = icmp ult i32 %.071, 7
+  %.072 = phi i32 [ %.141, %62 ], [ %.0.ph, %.outer ]
+  %13 = icmp ult i32 %.072, 7
   br i1 %13, label %.preheader.i, label %14
 
 14:                                               ; preds = %.lr.ph
@@ -725,19 +725,19 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$4push17h6dd832
           to label %.thread.i unwind label %.thread
 
 .thread.i:                                        ; preds = %14
-  %15 = icmp ult i32 %.071, 11
+  %15 = icmp ult i32 %.072, 11
   br i1 %15, label %.thread.i.thread, label %62
 
 .preheader.i:                                     ; preds = %.lr.ph, %.preheader.i
   %.sroa.01.08.i = phi i32 [ %16, %.preheader.i ], [ 0, %.lr.ph ]
   %16 = add nuw nsw i32 %.sroa.01.08.i, 1
   tail call void @llvm.x86.sse2.pause() #14
-  %.sroa.01.0.highbits.i = lshr i32 %16, %.071
+  %.sroa.01.0.highbits.i = lshr i32 %16, %.072
   %17 = icmp eq i32 %.sroa.01.0.highbits.i, 0
   br i1 %17, label %.preheader.i, label %.thread.i.thread
 
 .thread.i.thread:                                 ; preds = %.preheader.i, %.thread.i
-  %18 = add nuw nsw i32 %.071, 1
+  %18 = add nuw nsw i32 %.072, 1
   br label %62
 
 19:                                               ; preds = %._crit_edge
@@ -773,7 +773,7 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$4push17h6dd832
   br label %29
 
 29:                                               ; preds = %28, %._crit_edge
-  %.244 = phi ptr [ %26, %28 ], [ %.042.ph, %._crit_edge ]
+  %.245 = phi ptr [ %26, %28 ], [ %.043.ph, %._crit_edge ]
   %30 = add i64 %.023.lcssa, 2
   %31 = cmpxchg weak ptr %5, i64 %.023.lcssa, i64 %30 seq_cst acquire, align 8
   %32 = extractvalue { i64, i1 } %31, 1
@@ -785,11 +785,11 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$4push17h6dd832
   br i1 %12, label %35, label %45
 
 35:                                               ; preds = %34
-  %36 = icmp eq ptr %.244, null
+  %36 = icmp eq ptr %.245, null
   br i1 %36, label %44, label %37
 
 37:                                               ; preds = %35
-  %38 = ptrtoint ptr %.244 to i64
+  %38 = ptrtoint ptr %.245 to i64
   store atomic i64 %38, ptr %7 release, align 8
   %39 = add i64 %.023.lcssa, 4
   store atomic i64 %39, ptr %5 release, align 128
@@ -817,16 +817,16 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$4push17h6dd832
   store ptr %2, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %50 = atomicrmw or ptr %49, i64 1 release, align 8
-  %51 = icmp eq ptr %.244, null
+  %51 = icmp eq ptr %.245, null
   br i1 %51, label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_deque..deque..Block$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h97ef277e5ed1365fE.exit33", label %52
 
 52:                                               ; preds = %45
-  tail call void @__rust_dealloc(ptr noundef nonnull %.244, i64 noundef 1520, i64 noundef 8) #14
+  tail call void @__rust_dealloc(ptr noundef nonnull %.245, i64 noundef 1520, i64 noundef 8) #14
   br label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_deque..deque..Block$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h97ef277e5ed1365fE.exit33"
 
 53:                                               ; preds = %29
   %54 = load atomic i64, ptr %7 acquire, align 8
-  %.0.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %.0.lcssa, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %.0.lcssa, i32 6)
   %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
   %switch.i.i = icmp ult i8 %.off.i.i, -2
   %55 = and i32 %.0.lcssa, 31
@@ -841,17 +841,17 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$4push17h6dd832
   %spec.select = add nuw nsw i32 %.0.lcssa, %60
   br label %.outer
 
-.lr.ph.i:                                         ; preds = %53, %.lr.ph.i
+57:                                               ; preds = %53, %57
   %.sroa.01.07.i = phi i32 [ %61, %.lr.ph.i ], [ 0, %53 ]
-  %61 = add nuw nsw i32 %.sroa.01.07.i, 1
+  %58 = add nuw nsw i32 %.sroa.01.07.i, 1
   tail call void @llvm.x86.sse2.pause() #14
-  %exitcond.not.i = icmp eq i32 %61, %57
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
+  %exitcond.not.i = icmp eq i32 %58, %57
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %57
 
 62:                                               ; preds = %.thread.i, %.thread.i.thread
   %.141 = phi i32 [ %18, %.thread.i.thread ], [ %.071, %.thread.i ]
   %63 = load atomic i64, ptr %5 acquire, align 128
-  %64 = load atomic i64, ptr %7 acquire, align 8
+  %61 = load atomic i64, ptr %7 acquire, align 8
   %65 = lshr i64 %63, 1
   %66 = and i64 %65, 63
   %67 = icmp eq i64 %66, 63
@@ -860,14 +860,14 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$4push17h6dd832
 .thread:                                          ; preds = %14
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  %68 = icmp eq ptr %.042.ph, null
-  br i1 %68, label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_deque..deque..Block$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h97ef277e5ed1365fE.exit36", label %.thread.thread
+  %66 = icmp eq ptr %.043.ph, null
+  br i1 %66, label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_deque..deque..Block$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h97ef277e5ed1365fE.exit37", label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread
-  tail call void @__rust_dealloc(ptr noundef nonnull %.042.ph, i64 noundef 1520, i64 noundef 8) #14
-  br label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_deque..deque..Block$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h97ef277e5ed1365fE.exit36"
+  tail call void @__rust_dealloc(ptr noundef nonnull %.043.ph, i64 noundef 1520, i64 noundef 8) #14
+  br label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_deque..deque..Block$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h97ef277e5ed1365fE.exit37"
 
-"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_deque..deque..Block$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h97ef277e5ed1365fE.exit36": ; preds = %.thread.thread, %.thread
+"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_deque..deque..Block$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h97ef277e5ed1365fE.exit37": ; preds = %.thread.thread, %.thread
   resume { ptr, i32 } %lpad.loopexit
 }
 

@@ -456,12 +456,12 @@ if.then79.i:                                      ; preds = %if.end75.i
 
 if.end83.i:                                       ; preds = %if.end75.i, %if.end63.i
   %33 = load i64, ptr %st_size84.i, align 8
-  %cond512 = icmp eq i64 %33, 0
-  br i1 %cond512, label %out.i.thread, label %if.end90.i
+  %cond511 = icmp eq i64 %33, 0
+  br i1 %cond511, label %out.i.thread, label %if.end90.i
 
 if.end90.i:                                       ; preds = %if.end83.i, %if.end97.i
-  %in_offset.0.i514 = phi i64 [ %add.i, %if.end97.i ], [ 0, %if.end83.i ]
-  %bytes_to_send.0.i513 = phi i64 [ %sub98.i, %if.end97.i ], [ %33, %if.end83.i ]
+  %in_offset.0.i513 = phi i64 [ %add.i, %if.end97.i ], [ 0, %if.end83.i ]
+  %bytes_to_send.0.i512 = phi i64 [ %sub98.i, %if.end97.i ], [ %33, %if.end83.i ]
   store i32 6, ptr %type.i414, align 8
   store i32 5, ptr %fs_type.i415, align 8
   store ptr null, ptr %new_path.i420, align 8
@@ -469,8 +469,8 @@ if.end90.i:                                       ; preds = %if.end83.i, %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %loop2.i418, i8 0, i64 40, i1 false)
   store i32 %conv.i426, ptr %flags17.i423, align 4
   store i32 %conv.i410, ptr %file.i396, align 8
-  store i64 %in_offset.0.i514, ptr %off5.i, align 8
-  store i64 %bytes_to_send.0.i513, ptr %len6.i, align 8
+  store i64 %in_offset.0.i513, ptr %off5.i, align 8
+  store i64 %bytes_to_send.0.i512, ptr %len6.i, align 8
   call void @uv__fs_work(ptr noundef nonnull %work_req31.i425)
   %34 = load i64, ptr %result.i416, align 8
   call void @uv_fs_req_cleanup(ptr noundef nonnull %fs_req.i)
@@ -482,8 +482,8 @@ if.then95.i:                                      ; preds = %if.end90.i
   br label %out.i
 
 if.end97.i:                                       ; preds = %if.end90.i
-  %sub98.i = sub nsw i64 %bytes_to_send.0.i513, %34
-  %add.i = add nuw nsw i64 %34, %in_offset.0.i514
+  %sub98.i = sub nsw i64 %bytes_to_send.0.i512, %34
+  %add.i = add nuw nsw i64 %34, %in_offset.0.i513
   %cond = icmp eq i64 %sub98.i, 0
   br i1 %cond, label %out.i.thread, label %if.end90.i
 

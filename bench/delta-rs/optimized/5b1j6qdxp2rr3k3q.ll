@@ -57,10 +57,10 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %6 = extractvalue { i64, i1 } %3, 0
   %7 = load i64, ptr %0, align 8, !alias.scope !4, !noundef !7
   %8 = shl i64 %7, 1
-  %.0.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %8, i64 %6)
-  %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
-  %switch.i.i = icmp ult i8 %.off.i.i, -2
-  %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %8, i64 %6
+  %.0.sroa.speculated.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %8, i64 %6)
+  %.off.i.i = add nsw i8 %.0.sroa.speculated.i.i, -1
+  %9 = icmp ult i8 %.off.i.i, -2
+  %.0.sroa.speculated.i.i = select i1 %9, i64 %8, i64 %6
   %.0.i.i.i26.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 %.0.sroa.speculated.i.i)
   %.off.i27.i = add nsw i8 %.0.i.i.i26.i, -1
   %switch.i28.i = icmp ult i8 %.off.i27.i, -2

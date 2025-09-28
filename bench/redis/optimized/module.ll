@@ -30329,17 +30329,17 @@ define internal fastcc noundef range(i32 0, 2) i32 @moduleValidateCommandArgs(pt
 .preheader:                                       ; preds = %2
   %4 = getelementptr i8, ptr %1, i64 24
   %5 = load ptr, ptr %0, align 8, !tbaa !220
-  %.not85 = icmp eq ptr %5, null
-  br i1 %.not85, label %.loopexit, label %.lr.ph
+  %.not83 = icmp eq ptr %5, null
+  br i1 %.not83, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.critedge
   %6 = phi ptr [ %68, %.critedge ], [ %5, %.preheader ]
   %7 = phi ptr [ %67, %.critedge ], [ %0, %.preheader ]
-  %.03586 = phi i64 [ %64, %.critedge ], [ 0, %.preheader ]
+  %.03584 = phi i64 [ %64, %.critedge ], [ 0, %.preheader ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !223
-  %switch54 = icmp ult i32 %9, 9
-  br i1 %switch54, label %13, label %moduleConvertArgType.exit
+  %switch52 = icmp ult i32 %9, 9
+  br i1 %switch52, label %13, label %moduleConvertArgType.exit
 
 moduleConvertArgType.exit:                        ; preds = %.lr.ph
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
@@ -30368,7 +30368,7 @@ moduleConvertArgType.exit:                        ; preds = %.lr.ph
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw %struct.RedisModuleCommandArg, ptr %0, i64 %.03586
+  %21 = getelementptr inbounds nuw %struct.RedisModuleCommandArg, ptr %0, i64 %.03584
   %22 = load ptr, ptr %21, align 8, !tbaa !220
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.555, ptr noundef %22) #35
   br label %.loopexit
@@ -30377,7 +30377,7 @@ moduleConvertArgType.exit:                        ; preds = %.lr.ph
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %25 = load i32, ptr %24, align 4, !tbaa !225
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %.thread118
+  br i1 %26, label %27, label %.thread116
 
 27:                                               ; preds = %23
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
@@ -30410,13 +30410,13 @@ moduleConvertArgType.exit:                        ; preds = %.lr.ph
   %.not44 = icmp ult i32 %39, 8
   br i1 %.not44, label %46, label %42
 
-.thread118:                                       ; preds = %23
+.thread116:                                       ; preds = %23
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %41 = load i32, ptr %40, align 8, !tbaa !237
-  %.not44119 = icmp ult i32 %41, 8
-  br i1 %.not44119, label %.thread120, label %42
+  %.not44117 = icmp ult i32 %41, 8
+  br i1 %.not44117, label %.thread118, label %42
 
-42:                                               ; preds = %.thread118, %37
+42:                                               ; preds = %.thread116, %37
   %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
   %44 = icmp sgt i32 %43, 3
   br i1 %44, label %.loopexit, label %45
@@ -30427,7 +30427,7 @@ moduleConvertArgType.exit:                        ; preds = %.lr.ph
 
 46:                                               ; preds = %37
   %47 = icmp samesign ugt i32 %9, 6
-  br i1 %47, label %48, label %.thread120
+  br i1 %47, label %48, label %.thread118
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -30449,13 +30449,13 @@ moduleConvertArgType.exit:                        ; preds = %.lr.ph
   %.not46 = icmp eq i32 %57, 0
   br i1 %.not46, label %.loopexit, label %.critedge
 
-.thread120:                                       ; preds = %.thread118, %46
+.thread118:                                       ; preds = %.thread116, %46
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %59 = load ptr, ptr %58, align 8, !tbaa !239
   %.not45 = icmp eq ptr %59, null
   br i1 %.not45, label %.critedge, label %60
 
-60:                                               ; preds = %.thread120
+60:                                               ; preds = %.thread118
   %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
   %62 = icmp sgt i32 %61, 3
   br i1 %62, label %.loopexit, label %63
@@ -30464,8 +30464,8 @@ moduleConvertArgType.exit:                        ; preds = %.lr.ph
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.560, ptr noundef nonnull %6) #35
   br label %.loopexit
 
-.critedge:                                        ; preds = %.thread120, %56
-  %64 = add i64 %.03586, 1
+.critedge:                                        ; preds = %.thread118, %56
+  %64 = add i64 %.03584, 1
   %.val = load i64, ptr %4, align 8, !tbaa !219
   %sext = shl i64 %64, 32
   %65 = ashr exact i64 %sext, 32

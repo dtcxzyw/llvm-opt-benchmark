@@ -138,8 +138,8 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
   store i32 %48, ptr %27, align 8
   %54 = add i32 %48, -1
   %55 = load i32, ptr %24, align 8
-  %.not.i150 = icmp sgt i32 %54, %55
-  br i1 %.not.i150, label %56, label %73
+  %.not.i149 = icmp sgt i32 %54, %55
+  br i1 %.not.i149, label %56, label %73
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr %0, align 8
@@ -186,8 +186,8 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %75, ptr %81, align 4
   %82 = add i32 %75, 1
-  %.not.i152 = icmp slt i32 %82, %74
-  br i1 %.not.i152, label %83, label %.thread218
+  %.not.i151 = icmp slt i32 %82, %74
+  br i1 %.not.i151, label %83, label %.thread211
 
 83:                                               ; preds = %80
   %84 = load ptr, ptr %0, align 8
@@ -202,7 +202,7 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
 88:                                               ; preds = %83, %83
   %89 = tail call i32 @find_among(ptr noundef nonnull %0, ptr noundef nonnull @a_3, i32 noundef 12) #4
   %.not104.i = icmp eq i32 %89, 0
-  br i1 %.not104.i, label %.thread218, label %90
+  br i1 %.not104.i, label %.thread211, label %90
 
 90:                                               ; preds = %88
   %91 = load i32, ptr %5, align 8
@@ -320,9 +320,9 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
 
 149:                                              ; preds = %145
   %150 = icmp sgt i32 %147, -1
-  br i1 %150, label %.thread195, label %r_remove_particle.exit
+  br i1 %150, label %.thread194, label %r_remove_particle.exit
 
-.thread195:                                       ; preds = %149
+.thread194:                                       ; preds = %149
   store i32 %140, ptr %5, align 8
   %151 = load ptr, ptr %2, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
@@ -330,45 +330,45 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
   %154 = icmp sgt i32 %153, 2
   br i1 %154, label %155, label %r_remove_particle.exit.sink.split
 
-155:                                              ; preds = %.thread195
+155:                                              ; preds = %.thread194
   %156 = tail call fastcc i32 @r_remove_second_order_prefix(ptr noundef nonnull %0)
   %157 = icmp eq i32 %156, 0
   %158 = icmp slt i32 %156, 0
   %.lobit = lshr i32 %156, 31
-  %..5 = select i1 %158, i32 %156, i32 %.016.i.ph
+  %.11125 = select i1 %158, i32 %156, i32 %.016.i.ph
   %.9 = select i1 %157, i32 %.016.i.ph, i32 %..5
-  %.not = icmp sgt i32 %156, -1
-  br i1 %.not, label %r_remove_particle.exit.sink.split, label %.critedge
+  %cond = icmp sgt i32 %156, -1
+  br i1 %cond, label %r_remove_particle.exit.sink.split, label %.critedge
 
-.thread218:                                       ; preds = %80, %83, %88
+.thread211:                                       ; preds = %80, %83, %88
   store i32 %75, ptr %5, align 8
-  %159 = tail call fastcc i32 @r_remove_second_order_prefix(ptr noundef nonnull %0)
-  %160 = icmp sgt i32 %159, -1
-  br i1 %160, label %161, label %r_remove_particle.exit
+  %160 = tail call fastcc i32 @r_remove_second_order_prefix(ptr noundef nonnull %0)
+  %161 = icmp sgt i32 %160, -1
+  br i1 %161, label %162, label %r_remove_particle.exit
 
-161:                                              ; preds = %.thread218
+162:                                              ; preds = %.thread211
   store i32 %75, ptr %5, align 8
-  %162 = load ptr, ptr %2, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 4
-  %164 = load i32, ptr %163, align 4
-  %165 = icmp sgt i32 %164, 2
-  br i1 %165, label %166, label %r_remove_particle.exit.sink.split
+  %163 = load ptr, ptr %2, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
+  %165 = load i32, ptr %164, align 4
+  %166 = icmp sgt i32 %165, 2
+  br i1 %166, label %167, label %r_remove_particle.exit.sink.split
 
-166:                                              ; preds = %161
+167:                                              ; preds = %162
   store i32 %75, ptr %24, align 8
-  %167 = load i32, ptr %25, align 4
-  store i32 %167, ptr %5, align 8
-  %168 = tail call fastcc i32 @r_remove_suffix(ptr noundef nonnull %0)
-  %169 = icmp eq i32 %168, 0
+  %168 = load i32, ptr %25, align 4
+  store i32 %168, ptr %5, align 8
+  %169 = tail call fastcc i32 @r_remove_suffix(ptr noundef nonnull %0)
+  %169 = icmp eq i32 %169, 0
   %170 = icmp slt i32 %168, 0
-  %.lobit224 = lshr i32 %168, 31
-  %..4. = select i1 %170, i32 %168, i32 %.016.i.ph
+  %.lobit216 = lshr i32 %168, 31
+  %.15 = select i1 %170, i32 %168, i32 %.016.i.ph
   %.13 = select i1 %169, i32 %.016.i.ph, i32 %..4.
   %171 = add nsw i32 %.lobit224, -1
   %switch258 = icmp ult i32 %171, 7
   br i1 %switch258, label %.critedge, label %r_remove_particle.exit.sink.split
 
-.critedge:                                        ; preds = %166, %155
+.critedge:                                        ; preds = %167, %155
   %.12126 = phi i32 [ %.lobit224, %166 ], [ %.lobit, %155 ]
   %.10 = phi i32 [ %.13, %166 ], [ %.9, %155 ]
   %.12126.fr = freeze i32 %.12126
@@ -381,7 +381,7 @@ r_remove_particle.exit.sink.split:                ; preds = %161, %166, %145, %1
   br label %r_remove_particle.exit
 
 r_remove_particle.exit:                           ; preds = %.critedge, %r_remove_particle.exit.sink.split, %128, %131, %114, %117, %102, %98, %95, %92, %149, %.thread218, %63, %37, %73, %47, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %47 ], [ 0, %73 ], [ %40, %37 ], [ %66, %63 ], [ %129, %128 ], [ %132, %131 ], [ %115, %114 ], [ %118, %117 ], [ %104, %102 ], [ %100, %98 ], [ %96, %95 ], [ %93, %92 ], [ %147, %149 ], [ %159, %.thread218 ], [ %spec.select, %.critedge ], [ 1, %r_remove_particle.exit.sink.split ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %47 ], [ 0, %73 ], [ %40, %37 ], [ %66, %63 ], [ %129, %128 ], [ %132, %131 ], [ %115, %114 ], [ %118, %117 ], [ %104, %102 ], [ %100, %98 ], [ %96, %95 ], [ %93, %92 ], [ %147, %149 ], [ %160, %.thread218 ], [ %spec.select, %.critedge ], [ 1, %r_remove_particle.exit.sink.split ]
   ret i32 %.0
 }
 

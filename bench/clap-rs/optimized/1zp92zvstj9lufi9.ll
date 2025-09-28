@@ -1918,7 +1918,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %18 = load i64, ptr %5, align 8, !noundef !28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %19 = tail call i64 @llvm.uadd.sat.i64(i64 %18, i64 1)
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 range(i64 1, 0) %19)
+  %.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 range(i64 1, 0) %19)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i64 4, i64 %19
@@ -2645,7 +2645,7 @@ common.resume:                                    ; preds = %93, %.body, %21, %"
   %42 = load i64, ptr %7, align 8, !noundef !28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %43 = tail call i64 @llvm.uadd.sat.i64(i64 %42, i64 1)
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 range(i64 1, 0) %43)
+  %.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 range(i64 1, 0) %43)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i64 4, i64 %43
@@ -3005,7 +3005,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %20 = load i64, ptr %7, align 8, !noundef !28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %21 = tail call i64 @llvm.uadd.sat.i64(i64 %20, i64 1)
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 range(i64 1, 0) %21)
+  %.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 range(i64 1, 0) %21)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i64 4, i64 %21
@@ -3528,7 +3528,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.767.0.i.i.i = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17he27fc6aafcde29daE.exit.i.i.i" ], [ %61, %55 ], [ %54, %49 ], [ %spec.select.i.i.i.i61.i.i.i, %46 ], [ 0, %45 ]
   %62 = add nuw nsw i64 %.sroa.7.0.i.i.i, 1
   %63 = add nuw nsw i64 %62, %.sroa.767.0.i.i.i
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 range(i64 1, 0) %63)
+  %.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 range(i64 1, 0) %63)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i64 4, i64 %63
@@ -6131,7 +6131,7 @@ common.resume:                                    ; preds = %138, %.body, %37
   %.sroa.3.0.i.pn.i.i31 = phi i64 [ %.sroa.3.0.i.pn.i.i, %.noexc7 ], [ %.sroa.3.0.i.pn.i.i3239, %46 ], [ %.sroa.3.0.i.pn.i.i, %44 ], [ %.sroa.3.0.i.pn.i.i, %.noexc8 ]
   %.sink.i = phi i64 [ 0, %.noexc7 ], [ %52, %46 ], [ 0, %44 ], [ %60, %.noexc8 ]
   %64 = add nuw nsw i64 %.sink.i, 1
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 range(i64 1, 0) %64)
+  %.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 range(i64 1, 0) %64)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i64 4, i64 %64
@@ -7322,7 +7322,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h9319c83ddf65d3a
   %13 = ptrtoint ptr %3 to i64
   %14 = sub nuw i64 %12, %13
   %15 = udiv exact i64 %14, 24
-  %.0.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %10, i64 %15)
+  %.0.sroa.speculated.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %10, i64 %15)
   %.off.i.i = add nsw i8 %.0.i.i.i.i, -1
   %switch.i.i = icmp ult i8 %.off.i.i, -2
   %.0.sroa.speculated.i.i = select i1 %switch.i.i, i64 %15, i64 %10

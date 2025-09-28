@@ -248,14 +248,14 @@ define void @_ZN8clap_lex7RawArgs4seek17h509ee55157aa1c36E(ptr noalias noundef r
     i64 2, label %11
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable5:                             ; preds = %3
   unreachable
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = tail call i64 @llvm.sadd.sat.i64(i64 %9, i64 %6)
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %10, i64 0)
+  %.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %10, i64 0)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i64 %10, i64 0
@@ -264,7 +264,7 @@ default.unreachable11:                            ; preds = %3
 11:                                               ; preds = %3
   %12 = load i64, ptr %1, align 8, !noundef !4
   %13 = tail call i64 @llvm.sadd.sat.i64(i64 %12, i64 %6)
-  %.0.i.i.i3 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %13, i64 0)
+  %.0.sroa.speculated.i3 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %13, i64 0)
   %.off.i4 = add nsw i8 %.0.i.i.i3, -1
   %switch.i5 = icmp ult i8 %.off.i4, -2
   %.0.sroa.speculated.i6 = select i1 %switch.i5, i64 %13, i64 0
@@ -274,8 +274,8 @@ default.unreachable11:                            ; preds = %3
   %.0 = phi i64 [ %.0.sroa.speculated.i, %7 ], [ %.0.sroa.speculated.i6, %11 ], [ %6, %3 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %.0.i.i.i7 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.0, i64 %16)
-  %.off.i8 = add nsw i8 %.0.i.i.i7, -1
+  %.0.sroa.speculated.i4 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.0, i64 %16)
+  %.off.i8 = add nsw i8 %.0.sroa.speculated.i4, -1
   %switch.i9 = icmp ult i8 %.off.i8, -2
   %.0.sroa.speculated.i10 = select i1 %switch.i9, i64 %16, i64 %.0
   store i64 %.0.sroa.speculated.i10, ptr %1, align 8

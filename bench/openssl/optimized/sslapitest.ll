@@ -22466,7 +22466,7 @@ define internal fastcc range(i32 0, 2) i32 @early_data_skip_helper(i32 noundef r
   %114 = zext i1 %113 to i32
   %115 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 4055, ptr noundef nonnull @.str.504, i32 noundef %114) #24
   %.not38 = icmp eq i32 %115, 0
-  br i1 %.not38, label %.thread53, label %116
+  br i1 %.not38, label %.thread52, label %116
 
 116:                                              ; preds = %108
   %117 = call i32 @BIO_write_ex(ptr noundef %110, ptr noundef nonnull %12, i64 noundef 6, ptr noundef nonnull %11) #24
@@ -22474,9 +22474,9 @@ define internal fastcc range(i32 0, 2) i32 @early_data_skip_helper(i32 noundef r
   %119 = zext i1 %118 to i32
   %120 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 4063, ptr noundef nonnull @.str.505, i32 noundef %119) #24
   %.not39 = icmp eq i32 %120, 0
-  br i1 %.not39, label %.thread53, label %121
+  br i1 %.not39, label %.thread52, label %121
 
-.thread53:                                        ; preds = %108, %116
+.thread52:                                        ; preds = %108, %116
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %157
 
@@ -22500,7 +22500,7 @@ define internal fastcc range(i32 0, 2) i32 @early_data_skip_helper(i32 noundef r
   %.not41 = icmp ne i32 %131, 0
   br label %157
 
-default.unreachable56:                            ; preds = %95
+default.unreachable55:                            ; preds = %95
   unreachable
 
 132:                                              ; preds = %102, %95
@@ -22547,7 +22547,7 @@ default.unreachable56:                            ; preds = %95
   %.not49 = icmp ne i32 %156, 0
   br label %157
 
-157:                                              ; preds = %.thread53, %154, %128, %132, %138, %141, %145, %151, %122, %96, %102, %84, %88, %91, %.thread, %81, %70, %60, %51, %43, %30, %37, %14
+157:                                              ; preds = %.thread52, %154, %128, %132, %138, %141, %145, %151, %122, %96, %102, %84, %88, %91, %.thread, %81, %70, %60, %51, %43, %30, %37, %14
   %.026.shrunk = phi i1 [ false, %151 ], [ false, %145 ], [ false, %141 ], [ false, %138 ], [ false, %132 ], [ false, %102 ], [ false, %96 ], [ false, %122 ], [ false, %91 ], [ false, %88 ], [ false, %84 ], [ false, %81 ], [ false, %.thread ], [ false, %70 ], [ false, %51 ], [ false, %60 ], [ false, %43 ], [ false, %37 ], [ false, %30 ], [ false, %14 ], [ %.not41, %128 ], [ %.not49, %154 ], [ false, %.thread53 ]
   %.026 = zext i1 %.026.shrunk to i32
   %158 = load ptr, ptr @clientpsk, align 8, !tbaa !25

@@ -9263,8 +9263,8 @@ _ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parent
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load ptr, ptr %34, align 8
   %switch.i = icmp samesign ult i64 %33, 2
-  %.not521 = icmp eq ptr %35, null
-  %.not5 = select i1 %switch.i, i1 true, i1 %.not521
+  %.not519 = icmp eq ptr %35, null
+  %.not5 = select i1 %switch.i, i1 true, i1 %.not519
   br i1 %.not5, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit14, label %36
 
 36:                                               ; preds = %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread

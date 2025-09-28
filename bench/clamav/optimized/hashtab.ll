@@ -292,7 +292,7 @@ define noundef ptr @cli_htu32_next(ptr noundef readonly captures(address_is_null
   %18 = add i64 %5, -1
   br label %21
 
-19:                                               ; preds = %21
+.loopexit:                                        ; preds = %21
   %20 = add i64 %.12033, 1
   %exitcond.not = icmp eq i64 %20, %5
   br i1 %exitcond.not, label %.loopexit, label %21

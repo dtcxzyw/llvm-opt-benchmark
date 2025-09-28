@@ -202,7 +202,7 @@ _RNCNvMs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB7_8PeekableINtNtB9
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_RINvNtCs1LoaDTb72WA_4core3cmp6max_byjNvYjNtB2_3Ord3cmpECseG2FYMysgNb_3wax.llvm.2038835765883349039(i64 noundef %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %3 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
+  %.sroa.0.0.sroa.speculated = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
   %.off = add nsw i8 %3, -1
   %switch = icmp ult i8 %.off, -2
   %.sroa.0.0.sroa.speculated = select i1 %switch, i64 %0, i64 %1
@@ -211,7 +211,7 @@ define hidden noundef i64 @_RINvNtCs1LoaDTb72WA_4core3cmp6max_byjNvYjNtB2_3Ord3c
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_RINvNtCs1LoaDTb72WA_4core3cmp6min_byjNvYjNtB2_3Ord3cmpECseG2FYMysgNb_3wax.llvm.2038835765883349039(i64 noundef %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %3 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
+  %.sroa.0.0.sroa.speculated = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %0, i64 %1)
   %.off = add nsw i8 %3, -1
   %switch = icmp ult i8 %.off, -2
   %.sroa.0.0.sroa.speculated = select i1 %switch, i64 %1, i64 %0
@@ -3059,13 +3059,13 @@ define hidden void @_ZN4core4hint21unreachable_unchecked18precondition_check17hb
 define { i64, i64 } @_RNvXNtCseG2FYMysgNb_3wax11diagnosticsTjjENtB2_7SpanExt5union(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #18 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !noundef !5
   %4 = load i64, ptr %1, align 8, !noundef !5
-  %5 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
+  %.sroa.0.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   %.off.i = add nsw i8 %5, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.sroa.0.0.sroa.speculated.i = select i1 %switch.i, i64 %4, i64 %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !noundef !5
-  %8 = add i64 %7, %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load i64, ptr %8, align 8, !noundef !5
+  %10 = add i64 %9, %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = add i64 %10, %4

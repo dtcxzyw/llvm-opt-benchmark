@@ -109,7 +109,7 @@ define i64 @ossl_quic_engine_make_real_time(ptr noundef readonly captures(none) 
   %or.cond = select i1 %.not, i1 %switch, i1 false
   br i1 %or.cond, label %5, label %10
 
-5:                                                ; preds = %2
+switch.early.test:                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = tail call i64 %.fr(ptr noundef %7) #10
@@ -118,7 +118,7 @@ define i64 @ossl_quic_engine_make_real_time(ptr noundef readonly captures(none) 
   %.sroa.03.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %..i, i64 %9)
   br label %10
 
-10:                                               ; preds = %2, %5
+10:                                               ; preds = %2, %switch.early.test
   %.sroa.07.0 = phi i64 [ %.sroa.03.0.i, %5 ], [ %1, %2 ]
   ret i64 %.sroa.07.0
 }

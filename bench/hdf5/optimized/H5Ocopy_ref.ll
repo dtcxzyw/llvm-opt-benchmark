@@ -112,9 +112,9 @@ define range(i32 -1, 1) i32 @H5O_copy_expand_ref(ptr noundef %0, ptr noundef %1,
 
 ._crit_edge:                                      ; preds = %29
   %.pre = load i8, ptr @H5O_init_g, align 1, !tbaa !3, !range !7
-  %.pre45 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre46 = trunc nuw i8 %.pre to i1
-  %.pre47 = trunc nuw i8 %.pre45 to i1
+  %.pre43 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %.pre44 = trunc nuw i8 %.pre to i1
+  %.pre45 = trunc nuw i8 %.pre43 to i1
   br label %36
 
 32:                                               ; preds = %29
@@ -125,9 +125,9 @@ define range(i32 -1, 1) i32 @H5O_copy_expand_ref(ptr noundef %0, ptr noundef %1,
   br label %396
 
 36:                                               ; preds = %._crit_edge, %7
-  %.pre-phi48 = phi i1 [ %.pre47, %._crit_edge ], [ %27, %7 ]
-  %.pre-phi = phi i1 [ %.pre46, %._crit_edge ], [ %25, %7 ]
-  %37 = xor i1 %.pre-phi48, true
+  %.pre-phi46 = phi i1 [ %.pre45, %._crit_edge ], [ %27, %7 ]
+  %.pre-phi = phi i1 [ %.pre44, %._crit_edge ], [ %25, %7 ]
+  %37 = xor i1 %.pre-phi46, true
   %38 = select i1 %.pre-phi, i1 true, i1 %37
   br i1 %38, label %39, label %396, !prof !9
 
@@ -414,8 +414,8 @@ H5O__copy_expand_ref_object1.exit.thread:         ; preds = %128, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %189 = add nuw i64 %.03339.i, 1
-  %exitcond.not.i34 = icmp eq i64 %189, %60
-  br i1 %exitcond.not.i34, label %H5O__copy_expand_ref_region1.exit.thread, label %144, !llvm.loop !27
+  %exitcond.not.i32 = icmp eq i64 %189, %60
+  br i1 %exitcond.not.i32, label %H5O__copy_expand_ref_region1.exit.thread, label %144, !llvm.loop !27
 
 H5O__copy_expand_ref_region1.exit.thread:         ; preds = %188, %134
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -450,9 +450,9 @@ H5O__copy_expand_ref_region1.exit.thread:         ; preds = %188, %134
   %201 = trunc nuw i8 %200 to i1
   %202 = xor i1 %201, true
   %203 = select i1 %199, i1 true, i1 %202
-  br i1 %203, label %204, label %H5O__copy_expand_ref_object2.exit.thread41, !prof !9
+  br i1 %203, label %204, label %H5O__copy_expand_ref_object2.exit.thread39, !prof !9
 
-H5O__copy_expand_ref_object2.exit.thread41:       ; preds = %194
+H5O__copy_expand_ref_object2.exit.thread39:       ; preds = %194
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -553,9 +553,9 @@ H5O__copy_expand_ref_object2.exit.thread41:       ; preds = %194
 
 .preheader.i:                                     ; preds = %260
   %.not207.i = icmp ugt i64 %59, %3
-  br i1 %.not207.i, label %._crit_edge.i, label %.lr.ph.i35
+  br i1 %.not207.i, label %._crit_edge.i, label %.lr.ph.i33
 
-.lr.ph.i35:                                       ; preds = %.preheader.i
+.lr.ph.i33:                                       ; preds = %.preheader.i
   %264 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %265 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %266 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -567,11 +567,11 @@ H5O__copy_expand_ref_object2.exit.thread41:       ; preds = %194
   %270 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 339, i64 noundef %268, i64 noundef %269, ptr noundef nonnull @.str.24) #8
   br label %.thread150.i
 
-271:                                              ; preds = %323, %.lr.ph.i35
+271:                                              ; preds = %323, %.lr.ph.i33
   %.0104206.i = phi i64 [ 0, %.lr.ph.i35 ], [ %324, %323 ]
   %272 = getelementptr inbounds nuw %struct.H5R_ref_t, ptr %247, i64 %.0104206.i
-  %bcmp.i36 = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %272, ptr noundef nonnull dereferenceable(64) %10, i64 64)
-  %.not.i = icmp eq i32 %bcmp.i36, 0
+  %bcmp.i34 = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %272, ptr noundef nonnull dereferenceable(64) %10, i64 64)
+  %.not.i = icmp eq i32 %bcmp.i34, 0
   br i1 %.not.i, label %323, label %273
 
 273:                                              ; preds = %271
@@ -658,8 +658,8 @@ H5O__copy_expand_ref_object2.exit.thread41:       ; preds = %194
 
 323:                                              ; preds = %321, %271
   %324 = add nuw i64 %.0104206.i, 1
-  %exitcond.not.i37 = icmp eq i64 %324, %60
-  br i1 %exitcond.not.i37, label %._crit_edge.i, label %271, !llvm.loop !28
+  %exitcond.not.i35 = icmp eq i64 %324, %60
+  br i1 %exitcond.not.i35, label %._crit_edge.i, label %271, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %323, %.preheader.i
   %325 = call noalias ptr @H5FL_blk_malloc(ptr noundef nonnull @H5_type_conv_blk_free_list, i64 noundef %246) #8
@@ -806,7 +806,7 @@ H5O__copy_expand_ref_object2.exit:                ; preds = %379, %380
   %395 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O_copy_expand_ref, i32 noundef 471, i64 noundef %393, i64 noundef %394, ptr noundef nonnull @.str.7) #8
   br label %396
 
-396:                                              ; preds = %H5O__copy_expand_ref_object2.exit.thread41, %H5O__copy_expand_ref_region1.exit.thread, %H5O__copy_expand_ref_object1.exit.thread, %32, %45, %54, %130, %190, %388, %392, %H5O__copy_expand_ref_object2.exit, %36
+396:                                              ; preds = %H5O__copy_expand_ref_object2.exit.thread39, %H5O__copy_expand_ref_region1.exit.thread, %H5O__copy_expand_ref_object1.exit.thread, %32, %45, %54, %130, %190, %388, %392, %H5O__copy_expand_ref_object2.exit, %36
   %.0 = phi i32 [ -1, %32 ], [ -1, %45 ], [ -1, %54 ], [ -1, %392 ], [ -1, %130 ], [ -1, %190 ], [ -1, %388 ], [ 0, %H5O__copy_expand_ref_object2.exit ], [ 0, %36 ], [ 0, %H5O__copy_expand_ref_object1.exit.thread ], [ 0, %H5O__copy_expand_ref_region1.exit.thread ], [ 0, %H5O__copy_expand_ref_object2.exit.thread41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)

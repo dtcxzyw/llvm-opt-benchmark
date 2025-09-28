@@ -2037,7 +2037,7 @@ define hidden noundef range(i32 0, 4) i32 @_ZN19brotli_decompressor6decode22Brot
 60:                                               ; preds = %50
   %61 = zext i32 %52 to i64
   %62 = sub nsw i64 8, %61
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 range(i64 -4294967287, 8) %62, i64 range(i64 0, 4294967296) %34)
+  %.0.sroa.speculated.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 range(i64 -4294967287, 8) %62, i64 range(i64 0, 4294967296) %34)
   %.off.i = add nsw i8 %.0.i.i.i, -1
   %switch.i = icmp ult i8 %.off.i, -2
   %.0.sroa.speculated.i = select i1 %switch.i, i64 %34, i64 %62

@@ -2961,7 +2961,7 @@ define internal fastcc range(i32 0, 2) i32 @GetCombinedHistogramEntropy(ptr noun
   %or.cond76 = and i1 %or.cond, %38
   br i1 %or.cond76, label %40, label %46
 
-40:                                               ; preds = %35
+40:; preds = %35
   %41 = and i32 %34, 255
   %42 = lshr i32 %34, 16
   %43 = and i32 %42, 255
