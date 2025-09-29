@@ -46650,22 +46650,22 @@ define internal void @stbir__decode_uint8_linear_BGRA(ptr noundef %0, i32 nounde
   %19 = shufflevector <8 x i16> %18, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %20 = shufflevector <8 x i16> %18, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %21 = bitcast <8 x i16> %16 to <4 x i32>
-  %22 = uitofp nneg <4 x i32> %21 to <4 x float>
-  %23 = bitcast <8 x i16> %17 to <4 x i32>
-  %24 = uitofp nneg <4 x i32> %23 to <4 x float>
-  %25 = bitcast <8 x i16> %19 to <4 x i32>
-  %26 = uitofp nneg <4 x i32> %25 to <4 x float>
-  %27 = bitcast <8 x i16> %20 to <4 x i32>
-  %28 = uitofp nneg <4 x i32> %27 to <4 x float>
-  %29 = shufflevector <4 x float> %22, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
-  %30 = shufflevector <4 x float> %24, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
-  %31 = shufflevector <4 x float> %26, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
-  %32 = shufflevector <4 x float> %28, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
-  store <4 x float> %29, ptr %.061, align 1
+  %22 = bitcast <8 x i16> %17 to <4 x i32>
+  %23 = bitcast <8 x i16> %19 to <4 x i32>
+  %24 = bitcast <8 x i16> %20 to <4 x i32>
+  %25 = uitofp nneg <4 x i32> %21 to <4 x float>
+  %26 = shufflevector <4 x float> %25, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
+  %27 = uitofp nneg <4 x i32> %22 to <4 x float>
+  %28 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
+  %29 = uitofp nneg <4 x i32> %23 to <4 x float>
+  %30 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
+  %31 = uitofp nneg <4 x i32> %24 to <4 x float>
+  %32 = shufflevector <4 x float> %31, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
+  store <4 x float> %26, ptr %.061, align 1
   %33 = getelementptr inbounds nuw i8, ptr %.061, i64 16
-  store <4 x float> %30, ptr %33, align 1
+  store <4 x float> %28, ptr %33, align 1
   %34 = getelementptr inbounds nuw i8, ptr %.061, i64 32
-  store <4 x float> %31, ptr %34, align 1
+  store <4 x float> %30, ptr %34, align 1
   %35 = getelementptr inbounds nuw i8, ptr %.061, i64 48
   store <4 x float> %32, ptr %35, align 1
   %36 = getelementptr inbounds nuw i8, ptr %.061, i64 64
@@ -46826,12 +46826,12 @@ define internal void @stbir__decode_uint16_linear_BGRA(ptr noundef %0, i32 nound
   %13 = shufflevector <8 x i16> %12, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %14 = shufflevector <8 x i16> %12, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %15 = bitcast <8 x i16> %13 to <4 x i32>
-  %16 = uitofp nneg <4 x i32> %15 to <4 x float>
-  %17 = bitcast <8 x i16> %14 to <4 x i32>
-  %18 = uitofp nneg <4 x i32> %17 to <4 x float>
-  %19 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
-  %20 = shufflevector <4 x float> %18, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
-  store <4 x float> %19, ptr %.045, align 1
+  %16 = bitcast <8 x i16> %14 to <4 x i32>
+  %17 = uitofp nneg <4 x i32> %15 to <4 x float>
+  %18 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
+  %19 = uitofp nneg <4 x i32> %16 to <4 x float>
+  %20 = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
+  store <4 x float> %18, ptr %.045, align 1
   %21 = getelementptr inbounds nuw i8, ptr %.045, i64 16
   store <4 x float> %20, ptr %21, align 1
   %22 = getelementptr inbounds nuw i8, ptr %.045, i64 32
@@ -47016,22 +47016,22 @@ define internal void @stbir__decode_uint8_linear_ARGB(ptr noundef %0, i32 nounde
   %19 = shufflevector <8 x i16> %18, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %20 = shufflevector <8 x i16> %18, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %21 = bitcast <8 x i16> %16 to <4 x i32>
-  %22 = uitofp nneg <4 x i32> %21 to <4 x float>
-  %23 = bitcast <8 x i16> %17 to <4 x i32>
-  %24 = uitofp nneg <4 x i32> %23 to <4 x float>
-  %25 = bitcast <8 x i16> %19 to <4 x i32>
-  %26 = uitofp nneg <4 x i32> %25 to <4 x float>
-  %27 = bitcast <8 x i16> %20 to <4 x i32>
-  %28 = uitofp nneg <4 x i32> %27 to <4 x float>
-  %29 = shufflevector <4 x float> %22, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %30 = shufflevector <4 x float> %24, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %31 = shufflevector <4 x float> %26, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %32 = shufflevector <4 x float> %28, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  store <4 x float> %29, ptr %.061, align 1
+  %22 = bitcast <8 x i16> %17 to <4 x i32>
+  %23 = bitcast <8 x i16> %19 to <4 x i32>
+  %24 = bitcast <8 x i16> %20 to <4 x i32>
+  %25 = uitofp nneg <4 x i32> %21 to <4 x float>
+  %26 = shufflevector <4 x float> %25, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %27 = uitofp nneg <4 x i32> %22 to <4 x float>
+  %28 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %29 = uitofp nneg <4 x i32> %23 to <4 x float>
+  %30 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %31 = uitofp nneg <4 x i32> %24 to <4 x float>
+  %32 = shufflevector <4 x float> %31, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  store <4 x float> %26, ptr %.061, align 1
   %33 = getelementptr inbounds nuw i8, ptr %.061, i64 16
-  store <4 x float> %30, ptr %33, align 1
+  store <4 x float> %28, ptr %33, align 1
   %34 = getelementptr inbounds nuw i8, ptr %.061, i64 32
-  store <4 x float> %31, ptr %34, align 1
+  store <4 x float> %30, ptr %34, align 1
   %35 = getelementptr inbounds nuw i8, ptr %.061, i64 48
   store <4 x float> %32, ptr %35, align 1
   %36 = getelementptr inbounds nuw i8, ptr %.061, i64 64
@@ -47192,12 +47192,12 @@ define internal void @stbir__decode_uint16_linear_ARGB(ptr noundef %0, i32 nound
   %13 = shufflevector <8 x i16> %12, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %14 = shufflevector <8 x i16> %12, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %15 = bitcast <8 x i16> %13 to <4 x i32>
-  %16 = uitofp nneg <4 x i32> %15 to <4 x float>
-  %17 = bitcast <8 x i16> %14 to <4 x i32>
-  %18 = uitofp nneg <4 x i32> %17 to <4 x float>
-  %19 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %20 = shufflevector <4 x float> %18, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  store <4 x float> %19, ptr %.045, align 1
+  %16 = bitcast <8 x i16> %14 to <4 x i32>
+  %17 = uitofp nneg <4 x i32> %15 to <4 x float>
+  %18 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %19 = uitofp nneg <4 x i32> %16 to <4 x float>
+  %20 = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  store <4 x float> %18, ptr %.045, align 1
   %21 = getelementptr inbounds nuw i8, ptr %.045, i64 16
   store <4 x float> %20, ptr %21, align 1
   %22 = getelementptr inbounds nuw i8, ptr %.045, i64 32
@@ -47382,22 +47382,22 @@ define internal void @stbir__decode_uint8_linear_ABGR(ptr noundef %0, i32 nounde
   %19 = shufflevector <8 x i16> %18, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %20 = shufflevector <8 x i16> %18, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %21 = bitcast <8 x i16> %16 to <4 x i32>
-  %22 = uitofp nneg <4 x i32> %21 to <4 x float>
-  %23 = bitcast <8 x i16> %17 to <4 x i32>
-  %24 = uitofp nneg <4 x i32> %23 to <4 x float>
-  %25 = bitcast <8 x i16> %19 to <4 x i32>
-  %26 = uitofp nneg <4 x i32> %25 to <4 x float>
-  %27 = bitcast <8 x i16> %20 to <4 x i32>
-  %28 = uitofp nneg <4 x i32> %27 to <4 x float>
-  %29 = shufflevector <4 x float> %22, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  %30 = shufflevector <4 x float> %24, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  %31 = shufflevector <4 x float> %26, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  %32 = shufflevector <4 x float> %28, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %29, ptr %.061, align 1
+  %22 = bitcast <8 x i16> %17 to <4 x i32>
+  %23 = bitcast <8 x i16> %19 to <4 x i32>
+  %24 = bitcast <8 x i16> %20 to <4 x i32>
+  %25 = uitofp nneg <4 x i32> %21 to <4 x float>
+  %26 = shufflevector <4 x float> %25, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  %27 = uitofp nneg <4 x i32> %22 to <4 x float>
+  %28 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  %29 = uitofp nneg <4 x i32> %23 to <4 x float>
+  %30 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  %31 = uitofp nneg <4 x i32> %24 to <4 x float>
+  %32 = shufflevector <4 x float> %31, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  store <4 x float> %26, ptr %.061, align 1
   %33 = getelementptr inbounds nuw i8, ptr %.061, i64 16
-  store <4 x float> %30, ptr %33, align 1
+  store <4 x float> %28, ptr %33, align 1
   %34 = getelementptr inbounds nuw i8, ptr %.061, i64 32
-  store <4 x float> %31, ptr %34, align 1
+  store <4 x float> %30, ptr %34, align 1
   %35 = getelementptr inbounds nuw i8, ptr %.061, i64 48
   store <4 x float> %32, ptr %35, align 1
   %36 = getelementptr inbounds nuw i8, ptr %.061, i64 64
@@ -47558,12 +47558,12 @@ define internal void @stbir__decode_uint16_linear_ABGR(ptr noundef %0, i32 nound
   %13 = shufflevector <8 x i16> %12, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %14 = shufflevector <8 x i16> %12, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %15 = bitcast <8 x i16> %13 to <4 x i32>
-  %16 = uitofp nneg <4 x i32> %15 to <4 x float>
-  %17 = bitcast <8 x i16> %14 to <4 x i32>
-  %18 = uitofp nneg <4 x i32> %17 to <4 x float>
-  %19 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  %20 = shufflevector <4 x float> %18, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %19, ptr %.045, align 1
+  %16 = bitcast <8 x i16> %14 to <4 x i32>
+  %17 = uitofp nneg <4 x i32> %15 to <4 x float>
+  %18 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  %19 = uitofp nneg <4 x i32> %16 to <4 x float>
+  %20 = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  store <4 x float> %18, ptr %.045, align 1
   %21 = getelementptr inbounds nuw i8, ptr %.045, i64 16
   store <4 x float> %20, ptr %21, align 1
   %22 = getelementptr inbounds nuw i8, ptr %.045, i64 32
@@ -47773,22 +47773,22 @@ define internal void @stbir__decode_uint8_linear_AR(ptr noundef %0, i32 noundef 
   %19 = shufflevector <8 x i16> %18, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %20 = shufflevector <8 x i16> %18, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %21 = bitcast <8 x i16> %16 to <4 x i32>
-  %22 = uitofp nneg <4 x i32> %21 to <4 x float>
-  %23 = bitcast <8 x i16> %17 to <4 x i32>
-  %24 = uitofp nneg <4 x i32> %23 to <4 x float>
-  %25 = bitcast <8 x i16> %19 to <4 x i32>
-  %26 = uitofp nneg <4 x i32> %25 to <4 x float>
-  %27 = bitcast <8 x i16> %20 to <4 x i32>
-  %28 = uitofp nneg <4 x i32> %27 to <4 x float>
-  %29 = shufflevector <4 x float> %22, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %30 = shufflevector <4 x float> %24, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %31 = shufflevector <4 x float> %26, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %32 = shufflevector <4 x float> %28, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  store <4 x float> %29, ptr %.070, align 1
+  %22 = bitcast <8 x i16> %17 to <4 x i32>
+  %23 = bitcast <8 x i16> %19 to <4 x i32>
+  %24 = bitcast <8 x i16> %20 to <4 x i32>
+  %25 = uitofp nneg <4 x i32> %21 to <4 x float>
+  %26 = shufflevector <4 x float> %25, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %27 = uitofp nneg <4 x i32> %22 to <4 x float>
+  %28 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %29 = uitofp nneg <4 x i32> %23 to <4 x float>
+  %30 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %31 = uitofp nneg <4 x i32> %24 to <4 x float>
+  %32 = shufflevector <4 x float> %31, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  store <4 x float> %26, ptr %.070, align 1
   %33 = getelementptr inbounds nuw i8, ptr %.070, i64 16
-  store <4 x float> %30, ptr %33, align 1
+  store <4 x float> %28, ptr %33, align 1
   %34 = getelementptr inbounds nuw i8, ptr %.070, i64 32
-  store <4 x float> %31, ptr %34, align 1
+  store <4 x float> %30, ptr %34, align 1
   %35 = getelementptr inbounds nuw i8, ptr %.070, i64 48
   store <4 x float> %32, ptr %35, align 1
   %36 = getelementptr inbounds nuw i8, ptr %.070, i64 64
@@ -47997,12 +47997,12 @@ define internal void @stbir__decode_uint16_linear_AR(ptr noundef %0, i32 noundef
   %13 = shufflevector <8 x i16> %12, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %14 = shufflevector <8 x i16> %12, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %15 = bitcast <8 x i16> %13 to <4 x i32>
-  %16 = uitofp nneg <4 x i32> %15 to <4 x float>
-  %17 = bitcast <8 x i16> %14 to <4 x i32>
-  %18 = uitofp nneg <4 x i32> %17 to <4 x float>
-  %19 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %20 = shufflevector <4 x float> %18, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  store <4 x float> %19, ptr %.054, align 1
+  %16 = bitcast <8 x i16> %14 to <4 x i32>
+  %17 = uitofp nneg <4 x i32> %15 to <4 x float>
+  %18 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %19 = uitofp nneg <4 x i32> %16 to <4 x float>
+  %20 = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  store <4 x float> %18, ptr %.054, align 1
   %21 = getelementptr inbounds nuw i8, ptr %.054, i64 16
   store <4 x float> %20, ptr %21, align 1
   %22 = getelementptr inbounds nuw i8, ptr %.054, i64 32

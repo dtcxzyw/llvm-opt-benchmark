@@ -626,29 +626,28 @@ if.then17:                                        ; preds = %if.end15
   %21 = bitcast i64 %20 to <2 x float>
   %22 = fsub <2 x float> splat (float 1.000000e+00), %21
   %23 = load <4 x i32>, ptr %clippingRect, align 16, !tbaa !45
-  %24 = shufflevector <4 x i32> %23, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
-  %25 = shufflevector <4 x i32> %23, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
-  %26 = sub nsw <2 x i32> %24, %25
-  %27 = sitofp <2 x i32> %26 to <2 x float>
-  %28 = shufflevector <2 x float> %27, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %29 = shufflevector <2 x float> %22, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %30 = shufflevector <4 x float> %19, <4 x float> %29, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %31 = fmul <4 x float> %30, %28
-  %32 = fadd <4 x float> %31, splat (float 5.000000e-01)
-  %33 = tail call <4 x float> @llvm.floor.v4f32(<4 x float> %32)
-  %34 = fptosi <4 x float> %33 to <4 x i32>
-  %35 = add nsw <4 x i32> %23, %34
-  %36 = sub nsw <4 x i32> %23, %34
-  %37 = shufflevector <4 x i32> %35, <4 x i32> %36, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  store <4 x i32> %37, ptr %clippingRect, align 16, !tbaa !45
+  %24 = shufflevector <4 x i32> %23, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
+  %25 = shufflevector <4 x i32> %23, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %26 = sub nsw <4 x i32> %24, %25
+  %27 = sitofp <4 x i32> %26 to <4 x float>
+  %28 = shufflevector <2 x float> %22, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %29 = shufflevector <4 x float> %19, <4 x float> %28, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %30 = fmul <4 x float> %29, %27
+  %31 = fadd <4 x float> %30, splat (float 5.000000e-01)
+  %32 = tail call <4 x float> @llvm.floor.v4f32(<4 x float> %31)
+  %33 = fptosi <4 x float> %32 to <4 x i32>
+  %34 = add nsw <4 x i32> %23, %33
+  %35 = sub nsw <4 x i32> %23, %33
+  %36 = shufflevector <4 x i32> %34, <4 x i32> %35, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  store <4 x i32> %36, ptr %clippingRect, align 16, !tbaa !45
   %AbsoluteRect = getelementptr inbounds nuw i8, ptr %this, i64 64
   %bc23 = bitcast <4 x i32> %17 to <16 x i8>
-  %38 = extractelement <16 x i8> %bc23, i64 4
-  %tobool24 = icmp ne i8 %38, 0
+  %37 = extractelement <16 x i8> %bc23, i64 4
+  %tobool24 = icmp ne i8 %37, 0
   %vtable25 = load ptr, ptr %call5, align 8, !tbaa !3
   %vfn26 = getelementptr inbounds nuw i8, ptr %vtable25, i64 400
-  %39 = load ptr, ptr %vfn26, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(16) %AbsoluteRect, ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, ptr noundef nonnull %clippingRect, ptr noundef nonnull %Colors, i1 noundef zeroext %tobool24) #17
+  %38 = load ptr, ptr %vfn26, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(16) %AbsoluteRect, ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, ptr noundef nonnull %clippingRect, ptr noundef nonnull %Colors, i1 noundef zeroext %tobool24) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %clippingRect)
   call void @llvm.lifetime.end.p0(ptr nonnull %Colors)
   br label %if.end40
@@ -658,136 +657,136 @@ if.else:                                          ; preds = %if.end15
   %AbsoluteRect28 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %sub.i.i66 = sub nsw i32 %15, %14
   %sub.i4.i = sub nsw i32 %13, %12
-  %40 = load i64, ptr %AbsoluteRect28, align 8
+  %39 = load i64, ptr %AbsoluteRect28, align 8
   %LowerRightCorner.i69 = getelementptr inbounds nuw i8, ptr %clippingRect27, i64 8
-  %41 = trunc i64 %40 to i32
-  %add.i70 = add nsw i32 %sub.i.i66, %41
-  %42 = lshr i64 %40, 32
-  %43 = trunc nuw i64 %42 to i32
-  %add2.i = add nsw i32 %sub.i4.i, %43
+  %40 = trunc i64 %39 to i32
+  %add.i70 = add nsw i32 %sub.i.i66, %40
+  %41 = lshr i64 %39, 32
+  %42 = trunc nuw i64 %41 to i32
+  %add2.i = add nsw i32 %sub.i4.i, %42
   %Y.i.i73 = getelementptr inbounds nuw i8, ptr %clippingRect27, i64 12
   %conv.i76 = sitofp i32 %sub.i.i66 to float
   %Y2.i.i78 = getelementptr inbounds nuw i8, ptr %clippingRect27, i64 4
   %conv3.i80 = sitofp i32 %sub.i4.i to float
   %DrawBounds.i81 = getelementptr inbounds nuw i8, ptr %this, i64 344
-  %44 = load float, ptr %DrawBounds.i81, align 8, !tbaa !57
-  %mul.i82 = fmul float %44, %conv.i76
+  %43 = load float, ptr %DrawBounds.i81, align 8, !tbaa !57
+  %mul.i82 = fmul float %43, %conv.i76
   %add.i.i.i83 = fadd float %mul.i82, 5.000000e-01
-  %45 = tail call noundef float @llvm.floor.f32(float %add.i.i.i83)
-  %conv.i.i84 = fptosi float %45 to i32
-  %add.i85 = add nsw i32 %conv.i.i84, %41
+  %44 = tail call noundef float @llvm.floor.f32(float %add.i.i.i83)
+  %conv.i.i84 = fptosi float %44 to i32
+  %add.i85 = add nsw i32 %conv.i.i84, %40
   store i32 %add.i85, ptr %clippingRect27, align 4, !tbaa !52
   %Y.i86 = getelementptr inbounds nuw i8, ptr %this, i64 348
-  %46 = load float, ptr %Y.i86, align 4, !tbaa !58
-  %mul9.i87 = fmul float %46, %conv3.i80
+  %45 = load float, ptr %Y.i86, align 4, !tbaa !58
+  %mul9.i87 = fmul float %45, %conv3.i80
   %add.i.i38.i88 = fadd float %mul9.i87, 5.000000e-01
-  %47 = tail call noundef float @llvm.floor.f32(float %add.i.i38.i88)
-  %conv.i39.i89 = fptosi float %47 to i32
-  %add13.i90 = add nsw i32 %conv.i39.i89, %43
+  %46 = tail call noundef float @llvm.floor.f32(float %add.i.i38.i88)
+  %conv.i39.i89 = fptosi float %46 to i32
+  %add13.i90 = add nsw i32 %conv.i39.i89, %42
   store i32 %add13.i90, ptr %Y2.i.i78, align 4, !tbaa !54
   %LowerRightCorner.i91 = getelementptr inbounds nuw i8, ptr %this, i64 352
-  %48 = load float, ptr %LowerRightCorner.i91, align 8, !tbaa !59
-  %sub.i92 = fsub float 1.000000e+00, %48
+  %47 = load float, ptr %LowerRightCorner.i91, align 8, !tbaa !59
+  %sub.i92 = fsub float 1.000000e+00, %47
   %mul16.i93 = fmul float %sub.i92, %conv.i76
   %add.i.i40.i94 = fadd float %mul16.i93, 5.000000e-01
-  %49 = tail call noundef float @llvm.floor.f32(float %add.i.i40.i94)
-  %conv.i41.i95 = fptosi float %49 to i32
+  %48 = tail call noundef float @llvm.floor.f32(float %add.i.i40.i94)
+  %conv.i41.i95 = fptosi float %48 to i32
   %sub20.i96 = sub i32 %add.i70, %conv.i41.i95
   store i32 %sub20.i96, ptr %LowerRightCorner.i69, align 4, !tbaa !51
   %Y23.i97 = getelementptr inbounds nuw i8, ptr %this, i64 356
-  %50 = load float, ptr %Y23.i97, align 4, !tbaa !60
-  %sub24.i98 = fsub float 1.000000e+00, %50
+  %49 = load float, ptr %Y23.i97, align 4, !tbaa !60
+  %sub24.i98 = fsub float 1.000000e+00, %49
   %mul25.i99 = fmul float %sub24.i98, %conv3.i80
   %add.i.i42.i100 = fadd float %mul25.i99, 5.000000e-01
-  %51 = tail call noundef float @llvm.floor.f32(float %add.i.i42.i100)
-  %conv.i43.i101 = fptosi float %51 to i32
+  %50 = tail call noundef float @llvm.floor.f32(float %add.i.i42.i100)
+  %conv.i43.i101 = fptosi float %50 to i32
   %sub29.i102 = sub i32 %add2.i, %conv.i43.i101
   store i32 %sub29.i102, ptr %Y.i.i73, align 4, !tbaa !53
   %AbsoluteClippingRect31 = getelementptr inbounds nuw i8, ptr %this, i64 80
   %LowerRightCorner.i103 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %52 = load i32, ptr %LowerRightCorner.i103, align 8, !tbaa !51
-  %cmp.i = icmp slt i32 %52, %sub20.i96
+  %51 = load i32, ptr %LowerRightCorner.i103, align 8, !tbaa !51
+  %cmp.i = icmp slt i32 %51, %sub20.i96
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.else
-  store i32 %52, ptr %LowerRightCorner.i69, align 4, !tbaa !51
+  store i32 %51, ptr %LowerRightCorner.i69, align 4, !tbaa !51
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.else
-  %53 = phi i32 [ %52, %if.then.i ], [ %sub20.i96, %if.else ]
+  %52 = phi i32 [ %51, %if.then.i ], [ %sub20.i96, %if.else ]
   %Y.i104 = getelementptr inbounds nuw i8, ptr %this, i64 92
-  %54 = load i32, ptr %Y.i104, align 4, !tbaa !53
-  %cmp11.i = icmp slt i32 %54, %sub29.i102
+  %53 = load i32, ptr %Y.i104, align 4, !tbaa !53
+  %cmp11.i = icmp slt i32 %53, %sub29.i102
   br i1 %cmp11.i, label %if.then12.i, label %if.end17.i
 
 if.then12.i:                                      ; preds = %if.end.i
-  store i32 %54, ptr %Y.i.i73, align 4, !tbaa !53
+  store i32 %53, ptr %Y.i.i73, align 4, !tbaa !53
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  %55 = phi i32 [ %54, %if.then12.i ], [ %sub29.i102, %if.end.i ]
-  %56 = load i32, ptr %AbsoluteClippingRect31, align 8, !tbaa !52
-  %cmp21.i = icmp sgt i32 %56, %53
+  %54 = phi i32 [ %53, %if.then12.i ], [ %sub29.i102, %if.end.i ]
+  %55 = load i32, ptr %AbsoluteClippingRect31, align 8, !tbaa !52
+  %cmp21.i = icmp sgt i32 %55, %52
   br i1 %cmp21.i, label %if.then22.i, label %if.end27.i
 
 if.then22.i:                                      ; preds = %if.end17.i
-  store i32 %56, ptr %LowerRightCorner.i69, align 4, !tbaa !51
+  store i32 %55, ptr %LowerRightCorner.i69, align 4, !tbaa !51
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.then22.i, %if.end17.i
   %Y29.i = getelementptr inbounds nuw i8, ptr %this, i64 84
-  %57 = load i32, ptr %Y29.i, align 4, !tbaa !54
-  %cmp32.i = icmp sgt i32 %57, %55
+  %56 = load i32, ptr %Y29.i, align 4, !tbaa !54
+  %cmp32.i = icmp sgt i32 %56, %54
   br i1 %cmp32.i, label %if.then33.i, label %if.end38.i
 
 if.then33.i:                                      ; preds = %if.end27.i
-  store i32 %57, ptr %Y.i.i73, align 4, !tbaa !53
+  store i32 %56, ptr %Y.i.i73, align 4, !tbaa !53
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.then33.i, %if.end27.i
-  %cmp43.i = icmp slt i32 %52, %add.i85
+  %cmp43.i = icmp slt i32 %51, %add.i85
   br i1 %cmp43.i, label %if.then44.i, label %if.end49.i
 
 if.then44.i:                                      ; preds = %if.end38.i
-  store i32 %52, ptr %clippingRect27, align 4, !tbaa !52
+  store i32 %51, ptr %clippingRect27, align 4, !tbaa !52
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.then44.i, %if.end38.i
-  %58 = phi i32 [ %52, %if.then44.i ], [ %add.i85, %if.end38.i ]
-  %cmp54.i = icmp slt i32 %54, %add13.i90
+  %57 = phi i32 [ %51, %if.then44.i ], [ %add.i85, %if.end38.i ]
+  %cmp54.i = icmp slt i32 %53, %add13.i90
   br i1 %cmp54.i, label %if.then55.i, label %if.end60.i
 
 if.then55.i:                                      ; preds = %if.end49.i
-  store i32 %54, ptr %Y2.i.i78, align 4, !tbaa !54
+  store i32 %53, ptr %Y2.i.i78, align 4, !tbaa !54
   br label %if.end60.i
 
 if.end60.i:                                       ; preds = %if.then55.i, %if.end49.i
-  %59 = phi i32 [ %54, %if.then55.i ], [ %add13.i90, %if.end49.i ]
-  %cmp65.i = icmp sgt i32 %56, %58
+  %58 = phi i32 [ %53, %if.then55.i ], [ %add13.i90, %if.end49.i ]
+  %cmp65.i = icmp sgt i32 %55, %57
   br i1 %cmp65.i, label %if.then66.i, label %if.end71.i
 
 if.then66.i:                                      ; preds = %if.end60.i
-  store i32 %56, ptr %clippingRect27, align 4, !tbaa !52
+  store i32 %55, ptr %clippingRect27, align 4, !tbaa !52
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.then66.i, %if.end60.i
-  %cmp76.i = icmp sgt i32 %57, %59
+  %cmp76.i = icmp sgt i32 %56, %58
   br i1 %cmp76.i, label %if.then77.i, label %_ZN3irr4core4rectIiE11clipAgainstERKS2_.exit
 
 if.then77.i:                                      ; preds = %if.end71.i
-  store i32 %57, ptr %Y2.i.i78, align 4, !tbaa !54
+  store i32 %56, ptr %Y2.i.i78, align 4, !tbaa !54
   br label %_ZN3irr4core4rectIiE11clipAgainstERKS2_.exit
 
 _ZN3irr4core4rectIiE11clipAgainstERKS2_.exit:     ; preds = %if.then77.i, %if.end71.i
   %Color35 = getelementptr inbounds nuw i8, ptr %this, i64 320
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %Color35, align 8, !tbaa !45
   %UseAlphaChannel36 = getelementptr inbounds nuw i8, ptr %this, i64 324
-  %60 = load i8, ptr %UseAlphaChannel36, align 4, !tbaa !38, !range !47, !noundef !48
-  %tobool37 = icmp ne i8 %60, 0
+  %59 = load i8, ptr %UseAlphaChannel36, align 4, !tbaa !38, !range !47, !noundef !48
+  %tobool37 = icmp ne i8 %59, 0
   %vtable38 = load ptr, ptr %call5, align 8, !tbaa !3
   %vfn39 = getelementptr inbounds nuw i8, ptr %vtable38, i64 384
-  %61 = load ptr, ptr %vfn39, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(8) %AbsoluteRect28, ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, ptr noundef nonnull %clippingRect27, i32 %agg.tmp.sroa.0.0.copyload, i1 noundef zeroext %tobool37) #17
+  %60 = load ptr, ptr %vfn39, align 8
+  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(8) %AbsoluteRect28, ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, ptr noundef nonnull %clippingRect27, i32 %agg.tmp.sroa.0.0.copyload, i1 noundef zeroext %tobool37) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %clippingRect27)
   br label %if.end40
 
@@ -797,8 +796,8 @@ if.end40:                                         ; preds = %_ZN3irr4core4rectIi
 
 if.else41:                                        ; preds = %if.end
   %DrawBackground = getelementptr inbounds nuw i8, ptr %this, i64 360
-  %62 = load i8, ptr %DrawBackground, align 8, !tbaa !41, !range !47, !noundef !48
-  %tobool42.not = icmp eq i8 %62, 0
+  %61 = load i8, ptr %DrawBackground, align 8, !tbaa !41, !range !47, !noundef !48
+  %tobool42.not = icmp eq i8 %61, 0
   br i1 %tobool42.not, label %if.end55, label %if.then43
 
 if.then43:                                        ; preds = %if.else41
@@ -806,37 +805,36 @@ if.then43:                                        ; preds = %if.else41
   %AbsoluteClippingRect45 = getelementptr inbounds nuw i8, ptr %this, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %clippingRect44, ptr noundef nonnull align 8 dereferenceable(16) %AbsoluteClippingRect45, i64 16, i1 false), !tbaa.struct !50
   %DrawBounds.i112 = getelementptr inbounds nuw i8, ptr %this, i64 344
-  %63 = load <4 x float>, ptr %DrawBounds.i112, align 8
-  %bc24 = bitcast <4 x float> %63 to <2 x i64>
-  %64 = extractelement <2 x i64> %bc24, i64 1
-  %65 = bitcast i64 %64 to <2 x float>
-  %66 = fsub <2 x float> splat (float 1.000000e+00), %65
-  %67 = load <4 x i32>, ptr %clippingRect44, align 16, !tbaa !45
-  %68 = shufflevector <4 x i32> %67, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
-  %69 = shufflevector <4 x i32> %67, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
-  %70 = sub nsw <2 x i32> %68, %69
-  %71 = sitofp <2 x i32> %70 to <2 x float>
-  %72 = shufflevector <2 x float> %71, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %73 = shufflevector <2 x float> %66, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %74 = shufflevector <4 x float> %63, <4 x float> %73, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %75 = fmul <4 x float> %74, %72
-  %76 = fadd <4 x float> %75, splat (float 5.000000e-01)
-  %77 = tail call <4 x float> @llvm.floor.v4f32(<4 x float> %76)
-  %78 = fptosi <4 x float> %77 to <4 x i32>
-  %79 = add nsw <4 x i32> %67, %78
-  %80 = sub nsw <4 x i32> %67, %78
-  %81 = shufflevector <4 x i32> %79, <4 x i32> %80, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  store <4 x i32> %81, ptr %clippingRect44, align 16, !tbaa !45
+  %62 = load <4 x float>, ptr %DrawBounds.i112, align 8
+  %bc24 = bitcast <4 x float> %62 to <2 x i64>
+  %63 = extractelement <2 x i64> %bc24, i64 1
+  %64 = bitcast i64 %63 to <2 x float>
+  %65 = fsub <2 x float> splat (float 1.000000e+00), %64
+  %66 = load <4 x i32>, ptr %clippingRect44, align 16, !tbaa !45
+  %67 = shufflevector <4 x i32> %66, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 2, i32 3>
+  %68 = shufflevector <4 x i32> %66, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %69 = sub nsw <4 x i32> %67, %68
+  %70 = sitofp <4 x i32> %69 to <4 x float>
+  %71 = shufflevector <2 x float> %65, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %72 = shufflevector <4 x float> %62, <4 x float> %71, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %73 = fmul <4 x float> %72, %70
+  %74 = fadd <4 x float> %73, splat (float 5.000000e-01)
+  %75 = tail call <4 x float> @llvm.floor.v4f32(<4 x float> %74)
+  %76 = fptosi <4 x float> %75 to <4 x i32>
+  %77 = add nsw <4 x i32> %66, %76
+  %78 = sub nsw <4 x i32> %66, %76
+  %79 = shufflevector <4 x i32> %77, <4 x i32> %78, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  store <4 x i32> %79, ptr %clippingRect44, align 16, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp46)
   %vtable47 = load ptr, ptr %call, align 8, !tbaa !3
-  %82 = load ptr, ptr %vtable47, align 8
-  %call49 = tail call i32 %82(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef 0) #17
+  %80 = load ptr, ptr %vtable47, align 8
+  %call49 = tail call i32 %80(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef 0) #17
   store i32 %call49, ptr %ref.tmp46, align 4
   %AbsoluteRect51 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %vtable52 = load ptr, ptr %call, align 8, !tbaa !3
   %vfn53 = getelementptr inbounds nuw i8, ptr %vtable52, i64 168
-  %83 = load ptr, ptr %vfn53, align 8
-  call void %83(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %this, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp46, ptr noundef nonnull align 4 dereferenceable(16) %AbsoluteRect51, ptr noundef nonnull %clippingRect44) #17
+  %81 = load ptr, ptr %vfn53, align 8
+  call void %81(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %this, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp46, ptr noundef nonnull align 4 dereferenceable(16) %AbsoluteRect51, ptr noundef nonnull %clippingRect44) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp46)
   call void @llvm.lifetime.end.p0(ptr nonnull %clippingRect44)
   br label %if.end55
@@ -844,8 +842,8 @@ if.then43:                                        ; preds = %if.else41
 if.end55:                                         ; preds = %if.then43, %if.else41, %if.end40
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !3
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 104
-  %84 = load ptr, ptr %vfn.i, align 8
-  %call.i = call noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(308) %this) #17
+  %82 = load ptr, ptr %vfn.i, align 8
+  %call.i = call noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(308) %this) #17
   br i1 %call.i, label %if.then.i135, label %return
 
 if.then.i135:                                     ; preds = %if.end55
@@ -857,11 +855,11 @@ if.then.i135:                                     ; preds = %if.end55
 for.body.i:                                       ; preds = %if.then.i135, %for.body.i
   %__begin3.sroa.0.015.i = phi ptr [ %__begin3.sroa.0.0.i, %for.body.i ], [ %__begin3.sroa.0.013.i, %if.then.i135 ]
   %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.015.i, i64 16
-  %85 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !62
-  %vtable7.i = load ptr, ptr %85, align 8, !tbaa !3
+  %83 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !62
+  %vtable7.i = load ptr, ptr %83, align 8, !tbaa !3
   %vfn8.i = getelementptr inbounds nuw i8, ptr %vtable7.i, i64 80
-  %86 = load ptr, ptr %vfn8.i, align 8
-  call void %86(ptr noundef nonnull align 8 dereferenceable(308) %85) #17
+  %84 = load ptr, ptr %vfn8.i, align 8
+  call void %84(ptr noundef nonnull align 8 dereferenceable(308) %83) #17
   %__begin3.sroa.0.0.i = load ptr, ptr %__begin3.sroa.0.015.i, align 8, !tbaa !61
   %cmp.i.not.i = icmp eq ptr %__begin3.sroa.0.0.i, %Children.i
   br i1 %cmp.i.not.i, label %return, label %for.body.i

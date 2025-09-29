@@ -3748,10 +3748,10 @@ vector.body:                                      ; preds = %for.cond35.preheade
   %42 = trunc nuw <8 x i32> %41 to <8 x i8>
   %43 = lshr exact <8 x i16> %33, splat (i16 8)
   %44 = trunc nuw <8 x i16> %43 to <8 x i8>
-  %45 = trunc <8 x i16> %37 to <8 x i8>
-  %46 = shufflevector <8 x i8> %42, <8 x i8> %44, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %47 = shufflevector <8 x i8> %45, <8 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %interleaved.vec = shufflevector <16 x i8> %46, <16 x i8> %47, <24 x i32> <i32 0, i32 8, i32 16, i32 1, i32 9, i32 17, i32 2, i32 10, i32 18, i32 3, i32 11, i32 19, i32 4, i32 12, i32 20, i32 5, i32 13, i32 21, i32 6, i32 14, i32 22, i32 7, i32 15, i32 23>
+  %45 = shufflevector <8 x i8> %42, <8 x i8> %44, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %46 = shufflevector <8 x i16> %37, <8 x i16> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %47 = trunc <16 x i16> %46 to <16 x i8>
+  %interleaved.vec = shufflevector <16 x i8> %45, <16 x i8> %47, <24 x i32> <i32 0, i32 8, i32 16, i32 1, i32 9, i32 17, i32 2, i32 10, i32 18, i32 3, i32 11, i32 19, i32 4, i32 12, i32 20, i32 5, i32 13, i32 21, i32 6, i32 14, i32 22, i32 7, i32 15, i32 23>
   store <24 x i8> %interleaved.vec, ptr %40, align 1, !tbaa !29
   %index.next = add nuw nsw i64 %index, 8
   %48 = icmp eq i64 %index.next, %n.vec

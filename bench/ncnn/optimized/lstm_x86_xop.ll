@@ -961,8 +961,8 @@ define internal void @_ZN4ncnnL9lstm_int8ERKNS_3MatES2_RS0_iS2_S2_S2_S2_S3_S3_RK
   %181 = sext i8 %180 to i16
   %182 = insertelement <8 x i16> poison, i16 %181, i64 0
   %183 = shufflevector <8 x i16> %182, <8 x i16> poison, <8 x i32> zeroinitializer
-  %184 = sext <8 x i8> %178 to <8 x i16>
-  %185 = shufflevector <8 x i16> %184, <8 x i16> poison, <8 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3>
+  %184 = shufflevector <8 x i8> %178, <8 x i8> poison, <8 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3>
+  %185 = sext <8 x i8> %184 to <8 x i16>
   %186 = call <4 x i32> @llvm.x86.xop.vpmacswd(<8 x i16> %185, <8 x i16> %183, <4 x i32> %177)
   %187 = getelementptr inbounds nuw i8, ptr %.3291, i64 4
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
@@ -1128,8 +1128,8 @@ define internal void @_ZN4ncnnL9lstm_int8ERKNS_3MatES2_RS0_iS2_S2_S2_S2_S3_S3_RK
   %283 = sext i8 %282 to i16
   %284 = insertelement <8 x i16> poison, i16 %283, i64 0
   %285 = shufflevector <8 x i16> %284, <8 x i16> poison, <8 x i32> zeroinitializer
-  %286 = sext <8 x i8> %280 to <8 x i16>
-  %287 = shufflevector <8 x i16> %286, <8 x i16> poison, <8 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3>
+  %286 = shufflevector <8 x i8> %280, <8 x i8> poison, <8 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3>
+  %287 = sext <8 x i8> %286 to <8 x i16>
   %288 = call <4 x i32> @llvm.x86.xop.vpmacswd(<8 x i16> %287, <8 x i16> %285, <4 x i32> %279)
   %289 = getelementptr inbounds nuw i8, ptr %.7324, i64 4
   %indvars.iv.next380 = add nuw nsw i64 %indvars.iv379, 1

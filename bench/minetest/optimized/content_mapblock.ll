@@ -11369,8 +11369,8 @@ if.end51.thread:                                  ; preds = %if.else47, %if.end4
   %159 = call nsz double @llvm.fmuladd.f64(double %149, double 0x3CA1A62633145C07, double 0xBF592E0000000000)
   %conv17.i46.3.i268 = fptrunc double %159 to float
   %160 = call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %148, <2 x double> <double -1.000000e+00, double 0x3CA1A62633145C07>, <2 x double> <double 0xBC0BC6595DA2AA54, double 0xBF592E0000000000>)
-  %161 = fptrunc <2 x double> %160 to <2 x float>
-  %162 = shufflevector <2 x float> %161, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %161 = shufflevector <2 x double> %160, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %162 = fptrunc <2 x double> %161 to <2 x float>
   store <2 x float> %162, ptr %Z2.i.2.i261, align 16, !tbaa !49
   store float %conv17.i46.3.i268, ptr %Z2.i.3.i265, align 4, !tbaa !50
   store float 0x40090A08C0000000, ptr %Y3.i.3.i266, align 8, !tbaa !104
@@ -11494,8 +11494,8 @@ if.then59:                                        ; preds = %if.else57, %if.end5
   %206 = fsub nsz double 0xBC14D4C30639FFBE, %196
   %conv17.i46.3.i335 = fptrunc double %206 to float
   %207 = call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %195, <2 x double> <double 0xBCAA79394C9E8A0A, double -1.000000e+00>, <2 x double> <double 0x3F592E0000000000, double 0xBC14D4C30639FFBE>)
-  %208 = fptrunc <2 x double> %207 to <2 x float>
-  %209 = shufflevector <2 x float> %208, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %208 = shufflevector <2 x double> %207, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %209 = fptrunc <2 x double> %208 to <2 x float>
   store <2 x float> %209, ptr %Z2.i.2.i328, align 16, !tbaa !49
   store float %conv17.i46.3.i335, ptr %Z2.i.3.i332, align 4, !tbaa !50
   store float 0x40090A08C0000000, ptr %Y3.i.3.i333, align 8, !tbaa !104
@@ -11556,8 +11556,8 @@ if.then63:                                        ; preds = %if.end61
   %230 = fmul nsz double %219, 0x3FE6A09E667F3BCC
   %conv17.i46.3.i368 = fptrunc double %230 to float
   %231 = fmul nsz <2 x double> %217, <double 0x3FE6A09E667F3BCD, double 0x3FE6A09E667F3BCC>
-  %232 = fptrunc <2 x double> %231 to <2 x float>
-  %233 = shufflevector <2 x float> %232, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %232 = shufflevector <2 x double> %231, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %233 = fptrunc <2 x double> %232 to <2 x float>
   store <2 x float> %233, ptr %Z2.i.2.i361, align 16, !tbaa !49
   store float %conv17.i46.3.i368, ptr %Z2.i.3.i365, align 4, !tbaa !50
   store float -5.000000e+00, ptr %Y3.i.3.i366, align 8, !tbaa !104
@@ -11612,8 +11612,8 @@ if.then63:                                        ; preds = %if.end61
   %254 = fmul nsz double %243, 0xBFE6A09E667F3BCC
   %conv17.i46.3.i401 = fptrunc double %254 to float
   %255 = fmul nsz <2 x double> %241, <double 0x3FE6A09E667F3BCD, double 0xBFE6A09E667F3BCC>
-  %256 = fptrunc <2 x double> %255 to <2 x float>
-  %257 = shufflevector <2 x float> %256, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %256 = shufflevector <2 x double> %255, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %257 = fptrunc <2 x double> %256 to <2 x float>
   store <2 x float> %257, ptr %Z2.i.2.i394, align 16, !tbaa !49
   store float %conv17.i46.3.i401, ptr %Z2.i.3.i398, align 4, !tbaa !50
   store float -5.000000e+00, ptr %Y3.i.3.i399, align 8, !tbaa !104
