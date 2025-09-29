@@ -3945,7 +3945,6 @@ define dso_local i16 @_ZN4llvm3MVT5getVTEPNS_4TypeEb(ptr noundef readonly captur
   ]
 
 5:                                                ; preds = %2
-  tail call void @llvm.assume(i1 %1)
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 6:                                                ; preds = %2
@@ -4051,7 +4050,6 @@ _ZN4llvmeqENS_9StringRefES0_.exit34.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit34.thread47:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread43, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread45, %_ZN4llvmeqENS_9StringRefES0_.exit34
-  tail call void @llvm.assume(i1 %1)
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 38:                                               ; preds = %2

@@ -2405,77 +2405,75 @@ define hidden void @_ZN8ciReplay10initializeEP15ciInstanceKlassP13InstanceKlass(
   %2 = load ptr, ptr @_ZL12replay_state, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = load i32, ptr %3, align 4
-  %5 = icmp sgt i32 %4, 0
-  tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %7 = load ptr, ptr %6, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %6 = load ptr, ptr %5, align 8
   %wide.trip.count.i = zext nneg i32 %4 to i64
+  %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %1, %9
-  br i1 %10, label %_ZN13CompileReplay20find_ciInstanceKlassEPK13InstanceKlass.exit, label %.lr.ph
+  %9 = icmp eq ptr %1, %8
+  br i1 %9, label %_ZN13CompileReplay20find_ciInstanceKlassEPK13InstanceKlass.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %.lr.ph
   %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i, %.lr.ph ], [ 0, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i6, 1
   %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, %wide.trip.count.i
   tail call void @llvm.assume(i1 %exitcond.not.i)
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next.i
+  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.next.i
+  %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %1, %13
-  br i1 %14, label %_ZN13CompileReplay20find_ciInstanceKlassEPK13InstanceKlass.exit, label %.lr.ph
+  %13 = icmp eq ptr %1, %12
+  br i1 %13, label %_ZN13CompileReplay20find_ciInstanceKlassEPK13InstanceKlass.exit, label %.lr.ph
 
 _ZN13CompileReplay20find_ciInstanceKlassEPK13InstanceKlass.exit: ; preds = %.lr.ph, %.lr.ph.i
-  %.lcssa = phi ptr [ %8, %.lr.ph.i ], [ %12, %.lr.ph ]
-  %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1808
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %_ZN5ciEnv12get_instanceEP7oopDesc.exit, label %21
+  %.lcssa = phi ptr [ %7, %.lr.ph.i ], [ %11, %.lr.ph ]
+  %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1808
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %_ZN5ciEnv12get_instanceEP7oopDesc.exit, label %20
 
-21:                                               ; preds = %_ZN13CompileReplay20find_ciInstanceKlassEPK13InstanceKlass.exit
-  %22 = ptrtoint ptr %20 to i64
-  %23 = and i64 %22, 3
-  switch i64 %23, label %32 [
-    i64 1, label %24
-    i64 2, label %28
+20:                                               ; preds = %_ZN13CompileReplay20find_ciInstanceKlassEPK13InstanceKlass.exit
+  %21 = ptrtoint ptr %19 to i64
+  %22 = and i64 %21, 3
+  switch i64 %22, label %31 [
+    i64 1, label %23
+    i64 2, label %27
   ]
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %20, i64 -1
-  %26 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %27 = tail call noundef ptr %26(ptr noundef nonnull %25) #17
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds i8, ptr %19, i64 -1
+  %25 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %26 = tail call noundef ptr %25(ptr noundef nonnull %24) #17
   br label %_ZN10JNIHandles7resolveEP8_jobject.exit
 
-28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %20, i64 -2
-  %30 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %31 = tail call noundef ptr %30(ptr noundef nonnull %29) #17
+27:                                               ; preds = %20
+  %28 = getelementptr inbounds i8, ptr %19, i64 -2
+  %29 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %30 = tail call noundef ptr %29(ptr noundef nonnull %28) #17
   br label %_ZN10JNIHandles7resolveEP8_jobject.exit
 
-32:                                               ; preds = %21
-  %33 = load ptr, ptr %20, align 8
+31:                                               ; preds = %20
+  %32 = load ptr, ptr %19, align 8
   br label %_ZN10JNIHandles7resolveEP8_jobject.exit
 
-_ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %24, %28, %32
-  %.0.i3 = phi ptr [ %27, %24 ], [ %31, %28 ], [ %33, %32 ]
-  %34 = icmp eq ptr %.0.i3, null
-  br i1 %34, label %_ZN5ciEnv12get_instanceEP7oopDesc.exit, label %_ZN5ciEnv10get_objectEP7oopDesc.exit.i
+_ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %23, %27, %31
+  %.0.i3 = phi ptr [ %26, %23 ], [ %30, %27 ], [ %32, %31 ]
+  %33 = icmp eq ptr %.0.i3, null
+  br i1 %33, label %_ZN5ciEnv12get_instanceEP7oopDesc.exit, label %_ZN5ciEnv10get_objectEP7oopDesc.exit.i
 
 _ZN5ciEnv10get_objectEP7oopDesc.exit.i:           ; preds = %_ZN10JNIHandles7resolveEP8_jobject.exit
-  %35 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call noundef ptr @_ZN15ciObjectFactory3getEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(652) %36, ptr noundef nonnull %.0.i3) #17
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call noundef ptr @_ZN15ciObjectFactory3getEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(652) %35, ptr noundef nonnull %.0.i3) #17
   br label %_ZN5ciEnv12get_instanceEP7oopDesc.exit
 
 _ZN5ciEnv12get_instanceEP7oopDesc.exit:           ; preds = %_ZN13CompileReplay20find_ciInstanceKlassEPK13InstanceKlass.exit, %_ZN10JNIHandles7resolveEP8_jobject.exit, %_ZN5ciEnv10get_objectEP7oopDesc.exit.i
-  %.0.i4 = phi ptr [ %37, %_ZN5ciEnv10get_objectEP7oopDesc.exit.i ], [ null, %_ZN10JNIHandles7resolveEP8_jobject.exit ], [ null, %_ZN13CompileReplay20find_ciInstanceKlassEPK13InstanceKlass.exit ]
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %.0.i4, ptr %38, align 8
+  %.0.i4 = phi ptr [ %36, %_ZN5ciEnv10get_objectEP7oopDesc.exit.i ], [ null, %_ZN10JNIHandles7resolveEP8_jobject.exit ], [ null, %_ZN13CompileReplay20find_ciInstanceKlassEPK13InstanceKlass.exit ]
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %.0.i4, ptr %37, align 8
   ret void
 }
 

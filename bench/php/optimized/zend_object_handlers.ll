@@ -970,41 +970,34 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @zend_asymmetric_property_has_set_access(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !61
-  %4 = and i32 %3, 6144
-  %5 = icmp ne i32 %4, 0
-  tail call void @llvm.assume(i1 %5)
-  %6 = and i32 %3, 1024
-  %.not = icmp eq i32 %6, 0
-  tail call void @llvm.assume(i1 %.not)
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 520), align 8, !tbaa !62
-  %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %8, label %get_fake_or_executed_scope.exit, !prof !59
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 520), align 8, !tbaa !62
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %4, label %get_fake_or_executed_scope.exit, !prof !59
 
-8:                                                ; preds = %1
-  %9 = tail call ptr @zend_get_executed_scope() #18
+4:                                                ; preds = %1
+  %5 = tail call ptr @zend_get_executed_scope() #18
   br label %get_fake_or_executed_scope.exit
 
-get_fake_or_executed_scope.exit:                  ; preds = %1, %8
-  %.0.i = phi ptr [ %9, %8 ], [ %7, %1 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !88
-  %12 = icmp eq ptr %11, %.0.i
-  br i1 %12, label %19, label %13
+get_fake_or_executed_scope.exit:                  ; preds = %1, %4
+  %.0.i = phi ptr [ %5, %4 ], [ %3, %1 ]
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = load ptr, ptr %6, align 8, !tbaa !88
+  %8 = icmp eq ptr %7, %.0.i
+  br i1 %8, label %15, label %9
 
-13:                                               ; preds = %get_fake_or_executed_scope.exit
-  %14 = load i32, ptr %2, align 4, !tbaa !61
-  %15 = and i32 %14, 2048
-  %.not10 = icmp eq i32 %15, 0
-  br i1 %.not10, label %19, label %16, !prof !38
+9:                                                ; preds = %get_fake_or_executed_scope.exit
+  %10 = load i32, ptr %2, align 4, !tbaa !61
+  %11 = and i32 %10, 2048
+  %.not10 = icmp eq i32 %11, 0
+  br i1 %.not10, label %15, label %12, !prof !38
 
-16:                                               ; preds = %13
-  %17 = tail call fastcc i32 @is_protected_compatible_scope(ptr noundef %11, ptr noundef %.0.i)
-  %18 = icmp ne i32 %17, 0
-  br label %19
+12:                                               ; preds = %9
+  %13 = tail call fastcc i32 @is_protected_compatible_scope(ptr noundef %7, ptr noundef %.0.i)
+  %14 = icmp ne i32 %13, 0
+  br label %15
 
-19:                                               ; preds = %13, %16, %get_fake_or_executed_scope.exit
-  %.0 = phi i1 [ true, %get_fake_or_executed_scope.exit ], [ false, %13 ], [ %18, %16 ]
+15:                                               ; preds = %9, %12, %get_fake_or_executed_scope.exit
+  %.0 = phi i1 [ true, %get_fake_or_executed_scope.exit ], [ false, %9 ], [ %14, %12 ]
   ret i1 %.0
 }
 

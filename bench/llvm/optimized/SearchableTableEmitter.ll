@@ -2475,8 +2475,6 @@ _ZNK4llvm8ArrayRefIPKNS_6RecordEEcvSt6vectorIS3_SaIS3_EEEv.exit: ; preds = %_ZNS
   %848 = zext i32 %847 to i64
   %.idx.i.i.i.i816 = mul nuw nsw i64 %848, 56
   %849 = getelementptr inbounds nuw i8, ptr %845, i64 %.idx.i.i.i.i816
-  %.not16.i.i.i.i817 = icmp ne i32 %847, 0
-  call void @llvm.assume(i1 %.not16.i.i.i.i817)
   %850 = load ptr, ptr %845, align 8, !tbaa !157
   %.not15.i.i11.i.i818 = icmp eq ptr %850, %843
   br i1 %.not15.i.i11.i.i818, label %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.i.i823, label %.lr.ph.i.i.i.i819
@@ -2548,8 +2546,6 @@ _ZNK4llvm6Record8getValueENS_9StringRefE.exit.i.i823: ; preds = %.lr.ph.i.i.i.i8
   %878 = zext i32 %877 to i64
   %.idx.i.i.i.i803 = mul nuw nsw i64 %878, 56
   %879 = getelementptr inbounds nuw i8, ptr %875, i64 %.idx.i.i.i.i803
-  %.not16.i.i.i.i804 = icmp ne i32 %877, 0
-  call void @llvm.assume(i1 %.not16.i.i.i.i804)
   %880 = load ptr, ptr %875, align 8, !tbaa !157
   %.not15.i.i11.i.i805 = icmp eq ptr %880, %873
   br i1 %.not15.i.i11.i.i805, label %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.i.i810, label %.lr.ph.i.i.i.i806
@@ -2621,8 +2617,6 @@ _ZNK4llvm6Record8getValueENS_9StringRefE.exit.i.i810: ; preds = %.lr.ph.i.i.i.i8
   %908 = zext i32 %907 to i64
   %.idx.i.i.i.i790 = mul nuw nsw i64 %908, 56
   %909 = getelementptr inbounds nuw i8, ptr %905, i64 %.idx.i.i.i.i790
-  %.not16.i.i.i.i791 = icmp ne i32 %907, 0
-  call void @llvm.assume(i1 %.not16.i.i.i.i791)
   %910 = load ptr, ptr %905, align 8, !tbaa !157
   %.not15.i.i11.i.i792 = icmp eq ptr %910, %903
   br i1 %.not15.i.i11.i.i792, label %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.i.i797, label %.lr.ph.i.i.i.i793
@@ -2694,8 +2688,6 @@ _ZNK4llvm6Record8getValueENS_9StringRefE.exit.i.i797: ; preds = %.lr.ph.i.i.i.i7
   %938 = zext i32 %937 to i64
   %.idx.i.i.i.i777 = mul nuw nsw i64 %938, 56
   %939 = getelementptr inbounds nuw i8, ptr %935, i64 %.idx.i.i.i.i777
-  %.not16.i.i.i.i778 = icmp ne i32 %937, 0
-  call void @llvm.assume(i1 %.not16.i.i.i.i778)
   %940 = load ptr, ptr %935, align 8, !tbaa !157
   %.not15.i.i11.i.i779 = icmp eq ptr %940, %933
   br i1 %.not15.i.i11.i.i779, label %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.i.i784, label %.lr.ph.i.i.i.i780
@@ -2832,8 +2824,6 @@ _ZNK4llvm6Record8getValueENS_9StringRefE.exit.i.i784: ; preds = %.lr.ph.i.i.i.i7
   %985 = zext i32 %984 to i64
   %.idx.i.i.i.i773 = mul nuw nsw i64 %985, 56
   %986 = getelementptr inbounds nuw i8, ptr %982, i64 %.idx.i.i.i.i773
-  %.not16.i.i.i.i = icmp ne i32 %984, 0
-  call void @llvm.assume(i1 %.not16.i.i.i.i)
   %987 = load ptr, ptr %982, align 8, !tbaa !157
   %.not15.i.i11.i.i = icmp eq ptr %987, %980
   br i1 %.not15.i.i11.i.i, label %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.i.i, label %.lr.ph.i.i.i.i774
@@ -10339,8 +10329,6 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12
   %15 = zext i32 %14 to i64
   %.idx.i.i.i = mul nuw nsw i64 %15, 56
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i.i
-  %.not16.i.i.i = icmp ne i32 %14, 0
-  tail call void @llvm.assume(i1 %.not16.i.i.i)
   %17 = load ptr, ptr %12, align 8, !tbaa !157
   %.not15.i.i11.i = icmp eq ptr %17, %10
   br i1 %.not15.i.i11.i, label %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.i, label %.lr.ph.i.i.i

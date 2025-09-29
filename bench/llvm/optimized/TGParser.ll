@@ -6382,8 +6382,6 @@ _ZSt9__find_ifIPPKN4llvm4InitEN9__gnu_cxx5__ops16_Iter_equals_valIKS3_EEET_SA_SA
   %216 = zext i32 %215 to i64
   %.idx.i64 = mul nuw nsw i64 %216, 56
   %217 = getelementptr inbounds nuw i8, ptr %214, i64 %.idx.i64
-  %.not16.i = icmp ne i32 %215, 0
-  call void @llvm.assume(i1 %.not16.i)
   %218 = load ptr, ptr %214, align 8, !tbaa !55
   %.not15.i147 = icmp eq ptr %218, %213
   br i1 %.not15.i147, label %_ZNK4llvm6Record8getValueEPKNS_4InitE.exit, label %.lr.ph.i
@@ -9173,8 +9171,6 @@ _ZN4llvm15SmallVectorImplINS_5SMLocEE12emplace_backIJS1_EEERS1_DpOT_.exit: ; pre
   %124 = zext i32 %123 to i64
   %.idx.i = mul nuw nsw i64 %124, 56
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 %.idx.i
-  %.not16.i = icmp ne i32 %123, 0
-  call void @llvm.assume(i1 %.not16.i)
   %126 = load ptr, ptr %122, align 8, !tbaa !55
   %.not15.i148 = icmp eq ptr %126, %121
   br i1 %.not15.i148, label %_ZNK4llvm6Record8getValueEPKNS_4InitE.exit, label %.lr.ph.i38

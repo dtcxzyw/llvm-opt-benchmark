@@ -1715,27 +1715,24 @@ define dso_local ptr @_ZNK4Luau13DataFlowGraph6getDefEPKNS_7AstExprE(ptr noundef
   br i1 %17, label %_ZNK4Luau12DenseHashMapIPKNS_7AstExprEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %18 = phi ptr [ %23, %.lr.ph ], [ %16, %2 ]
   %.02129.i.i4 = phi i64 [ %.02129.i.i, %.lr.ph ], [ %.02129.i.i2, %2 ]
-  %.02028.i.i3 = phi i64 [ %20, %.lr.ph ], [ 0, %2 ]
-  %19 = icmp ne ptr %18, %5
-  tail call void @llvm.assume(i1 %19)
-  %20 = add i64 %.02028.i.i3, 1
-  %21 = add i64 %20, %.02129.i.i4
-  %.not.i.i = icmp ule i64 %20, %9
+  %.02028.i.i3 = phi i64 [ %18, %.lr.ph ], [ 0, %2 ]
+  %18 = add i64 %.02028.i.i3, 1
+  %19 = add i64 %18, %.02129.i.i4
+  %.not.i.i = icmp ule i64 %18, %9
   tail call void @llvm.assume(i1 %.not.i.i)
-  %.02129.i.i = and i64 %21, %9
-  %22 = getelementptr inbounds nuw %"struct.std::pair.126", ptr %14, i64 %.02129.i.i
-  %23 = load ptr, ptr %22, align 8, !tbaa !47
-  %24 = icmp eq ptr %23, %1
-  br i1 %24, label %_ZNK4Luau12DenseHashMapIPKNS_7AstExprEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph
+  %.02129.i.i = and i64 %19, %9
+  %20 = getelementptr inbounds nuw %"struct.std::pair.126", ptr %14, i64 %.02129.i.i
+  %21 = load ptr, ptr %20, align 8, !tbaa !47
+  %22 = icmp eq ptr %21, %1
+  br i1 %22, label %_ZNK4Luau12DenseHashMapIPKNS_7AstExprEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph
 
 _ZNK4Luau12DenseHashMapIPKNS_7AstExprEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit: ; preds = %.lr.ph, %2
-  %25 = phi i64 [ %.02129.i.i2, %2 ], [ %.02129.i.i, %.lr.ph ]
-  %26 = getelementptr inbounds nuw %"struct.std::pair.126", ptr %14, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !32
-  ret ptr %28
+  %23 = phi i64 [ %.02129.i.i2, %2 ], [ %.02129.i.i, %.lr.ph ]
+  %24 = getelementptr inbounds nuw %"struct.std::pair.126", ptr %14, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !32
+  ret ptr %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1874,27 +1871,24 @@ define dso_local ptr @_ZNK4Luau13DataFlowGraph6getDefEPKNS_8AstLocalE(ptr nounde
   br i1 %17, label %_ZNK4Luau12DenseHashMapIPKNS_8AstLocalEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %18 = phi ptr [ %23, %.lr.ph ], [ %16, %2 ]
   %.02129.i.i4 = phi i64 [ %.02129.i.i, %.lr.ph ], [ %.02129.i.i2, %2 ]
-  %.02028.i.i3 = phi i64 [ %20, %.lr.ph ], [ 0, %2 ]
-  %19 = icmp ne ptr %18, %5
-  tail call void @llvm.assume(i1 %19)
-  %20 = add i64 %.02028.i.i3, 1
-  %21 = add i64 %20, %.02129.i.i4
-  %.not.i.i = icmp ule i64 %20, %9
+  %.02028.i.i3 = phi i64 [ %18, %.lr.ph ], [ 0, %2 ]
+  %18 = add i64 %.02028.i.i3, 1
+  %19 = add i64 %18, %.02129.i.i4
+  %.not.i.i = icmp ule i64 %18, %9
   tail call void @llvm.assume(i1 %.not.i.i)
-  %.02129.i.i = and i64 %21, %9
-  %22 = getelementptr inbounds nuw %"struct.std::pair.130", ptr %14, i64 %.02129.i.i
-  %23 = load ptr, ptr %22, align 8, !tbaa !58
-  %24 = icmp eq ptr %23, %1
-  br i1 %24, label %_ZNK4Luau12DenseHashMapIPKNS_8AstLocalEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph
+  %.02129.i.i = and i64 %19, %9
+  %20 = getelementptr inbounds nuw %"struct.std::pair.130", ptr %14, i64 %.02129.i.i
+  %21 = load ptr, ptr %20, align 8, !tbaa !58
+  %22 = icmp eq ptr %21, %1
+  br i1 %22, label %_ZNK4Luau12DenseHashMapIPKNS_8AstLocalEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph
 
 _ZNK4Luau12DenseHashMapIPKNS_8AstLocalEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit: ; preds = %.lr.ph, %2
-  %25 = phi i64 [ %.02129.i.i2, %2 ], [ %.02129.i.i, %.lr.ph ]
-  %26 = getelementptr inbounds nuw %"struct.std::pair.130", ptr %14, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !32
-  ret ptr %28
+  %23 = phi i64 [ %.02129.i.i2, %2 ], [ %.02129.i.i, %.lr.ph ]
+  %24 = getelementptr inbounds nuw %"struct.std::pair.130", ptr %14, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !32
+  ret ptr %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
@@ -1919,27 +1913,24 @@ define dso_local ptr @_ZNK4Luau13DataFlowGraph6getDefEPKNS_20AstStatDeclareGloba
   br i1 %17, label %_ZNK4Luau12DenseHashMapIPKNS_7AstStatEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %18 = phi ptr [ %23, %.lr.ph ], [ %16, %2 ]
   %.02129.i.i5 = phi i64 [ %.02129.i.i, %.lr.ph ], [ %.02129.i.i3, %2 ]
-  %.02028.i.i4 = phi i64 [ %20, %.lr.ph ], [ 0, %2 ]
-  %19 = icmp ne ptr %18, %5
-  tail call void @llvm.assume(i1 %19)
-  %20 = add i64 %.02028.i.i4, 1
-  %21 = add i64 %20, %.02129.i.i5
-  %.not.i.i = icmp ule i64 %20, %9
+  %.02028.i.i4 = phi i64 [ %18, %.lr.ph ], [ 0, %2 ]
+  %18 = add i64 %.02028.i.i4, 1
+  %19 = add i64 %18, %.02129.i.i5
+  %.not.i.i = icmp ule i64 %18, %9
   tail call void @llvm.assume(i1 %.not.i.i)
-  %.02129.i.i = and i64 %21, %9
-  %22 = getelementptr inbounds nuw %"struct.std::pair.128", ptr %14, i64 %.02129.i.i
-  %23 = load ptr, ptr %22, align 8, !tbaa !65
-  %24 = icmp eq ptr %23, %1
-  br i1 %24, label %_ZNK4Luau12DenseHashMapIPKNS_7AstStatEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph
+  %.02129.i.i = and i64 %19, %9
+  %20 = getelementptr inbounds nuw %"struct.std::pair.128", ptr %14, i64 %.02129.i.i
+  %21 = load ptr, ptr %20, align 8, !tbaa !65
+  %22 = icmp eq ptr %21, %1
+  br i1 %22, label %_ZNK4Luau12DenseHashMapIPKNS_7AstStatEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph
 
 _ZNK4Luau12DenseHashMapIPKNS_7AstStatEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit: ; preds = %.lr.ph, %2
-  %25 = phi i64 [ %.02129.i.i3, %2 ], [ %.02129.i.i, %.lr.ph ]
-  %26 = getelementptr inbounds nuw %"struct.std::pair.128", ptr %14, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !32
-  ret ptr %28
+  %23 = phi i64 [ %.02129.i.i3, %2 ], [ %.02129.i.i, %.lr.ph ]
+  %24 = getelementptr inbounds nuw %"struct.std::pair.128", ptr %14, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !32
+  ret ptr %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
@@ -1964,27 +1955,24 @@ define dso_local ptr @_ZNK4Luau13DataFlowGraph6getDefEPKNS_22AstStatDeclareFunct
   br i1 %17, label %_ZNK4Luau12DenseHashMapIPKNS_7AstStatEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %18 = phi ptr [ %23, %.lr.ph ], [ %16, %2 ]
   %.02129.i.i5 = phi i64 [ %.02129.i.i, %.lr.ph ], [ %.02129.i.i3, %2 ]
-  %.02028.i.i4 = phi i64 [ %20, %.lr.ph ], [ 0, %2 ]
-  %19 = icmp ne ptr %18, %5
-  tail call void @llvm.assume(i1 %19)
-  %20 = add i64 %.02028.i.i4, 1
-  %21 = add i64 %20, %.02129.i.i5
-  %.not.i.i = icmp ule i64 %20, %9
+  %.02028.i.i4 = phi i64 [ %18, %.lr.ph ], [ 0, %2 ]
+  %18 = add i64 %.02028.i.i4, 1
+  %19 = add i64 %18, %.02129.i.i5
+  %.not.i.i = icmp ule i64 %18, %9
   tail call void @llvm.assume(i1 %.not.i.i)
-  %.02129.i.i = and i64 %21, %9
-  %22 = getelementptr inbounds nuw %"struct.std::pair.128", ptr %14, i64 %.02129.i.i
-  %23 = load ptr, ptr %22, align 8, !tbaa !65
-  %24 = icmp eq ptr %23, %1
-  br i1 %24, label %_ZNK4Luau12DenseHashMapIPKNS_7AstStatEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph
+  %.02129.i.i = and i64 %19, %9
+  %20 = getelementptr inbounds nuw %"struct.std::pair.128", ptr %14, i64 %.02129.i.i
+  %21 = load ptr, ptr %20, align 8, !tbaa !65
+  %22 = icmp eq ptr %21, %1
+  br i1 %22, label %_ZNK4Luau12DenseHashMapIPKNS_7AstStatEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph
 
 _ZNK4Luau12DenseHashMapIPKNS_7AstStatEPKNS_3DefENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit: ; preds = %.lr.ph, %2
-  %25 = phi i64 [ %.02129.i.i3, %2 ], [ %.02129.i.i, %.lr.ph ]
-  %26 = getelementptr inbounds nuw %"struct.std::pair.128", ptr %14, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !32
-  ret ptr %28
+  %23 = phi i64 [ %.02129.i.i3, %2 ], [ %.02129.i.i, %.lr.ph ]
+  %24 = getelementptr inbounds nuw %"struct.std::pair.128", ptr %14, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !32
+  ret ptr %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

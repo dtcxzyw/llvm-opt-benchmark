@@ -624,8 +624,6 @@ for.inc44:                                        ; preds = %for.body, %for.end4
   br i1 %exitcond44.not, label %for.end46.loopexit, label %for.body, !llvm.loop !8
 
 for.end46.loopexit:                               ; preds = %for.inc44
-  %10 = icmp ne i32 %updates.1, 0
-  tail call void @llvm.assume(i1 %10)
   tail call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %call8) #3
   br label %return
 

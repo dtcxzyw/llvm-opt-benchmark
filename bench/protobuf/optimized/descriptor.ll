@@ -49237,8 +49237,6 @@ if.end85:                                         ; preds = %if.then81
   %79 = load i32, ptr %number_.i, align 4
   %extension_range_count_.i.i = getelementptr inbounds nuw i8, ptr %78, i64 136
   %80 = load i32, ptr %extension_range_count_.i.i, align 8
-  %cmp12.i = icmp sgt i32 %80, 0
-  call void @llvm.assume(i1 %cmp12.i)
   %extension_ranges_.i.i = getelementptr inbounds nuw i8, ptr %78, i64 88
   %81 = load ptr, ptr %extension_ranges_.i.i, align 8
   %wide.trip.count.i = zext nneg i32 %80 to i64

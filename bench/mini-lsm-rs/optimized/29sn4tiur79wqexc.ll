@@ -10969,7 +10969,6 @@ define hidden void @"_ZN4core3ptr206drop_in_place$LT$smallvec..IntoIter$LT$$u5b$
   %5 = icmp eq i64 %.promoted.i, %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.pre4 = load i64, ptr %0, align 8, !range !60
   br i1 %5, label %"_ZN69_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd1367d425195ff4cE.llvm.1597650999041595525.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
@@ -10980,23 +10979,16 @@ define hidden void @"_ZN4core3ptr206drop_in_place$LT$smallvec..IntoIter$LT$$u5b$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3241)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3244)
   %6 = icmp ugt i64 %.pre, 4
-  br i1 %6, label %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i.i2", label %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h1b665bf7827cb222E.exit.i.i1"
-
-"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h1b665bf7827cb222E.exit.i.i1": ; preds = %"_ZN69_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd1367d425195ff4cE.llvm.1597650999041595525.exit"
-  %7 = icmp eq i64 %.pre4, 0
-  tail call void @llvm.assume(i1 %7)
-  br label %"_ZN4core3ptr206drop_in_place$LT$smallvec..SmallVec$LT$$u5b$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$u3b$$u20$4$u5d$$GT$$GT$17hafbe1a6692c650a1E.exit3"
+  br i1 %6, label %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i.i2", label %"_ZN4core3ptr206drop_in_place$LT$smallvec..SmallVec$LT$$u5b$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$u3b$$u20$4$u5d$$GT$$GT$17hafbe1a6692c650a1E.exit3"
 
 "_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i.i2": ; preds = %"_ZN69_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd1367d425195ff4cE.llvm.1597650999041595525.exit"
-  %8 = icmp ne i64 %.pre4, 0
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !3247, !nonnull !4, !noundef !4
-  %11 = shl nuw i64 %.pre, 3
-  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %11, i64 noundef 8) #30, !noalias !3248
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !alias.scope !3247, !nonnull !4, !noundef !4
+  %9 = shl nuw i64 %.pre, 3
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %9, i64 noundef 8) #30, !noalias !3248
   br label %"_ZN4core3ptr206drop_in_place$LT$smallvec..SmallVec$LT$$u5b$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$u3b$$u20$4$u5d$$GT$$GT$17hafbe1a6692c650a1E.exit3"
 
-"_ZN4core3ptr206drop_in_place$LT$smallvec..SmallVec$LT$$u5b$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$u3b$$u20$4$u5d$$GT$$GT$17hafbe1a6692c650a1E.exit3": ; preds = %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h1b665bf7827cb222E.exit.i.i1", %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i.i2"
+"_ZN4core3ptr206drop_in_place$LT$smallvec..SmallVec$LT$$u5b$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$u3b$$u20$4$u5d$$GT$$GT$17hafbe1a6692c650a1E.exit3": ; preds = %"_ZN69_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd1367d425195ff4cE.llvm.1597650999041595525.exit", %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i.i2"
   ret void
 }
 
@@ -11009,7 +11001,6 @@ define hidden void @"_ZN4core3ptr206drop_in_place$LT$smallvec..IntoIter$LT$$u5b$
   %5 = icmp eq i64 %.promoted.i, %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.pre4 = load i64, ptr %0, align 8, !range !60
   br i1 %5, label %"_ZN69_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c7030109bbb7c0cE.llvm.1597650999041595525.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
@@ -11020,23 +11011,16 @@ define hidden void @"_ZN4core3ptr206drop_in_place$LT$smallvec..IntoIter$LT$$u5b$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3258)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3261)
   %6 = icmp ugt i64 %.pre, 8
-  br i1 %6, label %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i.i2", label %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h4402c30ab4ebcfa6E.exit.i.i1"
-
-"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h4402c30ab4ebcfa6E.exit.i.i1": ; preds = %"_ZN69_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c7030109bbb7c0cE.llvm.1597650999041595525.exit"
-  %7 = icmp eq i64 %.pre4, 0
-  tail call void @llvm.assume(i1 %7)
-  br label %"_ZN4core3ptr206drop_in_place$LT$smallvec..SmallVec$LT$$u5b$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$u3b$$u20$8$u5d$$GT$$GT$17hc510cf2723083633E.exit3"
+  br i1 %6, label %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i.i2", label %"_ZN4core3ptr206drop_in_place$LT$smallvec..SmallVec$LT$$u5b$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$u3b$$u20$8$u5d$$GT$$GT$17hc510cf2723083633E.exit3"
 
 "_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i.i2": ; preds = %"_ZN69_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c7030109bbb7c0cE.llvm.1597650999041595525.exit"
-  %8 = icmp ne i64 %.pre4, 0
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !3264, !nonnull !4, !noundef !4
-  %11 = shl nuw i64 %.pre, 3
-  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %11, i64 noundef 8) #30, !noalias !3265
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !alias.scope !3264, !nonnull !4, !noundef !4
+  %9 = shl nuw i64 %.pre, 3
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %9, i64 noundef 8) #30, !noalias !3265
   br label %"_ZN4core3ptr206drop_in_place$LT$smallvec..SmallVec$LT$$u5b$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$u3b$$u20$8$u5d$$GT$$GT$17hc510cf2723083633E.exit3"
 
-"_ZN4core3ptr206drop_in_place$LT$smallvec..SmallVec$LT$$u5b$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$u3b$$u20$8$u5d$$GT$$GT$17hc510cf2723083633E.exit3": ; preds = %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h4402c30ab4ebcfa6E.exit.i.i1", %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i.i2"
+"_ZN4core3ptr206drop_in_place$LT$smallvec..SmallVec$LT$$u5b$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$u3b$$u20$8$u5d$$GT$$GT$17hc510cf2723083633E.exit3": ; preds = %"_ZN69_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c7030109bbb7c0cE.llvm.1597650999041595525.exit", %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i.i2"
   ret void
 }
 
@@ -11046,24 +11030,16 @@ define hidden void @"_ZN4core3ptr206drop_in_place$LT$smallvec..SmallVec$LT$$u5b$
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8, !alias.scope !3272, !noundef !4
   %4 = icmp ugt i64 %3, 4
-  %5 = load i64, ptr %0, align 8, !range !60, !alias.scope !3272, !noundef !4
-  br i1 %4, label %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i", label %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h1b665bf7827cb222E.exit.i"
-
-"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h1b665bf7827cb222E.exit.i": ; preds = %1
-  %6 = icmp eq i64 %5, 0
-  tail call void @llvm.assume(i1 %6)
-  br label %"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he390d45ab6ac4736E.llvm.1597650999041595525.exit"
+  br i1 %4, label %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i", label %"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he390d45ab6ac4736E.llvm.1597650999041595525.exit"
 
 "_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i": ; preds = %1
-  %7 = icmp ne i64 %5, 0
-  tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !alias.scope !3272, !nonnull !4, !noundef !4
-  %10 = shl nuw i64 %3, 3
-  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %10, i64 noundef 8) #30, !noalias !3275
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !alias.scope !3272, !nonnull !4, !noundef !4
+  %7 = shl nuw i64 %3, 3
+  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %7, i64 noundef 8) #30, !noalias !3275
   br label %"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he390d45ab6ac4736E.llvm.1597650999041595525.exit"
 
-"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he390d45ab6ac4736E.llvm.1597650999041595525.exit": ; preds = %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h1b665bf7827cb222E.exit.i", %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i"
+"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he390d45ab6ac4736E.llvm.1597650999041595525.exit": ; preds = %1, %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i"
   ret void
 }
 
@@ -11073,24 +11049,16 @@ define hidden void @"_ZN4core3ptr206drop_in_place$LT$smallvec..SmallVec$LT$$u5b$
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i64, ptr %2, align 8, !alias.scope !3282, !noundef !4
   %4 = icmp ugt i64 %3, 8
-  %5 = load i64, ptr %0, align 8, !range !60, !alias.scope !3282, !noundef !4
-  br i1 %4, label %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i", label %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h4402c30ab4ebcfa6E.exit.i"
-
-"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h4402c30ab4ebcfa6E.exit.i": ; preds = %1
-  %6 = icmp eq i64 %5, 0
-  tail call void @llvm.assume(i1 %6)
-  br label %"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2dba1a6281826d2E.llvm.1597650999041595525.exit"
+  br i1 %4, label %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i", label %"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2dba1a6281826d2E.llvm.1597650999041595525.exit"
 
 "_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i": ; preds = %1
-  %7 = icmp ne i64 %5, 0
-  tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !alias.scope !3282, !nonnull !4, !noundef !4
-  %10 = shl nuw i64 %3, 3
-  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %10, i64 noundef 8) #30, !noalias !3285
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !alias.scope !3282, !nonnull !4, !noundef !4
+  %7 = shl nuw i64 %3, 3
+  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %7, i64 noundef 8) #30, !noalias !3285
   br label %"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2dba1a6281826d2E.llvm.1597650999041595525.exit"
 
-"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2dba1a6281826d2E.llvm.1597650999041595525.exit": ; preds = %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h4402c30ab4ebcfa6E.exit.i", %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i"
+"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2dba1a6281826d2E.llvm.1597650999041595525.exit": ; preds = %1, %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit.i"
   ret void
 }
 
@@ -22320,24 +22288,16 @@ define hidden void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops.
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = icmp ugt i64 %3, 8
-  %5 = load i64, ptr %0, align 8, !range !60, !noundef !4
   br i1 %4, label %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit", label %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h4402c30ab4ebcfa6E.exit"
 
-"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h4402c30ab4ebcfa6E.exit": ; preds = %1
-  %6 = icmp eq i64 %5, 0
-  tail call void @llvm.assume(i1 %6)
-  br label %11
-
 "_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit": ; preds = %1
-  %7 = icmp ne i64 %5, 0
-  tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = shl nuw i64 %3, 3
-  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %10, i64 noundef 8) #30, !noalias !7033
-  br label %11
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
+  %7 = shl nuw i64 %3, 3
+  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %7, i64 noundef 8) #30, !noalias !7033
+  br label %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h4402c30ab4ebcfa6E.exit"
 
-11:                                               ; preds = %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit", %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h4402c30ab4ebcfa6E.exit"
+"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h4402c30ab4ebcfa6E.exit": ; preds = %1, %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit"
   ret void
 }
 
@@ -22346,24 +22306,16 @@ define hidden void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops.
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = icmp ugt i64 %3, 4
-  %5 = load i64, ptr %0, align 8, !range !60, !noundef !4
   br i1 %4, label %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit", label %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h1b665bf7827cb222E.exit"
 
-"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h1b665bf7827cb222E.exit": ; preds = %1
-  %6 = icmp eq i64 %5, 0
-  tail call void @llvm.assume(i1 %6)
-  br label %11
-
 "_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit": ; preds = %1
-  %7 = icmp ne i64 %5, 0
-  tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = shl nuw i64 %3, 3
-  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %10, i64 noundef 8) #30, !noalias !7040
-  br label %11
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
+  %7 = shl nuw i64 %3, 3
+  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %7, i64 noundef 8) #30, !noalias !7040
+  br label %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h1b665bf7827cb222E.exit"
 
-11:                                               ; preds = %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit", %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h1b665bf7827cb222E.exit"
+"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h1b665bf7827cb222E.exit": ; preds = %1, %"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$GT$$GT$17hfe6268ae8549d282E.llvm.1597650999041595525.exit"
   ret void
 }
 
@@ -28034,32 +27986,18 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h1d55a226dde94bd5E.
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp ugt i64 %4, 4
-  %6 = load i64, ptr %1, align 8, !range !60, !noundef !4
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %5, label %10, label %8
-
-8:                                                ; preds = %2
-  %9 = icmp eq i64 %6, 0
-  tail call void @llvm.assume(i1 %9)
-  br label %15
-
-10:                                               ; preds = %2
-  %11 = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %11)
-  %12 = load ptr, ptr %7, align 8, !noundef !4
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load i64, ptr %13, align 8, !noundef !4
-  br label %15
-
-15:                                               ; preds = %8, %10
-  %.sink3 = phi ptr [ %12, %10 ], [ %7, %8 ]
-  %.sink2 = phi i64 [ %14, %10 ], [ %4, %8 ]
-  %.sink = phi i64 [ %4, %10 ], [ 4, %8 ]
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = load i64, ptr %8, align 8
+  %.sink3 = select i1 %5, ptr %7, ptr %6
+  %.sink2 = select i1 %5, i64 %9, i64 %4
+  %.sink = tail call i64 @llvm.umax.i64(i64 %4, i64 4)
   store ptr %.sink3, ptr %0, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink2, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink, ptr %17, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink2, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sink, ptr %11, align 8
   ret void
 }
 
@@ -28068,32 +28006,18 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdb7f6996c3198329E.
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp ugt i64 %4, 8
-  %6 = load i64, ptr %1, align 8, !range !60, !noundef !4
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %5, label %10, label %8
-
-8:                                                ; preds = %2
-  %9 = icmp eq i64 %6, 0
-  tail call void @llvm.assume(i1 %9)
-  br label %15
-
-10:                                               ; preds = %2
-  %11 = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %11)
-  %12 = load ptr, ptr %7, align 8, !noundef !4
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load i64, ptr %13, align 8, !noundef !4
-  br label %15
-
-15:                                               ; preds = %8, %10
-  %.sink3 = phi ptr [ %12, %10 ], [ %7, %8 ]
-  %.sink2 = phi i64 [ %14, %10 ], [ %4, %8 ]
-  %.sink = phi i64 [ %4, %10 ], [ 8, %8 ]
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = load i64, ptr %8, align 8
+  %.sink3 = select i1 %5, ptr %7, ptr %6
+  %.sink2 = select i1 %5, i64 %9, i64 %4
+  %.sink = tail call i64 @llvm.umax.i64(i64 %4, i64 8)
   store ptr %.sink3, ptr %0, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink2, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink, ptr %17, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink2, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sink, ptr %11, align 8
   ret void
 }
 

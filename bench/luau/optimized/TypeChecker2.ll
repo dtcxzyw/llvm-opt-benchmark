@@ -7027,7 +7027,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %58 = call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %25)
-  br label %90
+  br label %88
 
 .thread:                                          ; preds = %20, %12, %7, %_ZNK4Luau7AstNameeqEPKc.exit, %17, %2
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -7052,36 +7052,33 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %75, label %_ZN4Luau12DenseHashMapIPKNS_7AstTypeEPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %.lr.ph
-  %76 = phi ptr [ %81, %.lr.ph ], [ %74, %.thread ]
   %.02129.i.i44 = phi i64 [ %.02129.i.i, %.lr.ph ], [ %.02129.i.i42, %.thread ]
-  %.02028.i.i43 = phi i64 [ %78, %.lr.ph ], [ 0, %.thread ]
-  %77 = icmp ne ptr %76, %63
-  tail call void @llvm.assume(i1 %77)
-  %78 = add i64 %.02028.i.i43, 1
-  %79 = add i64 %78, %.02129.i.i44
-  %.not.i.i = icmp ule i64 %78, %67
+  %.02028.i.i43 = phi i64 [ %76, %.lr.ph ], [ 0, %.thread ]
+  %76 = add i64 %.02028.i.i43, 1
+  %77 = add i64 %76, %.02129.i.i44
+  %.not.i.i = icmp ule i64 %76, %67
   tail call void @llvm.assume(i1 %.not.i.i)
-  %.02129.i.i = and i64 %79, %67
-  %80 = getelementptr inbounds nuw %"struct.std::pair.981", ptr %72, i64 %.02129.i.i
-  %81 = load ptr, ptr %80, align 8, !tbaa !419
-  %82 = icmp eq ptr %81, %1
-  br i1 %82, label %_ZN4Luau12DenseHashMapIPKNS_7AstTypeEPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph
+  %.02129.i.i = and i64 %77, %67
+  %78 = getelementptr inbounds nuw %"struct.std::pair.981", ptr %72, i64 %.02129.i.i
+  %79 = load ptr, ptr %78, align 8, !tbaa !419
+  %80 = icmp eq ptr %79, %1
+  br i1 %80, label %_ZN4Luau12DenseHashMapIPKNS_7AstTypeEPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph
 
 _ZN4Luau12DenseHashMapIPKNS_7AstTypeEPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit: ; preds = %.lr.ph, %.thread
-  %83 = phi i64 [ %.02129.i.i42, %.thread ], [ %.02129.i.i, %.lr.ph ]
-  %84 = getelementptr inbounds nuw %"struct.std::pair.981", ptr %72, i64 %83
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %86 = load ptr, ptr %85, align 8, !tbaa !232
-  %87 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %86)
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0.0.copyload = load i64, ptr %88, align 4
+  %81 = phi i64 [ %.02129.i.i42, %.thread ], [ %.02129.i.i, %.lr.ph ]
+  %82 = getelementptr inbounds nuw %"struct.std::pair.981", ptr %72, i64 %81
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !232
+  %85 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %84)
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0.0.copyload = load i64, ptr %86, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 4
-  %89 = tail call noundef ptr @_ZN4Luau12TypeChecker231checkForTypeFunctionInhabitanceEPKNS_4TypeENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(784) %0, ptr noundef %87, i64 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
-  br label %90
+  %87 = tail call noundef ptr @_ZN4Luau12TypeChecker231checkForTypeFunctionInhabitanceEPKNS_4TypeENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(784) %0, ptr noundef %85, i64 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
+  br label %88
 
-90:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24, %_ZN4Luau12DenseHashMapIPKNS_7AstTypeEPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit
-  %.3 = phi ptr [ %87, %_ZN4Luau12DenseHashMapIPKNS_7AstTypeEPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit ], [ %58, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24 ]
+88:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24, %_ZN4Luau12DenseHashMapIPKNS_7AstTypeEPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit
+  %.3 = phi ptr [ %85, %_ZN4Luau12DenseHashMapIPKNS_7AstTypeEPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit ], [ %58, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24 ]
   ret ptr %.3
 }
 

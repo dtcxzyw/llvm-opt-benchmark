@@ -7648,8 +7648,6 @@ entry:
   %conv.i = zext i32 %2 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i.idx
-  %cmp5 = icmp ne i32 %2, 0
-  tail call void @llvm.assume(i1 %cmp5)
   %3 = load ptr, ptr %1, align 8
   %cmp46 = icmp eq ptr %3, %this
   br i1 %cmp46, label %if.then, label %if.end
@@ -9939,8 +9937,6 @@ entry:
   %conv.i = zext i32 %2 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i.idx
-  %cmp5 = icmp ne i32 %2, 0
-  tail call void @llvm.assume(i1 %cmp5)
   %3 = load ptr, ptr %1, align 8
   %cmp46 = icmp eq ptr %3, %this
   br i1 %cmp46, label %if.then, label %if.end

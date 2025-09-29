@@ -793,8 +793,6 @@ avifQualityToQuantizer.exit254:                   ; preds = %87, %97
   %172 = load i16, ptr %9, align 2
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 12
   %174 = load i32, ptr %173, align 4
-  %.not.i = icmp ne i32 %174, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %175 = load ptr, ptr %171, align 8
   %wide.trip.count.i = zext i32 %174 to i64
   %176 = load i16, ptr %175, align 8
@@ -828,8 +826,6 @@ avifEncoderDataFindItemByID.exit:                 ; preds = %.lr.ph, %.lr.ph.i
 .lr.ph.i257:                                      ; preds = %avifEncoderDataFindItemByID.exit
   %188 = getelementptr inbounds nuw i8, ptr %183, i64 12
   %189 = load i32, ptr %188, align 4
-  %.not.i256 = icmp ne i32 %189, 0
-  tail call void @llvm.assume(i1 %.not.i256)
   %190 = load ptr, ptr %183, align 8
   %wide.trip.count.i258 = zext i32 %189 to i64
   %191 = load i16, ptr %190, align 8

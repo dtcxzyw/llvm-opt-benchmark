@@ -2488,30 +2488,28 @@ define hidden i32 @nvglImageHandleGL3(ptr noundef %0, i32 noundef %1) local_unna
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
-  %6 = icmp sgt i32 %5, 0
-  tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %8 = load ptr, ptr %7, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %7 = load ptr, ptr %6, align 8
   %wide.trip.count.i = zext nneg i32 %5 to i64
-  %9 = load i32, ptr %8, align 4
-  %10 = icmp eq i32 %9, %1
-  br i1 %10, label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit, label %.lr.ph
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp eq i32 %8, %1
+  br i1 %9, label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %.lr.ph
   %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i, %.lr.ph ], [ 0, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i3, 1
   %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, %wide.trip.count.i
   tail call void @llvm.assume(i1 %exitcond.not.i)
-  %11 = getelementptr inbounds nuw %struct.GLNVGtexture, ptr %8, i64 %indvars.iv.next.i
-  %12 = load i32, ptr %11, align 4
-  %13 = icmp eq i32 %12, %1
-  br i1 %13, label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit, label %.lr.ph
+  %10 = getelementptr inbounds nuw %struct.GLNVGtexture, ptr %7, i64 %indvars.iv.next.i
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp eq i32 %11, %1
+  br i1 %12, label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit, label %.lr.ph
 
 _ZL18glnvg__findTextureP12GLNVGcontexti.exit:     ; preds = %.lr.ph, %.lr.ph.i
-  %.lcssa = phi ptr [ %8, %.lr.ph.i ], [ %11, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 4
-  %15 = load i32, ptr %14, align 4
-  ret i32 %15
+  %.lcssa = phi ptr [ %7, %.lr.ph.i ], [ %10, %.lr.ph ]
+  %13 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 4
+  %14 = load i32, ptr %13, align 4
+  ret i32 %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

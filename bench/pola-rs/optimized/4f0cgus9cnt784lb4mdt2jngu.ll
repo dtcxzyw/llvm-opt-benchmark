@@ -19022,7 +19022,7 @@ define internal fastcc void @"_ZN14polars_compute17binview_index_map20VacantEntr
 14:                                               ; preds = %62, %.thread, %13, %42, %53
   %15 = landingpad { ptr, i32 }
           cleanup
-  br label %131
+  br label %130
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h98b4c3f3b99c2980E.exit": ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -19145,7 +19145,7 @@ define internal fastcc void @"_ZN14polars_compute17binview_index_map20VacantEntr
   %74 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h053274ce07c60e81E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #33
-          to label %131 unwind label %75
+          to label %130 unwind label %75
 
 75:                                               ; preds = %73
   %76 = landingpad { ptr, i32 }
@@ -19272,22 +19272,19 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
   %128 = getelementptr inbounds i32, ptr %108, i64 %127
   %129 = getelementptr inbounds i8, ptr %128, i64 -4
   store i32 %98, ptr %129, align 4, !noalias !1185
-  %130 = load i64, ptr %9, align 8, !noundef !6
-  %.not15 = icmp ne i64 %130, 0
-  tail call void @llvm.assume(i1 %.not15)
   ret void
 
-.body:                                            ; preds = %93, %131
-  %eh.lpad-body29 = phi { ptr, i32 } [ %eh.lpad-body.ph, %131 ], [ %94, %93 ]
+.body:                                            ; preds = %93, %130
+  %eh.lpad-body29 = phi { ptr, i32 } [ %eh.lpad-body.ph, %130 ], [ %94, %93 ]
   resume { ptr, i32 } %eh.lpad-body29
 
-131:                                              ; preds = %14, %73
+130:                                              ; preds = %14, %73
   %eh.lpad-body.ph = phi { ptr, i32 } [ %15, %14 ], [ %74, %73 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$polars_utils..idx_vec..UnitVec$LT$core..sync..atomic..AtomicU64$GT$$GT$17hee01a5d49fa9028eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1) #33
-          to label %.body unwind label %132
+          to label %.body unwind label %131
 
-132:                                              ; preds = %131
-  %133 = landingpad { ptr, i32 }
+131:                                              ; preds = %130
+  %132 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #34
   unreachable
@@ -19534,9 +19531,6 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
   %115 = getelementptr inbounds i32, ptr %95, i64 %114
   %116 = getelementptr inbounds i8, ptr %115, i64 -4
   store i32 %85, ptr %116, align 4, !noalias !1209
-  %117 = load i64, ptr %7, align 8, !noundef !6
-  %.not15 = icmp ne i64 %117, 0
-  tail call void @llvm.assume(i1 %.not15)
   ret void
 }
 

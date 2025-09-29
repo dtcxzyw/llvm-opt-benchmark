@@ -6206,7 +6206,7 @@ define dso_local void @_efree_large(ptr noundef %0, i64 noundef %1) local_unname
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 376
   %7 = load ptr, ptr %6, align 8, !tbaa !60
   tail call void %7(ptr noundef %0) #40
-  br label %36
+  br label %34
 
 8:                                                ; preds = %2
   %9 = ptrtoint ptr %0 to i64
@@ -6234,21 +6234,18 @@ define dso_local void @_efree_large(ptr noundef %0, i64 noundef %1) local_unname
   %25 = zext nneg i32 %23 to i64
   %26 = getelementptr inbounds nuw i32, ptr %24, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !24
-  %28 = and i32 %27, 1073741824
-  %29 = icmp ne i32 %28, 0
+  %28 = and i32 %27, 1023
+  %29 = icmp eq i32 %28, %20
   tail call void @llvm.assume(i1 %29)
-  %30 = and i32 %27, 1023
-  %31 = icmp eq i32 %30, %20
-  tail call void @llvm.assume(i1 %31)
-  %32 = and i64 %18, 4294963200
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %34 = load i64, ptr %33, align 16, !tbaa !61
-  %35 = sub i64 %34, %32
-  store i64 %35, ptr %33, align 16, !tbaa !61
+  %30 = and i64 %18, 4294963200
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %32 = load i64, ptr %31, align 16, !tbaa !61
+  %33 = sub i64 %32, %30
+  store i64 %33, ptr %31, align 16, !tbaa !61
   tail call fastcc void @zend_mm_free_pages(ptr noundef nonnull %3, ptr noundef nonnull %11, i32 noundef range(i32 0, 512) %23, i32 noundef range(i32 0, 1024) %20)
-  br label %36
+  br label %34
 
-36:                                               ; preds = %17, %5
+34:                                               ; preds = %17, %5
   ret void
 }
 

@@ -45105,9 +45105,6 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
   %115 = getelementptr inbounds i32, ptr %95, i64 %114
   %116 = getelementptr inbounds i8, ptr %115, i64 -4
   store i32 %85, ptr %116, align 4, !noalias !6910
-  %117 = load i64, ptr %7, align 8, !noundef !10
-  %.not15 = icmp ne i64 %117, 0
-  tail call void @llvm.assume(i1 %.not15)
   ret void
 }
 

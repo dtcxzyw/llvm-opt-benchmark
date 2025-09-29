@@ -286,6 +286,7 @@ $_ZTVN4llvm13format_objectIJfEEE = comdat any
 @_ZN4llvm3Any6TypeIdIPKNS_6ModuleEE2IdE = external global i8, align 1
 @_ZN4llvm3Any6TypeIdIPKNS_8FunctionEE2IdE = external global i8, align 1
 @_ZN4llvm3Any6TypeIdIPKNS_13LazyCallGraph3SCCEE2IdE = external global i8, align 1
+@_ZN4llvm3Any6TypeIdIPKNS_4LoopEE2IdE = external global i8, align 1
 @_ZTVN4llvm13format_objectIJfEEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN4llvm18format_object_base4homeEv, ptr @_ZNK4llvm13format_objectIJfEE7snprintEPcj] }, comdat, align 8
 @_ZN4llvm22BlockFrequencyAnalysis3KeyE = external global %"struct.llvm::AnalysisKey", align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_SampleProfileProbe.cpp, ptr null }]
@@ -1209,30 +1210,32 @@ _ZNK4llvm3Any3isaIPKNS_13LazyCallGraph3SCCEEEbv.exit.i: ; preds = %_ZNK4llvm3Any
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %112 = load ptr, ptr %111, align 8
   %113 = call noundef ptr %112(ptr noundef nonnull align 8 dereferenceable(8) %96) #24
-  %114 = load ptr, ptr %3, align 8, !tbaa !115
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  %116 = load ptr, ptr %115, align 8, !tbaa !135
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 32
-  %118 = load ptr, ptr %117, align 8, !tbaa !137
-  %119 = load ptr, ptr %118, align 8, !tbaa !140
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 72
+  %114 = icmp eq ptr %113, @_ZN4llvm3Any6TypeIdIPKNS_4LoopEE2IdE
+  call void @llvm.assume(i1 %114)
+  %115 = load ptr, ptr %3, align 8, !tbaa !115
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  %117 = load ptr, ptr %116, align 8, !tbaa !135
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 32
+  %119 = load ptr, ptr %118, align 8, !tbaa !137
+  %120 = load ptr, ptr %119, align 8, !tbaa !140
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 72
   br label %_ZN4llvm19PseudoProbeVerifier12runAfterPassEPKNS_6ModuleE.exit.sink.split
 
 _ZN4llvm19PseudoProbeVerifier12runAfterPassEPKNS_6ModuleE.exit.sink.split: ; preds = %.thread47, %89
-  %.sink.in = phi ptr [ %90, %89 ], [ %120, %.thread47 ]
+  %.sink.in = phi ptr [ %90, %89 ], [ %121, %.thread47 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !142
   call void @_ZN4llvm19PseudoProbeVerifier12runAfterPassEPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %.sink)
   br label %_ZN4llvm19PseudoProbeVerifier12runAfterPassEPKNS_6ModuleE.exit
 
 _ZN4llvm19PseudoProbeVerifier12runAfterPassEPKNS_6ModuleE.exit: ; preds = %.lr.ph.i28, %.lr.ph.i, %_ZN4llvm19PseudoProbeVerifier12runAfterPassEPKNS_6ModuleE.exit.sink.split, %97, %76
-  %121 = load ptr, ptr %6, align 8, !tbaa !66
-  %122 = icmp eq ptr %121, %43
-  br i1 %122, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
+  %122 = load ptr, ptr %6, align 8, !tbaa !66
+  %123 = icmp eq ptr %122, %43
+  br i1 %123, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33: ; preds = %_ZN4llvm19PseudoProbeVerifier12runAfterPassEPKNS_6ModuleE.exit
-  %123 = load i64, ptr %43, align 8, !tbaa !69
-  %124 = add i64 %123, 1
-  call void @_ZdlPvm(ptr noundef %121, i64 noundef %124) #25
+  %124 = load i64, ptr %43, align 8, !tbaa !69
+  %125 = add i64 %124, 1
+  call void @_ZdlPvm(ptr noundef %122, i64 noundef %125) #25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN4llvm19PseudoProbeVerifier12runAfterPassEPKNS_6ModuleE.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33

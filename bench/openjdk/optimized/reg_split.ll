@@ -2462,8 +2462,6 @@ _ZN7Compile16check_node_countEjPKc.exit:          ; preds = %236
 
 288:                                              ; preds = %276, %265
   %289 = load i32, ptr %261, align 8
-  %.not.i.i847 = icmp ne i32 %289, 0
-  call void @llvm.assume(i1 %.not.i.i847)
   %290 = load ptr, ptr %262, align 8
   %291 = load ptr, ptr %290, align 8
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 8

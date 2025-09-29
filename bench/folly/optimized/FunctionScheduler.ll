@@ -4711,7 +4711,7 @@ define linkonce_odr void @_ZN5folly3f146detail16F14VectorMapImplINS_5RangeIPKcEE
   %13 = load i64, ptr %12, align 8, !tbaa !18
   %14 = lshr i64 %13, 8
   %.not = icmp eq i64 %14, %10
-  br i1 %.not, label %61, label %15
+  br i1 %.not, label %59, label %15
 
 15:                                               ; preds = %4
   %16 = trunc i64 %14 to i32
@@ -4741,60 +4741,55 @@ define linkonce_odr void @_ZN5folly3f146detail16F14VectorMapImplINS_5RangeIPKcEE
   %30 = shufflevector <16 x i8> %29, <16 x i8> poison, <16 x i32> zeroinitializer
   %31 = load i64, ptr %12, align 8, !tbaa !18
   %32 = and i64 %31, 255
-  %33 = shl nuw i64 1, %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !7
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !7
   %notmask.i = shl nsw i64 -1, %32
-  %36 = xor i64 %notmask.i, -1
-  br label %37
+  %35 = xor i64 %notmask.i, -1
+  br label %36
 
-37:                                               ; preds = %55, %15
-  %.022.i = phi i64 [ %33, %15 ], [ %57, %55 ]
-  %.0.i = phi i64 [ %23, %15 ], [ %56, %55 ]
-  %.not.i = icmp ne i64 %.022.i, 0
-  call void @llvm.assume(i1 %.not.i)
-  %38 = and i64 %.0.i, %36
-  %39 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %35, i64 %38
-  %40 = load <16 x i8>, ptr %39, align 16
-  %41 = icmp eq <16 x i8> %40, %30
-  %42 = bitcast <16 x i1> %41 to i16
-  %43 = and i16 %42, 4095
-  %44 = zext nneg i16 %43 to i32
-  %45 = icmp ne ptr %39, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
-  %46 = getelementptr inbounds nuw i8, ptr %39, i64 16
+36:                                               ; preds = %54, %15
+  %.0.i = phi i64 [ %23, %15 ], [ %55, %54 ]
+  %37 = and i64 %.0.i, %35
+  %38 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %34, i64 %37
+  %39 = load <16 x i8>, ptr %38, align 16
+  %40 = icmp eq <16 x i8> %39, %30
+  %41 = bitcast <16 x i1> %40 to i16
+  %42 = and i16 %41, 4095
+  %43 = zext nneg i16 %42 to i32
+  %44 = icmp ne ptr %38, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 16
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %47, %37
-  %.sroa.018.0 = phi i32 [ %44, %37 ], [ %50, %47 ]
+.critedge.i:                                      ; preds = %46, %36
+  %.sroa.018.0 = phi i32 [ %43, %36 ], [ %49, %46 ]
   %.not36 = icmp eq i32 %.sroa.018.0, 0
-  br i1 %.not36, label %55, label %47
+  br i1 %.not36, label %54, label %46
 
-47:                                               ; preds = %.critedge.i
-  %48 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.018.0, i1 true)
-  %49 = add nsw i32 %.sroa.018.0, -1
-  %50 = and i32 %49, %.sroa.018.0
-  %51 = zext nneg i32 %48 to i64
-  call void @llvm.assume(i1 %45)
-  %52 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %46, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !114
-  %54 = icmp eq i32 %53, %16
-  br i1 %54, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSF_8PrefetchE.exit, label %.critedge.i, !prof !126, !llvm.loop !211
+46:                                               ; preds = %.critedge.i
+  %47 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.018.0, i1 true)
+  %48 = add nsw i32 %.sroa.018.0, -1
+  %49 = and i32 %48, %.sroa.018.0
+  %50 = zext nneg i32 %47 to i64
+  call void @llvm.assume(i1 %44)
+  %51 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %45, i64 %50
+  %52 = load i32, ptr %51, align 4, !tbaa !114
+  %53 = icmp eq i32 %52, %16
+  br i1 %53, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSF_8PrefetchE.exit, label %.critedge.i, !prof !126, !llvm.loop !211
 
-55:                                               ; preds = %.critedge.i
-  %56 = add i64 %27, %.0.i
-  %57 = add i64 %.022.i, -1
-  br label %37, !llvm.loop !212
+54:                                               ; preds = %.critedge.i
+  %55 = add i64 %27, %.0.i
+  br label %36, !llvm.loop !212
 
-_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSF_8PrefetchE.exit: ; preds = %47
-  %58 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %46, i64 %51
-  store i32 %9, ptr %58, align 4, !tbaa !114
-  %59 = icmp ne ptr %8, null
-  call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw %"struct.std::pair", ptr %8, i64 %14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(24) %60, i64 24, i1 false)
-  br label %61
+_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSF_8PrefetchE.exit: ; preds = %46
+  %56 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %45, i64 %50
+  store i32 %9, ptr %56, align 4, !tbaa !114
+  %57 = icmp ne ptr %8, null
+  call void @llvm.assume(i1 %57)
+  %58 = getelementptr inbounds nuw %"struct.std::pair", ptr %8, i64 %14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(24) %58, i64 24, i1 false)
+  br label %59
 
-61:                                               ; preds = %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSF_8PrefetchE.exit, %4
+59:                                               ; preds = %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSF_8PrefetchE.exit, %4
   ret void
 }
 

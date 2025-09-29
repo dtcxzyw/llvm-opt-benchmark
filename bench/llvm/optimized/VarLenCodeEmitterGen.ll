@@ -1863,8 +1863,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %_ZN
   %216 = zext i32 %215 to i64
   %.idx.i.i96 = mul nuw nsw i64 %216, 56
   %217 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx.i.i96
-  %.not16.i.i97 = icmp ne i32 %215, 0
-  call void @llvm.assume(i1 %.not16.i.i97)
   %218 = load ptr, ptr %213, align 8, !tbaa !161
   %.not15.i.i100493 = icmp eq ptr %218, %211
   br i1 %.not15.i.i100493, label %_ZNK4llvm6Record8getValueENS_9StringRefE.exit103, label %.lr.ph.i.i98
@@ -2228,8 +2226,6 @@ _ZNK4llvm6Record8getValueENS_9StringRefE.exit.thread: ; preds = %116, %120, %_ZN
   %379 = zext i32 %378 to i64
   %.idx.i.i112 = mul nuw nsw i64 %379, 56
   %380 = getelementptr inbounds nuw i8, ptr %376, i64 %.idx.i.i112
-  %.not16.i.i113 = icmp ne i32 %378, 0
-  call void @llvm.assume(i1 %.not16.i.i113)
   %381 = load ptr, ptr %376, align 8, !tbaa !161
   %.not15.i.i116498 = icmp eq ptr %381, %374
   br i1 %.not15.i.i116498, label %_ZNK4llvm6Record8getValueENS_9StringRefE.exit119, label %.lr.ph.i.i114

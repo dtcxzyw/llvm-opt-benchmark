@@ -10274,8 +10274,6 @@ define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110Transit
   %64 = zext i32 %63 to i64
   %.idx.i.i.i.i = mul nuw nsw i64 %64, 56
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx.i.i.i.i
-  %.not16.i.i.i.i = icmp ne i32 %63, 0
-  call void @llvm.assume(i1 %.not16.i.i.i.i)
   %66 = load ptr, ptr %62, align 8, !tbaa !369
   %.not15.i.i90.i.i = icmp eq ptr %66, %61
   br i1 %.not15.i.i90.i.i, label %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.i.i, label %.lr.ph.i.i.i.i

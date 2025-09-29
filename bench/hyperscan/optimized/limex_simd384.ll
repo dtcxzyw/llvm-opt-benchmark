@@ -11951,7 +11951,7 @@ define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts384(ptr nounde
 
 13:                                               ; preds = %7, %.critedge.i.thread
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %.critedge.i.thread ]
-  %.031.i75 = phi i32 [ 0, %7 ], [ %50, %.critedge.i.thread ]
+  %.031.i75 = phi i32 [ 0, %7 ], [ %44, %.critedge.i.thread ]
   %14 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8
   %.not.i63 = icmp eq i64 %15, 0
@@ -11962,8 +11962,8 @@ define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts384(ptr nounde
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %.critedge.i.thread
 
-.lr.ph68:                                         ; preds = %13, %46
-  %.064 = phi i64 [ %18, %46 ], [ %15, %13 ]
+.lr.ph68:                                         ; preds = %13, %limexRunAccept.exit.thread44
+  %.064 = phi i64 [ %18, %limexRunAccept.exit.thread44 ], [ %15, %13 ]
   %16 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.064) #13, !srcloc !132
   %17 = extractvalue { i64, i64 } %16, 0
   %18 = extractvalue { i64, i64 } %16, 1
@@ -12009,26 +12009,14 @@ limexRunAccept.exit:                              ; preds = %.lr.ph68
   br i1 %.not42.i, label %moProcessAcceptsImpl384.exit, label %limexRunAccept.exit.thread44, !prof !626
 
 limexRunAccept.exit.thread44:                     ; preds = %35, %31, %limexRunAccept.exit
-  %41 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %42 = load i32, ptr %41, align 4
-  %.not41.i = icmp eq i32 %42, -1
-  br i1 %.not41.i, label %46, label %43
-
-43:                                               ; preds = %limexRunAccept.exit.thread44
-  %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 %44
-  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 16) ], !noalias !627
-  br label %46
-
-46:                                               ; preds = %43, %limexRunAccept.exit.thread44
   %.not.i = icmp eq i64 %18, 0
   br i1 %.not.i, label %.critedge.i.thread, label %.lr.ph68
 
-.critedge.i.thread:                               ; preds = %46, %..critedge.i.thread_crit_edge
-  %47 = phi i64 [ %.pre, %..critedge.i.thread_crit_edge ], [ %19, %46 ]
-  %48 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %47)
-  %49 = trunc nuw nsw i64 %48 to i32
-  %50 = add i32 %.031.i75, %49
+.critedge.i.thread:                               ; preds = %limexRunAccept.exit.thread44, %..critedge.i.thread_crit_edge
+  %41 = phi i64 [ %.pre, %..critedge.i.thread_crit_edge ], [ %19, %limexRunAccept.exit.thread44 ]
+  %42 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %41)
+  %43 = trunc nuw nsw i64 %42 to i32
+  %44 = add i32 %.031.i75, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %moProcessAcceptsImpl384.exit, label %13
@@ -12740,6 +12728,3 @@ attributes #13 = { nounwind memory(none) }
 !624 = distinct !{!624, !625, !"load384: argument 0"}
 !625 = distinct !{!625, !"load384"}
 !626 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!627 = !{!628}
-!628 = distinct !{!628, !629, !"load384: argument 0"}
-!629 = distinct !{!629, !"load384"}

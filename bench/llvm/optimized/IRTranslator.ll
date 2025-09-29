@@ -15703,76 +15703,73 @@ switch.lookup:
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %13, ptr noundef nonnull align 8 dereferenceable(1065) %12, ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = icmp eq i32 %2, 144
-  br i1 %18, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i, label %57
+  br i1 %18, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i, label %56
 
 _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i: ; preds = %switch.lookup
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #28, !noalias !905
-  %21 = extractvalue { ptr, i64 } %20, 0
-  %22 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #28, !noalias !905
+  %21 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #28, !noalias !905
+  %22 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #28, !noalias !908
   %23 = extractvalue { ptr, i64 } %22, 0
-  %24 = extractvalue { ptr, i64 } %22, 1
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
-  %26 = ptrtoint ptr %25 to i64
-  %27 = ptrtoint ptr %21 to i64
-  %28 = sub i64 %26, %27
-  %29 = and i64 %28, 68719476720
-  %.not14.i = icmp ne i64 %29, 0
-  call void @llvm.assume(i1 %.not14.i)
-  %30 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #28, !noalias !908
-  %31 = extractvalue { ptr, i64 } %30, 0
-  %32 = load ptr, ptr %31, align 8, !tbaa !911, !noalias !914
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load i32, ptr %33, align 4, !tbaa !257, !noalias !905
-  %.not8.i12 = icmp eq i32 %34, 9
+  %24 = load ptr, ptr %23, align 8, !tbaa !911, !noalias !914
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load i32, ptr %25, align 4, !tbaa !257, !noalias !905
+  %.not8.i12 = icmp eq i32 %26, 9
   br i1 %.not8.i12, label %_ZNK4llvm8CallBase16getOperandBundleEj.exit, label %.critedge.i.preheader
 
 .critedge.i.preheader:                            ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i
-  %35 = lshr exact i64 %28, 4
-  %36 = and i64 %35, 4294967295
+  %27 = extractvalue { ptr, i64 } %21, 0
+  %28 = extractvalue { ptr, i64 } %21, 1
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
+  %30 = ptrtoint ptr %29 to i64
+  %31 = extractvalue { ptr, i64 } %20, 0
+  %32 = ptrtoint ptr %31 to i64
+  %33 = sub i64 %30, %32
+  %34 = lshr exact i64 %33, 4
+  %35 = and i64 %34, 4294967295
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %.critedge.i
   %indvars.iv = phi i64 [ 0, %.critedge.i.preheader ], [ %indvars.iv.next, %.critedge.i ]
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %.not.i = icmp ne i64 %indvars.iv.next, %36
+  %.not.i = icmp ne i64 %indvars.iv.next, %35
   call void @llvm.assume(i1 %.not.i)
-  %37 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #28, !noalias !908
-  %38 = extractvalue { ptr, i64 } %37, 0
-  %39 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %38, i64 %indvars.iv.next
-  %40 = load ptr, ptr %39, align 8, !tbaa !911, !noalias !914
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load i32, ptr %41, align 4, !tbaa !257, !noalias !905
-  %.not8.i = icmp eq i32 %42, 9
+  %36 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #28, !noalias !908
+  %37 = extractvalue { ptr, i64 } %36, 0
+  %38 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %37, i64 %indvars.iv.next
+  %39 = load ptr, ptr %38, align 8, !tbaa !911, !noalias !914
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load i32, ptr %40, align 4, !tbaa !257, !noalias !905
+  %.not8.i = icmp eq i32 %41, 9
   br i1 %.not8.i, label %_ZNK4llvm8CallBase16getOperandBundleEj.exit, label %.critedge.i
 
 _ZNK4llvm8CallBase16getOperandBundleEj.exit:      ; preds = %.critedge.i, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i
-  %.lcssa = phi ptr [ %31, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i ], [ %39, %.critedge.i ]
-  %43 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %44 = load i32, ptr %43, align 8, !tbaa !917, !noalias !914
-  %45 = zext i32 %44 to i64
-  %46 = load i32, ptr %19, align 4, !noalias !914
-  %47 = and i32 %46, 134217727
-  %48 = zext nneg i32 %47 to i64
-  %49 = sub nsw i64 0, %48
-  %50 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %49
-  %.idx6.i.i.i = shl nuw nsw i64 %45, 5
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx6.i.i.i
-  %52 = load ptr, ptr %51, align 8, !tbaa !373
-  %53 = call i32 @_ZN4llvm12IRTranslator31getOrCreateConvergenceTokenVRegERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1832) %0, ptr noundef nonnull align 8 dereferenceable(24) %52)
+  %.lcssa = phi ptr [ %23, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i ], [ %38, %.critedge.i ]
+  %42 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
+  %43 = load i32, ptr %42, align 8, !tbaa !917, !noalias !914
+  %44 = zext i32 %43 to i64
+  %45 = load i32, ptr %19, align 4, !noalias !914
+  %46 = and i32 %45, 134217727
+  %47 = zext nneg i32 %46 to i64
+  %48 = sub nsw i64 0, %47
+  %49 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %48
+  %.idx6.i.i.i = shl nuw nsw i64 %44, 5
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx6.i.i.i
+  %51 = load ptr, ptr %50, align 8, !tbaa !373
+  %52 = call i32 @_ZN4llvm12IRTranslator31getOrCreateConvergenceTokenVRegERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1832) %0, ptr noundef nonnull align 8 dereferenceable(24) %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %54, align 8, !tbaa !827, !alias.scope !918
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %53, ptr %55, align 4, !tbaa !224, !alias.scope !918
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false), !alias.scope !918
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %53, align 8, !tbaa !827, !alias.scope !918
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %52, ptr %54, align 4, !tbaa !224, !alias.scope !918
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false), !alias.scope !918
   store i32 0, ptr %4, align 8, !alias.scope !918
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %13, ptr noundef nonnull align 8 dereferenceable(1065) %12, ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %57
+  br label %56
 
-57:                                               ; preds = %_ZNK4llvm8CallBase16getOperandBundleEj.exit, %switch.lookup
+56:                                               ; preds = %_ZNK4llvm8CallBase16getOperandBundleEj.exit, %switch.lookup
   ret i1 true
 }
 

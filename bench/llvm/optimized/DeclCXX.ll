@@ -15892,8 +15892,6 @@ define dso_local noundef range(i64 0, 2305843009213693952) i64 @_ZNK5clang18CXXC
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 2264
   %20 = load i32, ptr %19, align 8, !tbaa !457
   %21 = zext i32 %20 to i64
-  %.not4967.not.i.i.i = icmp ne i32 %20, 0
-  tail call void @llvm.assume(i1 %.not4967.not.i.i.i)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 2256
   %23 = load ptr, ptr %22, align 8, !tbaa !456
   %24 = load ptr, ptr %23, align 8, !tbaa !698

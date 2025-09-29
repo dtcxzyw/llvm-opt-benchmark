@@ -906,7 +906,7 @@ define dso_local void @CompleteCachedPlan(ptr noundef initializes((88, 96), (120
     i32 0, label %58
     i32 2, label %58
     i32 1, label %.lr.ph.i.i
-    i32 3, label %81
+    i32 3, label %80
   ]
 
 58:                                               ; preds = %50, %50
@@ -923,54 +923,52 @@ define dso_local void @CompleteCachedPlan(ptr noundef initializes((88, 96), (120
   tail call void @llvm.assume(i1 %.not.i.i)
   %64 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %65 = load i32, ptr %64, align 4
-  %66 = icmp sgt i32 %65, 0
-  tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %68 = load ptr, ptr %67, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %67 = load ptr, ptr %66, align 8
   %wide.trip.count.i.i = zext nneg i32 %65 to i64
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %71 = load i8, ptr %70, align 8, !range !4, !noundef !5
-  %72 = trunc nuw i8 %71 to i1
-  br i1 %72, label %QueryListGetPrimaryStmt.exit.i, label %.lr.ph.i
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %70 = load i8, ptr %69, align 8, !range !4, !noundef !5
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %QueryListGetPrimaryStmt.exit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i, %.lr.ph.i
   %indvars.iv.i9.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i ], [ 0, %.lr.ph.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i9.i, 1
   %exitcond.not.i.i = icmp ne i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   tail call void @llvm.assume(i1 %exitcond.not.i.i)
-  %73 = getelementptr inbounds nuw %union.ListCell, ptr %68, i64 %indvars.iv.next.i.i
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %76 = load i8, ptr %75, align 8, !range !4, !noundef !5
-  %77 = trunc nuw i8 %76 to i1
-  br i1 %77, label %QueryListGetPrimaryStmt.exit.i, label %.lr.ph.i
+  %72 = getelementptr inbounds nuw %union.ListCell, ptr %67, i64 %indvars.iv.next.i.i
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  %75 = load i8, ptr %74, align 8, !range !4, !noundef !5
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %QueryListGetPrimaryStmt.exit.i, label %.lr.ph.i
 
 QueryListGetPrimaryStmt.exit.i:                   ; preds = %.lr.ph.i, %.lr.ph.i.i
-  %.lcssa.i = phi ptr [ %69, %.lr.ph.i.i ], [ %74, %.lr.ph.i ]
-  %78 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 152
-  %79 = load ptr, ptr %78, align 8
-  %80 = tail call ptr @ExecCleanTypeFromTL(ptr noundef %79) #9
+  %.lcssa.i = phi ptr [ %68, %.lr.ph.i.i ], [ %73, %.lr.ph.i ]
+  %77 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 152
+  %78 = load ptr, ptr %77, align 8
+  %79 = tail call ptr @ExecCleanTypeFromTL(ptr noundef %78) #9
   br label %PlanCacheComputeResultDesc.exit
 
-81:                                               ; preds = %50
-  %82 = getelementptr i8, ptr %.0, i64 16
-  %.val8.i = load ptr, ptr %82, align 8
-  %83 = load ptr, ptr %.val8.i, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  %85 = load ptr, ptr %84, align 8
-  %86 = tail call ptr @UtilityTupleDescriptor(ptr noundef %85) #9
+80:                                               ; preds = %50
+  %81 = getelementptr i8, ptr %.0, i64 16
+  %.val8.i = load ptr, ptr %81, align 8
+  %82 = load ptr, ptr %.val8.i, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
+  %84 = load ptr, ptr %83, align 8
+  %85 = tail call ptr @UtilityTupleDescriptor(ptr noundef %84) #9
   br label %PlanCacheComputeResultDesc.exit
 
-PlanCacheComputeResultDesc.exit:                  ; preds = %50, %58, %QueryListGetPrimaryStmt.exit.i, %81
-  %.0.i = phi ptr [ %63, %58 ], [ %80, %QueryListGetPrimaryStmt.exit.i ], [ %86, %81 ], [ null, %50 ]
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %.0.i, ptr %87, align 8
+PlanCacheComputeResultDesc.exit:                  ; preds = %50, %58, %QueryListGetPrimaryStmt.exit.i, %80
+  %.0.i = phi ptr [ %63, %58 ], [ %79, %QueryListGetPrimaryStmt.exit.i ], [ %85, %80 ], [ null, %50 ]
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %.0.i, ptr %86, align 8
   store ptr %12, ptr @CurrentMemoryContext, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 145
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 145
+  store i8 1, ptr %87, align 1
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 147
   store i8 1, ptr %88, align 1
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 147
-  store i8 1, ptr %89, align 1
   ret void
 }
 
@@ -1823,7 +1821,7 @@ ReleaseGenericPlan.exit:                          ; preds = %89, %92, %97, %101
     i32 0, label %130
     i32 2, label %130
     i32 1, label %.lr.ph.i.i
-    i32 3, label %153
+    i32 3, label %152
   ]
 
 130:                                              ; preds = %128, %128
@@ -1840,144 +1838,142 @@ ReleaseGenericPlan.exit:                          ; preds = %89, %92, %97, %101
   tail call void @llvm.assume(i1 %.not.i.i)
   %136 = getelementptr inbounds nuw i8, ptr %.077, i64 4
   %137 = load i32, ptr %136, align 4
-  %138 = icmp sgt i32 %137, 0
-  tail call void @llvm.assume(i1 %138)
-  %139 = getelementptr inbounds nuw i8, ptr %.077, i64 16
-  %140 = load ptr, ptr %139, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %.077, i64 16
+  %139 = load ptr, ptr %138, align 8
   %wide.trip.count.i.i = zext nneg i32 %137 to i64
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
-  %143 = load i8, ptr %142, align 8, !range !4, !noundef !5
-  %144 = trunc nuw i8 %143 to i1
-  br i1 %144, label %QueryListGetPrimaryStmt.exit.i, label %.lr.ph.i104
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
+  %142 = load i8, ptr %141, align 8, !range !4, !noundef !5
+  %143 = trunc nuw i8 %142 to i1
+  br i1 %143, label %QueryListGetPrimaryStmt.exit.i, label %.lr.ph.i104
 
 .lr.ph.i104:                                      ; preds = %.lr.ph.i.i, %.lr.ph.i104
   %indvars.iv.i9.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i104 ], [ 0, %.lr.ph.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i9.i, 1
   %exitcond.not.i.i = icmp ne i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   tail call void @llvm.assume(i1 %exitcond.not.i.i)
-  %145 = getelementptr inbounds nuw %union.ListCell, ptr %140, i64 %indvars.iv.next.i.i
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
-  %148 = load i8, ptr %147, align 8, !range !4, !noundef !5
-  %149 = trunc nuw i8 %148 to i1
-  br i1 %149, label %QueryListGetPrimaryStmt.exit.i, label %.lr.ph.i104
+  %144 = getelementptr inbounds nuw %union.ListCell, ptr %139, i64 %indvars.iv.next.i.i
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
+  %147 = load i8, ptr %146, align 8, !range !4, !noundef !5
+  %148 = trunc nuw i8 %147 to i1
+  br i1 %148, label %QueryListGetPrimaryStmt.exit.i, label %.lr.ph.i104
 
 QueryListGetPrimaryStmt.exit.i:                   ; preds = %.lr.ph.i104, %.lr.ph.i.i
-  %.lcssa.i = phi ptr [ %141, %.lr.ph.i.i ], [ %146, %.lr.ph.i104 ]
-  %150 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 152
-  %151 = load ptr, ptr %150, align 8
-  %152 = tail call ptr @ExecCleanTypeFromTL(ptr noundef %151) #9
+  %.lcssa.i = phi ptr [ %140, %.lr.ph.i.i ], [ %145, %.lr.ph.i104 ]
+  %149 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 152
+  %150 = load ptr, ptr %149, align 8
+  %151 = tail call ptr @ExecCleanTypeFromTL(ptr noundef %150) #9
   br label %PlanCacheComputeResultDesc.exit
 
-153:                                              ; preds = %128
-  %154 = getelementptr i8, ptr %.077, i64 16
-  %.val8.i = load ptr, ptr %154, align 8
-  %155 = load ptr, ptr %.val8.i, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 32
-  %157 = load ptr, ptr %156, align 8
-  %158 = tail call ptr @UtilityTupleDescriptor(ptr noundef %157) #9
+152:                                              ; preds = %128
+  %153 = getelementptr i8, ptr %.077, i64 16
+  %.val8.i = load ptr, ptr %153, align 8
+  %154 = load ptr, ptr %.val8.i, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 32
+  %156 = load ptr, ptr %155, align 8
+  %157 = tail call ptr @UtilityTupleDescriptor(ptr noundef %156) #9
   br label %PlanCacheComputeResultDesc.exit
 
-PlanCacheComputeResultDesc.exit:                  ; preds = %130, %QueryListGetPrimaryStmt.exit.i, %153
-  %.0.i = phi ptr [ %135, %130 ], [ %152, %QueryListGetPrimaryStmt.exit.i ], [ %158, %153 ]
-  %159 = icmp eq ptr %.0.i, null
-  br i1 %159, label %PlanCacheComputeResultDesc.exit.thread, label %.critedge
+PlanCacheComputeResultDesc.exit:                  ; preds = %130, %QueryListGetPrimaryStmt.exit.i, %152
+  %.0.i = phi ptr [ %135, %130 ], [ %151, %QueryListGetPrimaryStmt.exit.i ], [ %157, %152 ]
+  %158 = icmp eq ptr %.0.i, null
+  br i1 %158, label %PlanCacheComputeResultDesc.exit.thread, label %.critedge
 
 PlanCacheComputeResultDesc.exit.thread:           ; preds = %128, %PlanCacheComputeResultDesc.exit
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %161 = load ptr, ptr %160, align 8
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %193, label %.thread123
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %160 = load ptr, ptr %159, align 8
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %192, label %.thread123
 
 .critedge:                                        ; preds = %PlanCacheComputeResultDesc.exit
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %164 = load ptr, ptr %163, align 8
-  %165 = icmp eq ptr %164, null
-  br i1 %165, label %168, label %166
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %163 = load ptr, ptr %162, align 8
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %167, label %165
 
-166:                                              ; preds = %.critedge
-  %167 = tail call zeroext i1 @equalRowTypes(ptr noundef nonnull %.0.i, ptr noundef nonnull %164) #9
-  br i1 %167, label %193, label %168
+165:                                              ; preds = %.critedge
+  %166 = tail call zeroext i1 @equalRowTypes(ptr noundef nonnull %.0.i, ptr noundef nonnull %163) #9
+  br i1 %166, label %192, label %167
 
-168:                                              ; preds = %166, %.critedge
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %170 = load i8, ptr %169, align 4, !range !4, !noundef !5
-  %171 = trunc nuw i8 %170 to i1
-  br i1 %171, label %178, label %182
+167:                                              ; preds = %165, %.critedge
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %169 = load i8, ptr %168, align 4, !range !4, !noundef !5
+  %170 = trunc nuw i8 %169 to i1
+  br i1 %170, label %177, label %181
 
 .thread123:                                       ; preds = %PlanCacheComputeResultDesc.exit.thread
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %173 = load i8, ptr %172, align 4, !range !4, !noundef !5
-  %174 = trunc nuw i8 %173 to i1
-  br i1 %174, label %178, label %.thread126
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %172 = load i8, ptr %171, align 4, !range !4, !noundef !5
+  %173 = trunc nuw i8 %172 to i1
+  br i1 %173, label %177, label %.thread126
 
 .thread126:                                       ; preds = %.thread123
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %176 = load ptr, ptr %175, align 8
-  %177 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %176, ptr @CurrentMemoryContext, align 8
-  br label %187
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %175 = load ptr, ptr %174, align 8
+  %176 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %175, ptr @CurrentMemoryContext, align 8
+  br label %186
 
-178:                                              ; preds = %.thread123, %168
-  %179 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  %180 = tail call i32 @errcode(i32 noundef 1088) #9
-  %181 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #9
+177:                                              ; preds = %.thread123, %167
+  %178 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %179 = tail call i32 @errcode(i32 noundef 1088) #9
+  %180 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #9
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 747, ptr noundef nonnull @__func__.RevalidateCachedQuery) #9
   unreachable
 
-182:                                              ; preds = %168
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %184 = load ptr, ptr %183, align 8
-  %185 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %184, ptr @CurrentMemoryContext, align 8
-  %186 = tail call ptr @CreateTupleDescCopy(ptr noundef nonnull %.0.i) #9
-  br label %187
+181:                                              ; preds = %167
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %183 = load ptr, ptr %182, align 8
+  %184 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %183, ptr @CurrentMemoryContext, align 8
+  %185 = tail call ptr @CreateTupleDescCopy(ptr noundef nonnull %.0.i) #9
+  br label %186
 
-187:                                              ; preds = %.thread126, %182
-  %188 = phi ptr [ %185, %182 ], [ %177, %.thread126 ]
-  %.078 = phi ptr [ %186, %182 ], [ null, %.thread126 ]
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %190 = load ptr, ptr %189, align 8
-  %.not93 = icmp eq ptr %190, null
-  br i1 %.not93, label %192, label %191
+186:                                              ; preds = %.thread126, %181
+  %187 = phi ptr [ %184, %181 ], [ %176, %.thread126 ]
+  %.078 = phi ptr [ %185, %181 ], [ null, %.thread126 ]
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %189 = load ptr, ptr %188, align 8
+  %.not93 = icmp eq ptr %189, null
+  br i1 %.not93, label %191, label %190
 
-191:                                              ; preds = %187
-  tail call void @FreeTupleDesc(ptr noundef nonnull %190) #9
+190:                                              ; preds = %186
+  tail call void @FreeTupleDesc(ptr noundef nonnull %189) #9
+  br label %191
+
+191:                                              ; preds = %190, %186
+  store ptr %.078, ptr %188, align 8
+  store ptr %187, ptr @CurrentMemoryContext, align 8
   br label %192
 
-192:                                              ; preds = %191, %187
-  store ptr %.078, ptr %189, align 8
-  store ptr %188, ptr @CurrentMemoryContext, align 8
-  br label %193
-
-193:                                              ; preds = %PlanCacheComputeResultDesc.exit.thread, %192, %166
-  %194 = load ptr, ptr @CurrentMemoryContext, align 8
-  %195 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %194, ptr noundef nonnull @.str.1, i64 noundef 0, i64 noundef 1024, i64 noundef 8388608) #9
-  %196 = load ptr, ptr @CurrentMemoryContext, align 8
+192:                                              ; preds = %PlanCacheComputeResultDesc.exit.thread, %191, %165
+  %193 = load ptr, ptr @CurrentMemoryContext, align 8
+  %194 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %193, ptr noundef nonnull @.str.1, i64 noundef 0, i64 noundef 1024, i64 noundef 8388608) #9
+  %195 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %194, ptr @CurrentMemoryContext, align 8
+  %196 = tail call ptr @copyObjectImpl(ptr noundef %.077) #9
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 133
+  tail call void @extract_query_dependencies(ptr noundef %196, ptr noundef nonnull %83, ptr noundef nonnull %84, ptr noundef nonnull %197) #9
+  %198 = tail call i32 @GetUserId() #9
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i32 %198, ptr %199, align 8
+  %200 = load i8, ptr @row_security, align 1, !range !4, !noundef !5
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  store i8 %200, ptr %201, align 4
+  %202 = tail call ptr @GetSearchPathMatcher(ptr noundef %194) #9
+  store ptr %202, ptr %85, align 8
   store ptr %195, ptr @CurrentMemoryContext, align 8
-  %197 = tail call ptr @copyObjectImpl(ptr noundef %.077) #9
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 133
-  tail call void @extract_query_dependencies(ptr noundef %197, ptr noundef nonnull %83, ptr noundef nonnull %84, ptr noundef nonnull %198) #9
-  %199 = tail call i32 @GetUserId() #9
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %199, ptr %200, align 8
-  %201 = load i8, ptr @row_security, align 1, !range !4, !noundef !5
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i8 %201, ptr %202, align 4
-  %203 = tail call ptr @GetSearchPathMatcher(ptr noundef %195) #9
-  store ptr %203, ptr %85, align 8
-  store ptr %196, ptr @CurrentMemoryContext, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %205 = load ptr, ptr %204, align 8
-  tail call void @MemoryContextSetParent(ptr noundef %195, ptr noundef %205) #9
-  store ptr %195, ptr %86, align 8
-  store ptr %197, ptr %82, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %204 = load ptr, ptr %203, align 8
+  tail call void @MemoryContextSetParent(ptr noundef %194, ptr noundef %204) #9
+  store ptr %194, ptr %86, align 8
+  store ptr %196, ptr %82, align 8
   store i8 1, ptr %12, align 1
   br label %AcquirePlannerLocks.exit.thread
 
-AcquirePlannerLocks.exit.thread:                  ; preds = %.lr.ph.i, %.thread122, %AcquirePlannerLocks.exit, %2, %6, %9, %193
-  %.0 = phi ptr [ %.077, %193 ], [ null, %9 ], [ null, %6 ], [ null, %2 ], [ null, %AcquirePlannerLocks.exit ], [ null, %.thread122 ], [ null, %.lr.ph.i ]
+AcquirePlannerLocks.exit.thread:                  ; preds = %.lr.ph.i, %.thread122, %AcquirePlannerLocks.exit, %2, %6, %9, %192
+  %.0 = phi ptr [ %.077, %192 ], [ null, %9 ], [ null, %6 ], [ null, %2 ], [ null, %AcquirePlannerLocks.exit ], [ null, %.thread122 ], [ null, %.lr.ph.i ]
   ret ptr %.0
 }
 

@@ -9269,66 +9269,61 @@ _ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS
   %41 = insertelement <16 x i8> poison, i8 %40, i64 0
   %42 = shufflevector <16 x i8> %41, <16 x i8> poison, <16 x i32> zeroinitializer
   %43 = and i64 %19, 255
-  %44 = shl nuw i64 1, %43
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !207
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !207
   %notmask.i = shl nsw i64 -1, %43
-  %47 = xor i64 %notmask.i, -1
-  br label %48
+  %46 = xor i64 %notmask.i, -1
+  br label %47
 
-48:                                               ; preds = %66, %21
-  %.022.i = phi i64 [ %44, %21 ], [ %68, %66 ]
-  %.0.i = phi i64 [ %37, %21 ], [ %67, %66 ]
-  %.not.i = icmp ne i64 %.022.i, 0
-  call void @llvm.assume(i1 %.not.i)
-  %49 = and i64 %.0.i, %47
-  %50 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.157", ptr %46, i64 %49
-  %51 = load <16 x i8>, ptr %50, align 16
-  %52 = icmp eq <16 x i8> %51, %42
-  %53 = bitcast <16 x i1> %52 to i16
-  %54 = and i16 %53, 4095
-  %55 = zext nneg i16 %54 to i32
-  %56 = icmp ne ptr %50, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
-  %57 = getelementptr inbounds nuw i8, ptr %50, i64 16
+47:                                               ; preds = %65, %21
+  %.0.i = phi i64 [ %37, %21 ], [ %66, %65 ]
+  %48 = and i64 %.0.i, %46
+  %49 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.157", ptr %45, i64 %48
+  %50 = load <16 x i8>, ptr %49, align 16
+  %51 = icmp eq <16 x i8> %50, %42
+  %52 = bitcast <16 x i1> %51 to i16
+  %53 = and i16 %52, 4095
+  %54 = zext nneg i16 %53 to i32
+  %55 = icmp ne ptr %49, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 16
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %58, %48
-  %.sroa.018.0 = phi i32 [ %55, %48 ], [ %61, %58 ]
+.critedge.i:                                      ; preds = %57, %47
+  %.sroa.018.0 = phi i32 [ %54, %47 ], [ %60, %57 ]
   %.not36 = icmp eq i32 %.sroa.018.0, 0
-  br i1 %.not36, label %66, label %58
+  br i1 %.not36, label %65, label %57
 
-58:                                               ; preds = %.critedge.i
-  %59 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.018.0, i1 true)
-  %60 = add nsw i32 %.sroa.018.0, -1
-  %61 = and i32 %60, %.sroa.018.0
-  %62 = zext nneg i32 %59 to i64
-  call void @llvm.assume(i1 %56)
-  %63 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %57, i64 %62
-  %64 = load i32, ptr %63, align 4, !tbaa !18
-  %65 = icmp eq i32 %64, %22
-  br i1 %65, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit, label %.critedge.i, !prof !20, !llvm.loop !482
+57:                                               ; preds = %.critedge.i
+  %58 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.018.0, i1 true)
+  %59 = add nsw i32 %.sroa.018.0, -1
+  %60 = and i32 %59, %.sroa.018.0
+  %61 = zext nneg i32 %58 to i64
+  call void @llvm.assume(i1 %55)
+  %62 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %56, i64 %61
+  %63 = load i32, ptr %62, align 4, !tbaa !18
+  %64 = icmp eq i32 %63, %22
+  br i1 %64, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit, label %.critedge.i, !prof !20, !llvm.loop !482
 
-66:                                               ; preds = %.critedge.i
-  %67 = add i64 %39, %.0.i
-  %68 = add i64 %.022.i, -1
-  br label %48, !llvm.loop !483
+65:                                               ; preds = %.critedge.i
+  %66 = add i64 %39, %.0.i
+  br label %47, !llvm.loop !483
 
-_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit: ; preds = %58
-  %69 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %57, i64 %62
-  store i32 %7, ptr %69, align 4, !tbaa !18
-  %70 = icmp ne ptr %6, null
-  call void @llvm.assume(i1 %70)
-  %71 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %20
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %73 = load i64, ptr %71, align 8, !tbaa !159
-  store i64 %73, ptr %9, align 8, !tbaa !484
-  %74 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %75 = load i64, ptr %72, align 8, !tbaa !270
-  store i64 %75, ptr %74, align 8, !tbaa !270
-  %76 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %77 = load i64, ptr %76, align 8, !tbaa !270
-  store i64 %77, ptr %10, align 8, !tbaa !270
-  store ptr null, ptr %76, align 8, !tbaa !270
+_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit: ; preds = %57
+  %67 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %56, i64 %61
+  store i32 %7, ptr %67, align 4, !tbaa !18
+  %68 = icmp ne ptr %6, null
+  call void @llvm.assume(i1 %68)
+  %69 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %20
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %71 = load i64, ptr %69, align 8, !tbaa !159
+  store i64 %71, ptr %9, align 8, !tbaa !484
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %73 = load i64, ptr %70, align 8, !tbaa !270
+  store i64 %73, ptr %72, align 8, !tbaa !270
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %75 = load i64, ptr %74, align 8, !tbaa !270
+  store i64 %75, ptr %10, align 8, !tbaa !270
+  store ptr null, ptr %74, align 8, !tbaa !270
   br label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE8transferERSaISt4pairIKmS7_EEPSD_SG_m.exit
 
 _ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE8transferERSaISt4pairIKmS7_EEPSD_SG_m.exit: ; preds = %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit

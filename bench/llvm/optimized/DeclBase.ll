@@ -18771,8 +18771,6 @@ _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %1, %._crit_edge.i.i
   %48 = getelementptr inbounds nuw i8, ptr %31, i64 2264
   %49 = load i32, ptr %48, align 8, !tbaa !672
   %50 = zext i32 %49 to i64
-  %.not4967.not.i.i.i = icmp ne i32 %49, 0
-  tail call void @llvm.assume(i1 %.not4967.not.i.i.i)
   %51 = getelementptr inbounds nuw i8, ptr %31, i64 2256
   %52 = load ptr, ptr %51, align 8, !tbaa !671
   %53 = load ptr, ptr %52, align 8, !tbaa !751

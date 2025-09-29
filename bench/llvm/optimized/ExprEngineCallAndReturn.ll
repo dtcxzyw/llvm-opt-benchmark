@@ -479,9 +479,9 @@ define internal fastcc { ptr, ptr } @_ZL11getLastStmtPKN5clang4ento12ExplodedNod
   %3 = tail call noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #19
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %64
-  %.019162 = phi ptr [ %66, %64 ], [ %0, %.lr.ph.preheader ]
-  %.076160 = phi ptr [ %.682, %64 ], [ null, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %60
+  %.019162 = phi ptr [ %62, %60 ], [ %0, %.lr.ph.preheader ]
+  %.076160 = phi ptr [ %.682, %60 ], [ null, %.lr.ph.preheader ]
   %4 = getelementptr inbounds nuw i8, ptr %.019162, i64 8
   %.sroa.060.0.copyload = load ptr, ptr %4, align 8, !tbaa !199
   %.sroa.761.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.019162, i64 16
@@ -502,7 +502,7 @@ define internal fastcc { ptr, ptr } @_ZL11getLastStmtPKN5clang4ento12ExplodedNod
   %14 = and i32 %13, 12
   %15 = trunc i64 %.sroa.761.0.copyload to i32
   %16 = and i32 %15, 3
-  br i1 %8, label %17, label %51
+  br i1 %8, label %17, label %47
 
 17:                                               ; preds = %.lr.ph
   %18 = add nsw i32 %16, -3
@@ -516,7 +516,7 @@ _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit: ; preds = 
   %23 = or disjoint i32 %22, %12
   switch i32 %23, label %.thread110 [
     i32 17, label %24
-    i32 0, label %50
+    i32 0, label %46
   ]
 
 24:                                               ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit
@@ -526,72 +526,66 @@ _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit: ; preds = 
   br i1 %.not24, label %.critedge, label %.thread144
 
 .critedge:                                        ; preds = %24, %.critedge
-  %.322 = phi ptr [ %33, %.critedge ], [ %.019162, %24 ]
+  %.322 = phi ptr [ %29, %.critedge ], [ %.019162, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.322, i64 64
-  %28 = load i64, ptr %27, align 8, !tbaa !195
-  %29 = icmp ne i64 %28, 0
-  %30 = and i64 %28, 1
-  %31 = icmp eq i64 %30, 0
-  tail call void @llvm.assume(i1 %29)
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode9NodeGroup5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %27) #19
-  %33 = load ptr, ptr %32, align 8, !tbaa !193
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %34, align 8, !noalias !203
-  %35 = trunc i64 %.0.copyload.i.i.i.i.i.i.i to i32
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %.0.copyload.i.i.i5.i.i.i.i = load i64, ptr %36, align 8, !noalias !203
-  %37 = trunc i64 %.0.copyload.i.i.i5.i.i.i.i to i32
-  %38 = shl i32 %35, 3
-  %39 = and i32 %38, 48
-  %40 = shl i32 %37, 1
-  %41 = and i32 %40, 12
-  %42 = or disjoint i32 %41, %39
-  %43 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %.0.copyload.i.i.i6.i.i.i.i = load i64, ptr %43, align 8, !noalias !203
-  %44 = trunc i64 %.0.copyload.i.i.i6.i.i.i.i to i32
-  %45 = and i32 %44, 3
-  %46 = or disjoint i32 %42, %45
-  %47 = icmp eq i32 %46, 15
-  %48 = and i64 %.0.copyload.i.i.i6.i.i.i.i, -4
-  %49 = inttoptr i64 %48 to ptr
-  %.not25 = icmp eq ptr %.sroa.060.0.copyload, %49
-  %or.cond179 = select i1 %47, i1 %.not25, i1 false
+  %28 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode9NodeGroup5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %27) #19
+  %29 = load ptr, ptr %28, align 8, !tbaa !193
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %30, align 8, !noalias !203
+  %31 = trunc i64 %.0.copyload.i.i.i.i.i.i.i to i32
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %.0.copyload.i.i.i5.i.i.i.i = load i64, ptr %32, align 8, !noalias !203
+  %33 = trunc i64 %.0.copyload.i.i.i5.i.i.i.i to i32
+  %34 = shl i32 %31, 3
+  %35 = and i32 %34, 48
+  %36 = shl i32 %33, 1
+  %37 = and i32 %36, 12
+  %38 = or disjoint i32 %37, %35
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %.0.copyload.i.i.i6.i.i.i.i = load i64, ptr %39, align 8, !noalias !203
+  %40 = trunc i64 %.0.copyload.i.i.i6.i.i.i.i to i32
+  %41 = and i32 %40, 3
+  %42 = or disjoint i32 %38, %41
+  %43 = icmp eq i32 %42, 15
+  %44 = and i64 %.0.copyload.i.i.i6.i.i.i.i, -4
+  %45 = inttoptr i64 %44 to ptr
+  %.not25 = icmp eq ptr %.sroa.060.0.copyload, %45
+  %or.cond179 = select i1 %43, i1 %.not25, i1 false
   br i1 %or.cond179, label %.thread110, label %.critedge, !llvm.loop !208
 
-50:                                               ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit
+46:                                               ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit
   br label %.thread110
 
-51:                                               ; preds = %.lr.ph
-  %52 = or disjoint i32 %14, %16
-  %53 = or disjoint i32 %52, %12
-  %54 = icmp eq i32 %53, 15
-  %55 = and i64 %.sroa.761.0.copyload, -4
-  %56 = inttoptr i64 %55 to ptr
-  %57 = icmp eq ptr %3, %56
-  %or.cond = select i1 %54, i1 %57, i1 false
+47:                                               ; preds = %.lr.ph
+  %48 = or disjoint i32 %14, %16
+  %49 = or disjoint i32 %48, %12
+  %50 = icmp eq i32 %49, 15
+  %51 = and i64 %.sroa.761.0.copyload, -4
+  %52 = inttoptr i64 %51 to ptr
+  %53 = icmp eq ptr %3, %52
+  %or.cond = select i1 %50, i1 %53, i1 false
   br i1 %or.cond, label %.thread144, label %.thread110
 
-.thread110:                                       ; preds = %.critedge, %51, %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit, %50
-  %.682 = phi ptr [ %.sroa.060.0.copyload, %50 ], [ %.076160, %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit ], [ %.076160, %51 ], [ %.076160, %.critedge ]
-  %.6 = phi ptr [ %.019162, %50 ], [ %.019162, %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit ], [ %.019162, %51 ], [ %33, %.critedge ]
-  %58 = getelementptr inbounds nuw i8, ptr %.6, i64 64
-  %59 = load i64, ptr %58, align 8, !tbaa !195
-  %60 = icmp eq i64 %59, 0
-  %61 = and i64 %59, 1
-  %62 = icmp ne i64 %61, 0
-  %63 = or i1 %60, %62
-  br i1 %63, label %.thread144, label %64
+.thread110:                                       ; preds = %.critedge, %47, %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit, %46
+  %.682 = phi ptr [ %.sroa.060.0.copyload, %46 ], [ %.076160, %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit ], [ %.076160, %47 ], [ %.076160, %.critedge ]
+  %.6 = phi ptr [ %.019162, %46 ], [ %.019162, %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit ], [ %.019162, %47 ], [ %29, %.critedge ]
+  %54 = getelementptr inbounds nuw i8, ptr %.6, i64 64
+  %55 = load i64, ptr %54, align 8, !tbaa !195
+  %56 = icmp eq i64 %55, 0
+  %57 = and i64 %55, 1
+  %58 = icmp ne i64 %57, 0
+  %59 = or i1 %56, %58
+  br i1 %59, label %.thread144, label %60
 
-64:                                               ; preds = %.thread110
-  %65 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode9NodeGroup5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %58) #19
-  %66 = load ptr, ptr %65, align 8, !tbaa !193
-  %.not = icmp eq ptr %66, null
+60:                                               ; preds = %.thread110
+  %61 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode9NodeGroup5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %54) #19
+  %62 = load ptr, ptr %61, align 8, !tbaa !193
+  %.not = icmp eq ptr %62, null
   br i1 %.not, label %.thread144, label %.lr.ph
 
-.thread144:                                       ; preds = %.thread110, %17, %24, %51, %64
-  %.sroa.370.2.ph = phi ptr [ null, %.thread110 ], [ %.076160, %17 ], [ %.076160, %24 ], [ %.076160, %51 ], [ %.682, %64 ]
-  %.sroa.069.2.ph = phi ptr [ null, %.thread110 ], [ %.sroa.060.0.copyload, %17 ], [ %26, %24 ], [ null, %51 ], [ null, %64 ]
+.thread144:                                       ; preds = %.thread110, %17, %24, %47, %60
+  %.sroa.370.2.ph = phi ptr [ null, %.thread110 ], [ %.076160, %17 ], [ %.076160, %24 ], [ %.076160, %47 ], [ %.682, %60 ]
+  %.sroa.069.2.ph = phi ptr [ null, %.thread110 ], [ %.sroa.060.0.copyload, %17 ], [ %26, %24 ], [ null, %47 ], [ null, %60 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.069.2.ph, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.370.2.ph, 1
   ret { ptr, ptr } %.fca.1.insert

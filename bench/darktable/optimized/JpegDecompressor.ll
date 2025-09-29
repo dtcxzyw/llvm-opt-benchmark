@@ -110,228 +110,215 @@ _ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.e
   %.pre158 = load i32, ptr %29, align 8, !tbaa !113
   %.pre159 = load i32, ptr %32, align 4, !tbaa !114
   %.pre160 = mul i32 %.pre158, %.pre
-  %.pre161 = mul nuw nsw i32 %.pre159, %31
   br label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit
 
 _ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit: ; preds = %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit.i.i, %28
-  %.pre-phi162 = phi i32 [ %.pre161, %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit.i.i ], [ 0, %28 ]
   %.pre-phi = phi i32 [ %.pre160, %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit.i.i ], [ %31, %28 ]
   %37 = phi i32 [ %.pre159, %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit.i.i ], [ %33, %28 ]
   %.sroa.0103.1 = phi ptr [ %36, %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit.i.i ], [ null, %28 ]
   %38 = icmp ne ptr %.sroa.0103.1, null
   call void @llvm.assume(i1 %38)
-  %39 = icmp sgt i32 %.pre-phi, -1
+  %39 = icmp sgt i32 %37, -1
   call void @llvm.assume(i1 %39)
-  %40 = icmp sgt i32 %37, -1
+  %40 = icmp ne i32 %31, 0
   call void @llvm.assume(i1 %40)
-  %41 = icmp ne i32 %31, 0
+  %41 = icmp sgt i32 %31, -1
   call void @llvm.assume(i1 %41)
-  %42 = icmp sgt i32 %31, -1
+  %42 = icmp samesign uge i32 %31, %.pre-phi
   call void @llvm.assume(i1 %42)
-  %43 = icmp samesign uge i32 %31, %.pre-phi
-  call void @llvm.assume(i1 %43)
-  %44 = icmp ne i32 %37, 0
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  %46 = load i32, ptr %45, align 8, !tbaa !116
-  %47 = icmp ult i32 %46, %37
-  br i1 %47, label %.lr.ph, label %._crit_edge
+  %43 = icmp ne i32 %37, 0
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %45 = load i32, ptr %44, align 8, !tbaa !116
+  %46 = icmp ult i32 %45, %37
+  br i1 %46, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit
-  call void @llvm.assume(i1 %44)
-  %48 = icmp ne i32 %.pre-phi, 0
-  call void @llvm.assume(i1 %48)
-  br label %49
+  call void @llvm.assume(i1 %43)
+  br label %47
 
-49:                                               ; preds = %.lr.ph, %66
-  %50 = phi i32 [ %46, %.lr.ph ], [ %67, %66 ]
+47:                                               ; preds = %.lr.ph, %62
+  %48 = phi i32 [ %45, %.lr.ph ], [ %63, %62 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %51 = icmp samesign ult i32 %50, %37
-  call void @llvm.assume(i1 %51)
-  %52 = mul nuw nsw i32 %50, %31
-  %53 = add nuw nsw i32 %52, %.pre-phi
-  %54 = icmp samesign ule i32 %53, %.pre-phi162
-  call void @llvm.assume(i1 %54)
-  %55 = zext nneg i32 %52 to i64
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0103.1, i64 %55
-  store ptr %56, ptr %5, align 8, !tbaa !117
-  %57 = invoke i32 @jpeg_read_scanlines(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
-          to label %58 unwind label %.loopexit
+  %49 = icmp samesign ult i32 %48, %37
+  call void @llvm.assume(i1 %49)
+  %50 = mul nuw nsw i32 %48, %31
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0103.1, i64 %51
+  store ptr %52, ptr %5, align 8, !tbaa !117
+  %53 = invoke i32 @jpeg_read_scanlines(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
+          to label %54 unwind label %.loopexit
 
-58:                                               ; preds = %49
-  %59 = icmp eq i32 %57, 0
-  br i1 %59, label %60, label %66
+54:                                               ; preds = %47
+  %55 = icmp eq i32 %53, 0
+  br i1 %55, label %56, label %62
 
-60:                                               ; preds = %58
+56:                                               ; preds = %54
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed16JpegDecompressor6decodeEjj) #13
-          to label %61 unwind label %.loopexit.split-lp
+          to label %57 unwind label %.loopexit.split-lp
 
-61:                                               ; preds = %60
+57:                                               ; preds = %56
   unreachable
 
 .thread141:                                       ; preds = %_ZNKSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_M_check_lenEmPKc.exit.i.i
-  %62 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43
 
-63:                                               ; preds = %._crit_edge
-  %64 = landingpad { ptr, i32 }
+59:                                               ; preds = %._crit_edge
+  %60 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
-.loopexit:                                        ; preds = %49
+.loopexit:                                        ; preds = %47
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %65
+  br label %61
 
-.loopexit.split-lp:                               ; preds = %60
+.loopexit.split-lp:                               ; preds = %56
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %65
+  br label %61
 
-65:                                               ; preds = %.loopexit.split-lp, %.loopexit
+61:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
-66:                                               ; preds = %58
+62:                                               ; preds = %54
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %67 = load i32, ptr %45, align 8, !tbaa !116
-  %68 = load i32, ptr %32, align 4, !tbaa !114
-  %69 = icmp ult i32 %67, %68
-  br i1 %69, label %49, label %._crit_edge, !llvm.loop !118
+  %63 = load i32, ptr %44, align 8, !tbaa !116
+  %64 = load i32, ptr %32, align 4, !tbaa !114
+  %65 = icmp ult i32 %63, %64
+  br i1 %65, label %47, label %._crit_edge, !llvm.loop !118
 
-._crit_edge:                                      ; preds = %66, %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit
-  %70 = invoke i32 @jpeg_finish_decompress(ptr noundef nonnull %4)
-          to label %71 unwind label %63
+._crit_edge:                                      ; preds = %62, %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit
+  %66 = invoke i32 @jpeg_finish_decompress(ptr noundef nonnull %4)
+          to label %67 unwind label %59
 
-71:                                               ; preds = %._crit_edge
-  %72 = load ptr, ptr %23, align 8, !tbaa !45
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
-  %74 = load i32, ptr %73, align 8, !tbaa !120
-  %75 = load i32, ptr %29, align 8, !tbaa !121
-  %76 = getelementptr inbounds nuw i8, ptr %72, i64 44
-  %77 = load i32, ptr %76, align 4, !tbaa !122
-  %78 = sub i32 %77, %2
-  %79 = load i32, ptr %32, align 4, !tbaa !121
-  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %79, i32 %78)
-  %80 = getelementptr inbounds nuw i8, ptr %72, i64 560
-  %81 = load ptr, ptr %80, align 8, !tbaa !123, !noalias !124, !nonnull !42, !noundef !42
-  %82 = getelementptr inbounds nuw i8, ptr %72, i64 584
-  %83 = load i32, ptr %82, align 8, !tbaa !50, !noalias !124
-  %84 = getelementptr inbounds nuw i8, ptr %72, i64 600
-  %85 = load i32, ptr %84, align 8, !tbaa !127, !noalias !124
-  %86 = mul nsw i32 %85, %83
-  %87 = getelementptr inbounds nuw i8, ptr %72, i64 604
-  %88 = load i32, ptr %87, align 4, !tbaa !128, !noalias !124
-  %89 = getelementptr inbounds nuw i8, ptr %72, i64 48
-  %90 = load i32, ptr %89, align 8, !tbaa !129, !noalias !124
-  %91 = ashr i32 %90, 1
-  %92 = icmp sgt i32 %86, -1
-  call void @llvm.assume(i1 %92)
-  %93 = icmp sgt i32 %88, -1
-  call void @llvm.assume(i1 %93)
-  %94 = icmp ugt i32 %90, 1
-  call void @llvm.assume(i1 %94)
-  %95 = icmp sgt i32 %91, -1
-  call void @llvm.assume(i1 %95)
-  %96 = icmp samesign uge i32 %91, %86
-  call void @llvm.assume(i1 %96)
-  %97 = icmp sgt i32 %.sroa.speculated, 0
-  br i1 %97, label %.preheader.lr.ph, label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit
+67:                                               ; preds = %._crit_edge
+  %68 = load ptr, ptr %23, align 8, !tbaa !45
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
+  %70 = load i32, ptr %69, align 8, !tbaa !120
+  %71 = load i32, ptr %29, align 8, !tbaa !121
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 44
+  %73 = load i32, ptr %72, align 4, !tbaa !122
+  %74 = sub i32 %73, %2
+  %75 = load i32, ptr %32, align 4, !tbaa !121
+  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %75, i32 %74)
+  %76 = getelementptr inbounds nuw i8, ptr %68, i64 560
+  %77 = load ptr, ptr %76, align 8, !tbaa !123, !noalias !124, !nonnull !42, !noundef !42
+  %78 = getelementptr inbounds nuw i8, ptr %68, i64 584
+  %79 = load i32, ptr %78, align 8, !tbaa !50, !noalias !124
+  %80 = getelementptr inbounds nuw i8, ptr %68, i64 600
+  %81 = load i32, ptr %80, align 8, !tbaa !127, !noalias !124
+  %82 = mul nsw i32 %81, %79
+  %83 = getelementptr inbounds nuw i8, ptr %68, i64 604
+  %84 = load i32, ptr %83, align 4, !tbaa !128, !noalias !124
+  %85 = getelementptr inbounds nuw i8, ptr %68, i64 48
+  %86 = load i32, ptr %85, align 8, !tbaa !129, !noalias !124
+  %87 = ashr i32 %86, 1
+  %88 = icmp ugt i32 %86, 1
+  call void @llvm.assume(i1 %88)
+  %89 = icmp sgt i32 %87, -1
+  call void @llvm.assume(i1 %89)
+  %90 = icmp samesign uge i32 %87, %82
+  call void @llvm.assume(i1 %90)
+  %91 = icmp sgt i32 %.sroa.speculated, 0
+  br i1 %91, label %.preheader.lr.ph, label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit
 
-.preheader.lr.ph:                                 ; preds = %71
-  %98 = sub i32 %74, %1
-  %.sroa.speculated63 = call i32 @llvm.umin.i32(i32 %75, i32 %98)
-  %99 = load i32, ptr %21, align 4, !tbaa !44
-  %100 = mul nsw i32 %99, %.sroa.speculated63
-  %101 = icmp sgt i32 %100, 0
-  br i1 %101, label %.preheader.us.preheader, label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit
+.preheader.lr.ph:                                 ; preds = %67
+  %92 = sub i32 %70, %1
+  %.sroa.speculated63 = call i32 @llvm.umin.i32(i32 %71, i32 %92)
+  %93 = load i32, ptr %21, align 4, !tbaa !44
+  %94 = mul nsw i32 %93, %.sroa.speculated63
+  %95 = icmp sgt i32 %94, 0
+  br i1 %95, label %.preheader.us.preheader, label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %102 = mul i32 %99, %1
-  %103 = zext nneg i32 %.pre-phi to i64
-  %104 = zext i32 %102 to i64
-  %105 = zext nneg i32 %86 to i64
-  %106 = zext nneg i32 %37 to i64
-  %107 = zext nneg i32 %31 to i64
+  %96 = mul i32 %93, %1
+  %97 = zext nneg i32 %.pre-phi to i64
+  %98 = zext i32 %96 to i64
+  %99 = zext nneg i32 %82 to i64
+  %100 = zext nneg i32 %37 to i64
+  %101 = zext nneg i32 %31 to i64
   %wide.trip.count156 = zext nneg i32 %.sroa.speculated to i64
-  %wide.trip.count = zext nneg i32 %100 to i64
+  %wide.trip.count = zext nneg i32 %94 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge149.us
   %indvars.iv153 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next154, %._crit_edge149.us ]
-  %108 = icmp samesign ult i64 %indvars.iv153, %106
+  %102 = icmp samesign ult i64 %indvars.iv153, %100
+  call void @llvm.assume(i1 %102)
+  %103 = mul nuw nsw i64 %indvars.iv153, %101
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.0103.1, i64 %103
+  %105 = trunc nuw nsw i64 %indvars.iv153 to i32
+  %106 = add i32 %2, %105
+  %107 = icmp sgt i32 %106, -1
+  call void @llvm.assume(i1 %107)
+  %108 = icmp samesign ult i32 %106, %84
   call void @llvm.assume(i1 %108)
-  %109 = mul nuw nsw i64 %indvars.iv153, %107
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.0103.1, i64 %109
-  %111 = trunc nuw nsw i64 %indvars.iv153 to i32
-  %112 = add i32 %2, %111
-  %113 = icmp sgt i32 %112, -1
-  call void @llvm.assume(i1 %113)
-  %114 = icmp samesign ult i32 %112, %88
-  call void @llvm.assume(i1 %114)
-  %115 = mul nuw nsw i32 %112, %91
-  %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw i16, ptr %81, i64 %116
-  br label %118
+  %109 = mul nuw nsw i32 %106, %87
+  %110 = zext nneg i32 %109 to i64
+  %111 = getelementptr inbounds nuw i16, ptr %77, i64 %110
+  br label %112
 
-118:                                              ; preds = %.preheader.us, %118
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %118 ]
-  %119 = icmp samesign ult i64 %indvars.iv, %103
+112:                                              ; preds = %.preheader.us, %112
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %112 ]
+  %113 = icmp samesign ult i64 %indvars.iv, %97
+  call void @llvm.assume(i1 %113)
+  %114 = getelementptr inbounds nuw i8, ptr %104, i64 %indvars.iv
+  %115 = load i8, ptr %114, align 1, !tbaa !115
+  %116 = add nuw nsw i64 %indvars.iv, %98
+  %117 = and i64 %116, 2147483648
+  %118 = icmp eq i64 %117, 0
+  call void @llvm.assume(i1 %118)
+  %119 = icmp samesign ult i64 %116, %99
   call void @llvm.assume(i1 %119)
-  %120 = getelementptr inbounds nuw i8, ptr %110, i64 %indvars.iv
-  %121 = load i8, ptr %120, align 1, !tbaa !115
-  %122 = add nuw nsw i64 %indvars.iv, %104
-  %123 = and i64 %122, 2147483648
-  %124 = icmp eq i64 %123, 0
-  call void @llvm.assume(i1 %124)
-  %125 = icmp samesign ult i64 %122, %105
-  call void @llvm.assume(i1 %125)
-  %126 = getelementptr inbounds nuw i16, ptr %117, i64 %122
-  %127 = zext i8 %121 to i16
-  store i16 %127, ptr %126, align 2, !tbaa !130
+  %120 = getelementptr inbounds nuw i16, ptr %111, i64 %116
+  %121 = zext i8 %115 to i16
+  store i16 %121, ptr %120, align 2, !tbaa !130
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge149.us, label %118, !llvm.loop !131
+  br i1 %exitcond.not, label %._crit_edge149.us, label %112, !llvm.loop !131
 
-._crit_edge149.us:                                ; preds = %118
+._crit_edge149.us:                                ; preds = %112
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
   br i1 %exitcond157.not, label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit, label %.preheader.us, !llvm.loop !132
 
-_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit: ; preds = %._crit_edge149.us, %.preheader.lr.ph, %71
+_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit: ; preds = %._crit_edge149.us, %.preheader.lr.ph, %67
   call void @llvm.assume(i1 %.not146)
   call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %.sroa.0103.1, i64 noundef 16) #20
   invoke void @jpeg_destroy_decompress(ptr noundef nonnull align 8 dereferenceable(824) %4)
-          to label %_ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit unwind label %128
+          to label %_ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit unwind label %122
 
-128:                                              ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit
-  %129 = landingpad { ptr, i32 }
+122:                                              ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit
+  %123 = landingpad { ptr, i32 }
           catch ptr null
-  %130 = extractvalue { ptr, i32 } %129, 0
-  call void @__clang_call_terminate(ptr %130) #21
+  %124 = extractvalue { ptr, i32 } %123, 0
+  call void @__clang_call_terminate(ptr %124) #21
   unreachable
 
 _ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit: ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-.thread:                                          ; preds = %63, %65
-  %.pn.pn139 = phi { ptr, i32 } [ %64, %63 ], [ %lpad.phi, %65 ]
+.thread:                                          ; preds = %59, %61
+  %.pn.pn139 = phi { ptr, i32 } [ %60, %59 ], [ %lpad.phi, %61 ]
   call void @llvm.assume(i1 %.not146)
   call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %.sroa.0103.1, i64 noundef 16) #20
   br label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43
 
 _ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43: ; preds = %.thread, %.thread141, %16
-  %.pn27 = phi { ptr, i32 } [ %17, %16 ], [ %.pn.pn139, %.thread ], [ %62, %.thread141 ]
+  %.pn27 = phi { ptr, i32 } [ %17, %16 ], [ %.pn.pn139, %.thread ], [ %58, %.thread141 ]
   invoke void @jpeg_destroy_decompress(ptr noundef nonnull align 8 dereferenceable(824) %4)
-          to label %_ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit44 unwind label %131
+          to label %_ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit44 unwind label %125
 
-131:                                              ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43
-  %132 = landingpad { ptr, i32 }
+125:                                              ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43
+  %126 = landingpad { ptr, i32 }
           catch ptr null
-  %133 = extractvalue { ptr, i32 } %132, 0
-  call void @__clang_call_terminate(ptr %133) #21
+  %127 = extractvalue { ptr, i32 } %126, 0
+  call void @__clang_call_terminate(ptr %127) #21
   unreachable
 
 _ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit44: ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43

@@ -289,164 +289,161 @@ _ZN4llvm9PrintableD2Ev.exit:                      ; preds = %37, %43
 
 _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i33: ; preds = %45
   %46 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #14, !noalias !31
-  %47 = extractvalue { ptr, i64 } %46, 0
-  %48 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #14, !noalias !31
+  %47 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #14, !noalias !31
+  %48 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #14, !noalias !34
   %49 = extractvalue { ptr, i64 } %48, 0
-  %50 = extractvalue { ptr, i64 } %48, 1
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %50
-  %52 = ptrtoint ptr %51 to i64
-  %53 = ptrtoint ptr %47 to i64
-  %54 = sub i64 %52, %53
-  %55 = and i64 %54, 68719476720
-  %.not14.i = icmp ne i64 %55, 0
-  tail call void @llvm.assume(i1 %.not14.i)
-  %56 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #14, !noalias !34
-  %57 = extractvalue { ptr, i64 } %56, 0
-  %58 = load ptr, ptr %57, align 8, !tbaa !15, !noalias !37
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %60 = load i32, ptr %59, align 4, !tbaa !21, !noalias !31
-  %.not8.i59 = icmp eq i32 %60, 9
+  %50 = load ptr, ptr %49, align 8, !tbaa !15, !noalias !37
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i32, ptr %51, align 4, !tbaa !21, !noalias !31
+  %.not8.i59 = icmp eq i32 %52, 9
   br i1 %.not8.i59, label %_ZNK4llvm8CallBase16getOperandBundleEj.exit, label %.critedge.i.preheader
 
 .critedge.i.preheader:                            ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i33
-  %61 = lshr exact i64 %54, 4
-  %62 = and i64 %61, 4294967295
+  %53 = extractvalue { ptr, i64 } %47, 0
+  %54 = extractvalue { ptr, i64 } %47, 1
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
+  %56 = ptrtoint ptr %55 to i64
+  %57 = extractvalue { ptr, i64 } %46, 0
+  %58 = ptrtoint ptr %57 to i64
+  %59 = sub i64 %56, %58
+  %60 = lshr exact i64 %59, 4
+  %61 = and i64 %60, 4294967295
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %.critedge.i
   %indvars.iv = phi i64 [ 0, %.critedge.i.preheader ], [ %indvars.iv.next, %.critedge.i ]
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %.not.i32 = icmp ne i64 %indvars.iv.next, %62
+  %.not.i32 = icmp ne i64 %indvars.iv.next, %61
   tail call void @llvm.assume(i1 %.not.i32)
-  %63 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #14, !noalias !34
-  %64 = extractvalue { ptr, i64 } %63, 0
-  %65 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %64, i64 %indvars.iv.next
-  %66 = load ptr, ptr %65, align 8, !tbaa !15, !noalias !37
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %68 = load i32, ptr %67, align 4, !tbaa !21, !noalias !31
-  %.not8.i = icmp eq i32 %68, 9
+  %62 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #14, !noalias !34
+  %63 = extractvalue { ptr, i64 } %62, 0
+  %64 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %63, i64 %indvars.iv.next
+  %65 = load ptr, ptr %64, align 8, !tbaa !15, !noalias !37
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %67 = load i32, ptr %66, align 4, !tbaa !21, !noalias !31
+  %.not8.i = icmp eq i32 %67, 9
   br i1 %.not8.i, label %_ZNK4llvm8CallBase16getOperandBundleEj.exit, label %.critedge.i
 
 _ZNK4llvm8CallBase16getOperandBundleEj.exit:      ; preds = %.critedge.i, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i33
-  %.lcssa = phi ptr [ %57, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i33 ], [ %65, %.critedge.i ]
-  %69 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 12
-  %70 = load i32, ptr %69, align 4, !tbaa !40, !noalias !37
-  %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %73 = load i32, ptr %72, align 8, !tbaa !41, !noalias !37
-  %74 = zext i32 %73 to i64
-  %75 = sub nsw i64 %71, %74
-  %76 = icmp eq i64 %75, 1
-  br i1 %76, label %_ZNK4llvm8CallBase16getOperandBundleEj.exit.thread, label %90
+  %.lcssa = phi ptr [ %49, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i33 ], [ %64, %.critedge.i ]
+  %68 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 12
+  %69 = load i32, ptr %68, align 4, !tbaa !40, !noalias !37
+  %70 = zext i32 %69 to i64
+  %71 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
+  %72 = load i32, ptr %71, align 8, !tbaa !41, !noalias !37
+  %73 = zext i32 %72 to i64
+  %74 = sub nsw i64 %70, %73
+  %75 = icmp eq i64 %74, 1
+  br i1 %75, label %_ZNK4llvm8CallBase16getOperandBundleEj.exit.thread, label %89
 
 _ZNK4llvm8CallBase16getOperandBundleEj.exit.thread: ; preds = %_ZNK4llvm8CallBase16getOperandBundleEj.exit
-  %77 = load i32, ptr %11, align 4, !noalias !37
-  %78 = and i32 %77, 134217727
-  %79 = zext nneg i32 %78 to i64
-  %80 = sub nsw i64 0, %79
-  %81 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %80
-  %.idx6.i.i.i = shl nuw nsw i64 %74, 5
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx6.i.i.i
-  %83 = load ptr, ptr %82, align 8, !tbaa !42
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %85 = load ptr, ptr %84, align 8, !tbaa !47
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %87 = load i32, ptr %86, align 8
-  %88 = and i32 %87, 255
-  %89 = icmp eq i32 %88, 11
-  br i1 %89, label %98, label %90
+  %76 = load i32, ptr %11, align 4, !noalias !37
+  %77 = and i32 %76, 134217727
+  %78 = zext nneg i32 %77 to i64
+  %79 = sub nsw i64 0, %78
+  %80 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %79
+  %.idx6.i.i.i = shl nuw nsw i64 %73, 5
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx6.i.i.i
+  %82 = load ptr, ptr %81, align 8, !tbaa !42
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !47
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %86 = load i32, ptr %85, align 8
+  %87 = and i32 %86, 255
+  %88 = icmp eq i32 %87, 11
+  br i1 %88, label %97, label %89
 
-90:                                               ; preds = %_ZNK4llvm8CallBase16getOperandBundleEj.exit.thread, %_ZNK4llvm8CallBase16getOperandBundleEj.exit
+89:                                               ; preds = %_ZNK4llvm8CallBase16getOperandBundleEj.exit.thread, %_ZNK4llvm8CallBase16getOperandBundleEj.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %91 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %92 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 1, ptr %92, align 1, !tbaa !24
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 33
+  store i8 1, ptr %91, align 1, !tbaa !24
   store ptr @.str.1, ptr %5, align 8, !tbaa !27
-  store i8 3, ptr %91, align 8, !tbaa !28
+  store i8 3, ptr %90, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @_ZNK4llvm17GenericSSAContextINS_8FunctionEE5printEPKNS_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Printable") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull %1) #14
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  call void @_ZNK4llvm17GenericSSAContextINS_8FunctionEE5printEPKNS_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Printable") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull %1) #14
   call void @_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE13reportFailureERKNS_5TwineENS_8ArrayRefINS_9PrintableEEE(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr nonnull %6, i64 1)
-  %94 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %95 = load ptr, ptr %94, align 8, !tbaa !29
-  %.not.i.i36 = icmp eq ptr %95, null
-  br i1 %.not.i.i36, label %_ZN4llvm9PrintableD2Ev.exit37, label %96
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %94 = load ptr, ptr %93, align 8, !tbaa !29
+  %.not.i.i36 = icmp eq ptr %94, null
+  br i1 %.not.i.i36, label %_ZN4llvm9PrintableD2Ev.exit37, label %95
 
-96:                                               ; preds = %90
-  %97 = call noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #14
+95:                                               ; preds = %89
+  %96 = call noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #14
   br label %_ZN4llvm9PrintableD2Ev.exit37
 
-_ZN4llvm9PrintableD2Ev.exit37:                    ; preds = %90, %96
+_ZN4llvm9PrintableD2Ev.exit37:                    ; preds = %89, %95
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread
 
-98:                                               ; preds = %_ZNK4llvm8CallBase16getOperandBundleEj.exit.thread
-  %99 = load i8, ptr %83, align 8, !tbaa !3
-  %100 = icmp ult i8 %99, 29
-  br i1 %100, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE9getConvOpERKNS_11InstructionE.exit, label %101
+97:                                               ; preds = %_ZNK4llvm8CallBase16getOperandBundleEj.exit.thread
+  %98 = load i8, ptr %82, align 8, !tbaa !3
+  %99 = icmp ult i8 %98, 29
+  br i1 %99, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE9getConvOpERKNS_11InstructionE.exit, label %100
 
-101:                                              ; preds = %98
-  switch i8 %99, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE9getConvOpERKNS_11InstructionE.exit [
+100:                                              ; preds = %97
+  switch i8 %98, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE9getConvOpERKNS_11InstructionE.exit [
     i8 85, label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.i
     i8 34, label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.i
     i8 40, label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.i
   ]
 
-_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.i: ; preds = %101, %101, %101
-  %102 = tail call noundef i32 @_ZNK4llvm8CallBase14getIntrinsicIDEv(ptr noundef nonnull align 8 dereferenceable(88) %83) #14
-  %.off = add i32 %102, -142
+_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.i: ; preds = %100, %100, %100
+  %101 = tail call noundef i32 @_ZNK4llvm8CallBase14getIntrinsicIDEv(ptr noundef nonnull align 8 dereferenceable(88) %82) #14
+  %.off = add i32 %101, -142
   %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %117, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE9getConvOpERKNS_11InstructionE.exit
+  br i1 %switch, label %116, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE9getConvOpERKNS_11InstructionE.exit
 
-_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE9getConvOpERKNS_11InstructionE.exit: ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.i, %101, %98
+_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE9getConvOpERKNS_11InstructionE.exit: ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.i, %100, %97
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %103 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %104 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %104, align 1, !tbaa !24
+  %102 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 1, ptr %103, align 1, !tbaa !24
   store ptr @.str.2, ptr %7, align 8, !tbaa !27
-  store i8 3, ptr %103, align 8, !tbaa !28
+  store i8 3, ptr %102, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @_ZNK4llvm17GenericSSAContextINS_8FunctionEE5printEPKNS_5ValueE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Printable") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %105, ptr noundef nonnull %83) #14
-  %106 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @_ZNK4llvm17GenericSSAContextINS_8FunctionEE5printEPKNS_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Printable") align 8 %106, ptr noundef nonnull align 8 dereferenceable(8) %105, ptr noundef nonnull %1) #14
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  call void @_ZNK4llvm17GenericSSAContextINS_8FunctionEE5printEPKNS_5ValueE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Printable") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull %82) #14
+  %105 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  call void @_ZNK4llvm17GenericSSAContextINS_8FunctionEE5printEPKNS_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Printable") align 8 %105, ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull %1) #14
   call void @_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE13reportFailureERKNS_5TwineENS_8ArrayRefINS_9PrintableEEE(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr nonnull %8, i64 2)
-  %107 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  br label %108
+  %106 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  br label %107
 
-108:                                              ; preds = %_ZN4llvm9PrintableD2Ev.exit40, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE9getConvOpERKNS_11InstructionE.exit
-  %109 = phi ptr [ %107, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE9getConvOpERKNS_11InstructionE.exit ], [ %110, %_ZN4llvm9PrintableD2Ev.exit40 ]
-  %110 = getelementptr inbounds i8, ptr %109, i64 -32
-  %111 = getelementptr inbounds i8, ptr %109, i64 -16
-  %112 = load ptr, ptr %111, align 8, !tbaa !29
-  %.not.i.i39 = icmp eq ptr %112, null
-  br i1 %.not.i.i39, label %_ZN4llvm9PrintableD2Ev.exit40, label %113
+107:                                              ; preds = %_ZN4llvm9PrintableD2Ev.exit40, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE9getConvOpERKNS_11InstructionE.exit
+  %108 = phi ptr [ %106, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE9getConvOpERKNS_11InstructionE.exit ], [ %109, %_ZN4llvm9PrintableD2Ev.exit40 ]
+  %109 = getelementptr inbounds i8, ptr %108, i64 -32
+  %110 = getelementptr inbounds i8, ptr %108, i64 -16
+  %111 = load ptr, ptr %110, align 8, !tbaa !29
+  %.not.i.i39 = icmp eq ptr %111, null
+  br i1 %.not.i.i39, label %_ZN4llvm9PrintableD2Ev.exit40, label %112
 
-113:                                              ; preds = %108
-  %114 = call noundef zeroext i1 %112(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(32) %110, i32 noundef 3) #14
+112:                                              ; preds = %107
+  %113 = call noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %109, i32 noundef 3) #14
   br label %_ZN4llvm9PrintableD2Ev.exit40
 
-_ZN4llvm9PrintableD2Ev.exit40:                    ; preds = %108, %113
-  %115 = icmp eq ptr %110, %8
-  br i1 %115, label %116, label %108
+_ZN4llvm9PrintableD2Ev.exit40:                    ; preds = %107, %112
+  %114 = icmp eq ptr %109, %8
+  br i1 %114, label %115, label %107
 
-116:                                              ; preds = %_ZN4llvm9PrintableD2Ev.exit40
+115:                                              ; preds = %_ZN4llvm9PrintableD2Ev.exit40
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread
 
-117:                                              ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.i
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 144
+116:                                              ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.i
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %1, ptr %9, align 8, !tbaa !48
-  %119 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %118, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr %83, ptr %119, align 8, !tbaa !48
+  %118 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %117, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  store ptr %82, ptr %118, align 8, !tbaa !48
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread
 
-_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread: ; preds = %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i, %2, %_ZN4llvm9PrintableD2Ev.exit37, %117, %116, %_ZN4llvm9PrintableD2Ev.exit, %45
-  %.0 = phi ptr [ null, %_ZN4llvm9PrintableD2Ev.exit ], [ null, %45 ], [ null, %_ZN4llvm9PrintableD2Ev.exit37 ], [ %83, %117 ], [ null, %116 ], [ null, %2 ], [ null, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i ]
+_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread: ; preds = %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i, %2, %_ZN4llvm9PrintableD2Ev.exit37, %116, %115, %_ZN4llvm9PrintableD2Ev.exit, %45
+  %.0 = phi ptr [ null, %_ZN4llvm9PrintableD2Ev.exit ], [ null, %45 ], [ null, %_ZN4llvm9PrintableD2Ev.exit37 ], [ %82, %116 ], [ null, %115 ], [ null, %2 ], [ null, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i ]
   ret ptr %.0
 }
 

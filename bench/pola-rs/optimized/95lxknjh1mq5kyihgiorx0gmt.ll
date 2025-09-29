@@ -5379,7 +5379,7 @@ define internal fastcc void @"_ZN14polars_compute17binview_index_map20VacantEntr
 15:                                               ; preds = %64, %14, %43, %54
   %16 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %146
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h98b4c3f3b99c2980E.exit": ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -5504,7 +5504,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i: ; preds = %.th
   %73 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h053274ce07c60e81E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #28
-          to label %147 unwind label %74
+          to label %146 unwind label %74
 
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
@@ -5690,22 +5690,19 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %9
   %144 = getelementptr inbounds i32, ptr %124, i64 %143
   %145 = getelementptr inbounds i8, ptr %144, i64 -4
   store i32 %116, ptr %145, align 4, !noalias !356
-  %146 = load i64, ptr %10, align 8, !noundef !6
-  %.not15 = icmp ne i64 %146, 0
-  tail call void @llvm.assume(i1 %.not15)
   ret void
 
-.body:                                            ; preds = %110, %147
-  %eh.lpad-body28 = phi { ptr, i32 } [ %eh.lpad-body.ph, %147 ], [ %111, %110 ]
+.body:                                            ; preds = %110, %146
+  %eh.lpad-body28 = phi { ptr, i32 } [ %eh.lpad-body.ph, %146 ], [ %111, %110 ]
   resume { ptr, i32 } %eh.lpad-body28
 
-147:                                              ; preds = %15, %72
+146:                                              ; preds = %15, %72
   %eh.lpad-body.ph = phi { ptr, i32 } [ %16, %15 ], [ %73, %72 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$polars_utils..idx_vec..UnitVec$LT$core..sync..atomic..AtomicU64$GT$$GT$17hee01a5d49fa9028eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1) #28
-          to label %.body unwind label %148
+          to label %.body unwind label %147
 
-148:                                              ; preds = %147
-  %149 = landingpad { ptr, i32 }
+147:                                              ; preds = %146
+  %148 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #29
   unreachable

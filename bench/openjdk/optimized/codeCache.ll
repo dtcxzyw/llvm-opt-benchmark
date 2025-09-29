@@ -1492,8 +1492,6 @@ define hidden noundef ptr @_ZN9CodeCache8allocateEj12CodeBlobTypebS0_(i32 nounde
   %.tr3949 = phi i32 [ %1, %.lr.ph51 ], [ %.0, %.lr.ph.i.backedge ]
   %7 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %8 = load i32, ptr %7, align 4
-  %.not8.i = icmp ne i32 %8, 0
-  tail call void @llvm.assume(i1 %.not8.i)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %8 to i64
@@ -3576,8 +3574,6 @@ define hidden noundef zeroext i1 @_ZN9CodeCache14is_non_nmethodEPh(ptr noundef r
 .lr.ph.i:
   %1 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %2 = load i32, ptr %1, align 4
-  %.not8.i = icmp ne i32 %2, 0
-  tail call void @llvm.assume(i1 %.not8.i)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
@@ -3626,8 +3622,6 @@ define hidden noundef i64 @_ZN9CodeCache27max_distance_to_non_nmethodEv() local_
 .lr.ph.i:                                         ; preds = %0
   %5 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %6 = load i32, ptr %5, align 4
-  %.not8.i = icmp ne i32 %6, 0
-  tail call void @llvm.assume(i1 %.not8.i)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
@@ -5251,8 +5245,6 @@ _ZN9CodeCache14heap_availableE12CodeBlobType.exit.i: ; preds = %26
 .lr.ph.i.i:                                       ; preds = %_ZN9CodeCache14heap_availableE12CodeBlobType.exit.i, %64, %62, %47
   %68 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %69 = load i32, ptr %68, align 4
-  %.not8.i.i = icmp ne i32 %69, 0
-  call void @llvm.assume(i1 %.not8.i.i)
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = zext i32 %69 to i64

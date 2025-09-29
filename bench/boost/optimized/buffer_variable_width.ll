@@ -180826,8 +180826,8 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay24remove_spike
   br label %14
 
 14:                                               ; preds = %.preheader, %_ZN5boost8geometry5range9push_backIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_RKNS_11range_valueISB_E4typeE.exit
-  %15 = phi ptr [ %7, %.preheader ], [ %83, %_ZN5boost8geometry5range9push_backIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_RKNS_11range_valueISB_E4typeE.exit ]
-  %16 = phi ptr [ %5, %.preheader ], [ %84, %_ZN5boost8geometry5range9push_backIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_RKNS_11range_valueISB_E4typeE.exit ]
+  %15 = phi ptr [ %7, %.preheader ], [ %78, %_ZN5boost8geometry5range9push_backIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_RKNS_11range_valueISB_E4typeE.exit ]
+  %16 = phi ptr [ %5, %.preheader ], [ %79, %_ZN5boost8geometry5range9push_backIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_RKNS_11range_valueISB_E4typeE.exit ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = getelementptr inbounds i8, ptr %15, i64 -80
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -180867,124 +180867,118 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP14specific_pointSt6vectorIS2_SaIS2_EEE
   %34 = phi ptr [ %17, %27 ], [ %.pre13.i, %29 ]
   %35 = load ptr, ptr %0, align 8, !tbaa !174
   %36 = icmp eq ptr %34, %35
-  br i1 %36, label %37, label %43
+  br i1 %36, label %37, label %38
 
 37:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP14specific_pointSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i
-  %38 = ptrtoint ptr %33 to i64
-  %39 = ptrtoint ptr %34 to i64
-  %40 = sub i64 %38, %39
-  %41 = sdiv exact i64 %40, 40
-  %42 = icmp ult i64 %41, 230584300921369396
-  call void @llvm.assume(i1 %42)
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.791) #55
   unreachable
 
-43:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP14specific_pointSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i
-  %44 = ptrtoint ptr %34 to i64
-  %45 = ptrtoint ptr %35 to i64
-  %46 = sub i64 %44, %45
-  %47 = getelementptr i8, ptr %35, i64 %46
-  %48 = getelementptr i8, ptr %47, i64 -40
-  %.not.i.i.i.i.i = icmp eq ptr %34, %48
-  br i1 %.not.i.i.i.i.i, label %_ZN5boost8geometry5range5eraseIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEENS_14range_iteratorISB_vE4typeEOSB_SI_.exit, label %49
+38:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP14specific_pointSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i
+  %39 = ptrtoint ptr %34 to i64
+  %40 = ptrtoint ptr %35 to i64
+  %41 = sub i64 %39, %40
+  %42 = getelementptr i8, ptr %35, i64 %41
+  %43 = getelementptr i8, ptr %42, i64 -40
+  %.not.i.i.i.i.i = icmp eq ptr %34, %43
+  br i1 %.not.i.i.i.i.i, label %_ZN5boost8geometry5range5eraseIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEENS_14range_iteratorISB_vE4typeEOSB_SI_.exit, label %44
 
-49:                                               ; preds = %43
-  store ptr %48, ptr %6, align 8, !tbaa !2499
+44:                                               ; preds = %38
+  store ptr %43, ptr %6, align 8, !tbaa !2499
   br label %_ZN5boost8geometry5range5eraseIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEENS_14range_iteratorISB_vE4typeEOSB_SI_.exit
 
-_ZN5boost8geometry5range5eraseIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEENS_14range_iteratorISB_vE4typeEOSB_SI_.exit: ; preds = %43, %49
-  %50 = phi ptr [ %33, %43 ], [ %48, %49 ]
-  %51 = icmp eq ptr %50, %35
-  br i1 %51, label %52, label %53
+_ZN5boost8geometry5range5eraseIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEENS_14range_iteratorISB_vE4typeEOSB_SI_.exit: ; preds = %38, %44
+  %45 = phi ptr [ %33, %38 ], [ %43, %44 ]
+  %46 = icmp eq ptr %45, %35
+  br i1 %46, label %47, label %48
 
-52:                                               ; preds = %_ZN5boost8geometry5range5eraseIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEENS_14range_iteratorISB_vE4typeEOSB_SI_.exit
+47:                                               ; preds = %_ZN5boost8geometry5range5eraseIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEENS_14range_iteratorISB_vE4typeEOSB_SI_.exit
   call void @_ZNSt6vectorI14specific_pointSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef -1)
   %.pre = load ptr, ptr %0, align 8, !tbaa !174
   %.pre19 = load ptr, ptr %6, align 8, !tbaa !2499
   br label %_ZN5boost8geometry5range6resizeIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_NS_10range_sizeISB_E4typeE.exit
 
-53:                                               ; preds = %_ZN5boost8geometry5range5eraseIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEENS_14range_iteratorISB_vE4typeEOSB_SI_.exit
-  %54 = ptrtoint ptr %50 to i64
-  %55 = sub i64 %54, %45
-  %56 = getelementptr i8, ptr %35, i64 %55
-  %57 = getelementptr i8, ptr %56, i64 -40
-  %.not.i.i.i.i = icmp eq ptr %50, %57
-  br i1 %.not.i.i.i.i, label %_ZN5boost8geometry5range6resizeIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_NS_10range_sizeISB_E4typeE.exit, label %58
+48:                                               ; preds = %_ZN5boost8geometry5range5eraseIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEENS_14range_iteratorISB_vE4typeEOSB_SI_.exit
+  %49 = ptrtoint ptr %45 to i64
+  %50 = sub i64 %49, %40
+  %51 = getelementptr i8, ptr %35, i64 %50
+  %52 = getelementptr i8, ptr %51, i64 -40
+  %.not.i.i.i.i = icmp eq ptr %45, %52
+  br i1 %.not.i.i.i.i, label %_ZN5boost8geometry5range6resizeIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_NS_10range_sizeISB_E4typeE.exit, label %53
 
-58:                                               ; preds = %53
-  store ptr %57, ptr %6, align 8, !tbaa !2499
+53:                                               ; preds = %48
+  store ptr %52, ptr %6, align 8, !tbaa !2499
   br label %_ZN5boost8geometry5range6resizeIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_NS_10range_sizeISB_E4typeE.exit
 
-_ZN5boost8geometry5range6resizeIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_NS_10range_sizeISB_E4typeE.exit: ; preds = %52, %53, %58
-  %59 = phi ptr [ %.pre19, %52 ], [ %50, %53 ], [ %57, %58 ]
-  %60 = phi ptr [ %.pre, %52 ], [ %35, %53 ], [ %35, %58 ]
-  %61 = load ptr, ptr %13, align 8, !tbaa !1502
-  %.not.i.i.i = icmp eq ptr %59, %61
-  br i1 %.not.i.i.i, label %65, label %62
+_ZN5boost8geometry5range6resizeIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_NS_10range_sizeISB_E4typeE.exit: ; preds = %47, %48, %53
+  %54 = phi ptr [ %.pre19, %47 ], [ %45, %48 ], [ %52, %53 ]
+  %55 = phi ptr [ %.pre, %47 ], [ %35, %48 ], [ %35, %53 ]
+  %56 = load ptr, ptr %13, align 8, !tbaa !1502
+  %.not.i.i.i = icmp eq ptr %54, %56
+  br i1 %.not.i.i.i, label %60, label %57
 
-62:                                               ; preds = %_ZN5boost8geometry5range6resizeIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_NS_10range_sizeISB_E4typeE.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %59, ptr noundef nonnull align 8 dereferenceable(40) %60, i64 40, i1 false)
-  %63 = load ptr, ptr %6, align 8, !tbaa !2499
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
-  store ptr %64, ptr %6, align 8, !tbaa !2499
+57:                                               ; preds = %_ZN5boost8geometry5range6resizeIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_NS_10range_sizeISB_E4typeE.exit
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(40) %55, i64 40, i1 false)
+  %58 = load ptr, ptr %6, align 8, !tbaa !2499
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  store ptr %59, ptr %6, align 8, !tbaa !2499
   %.pre20 = load ptr, ptr %0, align 8, !tbaa !174
   br label %_ZN5boost8geometry5range9push_backIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_RKNS_11range_valueISB_E4typeE.exit
 
-65:                                               ; preds = %_ZN5boost8geometry5range6resizeIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_NS_10range_sizeISB_E4typeE.exit
-  %66 = ptrtoint ptr %59 to i64
-  %67 = ptrtoint ptr %60 to i64
-  %68 = sub i64 %66, %67
-  %69 = icmp eq i64 %68, 9223372036854775800
-  br i1 %69, label %70, label %_ZNKSt6vectorI14specific_pointSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i
+60:                                               ; preds = %_ZN5boost8geometry5range6resizeIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_NS_10range_sizeISB_E4typeE.exit
+  %61 = ptrtoint ptr %54 to i64
+  %62 = ptrtoint ptr %55 to i64
+  %63 = sub i64 %61, %62
+  %64 = icmp eq i64 %63, 9223372036854775800
+  br i1 %64, label %65, label %_ZNKSt6vectorI14specific_pointSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
-70:                                               ; preds = %65
+65:                                               ; preds = %60
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.494) #55
   unreachable
 
-_ZNKSt6vectorI14specific_pointSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %65
-  %71 = sdiv exact i64 %68, 40
-  %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %71, i64 1)
-  %72 = add nsw i64 %.sroa.speculated.i.i.i.i.i, %71
-  %73 = icmp ult i64 %72, %71
-  %74 = call i64 @llvm.umin.i64(i64 %72, i64 230584300921369395)
-  %75 = select i1 %73, i64 230584300921369395, i64 %74
-  %.not.i.i.i.i.i12 = icmp ne i64 %75, 0
+_ZNKSt6vectorI14specific_pointSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %60
+  %66 = sdiv exact i64 %63, 40
+  %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %66, i64 1)
+  %67 = add nsw i64 %.sroa.speculated.i.i.i.i.i, %66
+  %68 = icmp ult i64 %67, %66
+  %69 = call i64 @llvm.umin.i64(i64 %67, i64 230584300921369395)
+  %70 = select i1 %68, i64 230584300921369395, i64 %69
+  %.not.i.i.i.i.i12 = icmp ne i64 %70, 0
   call void @llvm.assume(i1 %.not.i.i.i.i.i12)
-  %76 = mul nuw nsw i64 %75, 40
-  %77 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %76) #59
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 %68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %78, ptr noundef nonnull align 8 dereferenceable(40) %60, i64 40, i1 false)
-  %.not10.i.i.i.i.i.i.i = icmp eq ptr %60, %59
+  %71 = mul nuw nsw i64 %70, 40
+  %72 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %71) #59
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 %63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %73, ptr noundef nonnull align 8 dereferenceable(40) %55, i64 40, i1 false)
+  %.not10.i.i.i.i.i.i.i = icmp eq ptr %55, %54
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorI14specific_pointSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNKSt6vectorI14specific_pointSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi ptr [ %80, %.lr.ph.i.i.i.i.i.i.i ], [ %77, %_ZNKSt6vectorI14specific_pointSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
-  %.0911.i.i.i.i.i.i.i = phi ptr [ %79, %.lr.ph.i.i.i.i.i.i.i ], [ %60, %_ZNKSt6vectorI14specific_pointSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
+  %.012.i.i.i.i.i.i.i = phi ptr [ %75, %.lr.ph.i.i.i.i.i.i.i ], [ %72, %_ZNKSt6vectorI14specific_pointSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
+  %.0911.i.i.i.i.i.i.i = phi ptr [ %74, %.lr.ph.i.i.i.i.i.i.i ], [ %55, %_ZNKSt6vectorI14specific_pointSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.0911.i.i.i.i.i.i.i, i64 40, i1 false), !alias.scope !3558
-  %79 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 40
-  %80 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 40
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %79, %59
+  %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 40
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %74, %54
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorI14specific_pointSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !2506
 
 _ZNSt6vectorI14specific_pointSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNKSt6vectorI14specific_pointSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %77, %_ZNKSt6vectorI14specific_pointSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %80, %.lr.ph.i.i.i.i.i.i.i ]
-  %81 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 40
-  call void @_ZdlPvm(ptr noundef nonnull %60, i64 noundef %68) #58
-  store ptr %77, ptr %0, align 8, !tbaa !1500
-  store ptr %81, ptr %6, align 8, !tbaa !2499
-  %82 = getelementptr inbounds nuw %struct.specific_point, ptr %77, i64 %75
-  store ptr %82, ptr %13, align 8, !tbaa !1502
+  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %72, %_ZNKSt6vectorI14specific_pointSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %75, %.lr.ph.i.i.i.i.i.i.i ]
+  %76 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 40
+  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %63) #58
+  store ptr %72, ptr %0, align 8, !tbaa !1500
+  store ptr %76, ptr %6, align 8, !tbaa !2499
+  %77 = getelementptr inbounds nuw %struct.specific_point, ptr %72, i64 %70
+  store ptr %77, ptr %13, align 8, !tbaa !1502
   br label %_ZN5boost8geometry5range9push_backIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_RKNS_11range_valueISB_E4typeE.exit
 
-_ZN5boost8geometry5range9push_backIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_RKNS_11range_valueISB_E4typeE.exit: ; preds = %62, %_ZNSt6vectorI14specific_pointSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i
-  %83 = phi ptr [ %64, %62 ], [ %81, %_ZNSt6vectorI14specific_pointSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ]
-  %84 = phi ptr [ %.pre20, %62 ], [ %77, %_ZNSt6vectorI14specific_pointSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ]
-  %85 = ptrtoint ptr %83 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = sdiv exact i64 %87, 40
-  %89 = icmp ugt i64 %88, 3
-  br i1 %89, label %14, label %.critedge, !llvm.loop !3562
+_ZN5boost8geometry5range9push_backIRNS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEEvOSB_RKNS_11range_valueISB_E4typeE.exit: ; preds = %57, %_ZNSt6vectorI14specific_pointSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i
+  %78 = phi ptr [ %59, %57 ], [ %76, %_ZNSt6vectorI14specific_pointSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ]
+  %79 = phi ptr [ %.pre20, %57 ], [ %72, %_ZNSt6vectorI14specific_pointSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ]
+  %80 = ptrtoint ptr %78 to i64
+  %81 = ptrtoint ptr %79 to i64
+  %82 = sub i64 %80, %81
+  %83 = sdiv exact i64 %82, 40
+  %84 = icmp ugt i64 %83, 3
+  br i1 %84, label %14, label %.critedge, !llvm.loop !3562
 
 .critedge.critedge:                               ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -7807,8 +7807,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit119.i:            ; preds = %744, %742, %725
   %762 = zext i32 %761 to i64
   %.idx.i.i.i = mul nuw nsw i64 %762, 56
   %763 = getelementptr inbounds nuw i8, ptr %759, i64 %.idx.i.i.i
-  %.not16.i.i.i = icmp ne i32 %761, 0
-  call void @llvm.assume(i1 %.not16.i.i.i)
   %764 = load ptr, ptr %759, align 8, !tbaa !320
   %.not15.i.i169.i = icmp eq ptr %764, %757
   br i1 %.not15.i.i169.i, label %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.i, label %.lr.ph.i.i.i

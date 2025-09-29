@@ -7736,8 +7736,6 @@ define dso_local noundef i32 @_ZNK4llvm12MachineInstr18findTiedOperandIdxEj(ptr 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i24, ptr %19, align 8
   %21 = zext i24 %20 to i32
-  %.not72124.not = icmp ne i24 %20, 14
-  tail call void @llvm.assume(i1 %.not72124.not)
   %22 = add i32 %1, 1
   br label %23
 

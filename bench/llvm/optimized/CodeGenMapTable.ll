@@ -1367,8 +1367,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   %567 = zext i32 %566 to i64
   %.idx.i.i.i.i = mul nuw nsw i64 %567, 56
   %568 = getelementptr inbounds nuw i8, ptr %564, i64 %.idx.i.i.i.i
-  %.not16.i.i.i.i = icmp ne i32 %566, 0
-  call void @llvm.assume(i1 %.not16.i.i.i.i)
   %569 = load ptr, ptr %564, align 8, !tbaa !111
   %.not15.i.i67.i.i = icmp eq ptr %569, %562
   br i1 %.not15.i.i67.i.i, label %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.i.i, label %.lr.ph.i.i.i.i
@@ -1717,8 +1715,6 @@ _ZN12_GLOBAL__N_115MapTableEmitterC2ERKN4llvm13CodeGenTargetERKNS1_12RecordKeepe
   %704 = zext i32 %703 to i64
   %.idx.i.i.i = mul nuw nsw i64 %704, 56
   %705 = getelementptr inbounds nuw i8, ptr %702, i64 %.idx.i.i.i
-  %.not16.i.i.i = icmp ne i32 %703, 0
-  call void @llvm.assume(i1 %.not16.i.i.i)
   %706 = load ptr, ptr %702, align 8, !tbaa !111
   %.not15.i1.i.i = icmp eq ptr %706, %701
   br i1 %.not15.i1.i.i, label %_ZNK4llvm6Record8getValueEPKNS_4InitE.exit.i.i, label %.lr.ph.i.i.i
@@ -2418,8 +2414,6 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit.us.i: ; preds = %_ZNSt6vectorIPKN
   %988 = zext i32 %987 to i64
   %.idx.i.i.us.i = mul nuw nsw i64 %988, 56
   %989 = getelementptr inbounds nuw i8, ptr %986, i64 %.idx.i.i.us.i
-  %.not16.i.i.us.i = icmp ne i32 %987, 0
-  call void @llvm.assume(i1 %.not16.i.i.us.i)
   %990 = load ptr, ptr %986, align 8, !tbaa !111
   %.not15.i74.i.us.i = icmp eq ptr %990, %985
   br i1 %.not15.i74.i.us.i, label %_ZNK4llvm6Record8getValueEPKNS_4InitE.exit.i.us.i, label %.lr.ph.i.i.us.i
@@ -2778,8 +2772,6 @@ _ZNSt3mapISt6vectorIPKN4llvm4InitESaIS4_EES0_IPKNS1_6RecordESaIS9_EESt4lessIS6_E
   %1139 = zext i32 %1138 to i64
   %.idx.i47.i.us.i = mul nuw nsw i64 %1139, 56
   %1140 = getelementptr inbounds nuw i8, ptr %1137, i64 %.idx.i47.i.us.i
-  %.not16.i48.i.us.i = icmp ne i32 %1138, 0
-  call void @llvm.assume(i1 %.not16.i48.i.us.i)
   %1141 = load ptr, ptr %1137, align 8, !tbaa !111
   %.not15.i5181.i.us.i = icmp eq ptr %1141, %1136
   br i1 %.not15.i5181.i.us.i, label %_ZNK4llvm6Record8getValueEPKNS_4InitE.exit54.i.us.i, label %.lr.ph.i49.i.us.i

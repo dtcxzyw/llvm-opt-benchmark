@@ -3809,8 +3809,6 @@ _ZN4llvm11SmallVectorIPKNS_4InitELj16EEC2Em.exit: ; preds = %29
   %69 = zext i32 %68 to i64
   %.idx.i.i.i = mul nuw nsw i64 %69, 56
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i.i.i
-  %.not16.i.i.i = icmp ne i32 %68, 0
-  call void @llvm.assume(i1 %.not16.i.i.i)
   %71 = load ptr, ptr %66, align 8, !tbaa !98
   %.not15.i.i.i56 = icmp eq ptr %71, %64
   br i1 %.not15.i.i.i56, label %_ZN4llvm6Record8getValueENS_9StringRefE.exit, label %.lr.ph.i.i.i

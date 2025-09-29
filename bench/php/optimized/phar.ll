@@ -1405,65 +1405,61 @@ zend_string_release.exit.i:                       ; preds = %20, %19, %12, %8
 
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %26 = xor i1 %2, true
-  tail call void @llvm.assume(i1 %26)
-  %27 = load ptr, ptr %0, align 8, !tbaa !29
-  %28 = load i32, ptr %22, align 8, !tbaa !29
-  store ptr %27, ptr %4, align 8, !tbaa !29
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %28, ptr %29, align 8, !tbaa !29
+  %26 = load ptr, ptr %0, align 8, !tbaa !29
+  %27 = load i32, ptr %22, align 8, !tbaa !29
+  store ptr %26, ptr %4, align 8, !tbaa !29
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %27, ptr %28, align 8, !tbaa !29
   store i32 0, ptr %22, align 8, !tbaa !29
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %phar_metadata_tracker_free.exit
 
 phar_metadata_tracker_free.exit:                  ; preds = %21, %25
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = load i8, ptr %30, align 8, !tbaa !29
-  %32 = icmp eq i8 %31, 0
-  br i1 %32, label %41, label %33
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %30 = load i8, ptr %29, align 8, !tbaa !29
+  %31 = icmp eq i8 %30, 0
+  br i1 %31, label %39, label %32
 
-33:                                               ; preds = %phar_metadata_tracker_free.exit
-  %34 = xor i1 %2, true
-  call void @llvm.assume(i1 %34)
-  %35 = load ptr, ptr %1, align 8, !tbaa !29
-  %36 = load i32, ptr %30, align 8, !tbaa !29
-  store ptr %35, ptr %0, align 8, !tbaa !29
-  store i32 %36, ptr %22, align 8, !tbaa !29
-  %37 = and i32 %36, 65280
-  %.not = icmp eq i32 %37, 0
-  br i1 %.not, label %41, label %38
+32:                                               ; preds = %phar_metadata_tracker_free.exit
+  %33 = load ptr, ptr %1, align 8, !tbaa !29
+  %34 = load i32, ptr %29, align 8, !tbaa !29
+  store ptr %33, ptr %0, align 8, !tbaa !29
+  store i32 %34, ptr %22, align 8, !tbaa !29
+  %35 = and i32 %34, 65280
+  %.not = icmp eq i32 %35, 0
+  br i1 %.not, label %39, label %36
 
-38:                                               ; preds = %33
-  %39 = load i32, ptr %35, align 4, !tbaa !78
-  %40 = add i32 %39, 1
-  store i32 %40, ptr %35, align 4, !tbaa !78
-  br label %41
+36:                                               ; preds = %32
+  %37 = load i32, ptr %33, align 4, !tbaa !78
+  %38 = add i32 %37, 1
+  store i32 %38, ptr %33, align 4, !tbaa !78
+  br label %39
 
-41:                                               ; preds = %33, %38, %phar_metadata_tracker_free.exit
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !77
-  %.not18 = icmp eq ptr %43, null
-  br i1 %.not18, label %51, label %44
+39:                                               ; preds = %32, %36, %phar_metadata_tracker_free.exit
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %41 = load ptr, ptr %40, align 8, !tbaa !77
+  %.not18 = icmp eq ptr %41, null
+  br i1 %.not18, label %49, label %42
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %46 = load i32, ptr %45, align 4, !tbaa !29
-  %47 = and i32 %46, 64
-  %.not.i = icmp eq i32 %47, 0
-  br i1 %.not.i, label %48, label %zend_string_copy.exit
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %44 = load i32, ptr %43, align 4, !tbaa !29
+  %45 = and i32 %44, 64
+  %.not.i = icmp eq i32 %45, 0
+  br i1 %.not.i, label %46, label %zend_string_copy.exit
 
-48:                                               ; preds = %44
-  %49 = load i32, ptr %43, align 4, !tbaa !78
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %43, align 4, !tbaa !78
+46:                                               ; preds = %42
+  %47 = load i32, ptr %41, align 4, !tbaa !78
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %41, align 4, !tbaa !78
   br label %zend_string_copy.exit
 
-zend_string_copy.exit:                            ; preds = %44, %48
-  store ptr %43, ptr %6, align 8, !tbaa !77
-  br label %51
+zend_string_copy.exit:                            ; preds = %42, %46
+  store ptr %41, ptr %6, align 8, !tbaa !77
+  br label %49
 
-51:                                               ; preds = %zend_string_copy.exit, %41
+49:                                               ; preds = %zend_string_copy.exit, %39
   ret void
 }
 

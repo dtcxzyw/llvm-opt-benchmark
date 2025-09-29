@@ -149695,59 +149695,55 @@ define dso_local void @_ZN5clang10ASTContext30registerSYCLEntryPointFunctionEPNS
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 128
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %36
+  br i1 %.not, label %8, label %34
 
 8:                                                ; preds = %2
   %9 = tail call noundef zeroext i1 @_ZNK5clang4Decl11isTemplatedEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #31
-  br i1 %9, label %36, label %10
+  br i1 %9, label %34, label %10
 
 10:                                               ; preds = %8
   %11 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #31
   %12 = load ptr, ptr %11, align 8, !tbaa !419
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !425
-  %.not.i.i = icmp ne i32 %14, 0
-  tail call void @llvm.assume(i1 %.not.i.i)
-  %15 = load ptr, ptr %12, align 8, !tbaa !1147
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %17 = load i16, ptr %16, align 8
-  %18 = icmp eq i16 %17, 343
-  br i1 %18, label %_ZNK5clang4Decl7getAttrINS_24SYCLKernelEntryPointAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i
+  %13 = load ptr, ptr %12, align 8, !tbaa !1147
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %15 = load i16, ptr %14, align 8
+  %16 = icmp eq i16 %15, 343
+  br i1 %16, label %_ZNK5clang4Decl7getAttrINS_24SYCLKernelEntryPointAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %10, %.lr.ph.i.i.i.i
-  %19 = phi ptr [ %20, %.lr.ph.i.i.i.i ], [ %12, %10 ]
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !1147
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %23 = load i16, ptr %22, align 8
-  %24 = icmp eq i16 %23, 343
-  br i1 %24, label %_ZNK5clang4Decl7getAttrINS_24SYCLKernelEntryPointAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i, !llvm.loop !2032
+  %17 = phi ptr [ %18, %.lr.ph.i.i.i.i ], [ %12, %10 ]
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !1147
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %21 = load i16, ptr %20, align 8
+  %22 = icmp eq i16 %21, 343
+  br i1 %22, label %_ZNK5clang4Decl7getAttrINS_24SYCLKernelEntryPointAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i, !llvm.loop !2032
 
 _ZNK5clang4Decl7getAttrINS_24SYCLKernelEntryPointAttrEEEPT_v.exit: ; preds = %.lr.ph.i.i.i.i, %10
-  %25 = phi ptr [ %15, %10 ], [ %21, %.lr.ph.i.i.i.i ]
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !2033
-  %.sroa.0.0.copyload.i.i = load i64, ptr %27, align 8, !tbaa !540
-  %28 = and i64 %.sroa.0.0.copyload.i.i, -16
-  %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !540
-  %32 = and i64 %.sroa.0.0.copyload.i.i, 7
-  %33 = or i64 %31, %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 22672
+  %23 = phi ptr [ %13, %10 ], [ %19, %.lr.ph.i.i.i.i ]
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  %25 = load ptr, ptr %24, align 8, !tbaa !2033
+  %.sroa.0.0.copyload.i.i = load i64, ptr %25, align 8, !tbaa !540
+  %26 = and i64 %.sroa.0.0.copyload.i.i, -16
+  %27 = inttoptr i64 %26 to ptr
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load i64, ptr %28, align 8, !tbaa !540
+  %30 = and i64 %.sroa.0.0.copyload.i.i, 7
+  %31 = or i64 %29, %30
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 22672
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %33, ptr %3, align 8, !tbaa !540, !alias.scope !2035
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %33, ptr %35, align 8, !tbaa !540
+  store i64 %31, ptr %3, align 8, !tbaa !540, !alias.scope !2035
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %31, ptr %33, align 8, !tbaa !540
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !1411
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang7CanQualINS2_4TypeEEENS2_14SYCLKernelInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E11try_emplaceIJS6_EEESt4pairINS_16DenseMapIteratorIS5_S6_S8_SB_Lb0EEEbEOS5_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.1213") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(16) %35)
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang7CanQualINS2_4TypeEEENS2_14SYCLKernelInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E11try_emplaceIJS6_EEESt4pairINS_16DenseMapIteratorIS5_S6_S8_SB_Lb0EEEbEOS5_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.1213") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(16) %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %36
+  br label %34
 
-36:                                               ; preds = %2, %8, %_ZNK5clang4Decl7getAttrINS_24SYCLKernelEntryPointAttrEEEPT_v.exit
+34:                                               ; preds = %2, %8, %_ZNK5clang4Decl7getAttrINS_24SYCLKernelEntryPointAttrEEEPT_v.exit
   ret void
 }
 

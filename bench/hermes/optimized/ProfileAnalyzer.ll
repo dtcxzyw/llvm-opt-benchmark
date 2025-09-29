@@ -1378,7 +1378,6 @@ if.then.i:                                        ; preds = %_ZN6hermes6parser10
   %9 = load ptr, ptr %hiddenClass_.i, align 8
   %keys_.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load i64, ptr %9, align 8
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %keys_.i.i.i, i64 %10
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %keys_.i.i.i to i64
   %cmp11.i.i.i.i = icmp sgt i64 %10, 0
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i
@@ -1427,9 +1426,6 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.loopexit, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit"
   %sub.ptr.lhs.cast.i.i38.pre-phi = phi i64 [ %.pre567, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit" ]
-  %__first.addr.0.lcssa.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.loopexit ], [ %keys_.i.i.i, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit" ]
-  %cmp.not.i.i36 = icmp ne ptr %__first.addr.0.lcssa.i.i.i.i, %add.ptr.i.i.i
-  call void @llvm.assume(i1 %cmp.not.i.i36)
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i38.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %add.ptr.i.i1.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i, i64 %sub.ptr.sub.i.i39
@@ -1469,7 +1465,6 @@ _ZN4llvh9StringRefC2EPKc.exit73:                  ; preds = %"_ZZN6hermes15Profi
   %18 = load ptr, ptr %hiddenClass_.i, align 8
   %keys_.i.i.i51 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %19 = load i64, ptr %18, align 8
-  %add.ptr.i.i.i52 = getelementptr inbounds ptr, ptr %keys_.i.i.i51, i64 %19
   %sub.ptr.rhs.cast.i.i.i.i.i.i53 = ptrtoint ptr %keys_.i.i.i51 to i64
   %cmp11.i.i.i.i54 = icmp sgt i64 %19, 0
   br i1 %cmp11.i.i.i.i54, label %while.body.i.i.i.i72, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i55
@@ -1518,9 +1513,6 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i55: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i55.loopexit, %_ZN4llvh9StringRefC2EPKc.exit73
   %sub.ptr.lhs.cast.i.i68.pre-phi = phi i64 [ %.pre568, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i55.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i53, %_ZN4llvh9StringRefC2EPKc.exit73 ]
-  %__first.addr.0.lcssa.i.i.i.i56 = phi ptr [ %__first.addr.1.i.i.i.i97, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i55.loopexit ], [ %keys_.i.i.i51, %_ZN4llvh9StringRefC2EPKc.exit73 ]
-  %cmp.not.i.i57 = icmp ne ptr %__first.addr.0.lcssa.i.i.i.i56, %add.ptr.i.i.i52
-  call void @llvm.assume(i1 %cmp.not.i.i57)
   %sub.ptr.sub.i.i69 = sub i64 %sub.ptr.lhs.cast.i.i68.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i53
   %arrayidx.i71 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i, i64 %sub.ptr.sub.i.i69
   %23 = load ptr, ptr %arrayidx.i71, align 8
@@ -1545,7 +1537,6 @@ if.then.i105:                                     ; preds = %_ZSt11lower_boundIP
   %26 = load ptr, ptr %hiddenClass_.i, align 8
   %keys_.i.i.i113 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %27 = load i64, ptr %26, align 8
-  %add.ptr.i.i.i114 = getelementptr inbounds ptr, ptr %keys_.i.i.i113, i64 %27
   %sub.ptr.rhs.cast.i.i.i.i.i.i115 = ptrtoint ptr %keys_.i.i.i113 to i64
   %cmp11.i.i.i.i116 = icmp sgt i64 %27, 0
   br i1 %cmp11.i.i.i.i116, label %while.body.i.i.i.i134, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i117
@@ -1594,9 +1585,6 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i117: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i117.loopexit, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit110"
   %sub.ptr.lhs.cast.i.i130.pre-phi = phi i64 [ %.pre569, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i117.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i115, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit110" ]
-  %__first.addr.0.lcssa.i.i.i.i118 = phi ptr [ %__first.addr.1.i.i.i.i159, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i117.loopexit ], [ %keys_.i.i.i113, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit110" ]
-  %cmp.not.i.i119 = icmp ne ptr %__first.addr.0.lcssa.i.i.i.i118, %add.ptr.i.i.i114
-  call void @llvm.assume(i1 %cmp.not.i.i119)
   %sub.ptr.sub.i.i131 = sub i64 %sub.ptr.lhs.cast.i.i130.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i115
   %arrayidx.i133 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i, i64 %sub.ptr.sub.i.i131
   %31 = load ptr, ptr %arrayidx.i133, align 8
@@ -1645,7 +1633,6 @@ if.then.i178:                                     ; preds = %for.body
   %37 = load ptr, ptr %hiddenClass_.i184, align 8
   %keys_.i.i.i185 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %38 = load i64, ptr %37, align 8
-  %add.ptr.i.i.i186 = getelementptr inbounds ptr, ptr %keys_.i.i.i185, i64 %38
   %sub.ptr.rhs.cast.i.i.i.i.i.i187 = ptrtoint ptr %keys_.i.i.i185 to i64
   %cmp11.i.i.i.i188 = icmp sgt i64 %38, 0
   br i1 %cmp11.i.i.i.i188, label %while.body.i.i.i.i206, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i189
@@ -1694,9 +1681,6 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i189: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i189.loopexit, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit183"
   %sub.ptr.lhs.cast.i.i202.pre-phi = phi i64 [ %.pre570, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i189.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i187, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit183" ]
-  %__first.addr.0.lcssa.i.i.i.i190 = phi ptr [ %__first.addr.1.i.i.i.i231, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i189.loopexit ], [ %keys_.i.i.i185, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit183" ]
-  %cmp.not.i.i191 = icmp ne ptr %__first.addr.0.lcssa.i.i.i.i190, %add.ptr.i.i.i186
-  call void @llvm.assume(i1 %cmp.not.i.i191)
   %sub.ptr.sub.i.i203 = sub i64 %sub.ptr.lhs.cast.i.i202.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i187
   %add.ptr.i.i1.i204 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %arrayidx.i205 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i204, i64 %sub.ptr.sub.i.i203
@@ -1760,9 +1744,6 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i250: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i250.loopexit, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit244"
   %sub.ptr.lhs.cast.i.i263.pre-phi = phi i64 [ %.pre571, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i250.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i187, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit244" ]
-  %__first.addr.0.lcssa.i.i.i.i251 = phi ptr [ %__first.addr.1.i.i.i.i292, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i250.loopexit ], [ %keys_.i.i.i185, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit244" ]
-  %cmp.not.i.i252 = icmp ne ptr %__first.addr.0.lcssa.i.i.i.i251, %add.ptr.i.i.i186
-  call void @llvm.assume(i1 %cmp.not.i.i252)
   %sub.ptr.sub.i.i264 = sub i64 %sub.ptr.lhs.cast.i.i263.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i187
   %arrayidx.i266 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i204, i64 %sub.ptr.sub.i.i264
   %47 = load ptr, ptr %arrayidx.i266, align 8
@@ -1810,7 +1791,6 @@ if.then.i312:                                     ; preds = %for.body43
   %52 = load ptr, ptr %hiddenClass_.i318, align 8
   %keys_.i.i.i319 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %53 = load i64, ptr %52, align 8
-  %add.ptr.i.i.i320 = getelementptr inbounds ptr, ptr %keys_.i.i.i319, i64 %53
   %sub.ptr.rhs.cast.i.i.i.i.i.i321 = ptrtoint ptr %keys_.i.i.i319 to i64
   %cmp11.i.i.i.i322 = icmp sgt i64 %53, 0
   br i1 %cmp11.i.i.i.i322, label %while.body.i.i.i.i340, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i323
@@ -1859,9 +1839,6 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i323: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i323.loopexit, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit317"
   %sub.ptr.lhs.cast.i.i336.pre-phi = phi i64 [ %.pre572, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i323.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i321, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit317" ]
-  %__first.addr.0.lcssa.i.i.i.i324 = phi ptr [ %__first.addr.1.i.i.i.i365, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i323.loopexit ], [ %keys_.i.i.i319, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit317" ]
-  %cmp.not.i.i325 = icmp ne ptr %__first.addr.0.lcssa.i.i.i.i324, %add.ptr.i.i.i320
-  call void @llvm.assume(i1 %cmp.not.i.i325)
   %sub.ptr.sub.i.i337 = sub i64 %sub.ptr.lhs.cast.i.i336.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i321
   %add.ptr.i.i1.i338 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %arrayidx.i339 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i338, i64 %sub.ptr.sub.i.i337
@@ -1925,9 +1902,6 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i384: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i384.loopexit, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit378"
   %sub.ptr.lhs.cast.i.i397.pre-phi = phi i64 [ %.pre573, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i384.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i321, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit378" ]
-  %__first.addr.0.lcssa.i.i.i.i385 = phi ptr [ %__first.addr.1.i.i.i.i426, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i384.loopexit ], [ %keys_.i.i.i319, %"_ZZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EEENK3$_0clEPKvPKc.exit378" ]
-  %cmp.not.i.i386 = icmp ne ptr %__first.addr.0.lcssa.i.i.i.i385, %add.ptr.i.i.i320
-  call void @llvm.assume(i1 %cmp.not.i.i386)
   %sub.ptr.sub.i.i398 = sub i64 %sub.ptr.lhs.cast.i.i397.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i321
   %arrayidx.i400 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i338, i64 %sub.ptr.sub.i.i398
   %62 = load ptr, ptr %arrayidx.i400, align 8

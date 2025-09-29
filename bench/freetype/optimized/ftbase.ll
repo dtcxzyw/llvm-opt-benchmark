@@ -4494,8 +4494,6 @@ define hidden zeroext i8 @ft_glyphslot_preset_bitmap(ptr noundef %0, i32 noundef
   %12 = zext i32 %11 to i64
   %.idx.i = shl nuw nsw i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
-  %.not.i = icmp ne i32 %11, 0
-  tail call void @llvm.assume(i1 %.not.i)
   %14 = load ptr, ptr %9, align 8, !tbaa !257
   %15 = load ptr, ptr %14, align 8, !tbaa !88
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16

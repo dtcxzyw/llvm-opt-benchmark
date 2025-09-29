@@ -1096,129 +1096,125 @@ define hidden void @_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii(ptr nounde
   %9 = load i32, ptr %8, align 8, !tbaa !127
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 604
   %11 = load i32, ptr %10, align 4, !tbaa !128
-  %12 = icmp sgt i32 %11, -1
+  %12 = icmp ne i32 %9, 0
   tail call void @llvm.assume(i1 %12)
-  %13 = icmp ne i32 %9, 0
+  %13 = icmp sgt i32 %9, -1
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp sgt i32 %9, -1
-  tail call void @llvm.assume(i1 %14)
-  %15 = icmp ne i32 %11, 0
-  tail call void @llvm.assume(i1 %15)
-  %16 = icmp slt i32 %1, %2
-  %17 = icmp sgt i32 %5, 16
-  %or.cond = select i1 %16, i1 %17, i1 false
+  %14 = icmp slt i32 %1, %2
+  %15 = icmp sgt i32 %5, 16
+  %or.cond = select i1 %14, i1 %15, i1 false
   br i1 %or.cond, label %.preheader41.us.preheader, label %._crit_edge54
 
 .preheader41.us.preheader:                        ; preds = %3
-  %18 = add nuw nsw i32 %5, 15
-  %19 = lshr i32 %18, 5
-  %20 = zext nneg i32 %9 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %19, i32 1)
-  %21 = zext nneg i32 %1 to i64
-  %22 = zext nneg i32 %11 to i64
-  %23 = icmp sgt i32 %1, -1
-  tail call void @llvm.assume(i1 %23)
+  %16 = add nuw nsw i32 %5, 15
+  %17 = lshr i32 %16, 5
+  %18 = zext nneg i32 %9 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %17, i32 1)
+  %19 = zext nneg i32 %1 to i64
+  %20 = zext nneg i32 %11 to i64
+  %21 = icmp sgt i32 %1, -1
+  tail call void @llvm.assume(i1 %21)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.preheader41.us
 
 .preheader41.us:                                  ; preds = %.preheader41.us.preheader, %._crit_edge.us
-  %indvars.iv66 = phi i64 [ %21, %.preheader41.us.preheader ], [ %indvars.iv.next67, %._crit_edge.us ]
-  %24 = icmp samesign ult i64 %indvars.iv66, %22
-  tail call void @llvm.assume(i1 %24)
-  %25 = mul nuw nsw i64 %indvars.iv66, %20
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 %25
-  %27 = trunc nuw nsw i64 %indvars.iv66 to i32
+  %indvars.iv66 = phi i64 [ %19, %.preheader41.us.preheader ], [ %indvars.iv.next67, %._crit_edge.us ]
+  %22 = icmp samesign ult i64 %indvars.iv66, %20
+  tail call void @llvm.assume(i1 %22)
+  %23 = mul nuw nsw i64 %indvars.iv66, %18
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 %23
+  %25 = trunc nuw nsw i64 %indvars.iv66 to i32
   br label %.lr.ph.preheader.i.i.i.i.us
 
 .lr.ph.preheader.i.i.i.i.us:                      ; preds = %.preheader41.us, %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us"
   %indvars.iv62 = phi i64 [ 0, %.preheader41.us ], [ %indvars.iv.next63, %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us" ]
-  %28 = icmp samesign ule i64 %indvars.iv62, %20
-  tail call void @llvm.assume(i1 %28)
-  %29 = shl nuw nsw i64 %indvars.iv62, 2
-  %30 = add nuw nsw i64 %29, 4
-  %31 = icmp samesign ule i64 %30, %20
-  tail call void @llvm.assume(i1 %31)
-  %32 = getelementptr inbounds nuw i8, ptr %26, i64 %30
-  %33 = getelementptr inbounds nuw i8, ptr %26, i64 %29
-  %.029.val.i.i.i.i.us = load i8, ptr %33, align 1, !tbaa !92
+  %26 = icmp samesign ule i64 %indvars.iv62, %18
+  tail call void @llvm.assume(i1 %26)
+  %27 = shl nuw nsw i64 %indvars.iv62, 2
+  %28 = add nuw nsw i64 %27, 4
+  %29 = icmp samesign ule i64 %28, %18
+  tail call void @llvm.assume(i1 %29)
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 %28
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 %27
+  %.029.val.i.i.i.i.us = load i8, ptr %31, align 1, !tbaa !92
   %.not35.i.i.i.i.us = icmp eq i8 %.029.val.i.i.i.i.us, 0
-  br i1 %.not35.i.i.i.i.us, label %34, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us"
+  br i1 %.not35.i.i.i.i.us, label %32, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us"
 
-34:                                               ; preds = %.lr.ph.preheader.i.i.i.i.us
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  %.val.i.i.i.i.us = load i8, ptr %35, align 1, !tbaa !92
+32:                                               ; preds = %.lr.ph.preheader.i.i.i.i.us
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  %.val.i.i.i.i.us = load i8, ptr %33, align 1, !tbaa !92
   %.not36.i.i.i.i.us = icmp eq i8 %.val.i.i.i.i.us, 0
-  br i1 %.not36.i.i.i.i.us, label %36, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us"
+  br i1 %.not36.i.i.i.i.us, label %34, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us"
+
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 2
+  %.val30.i.i.i.i.us = load i8, ptr %35, align 1, !tbaa !92
+  %.not37.i.i.i.i.us = icmp eq i8 %.val30.i.i.i.i.us, 0
+  br i1 %.not37.i.i.i.i.us, label %36, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us"
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 2
-  %.val30.i.i.i.i.us = load i8, ptr %37, align 1, !tbaa !92
-  %.not37.i.i.i.i.us = icmp eq i8 %.val30.i.i.i.i.us, 0
-  br i1 %.not37.i.i.i.i.us, label %38, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us"
-
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw i8, ptr %33, i64 3
-  %.val31.i.i.i.i.us = load i8, ptr %39, align 1, !tbaa !92
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 3
+  %.val31.i.i.i.i.us = load i8, ptr %37, align 1, !tbaa !92
   %.not38.i.i.i.i.us = icmp eq i8 %.val31.i.i.i.i.us, 0
   br i1 %.not38.i.i.i.i.us, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us", label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us"
 
-"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us": ; preds = %38, %36, %34, %.lr.ph.preheader.i.i.i.i.us
-  %.028.i.i.i.i.us = phi ptr [ %33, %.lr.ph.preheader.i.i.i.i.us ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ]
-  %40 = icmp eq ptr %32, %.028.i.i.i.i.us
-  br i1 %40, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us", label %.preheader40.us
+"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us": ; preds = %36, %34, %32, %.lr.ph.preheader.i.i.i.i.us
+  %.028.i.i.i.i.us = phi ptr [ %31, %.lr.ph.preheader.i.i.i.i.us ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ]
+  %38 = icmp eq ptr %30, %.028.i.i.i.i.us
+  br i1 %38, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us", label %.preheader40.us
 
-41:                                               ; preds = %52
+39:                                               ; preds = %50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond61.not, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us", label %.preheader.us, !llvm.loop !141
 
-42:                                               ; preds = %.preheader.us, %52
-  %.050.us = phi i32 [ 0, %.preheader.us ], [ %53, %52 ]
-  %43 = load i8, ptr %56, align 1, !tbaa !92
-  %44 = zext i8 %43 to i32
-  %45 = shl nuw nsw i32 1, %.050.us
-  %46 = and i32 %45, %44
-  %.not.not.us = icmp eq i32 %46, 0
-  br i1 %.not.not.us, label %52, label %47
+40:                                               ; preds = %.preheader.us, %50
+  %.050.us = phi i32 [ 0, %.preheader.us ], [ %51, %50 ]
+  %41 = load i8, ptr %54, align 1, !tbaa !92
+  %42 = zext i8 %41 to i32
+  %43 = shl nuw nsw i32 1, %.050.us
+  %44 = and i32 %43, %42
+  %.not.not.us = icmp eq i32 %44, 0
+  br i1 %.not.not.us, label %50, label %45
 
-47:                                               ; preds = %42
-  %48 = add nuw nsw i32 %.050.us, %59
-  %49 = load ptr, ptr %0, align 8, !tbaa !6
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 64
-  %51 = load ptr, ptr %50, align 8
-  tail call void %51(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %48, i32 noundef %27, i32 noundef 0)
-  br label %52
+45:                                               ; preds = %40
+  %46 = add nuw nsw i32 %.050.us, %57
+  %47 = load ptr, ptr %0, align 8, !tbaa !6
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %49 = load ptr, ptr %48, align 8
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %46, i32 noundef %25, i32 noundef 0)
+  br label %50
 
-52:                                               ; preds = %47, %42
-  %53 = add nuw nsw i32 %.050.us, 1
-  %exitcond.not = icmp eq i32 %53, 8
-  br i1 %exitcond.not, label %41, label %42, !llvm.loop !142
+50:                                               ; preds = %45, %40
+  %51 = add nuw nsw i32 %.050.us, 1
+  %exitcond.not = icmp eq i32 %51, 8
+  br i1 %exitcond.not, label %39, label %40, !llvm.loop !142
 
-"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us": ; preds = %41, %38, %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us"
+"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us": ; preds = %39, %36, %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us"
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count
   br i1 %exitcond65.not, label %._crit_edge.us, label %.lr.ph.preheader.i.i.i.i.us, !llvm.loop !143
 
-.preheader.us:                                    ; preds = %.preheader40.us, %41
-  %indvars.iv = phi i64 [ 0, %.preheader40.us ], [ %indvars.iv.next, %41 ]
-  %54 = or disjoint i64 %indvars.iv, %29
-  %55 = icmp samesign ule i64 %54, %20
-  tail call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds nuw i8, ptr %26, i64 %54
-  %57 = shl nuw nsw i64 %indvars.iv, 3
-  %58 = add nuw nsw i64 %57, %60
-  %59 = trunc nuw nsw i64 %58 to i32
-  br label %42
+.preheader.us:                                    ; preds = %.preheader40.us, %39
+  %indvars.iv = phi i64 [ 0, %.preheader40.us ], [ %indvars.iv.next, %39 ]
+  %52 = or disjoint i64 %indvars.iv, %27
+  %53 = icmp samesign ule i64 %52, %18
+  tail call void @llvm.assume(i1 %53)
+  %54 = getelementptr inbounds nuw i8, ptr %24, i64 %52
+  %55 = shl nuw nsw i64 %indvars.iv, 3
+  %56 = add nuw nsw i64 %55, %58
+  %57 = trunc nuw nsw i64 %56 to i32
+  br label %40
 
 .preheader40.us:                                  ; preds = %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us"
-  %60 = shl nuw nsw i64 %indvars.iv62, 5
+  %58 = shl nuw nsw i64 %indvars.iv62, 5
   br label %.preheader.us
 
 ._crit_edge.us:                                   ; preds = %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us"
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %61 = trunc nuw nsw i64 %indvars.iv.next67 to i32
-  %62 = icmp sgt i32 %2, %61
-  br i1 %62, label %.preheader41.us, label %._crit_edge54, !llvm.loop !144
+  %59 = trunc nuw nsw i64 %indvars.iv.next67 to i32
+  %60 = icmp sgt i32 %2, %59
+  br i1 %60, label %.preheader41.us, label %._crit_edge54, !llvm.loop !144
 
 ._crit_edge54:                                    ; preds = %._crit_edge.us, %3
   ret void
@@ -1259,81 +1255,61 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %22 = load i32, ptr %21, align 8, !tbaa !126, !noalias !145
   %23 = mul nsw i32 %22, %20
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 604
-  %25 = load i32, ptr %24, align 4, !tbaa !128, !noalias !145
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %27 = load i32, ptr %26, align 8, !tbaa !9, !noalias !145
-  %28 = ashr i32 %27, 1
-  %29 = icmp sgt i32 %23, -1
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %25 = load i32, ptr %24, align 8, !tbaa !9, !noalias !145
+  %26 = ashr i32 %25, 1
+  %27 = icmp ugt i32 %25, 1
+  tail call void @llvm.assume(i1 %27)
+  %28 = icmp sgt i32 %26, -1
+  tail call void @llvm.assume(i1 %28)
+  %29 = icmp samesign uge i32 %26, %23
   tail call void @llvm.assume(i1 %29)
-  %30 = icmp sgt i32 %25, -1
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ugt i32 %27, 1
-  tail call void @llvm.assume(i1 %31)
-  %32 = icmp sgt i32 %28, -1
-  tail call void @llvm.assume(i1 %32)
-  %33 = icmp samesign uge i32 %28, %23
-  tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %35 = load i32, ptr %34, align 8, !tbaa !150, !noalias !151
-  %36 = mul nsw i32 %35, %20
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 596
-  %38 = load i32, ptr %37, align 4, !tbaa !152, !noalias !151
-  %39 = mul nsw i32 %20, %.sroa.5.8.extract.trunc
-  %40 = icmp sgt i32 %36, -1
-  tail call void @llvm.assume(i1 %40)
-  %41 = icmp sgt i32 %38, -1
-  tail call void @llvm.assume(i1 %41)
-  %42 = icmp sgt i32 %39, -1
-  tail call void @llvm.assume(i1 %42)
-  %43 = icmp sgt i64 %5, -1
-  tail call void @llvm.assume(i1 %43)
-  %44 = add nuw nsw i32 %39, %36
-  %45 = icmp samesign ule i32 %44, %23
-  tail call void @llvm.assume(i1 %45)
-  %46 = add nuw nsw i32 %38, %.sroa.5.12.extract.trunc
-  %47 = icmp samesign ule i32 %46, %25
-  tail call void @llvm.assume(i1 %47)
-  %48 = icmp slt i32 %9, %.sroa.speculated.i
-  br i1 %48, label %.preheader.lr.ph, label %.loopexit
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %31 = load i32, ptr %30, align 8, !tbaa !150, !noalias !151
+  %32 = mul nsw i32 %31, %20
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 596
+  %34 = load i32, ptr %33, align 4, !tbaa !152, !noalias !151
+  %35 = icmp sgt i32 %32, -1
+  tail call void @llvm.assume(i1 %35)
+  %36 = icmp sgt i32 %34, -1
+  tail call void @llvm.assume(i1 %36)
+  %37 = icmp sgt i64 %5, -1
+  tail call void @llvm.assume(i1 %37)
+  %38 = icmp slt i32 %9, %.sroa.speculated.i
+  br i1 %38, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %16
-  %49 = mul nsw i32 %20, %10
-  %50 = icmp slt i32 %8, %49
-  %51 = icmp ne i32 %23, 0
-  br i1 %50, label %.preheader.lr.ph.split.us, label %.loopexit
+  %39 = mul nsw i32 %20, %10
+  %40 = icmp slt i32 %8, %39
+  br i1 %40, label %.preheader.lr.ph.split.us, label %.loopexit
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  tail call void @llvm.assume(i1 %51)
-  %52 = add nuw i32 %38, %9
-  %53 = mul i32 %28, %52
-  %54 = zext i32 %53 to i64
-  %55 = add nuw i32 %8, %36
-  %56 = zext i32 %55 to i64
-  %57 = add nuw nsw i64 %54, %56
-  %58 = shl nuw nsw i64 %57, 1
-  %59 = and i32 %27, -2
-  %60 = zext i32 %59 to i64
-  %61 = xor i32 %8, -1
-  %62 = add nsw i32 %49, %61
-  %63 = zext i32 %62 to i64
-  %64 = shl nuw nsw i64 %63, 1
-  %65 = add nuw nsw i64 %64, 2
-  %66 = getelementptr nuw i8, ptr %18, i64 %58
+  %41 = add nuw i32 %34, %9
+  %42 = mul i32 %26, %41
+  %43 = zext i32 %42 to i64
+  %44 = add nuw i32 %8, %32
+  %45 = zext i32 %44 to i64
+  %46 = add nuw nsw i64 %43, %45
+  %47 = shl nuw nsw i64 %46, 1
+  %48 = and i32 %25, -2
+  %49 = zext i32 %48 to i64
+  %50 = xor i32 %8, -1
+  %51 = add nsw i32 %39, %50
+  %52 = zext i32 %51 to i64
+  %53 = shl nuw nsw i64 %52, 1
+  %54 = add nuw nsw i64 %53, 2
+  %55 = getelementptr nuw i8, ptr %18, i64 %47
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us, %.preheader.lr.ph.split.us
   %indvar = phi i64 [ %indvar.next, %.preheader.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %.0629.us = phi i32 [ %71, %.preheader.us ], [ %9, %.preheader.lr.ph.split.us ]
-  %67 = mul nuw nsw i64 %indvar, %60
-  %scevgep = getelementptr nuw i8, ptr %66, i64 %67
-  %68 = icmp samesign ult i32 %.0629.us, %.sroa.5.12.extract.trunc
-  tail call void @llvm.assume(i1 %68)
-  %69 = add nuw nsw i32 %.0629.us, %38
-  %70 = icmp samesign ult i32 %69, %25
-  tail call void @llvm.assume(i1 %70)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %scevgep, i8 0, i64 %65, i1 false), !tbaa !153
-  %71 = add nuw nsw i32 %.0629.us, 1
+  %.0629.us = phi i32 [ %58, %.preheader.us ], [ %9, %.preheader.lr.ph.split.us ]
+  %56 = mul nuw nsw i64 %indvar, %49
+  %scevgep = getelementptr nuw i8, ptr %55, i64 %56
+  %57 = icmp samesign ult i32 %.0629.us, %.sroa.5.12.extract.trunc
+  tail call void @llvm.assume(i1 %57)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %scevgep, i8 0, i64 %54, i1 false), !tbaa !153
+  %58 = add nuw nsw i32 %.0629.us, 1
   %indvar.next = add nuw nsw i64 %indvar, 1
   %lftr.wideiv = trunc i64 %indvar.next to i32
   %exitcond.not = icmp eq i32 %11, %lftr.wideiv
@@ -1388,7 +1364,7 @@ define hidden void @_ZN8rawspeed14RawImageWorker11performTaskEv(ptr noundef nonn
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(616) %11, i32 noundef %13, i32 noundef %15)
           to label %_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii.exit unwind label %.loopexit.split-lp
 
-.loopexit:                                        ; preds = %117
+.loopexit:                                        ; preds = %115
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr @_ZTIN8rawspeed19RawDecoderExceptionE
           catch ptr @_ZTIN8rawspeed19TiffParserExceptionE
@@ -1422,12 +1398,12 @@ define hidden void @_ZN8rawspeed14RawImageWorker11performTaskEv(ptr noundef nonn
   %30 = tail call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(16) %25) #29
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %30, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %31 unwind label %132
+          to label %31 unwind label %130
 
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
   invoke void @_ZN8rawspeed8ErrorLog8setErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %33 unwind label %132
+          to label %33 unwind label %130
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %6, align 8, !tbaa !116
@@ -1461,12 +1437,12 @@ _ZN8rawspeed12RawImageData18fixBadPixelsThreadEii.exit: ; preds = %._crit_edge.u
   %45 = tail call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %43) #29
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %46 unwind label %132
+          to label %46 unwind label %130
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
   invoke void @_ZN8rawspeed8ErrorLog8setErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %48 unwind label %132
+          to label %48 unwind label %130
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %4, align 8, !tbaa !116
@@ -1495,12 +1471,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %48,
   %59 = tail call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #29
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %59, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %60 unwind label %132
+          to label %60 unwind label %130
 
 60:                                               ; preds = %54
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   invoke void @_ZN8rawspeed8ErrorLog8setErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %62 unwind label %132
+          to label %62 unwind label %130
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr %2, align 8, !tbaa !116
@@ -1521,7 +1497,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %62,
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.invoke: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13
   invoke void @__cxa_end_catch()
-          to label %_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii.exit unwind label %132
+          to label %_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii.exit unwind label %130
 
 68:                                               ; preds = %1
   %69 = load ptr, ptr %0, align 8, !tbaa !133
@@ -1537,134 +1513,130 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.invoke: ; preds
   %79 = load i32, ptr %78, align 8, !tbaa !127
   %80 = getelementptr inbounds nuw i8, ptr %69, i64 604
   %81 = load i32, ptr %80, align 4, !tbaa !128
-  %82 = icmp sgt i32 %81, -1
+  %82 = icmp ne i32 %79, 0
   tail call void @llvm.assume(i1 %82)
-  %83 = icmp ne i32 %79, 0
+  %83 = icmp sgt i32 %79, -1
   tail call void @llvm.assume(i1 %83)
-  %84 = icmp sgt i32 %79, -1
-  tail call void @llvm.assume(i1 %84)
-  %85 = icmp ne i32 %81, 0
-  tail call void @llvm.assume(i1 %85)
-  %86 = icmp slt i32 %71, %73
-  %87 = icmp sgt i32 %75, 16
-  %or.cond.i = select i1 %86, i1 %87, i1 false
+  %84 = icmp slt i32 %71, %73
+  %85 = icmp sgt i32 %75, 16
+  %or.cond.i = select i1 %84, i1 %85, i1 false
   br i1 %or.cond.i, label %.preheader41.us.preheader.i, label %_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii.exit
 
 .preheader41.us.preheader.i:                      ; preds = %68
-  %88 = add nuw nsw i32 %75, 15
-  %89 = lshr i32 %88, 5
-  %90 = zext nneg i32 %79 to i64
-  %91 = zext nneg i32 %71 to i64
-  %92 = zext nneg i32 %81 to i64
-  %93 = icmp sgt i32 %71, -1
-  tail call void @llvm.assume(i1 %93)
-  %wide.trip.count.i = zext nneg i32 %89 to i64
+  %86 = add nuw nsw i32 %75, 15
+  %87 = lshr i32 %86, 5
+  %88 = zext nneg i32 %79 to i64
+  %89 = zext nneg i32 %71 to i64
+  %90 = zext nneg i32 %81 to i64
+  %91 = icmp sgt i32 %71, -1
+  tail call void @llvm.assume(i1 %91)
+  %wide.trip.count.i = zext nneg i32 %87 to i64
   br label %.preheader41.us.i
 
 .preheader41.us.i:                                ; preds = %._crit_edge.us.i, %.preheader41.us.preheader.i
-  %indvars.iv66.i = phi i64 [ %91, %.preheader41.us.preheader.i ], [ %indvars.iv.next67.i, %._crit_edge.us.i ]
-  %94 = icmp samesign ult i64 %indvars.iv66.i, %92
-  tail call void @llvm.assume(i1 %94)
-  %95 = mul nuw nsw i64 %indvars.iv66.i, %90
-  %96 = getelementptr inbounds nuw i8, ptr %77, i64 %95
-  %97 = trunc nuw nsw i64 %indvars.iv66.i to i32
+  %indvars.iv66.i = phi i64 [ %89, %.preheader41.us.preheader.i ], [ %indvars.iv.next67.i, %._crit_edge.us.i ]
+  %92 = icmp samesign ult i64 %indvars.iv66.i, %90
+  tail call void @llvm.assume(i1 %92)
+  %93 = mul nuw nsw i64 %indvars.iv66.i, %88
+  %94 = getelementptr inbounds nuw i8, ptr %77, i64 %93
+  %95 = trunc nuw nsw i64 %indvars.iv66.i to i32
   br label %.lr.ph.preheader.i.i.i.i.us.i
 
 .lr.ph.preheader.i.i.i.i.us.i:                    ; preds = %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us.i", %.preheader41.us.i
   %indvars.iv62.i = phi i64 [ 0, %.preheader41.us.i ], [ %indvars.iv.next63.i, %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us.i" ]
-  %98 = icmp samesign ule i64 %indvars.iv62.i, %90
-  tail call void @llvm.assume(i1 %98)
-  %99 = shl nuw nsw i64 %indvars.iv62.i, 2
-  %100 = add nuw nsw i64 %99, 4
-  %101 = icmp samesign ule i64 %100, %90
-  tail call void @llvm.assume(i1 %101)
-  %102 = getelementptr inbounds nuw i8, ptr %96, i64 %100
-  %103 = getelementptr inbounds nuw i8, ptr %96, i64 %99
-  %.029.val.i.i.i.i.us.i = load i8, ptr %103, align 1, !tbaa !92
+  %96 = icmp samesign ule i64 %indvars.iv62.i, %88
+  tail call void @llvm.assume(i1 %96)
+  %97 = shl nuw nsw i64 %indvars.iv62.i, 2
+  %98 = add nuw nsw i64 %97, 4
+  %99 = icmp samesign ule i64 %98, %88
+  tail call void @llvm.assume(i1 %99)
+  %100 = getelementptr inbounds nuw i8, ptr %94, i64 %98
+  %101 = getelementptr inbounds nuw i8, ptr %94, i64 %97
+  %.029.val.i.i.i.i.us.i = load i8, ptr %101, align 1, !tbaa !92
   %.not35.i.i.i.i.us.i = icmp eq i8 %.029.val.i.i.i.i.us.i, 0
-  br i1 %.not35.i.i.i.i.us.i, label %104, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us.i"
+  br i1 %.not35.i.i.i.i.us.i, label %102, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us.i"
 
-104:                                              ; preds = %.lr.ph.preheader.i.i.i.i.us.i
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 1
-  %.val.i.i.i.i.us.i = load i8, ptr %105, align 1, !tbaa !92
+102:                                              ; preds = %.lr.ph.preheader.i.i.i.i.us.i
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 1
+  %.val.i.i.i.i.us.i = load i8, ptr %103, align 1, !tbaa !92
   %.not36.i.i.i.i.us.i = icmp eq i8 %.val.i.i.i.i.us.i, 0
-  br i1 %.not36.i.i.i.i.us.i, label %106, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us.i"
+  br i1 %.not36.i.i.i.i.us.i, label %104, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us.i"
+
+104:                                              ; preds = %102
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 2
+  %.val30.i.i.i.i.us.i = load i8, ptr %105, align 1, !tbaa !92
+  %.not37.i.i.i.i.us.i = icmp eq i8 %.val30.i.i.i.i.us.i, 0
+  br i1 %.not37.i.i.i.i.us.i, label %106, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us.i"
 
 106:                                              ; preds = %104
-  %107 = getelementptr inbounds nuw i8, ptr %103, i64 2
-  %.val30.i.i.i.i.us.i = load i8, ptr %107, align 1, !tbaa !92
-  %.not37.i.i.i.i.us.i = icmp eq i8 %.val30.i.i.i.i.us.i, 0
-  br i1 %.not37.i.i.i.i.us.i, label %108, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us.i"
-
-108:                                              ; preds = %106
-  %109 = getelementptr inbounds nuw i8, ptr %103, i64 3
-  %.val31.i.i.i.i.us.i = load i8, ptr %109, align 1, !tbaa !92
+  %107 = getelementptr inbounds nuw i8, ptr %101, i64 3
+  %.val31.i.i.i.i.us.i = load i8, ptr %107, align 1, !tbaa !92
   %.not38.i.i.i.i.us.i = icmp eq i8 %.val31.i.i.i.i.us.i, 0
   br i1 %.not38.i.i.i.i.us.i, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us.i", label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us.i"
 
-"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us.i": ; preds = %108, %106, %104, %.lr.ph.preheader.i.i.i.i.us.i
-  %.028.i.i.i.i.us.i = phi ptr [ %103, %.lr.ph.preheader.i.i.i.i.us.i ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ]
-  %110 = icmp eq ptr %102, %.028.i.i.i.i.us.i
-  br i1 %110, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us.i", label %.preheader40.us.i
+"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us.i": ; preds = %106, %104, %102, %.lr.ph.preheader.i.i.i.i.us.i
+  %.028.i.i.i.i.us.i = phi ptr [ %101, %.lr.ph.preheader.i.i.i.i.us.i ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ]
+  %108 = icmp eq ptr %100, %.028.i.i.i.i.us.i
+  br i1 %108, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us.i", label %.preheader40.us.i
 
-111:                                              ; preds = %.noexc
+109:                                              ; preds = %.noexc
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond61.not.i, label %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us.i", label %.preheader.us.i, !llvm.loop !141
 
-112:                                              ; preds = %.preheader.us.i, %.noexc
-  %.050.us.i = phi i32 [ 0, %.preheader.us.i ], [ %122, %.noexc ]
-  %113 = load i8, ptr %125, align 1, !tbaa !92
-  %114 = zext i8 %113 to i32
-  %115 = shl nuw nsw i32 1, %.050.us.i
-  %116 = and i32 %115, %114
-  %.not.not.us.i = icmp eq i32 %116, 0
-  br i1 %.not.not.us.i, label %.noexc, label %117
+110:                                              ; preds = %.preheader.us.i, %.noexc
+  %.050.us.i = phi i32 [ 0, %.preheader.us.i ], [ %120, %.noexc ]
+  %111 = load i8, ptr %123, align 1, !tbaa !92
+  %112 = zext i8 %111 to i32
+  %113 = shl nuw nsw i32 1, %.050.us.i
+  %114 = and i32 %113, %112
+  %.not.not.us.i = icmp eq i32 %114, 0
+  br i1 %.not.not.us.i, label %.noexc, label %115
 
-117:                                              ; preds = %112
-  %118 = add nuw nsw i32 %.050.us.i, %128
-  %119 = load ptr, ptr %69, align 8, !tbaa !6
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 64
-  %121 = load ptr, ptr %120, align 8
-  invoke void %121(ptr noundef nonnull align 8 dereferenceable(616) %69, i32 noundef %118, i32 noundef %97, i32 noundef 0)
+115:                                              ; preds = %110
+  %116 = add nuw nsw i32 %.050.us.i, %126
+  %117 = load ptr, ptr %69, align 8, !tbaa !6
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 64
+  %119 = load ptr, ptr %118, align 8
+  invoke void %119(ptr noundef nonnull align 8 dereferenceable(616) %69, i32 noundef %116, i32 noundef %95, i32 noundef 0)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %117, %112
-  %122 = add nuw nsw i32 %.050.us.i, 1
-  %exitcond.not.i = icmp eq i32 %122, 8
-  br i1 %exitcond.not.i, label %111, label %112, !llvm.loop !142
+.noexc:                                           ; preds = %115, %110
+  %120 = add nuw nsw i32 %.050.us.i, 1
+  %exitcond.not.i = icmp eq i32 %120, 8
+  br i1 %exitcond.not.i, label %109, label %110, !llvm.loop !142
 
-"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us.i": ; preds = %111, %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us.i", %108
+"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us.i": ; preds = %109, %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us.i", %106
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %exitcond65.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count.i
   br i1 %exitcond65.not.i, label %._crit_edge.us.i, label %.lr.ph.preheader.i.i.i.i.us.i, !llvm.loop !143
 
-.preheader.us.i:                                  ; preds = %.preheader40.us.i, %111
-  %indvars.iv.i = phi i64 [ 0, %.preheader40.us.i ], [ %indvars.iv.next.i, %111 ]
-  %123 = or disjoint i64 %indvars.iv.i, %99
-  %124 = icmp samesign ule i64 %123, %90
-  tail call void @llvm.assume(i1 %124)
-  %125 = getelementptr inbounds nuw i8, ptr %96, i64 %123
-  %126 = shl nuw nsw i64 %indvars.iv.i, 3
-  %127 = add nuw nsw i64 %126, %129
-  %128 = trunc nuw nsw i64 %127 to i32
-  br label %112
+.preheader.us.i:                                  ; preds = %.preheader40.us.i, %109
+  %indvars.iv.i = phi i64 [ 0, %.preheader40.us.i ], [ %indvars.iv.next.i, %109 ]
+  %121 = or disjoint i64 %indvars.iv.i, %97
+  %122 = icmp samesign ule i64 %121, %88
+  tail call void @llvm.assume(i1 %122)
+  %123 = getelementptr inbounds nuw i8, ptr %94, i64 %121
+  %124 = shl nuw nsw i64 %indvars.iv.i, 3
+  %125 = add nuw nsw i64 %124, %127
+  %126 = trunc nuw nsw i64 %125 to i32
+  br label %110
 
 .preheader40.us.i:                                ; preds = %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us.i"
-  %129 = shl nuw nsw i64 %indvars.iv62.i, 5
+  %127 = shl nuw nsw i64 %indvars.iv62.i, 5
   br label %.preheader.us.i
 
 ._crit_edge.us.i:                                 ; preds = %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us.i"
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
-  %130 = trunc nuw nsw i64 %indvars.iv.next67.i to i32
-  %131 = icmp sgt i32 %73, %130
-  br i1 %131, label %.preheader41.us.i, label %_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii.exit, !llvm.loop !144
+  %128 = trunc nuw nsw i64 %indvars.iv.next67.i to i32
+  %129 = icmp sgt i32 %73, %128
+  br i1 %129, label %.preheader41.us.i, label %_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii.exit, !llvm.loop !144
 
-132:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.invoke, %60, %54, %46, %42, %31, %24
-  %133 = landingpad { ptr, i32 }
+130:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.invoke, %60, %54, %46, %42, %31, %24
+  %131 = landingpad { ptr, i32 }
           catch ptr null
-  %134 = extractvalue { ptr, i32 } %133, 0
-  call void @__clang_call_terminate(ptr %134) #33
+  %132 = extractvalue { ptr, i32 } %131, 0
+  call void @__clang_call_terminate(ptr %132) #33
   unreachable
 }
 
