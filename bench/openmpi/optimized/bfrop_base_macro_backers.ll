@@ -5890,86 +5890,86 @@ pmix_bfrops_base_tma_byte_object_create.exit:     ; preds = %5, %5
   br label %99
 
 27:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5
-  %calloc15 = tail call ptr @calloc(i64 1, i64 %1)
+  %calloc = tail call ptr @calloc(i64 1, i64 %1)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %calloc15, ptr %28, align 8, !tbaa !137
+  store ptr %calloc, ptr %28, align 8, !tbaa !137
   br label %99
 
 29:                                               ; preds = %5
   %30 = shl i64 %1, 3
-  %calloc14 = tail call ptr @calloc(i64 1, i64 %30)
+  %calloc1 = tail call ptr @calloc(i64 1, i64 %30)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %calloc14, ptr %31, align 8, !tbaa !137
+  store ptr %calloc1, ptr %31, align 8, !tbaa !137
   br label %99
 
 32:                                               ; preds = %5
   %33 = shl i64 %1, 3
-  %calloc13 = tail call ptr @calloc(i64 1, i64 %33)
+  %calloc2 = tail call ptr @calloc(i64 1, i64 %33)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %calloc13, ptr %34, align 8, !tbaa !137
+  store ptr %calloc2, ptr %34, align 8, !tbaa !137
   br label %99
 
 35:                                               ; preds = %5
   %36 = shl i64 %1, 2
-  %calloc12 = tail call ptr @calloc(i64 1, i64 %36)
+  %calloc3 = tail call ptr @calloc(i64 1, i64 %36)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %calloc12, ptr %37, align 8, !tbaa !137
+  store ptr %calloc3, ptr %37, align 8, !tbaa !137
   br label %99
 
 38:                                               ; preds = %5, %5, %5
   %39 = shl i64 %1, 2
-  %calloc11 = tail call ptr @calloc(i64 1, i64 %39)
+  %calloc4 = tail call ptr @calloc(i64 1, i64 %39)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %calloc11, ptr %40, align 8, !tbaa !137
+  store ptr %calloc4, ptr %40, align 8, !tbaa !137
   br label %99
 
 41:                                               ; preds = %5, %5, %5, %5
   %42 = shl i64 %1, 1
-  %calloc10 = tail call ptr @calloc(i64 1, i64 %42)
+  %calloc5 = tail call ptr @calloc(i64 1, i64 %42)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %calloc10, ptr %43, align 8, !tbaa !137
+  store ptr %calloc5, ptr %43, align 8, !tbaa !137
   br label %99
 
 44:                                               ; preds = %5, %5, %5, %5
   %45 = shl i64 %1, 2
-  %calloc9 = tail call ptr @calloc(i64 1, i64 %45)
+  %calloc6 = tail call ptr @calloc(i64 1, i64 %45)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %calloc9, ptr %46, align 8, !tbaa !137
+  store ptr %calloc6, ptr %46, align 8, !tbaa !137
   br label %99
 
 47:                                               ; preds = %5, %5
   %48 = shl i64 %1, 3
-  %calloc8 = tail call ptr @calloc(i64 1, i64 %48)
+  %calloc7 = tail call ptr @calloc(i64 1, i64 %48)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %calloc8, ptr %49, align 8, !tbaa !137
+  store ptr %calloc7, ptr %49, align 8, !tbaa !137
   br label %99
 
 50:                                               ; preds = %5
   %51 = shl i64 %1, 2
-  %calloc7 = tail call ptr @calloc(i64 1, i64 %51)
+  %calloc8 = tail call ptr @calloc(i64 1, i64 %51)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %calloc7, ptr %52, align 8, !tbaa !137
+  store ptr %calloc8, ptr %52, align 8, !tbaa !137
   br label %99
 
 53:                                               ; preds = %5
   %54 = shl i64 %1, 3
-  %calloc6 = tail call ptr @calloc(i64 1, i64 %54)
+  %calloc9 = tail call ptr @calloc(i64 1, i64 %54)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %calloc6, ptr %55, align 8, !tbaa !137
+  store ptr %calloc9, ptr %55, align 8, !tbaa !137
   br label %99
 
 56:                                               ; preds = %5
   %57 = shl i64 %1, 4
-  %calloc5 = tail call ptr @calloc(i64 1, i64 %57)
+  %calloc10 = tail call ptr @calloc(i64 1, i64 %57)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %calloc5, ptr %58, align 8, !tbaa !137
+  store ptr %calloc10, ptr %58, align 8, !tbaa !137
   br label %99
 
 59:                                               ; preds = %5
   %60 = shl i64 %1, 3
-  %calloc4 = tail call ptr @calloc(i64 1, i64 %60)
+  %calloc11 = tail call ptr @calloc(i64 1, i64 %60)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %calloc4, ptr %61, align 8, !tbaa !137
+  store ptr %calloc11, ptr %61, align 8, !tbaa !137
   br label %99
 
 62:                                               ; preds = %5
@@ -5979,22 +5979,22 @@ pmix_bfrops_base_tma_byte_object_create.exit:     ; preds = %5, %5
   br label %99
 
 65:                                               ; preds = %5
-  %calloc3 = tail call ptr @calloc(i64 1, i64 %1)
+  %calloc12 = tail call ptr @calloc(i64 1, i64 %1)
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %calloc3, ptr %66, align 8, !tbaa !137
+  store ptr %calloc12, ptr %66, align 8, !tbaa !137
   br label %99
 
 67:                                               ; preds = %5
   %68 = mul i64 %1, 24
-  %calloc2 = tail call ptr @calloc(i64 1, i64 %68)
+  %calloc13 = tail call ptr @calloc(i64 1, i64 %68)
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %calloc2, ptr %69, align 8, !tbaa !137
+  store ptr %calloc13, ptr %69, align 8, !tbaa !137
   br label %99
 
 70:                                               ; preds = %5
-  %calloc1 = tail call ptr @calloc(i64 1, i64 %1)
+  %calloc14 = tail call ptr @calloc(i64 1, i64 %1)
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %calloc1, ptr %71, align 8, !tbaa !137
+  store ptr %calloc14, ptr %71, align 8, !tbaa !137
   br label %99
 
 pmix_bfrops_base_tma_endpoint_create.exit:        ; preds = %5
@@ -6006,9 +6006,9 @@ pmix_bfrops_base_tma_endpoint_create.exit:        ; preds = %5
 
 74:                                               ; preds = %5
   %75 = shl i64 %1, 8
-  %calloc = tail call ptr @calloc(i64 1, i64 %75)
+  %calloc15 = tail call ptr @calloc(i64 1, i64 %75)
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %calloc, ptr %76, align 8, !tbaa !137
+  store ptr %calloc15, ptr %76, align 8, !tbaa !137
   br label %99
 
 pmix_bfrops_base_tma_proc_stats_create.exit:      ; preds = %5

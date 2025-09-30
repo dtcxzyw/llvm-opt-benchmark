@@ -361,8 +361,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i75: ; preds = %_
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i: ; preds = %33
   %41 = shl nuw nsw i64 %10, 2
-  %calloc = tail call ptr @calloc(i64 1, i64 %41)
-  %42 = icmp eq ptr %calloc, null
+  %calloc266 = tail call ptr @calloc(i64 1, i64 %41)
+  %42 = icmp eq ptr %calloc266, null
   br i1 %42, label %43, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86
 
 43:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i
@@ -375,8 +375,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i: ; preds = %33
   unreachable
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i
-  %calloc266 = tail call ptr @calloc(i64 1, i64 %41)
-  %45 = icmp eq ptr %calloc266, null
+  %calloc = tail call ptr @calloc(i64 1, i64 %41)
+  %45 = icmp eq ptr %calloc, null
   br i1 %45, label %46, label %.lr.ph207
 
 46:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86
@@ -389,8 +389,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN
   unreachable
 
 .preheader191:                                    ; preds = %66, %.thread, %._crit_edge.thread
-  %.sroa.0142.2162168176265 = phi ptr [ null, %._crit_edge.thread ], [ null, %.thread ], [ %calloc, %66 ]
-  %.sroa.0128.2177264 = phi ptr [ null, %._crit_edge.thread ], [ null, %.thread ], [ %calloc266, %66 ]
+  %.sroa.0142.2162168176265 = phi ptr [ null, %._crit_edge.thread ], [ null, %.thread ], [ %calloc266, %66 ]
+  %.sroa.0128.2177264 = phi ptr [ null, %._crit_edge.thread ], [ null, %.thread ], [ %calloc, %66 ]
   %48 = phi i1 [ false, %._crit_edge.thread ], [ false, %.thread ], [ true, %66 ]
   %49 = sdiv i64 %10, 8
   %50 = shl nsw i64 %49, 3
@@ -411,7 +411,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN
 
 62:                                               ; preds = %229, %46, %43
   %.sroa.0128.0 = phi ptr [ %.sroa.0128.2177264, %229 ], [ null, %46 ], [ null, %43 ]
-  %.sroa.0142.0 = phi ptr [ %.sroa.0142.2162168176265, %229 ], [ %calloc, %46 ], [ null, %43 ]
+  %.sroa.0142.0 = phi ptr [ %.sroa.0142.2162168176265, %229 ], [ %calloc266, %46 ], [ null, %43 ]
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %244
@@ -423,7 +423,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN
           to label %66 unwind label %71
 
 66:                                               ; preds = %.lr.ph207
-  %67 = getelementptr inbounds nuw i32, ptr %calloc, i64 %indvars.iv232
+  %67 = getelementptr inbounds nuw i32, ptr %calloc266, i64 %indvars.iv232
   %68 = zext i1 %65 to i32
   store i32 %68, ptr %67, align 4, !tbaa !29
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
@@ -827,8 +827,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit: 
   br i1 %exitcond246.not, label %._crit_edge221, label %234, !llvm.loop !52
 
 244:                                              ; preds = %127, %71, %62
-  %.sroa.0128.1 = phi ptr [ %calloc266, %71 ], [ %.sroa.0128.0, %62 ], [ %.sroa.0128.2177264, %127 ]
-  %.sroa.0142.1 = phi ptr [ %calloc, %71 ], [ %.sroa.0142.0, %62 ], [ %.sroa.0142.2162168176265, %127 ]
+  %.sroa.0128.1 = phi ptr [ %calloc, %71 ], [ %.sroa.0128.0, %62 ], [ %.sroa.0128.2177264, %127 ]
+  %.sroa.0142.1 = phi ptr [ %calloc266, %71 ], [ %.sroa.0142.0, %62 ], [ %.sroa.0142.2162168176265, %127 ]
   %.pn65 = phi { ptr, i32 } [ %72, %71 ], [ %63, %62 ], [ %128, %127 ]
   call void @free(ptr noundef %.sroa.0128.1) #15
   call void @free(ptr noundef %.sroa.0142.1) #15
@@ -961,8 +961,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i75: ; preds = %_
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i: ; preds = %33
   %41 = shl nuw nsw i64 %10, 2
-  %calloc = tail call ptr @calloc(i64 1, i64 %41)
-  %42 = icmp eq ptr %calloc, null
+  %calloc266 = tail call ptr @calloc(i64 1, i64 %41)
+  %42 = icmp eq ptr %calloc266, null
   br i1 %42, label %43, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86
 
 43:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i
@@ -975,8 +975,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i: ; preds = %33
   unreachable
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i
-  %calloc266 = tail call ptr @calloc(i64 1, i64 %41)
-  %45 = icmp eq ptr %calloc266, null
+  %calloc = tail call ptr @calloc(i64 1, i64 %41)
+  %45 = icmp eq ptr %calloc, null
   br i1 %45, label %46, label %.lr.ph207
 
 46:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86
@@ -989,8 +989,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN
   unreachable
 
 .preheader191:                                    ; preds = %66, %.thread, %._crit_edge.thread
-  %.sroa.0142.2162168176265 = phi ptr [ null, %._crit_edge.thread ], [ null, %.thread ], [ %calloc, %66 ]
-  %.sroa.0128.2177264 = phi ptr [ null, %._crit_edge.thread ], [ null, %.thread ], [ %calloc266, %66 ]
+  %.sroa.0142.2162168176265 = phi ptr [ null, %._crit_edge.thread ], [ null, %.thread ], [ %calloc266, %66 ]
+  %.sroa.0128.2177264 = phi ptr [ null, %._crit_edge.thread ], [ null, %.thread ], [ %calloc, %66 ]
   %48 = phi i1 [ false, %._crit_edge.thread ], [ false, %.thread ], [ true, %66 ]
   %49 = sdiv i64 %10, 8
   %50 = shl nsw i64 %49, 3
@@ -1011,7 +1011,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN
 
 62:                                               ; preds = %229, %46, %43
   %.sroa.0128.0 = phi ptr [ %.sroa.0128.2177264, %229 ], [ null, %46 ], [ null, %43 ]
-  %.sroa.0142.0 = phi ptr [ %.sroa.0142.2162168176265, %229 ], [ %calloc, %46 ], [ null, %43 ]
+  %.sroa.0142.0 = phi ptr [ %.sroa.0142.2162168176265, %229 ], [ %calloc266, %46 ], [ null, %43 ]
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %244
@@ -1023,7 +1023,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN
           to label %66 unwind label %71
 
 66:                                               ; preds = %.lr.ph207
-  %67 = getelementptr inbounds nuw i32, ptr %calloc, i64 %indvars.iv232
+  %67 = getelementptr inbounds nuw i32, ptr %calloc266, i64 %indvars.iv232
   %68 = zext i1 %65 to i32
   store i32 %68, ptr %67, align 4, !tbaa !29
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
@@ -1427,8 +1427,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit: 
   br i1 %exitcond246.not, label %._crit_edge221, label %234, !llvm.loop !63
 
 244:                                              ; preds = %127, %71, %62
-  %.sroa.0128.1 = phi ptr [ %calloc266, %71 ], [ %.sroa.0128.0, %62 ], [ %.sroa.0128.2177264, %127 ]
-  %.sroa.0142.1 = phi ptr [ %calloc, %71 ], [ %.sroa.0142.0, %62 ], [ %.sroa.0142.2162168176265, %127 ]
+  %.sroa.0128.1 = phi ptr [ %calloc, %71 ], [ %.sroa.0128.0, %62 ], [ %.sroa.0128.2177264, %127 ]
+  %.sroa.0142.1 = phi ptr [ %calloc266, %71 ], [ %.sroa.0142.0, %62 ], [ %.sroa.0142.2162168176265, %127 ]
   %.pn65 = phi { ptr, i32 } [ %72, %71 ], [ %63, %62 ], [ %128, %127 ]
   call void @free(ptr noundef %.sroa.0128.1) #15
   call void @free(ptr noundef %.sroa.0142.1) #15

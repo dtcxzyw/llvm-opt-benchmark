@@ -689,8 +689,8 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i:
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
   %18 = mul nuw nsw i64 %17, 24
-  %calloc = tail call ptr @calloc(i64 1, i64 %18)
-  %19 = icmp eq ptr %calloc, null
+  %calloc177 = tail call ptr @calloc(i64 1, i64 %18)
+  %19 = icmp eq ptr %calloc177, null
   br i1 %19, label %20, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.thread
 
 20:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i
@@ -703,7 +703,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %_ZN5Eigen
   unreachable
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.thread: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
-  %.sroa.0.1158 = phi ptr [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i ], [ %calloc, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i ]
+  %.sroa.0.1158 = phi ptr [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i ], [ %calloc177, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i ]
   %.sroa.0178.0.vec.insert = insertelement <2 x double> poison, double %8, i64 0
   %.sroa.7.16.vec.insert = insertelement <2 x double> poison, double %9, i64 0
   %22 = fneg double %9
@@ -828,8 +828,8 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i62.c
   br i1 %.not.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit63.thread, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i90
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i90: ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i62.critedge
-  %calloc177 = tail call ptr @calloc(i64 1, i64 %27)
-  %90 = icmp eq ptr %calloc177, null
+  %calloc = tail call ptr @calloc(i64 1, i64 %27)
+  %90 = icmp eq ptr %calloc, null
   br i1 %90, label %91, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit63.thread
 
 91:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i90
@@ -842,7 +842,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i90: ; preds = %_ZN5Eig
   unreachable
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit63.thread: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i90, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i62.critedge
-  %.sroa.0144.1164 = phi ptr [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i62.critedge ], [ %calloc177, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i90 ]
+  %.sroa.0144.1164 = phi ptr [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i62.critedge ], [ %calloc, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i90 ]
   %93 = getelementptr inbounds nuw double, ptr %.sroa.0144.1164, i64 %71
   store <2 x double> %.sroa.0178.8.vec.insert, ptr %93, align 1, !tbaa !117
   %94 = getelementptr double, ptr %93, i64 %17

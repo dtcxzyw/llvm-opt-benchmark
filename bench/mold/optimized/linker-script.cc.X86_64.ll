@@ -4255,10 +4255,10 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br label %56
 
 56:                                               ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit84.thread, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit84
-  %.sink225 = phi { ptr, i64 } [ %55, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit84.thread ], [ %51, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit84 ]
+  %.sink227 = phi { ptr, i64 } [ %55, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit84.thread ], [ %51, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit84 ]
   %.sink223 = phi i1 [ true, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit84.thread ], [ false, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit84 ]
-  %57 = extractvalue { ptr, i64 } %.sink225, 0
-  %58 = extractvalue { ptr, i64 } %.sink225, 1
+  %57 = extractvalue { ptr, i64 } %.sink227, 0
+  %58 = extractvalue { ptr, i64 } %.sink227, 1
   %59 = call { ptr, i64 } @_ZN4mold6ScriptINS_6X86_64EE28read_version_script_commandsESt4spanISt17basic_string_viewIcSt11char_traitsIcEELm18446744073709551615EES7_tbb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %57, i64 %58, i64 %3, ptr %4, i16 noundef zeroext %5, i1 noundef zeroext %.0.ph188190, i1 noundef zeroext %.sink223)
   %storemerge69 = extractvalue { ptr, i64 } %59, 0
   %storemerge = extractvalue { ptr, i64 } %59, 1

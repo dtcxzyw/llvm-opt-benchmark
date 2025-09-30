@@ -3714,8 +3714,8 @@ define internal fastcc void @_decompTest(ptr noundef nonnull %0, ptr noundef %1,
   %43 = load i32, ptr @sampleSize, align 4, !tbaa !9
   %44 = zext nneg i32 %43 to i64
   %45 = mul nsw i64 %42, %44
-  %calloc = tail call ptr @calloc(i64 1, i64 %45)
-  %46 = icmp eq ptr %calloc, null
+  %calloc724 = tail call ptr @calloc(i64 1, i64 %45)
+  %46 = icmp eq ptr %calloc724, null
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %36
@@ -3764,8 +3764,8 @@ define internal fastcc void @_decompTest(ptr noundef nonnull %0, ptr noundef %1,
   br label %.thread
 
 70:                                               ; preds = %64
-  %calloc724 = tail call ptr @calloc(i64 1, i64 %52)
-  %71 = icmp eq ptr %calloc724, null
+  %calloc = tail call ptr @calloc(i64 1, i64 %52)
+  %71 = icmp eq ptr %calloc, null
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
@@ -3794,7 +3794,7 @@ define internal fastcc void @_decompTest(ptr noundef nonnull %0, ptr noundef %1,
 85:                                               ; preds = %83, %81
   %.b136 = load i1, ptr @yuvAlign, align 4
   %86 = select i1 %.b136, i32 1, i32 4
-  %87 = tail call i32 @tj3DecompressToYUV8(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %calloc724, i32 noundef %86) #21
+  %87 = tail call i32 @tj3DecompressToYUV8(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %calloc, i32 noundef %86) #21
   %88 = icmp eq i32 %87, -1
   br i1 %88, label %89, label %92
 
@@ -3805,7 +3805,7 @@ define internal fastcc void @_decompTest(ptr noundef nonnull %0, ptr noundef %1,
   br label %.thread
 
 92:                                               ; preds = %85
-  %93 = tail call fastcc i32 @checkBufYUV(ptr noundef %calloc724, i32 noundef %12, i32 noundef %15, i32 noundef %31, i64 %.fr1044.i)
+  %93 = tail call fastcc i32 @checkBufYUV(ptr noundef %calloc, i32 noundef %12, i32 noundef %15, i32 noundef %31, i64 %.fr1044.i)
   %.not142 = icmp eq i32 %93, 0
   %str.21.str.22 = select i1 %.not142, ptr @str.21, ptr @str.22
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.21.str.22)
@@ -3816,7 +3816,7 @@ define internal fastcc void @_decompTest(ptr noundef nonnull %0, ptr noundef %1,
   %97 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.143, ptr noundef %77, ptr noundef %95, ptr noundef nonnull %96)
   %.b135 = load i1, ptr @yuvAlign, align 4
   %98 = select i1 %.b135, i32 1, i32 4
-  %99 = tail call i32 @tj3DecodeYUV8(ptr noundef nonnull %53, ptr noundef nonnull %calloc724, i32 noundef %98, ptr noundef nonnull %calloc, i32 noundef %12, i32 noundef 0, i32 noundef %15, i32 noundef %5) #21
+  %99 = tail call i32 @tj3DecodeYUV8(ptr noundef nonnull %53, ptr noundef nonnull %calloc, i32 noundef %98, ptr noundef nonnull %calloc724, i32 noundef %12, i32 noundef 0, i32 noundef %15, i32 noundef %5) #21
   %100 = icmp eq i32 %99, -1
   br i1 %100, label %101, label %104
 
@@ -3855,7 +3855,7 @@ define internal fastcc void @_decompTest(ptr noundef nonnull %0, ptr noundef %1,
   br i1 %118, label %119, label %125
 
 119:                                              ; preds = %116
-  %120 = tail call i32 @tj3Decompress8(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %calloc, i32 noundef 0, i32 noundef %5) #21
+  %120 = tail call i32 @tj3Decompress8(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %calloc724, i32 noundef 0, i32 noundef %5) #21
   %121 = icmp eq i32 %120, -1
   br i1 %121, label %122, label %139
 
@@ -3870,7 +3870,7 @@ define internal fastcc void @_decompTest(ptr noundef nonnull %0, ptr noundef %1,
   br i1 %126, label %127, label %133
 
 127:                                              ; preds = %125
-  %128 = tail call i32 @tj3Decompress12(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %calloc, i32 noundef 0, i32 noundef %5) #21
+  %128 = tail call i32 @tj3Decompress12(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %calloc724, i32 noundef 0, i32 noundef %5) #21
   %129 = icmp eq i32 %128, -1
   br i1 %129, label %130, label %139
 
@@ -3881,7 +3881,7 @@ define internal fastcc void @_decompTest(ptr noundef nonnull %0, ptr noundef %1,
   br label %.thread
 
 133:                                              ; preds = %125
-  %134 = tail call i32 @tj3Decompress16(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %calloc, i32 noundef 0, i32 noundef %5) #21
+  %134 = tail call i32 @tj3Decompress16(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %calloc724, i32 noundef 0, i32 noundef %5) #21
   %135 = icmp eq i32 %134, -1
   br i1 %135, label %136, label %139
 
@@ -3892,7 +3892,7 @@ define internal fastcc void @_decompTest(ptr noundef nonnull %0, ptr noundef %1,
   br label %.thread
 
 139:                                              ; preds = %104, %119, %133, %127
-  %.2 = phi ptr [ %calloc724, %104 ], [ null, %119 ], [ null, %127 ], [ null, %133 ]
+  %.2 = phi ptr [ %calloc, %104 ], [ null, %119 ], [ null, %127 ], [ null, %133 ]
   %140 = getelementptr inbounds i32, ptr @tjRedOffset, i64 %38
   %141 = load i32, ptr %140, align 4, !tbaa !9
   %142 = getelementptr inbounds i32, ptr @tjGreenOffset, i64 %38
@@ -3943,12 +3943,12 @@ define internal fastcc void @_decompTest(ptr noundef nonnull %0, ptr noundef %1,
   %174 = sext i32 %.0258.i to i64
   %175 = sext i32 %147 to i64
   %wide.trip.count.i = zext nneg i32 %12 to i64
-  %invariant.gep.i = getelementptr i16, ptr %calloc, i64 %173
-  %invariant.gep1761.i = getelementptr i16, ptr %calloc, i64 %174
-  %invariant.gep1763.i = getelementptr i16, ptr %calloc, i64 %175
-  %invariant.gep1771.i = getelementptr i8, ptr %calloc, i64 %173
-  %invariant.gep1773.i = getelementptr i8, ptr %calloc, i64 %174
-  %invariant.gep1775.i = getelementptr i8, ptr %calloc, i64 %175
+  %invariant.gep.i = getelementptr i16, ptr %calloc724, i64 %173
+  %invariant.gep1761.i = getelementptr i16, ptr %calloc724, i64 %174
+  %invariant.gep1763.i = getelementptr i16, ptr %calloc724, i64 %175
+  %invariant.gep1771.i = getelementptr i8, ptr %calloc724, i64 %173
+  %invariant.gep1773.i = getelementptr i8, ptr %calloc724, i64 %174
+  %invariant.gep1775.i = getelementptr i8, ptr %calloc724, i64 %175
   br label %.preheader489.us.i
 
 .preheader489.us.i:                               ; preds = %._crit_edge.us.i, %.preheader489.us.preheader.i
@@ -3970,7 +3970,7 @@ define internal fastcc void @_decompTest(ptr noundef nonnull %0, ptr noundef %1,
   br i1 %157, label %getVal.exit338.thread.us.i, label %185
 
 185:                                              ; preds = %181
-  %186 = getelementptr inbounds i16, ptr %calloc, i64 %184
+  %186 = getelementptr inbounds i16, ptr %calloc724, i64 %184
   %187 = load i16, ptr %186, align 2, !tbaa !18
   %gep1766.i = getelementptr i16, ptr %invariant.gep.i, i64 %183
   %188 = load i16, ptr %gep1766.i, align 2, !tbaa !18
@@ -4003,7 +4003,7 @@ getVal.exit338.us.thread.i:                       ; preds = %185
   br label %getVal.exit340.us.i
 
 getVal.exit338.thread.us.i:                       ; preds = %181
-  %202 = getelementptr inbounds i8, ptr %calloc, i64 %184
+  %202 = getelementptr inbounds i8, ptr %calloc724, i64 %184
   %203 = load i8, ptr %202, align 1, !tbaa !17
   %204 = zext i8 %203 to i32
   %gep1772.i = getelementptr i8, ptr %invariant.gep1771.i, i64 %183
@@ -4175,7 +4175,7 @@ getVal.exit332.us.us.us.us.i:                     ; preds = %.preheader486.us.us
   %indvars.iv1375.i = phi i64 [ %indvars.iv.next1376.i, %313 ], [ 0, %.preheader486.us.us.i ]
   %279 = add nsw i64 %indvars.iv1375.i, %278
   %280 = mul nsw i64 %279, %273
-  %281 = getelementptr i8, ptr %calloc, i64 %280
+  %281 = getelementptr i8, ptr %calloc724, i64 %280
   %282 = load i8, ptr %281, align 1, !tbaa !17
   %283 = zext i8 %282 to i32
   %284 = getelementptr i8, ptr %281, i64 1
@@ -4234,7 +4234,7 @@ getVal.exit332.us.us.us.i:                        ; preds = %.preheader486.us.us
   %indvars.iv1369.i = phi i64 [ %indvars.iv.next1370.i, %348 ], [ 0, %.preheader486.us.us.i ]
   %314 = add nsw i64 %indvars.iv1369.i, %278
   %315 = mul nsw i64 %314, %273
-  %316 = getelementptr i8, ptr %calloc, i64 %315
+  %316 = getelementptr i8, ptr %calloc724, i64 %315
   %317 = load i8, ptr %316, align 1, !tbaa !17
   %318 = zext i8 %317 to i32
   %319 = getelementptr i8, ptr %316, i64 1
@@ -4309,7 +4309,7 @@ getVal.exit332.us.us.us.i:                        ; preds = %.preheader486.us.us
   %indvars.iv1362.i.us = phi i64 [ %indvars.iv.next1363.i.us, %395 ], [ 0, %.preheader486.us.i ]
   %355 = add nsw i64 %indvars.iv1362.i.us, %354
   %356 = mul nsw i64 %355, %273
-  %357 = getelementptr i16, ptr %calloc, i64 %356
+  %357 = getelementptr i16, ptr %calloc724, i64 %356
   %358 = load i16, ptr %357, align 2, !tbaa !18
   %359 = getelementptr i8, ptr %357, i64 2
   %360 = load i16, ptr %359, align 2, !tbaa !18
@@ -4385,7 +4385,7 @@ getVal.exit332.us850.i.us:                        ; preds = %370, %365
   %indvars.iv1362.i = phi i64 [ %indvars.iv.next1363.i, %436 ], [ 0, %.preheader486.us.i ]
   %396 = add nsw i64 %indvars.iv1362.i, %354
   %397 = mul nsw i64 %396, %273
-  %398 = getelementptr i16, ptr %calloc, i64 %397
+  %398 = getelementptr i16, ptr %calloc724, i64 %397
   %399 = load i16, ptr %398, align 2, !tbaa !18
   %400 = getelementptr i8, ptr %398, i64 2
   %401 = load i16, ptr %400, align 2, !tbaa !18
@@ -4626,10 +4626,10 @@ getVal.exit332.us850.i:                           ; preds = %411, %406
   %471 = sext i32 %.0258.i to i64
   %472 = zext nneg i32 %12 to i64
   %wide.trip.count1391.i = zext nneg i32 %15 to i64
-  %invariant.gep1777.i = getelementptr i16, ptr %calloc, i64 %470
-  %invariant.gep1779.i = getelementptr i16, ptr %calloc, i64 %471
-  %invariant.gep1785.i = getelementptr i8, ptr %calloc, i64 %470
-  %invariant.gep1787.i = getelementptr i8, ptr %calloc, i64 %471
+  %invariant.gep1777.i = getelementptr i16, ptr %calloc724, i64 %470
+  %invariant.gep1779.i = getelementptr i16, ptr %calloc724, i64 %471
+  %invariant.gep1785.i = getelementptr i8, ptr %calloc724, i64 %470
+  %invariant.gep1787.i = getelementptr i8, ptr %calloc724, i64 %471
   br label %.preheader.us.i
 
 .preheader.us.us.preheader.i:                     ; preds = %.preheader.lr.ph.split.us.i
@@ -4652,7 +4652,7 @@ getVal.exit332.us850.i:                           ; preds = %411, %406
 
 480:                                              ; preds = %475
   %481 = icmp samesign ult i32 %478, 13
-  %482 = getelementptr i16, ptr %calloc, i64 %477
+  %482 = getelementptr i16, ptr %calloc724, i64 %477
   %483 = load i16, ptr %482, align 2, !tbaa !18
   %484 = getelementptr i8, ptr %482, i64 2
   %485 = load i16, ptr %484, align 2, !tbaa !18
@@ -4677,7 +4677,7 @@ getVal.exit332.us850.i:                           ; preds = %411, %406
   br label %getVal.exit348.us.us.us.i
 
 500:                                              ; preds = %475
-  %501 = getelementptr i8, ptr %calloc, i64 %477
+  %501 = getelementptr i8, ptr %calloc724, i64 %477
   %502 = load i8, ptr %501, align 1, !tbaa !17
   %503 = zext i8 %502 to i32
   %504 = getelementptr i8, ptr %501, i64 1
@@ -4723,7 +4723,7 @@ getVal.exit348.us.us.us.i:                        ; preds = %500, %495, %490
 
 521:                                              ; preds = %515
   %522 = icmp samesign ult i32 %519, 13
-  %523 = getelementptr inbounds i16, ptr %calloc, i64 %518
+  %523 = getelementptr inbounds i16, ptr %calloc724, i64 %518
   %524 = load i16, ptr %523, align 2, !tbaa !18
   %gep1782.i = getelementptr i16, ptr %invariant.gep1777.i, i64 %517
   %525 = load i16, ptr %gep1782.i, align 2, !tbaa !18
@@ -4744,7 +4744,7 @@ getVal.exit348.us.us.us.i:                        ; preds = %500, %495, %490
   br label %getVal.exit354.us.i
 
 535:                                              ; preds = %515
-  %536 = getelementptr inbounds i8, ptr %calloc, i64 %518
+  %536 = getelementptr inbounds i8, ptr %calloc724, i64 %518
   %537 = load i8, ptr %536, align 1, !tbaa !17
   %538 = zext i8 %537 to i32
   %gep1786.i = getelementptr i8, ptr %invariant.gep1785.i, i64 %517
@@ -4784,8 +4784,8 @@ getVal.exit354.us.i:                              ; preds = %535, %531, %527
   br label %.thread
 
 .thread:                                          ; preds = %101, %89, %72, %67, %61, %55, %.loopexit, %136, %130, %122, %47, %34, %25, %19
-  %.0128 = phi ptr [ null, %19 ], [ null, %25 ], [ null, %34 ], [ null, %47 ], [ %.2, %.loopexit ], [ null, %122 ], [ null, %130 ], [ null, %136 ], [ %calloc724, %101 ], [ %calloc724, %89 ], [ null, %72 ], [ null, %67 ], [ null, %61 ], [ null, %55 ]
-  %.0127 = phi ptr [ null, %19 ], [ null, %25 ], [ null, %34 ], [ null, %47 ], [ %calloc, %.loopexit ], [ %calloc, %122 ], [ %calloc, %130 ], [ %calloc, %136 ], [ %calloc, %101 ], [ %calloc, %89 ], [ %calloc, %72 ], [ %calloc, %67 ], [ %calloc, %61 ], [ %calloc, %55 ]
+  %.0128 = phi ptr [ null, %19 ], [ null, %25 ], [ null, %34 ], [ null, %47 ], [ %.2, %.loopexit ], [ null, %122 ], [ null, %130 ], [ null, %136 ], [ %calloc, %101 ], [ %calloc, %89 ], [ null, %72 ], [ null, %67 ], [ null, %61 ], [ null, %55 ]
+  %.0127 = phi ptr [ null, %19 ], [ null, %25 ], [ null, %34 ], [ null, %47 ], [ %calloc724, %.loopexit ], [ %calloc724, %122 ], [ %calloc724, %130 ], [ %calloc724, %136 ], [ %calloc724, %101 ], [ %calloc724, %89 ], [ %calloc724, %72 ], [ %calloc724, %67 ], [ %calloc724, %61 ], [ %calloc724, %55 ]
   tail call void @free(ptr noundef %.0128) #21
   tail call void @free(ptr noundef %.0127) #21
   ret void

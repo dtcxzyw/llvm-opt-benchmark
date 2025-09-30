@@ -435,28 +435,28 @@ define hidden noundef zeroext i1 @KMSDRM_WaitPageflip(ptr noundef readonly captu
   br i1 %12, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 6
   br label %14
 
-14:                                               ; preds = %.lr.ph, %.backedge
+18:                                               ; preds = %.lr.ph, %.backedge
   store i16 0, ptr %13, align 2
   %15 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef -1) #13
-  %16 = icmp slt i32 %15, 0
-  br i1 %16, label %17, label %21
+  %21 = icmp slt i32 %15, 0
+  br i1 %21, label %17, label %21
 
-17:                                               ; preds = %14
+22:                                               ; preds = %14
   %18 = tail call ptr @__errno_location() #15
   %19 = load i32, ptr %18, align 4
-  %20 = icmp eq i32 %19, 4
-  br i1 %20, label %.backedge, label %.loopexit.sink.split
+  %.not = icmp eq i32 %19, 4
+  br i1 %.not, label %.backedge, label %.loopexit.sink.split
 
-21:                                               ; preds = %14
+25:                                               ; preds = %14
   %22 = load i16, ptr %13, align 2
   %23 = and i16 %22, 24
   %.not = icmp eq i16 %23, 0
   br i1 %.not, label %24, label %.loopexit.sink.split
 
-24:                                               ; preds = %21
+24:; preds = %21
   %25 = and i16 %22, 1
   %.not5 = icmp eq i16 %25, 0
   br i1 %.not5, label %.backedge, label %26
@@ -468,9 +468,9 @@ define hidden noundef zeroext i1 @KMSDRM_WaitPageflip(ptr noundef readonly captu
   br label %.backedge
 
 .backedge:                                        ; preds = %24, %26, %17
-  %30 = load i8, ptr %10, align 8, !range !5, !noundef !6
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %14, label %.loopexit, !llvm.loop !7
+  %31 = load i8, ptr %10, align 8, !range !5, !noundef !6
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %14, label %.loopexit, !llvm.loop !7
 
 .loopexit.sink.split:                             ; preds = %21, %17
   %.str.4.sink = phi ptr [ @.str.3, %17 ], [ @.str.4, %21 ]

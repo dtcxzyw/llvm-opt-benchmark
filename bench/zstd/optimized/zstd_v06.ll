@@ -6367,8 +6367,8 @@ BITv06_initDStream.exit.thread144.i:              ; preds = %340
   %345 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %344, i1 true)
   %346 = trunc nuw nsw i64 %286 to i32
   %347 = shl nuw nsw i32 %346, 3
-  %reass.sub = sub nsw i32 %345, %347
-  %348 = add nsw i32 %reass.sub, 41
+  %reass.sub.i = sub nsw i32 %345, %347
+  %348 = add nsw i32 %reass.sub.i, 41
   br label %355
 
 BITv06_initDStream.exit.i:                        ; preds = %291
@@ -8125,7 +8125,7 @@ ZSTDv06_decodeFrameHeader.exit.thread69:          ; preds = %53, %44, %ZSTDv06_c
 define noalias noundef ptr @ZBUFFv06_createDCtx() local_unnamed_addr #19 {
   %calloc = tail call dereferenceable_or_null(120) ptr @calloc(i64 1, i64 120)
   %1 = icmp eq ptr %calloc, null
-  br i1 %1, label %11, label %2
+  br i1 %1, label %12, label %2
 
 2:                                                ; preds = %0
   %3 = tail call noalias dereferenceable_or_null(152712) ptr @malloc(i64 noundef 152712) #29
@@ -8134,7 +8134,7 @@ define noalias noundef ptr @ZBUFFv06_createDCtx() local_unnamed_addr #19 {
 
 ZBUFFv06_freeDCtx.exit:                           ; preds = %2
   tail call void @free(ptr noundef nonnull %calloc) #28
-  br label %11
+  br label %12
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 21552
@@ -8148,9 +8148,9 @@ ZBUFFv06_freeDCtx.exit:                           ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 21592
   store i32 0, ptr %10, align 8, !tbaa !74
   store ptr %3, ptr %calloc, align 8, !tbaa !95
-  br label %11
+  br label %12
 
-11:                                               ; preds = %0, %5, %ZBUFFv06_freeDCtx.exit
+12:                                               ; preds = %0, %5, %ZBUFFv06_freeDCtx.exit
   %.0 = phi ptr [ null, %ZBUFFv06_freeDCtx.exit ], [ %calloc, %5 ], [ null, %0 ]
   ret ptr %.0
 }

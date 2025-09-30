@@ -7757,9 +7757,9 @@ define void @_ZN14regex_automata3nfa8thompson6pikevm5Cache3new17h50898f46bc56fe3
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i, i8 0, i64 24, i1 false), !noalias !1549
   store i64 0, ptr %4, align 8, !noalias !1549
-  %.sroa.4.0..sroa_idx8.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx8.i, align 8, !noalias !1549
-  %.sroa.59.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sroa.4.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx7.i, align 8, !noalias !1549
+  %.sroa.6.0..sroa_idx9.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.7.0..sroa_idx10.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.59.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !1549
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.7.0..sroa_idx10.i, align 8, !noalias !1549
@@ -7792,12 +7792,12 @@ define void @_ZN14regex_automata3nfa8thompson6pikevm5Cache3new17h50898f46bc56fe3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1549
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1555
-  %.sroa.5.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i2, i8 0, i64 24, i1 false), !noalias !1555
+  %.sroa.58.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.58.0..sroa_idx.i2, i8 0, i64 24, i1 false), !noalias !1555
   store i64 0, ptr %3, align 8, !noalias !1555
-  %.sroa.4.0..sroa_idx8.i3 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx8.i3, align 8, !noalias !1555
-  %.sroa.59.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.4.0..sroa_idx7.i4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx7.i4, align 8, !noalias !1555
+  %.sroa.6.0..sroa_idx9.i5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.7.0..sroa_idx10.i5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.59.0..sroa_idx.i4, i8 0, i64 16, i1 false), !noalias !1555
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.7.0..sroa_idx10.i5, align 8, !noalias !1555
@@ -7891,9 +7891,9 @@ define hidden void @_ZN14regex_automata3nfa8thompson6pikevm12ActiveStates3new17h
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, i8 0, i64 24, i1 false)
   store i64 0, ptr %3, align 8
-  %.sroa.4.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx8, align 8
-  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.4.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx7, align 8
+  %.sroa.6.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.59.0..sroa_idx, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.7.0..sroa_idx10, align 8

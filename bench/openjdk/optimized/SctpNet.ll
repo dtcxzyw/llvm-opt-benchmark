@@ -1116,7 +1116,7 @@ define void @Java_sun_nio_ch_sctp_SctpNet_shutdown0(ptr noundef %0, ptr noundef 
 
 9:                                                ; preds = %4
   %10 = tail call i32 @shutdown(i32 noundef %2, i32 noundef 1) #10
-  br label %30
+  br label %29
 
 11:                                               ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, i8 0, i64 56, i1 false)
@@ -1135,32 +1135,32 @@ define void @Java_sun_nio_ch_sctp_SctpNet_shutdown0(ptr noundef %0, ptr noundef 
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %18, align 4
   store i64 48, ptr %7, align 16
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %19, i8 0, i64 32, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %18, i8 0, i64 32, i1 false)
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %22, label %20
+  br i1 %.not, label %21, label %19
 
-20:                                               ; preds = %11
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  store i32 %3, ptr %21, align 4
-  br label %22
+19:                                               ; preds = %11
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 44
+  store i32 %3, ptr %20, align 4
+  br label %21
 
-22:                                               ; preds = %20, %11
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i16 512, ptr %23, align 4
+21:                                               ; preds = %19, %11
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store i16 512, ptr %22, align 4
   store i64 48, ptr %15, align 8
-  %24 = call i64 @sendmsg(i32 noundef %2, ptr noundef nonnull %5, i32 noundef 0) #10
-  %25 = and i64 %24, 2147483648
-  %.not16 = icmp eq i64 %25, 0
-  br i1 %.not16, label %30, label %26
+  %23 = call i64 @sendmsg(i32 noundef %2, ptr noundef nonnull %5, i32 noundef 0) #10
+  %24 = and i64 %23, 2147483648
+  %.not16 = icmp eq i64 %24, 0
+  br i1 %.not16, label %29, label %25
 
-26:                                               ; preds = %22
-  %27 = tail call ptr @__errno_location() #9
-  %28 = load i32, ptr %27, align 4
-  %29 = call range(i32 -5, 1) i32 @sctpHandleSocketErrorWithMessage(ptr noundef %0, i32 noundef %28, ptr noundef null)
-  br label %30
+25:                                               ; preds = %21
+  %26 = tail call ptr @__errno_location() #9
+  %27 = load i32, ptr %26, align 4
+  %28 = call range(i32 -5, 1) i32 @sctpHandleSocketErrorWithMessage(ptr noundef %0, i32 noundef %27, ptr noundef null)
+  br label %29
 
-30:                                               ; preds = %26, %22, %9
+29:                                               ; preds = %25, %21, %9
   ret void
 }
 

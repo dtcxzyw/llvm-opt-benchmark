@@ -34241,7 +34241,7 @@ _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i:     ; preds = %_ZN11flatbuffers5Va
 .noexc474:                                        ; preds = %89
   %91 = load i8, ptr %9, align 1, !tbaa !163, !range !160, !alias.scope !944, !noundef !161
   %92 = trunc nuw i8 %91 to i1
-  br i1 %92, label %.loopexit786.thread, label %101
+  br i1 %92, label %.loopexit786.thread.sink.split, label %101
 
 93:                                               ; preds = %81
   %94 = landingpad { ptr, i32 }
@@ -34267,7 +34267,7 @@ _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i.thread: ; preds = %_ZN11flatbuffers
 .noexc477:                                        ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i.thread
   %99 = load i8, ptr %9, align 1, !tbaa !163, !range !160, !alias.scope !944, !noundef !161
   %100 = trunc nuw i8 %99 to i1
-  br i1 %100, label %.loopexit786.thread, label %101
+  br i1 %100, label %.loopexit786.thread.sink.split, label %101
 
 101:                                              ; preds = %.noexc477, %.noexc474
   store i8 0, ptr %9, align 1, !tbaa !163, !alias.scope !950
@@ -34290,7 +34290,7 @@ _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i.thread: ; preds = %_ZN11flatbuffers
 .noexc471:                                        ; preds = %108
   %109 = load i8, ptr %9, align 1, !tbaa !163, !range !160, !alias.scope !953, !noundef !161
   %110 = trunc nuw i8 %109 to i1
-  br i1 %110, label %.loopexit786.thread, label %.noexc294
+  br i1 %110, label %.loopexit786.thread.sink.split, label %.noexc294
 
 .noexc294:                                        ; preds = %105, %.noexc471
   store i8 0, ptr %9, align 1, !tbaa !163, !alias.scope !956
@@ -34315,7 +34315,7 @@ _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i.thread: ; preds = %_ZN11flatbuffers
   %116 = trunc nuw i8 %115 to i1
   br i1 %116, label %.loopexit786.thread, label %120
 
-.loopexit786.thread:                              ; preds = %.noexc471, %.noexc474, %.noexc477, %.noexc295, %.noexc
+.loopexit786.thread.sink.split:                   ; preds = %.noexc471, %.noexc474, %.noexc477, %.noexc295, %.noexc
   store i8 1, ptr %0, align 1, !tbaa !163
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %117, align 1, !tbaa !165

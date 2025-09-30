@@ -63052,7 +63052,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 95:                                               ; preds = %.noexc.us
   call void @llvm.experimental.noalias.scope.decl(metadata !5362)
   call void @llvm.experimental.noalias.scope.decl(metadata !5365)
-  br i1 %94, label %.lr.ph.i38.us, label %._crit_edge.i36.loopexit104.split.us
+  br i1 %94, label %.lr.ph.i38.us, label %._crit_edge.i36.loopexit.split.us
 
 .lr.ph.i38.us:                                    ; preds = %95, %.sink.split.i.us
   %.sink.i212.us = phi i64 [ %.sink.i.us, %.sink.split.i.us ], [ %91, %95 ]
@@ -63220,11 +63220,11 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %182 = icmp ult i64 %181, %82
   br i1 %182, label %.lr.ph.i30.us, label %._crit_edge.i
 
-._crit_edge.i36.loopexit104.split.us:             ; preds = %95
+._crit_edge.i36.loopexit.split.us:                ; preds = %95
   store i64 %.lcssa203253.us, ptr %42, align 8
   br label %._crit_edge.i36
 
-._crit_edge.i36.loopexit.split.us:                ; preds = %.sink.split.i.us
+._crit_edge.i.loopexit105.split.us:               ; preds = %.sink.split.i.us
   store i64 %.lcssa203253.us, ptr %42, align 8
   store i64 %90, ptr %39, align 8
   br label %._crit_edge.i36
@@ -63366,8 +63366,8 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %252 = add i64 %.sroa.01.0.i.i, %188
   br label %187
 
-._crit_edge.i36:                                  ; preds = %._crit_edge.i36.loopexit104.split.us, %._crit_edge.i36.loopexit.split.us
-  %.lcssa526.sink = phi i64 [ %90, %._crit_edge.i36.loopexit104.split.us ], [ %.sink.i.us, %._crit_edge.i36.loopexit.split.us ]
+._crit_edge.i36:                                  ; preds = %._crit_edge.i.loopexit105.split.us, %._crit_edge.i36.loopexit.split.us
+  %.lcssa516.sink = phi i64 [ %90, %._crit_edge.i36.loopexit104.split.us ], [ %.sink.i.us, %._crit_edge.i36.loopexit.split.us ]
   store i64 %.lcssa526.sink, ptr %39, align 8
   br label %.noexc23.thread
 
@@ -84844,7 +84844,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 95:                                               ; preds = %.noexc.us
   call void @llvm.experimental.noalias.scope.decl(metadata !7338)
   call void @llvm.experimental.noalias.scope.decl(metadata !7341)
-  br i1 %94, label %.lr.ph.i38.us, label %._crit_edge.i36.loopexit104.split.us
+  br i1 %94, label %.lr.ph.i38.us, label %._crit_edge.i36.loopexit.split.us
 
 .lr.ph.i38.us:                                    ; preds = %95, %.sink.split.i.us
   %.sink.i212.us = phi i64 [ %.sink.i.us, %.sink.split.i.us ], [ %91, %95 ]
@@ -85012,11 +85012,11 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %182 = icmp ult i64 %181, %82
   br i1 %182, label %.lr.ph.i30.us, label %._crit_edge.i
 
-._crit_edge.i36.loopexit104.split.us:             ; preds = %95
+._crit_edge.i36.loopexit.split.us:                ; preds = %95
   store i64 %.lcssa203253.us, ptr %42, align 8
   br label %._crit_edge.i36
 
-._crit_edge.i36.loopexit.split.us:                ; preds = %.sink.split.i.us
+._crit_edge.i.loopexit105.split.us:               ; preds = %.sink.split.i.us
   store i64 %.lcssa203253.us, ptr %42, align 8
   store i64 %90, ptr %39, align 8
   br label %._crit_edge.i36
@@ -85158,8 +85158,8 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %252 = add i64 %.sroa.01.0.i.i, %188
   br label %187
 
-._crit_edge.i36:                                  ; preds = %._crit_edge.i36.loopexit104.split.us, %._crit_edge.i36.loopexit.split.us
-  %.lcssa526.sink = phi i64 [ %90, %._crit_edge.i36.loopexit104.split.us ], [ %.sink.i.us, %._crit_edge.i36.loopexit.split.us ]
+._crit_edge.i36:                                  ; preds = %._crit_edge.i.loopexit105.split.us, %._crit_edge.i36.loopexit.split.us
+  %.lcssa516.sink = phi i64 [ %90, %._crit_edge.i36.loopexit104.split.us ], [ %.sink.i.us, %._crit_edge.i36.loopexit.split.us ]
   store i64 %.lcssa526.sink, ptr %39, align 8
   br label %.noexc23.thread
 

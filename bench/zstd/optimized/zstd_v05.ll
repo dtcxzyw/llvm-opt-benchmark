@@ -8108,7 +8108,7 @@ ZSTDv05_decodeFrameHeader_Part2.exit.thread67:    ; preds = %28, %ZSTDv05_copyRa
 define noalias noundef ptr @ZBUFFv05_createDCtx() local_unnamed_addr #15 {
   %calloc = tail call dereferenceable_or_null(128) ptr @calloc(i64 1, i64 128)
   %1 = icmp eq ptr %calloc, null
-  br i1 %1, label %11, label %2
+  br i1 %1, label %12, label %2
 
 2:                                                ; preds = %0
   %3 = tail call noalias dereferenceable_or_null(157848) ptr @malloc(i64 noundef 157848) #26
@@ -8130,9 +8130,9 @@ define noalias noundef ptr @ZBUFFv05_createDCtx() local_unnamed_addr #15 {
 
 ZSTDv05_createDCtx.exit:                          ; preds = %2, %5
   store ptr %3, ptr %calloc, align 8, !tbaa !89
-  br label %11
+  br label %12
 
-11:                                               ; preds = %0, %ZSTDv05_createDCtx.exit
+12:                                               ; preds = %0, %ZSTDv05_createDCtx.exit
   ret ptr %calloc
 }
 

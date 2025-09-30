@@ -598,34 +598,34 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp11IRRImporter19BuildSingleQ
   %6 = tail call noalias noundef nonnull dereferenceable(1320) ptr @_Znwm(i64 noundef 1320) #32
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1272
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1312
-  store ptr null, ptr %10, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1272
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1312
+  store ptr null, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(188) %11, i8 0, i64 188, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1044) %8, i8 0, i64 1044, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 0, i64 36, i1 false)
   store i32 8, ptr %6, align 8
   store i32 1, ptr %7, align 8
-  %12 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znam(i64 noundef 24) #32
-  store i64 1, ptr %12, align 16
-  %.ptr = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr null, ptr %13, align 16
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 208
-  store ptr %.ptr, ptr %14, align 8
+  %13 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znam(i64 noundef 24) #32
+  store i64 1, ptr %13, align 16
+  %.ptr = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr null, ptr %14, align 16
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 208
+  store ptr %.ptr, ptr %15, align 8
   store i32 4, ptr %.ptr, align 8
-  %15 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #32
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %15, ptr %16, align 16
+  %16 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #32
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr %16, ptr %17, align 16
   br label %42
 
-17:                                               ; preds = %42
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
+18:                                               ; preds = %42
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 4, ptr %19, align 4
   %20 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znam(i64 noundef 48) #32
-  store ptr %20, ptr %18, align 8
+  store ptr %20, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -665,13 +665,13 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp11IRRImporter19BuildSingleQ
 
 42:                                               ; preds = %5, %42
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %42 ]
-  %43 = load ptr, ptr %16, align 8
+  %43 = load ptr, ptr %17, align 8
   %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
   %45 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %45, ptr %44, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %17, label %42, !llvm.loop !3
+  br i1 %exitcond.not, label %18, label %42, !llvm.loop !3
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

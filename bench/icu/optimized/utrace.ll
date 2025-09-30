@@ -1563,9 +1563,9 @@ _ZL12outputStringPKcPcPiii.exit233:               ; preds = %.thread, %391, %_ZL
   %600 = add nsw i32 %.pre.i332504, 1
   %601 = add nuw nsw i32 %.030.i330, 1
   %exitcond.not.i331 = icmp eq i32 %601, %2
-  br i1 %exitcond.not.i331, label %.loopexit.i327, label %.lr.ph.i329, !llvm.loop !10
+  br i1 %exitcond.not.i331, label %.loopexit.i327.loopexit, label %.lr.ph.i329, !llvm.loop !10
 
-.loopexit.i327:                                   ; preds = %599, %586, %588, %594
+.loopexit.i327.loopexit:                          ; preds = %599, %586, %588, %594
   %602 = phi i32 [ 0, %594 ], [ %.promoted503, %588 ], [ %.promoted503, %586 ], [ %600, %599 ]
   %603 = icmp slt i32 %602, %1
   br i1 %603, label %604, label %_ZL10outputCharcPcPiii.exit334
