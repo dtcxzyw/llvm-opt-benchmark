@@ -75,9 +75,8 @@ define void @ff_acelp_interpolate(ptr noundef writeonly captures(none) %0, ptr n
 ._crit_edge.us:                                   ; preds = %17
   %34 = ashr i32 %33, 15
   %35 = trunc i32 %34 to i16
-  %36 = tail call i32 @llvm.smax.i32(i32 %34, i32 -32768)
-  %.0.i.us = tail call i32 @llvm.smin.i32(i32 %36, i32 32767)
-  %.not.us = icmp eq i32 %34, %.0.i.us
+  %36 = add nsw i32 %34, 32768
+  %.not.us = icmp ult i32 %36, 65536
   br i1 %.not.us, label %15, label %14
 
 ._crit_edge33:                                    ; preds = %15, %.preheader.preheader, %7
