@@ -5409,8 +5409,8 @@ define dso_local noundef ptr @_ZN4llvm11AArch64SVCR20lookupSVCRByEncodingEh(i8 n
   %.not = icmp ult i8 %2, 3
   %3 = zext i8 %0 to i64
   %4 = getelementptr %"struct.llvm::AArch64SVCR::SVCR", ptr @_ZN4llvm11AArch64SVCRL9SVCRsListE, i64 %3
-  %5 = getelementptr i8, ptr %4, i64 -56
-  %.0 = select i1 %.not, ptr %5, ptr null
+  %3 = getelementptr i8, ptr %4, i64 -56
+  %.0 = select i1 %.not, ptr %3, ptr null
   ret ptr %.0
 }
 
