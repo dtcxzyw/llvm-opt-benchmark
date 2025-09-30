@@ -60,7 +60,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noalias noundef align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3ec656e8e0e7e60fE"(ptr readnone align 1 captures(none) %0, i32 %1) unnamed_addr #2 {
+define noalias align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3ec656e8e0e7e60fE"(ptr readnone align 1 captures(none) %0, i32 %1) unnamed_addr #2 {
   ret ptr null
 }
 

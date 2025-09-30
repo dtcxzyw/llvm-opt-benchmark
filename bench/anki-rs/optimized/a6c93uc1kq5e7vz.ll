@@ -374,7 +374,7 @@ define { ptr, ptr } @"_ZN66_$LT$anki_io..error..FileIoError$u20$as$u20$core..err
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noalias noundef align 8 ptr @"_ZN66_$LT$anki_io..error..FileIoError$u20$as$u20$snafu..ErrorCompat$GT$9backtrace17ha513ef49accecd94E"(ptr readnone align 8 captures(none) %0) unnamed_addr #1 {
+define noalias align 8 ptr @"_ZN66_$LT$anki_io..error..FileIoError$u20$as$u20$snafu..ErrorCompat$GT$9backtrace17ha513ef49accecd94E"(ptr readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret ptr null
 }
 
