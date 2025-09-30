@@ -219,8 +219,6 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit24:           ; preds = %65, %67
   %82 = sub nsw i64 0, %81
   %83 = getelementptr inbounds i64, ptr %77, i64 %82
   call void @_ZdlPvm(ptr noundef %83, i64 noundef %80) #13
-  store ptr null, ptr %5, align 8
-  store i32 0, ptr %27, align 8
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit29
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit29:           ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit24, %76

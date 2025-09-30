@@ -13785,6 +13785,7 @@ define hidden { ptr, ptr } @_ZN5tonic9transport7service10connection10Connection3
 34:                                               ; preds = %4
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %36 = load i32, ptr %35, align 4
+  store i8 0, ptr %.sroa.13.0..sroa_idx, align 4
   store i32 %36, ptr %.sroa.11.0..sroa_idx, align 4
   br label %37
 
@@ -14211,6 +14212,7 @@ define hidden { ptr, ptr } @_ZN5tonic9transport7service10connection10Connection3
 31:                                               ; preds = %3
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %33 = load i32, ptr %32, align 4
+  store i8 0, ptr %.sroa.13.0..sroa_idx, align 4
   store i32 %33, ptr %.sroa.11.0..sroa_idx, align 4
   br label %34
 

@@ -2587,8 +2587,6 @@ define void @_ZNK10open_spiel6blotto11BlottoState7ReturnsEv(ptr dead_on_unwind n
   unreachable
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %28, align 8
   %.not.i.i.i.i4 = icmp eq i32 %25, 0
   br i1 %.not.i.i.i.i4, label %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i, label %.noexc6
 
@@ -2597,20 +2595,20 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   br label %.thread7
 
 .noexc6:                                          ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %29 = shl nuw nsw i64 %26, 3
-  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #26
-  store ptr %30, ptr %0, align 8
-  %31 = getelementptr inbounds nuw double, ptr %30, i64 %26
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %31, ptr %32, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %30, i8 0, i64 %29, i1 false)
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %29
+  %28 = shl nuw nsw i64 %26, 3
+  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #26
+  store ptr %29, ptr %0, align 8
+  %30 = getelementptr inbounds nuw double, ptr %29, i64 %26
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %30, ptr %31, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %29, i8 0, i64 %28, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %28
   br label %.thread7
 
 .thread7:                                         ; preds = %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i, %.noexc6, %.thread, %19
-  %.sink = phi ptr [ %15, %.thread ], [ %21, %19 ], [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %33, %.noexc6 ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %34, align 8
+  %.sink = phi ptr [ %15, %.thread ], [ %21, %19 ], [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %32, %.noexc6 ]
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %33, align 8
   ret void
 }
 

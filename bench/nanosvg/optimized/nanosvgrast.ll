@@ -373,41 +373,41 @@ define dso_local ptr @nsvgParse(ptr noundef %0, ptr noundef readonly captures(no
   %6 = alloca [4 x float], align 16
   %7 = alloca [6 x float], align 16
   %8 = alloca [4 x float], align 16
-  %calloc32.i = tail call dereferenceable_or_null(40032) ptr @calloc(i64 1, i64 40032)
-  %cond.i = icmp eq ptr %calloc32.i, null
+  %calloc.i = tail call dereferenceable_or_null(40032) ptr @calloc(i64 1, i64 40032)
+  %cond.i = icmp eq ptr %calloc.i, null
   br i1 %cond.i, label %nsvg__createParser.exit.thread, label %9
 
 9:                                                ; preds = %3
-  %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %10 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 39968
-  store ptr %calloc.i, ptr %10, align 8, !tbaa !19
-  %11 = icmp eq ptr %calloc.i, null
+  %calloc32.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
+  %10 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 39968
+  store ptr %calloc32.i, ptr %10, align 8, !tbaa !19
+  %11 = icmp eq ptr %calloc32.i, null
   br i1 %11, label %nsvg__createParser.exit.thread.sink.split, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 64
   store float 1.000000e+00, ptr %13, align 4, !tbaa !28
-  %14 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 76
+  %14 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 76
   store float 1.000000e+00, ptr %14, align 4, !tbaa !28
-  %15 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 96
   store float 1.000000e+00, ptr %15, align 8, !tbaa !29
-  %16 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 100
+  %16 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 100
   store float 1.000000e+00, ptr %16, align 4, !tbaa !31
-  %17 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 104
   store float 1.000000e+00, ptr %17, align 8, !tbaa !32
-  %18 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 300
+  %18 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 300
   store float 1.000000e+00, ptr %18, align 4, !tbaa !33
-  %19 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 236
+  %19 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 236
   store float 1.000000e+00, ptr %19, align 4, !tbaa !34
-  %20 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 284
+  %20 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 284
   store float 4.000000e+00, ptr %20, align 4, !tbaa !35
-  %21 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 308
+  %21 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 308
   store i8 1, ptr %21, align 4, !tbaa !36
-  %22 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 310
+  %22 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 310
   store i8 1, ptr %22, align 2, !tbaa !37
-  %23 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 40020
+  %23 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40020
   store float %2, ptr %23, align 4, !tbaa !38
-  %24 = tail call i32 @nsvg__parseXML(ptr noundef %0, ptr noundef nonnull @nsvg__startElement, ptr noundef nonnull @nsvg__endElement, ptr noundef nonnull @nsvg__content, ptr noundef nonnull %calloc32.i)
+  %24 = tail call i32 @nsvg__parseXML(ptr noundef %0, ptr noundef nonnull @nsvg__startElement, ptr noundef nonnull @nsvg__endElement, ptr noundef nonnull @nsvg__content, ptr noundef nonnull %calloc.i)
   %25 = load ptr, ptr %10, align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.027.i = load ptr, ptr %26, align 8, !tbaa !39
@@ -437,7 +437,7 @@ nsvg__createGradients.exit.thread:                ; preds = %12
   %34 = getelementptr inbounds nuw i8, ptr %.029.i, i64 296
   call fastcc void @nsvg__xformInverse(ptr noundef nonnull %5, ptr noundef %34)
   call fastcc void @nsvg__getLocalBounds(ptr noundef %6, ptr noundef %.029.i, ptr noundef %5)
-  %35 = call fastcc ptr @nsvg__createGradient(ptr noundef nonnull %calloc32.i, ptr noundef %31, ptr noundef %6, ptr noundef %34, ptr noundef %27)
+  %35 = call fastcc ptr @nsvg__createGradient(ptr noundef nonnull %calloc.i, ptr noundef %31, ptr noundef %6, ptr noundef %34, ptr noundef %27)
   %36 = getelementptr inbounds nuw i8, ptr %.029.i, i64 72
   store ptr %35, ptr %36, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -468,7 +468,7 @@ nsvg__createGradients.exit.thread:                ; preds = %12
   %46 = getelementptr inbounds nuw i8, ptr %.029.i, i64 296
   call fastcc void @nsvg__xformInverse(ptr noundef nonnull %7, ptr noundef %46)
   call fastcc void @nsvg__getLocalBounds(ptr noundef %8, ptr noundef %.029.i, ptr noundef %7)
-  %47 = call fastcc ptr @nsvg__createGradient(ptr noundef nonnull %calloc32.i, ptr noundef %43, ptr noundef %8, ptr noundef %46, ptr noundef %39)
+  %47 = call fastcc ptr @nsvg__createGradient(ptr noundef nonnull %calloc.i, ptr noundef %43, ptr noundef %8, ptr noundef %46, ptr noundef %39)
   %48 = getelementptr inbounds nuw i8, ptr %.029.i, i64 88
   store ptr %47, ptr %48, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -544,7 +544,7 @@ nsvg__imageBounds.exit.i:                         ; preds = %.lr.ph.i.i, %nsvg__
   %.sroa.6.0.i = phi float [ %57, %53 ], [ 0.000000e+00, %nsvg__createGradients.exit ], [ 0.000000e+00, %nsvg__createGradients.exit.thread ], [ %72, %.lr.ph.i.i ]
   %.sroa.9.0.i = phi float [ %59, %53 ], [ 0.000000e+00, %nsvg__createGradients.exit ], [ 0.000000e+00, %nsvg__createGradients.exit.thread ], [ %76, %.lr.ph.i.i ]
   %.sroa.12.0.i = phi float [ %61, %53 ], [ 0.000000e+00, %nsvg__createGradients.exit ], [ 0.000000e+00, %nsvg__createGradients.exit.thread ], [ %80, %.lr.ph.i.i ]
-  %83 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 40000
+  %83 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40000
   %84 = load float, ptr %83, align 8, !tbaa !49
   %85 = fcmp oeq float %84, 0.000000e+00
   br i1 %85, label %86, label %92
@@ -555,7 +555,7 @@ nsvg__imageBounds.exit.i:                         ; preds = %.lr.ph.i.i, %nsvg__
   br i1 %88, label %.sink.split.i, label %89
 
 89:                                               ; preds = %86
-  %90 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 39992
+  %90 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 39992
   store float %.sroa.0.0.i, ptr %90, align 8, !tbaa !51
   %91 = fsub float %.sroa.9.0.i, %.sroa.0.0.i
   br label %.sink.split.i
@@ -567,7 +567,7 @@ nsvg__imageBounds.exit.i:                         ; preds = %.lr.ph.i.i, %nsvg__
 
 92:                                               ; preds = %.sink.split.i, %nsvg__imageBounds.exit.i
   %93 = phi float [ %84, %nsvg__imageBounds.exit.i ], [ %.sink.i, %.sink.split.i ]
-  %94 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 40004
+  %94 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40004
   %95 = load float, ptr %94, align 4, !tbaa !52
   %96 = fcmp oeq float %95, 0.000000e+00
   br i1 %96, label %97, label %104
@@ -579,7 +579,7 @@ nsvg__imageBounds.exit.i:                         ; preds = %.lr.ph.i.i, %nsvg__
   br i1 %100, label %.sink.split261.i, label %101
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 39996
+  %102 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 39996
   store float %.sroa.6.0.i, ptr %102, align 4, !tbaa !54
   %103 = fsub float %.sroa.12.0.i, %.sroa.6.0.i
   br label %.sink.split261.i
@@ -612,10 +612,10 @@ nsvg__imageBounds.exit.i:                         ; preds = %.lr.ph.i.i, %nsvg__
 
 115:                                              ; preds = %114, %109
   %116 = phi float [ %105, %114 ], [ %112, %109 ]
-  %117 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 39992
+  %117 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 39992
   %118 = load float, ptr %117, align 8, !tbaa !51
   %119 = fneg float %118
-  %120 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 39996
+  %120 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 39996
   %121 = load float, ptr %120, align 4, !tbaa !54
   %122 = fneg float %121
   %123 = fcmp ogt float %93, 0.000000e+00
@@ -669,10 +669,10 @@ nsvg__imageBounds.exit.i:                         ; preds = %.lr.ph.i.i, %nsvg__
   ]
 
 nsvg__parseUnits.exit.thread213.i:                ; preds = %145
-  %148 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 39936
+  %148 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 39936
   %149 = load i32, ptr %148, align 8, !tbaa !55
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds %struct.NSVGattrib, ptr %calloc32.i, i64 %150
+  %151 = getelementptr inbounds %struct.NSVGattrib, ptr %calloc.i, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 292
   %153 = load float, ptr %152, align 4, !tbaa !56
   br label %nsvg__convertToPixels.exit.i
@@ -702,10 +702,10 @@ nsvg__parseUnits.exit.thread207.i:                ; preds = %141
   br label %nsvg__convertToPixels.exit.i
 
 163:                                              ; preds = %145
-  %164 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 39936
+  %164 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 39936
   %165 = load i32, ptr %164, align 8, !tbaa !55
   %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds %struct.NSVGattrib, ptr %calloc32.i, i64 %166
+  %167 = getelementptr inbounds %struct.NSVGattrib, ptr %calloc.i, i64 %166
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 292
   %169 = load float, ptr %168, align 4, !tbaa !56
   %170 = fmul float %169, 0x3FE0A3D700000000
@@ -717,7 +717,7 @@ nsvg__parseUnits.exit.thread177.i:                ; preds = %115
 nsvg__convertToPixels.exit.i:                     ; preds = %nsvg__parseUnits.exit.thread177.i, %163, %nsvg__parseUnits.exit.thread207.i, %nsvg__parseUnits.exit.thread201.i, %nsvg__parseUnits.exit.thread195.i, %nsvg__parseUnits.exit.thread189.i, %nsvg__parseUnits.exit.thread183.i, %nsvg__parseUnits.exit.thread213.i, %145, %141, %137, %133, %130, %115
   %.0.i160.i = phi float [ %155, %nsvg__parseUnits.exit.thread183.i ], [ %157, %nsvg__parseUnits.exit.thread189.i ], [ %159, %nsvg__parseUnits.exit.thread195.i ], [ %161, %nsvg__parseUnits.exit.thread201.i ], [ %162, %nsvg__parseUnits.exit.thread207.i ], [ %153, %nsvg__parseUnits.exit.thread213.i ], [ %170, %163 ], [ 0x3F847AE140000000, %nsvg__parseUnits.exit.thread177.i ], [ 1.000000e+00, %115 ], [ 1.000000e+00, %133 ], [ 1.000000e+00, %137 ], [ 1.000000e+00, %141 ], [ 1.000000e+00, %130 ], [ 1.000000e+00, %145 ]
   %171 = fdiv float 1.000000e+00, %.0.i160.i
-  %172 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 40016
+  %172 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40016
   %173 = load i32, ptr %172, align 8, !tbaa !57
   switch i32 %173, label %220 [
     i32 1, label %174
@@ -728,7 +728,7 @@ nsvg__convertToPixels.exit.i:                     ; preds = %nsvg__parseUnits.ex
   %175 = fcmp olt float %125, %128
   %176 = select i1 %175, float %125, float %128
   %177 = fmul float %93, %176
-  %178 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 40008
+  %178 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40008
   %179 = load i32, ptr %178, align 8, !tbaa !58
   switch i32 %179, label %182 [
     i32 0, label %nsvg__viewAlign.exit.i
@@ -749,7 +749,7 @@ nsvg__viewAlign.exit.i:                           ; preds = %182, %180, %174
   %185 = fdiv float %.0.i161.i, %176
   %186 = fsub float %185, %118
   %187 = fmul float %105, %176
-  %188 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 40012
+  %188 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40012
   %189 = load i32, ptr %188, align 4, !tbaa !59
   switch i32 %189, label %192 [
     i32 0, label %nsvg__viewAlign.exit163.i
@@ -775,7 +775,7 @@ nsvg__viewAlign.exit163.i:                        ; preds = %192, %190, %nsvg__v
   %198 = fcmp ogt float %125, %128
   %199 = select i1 %198, float %125, float %128
   %200 = fmul float %93, %199
-  %201 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 40008
+  %201 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40008
   %202 = load i32, ptr %201, align 8, !tbaa !58
   switch i32 %202, label %205 [
     i32 0, label %nsvg__viewAlign.exit165.i
@@ -796,7 +796,7 @@ nsvg__viewAlign.exit165.i:                        ; preds = %205, %203, %197
   %208 = fdiv float %.0.i164.i, %199
   %209 = fsub float %208, %118
   %210 = fmul float %105, %199
-  %211 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 40012
+  %211 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40012
   %212 = load i32, ptr %211, align 4, !tbaa !59
   switch i32 %212, label %215 [
     i32 0, label %nsvg__viewAlign.exit167.i
@@ -1203,7 +1203,7 @@ nsvg__xformInverse.exit171.i:                     ; preds = %424, %423
 nsvg__scaleToViewbox.exit:                        ; preds = %._crit_edge233.i, %220
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr null, ptr %10, align 8, !tbaa !19
-  %473 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 39960
+  %473 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 39960
   %474 = load ptr, ptr %473, align 8, !tbaa !71
   %.not8.i.i = icmp eq ptr %474, null
   br i1 %.not8.i.i, label %nsvg__deletePaths.exit.i, label %.lr.ph.i.i18
@@ -1226,7 +1226,7 @@ nsvg__scaleToViewbox.exit:                        ; preds = %._crit_edge233.i, %
   br i1 %.not.i.i19, label %nsvg__deletePaths.exit.i, label %.lr.ph.i.i18, !llvm.loop !73
 
 nsvg__deletePaths.exit.i:                         ; preds = %479, %nsvg__scaleToViewbox.exit
-  %480 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 39976
+  %480 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 39976
   %481 = load ptr, ptr %480, align 8, !tbaa !74
   %.not5.i.i = icmp eq ptr %481, null
   br i1 %.not5.i.i, label %nsvg__deleteParser.exit, label %.lr.ph.i6.i
@@ -1245,14 +1245,14 @@ nsvg__deletePaths.exit.i:                         ; preds = %479, %nsvg__scaleTo
 nsvg__deleteParser.exit:                          ; preds = %.lr.ph.i6.i, %nsvg__deletePaths.exit.i
   %486 = load ptr, ptr %10, align 8, !tbaa !19
   tail call void @nsvgDelete(ptr noundef %486)
-  %487 = getelementptr inbounds nuw i8, ptr %calloc32.i, i64 39944
+  %487 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 39944
   %488 = load ptr, ptr %487, align 8, !tbaa !80
   tail call void @free(ptr noundef %488) #32
   br label %nsvg__createParser.exit.thread.sink.split
 
 nsvg__createParser.exit.thread.sink.split:        ; preds = %9, %nsvg__deleteParser.exit
   %.0.ph = phi ptr [ %82, %nsvg__deleteParser.exit ], [ null, %9 ]
-  tail call void @free(ptr noundef nonnull %calloc32.i) #32
+  tail call void @free(ptr noundef nonnull %calloc.i) #32
   br label %nsvg__createParser.exit.thread
 
 nsvg__createParser.exit.thread:                   ; preds = %nsvg__createParser.exit.thread.sink.split, %3

@@ -418,26 +418,25 @@ _ZL12bpmnode_sortP7BPMNodem.exit:                 ; preds = %66, %.lr.ph.prehead
   %70 = mul i32 %68, %69
   store i32 %70, ptr %5, align 8, !tbaa !33
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 0, ptr %71, align 4, !tbaa !34
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %70, ptr %72, align 8, !tbaa !35
+  store i32 %70, ptr %72, align 8, !tbaa !34
   %73 = zext i32 %70 to i64
   %74 = mul nuw nsw i64 %73, 24
   %75 = tail call noalias noundef ptr @malloc(i64 noundef %74) #31
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %75, ptr %76, align 8, !tbaa !36
+  store ptr %75, ptr %76, align 8, !tbaa !35
   %77 = shl nuw nsw i64 %73, 3
   %78 = tail call noalias noundef ptr @malloc(i64 noundef %77) #31
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %78, ptr %79, align 8, !tbaa !37
+  store ptr %78, ptr %79, align 8, !tbaa !36
   %80 = zext i32 %3 to i64
   %81 = shl nuw nsw i64 %80, 3
   %82 = tail call noalias noundef ptr @malloc(i64 noundef %81) #31
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %82, ptr %83, align 8, !tbaa !38
+  store ptr %82, ptr %83, align 8, !tbaa !37
   %84 = tail call noalias noundef ptr @malloc(i64 noundef %81) #31
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %84, ptr %85, align 8, !tbaa !39
+  store ptr %84, ptr %85, align 8, !tbaa !38
   %86 = icmp ne ptr %75, null
   %87 = icmp ne ptr %78, null
   %or.cond = and i1 %86, %87
@@ -456,10 +455,10 @@ _ZL12bpmnode_sortP7BPMNodem.exit:                 ; preds = %66, %.lr.ph.prehead
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph139 ], [ 0, %.preheader132 ]
   %90 = getelementptr inbounds nuw %struct.BPMNode, ptr %75, i64 %indvars.iv
   %91 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv
-  store ptr %90, ptr %91, align 8, !tbaa !40
+  store ptr %90, ptr %91, align 8, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not82 = icmp eq i64 %indvars.iv.next, %73
-  br i1 %.not82, label %._crit_edge140, label %.lr.ph139, !llvm.loop !41
+  br i1 %.not82, label %._crit_edge140, label %.lr.ph139, !llvm.loop !40
 
 ._crit_edge140:                                   ; preds = %.lr.ph139
   %92 = load i32, ptr %12, align 8, !tbaa !12
@@ -473,51 +472,51 @@ _ZL12bpmnode_sortP7BPMNodem.exit:                 ; preds = %66, %.lr.ph.prehead
 .lr.ph62.i:                                       ; preds = %.preheader.i, %._crit_edge59.i
   %indvars.iv70.i = phi i64 [ %indvars.iv.next71.i, %._crit_edge59.i ], [ 0, %.preheader.i ]
   %94 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv70.i
-  %.050.i = load ptr, ptr %94, align 8, !tbaa !40
+  %.050.i = load ptr, ptr %94, align 8, !tbaa !39
   %.not4551.i = icmp eq ptr %.050.i, null
   br i1 %.not4551.i, label %._crit_edge.i, label %.lr.ph53.i
 
 .lr.ph53.i:                                       ; preds = %.lr.ph62.i, %.lr.ph53.i
   %.052.i = phi ptr [ %.0.i, %.lr.ph53.i ], [ %.050.i, %.lr.ph62.i ]
   %95 = getelementptr inbounds nuw i8, ptr %.052.i, i64 16
-  store i32 1, ptr %95, align 8, !tbaa !42
+  store i32 1, ptr %95, align 8, !tbaa !41
   %96 = getelementptr inbounds nuw i8, ptr %.052.i, i64 8
-  %.0.i = load ptr, ptr %96, align 8, !tbaa !40
+  %.0.i = load ptr, ptr %96, align 8, !tbaa !39
   %.not45.i = icmp eq ptr %.0.i, null
-  br i1 %.not45.i, label %._crit_edge.i, label %.lr.ph53.i, !llvm.loop !43
+  br i1 %.not45.i, label %._crit_edge.i, label %.lr.ph53.i, !llvm.loop !42
 
 ._crit_edge.i:                                    ; preds = %.lr.ph53.i, %.lr.ph62.i
   %97 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv70.i
-  %.154.i = load ptr, ptr %97, align 8, !tbaa !40
+  %.154.i = load ptr, ptr %97, align 8, !tbaa !39
   %.not4655.i = icmp eq ptr %.154.i, null
   br i1 %.not4655.i, label %._crit_edge59.i, label %.lr.ph58.i
 
 .lr.ph58.i:                                       ; preds = %._crit_edge.i, %.lr.ph58.i
   %.156.i = phi ptr [ %.1.i96, %.lr.ph58.i ], [ %.154.i, %._crit_edge.i ]
   %98 = getelementptr inbounds nuw i8, ptr %.156.i, i64 16
-  store i32 1, ptr %98, align 8, !tbaa !42
+  store i32 1, ptr %98, align 8, !tbaa !41
   %99 = getelementptr inbounds nuw i8, ptr %.156.i, i64 8
-  %.1.i96 = load ptr, ptr %99, align 8, !tbaa !40
+  %.1.i96 = load ptr, ptr %99, align 8, !tbaa !39
   %.not46.i = icmp eq ptr %.1.i96, null
-  br i1 %.not46.i, label %._crit_edge59.i, label %.lr.ph58.i, !llvm.loop !44
+  br i1 %.not46.i, label %._crit_edge59.i, label %.lr.ph58.i, !llvm.loop !43
 
 ._crit_edge59.i:                                  ; preds = %.lr.ph58.i, %._crit_edge.i
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %.not42.i = icmp eq i64 %indvars.iv.next71.i, %80
-  br i1 %.not42.i, label %._crit_edge63.i, label %.lr.ph62.i, !llvm.loop !45
+  br i1 %.not42.i, label %._crit_edge63.i, label %.lr.ph62.i, !llvm.loop !44
 
 ._crit_edge63.i:                                  ; preds = %._crit_edge59.i, %.preheader.i
-  store i32 0, ptr %72, align 8, !tbaa !35
+  store i32 0, ptr %72, align 8, !tbaa !34
   br label %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit
 
 _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit:    ; preds = %._crit_edge140, %._crit_edge63.i
   %100 = phi i32 [ %93, %._crit_edge63.i ], [ %92, %._crit_edge140 ]
-  %101 = load ptr, ptr %78, align 8, !tbaa !40
+  %101 = load ptr, ptr %78, align 8, !tbaa !39
   store i32 %100, ptr %101, align 8, !tbaa !12
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   store i32 1, ptr %102, align 4, !tbaa !15
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store ptr null, ptr %103, align 8, !tbaa !46
+  store ptr null, ptr %103, align 8, !tbaa !45
   %104 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %105 = load i32, ptr %104, align 8, !tbaa !12
   br i1 %.not82137.not, label %.preheader.i104, label %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit130
@@ -529,55 +528,55 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit:    ; preds = %._crit_edge140, %._
 .lr.ph62.i106:                                    ; preds = %.preheader.i104, %._crit_edge59.i121
   %indvars.iv70.i107 = phi i64 [ %indvars.iv.next71.i122, %._crit_edge59.i121 ], [ 0, %.preheader.i104 ]
   %106 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv70.i107
-  %.050.i108 = load ptr, ptr %106, align 8, !tbaa !40
+  %.050.i108 = load ptr, ptr %106, align 8, !tbaa !39
   %.not4551.i109 = icmp eq ptr %.050.i108, null
   br i1 %.not4551.i109, label %._crit_edge.i114, label %.lr.ph53.i110
 
 .lr.ph53.i110:                                    ; preds = %.lr.ph62.i106, %.lr.ph53.i110
   %.052.i111 = phi ptr [ %.0.i112, %.lr.ph53.i110 ], [ %.050.i108, %.lr.ph62.i106 ]
   %107 = getelementptr inbounds nuw i8, ptr %.052.i111, i64 16
-  store i32 1, ptr %107, align 8, !tbaa !42
+  store i32 1, ptr %107, align 8, !tbaa !41
   %108 = getelementptr inbounds nuw i8, ptr %.052.i111, i64 8
-  %.0.i112 = load ptr, ptr %108, align 8, !tbaa !40
+  %.0.i112 = load ptr, ptr %108, align 8, !tbaa !39
   %.not45.i113 = icmp eq ptr %.0.i112, null
-  br i1 %.not45.i113, label %._crit_edge.i114, label %.lr.ph53.i110, !llvm.loop !43
+  br i1 %.not45.i113, label %._crit_edge.i114, label %.lr.ph53.i110, !llvm.loop !42
 
 ._crit_edge.i114:                                 ; preds = %.lr.ph53.i110, %.lr.ph62.i106
   %109 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv70.i107
-  %.154.i115 = load ptr, ptr %109, align 8, !tbaa !40
+  %.154.i115 = load ptr, ptr %109, align 8, !tbaa !39
   %.not4655.i116 = icmp eq ptr %.154.i115, null
   br i1 %.not4655.i116, label %._crit_edge59.i121, label %.lr.ph58.i117
 
 .lr.ph58.i117:                                    ; preds = %._crit_edge.i114, %.lr.ph58.i117
   %.156.i118 = phi ptr [ %.1.i119, %.lr.ph58.i117 ], [ %.154.i115, %._crit_edge.i114 ]
   %110 = getelementptr inbounds nuw i8, ptr %.156.i118, i64 16
-  store i32 1, ptr %110, align 8, !tbaa !42
+  store i32 1, ptr %110, align 8, !tbaa !41
   %111 = getelementptr inbounds nuw i8, ptr %.156.i118, i64 8
-  %.1.i119 = load ptr, ptr %111, align 8, !tbaa !40
+  %.1.i119 = load ptr, ptr %111, align 8, !tbaa !39
   %.not46.i120 = icmp eq ptr %.1.i119, null
-  br i1 %.not46.i120, label %._crit_edge59.i121, label %.lr.ph58.i117, !llvm.loop !44
+  br i1 %.not46.i120, label %._crit_edge59.i121, label %.lr.ph58.i117, !llvm.loop !43
 
 ._crit_edge59.i121:                               ; preds = %.lr.ph58.i117, %._crit_edge.i114
   %indvars.iv.next71.i122 = add nuw nsw i64 %indvars.iv70.i107, 1
   %.not42.i123 = icmp eq i64 %indvars.iv.next71.i122, %80
-  br i1 %.not42.i123, label %._crit_edge63.i124, label %.lr.ph62.i106, !llvm.loop !45
+  br i1 %.not42.i123, label %._crit_edge63.i124, label %.lr.ph62.i106, !llvm.loop !44
 
 ._crit_edge63.i124:                               ; preds = %._crit_edge59.i121, %.preheader.i104
-  store i32 0, ptr %72, align 8, !tbaa !35
+  store i32 0, ptr %72, align 8, !tbaa !34
   br label %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit130
 
 _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit130: ; preds = %._crit_edge63.i124, %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit
   %112 = phi i32 [ 1, %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit ], [ 0, %._crit_edge63.i124 ]
   %113 = add nuw nsw i32 %112, 1
-  store i32 %113, ptr %71, align 4, !tbaa !34
+  store i32 %113, ptr %71, align 4, !tbaa !46
   %114 = zext nneg i32 %112 to i64
   %115 = getelementptr inbounds nuw ptr, ptr %78, i64 %114
-  %116 = load ptr, ptr %115, align 8, !tbaa !40
+  %116 = load ptr, ptr %115, align 8, !tbaa !39
   store i32 %105, ptr %116, align 8, !tbaa !12
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
   store i32 2, ptr %117, align 4, !tbaa !15
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store ptr null, ptr %118, align 8, !tbaa !46
+  store ptr null, ptr %118, align 8, !tbaa !45
   %.not83142 = icmp eq i32 %3, 0
   br i1 %.not83142, label %.preheader131, label %.lr.ph144
 
@@ -595,9 +594,9 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit130: ; preds = %._crit_edge63.i124,
 122:                                              ; preds = %.lr.ph144, %122
   %indvars.iv158 = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next159, %122 ]
   %123 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv158
-  store ptr %75, ptr %123, align 8, !tbaa !40
+  store ptr %75, ptr %123, align 8, !tbaa !39
   %124 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv158
-  store ptr %119, ptr %124, align 8, !tbaa !40
+  store ptr %119, ptr %124, align 8, !tbaa !39
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %.not83 = icmp eq i64 %indvars.iv.next159, %80
   br i1 %.not83, label %.preheader131, label %122, !llvm.loop !47
@@ -611,14 +610,14 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit130: ; preds = %._crit_edge63.i124,
   br i1 %.not84, label %._crit_edge148.loopexit, label %.lr.ph147, !llvm.loop !48
 
 ._crit_edge148.loopexit:                          ; preds = %.lr.ph147
-  %.pre = load ptr, ptr %85, align 8, !tbaa !39
+  %.pre = load ptr, ptr %85, align 8, !tbaa !38
   br label %._crit_edge148
 
 ._crit_edge148:                                   ; preds = %.preheader131, %._crit_edge148.loopexit
   %127 = phi ptr [ %.pre, %._crit_edge148.loopexit ], [ %84, %.preheader131 ]
   %128 = zext i32 %.pre161 to i64
   %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
-  %.0153 = load ptr, ptr %129, align 8, !tbaa !40
+  %.0153 = load ptr, ptr %129, align 8, !tbaa !39
   %.not85154 = icmp eq ptr %.0153, null
   br i1 %.not85154, label %.loopexit, label %.preheader
 
@@ -647,17 +646,17 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit130: ; preds = %._crit_edge63.i124,
 
 ._crit_edge152:                                   ; preds = %.lr.ph151, %.preheader
   %142 = getelementptr inbounds nuw i8, ptr %.0155, i64 8
-  %.0 = load ptr, ptr %142, align 8, !tbaa !40
+  %.0 = load ptr, ptr %142, align 8, !tbaa !39
   %.not85 = icmp eq ptr %.0, null
   br i1 %.not85, label %.loopexit, label %.preheader, !llvm.loop !50
 
 .loopexit:                                        ; preds = %._crit_edge152, %._crit_edge148, %_ZL12bpmnode_sortP7BPMNodem.exit
   %143 = phi ptr [ %127, %._crit_edge148 ], [ %84, %_ZL12bpmnode_sortP7BPMNodem.exit ], [ %127, %._crit_edge152 ]
-  %144 = load ptr, ptr %76, align 8, !tbaa !36
+  %144 = load ptr, ptr %76, align 8, !tbaa !35
   tail call void @free(ptr noundef %144) #32
-  %145 = load ptr, ptr %79, align 8, !tbaa !37
+  %145 = load ptr, ptr %79, align 8, !tbaa !36
   tail call void @free(ptr noundef %145) #32
-  %146 = load ptr, ptr %83, align 8, !tbaa !38
+  %146 = load ptr, ptr %83, align 8, !tbaa !37
   tail call void @free(ptr noundef %146) #32
   tail call void @free(ptr noundef %143) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -676,10 +675,10 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit130: ; preds = %._crit_edge63.i124,
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZL10boundaryPMP8BPMListsP7BPMNodemii(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef range(i64 2, 0) %2, i32 noundef range(i32 -2147483648, 2147483647) %3, i32 noundef %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !39
+  %7 = load ptr, ptr %6, align 8, !tbaa !38
   %8 = sext i32 %3 to i64
   %9 = getelementptr inbounds ptr, ptr %7, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !40
+  %10 = load ptr, ptr %9, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !15
   %13 = icmp eq i32 %3, 0
@@ -710,14 +709,14 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
 
 25:                                               ; preds = %tailrecurse._crit_edge
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !38
-  store ptr %.lcssa135, ptr %27, align 8, !tbaa !40
+  %27 = load ptr, ptr %26, align 8, !tbaa !37
+  store ptr %.lcssa135, ptr %27, align 8, !tbaa !39
   %28 = getelementptr inbounds nuw %struct.BPMNode, ptr %1, i64 %24
   %29 = load i32, ptr %28, align 8, !tbaa !12
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %31 = load i32, ptr %30, align 4, !tbaa !34
+  %31 = load i32, ptr %30, align 4, !tbaa !46
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load i32, ptr %32, align 8, !tbaa !35
+  %33 = load i32, ptr %32, align 8, !tbaa !34
   %.not.i = icmp ult i32 %31, %33
   br i1 %.not.i, label %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit, label %.preheader47.i
 
@@ -728,7 +727,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
 
 .lr.ph.i:                                         ; preds = %.preheader47.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !36
+  %36 = load ptr, ptr %35, align 8, !tbaa !35
   %37 = zext i32 %34 to i64
   br label %41
 
@@ -746,7 +745,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
   %42 = getelementptr inbounds nuw %struct.BPMNode, ptr %36, i64 %indvars.iv.i
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i32 0, ptr %43, align 8, !tbaa !42
+  store i32 0, ptr %43, align 8, !tbaa !41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not41.i = icmp eq i64 %indvars.iv.next.i, %37
   br i1 %.not41.i, label %.preheader.i, label %41, !llvm.loop !51
@@ -754,41 +753,41 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
 44:                                               ; preds = %._crit_edge59.i, %.lr.ph62.i
   %indvars.iv70.i = phi i64 [ 0, %.lr.ph62.i ], [ %indvars.iv.next71.i, %._crit_edge59.i ]
   %45 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv70.i
-  %.050.i = load ptr, ptr %45, align 8, !tbaa !40
+  %.050.i = load ptr, ptr %45, align 8, !tbaa !39
   %.not4551.i = icmp eq ptr %.050.i, null
   br i1 %.not4551.i, label %._crit_edge.i, label %.lr.ph53.i
 
 .lr.ph53.i:                                       ; preds = %44, %.lr.ph53.i
   %.052.i = phi ptr [ %.0.i, %.lr.ph53.i ], [ %.050.i, %44 ]
   %46 = getelementptr inbounds nuw i8, ptr %.052.i, i64 16
-  store i32 1, ptr %46, align 8, !tbaa !42
+  store i32 1, ptr %46, align 8, !tbaa !41
   %47 = getelementptr inbounds nuw i8, ptr %.052.i, i64 8
-  %.0.i = load ptr, ptr %47, align 8, !tbaa !40
+  %.0.i = load ptr, ptr %47, align 8, !tbaa !39
   %.not45.i = icmp eq ptr %.0.i, null
-  br i1 %.not45.i, label %._crit_edge.i, label %.lr.ph53.i, !llvm.loop !43
+  br i1 %.not45.i, label %._crit_edge.i, label %.lr.ph53.i, !llvm.loop !42
 
 ._crit_edge.i:                                    ; preds = %.lr.ph53.i, %44
   %48 = getelementptr inbounds nuw ptr, ptr %.lcssa144, i64 %indvars.iv70.i
-  %.154.i = load ptr, ptr %48, align 8, !tbaa !40
+  %.154.i = load ptr, ptr %48, align 8, !tbaa !39
   %.not4655.i = icmp eq ptr %.154.i, null
   br i1 %.not4655.i, label %._crit_edge59.i, label %.lr.ph58.i
 
 .lr.ph58.i:                                       ; preds = %._crit_edge.i, %.lr.ph58.i
   %.156.i = phi ptr [ %.1.i, %.lr.ph58.i ], [ %.154.i, %._crit_edge.i ]
   %49 = getelementptr inbounds nuw i8, ptr %.156.i, i64 16
-  store i32 1, ptr %49, align 8, !tbaa !42
+  store i32 1, ptr %49, align 8, !tbaa !41
   %50 = getelementptr inbounds nuw i8, ptr %.156.i, i64 8
-  %.1.i = load ptr, ptr %50, align 8, !tbaa !40
+  %.1.i = load ptr, ptr %50, align 8, !tbaa !39
   %.not46.i = icmp eq ptr %.1.i, null
-  br i1 %.not46.i, label %._crit_edge59.i, label %.lr.ph58.i, !llvm.loop !44
+  br i1 %.not46.i, label %._crit_edge59.i, label %.lr.ph58.i, !llvm.loop !43
 
 ._crit_edge59.i:                                  ; preds = %.lr.ph58.i, %._crit_edge.i
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %.not42.i = icmp eq i64 %indvars.iv.next71.i, %40
-  br i1 %.not42.i, label %._crit_edge63.i, label %44, !llvm.loop !45
+  br i1 %.not42.i, label %._crit_edge63.i, label %44, !llvm.loop !44
 
 ._crit_edge63.i:                                  ; preds = %._crit_edge59.i, %.preheader.i
-  store i32 0, ptr %32, align 8, !tbaa !35
+  store i32 0, ptr %32, align 8, !tbaa !34
   br i1 %.not4148.i, label %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit, label %.lr.ph67.i
 
 .lr.ph67.i:                                       ; preds = %._crit_edge63.i
@@ -800,20 +799,20 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
 54:                                               ; preds = %65, %.lr.ph67.i
   %55 = phi i32 [ 0, %.lr.ph67.i ], [ %66, %65 ]
   %indvars.iv73.i = phi i64 [ 0, %.lr.ph67.i ], [ %indvars.iv.next74.i, %65 ]
-  %56 = load ptr, ptr %51, align 8, !tbaa !36
+  %56 = load ptr, ptr %51, align 8, !tbaa !35
   %57 = getelementptr inbounds nuw %struct.BPMNode, ptr %56, i64 %indvars.iv73.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %59 = load i32, ptr %58, align 8, !tbaa !42
+  %59 = load i32, ptr %58, align 8, !tbaa !41
   %.not44.i = icmp eq i32 %59, 0
   br i1 %.not44.i, label %60, label %65
 
 60:                                               ; preds = %54
-  %61 = load ptr, ptr %52, align 8, !tbaa !37
+  %61 = load ptr, ptr %52, align 8, !tbaa !36
   %62 = add i32 %55, 1
-  store i32 %62, ptr %32, align 8, !tbaa !35
+  store i32 %62, ptr %32, align 8, !tbaa !34
   %63 = zext i32 %55 to i64
   %64 = getelementptr inbounds nuw ptr, ptr %61, i64 %63
-  store ptr %57, ptr %64, align 8, !tbaa !40
+  store ptr %57, ptr %64, align 8, !tbaa !39
   br label %65
 
 65:                                               ; preds = %60, %54
@@ -825,9 +824,9 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
 _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit:    ; preds = %65, %25, %._crit_edge63.i
   %67 = phi i32 [ %31, %25 ], [ 0, %._crit_edge63.i ], [ 0, %65 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %69 = load ptr, ptr %68, align 8, !tbaa !37
+  %69 = load ptr, ptr %68, align 8, !tbaa !36
   %70 = add nuw i32 %67, 1
-  store i32 %70, ptr %30, align 4, !tbaa !34
+  store i32 %70, ptr %30, align 4, !tbaa !46
   br label %.loopexit.sink.split
 
 71:                                               ; preds = %.lr.ph, %tailrecurse
@@ -836,17 +835,17 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit:    ; preds = %65, %25, %._crit_ed
   %73 = phi ptr [ %10, %.lr.ph ], [ %172, %tailrecurse ]
   %74 = phi ptr [ %9, %.lr.ph ], [ %171, %tailrecurse ]
   %75 = phi ptr [ %7, %.lr.ph ], [ %170, %tailrecurse ]
-  %76 = load ptr, ptr %14, align 8, !tbaa !38
+  %76 = load ptr, ptr %14, align 8, !tbaa !37
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %77 = getelementptr inbounds ptr, ptr %76, i64 %indvars.iv.next
-  %78 = load ptr, ptr %77, align 8, !tbaa !40
+  %78 = load ptr, ptr %77, align 8, !tbaa !39
   %79 = load i32, ptr %78, align 8, !tbaa !12
   %80 = getelementptr inbounds ptr, ptr %75, i64 %indvars.iv.next
-  %81 = load ptr, ptr %80, align 8, !tbaa !40
+  %81 = load ptr, ptr %80, align 8, !tbaa !39
   %82 = load i32, ptr %81, align 8, !tbaa !12
   %83 = add nsw i32 %82, %79
   %84 = getelementptr inbounds ptr, ptr %76, i64 %indvars.iv
-  store ptr %73, ptr %84, align 8, !tbaa !40
+  store ptr %73, ptr %84, align 8, !tbaa !39
   %85 = zext i32 %72 to i64
   %86 = icmp ugt i64 %2, %85
   br i1 %86, label %87, label %128
@@ -858,11 +857,11 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit:    ; preds = %65, %25, %._crit_ed
   br i1 %90, label %.critedge, label %128
 
 .critedge:                                        ; preds = %87
-  %91 = load ptr, ptr %74, align 8, !tbaa !40
+  %91 = load ptr, ptr %74, align 8, !tbaa !39
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load ptr, ptr %92, align 8, !tbaa !46
-  %94 = load i32, ptr %15, align 4, !tbaa !34
-  %95 = load i32, ptr %16, align 8, !tbaa !35
+  %93 = load ptr, ptr %92, align 8, !tbaa !45
+  %94 = load i32, ptr %15, align 4, !tbaa !46
+  %95 = load i32, ptr %16, align 8, !tbaa !34
   %.not.i59 = icmp ult i32 %94, %95
   br i1 %.not.i59, label %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit92, label %.preheader47.i60
 
@@ -872,7 +871,7 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit:    ; preds = %65, %25, %._crit_ed
   br i1 %.not4148.i61, label %.preheader.i66, label %.lr.ph.i62
 
 .lr.ph.i62:                                       ; preds = %.preheader47.i60
-  %97 = load ptr, ptr %17, align 8, !tbaa !36
+  %97 = load ptr, ptr %17, align 8, !tbaa !35
   %98 = zext i32 %96 to i64
   br label %101
 
@@ -889,7 +888,7 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit:    ; preds = %65, %25, %._crit_ed
   %indvars.iv.i63 = phi i64 [ 0, %.lr.ph.i62 ], [ %indvars.iv.next.i64, %101 ]
   %102 = getelementptr inbounds nuw %struct.BPMNode, ptr %97, i64 %indvars.iv.i63
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  store i32 0, ptr %103, align 8, !tbaa !42
+  store i32 0, ptr %103, align 8, !tbaa !41
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
   %.not41.i65 = icmp eq i64 %indvars.iv.next.i64, %98
   br i1 %.not41.i65, label %.preheader.i66, label %101, !llvm.loop !51
@@ -897,41 +896,41 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit:    ; preds = %65, %25, %._crit_ed
 104:                                              ; preds = %._crit_edge59.i83, %.lr.ph62.i68
   %indvars.iv70.i69 = phi i64 [ 0, %.lr.ph62.i68 ], [ %indvars.iv.next71.i84, %._crit_edge59.i83 ]
   %105 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv70.i69
-  %.050.i70 = load ptr, ptr %105, align 8, !tbaa !40
+  %.050.i70 = load ptr, ptr %105, align 8, !tbaa !39
   %.not4551.i71 = icmp eq ptr %.050.i70, null
   br i1 %.not4551.i71, label %._crit_edge.i76, label %.lr.ph53.i72
 
 .lr.ph53.i72:                                     ; preds = %104, %.lr.ph53.i72
   %.052.i73 = phi ptr [ %.0.i74, %.lr.ph53.i72 ], [ %.050.i70, %104 ]
   %106 = getelementptr inbounds nuw i8, ptr %.052.i73, i64 16
-  store i32 1, ptr %106, align 8, !tbaa !42
+  store i32 1, ptr %106, align 8, !tbaa !41
   %107 = getelementptr inbounds nuw i8, ptr %.052.i73, i64 8
-  %.0.i74 = load ptr, ptr %107, align 8, !tbaa !40
+  %.0.i74 = load ptr, ptr %107, align 8, !tbaa !39
   %.not45.i75 = icmp eq ptr %.0.i74, null
-  br i1 %.not45.i75, label %._crit_edge.i76, label %.lr.ph53.i72, !llvm.loop !43
+  br i1 %.not45.i75, label %._crit_edge.i76, label %.lr.ph53.i72, !llvm.loop !42
 
 ._crit_edge.i76:                                  ; preds = %.lr.ph53.i72, %104
   %108 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv70.i69
-  %.154.i77 = load ptr, ptr %108, align 8, !tbaa !40
+  %.154.i77 = load ptr, ptr %108, align 8, !tbaa !39
   %.not4655.i78 = icmp eq ptr %.154.i77, null
   br i1 %.not4655.i78, label %._crit_edge59.i83, label %.lr.ph58.i79
 
 .lr.ph58.i79:                                     ; preds = %._crit_edge.i76, %.lr.ph58.i79
   %.156.i80 = phi ptr [ %.1.i81, %.lr.ph58.i79 ], [ %.154.i77, %._crit_edge.i76 ]
   %109 = getelementptr inbounds nuw i8, ptr %.156.i80, i64 16
-  store i32 1, ptr %109, align 8, !tbaa !42
+  store i32 1, ptr %109, align 8, !tbaa !41
   %110 = getelementptr inbounds nuw i8, ptr %.156.i80, i64 8
-  %.1.i81 = load ptr, ptr %110, align 8, !tbaa !40
+  %.1.i81 = load ptr, ptr %110, align 8, !tbaa !39
   %.not46.i82 = icmp eq ptr %.1.i81, null
-  br i1 %.not46.i82, label %._crit_edge59.i83, label %.lr.ph58.i79, !llvm.loop !44
+  br i1 %.not46.i82, label %._crit_edge59.i83, label %.lr.ph58.i79, !llvm.loop !43
 
 ._crit_edge59.i83:                                ; preds = %.lr.ph58.i79, %._crit_edge.i76
   %indvars.iv.next71.i84 = add nuw nsw i64 %indvars.iv70.i69, 1
   %.not42.i85 = icmp eq i64 %indvars.iv.next71.i84, %100
-  br i1 %.not42.i85, label %._crit_edge63.i86, label %104, !llvm.loop !45
+  br i1 %.not42.i85, label %._crit_edge63.i86, label %104, !llvm.loop !44
 
 ._crit_edge63.i86:                                ; preds = %._crit_edge59.i83, %.preheader.i66
-  store i32 0, ptr %16, align 8, !tbaa !35
+  store i32 0, ptr %16, align 8, !tbaa !34
   br i1 %.not4148.i61, label %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit92, label %.lr.ph67.i87
 
 .lr.ph67.i87:                                     ; preds = %._crit_edge63.i86
@@ -941,20 +940,20 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit:    ; preds = %65, %25, %._crit_ed
 112:                                              ; preds = %123, %.lr.ph67.i87
   %113 = phi i32 [ 0, %.lr.ph67.i87 ], [ %124, %123 ]
   %indvars.iv73.i88 = phi i64 [ 0, %.lr.ph67.i87 ], [ %indvars.iv.next74.i90, %123 ]
-  %114 = load ptr, ptr %17, align 8, !tbaa !36
+  %114 = load ptr, ptr %17, align 8, !tbaa !35
   %115 = getelementptr inbounds nuw %struct.BPMNode, ptr %114, i64 %indvars.iv73.i88
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %117 = load i32, ptr %116, align 8, !tbaa !42
+  %117 = load i32, ptr %116, align 8, !tbaa !41
   %.not44.i89 = icmp eq i32 %117, 0
   br i1 %.not44.i89, label %118, label %123
 
 118:                                              ; preds = %112
-  %119 = load ptr, ptr %19, align 8, !tbaa !37
+  %119 = load ptr, ptr %19, align 8, !tbaa !36
   %120 = add i32 %113, 1
-  store i32 %120, ptr %16, align 8, !tbaa !35
+  store i32 %120, ptr %16, align 8, !tbaa !34
   %121 = zext i32 %113 to i64
   %122 = getelementptr inbounds nuw ptr, ptr %119, i64 %121
-  store ptr %115, ptr %122, align 8, !tbaa !40
+  store ptr %115, ptr %122, align 8, !tbaa !39
   br label %123
 
 123:                                              ; preds = %118, %112
@@ -965,15 +964,15 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit:    ; preds = %65, %25, %._crit_ed
 
 _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit92:  ; preds = %123, %.critedge, %._crit_edge63.i86
   %125 = phi i32 [ %94, %.critedge ], [ 0, %._crit_edge63.i86 ], [ 0, %123 ]
-  %126 = load ptr, ptr %19, align 8, !tbaa !37
+  %126 = load ptr, ptr %19, align 8, !tbaa !36
   %127 = add nuw i32 %125, 1
-  store i32 %127, ptr %15, align 4, !tbaa !34
+  store i32 %127, ptr %15, align 4, !tbaa !46
   br label %.loopexit.sink.split
 
 128:                                              ; preds = %87, %71
-  %129 = load ptr, ptr %80, align 8, !tbaa !40
-  %130 = load i32, ptr %15, align 4, !tbaa !34
-  %131 = load i32, ptr %16, align 8, !tbaa !35
+  %129 = load ptr, ptr %80, align 8, !tbaa !39
+  %130 = load i32, ptr %15, align 4, !tbaa !46
+  %131 = load i32, ptr %16, align 8, !tbaa !34
   %.not.i93 = icmp ult i32 %130, %131
   br i1 %.not.i93, label %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit126, label %.preheader47.i94
 
@@ -983,7 +982,7 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit92:  ; preds = %123, %.critedge, %.
   br i1 %.not4148.i95, label %.preheader.i100, label %.lr.ph.i96
 
 .lr.ph.i96:                                       ; preds = %.preheader47.i94
-  %133 = load ptr, ptr %17, align 8, !tbaa !36
+  %133 = load ptr, ptr %17, align 8, !tbaa !35
   %134 = zext i32 %132 to i64
   br label %137
 
@@ -1000,7 +999,7 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit92:  ; preds = %123, %.critedge, %.
   %indvars.iv.i97 = phi i64 [ 0, %.lr.ph.i96 ], [ %indvars.iv.next.i98, %137 ]
   %138 = getelementptr inbounds nuw %struct.BPMNode, ptr %133, i64 %indvars.iv.i97
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  store i32 0, ptr %139, align 8, !tbaa !42
+  store i32 0, ptr %139, align 8, !tbaa !41
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
   %.not41.i99 = icmp eq i64 %indvars.iv.next.i98, %134
   br i1 %.not41.i99, label %.preheader.i100, label %137, !llvm.loop !51
@@ -1008,41 +1007,41 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit92:  ; preds = %123, %.critedge, %.
 140:                                              ; preds = %._crit_edge59.i117, %.lr.ph62.i102
   %indvars.iv70.i103 = phi i64 [ 0, %.lr.ph62.i102 ], [ %indvars.iv.next71.i118, %._crit_edge59.i117 ]
   %141 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv70.i103
-  %.050.i104 = load ptr, ptr %141, align 8, !tbaa !40
+  %.050.i104 = load ptr, ptr %141, align 8, !tbaa !39
   %.not4551.i105 = icmp eq ptr %.050.i104, null
   br i1 %.not4551.i105, label %._crit_edge.i110, label %.lr.ph53.i106
 
 .lr.ph53.i106:                                    ; preds = %140, %.lr.ph53.i106
   %.052.i107 = phi ptr [ %.0.i108, %.lr.ph53.i106 ], [ %.050.i104, %140 ]
   %142 = getelementptr inbounds nuw i8, ptr %.052.i107, i64 16
-  store i32 1, ptr %142, align 8, !tbaa !42
+  store i32 1, ptr %142, align 8, !tbaa !41
   %143 = getelementptr inbounds nuw i8, ptr %.052.i107, i64 8
-  %.0.i108 = load ptr, ptr %143, align 8, !tbaa !40
+  %.0.i108 = load ptr, ptr %143, align 8, !tbaa !39
   %.not45.i109 = icmp eq ptr %.0.i108, null
-  br i1 %.not45.i109, label %._crit_edge.i110, label %.lr.ph53.i106, !llvm.loop !43
+  br i1 %.not45.i109, label %._crit_edge.i110, label %.lr.ph53.i106, !llvm.loop !42
 
 ._crit_edge.i110:                                 ; preds = %.lr.ph53.i106, %140
   %144 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv70.i103
-  %.154.i111 = load ptr, ptr %144, align 8, !tbaa !40
+  %.154.i111 = load ptr, ptr %144, align 8, !tbaa !39
   %.not4655.i112 = icmp eq ptr %.154.i111, null
   br i1 %.not4655.i112, label %._crit_edge59.i117, label %.lr.ph58.i113
 
 .lr.ph58.i113:                                    ; preds = %._crit_edge.i110, %.lr.ph58.i113
   %.156.i114 = phi ptr [ %.1.i115, %.lr.ph58.i113 ], [ %.154.i111, %._crit_edge.i110 ]
   %145 = getelementptr inbounds nuw i8, ptr %.156.i114, i64 16
-  store i32 1, ptr %145, align 8, !tbaa !42
+  store i32 1, ptr %145, align 8, !tbaa !41
   %146 = getelementptr inbounds nuw i8, ptr %.156.i114, i64 8
-  %.1.i115 = load ptr, ptr %146, align 8, !tbaa !40
+  %.1.i115 = load ptr, ptr %146, align 8, !tbaa !39
   %.not46.i116 = icmp eq ptr %.1.i115, null
-  br i1 %.not46.i116, label %._crit_edge59.i117, label %.lr.ph58.i113, !llvm.loop !44
+  br i1 %.not46.i116, label %._crit_edge59.i117, label %.lr.ph58.i113, !llvm.loop !43
 
 ._crit_edge59.i117:                               ; preds = %.lr.ph58.i113, %._crit_edge.i110
   %indvars.iv.next71.i118 = add nuw nsw i64 %indvars.iv70.i103, 1
   %.not42.i119 = icmp eq i64 %indvars.iv.next71.i118, %136
-  br i1 %.not42.i119, label %._crit_edge63.i120, label %140, !llvm.loop !45
+  br i1 %.not42.i119, label %._crit_edge63.i120, label %140, !llvm.loop !44
 
 ._crit_edge63.i120:                               ; preds = %._crit_edge59.i117, %.preheader.i100
-  store i32 0, ptr %16, align 8, !tbaa !35
+  store i32 0, ptr %16, align 8, !tbaa !34
   br i1 %.not4148.i95, label %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit126, label %.lr.ph67.i121
 
 .lr.ph67.i121:                                    ; preds = %._crit_edge63.i120
@@ -1052,20 +1051,20 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit92:  ; preds = %123, %.critedge, %.
 148:                                              ; preds = %159, %.lr.ph67.i121
   %149 = phi i32 [ 0, %.lr.ph67.i121 ], [ %160, %159 ]
   %indvars.iv73.i122 = phi i64 [ 0, %.lr.ph67.i121 ], [ %indvars.iv.next74.i124, %159 ]
-  %150 = load ptr, ptr %17, align 8, !tbaa !36
+  %150 = load ptr, ptr %17, align 8, !tbaa !35
   %151 = getelementptr inbounds nuw %struct.BPMNode, ptr %150, i64 %indvars.iv73.i122
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  %153 = load i32, ptr %152, align 8, !tbaa !42
+  %153 = load i32, ptr %152, align 8, !tbaa !41
   %.not44.i123 = icmp eq i32 %153, 0
   br i1 %.not44.i123, label %154, label %159
 
 154:                                              ; preds = %148
-  %155 = load ptr, ptr %19, align 8, !tbaa !37
+  %155 = load ptr, ptr %19, align 8, !tbaa !36
   %156 = add i32 %149, 1
-  store i32 %156, ptr %16, align 8, !tbaa !35
+  store i32 %156, ptr %16, align 8, !tbaa !34
   %157 = zext i32 %149 to i64
   %158 = getelementptr inbounds nuw ptr, ptr %155, i64 %157
-  store ptr %151, ptr %158, align 8, !tbaa !40
+  store ptr %151, ptr %158, align 8, !tbaa !39
   br label %159
 
 159:                                              ; preds = %154, %148
@@ -1076,26 +1075,26 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit92:  ; preds = %123, %.critedge, %.
 
 _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit126: ; preds = %159, %128, %._crit_edge63.i120
   %161 = phi i32 [ %130, %128 ], [ 0, %._crit_edge63.i120 ], [ 0, %159 ]
-  %162 = load ptr, ptr %19, align 8, !tbaa !37
+  %162 = load ptr, ptr %19, align 8, !tbaa !36
   %163 = add nuw i32 %161, 1
-  store i32 %163, ptr %15, align 4, !tbaa !34
+  store i32 %163, ptr %15, align 4, !tbaa !46
   %164 = zext i32 %161 to i64
   %165 = getelementptr inbounds nuw ptr, ptr %162, i64 %164
-  %166 = load ptr, ptr %165, align 8, !tbaa !40
+  %166 = load ptr, ptr %165, align 8, !tbaa !39
   store i32 %83, ptr %166, align 8, !tbaa !12
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 4
   store i32 %72, ptr %167, align 4, !tbaa !15
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  store ptr %129, ptr %168, align 8, !tbaa !46
-  store ptr %166, ptr %74, align 8, !tbaa !40
+  store ptr %129, ptr %168, align 8, !tbaa !45
+  store ptr %166, ptr %74, align 8, !tbaa !39
   br i1 %23, label %tailrecurse, label %.loopexit
 
 tailrecurse:                                      ; preds = %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit126
   %169 = trunc nsw i64 %indvars.iv.next to i32
   tail call fastcc void @_ZL10boundaryPMP8BPMListsP7BPMNodemii(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %169, i32 noundef %4)
-  %170 = load ptr, ptr %6, align 8, !tbaa !39
+  %170 = load ptr, ptr %6, align 8, !tbaa !38
   %171 = getelementptr inbounds ptr, ptr %170, i64 %indvars.iv.next
-  %172 = load ptr, ptr %171, align 8, !tbaa !40
+  %172 = load ptr, ptr %171, align 8, !tbaa !39
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 4
   %174 = load i32, ptr %173, align 4, !tbaa !15
   %175 = icmp eq i64 %indvars.iv.next, 0
@@ -1111,13 +1110,13 @@ tailrecurse:                                      ; preds = %_ZL14bpmnode_create
   %.sink204 = add i32 %.sink204.in, 1
   %176 = zext i32 %.sink211 to i64
   %177 = getelementptr inbounds nuw ptr, ptr %.sink, i64 %176
-  %178 = load ptr, ptr %177, align 8, !tbaa !40
+  %178 = load ptr, ptr %177, align 8, !tbaa !39
   store i32 %.sink207, ptr %178, align 8, !tbaa !12
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 4
   store i32 %.sink204, ptr %179, align 4, !tbaa !15
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  store ptr %.sink201, ptr %180, align 8, !tbaa !46
-  store ptr %178, ptr %.lcssa138.sink, align 8, !tbaa !40
+  store ptr %.sink201, ptr %180, align 8, !tbaa !45
+  store ptr %178, ptr %.lcssa138.sink, align 8, !tbaa !39
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit126, %.loopexit.sink.split, %tailrecurse._crit_edge
@@ -25248,19 +25247,19 @@ attributes #36 = { builtin allocsize(0) }
 !31 = !{!"p2 _ZTS7BPMNode", !32, i64 0}
 !32 = !{!"any p2 pointer", !9, i64 0}
 !33 = !{!30, !11, i64 0}
-!34 = !{!30, !11, i64 20}
-!35 = !{!30, !11, i64 16}
-!36 = !{!30, !14, i64 8}
-!37 = !{!30, !31, i64 24}
-!38 = !{!30, !31, i64 40}
-!39 = !{!30, !31, i64 48}
-!40 = !{!14, !14, i64 0}
-!41 = distinct !{!41, !17}
-!42 = !{!13, !11, i64 16}
+!34 = !{!30, !11, i64 16}
+!35 = !{!30, !14, i64 8}
+!36 = !{!30, !31, i64 24}
+!37 = !{!30, !31, i64 40}
+!38 = !{!30, !31, i64 48}
+!39 = !{!14, !14, i64 0}
+!40 = distinct !{!40, !17}
+!41 = !{!13, !11, i64 16}
+!42 = distinct !{!42, !17}
 !43 = distinct !{!43, !17}
 !44 = distinct !{!44, !17}
-!45 = distinct !{!45, !17}
-!46 = !{!13, !14, i64 8}
+!45 = !{!13, !14, i64 8}
+!46 = !{!30, !11, i64 20}
 !47 = distinct !{!47, !17}
 !48 = distinct !{!48, !17}
 !49 = distinct !{!49, !17}

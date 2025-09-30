@@ -528,8 +528,6 @@ define void @_ZN10open_spiel14colored_trails18ComboStringToComboERKNSt7__cxx1112
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %6, align 8
   %.not.i.i.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i, label %.noexc10
 
@@ -538,39 +536,39 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   br label %.loopexit
 
 .noexc10:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %7 = shl nuw nsw i64 %4, 2
-  %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #24
-  store ptr %8, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %4
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %9, ptr %10, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %8, i8 0, i64 %7, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %7
+  %6 = shl nuw nsw i64 %4, 2
+  %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #24
+  store ptr %7, ptr %0, align 8
+  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %8, ptr %9, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %7, i8 0, i64 %6, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc10, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
-  %12 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ], [ %8, %.noexc10 ]
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ], [ %11, %.noexc10 ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i.i.i.i.i.i.i, ptr %13, align 8
-  %14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
-  %.not = icmp eq i64 %14, 0
+  %11 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ], [ %7, %.noexc10 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ], [ %10, %.noexc10 ]
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.i.i.i.i.i.i.i, ptr %12, align 8
+  %13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
+  %.not = icmp eq i64 %13, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.loopexit ]
-  %15 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %indvars.iv) #25
-  %16 = load i8, ptr %15, align 1
-  %17 = sext i8 %16 to i64
-  %18 = getelementptr i32, ptr %12, i64 %17
-  %19 = getelementptr i8, ptr %18, i64 -260
-  %20 = load i32, ptr %19, align 4
-  %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %19, align 4
+  %14 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %indvars.iv) #25
+  %15 = load i8, ptr %14, align 1
+  %16 = sext i8 %15 to i64
+  %17 = getelementptr i32, ptr %11, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 -260
+  %19 = load i32, ptr %18, align 4
+  %20 = add nsw i32 %19, 1
+  store i32 %20, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
-  %23 = icmp ugt i64 %22, %indvars.iv.next
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  %21 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
+  %22 = icmp ugt i64 %21, %indvars.iv.next
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
   ret void
@@ -1298,7 +1296,6 @@ define internal fastcc void @_ZN10open_spiel14colored_trails12_GLOBAL__N_117Init
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.not.i.i.i.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i, label %.noexc10.i
 
@@ -1307,21 +1304,22 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIiS
   br label %.loopexit.i
 
 .noexc10.i:                                       ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %15 = shl nuw nsw i64 %12, 2
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #24, !noalias !28
-  store ptr %16, ptr %4, align 8, !alias.scope !28
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %12
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %17, ptr %18, align 8, !alias.scope !28
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %16, i8 0, i64 %15, i1 false), !noalias !28
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %15
+  %14 = shl nuw nsw i64 %12, 2
+  %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #24, !noalias !28
+  store ptr %15, ptr %4, align 8, !alias.scope !28
+  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %12
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %16, ptr %17, align 8, !alias.scope !28
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %15, i8 0, i64 %14, i1 false), !noalias !28
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %14
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.noexc10.i, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i
-  %20 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i ], [ %17, %.noexc10.i ]
-  %21 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i ], [ %16, %.noexc10.i ]
-  %22 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i ], [ %19, %.noexc10.i ]
-  store ptr %22, ptr %14, align 8, !alias.scope !28
+  %19 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i ], [ %16, %.noexc10.i ]
+  %20 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i ], [ %15, %.noexc10.i ]
+  %21 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i ], [ %18, %.noexc10.i ]
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %21, ptr %22, align 8, !alias.scope !28
   %23 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #25, !noalias !28
   %.not.i = icmp eq i64 %23, 0
   br i1 %.not.i, label %_ZN10open_spiel14colored_trails18ComboStringToComboERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit, label %.lr.ph.i
@@ -1331,7 +1329,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIiS
   %24 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %indvars.iv.i) #25, !noalias !28
   %25 = load i8, ptr %24, align 1, !noalias !28
   %26 = sext i8 %25 to i64
-  %27 = getelementptr i32, ptr %21, i64 %26
+  %27 = getelementptr i32, ptr %20, i64 %26
   %28 = getelementptr i8, ptr %27, i64 -260
   %29 = load i32, ptr %28, align 4, !noalias !28
   %30 = add nsw i32 %29, 1
@@ -1350,11 +1348,11 @@ _ZN10open_spiel14colored_trails18ComboStringToComboERKNSt7__cxx1112basic_stringI
   br i1 %.not.i.i, label %41, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backEOS1_.exit.thread
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backEOS1_.exit.thread: ; preds = %_ZN10open_spiel14colored_trails18ComboStringToComboERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit
-  store ptr %21, ptr %34, align 8
+  store ptr %20, ptr %34, align 8
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store ptr %22, ptr %37, align 8
+  store ptr %21, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %20, ptr %38, align 8
+  store ptr %19, ptr %38, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %39 = load ptr, ptr %33, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24

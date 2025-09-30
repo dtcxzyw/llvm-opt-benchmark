@@ -6367,8 +6367,8 @@ BITv06_initDStream.exit.thread144.i:              ; preds = %340
   %345 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %344, i1 true)
   %346 = trunc nuw nsw i64 %286 to i32
   %347 = shl nuw nsw i32 %346, 3
-  %reass.sub.i = sub nsw i32 %345, %347
-  %348 = add nsw i32 %reass.sub.i, 41
+  %reass.sub = sub nsw i32 %345, %347
+  %348 = add nsw i32 %reass.sub, 41
   br label %355
 
 BITv06_initDStream.exit.i:                        ; preds = %291
@@ -6648,7 +6648,6 @@ FSEv06_initDState.exit105.i:                      ; preds = %BITv06_reloadDStrea
 BITv06_reloadDStream.exit.sink.split.i:           ; preds = %505, %497
   %.val.i107.sink.in.i = phi ptr [ %501, %497 ], [ %517, %505 ]
   %.val4.i.i112.ph.i = phi i32 [ %502, %497 ], [ %519, %505 ]
-  store i32 %.val4.i.i112.ph.i, ptr %360, align 8, !tbaa !41
   %.val.i107.sink.i = load i64, ptr %.val.i107.sink.in.i, align 1
   store i64 %.val.i107.sink.i, ptr %6, align 8, !tbaa !40
   br label %BITv06_reloadDStream.exit.i
@@ -6842,7 +6841,6 @@ BITv06_reloadDStream.exit.i:                      ; preds = %BITv06_reloadDStrea
 BITv06_reloadDStream.exit.sink.split.i114.i:      ; preds = %615, %607
   %storemerge168.i = phi i32 [ %612, %607 ], [ %629, %615 ]
   %.val30.i.sink.in.i.i = phi ptr [ %611, %607 ], [ %627, %615 ]
-  store i32 %storemerge168.i, ptr %360, align 8, !tbaa !41
   %.val30.i.sink.i.i = load i64, ptr %.val30.i.sink.in.i.i, align 1
   store i64 %.val30.i.sink.i.i, ptr %6, align 8, !tbaa !40
   br label %ZSTDv06_decodeSequence.exit.i
@@ -8127,7 +8125,7 @@ ZSTDv06_decodeFrameHeader.exit.thread69:          ; preds = %53, %44, %ZSTDv06_c
 define noalias noundef ptr @ZBUFFv06_createDCtx() local_unnamed_addr #19 {
   %calloc = tail call dereferenceable_or_null(120) ptr @calloc(i64 1, i64 120)
   %1 = icmp eq ptr %calloc, null
-  br i1 %1, label %12, label %2
+  br i1 %1, label %11, label %2
 
 2:                                                ; preds = %0
   %3 = tail call noalias dereferenceable_or_null(152712) ptr @malloc(i64 noundef 152712) #29
@@ -8136,7 +8134,7 @@ define noalias noundef ptr @ZBUFFv06_createDCtx() local_unnamed_addr #19 {
 
 ZBUFFv06_freeDCtx.exit:                           ; preds = %2
   tail call void @free(ptr noundef nonnull %calloc) #28
-  br label %12
+  br label %11
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 21552
@@ -8150,11 +8148,9 @@ ZBUFFv06_freeDCtx.exit:                           ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 21592
   store i32 0, ptr %10, align 8, !tbaa !74
   store ptr %3, ptr %calloc, align 8, !tbaa !95
-  %11 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
-  store i32 0, ptr %11, align 8, !tbaa !98
-  br label %12
+  br label %11
 
-12:                                               ; preds = %0, %5, %ZBUFFv06_freeDCtx.exit
+11:                                               ; preds = %0, %5, %ZBUFFv06_freeDCtx.exit
   %.0 = phi ptr [ null, %ZBUFFv06_freeDCtx.exit ], [ %calloc, %5 ], [ null, %0 ]
   ret ptr %.0
 }
@@ -8168,10 +8164,10 @@ define noundef i64 @ZBUFFv06_freeDCtx(ptr noundef captures(address_is_null) %0) 
   %4 = load ptr, ptr %0, align 8, !tbaa !95
   tail call void @free(ptr noundef %4) #28
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !99
+  %6 = load ptr, ptr %5, align 8, !tbaa !98
   tail call void @free(ptr noundef %6) #28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %8 = load ptr, ptr %7, align 8, !tbaa !100
+  %8 = load ptr, ptr %7, align 8, !tbaa !99
   tail call void @free(ptr noundef %8) #28
   tail call void @free(ptr noundef nonnull %0) #28
   br label %9
@@ -8183,7 +8179,7 @@ define noundef i64 @ZBUFFv06_freeDCtx(ptr noundef captures(address_is_null) %0) 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i64 -30, 1) i64 @ZBUFFv06_decompressInitDictionary(ptr noundef captures(none) initializes((24, 28), (48, 56), (72, 88), (112, 120)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #21 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 1, ptr %4, align 8, !tbaa !98
+  store i32 1, ptr %4, align 8, !tbaa !100
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %6, align 8, !tbaa !101
@@ -8198,7 +8194,7 @@ define range(i64 -30, 1) i64 @ZBUFFv06_decompressInitDictionary(ptr noundef capt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef range(i64 -30, 1) i64 @ZBUFFv06_decompressInit(ptr noundef captures(none) initializes((24, 28), (48, 56), (72, 88), (112, 120)) %0) local_unnamed_addr #22 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 1, ptr %2, align 8, !tbaa !98
+  store i32 1, ptr %2, align 8, !tbaa !100
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %4, align 8, !tbaa !101
@@ -8251,7 +8247,7 @@ define i64 @ZBUFFv06_decompressContinue(ptr noundef %0, ptr noundef %1, ptr noun
 
 .thread273:                                       ; preds = %.thread273.backedge, %.thread273.outer
   %.0184311 = phi ptr [ %.0184311.ph, %.thread273.outer ], [ %.0184311.be, %.thread273.backedge ]
-  %27 = load i32, ptr %10, align 8, !tbaa !98
+  %27 = load i32, ptr %10, align 8, !tbaa !100
   switch i32 %27, label %.thread251 [
     i32 0, label %.thread251.loopexit
     i32 1, label %28
@@ -8402,11 +8398,11 @@ default.unreachable:                              ; preds = %43
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %.thread261
-  %91 = load ptr, ptr %19, align 8, !tbaa !99
+  %91 = load ptr, ptr %19, align 8, !tbaa !98
   tail call void @free(ptr noundef %91) #28
   store i64 %spec.select, ptr %18, align 8, !tbaa !107
   %92 = tail call noalias ptr @malloc(i64 noundef %spec.select) #29
-  store ptr %92, ptr %19, align 8, !tbaa !99
+  store ptr %92, ptr %19, align 8, !tbaa !98
   %93 = icmp eq ptr %92, null
   br i1 %93, label %.thread251, label %._crit_edge
 
@@ -8425,16 +8421,16 @@ default.unreachable:                              ; preds = %43
   br i1 %101, label %102, label %106
 
 102:                                              ; preds = %94
-  %103 = load ptr, ptr %21, align 8, !tbaa !100
+  %103 = load ptr, ptr %21, align 8, !tbaa !99
   tail call void @free(ptr noundef %103) #28
   store i64 %99, ptr %20, align 8, !tbaa !108
   %104 = tail call noalias ptr @malloc(i64 noundef %99) #29
-  store ptr %104, ptr %21, align 8, !tbaa !100
+  store ptr %104, ptr %21, align 8, !tbaa !99
   %105 = icmp eq ptr %104, null
   br i1 %105, label %.thread251, label %106
 
 106:                                              ; preds = %102, %94
-  store i32 2, ptr %10, align 8, !tbaa !98
+  store i32 2, ptr %10, align 8, !tbaa !100
   br label %107
 
 107:                                              ; preds = %106, %.thread273
@@ -8445,7 +8441,7 @@ default.unreachable:                              ; preds = %43
   br i1 %111, label %112, label %113
 
 112:                                              ; preds = %107
-  store i32 0, ptr %10, align 8, !tbaa !98
+  store i32 0, ptr %10, align 8, !tbaa !100
   br label %.loopexit
 
 113:                                              ; preds = %107
@@ -8455,7 +8451,7 @@ default.unreachable:                              ; preds = %43
   br i1 %.not231, label %129, label %116
 
 116:                                              ; preds = %113
-  %117 = load ptr, ptr %21, align 8, !tbaa !100
+  %117 = load ptr, ptr %21, align 8, !tbaa !99
   %118 = load i64, ptr %23, align 8, !tbaa !104
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 %118
   %120 = load i64, ptr %20, align 8, !tbaa !108
@@ -8473,7 +8469,7 @@ default.unreachable:                              ; preds = %43
   %127 = load i64, ptr %23, align 8, !tbaa !104
   %128 = add i64 %127, %122
   store i64 %128, ptr %24, align 8, !tbaa !103
-  store i32 4, ptr %10, align 8, !tbaa !98
+  store i32 4, ptr %10, align 8, !tbaa !100
   br label %.thread273.backedge
 
 129:                                              ; preds = %113
@@ -8481,7 +8477,7 @@ default.unreachable:                              ; preds = %43
   br i1 %130, label %.loopexit, label %131
 
 131:                                              ; preds = %129
-  store i32 3, ptr %10, align 8, !tbaa !98
+  store i32 3, ptr %10, align 8, !tbaa !100
   br label %132
 
 132:                                              ; preds = %._crit_edge320, %131
@@ -8501,7 +8497,7 @@ default.unreachable:                              ; preds = %43
   br i1 %.not.i238, label %ZBUFFv06_limitCopy.exit, label %143
 
 143:                                              ; preds = %139
-  %144 = load ptr, ptr %19, align 8, !tbaa !99
+  %144 = load ptr, ptr %19, align 8, !tbaa !98
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 %134
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %145, ptr readonly align 1 %.0184311, i64 %142, i1 false)
   %.pre323 = load i64, ptr %25, align 8, !tbaa !101
@@ -8517,12 +8513,12 @@ ZBUFFv06_limitCopy.exit:                          ; preds = %139, %143
 
 150:                                              ; preds = %ZBUFFv06_limitCopy.exit
   %151 = load ptr, ptr %0, align 8, !tbaa !95
-  %152 = load ptr, ptr %21, align 8, !tbaa !100
+  %152 = load ptr, ptr %21, align 8, !tbaa !99
   %153 = load i64, ptr %23, align 8, !tbaa !104
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 %153
   %155 = load i64, ptr %20, align 8, !tbaa !108
   %156 = sub i64 %155, %153
-  %157 = load ptr, ptr %19, align 8, !tbaa !99
+  %157 = load ptr, ptr %19, align 8, !tbaa !98
   %158 = tail call i64 @ZSTDv06_decompressContinue(ptr noundef %151, ptr noundef %154, i64 noundef %156, ptr noundef %157, i64 noundef %133)
   %159 = icmp ult i64 %158, -119
   br i1 %159, label %160, label %.thread251
@@ -8533,7 +8529,7 @@ ZBUFFv06_limitCopy.exit:                          ; preds = %139, %143
   br i1 %.not235, label %161, label %162
 
 161:                                              ; preds = %160
-  store i32 2, ptr %10, align 8, !tbaa !98
+  store i32 2, ptr %10, align 8, !tbaa !100
   br label %.thread273.backedge
 
 .thread273.backedge:                              ; preds = %161, %124, %126, %67
@@ -8544,7 +8540,7 @@ ZBUFFv06_limitCopy.exit:                          ; preds = %139, %143
   %163 = load i64, ptr %23, align 8, !tbaa !104
   %164 = add i64 %163, %158
   store i64 %164, ptr %24, align 8, !tbaa !103
-  store i32 4, ptr %10, align 8, !tbaa !98
+  store i32 4, ptr %10, align 8, !tbaa !100
   br label %165
 
 165:                                              ; preds = %._crit_edge324, %162
@@ -8559,7 +8555,7 @@ ZBUFFv06_limitCopy.exit:                          ; preds = %139, %143
   br i1 %.not.i239, label %ZBUFFv06_limitCopy.exit240, label %172
 
 172:                                              ; preds = %165
-  %173 = load ptr, ptr %21, align 8, !tbaa !100
+  %173 = load ptr, ptr %21, align 8, !tbaa !99
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 %166
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0194310.ph, ptr readonly align 1 %174, i64 %171, i1 false)
   %.pre327 = load i64, ptr %23, align 8, !tbaa !104
@@ -8574,7 +8570,7 @@ ZBUFFv06_limitCopy.exit240:                       ; preds = %165, %172
   br i1 %.not295, label %.loopexit, label %178
 
 178:                                              ; preds = %ZBUFFv06_limitCopy.exit240
-  store i32 2, ptr %10, align 8, !tbaa !98
+  store i32 2, ptr %10, align 8, !tbaa !100
   %179 = load i64, ptr %17, align 8, !tbaa !106
   %180 = add i64 %179, %177
   %181 = load i64, ptr %20, align 8, !tbaa !108
@@ -9134,9 +9130,9 @@ attributes #29 = { nounwind allocsize(0) }
 !95 = !{!96, !97, i64 0}
 !96 = !{!"ZBUFFv06_DCtx_s", !97, i64 0, !71, i64 8, !4, i64 24, !37, i64 32, !36, i64 40, !36, i64 48, !37, i64 56, !36, i64 64, !36, i64 72, !36, i64 80, !36, i64 88, !5, i64 96, !36, i64 112}
 !97 = !{!"p1 _ZTS14ZSTDv06_DCtx_s", !38, i64 0}
-!98 = !{!96, !4, i64 24}
-!99 = !{!96, !37, i64 32}
-!100 = !{!96, !37, i64 56}
+!98 = !{!96, !37, i64 32}
+!99 = !{!96, !37, i64 56}
+!100 = !{!96, !4, i64 24}
 !101 = !{!96, !36, i64 48}
 !102 = !{!96, !36, i64 112}
 !103 = !{!96, !36, i64 80}

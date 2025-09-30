@@ -2074,10 +2074,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h2645_sei_to_side_data(ptr
   %narrow164 = icmp ult i16 %72, -23540
   %73 = select i1 %narrow164, i1 %narrow163, i1 false
   %74 = select i1 %73, i32 %57, i32 0
-  store i32 %74, ptr %54, align 4, !tbaa !167
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next170, 3
-  br i1 %exitcond.not, label %75, label %56, !llvm.loop !169
+  br i1 %exitcond.not, label %75, label %56, !llvm.loop !167
 
 75:                                               ; preds = %56
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 140
@@ -2100,7 +2099,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h2645_sei_to_side_data(ptr
   %narrow160 = icmp ult i16 %87, -23540
   %88 = select i1 %narrow160, i1 %narrow, i1 false
   %89 = select i1 %88, i32 %74, i32 0
-  store i32 %89, ptr %54, align 4, !tbaa !167
+  store i32 %89, ptr %54, align 4, !tbaa !168
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %91 = load i32, ptr %90, align 4, !tbaa !170
   %92 = getelementptr inbounds nuw i8, ptr %51, i64 72
@@ -2143,7 +2142,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h2645_sei_to_side_data(ptr
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.5) #9
   %.pre = load ptr, ptr %7, align 8, !tbaa !163
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 80
-  %.pre172 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !167
+  %.pre172 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !168
   %111 = icmp eq i32 %.pre172, 0
   br i1 %111, label %.thread179, label %112
 
@@ -2717,16 +2716,16 @@ attributes #10 = { nounwind willreturn memory(read) }
 !164 = !{!"p1 _ZTS26AVMasteringDisplayMetadata", !7, i64 0}
 !165 = !{!103, !24, i64 0}
 !166 = !{!103, !24, i64 4}
-!167 = !{!168, !24, i64 80}
-!168 = !{!"AVMasteringDisplayMetadata", !8, i64 0, !8, i64 48, !103, i64 64, !103, i64 72, !24, i64 80, !24, i64 84}
-!169 = distinct !{!169, !66}
+!167 = distinct !{!167, !66}
+!168 = !{!169, !24, i64 80}
+!169 = !{!"AVMasteringDisplayMetadata", !8, i64 0, !8, i64 48, !103, i64 64, !103, i64 72, !24, i64 80, !24, i64 84}
 !170 = !{!39, !24, i64 144}
-!171 = !{!168, !24, i64 72}
-!172 = !{!168, !24, i64 76}
+!171 = !{!169, !24, i64 72}
+!172 = !{!169, !24, i64 76}
 !173 = !{!39, !24, i64 148}
-!174 = !{!168, !24, i64 64}
-!175 = !{!168, !24, i64 68}
-!176 = !{!168, !24, i64 84}
+!174 = !{!169, !24, i64 64}
+!175 = !{!169, !24, i64 68}
+!176 = !{!169, !24, i64 84}
 !177 = !{!115, !24, i64 516}
 !178 = !{!39, !24, i64 152}
 !179 = !{!180, !180, i64 0}

@@ -5667,7 +5667,6 @@ _ZN12CVQualifiersD2Ev.exit:                       ; preds = %_ZNSt13_Bvector_bas
   call void @_ZdlPvm(ptr noundef %198, i64 noundef %195) #24
   store ptr null, ptr %9, align 8
   store i32 0, ptr %71, align 8
-  store ptr null, ptr %72, align 8
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZN12CVQualifiersD2Ev.exit, %191
@@ -5687,7 +5686,6 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZN12CVQualifiersD2
   call void @_ZdlPvm(ptr noundef %207, i64 noundef %204) #24
   store ptr null, ptr %8, align 8
   store i32 0, ptr %67, align 8
-  store ptr null, ptr %68, align 8
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit87
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit87:           ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, %200
@@ -5792,9 +5790,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i97
   %249 = sub nsw i64 0, %248
   %250 = getelementptr inbounds i64, ptr %244, i64 %249
   call void @_ZdlPvm(ptr noundef %250, i64 noundef %247) #24
-  store ptr null, ptr %9, align 8
-  store i32 0, ptr %71, align 8
-  store ptr null, ptr %72, align 8
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit104
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit104:          ; preds = %241, %243
@@ -5813,7 +5808,6 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit104:          ; preds = %241, %243
   %259 = getelementptr inbounds i64, ptr %253, i64 %258
   call void @_ZdlPvm(ptr noundef %259, i64 noundef %256) #24
   store ptr null, ptr %8, align 8
-  store i32 0, ptr %67, align 8
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit109
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit109:          ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit104, %252

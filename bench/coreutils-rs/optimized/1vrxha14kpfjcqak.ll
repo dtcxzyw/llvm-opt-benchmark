@@ -796,8 +796,6 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E
   %.sroa.5202.0.copyload = load i64, ptr %.sroa.5202.0..sroa_idx, align 8
   %.sroa.6203.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 24
   %.sroa.6203.0.copyload = load i16, ptr %.sroa.6203.0..sroa_idx, align 8
-  %.sroa.7204.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.733.sroa.10, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.7204.0..sroa_idx, i64 6, i1 false)
   br i1 %173, label %175, label %177
 
 175:                                              ; preds = %169
@@ -806,6 +804,8 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E
   br i1 %176, label %179, label %184
 
 177:                                              ; preds = %169
+  %.sroa.8217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.733.sroa.10, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.8217.0..sroa_idx, i64 6, i1 false)
   %.sroa.9218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 32
   %.sroa.9218.0.copyload = load i64, ptr %.sroa.9218.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -2005,8 +2005,6 @@ _ZN10fundu_core5parse5Bytes19buffered_advance_to17h4a804a50a031f18eE.exit.i: ; p
   %.sroa.5202.0.copyload = load i64, ptr %.sroa.5202.0..sroa_idx, align 8
   %.sroa.6203.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 24
   %.sroa.6203.0.copyload = load i16, ptr %.sroa.6203.0..sroa_idx, align 8
-  %.sroa.7204.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.733.sroa.10, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.7204.0..sroa_idx, i64 6, i1 false)
   br i1 %250, label %252, label %254
 
 252:                                              ; preds = %246
@@ -2015,6 +2013,8 @@ _ZN10fundu_core5parse5Bytes19buffered_advance_to17h4a804a50a031f18eE.exit.i: ; p
   br i1 %253, label %256, label %261
 
 254:                                              ; preds = %246
+  %.sroa.8217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.733.sroa.10, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.8217.0..sroa_idx, i64 6, i1 false)
   %.sroa.9218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 32
   %.sroa.9218.0.copyload = load i64, ptr %.sroa.9218.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %22)

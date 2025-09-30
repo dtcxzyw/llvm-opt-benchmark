@@ -8699,7 +8699,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres8internal11NumericDiffIN
   %21 = sitofp i32 %20 to double
   %22 = tail call double @pow(double noundef %17, double noundef %21) #33, !tbaa !53
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
+  store i64 0, ptr %13, align 8
   %23 = load i32, ptr %18, align 8, !tbaa !53
   %24 = sext i32 %23 to i64
   %25 = icmp eq i32 %4, 0
@@ -8759,7 +8759,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit: ; preds = %.si
   %42 = phi ptr [ %.sink.i, %.sink.split.i ], [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i ]
   store i64 %15, ptr %32, align 8, !tbaa !390
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  store i64 0, ptr %14, align 8
   br i1 %or.cond.i.i.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i102, label %43
 
 43:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit

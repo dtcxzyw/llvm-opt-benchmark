@@ -8422,11 +8422,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 1800, ptr %4, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %6, ptr %1, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i8 0, ptr %6, align 8, !tbaa !41
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 -1, ptr %8, align 8, !tbaa !42
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 36

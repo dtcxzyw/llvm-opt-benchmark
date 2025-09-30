@@ -5728,7 +5728,7 @@ define dso_local i32 @onig_detect_can_be_slow_pattern(ptr noundef %0, ptr nounde
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %calloc = tail call dereferenceable_or_null(456) ptr @calloc(i64 1, i64 456)
   %11 = icmp eq ptr %calloc, null
-  br i1 %11, label %89, label %12
+  br i1 %11, label %84, label %12
 
 12:                                               ; preds = %5
   %13 = load i32, ptr @OnigDefaultCaseFoldFlag, align 4, !tbaa !4
@@ -5758,7 +5758,7 @@ define dso_local i32 @onig_detect_can_be_slow_pattern(ptr noundef %0, ptr nounde
 22:                                               ; preds = %17, %19, %.lr.ph.i.i
   %.0.i.ph = phi i32 [ -23, %.lr.ph.i.i ], [ -403, %19 ], [ -21, %17 ]
   tail call void @free(ptr noundef nonnull %calloc) #22
-  br label %89
+  br label %84
 
 23:                                               ; preds = %19
   %24 = and i32 %2, 64
@@ -5779,118 +5779,107 @@ define dso_local i32 @onig_detect_can_be_slow_pattern(ptr noundef %0, ptr nounde
   store i32 %.028.i, ptr %33, align 8, !tbaa !105
   %34 = getelementptr inbounds nuw i8, ptr %calloc, i64 112
   store ptr %4, ptr %34, align 8, !tbaa !168
-  %35 = getelementptr inbounds nuw i8, ptr %calloc, i64 136
-  store i32 0, ptr %35, align 8, !tbaa !77
-  %36 = getelementptr inbounds nuw i8, ptr %calloc, i64 160
-  store ptr null, ptr %36, align 8, !tbaa !25
-  %37 = getelementptr inbounds nuw i8, ptr %calloc, i64 448
-  store ptr null, ptr %37, align 8, !tbaa !8
-  store ptr null, ptr %calloc, align 8, !tbaa !17
-  %38 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
-  %39 = getelementptr inbounds nuw i8, ptr %calloc, i64 128
-  store ptr null, ptr %39, align 8, !tbaa !169
-  %40 = getelementptr inbounds nuw i8, ptr %calloc, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  store i32 %.029.i, ptr %40, align 8, !tbaa !50
-  %41 = call fastcc i32 @parse_and_tune(ptr noundef nonnull %calloc, ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %6, ptr noundef null, ptr noundef %10)
-  %.not29 = icmp eq i32 %41, 0
-  br i1 %.not29, label %42, label %.onig_free.exit_crit_edge
+  %35 = getelementptr inbounds nuw i8, ptr %calloc, i64 120
+  store i32 %.029.i, ptr %35, align 8, !tbaa !50
+  %36 = call fastcc i32 @parse_and_tune(ptr noundef nonnull %calloc, ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %6, ptr noundef null, ptr noundef %10)
+  %.not29 = icmp eq i32 %36, 0
+  br i1 %.not29, label %37, label %.onig_free.exit_crit_edge
 
 .onig_free.exit_crit_edge:                        ; preds = %23
   %.pre37 = load ptr, ptr %6, align 8, !tbaa !45
   br label %onig_free.exit
 
-42:                                               ; preds = %23
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %44 = load i32, ptr %43, align 8, !tbaa !86
-  %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %46, label %unset_addr_list_end.exit
+37:                                               ; preds = %23
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %39 = load i32, ptr %38, align 8, !tbaa !86
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %41, label %unset_addr_list_end.exit
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.val = load ptr, ptr %47, align 8, !tbaa !87
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.val = load ptr, ptr %42, align 8, !tbaa !87
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %unset_addr_list_end.exit, label %48
+  br i1 %.not.i, label %unset_addr_list_end.exit, label %43
 
-48:                                               ; preds = %46
+43:                                               ; preds = %41
   call void @free(ptr noundef nonnull %.val) #22
   br label %unset_addr_list_end.exit
 
-unset_addr_list_end.exit:                         ; preds = %48, %46, %42
-  %49 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %51 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %52 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %53 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %54 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %55 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %56 = getelementptr inbounds nuw i8, ptr %8, i64 36
+unset_addr_list_end.exit:                         ; preds = %43, %41, %37
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %8, i8 0, i64 40, i1 false)
-  %57 = load ptr, ptr %6, align 8, !tbaa !45
-  call fastcc void @detect_can_be_slow(ptr noundef %57, ptr noundef %8, i32 noundef 0, ptr noundef %9)
-  %58 = load i32, ptr %8, align 4, !tbaa !181
-  %59 = load i32, ptr %49, align 4, !tbaa !183
-  %60 = load i32, ptr %50, align 4, !tbaa !184
-  %61 = load i32, ptr %51, align 4, !tbaa !185
-  %62 = load i32, ptr %52, align 4, !tbaa !186
-  %63 = load i32, ptr %54, align 4, !tbaa !187
-  %64 = load i32, ptr %53, align 4, !tbaa !188
-  %.not30 = icmp eq i32 %64, 0
-  %.pre = load i32, ptr %55, align 4, !tbaa !189
-  br i1 %.not30, label %67, label %65
+  %52 = load ptr, ptr %6, align 8, !tbaa !45
+  call fastcc void @detect_can_be_slow(ptr noundef %52, ptr noundef %8, i32 noundef 0, ptr noundef %9)
+  %53 = load i32, ptr %8, align 4, !tbaa !181
+  %54 = load i32, ptr %44, align 4, !tbaa !183
+  %55 = load i32, ptr %45, align 4, !tbaa !184
+  %56 = load i32, ptr %46, align 4, !tbaa !185
+  %57 = load i32, ptr %47, align 4, !tbaa !186
+  %58 = load i32, ptr %49, align 4, !tbaa !187
+  %59 = load i32, ptr %48, align 4, !tbaa !188
+  %.not30 = icmp eq i32 %59, 0
+  %.pre = load i32, ptr %50, align 4, !tbaa !189
+  br i1 %.not30, label %62, label %60
 
-65:                                               ; preds = %unset_addr_list_end.exit
-  %66 = add nsw i32 %.pre, 1
-  store i32 %66, ptr %55, align 4, !tbaa !189
-  br label %67
+60:                                               ; preds = %unset_addr_list_end.exit
+  %61 = add nsw i32 %.pre, 1
+  store i32 %61, ptr %50, align 4, !tbaa !189
+  br label %62
 
-67:                                               ; preds = %65, %unset_addr_list_end.exit
-  %68 = phi i32 [ %66, %65 ], [ %.pre, %unset_addr_list_end.exit ]
-  %69 = call i32 @llvm.smax.i32(i32 %68, i32 2)
-  %70 = add i32 %58, -2
-  %71 = add i32 %70, %59
-  %72 = add i32 %71, %60
-  %73 = add i32 %72, %61
-  %74 = add i32 %73, %62
-  %75 = add i32 %74, %63
-  %.0 = add i32 %75, %69
-  %76 = load i32, ptr %56, align 4, !tbaa !190
-  %.not31 = icmp eq i32 %76, 0
-  br i1 %.not31, label %84, label %77
+62:                                               ; preds = %60, %unset_addr_list_end.exit
+  %63 = phi i32 [ %61, %60 ], [ %.pre, %unset_addr_list_end.exit ]
+  %64 = call i32 @llvm.smax.i32(i32 %63, i32 2)
+  %65 = add i32 %53, -2
+  %66 = add i32 %65, %54
+  %67 = add i32 %66, %55
+  %68 = add i32 %67, %56
+  %69 = add i32 %68, %57
+  %70 = add i32 %69, %58
+  %.0 = add i32 %70, %64
+  %71 = load i32, ptr %51, align 4, !tbaa !190
+  %.not31 = icmp eq i32 %71, 0
+  br i1 %.not31, label %79, label %72
 
-77:                                               ; preds = %67
-  %78 = icmp slt i32 %76, 65536
-  br i1 %78, label %79, label %82
+72:                                               ; preds = %62
+  %73 = icmp slt i32 %71, 65536
+  br i1 %73, label %74, label %77
 
-79:                                               ; preds = %77
-  %80 = shl i32 %76, 8
-  %81 = add nsw i32 %.0, %80
-  br label %84
+74:                                               ; preds = %72
+  %75 = shl i32 %71, 8
+  %76 = add nsw i32 %.0, %75
+  br label %79
 
-82:                                               ; preds = %77
-  %83 = add nsw i32 %.0, %76
-  br label %84
+77:                                               ; preds = %72
+  %78 = add nsw i32 %.0, %71
+  br label %79
 
-84:                                               ; preds = %67, %82, %79
-  %.1 = phi i32 [ %81, %79 ], [ %83, %82 ], [ %.0, %67 ]
-  %85 = getelementptr inbounds nuw i8, ptr %7, i64 224
-  %86 = load ptr, ptr %85, align 8, !tbaa !89
-  %.not32 = icmp eq ptr %86, null
-  br i1 %.not32, label %onig_free.exit, label %87
+79:                                               ; preds = %62, %77, %74
+  %.1 = phi i32 [ %76, %74 ], [ %78, %77 ], [ %.0, %62 ]
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 224
+  %81 = load ptr, ptr %80, align 8, !tbaa !89
+  %.not32 = icmp eq ptr %81, null
+  br i1 %.not32, label %onig_free.exit, label %82
 
-87:                                               ; preds = %84
-  call void @free(ptr noundef nonnull %86) #22
+82:                                               ; preds = %79
+  call void @free(ptr noundef nonnull %81) #22
   br label %onig_free.exit
 
-onig_free.exit:                                   ; preds = %.onig_free.exit_crit_edge, %84, %87
-  %88 = phi ptr [ %.pre37, %.onig_free.exit_crit_edge ], [ %57, %87 ], [ %57, %84 ]
-  %.020 = phi i32 [ %41, %.onig_free.exit_crit_edge ], [ %.1, %87 ], [ %.1, %84 ]
-  call void @onig_node_free(ptr noundef %88) #22
+onig_free.exit:                                   ; preds = %.onig_free.exit_crit_edge, %79, %82
+  %83 = phi ptr [ %.pre37, %.onig_free.exit_crit_edge ], [ %52, %82 ], [ %52, %79 ]
+  %.020 = phi i32 [ %36, %.onig_free.exit_crit_edge ], [ %.1, %82 ], [ %.1, %79 ]
+  call void @onig_node_free(ptr noundef %83) #22
   call void @onig_free_body(ptr noundef nonnull %calloc)
   call void @free(ptr noundef nonnull %calloc) #22
-  br label %89
+  br label %84
 
-89:                                               ; preds = %5, %onig_free.exit, %22
+84:                                               ; preds = %5, %onig_free.exit, %22
   %.019 = phi i32 [ %.0.i.ph, %22 ], [ %.020, %onig_free.exit ], [ -5, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

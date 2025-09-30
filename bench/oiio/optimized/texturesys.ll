@@ -3972,28 +3972,24 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7tex
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 21
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 22
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store float 0.000000e+00, ptr %21, align 8, !tbaa !241
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 28
-  store float 0.000000e+00, ptr %22, align 4, !tbaa !242
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store float 0.000000e+00, ptr %23, align 8, !tbaa !243
+  store float 0.000000e+00, ptr %23, align 8, !tbaa !241
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 36
-  store float 1.000000e+00, ptr %24, align 4, !tbaa !244
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  store float 1.000000e+00, ptr %25, align 8, !tbaa !245
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 44
-  store float 1.000000e+00, ptr %26, align 4, !tbaa !246
+  store float 1.000000e+00, ptr %26, align 4, !tbaa !242
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 68
   %31 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store i32 0, ptr %31, align 8, !tbaa !247
+  store i32 0, ptr %31, align 8, !tbaa !243
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 448
-  %33 = load i32, ptr %32, align 64, !tbaa !248
+  %33 = load i32, ptr %32, align 64, !tbaa !244
   store i32 %33, ptr %16, align 8, !tbaa !162
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 452
-  %35 = load i32, ptr %34, align 4, !tbaa !250
+  %35 = load i32, ptr %34, align 4, !tbaa !246
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %35, ptr %36, align 4, !tbaa !174
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 456
@@ -4001,42 +3997,42 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7tex
   %39 = load i64, ptr %37, align 8, !tbaa !94
   store i64 %39, ptr %38, align 8, !tbaa !94
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 464
-  %41 = load i32, ptr %40, align 16, !tbaa !251
+  %41 = load i32, ptr %40, align 16, !tbaa !247
   %42 = trunc i32 %41 to i8
   %43 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i8 %42, ptr %43, align 8, !tbaa !199
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 468
-  %45 = load i32, ptr %44, align 4, !tbaa !252
+  %45 = load i32, ptr %44, align 4, !tbaa !248
   %46 = trunc i32 %45 to i8
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 17
   store i8 %46, ptr %47, align 1, !tbaa !202
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 476
-  %49 = load i32, ptr %48, align 4, !tbaa !253
+  %49 = load i32, ptr %48, align 4, !tbaa !249
   %50 = trunc i32 %49 to i8
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 19
   store i8 %50, ptr %51, align 1, !tbaa !168
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  %53 = load i32, ptr %52, align 32, !tbaa !254
+  %53 = load i32, ptr %52, align 32, !tbaa !250
   %54 = trunc i32 %53 to i8
-  store i8 %54, ptr %17, align 4, !tbaa !255
+  store i8 %54, ptr %17, align 4, !tbaa !251
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 484
-  %56 = load i32, ptr %55, align 4, !tbaa !256
+  %56 = load i32, ptr %55, align 4, !tbaa !252
   %57 = trunc i32 %56 to i16
-  store i16 %57, ptr %20, align 2, !tbaa !257
+  store i16 %57, ptr %20, align 2, !tbaa !253
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  %59 = load i32, ptr %58, align 8, !tbaa !258
+  %59 = load i32, ptr %58, align 8, !tbaa !254
   %60 = icmp ne i32 %59, 0
   %61 = zext i1 %60 to i8
-  store i8 %61, ptr %19, align 1, !tbaa !259
+  store i8 %61, ptr %19, align 1, !tbaa !255
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 492
-  %63 = load float, ptr %62, align 4, !tbaa !260
+  %63 = load float, ptr %62, align 4, !tbaa !256
   store float %63, ptr %27, align 8, !tbaa !232
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  %65 = load ptr, ptr %64, align 16, !tbaa !261
-  store ptr %65, ptr %28, align 8, !tbaa !262
+  %65 = load ptr, ptr %64, align 16, !tbaa !257
+  store ptr %65, ptr %28, align 8, !tbaa !258
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 504
-  %67 = load i32, ptr %66, align 8, !tbaa !263
-  store i32 %67, ptr %30, align 4, !tbaa !264
+  %67 = load i32, ptr %66, align 8, !tbaa !259
+  store i32 %67, ptr %30, align 4, !tbaa !260
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.thread, label %68
 
@@ -4089,16 +4085,16 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7tex
 .lr.ph108.us.us:                                  ; preds = %.split.us.split.us
   %90 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv141
   %91 = load float, ptr %90, align 4, !tbaa !98
-  store float %91, ptr %21, align 8, !tbaa !241
+  store float %91, ptr %21, align 8, !tbaa !261
   %92 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv141
   %93 = load float, ptr %92, align 4, !tbaa !98
-  store float %93, ptr %22, align 4, !tbaa !242
+  store float %93, ptr %22, align 4, !tbaa !262
   %94 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv141
   %95 = load float, ptr %94, align 4, !tbaa !98
-  store float %95, ptr %24, align 4, !tbaa !244
+  store float %95, ptr %24, align 4, !tbaa !263
   %96 = getelementptr inbounds nuw float, ptr %78, i64 %indvars.iv141
   %97 = load float, ptr %96, align 4, !tbaa !98
-  store float %97, ptr %25, align 8, !tbaa !245
+  store float %97, ptr %25, align 8, !tbaa !264
   %98 = getelementptr inbounds nuw float, ptr %79, i64 %indvars.iv141
   %99 = load float, ptr %98, align 4, !tbaa !98
   store float %99, ptr %29, align 8, !tbaa !265
@@ -4153,16 +4149,16 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7tex
 .loopexit.us:                                     ; preds = %.split.us.split
   %121 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv133
   %122 = load float, ptr %121, align 4, !tbaa !98
-  store float %122, ptr %21, align 8, !tbaa !241
+  store float %122, ptr %21, align 8, !tbaa !261
   %123 = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv133
   %124 = load float, ptr %123, align 4, !tbaa !98
-  store float %124, ptr %22, align 4, !tbaa !242
+  store float %124, ptr %22, align 4, !tbaa !262
   %125 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv133
   %126 = load float, ptr %125, align 4, !tbaa !98
-  store float %126, ptr %24, align 4, !tbaa !244
+  store float %126, ptr %24, align 4, !tbaa !263
   %127 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv133
   %128 = load float, ptr %127, align 4, !tbaa !98
-  store float %128, ptr %25, align 8, !tbaa !245
+  store float %128, ptr %25, align 8, !tbaa !264
   %129 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv133
   %130 = load float, ptr %129, align 4, !tbaa !98
   store float %130, ptr %29, align 8, !tbaa !265
@@ -4219,16 +4215,16 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7tex
 .lr.ph.us:                                        ; preds = %.split.split.us
   %157 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv130
   %158 = load float, ptr %157, align 4, !tbaa !98
-  store float %158, ptr %21, align 8, !tbaa !241
+  store float %158, ptr %21, align 8, !tbaa !261
   %159 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv130
   %160 = load float, ptr %159, align 4, !tbaa !98
-  store float %160, ptr %22, align 4, !tbaa !242
+  store float %160, ptr %22, align 4, !tbaa !262
   %161 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv130
   %162 = load float, ptr %161, align 4, !tbaa !98
-  store float %162, ptr %24, align 4, !tbaa !244
+  store float %162, ptr %24, align 4, !tbaa !263
   %163 = getelementptr inbounds nuw float, ptr %78, i64 %indvars.iv130
   %164 = load float, ptr %163, align 4, !tbaa !98
-  store float %164, ptr %25, align 8, !tbaa !245
+  store float %164, ptr %25, align 8, !tbaa !264
   %165 = getelementptr inbounds nuw float, ptr %79, i64 %indvars.iv130
   %166 = load float, ptr %165, align 4, !tbaa !98
   store float %166, ptr %29, align 8, !tbaa !265
@@ -4297,16 +4293,16 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7tex
 .loopexit105:                                     ; preds = %.split.split
   %198 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   %199 = load float, ptr %198, align 4, !tbaa !98
-  store float %199, ptr %21, align 8, !tbaa !241
+  store float %199, ptr %21, align 8, !tbaa !261
   %200 = getelementptr inbounds nuw float, ptr %155, i64 %indvars.iv
   %201 = load float, ptr %200, align 4, !tbaa !98
-  store float %201, ptr %22, align 4, !tbaa !242
+  store float %201, ptr %22, align 4, !tbaa !262
   %202 = getelementptr inbounds nuw float, ptr %154, i64 %indvars.iv
   %203 = load float, ptr %202, align 4, !tbaa !98
-  store float %203, ptr %24, align 4, !tbaa !244
+  store float %203, ptr %24, align 4, !tbaa !263
   %204 = getelementptr inbounds nuw float, ptr %153, i64 %indvars.iv
   %205 = load float, ptr %204, align 4, !tbaa !98
-  store float %205, ptr %25, align 8, !tbaa !245
+  store float %205, ptr %25, align 8, !tbaa !264
   %206 = getelementptr inbounds nuw float, ptr %152, i64 %indvars.iv
   %207 = load float, ptr %206, align 4, !tbaa !98
   store float %207, ptr %29, align 8, !tbaa !265
@@ -4943,7 +4939,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl10ge
   %spec.select166 = select i1 %84, i32 %11, i32 0
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 68
-  %87 = load i32, ptr %86, align 4, !tbaa !264
+  %87 = load i32, ptr %86, align 4, !tbaa !260
   store i32 0, ptr %22, align 8, !tbaa !274
   %88 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 0, ptr %88, align 4, !tbaa !276
@@ -10145,7 +10141,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl15mi
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = icmp sgt i32 %2, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !262
+  %11 = load ptr, ptr %10, align 8, !tbaa !258
   %.not27 = icmp eq ptr %11, null
   br i1 %9, label %.lr.ph, label %._crit_edge
 
@@ -10474,9 +10470,9 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl14te
   %43 = icmp ne i32 %42, 0
   %44 = select i1 %36, i1 %43, i1 false
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %46 = load float, ptr %45, align 4, !tbaa !244
+  %46 = load float, ptr %45, align 4, !tbaa !263
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %48 = load float, ptr %47, align 8, !tbaa !245
+  %48 = load float, ptr %47, align 8, !tbaa !264
   %49 = fmul float %8, %46
   %50 = fmul float %9, %48
   %51 = fmul float %10, %46
@@ -10594,9 +10590,9 @@ _ZN11OpenImageIO6v3_1_012ellipse_axesEffffRfS1_S1_Pf.exit: ; preds = %_ZN11OpenI
   %130 = tail call noundef float @llvm.copysign.f32(float %.1.i.i, float %102)
   %131 = tail call float @llvm.fmuladd.f32(float %130, float 5.000000e-01, float 0x3FF921FB60000000)
   %132 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %133 = load float, ptr %132, align 8, !tbaa !241
+  %133 = load float, ptr %132, align 8, !tbaa !261
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %135 = load float, ptr %134, align 4, !tbaa !242
+  %135 = load float, ptr %134, align 4, !tbaa !262
   %136 = fadd float %133, %135
   %137 = fcmp une float %136, 0.000000e+00
   br i1 %137, label %138, label %_ZN11OpenImageIO6v3_1_011adjust_blurERfS1_S1_ff.exit
@@ -10678,14 +10674,14 @@ _ZN11OpenImageIO6v3_1_011adjust_blurERfS1_S1_ff.exit: ; preds = %_ZN11OpenImageI
   %195 = fcmp ogt float %.0.i.i204, 1.000000e+06
   %.1.i.i205 = select i1 %195, float 1.000000e+06, float %.0.i.i204
   %196 = getelementptr inbounds nuw i8, ptr %3, i64 22
-  %197 = load i16, ptr %196, align 2, !tbaa !257
+  %197 = load i16, ptr %196, align 2, !tbaa !253
   %198 = uitofp i16 %197 to float
   %199 = fcmp ogt float %.1.i.i205, %198
   br i1 %199, label %200, label %_ZN11OpenImageIO6v3_1_017TextureSystemImpl18anisotropic_aspectERfS2_RNS0_13TextureOpt_v2ES2_.exit
 
 200:                                              ; preds = %_ZN11OpenImageIO6v3_1_011adjust_blurERfS1_S1_ff.exit
   %201 = getelementptr inbounds nuw i8, ptr %3, i64 21
-  %202 = load i8, ptr %201, align 1, !tbaa !259, !range !61, !noundef !62
+  %202 = load i8, ptr %201, align 1, !tbaa !255, !range !61, !noundef !62
   %203 = trunc nuw i8 %202 to i1
   br i1 %203, label %204, label %208
 
@@ -10933,7 +10929,7 @@ _ZN11OpenImageIO6v3_1_017compute_miplevelsERNS0_14ImageCacheFileERNS0_13TextureO
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %323 = load i32, ptr %indvars.iv327.sroa.phi, align 4, !tbaa !48
-  %324 = load i8, ptr %303, align 4, !tbaa !255
+  %324 = load i8, ptr %303, align 4, !tbaa !251
   switch i8 %324, label %374 [
     i8 0, label %325
     i8 1, label %331
@@ -11117,7 +11113,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl20te
 
 19:                                               ; preds = %18, %15
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %21 = load i8, ptr %20, align 4, !tbaa !255
+  %21 = load i8, ptr %20, align 4, !tbaa !251
   %22 = zext i8 %21 to i64
   %23 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN11OpenImageIO6v3_1_017TextureSystemImpl31texture_lookup_trilinear_mipmapERNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS0_13TextureOpt_v2EiiffffffPfS8_S8_E16sample_functions, i64 %22
   %.unpack = load i64, ptr %23, align 16, !tbaa !33
@@ -11155,7 +11151,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl20te
   %44 = load i64, ptr %43, align 8, !tbaa !320
   %45 = add nsw i64 %44, 1
   store i64 %45, ptr %43, align 8, !tbaa !320
-  %46 = load i8, ptr %20, align 4, !tbaa !255
+  %46 = load i8, ptr %20, align 4, !tbaa !251
   %47 = icmp ult i8 %46, 4
   br i1 %47, label %switch.lookup, label %52
 
@@ -11204,9 +11200,9 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl31te
   %30 = icmp ne i32 %29, 0
   %31 = select i1 %26, i1 %30, i1 false
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %33 = load float, ptr %32, align 4, !tbaa !244
+  %33 = load float, ptr %32, align 4, !tbaa !263
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %35 = load float, ptr %34, align 8, !tbaa !245
+  %35 = load float, ptr %34, align 8, !tbaa !264
   %36 = fmul float %8, %33
   %37 = fmul float %9, %35
   %38 = fmul float %10, %33
@@ -11259,7 +11255,7 @@ _ZN11OpenImageIO6v3_1_012adjust_widthERfS1_S1_S1_ff.exit: ; preds = %46, %47, %5
   %65 = fcmp olt float %63, %64
   %.sroa.speculated = select i1 %65, float %64, float %63
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 21
-  %67 = load i8, ptr %66, align 1, !tbaa !259, !range !61, !noundef !62
+  %67 = load i8, ptr %66, align 1, !tbaa !255, !range !61, !noundef !62
   %68 = trunc nuw i8 %67 to i1
   %69 = fcmp olt float %.sroa.speculated92, %.sroa.speculated
   %70 = fcmp olt float %.sroa.speculated, %.sroa.speculated92
@@ -11380,7 +11376,7 @@ _ZN11OpenImageIO6v3_1_017compute_miplevelsERNS0_14ImageCacheFileERNS0_13TextureO
   %.sroa.0.0 = phi float [ 1.000000e+00, %.loopexit.i.thread ], [ 1.000000e+00, %121 ], [ %103, %112 ], [ 1.000000e+00, %110 ], [ 1.000000e+00, %111 ]
   %.sroa.10.0 = phi float [ 0.000000e+00, %.loopexit.i.thread ], [ 0.000000e+00, %121 ], [ %.1.i.i, %112 ], [ 0.000000e+00, %110 ], [ 0.000000e+00, %111 ]
   %123 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %124 = load i8, ptr %123, align 4, !tbaa !255
+  %124 = load i8, ptr %123, align 4, !tbaa !251
   %125 = zext i8 %124 to i64
   %126 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN11OpenImageIO6v3_1_017TextureSystemImpl31texture_lookup_trilinear_mipmapERNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS0_13TextureOpt_v2EiiffffffPfS8_S8_E16sample_functions, i64 %125
   %.unpack = load i64, ptr %126, align 16, !tbaa !33
@@ -11513,7 +11509,7 @@ _ZN11OpenImageIO6v3_1_017compute_miplevelsERNS0_14ImageCacheFileERNS0_13TextureO
   %178 = load i64, ptr %177, align 8, !tbaa !320
   %179 = add nsw i64 %178, %173
   store i64 %179, ptr %177, align 8, !tbaa !320
-  %180 = load i8, ptr %123, align 4, !tbaa !255
+  %180 = load i8, ptr %123, align 4, !tbaa !251
   %181 = icmp ult i8 %180, 4
   br i1 %181, label %switch.lookup, label %186
 
@@ -11652,7 +11648,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl14sa
   %spec.select136 = select i1 %49, i32 %44, i32 0
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 68
-  %52 = load i32, ptr %51, align 4, !tbaa !264
+  %52 = load i32, ptr %51, align 4, !tbaa !260
   store i32 0, ptr %17, align 8, !tbaa !274
   %53 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 0, ptr %53, align 4, !tbaa !276
@@ -12198,7 +12194,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl15sa
   %129 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 60
   %130 = load i32, ptr %129, align 4, !tbaa !180
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %132 = load i32, ptr %131, align 8, !tbaa !247
+  %132 = load i32, ptr %131, align 8, !tbaa !243
   %133 = icmp eq i32 %132, 1
   %134 = getelementptr inbounds nuw i8, ptr %62, i64 197
   %135 = load i8, ptr %134, align 1, !range !61
@@ -12213,7 +12209,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl15sa
   %.0263 = select i1 %or.cond, i32 0, i32 %128
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %142 = getelementptr inbounds nuw i8, ptr %7, i64 68
-  %143 = load i32, ptr %142, align 4, !tbaa !264
+  %143 = load i32, ptr %142, align 4, !tbaa !260
   store i32 0, ptr %39, align 8, !tbaa !274
   %144 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 0, ptr %144, align 4, !tbaa !276
@@ -14025,7 +14021,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl14sa
   %119 = zext i32 %118 to i64
   %120 = load i32, ptr %7, align 8, !tbaa !162
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %122 = load i32, ptr %121, align 8, !tbaa !247
+  %122 = load i32, ptr %121, align 8, !tbaa !243
   %123 = icmp eq i32 %122, 1
   %124 = getelementptr inbounds nuw i8, ptr %64, i64 197
   %125 = load i8, ptr %124, align 1, !range !61
@@ -14041,7 +14037,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl14sa
   %.0318 = select i1 %132, i32 %120, i32 0
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %134 = getelementptr inbounds nuw i8, ptr %7, i64 68
-  %135 = load i32, ptr %134, align 4, !tbaa !264
+  %135 = load i32, ptr %134, align 4, !tbaa !260
   store i32 0, ptr %34, align 8, !tbaa !274
   %136 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 0, ptr %136, align 4, !tbaa !276
@@ -49302,30 +49298,30 @@ attributes #48 = { nounwind willreturn memory(read) }
 !238 = !{!206, !21, i64 84}
 !239 = !{!206, !21, i64 88}
 !240 = !{!206, !21, i64 92}
-!241 = !{!163, !21, i64 24}
-!242 = !{!163, !21, i64 28}
-!243 = !{!163, !21, i64 32}
-!244 = !{!163, !21, i64 36}
-!245 = !{!163, !21, i64 40}
-!246 = !{!163, !21, i64 44}
-!247 = !{!163, !46, i64 72}
-!248 = !{!249, !46, i64 448}
-!249 = !{!"_ZTSN11OpenImageIO6v3_1_018TextureOptBatch_v1E", !7, i64 0, !7, i64 64, !7, i64 128, !7, i64 192, !7, i64 256, !7, i64 320, !7, i64 384, !46, i64 448, !46, i64 452, !112, i64 456, !46, i64 464, !46, i64 468, !46, i64 472, !46, i64 476, !46, i64 480, !46, i64 484, !46, i64 488, !21, i64 492, !166, i64 496, !46, i64 504, !46, i64 508}
-!250 = !{!249, !46, i64 452}
-!251 = !{!249, !46, i64 464}
-!252 = !{!249, !46, i64 468}
-!253 = !{!249, !46, i64 476}
-!254 = !{!249, !46, i64 480}
-!255 = !{!163, !165, i64 20}
-!256 = !{!249, !46, i64 484}
-!257 = !{!163, !6, i64 22}
-!258 = !{!249, !46, i64 488}
-!259 = !{!163, !9, i64 21}
-!260 = !{!249, !21, i64 492}
-!261 = !{!249, !166, i64 496}
-!262 = !{!163, !166, i64 56}
-!263 = !{!249, !46, i64 504}
-!264 = !{!163, !46, i64 68}
+!241 = !{!163, !21, i64 32}
+!242 = !{!163, !21, i64 44}
+!243 = !{!163, !46, i64 72}
+!244 = !{!245, !46, i64 448}
+!245 = !{!"_ZTSN11OpenImageIO6v3_1_018TextureOptBatch_v1E", !7, i64 0, !7, i64 64, !7, i64 128, !7, i64 192, !7, i64 256, !7, i64 320, !7, i64 384, !46, i64 448, !46, i64 452, !112, i64 456, !46, i64 464, !46, i64 468, !46, i64 472, !46, i64 476, !46, i64 480, !46, i64 484, !46, i64 488, !21, i64 492, !166, i64 496, !46, i64 504, !46, i64 508}
+!246 = !{!245, !46, i64 452}
+!247 = !{!245, !46, i64 464}
+!248 = !{!245, !46, i64 468}
+!249 = !{!245, !46, i64 476}
+!250 = !{!245, !46, i64 480}
+!251 = !{!163, !165, i64 20}
+!252 = !{!245, !46, i64 484}
+!253 = !{!163, !6, i64 22}
+!254 = !{!245, !46, i64 488}
+!255 = !{!163, !9, i64 21}
+!256 = !{!245, !21, i64 492}
+!257 = !{!245, !166, i64 496}
+!258 = !{!163, !166, i64 56}
+!259 = !{!245, !46, i64 504}
+!260 = !{!163, !46, i64 68}
+!261 = !{!163, !21, i64 24}
+!262 = !{!163, !21, i64 28}
+!263 = !{!163, !21, i64 36}
+!264 = !{!163, !21, i64 40}
 !265 = !{!163, !21, i64 64}
 !266 = distinct !{!266, !35}
 !267 = distinct !{!267, !35}

@@ -2933,7 +2933,6 @@ Vec_PtrPush.exit93:                               ; preds = %.Vec_PtrGrow.exit11
   %165 = phi i32 [ %143, %.Vec_PtrGrow.exit11_crit_edge.i87 ], [ %155, %163 ], [ 16, %Vec_PtrGrow.exit.i92 ]
   %166 = phi ptr [ %.pre.i89, %.Vec_PtrGrow.exit11_crit_edge.i87 ], [ %164, %163 ], [ %153, %Vec_PtrGrow.exit.i92 ]
   %167 = add nsw i32 %142, 1
-  store i32 %167, ptr %5, align 4, !tbaa !27
   %168 = sext i32 %142 to i64
   %169 = getelementptr inbounds ptr, ptr %166, i64 %168
   store ptr %130, ptr %169, align 8, !tbaa !30

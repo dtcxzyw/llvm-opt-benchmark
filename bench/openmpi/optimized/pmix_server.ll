@@ -796,7 +796,6 @@ pmix_obj_run_constructors.exit173:                ; preds = %.lr.ph.i170, %60
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 528
   store ptr @mytopology, ptr %79, align 8, !tbaa !64
   %80 = call i32 @PMIx_Info_list_insert(ptr noundef %66, ptr noundef nonnull %2) #17
-  store i32 %80, ptr %4, align 4, !tbaa !51
   %.not116 = icmp eq i32 %80, 0
   br i1 %.not116, label %83, label %81
 
@@ -859,7 +858,6 @@ pmix_obj_run_constructors.exit173:                ; preds = %.lr.ph.i170, %60
 
 106:                                              ; preds = %103
   %107 = call i32 @PMIx_Info_list_add(ptr noundef %66, ptr noundef nonnull @.str.25, ptr noundef null, i16 noundef zeroext 1) #17
-  store i32 %107, ptr %4, align 4, !tbaa !51
   %.not123 = icmp eq i32 %107, 0
   br i1 %.not123, label %110, label %108
 
@@ -909,7 +907,6 @@ pmix_obj_run_constructors.exit173:                ; preds = %.lr.ph.i170, %60
 
 129:                                              ; preds = %124
   %130 = call i32 @PMIx_Info_list_add(ptr noundef %66, ptr noundef nonnull @.str.29, ptr noundef null, i16 noundef zeroext 1) #17
-  store i32 %130, ptr %4, align 4, !tbaa !51
   %.not126 = icmp eq i32 %130, 0
   br i1 %.not126, label %133, label %131
 
@@ -987,7 +984,6 @@ pmix_obj_run_constructors.exit173:                ; preds = %.lr.ph.i170, %60
 159:                                              ; preds = %157
   %160 = call i32 @PMIx_Info_list_add(ptr noundef %66, ptr noundef nonnull @.str.34, ptr noundef nonnull %158, i16 noundef zeroext 3) #17
   %161 = call i32 @PMIx_Info_list_add(ptr noundef %66, ptr noundef nonnull @.str.35, ptr noundef nonnull @prte_bind_progress_thread_reqd, i16 noundef zeroext 1) #17
-  store i32 %161, ptr %4, align 4, !tbaa !51
   br label %162
 
 162:                                              ; preds = %159, %157
@@ -1067,7 +1063,6 @@ pmix_obj_run_constructors.exit173:                ; preds = %.lr.ph.i170, %60
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %195 = load i64, ptr %194, align 8, !tbaa !86
   %196 = call i32 @PMIx_server_init(ptr noundef nonnull @pmix_server, ptr noundef %193, i64 noundef %195) #17
-  store i32 %196, ptr %4, align 4, !tbaa !51
   %.not142 = icmp eq i32 %196, 0
   call void @PMIx_Info_free(ptr noundef %193, i64 noundef %195) #17
   br i1 %.not142, label %199, label %197

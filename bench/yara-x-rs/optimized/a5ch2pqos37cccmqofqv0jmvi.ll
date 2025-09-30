@@ -95247,15 +95247,14 @@ _ZN3nom8internal6Parser5parse17hf6bc684445267845E.exit.thread.i: ; preds = %45, 
   %.sroa.032.0.i.sink.i.i.sink.i.i = phi i64 [ %.sroa.032.0.i.i.i.i.i123, %66 ], [ 0, %"_ZN3nom4bits8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17hdf751652d11a16c5E.exit.i.i.i.i" ], [ 0, %.loopexit77 ]
   %.sink.i.i = phi i32 [ 24, %66 ], [ 24, %"_ZN3nom4bits8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17hdf751652d11a16c5E.exit.i.i.i.i" ], [ 26, %.loopexit77 ]
   %.sink424.i.i = ptrtoint ptr %.sink424.i.i.in to i64
-  store i64 1, ptr %23, align 8, !alias.scope !4843, !noalias !4846
   %.sroa.251.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i64 %.sink424.i.i, ptr %.sroa.251.0..sroa_idx.i.i.i.i, align 8, !alias.scope !4815, !noalias !4846
+  store i64 %.sink424.i.i, ptr %.sroa.251.0..sroa_idx.i.i.i.i, align 8, !alias.scope !4815, !noalias !4843
   %.sroa.251.i.i.sroa.4.0..sroa.251.0..sroa_idx.i.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i64 %.sink.i.i.sink.i.i, ptr %.sroa.251.i.i.sroa.4.0..sroa.251.0..sroa_idx.i.i.sroa_idx.i.i, align 8, !alias.scope !4815, !noalias !4846
+  store i64 %.sink.i.i.sink.i.i, ptr %.sroa.251.i.i.sroa.4.0..sroa.251.0..sroa_idx.i.i.sroa_idx.i.i, align 8, !alias.scope !4815, !noalias !4843
   %.sroa.251.i.i.sroa.5.0..sroa.251.0..sroa_idx.i.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store i64 %.sroa.032.0.i.sink.i.i.sink.i.i, ptr %.sroa.251.i.i.sroa.5.0..sroa.251.0..sroa_idx.i.i.sroa_idx.i.i, align 8, !alias.scope !4815, !noalias !4846
+  store i64 %.sroa.032.0.i.sink.i.i.sink.i.i, ptr %.sroa.251.i.i.sroa.5.0..sroa.251.0..sroa_idx.i.i.sroa_idx.i.i, align 8, !alias.scope !4815, !noalias !4843
   %.sroa.352.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store i32 %.sink.i.i, ptr %.sroa.352.0..sroa_idx.i.i.i.i, align 8, !alias.scope !4843, !noalias !4846
+  store i32 %.sink.i.i, ptr %.sroa.352.0..sroa_idx.i.i.i.i, align 8, !alias.scope !4849, !noalias !4843
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.251.0..sroa_idx.i.i.i.i, i64 32, i1 false), !noalias !4851
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !4852
@@ -95721,7 +95720,6 @@ _ZN3nom8internal6Parser5parse17h0b1891475ed17b35E.exit.thread.i: ; preds = %45, 
   %.sroa.7.sroa.7251.0.ph.i.i = phi i64 [ %36, %66 ], [ %2, %"_ZN3nom4bits8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17hdf751652d11a16c5E.exit.i.i.i.i" ], [ %2, %.loopexit86 ]
   %.sroa.7.sroa.8255.0.ph.i.i = phi i64 [ %.sroa.032.0.i.i.i.i.i132, %66 ], [ 0, %"_ZN3nom4bits8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17hdf751652d11a16c5E.exit.i.i.i.i" ], [ 0, %.loopexit86 ]
   %.sroa.7.sroa.0247.0.ph.i.i = ptrtoint ptr %.sroa.7.sroa.0247.0.ph.in.i.i to i64
-  store i64 1, ptr %23, align 8, !alias.scope !4935, !noalias !4960
   %.sroa.4218.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %.sroa.7.sroa.0247.0.ph.i.i, ptr %.sroa.4218.0..sroa_idx.i.i, align 8, !alias.scope !4935, !noalias !4960
   %.sroa.4218.sroa.4.0..sroa.4218.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -114978,15 +114976,15 @@ attributes #29 = { cold noreturn nounwind }
 !4840 = distinct !{!4840, !"_ZN52_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17hb9e19445fa366474E"}
 !4841 = distinct !{!4841, !4840, !"_ZN52_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17hb9e19445fa366474E: argument 1"}
 !4842 = !{!4836, !4838, !4839, !4841, !4816, !4832, !4833, !4811, !4813}
-!4843 = !{!4844, !4819, !4816}
-!4844 = distinct !{!4844, !4845, !"_ZN82_$LT$nom..internal..And$LT$F$C$G$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h71bb968f19678005E: argument 0"}
+!4843 = !{!4844, !4846, !4847, !4848, !4832, !4833, !4811, !4813, !4814}
+!4844 = distinct !{!4844, !4845, !"_ZN82_$LT$nom..internal..And$LT$F$C$G$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h71bb968f19678005E: argument 1"}
 !4845 = distinct !{!4845, !"_ZN82_$LT$nom..internal..And$LT$F$C$G$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h71bb968f19678005E"}
-!4846 = !{!4847, !4848, !4849, !4850, !4832, !4833, !4811, !4813, !4814}
-!4847 = distinct !{!4847, !4845, !"_ZN82_$LT$nom..internal..And$LT$F$C$G$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h71bb968f19678005E: argument 1"}
-!4848 = distinct !{!4848, !4845, !"_ZN82_$LT$nom..internal..And$LT$F$C$G$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h71bb968f19678005E: argument 2"}
-!4849 = distinct !{!4849, !4820, !"_ZN99_$LT$nom..branch..Choice$LT$$LP$A$C$B$C$C$RP$$GT$$u20$as$u20$nom..internal..Parser$LT$Input$GT$$GT$7process17hb91e7033f174bc2aE: argument 1"}
-!4850 = distinct !{!4850, !4820, !"_ZN99_$LT$nom..branch..Choice$LT$$LP$A$C$B$C$C$RP$$GT$$u20$as$u20$nom..internal..Parser$LT$Input$GT$$GT$7process17hb91e7033f174bc2aE: argument 2"}
-!4851 = !{!4849, !4850, !4832, !4833, !4811, !4813, !4814}
+!4846 = distinct !{!4846, !4845, !"_ZN82_$LT$nom..internal..And$LT$F$C$G$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h71bb968f19678005E: argument 2"}
+!4847 = distinct !{!4847, !4820, !"_ZN99_$LT$nom..branch..Choice$LT$$LP$A$C$B$C$C$RP$$GT$$u20$as$u20$nom..internal..Parser$LT$Input$GT$$GT$7process17hb91e7033f174bc2aE: argument 1"}
+!4848 = distinct !{!4848, !4820, !"_ZN99_$LT$nom..branch..Choice$LT$$LP$A$C$B$C$C$RP$$GT$$u20$as$u20$nom..internal..Parser$LT$Input$GT$$GT$7process17hb91e7033f174bc2aE: argument 2"}
+!4849 = !{!4850, !4819, !4816}
+!4850 = distinct !{!4850, !4845, !"_ZN82_$LT$nom..internal..And$LT$F$C$G$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h71bb968f19678005E: argument 0"}
+!4851 = !{!4847, !4848, !4832, !4833, !4811, !4813, !4814}
 !4852 = !{!4853, !4855, !4856, !4858, !4859, !4860, !4862, !4816, !4832, !4833, !4811, !4813, !4814}
 !4853 = distinct !{!4853, !4854, !"_ZN3nom4bits8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17hdf751652d11a16c5E: argument 0"}
 !4854 = distinct !{!4854, !"_ZN3nom4bits8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17hdf751652d11a16c5E"}
@@ -115007,7 +115005,7 @@ attributes #29 = { cold noreturn nounwind }
 !4869 = distinct !{!4869, !"_ZN52_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17hb9e19445fa366474E"}
 !4870 = distinct !{!4870, !4869, !"_ZN52_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17hb9e19445fa366474E: argument 1"}
 !4871 = !{!4865, !4867, !4868, !4870, !4816, !4832, !4833, !4811, !4813}
-!4872 = !{!4873, !4875, !4849, !4850, !4832, !4833, !4811, !4813, !4814}
+!4872 = !{!4873, !4875, !4847, !4848, !4832, !4833, !4811, !4813, !4814}
 !4873 = distinct !{!4873, !4874, !"_ZN82_$LT$nom..internal..And$LT$F$C$G$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h71bb968f19678005E: argument 1"}
 !4874 = distinct !{!4874, !"_ZN82_$LT$nom..internal..And$LT$F$C$G$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h71bb968f19678005E"}
 !4875 = distinct !{!4875, !4874, !"_ZN82_$LT$nom..internal..And$LT$F$C$G$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h71bb968f19678005E: argument 2"}
@@ -115036,23 +115034,23 @@ attributes #29 = { cold noreturn nounwind }
 !4898 = !{!4899, !4819, !4816}
 !4899 = distinct !{!4899, !4900, !"_ZN82_$LT$nom..internal..And$LT$F$C$G$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h71bb968f19678005E: argument 0"}
 !4900 = distinct !{!4900, !"_ZN82_$LT$nom..internal..And$LT$F$C$G$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h71bb968f19678005E"}
-!4901 = !{!4902, !4903, !4849, !4850, !4832, !4833, !4811, !4813, !4814}
+!4901 = !{!4902, !4903, !4847, !4848, !4832, !4833, !4811, !4813, !4814}
 !4902 = distinct !{!4902, !4900, !"_ZN82_$LT$nom..internal..And$LT$F$C$G$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h71bb968f19678005E: argument 1"}
 !4903 = distinct !{!4903, !4900, !"_ZN82_$LT$nom..internal..And$LT$F$C$G$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h71bb968f19678005E: argument 2"}
-!4904 = !{!4905, !4907, !4908, !4819, !4849, !4850, !4816, !4832, !4833, !4811, !4813, !4814}
+!4904 = !{!4905, !4907, !4908, !4819, !4847, !4848, !4816, !4832, !4833, !4811, !4813, !4814}
 !4905 = distinct !{!4905, !4906, !"_ZN59_$LT$nom..internal..Emit$u20$as$u20$nom..internal..Mode$GT$7combine17h3ced2a066532595dE: argument 0"}
 !4906 = distinct !{!4906, !"_ZN59_$LT$nom..internal..Emit$u20$as$u20$nom..internal..Mode$GT$7combine17h3ced2a066532595dE"}
 !4907 = distinct !{!4907, !4906, !"_ZN59_$LT$nom..internal..Emit$u20$as$u20$nom..internal..Mode$GT$7combine17h3ced2a066532595dE: argument 1"}
 !4908 = distinct !{!4908, !4906, !"_ZN59_$LT$nom..internal..Emit$u20$as$u20$nom..internal..Mode$GT$7combine17h3ced2a066532595dE: argument 2"}
-!4909 = !{!4819, !4849, !4850, !4816, !4832, !4833, !4811, !4813, !4814}
-!4910 = !{!4911, !4913, !4914, !4819, !4849, !4850, !4816, !4832, !4833, !4811, !4813, !4814}
+!4909 = !{!4819, !4847, !4848, !4816, !4832, !4833, !4811, !4813, !4814}
+!4910 = !{!4911, !4913, !4914, !4819, !4847, !4848, !4816, !4832, !4833, !4811, !4813, !4814}
 !4911 = distinct !{!4911, !4912, !"_ZN59_$LT$nom..internal..Emit$u20$as$u20$nom..internal..Mode$GT$7combine17h909053784e24db6aE: argument 0"}
 !4912 = distinct !{!4912, !"_ZN59_$LT$nom..internal..Emit$u20$as$u20$nom..internal..Mode$GT$7combine17h909053784e24db6aE"}
 !4913 = distinct !{!4913, !4912, !"_ZN59_$LT$nom..internal..Emit$u20$as$u20$nom..internal..Mode$GT$7combine17h909053784e24db6aE: argument 1"}
 !4914 = distinct !{!4914, !4912, !"_ZN59_$LT$nom..internal..Emit$u20$as$u20$nom..internal..Mode$GT$7combine17h909053784e24db6aE: argument 2"}
 !4915 = !{!4819, !4816, !4832, !4833, !4811, !4813}
 !4916 = !{!4832, !4833, !4811, !4813, !4814}
-!4917 = !{!4918, !4920, !4921, !4819, !4849, !4850, !4816, !4832, !4833, !4811, !4813, !4814}
+!4917 = !{!4918, !4920, !4921, !4819, !4847, !4848, !4816, !4832, !4833, !4811, !4813, !4814}
 !4918 = distinct !{!4918, !4919, !"_ZN59_$LT$nom..internal..Emit$u20$as$u20$nom..internal..Mode$GT$3map17h592dff2c77eb7554E: argument 0"}
 !4919 = distinct !{!4919, !"_ZN59_$LT$nom..internal..Emit$u20$as$u20$nom..internal..Mode$GT$3map17h592dff2c77eb7554E"}
 !4920 = distinct !{!4920, !4919, !"_ZN59_$LT$nom..internal..Emit$u20$as$u20$nom..internal..Mode$GT$3map17h592dff2c77eb7554E: argument 1"}

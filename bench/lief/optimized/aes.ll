@@ -3000,38 +3000,33 @@ mbedtls_aes_crypt_ecb.exit53.i:                   ; preds = %129
 .thread415:                                       ; preds = %141
   %145 = add nuw nsw i32 %.2159333, 1
   %exitcond366.not417 = icmp eq i32 %145, 6
-  br i1 %exitcond366.not417, label %.thread419, label %.thread411.backedge
-
-.thread419:                                       ; preds = %.thread415
-  store i64 %storemerge, ptr %7, align 8
-  br label %.backedge440.preheader
+  br i1 %exitcond366.not417, label %.thread419.preheader, label %.thread411.backedge
 
 146:                                              ; preds = %142
-  store i64 0, ptr %7, align 8
-  br i1 %13, label %147, label %.backedge440.preheader
+  br i1 %13, label %147, label %.thread419.preheader
 
 147:                                              ; preds = %.thread424, %146
   %putchar200 = call i32 @putchar(i32 10)
-  br label %.backedge440.preheader
+  br label %.thread419.preheader
 
-.backedge440.preheader:                           ; preds = %.thread419, %147, %146
-  br label %.backedge440
+.thread419.preheader:                             ; preds = %.thread415, %147, %146
+  br label %.thread419
 
-.backedge440:                                     ; preds = %.backedge440.backedge, %.backedge440.preheader
-  %.3160338 = phi i32 [ 0, %.backedge440.preheader ], [ %.3160338.be, %.backedge440.backedge ]
+.thread419:                                       ; preds = %.thread419.backedge, %.thread419.preheader
+  %.3160338 = phi i32 [ 0, %.thread419.preheader ], [ %.3160338.be, %.thread419.backedge ]
   %148 = lshr i32 %.3160338, 1
   %149 = shl nuw nsw i32 %148, 6
   %150 = add nuw nsw i32 %149, 128
   %151 = and i32 %.3160338, 1
   br i1 %13, label %152, label %156
 
-152:                                              ; preds = %.backedge440
+152:                                              ; preds = %.thread419
   %153 = icmp eq i32 %151, 0
   %154 = select i1 %153, ptr @.str.4, ptr @.str.5
   %155 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %150, ptr noundef nonnull %154)
   br label %156
 
-156:                                              ; preds = %152, %.backedge440
+156:                                              ; preds = %152, %.thread419
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) @aes_test_ofb_iv, i64 16, i1 false)
   %157 = zext nneg i32 %148 to i64
   %158 = getelementptr inbounds nuw [32 x i8], ptr @aes_test_ofb_key, i64 %157
@@ -3112,22 +3107,22 @@ mbedtls_aes_crypt_ecb.exit.i260:                  ; preds = %173
   %puts219 = call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
   %188 = add nuw nsw i32 %.3160338, 1
   %exitcond367.not = icmp eq i32 %188, 6
-  br i1 %exitcond367.not, label %191, label %.backedge440.backedge
+  br i1 %exitcond367.not, label %191, label %.thread419.backedge
 
-.backedge440.backedge:                            ; preds = %187, %.thread426, %.thread432
+.thread419.backedge:                              ; preds = %187, %.thread426, %.thread432
   %.3160338.be = phi i32 [ %188, %187 ], [ %190, %.thread426 ], [ %189, %.thread432 ]
-  br label %.backedge440, !llvm.loop !43
+  br label %.thread419, !llvm.loop !43
 
 .thread432:                                       ; preds = %186
   %puts218 = call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
   %189 = add nuw nsw i32 %.3160338, 1
   %exitcond367.not434 = icmp eq i32 %189, 6
-  br i1 %exitcond367.not434, label %.thread435, label %.backedge440.backedge
+  br i1 %exitcond367.not434, label %.thread435, label %.thread419.backedge
 
 .thread426:                                       ; preds = %186
   %190 = add nuw nsw i32 %.3160338, 1
   %exitcond367.not428 = icmp eq i32 %190, 6
-  br i1 %exitcond367.not428, label %.thread430.preheader, label %.backedge440.backedge
+  br i1 %exitcond367.not428, label %.thread430.preheader, label %.thread419.backedge
 
 191:                                              ; preds = %187
   br i1 %13, label %.thread435, label %.thread430.preheader

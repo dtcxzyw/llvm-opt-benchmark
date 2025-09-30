@@ -517,7 +517,6 @@ if.end73.i:                                       ; preds = %if.end64.i
 
 if.end82.i:                                       ; preds = %if.end73.i
   %inc83.i = add i64 %pos.promoted265, 10
-  store i64 %inc83.i, ptr %pos, align 8
   %arrayidx84.i = getelementptr inbounds i8, ptr %data, i64 %inc74.i
   %25 = load i8, ptr %arrayidx84.i, align 1
   %conv85.i = zext i8 %25 to i64
@@ -534,12 +533,12 @@ land.rhs.i:                                       ; preds = %while.cond.i.prehea
   %26 = load i8, ptr %arrayidx93.i, align 1
   %cmp95.i = icmp slt i8 %26, 0
   %inc96.i = add i64 %inc96.i266269, 1
-  %sh_prom.i = zext nneg i32 %shift.i.0270 to i64
   br i1 %cmp95.i, label %while.body.i, label %if.end104.i
 
 while.body.i:                                     ; preds = %land.rhs.i
   %27 = and i8 %26, 127
   %and99.i = zext nneg i8 %27 to i64
+  %sh_prom.i = zext nneg i32 %shift.i.0270 to i64
   %shl100.i = shl i64 %and99.i, %sh_prom.i
   %or101.i = or i64 %shl100.i, %val.i.1271
   %add.i = add i32 %shift.i.0270, 7
@@ -547,9 +546,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp92.i.not, label %return, label %land.rhs.i, !llvm.loop !8
 
 if.end104.i:                                      ; preds = %land.rhs.i
-  store i64 %inc96.i, ptr %pos, align 8
   %conv107.i = zext nneg i8 %26 to i64
-  %shl109.i = shl i64 %conv107.i, %sh_prom.i
+  %sh_prom108.i = zext nneg i32 %shift.i.0270 to i64
+  %shl109.i = shl i64 %conv107.i, %sh_prom108.i
   %or110.i = or i64 %shl109.i, %val.i.1271
   br label %if.end5
 
@@ -2246,7 +2245,6 @@ if.end73.i:                                       ; preds = %if.end64.i
 
 if.end82.i:                                       ; preds = %if.end73.i
   %inc83.i = add i64 %pos.promoted493, 10
-  store i64 %inc83.i, ptr %pos, align 8
   %arrayidx84.i = getelementptr inbounds i8, ptr %data, i64 %inc74.i
   %26 = load i8, ptr %arrayidx84.i, align 1
   %conv85.i = zext i8 %26 to i64
@@ -2263,12 +2261,12 @@ land.rhs.i:                                       ; preds = %while.cond.i.prehea
   %27 = load i8, ptr %arrayidx93.i, align 1
   %cmp95.i = icmp slt i8 %27, 0
   %inc96.i = add i64 %inc96.i494497, 1
-  %sh_prom.i = zext nneg i32 %shift.i.0498 to i64
   br i1 %cmp95.i, label %while.body.i, label %if.end104.i
 
 while.body.i:                                     ; preds = %land.rhs.i
   %28 = and i8 %27, 127
   %and99.i = zext nneg i8 %28 to i64
+  %sh_prom.i = zext nneg i32 %shift.i.0498 to i64
   %shl100.i = shl i64 %and99.i, %sh_prom.i
   %or101.i = or i64 %shl100.i, %val.i.1499
   %add.i = add i32 %shift.i.0498, 7
@@ -2276,9 +2274,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp92.i.not, label %return, label %land.rhs.i, !llvm.loop !8
 
 if.end104.i:                                      ; preds = %land.rhs.i
-  store i64 %inc96.i, ptr %pos, align 8
   %conv107.i = zext nneg i8 %27 to i64
-  %shl109.i = shl i64 %conv107.i, %sh_prom.i
+  %sh_prom108.i = zext nneg i32 %shift.i.0498 to i64
+  %shl109.i = shl i64 %conv107.i, %sh_prom108.i
   %or110.i = or i64 %shl109.i, %val.i.1499
   br label %if.end5
 
@@ -2637,7 +2635,6 @@ if.end73.i326:                                    ; preds = %if.end64.i318
 
 if.end82.i334:                                    ; preds = %if.end73.i326
   %inc83.i335 = add i64 %pos.promoted493, 10
-  store i64 %inc83.i335, ptr %pos, align 8
   %arrayidx84.i336 = getelementptr inbounds i8, ptr %data, i64 %inc74.i327
   %62 = load i8, ptr %arrayidx84.i336, align 1
   %conv85.i337 = zext i8 %62 to i64
@@ -2654,12 +2651,12 @@ land.rhs.i260:                                    ; preds = %while.cond.i237.pre
   %63 = load i8, ptr %arrayidx93.i261, align 1
   %cmp95.i263 = icmp slt i8 %63, 0
   %inc96.i252 = add i64 %inc96.i252476479, 1
-  %sh_prom.i256 = zext nneg i32 %shift.i231.0480 to i64
   br i1 %cmp95.i263, label %while.body.i251, label %if.end104.i242
 
 while.body.i251:                                  ; preds = %land.rhs.i260
   %64 = and i8 %63, 127
   %and99.i255 = zext nneg i8 %64 to i64
+  %sh_prom.i256 = zext nneg i32 %shift.i231.0480 to i64
   %shl100.i257 = shl i64 %and99.i255, %sh_prom.i256
   %or101.i258 = or i64 %shl100.i257, %val.i229.1481
   %add.i259 = add i32 %shift.i231.0480, 7
@@ -2667,9 +2664,9 @@ while.body.i251:                                  ; preds = %land.rhs.i260
   br i1 %cmp92.i238.not, label %return, label %land.rhs.i260, !llvm.loop !8
 
 if.end104.i242:                                   ; preds = %land.rhs.i260
-  store i64 %inc96.i252, ptr %pos, align 8
   %conv107.i245 = zext nneg i8 %63 to i64
-  %shl109.i247 = shl i64 %conv107.i245, %sh_prom.i256
+  %sh_prom108.i246 = zext nneg i32 %shift.i231.0480 to i64
+  %shl109.i247 = shl i64 %conv107.i245, %sh_prom108.i246
   %or110.i248 = or i64 %shl109.i247, %val.i229.1481
   br label %if.end24
 
@@ -3488,7 +3485,6 @@ if.end73.i:                                       ; preds = %if.end64.i
 
 if.end82.i:                                       ; preds = %if.end73.i
   %inc83.i = add i64 %pos.promoted176, 10
-  store i64 %inc83.i, ptr %pos, align 8
   %arrayidx84.i = getelementptr inbounds i8, ptr %data, i64 %inc74.i
   %24 = load i8, ptr %arrayidx84.i, align 1
   %conv85.i = zext i8 %24 to i64
@@ -3505,12 +3501,12 @@ land.rhs.i:                                       ; preds = %while.cond.i.prehea
   %25 = load i8, ptr %arrayidx93.i, align 1
   %cmp95.i = icmp slt i8 %25, 0
   %inc96.i = add i64 %inc96.i177180, 1
-  %sh_prom.i = zext nneg i32 %shift.i.0181 to i64
   br i1 %cmp95.i, label %while.body.i, label %if.end104.i
 
 while.body.i:                                     ; preds = %land.rhs.i
   %26 = and i8 %25, 127
   %and99.i = zext nneg i8 %26 to i64
+  %sh_prom.i = zext nneg i32 %shift.i.0181 to i64
   %shl100.i = shl i64 %and99.i, %sh_prom.i
   %or101.i = or i64 %shl100.i, %val.i.1182
   %add.i = add i32 %shift.i.0181, 7
@@ -3518,9 +3514,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp92.i.not, label %return, label %land.rhs.i, !llvm.loop !8
 
 if.end104.i:                                      ; preds = %land.rhs.i
-  store i64 %inc96.i, ptr %pos, align 8
   %conv107.i = zext nneg i8 %25 to i64
-  %shl109.i = shl i64 %conv107.i, %sh_prom.i
+  %sh_prom108.i = zext nneg i32 %shift.i.0181 to i64
+  %shl109.i = shl i64 %conv107.i, %sh_prom108.i
   %or110.i = or i64 %shl109.i, %val.i.1182
   br label %if.end5
 

@@ -13091,13 +13091,11 @@ if.then114:                                       ; preds = %if.then108
 if.end117:                                        ; preds = %if.then108
   %39 = load i32, ptr %call66, align 4
   %cmp118 = icmp eq i32 %39, 134695760
-  %conv122 = select i1 %cmp118, i32 16, i32 12
-  store i32 %conv122, ptr %n, align 4
+  %conv122 = select i1 %cmp118, i64 16, i64 12
   %40 = load ptr, ptr %m_pWrite, align 8
   %41 = load ptr, ptr %m_pIO_opaque37, align 8
-  %conv125 = zext nneg i32 %conv122 to i64
-  %call126 = call i64 %40(ptr noundef %41, i64 noundef %cur_dst_file_ofs.0.lcssa, ptr noundef nonnull %call66, i64 noundef %conv125) #31
-  %cmp128.not = icmp eq i64 %call126, %conv125
+  %call126 = call i64 %40(ptr noundef %41, i64 noundef %cur_dst_file_ofs.0.lcssa, ptr noundef nonnull %call66, i64 noundef %conv122) #31
+  %cmp128.not = icmp eq i64 %call126, %conv122
   br i1 %cmp128.not, label %if.end133, label %if.then130
 
 if.then130:                                       ; preds = %if.end117
@@ -13108,7 +13106,7 @@ if.then130:                                       ; preds = %if.end117
   br label %return
 
 if.end133:                                        ; preds = %if.end117
-  %add135 = add i64 %cur_dst_file_ofs.0.lcssa, %conv125
+  %add135 = add i64 %cur_dst_file_ofs.0.lcssa, %conv122
   br label %if.end136
 
 if.end136:                                        ; preds = %if.end133, %while.end

@@ -416,65 +416,64 @@ define internal void @KMSDRM_FBDestroyCallback(ptr readnone captures(none) %0, p
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @KMSDRM_WaitPageflip(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._drmEventContext, align 8
-  %4 = alloca %struct.pollfd, align 4
+  %4 = alloca %struct.pollfd, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  store i64 4294967296, ptr %4, align 8
   store i32 4, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @KMSDRM_FlipHandler, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load i32, ptr %8, align 4
-  store i32 %9, ptr %4, align 4
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i16 1, ptr %10, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %12 = load i8, ptr %11, align 8, !range !5, !noundef !6
-  %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %.lr.ph, label %.loopexit
+  store i32 %9, ptr %4, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %11 = load i8, ptr %10, align 8, !range !5, !noundef !6
+  %12 = trunc nuw i8 %11 to i1
+  br i1 %12, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %2
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  br label %15
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  br label %14
 
-15:                                               ; preds = %.lr.ph, %.backedge
-  store i16 0, ptr %14, align 2
-  %16 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef -1) #13
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %18, label %22
+14:                                               ; preds = %.lr.ph, %.backedge
+  store i16 0, ptr %13, align 2
+  %15 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef -1) #13
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %17, label %21
 
-18:                                               ; preds = %15
-  %19 = tail call ptr @__errno_location() #15
-  %20 = load i32, ptr %19, align 4
-  %21 = icmp eq i32 %20, 4
-  br i1 %21, label %.backedge, label %.loopexit.sink.split
+17:                                               ; preds = %14
+  %18 = tail call ptr @__errno_location() #15
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp eq i32 %19, 4
+  br i1 %20, label %.backedge, label %.loopexit.sink.split
 
-22:                                               ; preds = %15
-  %23 = load i16, ptr %14, align 2
-  %24 = and i16 %23, 24
-  %.not = icmp eq i16 %24, 0
-  br i1 %.not, label %25, label %.loopexit.sink.split
+21:                                               ; preds = %14
+  %22 = load i16, ptr %13, align 2
+  %23 = and i16 %22, 24
+  %.not = icmp eq i16 %23, 0
+  br i1 %.not, label %24, label %.loopexit.sink.split
 
-25:                                               ; preds = %22
-  %26 = and i16 %23, 1
-  %.not5 = icmp eq i16 %26, 0
-  br i1 %.not5, label %.backedge, label %27
+24:                                               ; preds = %21
+  %25 = and i16 %22, 1
+  %.not5 = icmp eq i16 %25, 0
+  br i1 %.not5, label %.backedge, label %26
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr @KMSDRM_drmHandleEvent, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = call i32 %28(i32 noundef %29, ptr noundef nonnull %3) #13
+26:                                               ; preds = %24
+  %27 = load ptr, ptr @KMSDRM_drmHandleEvent, align 8
+  %28 = load i32, ptr %8, align 4
+  %29 = call i32 %27(i32 noundef %28, ptr noundef nonnull %3) #13
   br label %.backedge
 
-.backedge:                                        ; preds = %25, %27, %18
-  %31 = load i8, ptr %11, align 8, !range !5, !noundef !6
-  %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %15, label %.loopexit, !llvm.loop !7
+.backedge:                                        ; preds = %24, %26, %17
+  %30 = load i8, ptr %10, align 8, !range !5, !noundef !6
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %14, label %.loopexit, !llvm.loop !7
 
-.loopexit.sink.split:                             ; preds = %22, %18
-  %.str.4.sink = phi ptr [ @.str.3, %18 ], [ @.str.4, %22 ]
+.loopexit.sink.split:                             ; preds = %21, %17
+  %.str.4.sink = phi ptr [ @.str.3, %17 ], [ @.str.4, %21 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 5, ptr noundef nonnull %.str.4.sink) #13
   br label %.loopexit
 

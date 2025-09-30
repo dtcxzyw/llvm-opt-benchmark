@@ -13324,8 +13324,6 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   %827 = sub nsw i64 0, %826
   %828 = getelementptr inbounds i64, ptr %822, i64 %827
   call void @_ZdlPvm(ptr noundef %828, i64 noundef %825) #38
-  store ptr null, ptr %21, align 8
-  store i32 0, ptr %131, align 8
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit.i, %821
@@ -55331,7 +55329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %14
   store i64 %180, ptr %14, align 8, !tbaa !244
   store ptr null, ptr %163, align 8, !tbaa !349
   %.not.i.i.i = icmp ugt i64 %178, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %164, i8 0, i64 16, i1 false)
+  store i64 0, ptr %164, align 8
   br i1 %.not.i.i.i, label %181, label %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i.i
 
 181:                                              ; preds = %177
@@ -99755,7 +99753,6 @@ _ZNKSt8functionIFN4pbrt5ImageEvEEclEv.exit:       ; preds = %_ZNSt12shared_mutex
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i64 0, ptr %93, align 8
   %97 = load i64, ptr %96, align 8, !tbaa !219
   store i64 %97, ptr %95, align 8, !tbaa !219
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -99772,7 +99769,6 @@ _ZNKSt8functionIFN4pbrt5ImageEvEEclEv.exit:       ; preds = %_ZNSt12shared_mutex
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store i64 0, ptr %105, align 8
   %109 = load i64, ptr %108, align 8, !tbaa !212
   store i64 %109, ptr %107, align 8, !tbaa !212
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 104

@@ -45847,7 +45847,6 @@ define linkonce_odr dso_local void @_ZN4asio6detail12wait_handlerIZN4crow6Server
   %7 = alloca %"class.asio::detail::binder1.365", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %8, align 8, !tbaa !1281
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -46392,7 +46391,6 @@ define linkonce_odr dso_local void @_ZN4asio6detail12wait_handlerIZN4crow6Server
   %7 = alloca %"class.asio::detail::binder1.372", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %8, align 8, !tbaa !1301
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -56204,7 +56202,6 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   br label %.thread
 
 217:                                              ; preds = %148
-  store i32 %.31050.ph1366, ptr %8, align 4, !tbaa !1536
   %218 = and i16 %125, -32513
   %219 = or disjoint i16 %218, 3840
   store i16 %219, ptr %10, align 2

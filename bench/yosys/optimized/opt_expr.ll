@@ -43550,11 +43550,9 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i12.i: ; preds = %14159
   %14161 = load ptr, ptr %8510, align 8, !tbaa !60
   %14162 = load ptr, ptr %8512, align 8, !tbaa !57
   %14163 = load ptr, ptr %8514, align 8, !tbaa !61
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8510, i8 0, i64 24, i1 false)
   %14164 = load ptr, ptr %8516, align 8, !tbaa !80
   %14165 = load ptr, ptr %8518, align 8, !tbaa !77
   %14166 = load ptr, ptr %8520, align 8, !tbaa !81
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8516, i8 0, i64 24, i1 false)
   %14167 = load i64, ptr %357, align 8
   store i64 %14167, ptr %355, align 8
   %14168 = load ptr, ptr %8522, align 8, !tbaa !60
@@ -43563,14 +43561,12 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i12.i: ; preds = %14159
   store ptr %14169, ptr %8512, align 8, !tbaa !57
   %14170 = load ptr, ptr %8526, align 8, !tbaa !61
   store ptr %14170, ptr %8514, align 8, !tbaa !61
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8522, i8 0, i64 24, i1 false)
   %.pre25.i = load ptr, ptr %8532, align 8, !tbaa !81
   %.pre23.i = load ptr, ptr %8530, align 8, !tbaa !77
   %.pre21.i = load ptr, ptr %8528, align 8, !tbaa !80
   store ptr %.pre21.i, ptr %8516, align 8, !tbaa !80
   store ptr %.pre23.i, ptr %8518, align 8, !tbaa !77
   store ptr %.pre25.i, ptr %8520, align 8, !tbaa !81
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8528, i8 0, i64 24, i1 false)
   store i64 %14160, ptr %357, align 8
   store ptr %14161, ptr %8522, align 8, !tbaa !60
   store ptr %14162, ptr %8524, align 8, !tbaa !57
@@ -43889,11 +43885,9 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i12.i9685: ; preds = %"
   %14302 = load ptr, ptr %8546, align 8, !tbaa !60
   %14303 = load ptr, ptr %8547, align 8, !tbaa !57
   %14304 = load ptr, ptr %8548, align 8, !tbaa !61
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8546, i8 0, i64 24, i1 false)
   %14305 = load ptr, ptr %8549, align 8, !tbaa !80
   %14306 = load ptr, ptr %8550, align 8, !tbaa !77
   %14307 = load ptr, ptr %8551, align 8, !tbaa !81
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8549, i8 0, i64 24, i1 false)
   %14308 = load i64, ptr %362, align 8
   store i64 %14308, ptr %361, align 8
   %14309 = load ptr, ptr %8552, align 8, !tbaa !60
@@ -43902,14 +43896,12 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i12.i9685: ; preds = %"
   store ptr %14310, ptr %8547, align 8, !tbaa !57
   %14311 = load ptr, ptr %8554, align 8, !tbaa !61
   store ptr %14311, ptr %8548, align 8, !tbaa !61
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8552, i8 0, i64 24, i1 false)
   %.pre25.i9642 = load ptr, ptr %.phi.trans.insert24.i9641, align 8, !tbaa !81
   %.pre23.i9644 = load ptr, ptr %.phi.trans.insert22.i9643, align 8, !tbaa !77
   %.pre21.i9646 = load ptr, ptr %.phi.trans.insert.i9645, align 8, !tbaa !80
   store ptr %.pre21.i9646, ptr %8549, align 8, !tbaa !80
   store ptr %.pre23.i9644, ptr %8550, align 8, !tbaa !77
   store ptr %.pre25.i9642, ptr %8551, align 8, !tbaa !81
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.phi.trans.insert.i9645, i8 0, i64 24, i1 false)
   store i64 %14301, ptr %362, align 8
   store ptr %14302, ptr %8552, align 8, !tbaa !60
   store ptr %14303, ptr %8553, align 8, !tbaa !57
@@ -43931,16 +43923,13 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i12.i9685: ; preds = %"
   %.pre30286 = load ptr, ptr %8562, align 8, !tbaa !57
   %.pre30285 = load ptr, ptr %8561, align 8, !tbaa !60
   %.pre30284 = load i64, ptr %365, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8555, i8 0, i64 48, i1 false)
   store i64 %.pre30284, ptr %364, align 8
   store ptr %.pre30285, ptr %8555, align 8, !tbaa !60
   store ptr %.pre30286, ptr %8556, align 8, !tbaa !57
   store ptr %.pre30287, ptr %8557, align 8, !tbaa !61
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8561, i8 0, i64 24, i1 false)
   store ptr %.pre21.i9671.pre, ptr %8558, align 8, !tbaa !80
   store ptr %.pre23.i9669.pre, ptr %8559, align 8, !tbaa !77
   store ptr %.pre25.i9667.pre, ptr %8560, align 8, !tbaa !81
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.phi.trans.insert.i9670, i8 0, i64 24, i1 false)
   store i64 %.pre30277, ptr %365, align 8
   store ptr %.pre30278, ptr %8561, align 8, !tbaa !60
   store ptr %.pre30279, ptr %8562, align 8, !tbaa !57
@@ -48087,11 +48076,9 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i12.i10434: ; preds = %
   %15868 = load ptr, ptr %8685, align 8, !tbaa !60
   %15869 = load ptr, ptr %8687, align 8, !tbaa !57
   %15870 = load ptr, ptr %8689, align 8, !tbaa !61
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8685, i8 0, i64 24, i1 false)
   %15871 = load ptr, ptr %8691, align 8, !tbaa !80
   %15872 = load ptr, ptr %8693, align 8, !tbaa !77
   %15873 = load ptr, ptr %8695, align 8, !tbaa !81
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8691, i8 0, i64 24, i1 false)
   %15874 = load i64, ptr %409, align 8
   store i64 %15874, ptr %407, align 8
   %15875 = load ptr, ptr %8697, align 8, !tbaa !60
@@ -48100,14 +48087,12 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i12.i10434: ; preds = %
   store ptr %15876, ptr %8687, align 8, !tbaa !57
   %15877 = load ptr, ptr %8701, align 8, !tbaa !61
   store ptr %15877, ptr %8689, align 8, !tbaa !61
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8697, i8 0, i64 24, i1 false)
   %.pre25.i10416 = load ptr, ptr %8707, align 8, !tbaa !81
   %.pre23.i10418 = load ptr, ptr %8705, align 8, !tbaa !77
   %.pre21.i10420 = load ptr, ptr %8703, align 8, !tbaa !80
   store ptr %.pre21.i10420, ptr %8691, align 8, !tbaa !80
   store ptr %.pre23.i10418, ptr %8693, align 8, !tbaa !77
   store ptr %.pre25.i10416, ptr %8695, align 8, !tbaa !81
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8703, i8 0, i64 24, i1 false)
   store i64 %15867, ptr %409, align 8
   store ptr %15868, ptr %8697, align 8, !tbaa !60
   store ptr %15869, ptr %8699, align 8, !tbaa !57

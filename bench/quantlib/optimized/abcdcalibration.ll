@@ -1774,6 +1774,8 @@ invoke.cont40:                                    ; preds = %_ZN5boost10shared_p
   store double %38, ptr %arrayidx.i54, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %parameterAreFixed)
   %_M_offset.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %parameterAreFixed, i64 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %parameterAreFixed, i64 16
+  %_M_offset.i.i1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %parameterAreFixed, i64 24
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %parameterAreFixed, i64 32
   %call5.i.i.i.i1.i.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
           to label %invoke.cont59 unwind label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit207
@@ -1784,8 +1786,6 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit207:          ; preds = %invoke.cont40
   br label %ehcleanup162
 
 invoke.cont59:                                    ; preds = %invoke.cont40
-  %_M_offset.i.i1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %parameterAreFixed, i64 24
-  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %parameterAreFixed, i64 16
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1.i.i, i64 8
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !78
   store ptr %call5.i.i.i.i1.i.i, ptr %parameterAreFixed, align 8
@@ -2356,6 +2356,8 @@ if.then.i.i180:                                   ; preds = %ehcleanup160
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i187, i64 noundef %sub.ptr.sub.i.i184) #23
   store ptr null, ptr %parameterAreFixed, align 8
   store i32 0, ptr %_M_offset.i.i.i.i.i.i.i, align 8
+  store ptr null, ptr %_M_finish.i.i.i.i.i, align 8
+  store i32 0, ptr %_M_offset.i.i1.i.i.i.i.i, align 8
   br label %ehcleanup162
 
 ehcleanup162:                                     ; preds = %if.then.i.i180, %ehcleanup160, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit207

@@ -2932,6 +2932,10 @@ _ZNSt6vectorIN5Ipopt8SmartPtrIKNS0_11MatrixSpaceEEESaIS4_EED2Ev.exit: ; preds = 
   %119 = sub nsw i64 0, %118
   %120 = getelementptr inbounds i64, ptr %114, i64 %119
   call void @_ZdlPvm(ptr noundef %120, i64 noundef %117) #23
+  store ptr null, ptr %5, align 8
+  store i32 0, ptr %25, align 8
+  store ptr null, ptr %26, align 8
+  store i32 0, ptr %27, align 8
   br label %.body
 
 .body:                                            ; preds = %113, %110, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit37

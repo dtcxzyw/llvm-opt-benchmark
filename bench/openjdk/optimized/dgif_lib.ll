@@ -59,7 +59,7 @@ define hidden noundef ptr @DGifOpenFileHandle(i32 noundef %0, ptr noundef writeo
 
 7:                                                ; preds = %6, %5
   %8 = tail call i32 @close(i32 noundef %0) #14
-  br label %44
+  br label %43
 
 9:                                                ; preds = %2
   %10 = tail call noalias dereferenceable_or_null(24936) ptr @calloc(i64 noundef 1, i64 noundef 24936) #15
@@ -77,7 +77,7 @@ define hidden noundef ptr @DGifOpenFileHandle(i32 noundef %0, ptr noundef writeo
 14:                                               ; preds = %13, %12
   %15 = tail call i32 @close(i32 noundef %0) #14
   tail call void @free(ptr noundef nonnull %calloc) #14
-  br label %44
+  br label %43
 
 InternalRead.exit:                                ; preds = %9
   %16 = tail call noalias ptr @fdopen(i32 noundef %0, ptr noundef nonnull @.str) #14
@@ -88,70 +88,68 @@ InternalRead.exit:                                ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store ptr %16, ptr %19, align 8
   store i32 8, ptr %10, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %calloc, i64 104
-  store ptr null, ptr %20, align 8
-  %21 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 6, ptr noundef %16)
-  %22 = and i64 %21, 4294967295
-  %.not = icmp eq i64 %22, 6
-  br i1 %.not, label %27, label %23
+  %20 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 6, ptr noundef %16)
+  %21 = and i64 %20, 4294967295
+  %.not = icmp eq i64 %21, 6
+  br i1 %.not, label %26, label %22
 
-23:                                               ; preds = %InternalRead.exit
+22:                                               ; preds = %InternalRead.exit
   %.not46 = icmp eq ptr %1, null
-  br i1 %.not46, label %25, label %24
+  br i1 %.not46, label %24, label %23
 
-24:                                               ; preds = %23
+23:                                               ; preds = %22
   store i32 102, ptr %1, align 4
-  br label %25
+  br label %24
 
-25:                                               ; preds = %24, %23
-  %26 = tail call i32 @fclose(ptr noundef %16)
+24:                                               ; preds = %23, %22
+  %25 = tail call i32 @fclose(ptr noundef %16)
   tail call void @free(ptr noundef nonnull %10) #14
   tail call void @free(ptr noundef nonnull %calloc) #14
-  br label %44
+  br label %43
 
-27:                                               ; preds = %InternalRead.exit
+26:                                               ; preds = %InternalRead.exit
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.1, ptr noundef nonnull dereferenceable(3) %3, i64 3)
   %.not44 = icmp eq i32 %bcmp, 0
-  br i1 %.not44, label %32, label %28
+  br i1 %.not44, label %31, label %27
+
+27:                                               ; preds = %26
+  %.not45 = icmp eq ptr %1, null
+  br i1 %.not45, label %29, label %28
 
 28:                                               ; preds = %27
-  %.not45 = icmp eq ptr %1, null
-  br i1 %.not45, label %30, label %29
-
-29:                                               ; preds = %28
   store i32 103, ptr %1, align 4
-  br label %30
+  br label %29
 
-30:                                               ; preds = %29, %28
-  %31 = tail call i32 @fclose(ptr noundef %16)
+29:                                               ; preds = %28, %27
+  %30 = tail call i32 @fclose(ptr noundef %16)
   tail call void @free(ptr noundef nonnull %10) #14
   tail call void @free(ptr noundef nonnull %calloc) #14
-  br label %44
+  br label %43
 
-32:                                               ; preds = %27
-  %33 = tail call i32 @DGifGetScreenDesc(ptr noundef nonnull %calloc)
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %37
+31:                                               ; preds = %26
+  %32 = tail call i32 @DGifGetScreenDesc(ptr noundef nonnull %calloc)
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %36
 
-35:                                               ; preds = %32
-  %36 = tail call i32 @fclose(ptr noundef %16)
+34:                                               ; preds = %31
+  %35 = tail call i32 @fclose(ptr noundef %16)
   tail call void @free(ptr noundef nonnull %10) #14
   tail call void @free(ptr noundef nonnull %calloc) #14
-  br label %44
+  br label %43
 
-37:                                               ; preds = %32
-  %38 = getelementptr inbounds nuw i8, ptr %calloc, i64 96
-  store i32 0, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %40 = load i8, ptr %39, align 1
-  %41 = icmp eq i8 %40, 57
-  %42 = getelementptr inbounds nuw i8, ptr %10, i64 24928
-  %43 = zext i1 %41 to i8
-  store i8 %43, ptr %42, align 8
-  br label %44
+36:                                               ; preds = %31
+  %37 = getelementptr inbounds nuw i8, ptr %calloc, i64 96
+  store i32 0, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %39 = load i8, ptr %38, align 1
+  %40 = icmp eq i8 %39, 57
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 24928
+  %42 = zext i1 %40 to i8
+  store i8 %42, ptr %41, align 8
+  br label %43
 
-44:                                               ; preds = %37, %35, %30, %25, %14, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %14 ], [ null, %25 ], [ null, %30 ], [ null, %35 ], [ %calloc, %37 ]
+43:                                               ; preds = %36, %34, %29, %24, %14, %7
+  %.0 = phi ptr [ null, %7 ], [ null, %14 ], [ null, %24 ], [ null, %29 ], [ null, %34 ], [ %calloc, %36 ]
   ret ptr %.0
 }
 

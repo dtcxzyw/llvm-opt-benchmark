@@ -421,7 +421,7 @@ define internal noalias noundef ptr @mspack_fmap_open(ptr noundef readonly captu
 
 4:                                                ; preds = %3
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.mspack_fmap_open, i32 noundef 62) #15
-  br label %27
+  br label %26
 
 5:                                                ; preds = %3
   %calloc = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
@@ -430,14 +430,14 @@ define internal noalias noundef ptr @mspack_fmap_open(ptr noundef readonly captu
 
 6:                                                ; preds = %5
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.mspack_fmap_open, i32 noundef 67) #15
-  br label %27
+  br label %26
 
 7:                                                ; preds = %5
-  switch i32 %2, label %17 [
+  switch i32 %2, label %16 [
     i32 0, label %8
-    i32 1, label %18
-    i32 2, label %15
-    i32 3, label %16
+    i32 1, label %17
+    i32 2, label %14
+    i32 3, label %15
   ]
 
 8:                                                ; preds = %7
@@ -449,46 +449,44 @@ define internal noalias noundef ptr @mspack_fmap_open(ptr noundef readonly captu
   %12 = load i64, ptr %11, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   store i64 %12, ptr %13, align 8, !tbaa !80
-  %14 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
-  store i64 0, ptr %14, align 8, !tbaa !81
-  br label %27
+  br label %26
+
+14:                                               ; preds = %7
+  br label %17
 
 15:                                               ; preds = %7
-  br label %18
+  br label %17
 
 16:                                               ; preds = %7
-  br label %18
-
-17:                                               ; preds = %7
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.mspack_fmap_open) #15
-  br label %26
+  br label %25
 
-18:                                               ; preds = %7, %16, %15
-  %.024 = phi ptr [ @.str.3, %15 ], [ @.str.4, %16 ], [ @.str.2, %7 ]
+17:                                               ; preds = %7, %15, %14
+  %.024 = phi ptr [ @.str.3, %14 ], [ @.str.4, %15 ], [ @.str.2, %7 ]
   store i32 2, ptr %calloc, align 8, !tbaa !76
-  %19 = tail call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull %.024)
-  %20 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
-  store ptr %19, ptr %20, align 8, !tbaa !82
-  %.not28 = icmp eq ptr %19, null
-  br i1 %.not28, label %21, label %22
+  %18 = tail call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull %.024)
+  %19 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
+  store ptr %18, ptr %19, align 8, !tbaa !81
+  %.not28 = icmp eq ptr %18, null
+  br i1 %.not28, label %20, label %21
 
-21:                                               ; preds = %18
+20:                                               ; preds = %17
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.mspack_fmap_open, i32 noundef 101) #15
+  br label %25
+
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %23 = load i64, ptr %22, align 8, !tbaa !60
+  %24 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
+  store i64 %23, ptr %24, align 8, !tbaa !82
   br label %26
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %24 = load i64, ptr %23, align 8, !tbaa !60
-  %25 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
-  store i64 %24, ptr %25, align 8, !tbaa !83
-  br label %27
-
-26:                                               ; preds = %21, %17
+25:                                               ; preds = %20, %16
   tail call void @free(ptr noundef nonnull %calloc) #15
-  br label %27
+  br label %26
 
-27:                                               ; preds = %26, %22, %8, %6, %4
-  %.0 = phi ptr [ null, %26 ], [ %calloc, %8 ], [ %calloc, %22 ], [ null, %6 ], [ null, %4 ]
+26:                                               ; preds = %25, %21, %8, %6, %4
+  %.0 = phi ptr [ null, %25 ], [ %calloc, %8 ], [ %calloc, %21 ], [ null, %6 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -504,7 +502,7 @@ define internal void @mspack_fmap_close(ptr noundef captures(address_is_null) %0
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !82
+  %7 = load ptr, ptr %6, align 8, !tbaa !81
   %.not8 = icmp eq ptr %7, null
   br i1 %.not8, label %10, label %8
 
@@ -544,7 +542,7 @@ define internal i32 @mspack_fmap_read(ptr noundef captures(address_is_null) %0, 
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i64, ptr %12, align 8, !tbaa !81
+  %13 = load i64, ptr %12, align 8, !tbaa !83
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8, !tbaa !80
   %16 = add nsw i64 %15, %13
@@ -590,15 +588,15 @@ fmap_readn.exit:                                  ; preds = %31, %11
   br label %36
 
 36:                                               ; preds = %fmap_readn.exit, %35
-  %37 = load i64, ptr %12, align 8, !tbaa !81
+  %37 = load i64, ptr %12, align 8, !tbaa !83
   %38 = add nsw i64 %37, %.0.i
-  store i64 %38, ptr %12, align 8, !tbaa !81
+  store i64 %38, ptr %12, align 8, !tbaa !83
   br label %48
 
 39:                                               ; preds = %8
   %40 = zext nneg i32 %2 to i64
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !82
+  %42 = load ptr, ptr %41, align 8, !tbaa !81
   %43 = tail call i64 @fread(ptr noundef %1, i64 noundef %40, i64 noundef 1, ptr noundef %42)
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %45, label %46
@@ -642,7 +640,7 @@ define internal range(i32 -1, -2147483648) i32 @mspack_fmap_write(ptr noundef ca
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load i64, ptr %13, align 8, !tbaa !83
+  %14 = load i64, ptr %13, align 8, !tbaa !82
   %.not26 = icmp eq i64 %14, 0
   br i1 %.not26, label %24, label %15
 
@@ -650,9 +648,9 @@ define internal range(i32 -1, -2147483648) i32 @mspack_fmap_write(ptr noundef ca
   %16 = zext nneg i32 %2 to i64
   %17 = tail call i64 @llvm.umin.i64(i64 %14, i64 %16)
   %18 = sub i64 %14, %17
-  store i64 %18, ptr %13, align 8, !tbaa !83
+  store i64 %18, ptr %13, align 8, !tbaa !82
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !82
+  %20 = load ptr, ptr %19, align 8, !tbaa !81
   %21 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %17, i64 noundef 1, ptr noundef %20)
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %23, label %24
@@ -689,7 +687,7 @@ define internal noundef i32 @mspack_fmap_seek(ptr noundef captures(address_is_nu
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i64, ptr %10, align 8, !tbaa !81
+  %11 = load i64, ptr %10, align 8, !tbaa !83
   %12 = add nsw i64 %11, %1
   br label %20
 
@@ -724,7 +722,7 @@ define internal noundef i32 @mspack_fmap_seek(ptr noundef captures(address_is_nu
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.0, ptr %30, align 8, !tbaa !81
+  store i64 %.0, ptr %30, align 8, !tbaa !83
   br label %37
 
 31:                                               ; preds = %5
@@ -737,7 +735,7 @@ define internal noundef i32 @mspack_fmap_seek(ptr noundef captures(address_is_nu
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !82
+  %35 = load ptr, ptr %34, align 8, !tbaa !81
   %36 = tail call i32 @fseek(ptr noundef %35, i64 noundef %1, i32 noundef %2)
   br label %37
 
@@ -758,12 +756,12 @@ define internal i64 @mspack_fmap_tell(ptr noundef readonly captures(address_is_n
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !81
+  %7 = load i64, ptr %6, align 8, !tbaa !83
   br label %12
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !82
+  %10 = load ptr, ptr %9, align 8, !tbaa !81
   %11 = tail call i64 @ftell(ptr noundef %10)
   br label %12
 
@@ -976,9 +974,9 @@ attributes #16 = { nounwind willreturn memory(read) }
 !78 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
 !79 = !{!77, !16, i64 8}
 !80 = !{!77, !12, i64 16}
-!81 = !{!77, !12, i64 24}
-!82 = !{!77, !78, i64 32}
-!83 = !{!77, !12, i64 40}
+!81 = !{!77, !78, i64 32}
+!82 = !{!77, !12, i64 40}
+!83 = !{!77, !12, i64 24}
 !84 = !{!85, !12, i64 88}
 !85 = !{!"cl_fmap", !6, i64 0, !6, i64 8, !6, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !22, i64 56, !22, i64 57, !22, i64 58, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !22, i64 152, !7, i64 153, !22, i64 169, !7, i64 170, !22, i64 190, !7, i64 191, !9, i64 224, !5, i64 232}
 !86 = !{!85, !6, i64 104}

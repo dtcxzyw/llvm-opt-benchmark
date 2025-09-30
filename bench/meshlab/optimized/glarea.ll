@@ -4730,8 +4730,6 @@ define void @_ZN6GLArea17shotFromTrackballEv(ptr dead_on_unwind noalias writable
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 116
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 124
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 128
-  store float 0.000000e+00, ptr %.sroa.3.0..sroa_idx.i.i, align 4
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store float 0x3FA2E6AA00000000, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4860,6 +4858,7 @@ define void @_ZN6GLArea17shotFromTrackballEv(ptr dead_on_unwind noalias writable
 109:                                              ; preds = %2, %105
   %.sroa.7.0.i = phi float [ %108, %105 ], [ %91, %2 ]
   %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.4.vec.insert36.i, %105 ], [ %.sroa.0.4.vec.insert.i, %2 ]
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 128
   %110 = fadd float %.sroa.7.0.i, 0.000000e+00
   %.sroa.0.4.vec.insert.i22 = fadd <2 x float> %.sroa.01.0.copyload.i, %.sroa.0.0.i
   store <2 x float> %.sroa.0.4.vec.insert.i22, ptr %12, align 4

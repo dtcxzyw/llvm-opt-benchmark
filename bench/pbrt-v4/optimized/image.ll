@@ -56270,7 +56270,7 @@ define internal void @"_ZNSt17_Function_handlerIFvllEZNK4pbrt5Image14GaussianFil
   store i64 %35, ptr %6, align 8, !tbaa !149
   store ptr null, ptr %13, align 8, !tbaa !210
   %.not.i.i.i.i.i.i = icmp ugt i64 %33, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  store i64 0, ptr %14, align 8
   br i1 %.not.i.i.i.i.i.i, label %36, label %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i.i.i.i.i
 
 36:                                               ; preds = %30
@@ -56619,7 +56619,7 @@ define internal void @"_ZNSt17_Function_handlerIFvllEZNK4pbrt5Image14GaussianFil
   store i64 %37, ptr %6, align 8, !tbaa !149
   store ptr null, ptr %13, align 8, !tbaa !210
   %.not.i.i.i.i.i.i = icmp ugt i64 %35, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  store i64 0, ptr %14, align 8
   br i1 %.not.i.i.i.i.i.i, label %38, label %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i.i.i.i.i
 
 38:                                               ; preds = %32
@@ -79888,7 +79888,7 @@ define internal void @"_ZNSt17_Function_handlerIFvllEZNK4pbrt5Image20JointBilate
   store i64 %50, ptr %7, align 8, !tbaa !149
   store ptr null, ptr %16, align 8, !tbaa !210
   %.not.i.i.i.i.i.i = icmp ugt i64 %48, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  store i64 0, ptr %17, align 8
   br i1 %.not.i.i.i.i.i.i, label %51, label %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i.i.i.i.i
 
 51:                                               ; preds = %44

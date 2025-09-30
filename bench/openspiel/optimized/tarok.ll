@@ -11793,7 +11793,7 @@ define void @_ZNK10open_spiel5tarok10TarokState34ScoresWithoutCapturedMondPenalt
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(280) %1)
-  br i1 %6, label %19, label %7
+  br i1 %6, label %18, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -11807,8 +11807,6 @@ define void @_ZNK10open_spiel5tarok10TarokState34ScoresWithoutCapturedMondPenalt
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %12, align 8
   %.not.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i, label %.noexc2
 
@@ -11817,46 +11815,46 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   br label %.loopexit
 
 .noexc2:                                          ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %13 = shl nuw nsw i64 %10, 2
-  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #33
-  store ptr %14, ptr %0, align 8
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %10
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %15, ptr %16, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %14, i8 0, i64 %13, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %13
+  %12 = shl nuw nsw i64 %10, 2
+  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #33
+  store ptr %13, ptr %0, align 8
+  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %14, ptr %15, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %13, i8 0, i64 %12, i1 false)
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc2, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ], [ %17, %.noexc2 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i.i.i.i.i.i.i, ptr %18, align 8
-  br label %29
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ], [ %16, %.noexc2 ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.i.i.i.i.i.i.i, ptr %17, align 8
+  br label %28
 
-19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %21 = load ptr, ptr %20, align 8
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %25
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %24
 
-24:                                               ; preds = %19
+23:                                               ; preds = %18
   tail call void @_ZNK10open_spiel5tarok10TarokState12ScoresInKlopEv(ptr dead_on_unwind writable sret(%"class.std::vector.83") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1)
-  br label %29
+  br label %28
 
-25:                                               ; preds = %19
-  %26 = tail call noundef zeroext i1 @_ZNK10open_spiel5tarok8Contract18NeedsTalonExchangeEv(ptr noundef nonnull align 4 dereferenceable(15) %21)
-  br i1 %26, label %27, label %28
+24:                                               ; preds = %18
+  %25 = tail call noundef zeroext i1 @_ZNK10open_spiel5tarok8Contract18NeedsTalonExchangeEv(ptr noundef nonnull align 4 dereferenceable(15) %20)
+  br i1 %25, label %26, label %27
 
-27:                                               ; preds = %25
+26:                                               ; preds = %24
   tail call void @_ZNK10open_spiel5tarok10TarokState23ScoresInNormalContractsEv(ptr dead_on_unwind writable sret(%"class.std::vector.83") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1)
-  br label %29
+  br label %28
 
-28:                                               ; preds = %25
+27:                                               ; preds = %24
   tail call void @_ZNK10open_spiel5tarok10TarokState23ScoresInHigherContractsEv(ptr dead_on_unwind writable sret(%"class.std::vector.83") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1)
-  br label %29
+  br label %28
 
-29:                                               ; preds = %28, %27, %24, %.loopexit
+28:                                               ; preds = %27, %26, %23, %.loopexit
   ret void
 }
 

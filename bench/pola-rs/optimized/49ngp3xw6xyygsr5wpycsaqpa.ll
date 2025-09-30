@@ -63052,7 +63052,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 95:                                               ; preds = %.noexc.us
   call void @llvm.experimental.noalias.scope.decl(metadata !5362)
   call void @llvm.experimental.noalias.scope.decl(metadata !5365)
-  br i1 %94, label %.lr.ph.i38.us, label %._crit_edge.i36
+  br i1 %94, label %.lr.ph.i38.us, label %._crit_edge.i36.loopexit104.split.us
 
 .lr.ph.i38.us:                                    ; preds = %95, %.sink.split.i.us
   %.sink.i212.us = phi i64 [ %.sink.i.us, %.sink.split.i.us ], [ %91, %95 ]
@@ -63137,7 +63137,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 138:                                              ; preds = %.noexc.us
   call void @llvm.experimental.noalias.scope.decl(metadata !5371)
   call void @llvm.experimental.noalias.scope.decl(metadata !5374)
-  br i1 %94, label %.lr.ph.i30.us, label %._crit_edge.i.loopexit105.split.us
+  br i1 %94, label %.lr.ph.i30.us, label %._crit_edge.i
 
 .lr.ph.i30.us:                                    ; preds = %138, %179
   %139 = phi i64 [ %180, %179 ], [ %.lcssa203253.us, %138 ]
@@ -63218,23 +63218,16 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %180 = phi i64 [ %176, %174 ], [ %160, %159 ], [ %178, %177 ]
   %181 = add i64 %180, %85
   %182 = icmp ult i64 %181, %82
-  br i1 %182, label %.lr.ph.i30.us, label %._crit_edge.i.loopexit.split.us
+  br i1 %182, label %.lr.ph.i30.us, label %._crit_edge.i
+
+._crit_edge.i36.loopexit104.split.us:             ; preds = %95
+  store i64 %.lcssa203253.us, ptr %42, align 8
+  br label %._crit_edge.i36
 
 ._crit_edge.i36.loopexit.split.us:                ; preds = %.sink.split.i.us
   store i64 %.lcssa203253.us, ptr %42, align 8
   store i64 %90, ptr %39, align 8
   br label %._crit_edge.i36
-
-._crit_edge.i.loopexit105.split.us:               ; preds = %138
-  store i64 %.lcssa203253.us, ptr %42, align 8
-  store i64 %90, ptr %39, align 8
-  br label %.noexc23.thread
-
-._crit_edge.i.loopexit.split.us:                  ; preds = %179
-  store i64 %.lcssa203253.us, ptr %42, align 8
-  store i64 %90, ptr %39, align 8
-  store i64 %180, ptr %42, align 8
-  br label %.noexc23.thread
 
 .noexc.preheader.split:                           ; preds = %.noexc.preheader
   %183 = load i8, ptr %35, align 2, !range !990
@@ -63373,11 +63366,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %252 = add i64 %.sroa.01.0.i.i, %188
   br label %187
 
-._crit_edge.i36:                                  ; preds = %95, %._crit_edge.i36.loopexit.split.us
-  %.lcssa516.sink = phi i64 [ %.ph76.i.us, %._crit_edge.i36.loopexit.split.us ], [ %.lcssa203253.us, %95 ]
-  %.lcssa527.sink = phi i64 [ %.sink.i.us, %._crit_edge.i36.loopexit.split.us ], [ %90, %95 ]
-  store i64 %.lcssa516.sink, ptr %42, align 8
-  store i64 %.lcssa527.sink, ptr %39, align 8
+._crit_edge.i36:                                  ; preds = %._crit_edge.i36.loopexit104.split.us, %._crit_edge.i36.loopexit.split.us
+  %.lcssa526.sink = phi i64 [ %90, %._crit_edge.i36.loopexit104.split.us ], [ %.sink.i.us, %._crit_edge.i36.loopexit.split.us ]
+  store i64 %.lcssa526.sink, ptr %39, align 8
   br label %.noexc23.thread
 
 .split.us:                                        ; preds = %109
@@ -63396,6 +63387,11 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %253 = add i64 %96, %.sroa.0.0.sroa.speculated.i.i40.us
   %umax.i44 = call i64 @llvm.umax.i64(i64 %82, i64 %253)
   br label %.split299.us.invoke
+
+._crit_edge.i:                                    ; preds = %138, %179
+  store i64 %.lcssa203253.us, ptr %42, align 8
+  store i64 %90, ptr %39, align 8
+  br label %.noexc23.thread
 
 .split299.us:                                     ; preds = %149
   store i64 %.lcssa203253.us, ptr %42, align 8
@@ -63440,8 +63436,8 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
           cleanup
   br label %.thread78
 
-.noexc23.thread:                                  ; preds = %.noexc.preheader.split, %._crit_edge.i.loopexit.split.us, %._crit_edge.i.loopexit105.split.us, %._crit_edge.i36, %245, %.thread.i.i.i
-  %spec.select = phi i32 [ 0, %.thread.i.i.i ], [ %.sroa.0.0.i.i.i.i3.i331, %245 ], [ %.sroa.0.0.i.i.i.i3.i.us, %._crit_edge.i36 ], [ %.sroa.0.0.i.i.i.i3.i.us, %._crit_edge.i.loopexit105.split.us ], [ %.sroa.0.0.i.i.i.i3.i.us, %._crit_edge.i.loopexit.split.us ], [ 0, %.noexc.preheader.split ]
+.noexc23.thread:                                  ; preds = %.noexc.preheader.split, %._crit_edge.i, %._crit_edge.i36, %245, %.thread.i.i.i
+  %spec.select = phi i32 [ 0, %.thread.i.i.i ], [ %.sroa.0.0.i.i.i.i3.i331, %245 ], [ %.sroa.0.0.i.i.i.i3.i.us, %._crit_edge.i36 ], [ %.sroa.0.0.i.i.i.i3.i.us, %._crit_edge.i ], [ 0, %.noexc.preheader.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !5354
   %261 = load i64, ptr %25, align 8, !noundef !4
   %262 = icmp ult i64 %261, 2305843009213693952
@@ -79711,7 +79707,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.ph76.i.us = phi i64 [ %248, %247 ], [ %260, %258 ], [ %262, %261 ]
   %263 = add i64 %.ph76.i.us, %212
   %264 = icmp ult i64 %263, %209
-  br i1 %264, label %.lr.ph.i69.us, label %._crit_edge.i67.loopexit.split.us
+  br i1 %264, label %.lr.ph.i69.us, label %._crit_edge.i67
 
 265:                                              ; preds = %.noexc23.us
   call void @llvm.experimental.noalias.scope.decl(metadata !6863)
@@ -79798,11 +79794,6 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %308 = add i64 %307, %212
   %309 = icmp ult i64 %308, %209
   br i1 %309, label %.lr.ph.i61.us, label %._crit_edge.i
-
-._crit_edge.i67.loopexit.split.us:                ; preds = %.sink.split.i.us
-  store i64 %.lcssa390440.us, ptr %49, align 8
-  store i64 %217, ptr %46, align 8
-  br label %._crit_edge.i67
 
 .noexc23.preheader.split:                         ; preds = %.noexc23.preheader
   %310 = load i8, ptr %42, align 2, !range !990
@@ -79941,11 +79932,9 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %379 = add i64 %.sroa.01.0.i.i, %315
   br label %314
 
-._crit_edge.i67:                                  ; preds = %222, %._crit_edge.i67.loopexit.split.us
-  %.lcssa701.sink = phi i64 [ %.ph76.i.us, %._crit_edge.i67.loopexit.split.us ], [ %.lcssa390440.us, %222 ]
-  %.lcssa712.sink = phi i64 [ %.sink.i.us, %._crit_edge.i67.loopexit.split.us ], [ %217, %222 ]
-  store i64 %.lcssa701.sink, ptr %49, align 8
-  store i64 %.lcssa712.sink, ptr %46, align 8
+._crit_edge.i67:                                  ; preds = %222, %.sink.split.i.us
+  store i64 %.lcssa390440.us, ptr %49, align 8
+  store i64 %217, ptr %46, align 8
   br label %.noexc24.thread
 
 .split.us:                                        ; preds = %236
@@ -84855,7 +84844,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 95:                                               ; preds = %.noexc.us
   call void @llvm.experimental.noalias.scope.decl(metadata !7338)
   call void @llvm.experimental.noalias.scope.decl(metadata !7341)
-  br i1 %94, label %.lr.ph.i38.us, label %._crit_edge.i36
+  br i1 %94, label %.lr.ph.i38.us, label %._crit_edge.i36.loopexit104.split.us
 
 .lr.ph.i38.us:                                    ; preds = %95, %.sink.split.i.us
   %.sink.i212.us = phi i64 [ %.sink.i.us, %.sink.split.i.us ], [ %91, %95 ]
@@ -84940,7 +84929,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 138:                                              ; preds = %.noexc.us
   call void @llvm.experimental.noalias.scope.decl(metadata !7347)
   call void @llvm.experimental.noalias.scope.decl(metadata !7350)
-  br i1 %94, label %.lr.ph.i30.us, label %._crit_edge.i.loopexit105.split.us
+  br i1 %94, label %.lr.ph.i30.us, label %._crit_edge.i
 
 .lr.ph.i30.us:                                    ; preds = %138, %179
   %139 = phi i64 [ %180, %179 ], [ %.lcssa203253.us, %138 ]
@@ -85021,23 +85010,16 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %180 = phi i64 [ %176, %174 ], [ %160, %159 ], [ %178, %177 ]
   %181 = add i64 %180, %85
   %182 = icmp ult i64 %181, %82
-  br i1 %182, label %.lr.ph.i30.us, label %._crit_edge.i.loopexit.split.us
+  br i1 %182, label %.lr.ph.i30.us, label %._crit_edge.i
+
+._crit_edge.i36.loopexit104.split.us:             ; preds = %95
+  store i64 %.lcssa203253.us, ptr %42, align 8
+  br label %._crit_edge.i36
 
 ._crit_edge.i36.loopexit.split.us:                ; preds = %.sink.split.i.us
   store i64 %.lcssa203253.us, ptr %42, align 8
   store i64 %90, ptr %39, align 8
   br label %._crit_edge.i36
-
-._crit_edge.i.loopexit105.split.us:               ; preds = %138
-  store i64 %.lcssa203253.us, ptr %42, align 8
-  store i64 %90, ptr %39, align 8
-  br label %.noexc23.thread
-
-._crit_edge.i.loopexit.split.us:                  ; preds = %179
-  store i64 %.lcssa203253.us, ptr %42, align 8
-  store i64 %90, ptr %39, align 8
-  store i64 %180, ptr %42, align 8
-  br label %.noexc23.thread
 
 .noexc.preheader.split:                           ; preds = %.noexc.preheader
   %183 = load i8, ptr %35, align 2, !range !990
@@ -85176,11 +85158,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %252 = add i64 %.sroa.01.0.i.i, %188
   br label %187
 
-._crit_edge.i36:                                  ; preds = %95, %._crit_edge.i36.loopexit.split.us
-  %.lcssa516.sink = phi i64 [ %.ph76.i.us, %._crit_edge.i36.loopexit.split.us ], [ %.lcssa203253.us, %95 ]
-  %.lcssa527.sink = phi i64 [ %.sink.i.us, %._crit_edge.i36.loopexit.split.us ], [ %90, %95 ]
-  store i64 %.lcssa516.sink, ptr %42, align 8
-  store i64 %.lcssa527.sink, ptr %39, align 8
+._crit_edge.i36:                                  ; preds = %._crit_edge.i36.loopexit104.split.us, %._crit_edge.i36.loopexit.split.us
+  %.lcssa526.sink = phi i64 [ %90, %._crit_edge.i36.loopexit104.split.us ], [ %.sink.i.us, %._crit_edge.i36.loopexit.split.us ]
+  store i64 %.lcssa526.sink, ptr %39, align 8
   br label %.noexc23.thread
 
 .split.us:                                        ; preds = %109
@@ -85199,6 +85179,11 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %253 = add i64 %96, %.sroa.0.0.sroa.speculated.i.i40.us
   %umax.i44 = call i64 @llvm.umax.i64(i64 %82, i64 %253)
   br label %.split299.us.invoke
+
+._crit_edge.i:                                    ; preds = %138, %179
+  store i64 %.lcssa203253.us, ptr %42, align 8
+  store i64 %90, ptr %39, align 8
+  br label %.noexc23.thread
 
 .split299.us:                                     ; preds = %149
   store i64 %.lcssa203253.us, ptr %42, align 8
@@ -85243,8 +85228,8 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
           cleanup
   br label %.thread78
 
-.noexc23.thread:                                  ; preds = %.noexc.preheader.split, %._crit_edge.i.loopexit.split.us, %._crit_edge.i.loopexit105.split.us, %._crit_edge.i36, %245, %.thread.i.i.i
-  %spec.select = phi i32 [ 0, %.thread.i.i.i ], [ %.sroa.0.0.i.i.i.i3.i331, %245 ], [ %.sroa.0.0.i.i.i.i3.i.us, %._crit_edge.i36 ], [ %.sroa.0.0.i.i.i.i3.i.us, %._crit_edge.i.loopexit105.split.us ], [ %.sroa.0.0.i.i.i.i3.i.us, %._crit_edge.i.loopexit.split.us ], [ 0, %.noexc.preheader.split ]
+.noexc23.thread:                                  ; preds = %.noexc.preheader.split, %._crit_edge.i, %._crit_edge.i36, %245, %.thread.i.i.i
+  %spec.select = phi i32 [ 0, %.thread.i.i.i ], [ %.sroa.0.0.i.i.i.i3.i331, %245 ], [ %.sroa.0.0.i.i.i.i3.i.us, %._crit_edge.i36 ], [ %.sroa.0.0.i.i.i.i3.i.us, %._crit_edge.i ], [ 0, %.noexc.preheader.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !7330
   %261 = load i64, ptr %25, align 8, !noundef !4
   %262 = icmp ult i64 %261, 2305843009213693952

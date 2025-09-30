@@ -3877,15 +3877,11 @@ sub_2215:                                         ; preds = %sub_1214
   %123 = load i8, ptr %122, align 1, !tbaa !26
   %124 = and i8 %123, 1
   %.not26.i134 = icmp eq i8 %124, 0
-  br i1 %.not26.i134, label %._crit_edge.i135.loopexit, label %.lr.ph.i133, !llvm.loop !73
+  br i1 %.not26.i134, label %._crit_edge.i135, label %.lr.ph.i133, !llvm.loop !73
 
-._crit_edge.i135.loopexit:                        ; preds = %.lr.ph.i133
-  store ptr %119, ptr %4, align 8, !tbaa !72
-  br label %._crit_edge.i135
-
-._crit_edge.i135:                                 ; preds = %._crit_edge.i135.loopexit, %.preheader40.i131
-  %.promoted44.i136 = phi ptr [ %75, %.preheader40.i131 ], [ %119, %._crit_edge.i135.loopexit ]
-  %125 = phi i8 [ %113, %.preheader40.i131 ], [ %120, %._crit_edge.i135.loopexit ]
+._crit_edge.i135:                                 ; preds = %.lr.ph.i133, %.preheader40.i131
+  %.promoted44.i136 = phi ptr [ %75, %.preheader40.i131 ], [ %119, %.lr.ph.i133 ]
+  %125 = phi i8 [ %113, %.preheader40.i131 ], [ %120, %.lr.ph.i133 ]
   switch i8 %125, label %.lr.ph46.i149 [
     i8 0, label %next_arg.exit153.thread202
     i8 34, label %.critedge.i137
@@ -3910,7 +3906,6 @@ sub_2215:                                         ; preds = %sub_1214
 
 .critedge.i137:                                   ; preds = %._crit_edge.i135
   %134 = getelementptr inbounds nuw i8, ptr %.promoted44.i136, i64 1
-  store ptr %134, ptr %4, align 8, !tbaa !72
   %135 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %134, i32 noundef 34) #25
   %.not30.i138 = icmp eq ptr %135, null
   br i1 %.not30.i138, label %next_arg.exit153.thread, label %.critedge.i137..critedge.thread.i139_crit_edge

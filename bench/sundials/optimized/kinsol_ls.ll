@@ -74,7 +74,7 @@ define range(i32 -8, 1) i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, 
 
 5:                                                ; preds = %3
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 54, ptr noundef nonnull @__func__.KINSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #13
-  br label %106
+  br label %103
 
 6:                                                ; preds = %3
   %7 = icmp eq ptr %1, null
@@ -82,7 +82,7 @@ define range(i32 -8, 1) i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, 
 
 8:                                                ; preds = %6
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -3, i32 noundef 60, ptr noundef nonnull @__func__.KINSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #13
-  br label %106
+  br label %103
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -99,7 +99,7 @@ define range(i32 -8, 1) i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, 
 
 18:                                               ; preds = %14, %9
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 69, ptr noundef nonnull @__func__.KINSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #13
-  br label %106
+  br label %103
 
 19:                                               ; preds = %14
   %20 = tail call i32 @SUNLinSolGetType(ptr noundef nonnull %1) #13
@@ -108,7 +108,7 @@ define range(i32 -8, 1) i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, 
 
 22:                                               ; preds = %19
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 80, ptr noundef nonnull @__func__.KINSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #13
-  br label %106
+  br label %103
 
 23:                                               ; preds = %19
   %24 = icmp ne i32 %20, 0
@@ -131,7 +131,7 @@ define range(i32 -8, 1) i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, 
 
 37:                                               ; preds = %33, %23
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 93, ptr noundef nonnull @__func__.KINSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #13
-  br label %106
+  br label %103
 
 38:                                               ; preds = %33
   br i1 %24, label %39, label %58
@@ -151,7 +151,7 @@ define range(i32 -8, 1) i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, 
 
 48:                                               ; preds = %44
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 104, ptr noundef nonnull @__func__.KINSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #13
-  br label %106
+  br label %103
 
 49:                                               ; preds = %44, %39
   br i1 %.not90, label %50, label %55
@@ -164,7 +164,7 @@ define range(i32 -8, 1) i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, 
 
 54:                                               ; preds = %50
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 111, ptr noundef nonnull @__func__.KINSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #13
-  br label %106
+  br label %103
 
 55:                                               ; preds = %49
   %56 = icmp eq ptr %2, null
@@ -172,7 +172,7 @@ define range(i32 -8, 1) i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, 
 
 57:                                               ; preds = %55
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 118, ptr noundef nonnull @__func__.KINSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #13
-  br label %106
+  br label %103
 
 58:                                               ; preds = %38
   %59 = icmp eq ptr %2, null
@@ -180,7 +180,7 @@ define range(i32 -8, 1) i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, 
 
 60:                                               ; preds = %58
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 125, ptr noundef nonnull @__func__.KINSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #13
-  br label %106
+  br label %103
 
 .thread:                                          ; preds = %50, %58, %55
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 568
@@ -208,7 +208,7 @@ define range(i32 -8, 1) i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, 
 
 71:                                               ; preds = %65
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 147, ptr noundef nonnull @__func__.KINSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #13
-  br label %106
+  br label %103
 
 72:                                               ; preds = %65
   %73 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
@@ -233,64 +233,58 @@ define range(i32 -8, 1) i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, 
   store ptr %80, ptr %81, align 8, !tbaa !47
   %82 = getelementptr inbounds nuw i8, ptr %calloc, i64 176
   store ptr %0, ptr %82, align 8, !tbaa !48
-  %83 = getelementptr inbounds nuw i8, ptr %calloc, i64 120
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
-  %85 = load ptr, ptr %84, align 8, !tbaa !49
-  %86 = getelementptr inbounds nuw i8, ptr %calloc, i64 144
-  store ptr %85, ptr %86, align 8, !tbaa !50
-  %87 = getelementptr inbounds nuw i8, ptr %calloc, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %87, i8 0, i64 56, i1 false)
-  %88 = getelementptr inbounds nuw i8, ptr %calloc, i64 116
-  store i32 0, ptr %88, align 4, !tbaa !51
-  %89 = load ptr, ptr %10, align 8, !tbaa !3
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %91 = load ptr, ptr %90, align 8, !tbaa !31
-  %.not85 = icmp eq ptr %91, null
-  br i1 %.not85, label %95, label %92
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %84 = load ptr, ptr %83, align 8, !tbaa !49
+  %85 = getelementptr inbounds nuw i8, ptr %calloc, i64 144
+  store ptr %84, ptr %85, align 8, !tbaa !50
+  %86 = load ptr, ptr %10, align 8, !tbaa !3
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %88 = load ptr, ptr %87, align 8, !tbaa !31
+  %.not85 = icmp eq ptr %88, null
+  br i1 %.not85, label %92, label %89
 
-92:                                               ; preds = %72
-  %93 = tail call i32 @SUNLinSolSetATimes(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @kinLsATimes) #13
-  %.not86 = icmp eq i32 %93, 0
-  br i1 %.not86, label %._crit_edge, label %94
+89:                                               ; preds = %72
+  %90 = tail call i32 @SUNLinSolSetATimes(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @kinLsATimes) #13
+  %.not86 = icmp eq i32 %90, 0
+  br i1 %.not86, label %._crit_edge, label %91
 
-._crit_edge:                                      ; preds = %92
+._crit_edge:                                      ; preds = %89
   %.pre = load ptr, ptr %10, align 8, !tbaa !3
-  br label %95
+  br label %92
 
-94:                                               ; preds = %92
+91:                                               ; preds = %89
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -8, i32 noundef 192, ptr noundef nonnull @__func__.KINSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #13
   tail call void @free(ptr noundef nonnull %calloc) #13
-  br label %106
+  br label %103
 
-95:                                               ; preds = %._crit_edge, %72
-  %96 = phi ptr [ %.pre, %._crit_edge ], [ %89, %72 ]
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  %98 = load ptr, ptr %97, align 8, !tbaa !52
-  %.not87 = icmp eq ptr %98, null
-  br i1 %.not87, label %102, label %99
+92:                                               ; preds = %._crit_edge, %72
+  %93 = phi ptr [ %.pre, %._crit_edge ], [ %86, %72 ]
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
+  %95 = load ptr, ptr %94, align 8, !tbaa !51
+  %.not87 = icmp eq ptr %95, null
+  br i1 %.not87, label %99, label %96
 
-99:                                               ; preds = %95
-  %100 = tail call i32 @SUNLinSolSetPreconditioner(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef null, ptr noundef null) #13
-  %.not88 = icmp eq i32 %100, 0
-  br i1 %.not88, label %102, label %101
+96:                                               ; preds = %92
+  %97 = tail call i32 @SUNLinSolSetPreconditioner(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef null, ptr noundef null) #13
+  %.not88 = icmp eq i32 %97, 0
+  br i1 %.not88, label %99, label %98
 
-101:                                              ; preds = %99
+98:                                               ; preds = %96
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -8, i32 noundef 206, ptr noundef nonnull @__func__.KINSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #13
   tail call void @free(ptr noundef nonnull %calloc) #13
-  br label %106
+  br label %103
 
-102:                                              ; preds = %99, %95
-  %103 = getelementptr inbounds nuw i8, ptr %calloc, i64 48
-  store double -1.000000e+00, ptr %103, align 8, !tbaa !53
-  %104 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
-  store ptr %2, ptr %104, align 8, !tbaa !54
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  store ptr %calloc, ptr %105, align 8, !tbaa !55
-  br label %106
+99:                                               ; preds = %96, %92
+  %100 = getelementptr inbounds nuw i8, ptr %calloc, i64 48
+  store double -1.000000e+00, ptr %100, align 8, !tbaa !52
+  %101 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
+  store ptr %2, ptr %101, align 8, !tbaa !53
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  store ptr %calloc, ptr %102, align 8, !tbaa !54
+  br label %103
 
-106:                                              ; preds = %102, %101, %94, %71, %60, %57, %54, %48, %37, %22, %18, %8, %5
-  %.0 = phi i32 [ -1, %5 ], [ -3, %8 ], [ -3, %18 ], [ -3, %22 ], [ -3, %37 ], [ -3, %48 ], [ -3, %57 ], [ -4, %71 ], [ -8, %94 ], [ -8, %101 ], [ 0, %102 ], [ -3, %54 ], [ -3, %60 ]
+103:                                              ; preds = %99, %98, %91, %71, %60, %57, %54, %48, %37, %22, %18, %8, %5
+  %.0 = phi i32 [ -1, %5 ], [ -3, %8 ], [ -3, %18 ], [ -3, %22 ], [ -3, %37 ], [ -3, %48 ], [ -3, %57 ], [ -4, %71 ], [ -8, %91 ], [ -8, %98 ], [ 0, %99 ], [ -3, %54 ], [ -3, %60 ]
   ret i32 %.0
 }
 
@@ -301,7 +295,7 @@ declare i32 @SUNLinSolGetType(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @kinLsInitialize(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %3 = load ptr, ptr %2, align 8, !tbaa !55
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
 
@@ -311,7 +305,7 @@ define i32 @kinLsInitialize(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !54
+  %8 = load ptr, ptr %7, align 8, !tbaa !53
   %9 = icmp eq ptr %8, null
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %9, label %11, label %13
@@ -329,8 +323,8 @@ define i32 @kinLsInitialize(ptr noundef %0) #0 {
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !56
-  %18 = load ptr, ptr %17, align 8, !tbaa !59
+  %17 = load ptr, ptr %16, align 8, !tbaa !55
+  %18 = load ptr, ptr %17, align 8, !tbaa !58
   %.not62 = icmp eq ptr %18, null
   br i1 %.not62, label %35, label %19
 
@@ -340,7 +334,7 @@ define i32 @kinLsInitialize(ptr noundef %0) #0 {
   br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr %7, align 8, !tbaa !54
+  %23 = load ptr, ptr %7, align 8, !tbaa !53
   %24 = tail call i32 @SUNMatGetID(ptr noundef %23) #13
   %25 = icmp eq i32 %24, 3
   br i1 %25, label %.critedge, label %35
@@ -355,14 +349,14 @@ define i32 @kinLsInitialize(ptr noundef %0) #0 {
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !23
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 88
-  %33 = load ptr, ptr %32, align 8, !tbaa !61
+  %33 = load ptr, ptr %32, align 8, !tbaa !60
   %34 = icmp eq ptr %33, null
   br i1 %34, label %49, label %37
 
 35:                                               ; preds = %22, %15
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 1046, ptr noundef nonnull @__func__.kinLsInitialize, ptr noundef nonnull @.str, ptr noundef nonnull @.str.28) #13
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 116
-  store i32 -3, ptr %36, align 4, !tbaa !51
+  store i32 -3, ptr %36, align 4, !tbaa !61
   br label %132
 
 37:                                               ; preds = %.critedge
@@ -438,7 +432,7 @@ define i32 @kinLsInitialize(ptr noundef %0) #0 {
   %.sink = phi ptr [ %73, %71 ], [ %0, %69 ]
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 176
   store ptr %.sink, ptr %75, align 8, !tbaa !48
-  %76 = load ptr, ptr %7, align 8, !tbaa !54
+  %76 = load ptr, ptr %7, align 8, !tbaa !53
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %88
 
@@ -522,11 +516,11 @@ define i32 @kinLsInitialize(ptr noundef %0) #0 {
 127:                                              ; preds = %100, %102, %120
   %.sink71 = phi double [ %126, %120 ], [ 1.000000e+00, %102 ], [ 1.000000e+00, %100 ]
   %128 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store double %.sink71, ptr %128, align 8, !tbaa !53
+  store double %.sink71, ptr %128, align 8, !tbaa !52
   %129 = load ptr, ptr %89, align 8, !tbaa !37
   %130 = tail call i32 @SUNLinSolInitialize(ptr noundef %129) #13
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 116
-  store i32 %130, ptr %131, align 4, !tbaa !51
+  store i32 %130, ptr %131, align 4, !tbaa !61
   br label %132
 
 132:                                              ; preds = %127, %99, %64, %49, %35, %5
@@ -537,7 +531,7 @@ define i32 @kinLsInitialize(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define i32 @kinLsSetup(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %3 = load ptr, ptr %2, align 8, !tbaa !55
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
 
@@ -547,7 +541,7 @@ define i32 @kinLsSetup(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !54
+  %8 = load ptr, ptr %7, align 8, !tbaa !53
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %39, label %9
 
@@ -563,7 +557,7 @@ define i32 @kinLsSetup(ptr noundef %0) #0 {
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %9
-  %18 = load ptr, ptr %7, align 8, !tbaa !54
+  %18 = load ptr, ptr %7, align 8, !tbaa !53
   %19 = tail call i32 @SUNMatZero(ptr noundef %18) #13
   %.not29 = icmp eq i32 %19, 0
   br i1 %.not29, label %22, label %20
@@ -571,7 +565,7 @@ define i32 @kinLsSetup(ptr noundef %0) #0 {
 20:                                               ; preds = %17
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -7, i32 noundef 1173, ptr noundef nonnull @__func__.kinLsSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.31) #13
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 116
-  store i32 -7, ptr %21, align 4, !tbaa !51
+  store i32 -7, ptr %21, align 4, !tbaa !61
   br label %48
 
 22:                                               ; preds = %17, %9
@@ -581,7 +575,7 @@ define i32 @kinLsSetup(ptr noundef %0) #0 {
   %26 = load ptr, ptr %25, align 8, !tbaa !72
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %28 = load ptr, ptr %27, align 8, !tbaa !73
-  %29 = load ptr, ptr %7, align 8, !tbaa !54
+  %29 = load ptr, ptr %7, align 8, !tbaa !53
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !43
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -593,13 +587,13 @@ define i32 @kinLsSetup(ptr noundef %0) #0 {
   br i1 %.not30, label %._crit_edge, label %37
 
 ._crit_edge:                                      ; preds = %22
-  %.pre = load ptr, ptr %7, align 8, !tbaa !54
+  %.pre = load ptr, ptr %7, align 8, !tbaa !53
   br label %39
 
 37:                                               ; preds = %22
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -6, i32 noundef 1186, ptr noundef nonnull @__func__.kinLsSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.32) #13
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 116
-  store i32 -6, ptr %38, align 4, !tbaa !51
+  store i32 -6, ptr %38, align 4, !tbaa !61
   br label %48
 
 39:                                               ; preds = %._crit_edge, %6
@@ -608,7 +602,7 @@ define i32 @kinLsSetup(ptr noundef %0) #0 {
   %42 = load ptr, ptr %41, align 8, !tbaa !37
   %43 = tail call i32 @SUNLinSolSetup(ptr noundef %42, ptr noundef %40) #13
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 116
-  store i32 %43, ptr %44, align 4, !tbaa !51
+  store i32 %43, ptr %44, align 4, !tbaa !61
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %46 = load i64, ptr %45, align 8, !tbaa !75
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -623,7 +617,7 @@ define i32 @kinLsSetup(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define i32 @kinLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -635,7 +629,7 @@ define i32 @kinLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %12 = load double, ptr %11, align 8, !tbaa !77
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %14 = load double, ptr %13, align 8, !tbaa !53
+  %14 = load double, ptr %13, align 8, !tbaa !52
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %1) #13
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !37
@@ -649,7 +643,7 @@ define i32 @kinLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   store i32 1, ptr %20, align 8, !tbaa !78
   %21 = load ptr, ptr %15, align 8, !tbaa !37
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !54
+  %23 = load ptr, ptr %22, align 8, !tbaa !53
   %24 = tail call i32 @SUNLinSolSolve(ptr noundef %21, ptr noundef %23, ptr noundef %1, ptr noundef %2, double noundef %19) #13
   %25 = load ptr, ptr %15, align 8, !tbaa !37
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -700,7 +694,7 @@ define i32 @kinLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 
 .thread:                                          ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 116
-  store i32 0, ptr %47, align 4, !tbaa !51
+  store i32 0, ptr %47, align 4, !tbaa !61
   br label %58
 
 48:                                               ; preds = %42
@@ -709,7 +703,7 @@ define i32 @kinLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %51 = add nsw i64 %50, 1
   store i64 %51, ptr %49, align 8, !tbaa !82
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 116
-  store i32 %24, ptr %52, align 4, !tbaa !51
+  store i32 %24, ptr %52, align 4, !tbaa !61
   switch i32 %24, label %57 [
     i32 801, label %58
     i32 806, label %53
@@ -764,7 +758,7 @@ define i32 @kinLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %69
-  store i32 803, ptr %59, align 4, !tbaa !51
+  store i32 803, ptr %59, align 4, !tbaa !61
   br label %97
 
 73:                                               ; preds = %69
@@ -772,7 +766,7 @@ define i32 @kinLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br i1 %74, label %75, label %76
 
 75:                                               ; preds = %73
-  store i32 -805, ptr %59, align 4, !tbaa !51
+  store i32 -805, ptr %59, align 4, !tbaa !61
   br label %97
 
 76:                                               ; preds = %73
@@ -829,13 +823,13 @@ define noundef i32 @kinLsFree(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %5 = load ptr, ptr %4, align 8, !tbaa !55
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
   %6 = icmp eq ptr %5, null
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr null, ptr %8, align 8, !tbaa !54
+  store ptr null, ptr %8, align 8, !tbaa !53
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %10 = load ptr, ptr %9, align 8, !tbaa !85
   %.not = icmp eq ptr %10, null
@@ -843,7 +837,7 @@ define noundef i32 @kinLsFree(ptr noundef %0) #0 {
 
 11:                                               ; preds = %7
   %12 = tail call i32 %10(ptr noundef nonnull %0) #13
-  %.pre = load ptr, ptr %4, align 8, !tbaa !55
+  %.pre = load ptr, ptr %4, align 8, !tbaa !54
   br label %13
 
 13:                                               ; preds = %11, %7
@@ -916,7 +910,7 @@ define i32 @kinLsDQJtimes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr re
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 584
-  %10 = load ptr, ptr %9, align 8, !tbaa !55
+  %10 = load ptr, ptr %9, align 8, !tbaa !54
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %kinLs_AccessLMem.exit
 
@@ -946,7 +940,7 @@ kinLs_AccessLMem.exit:                            ; preds = %8
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 88
-  %28 = load ptr, ptr %27, align 8, !tbaa !61
+  %28 = load ptr, ptr %27, align 8, !tbaa !60
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %31
 
@@ -1029,7 +1023,7 @@ define i32 @kinLsATimes(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %8 = load ptr, ptr %7, align 8, !tbaa !55
+  %8 = load ptr, ptr %7, align 8, !tbaa !54
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %kinLs_AccessLMem.exit
 
@@ -1073,7 +1067,7 @@ define range(i32 -3, 1) i32 @KINSetJacFn(ptr noundef %0, ptr noundef %1) local_u
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %kinLs_AccessLMem.exit
 
@@ -1087,7 +1081,7 @@ kinLs_AccessLMem.exit:                            ; preds = %5
 
 10:                                               ; preds = %kinLs_AccessLMem.exit
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !54
+  %12 = load ptr, ptr %11, align 8, !tbaa !53
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
 
@@ -1132,7 +1126,7 @@ define range(i32 -2, 1) i32 @kinLs_AccessLMem(ptr noundef %0, ptr noundef %1, pt
 7:                                                ; preds = %4
   store ptr %0, ptr %2, align 8, !tbaa !92
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %9 = load ptr, ptr %8, align 8, !tbaa !55
+  %9 = load ptr, ptr %8, align 8, !tbaa !54
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
 
@@ -1160,7 +1154,7 @@ define range(i32 -8, 1) i32 @KINSetPreconditioner(ptr noundef %0, ptr noundef %1
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %8 = load ptr, ptr %7, align 8, !tbaa !55
+  %8 = load ptr, ptr %7, align 8, !tbaa !54
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %kinLs_AccessLMem.exit
 
@@ -1178,7 +1172,7 @@ kinLs_AccessLMem.exit:                            ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !52
+  %18 = load ptr, ptr %17, align 8, !tbaa !51
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
 
@@ -1215,7 +1209,7 @@ define i32 @kinLsPSetup(ptr noundef %0) #0 {
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %6 = load ptr, ptr %5, align 8, !tbaa !55
+  %6 = load ptr, ptr %5, align 8, !tbaa !54
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %kinLs_AccessLMem.exit
 
@@ -1259,7 +1253,7 @@ define i32 @kinLsPSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, double %
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %10 = load ptr, ptr %9, align 8, !tbaa !55
+  %10 = load ptr, ptr %9, align 8, !tbaa !54
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %kinLs_AccessLMem.exit
 
@@ -1304,7 +1298,7 @@ define range(i32 -3, 1) i32 @KINSetJacTimesVecFn(ptr noundef %0, ptr noundef %1)
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %kinLs_AccessLMem.exit
 
@@ -1368,7 +1362,7 @@ define range(i32 -3, 1) i32 @KINSetJacTimesVecSysFn(ptr noundef %0, ptr noundef 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %kinLs_AccessLMem.exit
 
@@ -1418,7 +1412,7 @@ define range(i32 -2, 1) i32 @KINGetJac(ptr noundef %0, ptr noundef writeonly cap
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %kinLs_AccessLMem.exit
 
@@ -1428,7 +1422,7 @@ define range(i32 -2, 1) i32 @KINGetJac(ptr noundef %0, ptr noundef writeonly cap
 
 kinLs_AccessLMem.exit:                            ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !54
+  %11 = load ptr, ptr %10, align 8, !tbaa !53
   store ptr %11, ptr %1, align 8, !tbaa !98
   br label %kinLs_AccessLMem.exit.thread
 
@@ -1448,7 +1442,7 @@ define range(i32 -2, 1) i32 @KINGetJacNumIters(ptr noundef %0, ptr noundef write
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %kinLs_AccessLMem.exit
 
@@ -1486,7 +1480,7 @@ define range(i32 -2, 1) i32 @KINGetLinWorkSpace(ptr noundef %0, ptr noundef capt
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %12 = load ptr, ptr %11, align 8, !tbaa !55
+  %12 = load ptr, ptr %11, align 8, !tbaa !54
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %kinLs_AccessLMem.exit
 
@@ -1568,7 +1562,7 @@ define range(i32 -2, 1) i32 @KINGetNumJacEvals(ptr noundef %0, ptr noundef write
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %kinLs_AccessLMem.exit
 
@@ -1598,7 +1592,7 @@ define range(i32 -2, 1) i32 @KINGetNumPrecEvals(ptr noundef %0, ptr noundef writ
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %kinLs_AccessLMem.exit
 
@@ -1628,7 +1622,7 @@ define range(i32 -2, 1) i32 @KINGetNumPrecSolves(ptr noundef %0, ptr noundef wri
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %kinLs_AccessLMem.exit
 
@@ -1658,7 +1652,7 @@ define range(i32 -2, 1) i32 @KINGetNumLinIters(ptr noundef %0, ptr noundef write
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %kinLs_AccessLMem.exit
 
@@ -1688,7 +1682,7 @@ define range(i32 -2, 1) i32 @KINGetNumLinConvFails(ptr noundef %0, ptr noundef w
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %kinLs_AccessLMem.exit
 
@@ -1718,7 +1712,7 @@ define range(i32 -2, 1) i32 @KINGetNumJtimesEvals(ptr noundef %0, ptr noundef wr
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %kinLs_AccessLMem.exit
 
@@ -1748,7 +1742,7 @@ define range(i32 -2, 1) i32 @KINGetNumLinFuncEvals(ptr noundef %0, ptr noundef w
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %kinLs_AccessLMem.exit
 
@@ -1778,7 +1772,7 @@ define range(i32 -2, 1) i32 @KINGetLastLinFlag(ptr noundef %0, ptr noundef write
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %kinLs_AccessLMem.exit
 
@@ -1788,7 +1782,7 @@ define range(i32 -2, 1) i32 @KINGetLastLinFlag(ptr noundef %0, ptr noundef write
 
 kinLs_AccessLMem.exit:                            ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 116
-  %11 = load i32, ptr %10, align 4, !tbaa !51
+  %11 = load i32, ptr %10, align 4, !tbaa !61
   %12 = sext i32 %11 to i64
   store i64 %12, ptr %1, align 8, !tbaa !99
   br label %kinLs_AccessLMem.exit.thread
@@ -1864,7 +1858,7 @@ declare i32 @SUNMatGetID(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @kinLsDenseDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 584
-  %8 = load ptr, ptr %7, align 8, !tbaa !55
+  %8 = load ptr, ptr %7, align 8, !tbaa !54
   %9 = tail call i64 @SUNDenseMatrix_Columns(ptr noundef %2) #13
   %10 = tail call ptr @N_VGetArrayPointer(ptr noundef %5) #13
   %11 = tail call ptr @N_VGetArrayPointer(ptr noundef %0) #13
@@ -1927,7 +1921,7 @@ define i32 @kinLsDenseDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 ; Function Attrs: nounwind uwtable
 define i32 @kinLsBandDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 584
-  %8 = load ptr, ptr %7, align 8, !tbaa !55
+  %8 = load ptr, ptr %7, align 8, !tbaa !54
   %9 = tail call i64 @SUNBandMatrix_Columns(ptr noundef %2) #13
   %10 = tail call i64 @SUNBandMatrix_UpperBandwidth(ptr noundef %2) #13
   %11 = tail call i64 @SUNBandMatrix_LowerBandwidth(ptr noundef %2) #13
@@ -2188,17 +2182,17 @@ attributes #14 = { nounwind allocsize(0) }
 !48 = !{!38, !5, i64 176}
 !49 = !{!14, !5, i64 24}
 !50 = !{!38, !5, i64 144}
-!51 = !{!38, !16, i64 116}
-!52 = !{!11, !5, i64 24}
-!53 = !{!38, !15, i64 48}
-!54 = !{!38, !40, i64 40}
-!55 = !{!14, !5, i64 584}
-!56 = !{!57, !58, i64 8}
-!57 = !{!"_generic_SUNMatrix", !5, i64 0, !58, i64 8, !9, i64 16}
-!58 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !5, i64 0}
-!59 = !{!60, !5, i64 0}
-!60 = !{!"_generic_SUNMatrix_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72}
-!61 = !{!27, !5, i64 88}
+!51 = !{!11, !5, i64 24}
+!52 = !{!38, !15, i64 48}
+!53 = !{!38, !40, i64 40}
+!54 = !{!14, !5, i64 584}
+!55 = !{!56, !57, i64 8}
+!56 = !{!"_generic_SUNMatrix", !5, i64 0, !57, i64 8, !9, i64 16}
+!57 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !5, i64 0}
+!58 = !{!59, !5, i64 0}
+!59 = !{!"_generic_SUNMatrix_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72}
+!60 = !{!27, !5, i64 88}
+!61 = !{!38, !16, i64 116}
 !62 = !{!27, !5, i64 120}
 !63 = !{!27, !5, i64 40}
 !64 = !{!27, !5, i64 56}

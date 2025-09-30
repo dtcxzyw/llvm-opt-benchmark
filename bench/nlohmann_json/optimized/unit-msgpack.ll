@@ -4334,7 +4334,6 @@ _ZNSt6vectorIhSaIhEED2Ev.exit4020:                ; preds = %1498, %1496, %1487
   %1505 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr null, ptr %1505, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %1506 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %1509 unwind label %1507
 
@@ -4735,11 +4734,10 @@ _ZNSt6vectorIhSaIhEED2Ev.exit4033:                ; preds = %1606, %1604, %1572
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IbbTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit: ; preds = %1618
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %1619 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
+  store i64 0, ptr %38, align 8
   store i8 4, ptr %38, align 8, !tbaa !36
   store i64 1, ptr %1619, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
   %1620 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %1623 unwind label %1621
 
@@ -5142,11 +5140,10 @@ _ZNSt6vectorIhSaIhEED2Ev.exit4057:                ; preds = %1727, %1725, %1693
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IbbTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit4062: ; preds = %1734
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %1735 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
+  store i64 0, ptr %54, align 8
   store i8 4, ptr %54, align 8, !tbaa !36
   store i64 0, ptr %1735, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
   %1736 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %1739 unwind label %1737
 
@@ -5682,7 +5679,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_0EE", i64 16), ptr %75, align 8, !tbaa !4, !alias.scope !57
   store i64 %1857, ptr %1858, align 8, !tbaa !60, !alias.scope !57
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
+  store i64 0, ptr %76, align 8
   %1900 = load i32, ptr %74, align 4, !tbaa !55
   %1901 = sext i32 %1900 to i64
   store i8 5, ptr %76, align 8, !tbaa !36
@@ -5717,7 +5714,6 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   call void @llvm.lifetime.start.p0(ptr nonnull %80)
   %1909 = load i32, ptr %74, align 4, !tbaa !55
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, i8 0, i64 24, i1 false)
   %1910 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %1913 unwind label %1911
 
@@ -6292,7 +6288,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_1EE", i64 16), ptr %103, align 8, !tbaa !4, !alias.scope !72
   store i64 %2050, ptr %2051, align 8, !tbaa !75, !alias.scope !72
   call void @llvm.lifetime.start.p0(ptr nonnull %104)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
+  store i64 0, ptr %104, align 8
   store i8 5, ptr %104, align 8, !tbaa !36
   store i64 -1, ptr %2052, align 8, !tbaa !23
   %2079 = load i64, ptr %102, align 8, !tbaa !70
@@ -6331,7 +6327,6 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %105)
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %2088 = load i64, ptr %102, align 8, !tbaa !70
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, i8 0, i64 24, i1 false)
   %2089 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %2092 unwind label %2090
 
@@ -6904,7 +6899,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_2EE", i64 16), ptr %131, align 8, !tbaa !4, !alias.scope !84
   store i64 %2228, ptr %2229, align 8, !tbaa !75, !alias.scope !84
   call void @llvm.lifetime.start.p0(ptr nonnull %132)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, i8 0, i64 16, i1 false)
+  store i64 0, ptr %132, align 8
   store i8 5, ptr %132, align 8, !tbaa !36
   store i64 -1, ptr %2230, align 8, !tbaa !23
   %2258 = load i64, ptr %130, align 8, !tbaa !70
@@ -6943,7 +6938,6 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %133)
   call void @llvm.lifetime.start.p0(ptr nonnull %136)
   %2267 = load i64, ptr %130, align 8, !tbaa !70
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %136, i8 0, i64 24, i1 false)
   %2268 = invoke noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #32
           to label %2271 unwind label %2269
 
@@ -7582,7 +7576,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_3EE", i64 16), ptr %164, align 8, !tbaa !4, !alias.scope !94
   store i64 %2424, ptr %2425, align 8, !tbaa !75, !alias.scope !94
   call void @llvm.lifetime.start.p0(ptr nonnull %165)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %165, i8 0, i64 16, i1 false)
+  store i64 0, ptr %165, align 8
   store i8 5, ptr %165, align 8, !tbaa !36
   store i64 -1, ptr %2426, align 8, !tbaa !23
   %2454 = load i64, ptr %163, align 8, !tbaa !70
@@ -7621,7 +7615,6 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %166)
   call void @llvm.lifetime.start.p0(ptr nonnull %169)
   %2463 = load i64, ptr %163, align 8, !tbaa !70
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %169, i8 0, i64 24, i1 false)
   %2464 = invoke noalias noundef nonnull dereferenceable(3) ptr @_Znwm(i64 noundef 3) #32
           to label %2467 unwind label %2465
 
@@ -8281,7 +8274,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_4EE", i64 16), ptr %198, align 8, !tbaa !4, !alias.scope !106
   store i64 %2631, ptr %2632, align 8, !tbaa !60, !alias.scope !106
   call void @llvm.lifetime.start.p0(ptr nonnull %199)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, i8 0, i64 16, i1 false)
+  store i64 0, ptr %199, align 8
   store i8 5, ptr %199, align 8, !tbaa !36
   store i64 -1, ptr %2633, align 8, !tbaa !23
   %2662 = load i32, ptr %197, align 4, !tbaa !55
@@ -8321,7 +8314,6 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %200)
   call void @llvm.lifetime.start.p0(ptr nonnull %203)
   %2672 = load i32, ptr %197, align 4, !tbaa !55
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %203, i8 0, i64 24, i1 false)
   %2673 = invoke noalias noundef nonnull dereferenceable(5) ptr @_Znwm(i64 noundef 5) #32
           to label %2676 unwind label %2674
 
@@ -8995,7 +8987,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_5EE", i64 16), ptr %232, align 8, !tbaa !4, !alias.scope !115
   store i64 %2849, ptr %2850, align 8, !tbaa !75, !alias.scope !115
   call void @llvm.lifetime.start.p0(ptr nonnull %233)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %233, i8 0, i64 16, i1 false)
+  store i64 0, ptr %233, align 8
   store i8 5, ptr %233, align 8, !tbaa !36
   store i64 -1, ptr %2851, align 8, !tbaa !23
   %2880 = load i64, ptr %231, align 8, !tbaa !70
@@ -9034,7 +9026,6 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %234)
   call void @llvm.lifetime.start.p0(ptr nonnull %237)
   %2889 = load i64, ptr %231, align 8, !tbaa !70
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %237, i8 0, i64 24, i1 false)
   %2890 = invoke noalias noundef nonnull dereferenceable(9) ptr @_Znwm(i64 noundef 9) #32
           to label %2893 unwind label %2891
 
@@ -9736,7 +9727,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_6EE", i64 16), ptr %265, align 8, !tbaa !4, !alias.scope !124
   store i64 %3093, ptr %3094, align 8, !tbaa !60, !alias.scope !124
   call void @llvm.lifetime.start.p0(ptr nonnull %266)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %266, i8 0, i64 16, i1 false)
+  store i64 0, ptr %266, align 8
   %3123 = load i32, ptr %264, align 4, !tbaa !55
   %3124 = sext i32 %3123 to i64
   store i8 5, ptr %266, align 8, !tbaa !36
@@ -9771,7 +9762,6 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %267)
   call void @llvm.lifetime.start.p0(ptr nonnull %270)
   %3132 = load i32, ptr %264, align 4, !tbaa !55
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %270, i8 0, i64 24, i1 false)
   %3133 = invoke noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #32
           to label %3136 unwind label %3134
 
@@ -10339,11 +10329,10 @@ _ZNSt6vectorIhSaIhEED2Ev.exit4336:                ; preds = %3277, %3275, %3223
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit4340: ; preds = %3286
   call void @llvm.lifetime.start.p0(ptr nonnull %296)
   %3287 = getelementptr inbounds nuw i8, ptr %296, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %296, i8 0, i64 16, i1 false)
+  store i64 0, ptr %296, align 8
   store i8 5, ptr %296, align 8, !tbaa !36
   store i64 -9263, ptr %3287, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %297)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %297, i8 0, i64 24, i1 false)
   %3288 = invoke noalias noundef nonnull dereferenceable(3) ptr @_Znwm(i64 noundef 3) #32
           to label %3291 unwind label %3289
 
@@ -10868,7 +10857,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_7EE", i64 16), ptr %318, align 8, !tbaa !4, !alias.scope !140
   store i64 %3422, ptr %3423, align 8, !tbaa !143, !alias.scope !140
   call void @llvm.lifetime.start.p0(ptr nonnull %319)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %319, i8 0, i64 16, i1 false)
+  store i64 0, ptr %319, align 8
   %3452 = load i16, ptr %317, align 2, !tbaa !97
   %3453 = sext i16 %3452 to i64
   store i8 5, ptr %319, align 8, !tbaa !36
@@ -10903,7 +10892,6 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %320)
   call void @llvm.lifetime.start.p0(ptr nonnull %323)
   %3461 = load i16, ptr %317, align 2, !tbaa !97
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %323, i8 0, i64 24, i1 false)
   %3462 = invoke noalias noundef nonnull dereferenceable(3) ptr @_Znwm(i64 noundef 3) #32
           to label %3465 unwind label %3463
 
@@ -11559,7 +11547,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_8EE", i64 16), ptr %351, align 8, !tbaa !4, !alias.scope !152
   store i64 %3626, ptr %3627, align 8, !tbaa !60, !alias.scope !152
   call void @llvm.lifetime.start.p0(ptr nonnull %352)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %352, i8 0, i64 16, i1 false)
+  store i64 0, ptr %352, align 8
   %3658 = load i32, ptr %350, align 4, !tbaa !55
   %3659 = sext i32 %3658 to i64
   store i8 5, ptr %352, align 8, !tbaa !36
@@ -11594,7 +11582,6 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %353)
   call void @llvm.lifetime.start.p0(ptr nonnull %356)
   %3667 = load i32, ptr %350, align 4, !tbaa !55
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %356, i8 0, i64 24, i1 false)
   %3668 = invoke noalias noundef nonnull dereferenceable(5) ptr @_Znwm(i64 noundef 5) #32
           to label %3671 unwind label %3669
 
@@ -12270,7 +12257,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_9EE", i64 16), ptr %383, align 8, !tbaa !4, !alias.scope !161
   store i64 %3842, ptr %3843, align 8, !tbaa !75, !alias.scope !161
   call void @llvm.lifetime.start.p0(ptr nonnull %384)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %384, i8 0, i64 16, i1 false)
+  store i64 0, ptr %384, align 8
   %3874 = load i64, ptr %382, align 8, !tbaa !70
   store i8 5, ptr %384, align 8, !tbaa !36
   store i64 %3874, ptr %3844, align 8, !tbaa !23
@@ -12304,7 +12291,6 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %385)
   call void @llvm.lifetime.start.p0(ptr nonnull %388)
   %3882 = load i64, ptr %382, align 8, !tbaa !70
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %388, i8 0, i64 24, i1 false)
   %3883 = invoke noalias noundef nonnull dereferenceable(9) ptr @_Znwm(i64 noundef 9) #32
           to label %3886 unwind label %3884
 
@@ -13051,7 +13037,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_10EE", i64 16), ptr %418, align 8, !tbaa !4, !alias.scope !170
   store i64 %4090, ptr %4091, align 8, !tbaa !75, !alias.scope !170
   call void @llvm.lifetime.start.p0(ptr nonnull %419)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %419, i8 0, i64 16, i1 false)
+  store i64 0, ptr %419, align 8
   %4126 = load i64, ptr %417, align 8, !tbaa !70
   store i8 6, ptr %419, align 8, !tbaa !36
   store i64 %4126, ptr %4092, align 8, !tbaa !23
@@ -13084,7 +13070,6 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(ptr nonnull %420)
   call void @llvm.lifetime.start.p0(ptr nonnull %423)
   %4134 = load i64, ptr %417, align 8, !tbaa !70
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %423, i8 0, i64 24, i1 false)
   %4135 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %4138 unwind label %4136
 
@@ -31947,6 +31932,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5642: ; preds = %.noexc4.th
   %9688 = ptrtoint ptr %9668 to i64
   store i64 %9688, ptr %9634, align 8, !tbaa !23, !alias.scope !477
   call void @llvm.lifetime.start.p0(ptr nonnull %1103)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1103, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i5624, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5645, label %9689
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5645: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5642
@@ -31959,6 +31945,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5645: ; preds = %_ZNSt6vectorI
 
 .noexc5647:                                       ; preds = %9689
   store ptr %9690, ptr %1103, align 8, !tbaa !27
+  store ptr %9690, ptr %9635, align 8, !tbaa !30
   %9691 = getelementptr inbounds nuw i8, ptr %9690, i64 %9662
   store ptr %9691, ptr %9636, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %9690, i8 120, i64 %9662, i1 false)
@@ -32912,6 +32899,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5704: ; preds = %.noexc4.th
   %9967 = ptrtoint ptr %9947 to i64
   store i64 %9967, ptr %9912, align 8, !tbaa !23, !alias.scope !489
   call void @llvm.lifetime.start.p0(ptr nonnull %1130)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1130, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i5686, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5707, label %9968
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5707: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i5704
@@ -32924,6 +32912,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i5707: ; preds = %_ZNSt6vectorI
 
 .noexc5709:                                       ; preds = %9968
   store ptr %9969, ptr %1130, align 8, !tbaa !27
+  store ptr %9969, ptr %9913, align 8, !tbaa !30
   %9970 = getelementptr inbounds nuw i8, ptr %9969, i64 %9941
   store ptr %9970, ptr %9914, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %9969, i8 120, i64 %9941, i1 false)
@@ -33942,6 +33931,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5749:                ; preds = %.loopexit, %.loopex
 
 10270:                                            ; preds = %10269
   call void @llvm.lifetime.start.p0(ptr nonnull %1153)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1153, i8 0, i64 24, i1 false)
   %10271 = invoke noalias noundef nonnull dereferenceable(5) ptr @_Znwm(i64 noundef 5) #32
           to label %10274 unwind label %10272
 
@@ -34546,6 +34536,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5783:                ; preds = %10428, %10430
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1177) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1177)
   call void @llvm.lifetime.start.p0(ptr nonnull %1179)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1179, i8 0, i64 24, i1 false)
   %10448 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %10451 unwind label %10449
 
@@ -34768,6 +34759,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5793:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1181) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1181)
   call void @llvm.lifetime.start.p0(ptr nonnull %1183)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1183, i8 0, i64 24, i1 false)
   %10520 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %10523 unwind label %10521
 
@@ -34958,6 +34950,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5806:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1185) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1185)
   call void @llvm.lifetime.start.p0(ptr nonnull %1187)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1187, i8 0, i64 24, i1 false)
   %10582 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %10585 unwind label %10583
 
@@ -35148,6 +35141,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5819:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1189) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1189)
   call void @llvm.lifetime.start.p0(ptr nonnull %1191)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1191, i8 0, i64 24, i1 false)
   %10644 = invoke noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #32
           to label %10647 unwind label %10645
 
@@ -35340,6 +35334,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5832:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1193) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1193)
   call void @llvm.lifetime.start.p0(ptr nonnull %1195)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1195, i8 0, i64 24, i1 false)
   %10706 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %10709 unwind label %10707
 
@@ -35530,6 +35525,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5845:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1197) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1197)
   call void @llvm.lifetime.start.p0(ptr nonnull %1199)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1199, i8 0, i64 24, i1 false)
   %10768 = invoke noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #32
           to label %10771 unwind label %10769
 
@@ -35722,6 +35718,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5858:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1201) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1201)
   call void @llvm.lifetime.start.p0(ptr nonnull %1203)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1203, i8 0, i64 24, i1 false)
   %10830 = invoke noalias noundef nonnull dereferenceable(3) ptr @_Znwm(i64 noundef 3) #32
           to label %10833 unwind label %10831
 
@@ -35916,6 +35913,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5871:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1205) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1205)
   call void @llvm.lifetime.start.p0(ptr nonnull %1207)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1207, i8 0, i64 24, i1 false)
   %10892 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #32
           to label %10895 unwind label %10893
 
@@ -36112,6 +36110,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5884:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1209) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1209)
   call void @llvm.lifetime.start.p0(ptr nonnull %1211)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1211, i8 0, i64 24, i1 false)
   %10954 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %10957 unwind label %10955
 
@@ -36302,6 +36301,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5897:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1213) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1213)
   call void @llvm.lifetime.start.p0(ptr nonnull %1215)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1215, i8 0, i64 24, i1 false)
   %11016 = invoke noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #32
           to label %11019 unwind label %11017
 
@@ -36494,6 +36494,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5910:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1217) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1217)
   call void @llvm.lifetime.start.p0(ptr nonnull %1219)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1219, i8 0, i64 24, i1 false)
   %11078 = invoke noalias noundef nonnull dereferenceable(3) ptr @_Znwm(i64 noundef 3) #32
           to label %11081 unwind label %11079
 
@@ -36688,6 +36689,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5923:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1221) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1221)
   call void @llvm.lifetime.start.p0(ptr nonnull %1223)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1223, i8 0, i64 24, i1 false)
   %11140 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #32
           to label %11143 unwind label %11141
 
@@ -36884,6 +36886,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5936:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1225) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1225)
   call void @llvm.lifetime.start.p0(ptr nonnull %1227)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1227, i8 0, i64 24, i1 false)
   %11202 = invoke noalias noundef nonnull dereferenceable(5) ptr @_Znwm(i64 noundef 5) #32
           to label %11205 unwind label %11203
 
@@ -37076,6 +37079,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5949:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1229) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1229)
   call void @llvm.lifetime.start.p0(ptr nonnull %1231)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1231, i8 0, i64 24, i1 false)
   %11264 = invoke noalias noundef nonnull dereferenceable(6) ptr @_Znwm(i64 noundef 6) #32
           to label %11267 unwind label %11265
 
@@ -37268,6 +37272,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5962:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1233) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1233)
   call void @llvm.lifetime.start.p0(ptr nonnull %1235)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1235, i8 0, i64 24, i1 false)
   %11326 = invoke noalias noundef nonnull dereferenceable(7) ptr @_Znwm(i64 noundef 7) #32
           to label %11329 unwind label %11327
 
@@ -37460,6 +37465,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5975:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1237) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1237)
   call void @llvm.lifetime.start.p0(ptr nonnull %1239)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1239, i8 0, i64 24, i1 false)
   %11388 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #32
           to label %11391 unwind label %11389
 
@@ -37652,6 +37658,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5988:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1241) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1241)
   call void @llvm.lifetime.start.p0(ptr nonnull %1243)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1243, i8 0, i64 24, i1 false)
   %11450 = invoke noalias noundef nonnull dereferenceable(3) ptr @_Znwm(i64 noundef 3) #32
           to label %11453 unwind label %11451
 
@@ -37846,6 +37853,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6001:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1245) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1245)
   call void @llvm.lifetime.start.p0(ptr nonnull %1247)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1247, i8 0, i64 24, i1 false)
   %11512 = invoke noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #32
           to label %11515 unwind label %11513
 
@@ -38038,6 +38046,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6014:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1249) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1249)
   call void @llvm.lifetime.start.p0(ptr nonnull %1251)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1251, i8 0, i64 24, i1 false)
   %11574 = invoke noalias noundef nonnull dereferenceable(3) ptr @_Znwm(i64 noundef 3) #32
           to label %11577 unwind label %11575
 
@@ -38232,6 +38241,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6027:                ; preds = %_ZN8nlohmann16json_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1253) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1253)
   call void @llvm.lifetime.start.p0(ptr nonnull %1255)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1255, i8 0, i64 24, i1 false)
   %11636 = invoke noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #32
           to label %11639 unwind label %11637
 
@@ -38410,6 +38420,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6040:                ; preds = %_ZN8nlohmann16json_
 11690:                                            ; preds = %11689
   call void @llvm.lifetime.start.p0(ptr nonnull %1259)
   call void @llvm.lifetime.start.p0(ptr nonnull %1260)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1260, i8 0, i64 24, i1 false)
   %11691 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %11694 unwind label %11692
 
@@ -38484,6 +38495,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6056:                ; preds = %_ZN8nlohmann16json_
 11713:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6056
   call void @llvm.lifetime.start.p0(ptr nonnull %1264)
   call void @llvm.lifetime.start.p0(ptr nonnull %1265)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1265, i8 0, i64 24, i1 false)
   %11714 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %11717 unwind label %11715
 
@@ -38558,6 +38570,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6069:                ; preds = %_ZN8nlohmann16json_
 11736:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6069
   call void @llvm.lifetime.start.p0(ptr nonnull %1269)
   call void @llvm.lifetime.start.p0(ptr nonnull %1270)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1270, i8 0, i64 24, i1 false)
   %11737 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %11740 unwind label %11738
 
@@ -38632,6 +38645,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6082:                ; preds = %_ZN8nlohmann16json_
 11759:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6082
   call void @llvm.lifetime.start.p0(ptr nonnull %1274)
   call void @llvm.lifetime.start.p0(ptr nonnull %1275)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1275, i8 0, i64 24, i1 false)
   %11760 = invoke noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #32
           to label %11763 unwind label %11761
 
@@ -38708,6 +38722,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6095:                ; preds = %_ZN8nlohmann16json_
 11782:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6095
   call void @llvm.lifetime.start.p0(ptr nonnull %1279)
   call void @llvm.lifetime.start.p0(ptr nonnull %1280)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1280, i8 0, i64 24, i1 false)
   %11783 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %11786 unwind label %11784
 
@@ -38782,6 +38797,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6108:                ; preds = %_ZN8nlohmann16json_
 11805:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6108
   call void @llvm.lifetime.start.p0(ptr nonnull %1284)
   call void @llvm.lifetime.start.p0(ptr nonnull %1285)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1285, i8 0, i64 24, i1 false)
   %11806 = invoke noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #32
           to label %11809 unwind label %11807
 
@@ -38858,6 +38874,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6121:                ; preds = %_ZN8nlohmann16json_
 11828:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6121
   call void @llvm.lifetime.start.p0(ptr nonnull %1289)
   call void @llvm.lifetime.start.p0(ptr nonnull %1290)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1290, i8 0, i64 24, i1 false)
   %11829 = invoke noalias noundef nonnull dereferenceable(3) ptr @_Znwm(i64 noundef 3) #32
           to label %11832 unwind label %11830
 
@@ -38936,6 +38953,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6134:                ; preds = %_ZN8nlohmann16json_
 11851:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6134
   call void @llvm.lifetime.start.p0(ptr nonnull %1294)
   call void @llvm.lifetime.start.p0(ptr nonnull %1295)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1295, i8 0, i64 24, i1 false)
   %11852 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #32
           to label %11855 unwind label %11853
 
@@ -39016,6 +39034,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6147:                ; preds = %_ZN8nlohmann16json_
 11874:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6147
   call void @llvm.lifetime.start.p0(ptr nonnull %1299)
   call void @llvm.lifetime.start.p0(ptr nonnull %1300)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1300, i8 0, i64 24, i1 false)
   %11875 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %11878 unwind label %11876
 
@@ -39090,6 +39109,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6160:                ; preds = %_ZN8nlohmann16json_
 11897:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6160
   call void @llvm.lifetime.start.p0(ptr nonnull %1304)
   call void @llvm.lifetime.start.p0(ptr nonnull %1305)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1305, i8 0, i64 24, i1 false)
   %11898 = invoke noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #32
           to label %11901 unwind label %11899
 
@@ -39166,6 +39186,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6173:                ; preds = %_ZN8nlohmann16json_
 11920:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6173
   call void @llvm.lifetime.start.p0(ptr nonnull %1309)
   call void @llvm.lifetime.start.p0(ptr nonnull %1310)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1310, i8 0, i64 24, i1 false)
   %11921 = invoke noalias noundef nonnull dereferenceable(3) ptr @_Znwm(i64 noundef 3) #32
           to label %11924 unwind label %11922
 
@@ -39244,6 +39265,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6186:                ; preds = %_ZN8nlohmann16json_
 11943:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6186
   call void @llvm.lifetime.start.p0(ptr nonnull %1314)
   call void @llvm.lifetime.start.p0(ptr nonnull %1315)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1315, i8 0, i64 24, i1 false)
   %11944 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #32
           to label %11947 unwind label %11945
 
@@ -39324,6 +39346,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6199:                ; preds = %_ZN8nlohmann16json_
 11966:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6199
   call void @llvm.lifetime.start.p0(ptr nonnull %1319)
   call void @llvm.lifetime.start.p0(ptr nonnull %1320)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1320, i8 0, i64 24, i1 false)
   %11967 = invoke noalias noundef nonnull dereferenceable(5) ptr @_Znwm(i64 noundef 5) #32
           to label %11970 unwind label %11968
 
@@ -39400,6 +39423,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6212:                ; preds = %_ZN8nlohmann16json_
 11989:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6212
   call void @llvm.lifetime.start.p0(ptr nonnull %1324)
   call void @llvm.lifetime.start.p0(ptr nonnull %1325)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1325, i8 0, i64 24, i1 false)
   %11990 = invoke noalias noundef nonnull dereferenceable(6) ptr @_Znwm(i64 noundef 6) #32
           to label %11993 unwind label %11991
 
@@ -39476,6 +39500,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6225:                ; preds = %_ZN8nlohmann16json_
 12012:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6225
   call void @llvm.lifetime.start.p0(ptr nonnull %1329)
   call void @llvm.lifetime.start.p0(ptr nonnull %1330)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1330, i8 0, i64 24, i1 false)
   %12013 = invoke noalias noundef nonnull dereferenceable(7) ptr @_Znwm(i64 noundef 7) #32
           to label %12016 unwind label %12014
 
@@ -39552,6 +39577,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6238:                ; preds = %_ZN8nlohmann16json_
 12035:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6238
   call void @llvm.lifetime.start.p0(ptr nonnull %1334)
   call void @llvm.lifetime.start.p0(ptr nonnull %1335)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1335, i8 0, i64 24, i1 false)
   %12036 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #32
           to label %12039 unwind label %12037
 
@@ -39628,6 +39654,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6251:                ; preds = %_ZN8nlohmann16json_
 12058:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6251
   call void @llvm.lifetime.start.p0(ptr nonnull %1339)
   call void @llvm.lifetime.start.p0(ptr nonnull %1340)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1340, i8 0, i64 24, i1 false)
   %12059 = invoke noalias noundef nonnull dereferenceable(3) ptr @_Znwm(i64 noundef 3) #32
           to label %12062 unwind label %12060
 
@@ -39706,6 +39733,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6264:                ; preds = %_ZN8nlohmann16json_
 12081:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6264
   call void @llvm.lifetime.start.p0(ptr nonnull %1344)
   call void @llvm.lifetime.start.p0(ptr nonnull %1345)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1345, i8 0, i64 24, i1 false)
   %12082 = invoke noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #32
           to label %12085 unwind label %12083
 
@@ -39782,6 +39810,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6277:                ; preds = %_ZN8nlohmann16json_
 12104:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6277
   call void @llvm.lifetime.start.p0(ptr nonnull %1349)
   call void @llvm.lifetime.start.p0(ptr nonnull %1350)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1350, i8 0, i64 24, i1 false)
   %12105 = invoke noalias noundef nonnull dereferenceable(3) ptr @_Znwm(i64 noundef 3) #32
           to label %12108 unwind label %12106
 
@@ -39860,6 +39889,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6290:                ; preds = %_ZN8nlohmann16json_
 12127:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6290
   call void @llvm.lifetime.start.p0(ptr nonnull %1354)
   call void @llvm.lifetime.start.p0(ptr nonnull %1355)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1355, i8 0, i64 24, i1 false)
   %12128 = invoke noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #32
           to label %12131 unwind label %12129
 
@@ -39936,6 +39966,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6303:                ; preds = %_ZN8nlohmann16json_
 12150:                                            ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6303
   call void @llvm.lifetime.start.p0(ptr nonnull %1359)
   call void @llvm.lifetime.start.p0(ptr nonnull %1360)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1360, i8 0, i64 24, i1 false)
   %12151 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %12154 unwind label %12152
 
@@ -41711,6 +41742,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit6397: ; preds =
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1382) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1382)
   call void @llvm.lifetime.start.p0(ptr nonnull %1384)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1384, i8 0, i64 24, i1 false)
   %12675 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %12678 unwind label %12676
 
@@ -42039,6 +42071,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1389) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1389)
   call void @llvm.lifetime.start.p0(ptr nonnull %1391)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1391, i8 0, i64 24, i1 false)
   %12785 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %12788 unwind label %12786
 
@@ -42213,6 +42246,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6421:                ; preds = %_ZN8nlohmann16json_
 12834:                                            ; preds = %12833
   call void @llvm.lifetime.start.p0(ptr nonnull %1395)
   call void @llvm.lifetime.start.p0(ptr nonnull %1396)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1396, i8 0, i64 24, i1 false)
   %12835 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
           to label %12838 unwind label %12836
 
@@ -42404,6 +42438,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1401) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1401)
   call void @llvm.lifetime.start.p0(ptr nonnull %1403)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1403, i8 0, i64 24, i1 false)
   %12888 = invoke noalias noundef nonnull dereferenceable(3) ptr @_Znwm(i64 noundef 3) #32
           to label %12891 unwind label %12889
 
@@ -42616,6 +42651,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit6451:                ; preds = %_ZN8nlohmann16json_
 12952:                                            ; preds = %12951
   call void @llvm.lifetime.start.p0(ptr nonnull %1407)
   call void @llvm.lifetime.start.p0(ptr nonnull %1408)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1408, i8 0, i64 24, i1 false)
   %12953 = invoke noalias noundef nonnull dereferenceable(3) ptr @_Znwm(i64 noundef 3) #32
           to label %12956 unwind label %12954
 
@@ -42779,6 +42815,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 12999:                                            ; preds = %12998
   call void @llvm.lifetime.start.p0(ptr nonnull %1411)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1411, i8 0, i64 24, i1 false)
   %13000 = invoke noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #32
           to label %13003 unwind label %13001
 
@@ -154635,7 +154672,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %94,
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i8 0, ptr %6, align 1, !tbaa !23
   %133 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIhLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc49 unwind label %188
 
@@ -154671,7 +154707,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %94,
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 0, ptr %7, align 2, !tbaa !97
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i8 0, ptr %8, align 1, !tbaa !23
   %141 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberItLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef nonnull align 2 dereferenceable(2) %7)
           to label %.noexc52 unwind label %188
 
@@ -154707,7 +154742,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %94,
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i8 0, ptr %10, align 1, !tbaa !23
   %149 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIjLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %.noexc55 unwind label %188
 
@@ -154741,7 +154775,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %94,
 
 156:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store i8 0, ptr %11, align 1, !tbaa !23
   %157 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIaLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %.noexc58 unwind label %188
 
@@ -154765,7 +154798,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %94,
 
 161:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  store i8 0, ptr %12, align 1, !tbaa !23
   %162 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIaLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %.noexc60 unwind label %188
 
@@ -154789,7 +154821,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %94,
 
 166:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  store i8 0, ptr %13, align 1, !tbaa !23
   %167 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIaLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef nonnull align 1 dereferenceable(1) %13)
           to label %.noexc62 unwind label %188
 
@@ -154813,7 +154844,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %94,
 
 171:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store i8 0, ptr %14, align 1, !tbaa !23
   %172 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIaLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %.noexc64 unwind label %188
 
@@ -154837,7 +154867,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %94,
 
 176:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  store i8 0, ptr %15, align 1, !tbaa !23
   %177 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIaLb0EEEbNS1_14input_format_tERT_(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %.noexc66 unwind label %188
 

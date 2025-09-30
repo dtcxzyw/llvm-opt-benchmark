@@ -34134,6 +34134,7 @@ _ZNK2c415basic_substringIKcE8first_ofEcm.exit.thread: ; preds = %209, %_ZNK2c415
 
 _ZNK2c415basic_substringIKcE7left_ofEm.exit101:   ; preds = %_ZNK2c415basic_substringIKcE8first_ofEcm.exit, %_ZNK2c415basic_substringIKcE8first_ofEcm.exit.thread
   %.sroa.5258.0 = phi i64 [ %.sroa.5260.0, %_ZNK2c415basic_substringIKcE8first_ofEcm.exit.thread ], [ %.0811.i, %_ZNK2c415basic_substringIKcE8first_ofEcm.exit ]
+  store ptr %.sroa.0261.0.copyload, ptr %10, align 8, !tbaa !67
   store i64 %.sroa.5258.0, ptr %65, align 8, !tbaa !68
   %211 = call { ptr, i64 } @_ZNK2c415basic_substringIKcE5trimrES2_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr nonnull @.str.218, i64 2)
   %212 = extractvalue { ptr, i64 } %211, 0
@@ -34252,17 +34253,23 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit151.thread: ; preds = %227, %230
 ._crit_edge.us.i164:                              ; preds = %248
   %253 = add nuw i64 %.01223.us.i161, 1
   %exitcond27.not.i165 = icmp eq i64 %253, %245
-  br i1 %exitcond27.not.i165, label %_ZNK2c415basic_substringIKcE9ends_withEc.exit, label %.preheader.us.i160, !llvm.loop !235
+  br i1 %exitcond27.not.i165, label %_ZNK2c415basic_substringIKcE7left_ofEm.exit87.thread303, label %.preheader.us.i160, !llvm.loop !235
+
+_ZNK2c415basic_substringIKcE7left_ofEm.exit87.thread303: ; preds = %._crit_edge.us.i164
+  store ptr %.sroa.0255.0.copyload, ptr %10, align 8, !tbaa !67
+  store i64 %245, ptr %65, align 8, !tbaa !68
+  br label %_ZNK2c415basic_substringIKcE9ends_withEc.exit
 
 _ZNK2c415basic_substringIKcE8first_ofES2_m.exit166: ; preds = %249
   %.not.i81 = icmp eq i64 %.01223.us.i161, -1
   %spec.select = select i1 %.not.i81, i64 %245, i64 %.01223.us.i161
+  store ptr %.sroa.0255.0.copyload, ptr %10, align 8, !tbaa !67
   store i64 %spec.select, ptr %65, align 8, !tbaa !68
   %.not.i167 = icmp eq i64 %spec.select, 0
   br i1 %.not.i167, label %_ZNK2c415basic_substringIKcE11begins_withES2_.exit, label %_ZNK2c415basic_substringIKcE9ends_withEc.exit
 
-_ZNK2c415basic_substringIKcE9ends_withEc.exit:    ; preds = %._crit_edge.us.i164, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit166
-  %.sroa.5254.0310 = phi i64 [ %spec.select, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit166 ], [ %245, %._crit_edge.us.i164 ]
+_ZNK2c415basic_substringIKcE9ends_withEc.exit:    ; preds = %_ZNK2c415basic_substringIKcE7left_ofEm.exit87.thread303, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit166
+  %.sroa.5254.0310 = phi i64 [ %245, %_ZNK2c415basic_substringIKcE7left_ofEm.exit87.thread303 ], [ %spec.select, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit166 ]
   %254 = getelementptr i8, ptr %.sroa.0255.0.copyload, i64 %.sroa.5254.0310
   %255 = getelementptr i8, ptr %254, i64 -1
   %256 = load i8, ptr %255, align 1, !tbaa !44
@@ -34466,6 +34473,7 @@ _ZNK2c415basic_substringIKcE4findES2_m.exit215.thread: ; preds = %319, %_ZNK2c41
 
 _ZNK2c415basic_substringIKcE7left_ofEm.exit:      ; preds = %_ZNK2c415basic_substringIKcE4findES2_m.exit215, %_ZNK2c415basic_substringIKcE4findES2_m.exit215.thread
   %.sroa.5.0 = phi i64 [ %.sroa.5248.0, %_ZNK2c415basic_substringIKcE4findES2_m.exit215.thread ], [ %.02033.us.i210, %_ZNK2c415basic_substringIKcE4findES2_m.exit215 ]
+  store ptr %.sroa.014.0.copyload, ptr %10, align 8, !tbaa !67
   store i64 %.sroa.5.0, ptr %65, align 8, !tbaa !68
   %321 = call { ptr, i64 } @_ZNK2c415basic_substringIKcE4trimEc(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 noundef signext 32)
   %322 = extractvalue { ptr, i64 } %321, 0

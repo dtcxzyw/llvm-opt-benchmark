@@ -2514,7 +2514,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %32
   %494 = getelementptr inbounds nuw i8, ptr %259, i64 6
   %495 = call i64 @strspn(ptr noundef nonnull %494, ptr noundef nonnull @.str) #29
   %496 = getelementptr inbounds nuw i8, ptr %494, i64 %495
-  store ptr %496, ptr %39, align 8, !tbaa !13
   %497 = call i64 @strtol(ptr noundef nonnull captures(none) %496, ptr noundef null, i32 noundef 10) #30
   %498 = trunc i64 %497 to i32
   store i32 %498, ptr %166, align 8, !tbaa !63
@@ -2535,7 +2534,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %32
 504:                                              ; preds = %501, %501
   %505 = call i64 @strspn(ptr noundef nonnull %502, ptr noundef nonnull @.str) #29
   %506 = getelementptr inbounds nuw i8, ptr %502, i64 %505
-  store ptr %506, ptr %39, align 8, !tbaa !13
   %507 = call i64 @strcspn(ptr noundef nonnull %506, ptr noundef nonnull @.str.12) #29
   %508 = getelementptr inbounds nuw i8, ptr %506, i64 %507
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -18571,7 +18569,6 @@ thread-pre-split443.thread:                       ; preds = %.thread, %thread-pr
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %186 = call i64 @strspn(ptr noundef nonnull %183, ptr noundef nonnull @.str) #29
   %187 = getelementptr inbounds nuw i8, ptr %183, i64 %186
-  store ptr %187, ptr %21, align 8, !tbaa !13
   %188 = call i64 @strcspn(ptr noundef nonnull %187, ptr noundef nonnull @.str.12) #29
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 %188
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -18625,7 +18622,6 @@ thread-pre-split443.thread:                       ; preds = %.thread, %thread-pr
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %216 = call i64 @strspn(ptr noundef nonnull %213, ptr noundef nonnull @.str) #29
   %217 = getelementptr inbounds nuw i8, ptr %213, i64 %216
-  store ptr %217, ptr %21, align 8, !tbaa !13
   %218 = call i64 @strcspn(ptr noundef nonnull %217, ptr noundef nonnull @.str.12) #29
   %219 = getelementptr inbounds nuw i8, ptr %217, i64 %218
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
