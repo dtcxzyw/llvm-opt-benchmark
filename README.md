@@ -215,6 +215,7 @@ Currently, this repository contains the following libraries/applications:
 |[duckdb](https://github.com/duckdb/duckdb)|C++|![stars](https://img.shields.io/github/stars/duckdb/duckdb?style=flat)|2025-02-18|223|
 |[eastl](https://github.com/electronicarts/EASTL)|C++|![stars](https://img.shields.io/github/stars/electronicarts/EASTL?style=flat)|2023-08-16|86|
 |[entt](https://github.com/skypjack/entt)|C++|![stars](https://img.shields.io/github/stars/skypjack/entt?style=flat)|2025-02-14|72|
+|[evmone](https://github.com/ipsilon/evmone)|C++|![stars](https://img.shields.io/github/stars/ipsilon/evmone?style=flat)|2025-09-29|28|
 |[faiss](https://github.com/facebookresearch/faiss)|C++|![stars](https://img.shields.io/github/stars/facebookresearch/faiss?style=flat)|2025-02-14|160|
 |[flatbuffers](https://github.com/google/flatbuffers)|C++|![stars](https://img.shields.io/github/stars/google/flatbuffers?style=flat)|2025-02-10|35|
 |[fmt](https://github.com/fmtlib/fmt)|C++|![stars](https://img.shields.io/github/stars/fmtlib/fmt?style=flat)|2025-02-14|26|

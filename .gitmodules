@@ -729,3 +729,6 @@
 [submodule "bench/yara-x-rs/yara-x"]
 	path = bench/yara-x-rs/yara-x
 	url = https://github.com/VirusTotal/yara-x.git
+[submodule "bench/evmone/evmone"]
+	path = bench/evmone/evmone
+	url = https://github.com/ipsilon/evmone.git

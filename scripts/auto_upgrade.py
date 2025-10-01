@@ -208,11 +208,11 @@ def auto_upgrade(project, opt_exec):
             print("Please update build.sh")
             return
 
-        if "clang" in content and "clang-21" not in content:
+        if "clang" in content and "clang-22" not in content:
             print("Please update build.sh to use the latest clang")
             return
 
-        if "clang++" in content and "clang++-21" not in content:
+        if "clang++" in content and "clang++-22" not in content:
             print("Please update build.sh to use the latest clang++")
             return
 
