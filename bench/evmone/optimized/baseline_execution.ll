@@ -635,15 +635,15 @@ define internal fastcc noundef i64 @_ZN6evmone8baseline12_GLOBAL__N_18dispatchIL
   %.sroa.5.0..sroa_idx.i3179 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.sroa.5.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %54, i64 8
   %154 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %.8.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.16.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.24.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.8.sroa_idx12698 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.16.sroa_idx12699 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.24.sroa_idx12700 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.8.sroa_idx12695 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %.16.sroa_idx12696 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %.24.sroa_idx12697 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %.8..8..8..8..sroa_idx12698 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.16..16..16..16..sroa_idx12699 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.24..24..24..24..sroa_idx12700 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.8..8..8..8..sroa_idx12695 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.16..16..16..16..sroa_idx12696 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.24..24..24..24..sroa_idx12697 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %.16..16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %.24..24..24..24..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 24
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge, %5
@@ -3078,9 +3078,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3391:     ; preds = %1129, %1118
   %1146 = getelementptr i8, ptr %1145, i64 %1141
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %32, ptr align 1 %1146, i64 %1143, i1 false), !tbaa !17
   %.0..0..0..0..sroa.0.0.copyload14.pre.i = load i64, ptr %32, align 16
-  %.8..8..8..8..sroa.6.0.copyload16.pre.i = load i64, ptr %.8.sroa_idx12695, align 8
-  %.16..16..16..16..sroa.8.0.copyload18.pre.i = load i64, ptr %.16.sroa_idx12696, align 16
-  %.24..24..24..24..sroa.10.0.copyload20.pre.i = load i64, ptr %.24.sroa_idx12697, align 8
+  %.8..8..8..8..sroa.6.0.copyload16.pre.i = load i64, ptr %.8..8..8..8..sroa_idx, align 8
+  %.16..16..16..16..sroa.8.0.copyload18.pre.i = load i64, ptr %.16..16..16..16..sroa_idx, align 16
+  %.24..24..24..24..sroa.10.0.copyload20.pre.i = load i64, ptr %.24..24..24..24..sroa_idx, align 8
   %1147 = call i64 @llvm.bswap.i64(i64 %.24..24..24..24..sroa.10.0.copyload20.pre.i)
   %1148 = call i64 @llvm.bswap.i64(i64 %.16..16..16..16..sroa.8.0.copyload18.pre.i)
   %1149 = call i64 @llvm.bswap.i64(i64 %.8..8..8..8..sroa.6.0.copyload16.pre.i)
@@ -4538,7 +4538,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE84EEENS1_8PositionERKSt5arr
   call void asm sideeffect "# OP_SSTORE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !370
   %.not.i3600 = icmp ugt ptr %.sroa.345.0, %102
   %1737 = icmp slt i64 %.04598, 0
-  %..i3601 = select i1 %1737, i32 3, i32 0
+  %..i3601 = select i1 %1737, i32 3, i32 0, !prof !141
   %.0.i3602 = select i1 %.not.i3600, i32 %..i3601, i32 7, !prof !80
   %.not.i2388.not = icmp eq i32 %.0.i3602, 0
   br i1 %.not.i2388.not, label %1739, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE85EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
@@ -7615,9 +7615,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3879:     ; preds = %3016, %_ZNK6evmone8
   %3031 = getelementptr i8, ptr %3008, i64 %3028
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr align 1 %3031, i64 %3030, i1 false), !tbaa !17
   %.0..0..0..0..sroa.0.0.copyload.i12.pre.i = load i64, ptr %11, align 16, !noalias !504
-  %.8..8..8..8..sroa.4.0.copyload.i.pre.i = load i64, ptr %.8.sroa_idx12698, align 8, !noalias !504
-  %.16..16..16..16..sroa.5.0.copyload.i.pre.i = load i64, ptr %.16.sroa_idx12699, align 16, !noalias !504
-  %.24..24..24..24..sroa.6.0.copyload.i.pre.i = load i64, ptr %.24.sroa_idx12700, align 8, !noalias !504
+  %.8..8..8..8..sroa.4.0.copyload.i.pre.i = load i64, ptr %.8..8..8..8..sroa_idx12695, align 8, !noalias !504
+  %.16..16..16..16..sroa.5.0.copyload.i.pre.i = load i64, ptr %.16..16..16..16..sroa_idx12696, align 16, !noalias !504
+  %.24..24..24..24..sroa.6.0.copyload.i.pre.i = load i64, ptr %.24..24..24..24..sroa_idx12697, align 8, !noalias !504
   %3032 = call i64 @llvm.bswap.i64(i64 %.24..24..24..24..sroa.6.0.copyload.i.pre.i)
   %3033 = call i64 @llvm.bswap.i64(i64 %.16..16..16..16..sroa.5.0.copyload.i.pre.i)
   %3034 = call i64 @llvm.bswap.i64(i64 %.8..8..8..8..sroa.4.0.copyload.i.pre.i)
@@ -8466,7 +8466,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5ar
   call void asm sideeffect "# OP_RETURN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !537
   %.not.i3967 = icmp ugt ptr %.sroa.345.0, %102
   %3394 = icmp slt i64 %.04598, 0
-  %..i3968 = select i1 %3394, i32 3, i32 0
+  %..i3968 = select i1 %3394, i32 3, i32 0, !prof !141
   %.0.i3969 = select i1 %.not.i3967, i32 %..i3968, i32 7, !prof !80
   %.not.i2955.not = icmp eq i32 %.0.i3969, 0
   br i1 %.not.i2955.not, label %3397, label %3395
@@ -8726,9 +8726,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3989:     ; preds = %3493, %3484
   %3509 = getelementptr i8, ptr %3508, i64 %3505
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %3509, i64 %3507, i1 false), !tbaa !17
   %.0..0..0..0..sroa.0.0.copyload.i.pre.i = load i64, ptr %7, align 16, !noalias !541
-  %.8..8..8..8..sroa.4.0.copyload.i.pre.i3997 = load i64, ptr %.8.sroa_idx, align 8, !noalias !541
-  %.16..16..16..16..sroa.5.0.copyload.i.pre.i3999 = load i64, ptr %.16.sroa_idx, align 16, !noalias !541
-  %.24..24..24..24..sroa.6.0.copyload.i.pre.i4001 = load i64, ptr %.24.sroa_idx, align 8, !noalias !541
+  %.8..8..8..8..sroa.4.0.copyload.i.pre.i3997 = load i64, ptr %.8..8..8..8..sroa_idx12698, align 8, !noalias !541
+  %.16..16..16..16..sroa.5.0.copyload.i.pre.i3999 = load i64, ptr %.16..16..16..16..sroa_idx12699, align 16, !noalias !541
+  %.24..24..24..24..sroa.6.0.copyload.i.pre.i4001 = load i64, ptr %.24..24..24..24..sroa_idx12700, align 8, !noalias !541
   %3510 = call i64 @llvm.bswap.i64(i64 %.24..24..24..24..sroa.6.0.copyload.i.pre.i4001)
   %3511 = call i64 @llvm.bswap.i64(i64 %.16..16..16..16..sroa.5.0.copyload.i.pre.i3999)
   %3512 = call i64 @llvm.bswap.i64(i64 %.8..8..8..8..sroa.4.0.copyload.i.pre.i3997)
@@ -9309,15 +9309,15 @@ define internal fastcc noundef i64 @_ZN6evmone8baseline12_GLOBAL__N_114dispatch_
   %.sroa.5.0..sroa_idx.i2662 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.sroa.5.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   %149 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %.8.sroa_idx11072 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.16.sroa_idx11073 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.24.sroa_idx11074 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.8.sroa_idx11069 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %.16.sroa_idx11070 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %.24.sroa_idx11071 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %.8.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.16.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.24.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.8..8..8..8..sroa_idx11069 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.16..16..16..16..sroa_idx11070 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.24..24..24..24..sroa_idx11071 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %.16..16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %.24..24..24..24..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %.8..8..8..8..sroa_idx11072 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.16..16..16..16..sroa_idx11073 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.24..24..24..24..sroa_idx11074 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %.backedge
 
 150:                                              ; preds = %.backedge
@@ -11552,9 +11552,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i2874:     ; preds = %1136, %1125
   %1153 = getelementptr i8, ptr %1152, i64 %1148
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %29, ptr align 1 %1153, i64 %1150, i1 false), !tbaa !17
   %.0..0..0..0..sroa.0.0.copyload14.pre.i = load i64, ptr %29, align 16
-  %.8..8..8..8..sroa.6.0.copyload16.pre.i = load i64, ptr %.8.sroa_idx11069, align 8
-  %.16..16..16..16..sroa.8.0.copyload18.pre.i = load i64, ptr %.16.sroa_idx11070, align 16
-  %.24..24..24..24..sroa.10.0.copyload20.pre.i = load i64, ptr %.24.sroa_idx11071, align 8
+  %.8..8..8..8..sroa.6.0.copyload16.pre.i = load i64, ptr %.8..8..8..8..sroa_idx, align 8
+  %.16..16..16..16..sroa.8.0.copyload18.pre.i = load i64, ptr %.16..16..16..16..sroa_idx, align 16
+  %.24..24..24..24..sroa.10.0.copyload20.pre.i = load i64, ptr %.24..24..24..24..sroa_idx, align 8
   %1154 = call i64 @llvm.bswap.i64(i64 %.24..24..24..24..sroa.10.0.copyload20.pre.i)
   %1155 = call i64 @llvm.bswap.i64(i64 %.16..16..16..16..sroa.8.0.copyload18.pre.i)
   %1156 = call i64 @llvm.bswap.i64(i64 %.8..8..8..8..sroa.6.0.copyload16.pre.i)
@@ -13012,7 +13012,7 @@ _ZN6evmone8baseline12_GLOBAL__N_118check_requirementsILNS_6OpcodeE84EEE16evmc_st
   call void asm sideeffect "# OP_SSTORE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !742
   %.not.i3083 = icmp ugt ptr %.sroa.512.0, %72
   %1768 = icmp slt i64 %.0, 0
-  %..i3084 = select i1 %1768, i32 3, i32 0
+  %..i3084 = select i1 %1768, i32 3, i32 0, !prof !141
   %.0.i3085 = select i1 %.not.i3083, i32 %..i3084, i32 7, !prof !80
   %.not.i1872.not = icmp eq i32 %.0.i3085, 0
   br i1 %.not.i1872.not, label %1770, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE85EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
@@ -16093,9 +16093,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3362:     ; preds = %3129, %_ZNK6evmone8
   %3144 = getelementptr i8, ptr %3121, i64 %3141
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %3144, i64 %3143, i1 false), !tbaa !17
   %.0..0..0..0..sroa.0.0.copyload.i12.pre.i = load i64, ptr %8, align 16, !noalias !850
-  %.8..8..8..8..sroa.4.0.copyload.i.pre.i = load i64, ptr %.8.sroa_idx11072, align 8, !noalias !850
-  %.16..16..16..16..sroa.5.0.copyload.i.pre.i = load i64, ptr %.16.sroa_idx11073, align 16, !noalias !850
-  %.24..24..24..24..sroa.6.0.copyload.i.pre.i = load i64, ptr %.24.sroa_idx11074, align 8, !noalias !850
+  %.8..8..8..8..sroa.4.0.copyload.i.pre.i = load i64, ptr %.8..8..8..8..sroa_idx11069, align 8, !noalias !850
+  %.16..16..16..16..sroa.5.0.copyload.i.pre.i = load i64, ptr %.16..16..16..16..sroa_idx11070, align 16, !noalias !850
+  %.24..24..24..24..sroa.6.0.copyload.i.pre.i = load i64, ptr %.24..24..24..24..sroa_idx11071, align 8, !noalias !850
   %3145 = call i64 @llvm.bswap.i64(i64 %.24..24..24..24..sroa.6.0.copyload.i.pre.i)
   %3146 = call i64 @llvm.bswap.i64(i64 %.16..16..16..16..sroa.5.0.copyload.i.pre.i)
   %3147 = call i64 @llvm.bswap.i64(i64 %.8..8..8..8..sroa.4.0.copyload.i.pre.i)
@@ -16947,7 +16947,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5ar
   call void asm sideeffect "# OP_RETURN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !874
   %.not.i3450 = icmp ugt ptr %.sroa.512.0, %72
   %3527 = icmp slt i64 %.0, 0
-  %..i3451 = select i1 %3527, i32 3, i32 0
+  %..i3451 = select i1 %3527, i32 3, i32 0, !prof !141
   %.0.i3452 = select i1 %.not.i3450, i32 %..i3451, i32 7, !prof !80
   %.not.i2439.not = icmp eq i32 %.0.i3452, 0
   br i1 %.not.i2439.not, label %3530, label %3528
@@ -17120,9 +17120,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3462:     ; preds = %3584, %3575
   %3600 = getelementptr i8, ptr %3599, i64 %3596
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 1 %3600, i64 %3598, i1 false), !tbaa !17
   %.0..0..0..0..sroa.0.0.copyload.i.pre.i = load i64, ptr %5, align 16, !noalias !878
-  %.8..8..8..8..sroa.4.0.copyload.i.pre.i3470 = load i64, ptr %.8.sroa_idx, align 8, !noalias !878
-  %.16..16..16..16..sroa.5.0.copyload.i.pre.i3472 = load i64, ptr %.16.sroa_idx, align 16, !noalias !878
-  %.24..24..24..24..sroa.6.0.copyload.i.pre.i3474 = load i64, ptr %.24.sroa_idx, align 8, !noalias !878
+  %.8..8..8..8..sroa.4.0.copyload.i.pre.i3470 = load i64, ptr %.8..8..8..8..sroa_idx11072, align 8, !noalias !878
+  %.16..16..16..16..sroa.5.0.copyload.i.pre.i3472 = load i64, ptr %.16..16..16..16..sroa_idx11073, align 16, !noalias !878
+  %.24..24..24..24..sroa.6.0.copyload.i.pre.i3474 = load i64, ptr %.24..24..24..24..sroa_idx11074, align 8, !noalias !878
   %3601 = call i64 @llvm.bswap.i64(i64 %.24..24..24..24..sroa.6.0.copyload.i.pre.i3474)
   %3602 = call i64 @llvm.bswap.i64(i64 %.16..16..16..16..sroa.5.0.copyload.i.pre.i3472)
   %3603 = call i64 @llvm.bswap.i64(i64 %.8..8..8..8..sroa.4.0.copyload.i.pre.i3470)
@@ -17632,15 +17632,15 @@ define internal fastcc noundef i64 @_ZN6evmone8baseline12_GLOBAL__N_18dispatchIL
   %.sroa.5.0..sroa_idx.i3168 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.sroa.5.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %53, i64 8
   %151 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %.8.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.16.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.24.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.8.sroa_idx8656 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.16.sroa_idx8657 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.24.sroa_idx8658 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.8.sroa_idx8653 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.16.sroa_idx8654 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %.24.sroa_idx8655 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %.8..8..8..8..sroa_idx8656 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.16..16..16..16..sroa_idx8657 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.24..24..24..24..sroa_idx8658 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.8..8..8..8..sroa_idx8653 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.16..16..16..16..sroa_idx8654 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.24..24..24..24..sroa_idx8655 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.16..16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %.24..24..24..24..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 24
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE0EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.backedge, %4
@@ -20047,9 +20047,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3380:     ; preds = %1109, %1098
   %1126 = getelementptr i8, ptr %1125, i64 %1121
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %31, ptr align 1 %1126, i64 %1123, i1 false), !tbaa !17
   %.0..0..0..0..sroa.0.0.copyload14.pre.i = load i64, ptr %31, align 16
-  %.8..8..8..8..sroa.6.0.copyload16.pre.i = load i64, ptr %.8.sroa_idx8653, align 8
-  %.16..16..16..16..sroa.8.0.copyload18.pre.i = load i64, ptr %.16.sroa_idx8654, align 16
-  %.24..24..24..24..sroa.10.0.copyload20.pre.i = load i64, ptr %.24.sroa_idx8655, align 8
+  %.8..8..8..8..sroa.6.0.copyload16.pre.i = load i64, ptr %.8..8..8..8..sroa_idx, align 8
+  %.16..16..16..16..sroa.8.0.copyload18.pre.i = load i64, ptr %.16..16..16..16..sroa_idx, align 16
+  %.24..24..24..24..sroa.10.0.copyload20.pre.i = load i64, ptr %.24..24..24..24..sroa_idx, align 8
   %1127 = call i64 @llvm.bswap.i64(i64 %.24..24..24..24..sroa.10.0.copyload20.pre.i)
   %1128 = call i64 @llvm.bswap.i64(i64 %.16..16..16..16..sroa.8.0.copyload18.pre.i)
   %1129 = call i64 @llvm.bswap.i64(i64 %.8..8..8..8..sroa.6.0.copyload16.pre.i)
@@ -21507,7 +21507,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE84EEENS1_8PositionERKSt5arr
   call void asm sideeffect "# OP_SSTORE", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !370
   %.not.i3589 = icmp ugt ptr %.sroa.344.0, %98
   %1717 = icmp slt i64 %.0556, 0
-  %..i3590 = select i1 %1717, i32 3, i32 0
+  %..i3590 = select i1 %1717, i32 3, i32 0, !prof !141
   %.0.i3591 = select i1 %.not.i3589, i32 %..i3590, i32 7, !prof !80
   %.not.i2378.not = icmp eq i32 %.0.i3591, 0
   br i1 %.not.i2378.not, label %1719, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE85EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit.thread
@@ -24585,9 +24585,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3868:     ; preds = %2997, %_ZNK6evmone8
   %3012 = getelementptr i8, ptr %2989, i64 %3009
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr align 1 %3012, i64 %3011, i1 false), !tbaa !17
   %.0..0..0..0..sroa.0.0.copyload.i12.pre.i = load i64, ptr %10, align 16, !noalias !1047
-  %.8..8..8..8..sroa.4.0.copyload.i.pre.i = load i64, ptr %.8.sroa_idx8656, align 8, !noalias !1047
-  %.16..16..16..16..sroa.5.0.copyload.i.pre.i = load i64, ptr %.16.sroa_idx8657, align 16, !noalias !1047
-  %.24..24..24..24..sroa.6.0.copyload.i.pre.i = load i64, ptr %.24.sroa_idx8658, align 8, !noalias !1047
+  %.8..8..8..8..sroa.4.0.copyload.i.pre.i = load i64, ptr %.8..8..8..8..sroa_idx8653, align 8, !noalias !1047
+  %.16..16..16..16..sroa.5.0.copyload.i.pre.i = load i64, ptr %.16..16..16..16..sroa_idx8654, align 16, !noalias !1047
+  %.24..24..24..24..sroa.6.0.copyload.i.pre.i = load i64, ptr %.24..24..24..24..sroa_idx8655, align 8, !noalias !1047
   %3013 = call i64 @llvm.bswap.i64(i64 %.24..24..24..24..sroa.6.0.copyload.i.pre.i)
   %3014 = call i64 @llvm.bswap.i64(i64 %.16..16..16..16..sroa.5.0.copyload.i.pre.i)
   %3015 = call i64 @llvm.bswap.i64(i64 %.8..8..8..8..sroa.4.0.copyload.i.pre.i)
@@ -25436,7 +25436,7 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE242EEENS1_8PositionERKSt5ar
   call void asm sideeffect "# OP_RETURN", "~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !537
   %.not.i3956 = icmp ugt ptr %.sroa.344.0, %98
   %3375 = icmp slt i64 %.0556, 0
-  %..i3957 = select i1 %3375, i32 3, i32 0
+  %..i3957 = select i1 %3375, i32 3, i32 0, !prof !141
   %.0.i3958 = select i1 %.not.i3956, i32 %..i3957, i32 7, !prof !80
   %.not.i2945.not = icmp eq i32 %.0.i3958, 0
   br i1 %.not.i2945.not, label %3378, label %3376
@@ -25696,9 +25696,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3978:     ; preds = %3474, %3465
   %3490 = getelementptr i8, ptr %3489, i64 %3486
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %3490, i64 %3488, i1 false), !tbaa !17
   %.0..0..0..0..sroa.0.0.copyload.i.pre.i = load i64, ptr %6, align 16, !noalias !1054
-  %.8..8..8..8..sroa.4.0.copyload.i.pre.i3986 = load i64, ptr %.8.sroa_idx, align 8, !noalias !1054
-  %.16..16..16..16..sroa.5.0.copyload.i.pre.i3988 = load i64, ptr %.16.sroa_idx, align 16, !noalias !1054
-  %.24..24..24..24..sroa.6.0.copyload.i.pre.i3990 = load i64, ptr %.24.sroa_idx, align 8, !noalias !1054
+  %.8..8..8..8..sroa.4.0.copyload.i.pre.i3986 = load i64, ptr %.8..8..8..8..sroa_idx8656, align 8, !noalias !1054
+  %.16..16..16..16..sroa.5.0.copyload.i.pre.i3988 = load i64, ptr %.16..16..16..16..sroa_idx8657, align 16, !noalias !1054
+  %.24..24..24..24..sroa.6.0.copyload.i.pre.i3990 = load i64, ptr %.24..24..24..24..sroa_idx8658, align 8, !noalias !1054
   %3491 = call i64 @llvm.bswap.i64(i64 %.24..24..24..24..sroa.6.0.copyload.i.pre.i3990)
   %3492 = call i64 @llvm.bswap.i64(i64 %.16..16..16..16..sroa.5.0.copyload.i.pre.i3988)
   %3493 = call i64 @llvm.bswap.i64(i64 %.8..8..8..8..sroa.4.0.copyload.i.pre.i3986)

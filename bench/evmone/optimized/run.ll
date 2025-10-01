@@ -5105,14 +5105,14 @@ define linkonce_odr void @_ZN4evmc8literals5parseINS_7addressEEET_St17basic_stri
   call void @llvm.lifetime.start.p0(ptr nonnull %4) #20, !noalias !220
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false), !noalias !220
   %17 = icmp ugt i64 %.sroa.02.0.i, 41
-  br i1 %17, label %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.thread.i, label %18
+  br i1 %17, label %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.thread12.i, label %18
 
 18:                                               ; preds = %.thread, %16
   %.sroa.02.0.i7 = phi i64 [ %1, %.thread ], [ %.sroa.02.0.i, %16 ]
   %.sroa.6.0.i6 = phi ptr [ %2, %.thread ], [ %.sroa.6.0.i, %16 ]
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.i6, i64 %.sroa.02.0.i7
-  %.not45.i.i = icmp samesign eq i64 %.sroa.02.0.i7, 0
-  br i1 %.not45.i.i, label %52, label %.lr.ph.preheader.i.i
+  %.not48.i.i = icmp samesign eq i64 %.sroa.02.0.i7, 0
+  br i1 %.not48.i.i, label %46, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %18
   %20 = lshr i64 %.sroa.02.0.i7, 1
@@ -5120,98 +5120,86 @@ define linkonce_odr void @_ZN4evmc8literals5parseINS_7addressEEET_St17basic_stri
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 %21
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %select.unfold35.i.i, %.lr.ph.preheader.i.i
-  %.02349.i.i = phi ptr [ %.124.ph.i.i, %select.unfold35.i.i ], [ %22, %.lr.ph.preheader.i.i ]
-  %.02848.i.i = phi ptr [ %48, %select.unfold35.i.i ], [ %.sroa.6.0.i6, %.lr.ph.preheader.i.i ]
-  %.02947.i.i = phi i64 [ %49, %select.unfold35.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %.03046.i.i = phi i32 [ %.131.ph.i.i, %select.unfold35.i.i ], [ -1, %.lr.ph.preheader.i.i ]
-  %23 = load i8, ptr %.02848.i.i, align 1, !tbaa !34, !noalias !220
+.lr.ph.i.i:                                       ; preds = %select.unfold38.i.i, %.lr.ph.preheader.i.i
+  %.02352.i.i = phi ptr [ %.124.ph.i.i, %select.unfold38.i.i ], [ %22, %.lr.ph.preheader.i.i ]
+  %.02851.i.i = phi ptr [ %42, %select.unfold38.i.i ], [ %.sroa.6.0.i6, %.lr.ph.preheader.i.i ]
+  %.02950.i.i = phi i64 [ %43, %select.unfold38.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %.03049.i.i = phi i32 [ %.131.ph.i.i, %select.unfold38.i.i ], [ -1, %.lr.ph.preheader.i.i ]
+  %23 = load i8, ptr %.02851.i.i, align 1, !tbaa !34, !noalias !220
   %24 = sext i8 %23 to i32
   %25 = add i8 %23, -48
   %or.cond.i.i.i = icmp ult i8 %25, 10
-  br i1 %or.cond.i.i.i, label %26, label %28
+  br i1 %or.cond.i.i.i, label %_ZN4evmc8internal14from_hex_digitEc.exit.thread.i.i, label %26
 
 26:                                               ; preds = %.lr.ph.i.i
-  %27 = add nsw i32 %24, -48
-  br label %_ZN4evmc8internal14from_hex_digitEc.exit.i.i
+  %27 = add i8 %23, -97
+  %or.cond5.i.i.i = icmp ult i8 %27, 6
+  br i1 %or.cond5.i.i.i, label %_ZN4evmc8internal14from_hex_digitEc.exit.thread.i.i, label %28
 
-28:                                               ; preds = %.lr.ph.i.i
-  %29 = add i8 %23, -97
-  %or.cond5.i.i.i = icmp ult i8 %29, 6
-  br i1 %or.cond5.i.i.i, label %30, label %32
+28:                                               ; preds = %26
+  %29 = add i8 %23, -65
+  %or.cond8.i.i.i = icmp ult i8 %29, 6
+  br i1 %or.cond8.i.i.i, label %_ZN4evmc8internal14from_hex_digitEc.exit.thread.i.i, label %_ZN4evmc8internal14from_hex_digitEc.exit.thread36.i.i
 
-30:                                               ; preds = %28
-  %31 = add nsw i32 %24, -87
-  br label %_ZN4evmc8internal14from_hex_digitEc.exit.i.i
+_ZN4evmc8internal14from_hex_digitEc.exit.thread36.i.i: ; preds = %28
+  %30 = icmp eq i64 %.02950.i.i, 1
+  %31 = icmp eq i32 %.03049.i.i, 0
+  %or.cond.i.i = select i1 %30, i1 %31, i1 false
+  %32 = icmp eq i8 %23, 120
+  %or.cond4.i.i = and i1 %or.cond.i.i, %32
+  br i1 %or.cond4.i.i, label %select.unfold38.i.i, label %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.thread12.i
 
-32:                                               ; preds = %28
-  %33 = add i8 %23, -65
-  %or.cond8.i.i.i = icmp ult i8 %33, 6
-  %34 = add nsw i32 %24, -55
-  br i1 %or.cond8.i.i.i, label %_ZN4evmc8internal14from_hex_digitEc.exit.i.i, label %_ZN4evmc8internal14from_hex_digitEc.exit.thread.i.i
+_ZN4evmc8internal14from_hex_digitEc.exit.thread.i.i: ; preds = %28, %26, %.lr.ph.i.i
+  %.sink.i.i = phi i32 [ -48, %.lr.ph.i.i ], [ -87, %26 ], [ -55, %28 ]
+  %33 = add nsw i32 %.sink.i.i, %24
+  %34 = and i64 %.02950.i.i, 1
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %36, label %38
 
-_ZN4evmc8internal14from_hex_digitEc.exit.i.i:     ; preds = %32, %30, %26
-  %.0.i.i.i = phi i32 [ %27, %26 ], [ %31, %30 ], [ %34, %32 ]
-  %35 = icmp slt i32 %.0.i.i.i, 0
-  br i1 %35, label %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.thread.i, label %39
+36:                                               ; preds = %_ZN4evmc8internal14from_hex_digitEc.exit.thread.i.i
+  %37 = shl nuw nsw i32 %33, 4
+  br label %select.unfold38.i.i
 
-_ZN4evmc8internal14from_hex_digitEc.exit.thread.i.i: ; preds = %32
-  %36 = icmp eq i64 %.02947.i.i, 1
-  %37 = icmp eq i32 %.03046.i.i, 0
-  %or.cond.i.i = select i1 %36, i1 %37, i1 false
-  %38 = icmp eq i8 %23, 120
-  %or.cond4.i.i = and i1 %or.cond.i.i, %38
-  br i1 %or.cond4.i.i, label %select.unfold35.i.i, label %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.thread.i
+38:                                               ; preds = %_ZN4evmc8internal14from_hex_digitEc.exit.thread.i.i
+  %39 = or i32 %33, %.03049.i.i
+  %40 = trunc i32 %39 to i8
+  %41 = getelementptr inbounds nuw i8, ptr %.02352.i.i, i64 1
+  store i8 %40, ptr %.02352.i.i, align 1, !tbaa !34, !noalias !220
+  br label %select.unfold38.i.i
 
-39:                                               ; preds = %_ZN4evmc8internal14from_hex_digitEc.exit.i.i
-  %40 = and i64 %.02947.i.i, 1
-  %41 = icmp eq i64 %40, 0
-  br i1 %41, label %42, label %44
-
-42:                                               ; preds = %39
-  %43 = shl nuw nsw i32 %.0.i.i.i, 4
-  br label %select.unfold35.i.i
-
-44:                                               ; preds = %39
-  %45 = or i32 %.0.i.i.i, %.03046.i.i
-  %46 = trunc i32 %45 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %.02349.i.i, i64 1
-  store i8 %46, ptr %.02349.i.i, align 1, !tbaa !34, !noalias !220
-  br label %select.unfold35.i.i
-
-select.unfold35.i.i:                              ; preds = %44, %42, %_ZN4evmc8internal14from_hex_digitEc.exit.thread.i.i
-  %.131.ph.i.i = phi i32 [ %.03046.i.i, %44 ], [ %43, %42 ], [ 0, %_ZN4evmc8internal14from_hex_digitEc.exit.thread.i.i ]
-  %.124.ph.i.i = phi ptr [ %47, %44 ], [ %.02349.i.i, %42 ], [ %.02349.i.i, %_ZN4evmc8internal14from_hex_digitEc.exit.thread.i.i ]
-  %48 = getelementptr inbounds nuw i8, ptr %.02848.i.i, i64 1
-  %49 = add nuw nsw i64 %.02947.i.i, 1
-  %.not.i.i = icmp eq ptr %48, %19
+select.unfold38.i.i:                              ; preds = %38, %36, %_ZN4evmc8internal14from_hex_digitEc.exit.thread36.i.i
+  %.131.ph.i.i = phi i32 [ %.03049.i.i, %38 ], [ %37, %36 ], [ 0, %_ZN4evmc8internal14from_hex_digitEc.exit.thread36.i.i ]
+  %.124.ph.i.i = phi ptr [ %41, %38 ], [ %.02352.i.i, %36 ], [ %.02352.i.i, %_ZN4evmc8internal14from_hex_digitEc.exit.thread36.i.i ]
+  %42 = getelementptr inbounds nuw i8, ptr %.02851.i.i, i64 1
+  %43 = add nuw nsw i64 %.02950.i.i, 1
+  %.not.i.i = icmp eq ptr %42, %19
   br i1 %.not.i.i, label %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.i, label %.lr.ph.i.i, !llvm.loop !223
 
-_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.i:        ; preds = %select.unfold35.i.i
-  %50 = and i64 %.sroa.02.0.i7, 1
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %52, label %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.thread.i
+_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.i:        ; preds = %select.unfold38.i.i
+  %44 = and i64 %.sroa.02.0.i7, 1
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %46, label %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.thread12.i
 
-_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.thread.i: ; preds = %_ZN4evmc8internal14from_hex_digitEc.exit.i.i, %_ZN4evmc8internal14from_hex_digitEc.exit.thread.i.i, %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.i, %16
+_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.thread12.i: ; preds = %_ZN4evmc8internal14from_hex_digitEc.exit.thread36.i.i, %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.i, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %4) #20, !noalias !220
   invoke void @_ZSt27__throw_bad_optional_accessv() #22
-          to label %.noexc unwind label %53
+          to label %.noexc unwind label %47
 
-.noexc:                                           ; preds = %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.thread.i
+.noexc:                                           ; preds = %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.thread12.i
   unreachable
 
-52:                                               ; preds = %18, %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.i
+46:                                               ; preds = %18, %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(20) %4, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4) #20, !noalias !220
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   ret void
 
-53:                                               ; preds = %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.thread.i
-  %54 = landingpad { ptr, i32 }
+47:                                               ; preds = %_ZN4evmc8from_hexIPKcPhEEbT_S4_T0_.exit.thread12.i
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #21
+  %49 = extractvalue { ptr, i32 } %48, 0
+  tail call void @__clang_call_terminate(ptr %49) #21
   unreachable
 }
 

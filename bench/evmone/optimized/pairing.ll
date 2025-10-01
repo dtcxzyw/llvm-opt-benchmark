@@ -251,11 +251,11 @@ define hidden range(i16 0, 258) i16 @_ZN6evmmax5bn25413pairing_checkESt4spanIKSt
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
-  %.sroa.0.i.i.32.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.32.sroa_idx, i8 0, i64 32, i1 false), !alias.scope !9, !noalias !12
+  %.sroa.0.i.i.32.i.i.32.i.i.32.i.32.i.32..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.32.i.i.32.i.i.32.i.32.i.32..sroa_idx, i8 0, i64 32, i1 false), !alias.scope !9, !noalias !12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6evmmax5bn25415BaseFieldConfig3ONEE, i64 32, i1 false), !tbaa.struct !13, !noalias !12
-  %.sroa.0.i.64.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0.i.64.sroa_idx, i8 0, i64 128, i1 false), !alias.scope !6, !noalias !3
+  %.sroa.0.i.64.i.64.i.64..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0.i.64.i.64.i.64..sroa_idx, i8 0, i64 128, i1 false), !alias.scope !6, !noalias !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i, i64 64, i1 false), !tbaa.struct !17, !noalias !3
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %128 = getelementptr inbounds nuw i8, ptr %118, i64 192
@@ -277,8 +277,8 @@ define hidden range(i16 0, 258) i16 @_ZN6evmmax5bn25413pairing_checkESt4spanIKSt
   %139 = getelementptr inbounds nuw i8, ptr %112, i64 64
   %.04.i.sroa.gep2.i20.i = getelementptr inbounds nuw i8, ptr %92, i64 32
   %140 = getelementptr inbounds nuw i8, ptr %111, i64 64
-  %.sroa.0.i.i18.i.32.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i18.i, i64 32
-  %.sroa.0.i.i54.64.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i54, i64 64
+  %.sroa.0.i.i18.i.32.i.i18.i.32.i.i18.i.32.i.i18.32.i.i18.32.i.32.i.32..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i18.i, i64 32
+  %.sroa.0.i.i54.64.i.i54.64.i.i54.64.i.64.i.64..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i54, i64 64
   br label %141
 
 141:                                              ; preds = %.lr.ph, %.thread
@@ -725,9 +725,9 @@ _ZN6evmmax3eccngERKNS0_5PointINS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEEEE.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i54)
   call void @llvm.experimental.noalias.scope.decl(metadata !63)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i18.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i18.i.32.sroa_idx, i8 0, i64 32, i1 false), !alias.scope !66, !noalias !69
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i18.i.32.i.i18.i.32.i.i18.i.32.i.i18.32.i.i18.32.i.32.i.32..sroa_idx, i8 0, i64 32, i1 false), !alias.scope !66, !noalias !69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i18.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6evmmax5bn25415BaseFieldConfig3ONEE, i64 32, i1 false), !tbaa.struct !13, !noalias !69
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0.i.i54.64.sroa_idx, i8 0, i64 128, i1 false), !alias.scope !63, !noalias !70
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0.i.i54.64.i.i54.64.i.i54.64.i.64.i.64..sroa_idx, i8 0, i64 128, i1 false), !alias.scope !63, !noalias !70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i54, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i18.i, i64 64, i1 false), !tbaa.struct !17, !noalias !70
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i18.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %138, i8 0, i64 192, i1 false), !alias.scope !70
@@ -1102,8 +1102,8 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit.i: ; pred
   %481 = getelementptr inbounds nuw i8, ptr %43, i64 128
   %482 = getelementptr inbounds nuw i8, ptr %51, i64 320
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %481, ptr noundef nonnull align 8 dereferenceable(64) %482, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN6evmmax5bn254L16FROBENIUS_COEFFSE, i64 576)), !noalias !134
-  %.sroa.0.192.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i55, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(192) %43, i64 192, i1 false), !tbaa.struct !18, !noalias !134
+  %.sroa.0.192..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i55, i64 192
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(192) %43, i64 192, i1 false), !tbaa.struct !18, !noalias !134
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %56, ptr noundef nonnull align 8 dereferenceable(384) %.sroa.0.i.i55, i64 384, i1 false), !tbaa.struct !105, !noalias !107
   call void @llvm.lifetime.end.p0(ptr nonnull %43) #11, !noalias !134
   call void @llvm.lifetime.end.p0(ptr nonnull %42) #11, !noalias !134
@@ -1247,8 +1247,8 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit17.i: ; pr
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %527, ptr noundef nonnull align 8 dereferenceable(64) %480, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN6evmmax5bn254L16FROBENIUS_COEFFSE, i64 448)), !noalias !160
   %528 = getelementptr inbounds nuw i8, ptr %34, i64 128
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %528, ptr noundef nonnull align 8 dereferenceable(64) %482, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN6evmmax5bn254L16FROBENIUS_COEFFSE, i64 576)), !noalias !160
-  %.sroa.0.192.sroa_idx.i19.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i18.i, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192.sroa_idx.i19.i, ptr noundef nonnull align 8 dereferenceable(192) %34, i64 192, i1 false), !tbaa.struct !18, !noalias !160
+  %.sroa.0.192..sroa_idx.i19.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i18.i, i64 192
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192..sroa_idx.i19.i, ptr noundef nonnull align 8 dereferenceable(192) %34, i64 192, i1 false), !tbaa.struct !18, !noalias !160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %61, ptr noundef nonnull align 8 dereferenceable(384) %.sroa.0.i18.i, i64 384, i1 false), !tbaa.struct !105, !noalias !107
   call void @llvm.lifetime.end.p0(ptr nonnull %34) #11, !noalias !160
   call void @llvm.lifetime.end.p0(ptr nonnull %33) #11, !noalias !160
@@ -1282,8 +1282,8 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit17.i: ; pr
   %536 = getelementptr inbounds nuw i8, ptr %32, i64 128
   %537 = getelementptr inbounds nuw i8, ptr %58, i64 320
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %536, ptr noundef nonnull align 8 dereferenceable(64) %537, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN6evmmax5bn254L16FROBENIUS_COEFFSE, i64 576)), !noalias !163
-  %.sroa.0.192.sroa_idx.i21.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i20.i, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192.sroa_idx.i21.i, ptr noundef nonnull align 8 dereferenceable(192) %32, i64 192, i1 false), !tbaa.struct !18, !noalias !163
+  %.sroa.0.192..sroa_idx.i21.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i20.i, i64 192
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192..sroa_idx.i21.i, ptr noundef nonnull align 8 dereferenceable(192) %32, i64 192, i1 false), !tbaa.struct !18, !noalias !163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %66, ptr noundef nonnull align 8 dereferenceable(384) %.sroa.0.i20.i, i64 384, i1 false), !tbaa.struct !105, !noalias !107
   call void @llvm.lifetime.end.p0(ptr nonnull %32) #11, !noalias !163
   call void @llvm.lifetime.end.p0(ptr nonnull %31) #11, !noalias !163
@@ -1801,11 +1801,11 @@ _ZN6evmmax5bn25412_GLOBAL__N_19final_expERKNS_3ecc12ExtFieldElemINS0_10Fq12Confi
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i62)
   call void @llvm.experimental.noalias.scope.decl(metadata !261)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i61)
-  %.sroa.0.i.i61.32.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i61, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i61.32.sroa_idx, i8 0, i64 32, i1 false), !alias.scope !264, !noalias !267
+  %.sroa.0.i.i61.32.i.i61.32.i.i61.32.i.32.i.32..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i61, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i61.32.i.i61.32.i.i61.32.i.32.i.32..sroa_idx, i8 0, i64 32, i1 false), !alias.scope !264, !noalias !267
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i61, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6evmmax5bn25415BaseFieldConfig3ONEE, i64 32, i1 false), !tbaa.struct !13, !noalias !267
-  %.sroa.0.i62.64.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i62, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0.i62.64.sroa_idx, i8 0, i64 128, i1 false), !alias.scope !261, !noalias !258
+  %.sroa.0.i62.64.i62.64.i62.64..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i62, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0.i62.64.i62.64.i62.64..sroa_idx, i8 0, i64 128, i1 false), !alias.scope !261, !noalias !258
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i62, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i61, i64 64, i1 false), !tbaa.struct !17, !noalias !258
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i61)
   %700 = getelementptr inbounds nuw i8, ptr %126, i64 192
@@ -2935,8 +2935,8 @@ _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit: ; 
   %.not.i.i = xor i1 %60, true
   %or.cond.i.i = select i1 %.not.i.i, i1 %75, i1 false
   %78 = select i1 %or.cond.i.i, ptr %6, ptr %7
-  %.sroa.0.32.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.32.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %78, i64 32, i1 false)
+  %.sroa.0.32..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.32..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %78, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7) #11, !noalias !344
   call void @llvm.lifetime.end.p0(ptr nonnull %6) #11, !noalias !344
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0, i64 64, i1 false), !tbaa.struct !17
@@ -6238,8 +6238,8 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit72: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %35) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(192) %30, i64 192, i1 false)
-  %.sroa.0.192.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192.sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %12, i64 192, i1 false)
+  %.sroa.0.192..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 192
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192..sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %12, i64 192, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(384) %.sroa.0, i64 384, i1 false), !tbaa.struct !105
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %32) #11
@@ -7563,10 +7563,10 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit186: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %83) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(64) %52, i64 64, i1 false)
-  %.sroa.0.64.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.64.sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %29, i64 64, i1 false)
-  %.sroa.0.128.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.128.sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 64, i1 false)
+  %.sroa.0.64..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.64..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %29, i64 64, i1 false)
+  %.sroa.0.128..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 128
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.128..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0, i64 192, i1 false), !tbaa.struct !18
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %73) #11
@@ -9734,8 +9734,8 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i68: ; pred
 _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit70: ; preds = %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i68
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(192) %8, i64 192, i1 false)
-  %.sroa.0.192.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192.sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %14, i64 192, i1 false)
+  %.sroa.0.192..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 192
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192..sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %14, i64 192, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(384) %.sroa.0, i64 384, i1 false), !tbaa.struct !105
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %35) #11
@@ -13021,8 +13021,8 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit45: ; preds 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false), !tbaa.struct !17
   call void @llvm.lifetime.end.p0(ptr nonnull %7) #11, !noalias !2037
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %239, ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN6evmmax5bn254L16FROBENIUS_COEFFSE, i64 256))
-  %.sroa.0.192.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192.sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %36, i64 192, i1 false), !tbaa.struct !18
+  %.sroa.0.192..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 192
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192..sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %36, i64 192, i1 false), !tbaa.struct !18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(384) %.sroa.0, i64 384, i1 false), !tbaa.struct !105
   call void @llvm.lifetime.end.p0(ptr nonnull %39) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %38) #11
@@ -13500,8 +13500,8 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit45: ; preds 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false), !tbaa.struct !17
   call void @llvm.lifetime.end.p0(ptr nonnull %7) #11, !noalias !2139
   call void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldElemINS0_9Fq2ConfigEEES6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ExtFieldElem") align 8 %239, ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZN6evmmax5bn254L16FROBENIUS_COEFFSE, i64 896))
-  %.sroa.0.192.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192.sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %36, i64 192, i1 false), !tbaa.struct !18
+  %.sroa.0.192..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 192
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192..sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %36, i64 192, i1 false), !tbaa.struct !18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(384) %.sroa.0, i64 384, i1 false), !tbaa.struct !105
   call void @llvm.lifetime.end.p0(ptr nonnull %39) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %38) #11
@@ -15621,19 +15621,19 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit327: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0329)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0328)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0328, ptr noundef nonnull align 8 dereferenceable(64) %100, i64 64, i1 false)
-  %.sroa.0328.64.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0328, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0328.64.sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %81, i64 64, i1 false)
-  %.sroa.0328.128.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0328, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0328.128.sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %62, i64 64, i1 false)
+  %.sroa.0328.64..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0328, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0328.64..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %81, i64 64, i1 false)
+  %.sroa.0328.128..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0328, i64 128
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0328.128..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %62, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0329, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0328, i64 192, i1 false), !tbaa.struct !18
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(64) %43, i64 64, i1 false)
-  %.sroa.0.64.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.64.sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %28, i64 64, i1 false)
-  %.sroa.0.128.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.128.sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %19, i64 64, i1 false)
-  %.sroa.0329.192.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0329, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0329.192.sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0, i64 192, i1 false), !tbaa.struct !18
+  %.sroa.0.64..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.64..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %28, i64 64, i1 false)
+  %.sroa.0.128..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 128
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.128..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %19, i64 64, i1 false)
+  %.sroa.0329.192..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0329, i64 192
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0329.192..sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0, i64 192, i1 false), !tbaa.struct !18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(384) %.sroa.0329, i64 384, i1 false), !tbaa.struct !105
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0328)
@@ -15886,8 +15886,8 @@ _ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEE.exit: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %20) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(192) %19, i64 192, i1 false), !tbaa.struct !18
-  %.sroa.0.192.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192.sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %8, i64 192, i1 false)
+  %.sroa.0.192..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 192
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.192..sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %8, i64 192, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(384) %.sroa.0, i64 384, i1 false), !tbaa.struct !105
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %19) #11
@@ -16552,9 +16552,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 
 _ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit: ; preds = %63
   %78 = select i1 %60, ptr %3, ptr %5
-  %.sroa.0.32.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 32
+  %.sroa.0.32..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.32.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %78, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.32..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %78, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5) #11, !noalias !2634
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2631
   call void @llvm.lifetime.end.p0(ptr nonnull %6) #11, !noalias !2631
