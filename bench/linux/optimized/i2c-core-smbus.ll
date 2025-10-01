@@ -1771,21 +1771,21 @@ select.unfold:                                    ; preds = %93, %81
   %271 = load i16, ptr %10, align 16
   %272 = shl i16 %271, 1
   %indexer.hi67 = and i16 %272, 254
-  %indexer.ext69 = zext nneg i16 %indexer.hi67 to i64
+  %indexer.hi.lo.byte68 = zext nneg i16 %indexer.hi67 to i64
   %273 = load ptr, ptr %133, align 8
   %274 = load i16, ptr %132, align 4
   %275 = icmp eq i16 %274, 0
   br i1 %264, label %.preheader40.preheader, label %.preheader42.preheader
 
 .preheader42.preheader:                           ; preds = %270
-  %tbl.ptradd = getelementptr inbounds nuw i16, ptr @.crctable.6, i64 %indexer.ext69
+  %tbl.ptradd = getelementptr inbounds nuw i16, ptr @.crctable.6, i64 %indexer.hi.lo.byte68
   %tbl.ld = load i16, ptr %tbl.ptradd, align 4
   %276 = lshr i16 %tbl.ld, 8
   %277 = trunc nuw i16 %276 to i8
   br i1 %275, label %.loopexit41, label %296
 
 .preheader40.preheader:                           ; preds = %270
-  %tbl.ptradd70 = getelementptr inbounds nuw i16, ptr @.crctable.6, i64 %indexer.ext69
+  %tbl.ptradd70 = getelementptr inbounds nuw i16, ptr @.crctable.6, i64 %indexer.hi.lo.byte68
   %tbl.ld71 = load i16, ptr %tbl.ptradd70, align 4
   %278 = lshr i16 %tbl.ld71, 8
   %279 = trunc nuw i16 %278 to i8

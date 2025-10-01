@@ -18,7 +18,8 @@ define void @_Z9InitCRC32Pj(ptr noundef captures(none) %0) local_unnamed_addr #0
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %1 ]
   %4 = trunc nuw nsw i64 %indvars.iv to i32
   %crc.le.shift = lshr i32 %4, 8
-  %tbl.ptradd = getelementptr inbounds nuw i32, ptr @.crctable, i64 %indvars.iv
+  %indexer.ext = and i64 %indvars.iv, 255
+  %tbl.ptradd = getelementptr inbounds nuw i32, ptr @.crctable, i64 %indexer.ext
   %tbl.ld = load i32, ptr %tbl.ptradd, align 4
   %crc.next = xor i32 %crc.le.shift, %tbl.ld
   %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv

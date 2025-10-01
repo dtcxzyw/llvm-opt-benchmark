@@ -1850,7 +1850,8 @@ define void @prte_initialize_crc_table() local_unnamed_addr #2 {
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %tbl.ptradd = getelementptr inbounds nuw i32, ptr @.crctable, i64 %indvars.iv
+  %indexer.ext = and i64 %indvars.iv, 255
+  %tbl.ptradd = getelementptr inbounds nuw i32, ptr @.crctable, i64 %indexer.ext
   %tbl.ld = load i32, ptr %tbl.ptradd, align 4
   %2 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %indvars.iv
   store i32 %tbl.ld, ptr %2, align 4, !tbaa !21
