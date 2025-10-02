@@ -38,7 +38,7 @@ define dso_local range(i32 -1, 1) i32 @crypto_kx_client_session_keys(ptr noundef
   %9 = icmp eq ptr %0, null
   %spec.select = select i1 %9, ptr %1, ptr %0
   %10 = icmp eq ptr %1, null
-  %.019 = select i1 %10, ptr %0, ptr %1
+  %.019 = select i1 %10, ptr %spec.select, ptr %1
   %11 = icmp eq ptr %spec.select, null
   br i1 %11, label %12, label %13
 
@@ -111,7 +111,7 @@ define dso_local range(i32 -1, 1) i32 @crypto_kx_server_session_keys(ptr noundef
   %9 = icmp eq ptr %0, null
   %spec.select = select i1 %9, ptr %1, ptr %0
   %10 = icmp eq ptr %1, null
-  %.019 = select i1 %10, ptr %0, ptr %1
+  %.019 = select i1 %10, ptr %spec.select, ptr %1
   %11 = icmp eq ptr %spec.select, null
   br i1 %11, label %12, label %13
 

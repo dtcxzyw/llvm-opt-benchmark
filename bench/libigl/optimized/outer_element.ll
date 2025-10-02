@@ -1367,6 +1367,8 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %43, %.noexc85
 48:                                               ; preds = %45
   store i64 %20, ptr %.sroa.0.1157, align 8, !tbaa !19
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.1157, i64 8
+  %.not.i16.i = icmp eq ptr %.sroa.14.1155, %49
+  %spec.select = select i1 %.not.i16.i, ptr %.sroa.14.1155, ptr %49
   br label %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit
 
 _ZSt4copyIPKmPmET0_T_S4_S3_.exit17.i:             ; preds = %45
@@ -1385,7 +1387,7 @@ _ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %51, %
   br label %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit
 
 _ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit: ; preds = %48, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i
-  %.sroa.14.4 = phi ptr [ %44, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i ], [ %53, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i ], [ %49, %48 ]
+  %.sroa.14.4 = phi ptr [ %44, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i ], [ %53, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i ], [ %spec.select, %48 ]
   %.sroa.27.5 = phi ptr [ %44, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i ], [ %.sroa.27.1156, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i ], [ %.sroa.27.1156, %48 ]
   %.sroa.0.5 = phi ptr [ %42, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i ], [ %.sroa.0.1157, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i ], [ %.sroa.0.1157, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1531,6 +1533,8 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94: ; preds = %106, %.noexc
 111:                                              ; preds = %108
   store i64 %20, ptr %.sroa.0.1157, align 8, !tbaa !19
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.0.1157, i64 8
+  %.not.i16.i87 = icmp eq ptr %.sroa.14.1155, %112
+  %spec.select115 = select i1 %.not.i16.i87, ptr %.sroa.14.1155, ptr %112
   br label %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit80
 
 _ZSt4copyIPKmPmET0_T_S4_S3_.exit17.i91:           ; preds = %108
@@ -1549,7 +1553,7 @@ _ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92: ; preds = %114
   br label %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit80
 
 _ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit80: ; preds = %111, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92
-  %.sroa.14.5 = phi ptr [ %107, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94 ], [ %116, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92 ], [ %112, %111 ]
+  %.sroa.14.5 = phi ptr [ %107, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94 ], [ %116, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92 ], [ %spec.select115, %111 ]
   %.sroa.27.6 = phi ptr [ %107, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94 ], [ %.sroa.27.1156, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92 ], [ %.sroa.27.1156, %111 ]
   %.sroa.0.6 = phi ptr [ %105, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94 ], [ %.sroa.0.1157, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92 ], [ %.sroa.0.1157, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2131,6 +2135,8 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %49, %.noexc85
 54:                                               ; preds = %51
   store i64 %24, ptr %.sroa.0.1157, align 8, !tbaa !19
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.1157, i64 8
+  %.not.i16.i = icmp eq ptr %.sroa.14.1155, %55
+  %spec.select = select i1 %.not.i16.i, ptr %.sroa.14.1155, ptr %55
   br label %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit
 
 _ZSt4copyIPKmPmET0_T_S4_S3_.exit17.i:             ; preds = %51
@@ -2149,7 +2155,7 @@ _ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %57, %
   br label %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit
 
 _ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit: ; preds = %54, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i
-  %.sroa.14.4 = phi ptr [ %50, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i ], [ %59, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i ], [ %55, %54 ]
+  %.sroa.14.4 = phi ptr [ %50, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i ], [ %59, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i ], [ %spec.select, %54 ]
   %.sroa.27.5 = phi ptr [ %50, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i ], [ %.sroa.27.1156, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i ], [ %.sroa.27.1156, %54 ]
   %.sroa.0.5 = phi ptr [ %48, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i ], [ %.sroa.0.1157, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i ], [ %.sroa.0.1157, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2294,6 +2300,8 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94: ; preds = %111, %.noexc
 116:                                              ; preds = %113
   store i64 %24, ptr %.sroa.0.1157, align 8, !tbaa !19
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.1157, i64 8
+  %.not.i16.i87 = icmp eq ptr %.sroa.14.1155, %117
+  %spec.select115 = select i1 %.not.i16.i87, ptr %.sroa.14.1155, ptr %117
   br label %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit80
 
 _ZSt4copyIPKmPmET0_T_S4_S3_.exit17.i91:           ; preds = %113
@@ -2312,7 +2320,7 @@ _ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92: ; preds = %119
   br label %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit80
 
 _ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit80: ; preds = %116, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92
-  %.sroa.14.5 = phi ptr [ %112, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94 ], [ %121, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92 ], [ %117, %116 ]
+  %.sroa.14.5 = phi ptr [ %112, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94 ], [ %121, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92 ], [ %spec.select115, %116 ]
   %.sroa.27.6 = phi ptr [ %112, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94 ], [ %.sroa.27.1156, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92 ], [ %.sroa.27.1156, %116 ]
   %.sroa.0.6 = phi ptr [ %110, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94 ], [ %.sroa.0.1157, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92 ], [ %.sroa.0.1157, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2800,6 +2808,8 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %44, %.noexc85
 49:                                               ; preds = %46
   store i64 %21, ptr %.sroa.0.1157, align 8, !tbaa !19
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.1157, i64 8
+  %.not.i16.i = icmp eq ptr %.sroa.14.1155, %50
+  %spec.select = select i1 %.not.i16.i, ptr %.sroa.14.1155, ptr %50
   br label %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit
 
 _ZSt4copyIPKmPmET0_T_S4_S3_.exit17.i:             ; preds = %46
@@ -2818,7 +2828,7 @@ _ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %52, %
   br label %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit
 
 _ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit: ; preds = %49, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i
-  %.sroa.14.4 = phi ptr [ %45, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i ], [ %54, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i ], [ %50, %49 ]
+  %.sroa.14.4 = phi ptr [ %45, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i ], [ %54, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i ], [ %spec.select, %49 ]
   %.sroa.27.5 = phi ptr [ %45, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i ], [ %.sroa.27.1156, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i ], [ %.sroa.27.1156, %49 ]
   %.sroa.0.5 = phi ptr [ %43, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i ], [ %.sroa.0.1157, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i ], [ %.sroa.0.1157, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2964,6 +2974,8 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94: ; preds = %107, %.noexc
 112:                                              ; preds = %109
   store i64 %21, ptr %.sroa.0.1157, align 8, !tbaa !19
   %113 = getelementptr inbounds nuw i8, ptr %.sroa.0.1157, i64 8
+  %.not.i16.i87 = icmp eq ptr %.sroa.14.1155, %113
+  %spec.select115 = select i1 %.not.i16.i87, ptr %.sroa.14.1155, ptr %113
   br label %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit80
 
 _ZSt4copyIPKmPmET0_T_S4_S3_.exit17.i91:           ; preds = %109
@@ -2982,7 +2994,7 @@ _ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92: ; preds = %115
   br label %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit80
 
 _ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit80: ; preds = %112, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92
-  %.sroa.14.5 = phi ptr [ %108, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94 ], [ %117, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92 ], [ %113, %112 ]
+  %.sroa.14.5 = phi ptr [ %108, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94 ], [ %117, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92 ], [ %spec.select115, %112 ]
   %.sroa.27.6 = phi ptr [ %108, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94 ], [ %.sroa.27.1156, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92 ], [ %.sroa.27.1156, %112 ]
   %.sroa.0.6 = phi ptr [ %106, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i94 ], [ %.sroa.0.1157, %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit.i92 ], [ %.sroa.0.1157, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

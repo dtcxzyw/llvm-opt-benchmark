@@ -111742,7 +111742,7 @@ define hidden void @_ZN9assistant15assistant_panel13ContextEditor18show_workflow
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 528
   %16 = tail call noundef align 8 dereferenceable_or_null(184) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h0996a1568f7dbe80E.llvm.13532673337308757346"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2)
   %17 = icmp eq ptr %16, null
-  %18 = getelementptr i8, ptr %16, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 64
   br i1 %17, label %21, label %19
 
 19:                                               ; preds = %4
@@ -111783,32 +111783,32 @@ define hidden void @_ZN9assistant15assistant_panel13ContextEditor18show_workflow
   ]
 
 26:                                               ; preds = %24
-  %27 = getelementptr i8, ptr %16, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %28 = load i64, ptr %27, align 8, !range !120, !noundef !4
   %29 = icmp eq i64 %28, -9223372036854775808
   br i1 %29, label %41, label %38
 
 30:                                               ; preds = %24
-  %31 = getelementptr i8, ptr %16, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %32 = load i64, ptr %31, align 8, !range !120, !noundef !4
   %33 = icmp eq i64 %32, -9223372036854775808
   br i1 %33, label %.thread, label %85
 
 34:                                               ; preds = %24
-  %35 = getelementptr i8, ptr %16, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %36 = load i64, ptr %35, align 8, !range !120, !noundef !4
   %37 = icmp eq i64 %36, -9223372036854775808
   br i1 %37, label %.thread, label %103
 
 38:                                               ; preds = %26
-  %39 = getelementptr i8, ptr %16, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %40 = load i64, ptr %39, align 8, !noundef !4
   %.not31 = icmp eq i64 %40, 0
   br i1 %.not31, label %.thread, label %.thread75.sink.split
 
 41:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %42 = getelementptr i8, ptr %16, i64 176
+  %42 = getelementptr inbounds nuw i8, ptr %16, i64 176
   %43 = load ptr, ptr %42, align 8, !noundef !4
   %44 = icmp eq ptr %43, null
   br i1 %44, label %"_ZN4core3ptr160drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$core..result..Result$LT$assistant..workflow..WorkflowStepResolution$C$anyhow..Error$GT$$GT$$GT$$GT$17he116291d288b52c0E.exit", label %45
@@ -111891,7 +111891,7 @@ define hidden void @_ZN9assistant15assistant_panel13ContextEditor18show_workflow
   br i1 %75, label %"_ZN67_$LT$gpui..view..View$LT$V$GT$$u20$as$u20$gpui..Entity$LT$V$GT$$GT$12upgrade_from17hc0d402e1ae0daf55E.exit", label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr i8, ptr %16, i64 120
+  %77 = getelementptr inbounds nuw i8, ptr %16, i64 120
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !23267
   invoke void @_ZN4gpui3app10entity_map12AnyWeakModel7upgrade17h60c5a235dd6ff1d5E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %77)
           to label %.noexc45 unwind label %71
@@ -111943,9 +111943,9 @@ define hidden void @_ZN9assistant15assistant_panel13ContextEditor18show_workflow
           to label %89 unwind label %.loopexit.split-lp
 
 89:                                               ; preds = %87
-  %90 = getelementptr i8, ptr %16, i64 104
+  %90 = getelementptr inbounds nuw i8, ptr %16, i64 104
   %91 = load ptr, ptr %90, align 8, !nonnull !4, !noundef !4
-  %92 = getelementptr i8, ptr %16, i64 112
+  %92 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %93 = load i64, ptr %92, align 8, !noundef !4
   %94 = getelementptr inbounds i64, ptr %91, i64 %93
   br label %95
@@ -111970,13 +111970,13 @@ define hidden void @_ZN9assistant15assistant_panel13ContextEditor18show_workflow
   br i1 %102, label %.thread75, label %95
 
 103:                                              ; preds = %34
-  %104 = getelementptr i8, ptr %16, i64 112
+  %104 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %105 = load i64, ptr %104, align 8, !noundef !4
   %.not = icmp eq i64 %105, 0
   br i1 %.not, label %.thread, label %.thread75.sink.split
 
 .thread75.sink.split:                             ; preds = %103, %38
-  %106 = getelementptr i8, ptr %16, i64 104
+  %106 = getelementptr inbounds nuw i8, ptr %16, i64 104
   %107 = load ptr, ptr %106, align 8, !nonnull !4, !noundef !4
   %108 = load i64, ptr %107, align 8, !noundef !4
   br label %.thread75
@@ -111986,7 +111986,7 @@ define hidden void @_ZN9assistant15assistant_panel13ContextEditor18show_workflow
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 %.sroa.8.074, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  %109 = getelementptr i8, ptr %16, i64 96
+  %109 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %110 = load i64, ptr %109, align 8, !range !120, !noundef !4
   %111 = icmp eq i64 %110, -9223372036854775808
   br i1 %111, label %"_ZN4core3ptr59drop_in_place$LT$gpui..view..View$LT$editor..Editor$GT$$GT$17h96ccbc7aa70aef81E.exit55", label %112
@@ -111997,7 +111997,7 @@ define hidden void @_ZN9assistant15assistant_panel13ContextEditor18show_workflow
   br label %174
 
 112:                                              ; preds = %.thread75
-  %113 = getelementptr i8, ptr %16, i64 120
+  %113 = getelementptr inbounds nuw i8, ptr %16, i64 120
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !23276
   invoke void @_ZN4gpui3app10entity_map12AnyWeakModel7upgrade17h60c5a235dd6ff1d5E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %113)
           to label %.noexc48 unwind label %.loopexit.split-lp

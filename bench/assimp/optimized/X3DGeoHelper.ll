@@ -1000,6 +1000,8 @@ _ZNSt16allocator_traitsISaI6aiFaceEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit.i
           to label %_ZNSt6vectorI6aiFaceSaIS0_EE9push_backERKS0_.exit unwind label %93
 
 _ZNSt6vectorI6aiFaceSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt16allocator_traitsISaI6aiFaceEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit.i, %90
+  %.not.i.i39 = icmp eq ptr %.sroa.13.0139, %.sroa.063.1137
+  %spec.select = select i1 %.not.i.i39, ptr %.sroa.13.0139, ptr %.sroa.063.1137
   %.pr = load ptr, ptr %52, align 8
   %91 = icmp eq ptr %.pr, null
   br i1 %91, label %_ZN6aiFaceD2Ev.exit.thread, label %92
@@ -1091,7 +1093,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %99, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, %_ZN6aiFaceD2Ev.exit.thread
   %.sroa.063.2 = phi ptr [ %.sroa.063.1137, %_ZN6aiFaceD2Ev.exit.thread ], [ %113, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %.sroa.063.1137, %99 ]
-  %.sroa.13.2 = phi ptr [ %.sroa.063.1137, %_ZN6aiFaceD2Ev.exit.thread ], [ %117, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %100, %99 ]
+  %.sroa.13.2 = phi ptr [ %spec.select, %_ZN6aiFaceD2Ev.exit.thread ], [ %117, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %100, %99 ]
   %.sroa.22.2 = phi ptr [ %.sroa.22.1140, %_ZN6aiFaceD2Ev.exit.thread ], [ %118, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %.sroa.22.1140, %99 ]
   %.4 = phi i32 [ %69, %_ZN6aiFaceD2Ev.exit.thread ], [ %.0143, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %.0143, %99 ]
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.057.0142, i64 4

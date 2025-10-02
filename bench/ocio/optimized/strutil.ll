@@ -41,11 +41,11 @@ define hidden void @_ZN7Strutil7vformatB5cxx11EPKcP13__va_list_tag(ptr dead_on_u
   store ptr %8, ptr %0, align 8, !tbaa !4
   br label %13
 
-._crit_edge:                                      ; preds = %67
+._crit_edge:                                      ; preds = %68
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %0, align 8, !tbaa !4
   %10 = icmp eq ptr %.sroa.032.2, null
-  %11 = icmp ne i32 %68, 0
+  %11 = icmp ne i32 %69, 0
   %or.cond.i = and i1 %10, %11
   br i1 %or.cond.i, label %12, label %13
 
@@ -58,7 +58,7 @@ define hidden void @_ZN7Strutil7vformatB5cxx11EPKcP13__va_list_tag(ptr dead_on_u
 
 13:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %14 = phi ptr [ %8, %._crit_edge.thread ], [ %9, %._crit_edge ]
-  %.lcssa88 = phi i32 [ %7, %._crit_edge.thread ], [ %68, %._crit_edge ]
+  %.lcssa88 = phi i32 [ %7, %._crit_edge.thread ], [ %69, %._crit_edge ]
   %.022.lcssa87 = phi ptr [ %5, %._crit_edge.thread ], [ %.sroa.032.2, %._crit_edge ]
   %.sroa.032.0.lcssa85 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.032.2, %._crit_edge ]
   %.sroa.13.0.lcssa83 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.13.2, %._crit_edge ]
@@ -82,31 +82,31 @@ define hidden void @_ZN7Strutil7vformatB5cxx11EPKcP13__va_list_tag(ptr dead_on_u
   %19 = phi ptr [ %17, %.noexc27 ], [ %14, %13 ]
   switch i32 %.lcssa88, label %22 [
     i32 1, label %20
-    i32 0, label %77
+    i32 0, label %78
   ]
 
 20:                                               ; preds = %._crit_edge.i.i
   %21 = load i8, ptr %.022.lcssa87, align 1, !tbaa !14
   store i8 %21, ptr %19, align 1, !tbaa !14
-  br label %77
+  br label %78
 
 22:                                               ; preds = %._crit_edge.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %.022.lcssa87, i64 %15, i1 false)
-  br label %77
+  br label %78
 
 23:                                               ; preds = %.noexc.i, %12
   %.sroa.032.0.lcssa86 = phi ptr [ %.sroa.032.0.lcssa85, %.noexc.i ], [ null, %12 ]
   %.sroa.13.0.lcssa84 = phi ptr [ %.sroa.13.0.lcssa83, %.noexc.i ], [ %.sroa.13.2, %12 ]
   %24 = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %73
 
-.lr.ph:                                           ; preds = %3, %67
-  %25 = phi i32 [ %68, %67 ], [ %7, %3 ]
-  %.02161 = phi i64 [ %30, %67 ], [ 1024, %3 ]
-  %.sroa.032.060 = phi ptr [ %.sroa.032.2, %67 ], [ null, %3 ]
-  %.sroa.13.059 = phi ptr [ %.sroa.13.2, %67 ], [ null, %3 ]
-  %.sroa.9.058 = phi ptr [ %.sroa.9.2, %67 ], [ null, %3 ]
+.lr.ph:                                           ; preds = %3, %68
+  %25 = phi i32 [ %69, %68 ], [ %7, %3 ]
+  %.02161 = phi i64 [ %30, %68 ], [ 1024, %3 ]
+  %.sroa.032.060 = phi ptr [ %.sroa.032.2, %68 ], [ null, %3 ]
+  %.sroa.13.059 = phi ptr [ %.sroa.13.2, %68 ], [ null, %3 ]
+  %.sroa.9.058 = phi ptr [ %.sroa.9.2, %68 ], [ null, %3 ]
   %26 = icmp sgt i32 %25, 0
   %27 = add nuw nsw i32 %25, 1
   %28 = zext nneg i32 %27 to i64
@@ -135,12 +135,12 @@ define hidden void @_ZN7Strutil7vformatB5cxx11EPKcP13__va_list_tag(ptr dead_on_u
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.9.058, i64 1
   %44 = add nsw i64 %36, -1
   %45 = icmp eq i64 %44, 0
-  br i1 %45, label %67, label %46
+  br i1 %45, label %68, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr i8, ptr %.sroa.9.058, i64 %36
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %43, i8 0, i64 %44, i1 false)
-  br label %67
+  br label %68
 
 48:                                               ; preds = %35
   %49 = icmp ult i64 %40, %36
@@ -192,79 +192,83 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i.i: ; preds = %59, %_ZSt27_
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %60, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i.i
   %62 = getelementptr inbounds nuw i8, ptr %53, i64 %30
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 %52
-  br label %67
+  br label %68
 
 64:                                               ; preds = %.lr.ph
   %65 = icmp ult i64 %30, %33
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.032.060, i64 %30
-  %spec.select = select i1 %65, ptr %66, ptr %.sroa.9.058
-  br label %67
+  br i1 %65, label %66, label %68
 
-67:                                               ; preds = %64, %42, %46, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i
-  %.sroa.9.2 = phi ptr [ %62, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %43, %42 ], [ %47, %46 ], [ %spec.select, %64 ]
-  %.sroa.13.2 = phi ptr [ %63, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.13.059, %42 ], [ %.sroa.13.059, %46 ], [ %.sroa.13.059, %64 ]
-  %.sroa.032.2 = phi ptr [ %53, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.032.060, %42 ], [ %.sroa.032.060, %46 ], [ %.sroa.032.060, %64 ]
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.032.060, i64 %30
+  %.not.i4.i = icmp eq ptr %.sroa.9.058, %67
+  %spec.select = select i1 %.not.i4.i, ptr %.sroa.9.058, ptr %67
+  br label %68
+
+68:                                               ; preds = %66, %42, %46, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i, %64
+  %.sroa.9.2 = phi ptr [ %62, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.9.058, %64 ], [ %43, %42 ], [ %47, %46 ], [ %spec.select, %66 ]
+  %.sroa.13.2 = phi ptr [ %63, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.13.059, %64 ], [ %.sroa.13.059, %42 ], [ %.sroa.13.059, %46 ], [ %.sroa.13.059, %66 ]
+  %.sroa.032.2 = phi ptr [ %53, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.032.060, %64 ], [ %.sroa.032.060, %42 ], [ %.sroa.032.060, %46 ], [ %.sroa.032.060, %66 ]
   call void @llvm.va_copy.p0(ptr %2, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.va_copy.p0(ptr nonnull %6, ptr %2)
-  %68 = call i32 @vsnprintf(ptr noundef %.sroa.032.2, i64 noundef %30, ptr noundef %1, ptr noundef %2) #15
+  %69 = call i32 @vsnprintf(ptr noundef %.sroa.032.2, i64 noundef %30, ptr noundef %1, ptr noundef %2) #15
   call void @llvm.va_end.p0(ptr %2)
-  %69 = trunc i64 %30 to i32
-  %70 = icmp sge i32 %68, %69
-  %71 = icmp slt i32 %68, 0
-  %or.cond.not = or i1 %70, %71
+  %70 = trunc i64 %30 to i32
+  %71 = icmp sge i32 %69, %70
+  %72 = icmp slt i32 %69, 0
+  %or.cond.not = or i1 %71, %72
   br i1 %or.cond.not, label %.lr.ph, label %._crit_edge
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %73
 
 .loopexit.split-lp:                               ; preds = %50
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %73
 
-72:                                               ; preds = %.loopexit, %.loopexit.split-lp, %23
+73:                                               ; preds = %.loopexit, %.loopexit.split-lp, %23
   %.sroa.13.055 = phi ptr [ %.sroa.13.0.lcssa84, %23 ], [ %.sroa.13.059, %.loopexit ], [ %.sroa.13.059, %.loopexit.split-lp ]
   %.sroa.032.051 = phi ptr [ %.sroa.032.0.lcssa86, %23 ], [ %.sroa.032.060, %.loopexit ], [ %.sroa.032.060, %.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i.i.i = icmp eq ptr %.sroa.032.051, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %73
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %74
 
-73:                                               ; preds = %72
-  %74 = ptrtoint ptr %.sroa.13.055 to i64
-  %75 = ptrtoint ptr %.sroa.032.051 to i64
-  %76 = sub i64 %74, %75
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.032.051, i64 noundef %76) #18
+74:                                               ; preds = %73
+  %75 = ptrtoint ptr %.sroa.13.055 to i64
+  %76 = ptrtoint ptr %.sroa.032.051 to i64
+  %77 = sub i64 %75, %76
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.032.051, i64 noundef %77) #18
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
-_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %72, %73
+_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %73, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 
-77:                                               ; preds = %._crit_edge.i.i, %20, %22
-  %78 = load i64, ptr %4, align 8, !tbaa !10
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %78, ptr %79, align 8, !tbaa !15
-  %80 = load ptr, ptr %0, align 8, !tbaa !12
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %78
-  store i8 0, ptr %81, align 1, !tbaa !14
+78:                                               ; preds = %._crit_edge.i.i, %20, %22
+  %79 = load i64, ptr %4, align 8, !tbaa !10
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %79, ptr %80, align 8, !tbaa !15
+  %81 = load ptr, ptr %0, align 8, !tbaa !12
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %79
+  store i8 0, ptr %82, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i.i.i30 = icmp eq ptr %.sroa.032.0.lcssa85, null
-  br i1 %.not.i.i.i30, label %_ZNSt6vectorIcSaIcEED2Ev.exit31, label %82
+  br i1 %.not.i.i.i30, label %_ZNSt6vectorIcSaIcEED2Ev.exit31, label %83
 
-82:                                               ; preds = %77
-  %83 = ptrtoint ptr %.sroa.13.0.lcssa83 to i64
-  %84 = ptrtoint ptr %.sroa.032.0.lcssa85 to i64
-  %85 = sub i64 %83, %84
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.032.0.lcssa85, i64 noundef %85) #18
+83:                                               ; preds = %78
+  %84 = ptrtoint ptr %.sroa.13.0.lcssa83 to i64
+  %85 = ptrtoint ptr %.sroa.032.0.lcssa85 to i64
+  %86 = sub i64 %84, %85
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.032.0.lcssa85, i64 noundef %86) #18
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit31
 
-_ZNSt6vectorIcSaIcEED2Ev.exit31:                  ; preds = %77, %82
+_ZNSt6vectorIcSaIcEED2Ev.exit31:                  ; preds = %78, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

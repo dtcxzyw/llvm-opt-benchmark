@@ -3834,7 +3834,7 @@ _ZN13deltalake_gcp6config13GcpCredential4keys17ha05719f7f5dfb74eE.exit.i75: ; pr
   %345 = add i64 %344, -1
   store i64 %345, ptr %.sroa.021.sroa.6.0..sroa_idx, align 8, !alias.scope !267
   %346 = icmp eq ptr %342, null
-  %347 = getelementptr i8, ptr %342, i64 -32
+  %347 = getelementptr inbounds i8, ptr %342, i64 -32
   br i1 %346, label %.thread252, label %357
 
 .thread252:                                       ; preds = %343, %439, %319

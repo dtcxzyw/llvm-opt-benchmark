@@ -915,6 +915,8 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i: ; preds = %294
 300:                                              ; preds = %297
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0287.2356.i, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false)
   %301 = getelementptr inbounds nuw i8, ptr %.sroa.0287.2356.i, i64 16
+  %.not.i16.i.i = icmp eq ptr %.sroa.12.1355.i, %301
+  %spec.select.i = select i1 %.not.i16.i.i, ptr %.sroa.12.1355.i, ptr %301
   br label %_ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit.i
 
 _ZSt7advanceIPKlmEvRT_T0_.exit.i.i:               ; preds = %297
@@ -935,7 +937,7 @@ _ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.thread.i:    ; preds = %_ZSt4copyIPKlPlET0_
 
 _ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit.i: ; preds = %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.thread.i, %300, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i
   %.sroa.26.4.i = phi ptr [ %296, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i ], [ %.sroa.26.2354.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.thread.i ], [ %.sroa.26.2354.i, %300 ]
-  %.sroa.12.3.i = phi ptr [ %296, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i ], [ %303, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.thread.i ], [ %301, %300 ]
+  %.sroa.12.3.i = phi ptr [ %296, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i ], [ %303, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.thread.i ], [ %spec.select.i, %300 ]
   %.sroa.0287.4.i = phi ptr [ %295, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i ], [ %.sroa.0287.2356.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.thread.i ], [ %.sroa.0287.2356.i, %300 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !23
   br label %319
@@ -971,6 +973,8 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i275.i: ; preds = %307
 313:                                              ; preds = %310
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0287.2356.i, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
   %314 = getelementptr inbounds nuw i8, ptr %.sroa.0287.2356.i, i64 16
+  %.not.i16.i263.i = icmp eq ptr %.sroa.12.1355.i, %314
+  %spec.select307.i = select i1 %.not.i16.i263.i, ptr %.sroa.12.1355.i, ptr %314
   br label %_ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit169.i
 
 _ZSt7advanceIPKlmEvRT_T0_.exit.i265.i:            ; preds = %310
@@ -991,7 +995,7 @@ _ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i269.thread.i: ; preds = %_ZSt4copyIPKlPlET0_
 
 _ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit169.i: ; preds = %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i269.thread.i, %313, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i275.i
   %.sroa.26.5.i = phi ptr [ %309, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i275.i ], [ %.sroa.26.2354.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i269.thread.i ], [ %.sroa.26.2354.i, %313 ]
-  %.sroa.12.4.i = phi ptr [ %309, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i275.i ], [ %316, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i269.thread.i ], [ %314, %313 ]
+  %.sroa.12.4.i = phi ptr [ %309, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i275.i ], [ %316, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i269.thread.i ], [ %spec.select307.i, %313 ]
   %.sroa.0287.5.i = phi ptr [ %308, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i275.i ], [ %.sroa.0287.2356.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i269.thread.i ], [ %.sroa.0287.2356.i, %313 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !23
   br label %319

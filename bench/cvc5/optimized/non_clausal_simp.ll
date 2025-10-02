@@ -1981,6 +1981,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit747: ; preds = %680, %684, %690
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit751: ; preds = %._ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit751_crit_edge, %718, %712
   %722 = phi i64 [ %.pre1871, %._ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit751_crit_edge ], [ %707, %718 ], [ %717, %712 ]
+  %.not.i752 = icmp eq ptr %551, %706
+  %spec.select1709 = select i1 %.not.i752, ptr %551, ptr %706, !prof !264
   %723 = and i64 %722, 1152920405095219200
   %.not.i.i753 = icmp eq i64 %723, 1152920405095219200
   br i1 %.not.i.i753, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit755, label %724, !prof !264
@@ -2054,6 +2056,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit755: ; preds = %_ZNK4cvc58internal
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit759: ; preds = %._ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit759_crit_edge, %758, %752
   %762 = phi i64 [ %.pre1872, %._ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit759_crit_edge ], [ %747, %758 ], [ %757, %752 ]
+  %.not.i760 = icmp eq ptr %563, %746
+  %spec.select1710 = select i1 %.not.i760, ptr %563, ptr %746, !prof !264
   %763 = and i64 %762, 1152920405095219200
   %.not.i.i762 = icmp eq i64 %763, 1152920405095219200
   br i1 %.not.i.i762, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit764, label %764, !prof !264
@@ -2187,6 +2191,8 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit759: ; preds = %._ZNK4cvc58intern
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit768: ; preds = %._ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit768_crit_edge, %814, %808
   %818 = phi i64 [ %.pre, %._ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit768_crit_edge ], [ %803, %814 ], [ %813, %808 ]
+  %.not.i769 = icmp eq ptr %551, %802
+  %spec.select1711 = select i1 %.not.i769, ptr %551, ptr %802, !prof !264
   %819 = and i64 %818, 1152920405095219200
   %.not.i.i771 = icmp eq i64 %819, 1152920405095219200
   br i1 %.not.i.i771, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit773, label %820, !prof !264
@@ -2260,6 +2266,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit773: ; preds = %_ZNK4cvc58internal
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit777: ; preds = %._ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit777_crit_edge, %853, %847
   %857 = phi i64 [ %.pre1870, %._ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit777_crit_edge ], [ %842, %853 ], [ %852, %847 ]
+  %.not.i778 = icmp eq ptr %563, %841
+  %spec.select1712 = select i1 %.not.i778, ptr %563, ptr %841, !prof !264
   %858 = and i64 %857, 1152920405095219200
   %.not.i.i780 = icmp eq i64 %858, 1152920405095219200
   br i1 %.not.i.i780, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit764, label %859, !prof !264
@@ -2321,6 +2329,8 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit777: ; preds = %._ZNK4cvc58intern
 
 _ZN4cvc58internal12NodeTemplateILb0EEaSERKNS1_ILb1EEE.exit784: ; preds = %880
   %887 = load ptr, ptr %29, align 8, !tbaa !252
+  %.not.i783 = icmp eq ptr %563, %887
+  %spec.select1713 = select i1 %.not.i783, ptr %563, ptr %887, !prof !264
   %888 = load i64, ptr %887, align 8
   %889 = and i64 %888, 1152920405095219200
   %.not.i.i785 = icmp eq i64 %889, 1152920405095219200
@@ -2418,6 +2428,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit789.sink.split: ; preds = %.no
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit789: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit789.sink.split, %931, %933, %909, %911
   %.sroa.01530.0 = phi ptr [ %902, %911 ], [ %902, %909 ], [ %925, %933 ], [ %925, %931 ], [ %.sink2031, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit789.sink.split ]
+  %.not.i794 = icmp eq ptr %551, %.sroa.01530.0
+  %spec.select1714 = select i1 %.not.i794, ptr %551, ptr %.sroa.01530.0, !prof !264
   %940 = load i64, ptr %.sroa.01530.0, align 8
   %941 = and i64 %940, 1152920405095219200
   %.not.i.i796 = icmp eq i64 %941, 1152920405095219200
@@ -2464,8 +2476,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit798: ; preds = %_ZN4cvc58internal1
   br label %.body724
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit764: ; preds = %865, %859, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit777, %770, %764, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit759, %874, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit798
-  %.sroa.01540.0 = phi ptr [ %887, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit798 ], [ %563, %874 ], [ %746, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit759 ], [ %746, %764 ], [ %746, %770 ], [ %841, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit777 ], [ %841, %859 ], [ %841, %865 ]
-  %.sroa.01545.0 = phi ptr [ %.sroa.01530.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit798 ], [ %551, %874 ], [ %706, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit759 ], [ %706, %764 ], [ %706, %770 ], [ %802, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit777 ], [ %802, %859 ], [ %802, %865 ]
+  %.sroa.01540.0 = phi ptr [ %spec.select1713, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit798 ], [ %563, %874 ], [ %spec.select1710, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit759 ], [ %spec.select1710, %764 ], [ %spec.select1710, %770 ], [ %spec.select1712, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit777 ], [ %spec.select1712, %859 ], [ %spec.select1712, %865 ]
+  %.sroa.01545.0 = phi ptr [ %spec.select1714, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit798 ], [ %551, %874 ], [ %spec.select1709, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit759 ], [ %spec.select1709, %764 ], [ %spec.select1709, %770 ], [ %spec.select1711, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit777 ], [ %spec.select1711, %859 ], [ %spec.select1711, %865 ]
   %957 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %958 = icmp eq i8 %957, 0
   br i1 %958, label %959, label %967, !prof !306

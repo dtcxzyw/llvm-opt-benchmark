@@ -6379,16 +6379,17 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_add_span_element_helper(
   br i1 %.not134, label %.thread, label %58
 
 58:                                               ; preds = %55, %.loopexit
+  %. = phi ptr [ %54, %55 ], [ %23, %.loopexit ]
   %59 = load i64, ptr @H5S_hyper_op_gen_g, align 8, !tbaa !11
   %60 = add i64 %59, 1
   store i64 %60, ptr @H5S_hyper_op_gen_g, align 8, !tbaa !11
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %.0111166 = load ptr, ptr %61, align 8, !tbaa !88
-  %.not136167 = icmp eq ptr %.0111166, %23
+  %.not136167 = icmp eq ptr %.0111166, %.
   br i1 %.not136167, label %.thread, label %.lr.ph169
 
 .lr.ph169:                                        ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %., i64 16
   br label %63
 
 63:                                               ; preds = %.lr.ph169, %121
@@ -6413,7 +6414,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_add_span_element_helper(
 73:                                               ; preds = %63
   %74 = getelementptr inbounds nuw i8, ptr %.0111168, i64 24
   %75 = load ptr, ptr %74, align 8, !tbaa !96
-  %76 = icmp eq ptr %75, %23
+  %76 = icmp eq ptr %75, %.
   br i1 %76, label %77, label %121
 
 77:                                               ; preds = %70, %73
@@ -6421,13 +6422,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_add_span_element_helper(
   %79 = getelementptr inbounds nuw i8, ptr %.0111168, i64 8
   %80 = load i64, ptr %79, align 8, !tbaa !97
   %81 = add i64 %80, 1
-  %82 = load i64, ptr %23, align 8, !tbaa !90
+  %82 = load i64, ptr %., align 8, !tbaa !90
   %83 = icmp eq i64 %81, %82
   br i1 %83, label %84, label %108
 
 84:                                               ; preds = %77
   store i64 %81, ptr %79, align 8, !tbaa !97
-  %85 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %., i64 24
   %86 = load ptr, ptr %85, align 8, !tbaa !96
   %87 = getelementptr inbounds nuw i8, ptr %.0111168, i64 24
   store ptr %86, ptr %87, align 8, !tbaa !96
@@ -6450,7 +6451,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_add_span_element_helper(
   br i1 %98, label %101, label %99
 
 99:                                               ; preds = %96, %94
-  %100 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_hyper_span_t_reg_free_list, ptr noundef nonnull %23) #14
+  %100 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_hyper_span_t_reg_free_list, ptr noundef nonnull %.) #14
   br label %.thread
 
 101:                                              ; preds = %96
@@ -6489,7 +6490,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_add_span_element_helper(
 121:                                              ; preds = %73, %67, %70
   %122 = getelementptr inbounds nuw i8, ptr %.0111168, i64 24
   %.0111 = load ptr, ptr %122, align 8, !tbaa !88
-  %.not136 = icmp eq ptr %.0111, %23
+  %.not136 = icmp eq ptr %.0111, %.
   br i1 %.not136, label %.thread, label %63
 
 123:                                              ; preds = %16, %11

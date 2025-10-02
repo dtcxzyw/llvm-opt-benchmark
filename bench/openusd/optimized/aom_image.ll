@@ -15,19 +15,19 @@ define internal fastcc noundef ptr @img_alloc_helper(ptr noundef captures(addres
   %12 = add i32 %spec.store.select, -1
   %13 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %spec.store.select)
   %.not = icmp samesign ult i32 %13, 2
-  br i1 %.not, label %14, label %146
+  br i1 %.not, label %14, label %144
 
 14:                                               ; preds = %11
   %spec.store.select1 = tail call i32 @llvm.umax.i32(i32 %5, i32 1)
   %15 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %spec.store.select1)
   %.not106 = icmp samesign ult i32 %15, 2
-  br i1 %.not106, label %16, label %146
+  br i1 %.not106, label %16, label %144
 
 16:                                               ; preds = %14
   %spec.store.select2 = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
   %17 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %spec.store.select2)
   %.not108 = icmp samesign ult i32 %17, 2
-  br i1 %.not108, label %18, label %146
+  br i1 %.not108, label %18, label %144
 
 18:                                               ; preds = %16
   switch i32 %1, label %20 [
@@ -128,7 +128,7 @@ define internal fastcc noundef ptr @img_alloc_helper(ptr noundef captures(addres
 52:                                               ; preds = %28
   %53 = tail call noalias dereferenceable_or_null(168) ptr @calloc(i64 noundef 1, i64 noundef 168) #14
   %.not112 = icmp eq ptr %53, null
-  br i1 %.not112, label %146, label %54
+  br i1 %.not112, label %144, label %54
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 148
@@ -181,134 +181,127 @@ define internal fastcc noundef ptr @img_alloc_helper(ptr noundef captures(addres
   %81 = xor i64 %79, -1
   %82 = and i64 %80, %81
   %83 = inttoptr i64 %82 to ptr
-  br i1 %.not115, label %.thread148, label %88
+  %storemerge = select i1 %.not115, ptr %77, ptr %83
+  br label %86
 
 84:                                               ; preds = %71
   %85 = tail call ptr @aom_memalign(i64 noundef %73, i64 noundef %72) #15
-  br label %88
+  br label %86
 
-.thread148:                                       ; preds = %74
-  store ptr null, ptr %58, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %.1, i64 144
-  store i32 0, ptr %86, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %.1, i64 104
-  store i64 %72, ptr %87, align 8
-  br label %146
-
-88:                                               ; preds = %74, %84
-  %storemerge.sink = phi ptr [ %85, %84 ], [ %83, %74 ]
+86:                                               ; preds = %74, %84
+  %storemerge.sink = phi ptr [ %85, %84 ], [ %storemerge, %74 ]
   %.sink = phi i32 [ 1, %84 ], [ 0, %74 ]
   store ptr %storemerge.sink, ptr %58, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %.1, i64 144
-  store i32 %.sink, ptr %89, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %.1, i64 104
-  store i64 %72, ptr %90, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %.1, i64 144
+  store i32 %.sink, ptr %87, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %.1, i64 104
+  store i64 %72, ptr %88, align 8
   %.not116 = icmp eq ptr %storemerge.sink, null
-  br i1 %.not116, label %146, label %.thread139
+  br i1 %.not116, label %144, label %.thread139
 
-.thread139:                                       ; preds = %57, %88
-  %91 = phi ptr [ %storemerge.sink, %88 ], [ %8, %57 ]
+.thread139:                                       ; preds = %57, %86
+  %89 = phi ptr [ %storemerge.sink, %86 ], [ %8, %57 ]
   store i32 %1, ptr %.1, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %.1, i64 36
-  store i32 %29, ptr %92, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %.1, i64 28
-  store i32 %34, ptr %93, align 4
-  %94 = getelementptr inbounds nuw i8, ptr %.1, i64 32
-  store i32 %38, ptr %94, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %.1, i64 56
-  store i32 %.099138, ptr %95, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %.1, i64 60
-  store i32 %.098, ptr %96, align 4
-  %97 = getelementptr inbounds nuw i8, ptr %.1, i64 112
-  store i32 %.097120135, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %.1, i64 88
-  store i32 %51, ptr %98, align 8
-  %99 = lshr i32 %51, %.099138
-  %100 = getelementptr inbounds nuw i8, ptr %.1, i64 96
-  store i32 %99, ptr %100, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %.1, i64 92
-  store i32 %99, ptr %101, align 4
+  %90 = getelementptr inbounds nuw i8, ptr %.1, i64 36
+  store i32 %29, ptr %90, align 4
+  %91 = getelementptr inbounds nuw i8, ptr %.1, i64 28
+  store i32 %34, ptr %91, align 4
+  %92 = getelementptr inbounds nuw i8, ptr %.1, i64 32
+  store i32 %38, ptr %92, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %.1, i64 56
+  store i32 %.099138, ptr %93, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %.1, i64 60
+  store i32 %.098, ptr %94, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %.1, i64 112
+  store i32 %.097120135, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %.1, i64 88
+  store i32 %51, ptr %96, align 8
+  %97 = lshr i32 %51, %.099138
+  %98 = getelementptr inbounds nuw i8, ptr %.1, i64 96
+  store i32 %97, ptr %98, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %.1, i64 92
+  store i32 %97, ptr %99, align 4
   %.not.i = icmp ugt i32 %2, %34
   %.not74.i = icmp ugt i32 %3, %38
   %or.cond = select i1 %.not.i, i1 true, i1 %.not74.i
-  br i1 %or.cond, label %aom_img_set_rect.exit, label %102
+  br i1 %or.cond, label %aom_img_set_rect.exit, label %100
 
-102:                                              ; preds = %.thread139
-  %103 = getelementptr inbounds nuw i8, ptr %.1, i64 40
-  store i32 %2, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %.1, i64 44
-  store i32 %3, ptr %104, align 4
-  br i1 %.not110, label %105, label %111
+100:                                              ; preds = %.thread139
+  %101 = getelementptr inbounds nuw i8, ptr %.1, i64 40
+  store i32 %2, ptr %101, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %.1, i64 44
+  store i32 %3, ptr %102, align 4
+  br i1 %.not110, label %103, label %109
 
-105:                                              ; preds = %102
-  %106 = mul i32 %.097120135, %7
-  %107 = lshr i32 %106, 3
-  %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw i8, ptr %91, i64 %108
-  %110 = mul i32 %51, %7
-  %.pre = zext i32 %110 to i64
+103:                                              ; preds = %100
+  %104 = mul i32 %.097120135, %7
+  %105 = lshr i32 %104, 3
+  %106 = zext nneg i32 %105 to i64
+  %107 = getelementptr inbounds nuw i8, ptr %89, i64 %106
+  %108 = mul i32 %51, %7
+  %.pre = zext i32 %108 to i64
   br label %.sink.split.i
 
-111:                                              ; preds = %102
-  %112 = lshr i32 %1, 11
-  %.lobit.i = and i32 %112, 1
-  %113 = shl i32 %7, %.lobit.i
-  %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds nuw i8, ptr %91, i64 %114
-  %116 = mul i32 %51, %7
-  %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds nuw i8, ptr %115, i64 %117
-  %119 = getelementptr inbounds nuw i8, ptr %.1, i64 64
-  store ptr %118, ptr %119, align 8
-  %120 = add i32 %38, %44
-  %121 = mul i32 %51, %120
-  %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw i8, ptr %91, i64 %122
-  %124 = lshr i32 %7, %.098
-  %125 = lshr i32 %7, %.099138
-  %126 = and i32 %1, 512
-  %.not77.i = icmp eq i32 %126, 0
-  %127 = shl i32 %125, %.lobit.i
-  %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds nuw i8, ptr %123, i64 %128
-  %130 = lshr i32 %38, %.098
-  %131 = shl i32 %124, 1
-  %132 = add i32 %130, %131
-  %133 = mul i32 %99, %124
-  %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw i8, ptr %129, i64 %134
-  %136 = mul i32 %99, %132
-  %137 = zext i32 %136 to i64
-  %138 = getelementptr inbounds nuw i8, ptr %123, i64 %137
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 %128
-  br i1 %.not77.i, label %140, label %142
+109:                                              ; preds = %100
+  %110 = lshr i32 %1, 11
+  %.lobit.i = and i32 %110, 1
+  %111 = shl i32 %7, %.lobit.i
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds nuw i8, ptr %89, i64 %112
+  %114 = mul i32 %51, %7
+  %115 = zext i32 %114 to i64
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 %115
+  %117 = getelementptr inbounds nuw i8, ptr %.1, i64 64
+  store ptr %116, ptr %117, align 8
+  %118 = add i32 %38, %44
+  %119 = mul i32 %51, %118
+  %120 = zext i32 %119 to i64
+  %121 = getelementptr inbounds nuw i8, ptr %89, i64 %120
+  %122 = lshr i32 %7, %.098
+  %123 = lshr i32 %7, %.099138
+  %124 = and i32 %1, 512
+  %.not77.i = icmp eq i32 %124, 0
+  %125 = shl i32 %123, %.lobit.i
+  %126 = zext i32 %125 to i64
+  %127 = getelementptr inbounds nuw i8, ptr %121, i64 %126
+  %128 = lshr i32 %38, %.098
+  %129 = shl i32 %122, 1
+  %130 = add i32 %128, %129
+  %131 = mul i32 %97, %122
+  %132 = zext i32 %131 to i64
+  %133 = getelementptr inbounds nuw i8, ptr %127, i64 %132
+  %134 = mul i32 %97, %130
+  %135 = zext i32 %134 to i64
+  %136 = getelementptr inbounds nuw i8, ptr %121, i64 %135
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 %126
+  br i1 %.not77.i, label %138, label %140
 
-140:                                              ; preds = %111
-  %141 = getelementptr inbounds nuw i8, ptr %.1, i64 72
-  store ptr %135, ptr %141, align 8
+138:                                              ; preds = %109
+  %139 = getelementptr inbounds nuw i8, ptr %.1, i64 72
+  store ptr %133, ptr %139, align 8
   br label %.sink.split.i
 
-142:                                              ; preds = %111
-  %143 = getelementptr inbounds nuw i8, ptr %.1, i64 80
-  store ptr %135, ptr %143, align 8
+140:                                              ; preds = %109
+  %141 = getelementptr inbounds nuw i8, ptr %.1, i64 80
+  store ptr %133, ptr %141, align 8
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %142, %140, %105
-  %.pre-phi = phi i64 [ %134, %142 ], [ %134, %140 ], [ %.pre, %105 ]
-  %.sink83.i = phi ptr [ %139, %142 ], [ %139, %140 ], [ %109, %105 ]
-  %.sink82.i = phi i64 [ 72, %142 ], [ 80, %140 ], [ 64, %105 ]
-  %144 = getelementptr inbounds nuw i8, ptr %.sink83.i, i64 %.pre-phi
-  %145 = getelementptr inbounds nuw i8, ptr %.1, i64 %.sink82.i
-  store ptr %144, ptr %145, align 8
+.sink.split.i:                                    ; preds = %140, %138, %103
+  %.pre-phi = phi i64 [ %132, %140 ], [ %132, %138 ], [ %.pre, %103 ]
+  %.sink83.i = phi ptr [ %137, %140 ], [ %137, %138 ], [ %107, %103 ]
+  %.sink82.i = phi i64 [ 72, %140 ], [ 80, %138 ], [ 64, %103 ]
+  %142 = getelementptr inbounds nuw i8, ptr %.sink83.i, i64 %.pre-phi
+  %143 = getelementptr inbounds nuw i8, ptr %.1, i64 %.sink82.i
+  store ptr %142, ptr %143, align 8
   br label %aom_img_set_rect.exit
 
-146:                                              ; preds = %.thread148, %88, %52, %16, %14, %11
-  %.096 = phi ptr [ %0, %11 ], [ %0, %14 ], [ %0, %16 ], [ %.1, %88 ], [ null, %52 ], [ %.1, %.thread148 ]
+144:                                              ; preds = %86, %52, %16, %14, %11
+  %.096 = phi ptr [ %0, %11 ], [ %0, %14 ], [ %0, %16 ], [ %.1, %86 ], [ null, %52 ]
   tail call void @aom_img_free(ptr noundef %.096)
   br label %aom_img_set_rect.exit
 
-aom_img_set_rect.exit:                            ; preds = %.sink.split.i, %.thread139, %146
-  %.0 = phi ptr [ null, %146 ], [ %.1, %.thread139 ], [ %.1, %.sink.split.i ]
+aom_img_set_rect.exit:                            ; preds = %.sink.split.i, %.thread139, %144
+  %.0 = phi ptr [ null, %144 ], [ %.1, %.thread139 ], [ %.1, %.sink.split.i ]
   ret ptr %.0
 }
 

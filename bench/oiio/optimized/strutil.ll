@@ -5589,7 +5589,7 @@ _ZL21stbsp__clamp_callbackPKcPvi.exit.i:          ; preds = %_ZNSt6vectorIcSaIcE
 25:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i, %_ZL21stbsp__clamp_callbackPKcPvi.exit.i
   %26 = landingpad { ptr, i32 }
           cleanup
-  br label %80
+  br label %81
 
 27:                                               ; preds = %11
   %28 = icmp slt i32 %20, %.020
@@ -5643,7 +5643,7 @@ _ZL21stbsp__clamp_callbackPKcPvi.exit.i:          ; preds = %_ZNSt6vectorIcSaIcE
 44:                                               ; preds = %.noexc.i26
   %45 = landingpad { ptr, i32 }
           cleanup
-  br label %80
+  br label %81
 
 46:                                               ; preds = %27
   %47 = add nuw nsw i32 %20, 1
@@ -5718,48 +5718,52 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %73, %_ZNSt
 
 77:                                               ; preds = %46
   %78 = icmp ugt i64 %51, %48
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.033.0, i64 %48
-  %spec.select = select i1 %78, ptr %79, ptr %.sroa.9.0
+  br i1 %78, label %79, label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
+
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.033.0, i64 %48
+  %.not.i4.i = icmp eq ptr %.sroa.9.0, %80
+  %spec.select = select i1 %.not.i4.i, ptr %.sroa.9.0, ptr %80
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
-_ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %77, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i, %63, %59
-  %.sroa.13.1 = phi ptr [ %76, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.13.0, %63 ], [ %.sroa.13.0, %59 ], [ %.sroa.13.0, %77 ]
-  %.sroa.9.1 = phi ptr [ %75, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %64, %63 ], [ %60, %59 ], [ %spec.select, %77 ]
-  %.sroa.033.1 = phi ptr [ %66, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.033.0, %63 ], [ %.sroa.033.0, %59 ], [ %.sroa.033.0, %77 ]
+_ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %79, %77, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i, %63, %59
+  %.sroa.13.1 = phi ptr [ %76, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.13.0, %77 ], [ %.sroa.13.0, %63 ], [ %.sroa.13.0, %59 ], [ %.sroa.13.0, %79 ]
+  %.sroa.9.1 = phi ptr [ %75, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.9.0, %77 ], [ %64, %63 ], [ %60, %59 ], [ %spec.select, %79 ]
+  %.sroa.033.1 = phi ptr [ %66, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.033.0, %77 ], [ %.sroa.033.0, %63 ], [ %.sroa.033.0, %59 ], [ %.sroa.033.0, %79 ]
   call void @llvm.va_copy.p0(ptr %2, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL21stbsp__clamp_callbackPKcPvi.exit.i, !llvm.loop !105
 
-80:                                               ; preds = %44, %25
+81:                                               ; preds = %44, %25
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %26, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i.i.i = icmp eq ptr %.sroa.033.0, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %81
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %82
 
-81:                                               ; preds = %80
-  %82 = ptrtoint ptr %.sroa.13.0 to i64
-  %83 = ptrtoint ptr %.sroa.033.0 to i64
-  %84 = sub i64 %82, %83
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.033.0, i64 noundef %84) #43
+82:                                               ; preds = %81
+  %83 = ptrtoint ptr %.sroa.13.0 to i64
+  %84 = ptrtoint ptr %.sroa.033.0 to i64
+  %85 = sub i64 %83, %84
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.033.0, i64 noundef %85) #43
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
-_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %80, %81
+_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %81, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 
 .critedge:                                        ; preds = %39, %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i.i.i30 = icmp eq ptr %.sroa.033.0, null
-  br i1 %.not.i.i.i30, label %_ZNSt6vectorIcSaIcEED2Ev.exit31, label %85
+  br i1 %.not.i.i.i30, label %_ZNSt6vectorIcSaIcEED2Ev.exit31, label %86
 
-85:                                               ; preds = %.critedge
-  %86 = ptrtoint ptr %.sroa.13.0 to i64
-  %87 = ptrtoint ptr %.sroa.033.0 to i64
-  %88 = sub i64 %86, %87
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.033.0, i64 noundef %88) #43
+86:                                               ; preds = %.critedge
+  %87 = ptrtoint ptr %.sroa.13.0 to i64
+  %88 = ptrtoint ptr %.sroa.033.0 to i64
+  %89 = sub i64 %87, %88
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.033.0, i64 noundef %89) #43
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit31
 
-_ZNSt6vectorIcSaIcEED2Ev.exit31:                  ; preds = %.critedge, %85
+_ZNSt6vectorIcSaIcEED2Ev.exit31:                  ; preds = %.critedge, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

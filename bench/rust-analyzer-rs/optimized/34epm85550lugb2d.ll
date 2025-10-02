@@ -41906,10 +41906,8 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h60
   %13 = add i64 %12, -1
   store i64 %13, ptr %5, align 8, !alias.scope !13839
   %14 = icmp eq ptr %11, null
-  %15 = getelementptr i8, ptr %11, i64 -64
-  %.not6 = icmp eq ptr %15, null
-  %.not = or i1 %14, %.not6
-  br i1 %.not, label %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit.thread", label %16
+  %15 = getelementptr inbounds i8, ptr %11, i64 -64
+  br i1 %14, label %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit.thread", label %16
 
 16:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !13846)
@@ -42018,9 +42016,9 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %switch.not.not.not = icmp eq i8 %52, 0
   br i1 %switch.not.not.not, label %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit.thread", label %8
 
-"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit.thread": ; preds = %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h840c70c4cb3fe69fE.exit", %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit"
-  %.sroa.3.0 = phi i32 [ undef, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit" ], [ %48, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h840c70c4cb3fe69fE.exit" ], [ undef, %8 ]
-  %.sroa.0.0 = phi i32 [ 0, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit" ], [ 1, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h840c70c4cb3fe69fE.exit" ], [ 0, %8 ]
+"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit.thread": ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h840c70c4cb3fe69fE.exit", %8, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit"
+  %.sroa.3.0 = phi i32 [ undef, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit" ], [ undef, %8 ], [ %48, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h840c70c4cb3fe69fE.exit" ]
+  %.sroa.0.0 = phi i32 [ 0, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit" ], [ 0, %8 ], [ 1, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h840c70c4cb3fe69fE.exit" ]
   %58 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %59 = insertvalue { i32, i32 } %58, i32 %.sroa.3.0, 1
   ret { i32, i32 } %59
@@ -47018,22 +47016,20 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf2
   %12 = add i64 %11, -1
   store i64 %12, ptr %5, align 8, !alias.scope !15332
   %13 = icmp eq ptr %10, null
-  %14 = getelementptr i8, ptr %10, i64 -64
-  %.not7 = icmp eq ptr %14, null
-  %.not = or i1 %13, %.not7
-  br i1 %.not, label %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit.thread", label %15
+  br i1 %13, label %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit.thread", label %14
 
-15:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit"
-  %16 = call { i32, i32 } @_ZN3vfs3Vfs7file_id17h0b6c396968d10fa1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14)
+14:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit"
+  %15 = getelementptr inbounds i8, ptr %10, i64 -64
+  %16 = call { i32, i32 } @_ZN3vfs3Vfs7file_id17h0b6c396968d10fa1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15)
   %17 = extractvalue { i32, i32 } %16, 0
   %switch.i.i = icmp eq i32 %17, 0
   br i1 %switch.i.i, label %18, label %"_ZN13rust_analyzer9main_loop58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$18update_diagnostics28_$u7b$$u7b$closure$u7d$$u7d$17hc9925adb906912aeE.exit.i"
 
-18:                                               ; preds = %15
+18:                                               ; preds = %14
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.72249de86b580934f12e637c635bc563.170) #54
   unreachable
 
-"_ZN13rust_analyzer9main_loop58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$18update_diagnostics28_$u7b$$u7b$closure$u7d$$u7d$17hc9925adb906912aeE.exit.i": ; preds = %15
+"_ZN13rust_analyzer9main_loop58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$18update_diagnostics28_$u7b$$u7b$closure$u7d$$u7d$17hc9925adb906912aeE.exit.i": ; preds = %14
   %19 = extractvalue { i32, i32 } %16, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !15339)
   %20 = call noundef i32 @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$16file_source_root6__shim17he6b5a8a9f8e26b04E"(ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.58bff93399cb9162300a2319accc463d.390.llvm.2510282452699860474, i32 noundef %19), !noalias !15342
@@ -47059,9 +47055,9 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf2
   %switch.not.not.not = icmp eq i8 %23, 0
   br i1 %switch.not.not.not, label %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit.thread", label %7
 
-"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit.thread": ; preds = %7, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcdf0283d63e9ad8E.exit", %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit"
-  %.sroa.3.0 = phi i32 [ undef, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit" ], [ %19, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcdf0283d63e9ad8E.exit" ], [ undef, %7 ]
-  %.sroa.0.0 = phi i32 [ 0, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit" ], [ 1, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcdf0283d63e9ad8E.exit" ], [ 0, %7 ]
+"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit.thread": ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcdf0283d63e9ad8E.exit", %7, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit"
+  %.sroa.3.0 = phi i32 [ undef, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit" ], [ undef, %7 ], [ %19, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcdf0283d63e9ad8E.exit" ]
+  %.sroa.0.0 = phi i32 [ 0, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit" ], [ 0, %7 ], [ 1, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcdf0283d63e9ad8E.exit" ]
   %29 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %30 = insertvalue { i32, i32 } %29, i32 %.sroa.3.0, 1
   ret { i32, i32 } %30

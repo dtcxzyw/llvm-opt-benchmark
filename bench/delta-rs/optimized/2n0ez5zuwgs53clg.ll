@@ -1659,9 +1659,9 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN101_$LT$std..
 "_ZN92_$LT$hashbrown..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64b53358f6effffeE.exit": ; preds = %1, %5
   %.0.i.i.i = phi ptr [ %6, %5 ], [ null, %1 ]
   %9 = icmp eq ptr %.0.i.i.i, null
-  %10 = getelementptr i8, ptr %.0.i.i.i, i64 -24
-  %.sroa.0.0.i.i = select i1 %9, ptr null, ptr %10
-  ret ptr %.sroa.0.0.i.i
+  %10 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 -24
+  %..i = select i1 %9, ptr null, ptr %10
+  ret ptr %..i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1681,9 +1681,9 @@ define hidden noundef align 8 dereferenceable_or_null(96) ptr @"_ZN101_$LT$std..
 "_ZN92_$LT$hashbrown..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7b211e46c13d6c3aE.exit": ; preds = %1, %5
   %.0.i.i.i = phi ptr [ %6, %5 ], [ null, %1 ]
   %9 = icmp eq ptr %.0.i.i.i, null
-  %10 = getelementptr i8, ptr %.0.i.i.i, i64 -96
-  %.sroa.0.0.i.i = select i1 %9, ptr null, ptr %10
-  ret ptr %.sroa.0.0.i.i
+  %10 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 -96
+  %..i = select i1 %9, ptr null, ptr %10
+  ret ptr %..i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -26653,29 +26653,27 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e0fd7b2b42255ccE.llvm.7925137649769596059.exit.thread", label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e0fd7b2b42255ccE.llvm.7925137649769596059.exit"
 
-"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e0fd7b2b42255ccE.llvm.7925137649769596059.exit": ; preds = %2, %15
+"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e0fd7b2b42255ccE.llvm.7925137649769596059.exit": ; preds = %2, %12
   %8 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h819f1b7b6586673dE.llvm.240573438051967091"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
   %9 = load i64, ptr %5, align 8, !alias.scope !3912, !noundef !4
   %10 = add i64 %9, -1
   store i64 %10, ptr %5, align 8, !alias.scope !3912
   %11 = icmp eq ptr %8, null
-  %12 = getelementptr i8, ptr %8, i64 -96
-  %13 = icmp eq ptr %12, null
-  %14 = or i1 %11, %13
-  br i1 %14, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e0fd7b2b42255ccE.llvm.7925137649769596059.exit.thread", label %15
+  br i1 %11, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e0fd7b2b42255ccE.llvm.7925137649769596059.exit.thread", label %12
 
-"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e0fd7b2b42255ccE.llvm.7925137649769596059.exit.thread": ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e0fd7b2b42255ccE.llvm.7925137649769596059.exit", %15, %2
+"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e0fd7b2b42255ccE.llvm.7925137649769596059.exit.thread": ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e0fd7b2b42255ccE.llvm.7925137649769596059.exit", %12, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %0
 
-15:                                               ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e0fd7b2b42255ccE.llvm.7925137649769596059.exit"
+12:                                               ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e0fd7b2b42255ccE.llvm.7925137649769596059.exit"
+  %13 = getelementptr inbounds i8, ptr %8, i64 -96
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %12, ptr %3, align 8
-  %16 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugSet5entry17h21dbad3b90fa2fe9E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.64.llvm.7925137649769596059)
+  store ptr %13, ptr %3, align 8
+  %14 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugSet5entry17h21dbad3b90fa2fe9E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.64.llvm.7925137649769596059)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %17 = load i64, ptr %5, align 8, !alias.scope !3912, !noundef !4
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e0fd7b2b42255ccE.llvm.7925137649769596059.exit.thread", label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e0fd7b2b42255ccE.llvm.7925137649769596059.exit"
+  %15 = load i64, ptr %5, align 8, !alias.scope !3912, !noundef !4
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e0fd7b2b42255ccE.llvm.7925137649769596059.exit.thread", label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e0fd7b2b42255ccE.llvm.7925137649769596059.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26689,29 +26687,27 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h582f554d9dbcafe4E.llvm.7925137649769596059.exit.thread", label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h582f554d9dbcafe4E.llvm.7925137649769596059.exit"
 
-"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h582f554d9dbcafe4E.llvm.7925137649769596059.exit": ; preds = %2, %15
+"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h582f554d9dbcafe4E.llvm.7925137649769596059.exit": ; preds = %2, %12
   %8 = call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h6de31d3f4969f847E.llvm.240573438051967091"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
   %9 = load i64, ptr %5, align 8, !alias.scope !3921, !noundef !4
   %10 = add i64 %9, -1
   store i64 %10, ptr %5, align 8, !alias.scope !3921
   %11 = icmp eq ptr %8, null
-  %12 = getelementptr i8, ptr %8, i64 -24
-  %13 = icmp eq ptr %12, null
-  %14 = or i1 %11, %13
-  br i1 %14, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h582f554d9dbcafe4E.llvm.7925137649769596059.exit.thread", label %15
+  br i1 %11, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h582f554d9dbcafe4E.llvm.7925137649769596059.exit.thread", label %12
 
-"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h582f554d9dbcafe4E.llvm.7925137649769596059.exit.thread": ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h582f554d9dbcafe4E.llvm.7925137649769596059.exit", %15, %2
+"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h582f554d9dbcafe4E.llvm.7925137649769596059.exit.thread": ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h582f554d9dbcafe4E.llvm.7925137649769596059.exit", %12, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %0
 
-15:                                               ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h582f554d9dbcafe4E.llvm.7925137649769596059.exit"
+12:                                               ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h582f554d9dbcafe4E.llvm.7925137649769596059.exit"
+  %13 = getelementptr inbounds i8, ptr %8, i64 -24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %12, ptr %3, align 8
-  %16 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugSet5entry17h21dbad3b90fa2fe9E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.61.llvm.7925137649769596059)
+  store ptr %13, ptr %3, align 8
+  %14 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugSet5entry17h21dbad3b90fa2fe9E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e79218a0d5be9b9d93b20ccc6bc791ac.61.llvm.7925137649769596059)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %17 = load i64, ptr %5, align 8, !alias.scope !3921, !noundef !4
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h582f554d9dbcafe4E.llvm.7925137649769596059.exit.thread", label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h582f554d9dbcafe4E.llvm.7925137649769596059.exit"
+  %15 = load i64, ptr %5, align 8, !alias.scope !3921, !noundef !4
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h582f554d9dbcafe4E.llvm.7925137649769596059.exit.thread", label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h582f554d9dbcafe4E.llvm.7925137649769596059.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable

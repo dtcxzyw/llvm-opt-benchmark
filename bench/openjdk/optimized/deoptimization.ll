@@ -6822,8 +6822,8 @@ _ZN14Deoptimization16trap_action_nameEi.exit276:  ; preds = %438, %442
   br i1 %456, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0196331 = phi ptr [ %457, %.lr.ph ], [ %68, %.preheader ]
-  %457 = call noundef ptr @_ZNK9ScopeDesc6senderEv(ptr noundef nonnull align 8 dereferenceable(56) %.0196331) #22
+  %.0196330 = phi ptr [ %457, %.lr.ph ], [ %68, %.preheader ]
+  %457 = call noundef ptr @_ZNK9ScopeDesc6senderEv(ptr noundef nonnull align 8 dereferenceable(56) %.0196330) #22
   %458 = load ptr, ptr @xtty, align 8
   %459 = getelementptr inbounds nuw i8, ptr %457, i64 8
   %460 = load i32, ptr %459, align 8
@@ -6980,10 +6980,8 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit282: ; preds = %475, %_ZN2
   %.0202 = phi i1 [ false, %517 ], [ false, %513 ], [ false, %518 ], [ false, %519 ], [ true, %520 ]
   %.0200 = phi i1 [ false, %517 ], [ false, %513 ], [ true, %518 ], [ false, %519 ], [ false, %520 ]
   %524 = icmp ne ptr %.0.i258, null
-  %525 = getelementptr i8, ptr %.0.i258, i64 24
-  %.not.i.i283330 = icmp ne ptr %525, null
-  %.not.i.i283.not = and i1 %524, %.not.i.i283330
-  br i1 %.not.i.i283.not, label %526, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit
+  %525 = getelementptr inbounds nuw i8, ptr %.0.i258, i64 24
+  br i1 %524, label %526, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit
 
 526:                                              ; preds = %523
   call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %525) #22
@@ -7041,11 +7039,11 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit: ; preds = %_ZN22Con
   ]
 
 ._ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit_crit_edge: ; preds = %552
-  %.pre332 = load i32, ptr %16, align 4
-  %.pre333 = load i8, ptr %18, align 1
-  %.pre334 = load i8, ptr %17, align 1
+  %.pre331 = load i32, ptr %16, align 4
+  %.pre332 = load i8, ptr %18, align 1
+  %.pre333 = load i8, ptr %17, align 1
+  %.pre334 = trunc i8 %.pre332 to i1
   %.pre335 = trunc i8 %.pre333 to i1
-  %.pre336 = trunc i8 %.pre334 to i1
   br label %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit
 
 553:                                              ; preds = %552, %552, %552, %552, %545, %552, %552
@@ -7066,9 +7064,9 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit: ; preds = %_ZN22Con
   br label %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit
 
 _ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit: ; preds = %._ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit_crit_edge, %553
-  %.pre-phi337 = phi i1 [ %.pre336, %._ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit_crit_edge ], [ %555, %553 ]
-  %.pre-phi = phi i1 [ %.pre335, %._ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit_crit_edge ], [ %561, %553 ]
-  %563 = phi i32 [ %.pre332, %._ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit_crit_edge ], [ %556, %553 ]
+  %.pre-phi336 = phi i1 [ %.pre335, %._ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit_crit_edge ], [ %555, %553 ]
+  %.pre-phi = phi i1 [ %.pre334, %._ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit_crit_edge ], [ %561, %553 ]
+  %563 = phi i32 [ %.pre331, %._ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit_crit_edge ], [ %556, %553 ]
   %.3 = phi i8 [ 1, %._ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit_crit_edge ], [ %spec.select326, %553 ]
   %.1199 = phi i1 [ false, %._ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit_crit_edge ], [ %562, %553 ]
   %564 = add nsw i32 %.0.i, -19
@@ -7081,7 +7079,7 @@ _ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit:
   %spec.select246 = select i1 %.not242, i8 %.3, i8 1
   %568 = trunc nuw i8 %spec.select246 to i1
   %or.cond16 = select i1 %568, i1 %.pre-phi, i1 false
-  %or.cond18 = select i1 %or.cond16, i1 %.pre-phi337, i1 false
+  %or.cond18 = select i1 %or.cond16, i1 %.pre-phi336, i1 false
   %spec.select247 = or i1 %or.cond18, %.0200
   br label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread
 
@@ -7184,7 +7182,7 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread: ; preds = %_
 614:                                              ; preds = %611
   %615 = call noundef ptr @_ZN10MethodData37exception_handler_bci_to_data_or_nullEi(ptr noundef nonnull align 8 dereferenceable(312) %.0.i258, i32 noundef %.0) #22
   %.not245 = icmp eq ptr %615, null
-  br i1 %.not245, label %_ZN7BitData29set_exception_handler_enteredEv.exit, label %616
+  br i1 %.not245, label %_ZN7BitData29set_exception_handler_enteredEv.exit.thread, label %616
 
 616:                                              ; preds = %614
   %617 = getelementptr inbounds nuw i8, ptr %615, i64 8
@@ -7204,100 +7202,100 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread: ; preds = %_
   %.not.i.i.i287 = icmp eq i8 %621, %625
   br i1 %.not.i.i.i287, label %_ZN7BitData29set_exception_handler_enteredEv.exit, label %620, !llvm.loop !65
 
-_ZN7BitData29set_exception_handler_enteredEv.exit: ; preds = %623, %620, %611, %614, %570
-  br i1 %.not.i.i283.not, label %626, label %_ZN22ConditionalMutexLockerD2Ev.exit
+_ZN7BitData29set_exception_handler_enteredEv.exit: ; preds = %623, %620, %611, %570
+  br i1 %524, label %_ZN7BitData29set_exception_handler_enteredEv.exit.thread, label %_ZN22ConditionalMutexLockerD2Ev.exit
 
-626:                                              ; preds = %_ZN7BitData29set_exception_handler_enteredEv.exit
+_ZN7BitData29set_exception_handler_enteredEv.exit.thread: ; preds = %614, %_ZN7BitData29set_exception_handler_enteredEv.exit
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %525) #22
   br label %_ZN22ConditionalMutexLockerD2Ev.exit
 
-_ZN22ConditionalMutexLockerD2Ev.exit:             ; preds = %_ZN7BitData29set_exception_handler_enteredEv.exit, %626
+_ZN22ConditionalMutexLockerD2Ev.exit:             ; preds = %_ZN7BitData29set_exception_handler_enteredEv.exit, %_ZN7BitData29set_exception_handler_enteredEv.exit.thread
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #22
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #22
-  %627 = load ptr, ptr %50, align 8
-  %.not.i.i.i.i289 = icmp eq ptr %627, null
-  br i1 %.not.i.i.i.i289, label %629, label %628
+  %626 = load ptr, ptr %50, align 8
+  %.not.i.i.i.i289 = icmp eq ptr %626, null
+  br i1 %.not.i.i.i.i289, label %628, label %627
 
-628:                                              ; preds = %_ZN22ConditionalMutexLockerD2Ev.exit
+627:                                              ; preds = %_ZN22ConditionalMutexLockerD2Ev.exit
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %48, i64 noundef %56) #22
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %50) #22
-  br label %629
+  br label %628
 
-629:                                              ; preds = %628, %_ZN22ConditionalMutexLockerD2Ev.exit
-  %630 = load ptr, ptr %51, align 8
-  %.not8.i.i.i.i290 = icmp eq ptr %630, %52
-  br i1 %.not8.i.i.i.i290, label %_ZN12ResourceMarkD2Ev.exit291, label %631
+628:                                              ; preds = %627, %_ZN22ConditionalMutexLockerD2Ev.exit
+  %629 = load ptr, ptr %51, align 8
+  %.not8.i.i.i.i290 = icmp eq ptr %629, %52
+  br i1 %.not8.i.i.i.i290, label %_ZN12ResourceMarkD2Ev.exit291, label %630
 
-631:                                              ; preds = %629
+630:                                              ; preds = %628
   store ptr %50, ptr %49, align 8
   store ptr %52, ptr %51, align 8
   store ptr %54, ptr %53, align 8
   br label %_ZN12ResourceMarkD2Ev.exit291
 
-_ZN12ResourceMarkD2Ev.exit291:                    ; preds = %629, %631
+_ZN12ResourceMarkD2Ev.exit291:                    ; preds = %628, %630
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #22
-  %632 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %633 = load ptr, ptr %632, align 8
-  %634 = getelementptr inbounds nuw i8, ptr %633, i64 16
+  %631 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %632 = load ptr, ptr %631, align 8
+  %633 = getelementptr inbounds nuw i8, ptr %632, i64 16
+  %634 = load ptr, ptr %633, align 8
   %635 = load ptr, ptr %634, align 8
-  %636 = load ptr, ptr %635, align 8
-  %.not.i.i292 = icmp eq ptr %636, null
-  br i1 %.not.i.i292, label %_ZN17HandleMarkCleanerD2Ev.exit, label %637
+  %.not.i.i292 = icmp eq ptr %635, null
+  br i1 %.not.i.i292, label %_ZN17HandleMarkCleanerD2Ev.exit, label %636
 
-637:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit291
-  call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %633) #22
-  %.pre.i.i = load ptr, ptr %634, align 8
+636:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit291
+  call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %632) #22
+  %.pre.i.i = load ptr, ptr %633, align 8
   br label %_ZN17HandleMarkCleanerD2Ev.exit
 
-_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2Ev.exit291, %637
-  %638 = phi ptr [ %635, %_ZN12ResourceMarkD2Ev.exit291 ], [ %.pre.i.i, %637 ]
-  %639 = getelementptr inbounds nuw i8, ptr %633, i64 8
-  %640 = load ptr, ptr %639, align 8
-  %641 = getelementptr inbounds nuw i8, ptr %640, i64 24
-  store ptr %638, ptr %641, align 8
-  %642 = getelementptr inbounds nuw i8, ptr %633, i64 24
-  %643 = load ptr, ptr %642, align 8
-  %644 = load ptr, ptr %639, align 8
-  %645 = getelementptr inbounds nuw i8, ptr %644, i64 32
-  store ptr %643, ptr %645, align 8
-  %646 = getelementptr inbounds nuw i8, ptr %633, i64 32
-  %647 = load ptr, ptr %646, align 8
-  %648 = load ptr, ptr %639, align 8
-  %649 = getelementptr inbounds nuw i8, ptr %648, i64 40
-  store ptr %647, ptr %649, align 8
-  %650 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  %651 = load i32, ptr %650, align 8
-  %652 = icmp eq i32 %651, 2
-  br i1 %652, label %653, label %654
+_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2Ev.exit291, %636
+  %637 = phi ptr [ %634, %_ZN12ResourceMarkD2Ev.exit291 ], [ %.pre.i.i, %636 ]
+  %638 = getelementptr inbounds nuw i8, ptr %632, i64 8
+  %639 = load ptr, ptr %638, align 8
+  %640 = getelementptr inbounds nuw i8, ptr %639, i64 24
+  store ptr %637, ptr %640, align 8
+  %641 = getelementptr inbounds nuw i8, ptr %632, i64 24
+  %642 = load ptr, ptr %641, align 8
+  %643 = load ptr, ptr %638, align 8
+  %644 = getelementptr inbounds nuw i8, ptr %643, i64 32
+  store ptr %642, ptr %644, align 8
+  %645 = getelementptr inbounds nuw i8, ptr %632, i64 32
+  %646 = load ptr, ptr %645, align 8
+  %647 = load ptr, ptr %638, align 8
+  %648 = getelementptr inbounds nuw i8, ptr %647, i64 40
+  store ptr %646, ptr %648, align 8
+  %649 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  %650 = load i32, ptr %649, align 8
+  %651 = icmp eq i32 %650, 2
+  br i1 %651, label %652, label %653
 
-653:                                              ; preds = %_ZN17HandleMarkCleanerD2Ev.exit
-  call void @_ZN13StackOverflow33enable_stack_yellow_reserved_zoneEv(ptr noundef nonnull align 8 dereferenceable(56) %650) #22
-  br label %654
+652:                                              ; preds = %_ZN17HandleMarkCleanerD2Ev.exit
+  call void @_ZN13StackOverflow33enable_stack_yellow_reserved_zoneEv(ptr noundef nonnull align 8 dereferenceable(56) %649) #22
+  br label %653
 
-654:                                              ; preds = %653, %_ZN17HandleMarkCleanerD2Ev.exit
-  %655 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  %656 = load volatile i64, ptr %655, align 8
+653:                                              ; preds = %652, %_ZN17HandleMarkCleanerD2Ev.exit
+  %654 = getelementptr inbounds nuw i8, ptr %0, i64 1096
+  %655 = load volatile i64, ptr %654, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
-  %657 = and i64 %656, 1
-  %.not.i.i.i.i293 = icmp eq i64 %657, 0
-  br i1 %.not.i.i.i.i293, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, label %658
+  %656 = and i64 %655, 1
+  %.not.i.i.i.i293 = icmp eq i64 %656, 0
+  br i1 %.not.i.i.i.i293, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, label %657
 
-658:                                              ; preds = %654
+657:                                              ; preds = %653
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %0, i1 noundef zeroext true, i1 noundef zeroext true) #22
   br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
 
-_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; preds = %658, %654
-  %659 = getelementptr inbounds nuw i8, ptr %0, i64 1088
-  %660 = load volatile i32, ptr %659, align 8
-  %661 = and i32 %660, 12
-  %.not.i.i.i294 = icmp eq i32 %661, 0
-  br i1 %.not.i.i.i294, label %_ZN18ThreadInVMfromJavaD2Ev.exit, label %662
+_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; preds = %657, %653
+  %658 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %659 = load volatile i32, ptr %658, align 8
+  %660 = and i32 %659, 12
+  %.not.i.i.i294 = icmp eq i32 %660, 0
+  br i1 %.not.i.i.i294, label %_ZN18ThreadInVMfromJavaD2Ev.exit, label %661
 
-662:                                              ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
+661:                                              ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
   call void @_ZN10JavaThread37handle_special_runtime_exit_conditionEv(ptr noundef nonnull align 8 dereferenceable(1800) %0) #22
   br label %_ZN18ThreadInVMfromJavaD2Ev.exit
 
-_ZN18ThreadInVMfromJavaD2Ev.exit:                 ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %662
+_ZN18ThreadInVMfromJavaD2Ev.exit:                 ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %661
   store volatile i32 8, ptr %19, align 4
   ret void
 }

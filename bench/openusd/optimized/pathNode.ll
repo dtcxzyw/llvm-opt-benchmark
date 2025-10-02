@@ -8651,21 +8651,23 @@ define noundef nonnull ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode1
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8
-  %.012.i.i.i = getelementptr i8, ptr %7, i64 -1
-  %8 = icmp ugt ptr %.012.i.i.i, @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE
-  br i1 %8, label %.lr.ph.i.i.i, label %_ZSt7reverseIPcEvT_S1_.exit.i
+  %8 = icmp ne ptr %7, @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE
+  %.012.i.i.i = getelementptr inbounds i8, ptr %7, i64 -1
+  %9 = icmp ugt ptr %.012.i.i.i, @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE
+  %or.cond.i.i.i = select i1 %8, i1 %9, i1 false
+  br i1 %or.cond.i.i.i, label %.lr.ph.i.i.i, label %_ZSt7reverseIPcEvT_S1_.exit.i
 
 .lr.ph.i.i.i:                                     ; preds = %6, %.lr.ph.i.i.i
   %.014.i.i.i = phi ptr [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %.012.i.i.i, %6 ]
-  %.0913.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i ], [ @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, %6 ]
-  %9 = load i8, ptr %.0913.i.i.i, align 1
-  %10 = load i8, ptr %.014.i.i.i, align 1
-  store i8 %10, ptr %.0913.i.i.i, align 1
-  store i8 %9, ptr %.014.i.i.i, align 1
-  %11 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i, i64 1
+  %.0913.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i ], [ @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, %6 ]
+  %10 = load i8, ptr %.0913.i.i.i, align 1
+  %11 = load i8, ptr %.014.i.i.i, align 1
+  store i8 %11, ptr %.0913.i.i.i, align 1
+  store i8 %10, ptr %.014.i.i.i, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i, i64 1
   %.0.i.i.i = getelementptr inbounds i8, ptr %.014.i.i.i, i64 -1
-  %12 = icmp ult ptr %11, %.0.i.i.i
-  br i1 %12, label %.lr.ph.i.i.i, label %_ZSt7reverseIPcEvT_S1_.exit.i, !llvm.loop !80
+  %13 = icmp ult ptr %12, %.0.i.i.i
+  br i1 %13, label %.lr.ph.i.i.i, label %_ZSt7reverseIPcEvT_S1_.exit.i, !llvm.loop !80
 
 _ZSt7reverseIPcEvT_S1_.exit.i:                    ; preds = %.lr.ph.i.i.i, %6
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_debugPathBufferE, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_debugPathCurE, align 8

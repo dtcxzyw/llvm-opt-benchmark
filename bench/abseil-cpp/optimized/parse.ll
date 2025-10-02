@@ -5033,6 +5033,7 @@ _ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i.i308: 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt17basic_string_viewIcS5_EET_SF_SF_RKT0_.exit8.i: ; preds = %1291
   %1296 = load ptr, ptr %1264, align 8, !tbaa !21
   %.not14.i = icmp ne ptr %1295, %1296
+  %spec.select.i = select i1 %.not14.i, ptr %1296, ptr %1295
   br label %.critedge.i294
 
 1297:                                             ; preds = %1291
@@ -5041,7 +5042,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_tr
   br label %1313
 
 .critedge.i294:                                   ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt17basic_string_viewIcS5_EET_SF_SF_RKT0_.exit8.i, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i.i308, %1288, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt17basic_string_viewIcS5_EET_SF_SF_RKT0_.exit.i
-  %1299 = phi ptr [ %1285, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt17basic_string_viewIcS5_EET_SF_SF_RKT0_.exit.i ], [ %1284, %1288 ], [ %1284, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i.i308 ], [ %1296, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt17basic_string_viewIcS5_EET_SF_SF_RKT0_.exit8.i ]
+  %1299 = phi ptr [ %1285, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt17basic_string_viewIcS5_EET_SF_SF_RKT0_.exit.i ], [ %1284, %1288 ], [ %1284, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i.i308 ], [ %spec.select.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt17basic_string_viewIcS5_EET_SF_SF_RKT0_.exit8.i ]
   %.0.i295 = phi i1 [ true, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt17basic_string_viewIcS5_EET_SF_SF_RKT0_.exit.i ], [ false, %1288 ], [ false, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i.i308 ], [ %.not14.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt17basic_string_viewIcS5_EET_SF_SF_RKT0_.exit8.i ]
   %1300 = load ptr, ptr %8, align 8, !tbaa !4
   %.not4.i.i.i.i.i296 = icmp eq ptr %1300, %1299

@@ -7459,7 +7459,7 @@ LZ4_count.exit792:                                ; preds = %.thread992, %448, %
   %609 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %.1404.i1961687 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %gepdiff1923 = add i32 %585, 1
-  %610 = select i1 %.not518.i188, ptr null, ptr %592
+  %610 = select i1 %.not518.i188, ptr %589, ptr %592
   %611 = getelementptr inbounds i8, ptr %594, i64 -12
   %612 = getelementptr inbounds i8, ptr %594, i64 -8
   %613 = getelementptr inbounds i8, ptr %594, i64 -6
@@ -8213,7 +8213,7 @@ LZ4_count.exit770:                                ; preds = %.thread1079, %816, 
   br i1 %981, label %.thread1205, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %958
-  %982 = select i1 %.not518.i261, ptr null, ptr %968
+  %982 = select i1 %.not518.i261, ptr %962, ptr %968
   %.val889 = load i64, ptr %1, align 1, !tbaa !26
   %983 = mul i64 %.val889, -3523014627271114752
   %984 = lshr i64 %983, 52
@@ -9006,7 +9006,7 @@ LZ4_count.exit704:                                ; preds = %.thread1176, %1204,
   br i1 %1375, label %.thread1298, label %.lr.ph1772.lr.ph
 
 .lr.ph1772.lr.ph:                                 ; preds = %1358
-  %1376 = select i1 %.not518.i344, ptr null, ptr %1364
+  %1376 = select i1 %.not518.i344, ptr %69, ptr %1364
   %.val883 = load i64, ptr %1, align 1, !tbaa !26
   %1377 = mul i64 %.val883, -3523014627271114752
   %1378 = lshr i64 %1377, 52
@@ -9765,7 +9765,7 @@ LZ4_count.exit638:                                ; preds = %.thread1269, %1590,
   br i1 %1747, label %.thread1391, label %.lr.ph1709.lr.ph
 
 .lr.ph1709.lr.ph:                                 ; preds = %1731
-  %1748 = select i1 %.not518.i429, ptr null, ptr %1736
+  %1748 = select i1 %.not518.i429, ptr %69, ptr %1736
   %.val877 = load i64, ptr %1, align 1, !tbaa !26
   %1749 = mul i64 %.val877, -3523014627271114752
   %1750 = lshr i64 %1749, 52
@@ -10585,7 +10585,7 @@ LZ4_renormDictT.exit:                             ; preds = %.LZ4_renormDictT.ex
   br i1 %52, label %.thread313, label %.lr.ph508.lr.ph
 
 .lr.ph508.lr.ph:                                  ; preds = %36
-  %53 = select i1 %.not518.i, ptr null, ptr %43
+  %53 = select i1 %.not518.i, ptr %40, ptr %43
   %.val248 = load i64, ptr %1, align 1, !tbaa !26
   %54 = mul i64 %.val248, -3523014627271114752
   %55 = lshr i64 %54, 52
@@ -11311,7 +11311,7 @@ LZ4_compress_generic_validated.exit:              ; preds = %._crit_edge563, %37
   br i1 %397, label %.thread388, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %382
-  %398 = select i1 %.not518.i24, ptr null, ptr %388
+  %398 = select i1 %.not518.i24, ptr %386, ptr %388
   %.val242 = load i64, ptr %1, align 1, !tbaa !26
   %399 = mul i64 %.val242, -3523014627271114752
   %400 = lshr i64 %399, 52

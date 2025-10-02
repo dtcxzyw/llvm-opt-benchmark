@@ -27582,12 +27582,14 @@ _ZN4llvm27SwitchInstProfUpdateWrapperD2Ev.exit:   ; preds = %337, %340, %343
   %353 = sub i64 %351, %352
   %354 = ashr exact i64 %353, 4
   call void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE12applyUpdatesENS_8ArrayRefINS_3cfg6UpdateIPNS_10BasicBlockEEEEE(ptr noundef nonnull align 8 dereferenceable(658) %349, ptr %.sroa.0424.0609, i64 %354) #27
+  %.not.i.i249 = icmp eq ptr %.sroa.23.0608, %.sroa.0424.0609
+  %spec.select = select i1 %.not.i.i249, ptr %.sroa.23.0608, ptr %.sroa.0424.0609
   %.pre642 = load ptr, ptr %77, align 8, !tbaa !213
   br label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE5clearEv.exit
 
 _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE5clearEv.exit: ; preds = %350, %348
   %355 = phi ptr [ null, %348 ], [ %.pre642, %350 ]
-  %.sroa.23.2 = phi ptr [ %.sroa.23.0608, %348 ], [ %.sroa.0424.0609, %350 ]
+  %.sroa.23.2 = phi ptr [ %.sroa.23.0608, %348 ], [ %spec.select, %350 ]
   %356 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %357 = load ptr, ptr %356, align 8, !tbaa !78
   %358 = call noundef ptr @_ZN4llvm16removeUnwindEdgeEPNS_10BasicBlockEPNS_14DomTreeUpdaterE(ptr noundef %357, ptr noundef %355) #27
@@ -27635,12 +27637,14 @@ _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit: ; preds = %365, %369
   %380 = sub i64 %378, %379
   %381 = ashr exact i64 %380, 4
   call void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE12applyUpdatesENS_8ArrayRefINS_3cfg6UpdateIPNS_10BasicBlockEEEEE(ptr noundef nonnull align 8 dereferenceable(658) %376, ptr %.sroa.0424.0609, i64 %381) #27
+  %.not.i.i251 = icmp eq ptr %.sroa.23.0608, %.sroa.0424.0609
+  %spec.select496 = select i1 %.not.i.i251, ptr %.sroa.23.0608, ptr %.sroa.0424.0609
   %.pre647 = load ptr, ptr %77, align 8, !tbaa !213
   br label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE5clearEv.exit252
 
 _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE5clearEv.exit252: ; preds = %377, %375
   %382 = phi ptr [ null, %375 ], [ %.pre647, %377 ]
-  %.sroa.23.3 = phi ptr [ %.sroa.23.0608, %375 ], [ %.sroa.0424.0609, %377 ]
+  %.sroa.23.3 = phi ptr [ %.sroa.23.0608, %375 ], [ %spec.select496, %377 ]
   %383 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %384 = load ptr, ptr %383, align 8, !tbaa !78
   %385 = call noundef ptr @_ZN4llvm16removeUnwindEdgeEPNS_10BasicBlockEPNS_14DomTreeUpdaterE(ptr noundef %384, ptr noundef %382) #27
@@ -28010,10 +28014,12 @@ _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit312: ; preds = %.loopexit513, %.
   %515 = sub i64 %513, %514
   %516 = ashr exact i64 %515, 4
   call void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE12applyUpdatesENS_8ArrayRefINS_3cfg6UpdateIPNS_10BasicBlockEEEEE(ptr noundef nonnull align 8 dereferenceable(658) %429, ptr %.sroa.0424.2, i64 %516) #27
+  %.not.i.i313 = icmp eq ptr %.sroa.23.4, %.sroa.0424.2
+  %spec.select497 = select i1 %.not.i.i313, ptr %.sroa.23.4, ptr %.sroa.0424.2
   br label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE5clearEv.exit314
 
 _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE5clearEv.exit314: ; preds = %512, %511
-  %.sroa.23.8 = phi ptr [ %.sroa.23.4, %511 ], [ %.sroa.0424.2, %512 ]
+  %.sroa.23.8 = phi ptr [ %.sroa.23.4, %511 ], [ %spec.select497, %512 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %517 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %518 = load ptr, ptr %517, align 8, !tbaa !108
