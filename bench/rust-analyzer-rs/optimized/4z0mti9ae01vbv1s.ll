@@ -455,7 +455,7 @@ define internal fastcc noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while
   br label %12
 
 12:                                               ; preds = %.noexc, %.lr.ph.i.i
-  %.031.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %73, %.noexc ]
+  %.031.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %74, %.noexc ]
   %13 = phi ptr [ %.promoted.i.i, %.lr.ph.i.i ], [ %14, %.noexc ]
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
   store ptr %13, ptr %4, align 8, !noalias !27
@@ -492,7 +492,7 @@ define internal fastcc noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while
 
 .noexc.i.i.i:                                     ; preds = %24
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %"_ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17h0cf72c78d270cb43E.exit.thread9.i.i.i", label %27
+  br i1 %26, label %.loopexit.i.i, label %27
 
 27:                                               ; preds = %.noexc.i.i.i
   call void @llvm.assume(i1 %11)
@@ -540,11 +540,11 @@ define internal fastcc noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while
 .noexc6.i.i.i:                                    ; preds = %43, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !41
   %46 = icmp eq ptr %30, null
-  br i1 %46, label %".noexc6._ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17h0cf72c78d270cb43E.exit.thread9_crit_edge.i.i.i", label %47
+  br i1 %46, label %.noexc6._crit_edge.i.i.i, label %47
 
-".noexc6._ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17h0cf72c78d270cb43E.exit.thread9_crit_edge.i.i.i": ; preds = %.noexc6.i.i.i
+.noexc6._crit_edge.i.i.i:                         ; preds = %.noexc6.i.i.i
   %.pre.i.i.i = load ptr, ptr %3, align 8, !alias.scope !64, !noalias !37
-  br label %"_ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17h0cf72c78d270cb43E.exit.thread9.i.i.i"
+  br label %.loopexit.i.i
 
 47:                                               ; preds = %.noexc6.i.i.i
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 48
@@ -552,46 +552,46 @@ define internal fastcc noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while
   %50 = add i32 %49, -1
   store i32 %50, ptr %48, align 4, !noalias !73
   %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %"_ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17h0cf72c78d270cb43E.exit.thread.i.i.i"
+  br i1 %51, label %52, label %53
 
 52:                                               ; preds = %47
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %30)
-          to label %"_ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17h0cf72c78d270cb43E.exit.thread.i.i.i" unwind label %.body.thread6.i.i.i, !noalias !37
+          to label %53 unwind label %.body.thread6.i.i.i, !noalias !37
 
 .body.thread6.i.i.i:                              ; preds = %52, %43, %24
   %lpad.thr_comm.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread.i.i.i
 
-"_ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17h0cf72c78d270cb43E.exit.thread.i.i.i": ; preds = %52, %47
-  %53 = load ptr, ptr %3, align 8, !noalias !37, !nonnull !8, !noundef !8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  %55 = load i32, ptr %54, align 4, !noalias !80, !noundef !8
-  %56 = add i32 %55, -1
-  store i32 %56, ptr %54, align 4, !noalias !80
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %.noexc
+53:                                               ; preds = %52, %47
+  %54 = load ptr, ptr %3, align 8, !noalias !37, !nonnull !8, !noundef !8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
+  %56 = load i32, ptr %55, align 4, !noalias !80, !noundef !8
+  %57 = add i32 %56, -1
+  store i32 %57, ptr %55, align 4, !noalias !80
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %.noexc
 
-58:                                               ; preds = %"_ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17h0cf72c78d270cb43E.exit.thread.i.i.i"
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %53)
+59:                                               ; preds = %53
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %54)
           to label %.noexc unwind label %.loopexit
 
-"_ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17h0cf72c78d270cb43E.exit.thread9.i.i.i": ; preds = %.noexc.i.i.i, %".noexc6._ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17h0cf72c78d270cb43E.exit.thread9_crit_edge.i.i.i"
-  %59 = phi ptr [ %.pre.i.i.i, %".noexc6._ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17h0cf72c78d270cb43E.exit.thread9_crit_edge.i.i.i" ], [ %13, %.noexc.i.i.i ]
+.loopexit.i.i:                                    ; preds = %.noexc.i.i.i, %.noexc6._crit_edge.i.i.i
+  %60 = phi ptr [ %.pre.i.i.i, %.noexc6._crit_edge.i.i.i ], [ %13, %.noexc.i.i.i ]
   store i8 1, ptr %5, align 8, !alias.scope !89, !noalias !90
   call void @llvm.experimental.noalias.scope.decl(metadata !91)
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
   call void @llvm.experimental.noalias.scope.decl(metadata !93)
   call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
-  %61 = load i32, ptr %60, align 4, !noalias !95, !noundef !8
-  %62 = add i32 %61, -1
-  store i32 %62, ptr %60, align 4, !noalias !95
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3577183c5d64acdbE.exit.i
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
+  %62 = load i32, ptr %61, align 4, !noalias !95, !noundef !8
+  %63 = add i32 %62, -1
+  store i32 %63, ptr %61, align 4, !noalias !95
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %65, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3577183c5d64acdbE.exit.i
 
-64:                                               ; preds = %"_ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17h0cf72c78d270cb43E.exit.thread9.i.i.i"
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %59)
+65:                                               ; preds = %.loopexit.i.i
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %60)
           to label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3577183c5d64acdbE.exit.i unwind label %.loopexit.split-lp
 
 .body.thread.i.i.i:                               ; preds = %.body.thread6.i.i.i, %37, %31
@@ -600,107 +600,107 @@ define internal fastcc noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
-  %65 = load ptr, ptr %3, align 8, !alias.scope !108, !noalias !37, !nonnull !8, !noundef !8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  %67 = load i32, ptr %66, align 4, !noalias !109, !noundef !8
-  %68 = add i32 %67, -1
-  store i32 %68, ptr %66, align 4, !noalias !109
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %.body
+  %66 = load ptr, ptr %3, align 8, !alias.scope !108, !noalias !37, !nonnull !8, !noundef !8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
+  %68 = load i32, ptr %67, align 4, !noalias !109, !noundef !8
+  %69 = add i32 %68, -1
+  store i32 %69, ptr %67, align 4, !noalias !109
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %.body
 
-70:                                               ; preds = %.body.thread.i.i.i
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %65)
-          to label %.body unwind label %71, !noalias !37
+71:                                               ; preds = %.body.thread.i.i.i
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %66)
+          to label %.body unwind label %72, !noalias !37
 
-71:                                               ; preds = %70
-  %72 = landingpad { ptr, i32 }
+72:                                               ; preds = %71
+  %73 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #22, !noalias !37
   unreachable
 
-.noexc:                                           ; preds = %58, %"_ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17h0cf72c78d270cb43E.exit.thread.i.i.i"
-  %73 = add i64 %.031.i.i, 1
+.noexc:                                           ; preds = %59, %53
+  %74 = add i64 %.031.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !37
   call void @llvm.experimental.noalias.scope.decl(metadata !110)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !112
   store ptr null, ptr %9, align 8, !alias.scope !113, !noalias !19
-  %74 = icmp eq ptr %14, null
-  br i1 %74, label %.loopexit.i, label %12
+  %75 = icmp eq ptr %14, null
+  br i1 %75, label %.loopexit.i, label %12
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h3577183c5d64acdbE.exit.i: ; preds = %64, %"_ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17h0cf72c78d270cb43E.exit.thread9.i.i.i"
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h3577183c5d64acdbE.exit.i: ; preds = %65, %.loopexit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !37
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h743a83aa80beea6aE.exit"
 
 .loopexit.i:                                      ; preds = %.noexc, %8
-  %.0.lcssa.i.i = phi i64 [ 0, %8 ], [ %73, %.noexc ]
+  %.0.lcssa.i.i = phi i64 [ 0, %8 ], [ %74, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !27
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h743a83aa80beea6aE.exit"
 
-.loopexit:                                        ; preds = %58
+.loopexit:                                        ; preds = %59
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %64
+.loopexit.split-lp:                               ; preds = %65
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   %.pre = load ptr, ptr %9, align 8, !alias.scope !114
   br label %.body
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.body.thread.i.i.i, %70
-  %75 = phi ptr [ %14, %70 ], [ %14, %.body.thread.i.i.i ], [ %14, %.loopexit ], [ %.pre, %.loopexit.split-lp ]
-  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body4.i.i.i, %70 ], [ %eh.lpad-body4.i.i.i, %.body.thread.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.body.thread.i.i.i, %71
+  %76 = phi ptr [ %14, %71 ], [ %14, %.body.thread.i.i.i ], [ %14, %.loopexit ], [ %.pre, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body4.i.i.i, %71 ], [ %eh.lpad-body4.i.i.i, %.body.thread.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
   call void @llvm.experimental.noalias.scope.decl(metadata !122)
   call void @llvm.experimental.noalias.scope.decl(metadata !123)
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$syntax..ast..generated..nodes..Path$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he5527679294abc31E.exit", label %77
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$syntax..ast..generated..nodes..Path$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he5527679294abc31E.exit", label %78
 
-77:                                               ; preds = %.body
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 48
-  %79 = load i32, ptr %78, align 4, !noalias !124, !noundef !8
-  %80 = add i32 %79, -1
-  store i32 %80, ptr %78, align 4, !noalias !124
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$syntax..ast..generated..nodes..Path$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he5527679294abc31E.exit"
+78:                                               ; preds = %.body
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 48
+  %80 = load i32, ptr %79, align 4, !noalias !124, !noundef !8
+  %81 = add i32 %80, -1
+  store i32 %81, ptr %79, align 4, !noalias !124
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$syntax..ast..generated..nodes..Path$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he5527679294abc31E.exit"
 
-82:                                               ; preds = %77
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %75)
-          to label %"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$syntax..ast..generated..nodes..Path$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he5527679294abc31E.exit" unwind label %92
+83:                                               ; preds = %78
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %76)
+          to label %"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$syntax..ast..generated..nodes..Path$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he5527679294abc31E.exit" unwind label %93
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h743a83aa80beea6aE.exit": ; preds = %.loopexit.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3577183c5d64acdbE.exit.i, %1
   %.1.i = phi i64 [ %.0.lcssa.i.i, %.loopexit.i ], [ %.031.i.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3577183c5d64acdbE.exit.i ], [ 0, %1 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !133)
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !136)
   call void @llvm.experimental.noalias.scope.decl(metadata !139)
-  %84 = load ptr, ptr %83, align 8, !alias.scope !142, !noundef !8
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$syntax..ast..generated..nodes..Path$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he5527679294abc31E.exit3", label %86
+  %85 = load ptr, ptr %84, align 8, !alias.scope !142, !noundef !8
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$syntax..ast..generated..nodes..Path$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he5527679294abc31E.exit3", label %87
 
-86:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h743a83aa80beea6aE.exit"
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 48
-  %88 = load i32, ptr %87, align 4, !noalias !143, !noundef !8
-  %89 = add i32 %88, -1
-  store i32 %89, ptr %87, align 4, !noalias !143
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$syntax..ast..generated..nodes..Path$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he5527679294abc31E.exit3"
+87:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h743a83aa80beea6aE.exit"
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 48
+  %89 = load i32, ptr %88, align 4, !noalias !143, !noundef !8
+  %90 = add i32 %89, -1
+  store i32 %90, ptr %88, align 4, !noalias !143
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %92, label %"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$syntax..ast..generated..nodes..Path$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he5527679294abc31E.exit3"
 
-91:                                               ; preds = %86
-  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %84), !noalias !143
+92:                                               ; preds = %87
+  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %85), !noalias !143
   br label %"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$syntax..ast..generated..nodes..Path$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he5527679294abc31E.exit3"
 
-"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$syntax..ast..generated..nodes..Path$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he5527679294abc31E.exit3": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h743a83aa80beea6aE.exit", %86, %91
+"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$syntax..ast..generated..nodes..Path$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he5527679294abc31E.exit3": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h743a83aa80beea6aE.exit", %87, %92
   ret i64 %.1.i
 
-92:                                               ; preds = %82
-  %93 = landingpad { ptr, i32 }
+93:                                               ; preds = %83
+  %94 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #22
   unreachable
 
-"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$syntax..ast..generated..nodes..Path$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he5527679294abc31E.exit": ; preds = %15, %21, %77, %.body, %82
-  %eh.lpad-body47 = phi { ptr, i32 } [ %eh.lpad-body, %77 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %82 ], [ %16, %21 ], [ %16, %15 ]
+"_ZN4core3ptr326drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$syntax..ast..generated..nodes..Path$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_completion..context..analysis..classify_name_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he5527679294abc31E.exit": ; preds = %15, %21, %78, %.body, %83
+  %eh.lpad-body47 = phi { ptr, i32 } [ %eh.lpad-body, %78 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %83 ], [ %16, %21 ], [ %16, %15 ]
   resume { ptr, i32 } %eh.lpad-body47
 }
 

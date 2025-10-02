@@ -2340,7 +2340,7 @@ _ZNK12_GLOBAL__N_13FPS13getStackEntryEj.exit.i99: ; preds = %456
   %.083118131.i = phi i32 [ %.083.i, %493 ], [ %473, %499 ], [ %.083117.i, %500 ]
   %.082.shrunk120129.i = phi i1 [ %.082.shrunk.i, %493 ], [ false, %499 ], [ %.082.shrunk119.i, %500 ]
   %.0121127.i = phi i32 [ %.083.i, %493 ], [ %.0122.i, %499 ], [ %.0122.i, %500 ]
-  %502 = phi i1 [ %494, %493 ], [ %497, %499 ], [ %497, %500 ]
+  %502 = phi i1 [ true, %493 ], [ %497, %499 ], [ %497, %500 ]
   %.sroa.0110.0.i = phi ptr [ @_ZL15ForwardST0Table, %493 ], [ %spec.select140.i, %499 ], [ %spec.select142.i, %500 ]
   %503 = load i16, ptr %189, align 4, !tbaa !253
   br label %.lr.ph.i.i.i.i.i

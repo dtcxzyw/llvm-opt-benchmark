@@ -36767,7 +36767,6 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   store i64 %52, ptr %50, align 8, !alias.scope !4316, !noalias !4317
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !4319
   %.pr = load i64, ptr %4, align 8
-  %.not = icmp ne i64 %.pr, -9223372036854775808
   %.not1 = icmp eq i64 %.pr, -9223372036854775808
   br i1 %.not1, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h8ce8e4caf46f9d16E.exit.thread", label %53
 
@@ -36776,7 +36775,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h8ce8e4caf46f9d16E.exit.thread"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h8ce8e4caf46f9d16E.exit.thread": ; preds = %._crit_edge.i.i.i, %53, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h8ce8e4caf46f9d16E.exit"
-  %.not4 = phi i1 [ true, %53 ], [ %.not, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h8ce8e4caf46f9d16E.exit" ], [ false, %._crit_edge.i.i.i ]
+  %.not4 = phi i1 [ true, %53 ], [ false, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h8ce8e4caf46f9d16E.exit" ], [ false, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.not4
 }

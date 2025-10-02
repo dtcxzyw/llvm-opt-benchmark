@@ -2711,13 +2711,11 @@ define internal fastcc i32 @dissect_btle_adv(ptr noundef %0, ptr noundef %1, ptr
 37:                                               ; preds = %7
   %38 = load ptr, ptr @periodic_adv_info_tree, align 8
   %39 = call ptr @wmem_tree_lookup32_array(ptr noundef %38, ptr noundef nonnull %12)
-  %.not722 = icmp ne ptr %39, null
   %.not723 = icmp eq ptr %39, null
   br i1 %.not723, label %57, label %.thread
 
 .thread:                                          ; preds = %7, %37
   %.0692770 = phi ptr [ %39, %37 ], [ %36, %7 ]
-  %.0707768 = phi i1 [ %.not722, %37 ], [ false, %7 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %41 = load i32, ptr %40, align 4
   %42 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %.0692770, i32 noundef %41)
@@ -2754,7 +2752,7 @@ define internal fastcc i32 @dissect_btle_adv(ptr noundef %0, ptr noundef %1, ptr
   br label %57
 
 57:                                               ; preds = %.thread, %43, %37
-  %.0707769 = phi i1 [ %.0707768, %43 ], [ %.0707768, %.thread ], [ %.not722, %37 ]
+  %.0707769 = phi i1 [ %.not, %43 ], [ %.not, %.thread ], [ false, %37 ]
   %.0689 = phi i1 [ false, %43 ], [ true, %.thread ], [ true, %37 ]
   %58 = load i32, ptr @hf_advertising_header, align 4
   %59 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
