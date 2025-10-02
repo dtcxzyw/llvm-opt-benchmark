@@ -21218,10 +21218,10 @@ _ZNK5clang10ASTContext13getObjCIdTypeEv.exit514:  ; preds = %189, %192
   br label %222
 
 222:                                              ; preds = %.critedge11, %219
-  %.sink1033 = phi i32 [ %221, %219 ], [ 40, %.critedge11 ]
+  %.sink1035 = phi i32 [ %221, %219 ], [ 40, %.critedge11 ]
   %223 = load ptr, ptr %0, align 8, !tbaa !408
   %224 = call i64 @_ZNK5clang10ASTContext13getObjCIdTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %73)
-  %225 = call i64 @_ZN5clang4Sema17ImpCastExprToTypeEPNS_4ExprENS_8QualTypeENS_8CastKindENS_13ExprValueKindEPKN4llvm11SmallVectorIPNS_16CXXBaseSpecifierELj4EEENS_21CheckedConversionKindE(ptr noundef nonnull align 8 dereferenceable(17504) %223, ptr noundef nonnull %174, i64 %224, i32 noundef %.sink1033, i32 noundef 0, ptr noundef null, i32 noundef 0) #20
+  %225 = call i64 @_ZN5clang4Sema17ImpCastExprToTypeEPNS_4ExprENS_8QualTypeENS_8CastKindENS_13ExprValueKindEPKN4llvm11SmallVectorIPNS_16CXXBaseSpecifierELj4EEENS_21CheckedConversionKindE(ptr noundef nonnull align 8 dereferenceable(17504) %223, ptr noundef nonnull %174, i64 %224, i32 noundef %.sink1035, i32 noundef 0, ptr noundef null, i32 noundef 0) #20
   br label %.sink.split
 
 .critedge:                                        ; preds = %_ZNK5clang10ASTContext13getObjCIdTypeEv.exit514, %180, %205
@@ -23153,7 +23153,7 @@ _ZNK5clang4Type24isObjCQualifiedClassTypeEv.exit: ; preds = %1127, %1115, %_ZNK5
   %.sroa.095.0.copyload = load i64, ptr %22, align 8, !tbaa !45
   %.sroa.092.0.copyload = load i64, ptr %24, align 8
   %1133 = call noundef zeroext i1 @_ZN5clang8SemaObjC25CheckMessageArgumentTypesEPKNS_4ExprENS_8QualTypeEN4llvm15MutableArrayRefIPS1_EENS_8SelectorENS5_8ArrayRefINS_14SourceLocationEEEPNS_14ObjCMethodDeclEbbSB_SB_NS_11SourceRangeERS4_RNS_13ExprValueKindE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %.0, i64 %.sroa.096.0.copyload, ptr %1047, i64 %1132, i64 %.sroa.095.0.copyload, ptr noundef nonnull byval(%"class.llvm::ArrayRef.1112") align 8 %7, ptr noundef %.0388889900, i1 noundef zeroext %1131, i1 noundef zeroext %74, i32 %.sroa.0808.0, i32 poison, i64 %.sroa.092.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull align 4 dereferenceable(4) %61)
-  br i1 %1133, label %1477, label %1134
+  br i1 %1133, label %1476, label %1134
 
 1134:                                             ; preds = %_ZNK5clang4Type24isObjCQualifiedClassTypeEv.exit
   br i1 %947, label %1135, label %.critedge22
@@ -23185,7 +23185,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %1135
 _ZNK5clang4Type10isVoidTypeEv.exit.thread:        ; preds = %1135, %_ZNK5clang4Type10isVoidTypeEv.exit
   %1150 = load ptr, ptr %0, align 8, !tbaa !408
   %1151 = call noundef zeroext i1 @_ZN5clang4Sema19RequireCompleteTypeENS_14SourceLocationENS_8QualTypeENS0_16CompleteTypeKindEj(ptr noundef nonnull align 8 dereferenceable(17504) %1150, i32 %.sroa.0808.0, i64 %.sroa.0.0.copyload.i669, i32 noundef 1, i32 noundef 3644) #20
-  br i1 %1151, label %1477, label %.critedge22
+  br i1 %1151, label %1476, label %.critedge22
 
 .critedge22:                                      ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit, %1134, %_ZNK5clang4Type10isVoidTypeEv.exit.thread
   %1152 = call noundef nonnull align 8 dereferenceable(849) ptr @_ZNK5clang8SemaBase11getLangOptsEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
@@ -23776,7 +23776,7 @@ _ZN5clang8SemaObjC10isSelfExprEPNS_4ExprE.exit708: ; preds = %1408, %1394
   %1425 = or i32 %1424, 33554432
   store i32 %1425, ptr %1382, align 8
   %1426 = ptrtoint ptr %.0412 to i64
-  br label %1477
+  br label %1476
 
 _ZN5clang8SemaObjC10isSelfExprEPNS_4ExprE.exit708.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang14ObjCMethodDeclENS1_4DeclEEEDaPT0_.exit.i706, %1408, %1395, %1400, %1420, %_ZN5clang8SemaObjC10isSelfExprEPNS_4ExprE.exit708, %_ZNK5clang15ObjCMessageExpr15getMethodFamilyEv.exit
   call void @_ZN5clang8SemaObjC17checkRetainCyclesEPNS_15ObjCMessageExprE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull %.0412) #20
@@ -23803,7 +23803,7 @@ _ZN5clang8SemaObjC10isSelfExprEPNS_4ExprE.exit708.thread: ; preds = %_ZN4llvm16d
   %1437 = load i64, ptr %1436, align 8
   %1438 = and i64 %1437, 512
   %.not490 = icmp eq i64 %1438, 0
-  br i1 %.not490, label %1439, label %_ZNK5clang8QualType15getObjCLifetimeEv.exit
+  br i1 %.not490, label %1439, label %_ZNK5clang8QualType15getObjCLifetimeEv.exit.thread
 
 1439:                                             ; preds = %1435
   %.0.copyload.i.i.i.i710 = load i64, ptr %22, align 8
@@ -23819,69 +23819,69 @@ _ZN5clang8SemaObjC10isSelfExprEPNS_4ExprE.exit708.thread: ; preds = %_ZN4llvm16d
   %.0.copyload.i.i.i.i.i.i.i712 = load i64, ptr %1445, align 8
   %1446 = and i64 %.0.copyload.i.i.i.i.i.i.i712, 8
   %.not.i.i.i713 = icmp eq i64 %1446, 0
-  br i1 %.not.i.i.i713, label %_ZNK5clang4Sema20isUnevaluatedContextEv.exit.thread, label %1447
+  br i1 %.not.i.i.i713, label %_ZNK5clang4Sema20isUnevaluatedContextEv.exit.thread, label %_ZNK5clang8QualType15getObjCLifetimeEv.exit
 
-1447:                                             ; preds = %1442
-  %1448 = and i64 %.0.copyload.i.i.i.i.i.i.i712, -16
-  %1449 = inttoptr i64 %1448 to ptr
-  %1450 = getelementptr inbounds nuw i8, ptr %1449, i64 24
-  %.sroa.0.0.copyload.i.i.i.i714 = load i64, ptr %1450, align 8, !tbaa !54
-  %1451 = and i64 %.sroa.0.0.copyload.i.i.i.i714, 192
-  %.not1034 = icmp eq i64 %1451, 0
-  br i1 %.not1034, label %_ZNK5clang4Sema20isUnevaluatedContextEv.exit.thread, label %_ZNK5clang8QualType15getObjCLifetimeEv.exit
+_ZNK5clang8QualType15getObjCLifetimeEv.exit:      ; preds = %1442
+  %1447 = and i64 %.0.copyload.i.i.i.i.i.i.i712, -16
+  %1448 = inttoptr i64 %1447 to ptr
+  %1449 = getelementptr inbounds nuw i8, ptr %1448, i64 24
+  %.sroa.0.0.copyload.i.i.i.i714 = load i64, ptr %1449, align 8, !tbaa !54
+  %1450 = and i64 %.sroa.0.0.copyload.i.i.i.i714, 192
+  %.not1036 = icmp eq i64 %1450, 0
+  br i1 %.not1036, label %_ZNK5clang4Sema20isUnevaluatedContextEv.exit.thread, label %_ZNK5clang8QualType15getObjCLifetimeEv.exit.thread
 
-_ZNK5clang8QualType15getObjCLifetimeEv.exit:      ; preds = %1435, %1447
-  %1452 = load ptr, ptr %0, align 8, !tbaa !408
-  %1453 = getelementptr inbounds nuw i8, ptr %1452, i64 4608
-  %1454 = load ptr, ptr %1453, align 8, !tbaa !13
-  %1455 = getelementptr inbounds nuw i8, ptr %1452, i64 4616
-  %1456 = load i32, ptr %1455, align 8, !tbaa !16
-  %1457 = zext i32 %1456 to i64
-  %1458 = getelementptr inbounds nuw %"struct.clang::Sema::ExpressionEvaluationContextRecord", ptr %1454, i64 %1457
-  %1459 = getelementptr inbounds i8, ptr %1458, i64 -640
-  %1460 = load i32, ptr %1459, align 8, !tbaa !1463
-  switch i32 %1460, label %_ZNK5clang4Sema20isUnevaluatedContextEv.exit [
+_ZNK5clang8QualType15getObjCLifetimeEv.exit.thread: ; preds = %1435, %_ZNK5clang8QualType15getObjCLifetimeEv.exit
+  %1451 = load ptr, ptr %0, align 8, !tbaa !408
+  %1452 = getelementptr inbounds nuw i8, ptr %1451, i64 4608
+  %1453 = load ptr, ptr %1452, align 8, !tbaa !13
+  %1454 = getelementptr inbounds nuw i8, ptr %1451, i64 4616
+  %1455 = load i32, ptr %1454, align 8, !tbaa !16
+  %1456 = zext i32 %1455 to i64
+  %1457 = getelementptr inbounds nuw %"struct.clang::Sema::ExpressionEvaluationContextRecord", ptr %1453, i64 %1456
+  %1458 = getelementptr inbounds i8, ptr %1457, i64 -640
+  %1459 = load i32, ptr %1458, align 8, !tbaa !1463
+  switch i32 %1459, label %_ZNK5clang4Sema20isUnevaluatedContextEv.exit [
     i32 0, label %_ZNK5clang4Sema20isUnevaluatedContextEv.exit.thread
     i32 3, label %_ZNK5clang4Sema20isUnevaluatedContextEv.exit.thread
     i32 1, label %_ZNK5clang4Sema20isUnevaluatedContextEv.exit.thread
   ]
 
-_ZNK5clang4Sema20isUnevaluatedContextEv.exit:     ; preds = %_ZNK5clang8QualType15getObjCLifetimeEv.exit
-  %1461 = call noundef nonnull align 8 dereferenceable(15248) ptr @_ZNK5clang8SemaBase14getDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
-  %1462 = getelementptr inbounds nuw i8, ptr %1461, i64 32
-  %1463 = load ptr, ptr %1462, align 8, !tbaa !1287
-  %1464 = call noundef zeroext i8 @_ZNK5clang13DiagnosticIDs21getDiagnosticSeverityEjNS_14SourceLocationERKNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(24) %1463, i32 noundef 6187, i32 %.sroa.0808.0, ptr noundef nonnull align 8 dereferenceable(15248) %1461) #21
-  %1465 = icmp eq i8 %1464, 1
-  br i1 %1465, label %_ZNK5clang4Sema20isUnevaluatedContextEv.exit.thread, label %_ZNK5clang4Sema14getCurFunctionEv.exit
+_ZNK5clang4Sema20isUnevaluatedContextEv.exit:     ; preds = %_ZNK5clang8QualType15getObjCLifetimeEv.exit.thread
+  %1460 = call noundef nonnull align 8 dereferenceable(15248) ptr @_ZNK5clang8SemaBase14getDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  %1461 = getelementptr inbounds nuw i8, ptr %1460, i64 32
+  %1462 = load ptr, ptr %1461, align 8, !tbaa !1287
+  %1463 = call noundef zeroext i8 @_ZNK5clang13DiagnosticIDs21getDiagnosticSeverityEjNS_14SourceLocationERKNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(24) %1462, i32 noundef 6187, i32 %.sroa.0808.0, ptr noundef nonnull align 8 dereferenceable(15248) %1460) #21
+  %1464 = icmp eq i8 %1463, 1
+  br i1 %1464, label %_ZNK5clang4Sema20isUnevaluatedContextEv.exit.thread, label %_ZNK5clang4Sema14getCurFunctionEv.exit
 
 _ZNK5clang4Sema14getCurFunctionEv.exit:           ; preds = %_ZNK5clang4Sema20isUnevaluatedContextEv.exit
-  %1466 = load ptr, ptr %0, align 8, !tbaa !408
-  %1467 = getelementptr inbounds nuw i8, ptr %1466, i64 40
-  %1468 = load i32, ptr %1467, align 8, !tbaa !16
-  %.not.i.i715 = icmp ne i32 %1468, 0
+  %1465 = load ptr, ptr %0, align 8, !tbaa !408
+  %1466 = getelementptr inbounds nuw i8, ptr %1465, i64 40
+  %1467 = load i32, ptr %1466, align 8, !tbaa !16
+  %.not.i.i715 = icmp ne i32 %1467, 0
   call void @llvm.assume(i1 %.not.i.i715)
-  %1469 = getelementptr inbounds nuw i8, ptr %1466, i64 32
-  %1470 = load ptr, ptr %1469, align 8, !tbaa !13
-  %1471 = zext i32 %1468 to i64
-  %1472 = getelementptr inbounds nuw ptr, ptr %1470, i64 %1471
-  %1473 = getelementptr inbounds i8, ptr %1472, i64 -8
-  %1474 = load ptr, ptr %1473, align 8, !tbaa !1455
-  call void @_ZN5clang4sema17FunctionScopeInfo15recordUseOfWeakEPKNS_15ObjCMessageExprEPKNS_16ObjCPropertyDeclE(ptr noundef nonnull align 8 dereferenceable(1280) %1474, ptr noundef %.0412, ptr noundef nonnull %1434) #20
+  %1468 = getelementptr inbounds nuw i8, ptr %1465, i64 32
+  %1469 = load ptr, ptr %1468, align 8, !tbaa !13
+  %1470 = zext i32 %1467 to i64
+  %1471 = getelementptr inbounds nuw ptr, ptr %1469, i64 %1470
+  %1472 = getelementptr inbounds i8, ptr %1471, i64 -8
+  %1473 = load ptr, ptr %1472, align 8, !tbaa !1455
+  call void @_ZN5clang4sema17FunctionScopeInfo15recordUseOfWeakEPKNS_15ObjCMessageExprEPKNS_16ObjCPropertyDeclE(ptr noundef nonnull align 8 dereferenceable(1280) %1473, ptr noundef %.0412, ptr noundef nonnull %1434) #20
   br label %_ZNK5clang4Sema20isUnevaluatedContextEv.exit.thread
 
-_ZNK5clang4Sema20isUnevaluatedContextEv.exit.thread: ; preds = %1439, %1447, %1442, %_ZNK5clang8QualType15getObjCLifetimeEv.exit, %_ZNK5clang8QualType15getObjCLifetimeEv.exit, %_ZNK5clang8QualType15getObjCLifetimeEv.exit, %1433, %_ZNK5clang4Sema14getCurFunctionEv.exit, %_ZNK5clang4Sema20isUnevaluatedContextEv.exit, %1427
+_ZNK5clang4Sema20isUnevaluatedContextEv.exit.thread: ; preds = %1439, %1447, %1442, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.thread, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.thread, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.thread, %1433, %_ZNK5clang4Sema14getCurFunctionEv.exit, %_ZNK5clang4Sema20isUnevaluatedContextEv.exit, %1427
   call void @_ZN5clang8SemaObjC26CheckObjCCircularContainerEPNS_15ObjCMessageExprE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %.0412) #20
-  %1475 = load ptr, ptr %0, align 8, !tbaa !408
-  %1476 = call i64 @_ZN5clang4Sema20MaybeBindToTemporaryEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17504) %1475, ptr noundef %.0412) #20
-  br label %1477
+  %1474 = load ptr, ptr %0, align 8, !tbaa !408
+  %1475 = call i64 @_ZN5clang4Sema20MaybeBindToTemporaryEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17504) %1474, ptr noundef %.0412) #20
+  br label %1476
 
-1477:                                             ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit.thread, %_ZNK5clang4Type24isObjCQualifiedClassTypeEv.exit, %_ZNK5clang4Sema20isUnevaluatedContextEv.exit.thread, %.critedge502
-  %.sroa.0836.9 = phi i64 [ %1476, %_ZNK5clang4Sema20isUnevaluatedContextEv.exit.thread ], [ %1426, %.critedge502 ], [ 1, %_ZNK5clang4Type24isObjCQualifiedClassTypeEv.exit ], [ 1, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ]
+1476:                                             ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit.thread, %_ZNK5clang4Type24isObjCQualifiedClassTypeEv.exit, %_ZNK5clang4Sema20isUnevaluatedContextEv.exit.thread, %.critedge502
+  %.sroa.0836.9 = phi i64 [ %1475, %_ZNK5clang4Sema20isUnevaluatedContextEv.exit.thread ], [ %1426, %.critedge502 ], [ 1, %_ZNK5clang4Type24isObjCQualifiedClassTypeEv.exit ], [ 1, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %.critedge492
 
-.critedge492:                                     ; preds = %151, %168, %229, %466, %1477, %159
+.critedge492:                                     ; preds = %151, %168, %229, %466, %1476, %159
   %.sroa.0836.3 = phi i64 [ %.sroa.0836.9, %1477 ], [ 1, %466 ], [ %167, %159 ], [ 1, %229 ], [ 1, %168 ], [ 1, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
