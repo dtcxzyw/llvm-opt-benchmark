@@ -41907,7 +41907,7 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h60
   store i64 %13, ptr %5, align 8, !alias.scope !13839
   %14 = icmp eq ptr %11, null
   %15 = getelementptr inbounds i8, ptr %11, i64 -64
-  br i1 %14, label %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit.thread", label %16
+  br i1 %15, label %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit.thread", label %16
 
 16:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !13846)
@@ -47018,18 +47018,18 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf2
   %13 = icmp eq ptr %10, null
   br i1 %13, label %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit.thread", label %14
 
-14:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit"
+15:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f6504a13e7c7393E.exit"
   %15 = getelementptr inbounds i8, ptr %10, i64 -64
   %16 = call { i32, i32 } @_ZN3vfs3Vfs7file_id17h0b6c396968d10fa1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15)
   %17 = extractvalue { i32, i32 } %16, 0
   %switch.i.i = icmp eq i32 %17, 0
   br i1 %switch.i.i, label %18, label %"_ZN13rust_analyzer9main_loop58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$18update_diagnostics28_$u7b$$u7b$closure$u7d$$u7d$17hc9925adb906912aeE.exit.i"
 
-18:                                               ; preds = %14
+18:                                               ; preds = %15
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.72249de86b580934f12e637c635bc563.170) #54
   unreachable
 
-"_ZN13rust_analyzer9main_loop58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$18update_diagnostics28_$u7b$$u7b$closure$u7d$$u7d$17hc9925adb906912aeE.exit.i": ; preds = %14
+"_ZN13rust_analyzer9main_loop58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$18update_diagnostics28_$u7b$$u7b$closure$u7d$$u7d$17hc9925adb906912aeE.exit.i": ; preds = %15
   %19 = extractvalue { i32, i32 } %16, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !15339)
   %20 = call noundef i32 @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$16file_source_root6__shim17he6b5a8a9f8e26b04E"(ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.58bff93399cb9162300a2319accc463d.390.llvm.2510282452699860474, i32 noundef %19), !noalias !15342

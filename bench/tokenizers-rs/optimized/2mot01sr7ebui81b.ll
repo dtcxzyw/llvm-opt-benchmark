@@ -13589,8 +13589,8 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN92_$LT$hashbr
   %.0.i.i = phi ptr [ %24, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hf77813549ee27b5fE.llvm.11083375685992158394.exit.i.i" ], [ null, %1 ]
   %27 = icmp eq ptr %.0.i.i, null
   %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 -16
-  %. = select i1 %27, ptr null, ptr %28
-  ret ptr %.
+  %.sroa.0.0.i = select i1 %27, ptr null, ptr %28
+  ret ptr %.sroa.0.0.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -13643,8 +13643,8 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN92_$LT$hashbro
   %.0.i.i = phi ptr [ %24, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h214d4aff064c04e5E.llvm.11083375685992158394.exit.i.i" ], [ null, %1 ]
   %27 = icmp eq ptr %.0.i.i, null
   %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 -4
-  %. = select i1 %27, ptr null, ptr %28
-  ret ptr %.
+  %.sroa.0.0.i = select i1 %27, ptr null, ptr %28
+  ret ptr %.sroa.0.0.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -13697,8 +13697,8 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN92_$LT$hashbro
   %.0.i.i = phi ptr [ %24, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd19c4e8455eaede2E.llvm.11083375685992158394.exit.i.i" ], [ null, %1 ]
   %27 = icmp eq ptr %.0.i.i, null
   %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 -8
-  %. = select i1 %27, ptr null, ptr %28
-  ret ptr %.
+  %.sroa.0.0.i = select i1 %27, ptr null, ptr %28
+  ret ptr %.sroa.0.0.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -27048,21 +27048,21 @@ _ZN4core3ops8function6FnOnce9call_once17hf2f5b77b5792f55cE.exit: ; preds = %179
 
 "_ZN4core3ptr72drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$str$GT$$GT$17h7cad808bd327346bE.exit144": ; preds = %182
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %223 = trunc nuw i8 %.11 to i1
-  br i1 %223, label %.sink.split, label %224
+  %227 = trunc nuw i8 %.11 to i1
+  br i1 %227, label %.sink.split, label %228
 
 .sink.split:                                      ; preds = %"_ZN4core3ptr72drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$str$GT$$GT$17h7cad808bd327346bE.exit144", %"_ZN4core3ptr72drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$str$GT$$GT$17h7cad808bd327346bE.exit146"
   call void @"_ZN4core3ptr58drop_in_place$LT$tokenizers..models..wordlevel..Config$GT$17ha1ff1c344c247f1eE.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(96) %22)
-  br label %224
+  br label %228
 
-224:                                              ; preds = %.sink.split, %"_ZN4core3ptr72drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$str$GT$$GT$17h7cad808bd327346bE.exit144", %"_ZN4core3ptr72drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$str$GT$$GT$17h7cad808bd327346bE.exit146"
+228:                                              ; preds = %.sink.split, %"_ZN4core3ptr72drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$str$GT$$GT$17h7cad808bd327346bE.exit144", %"_ZN4core3ptr72drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$str$GT$$GT$17h7cad808bd327346bE.exit146"
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   ret void
 
 "_ZN4core3ptr72drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$str$GT$$GT$17h7cad808bd327346bE.exit146": ; preds = %185
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %225 = trunc nuw i8 %.10 to i1
-  br i1 %225, label %.sink.split, label %224
+  %229 = trunc nuw i8 %.10 to i1
+  br i1 %229, label %.sink.split, label %228
 
 .body.thread:                                     ; preds = %47, %51, %.body
   %.pn93184 = phi { ptr, i32 } [ %.pn93, %.body ], [ %52, %51 ], [ %48, %47 ]

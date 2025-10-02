@@ -1039,7 +1039,7 @@ define hidden range(i32 0, 87) i32 @Curl_rtsp_parseheader(ptr noundef %0, ptr no
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 10
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %46, %104
+.lr.ph.i:                                         ; preds = %46, %select.unfold.i
   %.077.i = phi ptr [ %105, %104 ], [ %47, %46 ]
   %48 = load i8, ptr %.077.i, align 1, !tbaa !7
   %.not65.i = icmp eq i8 %48, 0
@@ -1062,7 +1062,7 @@ define hidden range(i32 0, 87) i32 @Curl_rtsp_parseheader(ptr noundef %0, ptr no
   %51 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1.i, i32 noundef 59) #8
   %52 = tail call i32 @curl_strnequal(ptr noundef nonnull %.1.i, ptr noundef nonnull @.str.55, i64 noundef 12) #7
   %.not67.i = icmp eq i32 %52, 0
-  br i1 %.not67.i, label %104, label %53
+  br i1 %.not67.i, label %select.unfold.i, label %53
 
 53:                                               ; preds = %.critedge2.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1078,7 +1078,7 @@ define hidden range(i32 0, 87) i32 @Curl_rtsp_parseheader(ptr noundef %0, ptr no
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 4504
   %61 = load i8, ptr %56, align 1, !tbaa !7
   %62 = icmp eq i8 %61, 45
-  br i1 %62, label %63, label %.lr.ph81.preheader.i
+  br i1 %62, label %63, label %.lr.ph80.preheader.i
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 1
@@ -1091,14 +1091,14 @@ define hidden range(i32 0, 87) i32 @Curl_rtsp_parseheader(ptr noundef %0, ptr no
 
 69:                                               ; preds = %63
   %.not72.i = icmp eq ptr %0, null
-  br i1 %.not72.i, label %.lr.ph81.preheader.i, label %70
+  br i1 %.not72.i, label %.lr.ph80.preheader.i, label %70
 
 70:                                               ; preds = %69
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 2658
   %72 = load i64, ptr %71, align 2
   %73 = and i64 %72, 2147483648
   %.not73.i = icmp eq i64 %73, 0
-  br i1 %.not73.i, label %.lr.ph81.preheader.i, label %74
+  br i1 %.not73.i, label %.lr.ph80.preheader.i, label %74
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 4864
@@ -1110,33 +1110,33 @@ define hidden range(i32 0, 87) i32 @Curl_rtsp_parseheader(ptr noundef %0, ptr no
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %79 = load i32, ptr %78, align 8, !tbaa !115
   %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %81, label %.lr.ph81.preheader.i
+  br i1 %80, label %81, label %.lr.ph80.preheader.i
 
 81:                                               ; preds = %77, %74
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.56, ptr noundef nonnull %47) #7
-  br label %.lr.ph81.preheader.i
+  br label %.lr.ph80.preheader.i
 
 82:                                               ; preds = %63
-  %.not7579.i = icmp samesign ugt i64 %55, %65
-  br i1 %.not7579.i, label %.loopexit.i, label %.lr.ph81.preheader.i
+  %.not7578.i = icmp samesign ugt i64 %55, %65
+  br i1 %.not7578.i, label %.loopexit.i, label %.lr.ph80.preheader.i
 
-.lr.ph81.preheader.i:                             ; preds = %82, %81, %77, %70, %69, %59
-  %.05592.i = phi i64 [ %65, %82 ], [ %55, %59 ], [ %55, %81 ], [ %55, %77 ], [ %55, %70 ], [ %55, %69 ]
-  br label %.lr.ph81.i
+.lr.ph80.preheader.i:                             ; preds = %82, %81, %77, %70, %69, %59
+  %.05591.i = phi i64 [ %65, %82 ], [ %55, %59 ], [ %55, %81 ], [ %55, %77 ], [ %55, %70 ], [ %55, %69 ]
+  br label %.lr.ph80.i
 
-.lr.ph81.i:                                       ; preds = %.lr.ph81.i, %.lr.ph81.preheader.i
-  %.05680.i = phi i64 [ %90, %.lr.ph81.i ], [ %55, %.lr.ph81.preheader.i ]
-  %83 = lshr i64 %.05680.i, 3
-  %84 = trunc i64 %.05680.i to i8
+.lr.ph80.i:                                       ; preds = %.lr.ph80.i, %.lr.ph80.preheader.i
+  %.05679.i = phi i64 [ %90, %.lr.ph81.i ], [ %55, %.lr.ph81.preheader.i ]
+  %83 = lshr i64 %.05679.i, 3
+  %84 = trunc i64 %.05679.i to i8
   %85 = and i8 %84, 7
   %86 = shl nuw i8 1, %85
   %87 = getelementptr inbounds nuw i8, ptr %60, i64 %83
   %88 = load i8, ptr %87, align 1, !tbaa !7
   %89 = or i8 %86, %88
   store i8 %89, ptr %87, align 1, !tbaa !7
-  %90 = add i64 %.05680.i, 1
-  %exitcond.not.i = icmp eq i64 %.05680.i, %.05592.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph81.i, !llvm.loop !129
+  %90 = add i64 %.05679.i, 1
+  %exitcond.not.i = icmp eq i64 %.05679.i, %.05591.i
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph80.i, !llvm.loop !129
 
 91:                                               ; preds = %53
   %.not69.i = icmp eq ptr %0, null
@@ -1165,18 +1165,18 @@ define hidden range(i32 0, 87) i32 @Curl_rtsp_parseheader(ptr noundef %0, ptr no
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.56, ptr noundef nonnull %47) #7
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.lr.ph81.i, %103, %99, %92, %91, %82
+.loopexit.i:                                      ; preds = %.lr.ph80.i, %103, %99, %92, %91, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %rtsp_parse_transport.exit
 
-104:                                              ; preds = %.critedge2.i
+select.unfold.i:                                  ; preds = %.critedge2.i
   %.not68.i = icmp ne ptr %51, null
   %.idx.i = zext i1 %.not68.i to i64
   %105 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i
   %.not.i = icmp eq ptr %51, null
   br i1 %.not.i, label %rtsp_parse_transport.exit, label %.lr.ph.i, !llvm.loop !130
 
-rtsp_parse_transport.exit:                        ; preds = %.lr.ph.i, %104, %42, %26, %41, %44, %.thread, %39, %.loopexit.i, %18
+rtsp_parse_transport.exit:                        ; preds = %.lr.ph.i, %select.unfold.i, %42, %26, %41, %44, %.thread, %39, %.loopexit.i, %18
   %.1 = phi i32 [ 85, %18 ], [ 0, %.loopexit.i ], [ 0, %39 ], [ 0, %.thread ], [ 0, %44 ], [ 86, %26 ], [ 86, %41 ], [ %spec.select88, %42 ], [ 0, %104 ], [ 0, %.lr.ph.i ]
   ret i32 %.1
 }

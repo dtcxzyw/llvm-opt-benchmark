@@ -17044,9 +17044,9 @@ define hidden noundef ptr @_ZNK23ShenandoahIUBarrierNode5ValueEP8PhaseGVN(ptr no
   %9 = load ptr, ptr @_ZN4Type3TOPE, align 8
   br label %22
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %12 = load ptr, ptr %11, align 8
+10:; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %14 = load ptr, ptr %13, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -17059,8 +17059,8 @@ define hidden noundef ptr @_ZNK23ShenandoahIUBarrierNode5ValueEP8PhaseGVN(ptr no
   %spec.select = select i1 %21, ptr %20, ptr %19
   br label %22
 
-22:                                               ; preds = %10, %8
-  %.0 = phi ptr [ %9, %8 ], [ %spec.select, %10 ]
+17:                                               ; preds = %10, %8
+  %.0.in = phi ptr [ %9, %8 ], [ %spec.select, %10 ]
   ret ptr %.0
 }
 

@@ -1852,7 +1852,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp5EqualEPS0_S1_(ptr nound
 13:                                               ; preds = %77
   %14 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %105
 
 15:                                               ; preds = %.preheader, %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %.035, i64 6
@@ -1870,13 +1870,13 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp5EqualEPS0_S1_(ptr nound
   %.sroa.0.4.ph = phi ptr [ %.sroa.0.3131, %21 ], [ %.sroa.0.3131, %_ZNKSt6vectorIPN10duckdb_re26RegexpESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0.6, %_ZNKSt6vectorIPN10duckdb_re26RegexpESaIS2_EE12_M_check_lenEmPKc.exit.i.i45 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %105
 
 .loopexit.split-lp:                               ; preds = %41, %61
   %.sroa.0.4.ph110 = phi ptr [ %.sroa.0.6, %61 ], [ %.sroa.0.3131, %41 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %105
 
 21:                                               ; preds = %.lr.ph, %_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EE9push_backERKS2_.exit53
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EE9push_backERKS2_.exit53 ]
@@ -2062,18 +2062,18 @@ _ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EE9push_backERKS2_.exit53: ; preds = %_
   %95 = icmp eq ptr %.sroa.16.1, %.sroa.0.2
   br i1 %95, label %_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EE6resizeEm.exit.thread, label %96
 
-96:                                               ; preds = %.loopexit
+96:; preds = %.loopexit
   %97 = icmp ult i64 %94, 9
   br i1 %97, label %98, label %99
 
-98:                                               ; preds = %96
+98:; preds = %96
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.28) #30
           to label %.noexc61 unwind label %.thread100
 
 .noexc61:                                         ; preds = %98
   unreachable
 
-99:                                               ; preds = %96
+_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EE6resizeEm.exit: ; preds = %96
   %100 = getelementptr i8, ptr %.sroa.0.2, i64 %94
   %101 = getelementptr i8, ptr %100, i64 -8
   %102 = load ptr, ptr %101, align 8, !tbaa !40
@@ -2093,23 +2093,23 @@ _ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EE6resizeEm.exit: ; preds = %99, %91
   br label %.preheader
 
 .thread100:                                       ; preds = %98
-  %105 = landingpad { ptr, i32 }
+  %104 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %106
 
-106:                                              ; preds = %.loopexit109, %.loopexit.split-lp, %13
+105:                                              ; preds = %.loopexit109, %.loopexit.split-lp, %13
   %.sroa.0.1 = phi ptr [ %.sroa.0.0, %13 ], [ %.sroa.0.4.ph, %.loopexit109 ], [ %.sroa.0.4.ph110, %.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %lpad.loopexit, %.loopexit109 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i57 = icmp eq ptr %.sroa.0.1, null
-  br i1 %.not.i.i.i57, label %_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EED2Ev.exit, label %107
+  br i1 %.not.i.i.i57, label %_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EED2Ev.exit, label %106
 
-107:                                              ; preds = %.thread100, %106
-  %.pn105 = phi { ptr, i32 } [ %105, %.thread100 ], [ %.pn, %106 ]
+106:                                              ; preds = %.thread100, %105
+  %.pn105 = phi { ptr, i32 } [ %104, %.thread100 ], [ %.pn, %106 ]
   %.sroa.0.1104 = phi ptr [ %.sroa.0.2, %.thread100 ], [ %.sroa.0.1, %106 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1104) #27
   br label %_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EED2Ev.exit: ; preds = %106, %107
+_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EED2Ev.exit: ; preds = %105, %106
   %.pn106 = phi { ptr, i32 } [ %.pn, %106 ], [ %.pn105, %107 ]
   resume { ptr, i32 } %.pn106
 
@@ -2117,13 +2117,13 @@ _ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EE6resizeEm.exit.thread: ; preds = %91,
   %.sroa.0.591 = phi ptr [ %.sroa.0.3131, %33 ], [ %.sroa.0.0, %91 ], [ %.sroa.0.2, %.loopexit ]
   %.5 = phi i1 [ false, %33 ], [ false, %91 ], [ true, %.loopexit ]
   %.not.i.i.i58 = icmp eq ptr %.sroa.0.591, null
-  br i1 %.not.i.i.i58, label %_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EED2Ev.exit59, label %108
+  br i1 %.not.i.i.i58, label %_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EED2Ev.exit59, label %107
 
-108:                                              ; preds = %_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EE6resizeEm.exit.thread
+107:                                              ; preds = %_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EE6resizeEm.exit.thread
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.591) #27
   br label %_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EED2Ev.exit59
 
-_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EED2Ev.exit59: ; preds = %108, %_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EE6resizeEm.exit.thread, %9, %7, %5
+_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EED2Ev.exit59: ; preds = %107, %_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EE6resizeEm.exit.thread, %9, %7, %5
   %.0 = phi i1 [ %6, %5 ], [ false, %7 ], [ true, %9 ], [ %.5, %_ZNSt6vectorIPN10duckdb_re26RegexpESaIS2_EE6resizeEm.exit.thread ], [ %.5, %108 ]
   ret i1 %.0
 }

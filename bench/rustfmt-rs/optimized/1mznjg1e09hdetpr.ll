@@ -22808,11 +22808,11 @@ _ZN4core3ops8function6FnOnce9call_once17he28923efc6bcc58cE.exit: ; preds = %4, %
   %.0.i.i.i.i = phi ptr [ %9, %8 ], [ null, %4 ]
   %12 = icmp eq ptr %.0.i.i.i.i, null
   %13 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 -48
-  %..fca.0.extract.i.i = select i1 %12, ptr null, ptr %13
+  %.sroa.0.0.i.i.i = select i1 %12, ptr null, ptr %13
   br label %14
 
 14:                                               ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17he28923efc6bcc58cE.exit
-  %.0 = phi ptr [ %..fca.0.extract.i.i, %_ZN4core3ops8function6FnOnce9call_once17he28923efc6bcc58cE.exit ], [ null, %1 ]
+  %.0 = phi ptr [ %.sroa.0.0.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17he28923efc6bcc58cE.exit ], [ null, %1 ]
   ret ptr %.0
 }
 

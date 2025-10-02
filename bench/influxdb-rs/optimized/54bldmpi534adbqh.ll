@@ -500,7 +500,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   store ptr null, ptr %0, align 8, !alias.scope !24, !noalias !27
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h3910613328f9056fE.exit"
 
-11:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf05ae720daa9bf8E.llvm.10820452972315511531.exit"
+14:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf05ae720daa9bf8E.llvm.10820452972315511531.exit"
   %12 = getelementptr inbounds i8, ptr %7, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !29
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hec36f09858d8a4fdE"(ptr noalias noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) dereferenceable_or_null(24) %12), !noalias !24
@@ -508,7 +508,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !29
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h3910613328f9056fE.exit"
 
-"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h3910613328f9056fE.exit": ; preds = %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf05ae720daa9bf8E.llvm.10820452972315511531.exit.thread", %11
+"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h3910613328f9056fE.exit": ; preds = %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf05ae720daa9bf8E.llvm.10820452972315511531.exit.thread", %14
   ret void
 }
 
@@ -610,8 +610,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN105_$LT$std..
   %.0.i.i = phi ptr [ %6, %5 ], [ null, %1 ]
   %9 = icmp eq ptr %.0.i.i, null
   %10 = getelementptr inbounds i8, ptr %.0.i.i, i64 -32
-  %..fca.0.extract = select i1 %9, ptr null, ptr %10
-  ret ptr %..fca.0.extract
+  %.sroa.0.0.i = select i1 %9, ptr null, ptr %10
+  ret ptr %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

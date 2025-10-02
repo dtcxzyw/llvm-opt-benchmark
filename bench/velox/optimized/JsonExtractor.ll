@@ -1398,14 +1398,14 @@ for.cond10.preheader.lr.ph:                       ; preds = %invoke.cont
   %u_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   br label %for.cond10.preheader
 
-for.cond10.preheader:                             ; preds = %for.cond10.preheader.lr.ph, %if.end25
+for.cond:                                         ; preds = %for.cond10.preheader.lr.ph, %if.end25
   %input.sroa.0.1209 = phi ptr [ %call5.i.i.i.i.i.i10, %for.cond10.preheader.lr.ph ], [ %result.sroa.0.2.lcssa, %if.end25 ]
   %input.sroa.12.0208 = phi ptr [ %incdec.ptr.i.i.i, %for.cond10.preheader.lr.ph ], [ %result.sroa.12.1.lcssa, %if.end25 ]
   %input.sroa.23.0207 = phi ptr [ %incdec.ptr.i.i.i, %for.cond10.preheader.lr.ph ], [ %result.sroa.27.1.lcssa, %if.end25 ]
   %__begin3.sroa.0.0206 = phi ptr [ %0, %for.cond10.preheader.lr.ph ], [ %incdec.ptr.i62, %if.end25 ]
   %result.sroa.0.1205 = phi ptr [ null, %for.cond10.preheader.lr.ph ], [ %input.sroa.0.1209, %if.end25 ]
-  %result.sroa.27.0204 = phi ptr [ null, %for.cond10.preheader.lr.ph ], [ %input.sroa.23.0207, %if.end25 ]
-  %result.sroa.12.0203 = phi ptr [ null, %for.cond10.preheader.lr.ph ], [ %spec.select, %if.end25 ]
+  %input.sroa.0.1208 = phi ptr [ null, %for.cond10.preheader.lr.ph ], [ %input.sroa.23.0207, %if.end25 ]
+  %input.sroa.12.0207 = phi ptr [ null, %for.cond10.preheader.lr.ph ], [ %spec.select, %if.end25 ]
   %cmp.i12.not195 = icmp eq ptr %input.sroa.0.1209, %input.sroa.12.0208
   br i1 %cmp.i12.not195, label %for.end, label %for.body12
 
@@ -1729,8 +1729,8 @@ for.inc:                                          ; preds = %for.body.i.i.i.i.i.
   %cmp.i12.not = icmp eq ptr %incdec.ptr.i, %input.sroa.12.0208
   br i1 %cmp.i12.not, label %for.end, label %for.body12
 
-for.end:                                          ; preds = %for.inc, %for.cond10.preheader
-  %result.sroa.12.1.lcssa = phi ptr [ %result.sroa.12.0203, %for.cond10.preheader ], [ %result.sroa.12.2, %for.inc ]
+for.end:                                          ; preds = %for.inc, %for.cond
+  %result.sroa.12.1.lcssa = phi ptr [ %input.sroa.12.0207, %for.cond10.preheader ], [ %result.sroa.12.2, %for.inc ]
   %result.sroa.27.1.lcssa = phi ptr [ %result.sroa.27.0204, %for.cond10.preheader ], [ %result.sroa.27.2, %for.inc ]
   %result.sroa.0.2.lcssa = phi ptr [ %result.sroa.0.1205, %for.cond10.preheader ], [ %result.sroa.0.4, %for.inc ]
   %cmp.i.i58 = icmp eq ptr %result.sroa.0.2.lcssa, %result.sroa.12.1.lcssa
@@ -1741,7 +1741,7 @@ if.then24:                                        ; preds = %for.end
   store i8 0, ptr %hasValue.i.i, align 8
   br label %cleanup
 
-if.end25:                                         ; preds = %for.end
+for.end28:                                        ; preds = %for.end
   %spec.select = select i1 %cmp.i12.not195, ptr %input.sroa.12.0208, ptr %input.sroa.0.1209
   %incdec.ptr.i62 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.0206, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i62, %1
@@ -1792,8 +1792,8 @@ invoke.cont37:                                    ; preds = %for.end28
   store i32 1, ptr %array, align 8
   %u_.i = getelementptr inbounds nuw i8, ptr %array, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %u_.i, i8 0, i64 24, i1 false)
-  %cmp.i70.not213 = icmp eq ptr %input.sroa.0.1.lcssa, %input.sroa.12.0.lcssa
-  br i1 %cmp.i70.not213, label %for.end50, label %for.body44.lr.ph
+  %cmp.i70.not212 = icmp eq ptr %input.sroa.0.1.lcssa, %input.sroa.12.0.lcssa
+  br i1 %cmp.i70.not212, label %for.end50, label %for.body44.lr.ph
 
 for.body44.lr.ph:                                 ; preds = %invoke.cont37
   %_M_finish.i.i71 = getelementptr inbounds nuw i8, ptr %array, i64 16
@@ -1801,8 +1801,8 @@ for.body44.lr.ph:                                 ; preds = %invoke.cont37
   br label %for.body44
 
 for.body44:                                       ; preds = %for.body44.lr.ph, %for.inc48
-  %__begin5.sroa.0.0214 = phi ptr [ %input.sroa.0.1.lcssa, %for.body44.lr.ph ], [ %incdec.ptr.i80, %for.inc48 ]
-  %15 = load ptr, ptr %__begin5.sroa.0.0214, align 8
+  %__begin5.sroa.0.0213 = phi ptr [ %input.sroa.0.1.lcssa, %for.body44.lr.ph ], [ %incdec.ptr.i80, %for.inc48 ]
+  %15 = load ptr, ptr %__begin5.sroa.0.0213, align 8
   %16 = load i32, ptr %array, align 8
   %cmp.not.i.not.i.i = icmp eq i32 %16, 1
   br i1 %cmp.not.i.not.i.i, label %_ZN5folly7dynamic3getISt6vectorIS0_SaIS0_EEEERT_v.exit.i, label %if.end.i.i
@@ -1836,7 +1836,7 @@ if.else.i.i76:                                    ; preds = %_ZN5folly7dynamic3g
           to label %for.inc48 unwind label %lpad46.loopexit
 
 for.inc48:                                        ; preds = %.noexc78, %if.else.i.i76
-  %incdec.ptr.i80 = getelementptr inbounds nuw i8, ptr %__begin5.sroa.0.0214, i64 8
+  %incdec.ptr.i80 = getelementptr inbounds nuw i8, ptr %__begin5.sroa.0.0213, i64 8
   %cmp.i70.not = icmp eq ptr %incdec.ptr.i80, %input.sroa.12.0.lcssa
   br i1 %cmp.i70.not, label %for.end50, label %for.body44
 

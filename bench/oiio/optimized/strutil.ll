@@ -5589,7 +5589,7 @@ _ZL21stbsp__clamp_callbackPKcPvi.exit.i:          ; preds = %_ZNSt6vectorIcSaIcE
 25:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i, %_ZL21stbsp__clamp_callbackPKcPvi.exit.i
   %26 = landingpad { ptr, i32 }
           cleanup
-  br label %81
+  br label %80
 
 27:                                               ; preds = %11
   %28 = icmp slt i32 %20, %.020
@@ -5643,7 +5643,7 @@ _ZL21stbsp__clamp_callbackPKcPvi.exit.i:          ; preds = %_ZNSt6vectorIcSaIcE
 44:                                               ; preds = %.noexc.i26
   %45 = landingpad { ptr, i32 }
           cleanup
-  br label %81
+  br label %80
 
 46:                                               ; preds = %27
   %47 = add nuw nsw i32 %20, 1
@@ -5734,36 +5734,36 @@ _ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %79, %77, %_ZNSt12_V
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL21stbsp__clamp_callbackPKcPvi.exit.i, !llvm.loop !105
 
-81:                                               ; preds = %44, %25
+80:                                               ; preds = %44, %25
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %26, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i.i.i = icmp eq ptr %.sroa.033.0, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %82
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %81
 
-82:                                               ; preds = %81
-  %83 = ptrtoint ptr %.sroa.13.0 to i64
-  %84 = ptrtoint ptr %.sroa.033.0 to i64
-  %85 = sub i64 %83, %84
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.033.0, i64 noundef %85) #43
+81:                                               ; preds = %80
+  %82 = ptrtoint ptr %.sroa.13.0 to i64
+  %83 = ptrtoint ptr %.sroa.033.0 to i64
+  %84 = sub i64 %82, %83
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.033.0, i64 noundef %84) #43
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
-_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %81, %82
+_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %80, %81
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 
 .critedge:                                        ; preds = %39, %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i.i.i30 = icmp eq ptr %.sroa.033.0, null
-  br i1 %.not.i.i.i30, label %_ZNSt6vectorIcSaIcEED2Ev.exit31, label %86
+  br i1 %.not.i.i.i30, label %_ZNSt6vectorIcSaIcEED2Ev.exit31, label %85
 
-86:                                               ; preds = %.critedge
-  %87 = ptrtoint ptr %.sroa.13.0 to i64
-  %88 = ptrtoint ptr %.sroa.033.0 to i64
-  %89 = sub i64 %87, %88
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.033.0, i64 noundef %89) #43
+85:                                               ; preds = %.critedge
+  %86 = ptrtoint ptr %.sroa.13.0 to i64
+  %87 = ptrtoint ptr %.sroa.033.0 to i64
+  %88 = sub i64 %86, %87
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.033.0, i64 noundef %88) #43
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit31
 
-_ZNSt6vectorIcSaIcEED2Ev.exit31:                  ; preds = %.critedge, %86
+_ZNSt6vectorIcSaIcEED2Ev.exit31:                  ; preds = %.critedge, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

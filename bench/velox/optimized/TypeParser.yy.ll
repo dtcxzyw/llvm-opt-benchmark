@@ -5239,8 +5239,8 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %inc.us.i = zext i1 %or.cond.us.i to i32
   %spec.select.i = add nuw nsw i32 %yycount.126.us.i, %inc.us.i
   %indvars.iv.next32.i = add nsw i64 %indvars.iv31.i, 1
-  %exitcond11.not = icmp eq i64 %indvars.iv.next32.i, %10
-  br i1 %exitcond11.not, label %_ZNK8facebook5velox4type6Parser7context15expected_tokensEPNS2_11symbol_kind16symbol_kind_typeEi.exit, label %for.body.us.i, !llvm.loop !13
+  %exitcond.not = icmp eq i64 %indvars.iv.next32.i, %10
+  br i1 %exitcond.not, label %_ZNK8facebook5velox4type6Parser7context15expected_tokensEPNS2_11symbol_kind16symbol_kind_typeEi.exit, label %for.body.us.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ %8, %for.body.lr.ph.i ]
@@ -5268,8 +5268,8 @@ if.else27.i:                                      ; preds = %if.then23.i
 for.inc.i:                                        ; preds = %if.else27.i, %for.body.i
   %yycount.2.i = phi i32 [ %inc28.i, %if.else27.i ], [ %yycount.126.i, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %10
-  br i1 %exitcond.not, label %if.end34.i, label %for.body.i, !llvm.loop !13
+  %exitcond11.not = icmp eq i64 %indvars.iv.next.i, %10
+  br i1 %exitcond11.not, label %if.end34.i, label %for.body.i, !llvm.loop !13
 
 if.end34.i:                                       ; preds = %for.inc.i, %if.then.i, %if.end
   %yycount.0.i = phi i32 [ 0, %if.end ], [ 0, %if.then.i ], [ %yycount.2.i, %for.inc.i ]
@@ -5307,7 +5307,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i32 %1, ptr %yyarg, align 16
-  %cond.i = getelementptr inbounds nuw i8, ptr %yyarg, i64 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %yyarg, i64 4
   %2 = load ptr, ptr %yyctx, align 8
   %yystack_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5361,22 +5361,22 @@ if.then23.i.i:                                    ; preds = %for.body.i.i
 if.else27.i.i:                                    ; preds = %if.then23.i.i
   %inc28.i.i = add nsw i32 %yycount.126.i.i, 1
   %idxprom29.i.i = sext i32 %yycount.126.i.i to i64
-  %arrayidx30.i.i = getelementptr inbounds i32, ptr %cond.i, i64 %idxprom29.i.i
+  %arrayidx30.i.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %idxprom29.i.i
   store i32 %conv14.i.i, ptr %arrayidx30.i.i, align 4
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else27.i.i, %for.body.i.i
   %yycount.2.i.i = phi i32 [ %inc28.i.i, %if.else27.i.i ], [ %yycount.126.i.i, %for.body.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %10
-  br i1 %exitcond.not.i, label %if.end34.i.i, label %for.body.i.i, !llvm.loop !13
+  %exitcond11.not.i = icmp eq i64 %indvars.iv.next.i.i, %10
+  br i1 %exitcond11.not.i, label %if.end34.i.i, label %for.body.i.i, !llvm.loop !13
 
 if.end34.i.i:                                     ; preds = %for.inc.i.i
   %cmp37.i.i = icmp eq i32 %yycount.2.i.i, 0
   br i1 %cmp37.i.i, label %if.then40.i.i, label %_ZNK8facebook5velox4type6Parser26yy_syntax_error_arguments_ERKNS2_7contextEPNS2_11symbol_kind16symbol_kind_typeEi.exit
 
 if.then40.i.i:                                    ; preds = %if.then.i.i, %if.then.i, %if.end34.i.i
-  store i32 -2, ptr %cond.i, align 4
+  store i32 -2, ptr %add.ptr.i, align 4
   br label %sw.epilog
 
 _ZNK8facebook5velox4type6Parser26yy_syntax_error_arguments_ERKNS2_7contextEPNS2_11symbol_kind16symbol_kind_typeEi.exit: ; preds = %if.end34.i.i

@@ -2298,7 +2298,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i32 %1, ptr %yyarg, align 16
-  %cond.i = getelementptr inbounds nuw i8, ptr %yyarg, i64 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %yyarg, i64 4
   %2 = load ptr, ptr %yyctx, align 8
   %yystack_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2355,7 +2355,7 @@ if.then23.i.i:                                    ; preds = %for.body.i.i
 if.else27.i.i:                                    ; preds = %if.then23.i.i
   %inc28.i.i = add nsw i32 %yycount.126.i.i, 1
   %idxprom29.i.i = sext i32 %yycount.126.i.i to i64
-  %arrayidx30.i.i = getelementptr inbounds i32, ptr %cond.i, i64 %idxprom29.i.i
+  %arrayidx30.i.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %idxprom29.i.i
   store i32 %conv14.i.i, ptr %arrayidx30.i.i, align 4
   br label %for.inc.i.i
 
@@ -2370,7 +2370,7 @@ if.end34.i.i:                                     ; preds = %for.inc.i.i
   br i1 %cmp37.i.i, label %if.then40.i.i, label %_ZNK8facebook5velox10expression9calculate6Parser26yy_syntax_error_arguments_ERKNS3_7contextEPNS3_11symbol_kind16symbol_kind_typeEi.exit
 
 if.then40.i.i:                                    ; preds = %if.then.i.i, %if.then.i, %if.end34.i.i
-  store i32 -2, ptr %cond.i, align 4
+  store i32 -2, ptr %add.ptr.i, align 4
   br label %sw.epilog
 
 _ZNK8facebook5velox10expression9calculate6Parser26yy_syntax_error_arguments_ERKNS3_7contextEPNS3_11symbol_kind16symbol_kind_typeEi.exit: ; preds = %if.end34.i.i
