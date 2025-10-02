@@ -39231,21 +39231,19 @@ _ZN11ruff_linter4noqa14add_noqa_inner17h0c655697ff7b5385E.exit: ; preds = %188
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   %227 = call noundef ptr @_ZN3std2fs5write17h8623ef9c593d5ff5E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %40)
   %.not = icmp eq ptr %227, null
-  br i1 %.not, label %230, label %228
+  br i1 %.not, label %231, label %228
 
 228:                                              ; preds = %_ZN11ruff_linter4noqa14add_noqa_inner17h0c655697ff7b5385E.exit
   %229 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hcab72118b03f71ecE"(ptr noundef nonnull %227)
-  br label %232
+  %230 = ptrtoint ptr %229 to i64
+  br label %231
 
-230:                                              ; preds = %_ZN11ruff_linter4noqa14add_noqa_inner17h0c655697ff7b5385E.exit
-  %231 = inttoptr i64 %.sroa.04.0.i to ptr
-  br label %232
-
-232:                                              ; preds = %230, %228
-  %.sroa.3.0 = phi ptr [ %229, %228 ], [ %231, %230 ]
-  %.sroa.0.0 = phi i64 [ 1, %228 ], [ 0, %230 ]
+231:                                              ; preds = %_ZN11ruff_linter4noqa14add_noqa_inner17h0c655697ff7b5385E.exit, %228
+  %.sroa.3.0 = phi i64 [ %230, %228 ], [ %.sroa.04.0.i, %_ZN11ruff_linter4noqa14add_noqa_inner17h0c655697ff7b5385E.exit ]
+  %.sroa.0.0 = phi i64 [ 1, %228 ], [ 0, %_ZN11ruff_linter4noqa14add_noqa_inner17h0c655697ff7b5385E.exit ]
+  %232 = inttoptr i64 %.sroa.3.0 to ptr
   %233 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %234 = insertvalue { i64, ptr } %233, ptr %.sroa.3.0, 1
+  %234 = insertvalue { i64, ptr } %233, ptr %232, 1
   ret { i64, ptr } %234
 }
 

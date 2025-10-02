@@ -25752,9 +25752,10 @@ define hidden void @_PyMem_FreeDelayed(ptr noundef %0) local_unnamed_addr #1 {
   br label %free_delayed.exit
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 848), align 8, !tbaa !484
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 816), align 8, !tbaa !481
-  tail call void %13(ptr noundef %14, ptr noundef %0) #54
+  %13 = inttoptr i64 %2 to ptr
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 848), align 8, !tbaa !484
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 816), align 8, !tbaa !481
+  tail call void %14(ptr noundef %15, ptr noundef %13) #54
   br label %free_delayed.exit
 
 free_delayed.exit:                                ; preds = %4, %8, %11, %12
@@ -32839,7 +32840,7 @@ define internal fastcc ptr @new_arena(ptr noundef captures(none) %0) unnamed_add
   %24 = shl i32 %23, 1
   %spec.select = select i1 %.not80, i32 16, i32 %24
   %.not81 = icmp ugt i32 %spec.select, %23
-  br i1 %.not81, label %25, label %162
+  br i1 %.not81, label %25, label %163
 
 25:                                               ; preds = %21
   %26 = zext i32 %spec.select to i64
@@ -32849,7 +32850,7 @@ define internal fastcc ptr @new_arena(ptr noundef captures(none) %0) unnamed_add
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 776), align 8, !tbaa !477
   %31 = tail call ptr %29(ptr noundef %30, ptr noundef %28, i64 noundef %27) #54
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %162, label %33
+  br i1 %32, label %163, label %33
 
 33:                                               ; preds = %25
   store ptr %31, ptr %17, align 8, !tbaa !513
@@ -33044,7 +33045,7 @@ arena_map_get.exit38.i:                           ; preds = %124, %.thread42.i, 
   %139 = load ptr, ptr %18, align 8, !tbaa !594
   store ptr %139, ptr %48, align 8, !tbaa !590
   store ptr %47, ptr %18, align 8, !tbaa !594
-  br label %162
+  br label %163
 
 arena_map_mark_used.exit:                         ; preds = %95, %arena_map_get.exit38.i
   store i64 %54, ptr %47, align 8, !tbaa !514
@@ -33068,30 +33069,31 @@ arena_map_mark_used.exit:                         ; preds = %95, %arena_map_get.
 150:                                              ; preds = %149, %arena_map_mark_used.exit
   %151 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store ptr null, ptr %151, align 8, !tbaa !589
-  %152 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store ptr %52, ptr %152, align 8, !tbaa !517
-  %153 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store i32 64, ptr %153, align 8, !tbaa !553
-  %154 = and i32 %90, 16383
-  %.not84 = icmp eq i32 %154, 0
-  br i1 %.not84, label %159, label %155
+  %152 = inttoptr i64 %54 to ptr
+  %153 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store ptr %152, ptr %153, align 8, !tbaa !517
+  %154 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  store i32 64, ptr %154, align 8, !tbaa !553
+  %155 = and i32 %90, 16383
+  %.not84 = icmp eq i32 %155, 0
+  br i1 %.not84, label %160, label %156
 
-155:                                              ; preds = %150
-  store i32 63, ptr %153, align 8, !tbaa !553
-  %156 = sub nuw nsw i32 16384, %154
-  %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr i8, ptr %52, i64 %157
-  store ptr %158, ptr %152, align 8, !tbaa !517
-  br label %159
+156:                                              ; preds = %150
+  store i32 63, ptr %154, align 8, !tbaa !553
+  %157 = sub nuw nsw i32 16384, %155
+  %158 = zext nneg i32 %157 to i64
+  %159 = getelementptr i8, ptr %152, i64 %158
+  store ptr %159, ptr %153, align 8, !tbaa !517
+  br label %160
 
-159:                                              ; preds = %155, %150
-  %160 = phi i32 [ 63, %155 ], [ 64, %150 ]
-  %161 = getelementptr inbounds nuw i8, ptr %47, i64 20
-  store i32 %160, ptr %161, align 4, !tbaa !597
-  br label %162
+160:                                              ; preds = %156, %150
+  %161 = phi i32 [ 63, %156 ], [ 64, %150 ]
+  %162 = getelementptr inbounds nuw i8, ptr %47, i64 20
+  store i32 %161, ptr %162, align 4, !tbaa !597
+  br label %163
 
-162:                                              ; preds = %21, %25, %159, %138
-  %.1 = phi ptr [ null, %138 ], [ %47, %159 ], [ null, %25 ], [ null, %21 ]
+163:                                              ; preds = %21, %25, %160, %138
+  %.1 = phi ptr [ null, %138 ], [ %47, %160 ], [ null, %25 ], [ null, %21 ]
   ret ptr %.1
 }
 

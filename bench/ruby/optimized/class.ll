@@ -6451,30 +6451,31 @@ define internal range(i32 0, 3) i32 @move_refined_method(i64 noundef %0, i64 nou
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 15
   %9 = icmp eq i64 %8, 11
-  br i1 %9, label %10, label %19
+  br i1 %9, label %10, label %20
 
 10:                                               ; preds = %3
   %11 = ptrtoint ptr %2 to i64
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !33
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !32
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %18, label %16
+  %12 = inttoptr i64 %11 to ptr
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = load ptr, ptr %13, align 8, !tbaa !33
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %19, label %17
 
-16:                                               ; preds = %10
-  store i64 0, ptr %14, align 8, !tbaa !29
-  %17 = tail call ptr @rb_method_entry_clone(ptr noundef nonnull %4) #19
-  tail call void @rb_method_table_insert(i64 noundef %11, ptr noundef %13, i64 noundef %0, ptr noundef %17) #19
-  tail call void @rb_method_entry_copy(ptr noundef nonnull %4, ptr noundef nonnull %15) #19
-  br label %19
+17:                                               ; preds = %10
+  store i64 0, ptr %15, align 8, !tbaa !29
+  %18 = tail call ptr @rb_method_entry_clone(ptr noundef nonnull %4) #19
+  tail call void @rb_method_table_insert(i64 noundef %11, ptr noundef %14, i64 noundef %0, ptr noundef %18) #19
+  tail call void @rb_method_entry_copy(ptr noundef nonnull %4, ptr noundef nonnull %16) #19
+  br label %20
 
-18:                                               ; preds = %10
-  tail call void @rb_method_table_insert(i64 noundef %11, ptr noundef %13, i64 noundef %0, ptr noundef nonnull %4) #19
-  br label %19
+19:                                               ; preds = %10
+  tail call void @rb_method_table_insert(i64 noundef %11, ptr noundef %14, i64 noundef %0, ptr noundef nonnull %4) #19
+  br label %20
 
-19:                                               ; preds = %3, %16, %18
-  %.1 = phi i32 [ 0, %16 ], [ 2, %18 ], [ 0, %3 ]
+20:                                               ; preds = %3, %17, %19
+  %.1 = phi i32 [ 0, %17 ], [ 2, %19 ], [ 0, %3 ]
   ret i32 %.1
 }
 

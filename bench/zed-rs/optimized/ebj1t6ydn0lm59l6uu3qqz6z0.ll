@@ -241,14 +241,15 @@ define hidden { i64, ptr } @"_ZN123_$LT$futures_util..fns..MapOkFn$LT$F$GT$$u20$
   %3 = load i32, ptr %2, align 4, !range !27, !noundef !4
   %4 = icmp eq i32 %3, 2
   %5 = load ptr, ptr %0, align 8, !nonnull !4
+  %6 = ptrtoint ptr %5 to i64
   %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.1.0.copyload = load i64, ptr %.sroa.1.0..sroa_idx, align 8
-  %6 = inttoptr i64 %.sroa.1.0.copyload to ptr
-  %.sroa.3.0 = select i1 %4, ptr %5, ptr %6
+  %.sroa.3.0 = select i1 %4, i64 %6, i64 %.sroa.1.0.copyload
   %.sroa.0.0 = zext i1 %4 to i64
-  %7 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %8 = insertvalue { i64, ptr } %7, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %8
+  %7 = inttoptr i64 %.sroa.3.0 to ptr
+  %8 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %9 = insertvalue { i64, ptr } %8, ptr %7, 1
+  ret { i64, ptr } %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

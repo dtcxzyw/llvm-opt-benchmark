@@ -408,11 +408,16 @@ define linkonce_odr noundef ptr @_ZN3g2o8BaseEdgeILi1EdE15informationDataEv(ptr 
 define linkonce_odr noundef double @_ZNK3g2o8BaseEdgeILi1EdE4chi2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %4 = load double, ptr %3, align 8, !tbaa !49
-  %5 = load double, ptr %2, align 8, !tbaa !49
-  %6 = fmul double %4, %5
-  %7 = fmul double %5, %6
-  ret double %7
+  %4 = ptrtoint ptr %2 to i64
+  %5 = inttoptr i64 %4 to ptr
+  %6 = ptrtoint ptr %3 to i64
+  %7 = inttoptr i64 %6 to ptr
+  %8 = load double, ptr %7, align 8, !tbaa !49
+  %9 = load double, ptr %2, align 8, !tbaa !49
+  %10 = fmul double %8, %9
+  %11 = load double, ptr %5, align 8, !tbaa !49
+  %12 = fmul double %10, %11
+  ret double %12
 }
 
 ; Function Attrs: mustprogress uwtable

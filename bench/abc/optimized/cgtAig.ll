@@ -2394,10 +2394,9 @@ define ptr @Cgt_ManDeriveGatedAig(ptr noundef %0, ptr noundef readonly captures(
   %17 = and i64 %16, 1
   %.not117 = icmp eq i64 %17, 0
   %18 = and i64 %16, -2
-  %19 = inttoptr i64 %18 to ptr
-  %.sink237 = select i1 %.not117, ptr %15, ptr %19
   %.sink236 = select i1 %.not117, i64 16, i64 32
-  %20 = getelementptr inbounds nuw i8, ptr %.sink237, i64 24
+  %19 = inttoptr i64 %18 to ptr
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = or i64 %21, %.sink236
   store i64 %22, ptr %20, align 8

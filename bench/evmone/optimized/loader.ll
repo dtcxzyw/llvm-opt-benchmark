@@ -31,7 +31,7 @@ define ptr @evmc_load(ptr noundef %0, ptr noundef writeonly captures(address_is_
 
 4:                                                ; preds = %2
   %5 = tail call i32 (i32, ptr, ...) @set_error(i32 noundef 3, ptr noundef nonnull @.str)
-  br label %.thread
+  br label %49
 
 6:                                                ; preds = %2
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
@@ -40,7 +40,7 @@ define ptr @evmc_load(ptr noundef %0, ptr noundef writeonly captures(address_is_
 
 9:                                                ; preds = %6
   %10 = tail call i32 (i32, ptr, ...) @set_error(i32 noundef 3, ptr noundef nonnull @.str.1)
-  br label %.thread
+  br label %49
 
 11:                                               ; preds = %6
   %12 = icmp ugt i64 %7, 4096
@@ -49,7 +49,7 @@ define ptr @evmc_load(ptr noundef %0, ptr noundef writeonly captures(address_is_
 13:                                               ; preds = %11
   %14 = trunc i64 %7 to i32
   %15 = tail call i32 (i32, ptr, ...) @set_error(i32 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %14, i32 noundef 4096)
-  br label %.thread
+  br label %49
 
 16:                                               ; preds = %11
   %17 = tail call ptr @dlopen(ptr noundef nonnull %0, i32 noundef 1) #10
@@ -60,11 +60,11 @@ define ptr @evmc_load(ptr noundef %0, ptr noundef writeonly captures(address_is_
   %19 = tail call ptr @dlerror() #10
   store ptr %19, ptr @last_error_msg, align 8, !tbaa !3
   %.not41 = icmp eq ptr %19, null
-  br i1 %.not41, label %20, label %.thread
+  br i1 %.not41, label %20, label %49
 
 20:                                               ; preds = %18
   %21 = tail call i32 (i32, ptr, ...) @set_error(i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef nonnull %0)
-  br label %.thread
+  br label %49
 
 strcpy_sx.exit:                                   ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %3, ptr noundef nonnull readonly align 1 dereferenceable(12) @__const.evmc_load.prefix, i64 12, i1 false)
@@ -75,14 +75,14 @@ strcpy_sx.exit:                                   ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = select i1 %.not42, ptr %0, ptr %24
   %26 = load i8, ptr %25, align 1
-  %.not54 = icmp eq i8 %26, 108
-  br i1 %.not54, label %sub_1, label %strcpy_sx.exit.tail
+  %.not56 = icmp eq i8 %26, 108
+  br i1 %.not56, label %sub_1, label %strcpy_sx.exit.tail
 
 sub_1:                                            ; preds = %strcpy_sx.exit
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %28 = load i8, ptr %27, align 1
-  %.not55 = icmp eq i8 %28, 105
-  br i1 %.not55, label %sub_2, label %strcpy_sx.exit.tail
+  %.not57 = icmp eq i8 %28, 105
+  br i1 %.not57, label %sub_2, label %strcpy_sx.exit.tail
 
 sub_2:                                            ; preds = %sub_1
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 2
@@ -115,8 +115,8 @@ strcpy_sx.exit50:                                 ; preds = %strcpy_sx.exit.tail
 
 38:                                               ; preds = %37, %strcpy_sx.exit50
   %39 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %22, i32 noundef 45) #9
-  %.not4453 = icmp eq ptr %39, null
-  br i1 %.not4453, label %._crit_edge, label %.lr.ph
+  %.not4455 = icmp eq ptr %39, null
+  br i1 %.not4455, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38, %.lr.ph
   %40 = phi ptr [ %42, %.lr.ph ], [ %39, %38 ]
@@ -131,27 +131,34 @@ strcpy_sx.exit50:                                 ; preds = %strcpy_sx.exit.tail
   %.not45 = icmp eq ptr %43, null
   br i1 %.not45, label %44, label %.thread
 
+.thread:                                          ; preds = %._crit_edge
+  %.1.in52 = ptrtoint ptr %43 to i64
+  %.153 = inttoptr i64 %.1.in52 to ptr
+  br label %49
+
 44:                                               ; preds = %._crit_edge
   %45 = call ptr @dlsym(ptr noundef nonnull %17, ptr noundef nonnull @.str.4) #10
+  %.1.in = ptrtoint ptr %45 to i64
+  %.1 = inttoptr i64 %.1.in to ptr
   %.not46 = icmp eq ptr %45, null
-  br i1 %.not46, label %46, label %.thread
+  br i1 %.not46, label %46, label %49
 
 46:                                               ; preds = %44
   %47 = call i32 @dlclose(ptr noundef nonnull %17) #10
   %48 = call i32 (i32, ptr, ...) @set_error(i32 noundef 2, ptr noundef nonnull @.str.5, ptr noundef nonnull %0)
-  br label %.thread
+  br label %49
 
-.thread:                                          ; preds = %._crit_edge, %18, %44, %46, %20, %13, %9, %4
-  %.031 = phi ptr [ null, %9 ], [ null, %13 ], [ %45, %44 ], [ null, %46 ], [ null, %20 ], [ null, %4 ], [ null, %18 ], [ %43, %._crit_edge ]
-  %.030 = phi i32 [ 3, %9 ], [ 3, %13 ], [ 0, %44 ], [ 2, %46 ], [ 1, %20 ], [ 3, %4 ], [ 1, %18 ], [ 0, %._crit_edge ]
+49:                                               ; preds = %.thread, %18, %44, %46, %20, %13, %9, %4
+  %.031 = phi ptr [ null, %9 ], [ null, %13 ], [ %.1, %44 ], [ null, %46 ], [ null, %20 ], [ null, %4 ], [ null, %18 ], [ %.153, %.thread ]
+  %.030 = phi i32 [ 3, %9 ], [ 3, %13 ], [ 0, %44 ], [ 2, %46 ], [ 1, %20 ], [ 3, %4 ], [ 1, %18 ], [ 0, %.thread ]
   %.not47 = icmp eq ptr %1, null
-  br i1 %.not47, label %50, label %49
+  br i1 %.not47, label %51, label %50
 
-49:                                               ; preds = %.thread
+50:                                               ; preds = %49
   store i32 %.030, ptr %1, align 4, !tbaa !11
-  br label %50
+  br label %51
 
-50:                                               ; preds = %49, %.thread
+51:                                               ; preds = %50, %49
   ret ptr %.031
 }
 

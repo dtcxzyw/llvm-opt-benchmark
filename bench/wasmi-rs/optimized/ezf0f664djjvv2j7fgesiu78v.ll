@@ -1564,8 +1564,10 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %2
 
 25:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17hae69e87701abbbdcE.exit.i"
   %26 = load ptr, ptr %19, align 8, !noalias !189, !nonnull !3, !noundef !3
+  %27 = ptrtoint ptr %26 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !189
-  store ptr %26, ptr %12, align 8, !alias.scope !189
+  %28 = inttoptr i64 %27 to ptr
+  store ptr %28, ptr %12, align 8, !alias.scope !189
   store i64 %7, ptr %0, align 8, !alias.scope !189
   ret void
 }
@@ -1623,8 +1625,10 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %2
 
 23:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17hae69e87701abbbdcE.exit.i"
   %24 = load ptr, ptr %17, align 8, !noalias !195, !nonnull !3, !noundef !3
+  %25 = ptrtoint ptr %24 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !195
-  store ptr %24, ptr %10, align 8, !alias.scope !195
+  %26 = inttoptr i64 %25 to ptr
+  store ptr %26, ptr %10, align 8, !alias.scope !195
   store i64 %7, ptr %0, align 8, !alias.scope !195
   ret void
 }
@@ -1755,7 +1759,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16shrink_unc
   %6 = icmp eq i64 %3, 0
   %7 = icmp eq i64 %.val, 0
   %or.cond.i = select i1 %6, i1 true, i1 %7
-  br i1 %or.cond.i, label %18, label %8
+  br i1 %or.cond.i, label %21, label %8
 
 8:                                                ; preds = %4
   %9 = mul nuw i64 %.val, %3
@@ -1775,20 +1779,25 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16shrink_unc
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef ptr @_RNvCshjvJWTf7CV5_7___rustc14___rust_realloc(ptr noundef nonnull %.val24, i64 noundef %9, i64 noundef range(i64 1, -9223372036854775807) %2, i64 noundef %13) #22
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %18, label %17
+  br i1 %16, label %21, label %18
 
-17:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17h142e5a9580be609aE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit"
-  %storemerge = phi ptr [ %12, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit" ], [ %15, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17h142e5a9580be609aE.exit" ]
+17:                                               ; preds = %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit"
+  %storemerge = phi ptr [ %20, %18 ], [ %12, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit" ]
   store ptr %storemerge, ptr %5, align 8
   store i64 %1, ptr %0, align 8
-  br label %18
+  br label %21
 
-18:                                               ; preds = %4, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17h142e5a9580be609aE.exit", %17
+18:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17h142e5a9580be609aE.exit"
+  %19 = ptrtoint ptr %15 to i64
+  %20 = inttoptr i64 %19 to ptr
+  br label %17
+
+21:                                               ; preds = %4, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17h142e5a9580be609aE.exit", %17
   %.sroa.4.0 = phi i64 [ undef, %17 ], [ %13, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17h142e5a9580be609aE.exit" ], [ undef, %4 ]
   %.sroa.03.0 = phi i64 [ -9223372036854775807, %17 ], [ %2, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17h142e5a9580be609aE.exit" ], [ -9223372036854775807, %4 ]
-  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
-  %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %20
+  %22 = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
+  %23 = insertvalue { i64, i64 } %22, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %23
 }
 
 ; Function Attrs: cold nonlazybind uwtable
@@ -1867,8 +1876,10 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %12
 
 41:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17hae69e87701abbbdcE.exit.i"
   %42 = load ptr, ptr %35, align 8, !noalias !201, !nonnull !3, !noundef !3
+  %43 = ptrtoint ptr %42 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !201
-  store ptr %42, ptr %28, align 8, !alias.scope !201
+  %44 = inttoptr i64 %43 to ptr
+  store ptr %44, ptr %28, align 8, !alias.scope !201
   store i64 %.sroa.0.0.sroa.speculated.i40.i, ptr %0, align 8, !alias.scope !201
   ret void
 }

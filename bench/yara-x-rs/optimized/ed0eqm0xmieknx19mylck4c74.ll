@@ -745,10 +745,12 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
 
 23:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h9a163ded250050fbE.exit.i"
   %24 = load ptr, ptr %17, align 8, !noalias !21, !nonnull !6, !noundef !6
+  %25 = ptrtoint ptr %24 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !21
-  store ptr %24, ptr %10, align 8, !alias.scope !21
-  %25 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %25)
+  %26 = inttoptr i64 %25 to ptr
+  store ptr %26, ptr %10, align 8, !alias.scope !21
+  %27 = icmp sgt i64 %7, -1
+  tail call void @llvm.assume(i1 %27)
   store i64 %7, ptr %0, align 8, !alias.scope !21
   ret void
 }
@@ -806,10 +808,12 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
 
 23:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h9a163ded250050fbE.exit.i"
   %24 = load ptr, ptr %17, align 8, !noalias !28, !nonnull !6, !noundef !6
+  %25 = ptrtoint ptr %24 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !28
-  store ptr %24, ptr %10, align 8, !alias.scope !28
-  %25 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %25)
+  %26 = inttoptr i64 %25 to ptr
+  store ptr %26, ptr %10, align 8, !alias.scope !28
+  %27 = icmp sgt i64 %7, -1
+  tail call void @llvm.assume(i1 %27)
   store i64 %7, ptr %0, align 8, !alias.scope !28
   ret void
 }
@@ -979,10 +983,12 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %12
 
 41:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h9a163ded250050fbE.exit.i"
   %42 = load ptr, ptr %35, align 8, !noalias !34, !nonnull !6, !noundef !6
+  %43 = ptrtoint ptr %42 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !34
-  store ptr %42, ptr %28, align 8, !alias.scope !34
-  %43 = icmp sgt i64 %.sroa.0.0.sroa.speculated.i40.i, -1
-  tail call void @llvm.assume(i1 %43)
+  %44 = inttoptr i64 %43 to ptr
+  store ptr %44, ptr %28, align 8, !alias.scope !34
+  %45 = icmp sgt i64 %.sroa.0.0.sroa.speculated.i40.i, -1
+  tail call void @llvm.assume(i1 %45)
   store i64 %.sroa.0.0.sroa.speculated.i40.i, ptr %0, align 8, !alias.scope !34
   ret void
 }
@@ -1191,7 +1197,7 @@ define hidden noundef i32 @_ZN8protobuf7message7Message11cached_size17hc9eb113d9
 define hidden noundef align 8 ptr @_ZN8protobuf7message7Message17check_initialized17hf7ef75b5d8f793a2E(ptr noundef nonnull align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca [72 x i8], align 8
   %3 = tail call noundef zeroext i1 @"_ZN80_$LT$yara_x_proto_yaml..yara..AclEntry$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h724feda2ca887c7eE"(ptr noundef nonnull align 8 %0)
-  br i1 %3, label %10, label %4
+  br i1 %3, label %12, label %4
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1205,20 +1211,22 @@ define hidden noundef align 8 ptr @_ZN8protobuf7message7Message17check_initializ
   unreachable
 
 "_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4aea406124a3e984E.exit": ; preds = %4
-  store i64 8751185042894250817, ptr %5, align 1, !noalias !46
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 8, ptr %8, align 8
+  %8 = ptrtoint ptr %5 to i64
+  %9 = inttoptr i64 %8 to ptr
+  store i64 8751185042894250817, ptr %9, align 1, !noalias !46
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 8, ptr %10, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %5, ptr %.sroa.42.0..sroa_idx, align 8
+  store ptr %9, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 8, ptr %.sroa.53.0..sroa_idx, align 8
   store i64 -9223372036854775794, ptr %2, align 8
-  %9 = call noundef nonnull align 8 ptr @"_ZN100_$LT$protobuf..error..Error$u20$as$u20$core..convert..From$LT$protobuf..error..ProtobufError$GT$$GT$4from17h5b5e7f0b90eaaa24E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %2)
+  %11 = call noundef nonnull align 8 ptr @"_ZN100_$LT$protobuf..error..Error$u20$as$u20$core..convert..From$LT$protobuf..error..ProtobufError$GT$$GT$4from17h5b5e7f0b90eaaa24E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %10
+  br label %12
 
-10:                                               ; preds = %1, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4aea406124a3e984E.exit"
-  %.sroa.0.0 = phi ptr [ %9, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4aea406124a3e984E.exit" ], [ null, %1 ]
+12:                                               ; preds = %1, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4aea406124a3e984E.exit"
+  %.sroa.0.0 = phi ptr [ %11, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4aea406124a3e984E.exit" ], [ null, %1 ]
   ret ptr %.sroa.0.0
 }
 

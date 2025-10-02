@@ -305,12 +305,12 @@ define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr noundef readonl
   %7 = load volatile i64, ptr %6, align 8
   %8 = and i64 %7, 16
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %60
+  br i1 %9, label %10, label %61
 
 10:                                               ; preds = %4
   %11 = load volatile i8, ptr @vmemmap_optimize_enabled, align 1, !range !12, !noundef !13
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %60, label %13
+  br i1 %12, label %61, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -318,7 +318,7 @@ define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr noundef readonl
   %16 = shl i32 64, %15
   %17 = add i32 %16, -4096
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %19, label %60
+  br i1 %18, label %19, label %61
 
 19:                                               ; preds = %13
   %20 = ptrtoint ptr %1 to i64
@@ -345,7 +345,7 @@ define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr noundef readonl
   %34 = tail call ptr @__alloc_pages(i32 noundef 76992, i32 noundef 0, i32 noundef %33, ptr noundef null) #7
   store ptr %34, ptr %27, align 8
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %48, label %36
+  br i1 %35, label %49, label %36
 
 36:                                               ; preds = %19
   %37 = load i64, ptr @vmemmap_base, align 8
@@ -355,50 +355,51 @@ define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr noundef readonl
   %41 = load i64, ptr @page_offset_base, align 8
   %42 = add i64 %40, %41
   %43 = inttoptr i64 %42 to ptr
-  tail call void @copy_page(ptr noundef %43, ptr noundef %1) #7
-  %44 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store ptr %44, ptr %46, align 8
-  store ptr %45, ptr %44, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %2, ptr %47, align 8
-  store volatile ptr %44, ptr %2, align 8
-  br label %48
+  %44 = inttoptr i64 %20 to ptr
+  tail call void @copy_page(ptr noundef %43, ptr noundef %44) #7
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %46 = load ptr, ptr %2, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store ptr %45, ptr %47, align 8
+  store ptr %46, ptr %45, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  store ptr %2, ptr %48, align 8
+  store volatile ptr %45, ptr %2, align 8
+  br label %49
 
-48:                                               ; preds = %36, %19
-  %49 = call fastcc i32 @vmemmap_remap_range(i64 noundef %20, i64 noundef %25, ptr noundef nonnull %5)
-  %50 = icmp ne i32 %49, 0
-  %51 = load i64, ptr %26, align 8
-  %52 = icmp ne i64 %51, 0
-  %53 = select i1 %50, i1 %52, i1 false
-  br i1 %53, label %.thread, label %57
+49:                                               ; preds = %36, %19
+  %50 = call fastcc i32 @vmemmap_remap_range(i64 noundef %20, i64 noundef %25, ptr noundef nonnull %5)
+  %51 = icmp ne i32 %50, 0
+  %52 = load i64, ptr %26, align 8
+  %53 = icmp ne i64 %52, 0
+  %54 = select i1 %51, i1 %53, i1 false
+  br i1 %54, label %.thread, label %58
 
-.thread:                                          ; preds = %48
-  %54 = shl i64 %51, 12
-  %55 = add i64 %54, %20
+.thread:                                          ; preds = %49
+  %55 = shl i64 %52, 12
+  %56 = add i64 %55, %20
   store ptr @vmemmap_restore_pte, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store i64 %20, ptr %28, align 8
   store ptr %2, ptr %29, align 8
   store i64 0, ptr %30, align 8
-  %56 = call fastcc i32 @vmemmap_remap_range(i64 noundef %20, i64 noundef %55, ptr noundef nonnull %5)
+  %57 = call fastcc i32 @vmemmap_remap_range(i64 noundef %20, i64 noundef %56, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %59
-
-57:                                               ; preds = %48
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = icmp eq i32 %49, 0
-  br i1 %58, label %60, label %59
-
-59:                                               ; preds = %.thread, %57
-  call void @static_key_slow_dec(ptr noundef nonnull @hugetlb_optimize_vmemmap_key) #7
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i32 -17, ptr nonnull elementtype(i8) %6) #7, !srcloc !9
   br label %60
 
-60:                                               ; preds = %59, %57, %13, %10, %4
-  %61 = phi i32 [ 0, %13 ], [ %49, %59 ], [ 0, %57 ], [ 0, %10 ], [ 0, %4 ]
-  ret i32 %61
+58:                                               ; preds = %49
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %59 = icmp eq i32 %50, 0
+  br i1 %59, label %61, label %60
+
+60:                                               ; preds = %.thread, %58
+  call void @static_key_slow_dec(ptr noundef nonnull @hugetlb_optimize_vmemmap_key) #7
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i32 -17, ptr nonnull elementtype(i8) %6) #7, !srcloc !9
+  br label %61
+
+61:                                               ; preds = %60, %58, %13, %10, %4
+  %62 = phi i32 [ 0, %13 ], [ %50, %60 ], [ 0, %58 ], [ 0, %10 ], [ 0, %4 ]
+  ret i32 %62
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

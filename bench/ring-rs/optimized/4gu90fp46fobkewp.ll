@@ -1323,53 +1323,56 @@ _ZN4ring5pkcs810unwrap_key17h446c1492f027f92aE.exit: ; preds = %20
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %34 = load i64, ptr %33, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %30, label %42, label %35
+  %35 = ptrtoint ptr %32 to i64
+  br i1 %30, label %43, label %36
 
-35:                                               ; preds = %_ZN4ring5pkcs810unwrap_key17h446c1492f027f92aE.exit
-  %.sroa.416.0.copyload.cast = ptrtoint ptr %32 to i64
+36:                                               ; preds = %_ZN4ring5pkcs810unwrap_key17h446c1492f027f92aE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %29, ptr %11, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %.sroa.416.0.copyload.cast, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 %35, ptr %37, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN9untrusted5input5Input8read_all17h3ece5dc86dc8b2a9E(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 1 @anon.73af0eeec79b9449fee1b34a4c12d756.32.llvm.4505101779727634190, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
-  %37 = load ptr, ptr %9, align 8, !noundef !10
-  %38 = icmp eq ptr %37, null
-  %39 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %41 = load i64, ptr %40, align 8
-  br i1 %38, label %47, label %45
+  %38 = load ptr, ptr %9, align 8, !noundef !10
+  %39 = icmp eq ptr %38, null
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %42 = load i64, ptr %41, align 8
+  br i1 %39, label %49, label %47
 
-42:                                               ; preds = %_ZN4ring5pkcs810unwrap_key17h446c1492f027f92aE.exit
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %32, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %34, ptr %44, align 8
+43:                                               ; preds = %_ZN4ring5pkcs810unwrap_key17h446c1492f027f92aE.exit
+  %44 = inttoptr i64 %35 to ptr
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %44, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %34, ptr %46, align 8
   store ptr null, ptr %0, align 8
-  br label %51
+  br label %55
 
-45:                                               ; preds = %35
-  %.sroa.420.0.copyload = load i64, ptr %39, align 8
+47:                                               ; preds = %36
+  %.sroa.420.0.copyload = load i64, ptr %40, align 8
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   %.sroa.622.0.copyload = load i64, ptr %.sroa.622.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %46 = inttoptr i64 %41 to ptr
-  call void @_ZN4ring2ec7suite_b19key_pair_from_bytes17h0e9a00425f4c9bffE(ptr noalias noundef nonnull sret({ ptr, [20 x i64] }) align 8 captures(none) dereferenceable(168) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %.sroa.420.0.copyload, ptr noalias noundef nonnull readonly align 1 %46, i64 noundef %.sroa.622.0.copyload)
+  %48 = inttoptr i64 %42 to ptr
+  call void @_ZN4ring2ec7suite_b19key_pair_from_bytes17h0e9a00425f4c9bffE(ptr noalias noundef nonnull sret({ ptr, [20 x i64] }) align 8 captures(none) dereferenceable(168) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 %38, i64 noundef %.sroa.420.0.copyload, ptr noalias noundef nonnull readonly align 1 %48, i64 noundef %.sroa.622.0.copyload)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %51
+  br label %55
 
-47:                                               ; preds = %35
-  %48 = load ptr, ptr %39, align 8, !nonnull !10, !align !308, !noundef !10
+49:                                               ; preds = %36
+  %50 = load ptr, ptr %40, align 8, !nonnull !10, !align !308, !noundef !10
+  %51 = ptrtoint ptr %50 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %41, ptr %50, align 8
+  %52 = inttoptr i64 %51 to ptr
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %52, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %42, ptr %54, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %51
+  br label %55
 
-51:                                               ; preds = %47, %45, %42
+55:                                               ; preds = %49, %47, %43
   ret void
 }
 

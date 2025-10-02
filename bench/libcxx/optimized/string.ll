@@ -1677,8 +1677,10 @@ _ZNSt3__111char_traitsIcE4moveB8ne210000EPcPKcm.exit: ; preds = %46, %45, %_ZNSt
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne210000Em.exit: ; preds = %55, %56
   %59 = load ptr, ptr %6, align 8
   %60 = select i1 %.not.i26, ptr %8, ptr %59
-  %61 = getelementptr inbounds i8, ptr %60, i64 %12
-  ret ptr %61
+  %61 = ptrtoint ptr %60 to i64
+  %62 = inttoptr i64 %61 to ptr
+  %63 = getelementptr inbounds i8, ptr %62, i64 %12
+  ret ptr %63
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4620,8 +4622,10 @@ _ZNSt3__118__char_traits_baseIwjLj4294967295EE4moveB8ne210000EPwPKwm.exit: ; pre
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE10__set_sizeB8ne210000Em.exit: ; preds = %40, %41
   %44 = load ptr, ptr %6, align 8
   %45 = select i1 %.not.i25, ptr %8, ptr %44
-  %46 = getelementptr inbounds i8, ptr %45, i64 %12
-  ret ptr %46
+  %46 = ptrtoint ptr %45 to i64
+  %47 = inttoptr i64 %46 to ptr
+  %48 = getelementptr inbounds i8, ptr %47, i64 %12
+  ret ptr %48
 }
 
 ; Function Attrs: mustprogress uwtable

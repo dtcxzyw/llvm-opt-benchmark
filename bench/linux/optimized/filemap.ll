@@ -11486,59 +11486,64 @@ define internal fastcc i32 @page_mapcount(ptr noundef %0) unnamed_addr #5 align 
   %10 = load volatile i64, ptr %9, align 8
   %11 = and i64 %10, 1
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %43, label %13, !prof !12
+  br i1 %12, label %46, label %13, !prof !12
 
 13:                                               ; preds = %7, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load volatile i64, ptr %14, align 8
   %16 = and i64 %15, 1
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %21, label %18, !prof !12
+  br i1 %17, label %20, label %18, !prof !12
 
 18:                                               ; preds = %13
   %19 = add nsw i64 %15, -1
-  %20 = inttoptr i64 %19 to ptr
   br label %_compound_head.exit
 
-21:                                               ; preds = %13
+20:                                               ; preds = %13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #14
-          to label %_compound_head.exit [label %22], !srcloc !18
+          to label %37 [label %21], !srcloc !18
 
-22:                                               ; preds = %21
-  %23 = ptrtoint ptr %0 to i64
-  %24 = and i64 %23, 4095
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %37
+21:                                               ; preds = %20
+  %22 = ptrtoint ptr %0 to i64
+  %23 = and i64 %22, 4095
+  %24 = icmp eq i64 %23, 0
+  br i1 %24, label %25, label %36
 
-26:                                               ; preds = %22
-  %27 = load volatile i64, ptr %0, align 8
-  %28 = and i64 %27, 64
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %37, label %30
+25:                                               ; preds = %21
+  %26 = load volatile i64, ptr %0, align 8
+  %27 = and i64 %26, 64
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %36, label %29
 
-30:                                               ; preds = %26
-  %31 = getelementptr i8, ptr %0, i64 72
-  %32 = load volatile i64, ptr %31, align 8
-  %33 = and i64 %32, 1
-  %34 = icmp eq i64 %33, 0
-  %35 = add nsw i64 %32, -1
-  %36 = inttoptr i64 %35 to ptr
-  br i1 %34, label %37, label %_compound_head.exit
+29:                                               ; preds = %25
+  %30 = getelementptr i8, ptr %0, i64 72
+  %31 = load volatile i64, ptr %30, align 8
+  %32 = and i64 %31, 1
+  %33 = icmp eq i64 %32, 0
+  %34 = add nsw i64 %31, -1
+  %35 = inttoptr i64 %34 to ptr
+  br i1 %33, label %36, label %37
 
-37:                                               ; preds = %30, %26, %22
+36:                                               ; preds = %29, %25, %21
+  br label %37
+
+37:                                               ; preds = %36, %29, %20
+  %38 = phi ptr [ %35, %29 ], [ %0, %36 ], [ %0, %20 ]
+  %39 = ptrtoint ptr %38 to i64
   br label %_compound_head.exit
 
-_compound_head.exit:                              ; preds = %21, %30, %37, %18
-  %38 = phi ptr [ %20, %18 ], [ %36, %30 ], [ %0, %37 ], [ %0, %21 ]
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 88
-  %40 = load volatile i32, ptr %39, align 4
-  %41 = add i32 %3, 2
-  %42 = add i32 %41, %40
-  br label %43
+_compound_head.exit:                              ; preds = %18, %37
+  %40 = phi i64 [ %19, %18 ], [ %39, %37 ]
+  %41 = inttoptr i64 %40 to ptr
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 88
+  %43 = load volatile i32, ptr %42, align 4
+  %44 = add i32 %3, 2
+  %45 = add i32 %44, %43
+  br label %46
 
-43:                                               ; preds = %_compound_head.exit, %7
-  %44 = phi i32 [ %42, %_compound_head.exit ], [ %8, %7 ]
-  ret i32 %44
+46:                                               ; preds = %_compound_head.exit, %7
+  %47 = phi i32 [ %45, %_compound_head.exit ], [ %8, %7 ]
+  ret i32 %47
 }
 
 ; Function Attrs: null_pointer_is_valid

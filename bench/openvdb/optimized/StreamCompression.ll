@@ -408,14 +408,18 @@ entry:
 
 invoke.cont.i:                                    ; preds = %entry
   %1 = load i64, ptr %compressedBytes, align 8, !noalias !4
-  tail call void @_ZdaPv(ptr noundef nonnull %call5.i) #22
+  %cmp10.i = icmp eq i64 %1, 0
+  %2 = ptrtoint ptr %call5.i to i64
+  %3 = inttoptr i64 %2 to ptr
+  %call5.i.sink = select i1 %cmp10.i, ptr %call5.i, ptr %3
+  tail call void @_ZdaPv(ptr noundef nonnull %call5.i.sink) #22
   ret i64 %1
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPv(ptr noundef nonnull %call5.i) #22, !noalias !4
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2518,60 +2522,64 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i.i: ; preds = %if.then2
 
 _ZN7openvdb5v11_011compression19bloscCompressedSizeEPKcm.exit: ; preds = %if.then2
   %7 = load i64, ptr %compressedBytes.i, align 8, !noalias !13
-  tail call void @_ZdaPv(ptr noundef nonnull %call5.i.i) #22
+  %cmp10.i.i = icmp eq i64 %7, 0
+  %8 = ptrtoint ptr %call5.i.i to i64
+  %9 = inttoptr i64 %8 to ptr
+  %call5.i.sink.i = select i1 %cmp10.i.i, ptr %call5.i.i, ptr %9
+  tail call void @_ZdaPv(ptr noundef nonnull %call5.i.sink.i) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %compressedBytes.i)
   store i64 %7, ptr %compressedBytes, align 8
   br label %if.end4
 
 if.else:                                          ; preds = %_ZN7openvdb5v11_011compression17PagedOutputStream6resizeEm.exit
   %mCompressedData = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %8 = load ptr, ptr %mCompressedData, align 8
-  %9 = load i64, ptr %mCapacity.i, align 8
-  %add = add i64 %9, 16
-  call void @_ZN7openvdb5v11_011compression13bloscCompressEPcRmmPKcm(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %compressedBytes, i64 noundef %add, ptr noundef %buffer, i64 noundef %size)
+  %10 = load ptr, ptr %mCompressedData, align 8
+  %11 = load i64, ptr %mCapacity.i, align 8
+  %add = add i64 %11, 16
+  call void @_ZN7openvdb5v11_011compression13bloscCompressEPcRmmPKcm(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %compressedBytes, i64 noundef %add, ptr noundef %buffer, i64 noundef %size)
   %.pr = load i64, ptr %compressedBytes, align 8
   br label %if.end4
 
 if.end4:                                          ; preds = %if.else, %_ZN7openvdb5v11_011compression19bloscCompressedSizeEPKcm.exit
-  %10 = phi i64 [ %.pr, %if.else ], [ %7, %_ZN7openvdb5v11_011compression19bloscCompressedSizeEPKcm.exit ]
-  %cmp5 = icmp eq i64 %10, 0
+  %12 = phi i64 [ %.pr, %if.else ], [ %7, %_ZN7openvdb5v11_011compression19bloscCompressedSizeEPKcm.exit ]
+  %cmp5 = icmp eq i64 %12, 0
   br i1 %cmp5, label %if.then6, label %if.else15
 
 if.then6:                                         ; preds = %if.end4
   %conv = trunc i64 %size to i32
   %sub = sub nsw i32 0, %conv
   store i32 %sub, ptr %uncompressedBytes, align 4
-  %11 = load i8, ptr %mSizeOnly, align 8
-  %tobool8 = trunc i8 %11 to i1
+  %13 = load i8, ptr %mSizeOnly, align 8
+  %tobool8 = trunc i8 %13 to i1
   %mOs = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %12 = load ptr, ptr %mOs, align 8
+  %14 = load ptr, ptr %mOs, align 8
   br i1 %tobool8, label %if.then9, label %if.else11
 
 if.then9:                                         ; preds = %if.then6
-  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %uncompressedBytes, i64 noundef 4)
+  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %uncompressedBytes, i64 noundef 4)
   br label %if.end29
 
 if.else11:                                        ; preds = %if.then6
-  %call13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %buffer, i64 noundef %size)
+  %call13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %buffer, i64 noundef %size)
   br label %if.end29
 
 if.else15:                                        ; preds = %if.end4
-  %13 = load i8, ptr %mSizeOnly, align 8
-  %tobool17 = trunc i8 %13 to i1
+  %15 = load i8, ptr %mSizeOnly, align 8
+  %tobool17 = trunc i8 %15 to i1
   %mOs19 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %14 = load ptr, ptr %mOs19, align 8
+  %16 = load ptr, ptr %mOs19, align 8
   br i1 %tobool17, label %if.then18, label %if.else23
 
 if.then18:                                        ; preds = %if.else15
-  %call20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %compressedBytes, i64 noundef 4)
-  %15 = load ptr, ptr %mOs19, align 8
-  %call22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %size.addr, i64 noundef 4)
+  %call20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %compressedBytes, i64 noundef 4)
+  %17 = load ptr, ptr %mOs19, align 8
+  %call22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %size.addr, i64 noundef 4)
   br label %if.end29
 
 if.else23:                                        ; preds = %if.else15
   %mCompressedData25 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %16 = load ptr, ptr %mCompressedData25, align 8
-  %call27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %16, i64 noundef %10)
+  %18 = load ptr, ptr %mCompressedData25, align 8
+  %call27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %18, i64 noundef %12)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then18, %if.else23, %if.then9, %if.else11, %entry

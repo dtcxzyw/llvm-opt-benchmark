@@ -1235,7 +1235,7 @@ define hidden void @"_ZN102_$LT$bincode..features..serde..de_owned..SerdeDecoder
   %16 = load i32, ptr %15, align 8, !noalias !204, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !204
   %.not.i.i76.i = icmp eq i64 %5, 1
-  br i1 %.not.i.i76.i, label %29, label %17
+  br i1 %.not.i.i76.i, label %31, label %17
 
 17:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !214
@@ -1276,8 +1276,10 @@ define hidden void @"_ZN102_$LT$bincode..features..serde..de_owned..SerdeDecoder
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %27 = load i64, ptr %26, align 8, !noalias !214
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !214
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %25, ptr %28, align 8, !alias.scope !201, !noalias !212
+  %28 = ptrtoint ptr %25 to i64
+  %29 = inttoptr i64 %28 to ptr
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %29, ptr %30, align 8, !alias.scope !201, !noalias !212
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %27, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !201, !noalias !212
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1287,11 +1289,11 @@ define hidden void @"_ZN102_$LT$bincode..features..serde..de_owned..SerdeDecoder
   store i8 18, ptr %0, align 8, !alias.scope !201, !noalias !212
   br label %"_ZN170_$LT$ruff_diagnostics..edit.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..edit..Edit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h75ac2e1522eb1808E.exit"
 
-29:                                               ; preds = %12
+31:                                               ; preds = %12
   tail call void @_ZN5serde2de5Error14invalid_length17hd51d3c99bfb63d4cE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i64 noundef 1, ptr noundef nonnull align 1 @anon.367fb924957e055b1139130d4d909654.54, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.367fb924957e055b1139130d4d909654.52), !noalias !212
   br label %"_ZN170_$LT$ruff_diagnostics..edit.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..edit..Edit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h75ac2e1522eb1808E.exit"
 
-"_ZN170_$LT$ruff_diagnostics..edit.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..edit..Edit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h75ac2e1522eb1808E.exit": ; preds = %20, %29, %11, %19, %23
+"_ZN170_$LT$ruff_diagnostics..edit.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..edit..Edit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h75ac2e1522eb1808E.exit": ; preds = %20, %31, %11, %19, %23
   ret void
 }
 

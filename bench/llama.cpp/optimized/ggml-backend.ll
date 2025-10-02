@@ -7905,13 +7905,10 @@ define internal noundef ptr @_ZL32ggml_backend_cpu_buffer_get_baseP19ggml_backen
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 31
-  %.not = icmp eq i64 %5, 0
-  %6 = add i64 %4, 31
-  %7 = and i64 %6, -32
-  %8 = inttoptr i64 %7 to ptr
-  %.0 = select i1 %.not, ptr %3, ptr %8
-  ret ptr %.0
+  %.biased = add i64 %4, 31
+  %.0 = and i64 %.biased, -32
+  %5 = inttoptr i64 %.0 to ptr
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable

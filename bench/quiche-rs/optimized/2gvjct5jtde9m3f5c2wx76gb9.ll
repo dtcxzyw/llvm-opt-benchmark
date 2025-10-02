@@ -2742,28 +2742,30 @@ define void @_ZN6quiche6Config3new17h52b89780bac8b2ecE(ptr dead_on_unwind noalia
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %8, ptr %10, align 8
   store i128 2, ptr %0, align 16
-  br label %19
+  br label %21
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %6, align 8, !noundef !3
+  %13 = ptrtoint ptr %12 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %14 = inttoptr i64 %13 to ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !330)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %12, ptr %3, align 8, !noalias !330
-  %13 = and i32 %1, 84215045
-  %14 = icmp eq i32 %13, 0
-  %15 = icmp eq i32 %1, 1
-  %or.cond.i = or i1 %15, %14
-  br i1 %or.cond.i, label %18, label %16
+  store ptr %14, ptr %3, align 8, !noalias !330
+  %15 = and i32 %1, 84215045
+  %16 = icmp eq i32 %15, 0
+  %17 = icmp eq i32 %1, 1
+  %or.cond.i = or i1 %17, %16
+  br i1 %or.cond.i, label %20, label %18
 
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 2, ptr %17, align 16, !alias.scope !330
+18:                                               ; preds = %11
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 2, ptr %19, align 16, !alias.scope !330
   store i128 2, ptr %0, align 16, !alias.scope !330
   call void @"_ZN4core3ptr41drop_in_place$LT$quiche..tls..Context$GT$17h4fd5c37e9f25cceeE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !330
   br label %_ZN6quiche6Config12with_tls_ctx17h4f1cb7a4c91802e8E.exit
 
-18:                                               ; preds = %11
+20:                                               ; preds = %11
   %.sroa.0.sroa.17.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.sroa.17.0..sroa_idx.i, i8 0, i64 48, i1 false), !alias.scope !330
   store i128 0, ptr %0, align 16, !alias.scope !330
@@ -2802,7 +2804,7 @@ define void @_ZN6quiche6Config3new17h52b89780bac8b2ecE(ptr dead_on_unwind noalia
   %.sroa.9.sroa.5.0..sroa.9.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 424
   store i64 0, ptr %.sroa.9.sroa.5.0..sroa.9.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !330
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store ptr %12, ptr %.sroa.10.0..sroa_idx.i, align 16, !alias.scope !330
+  store ptr %14, ptr %.sroa.10.0..sroa_idx.i, align 16, !alias.scope !330
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i64 10, ptr %.sroa.11.0..sroa_idx.i, align 8, !alias.scope !330
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -2835,11 +2837,11 @@ define void @_ZN6quiche6Config3new17h52b89780bac8b2ecE(ptr dead_on_unwind noalia
   store i8 0, ptr %.sroa.26.0..sroa_idx.i, align 4, !alias.scope !330
   br label %_ZN6quiche6Config12with_tls_ctx17h4f1cb7a4c91802e8E.exit
 
-_ZN6quiche6Config12with_tls_ctx17h4f1cb7a4c91802e8E.exit: ; preds = %16, %18
+_ZN6quiche6Config12with_tls_ctx17h4f1cb7a4c91802e8E.exit: ; preds = %18, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %19
+  br label %21
 
-19:                                               ; preds = %_ZN6quiche6Config12with_tls_ctx17h4f1cb7a4c91802e8E.exit, %7
+21:                                               ; preds = %_ZN6quiche6Config12with_tls_ctx17h4f1cb7a4c91802e8E.exit, %7
   ret void
 }
 

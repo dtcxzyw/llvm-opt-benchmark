@@ -736,25 +736,31 @@ define dso_local noundef i32 @_Unwind_ForcedUnwind(ptr noundef %0, ptr noundef %
   %4 = alloca %struct.unw_context_t, align 8
   %5 = alloca %struct.unw_cursor_t, align 8
   %6 = tail call zeroext i1 @logAPIs()
-  br i1 %6, label %7, label %12
+  br i1 %6, label %7, label %._crit_edge
+
+._crit_edge:                                      ; preds = %3
+  %.pre = ptrtoint ptr %1 to i64
+  br label %14
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.4, ptr noundef %0, ptr noundef %1) #7
-  %10 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %11 = tail call i32 @fflush(ptr noundef %10)
-  br label %12
+  %9 = ptrtoint ptr %1 to i64
+  %10 = inttoptr i64 %9 to ptr
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.4, ptr noundef %0, ptr noundef %10) #7
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %13 = tail call i32 @fflush(ptr noundef %12)
+  br label %14
 
-12:                                               ; preds = %3, %7
+14:                                               ; preds = %._crit_edge, %7
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %9, %7 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %13 = call i32 @__unw_getcontext(ptr noundef nonnull %4)
-  %14 = ptrtoint ptr %1 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %14, ptr %15, align 16, !tbaa !20
-  %16 = ptrtoint ptr %2 to i64
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %16, ptr %17, align 8, !tbaa !19
+  %15 = call i32 @__unw_getcontext(ptr noundef nonnull %4)
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.pre-phi, ptr %16, align 16, !tbaa !20
+  %17 = ptrtoint ptr %2 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %17, ptr %18, align 8, !tbaa !19
   call fastcc void @unwind_phase2_forced(ptr noundef %4, ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

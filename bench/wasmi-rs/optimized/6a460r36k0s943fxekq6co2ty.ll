@@ -590,21 +590,23 @@ define { i64, i64 } @_ZN10wasmi_core6memory6Memory4read17h6bf077757877e327E(ptr 
   %9 = extractvalue { ptr, i64 } %6, 1
   %.not = icmp ugt i64 %7, %9
   %or.cond = select i1 %8, i1 true, i1 %.not
-  br i1 %or.cond, label %14, label %10
+  br i1 %or.cond, label %16, label %10
 
 10:                                               ; preds = %4
   %11 = extractvalue { ptr, i64 } %6, 0
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %1
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull readonly align 1 %12, i64 %3, i1 false), !alias.scope !57, !noalias !61
-  br label %14
+  %14 = ptrtoint ptr %12 to i64
+  %15 = inttoptr i64 %14 to ptr
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull readonly align 1 %15, i64 %3, i1 false), !alias.scope !57, !noalias !61
+  br label %16
 
-14:                                               ; preds = %4, %10
+16:                                               ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ 9, %10 ], [ 2, %4 ]
-  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %16 = insertvalue { i64, i64 } %15, i64 undef, 1
-  ret { i64, i64 } %16
+  %17 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %18 = insertvalue { i64, i64 } %17, i64 undef, 1
+  ret { i64, i64 } %18
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -616,21 +618,23 @@ define { i64, i64 } @_ZN10wasmi_core6memory6Memory5write17h37fefa9a420fa2bcE(ptr
   %9 = extractvalue { ptr, i64 } %6, 1
   %.not = icmp ugt i64 %7, %9
   %or.cond = select i1 %8, i1 true, i1 %.not
-  br i1 %or.cond, label %14, label %10
+  br i1 %or.cond, label %16, label %10
 
 10:                                               ; preds = %4
   %11 = extractvalue { ptr, i64 } %6, 0
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %1
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %2, i64 %3, i1 false), !alias.scope !63, !noalias !67
-  br label %14
+  %14 = ptrtoint ptr %12 to i64
+  %15 = inttoptr i64 %14 to ptr
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %2, i64 %3, i1 false), !alias.scope !63, !noalias !67
+  br label %16
 
-14:                                               ; preds = %4, %10
+16:                                               ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ 9, %10 ], [ 2, %4 ]
-  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %16 = insertvalue { i64, i64 } %15, i64 undef, 1
-  ret { i64, i64 } %16
+  %17 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %18 = insertvalue { i64, i64 } %17, i64 undef, 1
+  ret { i64, i64 } %18
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

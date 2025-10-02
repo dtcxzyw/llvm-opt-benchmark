@@ -14173,11 +14173,11 @@ _ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit53.i: ; preds
   store i32 %3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !3489, !noalias !3502
   br label %_ZN14regex_automata4util5empty11skip_splits17h3a86e9ad937f000aE.exit
 
-51:                                               ; preds = %80, %14
-  %52 = phi i64 [ %19, %14 ], [ %.pre.i, %80 ]
-  %.sroa.66.0.i = phi i32 [ %3, %14 ], [ %81, %80 ]
-  %.sroa.05.0.i = phi i64 [ %2, %14 ], [ %82, %80 ]
-  %.0.i = phi i64 [ %4, %14 ], [ %82, %80 ]
+51:                                               ; preds = %82, %14
+  %52 = phi i64 [ %19, %14 ], [ %.pre.i, %82 ]
+  %.sroa.66.0.i = phi i32 [ %3, %14 ], [ %83, %82 ]
+  %.sroa.05.0.i = phi i64 [ %2, %14 ], [ %84, %82 ]
+  %.0.i = phi i64 [ %4, %14 ], [ %84, %82 ]
   %.not.i = icmp ult i64 %.0.i, %52
   br i1 %.not.i, label %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i, label %53
 
@@ -14260,20 +14260,22 @@ _ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i: ; pre
   switch i64 %76, label %default.unreachable [
     i64 2, label %78
     i64 0, label %.thread72.i
-    i64 1, label %80
+    i64 1, label %82
   ]
 
 default.unreachable:                              ; preds = %_ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i
   unreachable
 
 78:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %77, ptr %79, align 8, !alias.scope !3489, !noalias !3502
+  %79 = ptrtoint ptr %77 to i64
+  %80 = inttoptr i64 %79 to ptr
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %80, ptr %81, align 8, !alias.scope !3489, !noalias !3502
   br label %.thread72.i
 
-80:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i
-  %81 = trunc i64 %.sroa.5.0.copyload.i.i to i32
-  %82 = ptrtoint ptr %77 to i64
+82:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i
+  %83 = trunc i64 %.sroa.5.0.copyload.i.i to i32
+  %84 = ptrtoint ptr %77 to i64
   %.pre.i = load i64, ptr %28, align 8, !noalias !3497
   br label %51
 
@@ -14565,11 +14567,11 @@ _ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit53.i: ; preds
   store i32 %3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !3556, !noalias !3575
   br label %_ZN14regex_automata4util5empty11skip_splits17h8ee9eaff8fff0e4fE.exit
 
-.split.i:                                         ; preds = %15, %75
-  %54 = phi i64 [ %62, %75 ], [ %22, %15 ]
-  %.sroa.66.0.i = phi i32 [ %76, %75 ], [ %3, %15 ]
-  %.sroa.05.0.i = phi i64 [ %77, %75 ], [ %2, %15 ]
-  %.0.i = phi i64 [ %77, %75 ], [ %4, %15 ]
+.split.i:                                         ; preds = %15, %77
+  %54 = phi i64 [ %62, %77 ], [ %22, %15 ]
+  %.sroa.66.0.i = phi i32 [ %78, %77 ], [ %3, %15 ]
+  %.sroa.05.0.i = phi i64 [ %79, %77 ], [ %2, %15 ]
+  %.0.i = phi i64 [ %79, %77 ], [ %4, %15 ]
   %.not.i = icmp ult i64 %.0.i, %20
   br i1 %.not.i, label %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i, label %55
 
@@ -14649,20 +14651,22 @@ _ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i: ; pre
   switch i64 %71, label %default.unreachable [
     i64 2, label %73
     i64 0, label %.thread74.i
-    i64 1, label %75
+    i64 1, label %77
   ]
 
 default.unreachable:                              ; preds = %_ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i
   unreachable
 
 73:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %72, ptr %74, align 8, !alias.scope !3556, !noalias !3575
+  %74 = ptrtoint ptr %72 to i64
+  %75 = inttoptr i64 %74 to ptr
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %75, ptr %76, align 8, !alias.scope !3556, !noalias !3575
   br label %.thread74.i
 
-75:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i
-  %76 = trunc i64 %.sroa.510.0.copyload.i.i to i32
-  %77 = ptrtoint ptr %72 to i64
+77:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i
+  %78 = trunc i64 %.sroa.510.0.copyload.i.i to i32
+  %79 = ptrtoint ptr %72 to i64
   br label %.split.i
 
 .thread74.i:                                      ; preds = %_ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i, %73
@@ -14773,11 +14777,11 @@ _ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit54.i: ; preds
   store i32 %3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !3589, !noalias !3609
   br label %_ZN14regex_automata4util5empty11skip_splits17hb0ed7556ff7785d0E.exit
 
-.split:                                           ; preds = %15, %70
-  %51 = phi i64 [ %57, %70 ], [ %24, %15 ]
-  %.sroa.66.0.i = phi i32 [ %71, %70 ], [ %3, %15 ]
-  %.sroa.05.0.i = phi i64 [ %72, %70 ], [ %2, %15 ]
-  %.0.i = phi i64 [ %72, %70 ], [ %4, %15 ]
+.split:                                           ; preds = %15, %72
+  %51 = phi i64 [ %57, %72 ], [ %24, %15 ]
+  %.sroa.66.0.i = phi i32 [ %73, %72 ], [ %3, %15 ]
+  %.sroa.05.0.i = phi i64 [ %74, %72 ], [ %2, %15 ]
+  %.0.i = phi i64 [ %74, %72 ], [ %4, %15 ]
   %.not.i = icmp ult i64 %.0.i, %20
   br i1 %.not.i, label %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i, label %52
 
@@ -14852,7 +14856,7 @@ _ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i: ; pre
   switch i64 %66, label %default.unreachable [
     i64 2, label %68
     i64 0, label %.thread75.i
-    i64 1, label %70
+    i64 1, label %72
   ]
 
 default.unreachable:                              ; preds = %_ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i
@@ -14865,13 +14869,15 @@ default.unreachable:                              ; preds = %_ZN14regex_automata
   br label %_ZN14regex_automata4util5empty11skip_splits17hb0ed7556ff7785d0E.exit
 
 68:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %69, align 8, !alias.scope !3589, !noalias !3609
+  %69 = ptrtoint ptr %67 to i64
+  %70 = inttoptr i64 %69 to ptr
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %70, ptr %71, align 8, !alias.scope !3589, !noalias !3609
   br label %.thread75.i
 
-70:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i
-  %71 = trunc i64 %.sroa.510.0.copyload.i.i to i32
-  %72 = ptrtoint ptr %67 to i64
+72:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i
+  %73 = trunc i64 %.sroa.510.0.copyload.i.i to i32
+  %74 = ptrtoint ptr %67 to i64
   br label %.split
 
 _ZN14regex_automata4util5empty11skip_splits17hb0ed7556ff7785d0E.exit: ; preds = %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit54.i, %.split11.us, %.thread75.i

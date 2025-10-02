@@ -867,6 +867,7 @@ common.resume:                                    ; preds = %.thread275, %99, %.
   store i64 %191, ptr %24, align 8
   %.sroa.018.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %1, ptr %.sroa.018.sroa.2.0..sroa_idx, align 8
+  %.cast = inttoptr i64 %191 to ptr
   %192 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %193 = load i64, ptr %192, align 8, !range !206, !alias.scope !207, !noundef !10
   %194 = icmp eq i64 %193, -9223372036854775807
@@ -925,8 +926,8 @@ common.resume:                                    ; preds = %.thread275, %99, %.
   br label %210
 
 210:                                              ; preds = %233, %209
-  %.pn = phi ptr [ %138, %209 ], [ %236, %233 ]
-  %.067 = getelementptr inbounds i8, ptr %.pn, i64 -32
+  %.cast.pn = phi ptr [ %.cast, %209 ], [ %236, %233 ]
+  %.067 = getelementptr inbounds i8, ptr %.cast.pn, i64 -32
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.617.sroa.8)
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775807, ptr %211, align 8

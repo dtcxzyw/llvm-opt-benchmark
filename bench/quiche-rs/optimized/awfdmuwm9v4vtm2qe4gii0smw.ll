@@ -6023,25 +6023,12 @@ define hidden void @"_ZN235_$LT$$LT$h3i..actions..h3.._..$LT$impl$u20$serde..de.
   call void @"_ZN10serde_with2de5impls128_$LT$impl$u20$serde_with..de..DeserializeAs$LT$core..time..Duration$GT$$u20$for$u20$serde_with..DurationMilliSecondsWithFrac$GT$14deserialize_as17h42a66e2b2df1349cE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %1)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8, !range !107, !noundef !3
-  %6 = icmp eq i32 %5, 1000000000
-  br i1 %6, label %7, label %10
-
-7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8, !nonnull !3, !align !19, !noundef !3
+  %6 = load ptr, ptr %3, align 8
+  %.sink3 = ptrtoint ptr %6 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %9 = ptrtoint ptr %8 to i64
-  br label %12
-
-10:                                               ; preds = %2
-  %11 = load i64, ptr %3, align 8, !noundef !3
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %12
-
-12:                                               ; preds = %10, %7
-  %.sink3 = phi i64 [ %9, %7 ], [ %11, %10 ]
   store i64 %.sink3, ptr %0, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %5, ptr %13, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %5, ptr %7, align 8
   ret void
 }
 

@@ -320,20 +320,20 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !noalias !35
   br label %74
 
-74:                                               ; preds = %63, %67
+74:                                               ; preds = %67, %63
   %75 = phi i8 [ %65, %63 ], [ %.pre, %67 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.4.113.i.i, %63 ], [ %73, %67 ]
+  %.ph = phi i64 [ %.sroa.4.113.i.i, %63 ], [ %73, %67 ]
   %76 = load i64, ptr %6, align 8, !noundef !3
   %77 = icmp ult i64 %76, 384307168202282326
   tail call void @llvm.assume(i1 %77)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %78 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.3.0.i.ph.i
+  %78 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.ph
   %79 = and i8 %75, 1
   %80 = zext nneg i8 %79 to i64
   %81 = load i64, ptr %9, align 8, !alias.scope !35, !noundef !3
   %82 = sub i64 %81, %80
   store i64 %82, ptr %9, align 8, !alias.scope !35
-  %83 = add i64 %.sroa.3.0.i.ph.i, -16
+  %83 = add i64 %.ph, -16
   %84 = and i64 %83, %.val6.i
   store i8 %17, ptr %78, align 1, !noalias !35
   %85 = getelementptr i8, ptr %.val.i, i64 %84
@@ -343,7 +343,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   %88 = load i64, ptr %87, align 8, !alias.scope !35, !noundef !3
   %89 = add i64 %88, 1
   store i64 %89, ptr %87, align 8, !alias.scope !35
-  %90 = sub nsw i64 0, %.sroa.3.0.i.ph.i
+  %90 = sub nsw i64 0, %.ph
   %91 = getelementptr inbounds i64, ptr %.val.i, i64 %90
   %92 = getelementptr inbounds i8, ptr %91, i64 -8
   store i64 %76, ptr %92, align 8, !noalias !35
@@ -394,23 +394,27 @@ _ZN8indexmap3map4core15reserve_entries17h7bcd52c56d72982aE.exit.i: ; preds = %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   %114 = add i64 %108, 1
   store i64 %114, ptr %6, align 8, !alias.scope !44, !noalias !47
-  br label %119
+  br label %123
 
 115:                                              ; preds = %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h00640c67622e1791E.exit.sink.split.i.i.i.i"
-  %116 = load i64, ptr %6, align 8, !noundef !3
-  %117 = icmp ult i64 %.val.i.i.i, %116
-  br i1 %117, label %119, label %118
+  %116 = ptrtoint ptr %34 to i64
+  %117 = inttoptr i64 %116 to ptr
+  %118 = getelementptr inbounds i8, ptr %117, i64 -8
+  %119 = load i64, ptr %118, align 8, !noundef !3
+  %120 = load i64, ptr %6, align 8, !noundef !3
+  %121 = icmp ult i64 %119, %120
+  br i1 %121, label %123, label %122
 
-118:                                              ; preds = %115
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %.val.i.i.i, i64 noundef %116, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4d91a6070711c8d428cb707ef8053ee8.16) #12
+122:                                              ; preds = %115
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %119, i64 noundef %120, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4d91a6070711c8d428cb707ef8053ee8.16) #12
   unreachable
 
-119:                                              ; preds = %115, %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entry17ha49a04168b0fbf1eE.exit"
+123:                                              ; preds = %115, %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entry17ha49a04168b0fbf1eE.exit"
   %.sroa.3.0 = phi i1 [ false, %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entry17ha49a04168b0fbf1eE.exit" ], [ true, %115 ]
-  %.sroa.0.0 = phi i64 [ %76, %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entry17ha49a04168b0fbf1eE.exit" ], [ %.val.i.i.i, %115 ]
-  %120 = insertvalue { i64, i1 } poison, i64 %.sroa.0.0, 0
-  %121 = insertvalue { i64, i1 } %120, i1 %.sroa.3.0, 1
-  ret { i64, i1 } %121
+  %.sroa.0.0 = phi i64 [ %76, %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entry17ha49a04168b0fbf1eE.exit" ], [ %119, %115 ]
+  %124 = insertvalue { i64, i1 } poison, i64 %.sroa.0.0, 0
+  %125 = insertvalue { i64, i1 } %124, i1 %.sroa.3.0, 1
+  ret { i64, i1 } %125
 }
 
 ; Function Attrs: nonlazybind uwtable

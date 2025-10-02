@@ -338,7 +338,7 @@ define internal noundef i32 @activate(ptr noundef %0) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !55
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %21, label %6
+  br i1 %.not, label %23, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -348,7 +348,7 @@ define internal noundef i32 @activate(ptr noundef %0) #0 {
   %.val = load i64, ptr %10, align 8, !tbaa !56
   %11 = zext i32 %5 to i64
   %.not10 = icmp ult i64 %.val, %11
-  br i1 %.not10, label %21, label %12
+  br i1 %.not10, label %23, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -358,13 +358,15 @@ define internal noundef i32 @activate(ptr noundef %0) #0 {
   %17 = load ptr, ptr %16, align 8, !tbaa !58
   %.not.i = icmp eq ptr %14, null
   %18 = select i1 %.not.i, ptr %17, ptr %14
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.7, i32 noundef %5, ptr noundef %18) #10
-  %19 = load i32, ptr %4, align 8, !tbaa !55
-  %20 = mul i32 %19, 10
-  store i32 %20, ptr %4, align 8, !tbaa !55
-  br label %21
+  %19 = ptrtoint ptr %18 to i64
+  %20 = inttoptr i64 %19 to ptr
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.7, i32 noundef %5, ptr noundef %20) #10
+  %21 = load i32, ptr %4, align 8, !tbaa !55
+  %22 = mul i32 %21, 10
+  store i32 %22, ptr %4, align 8, !tbaa !55
+  br label %23
 
-21:                                               ; preds = %12, %6, %1
+23:                                               ; preds = %12, %6, %1
   ret i32 0
 }
 

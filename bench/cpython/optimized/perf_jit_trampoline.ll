@@ -1060,7 +1060,7 @@ define internal void @perf_map_jit_write_entry(ptr readnone captures(none) %0, p
 14:                                               ; preds = %4
   %15 = tail call ptr @perf_map_jit_init()
   %.not80 = icmp eq ptr %15, null
-  br i1 %.not80, label %156, label %16
+  br i1 %.not80, label %157, label %16
 
 16:                                               ; preds = %14, %4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -1090,7 +1090,7 @@ define internal void @perf_map_jit_write_entry(ptr readnone captures(none) %0, p
   %29 = sext i32 %28 to i64
   %30 = tail call ptr @PyMem_RawMalloc(i64 noundef %29) #9
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %156, label %elf_init_ehframe.exit
+  br i1 %31, label %157, label %elf_init_ehframe.exit
 
 elf_init_ehframe.exit:                            ; preds = %26
   %32 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %30, i64 noundef %29, ptr noundef nonnull @.str.3, ptr noundef %.039, ptr noundef %.040) #9
@@ -1350,31 +1350,32 @@ perf_map_jit_write_fully.exit68:                  ; preds = %136, %137
   br i1 %146, label %perf_map_jit_write_fully.exit72, label %143
 
 perf_map_jit_write_fully.exit72:                  ; preds = %143, %144
-  %149 = load ptr, ptr @perf_jit_map_state, align 8, !tbaa !13
-  br label %150
+  %149 = inttoptr i64 %37 to ptr
+  %150 = load ptr, ptr @perf_jit_map_state, align 8, !tbaa !13
+  br label %151
 
-150:                                              ; preds = %151, %perf_map_jit_write_fully.exit72
-  %.011.i73 = phi ptr [ %1, %perf_map_jit_write_fully.exit72 ], [ %155, %151 ]
-  %.010.i74 = phi i64 [ %38, %perf_map_jit_write_fully.exit72 ], [ %154, %151 ]
+151:                                              ; preds = %152, %perf_map_jit_write_fully.exit72
+  %.011.i73 = phi ptr [ %149, %perf_map_jit_write_fully.exit72 ], [ %156, %152 ]
+  %.010.i74 = phi i64 [ %38, %perf_map_jit_write_fully.exit72 ], [ %155, %152 ]
   %.not.i75 = icmp eq i64 %.010.i74, 0
-  br i1 %.not.i75, label %perf_map_jit_write_fully.exit76, label %151
+  br i1 %.not.i75, label %perf_map_jit_write_fully.exit76, label %152
 
-151:                                              ; preds = %150
-  %152 = call i64 @fwrite(ptr noundef %.011.i73, i64 noundef 1, i64 noundef %.010.i74, ptr noundef %149)
-  %153 = icmp eq i64 %152, 0
-  %154 = sub i64 %.010.i74, %152
-  %155 = getelementptr i8, ptr %.011.i73, i64 %152
-  br i1 %153, label %perf_map_jit_write_fully.exit76, label %150
+152:                                              ; preds = %151
+  %153 = call i64 @fwrite(ptr noundef %.011.i73, i64 noundef 1, i64 noundef %.010.i74, ptr noundef %150)
+  %154 = icmp eq i64 %153, 0
+  %155 = sub i64 %.010.i74, %153
+  %156 = getelementptr i8, ptr %.011.i73, i64 %153
+  br i1 %154, label %perf_map_jit_write_fully.exit76, label %151
 
-perf_map_jit_write_fully.exit76:                  ; preds = %150, %151
+perf_map_jit_write_fully.exit76:                  ; preds = %151, %152
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %156
+  br label %157
 
-156:                                              ; preds = %14, %perf_map_jit_write_fully.exit76, %26
+157:                                              ; preds = %14, %perf_map_jit_write_fully.exit76, %26
   ret void
 }
 

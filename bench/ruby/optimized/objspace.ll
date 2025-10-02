@@ -808,11 +808,13 @@ define internal i64 @iow_type(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !22
-  %5 = load i64, ptr %4, align 8, !tbaa !32
-  %6 = trunc i64 %5 to i32
-  %7 = and i32 %6, 31
-  %8 = tail call fastcc i64 @type2sym(i32 noundef %7)
-  ret i64 %8
+  %5 = ptrtoint ptr %4 to i64
+  %6 = inttoptr i64 %5 to ptr
+  %7 = load i64, ptr %6, align 8, !tbaa !32
+  %8 = trunc i64 %7 to i32
+  %9 = and i32 %8, 31
+  %10 = tail call fastcc i64 @type2sym(i32 noundef %9)
+  ret i64 %10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -820,13 +822,15 @@ define internal i64 @iow_inspect(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !22
-  %5 = load i64, ptr %4, align 8, !tbaa !32
-  %6 = trunc i64 %5 to i32
-  %7 = and i32 %6, 31
-  %8 = tail call fastcc i64 @type2sym(i32 noundef %7)
-  %9 = tail call i64 @rb_sym2str(i64 noundef %8) #7
-  %10 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.98, ptr noundef nonnull %4, i64 noundef %9) #7
-  ret i64 %10
+  %5 = ptrtoint ptr %4 to i64
+  %6 = inttoptr i64 %5 to ptr
+  %7 = load i64, ptr %6, align 8, !tbaa !32
+  %8 = trunc i64 %7 to i32
+  %9 = and i32 %8, 31
+  %10 = tail call fastcc i64 @type2sym(i32 noundef %9)
+  %11 = tail call i64 @rb_sym2str(i64 noundef %10) #7
+  %12 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.98, ptr noundef nonnull %6, i64 noundef %11) #7
+  ret i64 %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

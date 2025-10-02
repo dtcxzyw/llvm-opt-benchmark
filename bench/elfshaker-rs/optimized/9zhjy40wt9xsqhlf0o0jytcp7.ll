@@ -8073,17 +8073,17 @@ define hidden noundef ptr @_ZN9elfshaker4repo2fs17write_file_atomic17hbf409d576c
   invoke void @_ZN9elfshaker4repo2fs11create_file17hec3869498d7b3342E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef 0, i32 undef)
           to label %15 unwind label %.thread
 
-13:                                               ; preds = %52, %14
-  %.pn26 = phi { ptr, i32 } [ %.pn27, %52 ], [ %eh.lpad-body, %14 ]
+13:                                               ; preds = %54, %14
+  %.pn26 = phi { ptr, i32 } [ %.pn27, %54 ], [ %eh.lpad-body, %14 ]
   resume { ptr, i32 } %.pn26
 
 14:                                               ; preds = %.body
-  br i1 %.sroa.016.2.lpad-body, label %52, label %13
+  br i1 %.sroa.016.2.lpad-body, label %54, label %13
 
-.thread:                                          ; preds = %48, %6
+.thread:                                          ; preds = %50, %6
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %52
+  br label %54
 
 15:                                               ; preds = %6
   %16 = load i32, ptr %8, align 8, !range !450, !noundef !3
@@ -8094,7 +8094,7 @@ define hidden noundef ptr @_ZN9elfshaker4repo2fs17write_file_atomic17hbf409d576c
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %20 = load ptr, ptr %19, align 8, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %49
+  br label %51
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -8104,21 +8104,21 @@ define hidden noundef ptr @_ZN9elfshaker4repo2fs17write_file_atomic17hbf409d576c
   %24 = invoke noundef ptr @"_ZN46_$LT$std..fs..File$u20$as$u20$fs2..FileExt$GT$18try_lock_exclusive17he7d73c2736473d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9)
           to label %27 unwind label %25
 
-25:                                               ; preds = %44, %35, %28, %21
-  %.sroa.016.2 = phi i1 [ true, %35 ], [ true, %28 ], [ true, %21 ], [ false, %44 ]
+25:                                               ; preds = %46, %37, %28, %21
+  %.sroa.016.2 = phi i1 [ true, %37 ], [ true, %28 ], [ true, %21 ], [ false, %46 ]
   %26 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %42, %25
-  %.sroa.016.2.lpad-body = phi i1 [ %.sroa.016.2, %25 ], [ false, %42 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %26, %25 ], [ %43, %42 ]
+.body:                                            ; preds = %44, %25
+  %.sroa.016.2.lpad-body = phi i1 [ %.sroa.016.2, %25 ], [ false, %44 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %26, %25 ], [ %45, %44 ]
   invoke void @"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h4398ae05432a72bcE"(ptr noalias noundef nonnull align 4 dereferenceable(4) %9) #20
-          to label %14 unwind label %50
+          to label %14 unwind label %52
 
 27:                                               ; preds = %21
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %28, label %48
+  br i1 %.not, label %28, label %50
 
 28:                                               ; preds = %27
   %29 = invoke { i64, ptr } @"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$W$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..SpecCopy$GT$4copy17h3ab4b290c23bf034E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull align 4 dereferenceable(4) %9)
@@ -8127,79 +8127,81 @@ define hidden noundef ptr @_ZN9elfshaker4repo2fs17write_file_atomic17hbf409d576c
 30:                                               ; preds = %28
   %31 = extractvalue { i64, ptr } %29, 0
   %32 = trunc nuw i64 %31 to i1
-  br i1 %32, label %33, label %35
+  br i1 %32, label %33, label %37
 
 33:                                               ; preds = %30
   %34 = extractvalue { i64, ptr } %29, 1
-  br label %48
+  %35 = ptrtoint ptr %34 to i64
+  %36 = inttoptr i64 %35 to ptr
+  br label %50
 
-35:                                               ; preds = %30
-  %36 = invoke noundef ptr @_ZN3std2fs4File9sync_data17h3fd6ef12849c681dE(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9)
-          to label %37 unwind label %25
+37:                                               ; preds = %30
+  %38 = invoke noundef ptr @_ZN3std2fs4File9sync_data17h3fd6ef12849c681dE(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9)
+          to label %39 unwind label %25
 
-37:                                               ; preds = %35
-  %.not22 = icmp eq ptr %36, null
-  br i1 %.not22, label %38, label %48
+39:                                               ; preds = %37
+  %.not22 = icmp eq ptr %38, null
+  br i1 %.not22, label %40, label %50
 
-38:                                               ; preds = %37
+40:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !796)
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.val.i = load ptr, ptr %39, align 8, !alias.scope !796, !noalias !799, !nonnull !3, !noundef !3
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.val1.i = load i64, ptr %40, align 8, !alias.scope !796, !noalias !799, !noundef !3
-  %41 = invoke noundef ptr @_ZN3std3sys2fs6rename17he867e78c27f049f6E(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
-          to label %44 unwind label %42, !noalias !796
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.val.i = load ptr, ptr %41, align 8, !alias.scope !796, !noalias !799, !nonnull !3, !noundef !3
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.val1.i = load i64, ptr %42, align 8, !alias.scope !796, !noalias !799, !noundef !3
+  %43 = invoke noundef ptr @_ZN3std3sys2fs6rename17he867e78c27f049f6E(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
+          to label %46 unwind label %44, !noalias !796
 
-42:                                               ; preds = %38
-  %43 = landingpad { ptr, i32 }
+44:                                               ; preds = %40
+  %45 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h61402040d85a06a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #20
-          to label %.body unwind label %45
+          to label %.body unwind label %47
 
-44:                                               ; preds = %38
+46:                                               ; preds = %40
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h61402040d85a06a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %_ZN3std2fs6rename17hf30c7d131c3043e1E.exit unwind label %25
 
-45:                                               ; preds = %42
-  %46 = landingpad { ptr, i32 }
+47:                                               ; preds = %44
+  %48 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #21
   unreachable
 
-_ZN3std2fs6rename17hf30c7d131c3043e1E.exit:       ; preds = %44
+_ZN3std2fs6rename17hf30c7d131c3043e1E.exit:       ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h4398ae05432a72bcE"(ptr noalias noundef nonnull align 4 dereferenceable(4) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %47
+  br label %49
 
-47:                                               ; preds = %49, %_ZN3std2fs6rename17hf30c7d131c3043e1E.exit
-  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %49 ], [ %41, %_ZN3std2fs6rename17hf30c7d131c3043e1E.exit ]
+49:                                               ; preds = %51, %_ZN3std2fs6rename17hf30c7d131c3043e1E.exit
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %51 ], [ %43, %_ZN3std2fs6rename17hf30c7d131c3043e1E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.sroa.0.2
 
-48:                                               ; preds = %37, %27, %33
-  %.sroa.0.1 = phi ptr [ %34, %33 ], [ %24, %27 ], [ %36, %37 ]
+50:                                               ; preds = %39, %27, %33
+  %.sroa.0.1 = phi ptr [ %36, %33 ], [ %24, %27 ], [ %38, %39 ]
   invoke void @"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h4398ae05432a72bcE"(ptr noalias noundef nonnull align 4 dereferenceable(4) %9)
-          to label %49 unwind label %.thread
+          to label %51 unwind label %.thread
 
-49:                                               ; preds = %48, %18
-  %.sroa.0.0 = phi ptr [ %20, %18 ], [ %.sroa.0.1, %48 ]
+51:                                               ; preds = %50, %18
+  %.sroa.0.0 = phi ptr [ %20, %18 ], [ %.sroa.0.1, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h61402040d85a06a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  br label %47
+  br label %49
 
-50:                                               ; preds = %52, %.body
-  %51 = landingpad { ptr, i32 }
+52:                                               ; preds = %54, %.body
+  %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #21
   unreachable
 
-52:                                               ; preds = %.thread, %14
+54:                                               ; preds = %.thread, %14
   %.pn27 = phi { ptr, i32 } [ %eh.lpad-body, %14 ], [ %lpad.thr_comm, %.thread ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h61402040d85a06a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #20
-          to label %13 unwind label %50
+          to label %13 unwind label %52
 }
 
 ; Function Attrs: nonlazybind uwtable

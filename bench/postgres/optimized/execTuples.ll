@@ -5997,9 +5997,10 @@ define dso_local void @do_text_output_multiline(ptr noundef readonly captures(no
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef %19) #13
-  tail call void @pfree(ptr noundef %17) #13
-  %46 = load i8, ptr %.012, align 1
-  %.not = icmp eq i8 %46, 0
+  %46 = inttoptr i64 %18 to ptr
+  tail call void @pfree(ptr noundef %46) #13
+  %47 = load i8, ptr %.012, align 1
+  %.not = icmp eq i8 %47, 0
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %16, %2

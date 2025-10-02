@@ -26217,14 +26217,16 @@ _ZN7msgpack2v14zone15allocate_expandEm.exit.i:    ; preds = %42
 _ZN7msgpack2v14zone14allocate_alignEmm.exit:      ; preds = %28, %_ZN7msgpack2v14zone15allocate_expandEm.exit.i
   %50 = phi ptr [ %47, %_ZN7msgpack2v14zone15allocate_expandEm.exit.i ], [ %33, %28 ]
   %51 = phi i64 [ %.1.i.i, %_ZN7msgpack2v14zone15allocate_expandEm.exit.i ], [ %34, %28 ]
+  %.0.in.i = ptrtoint ptr %50 to i64
+  %.0.i = inttoptr i64 %.0.in.i to ptr
   %52 = sub i64 %51, %4
   store i64 %52, ptr %31, align 8, !tbaa !851
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 %4
   store ptr %53, ptr %32, align 8, !tbaa !850
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr nonnull align 1 %1, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i, ptr nonnull align 1 %1, i64 %4, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %50, ptr %55, align 8, !tbaa !19
+  store ptr %.0.i, ptr %55, align 8, !tbaa !19
   store i32 %2, ptr %54, align 8, !tbaa !19
   br label %59
 
@@ -26789,14 +26791,16 @@ _ZN7msgpack2v14zone15allocate_expandEm.exit.i:    ; preds = %43
 _ZN7msgpack2v14zone14allocate_alignEmm.exit:      ; preds = %29, %_ZN7msgpack2v14zone15allocate_expandEm.exit.i
   %51 = phi ptr [ %48, %_ZN7msgpack2v14zone15allocate_expandEm.exit.i ], [ %34, %29 ]
   %52 = phi i64 [ %.1.i.i, %_ZN7msgpack2v14zone15allocate_expandEm.exit.i ], [ %35, %29 ]
+  %.0.in.i = ptrtoint ptr %51 to i64
+  %.0.i = inttoptr i64 %.0.in.i to ptr
   %53 = sub i64 %52, %4
   store i64 %53, ptr %32, align 8, !tbaa !851
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 %4
   store ptr %54, ptr %33, align 8, !tbaa !850
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr nonnull align 1 %1, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i, ptr nonnull align 1 %1, i64 %4, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %51, ptr %56, align 8, !tbaa !19
+  store ptr %.0.i, ptr %56, align 8, !tbaa !19
   %57 = add i32 %2, -1
   store i32 %57, ptr %55, align 8, !tbaa !19
   br label %61
@@ -26912,14 +26916,16 @@ _ZN7msgpack2v14zone15allocate_expandEm.exit.i:    ; preds = %42
 _ZN7msgpack2v14zone14allocate_alignEmm.exit:      ; preds = %28, %_ZN7msgpack2v14zone15allocate_expandEm.exit.i
   %50 = phi ptr [ %47, %_ZN7msgpack2v14zone15allocate_expandEm.exit.i ], [ %33, %28 ]
   %51 = phi i64 [ %.1.i.i, %_ZN7msgpack2v14zone15allocate_expandEm.exit.i ], [ %34, %28 ]
+  %.0.in.i = ptrtoint ptr %50 to i64
+  %.0.i = inttoptr i64 %.0.in.i to ptr
   %52 = sub i64 %51, %4
   store i64 %52, ptr %31, align 8, !tbaa !851
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 %4
   store ptr %53, ptr %32, align 8, !tbaa !850
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr nonnull align 1 %1, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i, ptr nonnull align 1 %1, i64 %4, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %50, ptr %55, align 8, !tbaa !19
+  store ptr %.0.i, ptr %55, align 8, !tbaa !19
   store i32 %2, ptr %54, align 8, !tbaa !19
   br label %59
 

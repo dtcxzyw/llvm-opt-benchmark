@@ -3955,7 +3955,8 @@ _ZNK4pugi8xml_node4nameEv.exit:                   ; preds = %_ZNK4pugi8xml_node4
   %604 = ptrtoint ptr %.sroa.0367.0592 to i64
   store i64 %604, ptr %10, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %605 = getelementptr inbounds nuw i8, ptr %.sroa.0367.0592, i64 8
+  %.cast = inttoptr i64 %604 to ptr
+  %605 = getelementptr inbounds nuw i8, ptr %.cast, i64 8
   %606 = load ptr, ptr %605, align 8
   %.not5.i = icmp eq ptr %606, null
   %607 = select i1 %.not5.i, ptr @.str.54, ptr %606
@@ -9849,7 +9850,8 @@ _ZNK4pugi8xml_node4nameEv.exit:                   ; preds = %_ZNK4pugi8xml_node4
   %203 = ptrtoint ptr %.sroa.0193.0240 to i64
   store i64 %203, ptr %10, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %204 = getelementptr inbounds nuw i8, ptr %.sroa.0193.0240, i64 8
+  %.cast = inttoptr i64 %203 to ptr
+  %204 = getelementptr inbounds nuw i8, ptr %.cast, i64 8
   %205 = load ptr, ptr %204, align 8
   %.not5.i = icmp eq ptr %205, null
   %206 = select i1 %.not5.i, ptr @.str.54, ptr %205

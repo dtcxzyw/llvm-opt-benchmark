@@ -3639,23 +3639,21 @@ define { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_ins
   %14 = extractvalue { i64, i64 } %13, 0
   %15 = extractvalue { i64, i64 } %13, 1
   %16 = icmp eq i64 %14, 0
-  br i1 %16, label %17, label %21
+  br i1 %16, label %17, label %22
 
 17:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb13a94b85bf833b5E.exit"
   %18 = load ptr, ptr %0, align 8
   %19 = sub nsw i64 0, %15
   %20 = getelementptr inbounds { { i32, [1 x i32], { i64, i64, i32, i8, [3 x i8] } }, { { i64, [3 x i64] }, { {} } } }, ptr %18, i64 %19
-  br label %23
+  %21 = ptrtoint ptr %20 to i64
+  br label %22
 
-21:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb13a94b85bf833b5E.exit"
-  %22 = inttoptr i64 %15 to ptr
-  br label %23
-
-23:                                               ; preds = %17, %21
-  %.sroa.3.0 = phi ptr [ %20, %17 ], [ %22, %21 ]
-  %.sroa.0.0 = phi i64 [ 0, %17 ], [ 1, %21 ]
+22:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb13a94b85bf833b5E.exit", %17
+  %.sroa.3.0 = phi i64 [ %21, %17 ], [ %15, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb13a94b85bf833b5E.exit" ]
+  %.sroa.0.0 = phi i64 [ 0, %17 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb13a94b85bf833b5E.exit" ]
+  %23 = inttoptr i64 %.sroa.3.0 to ptr
   %24 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %25 = insertvalue { i64, ptr } %24, ptr %.sroa.3.0, 1
+  %25 = insertvalue { i64, ptr } %24, ptr %23, 1
   ret { i64, ptr } %25
 }
 
@@ -3681,23 +3679,21 @@ define { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_ins
   %14 = extractvalue { i64, i64 } %13, 0
   %15 = extractvalue { i64, i64 } %13, 1
   %16 = icmp eq i64 %14, 0
-  br i1 %16, label %17, label %21
+  br i1 %16, label %17, label %22
 
 17:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h45194aa082c76931E.exit"
   %18 = load ptr, ptr %0, align 8
   %19 = sub nsw i64 0, %15
   %20 = getelementptr inbounds { { i32, [1 x i32], { i64, i64, i32, i8, [3 x i8] } }, {} }, ptr %18, i64 %19
-  br label %23
+  %21 = ptrtoint ptr %20 to i64
+  br label %22
 
-21:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h45194aa082c76931E.exit"
-  %22 = inttoptr i64 %15 to ptr
-  br label %23
-
-23:                                               ; preds = %17, %21
-  %.sroa.3.0 = phi ptr [ %20, %17 ], [ %22, %21 ]
-  %.sroa.0.0 = phi i64 [ 0, %17 ], [ 1, %21 ]
+22:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h45194aa082c76931E.exit", %17
+  %.sroa.3.0 = phi i64 [ %21, %17 ], [ %15, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h45194aa082c76931E.exit" ]
+  %.sroa.0.0 = phi i64 [ 0, %17 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h45194aa082c76931E.exit" ]
+  %23 = inttoptr i64 %.sroa.3.0 to ptr
   %24 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %25 = insertvalue { i64, ptr } %24, ptr %.sroa.3.0, 1
+  %25 = insertvalue { i64, ptr } %24, ptr %23, 1
   ret { i64, ptr } %25
 }
 
@@ -3723,23 +3719,21 @@ define { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_ins
   %14 = extractvalue { i64, i64 } %13, 0
   %15 = extractvalue { i64, i64 } %13, 1
   %16 = icmp eq i64 %14, 0
-  br i1 %16, label %17, label %21
+  br i1 %16, label %17, label %22
 
 17:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h3313912a7377df1dE.exit"
   %18 = load ptr, ptr %0, align 8
   %19 = sub nsw i64 0, %15
   %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { [16 x i8], i8, [7 x i8] }, { {} } } }, ptr %18, i64 %19
-  br label %23
+  %21 = ptrtoint ptr %20 to i64
+  br label %22
 
-21:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h3313912a7377df1dE.exit"
-  %22 = inttoptr i64 %15 to ptr
-  br label %23
-
-23:                                               ; preds = %17, %21
-  %.sroa.3.0 = phi ptr [ %20, %17 ], [ %22, %21 ]
-  %.sroa.0.0 = phi i64 [ 0, %17 ], [ 1, %21 ]
+22:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h3313912a7377df1dE.exit", %17
+  %.sroa.3.0 = phi i64 [ %21, %17 ], [ %15, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h3313912a7377df1dE.exit" ]
+  %.sroa.0.0 = phi i64 [ 0, %17 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h3313912a7377df1dE.exit" ]
+  %23 = inttoptr i64 %.sroa.3.0 to ptr
   %24 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %25 = insertvalue { i64, ptr } %24, ptr %.sroa.3.0, 1
+  %25 = insertvalue { i64, ptr } %24, ptr %23, 1
   ret { i64, ptr } %25
 }
 

@@ -89,10 +89,13 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
 _ZN5alloc7raw_vec11finish_grow17haa9a5749857e92cdE.exit.i: ; preds = %18, %14
   %.sroa.012.1.i.i.pn.i.i = phi ptr [ %17, %14 ], [ %20, %18 ]
   %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
+  %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i.i
+  %21 = ptrtoint ptr %.sink1.i.i.i to i64
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd4c0bd40d680d7e4E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd4c0bd40d680d7e4E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd4c0bd40d680d7e4E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17haa9a5749857e92cdE.exit.i
-  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %11, align 8, !alias.scope !4
+  %22 = inttoptr i64 %21 to ptr
+  store ptr %22, ptr %11, align 8, !alias.scope !4
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !4
   ret void
 
@@ -101,7 +104,7 @@ _ZN5alloc7raw_vec11finish_grow17haa9a5749857e92cdE.exit.i: ; preds = %18, %14
   unreachable
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd4c0bd40d680d7e4E.exit": ; preds = %_ZN5alloc7raw_vec11finish_grow17haa9a5749857e92cdE.exit.i
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef %10) #10
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %21, i64 noundef %10) #10
   unreachable
 }
 

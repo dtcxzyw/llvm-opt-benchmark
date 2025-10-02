@@ -138,8 +138,10 @@ _RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhn
   unreachable
 
 22:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i.i"
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.06.0.i.i.pn.i.i, ptr %23, align 8, !alias.scope !6
+  %23 = ptrtoint ptr %.sroa.06.0.i.i.pn.i.i to i64
+  %24 = inttoptr i64 %23 to ptr
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %24, ptr %25, align 8, !alias.scope !6
   store i64 %.sroa.0.0.sroa.speculated.i17.i, ptr %0, align 8, !alias.scope !6
   ret void
 }
@@ -270,8 +272,10 @@ _RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhn
   unreachable
 
 19:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i.i"
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.06.0.i.i.pn.i.i, ptr %20, align 8, !alias.scope !18
+  %20 = ptrtoint ptr %.sroa.06.0.i.i.pn.i.i to i64
+  %21 = inttoptr i64 %20 to ptr
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %21, ptr %22, align 8, !alias.scope !18
   store i64 %.sroa.0.0.sroa.speculated.i17.i, ptr %0, align 8, !alias.scope !18
   ret void
 }
@@ -280,7 +284,7 @@ _RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhn
 define { i64, i64 } @_RNvMs1_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14grow_amortizedCslOtZNRIhnDi_7pidlock(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
   %5 = extractvalue { i64, i1 } %4, 1
-  br i1 %5, label %23, label %6
+  br i1 %5, label %25, label %6
 
 6:                                                ; preds = %3
   %7 = add nuw i64 %2, %1
@@ -294,10 +298,10 @@ define { i64, i64 } @_RNvMs1_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14grow
   br i1 %11, label %_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit, label %_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit.thread
 
 _RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit: ; preds = %6
-  br i1 %10, label %17, label %23
+  br i1 %10, label %17, label %25
 
 _RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit.thread: ; preds = %6
-  br i1 %10, label %12, label %23
+  br i1 %10, label %12, label %25
 
 12:                                               ; preds = %_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit.thread
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -315,20 +319,22 @@ _RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhn
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i": ; preds = %17, %12
   %.sroa.06.0.i.i.pn.i = phi ptr [ %16, %12 ], [ %19, %17 ]
   %20 = icmp eq ptr %.sroa.06.0.i.i.pn.i, null
-  br i1 %20, label %23, label %21
+  br i1 %20, label %25, label %21
 
 21:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i"
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.06.0.i.i.pn.i, ptr %22, align 8
+  %22 = ptrtoint ptr %.sroa.06.0.i.i.pn.i to i64
+  %23 = inttoptr i64 %22 to ptr
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %23, ptr %24, align 8
   store i64 %.sroa.0.0.sroa.speculated.i17, ptr %0, align 8
-  br label %23
+  br label %25
 
-23:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i", %_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit, %_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit.thread, %3, %21
+25:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i", %_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit, %_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit.thread, %3, %21
   %.sroa.4.0 = phi i64 [ undef, %21 ], [ undef, %3 ], [ %.sroa.0.0.sroa.speculated.i17, %_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit.thread ], [ %.sroa.0.0.sroa.speculated.i17, %_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit ], [ %.sroa.0.0.sroa.speculated.i17, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i" ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %21 ], [ 0, %3 ], [ 0, %_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit.thread ], [ 0, %_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit ], [ 1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i" ]
-  %24 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %25 = insertvalue { i64, i64 } %24, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %25
+  %26 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %27 = insertvalue { i64, i64 } %26, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %27
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable

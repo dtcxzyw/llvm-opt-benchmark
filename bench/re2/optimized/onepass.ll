@@ -1654,6 +1654,7 @@ entry:
   br i1 %cmp, label %invoke.cont15, label %if.else
 
 invoke.cont15:                                    ; preds = %entry
+  %3 = inttoptr i64 %sub.ptr.rhs.cast.i.i to ptr
   %mul.i.i = shl i64 %.sink.i, 1
   %.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add2)
   %cmp.i.i.i = icmp slt i64 %.sroa.speculated.i, 0
@@ -1670,8 +1671,8 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i: ; preds = %invoke.cont15
   br i1 %cmp3.not.i.i, label %invoke.cont19, label %for.body.i.i.preheader
 
 for.body.i.i.preheader:                           ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i
-  %3 = load i8, ptr %values.coerce, align 1
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 %3, i64 %insert_count, i1 false)
+  %4 = load i8, ptr %values.coerce, align 1
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 %4, i64 %insert_count, i1 false)
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %for.body.i.i.preheader, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i
@@ -1679,18 +1680,18 @@ invoke.cont19:                                    ; preds = %for.body.i.i.prehea
   br i1 %cmp6.not.i.i, label %invoke.cont21, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %invoke.cont19, %for.inc.i.i
-  %move_values.sroa.0.0 = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc.i.i ], [ %.sink3.i, %invoke.cont19 ]
+  %move_values.sroa.0.0 = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc.i.i ], [ %3, %invoke.cont19 ]
   %i.07.i.i = phi i64 [ %inc.i.i30, %for.inc.i.i ], [ 0, %invoke.cont19 ]
   %add.ptr.i.i29 = getelementptr inbounds i8, ptr %call5.i.i.i28, i64 %i.07.i.i
-  %4 = load i8, ptr %move_values.sroa.0.0, align 1
-  store i8 %4, ptr %add.ptr.i.i29, align 1
+  %5 = load i8, ptr %move_values.sroa.0.0, align 1
+  store i8 %5, ptr %add.ptr.i.i29, align 1
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %move_values.sroa.0.0, i64 1
   %inc.i.i30 = add nuw i64 %i.07.i.i, 1
   %exitcond.not.i.i31 = icmp eq i64 %inc.i.i30, %sub.ptr.sub.i.i
   br i1 %exitcond.not.i.i31, label %invoke.cont21, label %for.inc.i.i, !llvm.loop !18
 
 invoke.cont21:                                    ; preds = %for.inc.i.i, %invoke.cont19
-  %move_values.sroa.0.1 = phi ptr [ %.sink3.i, %invoke.cont19 ], [ %incdec.ptr.i.i.i.i, %for.inc.i.i ]
+  %move_values.sroa.0.1 = phi ptr [ %3, %invoke.cont19 ], [ %incdec.ptr.i.i.i.i, %for.inc.i.i ]
   %add.ptr23 = getelementptr inbounds i8, ptr %call5.i.i.i28, i64 %add
   %sub = sub i64 %shr.i.sink.i, %sub.ptr.sub.i.i
   %cmp6.not.i = icmp eq i64 %shr.i.sink.i, %sub.ptr.sub.i.i
@@ -1700,8 +1701,8 @@ for.inc.i:                                        ; preds = %invoke.cont21, %for
   %move_values.sroa.0.2 = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i ], [ %move_values.sroa.0.1, %invoke.cont21 ]
   %i.07.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %invoke.cont21 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr23, i64 %i.07.i
-  %5 = load i8, ptr %move_values.sroa.0.2, align 1
-  store i8 %5, ptr %add.ptr.i, align 1
+  %6 = load i8, ptr %move_values.sroa.0.2, align 1
+  store i8 %6, ptr %add.ptr.i, align 1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %move_values.sroa.0.2, i64 1
   %inc.i = add nuw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %sub
@@ -1736,14 +1737,16 @@ if.else:                                          ; preds = %entry
 for.inc.i.i51.preheader:                          ; preds = %if.else
   %sub43 = sub i64 %.sroa.speculated, %insert_count
   %add.ptr44 = getelementptr inbounds i8, ptr %.sink3.i, i64 %sub43
+  %7 = ptrtoint ptr %add.ptr44 to i64
+  %8 = inttoptr i64 %7 to ptr
   br label %for.inc.i.i51
 
 for.inc.i.i51:                                    ; preds = %for.inc.i.i51.preheader, %for.inc.i.i51
-  %move_construction_values.sroa.0.0 = phi ptr [ %incdec.ptr.i.i.i.i54, %for.inc.i.i51 ], [ %add.ptr44, %for.inc.i.i51.preheader ]
+  %move_construction_values.sroa.0.0 = phi ptr [ %incdec.ptr.i.i.i.i54, %for.inc.i.i51 ], [ %8, %for.inc.i.i51.preheader ]
   %i.07.i.i52 = phi i64 [ %inc.i.i55, %for.inc.i.i51 ], [ 0, %for.inc.i.i51.preheader ]
   %add.ptr.i.i53 = getelementptr inbounds i8, ptr %add.ptr49, i64 %i.07.i.i52
-  %6 = load i8, ptr %move_construction_values.sroa.0.0, align 1
-  store i8 %6, ptr %add.ptr.i.i53, align 1
+  %9 = load i8, ptr %move_construction_values.sroa.0.0, align 1
+  store i8 %9, ptr %add.ptr.i.i53, align 1
   %incdec.ptr.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %move_construction_values.sroa.0.0, i64 1
   %inc.i.i55 = add nuw i64 %i.07.i.i52, 1
   %exitcond.not.i.i56 = icmp eq i64 %inc.i.i55, %sub50
@@ -1762,8 +1765,8 @@ if.end:                                           ; preds = %if.end.preheader, %
   %incdec.ptr111 = phi ptr [ %incdec.ptr, %if.end ], [ %incdec.ptr108, %if.end.preheader ]
   %source.0110 = phi ptr [ %incdec.ptr71, %if.end ], [ %add.ptr70, %if.end.preheader ]
   %incdec.ptr71 = getelementptr inbounds i8, ptr %source.0110, i64 -1
-  %7 = load i8, ptr %incdec.ptr71, align 1
-  store i8 %7, ptr %incdec.ptr111, align 1
+  %10 = load i8, ptr %incdec.ptr71, align 1
+  store i8 %10, ptr %incdec.ptr111, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr111, i64 -1
   %cmp72 = icmp ult ptr %incdec.ptr, %add.ptr54
   br i1 %cmp72, label %for.end, label %if.end, !llvm.loop !19
@@ -1801,8 +1804,8 @@ for.body.i67:                                     ; preds = %for.body.i67.prehea
 
 invoke.cont83:                                    ; preds = %for.body.i67, %invoke.cont77
   %shl.i72 = shl i64 %insert_count, 1
-  %8 = load i64, ptr %this, align 8
-  %add.i = add i64 %8, %shl.i72
+  %11 = load i64, ptr %this, align 8
+  %add.i = add i64 %11, %shl.i72
   br label %return
 
 return:                                           ; preds = %invoke.cont83, %_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIhEED2Ev.exit

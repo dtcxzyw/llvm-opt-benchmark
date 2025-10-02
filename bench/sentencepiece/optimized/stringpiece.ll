@@ -1197,10 +1197,10 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %64 = getelementptr inbounds i8, ptr %24, i64 -1
   br label %.critedge
 
-.preheader42:                                     ; preds = %13, %134
-  %65 = phi ptr [ %.pre77, %134 ], [ %10, %13 ]
-  %66 = phi ptr [ %.pre, %134 ], [ %7, %13 ]
-  %67 = phi ptr [ %122, %134 ], [ %6, %13 ]
+.preheader42:                                     ; preds = %13, %135
+  %65 = phi ptr [ %.pre77, %135 ], [ %10, %13 ]
+  %66 = phi ptr [ %.pre, %135 ], [ %7, %13 ]
+  %67 = phi ptr [ %123, %135 ], [ %6, %13 ]
   %68 = ptrtoint ptr %67 to i64
   %69 = ptrtoint ptr %66 to i64
   %70 = sub i64 %68, %69
@@ -1227,13 +1227,13 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %81 = getelementptr inbounds i8, ptr %76, i64 -2
   %82 = load i8, ptr %81, align 1, !tbaa !16, !noalias !39
   %83 = icmp eq i8 %82, %74
-  br i1 %83, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit103, label %84
+  br i1 %83, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit104, label %84
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds i8, ptr %76, i64 -3
   %86 = load i8, ptr %85, align 1, !tbaa !16, !noalias !39
   %87 = icmp eq i8 %86, %74
-  br i1 %87, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit101, label %88
+  br i1 %87, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit102, label %88
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds i8, ptr %76, i64 -4
@@ -1299,54 +1299,55 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %115 = getelementptr inbounds i8, ptr %76, i64 -3
   br label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20
 
-_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit101: ; preds = %84
+_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit102: ; preds = %84
   %116 = getelementptr inbounds i8, ptr %76, i64 -2
   br label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20
 
-_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit103: ; preds = %80
+_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit104: ; preds = %80
   %117 = getelementptr inbounds i8, ptr %76, i64 -1
   br label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20
 
-_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20: ; preds = %.lr.ph.i.i13, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit101, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit103, %._crit_edge.i.i1, %97, %103, %109
-  %.sink.i.i7 = phi ptr [ %95, %97 ], [ %105, %103 ], [ %66, %._crit_edge.i.i1 ], [ %spec.select.i6, %109 ], [ %115, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit ], [ %116, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit101 ], [ %117, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit103 ], [ %76, %.lr.ph.i.i13 ]
+_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20: ; preds = %.lr.ph.i.i13, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit102, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit104, %._crit_edge.i.i1, %97, %103, %109
+  %.sink.i.i7 = phi ptr [ %95, %97 ], [ %105, %103 ], [ %66, %._crit_edge.i.i1 ], [ %spec.select.i6, %109 ], [ %115, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit ], [ %116, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit102 ], [ %117, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit104 ], [ %76, %.lr.ph.i.i13 ]
   %118 = ptrtoint ptr %.sink.i.i7 to i64
   store i64 %118, ptr %1, align 8
   %119 = load ptr, ptr %2, align 8, !tbaa !14
-  %120 = icmp eq ptr %.sink.i.i7, %119
-  br i1 %120, label %.critedge, label %121
+  %120 = icmp eq ptr %119, %.sink.i.i7
+  %121 = inttoptr i64 %118 to ptr
+  br i1 %120, label %.critedge, label %122
 
-121:                                              ; preds = %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20
-  %122 = getelementptr inbounds i8, ptr %.sink.i.i7, i64 -1
-  %123 = icmp eq ptr %122, %119
-  br i1 %123, label %.critedge, label %.preheader
+122:                                              ; preds = %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20
+  %123 = getelementptr inbounds i8, ptr %121, i64 -1
+  %124 = icmp eq ptr %123, %119
+  br i1 %124, label %.critedge, label %.preheader
 
-.preheader:                                       ; preds = %121, %132
-  %.sroa.022.0 = phi ptr [ %126, %132 ], [ %14, %121 ]
-  %.sroa.030.0 = phi ptr [ %124, %132 ], [ %122, %121 ]
-  %124 = getelementptr inbounds i8, ptr %.sroa.030.0, i64 -1
-  %125 = load i8, ptr %124, align 1, !tbaa !16
-  %126 = getelementptr inbounds i8, ptr %.sroa.022.0, i64 -1
-  %127 = load i8, ptr %126, align 1, !tbaa !16
-  %128 = icmp eq i8 %125, %127
-  br i1 %128, label %129, label %134
+.preheader:                                       ; preds = %122, %133
+  %.sroa.022.0 = phi ptr [ %127, %133 ], [ %14, %122 ]
+  %.sroa.030.0 = phi ptr [ %125, %133 ], [ %123, %122 ]
+  %125 = getelementptr inbounds i8, ptr %.sroa.030.0, i64 -1
+  %126 = load i8, ptr %125, align 1, !tbaa !16
+  %127 = getelementptr inbounds i8, ptr %.sroa.022.0, i64 -1
+  %128 = load i8, ptr %127, align 1, !tbaa !16
+  %129 = icmp eq i8 %126, %128
+  br i1 %129, label %130, label %135
 
-129:                                              ; preds = %.preheader
-  %130 = load ptr, ptr %4, align 8, !tbaa !14
-  %131 = icmp eq ptr %126, %130
-  br i1 %131, label %.critedge, label %132
+130:                                              ; preds = %.preheader
+  %131 = load ptr, ptr %4, align 8, !tbaa !14
+  %132 = icmp eq ptr %127, %131
+  br i1 %132, label %.critedge, label %133
 
-132:                                              ; preds = %129
-  %133 = icmp eq ptr %124, %119
-  br i1 %133, label %.critedge, label %.preheader, !llvm.loop !44
+133:                                              ; preds = %130
+  %134 = icmp eq ptr %125, %119
+  br i1 %134, label %.critedge, label %.preheader, !llvm.loop !44
 
-134:                                              ; preds = %.preheader
-  store ptr %122, ptr %1, align 8, !tbaa !14
+135:                                              ; preds = %.preheader
+  store ptr %123, ptr %1, align 8, !tbaa !14
   %.pre = load ptr, ptr %2, align 8, !tbaa !14
   %.pre77 = load ptr, ptr %3, align 8, !tbaa !14
   br label %.preheader42, !llvm.loop !45
 
-.critedge:                                        ; preds = %121, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20, %132, %129, %.lr.ph.i.i, %56, %50, %45, %._crit_edge.i.i, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit112, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit110, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit, %5, %9
-  %.sink.i.i.sink = phi ptr [ %6, %9 ], [ %6, %5 ], [ %43, %45 ], [ %52, %50 ], [ %7, %._crit_edge.i.i ], [ %spec.select.i, %56 ], [ %62, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit ], [ %63, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit110 ], [ %64, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit112 ], [ %24, %.lr.ph.i.i ], [ %.sink.i.i7, %129 ], [ %119, %132 ], [ %119, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20 ], [ %119, %121 ]
+.critedge:                                        ; preds = %122, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20, %133, %130, %.lr.ph.i.i, %56, %50, %45, %._crit_edge.i.i, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit112, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit110, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit, %5, %9
+  %.sink.i.i.sink = phi ptr [ %6, %9 ], [ %6, %5 ], [ %43, %45 ], [ %52, %50 ], [ %7, %._crit_edge.i.i ], [ %spec.select.i, %56 ], [ %62, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit ], [ %63, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit110 ], [ %64, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit112 ], [ %24, %.lr.ph.i.i ], [ %121, %130 ], [ %119, %133 ], [ %119, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20 ], [ %119, %122 ]
   store ptr %.sink.i.i.sink, ptr %0, align 8, !tbaa !14
   ret void
 }

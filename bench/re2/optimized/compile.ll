@@ -1707,6 +1707,7 @@ if.end:                                           ; preds = %if.end.i3, %if.then
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3re28Compiler20CachedRuneByteSuffixEhhbi(ptr noundef nonnull align 8 dereferenceable(212) %this, i8 noundef zeroext %lo, i8 noundef zeroext %hi, i1 noundef zeroext %foldcase, i32 noundef %next) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
+  %key = alloca i64, align 8
   %conv.i = sext i32 %next to i64
   %shl.i = shl nsw i64 %conv.i, 17
   %conv1.i = zext i8 %lo to i64
@@ -1717,6 +1718,7 @@ entry:
   %or5.i = or disjoint i64 %or.i, %shl4.i
   %conv6.i = zext i1 %foldcase to i64
   %or7.i = or disjoint i64 %or5.i, %conv6.i
+  store i64 %or7.i, ptr %key, align 8
   %rune_cache_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %add.i.i.i.i = add i64 %or7.i, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
   %conv.i.i.i.i = zext i64 %add.i.i.i.i to i128
@@ -1815,7 +1817,7 @@ if.end:                                           ; preds = %_ZN4absl7debian218c
   %16 = load i64, ptr %capacity_.i.i, align 8, !noalias !9
   %17 = ptrtoint ptr %15 to i64
   %shr.i.i.i6.i.i.i.i = lshr i64 %17, 12
-  %xor.i.i.i.i.i.i = xor i64 %shr.i.i.i6.i.i.i.i, %shr.i.i.i2.i
+  %xor.i.i.i.i.i.i = xor i64 %shr.i.i.i2.i, %shr.i.i.i6.i.i.i.i
   %18 = load ptr, ptr %slots_.i.i, align 8, !noalias !9
   br label %while.body.i.i.i.i
 
@@ -1866,7 +1868,10 @@ if.then.i.i.i:                                    ; preds = %for.end.i.i.i.i
   %call33.i.i.i.i = tail call noundef i64 @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(40) %rune_cache_, i64 noundef %conv1.i.i.i.i), !noalias !9
   %25 = load ptr, ptr %slots_.i.i, align 8, !noalias !9
   %add.ptr.i3.i.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %25, i64 %call33.i.i.i.i
-  store i64 %or7.i, ptr %add.ptr.i3.i.i.i, align 8, !noalias !9
+  %26 = ptrtoint ptr %key to i64
+  %27 = inttoptr i64 %26 to ptr
+  %28 = load i64, ptr %27, align 8, !noalias !9
+  store i64 %28, ptr %add.ptr.i3.i.i.i, align 8, !noalias !9
   %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3.i.i.i, i64 8
   store i32 0, ptr %second.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !9
   %.pre.i.i.i = load ptr, ptr %rune_cache_, align 8, !noalias !9
@@ -1874,24 +1879,24 @@ if.then.i.i.i:                                    ; preds = %for.end.i.i.i.i
   br label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S7_S9_SD_E14const_iteratorEEE5valueEiE4typeELi0EEESA_INSJ_8iteratorEbERSB_DpOT0_.exit.i
 
 _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S7_S9_SD_E14const_iteratorEEE5valueEiE4typeELi0EEESA_INSJ_8iteratorEbERSB_DpOT0_.exit.i: ; preds = %for.body.i.i.i.i, %if.then.i.i.i
-  %26 = phi ptr [ %.pre20.i.i.i, %if.then.i.i.i ], [ %18, %for.body.i.i.i.i ]
-  %27 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ %15, %for.body.i.i.i.i ]
+  %29 = phi ptr [ %.pre20.i.i.i, %if.then.i.i.i ], [ %18, %for.body.i.i.i.i ]
+  %30 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ %15, %for.body.i.i.i.i ]
   %retval.sroa.0.0.i15.i.i.i = phi i64 [ %call33.i.i.i.i, %if.then.i.i.i ], [ %and.i.i.i.i.i, %for.body.i.i.i.i ]
-  %cmp.not.i.i.i = icmp eq ptr %27, null
+  %cmp.not.i.i.i = icmp eq ptr %30, null
   br i1 %cmp.not.i.i.i, label %cond.false.i.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S7_S9_SD_E14const_iteratorEEE5valueEiE4typeELi0EEESA_INSJ_8iteratorEbERSB_DpOT0_.exit.i
-  %add.ptr.i4.i.i.i = getelementptr inbounds i8, ptr %27, i64 %retval.sroa.0.0.i15.i.i.i
-  %28 = load i8, ptr %add.ptr.i4.i.i.i, align 1
-  %cmp.i.i.i.i11 = icmp sgt i8 %28, -1
+  %add.ptr.i4.i.i.i = getelementptr inbounds i8, ptr %30, i64 %retval.sroa.0.0.i15.i.i.i
+  %31 = load i8, ptr %add.ptr.i4.i.i.i, align 1
+  %cmp.i.i.i.i11 = icmp sgt i8 %31, -1
   br i1 %cmp.i.i.i.i11, label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEEixImS4_EEDTclsrT0_5valueclL_ZSt9addressofISC_EPT_RSI_EclL_ZSt7declvalIRSC_EDTcl9__declvalISI_ELi0EEEvEEEEERSB_.exit, label %cond.false.i.i.i
 
 cond.false.i.i.i:                                 ; preds = %land.lhs.true.i.i.i, %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S7_S9_SD_E14const_iteratorEEE5valueEiE4typeELi0EEESA_INSJ_8iteratorEbERSB_DpOT0_.exit.i
-  tail call void @llvm.trap()
+  call void @llvm.trap()
   unreachable
 
 _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEEixImS4_EEDTclsrT0_5valueclL_ZSt9addressofISC_EPT_RSI_EclL_ZSt7declvalIRSC_EDTcl9__declvalISI_ELi0EEEvEEEEERSB_.exit: ; preds = %land.lhs.true.i.i.i
-  %add.ptr2.i.i.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %26, i64 %retval.sroa.0.0.i15.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %29, i64 %retval.sroa.0.0.i15.i.i.i
   %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i.i.i.i, i64 8
   store i32 %call9, ptr %second.i.i, align 4
   br label %return

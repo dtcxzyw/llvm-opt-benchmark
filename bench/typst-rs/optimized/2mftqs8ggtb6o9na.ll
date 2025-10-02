@@ -2903,12 +2903,12 @@ define hidden void @_ZN6flate23zio4read17h14ecbacfb1737cf6E(ptr noalias noundef 
   %23 = icmp eq i64 %22, 2
   br i1 %23, label %.split20.us, label %.split.us
 
-.split18.us:                                      ; preds = %35
+.split18.us:                                      ; preds = %37
   unreachable
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %.backedge
-  %24 = phi ptr [ %42, %.backedge ], [ %10, %.lr.ph ]
-  %25 = phi ptr [ %40, %.backedge ], [ %7, %.lr.ph ]
+  %24 = phi ptr [ %44, %.backedge ], [ %10, %.lr.ph ]
+  %25 = phi ptr [ %42, %.backedge ], [ %7, %.lr.ph ]
   %.cast = ptrtoint ptr %24 to i64
   %26 = icmp eq ptr %24, null
   %.val8 = load i64, ptr %11, align 8, !noundef !26
@@ -2925,57 +2925,59 @@ define hidden void @_ZN6flate23zio4read17h14ecbacfb1737cf6E(ptr noalias noundef 
   store i64 %.0.sroa.speculated.i.i, ptr %13, align 8, !alias.scope !425
   %32 = and i64 %27, 4294967295
   %33 = icmp eq i64 %32, 2
-  br i1 %33, label %35, label %.split.us
+  br i1 %33, label %37, label %.split.us
 
 ._crit_edge:                                      ; preds = %.backedge, %5
-  %.lcssa = phi ptr [ %10, %5 ], [ %42, %.backedge ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.lcssa, ptr %34, align 8
-  br label %47
+  %.lcssa = phi ptr [ %10, %5 ], [ %44, %.backedge ]
+  %34 = ptrtoint ptr %.lcssa to i64
+  %35 = inttoptr i64 %34 to ptr
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %35, ptr %36, align 8
+  br label %49
 
-35:                                               ; preds = %.lr.ph.split.split
+37:                                               ; preds = %.lr.ph.split.split
   %.sroa.4.0.extract.shift = lshr i64 %27, 32
   %trunc = trunc i64 %.sroa.4.0.extract.shift to i8
   switch i8 %trunc, label %.split18.us [
-    i8 0, label %38
-    i8 1, label %43
+    i8 0, label %40
+    i8 1, label %45
     i8 2, label %.split20.us
   ]
 
 .split.us:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.us.split.us
-  %36 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17h1b57fc4b74ea09c8E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.b6d981bbdd211541ce803f2c721ad95e.30, i64 noundef 22)
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %36, ptr %37, align 8
-  br label %47
+  %38 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17h1b57fc4b74ea09c8E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.b6d981bbdd211541ce803f2c721ad95e.30, i64 noundef 22)
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %38, ptr %39, align 8
+  br label %49
 
-38:                                               ; preds = %35
-  %39 = icmp ne i64 %.val, %.val8
-  %or.cond = or i1 %26, %39
+40:                                               ; preds = %37
+  %41 = icmp ne i64 %.val, %.val8
+  %or.cond = or i1 %26, %41
   br i1 %or.cond, label %.split20.us, label %.backedge
 
-.backedge:                                        ; preds = %38, %43
+.backedge:                                        ; preds = %40, %45
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN74_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h337a972f12c81d1aE"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
-  %40 = load ptr, ptr %6, align 8, !noundef !26
-  %41 = icmp eq ptr %40, null
-  %42 = load ptr, ptr %9, align 8
+  %42 = load ptr, ptr %6, align 8, !noundef !26
+  %43 = icmp eq ptr %42, null
+  %44 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %41, label %._crit_edge, label %.lr.ph.split.split
+  br i1 %43, label %._crit_edge, label %.lr.ph.split.split
 
-43:                                               ; preds = %35
-  %44 = icmp ne i64 %.val, %.val8
-  %or.cond3 = or i1 %26, %44
+45:                                               ; preds = %37
+  %46 = icmp ne i64 %.val, %.val8
+  %or.cond3 = or i1 %26, %46
   br i1 %or.cond3, label %.split20.us, label %.backedge
 
-.split20.us:                                      ; preds = %43, %38, %35, %.lr.ph.split.us.split.us
-  %.us-phi = phi i64 [ %.val8.us.us, %.lr.ph.split.us.split.us ], [ %.val8, %35 ], [ %.val8, %38 ], [ %.val8, %43 ]
-  %.us-phi21 = phi i64 [ %.val.us.us, %.lr.ph.split.us.split.us ], [ %.val, %35 ], [ %.val, %38 ], [ %.val, %43 ]
-  %45 = sub i64 %.us-phi21, %.us-phi
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %45, ptr %46, align 8
-  br label %47
+.split20.us:                                      ; preds = %45, %40, %37, %.lr.ph.split.us.split.us
+  %.us-phi = phi i64 [ %.val8.us.us, %.lr.ph.split.us.split.us ], [ %.val8, %37 ], [ %.val8, %40 ], [ %.val8, %45 ]
+  %.us-phi21 = phi i64 [ %.val.us.us, %.lr.ph.split.us.split.us ], [ %.val, %37 ], [ %.val, %40 ], [ %.val, %45 ]
+  %47 = sub i64 %.us-phi21, %.us-phi
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %47, ptr %48, align 8
+  br label %49
 
-47:                                               ; preds = %.split20.us, %.split.us, %._crit_edge
+49:                                               ; preds = %.split20.us, %.split.us, %._crit_edge
   %.sink = phi i64 [ 0, %.split20.us ], [ 1, %.split.us ], [ 1, %._crit_edge ]
   store i64 %.sink, ptr %0, align 8
   ret void

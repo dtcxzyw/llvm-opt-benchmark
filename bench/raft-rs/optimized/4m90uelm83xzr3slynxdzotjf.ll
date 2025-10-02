@@ -1193,8 +1193,10 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %2
 
 25:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h1c19c8d5d1f54e68E.exit.i"
   %26 = load ptr, ptr %19, align 8, !noalias !68, !nonnull !3, !noundef !3
+  %27 = ptrtoint ptr %26 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !68
-  store ptr %26, ptr %12, align 8, !alias.scope !68
+  %28 = inttoptr i64 %27 to ptr
+  store ptr %28, ptr %12, align 8, !alias.scope !68
   store i64 %7, ptr %0, align 8, !alias.scope !68
   ret void
 }
@@ -1252,8 +1254,10 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %2
 
 23:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h1c19c8d5d1f54e68E.exit.i"
   %24 = load ptr, ptr %17, align 8, !noalias !74, !nonnull !3, !noundef !3
+  %25 = ptrtoint ptr %24 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !74
-  store ptr %24, ptr %10, align 8, !alias.scope !74
+  %26 = inttoptr i64 %25 to ptr
+  store ptr %26, ptr %10, align 8, !alias.scope !74
   store i64 %7, ptr %0, align 8, !alias.scope !74
   ret void
 }
@@ -1313,8 +1317,10 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %2
 
 25:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h1c19c8d5d1f54e68E.exit.i"
   %26 = load ptr, ptr %19, align 8, !noalias !80, !nonnull !3, !noundef !3
+  %27 = ptrtoint ptr %26 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !80
-  store ptr %26, ptr %12, align 8, !alias.scope !80
+  %28 = inttoptr i64 %27 to ptr
+  store ptr %28, ptr %12, align 8, !alias.scope !80
   store i64 %7, ptr %0, align 8, !alias.scope !80
   ret void
 }
@@ -1480,8 +1486,10 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %12
 
 41:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h1c19c8d5d1f54e68E.exit.i"
   %42 = load ptr, ptr %35, align 8, !noalias !86, !nonnull !3, !noundef !3
+  %43 = ptrtoint ptr %42 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !86
-  store ptr %42, ptr %28, align 8, !alias.scope !86
+  %44 = inttoptr i64 %43 to ptr
+  store ptr %44, ptr %28, align 8, !alias.scope !86
   store i64 %.sroa.0.0.sroa.speculated.i40.i, ptr %0, align 8, !alias.scope !86
   ret void
 }

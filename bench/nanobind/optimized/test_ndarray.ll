@@ -3266,29 +3266,31 @@ define internal noundef i32 @_ZZL30nanobind_init_test_ndarray_extRN8nanobind7mod
   %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %11, label %9
+  br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %3
-  %10 = call noundef i32 %1(ptr noundef nonnull %7, ptr noundef %2) #21
-  %.not18 = icmp eq i32 %10, 0
-  br i1 %.not18, label %11, label %17
+  %.cast = ptrtoint ptr %7 to i64
+  %10 = inttoptr i64 %.cast to ptr
+  %11 = call noundef i32 %1(ptr noundef nonnull %10, ptr noundef %2) #21
+  %.not18 = icmp eq i32 %11, 0
+  br i1 %.not18, label %12, label %18
 
-11:                                               ; preds = %3, %9
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !92
-  %.not19 = icmp eq ptr %13, null
-  br i1 %.not19, label %16, label %14
+12:                                               ; preds = %3, %9
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !92
+  %.not19 = icmp eq ptr %14, null
+  br i1 %.not19, label %17, label %15
 
-14:                                               ; preds = %11
-  %15 = call noundef i32 %1(ptr noundef nonnull %13, ptr noundef %2) #21
-  %.not20 = icmp eq i32 %15, 0
-  br i1 %.not20, label %16, label %17
+15:                                               ; preds = %12
+  %16 = call noundef i32 %1(ptr noundef nonnull %14, ptr noundef %2) #21
+  %.not20 = icmp eq i32 %16, 0
+  br i1 %.not20, label %17, label %18
 
-16:                                               ; preds = %14, %11
-  br label %17
+17:                                               ; preds = %15, %12
+  br label %18
 
-17:                                               ; preds = %9, %14, %16
-  %.1 = phi i32 [ 0, %16 ], [ %15, %14 ], [ %10, %9 ]
+18:                                               ; preds = %9, %15, %17
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %9 ]
   ret i32 %.1
 }
 

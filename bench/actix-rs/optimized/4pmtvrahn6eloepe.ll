@@ -536,7 +536,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h0ea059f46adea409E(ptr no
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %17
 
-17:                                               ; preds = %51, %.lr.ph
+17:                                               ; preds = %52, %.lr.ph
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   call void @llvm.experimental.noalias.scope.decl(metadata !34)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !37
@@ -651,16 +651,17 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %36
 
 .thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %39, %41, %45
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !54
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h9a1475dffe9770cdE.llvm.14998522591088738574(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull %33), !noalias !54
-  %49 = load i8, ptr %5, align 8, !range !61, !alias.scope !62, !noalias !54, !noundef !13
-  %switch.not.i.i.i.i = icmp eq i8 %49, 3
-  br i1 %switch.not.i.i.i.i, label %50, label %51
+  %49 = inttoptr i64 %37 to ptr
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h9a1475dffe9770cdE.llvm.14998522591088738574(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull %49), !noalias !54
+  %50 = load i8, ptr %5, align 8, !range !61, !alias.scope !62, !noalias !54, !noundef !13
+  %switch.not.i.i.i.i = icmp eq i8 %50, 3
+  br i1 %switch.not.i.i.i.i, label %51, label %52
 
-50:                                               ; preds = %.thread
+51:                                               ; preds = %.thread
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h3b849bc110c7ebcdE.llvm.14998522591088738574"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16), !noalias !54
-  br label %51
+  br label %52
 
-51:                                               ; preds = %50, %.thread
+52:                                               ; preds = %51, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !54
   br label %17
 }

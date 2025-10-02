@@ -591,28 +591,30 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %9
   %120 = load ptr, ptr %119, align 8, !tbaa !49
   %121 = getelementptr inbounds nuw i8, ptr %.152.lcssa, i64 64
   %122 = load ptr, ptr %121, align 8, !tbaa !3
-  %123 = load i32, ptr %1, align 4
-  %124 = and i32 %123, 63
-  %125 = icmp samesign ult i32 %124, 6
-  %126 = add nsw i32 %124, -5
-  %127 = shl nuw i32 1, %126
-  %spec.select.i61 = select i1 %125, i32 1, i32 %127
-  %128 = icmp sgt i32 %spec.select.i61, 0
-  br i1 %128, label %select.unfold.preheader.i62, label %Kit_TruthCopy.exit
+  %123 = ptrtoint ptr %122 to i64
+  %124 = inttoptr i64 %123 to ptr
+  %125 = load i32, ptr %1, align 4
+  %126 = and i32 %125, 63
+  %127 = icmp samesign ult i32 %126, 6
+  %128 = add nsw i32 %126, -5
+  %129 = shl nuw i32 1, %128
+  %spec.select.i61 = select i1 %127, i32 1, i32 %129
+  %130 = icmp sgt i32 %spec.select.i61, 0
+  br i1 %130, label %select.unfold.preheader.i62, label %Kit_TruthCopy.exit
 
 select.unfold.preheader.i62:                      ; preds = %112
-  %129 = zext nneg i32 %spec.select.i61 to i64
+  %131 = zext nneg i32 %spec.select.i61 to i64
   br label %select.unfold.i63
 
 select.unfold.i63:                                ; preds = %select.unfold.i63, %select.unfold.preheader.i62
-  %indvars.iv.i64 = phi i64 [ %129, %select.unfold.preheader.i62 ], [ %indvars.iv.next.i65, %select.unfold.i63 ]
+  %indvars.iv.i64 = phi i64 [ %131, %select.unfold.preheader.i62 ], [ %indvars.iv.next.i65, %select.unfold.i63 ]
   %indvars.iv.next.i65 = add nsw i64 %indvars.iv.i64, -1
-  %130 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv.next.i65
-  %131 = load i32, ptr %130, align 4, !tbaa !45
-  %132 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv.next.i65
-  store i32 %131, ptr %132, align 4, !tbaa !45
-  %133 = icmp samesign ugt i64 %indvars.iv.i64, 1
-  br i1 %133, label %select.unfold.i63, label %Kit_TruthCopy.exit, !llvm.loop !73
+  %132 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv.next.i65
+  %133 = load i32, ptr %132, align 4, !tbaa !45
+  %134 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv.next.i65
+  store i32 %133, ptr %134, align 4, !tbaa !45
+  %135 = icmp samesign ugt i64 %indvars.iv.i64, 1
+  br i1 %135, label %select.unfold.i63, label %Kit_TruthCopy.exit, !llvm.loop !73
 
 Kit_TruthCopy.exit:                               ; preds = %select.unfold.i63, %112, %.critedge2
   %.150 = phi ptr [ %.049.lcssa, %.critedge2 ], [ %120, %112 ], [ %120, %select.unfold.i63 ]

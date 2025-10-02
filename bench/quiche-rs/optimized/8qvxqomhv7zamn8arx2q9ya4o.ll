@@ -748,8 +748,10 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %2
 
 23:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h8357e2e2933c373fE.exit.i"
   %24 = load ptr, ptr %17, align 8, !noalias !84, !nonnull !3, !noundef !3
+  %25 = ptrtoint ptr %24 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !84
-  store ptr %24, ptr %10, align 8, !alias.scope !84
+  %26 = inttoptr i64 %25 to ptr
+  store ptr %26, ptr %10, align 8, !alias.scope !84
   store i64 %7, ptr %0, align 8, !alias.scope !84
   ret void
 }
@@ -807,8 +809,10 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %2
 
 23:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h8357e2e2933c373fE.exit.i"
   %24 = load ptr, ptr %17, align 8, !noalias !91, !nonnull !3, !noundef !3
+  %25 = ptrtoint ptr %24 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !91
-  store ptr %24, ptr %10, align 8, !alias.scope !91
+  %26 = inttoptr i64 %25 to ptr
+  store ptr %26, ptr %10, align 8, !alias.scope !91
   store i64 %7, ptr %0, align 8, !alias.scope !91
   ret void
 }
@@ -974,8 +978,10 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %12
 
 41:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h8357e2e2933c373fE.exit.i"
   %42 = load ptr, ptr %35, align 8, !noalias !97, !nonnull !3, !noundef !3
+  %43 = ptrtoint ptr %42 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !97
-  store ptr %42, ptr %28, align 8, !alias.scope !97
+  %44 = inttoptr i64 %43 to ptr
+  store ptr %44, ptr %28, align 8, !alias.scope !97
   store i64 %.sroa.0.0.sroa.speculated.i40.i, ptr %0, align 8, !alias.scope !97
   ret void
 }

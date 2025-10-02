@@ -20422,9 +20422,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPKN4Luau4TypeES3_Sa
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !44
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread37
 
-.thread36:                                        ; preds = %4
+.thread37:                                        ; preds = %4
   %7 = load ptr, ptr %1, align 8, !tbaa !10
   %8 = ptrtoint ptr %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20460,7 +20460,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPKN4Luau4TypeES3_Sa
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread37
   %29 = load ptr, ptr %14, align 8, !tbaa !45
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !10
@@ -20488,10 +20488,10 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPKN4Luau4TypeES3_Sa
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
   br label %.critedge, !llvm.loop !477
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread37
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread37 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread37 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread37 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #35
   store ptr null, ptr %44, align 8, !tbaa !45
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -20506,8 +20506,10 @@ _ZNSt10_HashtableIPKN4Luau4TypeES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIPKN4Luau4TypeES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
+  %.sroa.031.1.in.in = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
   %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1.in = ptrtoint ptr %.sroa.031.1.in.in to i64
+  %.sroa.031.1 = inttoptr i64 %.sroa.031.1.in to ptr
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -23625,8 +23627,10 @@ _ZNSt8_Rb_treeISt4pairIPKvS2_ES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_inser
   br label %54
 
 54:                                               ; preds = %26, %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit5.i, %_ZNSt8_Rb_treeISt4pairIPKvS2_ES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit
-  %.sroa.011.0 = phi ptr [ %49, %_ZNSt8_Rb_treeISt4pairIPKvS2_ES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit ], [ %.sroa.06.0.i, %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit5.i ], [ %.sroa.06.0.i, %26 ]
+  %.sroa.011.0.in.in = phi ptr [ %49, %_ZNSt8_Rb_treeISt4pairIPKvS2_ES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit ], [ %.sroa.06.0.i, %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit5.i ], [ %.sroa.06.0.i, %26 ]
   %.sroa.3.0 = phi i8 [ 1, %_ZNSt8_Rb_treeISt4pairIPKvS2_ES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit ], [ 0, %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit5.i ], [ 0, %26 ]
+  %.sroa.011.0.in = ptrtoint ptr %.sroa.011.0.in.in to i64
+  %.sroa.011.0 = inttoptr i64 %.sroa.011.0.in to ptr
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.011.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert

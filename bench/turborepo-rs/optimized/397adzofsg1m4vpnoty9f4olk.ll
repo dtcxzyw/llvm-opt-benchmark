@@ -172,9 +172,11 @@ define void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtB7_5boxed3B
 
 19:                                               ; preds = %6
   %20 = load ptr, ptr %13, align 8, !noalias !10, !nonnull !8, !noundef !8
+  %21 = ptrtoint ptr %20 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !10
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %20, ptr %21, align 8, !alias.scope !10
+  %22 = inttoptr i64 %21 to ptr
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %22, ptr %23, align 8, !alias.scope !10
   store i64 %.sroa.0.0.sroa.speculated.i17.i, ptr %0, align 8, !alias.scope !10
   ret void
 }
@@ -207,7 +209,7 @@ define { i64, i64 } @_RNvMs1_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtB7_
   %5 = alloca [24 x i8], align 8
   %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
   %7 = extractvalue { i64, i1 } %6, 1
-  br i1 %7, label %24, label %8
+  br i1 %7, label %26, label %8
 
 8:                                                ; preds = %3
   %9 = add nuw i64 %2, %1
@@ -228,29 +230,31 @@ define { i64, i64 } @_RNvMs1_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtB7_
   %15 = load i64, ptr %5, align 8, !range !7, !noundef !8
   %trunc = trunc nuw i64 %15 to i1
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br i1 %trunc, label %20, label %17
+  br i1 %trunc, label %22, label %17
 
 17:                                               ; preds = %8
   %18 = load ptr, ptr %16, align 8, !nonnull !8, !noundef !8
+  %19 = ptrtoint ptr %18 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %18, ptr %19, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %20, ptr %21, align 8
   store i64 %.sroa.0.0.sroa.speculated.i17, ptr %0, align 8
-  br label %24
+  br label %26
 
-20:                                               ; preds = %8
-  %21 = load i64, ptr %16, align 8, !range !9, !noundef !8
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %23 = load i64, ptr %22, align 8
+22:                                               ; preds = %8
+  %23 = load i64, ptr %16, align 8, !range !9, !noundef !8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %25 = load i64, ptr %24, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %24
+  br label %26
 
-24:                                               ; preds = %3, %20, %17
-  %.sroa.4.0 = phi i64 [ undef, %17 ], [ %23, %20 ], [ undef, %3 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %17 ], [ %21, %20 ], [ 0, %3 ]
-  %25 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %26 = insertvalue { i64, i64 } %25, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %26
+26:                                               ; preds = %3, %22, %17
+  %.sroa.4.0 = phi i64 [ undef, %17 ], [ %25, %22 ], [ undef, %3 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %17 ], [ %23, %22 ], [ 0, %3 ]
+  %27 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %28 = insertvalue { i64, i64 } %27, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

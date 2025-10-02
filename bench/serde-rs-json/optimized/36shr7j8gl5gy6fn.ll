@@ -21,13 +21,14 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr no
   br i1 %8, label %.lr.ph38, label %.loopexit
 
 .loopexit:                                        ; preds = %18, %14, %12, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %22, %.lr.ph, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ null, %22 ], [ %9, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %9, %12 ], [ %9, %14 ], [ %9, %18 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ null, %22 ], [ %.val.cast, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %.val.cast, %12 ], [ %.val.cast, %14 ], [ %.val.cast, %18 ]
   ret ptr %.0
 
 .lr.ph38:                                         ; preds = %.lr.ph, %22
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %9 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17h33be6581caccd802E(i8 noundef 39, ptr noalias noundef nonnull readonly align 1 @anon.7b12c2ab9e1ce74a96d00cd7e4c1ea31.28.llvm.8370777945629324, i64 noundef 9), !noalias !14
   %10 = ptrtoint ptr %9 to i64
+  %.val.cast = inttoptr i64 %10 to ptr
   %11 = and i64 %10, 3
   switch i64 %11, label %default.unreachable [
     i64 2, label %12
@@ -45,13 +46,13 @@ default.unreachable:                              ; preds = %.lr.ph38
   br i1 %13, label %24, label %.loopexit
 
 14:                                               ; preds = %.lr.ph38
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.val.cast, i64 16
   %16 = load i8, ptr %15, align 8, !range !15, !noundef !10
   %17 = icmp eq i8 %16, 35
   br i1 %17, label %24, label %.loopexit
 
 18:                                               ; preds = %.lr.ph38
-  %19 = getelementptr i8, ptr %9, i64 15
+  %19 = getelementptr i8, ptr %.val.cast, i64 15
   %20 = load i8, ptr %19, align 8, !range !15, !noundef !10
   %21 = icmp eq i8 %20, 35
   br i1 %21, label %24, label %.loopexit
@@ -68,7 +69,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %.lr.
 
 24:                                               ; preds = %18, %14, %12, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !16
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h90361b2b4881ae37E.llvm.12266911530922283489(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %9), !noalias !16
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h90361b2b4881ae37E.llvm.12266911530922283489(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %.val.cast), !noalias !16
   %25 = load i8, ptr %4, align 8, !range !25, !alias.scope !26, !noalias !16, !noundef !10
   %switch.not.i.i.i.i = icmp eq i8 %25, 3
   br i1 %switch.not.i.i.i.i, label %26, label %22

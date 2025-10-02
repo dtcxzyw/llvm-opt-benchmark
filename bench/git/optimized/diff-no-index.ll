@@ -402,7 +402,7 @@ define internal fastcc range(i32 -1, 1) i32 @queue_diff(ptr noundef readonly cap
 get_mode.exit:                                    ; preds = %15
   %31 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10, ptr noundef nonnull %1) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %195
+  br label %197
 
 .thread:                                          ; preds = %13, %21, %30, %25, %23, %20
   %.0187 = phi i32 [ 0, %21 ], [ 2, %30 ], [ 0, %25 ], [ 0, %23 ], [ 0, %20 ], [ 1, %13 ]
@@ -461,7 +461,7 @@ get_mode.exit:                                    ; preds = %15
 get_mode.exit97:                                  ; preds = %36
   %52 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10, ptr noundef nonnull %2) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %195
+  br label %197
 
 .thread149:                                       ; preds = %34, %42, %51, %46, %44, %41
   %.0186 = phi i32 [ 0, %42 ], [ 2, %51 ], [ 0, %46 ], [ 0, %44 ], [ 0, %41 ], [ 1, %34 ]
@@ -816,31 +816,33 @@ strbuf_setlen.exit125:                            ; preds = %159, %161
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %195
+  br label %197
 
 187:                                              ; preds = %69
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %189 = load i32, ptr %188, align 8, !tbaa !89
   %.not81 = icmp eq i32 %189, 0
-  br i1 %.not81, label %191, label %190
+  br i1 %.not81, label %193, label %190
 
 190:                                              ; preds = %187
-  br label %191
+  %191 = ptrtoint ptr %.069 to i64
+  %192 = inttoptr i64 %191 to ptr
+  br label %193
 
-191:                                              ; preds = %190, %187
+193:                                              ; preds = %190, %187
   %.1188 = phi i32 [ %.0187, %187 ], [ %.0186, %190 ]
   %.1 = phi i32 [ %.0186, %187 ], [ %.0187, %190 ]
   %.2140 = phi i32 [ %.0138, %187 ], [ %.0135, %190 ]
   %.2137 = phi i32 [ %.0135, %187 ], [ %.0138, %190 ]
-  %.273 = phi ptr [ %.071, %187 ], [ %.069, %190 ]
+  %.273 = phi ptr [ %.071, %187 ], [ %192, %190 ]
   %.2 = phi ptr [ %.069, %187 ], [ %.071, %190 ]
-  %192 = tail call fastcc ptr @noindex_filespec(ptr noundef %.2, i32 noundef %.2140, i32 noundef %.1188)
-  %193 = tail call fastcc ptr @noindex_filespec(ptr noundef %.273, i32 noundef %.2137, i32 noundef %.1)
-  %194 = tail call ptr @diff_queue(ptr noundef nonnull @diff_queued_diff, ptr noundef %192, ptr noundef %193) #12
-  br label %195
+  %194 = tail call fastcc ptr @noindex_filespec(ptr noundef %.2, i32 noundef %.2140, i32 noundef %.1188)
+  %195 = tail call fastcc ptr @noindex_filespec(ptr noundef %.273, i32 noundef %.2137, i32 noundef %.1)
+  %196 = tail call ptr @diff_queue(ptr noundef nonnull @diff_queued_diff, ptr noundef %194, ptr noundef %195) #12
+  br label %197
 
-195:                                              ; preds = %get_mode.exit97, %get_mode.exit, %191, %186
-  %.0 = phi i32 [ %.143, %186 ], [ 0, %191 ], [ -1, %get_mode.exit97 ], [ -1, %get_mode.exit ]
+197:                                              ; preds = %get_mode.exit97, %get_mode.exit, %193, %186
+  %.0 = phi i32 [ %.143, %186 ], [ 0, %193 ], [ -1, %get_mode.exit97 ], [ -1, %get_mode.exit ]
   ret i32 %.0
 }
 

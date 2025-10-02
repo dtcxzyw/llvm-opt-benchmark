@@ -9268,7 +9268,7 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN10o
   %.pre-phi63.i.i.i = phi i64 [ %.pre62.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %5, %2 ]
   %.sroa.031.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %0, %2 ]
   %21 = sdiv exact i64 %.pre-phi63.i.i.i, 12
-  switch i64 %21, label %"_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit" [
+  switch i64 %21, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit.thread.i" [
     i64 3, label %22
     i64 2, label %26
     i64 1, label %30
@@ -9318,33 +9318,41 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN10o
 "_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit.i": ; preds = %.lr.ph.i.i.i, %.loopexit.split.loop.exit51.i.i.i, %.loopexit.split.loop.exit49.i.i.i, %.loopexit.split.loop.exit47.i.i.i, %30, %26, %22
   %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i, %22 ], [ %.sroa.031.1.i.i.i, %26 ], [ %spec.select.i.i.i, %30 ], [ %32, %.loopexit.split.loop.exit47.i.i.i ], [ %33, %.loopexit.split.loop.exit49.i.i.i ], [ %34, %.loopexit.split.loop.exit51.i.i.i ], [ %.sroa.031.056.i.i.i, %.lr.ph.i.i.i ]
   %35 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %1
+  br i1 %35, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit.thread.i", label %37
+
+"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit.thread.i": ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit.i", %._crit_edge.i.i.i
+  %36 = inttoptr i64 %3 to ptr
+  br label %"_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit"
+
+37:                                               ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit.i"
+  %38 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i to i64
+  %39 = inttoptr i64 %38 to ptr
   %.sroa.06.022.i = getelementptr inbounds nuw i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i, i64 12
   %.not23.i = icmp eq ptr %.sroa.06.022.i, %1
-  %or.cond.i = select i1 %35, i1 true, i1 %.not23.i
-  br i1 %or.cond.i, label %"_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit", label %.lr.ph.i
+  br i1 %.not23.i, label %"_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit.i", %39
-  %.sroa.06.026.i = phi ptr [ %.sroa.06.0.i, %39 ], [ %.sroa.06.022.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit.i" ]
-  %.sroa.012.125.i = phi ptr [ %.sroa.012.2.i, %39 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit.i" ]
-  %.sroa.08.0.in.sroa.speculated.i.i.pn24.i = phi ptr [ %.sroa.06.026.i, %39 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit.i" ]
-  %36 = getelementptr i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.pn24.i, i64 20
-  %.val.i.i = load i32, ptr %36, align 4
+.lr.ph.i:                                         ; preds = %37, %43
+  %.sroa.06.026.i = phi ptr [ %.sroa.06.0.i, %43 ], [ %.sroa.06.022.i, %37 ]
+  %.sroa.012.125.i = phi ptr [ %.sroa.012.2.i, %43 ], [ %39, %37 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.pn24.i = phi ptr [ %.sroa.06.026.i, %43 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %37 ]
+  %40 = getelementptr i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.pn24.i, i64 20
+  %.val.i.i = load i32, ptr %40, align 4
   %.not17.i = icmp eq i32 %.val.i.i, 2
-  br i1 %.not17.i, label %37, label %39
+  br i1 %.not17.i, label %41, label %43
 
-37:                                               ; preds = %.lr.ph.i
+41:                                               ; preds = %.lr.ph.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.125.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.06.026.i, i64 12, i1 false)
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.012.125.i, i64 12
-  br label %39
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.012.125.i, i64 12
+  br label %43
 
-39:                                               ; preds = %37, %.lr.ph.i
-  %.sroa.012.2.i = phi ptr [ %.sroa.012.125.i, %.lr.ph.i ], [ %38, %37 ]
+43:                                               ; preds = %41, %.lr.ph.i
+  %.sroa.012.2.i = phi ptr [ %.sroa.012.125.i, %.lr.ph.i ], [ %42, %41 ]
   %.sroa.06.0.i = getelementptr inbounds nuw i8, ptr %.sroa.06.026.i, i64 12
   %.not.i = icmp eq ptr %.sroa.06.0.i, %1
   br i1 %.not.i, label %"_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit", label %.lr.ph.i, !llvm.loop !49
 
-"_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit": ; preds = %39, %._crit_edge.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit.i"
-  %.sroa.012.0.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit.i" ], [ %1, %._crit_edge.i.i.i ], [ %.sroa.012.2.i, %39 ]
+"_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit": ; preds = %43, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit.thread.i", %37
+  %.sroa.012.0.i = phi ptr [ %36, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit.thread.i" ], [ %39, %37 ], [ %.sroa.012.2.i, %43 ]
   ret ptr %.sroa.012.0.i
 }
 
@@ -18597,8 +18605,10 @@ _ZNSt8_Rb_treeIN10open_spiel12chess_common6SquareES2_St9_IdentityIS2_ESt4lessIS2
   br label %45
 
 45:                                               ; preds = %20, %_ZNSt8_Rb_treeIN10open_spiel12chess_common6SquareES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit
-  %.sroa.011.0 = phi ptr [ %39, %_ZNSt8_Rb_treeIN10open_spiel12chess_common6SquareES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit ], [ %.sroa.07.0.i, %20 ]
+  %.sroa.011.0.in.in = phi ptr [ %39, %_ZNSt8_Rb_treeIN10open_spiel12chess_common6SquareES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit ], [ %.sroa.07.0.i, %20 ]
   %.sroa.3.0 = phi i8 [ 1, %_ZNSt8_Rb_treeIN10open_spiel12chess_common6SquareES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit ], [ 0, %20 ]
+  %.sroa.011.0.in = ptrtoint ptr %.sroa.011.0.in.in to i64
+  %.sroa.011.0 = inttoptr i64 %.sroa.011.0.in to ptr
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.011.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert

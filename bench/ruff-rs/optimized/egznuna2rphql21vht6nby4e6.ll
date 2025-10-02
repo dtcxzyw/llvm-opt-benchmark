@@ -9796,7 +9796,7 @@ default.unreachable1:                             ; preds = %1
 6:                                                ; preds = %1
   %7 = load i64, ptr %5, align 8, !noundef !24
   %8 = icmp sgt i64 %7, -1
-  br i1 %8, label %12, label %9, !prof !1490
+  br i1 %8, label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$i64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h1e22a0b098e7ef22E.exit", label %9, !prof !1490
 
 9:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -9805,17 +9805,15 @@ default.unreachable1:                             ; preds = %1
   store i8 1, ptr %3, align 8
   %11 = call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$13invalid_value17h2ca668f30416368eE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f9daa5c7466256b4b0f64333e695001d.16)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %12 = ptrtoint ptr %11 to i64
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$i64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h1e22a0b098e7ef22E.exit"
 
-12:                                               ; preds = %6
-  %13 = inttoptr i64 %7 to ptr
-  br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$i64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h1e22a0b098e7ef22E.exit"
-
-"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$i64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h1e22a0b098e7ef22E.exit": ; preds = %9, %12
-  %.sroa.3.0.i = phi ptr [ %13, %12 ], [ %11, %9 ]
-  %.sroa.0.0.i = phi i64 [ 0, %12 ], [ 1, %9 ]
+"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$i64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h1e22a0b098e7ef22E.exit": ; preds = %6, %9
+  %.sroa.3.0.i = phi i64 [ %12, %9 ], [ %7, %6 ]
+  %.sroa.0.0.i = phi i64 [ 1, %9 ], [ 0, %6 ]
+  %13 = inttoptr i64 %.sroa.3.0.i to ptr
   %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.3.0.i, 1
+  %15 = insertvalue { i64, ptr } %14, ptr %13, 1
   br label %23
 
 16:                                               ; preds = %1

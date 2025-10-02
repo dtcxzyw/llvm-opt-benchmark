@@ -9736,21 +9736,19 @@ define hidden { i64, ptr } @"_ZN75_$LT$zstd..stream..raw..Encoder$u20$as$u20$zst
   %.sroa.01.0 = extractvalue { i64, i64 } %8, 0
   %.sroa.5.0 = extractvalue { i64, i64 } %8, 1
   %9 = trunc nuw i64 %.sroa.01.0 to i1
-  br i1 %9, label %10, label %12
+  br i1 %9, label %10, label %13
 
 10:                                               ; preds = %3
   %11 = tail call noundef nonnull ptr @_ZN4zstd14map_error_code17hb23108482d3f9875E(i64 noundef %.sroa.5.0)
-  br label %14
+  %12 = ptrtoint ptr %11 to i64
+  br label %13
 
-12:                                               ; preds = %3
-  %13 = inttoptr i64 %.sroa.5.0 to ptr
-  br label %14
-
-14:                                               ; preds = %12, %10
-  %.sroa.3.0 = phi ptr [ %11, %10 ], [ %13, %12 ]
-  %.sroa.0.0 = phi i64 [ 1, %10 ], [ 0, %12 ]
+13:                                               ; preds = %3, %10
+  %.sroa.3.0 = phi i64 [ %12, %10 ], [ %.sroa.5.0, %3 ]
+  %.sroa.0.0 = phi i64 [ 1, %10 ], [ 0, %3 ]
+  %14 = inttoptr i64 %.sroa.3.0 to ptr
   %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %16 = insertvalue { i64, ptr } %15, ptr %.sroa.3.0, 1
+  %16 = insertvalue { i64, ptr } %15, ptr %14, 1
   ret { i64, ptr } %16
 }
 
@@ -9765,21 +9763,19 @@ define hidden { i64, ptr } @"_ZN75_$LT$zstd..stream..raw..Encoder$u20$as$u20$zst
   %.sroa.01.0 = extractvalue { i64, i64 } %8, 0
   %.sroa.5.0 = extractvalue { i64, i64 } %8, 1
   %9 = trunc nuw i64 %.sroa.01.0 to i1
-  br i1 %9, label %10, label %12
+  br i1 %9, label %10, label %13
 
 10:                                               ; preds = %3
   %11 = tail call noundef nonnull ptr @_ZN4zstd14map_error_code17hb23108482d3f9875E(i64 noundef %.sroa.5.0)
-  br label %14
+  %12 = ptrtoint ptr %11 to i64
+  br label %13
 
-12:                                               ; preds = %3
-  %13 = inttoptr i64 %.sroa.5.0 to ptr
-  br label %14
-
-14:                                               ; preds = %12, %10
-  %.sroa.3.0 = phi ptr [ %11, %10 ], [ %13, %12 ]
-  %.sroa.0.0 = phi i64 [ 1, %10 ], [ 0, %12 ]
+13:                                               ; preds = %3, %10
+  %.sroa.3.0 = phi i64 [ %12, %10 ], [ %.sroa.5.0, %3 ]
+  %.sroa.0.0 = phi i64 [ 1, %10 ], [ 0, %3 ]
+  %14 = inttoptr i64 %.sroa.3.0 to ptr
   %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %16 = insertvalue { i64, ptr } %15, ptr %.sroa.3.0, 1
+  %16 = insertvalue { i64, ptr } %15, ptr %14, 1
   ret { i64, ptr } %16
 }
 

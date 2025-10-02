@@ -2290,7 +2290,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2a30a34f1953b804E(ptr noalia
   %.sroa.01.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.01.sroa.7.0.copyload = load ptr, ptr %.sroa.01.sroa.7.0..sroa_idx, align 8, !nonnull !9, !noundef !9
   invoke void @_ZN15influxdb3_write12write_buffer7flusher12run_io_flush17hcf9109fea453884bE(ptr noundef nonnull %.sroa.01.sroa.7.0.copyload, i64 noundef %.sroa.01.sroa.5.0.copyload, ptr %.sroa.01.sroa.6.0.copyload, i64 noundef %.sroa.01.sroa.0.0.copyload, ptr noundef %.sroa.01.sroa.4.0.copyload)
-          to label %8 unwind label %2
+          to label %14 unwind label %2
 
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
@@ -2305,14 +2305,27 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2a30a34f1953b804E(ptr noalia
   tail call void @_ZN4core9panicking19panic_cannot_unwind17hd1f75b4894411f9aE() #29
   unreachable
 
-8:                                                ; preds = %1
-  tail call void asm sideeffect "", "~{memory}"() #30, !noalias !414, !srcloc !421
-  %9 = insertvalue { ptr, ptr } { ptr null, ptr poison }, ptr %.sroa.01.sroa.4.0.copyload, 1
-  br label %__rust_try.llvm.6305840527560983182.exit
+__rust_try.llvm.6305840527560983182.exit:         ; preds = %2
+  %8 = extractvalue { ptr, ptr } %5, 0
+  %9 = extractvalue { ptr, ptr } %5, 1
+  %10 = icmp ne ptr %8, null
+  tail call void @llvm.assume(i1 %10)
+  %11 = icmp ne ptr %9, null
+  tail call void @llvm.assume(i1 %11)
+  %12 = ptrtoint ptr %8 to i64
+  %13 = inttoptr i64 %12 to ptr
+  br label %15
 
-__rust_try.llvm.6305840527560983182.exit:         ; preds = %2, %8
-  %.merged = phi { ptr, ptr } [ %9, %8 ], [ %5, %2 ]
-  ret { ptr, ptr } %.merged
+14:                                               ; preds = %1
+  tail call void asm sideeffect "", "~{memory}"() #30, !noalias !414, !srcloc !421
+  br label %15
+
+15:                                               ; preds = %__rust_try.llvm.6305840527560983182.exit, %14
+  %.sroa.6.06 = phi ptr [ %.sroa.01.sroa.4.0.copyload, %14 ], [ %9, %__rust_try.llvm.6305840527560983182.exit ]
+  %16 = phi ptr [ null, %14 ], [ %13, %__rust_try.llvm.6305840527560983182.exit ]
+  %17 = insertvalue { ptr, ptr } poison, ptr %16, 0
+  %18 = insertvalue { ptr, ptr } %17, ptr %.sroa.6.06, 1
+  ret { ptr, ptr } %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable

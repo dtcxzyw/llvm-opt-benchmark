@@ -43688,12 +43688,15 @@ define hidden void @"_ZN17cranelift_codegen15scoped_hash_map26ScopedHashMap$LT$K
   br label %"_ZN17cranelift_codegen15scoped_hash_map26ScopedHashMap$LT$K$C$V$GT$16entry_with_depth17hf4daa7e481383d78E.llvm.1710812290736639100.exit"
 
 83:                                               ; preds = %21, %28
-  %84 = getelementptr inbounds i8, ptr %.sroa.454.0.copyload.i, i64 -16
-  store i32 %2, ptr %84, align 4, !noalias !8243
-  %.sroa.35.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.454.0.copyload.i, i64 -12
+  %84 = ptrtoint ptr %.sroa.454.0.copyload.i to i64
+  %85 = inttoptr i64 %84 to ptr
+  %86 = getelementptr inbounds i8, ptr %85, i64 -16
+  store i32 %2, ptr %86, align 4, !noalias !8243
+  %.sroa.35.0..sroa_idx.i = getelementptr inbounds i8, ptr %85, i64 -12
   store i32 %3, ptr %.sroa.35.0..sroa_idx.i, align 4, !noalias !8243
-  store i32 %18, ptr %22, align 4, !noalias !8243
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.454.0.copyload.i, i64 -4
+  %.sroa.47.0..sroa_idx.i = getelementptr inbounds i8, ptr %85, i64 -8
+  store i32 %18, ptr %.sroa.47.0..sroa_idx.i, align 4, !noalias !8243
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %85, i64 -4
   store i32 %17, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !8243
   br label %"_ZN17cranelift_codegen15scoped_hash_map26ScopedHashMap$LT$K$C$V$GT$16entry_with_depth17hf4daa7e481383d78E.llvm.1710812290736639100.exit"
 

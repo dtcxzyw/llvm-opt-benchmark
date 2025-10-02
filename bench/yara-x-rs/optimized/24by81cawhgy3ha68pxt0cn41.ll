@@ -518,10 +518,12 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
 
 23:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h12d8f707fc641f5cE.exit.i"
   %24 = load ptr, ptr %17, align 8, !noalias !21, !nonnull !6, !noundef !6
+  %25 = ptrtoint ptr %24 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !21
-  store ptr %24, ptr %10, align 8, !alias.scope !21
-  %25 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %25)
+  %26 = inttoptr i64 %25 to ptr
+  store ptr %26, ptr %10, align 8, !alias.scope !21
+  %27 = icmp sgt i64 %7, -1
+  tail call void @llvm.assume(i1 %27)
   store i64 %7, ptr %0, align 8, !alias.scope !21
   ret void
 }
@@ -579,10 +581,12 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
 
 23:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h12d8f707fc641f5cE.exit.i"
   %24 = load ptr, ptr %17, align 8, !noalias !28, !nonnull !6, !noundef !6
+  %25 = ptrtoint ptr %24 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !28
-  store ptr %24, ptr %10, align 8, !alias.scope !28
-  %25 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %25)
+  %26 = inttoptr i64 %25 to ptr
+  store ptr %26, ptr %10, align 8, !alias.scope !28
+  %27 = icmp sgt i64 %7, -1
+  tail call void @llvm.assume(i1 %27)
   store i64 %7, ptr %0, align 8, !alias.scope !28
   ret void
 }
@@ -752,10 +756,12 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %12
 
 41:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h12d8f707fc641f5cE.exit.i"
   %42 = load ptr, ptr %35, align 8, !noalias !34, !nonnull !6, !noundef !6
+  %43 = ptrtoint ptr %42 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !34
-  store ptr %42, ptr %28, align 8, !alias.scope !34
-  %43 = icmp sgt i64 %.sroa.0.0.sroa.speculated.i40.i, -1
-  tail call void @llvm.assume(i1 %43)
+  %44 = inttoptr i64 %43 to ptr
+  store ptr %44, ptr %28, align 8, !alias.scope !34
+  %45 = icmp sgt i64 %.sroa.0.0.sroa.speculated.i40.i, -1
+  tail call void @llvm.assume(i1 %45)
   store i64 %.sroa.0.0.sroa.speculated.i40.i, ptr %0, align 8, !alias.scope !34
   ret void
 }

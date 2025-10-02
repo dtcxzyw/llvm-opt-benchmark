@@ -5432,55 +5432,57 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 define dso_local noundef ptr @zend_get_property_hook_trampoline(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1392), align 8, !tbaa !37
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %8, label %6, !prof !59
+  br i1 %5, label %10, label %6, !prof !59
 
 6:                                                ; preds = %3
   %7 = tail call noalias dereferenceable_or_null(160) ptr @_ecalloc(i64 noundef 1, i64 noundef 160) #22
-  br label %8
+  %8 = ptrtoint ptr %7 to i64
+  %9 = inttoptr i64 %8 to ptr
+  br label %10
 
-8:                                                ; preds = %3, %6
-  %.0 = phi ptr [ %7, %6 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1384), %3 ]
+10:                                               ; preds = %3, %6
+  %.0 = phi ptr [ %9, %6 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1384), %3 ]
   store i8 1, ptr %.0, align 8, !tbaa !37
-  %9 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  store i8 0, ptr %9, align 1, !tbaa !37
-  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 2
-  store i8 0, ptr %10, align 2, !tbaa !37
-  %11 = getelementptr inbounds nuw i8, ptr %.0, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 0, ptr %11, align 1, !tbaa !37
-  %12 = getelementptr inbounds nuw i8, ptr %.0, i64 4
-  store i32 262144, ptr %12, align 4, !tbaa !37
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !60
-  %16 = icmp ne i32 %1, 0
-  %17 = select i1 %16, ptr @.str.14, ptr @.str.13
-  %18 = tail call ptr @zend_string_concat3(ptr noundef nonnull @.str.12, i64 noundef 1, ptr noundef nonnull %13, i64 noundef %15, ptr noundef nonnull %17, i64 noundef 5) #18
-  %19 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store ptr %18, ptr %19, align 8, !tbaa !37
-  %20 = zext i1 %16 to i32
-  %21 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  store i32 %20, ptr %21, align 8, !tbaa !37
-  %22 = getelementptr inbounds nuw i8, ptr %.0, i64 36
-  store i32 %20, ptr %22, align 4, !tbaa !37
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !88
-  %25 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  store ptr %24, ptr %25, align 8, !tbaa !37
-  %26 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  store ptr null, ptr %26, align 8, !tbaa !37
-  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 80
-  store ptr %0, ptr %27, align 8, !tbaa !37
-  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  store ptr @zend_get_property_hook_trampoline.arg_info, ptr %28, align 8, !tbaa !37
-  %29 = select i1 %16, ptr @zif_zend_parent_hook_set_trampoline, ptr @zif_zend_parent_hook_get_trampoline
-  %30 = getelementptr inbounds nuw i8, ptr %.0, i64 88
-  store ptr %29, ptr %30, align 8, !tbaa !37
-  %31 = getelementptr inbounds nuw i8, ptr %.0, i64 96
-  store ptr null, ptr %31, align 8, !tbaa !37
-  %32 = getelementptr inbounds nuw i8, ptr %.0, i64 112
-  store ptr %2, ptr %32, align 8, !tbaa !37
-  %33 = getelementptr inbounds nuw i8, ptr %.0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %.0, i64 2
+  store i8 0, ptr %12, align 2, !tbaa !37
+  %13 = getelementptr inbounds nuw i8, ptr %.0, i64 3
+  store i8 0, ptr %13, align 1, !tbaa !37
+  %14 = getelementptr inbounds nuw i8, ptr %.0, i64 4
+  store i32 262144, ptr %14, align 4, !tbaa !37
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %17 = load i64, ptr %16, align 8, !tbaa !60
+  %18 = icmp ne i32 %1, 0
+  %19 = select i1 %18, ptr @.str.14, ptr @.str.13
+  %20 = tail call ptr @zend_string_concat3(ptr noundef nonnull @.str.12, i64 noundef 1, ptr noundef nonnull %15, i64 noundef %17, ptr noundef nonnull %19, i64 noundef 5) #18
+  %21 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  store ptr %20, ptr %21, align 8, !tbaa !37
+  %22 = zext i1 %18 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  store i32 %22, ptr %23, align 8, !tbaa !37
+  %24 = getelementptr inbounds nuw i8, ptr %.0, i64 36
+  store i32 %22, ptr %24, align 4, !tbaa !37
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %26 = load ptr, ptr %25, align 8, !tbaa !88
+  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  store ptr %26, ptr %27, align 8, !tbaa !37
+  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  store ptr null, ptr %28, align 8, !tbaa !37
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 80
+  store ptr %0, ptr %29, align 8, !tbaa !37
+  %30 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+  store ptr @zend_get_property_hook_trampoline.arg_info, ptr %30, align 8, !tbaa !37
+  %31 = select i1 %18, ptr @zif_zend_parent_hook_set_trampoline, ptr @zif_zend_parent_hook_get_trampoline
+  %32 = getelementptr inbounds nuw i8, ptr %.0, i64 88
+  store ptr %31, ptr %32, align 8, !tbaa !37
+  %33 = getelementptr inbounds nuw i8, ptr %.0, i64 96
   store ptr null, ptr %33, align 8, !tbaa !37
+  %34 = getelementptr inbounds nuw i8, ptr %.0, i64 112
+  store ptr %2, ptr %34, align 8, !tbaa !37
+  %35 = getelementptr inbounds nuw i8, ptr %.0, i64 120
+  store ptr null, ptr %35, align 8, !tbaa !37
   ret ptr %.0
 }
 

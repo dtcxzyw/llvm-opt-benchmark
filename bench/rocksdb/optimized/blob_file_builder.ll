@@ -7478,7 +7478,8 @@ _ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit: ; preds = %_ZSt8__copy
   %22 = ptrtoint ptr %.sink.i.i to i64
   store i64 %22, ptr %21, align 8, !tbaa !131
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %.sink.i.i, ptr %23, align 8, !tbaa !266
+  %.cast = inttoptr i64 %22 to ptr
+  store ptr %.cast, ptr %23, align 8, !tbaa !266
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %20, ptr %24, align 8, !tbaa !114
   %25 = load ptr, ptr %0, align 8, !tbaa !519

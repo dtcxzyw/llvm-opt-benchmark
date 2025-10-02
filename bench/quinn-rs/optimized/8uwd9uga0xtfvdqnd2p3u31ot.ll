@@ -738,7 +738,7 @@ define { i64, ptr } @_ZN9quinn_udp3imp14UdpSocketState4recv17ha083ed936ae1c98dE(
   %.lcssa.i = phi i32 [ %15, %.preheader.i ], [ %30, %29 ]
   %26 = zext nneg i32 %.lcssa.i to i64
   %.not30.i = icmp eq i32 %.lcssa.i, 0
-  br i1 %.not30.i, label %._crit_edge29.i, label %.lr.ph28.i
+  br i1 %.not30.i, label %_ZN9quinn_udp3imp4recv17h3e7a95dde96f8b32E.exit, label %.lr.ph28.i
 
 .lr.ph28.i:                                       ; preds = %._crit_edge.i
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -754,17 +754,8 @@ define { i64, ptr } @_ZN9quinn_udp3imp14UdpSocketState4recv17ha083ed936ae1c98dE(
   br i1 %31, label %._crit_edge.i, label %18
 
 32:                                               ; preds = %18
+  %33 = ptrtoint ptr %23 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !16
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !16
-  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !16
-  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !16
-  br label %_ZN9quinn_udp3imp4recv17h3e7a95dde96f8b32E.exit
-
-._crit_edge29.i:                                  ; preds = %75, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !16
-  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !16
-  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !16
-  %33 = inttoptr i64 %26 to ptr
   br label %_ZN9quinn_udp3imp4recv17h3e7a95dde96f8b32E.exit
 
 34:                                               ; preds = %75, %.lr.ph28.i
@@ -954,7 +945,7 @@ _ZN9quinn_udp3imp11decode_recv17h466ebba9d8af9166E.exit.i: ; preds = %52, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14.i)
   %exitcond39.not.i = icmp eq i64 %35, %26
-  br i1 %exitcond39.not.i, label %._crit_edge29.i, label %34
+  br i1 %exitcond39.not.i, label %_ZN9quinn_udp3imp4recv17h3e7a95dde96f8b32E.exit, label %34
 
 77:                                               ; preds = %_ZN9quinn_udp3imp11decode_recv17h466ebba9d8af9166E.exit.i
   call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %5, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3b32b8fd91e47b7024bed3f1642a2f1c.40) #19, !noalias !13
@@ -983,12 +974,16 @@ _ZN9quinn_udp3imp11decode_recv17h466ebba9d8af9166E.exit.i: ; preds = %52, %50
   %exitcond.not.i = icmp eq i64 %78, %.sroa.0.0.sroa.speculated.i.i
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i
 
-_ZN9quinn_udp3imp4recv17h3e7a95dde96f8b32E.exit:  ; preds = %32, %._crit_edge29.i
-  %.sroa.3.0.i = phi ptr [ %33, %._crit_edge29.i ], [ %23, %32 ]
-  %.sroa.0.0.i = phi i64 [ 0, %._crit_edge29.i ], [ 1, %32 ]
-  %89 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
-  %90 = insertvalue { i64, ptr } %89, ptr %.sroa.3.0.i, 1
-  ret { i64, ptr } %90
+_ZN9quinn_udp3imp4recv17h3e7a95dde96f8b32E.exit:  ; preds = %75, %._crit_edge.i, %32
+  %.sroa.3.0.i = phi i64 [ %33, %32 ], [ 0, %._crit_edge.i ], [ %26, %75 ]
+  %.sroa.0.0.i = phi i64 [ 1, %32 ], [ 0, %._crit_edge.i ], [ 0, %75 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !16
+  %89 = inttoptr i64 %.sroa.3.0.i to ptr
+  %90 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
+  %91 = insertvalue { i64, ptr } %90, ptr %89, 1
+  ret { i64, ptr } %91
 }
 
 ; Function Attrs: nonlazybind uwtable

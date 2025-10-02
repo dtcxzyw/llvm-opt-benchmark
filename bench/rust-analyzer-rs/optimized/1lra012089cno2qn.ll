@@ -60426,19 +60426,17 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h690c86cd9c73be5aE(p
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !17648
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !17633
   %42 = icmp eq ptr %40, null
-  br i1 %42, label %.loopexit38.loopexit.i, label %53
+  br i1 %42, label %.loopexit38.i, label %53
 
 .sink.split.i.i.i.i:                              ; preds = %.thread25.i.i.i.i, %28
   %.sroa.6.024.ph.in.i.i.i.i = phi ptr [ %36, %.thread25.i.i.i.i ], [ %29, %28 ]
+  %.sroa.6.024.ph.i.i.i.i = ptrtoint ptr %.sroa.6.024.ph.in.i.i.i.i to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !17633
   br label %.loopexit38.i
 
-.loopexit38.loopexit.i:                           ; preds = %39
-  %43 = inttoptr i64 %41 to ptr
-  br label %.loopexit38.i
-
-.loopexit38.i:                                    ; preds = %.loopexit38.loopexit.i, %.sink.split.i.i.i.i
-  %.sroa.6.024.i.i.i.i = phi ptr [ %.sroa.6.024.ph.in.i.i.i.i, %.sink.split.i.i.i.i ], [ %43, %.loopexit38.loopexit.i ]
+.loopexit38.i:                                    ; preds = %39, %.sink.split.i.i.i.i
+  %.sroa.6.024.i.i.i.i = phi i64 [ %.sroa.6.024.ph.i.i.i.i, %.sink.split.i.i.i.i ], [ %41, %39 ]
+  %43 = inttoptr i64 %.sroa.6.024.i.i.i.i to ptr
   %44 = icmp eq i64 %26, 0
   br i1 %44, label %.loopexit.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.1186121590401690724.exit.i.i17.i.i.i.i"
 
@@ -60457,7 +60455,7 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h690c86cd9c73be5aE(p
           to label %.body unwind label %67, !noalias !17638
 
 .loopexit.i:                                      ; preds = %.noexc.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.1186121590401690724.exit.i.i17.i.i.i.i", %.loopexit38.i
-  %.sroa.8.1.ph.i = phi ptr [ %.sroa.6.024.i.i.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.1186121590401690724.exit.i.i17.i.i.i.i" ], [ %.sroa.6.024.i.i.i.i, %.loopexit38.i ], [ %22, %.noexc.i ]
+  %.sroa.8.1.ph.i = phi ptr [ %43, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.1186121590401690724.exit.i.i17.i.i.i.i" ], [ %43, %.loopexit38.i ], [ %22, %.noexc.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !17633
   %47 = icmp ne ptr %.sroa.8.1.ph.i, null
   call void @llvm.assume(i1 %47)

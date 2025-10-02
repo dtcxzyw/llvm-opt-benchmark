@@ -110,13 +110,13 @@ thread-pre-split:                                 ; preds = %14, %21
 
 thread-pre-split.thread:                          ; preds = %14, %thread-pre-split
   %55 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %18, i32 noundef 7) #3
-  br label %113
+  br label %114
 
 56:                                               ; preds = %thread-pre-split
   %57 = icmp eq i32 %.sink160, 0
   %58 = icmp eq i32 %.sink158, 0
   %or.cond = or i1 %57, %58
-  br i1 %or.cond, label %113, label %59
+  br i1 %or.cond, label %114, label %59
 
 59:                                               ; preds = %56
   %60 = call i32 @dgemm_small_matrix_permit(i32 noundef %.4, i32 noundef %.486, i64 noundef %22, i64 noundef %24, i64 noundef %26, double noundef %6, double noundef %11) #3
@@ -137,72 +137,73 @@ thread-pre-split.thread:                          ; preds = %14, %thread-pre-spl
   %70 = load i64, ptr %69, align 8, !tbaa !23
   %71 = inttoptr i64 %70 to ptr
   %72 = call i32 %71(i64 noundef %22, i64 noundef %24, i64 noundef %26, ptr noundef %.sink154, i64 noundef %30, double noundef %67, ptr noundef %.sink152, i64 noundef %32, ptr noundef %12, i64 noundef %34) #3
-  br label %113
+  br label %114
 
 73:                                               ; preds = %61
   %74 = getelementptr inbounds i64, ptr @gemm_small_kernel, i64 %66
   %75 = load i64, ptr %74, align 8, !tbaa !23
   %76 = inttoptr i64 %75 to ptr
   %77 = call i32 %76(i64 noundef %22, i64 noundef %24, i64 noundef %26, ptr noundef %.sink154, i64 noundef %30, double noundef %67, ptr noundef %.sink152, i64 noundef %32, double noundef %62, ptr noundef %12, i64 noundef %34) #3
-  br label %113
+  br label %114
 
 78:                                               ; preds = %59
   %79 = call ptr @blas_memory_alloc(i32 noundef 0) #3
   %80 = ptrtoint ptr %79 to i64
-  %81 = add nsw i64 %80, 589824
-  %82 = inttoptr i64 %81 to ptr
-  %83 = sitofp i32 %.sink160 to double
-  %84 = sitofp i32 %.sink158 to double
-  %85 = fmul double %83, %84
-  %86 = sitofp i32 %5 to double
-  %87 = fmul double %85, %86
-  %88 = fcmp ugt double %87, 2.621440e+05
-  br i1 %88, label %get_gemm_optimal_nthreads.exit, label %get_gemm_optimal_nthreads.exit.thread
+  %81 = inttoptr i64 %80 to ptr
+  %82 = add nsw i64 %80, 589824
+  %83 = inttoptr i64 %82 to ptr
+  %84 = sitofp i32 %.sink160 to double
+  %85 = sitofp i32 %.sink158 to double
+  %86 = fmul double %84, %85
+  %87 = sitofp i32 %5 to double
+  %88 = fmul double %86, %87
+  %89 = fcmp ugt double %88, 2.621440e+05
+  br i1 %89, label %get_gemm_optimal_nthreads.exit, label %get_gemm_optimal_nthreads.exit.thread
 
 get_gemm_optimal_nthreads.exit.thread:            ; preds = %78
-  %89 = getelementptr inbounds nuw i8, ptr %17, i64 112
-  store i64 1, ptr %89, align 8, !tbaa !24
-  %90 = getelementptr inbounds nuw i8, ptr %17, i64 104
-  store ptr null, ptr %90, align 8, !tbaa !25
-  br label %101
+  %90 = getelementptr inbounds nuw i8, ptr %17, i64 112
+  store i64 1, ptr %90, align 8, !tbaa !24
+  %91 = getelementptr inbounds nuw i8, ptr %17, i64 104
+  store ptr null, ptr %91, align 8, !tbaa !25
+  br label %102
 
 get_gemm_optimal_nthreads.exit:                   ; preds = %78
-  %91 = load i32, ptr @blas_cpu_number, align 4, !tbaa !13
-  %92 = sitofp i32 %91 to double
-  %93 = fdiv double %87, %92
-  %94 = fcmp olt double %93, 2.621440e+05
-  %95 = fmul double %87, 0x3ED0000000000000
-  %96 = fptosi double %95 to i32
-  %.0.i = select i1 %94, i32 %96, i32 %91
-  %97 = sext i32 %.0.i to i64
-  %98 = getelementptr inbounds nuw i8, ptr %17, i64 112
-  store i64 %97, ptr %98, align 8, !tbaa !24
-  %99 = getelementptr inbounds nuw i8, ptr %17, i64 104
-  store ptr null, ptr %99, align 8, !tbaa !25
-  %100 = icmp eq i32 %.0.i, 1
-  br i1 %100, label %101, label %104
+  %92 = load i32, ptr @blas_cpu_number, align 4, !tbaa !13
+  %93 = sitofp i32 %92 to double
+  %94 = fdiv double %88, %93
+  %95 = fcmp olt double %94, 2.621440e+05
+  %96 = fmul double %88, 0x3ED0000000000000
+  %97 = fptosi double %96 to i32
+  %.0.i = select i1 %95, i32 %97, i32 %92
+  %98 = sext i32 %.0.i to i64
+  %99 = getelementptr inbounds nuw i8, ptr %17, i64 112
+  store i64 %98, ptr %99, align 8, !tbaa !24
+  %100 = getelementptr inbounds nuw i8, ptr %17, i64 104
+  store ptr null, ptr %100, align 8, !tbaa !25
+  %101 = icmp eq i32 %.0.i, 1
+  br i1 %101, label %102, label %105
 
-101:                                              ; preds = %get_gemm_optimal_nthreads.exit.thread, %get_gemm_optimal_nthreads.exit
-  %102 = shl nsw i32 %.486, 2
-  %103 = or i32 %102, %.4
-  br label %108
+102:                                              ; preds = %get_gemm_optimal_nthreads.exit.thread, %get_gemm_optimal_nthreads.exit
+  %103 = shl nsw i32 %.486, 2
+  %104 = or i32 %103, %.4
+  br label %109
 
-104:                                              ; preds = %get_gemm_optimal_nthreads.exit
-  %105 = shl nsw i32 %.486, 2
-  %106 = or i32 %.4, %105
-  %107 = or i32 %106, 16
-  br label %108
+105:                                              ; preds = %get_gemm_optimal_nthreads.exit
+  %106 = shl nsw i32 %.486, 2
+  %107 = or i32 %.4, %106
+  %108 = or i32 %107, 16
+  br label %109
 
-108:                                              ; preds = %104, %101
-  %.sink162 = phi i32 [ %107, %104 ], [ %103, %101 ]
-  %109 = sext i32 %.sink162 to i64
-  %110 = getelementptr inbounds ptr, ptr @gemm, i64 %109
-  %111 = load ptr, ptr %110, align 8, !tbaa !26
-  %112 = call i32 %111(ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef %79, ptr noundef %82, i64 noundef 0) #3
+109:                                              ; preds = %105, %102
+  %.sink162 = phi i32 [ %108, %105 ], [ %104, %102 ]
+  %110 = sext i32 %.sink162 to i64
+  %111 = getelementptr inbounds ptr, ptr @gemm, i64 %110
+  %112 = load ptr, ptr %111, align 8, !tbaa !26
+  %113 = call i32 %112(ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef %81, ptr noundef %83, i64 noundef 0) #3
   call void @blas_memory_free(ptr noundef %79) #3
-  br label %113
+  br label %114
 
-113:                                              ; preds = %68, %73, %56, %108, %thread-pre-split.thread
+114:                                              ; preds = %68, %73, %56, %109, %thread-pre-split.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret void

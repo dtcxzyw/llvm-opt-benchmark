@@ -27,10 +27,13 @@ define hidden void @_Z17PacketedBioCreateP7timeval(ptr dead_on_unwind noalias wr
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %1, ptr %5, align 8, !tbaa !6
+  %6 = ptrtoint ptr %3 to i64
+  %7 = inttoptr i64 %6 to ptr
   br label %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit
 
 _ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit: ; preds = %2, %4
-  store ptr %3, ptr %0, align 8, !tbaa !16
+  %storemerge = phi ptr [ %7, %4 ], [ null, %2 ]
+  store ptr %storemerge, ptr %0, align 8, !tbaa !16
   ret void
 }
 

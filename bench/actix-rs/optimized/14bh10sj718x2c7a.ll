@@ -764,7 +764,7 @@ define hidden noundef ptr @"_ZN19brotli_decompressor6writer89DecompressorWriterC
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %20
 
-20:                                               ; preds = %68, %1
+20:                                               ; preds = %70, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -919,37 +919,39 @@ default.unreachable106:                           ; preds = %.loopexit45
   unreachable
 
 _ZN19brotli_decompressor6writer9write_all17hbfdb5a109718fda8E.exit: ; preds = %50
+  %66 = ptrtoint ptr %33 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !146
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !146
+  %67 = inttoptr i64 %66 to ptr
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h665de1428ec0d8f1E.exit"
 
 .loopexit45:                                      ; preds = %61, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd69ca6984ea4b8f5E.exit"
   switch i32 %21, label %default.unreachable106 [
     i32 1, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h665de1428ec0d8f1E.exit"
-    i32 2, label %66
-    i32 3, label %68
-    i32 0, label %69
+    i32 2, label %68
+    i32 3, label %70
+    i32 0, label %71
   ]
 
-66:                                               ; preds = %.loopexit45
-  %67 = load ptr, ptr %14, align 8, !noundef !7
+68:                                               ; preds = %.loopexit45
+  %69 = load ptr, ptr %14, align 8, !noundef !7
   store ptr null, ptr %14, align 8
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h665de1428ec0d8f1E.exit"
 
-68:                                               ; preds = %.loopexit45
+70:                                               ; preds = %.loopexit45
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %20
 
-69:                                               ; preds = %.loopexit45
-  %70 = load ptr, ptr %14, align 8, !noundef !7
+71:                                               ; preds = %.loopexit45
+  %72 = load ptr, ptr %14, align 8, !noundef !7
   store ptr null, ptr %14, align 8
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h665de1428ec0d8f1E.exit"
 
-"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h665de1428ec0d8f1E.exit": ; preds = %.loopexit45, %20, %66, %69, %_ZN19brotli_decompressor6writer9write_all17hbfdb5a109718fda8E.exit
-  %.0 = phi ptr [ %33, %_ZN19brotli_decompressor6writer9write_all17hbfdb5a109718fda8E.exit ], [ %67, %66 ], [ %70, %69 ], [ null, %20 ], [ null, %.loopexit45 ]
+"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h665de1428ec0d8f1E.exit": ; preds = %.loopexit45, %20, %68, %71, %_ZN19brotli_decompressor6writer9write_all17hbfdb5a109718fda8E.exit
+  %.0 = phi ptr [ %67, %_ZN19brotli_decompressor6writer9write_all17hbfdb5a109718fda8E.exit ], [ %69, %68 ], [ %72, %71 ], [ null, %20 ], [ null, %.loopexit45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
