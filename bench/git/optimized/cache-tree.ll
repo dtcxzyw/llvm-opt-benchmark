@@ -1763,62 +1763,62 @@ define dso_local range(i32 -3, 1) i32 @write_index_as_tree(ptr noundef writeonly
 17:                                               ; preds = %15
   %18 = call i32 @cache_tree_fully_valid(ptr noundef nonnull %16)
   %.not18.i = icmp eq i32 %18, 0
-  br i1 %.not18.i, label %.thread19, label %21
+  br i1 %.not18.i, label %.thread19, label %23
 
 .thread19:                                        ; preds = %15, %17, %.thread.i
   %19 = call i32 @cache_tree_update(ptr noundef nonnull %1, i32 noundef %3)
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %write_index_as_tree_internal.exit.thread, label %21
 
-21:                                               ; preds = %.thread19, %17
-  %22 = phi i1 [ false, %.thread19 ], [ true, %17 ]
+23:                                               ; preds = %.thread19, %17
+  %24 = phi i1 [ false, %.thread19 ], [ true, %17 ]
   %.not19.i = icmp eq ptr %4, null
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !23
-  br i1 %.not19.i, label %write_index_as_tree_internal.exit, label %25
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %26 = load ptr, ptr %25, align 8, !tbaa !23
+  br i1 %.not19.i, label %write_index_as_tree_internal.exit, label %27
 
-25:                                               ; preds = %21
-  %.not.i.i = icmp eq ptr %24, null
+27:                                               ; preds = %23
+  %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %write_index_as_tree_internal.exit.thread, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %25
-  %26 = load i8, ptr %4, align 1, !tbaa !38
-  %.not2232.i.i = icmp eq i8 %26, 0
+.preheader.i.i:                                   ; preds = %27
+  %28 = load i8, ptr %4, align 1, !tbaa !38
+  %.not2232.i.i = icmp eq i8 %28, 0
   br i1 %.not2232.i.i, label %write_index_as_tree_internal.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %64, %.preheader.i.i
-  %.01534.i.i = phi ptr [ %24, %.preheader.i.i ], [ %63, %64 ]
+.lr.ph.i.i:                                       ; preds = %66, %.preheader.i.i
+  %.01534.i.i = phi ptr [ %26, %.preheader.i.i ], [ %65, %64 ]
   %.01733.i.i = phi ptr [ %4, %.preheader.i.i ], [ %.219.i.i, %64 ]
-  %27 = call ptr @strchrnul(ptr noundef nonnull %.01733.i.i, i32 noundef 47) #19
-  %28 = ptrtoint ptr %27 to i64
-  %29 = ptrtoint ptr %.01733.i.i to i64
-  %30 = sub i64 %28, %29
-  %31 = trunc i64 %30 to i32
-  %32 = getelementptr inbounds nuw i8, ptr %.01534.i.i, i64 48
-  %33 = load ptr, ptr %32, align 8, !tbaa !15
-  %34 = getelementptr inbounds nuw i8, ptr %.01534.i.i, i64 40
-  %35 = load i32, ptr %34, align 8, !tbaa !14
-  %sext.i.i = shl i64 %30, 32
-  %36 = ashr exact i64 %sext.i.i, 32
-  br label %37
+  %29 = call ptr @strchrnul(ptr noundef nonnull %.01733.i.i, i32 noundef 47) #19
+  %30 = ptrtoint ptr %29 to i64
+  %31 = ptrtoint ptr %.01733.i.i to i64
+  %32 = sub i64 %30, %31
+  %33 = trunc i64 %32 to i32
+  %34 = getelementptr inbounds nuw i8, ptr %.01534.i.i, i64 48
+  %35 = load ptr, ptr %34, align 8, !tbaa !15
+  %36 = getelementptr inbounds nuw i8, ptr %.01534.i.i, i64 40
+  %37 = load i32, ptr %36, align 8, !tbaa !14
+  %sext.i.i = shl i64 %32, 32
+  %38 = ashr exact i64 %sext.i.i, 32
+  br label %39
 
-37:                                               ; preds = %subtree_name_cmp.exit.i.i.i.i, %.lr.ph.i.i
-  %.024.i.i.i.i = phi i32 [ %35, %.lr.ph.i.i ], [ %.226.i.i.i.i, %subtree_name_cmp.exit.i.i.i.i ]
+39:                                               ; preds = %subtree_name_cmp.exit.i.i.i.i, %.lr.ph.i.i
+  %.024.i.i.i.i = phi i32 [ %37, %.lr.ph.i.i ], [ %.226.i.i.i.i, %subtree_name_cmp.exit.i.i.i.i ]
   %.021.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.223.i.i.i.i, %subtree_name_cmp.exit.i.i.i.i ]
-  %38 = icmp slt i32 %.021.i.i.i.i, %.024.i.i.i.i
-  br i1 %38, label %39, label %56
+  %40 = icmp slt i32 %.021.i.i.i.i, %.024.i.i.i.i
+  br i1 %40, label %41, label %58
 
-39:                                               ; preds = %37
-  %40 = sub nsw i32 %.024.i.i.i.i, %.021.i.i.i.i
-  %41 = lshr i32 %40, 1
-  %42 = add nuw nsw i32 %41, %.021.i.i.i.i
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %33, i64 %43
-  %45 = load ptr, ptr %44, align 8, !tbaa !16
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 20
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
-  %48 = load i32, ptr %47, align 4, !tbaa !20
-  %49 = icmp sgt i32 %48, %31
+41:                                               ; preds = %39
+  %42 = sub nsw i32 %.024.i.i.i.i, %.021.i.i.i.i
+  %43 = lshr i32 %42, 1
+  %44 = add nuw nsw i32 %43, %.021.i.i.i.i
+  %45 = zext nneg i32 %44 to i64
+  %46 = getelementptr inbounds nuw ptr, ptr %35, i64 %45
+  %47 = load ptr, ptr %46, align 8, !tbaa !16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 12
+  %50 = load i32, ptr %49, align 4, !tbaa !20
+  %51 = icmp sgt i32 %50, %33
   br i1 %49, label %subtree_name_cmp.exit.i.i.i.i, label %50
 
 50:                                               ; preds = %39
@@ -1829,65 +1829,65 @@ define dso_local range(i32 -3, 1) i32 @write_index_as_tree(ptr noundef writeonly
   %53 = call i32 @memcmp(ptr noundef nonnull readonly %.01733.i.i, ptr noundef nonnull readonly %46, i64 noundef %36) #19
   br label %subtree_name_cmp.exit.i.i.i.i
 
-subtree_name_cmp.exit.i.i.i.i:                    ; preds = %52, %50, %39
+subtree_name_cmp.exit.i.i.i.i:                    ; preds = %52, %50, %41
   %.0.i.i.i.i.i = phi i32 [ %53, %52 ], [ -1, %39 ], [ 1, %50 ]
   %.not.not.i.i.i.i = icmp eq i32 %.0.i.i.i.i.i, 0
-  %54 = icmp slt i32 %.0.i.i.i.i.i, 0
-  %55 = add nuw nsw i32 %42, 1
-  %.226.i.i.i.i = select i1 %54, i32 %42, i32 %.024.i.i.i.i
-  %.223.i.i.i.i = select i1 %54, i32 %.021.i.i.i.i, i32 %55
-  br i1 %.not.not.i.i.i.i, label %cache_tree_subtree_pos.exit.i.i.i, label %37, !llvm.loop !21
+  %56 = icmp slt i32 %.0.i.i.i.i.i, 0
+  %57 = add nuw nsw i32 %44, 1
+  %.226.i.i.i.i = select i1 %56, i32 %44, i32 %.024.i.i.i.i
+  %.223.i.i.i.i = select i1 %56, i32 %.021.i.i.i.i, i32 %57
+  br i1 %.not.not.i.i.i.i, label %cache_tree_subtree_pos.exit.i.i.i, label %39, !llvm.loop !21
 
-56:                                               ; preds = %37
-  %57 = xor i32 %.021.i.i.i.i, -1
+58:                                               ; preds = %39
+  %59 = xor i32 %.021.i.i.i.i, -1
   br label %cache_tree_subtree_pos.exit.i.i.i
 
-cache_tree_subtree_pos.exit.i.i.i:                ; preds = %subtree_name_cmp.exit.i.i.i.i, %56
-  %.2.i.i.i.i = phi i32 [ %57, %56 ], [ %42, %subtree_name_cmp.exit.i.i.i.i ]
-  %58 = icmp sgt i32 %.2.i.i.i.i, -1
-  br i1 %58, label %find_subtree.exit.i.i, label %write_index_as_tree_internal.exit.thread
+cache_tree_subtree_pos.exit.i.i.i:                ; preds = %subtree_name_cmp.exit.i.i.i.i, %58
+  %.2.i.i.i.i = phi i32 [ %59, %56 ], [ %44, %subtree_name_cmp.exit.i.i.i.i ]
+  %60 = icmp sgt i32 %.2.i.i.i.i, -1
+  br i1 %60, label %find_subtree.exit.i.i, label %write_index_as_tree_internal.exit.thread
 
 find_subtree.exit.i.i:                            ; preds = %cache_tree_subtree_pos.exit.i.i.i
-  %59 = zext nneg i32 %.2.i.i.i.i to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %33, i64 %59
-  %61 = load ptr, ptr %60, align 8, !tbaa !16
-  %.not23.i.i = icmp eq ptr %61, null
-  br i1 %.not23.i.i, label %write_index_as_tree_internal.exit.thread, label %62
+  %61 = zext nneg i32 %.2.i.i.i.i to i64
+  %62 = getelementptr inbounds nuw ptr, ptr %35, i64 %61
+  %63 = load ptr, ptr %62, align 8, !tbaa !16
+  %.not23.i.i = icmp eq ptr %63, null
+  br i1 %.not23.i.i, label %write_index_as_tree_internal.exit.thread, label %64
 
-62:                                               ; preds = %find_subtree.exit.i.i
-  %63 = load ptr, ptr %61, align 8, !tbaa !12
-  br label %64
+64:                                               ; preds = %find_subtree.exit.i.i
+  %65 = load ptr, ptr %63, align 8, !tbaa !12
+  br label %66
 
-64:                                               ; preds = %64, %62
-  %.219.i.i = phi ptr [ %27, %62 ], [ %66, %64 ]
-  %65 = load i8, ptr %.219.i.i, align 1, !tbaa !38
-  %66 = getelementptr inbounds nuw i8, ptr %.219.i.i, i64 1
-  switch i8 %65, label %.lr.ph.i.i [
-    i8 47, label %64
+66:                                               ; preds = %66, %64
+  %.219.i.i = phi ptr [ %29, %62 ], [ %68, %64 ]
+  %67 = load i8, ptr %.219.i.i, align 1, !tbaa !38
+  %68 = getelementptr inbounds nuw i8, ptr %.219.i.i, i64 1
+  switch i8 %67, label %.lr.ph.i.i [
+    i8 47, label %66
     i8 0, label %cache_tree_find.exit.i
   ]
 
-cache_tree_find.exit.i:                           ; preds = %64
-  %.not20.i = icmp eq ptr %63, null
+cache_tree_find.exit.i:                           ; preds = %66
+  %.not20.i = icmp eq ptr %65, null
   br i1 %.not20.i, label %write_index_as_tree_internal.exit.thread, label %write_index_as_tree_internal.exit
 
-write_index_as_tree_internal.exit:                ; preds = %21, %.preheader.i.i, %cache_tree_find.exit.i
-  %.sink55.i = phi ptr [ %63, %cache_tree_find.exit.i ], [ %24, %.preheader.i.i ], [ %24, %21 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.sink55.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull readonly align 4 dereferenceable(32) %67, i64 32, i1 false)
-  %68 = getelementptr inbounds nuw i8, ptr %.sink55.i, i64 36
-  %69 = load i32, ptr %68, align 4, !tbaa !52
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %69, ptr %70, align 4, !tbaa !52
-  br i1 %22, label %write_index_as_tree_internal.exit.thread, label %71
+write_index_as_tree_internal.exit:                ; preds = %23, %.preheader.i.i, %cache_tree_find.exit.i
+  %.sink55.i = phi ptr [ %65, %cache_tree_find.exit.i ], [ %26, %.preheader.i.i ], [ %26, %21 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.sink55.i, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull readonly align 4 dereferenceable(32) %69, i64 32, i1 false)
+  %70 = getelementptr inbounds nuw i8, ptr %.sink55.i, i64 36
+  %71 = load i32, ptr %70, align 4, !tbaa !52
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %71, ptr %72, align 4, !tbaa !52
+  br i1 %24, label %write_index_as_tree_internal.exit.thread, label %73
 
-71:                                               ; preds = %write_index_as_tree_internal.exit
-  %72 = call i32 @write_locked_index(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1) #18
+73:                                               ; preds = %write_index_as_tree_internal.exit
+  %74 = call i32 @write_locked_index(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1) #18
   br label %write_index_as_tree_internal.exit.thread
 
-write_index_as_tree_internal.exit.thread:         ; preds = %cache_tree_subtree_pos.exit.i.i.i, %find_subtree.exit.i.i, %25, %cache_tree_find.exit.i, %.thread19, %5, %write_index_as_tree_internal.exit, %71
+write_index_as_tree_internal.exit.thread:         ; preds = %cache_tree_subtree_pos.exit.i.i.i, %find_subtree.exit.i.i, %27, %cache_tree_find.exit.i, %.thread19, %5, %write_index_as_tree_internal.exit, %73
   %.0 = phi i32 [ 0, %write_index_as_tree_internal.exit ], [ 0, %71 ], [ -1, %5 ], [ -3, %25 ], [ -3, %cache_tree_find.exit.i ], [ -2, %.thread19 ], [ -3, %find_subtree.exit.i.i ], [ -3, %cache_tree_subtree_pos.exit.i.i.i ]
-  %73 = call i32 @delete_tempfile(ptr noundef nonnull %6) #18
+  %75 = call i32 @delete_tempfile(ptr noundef nonnull %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

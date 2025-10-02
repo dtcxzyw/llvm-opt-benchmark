@@ -25225,7 +25225,7 @@ _ZN9grpc_core13RefCountedPtrINS_14ConfigSelectorEEC2ERKS2_.exit.i.i.i.i.i: ; pre
 15:                                               ; preds = %2
   %16 = and i64 %4, 1
   %.not.i.i.i.i4.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i.i.i.i4.i.i, label %45, label %"_ZZZN9grpc_core13ClientChannel9StartCallENS_20UnstartedCallHandlerEEN3$_0clEvENKUlN4absl12lts_202407228StatusOrINS0_20ResolverDataForCallsEEEE_clES7_.exit.thread10"
+  br i1 %.not.i.i.i.i4.i.i, label %46, label %"_ZZZN9grpc_core13ClientChannel9StartCallENS_20UnstartedCallHandlerEEN3$_0clEvENKUlN4absl12lts_202407228StatusOrINS0_20ResolverDataForCallsEEEE_clES7_.exit.thread10"
 
 _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %_ZN9grpc_core13RefCountedPtrINS_14ConfigSelectorEEC2ERKS2_.exit.i.i.i.i.i
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -25269,46 +25269,46 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %_ZN9grpc_core13RefC
 
 _ZN9grpc_core13RefCountedPtrINS_24UnstartedCallDestinationEED2Ev.exit.i.i: ; preds = %_ZN9grpc_core13RefCountedPtrINS_14ConfigSelectorEEC2ERKS2_.exit.i.i.i.i.i, %29, %.noexc.i.i.i, %_ZN4absl12lts_202407226StatusD2Ev.exit.i
   %.not.i1.i.i = icmp eq ptr %12, null
-  br i1 %.not.i1.i.i, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13ClientChannel20ResolverDataForCallsEED2Ev.exit, label %36
+  br i1 %.not.i1.i.i, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13ClientChannel20ResolverDataForCallsEED2Ev.exit, label %37
 
-36:                                               ; preds = %_ZN9grpc_core13RefCountedPtrINS_24UnstartedCallDestinationEED2Ev.exit.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %38 = atomicrmw sub ptr %37, i64 1 acq_rel, align 8
-  %39 = icmp eq i64 %38, 1
-  br i1 %39, label %40, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13ClientChannel20ResolverDataForCallsEED2Ev.exit, !prof !26
+37:                                               ; preds = %_ZN9grpc_core13RefCountedPtrINS_24UnstartedCallDestinationEED2Ev.exit.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %39 = atomicrmw sub ptr %38, i64 1 acq_rel, align 8
+  %40 = icmp eq i64 %39, 1
+  br i1 %40, label %41, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13ClientChannel20ResolverDataForCallsEED2Ev.exit, !prof !26
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %12, align 8, !tbaa !8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %12, align 8, !tbaa !8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(16) %12) #46
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13ClientChannel20ResolverDataForCallsEED2Ev.exit
 
 "_ZZZN9grpc_core13ClientChannel9StartCallENS_20UnstartedCallHandlerEEN3$_0clEvENKUlN4absl12lts_202407228StatusOrINS0_20ResolverDataForCallsEEEE_clES7_.exit.thread10": ; preds = %15
   %.in.in = load i8, ptr %3, align 1
   %.in = trunc i8 %.in.in to i1
-  %44 = xor i1 %.in, true
+  %45 = xor i1 %.in, true
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13ClientChannel20ResolverDataForCallsEED2Ev.exit
 
-45:                                               ; preds = %15
-  %46 = inttoptr i64 %4 to ptr
-  %47 = atomicrmw add ptr %46, i32 1 monotonic, align 4
+46:                                               ; preds = %15
+  %47 = inttoptr i64 %4 to ptr
+  %48 = atomicrmw add ptr %47, i32 1 monotonic, align 4
   %.in.in16 = load i8, ptr %3, align 1
   %.in17 = trunc i8 %.in.in16 to i1
-  %48 = xor i1 %.in17, true
-  %49 = inttoptr i64 %4 to ptr
-  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %49)
-          to label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13ClientChannel20ResolverDataForCallsEED2Ev.exit unwind label %50
+  %49 = xor i1 %.in17, true
+  %50 = inttoptr i64 %4 to ptr
+  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %50)
+          to label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13ClientChannel20ResolverDataForCallsEED2Ev.exit unwind label %51
 
-50:                                               ; preds = %45
-  %51 = landingpad { ptr, i32 }
+51:                                               ; preds = %46
+  %52 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  tail call void @__clang_call_terminate(ptr %52) #48
+  %53 = extractvalue { ptr, i32 } %52, 0
+  tail call void @__clang_call_terminate(ptr %53) #48
   unreachable
 
-_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13ClientChannel20ResolverDataForCallsEED2Ev.exit: ; preds = %"_ZZZN9grpc_core13ClientChannel9StartCallENS_20UnstartedCallHandlerEEN3$_0clEvENKUlN4absl12lts_202407228StatusOrINS0_20ResolverDataForCallsEEEE_clES7_.exit.thread10", %_ZN9grpc_core13RefCountedPtrINS_24UnstartedCallDestinationEED2Ev.exit.i.i, %36, %40, %45
-  %.0.i8 = phi i1 [ false, %_ZN9grpc_core13RefCountedPtrINS_24UnstartedCallDestinationEED2Ev.exit.i.i ], [ true, %36 ], [ true, %40 ], [ %44, %"_ZZZN9grpc_core13ClientChannel9StartCallENS_20UnstartedCallHandlerEEN3$_0clEvENKUlN4absl12lts_202407228StatusOrINS0_20ResolverDataForCallsEEEE_clES7_.exit.thread10" ], [ %48, %45 ]
+_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13ClientChannel20ResolverDataForCallsEED2Ev.exit: ; preds = %"_ZZZN9grpc_core13ClientChannel9StartCallENS_20UnstartedCallHandlerEEN3$_0clEvENKUlN4absl12lts_202407228StatusOrINS0_20ResolverDataForCallsEEEE_clES7_.exit.thread10", %_ZN9grpc_core13RefCountedPtrINS_24UnstartedCallDestinationEED2Ev.exit.i.i, %37, %41, %46
+  %.0.i8 = phi i1 [ false, %_ZN9grpc_core13RefCountedPtrINS_24UnstartedCallDestinationEED2Ev.exit.i.i ], [ true, %36 ], [ true, %40 ], [ %45, %"_ZZZN9grpc_core13ClientChannel9StartCallENS_20UnstartedCallHandlerEEN3$_0clEvENKUlN4absl12lts_202407228StatusOrINS0_20ResolverDataForCallsEEEE_clES7_.exit.thread10" ], [ %49, %45 ]
   ret i1 %.0.i8
 }
 

@@ -6050,34 +6050,34 @@ _ZN6vectorIN3opt4softELb1EjE3endEv.exit.i:        ; preds = %.noexc5
 _ZN3opt6maxlex17update_assignmentER3refI5modelE.exit: ; preds = %._crit_edge.i
   %.pr10 = load ptr, ptr %2, align 8, !tbaa !70
   %.not.i.i9 = icmp eq ptr %.pr10, null
-  br i1 %.not.i.i9, label %_ZN3refI5modelED2Ev.exit, label %60
+  br i1 %.not.i.i9, label %_ZN3refI5modelED2Ev.exit, label %61
 
-60:                                               ; preds = %_ZN3opt6maxlex17update_assignmentER3refI5modelE.exit
-  %61 = getelementptr inbounds nuw i8, ptr %.pr10, i64 16
-  %62 = load i32, ptr %61, align 8, !tbaa !71
-  %63 = add i32 %62, -1
-  store i32 %63, ptr %61, align 8, !tbaa !71
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %_ZN3refI5modelED2Ev.exit
+61:                                               ; preds = %_ZN3opt6maxlex17update_assignmentER3refI5modelE.exit
+  %62 = getelementptr inbounds nuw i8, ptr %.pr10, i64 16
+  %63 = load i32, ptr %62, align 8, !tbaa !71
+  %64 = add i32 %63, -1
+  store i32 %64, ptr %62, align 8, !tbaa !71
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %_ZN3refI5modelED2Ev.exit
 
-65:                                               ; preds = %60
-  %66 = load ptr, ptr %.pr10, align 8, !tbaa !20
-  %67 = load ptr, ptr %66, align 8
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %.pr10, align 8, !tbaa !20
+  %68 = load ptr, ptr %67, align 8
   call void %67(ptr noundef nonnull align 8 dereferenceable(96) %.pr10) #19
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(96) %.pr10)
-          to label %_ZN3refI5modelED2Ev.exit unwind label %68
+          to label %_ZN3refI5modelED2Ev.exit unwind label %69
 
-68:                                               ; preds = %65
-  %69 = landingpad { ptr, i32 }
+69:                                               ; preds = %66
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #20
+  %71 = extractvalue { ptr, i32 } %70, 0
+  call void @__clang_call_terminate(ptr %71) #20
   unreachable
 
-_ZN3refI5modelED2Ev.exit:                         ; preds = %.noexc, %_ZN16check_sat_result9get_modelER3refI5modelE.exit, %_ZN3opt6maxlex17update_assignmentER3refI5modelE.exit, %60, %65
-  %71 = phi i1 [ false, %_ZN3opt6maxlex17update_assignmentER3refI5modelE.exit ], [ true, %60 ], [ true, %65 ], [ false, %_ZN16check_sat_result9get_modelER3refI5modelE.exit ], [ false, %.noexc ]
+_ZN3refI5modelED2Ev.exit:                         ; preds = %.noexc, %_ZN16check_sat_result9get_modelER3refI5modelE.exit, %_ZN3opt6maxlex17update_assignmentER3refI5modelE.exit, %61, %66
+  %72 = phi i1 [ false, %_ZN3opt6maxlex17update_assignmentER3refI5modelE.exit ], [ true, %60 ], [ true, %65 ], [ false, %_ZN16check_sat_result9get_modelER3refI5modelE.exit ], [ false, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i1 %71
+  ret i1 %72
 }
 
 declare void @_ZN3opt18maxsmt_solver_base12trace_boundsEPKc(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef) local_unnamed_addr #0
