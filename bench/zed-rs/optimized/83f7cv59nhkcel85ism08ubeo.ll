@@ -70103,14 +70103,15 @@ _ZN4core3cmp10PartialOrd2le17h0ba2105f2569406dE.exit.i: ; preds = %2
   %switch = icmp ult i8 %0, 2
   %spec.select = select i1 %switch, i64 2, i64 1
   %11 = icmp eq i64 %6, %spec.select
-  %12 = icmp ule i64 %6, %spec.select
-  %13 = icmp eq i64 %9, 0
-  %spec.select15 = select i1 %11, i1 %13, i1 %12
-  %.sroa.0.0.i.i18.i.not = select i1 %4, i1 %spec.select15, i1 false
+  %12 = icmp eq i64 %9, 0
+  %13 = icmp ule i64 %6, %spec.select
+  %14 = select i1 %11, i1 %12, i1 %13
+  %15 = icmp eq i64 %3, 0
+  %not..sroa.0.0.i.i19.i = select i1 %4, i1 %14, i1 %15
   br label %_ZN4core3ops5range11RangeBounds8contains17hc9d41bcde536f697E.llvm.16543420896607510803.exit
 
 _ZN4core3ops5range11RangeBounds8contains17hc9d41bcde536f697E.llvm.16543420896607510803.exit: ; preds = %2, %_ZN4core3cmp10PartialOrd2le17h0ba2105f2569406dE.exit.i
-  %.sroa.06.0.i = phi i1 [ %.sroa.0.0.i.i18.i.not, %_ZN4core3cmp10PartialOrd2le17h0ba2105f2569406dE.exit.i ], [ false, %2 ]
+  %.sroa.06.0.i = phi i1 [ %not..sroa.0.0.i.i19.i, %_ZN4core3cmp10PartialOrd2le17h0ba2105f2569406dE.exit.i ], [ false, %2 ]
   ret i1 %.sroa.06.0.i
 }
 
