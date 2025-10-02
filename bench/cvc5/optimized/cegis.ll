@@ -13355,6 +13355,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit146: ; preds = %_ZN4cvc58internal1
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit150: ; preds = %._ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit150_crit_edge, %333, %327
   %337 = phi i64 [ %.pre, %._ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit150_crit_edge ], [ %322, %333 ], [ %332, %327 ]
+  %.not.i151 = icmp eq ptr %191, %321
+  %spec.select = select i1 %.not.i151, ptr %191, ptr %321, !prof !110
   %338 = and i64 %337, 1152920405095219200
   %.not.i.i152 = icmp eq i64 %338, 1152920405095219200
   br i1 %.not.i.i152, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit154, label %339, !prof !110
@@ -13430,6 +13432,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit154: ; preds = %_ZNK4cvc58internal
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit158: ; preds = %._ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit158_crit_edge, %374, %368
   %378 = phi i64 [ %.pre506, %._ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit158_crit_edge ], [ %363, %374 ], [ %373, %368 ]
+  %.not.i159 = icmp eq ptr %203, %362
+  %spec.select462 = select i1 %.not.i159, ptr %203, ptr %362, !prof !110
   %379 = and i64 %378, 1152920405095219200
   %.not.i.i161 = icmp eq i64 %379, 1152920405095219200
   br i1 %.not.i.i161, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit163, label %380, !prof !110
@@ -13552,6 +13556,8 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit167.sink.split: ; preds = %419, %
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit167: ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit167.sink.split, %425, %427, %415, %417
   %.sroa.0437.0 = phi ptr [ %409, %417 ], [ %409, %415 ], [ %204, %427 ], [ %204, %425 ], [ %.sink585, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit167.sink.split ]
+  %.not.i170 = icmp eq ptr %191, %.sroa.0437.0
+  %spec.select463 = select i1 %.not.i170, ptr %191, ptr %.sroa.0437.0, !prof !110
   %434 = load i64, ptr %.sroa.0437.0, align 8
   %435 = and i64 %434, 1152920405095219200
   %.not.i.i172 = icmp eq i64 %435, 1152920405095219200
@@ -13580,8 +13586,8 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit167: ; preds = %_ZNK4cvc58interna
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit174: ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit167, %436, %442
   %446 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %447 = load ptr, ptr %446, align 8, !tbaa !363
-  store ptr %.sroa.0437.0, ptr %12, align 8, !tbaa !99
-  %448 = load i64, ptr %.sroa.0437.0, align 8
+  store ptr %spec.select463, ptr %12, align 8, !tbaa !99
+  %448 = load i64, ptr %spec.select463, align 8
   %449 = lshr i64 %448, 40
   %450 = trunc nuw nsw i64 %449 to i32
   %451 = and i32 %450, 1048575
@@ -13594,7 +13600,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit174: ; preds = %_ZNK4cvc58internal
   %456 = shl nuw nsw i64 %455, 40
   %457 = and i64 %448, -1152920405095219201
   %458 = or i64 %456, %457
-  store i64 %458, ptr %.sroa.0437.0, align 8
+  store i64 %458, ptr %spec.select463, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
 
 459:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit174
@@ -13603,8 +13609,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit174: ; preds = %_ZNK4cvc58internal
 
 461:                                              ; preds = %459
   %462 = or i64 %448, 1152920405095219200
-  store i64 %462, ptr %.sroa.0437.0, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0437.0)
+  store i64 %462, ptr %spec.select463, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %spec.select463)
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit unwind label %212
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %459, %453, %461
@@ -13656,6 +13662,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit178: ; preds = %464, %468, %474
 
 _ZN4cvc58internal12NodeTemplateILb0EEaSERKNS1_ILb1EEE.exit180: ; preds = %478
   %485 = load ptr, ptr %13, align 8, !tbaa !99
+  %.not.i179 = icmp eq ptr %203, %485
+  %spec.select464 = select i1 %.not.i179, ptr %203, ptr %485, !prof !110
   %486 = load i64, ptr %485, align 8
   %487 = and i64 %486, 1152920405095219200
   %.not.i.i181 = icmp eq i64 %487, 1152920405095219200
@@ -13705,8 +13713,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit183: ; preds = %_ZN4cvc58internal1
   br label %.body
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit163: ; preds = %402, %386, %380, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit158, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit178, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit183
-  %.sroa.0443.0 = phi ptr [ %485, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit183 ], [ %203, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit178 ], [ %362, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit158 ], [ %362, %380 ], [ %362, %386 ], [ %203, %402 ]
-  %.sroa.0450.0 = phi ptr [ %.sroa.0437.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit183 ], [ %.sroa.0437.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit178 ], [ %321, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit158 ], [ %321, %380 ], [ %321, %386 ], [ %191, %402 ]
+  %.sroa.0443.0 = phi ptr [ %spec.select464, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit183 ], [ %203, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit178 ], [ %spec.select462, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit158 ], [ %spec.select462, %380 ], [ %spec.select462, %386 ], [ %203, %402 ]
+  %.sroa.0450.0 = phi ptr [ %spec.select463, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit183 ], [ %spec.select463, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit178 ], [ %spec.select, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit158 ], [ %spec.select, %380 ], [ %spec.select, %386 ], [ %191, %402 ]
   %504 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %505 = icmp eq i8 %504, 0
   br i1 %505, label %506, label %514, !prof !97

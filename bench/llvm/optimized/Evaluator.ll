@@ -1440,9 +1440,11 @@ _ZN4llvm9Evaluator6getValEPNS_5ValueE.exit:       ; preds = %.lr.ph.i.i.i.i, %56
   %101 = load ptr, ptr %24, align 8, !tbaa !47
   %102 = load ptr, ptr %35, align 8, !tbaa !137
   %103 = call noundef ptr @_ZN4llvm20ConstantFoldConstantEPKNS_8ConstantERKNS_10DataLayoutEPKNS_17TargetLibraryInfoE(ptr noundef %.1.i, ptr noundef nonnull align 8 dereferenceable(496) %101, ptr noundef %102) #15
+  %.not264 = icmp eq ptr %.1.i, %103
+  %spec.select = select i1 %.not264, ptr %.1.i, ptr %103
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %104 = load ptr, ptr %24, align 8, !tbaa !47
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %106 = load ptr, ptr %105, align 8, !tbaa !27
   %107 = call noundef i32 @_ZNK4llvm10DataLayout22getIndexTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %104, ptr noundef %106) #15
   store i32 %107, ptr %43, align 8, !tbaa !23
@@ -1461,7 +1463,7 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %109, %110
   %111 = load ptr, ptr %24, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  %112 = call noundef ptr @_ZNK4llvm5Value33stripAndAccumulateConstantOffsetsERKNS_10DataLayoutERNS_5APIntEbbNS_12function_refIFbRS0_S5_EEEb(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(496) %111, ptr noundef nonnull align 8 dereferenceable(12) %10, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull byval(%"class.llvm::function_ref") align 8 %9, i1 noundef zeroext false) #15
+  %112 = call noundef ptr @_ZNK4llvm5Value33stripAndAccumulateConstantOffsetsERKNS_10DataLayoutERNS_5APIntEbbNS_12function_refIFbRS0_S5_EEEb(ptr noundef nonnull align 8 dereferenceable(24) %spec.select, ptr noundef nonnull align 8 dereferenceable(496) %111, ptr noundef nonnull align 8 dereferenceable(12) %10, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull byval(%"class.llvm::function_ref") align 8 %9, i1 noundef zeroext false) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %113 = load ptr, ptr %24, align 8, !tbaa !47
@@ -1741,9 +1743,11 @@ _ZN4llvm9Evaluator6getValEPNS_5ValueE.exit292:    ; preds = %.lr.ph.i.i.i.i287, 
   %258 = load ptr, ptr %24, align 8, !tbaa !47
   %259 = load ptr, ptr %35, align 8, !tbaa !137
   %260 = call noundef ptr @_ZN4llvm20ConstantFoldConstantEPKNS_8ConstantERKNS_10DataLayoutEPKNS_17TargetLibraryInfoE(ptr noundef %.1.i284, ptr noundef nonnull align 8 dereferenceable(496) %258, ptr noundef %259) #15
+  %.not262 = icmp eq ptr %.1.i284, %260
+  %spec.select267 = select i1 %.not262, ptr %.1.i284, ptr %260
   %261 = getelementptr inbounds i8, ptr %.sroa.0395.0, i64 -16
   %262 = load ptr, ptr %261, align 8, !tbaa !27
-  %263 = call noundef ptr @_ZN4llvm9Evaluator17ComputeLoadResultEPNS_8ConstantEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef %260, ptr noundef %262)
+  %263 = call noundef ptr @_ZN4llvm9Evaluator17ComputeLoadResultEPNS_8ConstantEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef %spec.select267, ptr noundef %262)
   %.not263.not = icmp eq ptr %263, null
   br i1 %.not263.not, label %.thread518, label %.thread491
 

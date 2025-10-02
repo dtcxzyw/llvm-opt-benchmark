@@ -846,7 +846,10 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit32: ; preds = %_ZN13rcScopedT
   br i1 %exitcond100.not.i, label %_ZL7boxBlurR20rcCompactHeightfieldiPtS1_.exit, label %.preheader78.us.i, !llvm.loop !20
 
 _ZL7boxBlurR20rcCompactHeightfieldiPtS1_.exit:    ; preds = %._crit_edge84.us.i, %.preheader78.lr.ph.i, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit32
-  store ptr %35, ptr %15, align 8
+  %.not28 = icmp eq ptr %35, %28
+  %spec.select = select i1 %.not28, ptr %35, ptr %28
+  %spec.select65 = select i1 %.not28, ptr %28, ptr %35
+  store ptr %spec.select65, ptr %15, align 8
   %454 = load i8, ptr %8, align 1
   %455 = trunc i8 %454 to i1
   br i1 %455, label %456, label %_ZN13rcScopedTimerD2Ev.exit42
@@ -866,7 +869,7 @@ _ZL7boxBlurR20rcCompactHeightfieldiPtS1_.exit:    ; preds = %._crit_edge84.us.i,
   unreachable
 
 _ZN13rcScopedTimerD2Ev.exit42:                    ; preds = %_ZL7boxBlurR20rcCompactHeightfieldiPtS1_.exit, %456
-  invoke void @_Z6rcFreePv(ptr noundef %28)
+  invoke void @_Z6rcFreePv(ptr noundef %spec.select)
           to label %463 unwind label %19
 
 463:                                              ; preds = %_ZN13rcScopedTimerD2Ev.exit42, %39, %31

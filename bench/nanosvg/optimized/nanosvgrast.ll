@@ -8477,13 +8477,14 @@ thread-pre-split.i:                               ; preds = %44
   %49 = load ptr, ptr %4, align 8, !tbaa !15
   %.not42.i = icmp ne ptr %.032.i, %49
   %50 = sitofp i64 %48 to double
+  %.133.ph.i = select i1 %.not42.i, ptr %49, ptr %.032.i
   %.031.ph.i = select i1 %.not42.i, double %50, double 0.000000e+00
-  %.pr.i = load i8, ptr %49, align 1, !tbaa !4
+  %.pr.i = load i8, ptr %.133.ph.i, align 1, !tbaa !4
   br label %51
 
 51:                                               ; preds = %thread-pre-split.i, %44
   %52 = phi i8 [ %.pr.i, %thread-pre-split.i ], [ %45, %44 ]
-  %.133.i = phi ptr [ %49, %thread-pre-split.i ], [ %.032.i, %44 ]
+  %.133.i = phi ptr [ %.133.ph.i, %thread-pre-split.i ], [ %.032.i, %44 ]
   %.031.i = phi double [ %.031.ph.i, %thread-pre-split.i ], [ 0.000000e+00, %44 ]
   %53 = phi i1 [ %.not42.i, %thread-pre-split.i ], [ false, %44 ]
   %54 = icmp eq i8 %52, 46
@@ -11344,13 +11345,14 @@ thread-pre-split:                                 ; preds = %8
   %13 = load ptr, ptr %2, align 8, !tbaa !15
   %.not42 = icmp ne ptr %.032, %13
   %14 = sitofp i64 %12 to double
+  %.133.ph = select i1 %.not42, ptr %13, ptr %.032
   %.031.ph = select i1 %.not42, double %14, double 0.000000e+00
-  %.pr = load i8, ptr %13, align 1, !tbaa !4
+  %.pr = load i8, ptr %.133.ph, align 1, !tbaa !4
   br label %15
 
 15:                                               ; preds = %thread-pre-split, %8
   %16 = phi i8 [ %.pr, %thread-pre-split ], [ %9, %8 ]
-  %.133 = phi ptr [ %13, %thread-pre-split ], [ %.032, %8 ]
+  %.133 = phi ptr [ %.133.ph, %thread-pre-split ], [ %.032, %8 ]
   %.031 = phi double [ %.031.ph, %thread-pre-split ], [ 0.000000e+00, %8 ]
   %17 = phi i1 [ %.not42, %thread-pre-split ], [ false, %8 ]
   %18 = icmp eq i8 %16, 46

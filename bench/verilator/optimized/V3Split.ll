@@ -6758,8 +6758,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %101
 
 .invoke:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63, %81
   %107 = icmp eq ptr %79, %1
+  %. = select i1 %107, ptr %1, ptr %79
   %.117 = select i1 %107, ptr %5, ptr null
-  %108 = invoke noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %79, ptr noundef %.117)
+  %108 = invoke noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %., ptr noundef %.117)
           to label %109 unwind label %97
 
 109:                                              ; preds = %.invoke
@@ -6767,7 +6768,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %101
   br i1 %.not34, label %_ZN7AstNode7addNextEPS_.exit, label %110
 
 110:                                              ; preds = %109
-  %111 = invoke noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef nonnull align 8 dereferenceable(152) %.01796, ptr noundef nonnull %79)
+  %111 = invoke noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef nonnull align 8 dereferenceable(152) %.01796, ptr noundef %79)
           to label %_ZN7AstNode7addNextEPS_.exit unwind label %97
 
 _ZN7AstNode7addNextEPS_.exit:                     ; preds = %110, %109

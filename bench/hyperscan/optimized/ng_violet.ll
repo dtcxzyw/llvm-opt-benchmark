@@ -21965,7 +21965,12 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descrip
   %170 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0293.i, i64 32
   %.sroa.0146.1270.i = load ptr, ptr %170, align 8
   %.not208272.i = icmp eq ptr %.sroa.0146.1270.i, null
-  br i1 %.not208272.i, label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit.i, label %.lr.ph279.preheader.i
+  br i1 %.not208272.i, label %.critedge4.thread.i, label %.lr.ph279.preheader.i
+
+.critedge4.thread.i:                              ; preds = %169
+  %.not.i.i354.i = icmp eq ptr %.sroa.0182.0.lcssa339.i, %.sroa.12.1294.i
+  %.sroa.12.3355.i = select i1 %.not.i.i354.i, ptr %.sroa.12.1294.i, ptr %.sroa.0182.0.lcssa339.i
+  br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit.i
 
 .lr.ph279.preheader.i:                            ; preds = %169
   %.sroa.19.0..sroa_idx160.i = getelementptr inbounds nuw i8, ptr %.sroa.0177.0293.i, i64 40
@@ -22395,8 +22400,8 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descrip
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0137.1.lcssa.i) #25
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit.i
 
-_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit.i: ; preds = %169, %300, %.critedge4.i
-  %.sroa.12.3357.i = phi ptr [ %.sroa.12.3.i, %.critedge4.i ], [ %.sroa.12.3.i, %300 ], [ %.sroa.0182.0.lcssa339.i, %169 ]
+_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit.i: ; preds = %300, %.critedge4.i, %.critedge4.thread.i
+  %.sroa.12.3357.i = phi ptr [ %.sroa.12.3355.i, %.critedge4.thread.i ], [ %.sroa.12.3.i, %.critedge4.i ], [ %.sroa.12.3.i, %300 ]
   %301 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0177.0293.i) #28
   %.not207.i = icmp eq ptr %301, %67
   br i1 %.not207.i, label %._crit_edge296.i, label %169, !llvm.loop !821

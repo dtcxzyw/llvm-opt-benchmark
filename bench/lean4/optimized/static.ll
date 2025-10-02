@@ -9807,18 +9807,19 @@ _Z22_mi_os_good_alloc_sizem.exit:                 ; preds = %4
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %spec.select = select i1 %11, i64 %15, i64 %10
+  %.017 = select i1 %.not, ptr %0, ptr %12
   %.0 = select i1 %.not, i64 %10, i64 %spec.select
   %16 = icmp eq i32 %6, 4
   br i1 %16, label %17, label %42
 
 17:                                               ; preds = %_Z22_mi_os_good_alloc_sizem.exit
-  %18 = icmp ne ptr %12, null
+  %18 = icmp ne ptr %.017, null
   %19 = icmp ugt i64 %.0, 1073741823
   %or.cond12.i = and i1 %18, %19
   br i1 %or.cond12.i, label %.lr.ph.i, label %_ZL24mi_os_free_huge_os_pagesPvm.exit
 
 .lr.ph.i:                                         ; preds = %17, %_ZL15mi_os_prim_freePvmm.exit.i
-  %.011.i = phi ptr [ %40, %_ZL15mi_os_prim_freePvmm.exit.i ], [ %12, %17 ]
+  %.011.i = phi ptr [ %40, %_ZL15mi_os_prim_freePvmm.exit.i ], [ %.017, %17 ]
   %.0710.i = phi i64 [ %39, %_ZL15mi_os_prim_freePvmm.exit.i ], [ %.0, %17 ]
   %20 = tail call i32 @munmap(ptr noundef nonnull %.011.i, i64 noundef 1073741824) #55
   %21 = icmp eq i32 %20, -1
@@ -9876,7 +9877,7 @@ _ZL15mi_os_prim_freePvmm.exit.i:                  ; preds = %.preheader.i.i.i18.
   %43 = select i1 %.not, i64 0, i64 %15
   %.018 = sub i64 %10, %43
   %44 = select i1 %2, i64 %.018, i64 0
-  tail call fastcc void @_ZL15mi_os_prim_freePvmm(ptr noundef %12, i64 noundef %.0, i64 noundef %44)
+  tail call fastcc void @_ZL15mi_os_prim_freePvmm(ptr noundef %.017, i64 noundef %.0, i64 noundef %44)
   br label %_ZL24mi_os_free_huge_os_pagesPvm.exit
 
 _ZL24mi_os_free_huge_os_pagesPvm.exit:            ; preds = %_ZL15mi_os_prim_freePvmm.exit.i, %17, %42, %4
