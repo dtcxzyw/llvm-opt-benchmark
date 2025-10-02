@@ -603,18 +603,18 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %9
   br i1 %130, label %select.unfold.preheader.i62, label %Kit_TruthCopy.exit
 
 select.unfold.preheader.i62:                      ; preds = %112
-  %131 = zext nneg i32 %spec.select.i61 to i64
+  %129 = zext nneg i32 %spec.select.i61 to i64
   br label %select.unfold.i63
 
 select.unfold.i63:                                ; preds = %select.unfold.i63, %select.unfold.preheader.i62
-  %indvars.iv.i64 = phi i64 [ %131, %select.unfold.preheader.i62 ], [ %indvars.iv.next.i65, %select.unfold.i63 ]
+  %indvars.iv.i64 = phi i64 [ %129, %select.unfold.preheader.i62 ], [ %indvars.iv.next.i65, %select.unfold.i63 ]
   %indvars.iv.next.i65 = add nsw i64 %indvars.iv.i64, -1
-  %132 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv.next.i65
-  %133 = load i32, ptr %132, align 4, !tbaa !45
-  %134 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv.next.i65
-  store i32 %133, ptr %134, align 4, !tbaa !45
-  %135 = icmp samesign ugt i64 %indvars.iv.i64, 1
-  br i1 %135, label %select.unfold.i63, label %Kit_TruthCopy.exit, !llvm.loop !73
+  %130 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv.next.i65
+  %131 = load i32, ptr %130, align 4, !tbaa !45
+  %132 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv.next.i65
+  store i32 %131, ptr %132, align 4, !tbaa !45
+  %133 = icmp samesign ugt i64 %indvars.iv.i64, 1
+  br i1 %133, label %select.unfold.i63, label %Kit_TruthCopy.exit, !llvm.loop !73
 
 Kit_TruthCopy.exit:                               ; preds = %select.unfold.i63, %112, %.critedge2
   %.150 = phi ptr [ %.049.lcssa, %.critedge2 ], [ %120, %112 ], [ %120, %select.unfold.i63 ]

@@ -9743,7 +9743,7 @@ define hidden { i64, ptr } @"_ZN75_$LT$zstd..stream..raw..Encoder$u20$as$u20$zst
   %12 = ptrtoint ptr %11 to i64
   br label %13
 
-13:                                               ; preds = %3, %10
+14:                                               ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %12, %10 ], [ %.sroa.5.0, %3 ]
   %.sroa.0.0 = phi i64 [ 1, %10 ], [ 0, %3 ]
   %14 = inttoptr i64 %.sroa.3.0 to ptr
@@ -9770,7 +9770,7 @@ define hidden { i64, ptr } @"_ZN75_$LT$zstd..stream..raw..Encoder$u20$as$u20$zst
   %12 = ptrtoint ptr %11 to i64
   br label %13
 
-13:                                               ; preds = %3, %10
+14:                                               ; preds = %3, %10
   %.sroa.3.0 = phi i64 [ %12, %10 ], [ %.sroa.5.0, %3 ]
   %.sroa.0.0 = phi i64 [ 1, %10 ], [ 0, %3 ]
   %14 = inttoptr i64 %.sroa.3.0 to ptr

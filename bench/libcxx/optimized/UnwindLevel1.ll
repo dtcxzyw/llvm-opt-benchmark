@@ -751,11 +751,11 @@ define dso_local noundef i32 @_Unwind_ForcedUnwind(ptr noundef %0, ptr noundef %
   %13 = tail call i32 @fflush(ptr noundef %12)
   br label %14
 
-14:                                               ; preds = %._crit_edge, %7
+12:                                               ; preds = %._crit_edge, %7
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %9, %7 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %15 = call i32 @__unw_getcontext(ptr noundef nonnull %4)
+  %13 = call i32 @__unw_getcontext(ptr noundef nonnull %4)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.pre-phi, ptr %16, align 16, !tbaa !20
   %17 = ptrtoint ptr %2 to i64

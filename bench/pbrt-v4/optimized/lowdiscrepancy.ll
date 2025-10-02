@@ -556,69 +556,69 @@ define dso_local noundef ptr @_ZN4pbrt33ComputeRadicalInversePermutationsEjN4pst
   br i1 %.not13.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %2
-  %.pre1618.i = phi i64 [ 0, %2 ], [ %28, %.lr.ph.i.i ]
-  %17 = load ptr, ptr %9, align 8, !tbaa !46
-  %.not.i.i.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i.i.i, label %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i, label %18
+  %.pre1618.i = phi i64 [ 0, %2 ], [ %27, %.lr.ph.i.i ]
+  %16 = load ptr, ptr %9, align 8, !tbaa !46
+  %.not.i.i.i.i.i = icmp eq ptr %16, null
+  br i1 %.not.i.i.i.i.i, label %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i, label %17
 
-18:                                               ; preds = %._crit_edge.i.i
-  %19 = load i64, ptr %11, align 8, !tbaa !47
-  %20 = shl i64 %19, 4
-  %21 = load ptr, ptr %7, align 8, !tbaa !48
-  %22 = load ptr, ptr %21, align 8, !tbaa !38
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull %17, i64 noundef %20, i64 noundef 8)
+17:                                               ; preds = %._crit_edge.i.i
+  %18 = load i64, ptr %11, align 8, !tbaa !47
+  %19 = shl i64 %18, 4
+  %20 = load ptr, ptr %7, align 8, !tbaa !48
+  %21 = load ptr, ptr %20, align 8, !tbaa !38
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %23 = load ptr, ptr %22, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %16, i64 noundef %19, i64 noundef 8)
   %.pre16.pre.i = load i64, ptr %10, align 8, !tbaa !42
   br label %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %2 ]
-  %25 = getelementptr inbounds nuw %"class.pbrt::DigitPermutation", ptr %16, i64 %indvars.iv.i.i
-  %26 = load ptr, ptr %9, align 8, !tbaa !46
-  %27 = getelementptr inbounds nuw %"class.pbrt::DigitPermutation", ptr %26, i64 %indvars.iv.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !49
+  %24 = getelementptr inbounds nuw %"class.pbrt::DigitPermutation", ptr %16, i64 %indvars.iv.i.i
+  %25 = load ptr, ptr %9, align 8, !tbaa !46
+  %26 = getelementptr inbounds nuw %"class.pbrt::DigitPermutation", ptr %25, i64 %indvars.iv.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !49
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %28 = load i64, ptr %10, align 8, !tbaa !42
-  %29 = icmp ugt i64 %28, %indvars.iv.next.i.i
-  br i1 %29, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !51
+  %27 = load i64, ptr %10, align 8, !tbaa !42
+  %28 = icmp ugt i64 %27, %indvars.iv.next.i.i
+  br i1 %28, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !51
 
-_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i: ; preds = %._crit_edge.i.i, %18
+_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i: ; preds = %._crit_edge.i.i, %17
   %.pre16.i = phi i64 [ %.pre16.pre.i, %18 ], [ %.pre1618.i, %._crit_edge.i.i ]
   store i64 1000, ptr %11, align 8, !tbaa !47
   store ptr %16, ptr %9, align 8, !tbaa !46
-  %30 = icmp ult i64 %.pre16.i, 1000
-  br i1 %30, label %.lr.ph.i, label %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6resizeEm.exit
+  %29 = icmp ult i64 %.pre16.i, 1000
+  br i1 %29, label %.lr.ph.i, label %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6resizeEm.exit
 
 .lr.ph.i:                                         ; preds = %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i, %.lr.ph.i
-  %.015.i = phi i64 [ %33, %.lr.ph.i ], [ %.pre16.i, %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i ]
-  %31 = load ptr, ptr %9, align 8, !tbaa !46
-  %32 = getelementptr inbounds nuw %"class.pbrt::DigitPermutation", ptr %31, i64 %.015.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
-  %33 = add nuw i64 %.015.i, 1
-  %exitcond.not.i = icmp eq i64 %33, 1000
+  %.015.i = phi i64 [ %32, %.lr.ph.i ], [ %.pre16.i, %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i ]
+  %30 = load ptr, ptr %9, align 8, !tbaa !46
+  %31 = getelementptr inbounds nuw %"class.pbrt::DigitPermutation", ptr %30, i64 %.015.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
+  %32 = add nuw i64 %.015.i, 1
+  %exitcond.not.i = icmp eq i64 %32, 1000
   br i1 %exitcond.not.i, label %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6resizeEm.exit, label %.lr.ph.i, !llvm.loop !52
 
 _ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6resizeEm.exit: ; preds = %.lr.ph.i, %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i
   store i64 1000, ptr %10, align 8, !tbaa !42
-  br label %35
+  br label %34
 
-34:                                               ; preds = %35
+33:                                               ; preds = %34
   ret ptr %7
 
-35:                                               ; preds = %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6resizeEm.exit, %35
+34:                                               ; preds = %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6resizeEm.exit, %34
   %indvars.iv = phi i64 [ 0, %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6resizeEm.exit ], [ %indvars.iv.next, %35 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %36 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt6PrimesE, i64 %indvars.iv
-  %37 = load i32, ptr %36, align 4, !tbaa !18
-  call void @_ZN4pbrt16DigitPermutationC2EijN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %37, i32 noundef %0, ptr nonnull %1)
-  %38 = load ptr, ptr %9, align 8, !tbaa !46
-  %39 = getelementptr inbounds nuw %"class.pbrt::DigitPermutation", ptr %38, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !49
+  %35 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt6PrimesE, i64 %indvars.iv
+  %36 = load i32, ptr %35, align 4, !tbaa !18
+  call void @_ZN4pbrt16DigitPermutationC2EijN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %36, i32 noundef %0, ptr nonnull %1)
+  %37 = load ptr, ptr %9, align 8, !tbaa !46
+  %38 = getelementptr inbounds nuw %"class.pbrt::DigitPermutation", ptr %37, i64 %indvars.iv
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !49
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1000
-  br i1 %exitcond.not, label %34, label %35, !llvm.loop !53
+  br i1 %exitcond.not, label %33, label %34, !llvm.loop !53
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

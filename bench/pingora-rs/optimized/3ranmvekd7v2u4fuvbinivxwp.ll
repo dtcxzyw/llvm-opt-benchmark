@@ -34,12 +34,12 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   %16 = trunc nuw i8 %.pre to i1
   br i1 %16, label %.critedge104, label %18
 
-._crit_edge:                                      ; preds = %57, %3
+._crit_edge:                                      ; preds = %55, %3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 433
   store i8 0, ptr %17, align 1
   store i8 0, ptr %8, align 2
   store i64 0, ptr %0, align 8
-  br label %60
+  br label %58
 
 18:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$bytes..bytes_mut..BytesMut$GT$$GT$17h53bd4d6dfc87a11bE.exit", %.lr.ph
   %19 = load i64, ptr %14, align 8, !noundef !4
@@ -47,7 +47,7 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   %.not57 = icmp eq i64 %20, %19
   br i1 %.not57, label %43, label %45
 
-.critedge104:                                     ; preds = %57, %.lr.ph
+.critedge104:                                     ; preds = %55, %.lr.ph
   %21 = load i8, ptr %12, align 8, !range !3, !noundef !4
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %26, label %23
@@ -71,7 +71,7 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
 
 31:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !9
-  br label %61
+  br label %59
 
 32:                                               ; preds = %26
   %.sroa.511.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -83,11 +83,11 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
 33:                                               ; preds = %32
   %34 = load i64, ptr %14, align 8, !alias.scope !6, !noalias !13, !noundef !4
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %63, label %36
+  br i1 %35, label %61, label %36
 
 36:                                               ; preds = %33
   %37 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hbc1f7237a51fa5afE(i8 noundef 40, ptr noalias noundef nonnull readonly align 1 @anon.a1e6cd3d974ec65d494fe7ff0101eeda.2, i64 noundef 25), !noalias !12
-  br label %61
+  br label %59
 
 38:                                               ; preds = %23
   store i8 1, ptr %8, align 2
@@ -117,7 +117,7 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   %.sroa.041.0.copyload.sink = phi ptr [ %.sroa.041.0.copyload, %41 ], [ %39, %38 ]
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   store ptr %.sroa.041.0.copyload.sink, ptr %.sroa.417.0..sroa_idx, align 8
-  br label %60
+  br label %58
 
 43:                                               ; preds = %18
   %44 = tail call noundef zeroext i1 @_ZN5bytes9bytes_mut8BytesMut13reserve_inner17h831ffa4ef30e5004E(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 1, i1 noundef zeroext true)
@@ -141,62 +141,62 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   store ptr null, ptr %.sroa.453.0..sroa_idx, align 8
   %.sroa.453.sroa.4.0..sroa.453.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %51, ptr %.sroa.453.sroa.4.0..sroa.453.0..sroa_idx.sroa_idx, align 8
-  br label %60
+  br label %58
 
 .thread66:                                        ; preds = %45
   store i64 2, ptr %0, align 8
-  br label %60
+  br label %58
 
 .thread69:                                        ; preds = %45
-  %52 = icmp eq ptr %48, null
-  br i1 %52, label %53, label %57
+  %50 = icmp eq ptr %48, null
+  br i1 %50, label %51, label %55
 
-53:                                               ; preds = %.thread69
-  %54 = load i8, ptr %12, align 8, !range !3, !noundef !4
-  %55 = trunc nuw i8 %54 to i1
-  br i1 %55, label %56, label %57
+51:                                               ; preds = %.thread69
+  %52 = load i8, ptr %12, align 8, !range !3, !noundef !4
+  %53 = trunc nuw i8 %52 to i1
+  br i1 %53, label %54, label %55
 
-56:                                               ; preds = %53
+54:                                               ; preds = %51
   store i64 0, ptr %0, align 8
-  br label %60
+  br label %58
 
-57:                                               ; preds = %53, %.thread69
+55:                                               ; preds = %51, %.thread69
   %storemerge = phi i8 [ 0, %.thread69 ], [ 1, %53 ]
   store i8 %storemerge, ptr %12, align 8
   store i8 1, ptr %11, align 1
-  %58 = load i8, ptr %8, align 2, !range !3, !noundef !4
-  %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %._crit_edge, label %.critedge104
+  %56 = load i8, ptr %8, align 2, !range !3, !noundef !4
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %57, label %._crit_edge, label %.critedge104
 
-60:                                               ; preds = %49, %.thread66, %61, %64, %42, %56, %._crit_edge
+58:                                               ; preds = %49, %.thread66, %59, %62, %42, %54, %._crit_edge
   ret void
 
-61:                                               ; preds = %36, %31
+59:                                               ; preds = %36, %31
   %.sroa.6.061.ph = phi ptr [ %37, %36 ], [ %30, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   store i8 1, ptr %8, align 2
-  %62 = icmp ne ptr %.sroa.6.061.ph, null
-  tail call void @llvm.assume(i1 %62)
+  %60 = icmp ne ptr %.sroa.6.061.ph, null
+  tail call void @llvm.assume(i1 %60)
   store i64 1, ptr %0, align 8
   %.sroa.434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %.sroa.434.0..sroa_idx, align 8
   %.sroa.434.sroa.4.0..sroa.434.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.6.061.ph, ptr %.sroa.434.sroa.4.0..sroa.434.0..sroa_idx.sroa_idx, align 8
-  br label %60
+  br label %58
 
-63:                                               ; preds = %33
+61:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   store i8 0, ptr %11, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.57.sroa.4)
-  br label %64
+  br label %62
 
 .critedge:                                        ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.57.sroa.4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.57.sroa.4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
-  br label %64
+  br label %62
 
-64:                                               ; preds = %63, %.critedge
+62:                                               ; preds = %61, %.critedge
   %.sroa.06.0 = phi i64 [ 1, %.critedge ], [ 0, %63 ]
   store i64 %.sroa.06.0, ptr %0, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -204,7 +204,7 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   %.sroa.57.sroa.4.0..sroa.57.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.57.sroa.4.0..sroa.57.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.57.sroa.4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.57.sroa.4)
-  br label %60
+  br label %58
 }
 
 ; Function Attrs: nonlazybind uwtable

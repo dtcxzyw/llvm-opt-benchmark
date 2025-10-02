@@ -5749,7 +5749,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h22fa639
   br i1 %26, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit.thread", label %.lr.ph.i
 
 "_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit": ; preds = %14
-  br i1 %.not, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit.thread", label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit.thread18.loopexit21.split.loop.exit"
+  br i1 %.not, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit.thread", label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit.thread18"
 
 "_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit.thread": ; preds = %23, %8, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit"
   %.val15 = load i64, ptr %7, align 8, !noundef !18
@@ -5766,7 +5766,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h22fa639
   %32 = icmp eq i64 %.val15, %.val
   br i1 %32, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit.thread18", label %8
 
-"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit.thread18.loopexit21.split.loop.exit": ; preds = %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit"
+"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit.thread18": ; preds = %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit"
   %33 = inttoptr i64 %19 to ptr
   br label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h45bdd8587fe8a40aE.exit.thread18"
 
@@ -5828,7 +5828,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h48b4b99
   br i1 %26, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit.thread", label %.lr.ph.i
 
 "_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit": ; preds = %14
-  br i1 %.not, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit.thread", label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit.thread18.loopexit21.split.loop.exit"
+  br i1 %.not, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit.thread", label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit.thread18"
 
 "_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit.thread": ; preds = %23, %8, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit"
   %.val15 = load i64, ptr %7, align 8, !noundef !18
@@ -5845,7 +5845,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h48b4b99
   %32 = icmp eq i64 %.val15, %.val
   br i1 %32, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit.thread18", label %8
 
-"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit.thread18.loopexit21.split.loop.exit": ; preds = %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit"
+"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit.thread18": ; preds = %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit"
   %33 = inttoptr i64 %19 to ptr
   br label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h8f0406ef1ef9fbbcE.exit.thread18"
 

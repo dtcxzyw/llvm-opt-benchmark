@@ -3755,7 +3755,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate227_$LT$impl$u20$alloc
   store i64 %.sroa.5.0.lcssa, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.6.0.lcssa, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %27
+  br label %25
 
 15:                                               ; preds = %.lr.ph
   %16 = add i64 %.sroa.5.043, 1
@@ -3769,14 +3769,14 @@ define hidden void @"_ZN5alloc11collections5btree8navigate227_$LT$impl$u20$alloc
 22:                                               ; preds = %.lr.ph
   %23 = ptrtoint ptr %.sroa.0.044 to i64
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %24, ptr %25, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %24, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.5.043, ptr %26, align 8
   store ptr null, ptr %0, align 8
-  br label %27
+  br label %25
 
-27:                                               ; preds = %22, %._crit_edge
+25:                                               ; preds = %22, %._crit_edge
   ret void
 }
 
@@ -3813,7 +3813,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate227_$LT$impl$u20$alloc
   store i64 %.sroa.5.0.lcssa, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.6.0.lcssa, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %27
+  br label %25
 
 15:                                               ; preds = %.lr.ph
   %16 = add i64 %.sroa.5.043, 1
@@ -3827,14 +3827,14 @@ define hidden void @"_ZN5alloc11collections5btree8navigate227_$LT$impl$u20$alloc
 22:                                               ; preds = %.lr.ph
   %23 = ptrtoint ptr %.sroa.0.044 to i64
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %24, ptr %25, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %24, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.5.043, ptr %26, align 8
   store ptr null, ptr %0, align 8
-  br label %27
+  br label %25
 
-27:                                               ; preds = %22, %._crit_edge
+25:                                               ; preds = %22, %._crit_edge
   ret void
 }
 
@@ -3871,7 +3871,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate227_$LT$impl$u20$alloc
   store i64 %.sroa.5.0.lcssa, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.6.0.lcssa, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %27
+  br label %25
 
 15:                                               ; preds = %.lr.ph
   %16 = add i64 %.sroa.5.043, 1
@@ -3885,14 +3885,14 @@ define hidden void @"_ZN5alloc11collections5btree8navigate227_$LT$impl$u20$alloc
 22:                                               ; preds = %.lr.ph
   %23 = ptrtoint ptr %.sroa.0.044 to i64
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %24, ptr %25, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %24, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.5.043, ptr %26, align 8
   store ptr null, ptr %0, align 8
-  br label %27
+  br label %25
 
-27:                                               ; preds = %22, %._crit_edge
+25:                                               ; preds = %22, %._crit_edge
   ret void
 }
 

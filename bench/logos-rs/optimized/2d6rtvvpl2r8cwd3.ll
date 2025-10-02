@@ -3648,7 +3648,7 @@ define { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_ins
   %21 = ptrtoint ptr %20 to i64
   br label %22
 
-22:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb13a94b85bf833b5E.exit", %17
+23:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb13a94b85bf833b5E.exit", %17
   %.sroa.3.0 = phi i64 [ %21, %17 ], [ %15, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb13a94b85bf833b5E.exit" ]
   %.sroa.0.0 = phi i64 [ 0, %17 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb13a94b85bf833b5E.exit" ]
   %23 = inttoptr i64 %.sroa.3.0 to ptr
@@ -3688,7 +3688,7 @@ define { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_ins
   %21 = ptrtoint ptr %20 to i64
   br label %22
 
-22:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h45194aa082c76931E.exit", %17
+23:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h45194aa082c76931E.exit", %17
   %.sroa.3.0 = phi i64 [ %21, %17 ], [ %15, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h45194aa082c76931E.exit" ]
   %.sroa.0.0 = phi i64 [ 0, %17 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h45194aa082c76931E.exit" ]
   %23 = inttoptr i64 %.sroa.3.0 to ptr
@@ -3728,7 +3728,7 @@ define { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_ins
   %21 = ptrtoint ptr %20 to i64
   br label %22
 
-22:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h3313912a7377df1dE.exit", %17
+23:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h3313912a7377df1dE.exit", %17
   %.sroa.3.0 = phi i64 [ %21, %17 ], [ %15, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h3313912a7377df1dE.exit" ]
   %.sroa.0.0 = phi i64 [ 0, %17 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h3313912a7377df1dE.exit" ]
   %23 = inttoptr i64 %.sroa.3.0 to ptr

@@ -958,7 +958,7 @@ call5.i.i.i.i.i.i.noexc:                          ; preds = %if.end.i.i
           to label %invoke.cont35 unwind label %_ZNSt10_HashtableIPKN8proxygen15HTTPSessionBaseESt4pairIKS3_St14_List_iteratorINS0_27ServerIdleSessionController15IdleSessionInfoEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit15.i.i
 
 _ZNSt10_HashtableIPKN8proxygen15HTTPSessionBaseESt4pairIKS3_St14_List_iteratorINS0_27ServerIdleSessionController15IdleSessionInfoEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit15.i.i: ; preds = %call5.i.i.i.i.i.i.noexc
-  %28 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i22) #23
   br label %ehcleanup
@@ -974,7 +974,7 @@ cleanup:                                          ; preds = %if.end, %invoke.con
   ret void
 
 ehcleanup:                                        ; preds = %lpad, %_ZNSt10_HashtableIPKN8proxygen15HTTPSessionBaseESt4pairIKS3_St14_List_iteratorINS0_27ServerIdleSessionController15IdleSessionInfoEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit15.i.i, %lpad11
-  %.pn = phi { ptr, i32 } [ %12, %lpad11 ], [ %11, %lpad ], [ %28, %_ZNSt10_HashtableIPKN8proxygen15HTTPSessionBaseESt4pairIKS3_St14_List_iteratorINS0_27ServerIdleSessionController15IdleSessionInfoEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit15.i.i ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad11 ], [ %11, %lpad ], [ %25, %_ZNSt10_HashtableIPKN8proxygen15HTTPSessionBaseESt4pairIKS3_St14_List_iteratorINS0_27ServerIdleSessionController15IdleSessionInfoEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit15.i.i ]
   %call1.i.i.i24 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
   resume { ptr, i32 } %.pn
 }

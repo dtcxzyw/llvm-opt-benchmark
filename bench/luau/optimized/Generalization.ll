@@ -6449,9 +6449,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__d
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !215
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread37
+  br i1 %.not.not, label %15, label %.thread36
 
-.thread37:                                        ; preds = %4
+.thread36:                                        ; preds = %4
   %7 = load ptr, ptr %1, align 8, !tbaa !115
   %8 = ptrtoint ptr %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6487,7 +6487,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__d
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread37
+28:                                               ; preds = %.thread36
   %29 = load ptr, ptr %14, align 8, !tbaa !108
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !115
@@ -6515,7 +6515,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__d
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
   br label %.critedge, !llvm.loop !218
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread37
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
   %41 = phi i64 [ %27, %23 ], [ %11, %.thread37 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
   %42 = phi i64 [ %24, %23 ], [ %8, %.thread37 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
   %43 = phi ptr [ %17, %23 ], [ %7, %.thread37 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
@@ -6533,7 +6533,7 @@ _ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS0_EEPNS2_10_Hash_nodeIS0_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1.in.in = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
+  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
   %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
   %.sroa.031.1.in = ptrtoint ptr %.sroa.031.1.in.in to i64
   %.sroa.031.1 = inttoptr i64 %.sroa.031.1.in to ptr

@@ -5432,7 +5432,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 define dso_local noundef ptr @zend_get_property_hook_trampoline(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1392), align 8, !tbaa !37
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %10, label %6, !prof !59
+  br i1 %5, label %8, label %6, !prof !59
 
 6:                                                ; preds = %3
   %7 = tail call noalias dereferenceable_or_null(160) ptr @_ecalloc(i64 noundef 1, i64 noundef 160) #22
@@ -5440,10 +5440,10 @@ define dso_local noundef ptr @zend_get_property_hook_trampoline(ptr noundef %0, 
   %9 = inttoptr i64 %8 to ptr
   br label %10
 
-10:                                               ; preds = %3, %6
+8:                                                ; preds = %3, %6
   %.0 = phi ptr [ %9, %6 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1384), %3 ]
   store i8 1, ptr %.0, align 8, !tbaa !37
-  %11 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 0, ptr %11, align 1, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   store i8 0, ptr %12, align 2, !tbaa !37
@@ -5462,10 +5462,10 @@ define dso_local noundef ptr @zend_get_property_hook_trampoline(ptr noundef %0, 
   %22 = zext i1 %18 to i32
   %23 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store i32 %22, ptr %23, align 8, !tbaa !37
-  %24 = getelementptr inbounds nuw i8, ptr %.0, i64 36
-  store i32 %22, ptr %24, align 4, !tbaa !37
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !88
+  %25 = getelementptr inbounds nuw i8, ptr %.0, i64 36
+  store i32 %22, ptr %25, align 4, !tbaa !37
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %26 = load ptr, ptr %26, align 8, !tbaa !88
   %27 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   store ptr %26, ptr %27, align 8, !tbaa !37
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 24

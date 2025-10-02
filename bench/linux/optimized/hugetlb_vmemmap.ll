@@ -305,12 +305,12 @@ define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr noundef readonl
   %7 = load volatile i64, ptr %6, align 8
   %8 = and i64 %7, 16
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %61
+  br i1 %9, label %10, label %60
 
 10:                                               ; preds = %4
   %11 = load volatile i8, ptr @vmemmap_optimize_enabled, align 1, !range !12, !noundef !13
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %61, label %13
+  br i1 %12, label %60, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -318,7 +318,7 @@ define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr noundef readonl
   %16 = shl i32 64, %15
   %17 = add i32 %16, -4096
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %19, label %61
+  br i1 %18, label %19, label %60
 
 19:                                               ; preds = %13
   %20 = ptrtoint ptr %1 to i64
@@ -367,7 +367,7 @@ define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr noundef readonl
   store volatile ptr %45, ptr %2, align 8
   br label %49
 
-49:                                               ; preds = %36, %19
+49:; preds = %36, %19
   %50 = call fastcc i32 @vmemmap_remap_range(i64 noundef %20, i64 noundef %25, ptr noundef nonnull %5)
   %51 = icmp ne i32 %50, 0
   %52 = load i64, ptr %26, align 8
@@ -375,7 +375,7 @@ define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr noundef readonl
   %54 = select i1 %51, i1 %53, i1 false
   br i1 %54, label %.thread, label %58
 
-.thread:                                          ; preds = %49
+.thread:; preds = %49
   %55 = shl i64 %52, 12
   %56 = add i64 %55, %20
   store ptr @vmemmap_restore_pte, ptr %5, align 8
@@ -383,23 +383,23 @@ define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr noundef readonl
   store i64 %20, ptr %28, align 8
   store ptr %2, ptr %29, align 8
   store i64 0, ptr %30, align 8
-  %57 = call fastcc i32 @vmemmap_remap_range(i64 noundef %20, i64 noundef %56, ptr noundef nonnull %5)
+  %56 = call fastcc i32 @vmemmap_remap_range(i64 noundef %20, i64 noundef %56, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %60
+  br label %59
 
-58:                                               ; preds = %49
+57:                                               ; preds = %49
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %59 = icmp eq i32 %50, 0
-  br i1 %59, label %61, label %60
+  %58 = icmp eq i32 %50, 0
+  br i1 %58, label %60, label %59
 
-60:                                               ; preds = %.thread, %58
+59:                                               ; preds = %.thread, %57
   call void @static_key_slow_dec(ptr noundef nonnull @hugetlb_optimize_vmemmap_key) #7
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i32 -17, ptr nonnull elementtype(i8) %6) #7, !srcloc !9
-  br label %61
+  br label %60
 
-61:                                               ; preds = %60, %58, %13, %10, %4
-  %62 = phi i32 [ 0, %13 ], [ %50, %60 ], [ 0, %58 ], [ 0, %10 ], [ 0, %4 ]
-  ret i32 %62
+60:                                               ; preds = %59, %57, %13, %10, %4
+  %61 = phi i32 [ 0, %13 ], [ %50, %60 ], [ 0, %58 ], [ 0, %10 ], [ 0, %4 ]
+  ret i32 %61
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

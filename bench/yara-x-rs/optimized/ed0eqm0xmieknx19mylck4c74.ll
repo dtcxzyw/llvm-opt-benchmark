@@ -1197,7 +1197,7 @@ define hidden noundef i32 @_ZN8protobuf7message7Message11cached_size17hc9eb113d9
 define hidden noundef align 8 ptr @_ZN8protobuf7message7Message17check_initialized17hf7ef75b5d8f793a2E(ptr noundef nonnull align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca [72 x i8], align 8
   %3 = tail call noundef zeroext i1 @"_ZN80_$LT$yara_x_proto_yaml..yara..AclEntry$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h724feda2ca887c7eE"(ptr noundef nonnull align 8 %0)
-  br i1 %3, label %12, label %4
+  br i1 %3, label %10, label %4
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1221,12 +1221,12 @@ define hidden noundef align 8 ptr @_ZN8protobuf7message7Message17check_initializ
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 8, ptr %.sroa.53.0..sroa_idx, align 8
   store i64 -9223372036854775794, ptr %2, align 8
-  %11 = call noundef nonnull align 8 ptr @"_ZN100_$LT$protobuf..error..Error$u20$as$u20$core..convert..From$LT$protobuf..error..ProtobufError$GT$$GT$4from17h5b5e7f0b90eaaa24E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %2)
+  %9 = call noundef nonnull align 8 ptr @"_ZN100_$LT$protobuf..error..Error$u20$as$u20$core..convert..From$LT$protobuf..error..ProtobufError$GT$$GT$4from17h5b5e7f0b90eaaa24E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %12
+  br label %10
 
-12:                                               ; preds = %1, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4aea406124a3e984E.exit"
-  %.sroa.0.0 = phi ptr [ %11, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4aea406124a3e984E.exit" ], [ null, %1 ]
+10:                                               ; preds = %1, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4aea406124a3e984E.exit"
+  %.sroa.0.0 = phi ptr [ %9, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4aea406124a3e984E.exit" ], [ null, %1 ]
   ret ptr %.sroa.0.0
 }
 

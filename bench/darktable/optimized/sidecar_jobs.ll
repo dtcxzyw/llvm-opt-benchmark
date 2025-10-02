@@ -178,7 +178,7 @@ define internal noundef i32 @_control_write_sidecars_job_run(ptr noundef %0) #0 
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %18 = fadd reassoc nsz arcp contract afn double %.036, 2.500000e-01
   %19 = fcmp reassoc nsz arcp contract afn ogt double %17, %18
-  br i1 %19, label %20, label %43
+  br i1 %19, label %20, label %39
 
 20:                                               ; preds = %.critedge
   %.b.i = load i1, ptr @lock_initialized, align 4
@@ -202,12 +202,12 @@ _lock_pending_queue.exit:                         ; preds = %20, %21
 
 _unlock_pending_queue.exit:                       ; preds = %_lock_pending_queue.exit, %25
   %.not42 = icmp eq ptr %24, null
-  br i1 %.not42, label %43, label %.preheader
+  br i1 %.not42, label %39, label %.preheader
 
 27:                                               ; preds = %40
   %28 = tail call ptr @g_slist_concat(ptr noundef %.0, ptr noundef %.135) #6
   tail call void @g_slist_free(ptr noundef nonnull %24) #6
-  br label %43
+  br label %39
 
 .preheader:                                       ; preds = %_unlock_pending_queue.exit, %40
   %.03347 = phi ptr [ %42, %40 ], [ %24, %_unlock_pending_queue.exit ]
@@ -219,7 +219,7 @@ _unlock_pending_queue.exit:                       ; preds = %_lock_pending_queue
   %.not44 = icmp eq i32 %32, 0
   br i1 %.not44, label %33, label %40
 
-33:                                               ; preds = %.preheader
+31:                                               ; preds = %.preheader
   %34 = load ptr, ptr %.03347, align 8, !tbaa !58
   %35 = tail call ptr @g_slist_prepend(ptr noundef %.03446, ptr noundef %34) #6
   %36 = load ptr, ptr %.03347, align 8, !tbaa !58
@@ -228,44 +228,44 @@ _unlock_pending_queue.exit:                       ; preds = %_lock_pending_queue
   %39 = tail call i32 @g_hash_table_insert(ptr noundef %3, ptr noundef %38, ptr noundef %38) #6
   br label %40
 
-40:                                               ; preds = %.preheader, %33
+40:; preds = %.preheader, %33
   %.135 = phi ptr [ %.03446, %.preheader ], [ %35, %33 ]
   %41 = getelementptr inbounds nuw i8, ptr %.03347, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !11
   %.not43 = icmp eq ptr %42, null
   br i1 %.not43, label %27, label %.preheader
 
-43:                                               ; preds = %_unlock_pending_queue.exit, %27, %.critedge
+39:                                               ; preds = %_unlock_pending_queue.exit, %27, %.critedge
   %.137 = phi nsz double [ %17, %27 ], [ %17, %_unlock_pending_queue.exit ], [ %.036, %.critedge ]
   %.1 = phi ptr [ %28, %27 ], [ %.0, %_unlock_pending_queue.exit ], [ %.0, %.critedge ]
   %.not51 = icmp eq ptr %.1, null
   br i1 %.not51, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %spec.select = select i1 %53, i64 10000, i64 1000000
+  %spec.select = select i1 %49, i64 10000, i64 1000000
   br label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %43, %.lr.ph
-  %.249 = phi ptr [ %51, %.lr.ph ], [ %.1, %43 ]
-  %.03248 = phi i32 [ %52, %.lr.ph ], [ 0, %43 ]
-  %44 = load ptr, ptr %.249, align 8, !tbaa !58
-  %45 = ptrtoint ptr %44 to i64
-  %46 = trunc i64 %45 to i32
-  %47 = tail call i32 @dt_image_write_sidecar_file(i32 noundef %46) #6
-  %sext = shl i64 %45, 32
-  %48 = ashr exact i64 %sext, 32
-  %49 = inttoptr i64 %48 to ptr
-  %50 = tail call i32 @g_hash_table_remove(ptr noundef %3, ptr noundef %49) #6
-  %51 = tail call ptr @g_slist_delete_link(ptr noundef nonnull %.249, ptr noundef nonnull %.249) #6
-  %52 = add nuw nsw i32 %.03248, 1
-  %53 = icmp ne ptr %51, null
-  %54 = icmp samesign ult i32 %.03248, 2
-  %55 = select i1 %53, i1 %54, i1 false
-  br i1 %55, label %.lr.ph, label %._crit_edge
+.lr.ph:                                           ; preds = %39, %.lr.ph
+  %.249 = phi ptr [ %47, %.lr.ph ], [ %.1, %43 ]
+  %.03248 = phi i32 [ %48, %.lr.ph ], [ 0, %43 ]
+  %40 = load ptr, ptr %.249, align 8, !tbaa !58
+  %41 = ptrtoint ptr %40 to i64
+  %42 = trunc i64 %41 to i32
+  %43 = tail call i32 @dt_image_write_sidecar_file(i32 noundef %42) #6
+  %sext = shl i64 %41, 32
+  %44 = ashr exact i64 %sext, 32
+  %45 = inttoptr i64 %44 to ptr
+  %46 = tail call i32 @g_hash_table_remove(ptr noundef %3, ptr noundef %45) #6
+  %47 = tail call ptr @g_slist_delete_link(ptr noundef nonnull %.249, ptr noundef nonnull %.249) #6
+  %48 = add nuw nsw i32 %.03248, 1
+  %49 = icmp ne ptr %47, null
+  %50 = icmp samesign ult i32 %.03248, 2
+  %51 = select i1 %49, i1 %50, i1 false
+  br i1 %51, label %.lr.ph, label %._crit_edge
 
-._crit_edge.thread:                               ; preds = %._crit_edge, %43
+._crit_edge.thread:                               ; preds = %._crit_edge, %39
   %.sink = phi i64 [ 1000000, %43 ], [ %spec.select, %._crit_edge ]
-  %.2.lcssa59 = phi ptr [ null, %43 ], [ %51, %._crit_edge ]
+  %.2.lcssa59 = phi ptr [ null, %43 ], [ %47, %._crit_edge ]
   tail call void @g_usleep(i64 noundef %.sink) #6
   br label %5
 

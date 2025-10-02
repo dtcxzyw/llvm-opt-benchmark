@@ -6074,11 +6074,11 @@ define dso_local void @_Z15MapVariableListRKSt6vectorIP8VariableSaIS1_EERSoPFiS1
   br i1 %.not5.i, label %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPKP8VariableSt6vectorIS3_SaIS3_EEEESt9binder2ndISt26pointer_to_binary_functionIS3_PSoiEEET0_T_SG_SF_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.sroa.02.06.i = phi ptr [ %11, %.lr.ph.i ], [ %4, %3 ]
-  %9 = load ptr, ptr %.sroa.02.06.i, align 8, !tbaa !37
-  %10 = tail call noundef i32 %8(ptr noundef %9, ptr noundef nonnull %1)
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
-  %.not.i = icmp eq ptr %11, %6
+  %.sroa.02.06.i = phi ptr [ %9, %.lr.ph.i ], [ %4, %3 ]
+  %7 = load ptr, ptr %.sroa.02.06.i, align 8, !tbaa !37
+  %8 = tail call noundef i32 %8(ptr noundef %7, ptr noundef nonnull %1)
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
+  %.not.i = icmp eq ptr %9, %6
   br i1 %.not.i, label %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPKP8VariableSt6vectorIS3_SaIS3_EEEESt9binder2ndISt26pointer_to_binary_functionIS3_PSoiEEET0_T_SG_SF_.exit, label %.lr.ph.i, !llvm.loop !210
 
 _ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPKP8VariableSt6vectorIS3_SaIS3_EEEESt9binder2ndISt26pointer_to_binary_functionIS3_PSoiEEET0_T_SG_SF_.exit: ; preds = %.lr.ph.i, %3

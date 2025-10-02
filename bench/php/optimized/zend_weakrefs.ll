@@ -543,33 +543,33 @@ define hidden void @zim_WeakReference_create(ptr noundef %0, ptr noundef %1) #0 
   %28 = zext i32 %27 to i64
   %.idx = shl nuw nsw i64 %28, 5
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx
-  %.not36.i68 = icmp eq i32 %27, 0
-  br i1 %.not36.i68, label %zend_hash_index_find_ptr.exit.i.thread, label %.lr.ph
+  %.not36.i67 = icmp eq i32 %27, 0
+  br i1 %.not36.i67, label %zend_hash_index_find_ptr.exit.i.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %38
-  %.028.i69 = phi ptr [ %39, %38 ], [ %25, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.028.i69, i64 8
+  %.028.i68 = phi ptr [ %39, %38 ], [ %25, %23 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.028.i68, i64 8
   %31 = load i8, ptr %30, align 8, !tbaa !4
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %38, label %33, !prof !26
 
 33:                                               ; preds = %.lr.ph
-  %34 = load ptr, ptr %.028.i69, align 8, !tbaa !4
+  %34 = load ptr, ptr %.028.i68, align 8, !tbaa !4
   %35 = ptrtoint ptr %34 to i64
   %36 = and i64 %35, 3
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %zend_weakref_find.exit.loopexit, label %38
+  br i1 %37, label %zend_weakref_find.exit, label %38
 
 38:                                               ; preds = %.lr.ph, %33
-  %39 = getelementptr inbounds nuw i8, ptr %.028.i69, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %.028.i68, i64 32
   %.not36.i = icmp eq ptr %39, %29
   br i1 %.not36.i, label %zend_hash_index_find_ptr.exit.i.thread, label %.lr.ph
 
-zend_weakref_find.exit.loopexit:                  ; preds = %33
+zend_weakref_find.exit:                           ; preds = %33
   %40 = inttoptr i64 %35 to ptr
   br label %zend_weakref_find.exit
 
-zend_weakref_find.exit:                           ; preds = %zend_weakref_find.exit.loopexit, %17
+zend_weakref_find.exit:; preds = %zend_weakref_find.exit, %17
   %.031.i = phi ptr [ %21, %17 ], [ %40, %zend_weakref_find.exit.loopexit ]
   %41 = getelementptr inbounds nuw i8, ptr %.031.i, i64 8
   %42 = load i32, ptr %41, align 4, !tbaa !29
@@ -581,12 +581,12 @@ zend_weakref_find.exit:                           ; preds = %zend_weakref_find.e
   br label %51
 
 zend_hash_index_find_ptr.exit.i.thread:           ; preds = %38, %23, %.critedge, %17
-  %45 = load ptr, ptr @zend_ce_weakref, align 8, !tbaa !30
-  %46 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %45) #8
-  %47 = load ptr, ptr %1, align 8, !tbaa !4
-  %48 = getelementptr inbounds i8, ptr %47, i64 -8
-  store ptr %11, ptr %48, align 8, !tbaa !8
-  %49 = ptrtoint ptr %48 to i64
+  %44 = load ptr, ptr @zend_ce_weakref, align 8, !tbaa !30
+  %45 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %44) #8
+  %46 = load ptr, ptr %1, align 8, !tbaa !4
+  %47 = getelementptr inbounds i8, ptr %46, i64 -8
+  store ptr %11, ptr %47, align 8, !tbaa !8
+  %49 = ptrtoint ptr %47 to i64
   %50 = inttoptr i64 %49 to ptr
   tail call fastcc void @zend_weakref_register(ptr noundef %11, ptr noundef nonnull %50)
   br label %51
@@ -1908,7 +1908,7 @@ define internal void @zend_weakref_free(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   %3 = load ptr, ptr %2, align 8, !tbaa !8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %7, label %4
+  br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
   %5 = ptrtoint ptr %2 to i64
@@ -1916,7 +1916,7 @@ define internal void @zend_weakref_free(ptr noundef %0) #0 {
   tail call fastcc void @zend_weakref_unregister(ptr noundef nonnull %3, ptr noundef nonnull %6, i1 noundef zeroext true)
   br label %7
 
-7:                                                ; preds = %4, %1
+5:                                                ; preds = %4, %1
   tail call void @zend_object_std_dtor(ptr noundef nonnull %0) #8
   ret void
 }

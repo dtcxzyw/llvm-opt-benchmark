@@ -12093,7 +12093,7 @@ define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17hf5090a0b713
 12:                                               ; preds = %10
   %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sink.i, i64 1)
   %14 = extractvalue { i64, i1 } %13, 1
-  br i1 %14, label %48, label %15
+  br i1 %14, label %43, label %15
 
 15:                                               ; preds = %12
   %16 = extractvalue { i64, i1 } %13, 0
@@ -12103,7 +12103,7 @@ define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17hf5090a0b713
   %20 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %19, i64 1)
   %21 = extractvalue { i64, i1 } %20, 1
   %22 = extractvalue { i64, i1 } %20, 0
-  br i1 %21, label %48, label %23
+  br i1 %21, label %43, label %23
 
 23:                                               ; preds = %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2247)
@@ -12124,7 +12124,7 @@ define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17hf5090a0b713
   %29 = icmp ugt i64 %22, 2305843009213693951
   %30 = icmp ugt i64 %28, 9223372036854775800
   %or.cond = or i1 %29, %30
-  br i1 %or.cond, label %48, label %31
+  br i1 %or.cond, label %43, label %31
 
 31:                                               ; preds = %27
   br i1 %24, label %35, label %32
@@ -12132,18 +12132,18 @@ define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17hf5090a0b713
 32:                                               ; preds = %31
   %33 = shl i64 %.sink.i, 3
   %34 = icmp ugt i64 %33, 9223372036854775800
-  br i1 %34, label %48, label %38
+  br i1 %34, label %43, label %38
 
 35:                                               ; preds = %31
   %36 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !2250
   %37 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %28, i64 noundef 8) #47, !noalias !2250
   %.not128.i.i = icmp eq ptr %37, null
-  br i1 %.not128.i.i, label %49, label %44
+  br i1 %.not128.i.i, label %44, label %41
 
 38:                                               ; preds = %32
   %39 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %6, i64 noundef %33, i64 noundef 8, i64 noundef %28) #47, !noalias !2250
   %.not127.i.i = icmp eq ptr %39, null
-  br i1 %.not127.i.i, label %49, label %40
+  br i1 %.not127.i.i, label %44, label %40
 
 40:                                               ; preds = %38
   %41 = ptrtoint ptr %39 to i64
@@ -12157,30 +12157,30 @@ define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17hf5090a0b713
   store i64 %22, ptr %3, align 8, !alias.scope !2250
   br label %_ZN8smallvec10infallible17hc7f743693d04cb96E.exit
 
-44:                                               ; preds = %35
+41:                                               ; preds = %35
   %45 = ptrtoint ptr %37 to i64
   %46 = inttoptr i64 %45 to ptr
   %47 = shl nuw nsw i64 %4, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 8 dereferenceable(24) %0, i64 %47, i1 false)
   br label %43
 
-48:                                               ; preds = %27, %32, %15, %12
+43:                                               ; preds = %27, %32, %15, %12
   tail call void @_ZN4core9panicking5panic17hbd449742545cb8d5E(ptr noalias noundef nonnull readonly align 1 @anon.68b887a773b1ffe49eb9a07ee8b917ec.146, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.68b887a773b1ffe49eb9a07ee8b917ec.147) #44
   unreachable
 
-49:                                               ; preds = %38, %35
+44:                                               ; preds = %38, %35
   tail call void @_ZN5alloc5alloc18handle_alloc_error17hb78d9ab02c2055b6E(i64 noundef 8, i64 noundef %28) #44
   unreachable
 
 _ZN8smallvec10infallible17hc7f743693d04cb96E.exit: ; preds = %43, %26, %10, %2
-  %50 = phi i64 [ %8, %2 ], [ %.val.i, %10 ], [ %.val.i, %26 ], [ %.sink.i, %43 ]
+  %45 = phi i64 [ %8, %2 ], [ %.val.i, %10 ], [ %.val.i, %26 ], [ %.sink.i, %43 ]
   %.05 = phi ptr [ %.sink2.i, %2 ], [ %7, %10 ], [ %7, %26 ], [ %7, %43 ]
   %.0 = phi ptr [ %.sink3.i, %2 ], [ %6, %10 ], [ %6, %26 ], [ %.069.i.i, %43 ]
-  %51 = getelementptr inbounds ptr, ptr %.0, i64 %50
-  store ptr %1, ptr %51, align 8
-  %52 = load i64, ptr %.05, align 8, !noundef !10
-  %53 = add i64 %52, 1
-  store i64 %53, ptr %.05, align 8
+  %46 = getelementptr inbounds ptr, ptr %.0, i64 %45
+  store ptr %1, ptr %46, align 8
+  %47 = load i64, ptr %.05, align 8, !noundef !10
+  %48 = add i64 %47, 1
+  store i64 %48, ptr %.05, align 8
   ret void
 }
 

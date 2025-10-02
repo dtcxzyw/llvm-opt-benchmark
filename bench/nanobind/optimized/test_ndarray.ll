@@ -3275,13 +3275,13 @@ define internal noundef i32 @_ZZL30nanobind_init_test_ndarray_extRN8nanobind7mod
   %.not18 = icmp eq i32 %11, 0
   br i1 %.not18, label %12, label %18
 
-12:                                               ; preds = %3, %9
+12:; preds = %3, %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !92
   %.not19 = icmp eq ptr %14, null
   br i1 %.not19, label %17, label %15
 
-15:                                               ; preds = %12
+15:; preds = %12
   %16 = call noundef i32 %1(ptr noundef nonnull %14, ptr noundef %2) #21
   %.not20 = icmp eq i32 %16, 0
   br i1 %.not20, label %17, label %18
@@ -3289,7 +3289,7 @@ define internal noundef i32 @_ZZL30nanobind_init_test_ndarray_extRN8nanobind7mod
 17:                                               ; preds = %15, %12
   br label %18
 
-18:                                               ; preds = %9, %15, %17
+17:                                               ; preds = %9, %15, %17
   %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %9 ]
   ret i32 %.1
 }

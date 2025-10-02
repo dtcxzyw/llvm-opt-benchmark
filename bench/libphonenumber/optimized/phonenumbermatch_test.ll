@@ -2533,7 +2533,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber13set_raw
   %27 = ptrtoint ptr %26 to i64
   %28 = and i64 %27, 1
   %.not.i = icmp eq i64 %28, 0
-  br i1 %.not.i, label %33, label %29, !prof !72
+  br i1 %.not.i, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, label %29, !prof !72
 
 29:                                               ; preds = %20
   %30 = and i64 %27, -2
@@ -2541,55 +2541,55 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber13set_raw
   %32 = load ptr, ptr %31, align 8, !tbaa !73
   br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
 
-33:                                               ; preds = %20
+_ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %20
   %34 = inttoptr i64 %27 to ptr
   br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
 
-_ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %33, %29
+_ZNK6google8protobuf11MessageLite8GetArenaEv.exit:; preds = %33, %29
   %.0.i.i = phi ptr [ %32, %29 ], [ %34, %33 ]
   %35 = load ptr, ptr %8, align 8, !tbaa !76
   %36 = icmp eq ptr %35, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   br i1 %36, label %37, label %38
 
-37:                                               ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
+35:                                               ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
   invoke void @_ZN6google8protobuf8internal14ArenaStringPtr14CreateInstanceEPNS0_5ArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit unwind label %43
+          to label %_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit unwind label %41
 
-38:                                               ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
+36:                                               ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit unwind label %43
+          to label %_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit unwind label %41
 
-_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit: ; preds = %37, %38
-  %39 = load ptr, ptr %4, align 8, !tbaa !45
-  %40 = icmp eq ptr %39, %9
-  br i1 %40, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit: ; preds = %35, %36
+  %37 = load ptr, ptr %4, align 8, !tbaa !45
+  %38 = icmp eq ptr %37, %9
+  br i1 %38, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit
-  %41 = load i64, ptr %9, align 8, !tbaa !26
-  %42 = add i64 %41, 1
-  call void @_ZdlPvm(ptr noundef %39, i64 noundef %42) #18
+  %39 = load i64, ptr %9, align 8, !tbaa !26
+  %40 = add i64 %39, 1
+  call void @_ZdlPvm(ptr noundef %37, i64 noundef %40) #18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-43:                                               ; preds = %38, %37
-  %44 = landingpad { ptr, i32 }
+41:                                               ; preds = %36, %35
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %45 = load ptr, ptr %4, align 8, !tbaa !45
-  %46 = icmp eq ptr %45, %9
-  br i1 %46, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8
+  %43 = load ptr, ptr %4, align 8, !tbaa !45
+  %44 = icmp eq ptr %43, %9
+  br i1 %44, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8: ; preds = %43
-  %47 = load i64, ptr %9, align 8, !tbaa !26
-  %48 = add i64 %47, 1
-  call void @_ZdlPvm(ptr noundef %45, i64 noundef %48) #18
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8: ; preds = %41
+  %45 = load i64, ptr %9, align 8, !tbaa !26
+  %46 = add i64 %45, 1
+  call void @_ZdlPvm(ptr noundef %43, i64 noundef %46) #18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %44
+  resume { ptr, i32 } %42
 }
 
 declare void @_ZN4i18n12phonenumbers16PhoneNumberMatch10set_numberERKNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0

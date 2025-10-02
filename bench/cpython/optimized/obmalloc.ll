@@ -33078,7 +33078,7 @@ arena_map_mark_used.exit:                         ; preds = %95, %arena_map_get.
   %.not84 = icmp eq i32 %155, 0
   br i1 %.not84, label %160, label %156
 
-156:                                              ; preds = %150
+156:; preds = %150
   store i32 63, ptr %154, align 8, !tbaa !553
   %157 = sub nuw nsw i32 16384, %155
   %158 = zext nneg i32 %157 to i64
@@ -33086,13 +33086,13 @@ arena_map_mark_used.exit:                         ; preds = %95, %arena_map_get.
   store ptr %159, ptr %153, align 8, !tbaa !517
   br label %160
 
-160:                                              ; preds = %156, %150
+160: ; preds = %156, %150
   %161 = phi i32 [ 63, %156 ], [ 64, %150 ]
   %162 = getelementptr inbounds nuw i8, ptr %47, i64 20
   store i32 %161, ptr %162, align 4, !tbaa !597
   br label %163
 
-163:                                              ; preds = %21, %25, %160, %138
+163:; preds = %21, %25, %160, %138
   %.1 = phi ptr [ null, %138 ], [ %47, %160 ], [ null, %25 ], [ null, %21 ]
   ret ptr %.1
 }

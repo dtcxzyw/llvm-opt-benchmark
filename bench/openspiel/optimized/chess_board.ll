@@ -9333,20 +9333,20 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN10o
 
 .lr.ph.i:                                         ; preds = %37, %43
   %.sroa.06.026.i = phi ptr [ %.sroa.06.0.i, %43 ], [ %.sroa.06.022.i, %37 ]
-  %.sroa.012.125.i = phi ptr [ %.sroa.012.2.i, %43 ], [ %39, %37 ]
-  %.sroa.08.0.in.sroa.speculated.i.i.pn24.i = phi ptr [ %.sroa.06.026.i, %43 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %37 ]
+  %.sroa.06.026.i = phi ptr [ %.sroa.012.2.i, %43 ], [ %39, %37 ]
+  %.sroa.012.125.i = phi ptr [ %.sroa.06.026.i, %43 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %37 ]
   %40 = getelementptr i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.pn24.i, i64 20
   %.val.i.i = load i32, ptr %40, align 4
   %.not17.i = icmp eq i32 %.val.i.i, 2
-  br i1 %.not17.i, label %41, label %43
+  br i1 %.not17.i, label %37, label %39
 
-41:                                               ; preds = %.lr.ph.i
+37:                                               ; preds = %.lr.ph.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.125.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.06.026.i, i64 12, i1 false)
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.012.125.i, i64 12
-  br label %43
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.012.125.i, i64 12
+  br label %39
 
-43:                                               ; preds = %41, %.lr.ph.i
-  %.sroa.012.2.i = phi ptr [ %.sroa.012.125.i, %.lr.ph.i ], [ %42, %41 ]
+39:                                               ; preds = %37, %.lr.ph.i
+  %.sroa.012.2.i = phi ptr [ %.sroa.012.125.i, %.lr.ph.i ], [ %38, %41 ]
   %.sroa.06.0.i = getelementptr inbounds nuw i8, ptr %.sroa.06.026.i, i64 12
   %.not.i = icmp eq ptr %.sroa.06.0.i, %1
   br i1 %.not.i, label %"_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN10open_spiel5chess4MoveESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNKS3_10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_2EEET_SN_SN_T0_.exit", label %.lr.ph.i, !llvm.loop !49
@@ -18605,7 +18605,7 @@ _ZNSt8_Rb_treeIN10open_spiel12chess_common6SquareES2_St9_IdentityIS2_ESt4lessIS2
   br label %45
 
 45:                                               ; preds = %20, %_ZNSt8_Rb_treeIN10open_spiel12chess_common6SquareES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit
-  %.sroa.011.0.in.in = phi ptr [ %39, %_ZNSt8_Rb_treeIN10open_spiel12chess_common6SquareES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit ], [ %.sroa.07.0.i, %20 ]
+  %.sroa.011.0 = phi ptr [ %39, %_ZNSt8_Rb_treeIN10open_spiel12chess_common6SquareES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit ], [ %.sroa.07.0.i, %20 ]
   %.sroa.3.0 = phi i8 [ 1, %_ZNSt8_Rb_treeIN10open_spiel12chess_common6SquareES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit ], [ 0, %20 ]
   %.sroa.011.0.in = ptrtoint ptr %.sroa.011.0.in.in to i64
   %.sroa.011.0 = inttoptr i64 %.sroa.011.0.in to ptr

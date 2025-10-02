@@ -2305,7 +2305,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2a30a34f1953b804E(ptr noalia
   tail call void @_ZN4core9panicking19panic_cannot_unwind17hd1f75b4894411f9aE() #29
   unreachable
 
-__rust_try.llvm.6305840527560983182.exit:         ; preds = %2
+8:                                                ; preds = %2
   %8 = extractvalue { ptr, ptr } %5, 0
   %9 = extractvalue { ptr, ptr } %5, 1
   %10 = icmp ne ptr %8, null
@@ -2318,10 +2318,10 @@ __rust_try.llvm.6305840527560983182.exit:         ; preds = %2
 
 14:                                               ; preds = %1
   tail call void asm sideeffect "", "~{memory}"() #30, !noalias !414, !srcloc !421
-  br label %15
+  br label %__rust_try.llvm.6305840527560983182.exit
 
-15:                                               ; preds = %__rust_try.llvm.6305840527560983182.exit, %14
-  %.sroa.6.06 = phi ptr [ %.sroa.01.sroa.4.0.copyload, %14 ], [ %9, %__rust_try.llvm.6305840527560983182.exit ]
+__rust_try.llvm.6305840527560983182.exit:         ; preds = %8, %14
+  %.merged = phi ptr [ %.sroa.01.sroa.4.0.copyload, %14 ], [ %9, %__rust_try.llvm.6305840527560983182.exit ]
   %16 = phi ptr [ null, %14 ], [ %13, %__rust_try.llvm.6305840527560983182.exit ]
   %17 = insertvalue { ptr, ptr } poison, ptr %16, 0
   %18 = insertvalue { ptr, ptr } %17, ptr %.sroa.6.06, 1

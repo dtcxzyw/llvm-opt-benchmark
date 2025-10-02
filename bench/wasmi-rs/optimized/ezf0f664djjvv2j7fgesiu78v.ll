@@ -1795,9 +1795,9 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16shrink_unc
 21:                                               ; preds = %4, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17h142e5a9580be609aE.exit", %17
   %.sroa.4.0 = phi i64 [ undef, %17 ], [ %13, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17h142e5a9580be609aE.exit" ], [ undef, %4 ]
   %.sroa.03.0 = phi i64 [ -9223372036854775807, %17 ], [ %2, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17h142e5a9580be609aE.exit" ], [ -9223372036854775807, %4 ]
-  %22 = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
-  %23 = insertvalue { i64, i64 } %22, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %23
+  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
+  %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %20
 }
 
 ; Function Attrs: cold nonlazybind uwtable

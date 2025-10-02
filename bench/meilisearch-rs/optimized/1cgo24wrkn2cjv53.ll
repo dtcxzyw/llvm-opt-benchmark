@@ -2992,7 +2992,7 @@ define hidden void @"_ZN126_$LT$milli..heed_codec..facet..field_doc_id_facet_cod
   %17 = icmp eq ptr %16, null
   br i1 %17, label %19, label %22
 
-18:                                               ; preds = %30, %26, %19, %10
+18:                                               ; preds = %30, %25, %19, %10
   %.sink = phi i64 [ 1, %30 ], [ 0, %26 ], [ 1, %19 ], [ 1, %10 ]
   store i64 %.sink, ptr %0, align 8
   ret void
@@ -3017,17 +3017,17 @@ define hidden void @"_ZN126_$LT$milli..heed_codec..facet..field_doc_id_facet_cod
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %24, label %26, label %30
 
-26:                                               ; preds = %22
+25:                                               ; preds = %22
   %.sroa.01.0.extract.trunc = trunc i64 %.sroa.025.0.copyload to i32
-  %27 = tail call i32 @llvm.bswap.i32(i32 %.sroa.01.0.extract.trunc)
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %29 = load double, ptr %28, align 8, !noundef !4
+  %26 = tail call i32 @llvm.bswap.i32(i32 %.sroa.01.0.extract.trunc)
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %28 = load double, ptr %27, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 %27, ptr %25, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i16 %14, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %29, ptr %.sroa.510.0..sroa_idx, align 8
+  store double %28, ptr %.sroa.510.0..sroa_idx, align 8
   br label %18
 
 30:                                               ; preds = %22
@@ -3037,8 +3037,8 @@ define hidden void @"_ZN126_$LT$milli..heed_codec..facet..field_doc_id_facet_cod
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %34 = inttoptr i64 %33 to ptr
   store ptr %23, ptr %25, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %34, ptr %35, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %34, ptr %34, align 8
   br label %18
 }
 

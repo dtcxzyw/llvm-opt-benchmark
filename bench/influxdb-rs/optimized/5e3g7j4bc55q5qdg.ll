@@ -1774,8 +1774,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate227_$LT$impl$u20$alloc
 22:                                               ; preds = %.lr.ph
   %23 = ptrtoint ptr %.sroa.0.044 to i64
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %24, ptr %25, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %24, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.5.043, ptr %26, align 8
   store ptr null, ptr %0, align 8

@@ -767,22 +767,22 @@ define linkonce_odr noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
-  %.010.lcssa = phi i32 [ 0, %16 ], [ %24, %.lr.ph ]
+  %.010.lcssa = phi i32 [ 0, %16 ], [ %22, %.lr.ph ]
   ret i32 %.010.lcssa
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.013 = phi i32 [ %25, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.sroa.0.012 = phi ptr [ %26, %.lr.ph ], [ %19, %.lr.ph.preheader ]
-  %.01011 = phi i32 [ %24, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %20 = load i8, ptr %.sroa.0.012, align 1, !tbaa !29
-  %21 = icmp ne i8 %20, 0
-  %22 = zext i1 %21 to i32
-  %23 = shl i32 %.01011, 1
-  %24 = or disjoint i32 %23, %22
-  %25 = add nsw i32 %.013, -1
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.012, i64 1
-  %27 = icmp samesign ugt i32 %.013, 1
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  %.013 = phi i32 [ %23, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.sroa.0.012 = phi ptr [ %24, %.lr.ph ], [ %19, %.lr.ph.preheader ]
+  %.01011 = phi i32 [ %22, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %18 = load i8, ptr %.sroa.0.012, align 1, !tbaa !29
+  %19 = icmp ne i8 %18, 0
+  %20 = zext i1 %19 to i32
+  %21 = shl i32 %.01011, 1
+  %22 = or disjoint i32 %21, %20
+  %23 = add nsw i32 %.013, -1
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.012, i64 1
+  %25 = icmp samesign ugt i32 %.013, 1
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 }
 
 ; Function Attrs: mustprogress optsize uwtable

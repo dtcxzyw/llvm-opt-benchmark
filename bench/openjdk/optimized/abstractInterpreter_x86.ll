@@ -408,28 +408,28 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 6:                                                ; preds = %1
   %7 = tail call noundef i64 @_ZN8XBarrier29load_barrier_on_oop_slow_pathEm(i64 noundef %3) #7
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %_ZN11XBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit, label %.split7.i.i.i.i.i
+  br i1 %8, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split7.i.i.i.i.i
 
 .split7.i.i.i.i.i:                                ; preds = %6
   %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #7, !srcloc !6
   %10 = icmp eq i64 %9, %3
-  br i1 %10, label %_ZN11XBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %10, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.split7.i.i.i.i.i, %.split.i.i.i.i.i
   %phi.call9.i.i.i.i.i = phi i64 [ %13, %.split.i.i.i.i.i ], [ %9, %.split7.i.i.i.i.i ]
   %11 = load i64, ptr @XAddressBadMask, align 8
   %12 = and i64 %11, %phi.call9.i.i.i.i.i
   %.not.i.i.i.i.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN11XBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit, label %.split.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
   %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #7, !srcloc !6
   %14 = icmp eq i64 %13, %phi.call9.i.i.i.i.i
-  br i1 %14, label %_ZN11XBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
+  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
-_ZN11XBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.split.i.i.i.i.i, %1, %6, %.split7.i.i.i.i.i
-  %.0.in.i.i.i.i = phi i64 [ %3, %1 ], [ %7, %.split7.i.i.i.i.i ], [ 0, %6 ], [ %7, %.split.i.i.i.i.i ], [ %7, %.lr.ph.i.i.i.i.i ]
-  %.0.i.i.i.i = inttoptr i64 %.0.in.i.i.i.i to ptr
+_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.split.i.i.i.i.i, %1, %6, %.split7.i.i.i.i.i
+  %.0.i.i.i.i = phi i64 [ %3, %1 ], [ %7, %.split7.i.i.i.i.i ], [ 0, %6 ], [ %7, %.split.i.i.i.i.i ], [ %7, %.lr.ph.i.i.i.i.i ]
+  %.0.i.i.i.i = inttoptr i64 %.0.i.i.i.i to ptr
   ret ptr %.0.i.i.i.i
 }
 
@@ -764,7 +764,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %14, label %_ZN11XBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
 _ZN11XBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.split.i.i.i.i.i, %1, %6, %.split7.i.i.i.i.i
-  %.0.in.i.i.i.i = phi i64 [ %3, %1 ], [ %7, %.split7.i.i.i.i.i ], [ 0, %6 ], [ %7, %.split.i.i.i.i.i ], [ %7, %.lr.ph.i.i.i.i.i ]
+  %.0.i.i.i.i = phi i64 [ %3, %1 ], [ %7, %.split7.i.i.i.i.i ], [ 0, %6 ], [ %7, %.split.i.i.i.i.i ], [ %7, %.lr.ph.i.i.i.i.i ]
   %.0.i.i.i.i = inttoptr i64 %.0.in.i.i.i.i to ptr
   ret ptr %.0.i.i.i.i
 }

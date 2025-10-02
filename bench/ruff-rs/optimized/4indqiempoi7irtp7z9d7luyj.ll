@@ -39238,7 +39238,7 @@ _ZN11ruff_linter4noqa14add_noqa_inner17h0c655697ff7b5385E.exit: ; preds = %188
   %230 = ptrtoint ptr %229 to i64
   br label %231
 
-231:                                              ; preds = %_ZN11ruff_linter4noqa14add_noqa_inner17h0c655697ff7b5385E.exit, %228
+232:                                              ; preds = %_ZN11ruff_linter4noqa14add_noqa_inner17h0c655697ff7b5385E.exit, %228
   %.sroa.3.0 = phi i64 [ %230, %228 ], [ %.sroa.04.0.i, %_ZN11ruff_linter4noqa14add_noqa_inner17h0c655697ff7b5385E.exit ]
   %.sroa.0.0 = phi i64 [ 1, %228 ], [ 0, %_ZN11ruff_linter4noqa14add_noqa_inner17h0c655697ff7b5385E.exit ]
   %232 = inttoptr i64 %.sroa.3.0 to ptr

@@ -1879,16 +1879,16 @@ if.then.i.i.i:                                    ; preds = %for.end.i.i.i.i
   br label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S7_S9_SD_E14const_iteratorEEE5valueEiE4typeELi0EEESA_INSJ_8iteratorEbERSB_DpOT0_.exit.i
 
 _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S7_S9_SD_E14const_iteratorEEE5valueEiE4typeELi0EEESA_INSJ_8iteratorEbERSB_DpOT0_.exit.i: ; preds = %for.body.i.i.i.i, %if.then.i.i.i
-  %29 = phi ptr [ %.pre20.i.i.i, %if.then.i.i.i ], [ %18, %for.body.i.i.i.i ]
-  %30 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ %15, %for.body.i.i.i.i ]
+  %26 = phi ptr [ %.pre20.i.i.i, %if.then.i.i.i ], [ %18, %for.body.i.i.i.i ]
+  %27 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ %15, %for.body.i.i.i.i ]
   %retval.sroa.0.0.i15.i.i.i = phi i64 [ %call33.i.i.i.i, %if.then.i.i.i ], [ %and.i.i.i.i.i, %for.body.i.i.i.i ]
-  %cmp.not.i.i.i = icmp eq ptr %30, null
+  %cmp.not.i.i.i = icmp eq ptr %27, null
   br i1 %cmp.not.i.i.i, label %cond.false.i.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S7_S9_SD_E14const_iteratorEEE5valueEiE4typeELi0EEESA_INSJ_8iteratorEbERSB_DpOT0_.exit.i
-  %add.ptr.i4.i.i.i = getelementptr inbounds i8, ptr %30, i64 %retval.sroa.0.0.i15.i.i.i
-  %31 = load i8, ptr %add.ptr.i4.i.i.i, align 1
-  %cmp.i.i.i.i11 = icmp sgt i8 %31, -1
+  %add.ptr.i4.i.i.i = getelementptr inbounds i8, ptr %27, i64 %retval.sroa.0.0.i15.i.i.i
+  %28 = load i8, ptr %add.ptr.i4.i.i.i, align 1
+  %cmp.i.i.i.i11 = icmp sgt i8 %28, -1
   br i1 %cmp.i.i.i.i11, label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEEixImS4_EEDTclsrT0_5valueclL_ZSt9addressofISC_EPT_RSI_EclL_ZSt7declvalIRSC_EDTcl9__declvalISI_ELi0EEEvEEEEERSB_.exit, label %cond.false.i.i.i
 
 cond.false.i.i.i:                                 ; preds = %land.lhs.true.i.i.i, %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S7_S9_SD_E14const_iteratorEEE5valueEiE4typeELi0EEESA_INSJ_8iteratorEbERSB_DpOT0_.exit.i
@@ -1896,7 +1896,7 @@ cond.false.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
   unreachable
 
 _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEEixImS4_EEDTclsrT0_5valueclL_ZSt9addressofISC_EPT_RSI_EclL_ZSt7declvalIRSC_EDTcl9__declvalISI_ELi0EEEvEEEEERSB_.exit: ; preds = %land.lhs.true.i.i.i
-  %add.ptr2.i.i.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %29, i64 %retval.sroa.0.0.i15.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %26, i64 %retval.sroa.0.0.i15.i.i.i
   %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i.i.i.i, i64 8
   store i32 %call9, ptr %second.i.i, align 4
   br label %return

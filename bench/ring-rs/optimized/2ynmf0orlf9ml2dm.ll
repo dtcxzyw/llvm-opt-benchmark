@@ -1393,25 +1393,25 @@ define void @_ZN4ring3rsa7keypair7KeyPair10from_pkcs817hf2d23564e7955026E(ptr no
   %18 = ptrtoint ptr %15 to i64
   br i1 %13, label %21, label %19
 
-19:                                               ; preds = %3
+18:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !231
   store ptr %12, ptr %4, align 8, !noalias !231
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %18, ptr %20, align 8, !noalias !231
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %18, ptr %19, align 8, !noalias !231
   call void @_ZN9untrusted5input5Input8read_all17hc03e61e8997edcf5E(ptr noalias noundef nonnull sret({ ptr, [29 x i64] }) align 8 captures(none) dereferenceable(240) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 @anon.459a524322d1240f21a5a0b37f1bf450.23, i64 noundef 15)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !231
-  br label %25
+  br label %23
 
-21:                                               ; preds = %3
+20:                                               ; preds = %3
   %22 = inttoptr i64 %18 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %22, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %17, ptr %24, align 8
   store ptr null, ptr %0, align 8
-  br label %25
+  br label %23
 
-25:                                               ; preds = %21, %19
+23:                                               ; preds = %20, %18
   ret void
 }
 

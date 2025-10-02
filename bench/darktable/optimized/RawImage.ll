@@ -1812,8 +1812,8 @@ define hidden void @_ZN8rawspeed12RawImageData8setTableERKSt6vectorItSaItEEb(ptr
   invoke void @_ZN8rawspeed11TableLookUpC1Eib(ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 1, i1 noundef zeroext %2)
           to label %_ZSt11make_uniqueIN8rawspeed11TableLookUpEJiRbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %6, !noalias !157
 
-common.resume:                                    ; preds = %22, %6
-  %common.resume.op = phi { ptr, i32 } [ %7, %6 ], [ %23, %22 ]
+common.resume:                                    ; preds = %20, %6
+  %common.resume.op = phi { ptr, i32 } [ %7, %6 ], [ %21, %22 ]
   resume { ptr, i32 } %common.resume.op
 
 6:                                                ; preds = %3
@@ -1825,7 +1825,7 @@ common.resume:                                    ; preds = %22, %6
 _ZSt11make_uniqueIN8rawspeed11TableLookUpEJiRbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %3
   store ptr %5, ptr %4, align 8, !tbaa !111, !alias.scope !157
   invoke void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %8 unwind label %22
+          to label %8 unwind label %20
 
 8:                                                ; preds = %_ZSt11make_uniqueIN8rawspeed11TableLookUpEJiRbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %9 = ptrtoint ptr %5 to i64
@@ -1836,13 +1836,13 @@ _ZSt11make_uniqueIN8rawspeed11TableLookUpEJiRbEENSt8__detail9_MakeUniqIT_E15__si
   %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN8rawspeed11TableLookUpESt14default_deleteIS1_EED2Ev.exit6, label %13
 
-13:                                               ; preds = %8
+13:; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !112
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN8rawspeed11TableLookUpESt14default_deleteIS1_EED2Ev.exit, label %16
 
-16:                                               ; preds = %13
+16:; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !115
   %19 = ptrtoint ptr %18 to i64
@@ -1859,8 +1859,8 @@ _ZNSt10unique_ptrIN8rawspeed11TableLookUpESt14default_deleteIS1_EED2Ev.exit6: ; 
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-22:                                               ; preds = %_ZSt11make_uniqueIN8rawspeed11TableLookUpEJiRbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %23 = landingpad { ptr, i32 }
+20:                                               ; preds = %_ZSt11make_uniqueIN8rawspeed11TableLookUpEJiRbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN8rawspeed11TableLookUpESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

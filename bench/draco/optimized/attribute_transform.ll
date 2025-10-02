@@ -51,7 +51,7 @@ define noundef zeroext i1 @_ZNK5draco18AttributeTransform19TransferToAttributeEP
   store i32 -1, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZN5draco10DataBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5)
-          to label %_ZN5draco22AttributeTransformDataC2Ev.exit unwind label %23
+          to label %_ZN5draco22AttributeTransformDataC2Ev.exit unwind label %21
 
 _ZN5draco22AttributeTransformDataC2Ev.exit:       ; preds = %2
   store ptr %4, ptr %3, align 8, !tbaa !17
@@ -59,7 +59,7 @@ _ZN5draco22AttributeTransformDataC2Ev.exit:       ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4)
-          to label %9 unwind label %25
+          to label %9 unwind label %23
 
 9:                                                ; preds = %_ZN5draco22AttributeTransformDataC2Ev.exit
   %10 = ptrtoint ptr %4 to i64
@@ -70,13 +70,13 @@ _ZN5draco22AttributeTransformDataC2Ev.exit:       ; preds = %2
   %.not.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN5draco22AttributeTransformDataESt14default_deleteIS1_EED2Ev.exit8, label %14
 
-14:                                               ; preds = %9
+14:; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !21
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN5draco22AttributeTransformDataESt14default_deleteIS1_EED2Ev.exit, label %17
 
-17:                                               ; preds = %14
+17:; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !22
   %20 = ptrtoint ptr %19 to i64
@@ -93,20 +93,20 @@ _ZNSt10unique_ptrIN5draco22AttributeTransformDataESt14default_deleteIS1_EED2Ev.e
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 true
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+21:                                               ; preds = %2
+  %22 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 48) #11
-  br label %27
+  br label %25
 
-25:                                               ; preds = %_ZN5draco22AttributeTransformDataC2Ev.exit
-  %26 = landingpad { ptr, i32 }
+23:                                               ; preds = %_ZN5draco22AttributeTransformDataC2Ev.exit
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN5draco22AttributeTransformDataESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  br label %27
+  br label %25
 
-27:                                               ; preds = %25, %23
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
+25:                                               ; preds = %23, %21
+  %.pn = phi { ptr, i32 } [ %24, %25 ], [ %22, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }

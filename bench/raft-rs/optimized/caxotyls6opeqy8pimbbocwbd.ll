@@ -1705,7 +1705,7 @@ define hidden noundef ptr @"_ZN65_$LT$slog_term..CompactFormat$LT$D$GT$$u20$as$u
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !91
   %15 = load i64, ptr %14, align 8, !noalias !91, !noundef !3
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %121, !prof !43
+  br i1 %16, label %17, label %120, !prof !43
 
 17:                                               ; preds = %3
   store i64 -1, ptr %14, align 8, !noalias !91
@@ -1962,7 +1962,7 @@ define hidden noundef ptr @"_ZN65_$LT$slog_term..CompactFormat$LT$D$GT$$u20$as$u
   invoke void @"_ZN4core3ptr42drop_in_place$LT$slog_term..Serializer$GT$17h1f8810091bdade83E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %7) #15
           to label %.body.i unwind label %112, !noalias !96
 
-112:                                              ; preds = %117, %111, %53, %37
+112:                                              ; preds = %116, %111, %53, %37
   %113 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !96
@@ -1978,30 +1978,30 @@ define hidden noundef ptr @"_ZN65_$LT$slog_term..CompactFormat$LT$D$GT$$u20$as$u
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !96
   br label %"_ZN9slog_term22CompactFormat$LT$D$GT$14format_compact28_$u7b$$u7b$closure$u7d$$u7d$17hc4601014031fbbd3E.exit.i"
 
-116:                                              ; preds = %41
+115:                                              ; preds = %41
   invoke void @"_ZN4core3ptr55drop_in_place$LT$slog_term..CompactFormatSerializer$GT$17heebcade192cacb56E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %10)
-          to label %120 unwind label %118, !noalias !96
+          to label %120 unwind label %117, !noalias !96
 
-117:                                              ; preds = %118, %37
-  %.pn.i.i = phi { ptr, i32 } [ %119, %118 ], [ %38, %37 ]
+116:                                              ; preds = %117, %37
+  %.pn.i.i = phi { ptr, i32 } [ %118, %118 ], [ %38, %37 ]
   invoke void @"_ZN4core3ptr131drop_in_place$LT$core..cell..RefMut$LT$alloc..vec..Vec$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$RP$$GT$$GT$$GT$17h3de2a02d6547d307E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11) #15
           to label %.body.i unwind label %112, !noalias !96
 
-118:                                              ; preds = %116
-  %119 = landingpad { ptr, i32 }
+117:                                              ; preds = %115
+  %118 = landingpad { ptr, i32 }
           cleanup
-  br label %117
+  br label %116
 
-120:                                              ; preds = %116
+119:                                              ; preds = %115
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !96
   invoke void @"_ZN4core3ptr131drop_in_place$LT$core..cell..RefMut$LT$alloc..vec..Vec$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$RP$$GT$$GT$$GT$17h3de2a02d6547d307E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
           to label %.noexc16.i unwind label %.loopexit.split-lp.i, !noalias !91
 
-.noexc16.i:                                       ; preds = %120
+.noexc16.i:                                       ; preds = %119
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !96
   br label %"_ZN9slog_term22CompactFormat$LT$D$GT$14format_compact28_$u7b$$u7b$closure$u7d$$u7d$17hc4601014031fbbd3E.exit.i"
 
-121:                                              ; preds = %3
+120:                                              ; preds = %3
   tail call void @_ZN4core4cell22panic_already_borrowed17h452a7ee8bcd8eb74E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.693301e6110f8f9c6f8f218c69bf9e54.32) #14, !noalias !91
   unreachable
 
@@ -2010,38 +2010,38 @@ define hidden noundef ptr @"_ZN65_$LT$slog_term..CompactFormat$LT$D$GT$$u20$as$u
           cleanup
   br label %.body.i
 
-.loopexit.split-lp.i:                             ; preds = %120, %114, %110, %108, %102, %100, %98, %65, %.noexc6.i, %55, %29
+.loopexit.split-lp.i:                             ; preds = %119, %114, %110, %108, %102, %100, %98, %65, %.noexc6.i, %55, %29
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.body.i:                                          ; preds = %.loopexit.split-lp.i, %.loopexit.i, %117, %111, %53
+.body.i:                                          ; preds = %.loopexit.split-lp.i, %.loopexit.i, %116, %111, %53
   %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i, %117 ], [ %54, %53 ], [ %lpad.thr_comm.i.i, %111 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$slog_term..TermRecordDecorator$GT$17hdb48fdc9fafceff5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #15
-          to label %122 unwind label %125, !noalias !91
+          to label %122 unwind label %124, !noalias !91
 
 "_ZN9slog_term22CompactFormat$LT$D$GT$14format_compact28_$u7b$$u7b$closure$u7d$$u7d$17hc4601014031fbbd3E.exit.i": ; preds = %.noexc8.i, %.noexc16.i, %.noexc15.i, %108, %.noexc12.i, %.noexc14.i, %.noexc11.i, %.noexc9.i, %.noexc7.i
   %.sroa.0.0.i.i = phi ptr [ %43, %.noexc16.i ], [ %115, %.noexc15.i ], [ %.sroa.0.1.i.i, %.noexc14.i ], [ %56, %.noexc7.i ], [ %79, %.noexc9.i ], [ %101, %.noexc11.i ], [ %107, %.noexc12.i ], [ %109, %108 ], [ %63, %.noexc8.i ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$slog_term..TermRecordDecorator$GT$17hdb48fdc9fafceff5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
-          to label %"_ZN65_$LT$slog_term..TermDecorator$u20$as$u20$slog_term..Decorator$GT$11with_record17hc1d0a1f30627a723E.exit" unwind label %123, !noalias !91
+          to label %"_ZN65_$LT$slog_term..TermDecorator$u20$as$u20$slog_term..Decorator$GT$11with_record17hc1d0a1f30627a723E.exit" unwind label %122, !noalias !91
 
-122:                                              ; preds = %123, %.body.i
-  %.pn.i = phi { ptr, i32 } [ %124, %123 ], [ %eh.lpad-body.i, %.body.i ]
+121:                                              ; preds = %122, %.body.i
+  %.pn.i = phi { ptr, i32 } [ %123, %123 ], [ %eh.lpad-body.i, %.body.i ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$core..cell..RefMut$LT$slog_term..AnyTerminal$GT$$GT$17h5f935aa3befd2bd7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13) #15
-          to label %127 unwind label %125, !noalias !91
+          to label %127 unwind label %124, !noalias !91
 
-123:                                              ; preds = %"_ZN9slog_term22CompactFormat$LT$D$GT$14format_compact28_$u7b$$u7b$closure$u7d$$u7d$17hc4601014031fbbd3E.exit.i"
-  %124 = landingpad { ptr, i32 }
+122:                                              ; preds = %"_ZN9slog_term22CompactFormat$LT$D$GT$14format_compact28_$u7b$$u7b$closure$u7d$$u7d$17hc4601014031fbbd3E.exit.i"
+  %123 = landingpad { ptr, i32 }
           cleanup
-  br label %122
+  br label %121
 
-125:                                              ; preds = %122, %.body.i
-  %126 = landingpad { ptr, i32 }
+124:                                              ; preds = %121, %.body.i
+  %125 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !91
   unreachable
 
-127:                                              ; preds = %122
+126:                                              ; preds = %121
   resume { ptr, i32 } %.pn.i
 
 "_ZN65_$LT$slog_term..TermDecorator$u20$as$u20$slog_term..Decorator$GT$11with_record17hc1d0a1f30627a723E.exit": ; preds = %"_ZN9slog_term22CompactFormat$LT$D$GT$14format_compact28_$u7b$$u7b$closure$u7d$$u7d$17hc4601014031fbbd3E.exit.i"

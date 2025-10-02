@@ -60426,7 +60426,7 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h690c86cd9c73be5aE(p
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !17648
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !17633
   %42 = icmp eq ptr %40, null
-  br i1 %42, label %.loopexit38.i, label %53
+  br i1 %42, label %.loopexit38.loopexit.i, label %53
 
 .sink.split.i.i.i.i:                              ; preds = %.thread25.i.i.i.i, %28
   %.sroa.6.024.ph.in.i.i.i.i = phi ptr [ %36, %.thread25.i.i.i.i ], [ %29, %28 ]
@@ -60434,7 +60434,7 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h690c86cd9c73be5aE(p
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !17633
   br label %.loopexit38.i
 
-.loopexit38.i:                                    ; preds = %39, %.sink.split.i.i.i.i
+.loopexit38.loopexit.i:                           ; preds = %39, %.sink.split.i.i.i.i
   %.sroa.6.024.i.i.i.i = phi i64 [ %.sroa.6.024.ph.i.i.i.i, %.sink.split.i.i.i.i ], [ %41, %39 ]
   %43 = inttoptr i64 %.sroa.6.024.i.i.i.i to ptr
   %44 = icmp eq i64 %26, 0

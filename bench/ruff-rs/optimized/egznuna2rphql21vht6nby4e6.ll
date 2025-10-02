@@ -9796,7 +9796,7 @@ default.unreachable1:                             ; preds = %1
 6:                                                ; preds = %1
   %7 = load i64, ptr %5, align 8, !noundef !24
   %8 = icmp sgt i64 %7, -1
-  br i1 %8, label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$i64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h1e22a0b098e7ef22E.exit", label %9, !prof !1490
+  br i1 %8, label %12, label %9, !prof !1490
 
 9:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -9808,7 +9808,7 @@ default.unreachable1:                             ; preds = %1
   %12 = ptrtoint ptr %11 to i64
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$i64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h1e22a0b098e7ef22E.exit"
 
-"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$i64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h1e22a0b098e7ef22E.exit": ; preds = %6, %9
+12:                                               ; preds = %6, %9
   %.sroa.3.0.i = phi i64 [ %12, %9 ], [ %7, %6 ]
   %.sroa.0.0.i = phi i64 [ 1, %9 ], [ 0, %6 ]
   %13 = inttoptr i64 %.sroa.3.0.i to ptr

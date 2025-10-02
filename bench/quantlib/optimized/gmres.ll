@@ -2682,15 +2682,15 @@ if.else.i.i:                                      ; preds = %for.end.i.i
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %while.body.i.i.i39, %if.then.i.i37, %do.end, %if.else.i.i
-  %54 = load ptr, ptr %errors, align 8, !tbaa !32
-  %cmp.not4.i.i = icmp eq ptr %54, %errors
+  %52 = load ptr, ptr %errors, align 8, !tbaa !32
+  %cmp.not4.i.i = icmp eq ptr %52, %errors
   br i1 %cmp.not4.i.i, label %_ZNSt7__cxx1110_List_baseIdSaIdEED2Ev.exit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %invoke.cont61, %while.body.i.i
-  %__cur.05.i.i = phi ptr [ %55, %while.body.i.i ], [ %54, %invoke.cont61 ]
-  %55 = load ptr, ptr %__cur.05.i.i, align 8, !tbaa !32
+  %__cur.05.i.i = phi ptr [ %53, %while.body.i.i ], [ %52, %invoke.cont61 ]
+  %53 = load ptr, ptr %__cur.05.i.i, align 8, !tbaa !32
   call void @_ZdlPvm(ptr noundef nonnull %__cur.05.i.i, i64 noundef 24) #23
-  %cmp.not.i.i = icmp eq ptr %55, %errors
+  %cmp.not.i.i = icmp eq ptr %53, %errors
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx1110_List_baseIdSaIdEED2Ev.exit, label %while.body.i.i, !llvm.loop !47
 
 _ZNSt7__cxx1110_List_baseIdSaIdEED2Ev.exit:       ; preds = %while.body.i.i, %invoke.cont61
@@ -2698,21 +2698,21 @@ _ZNSt7__cxx1110_List_baseIdSaIdEED2Ev.exit:       ; preds = %while.body.i.i, %in
   ret void
 
 lpad60:                                           ; preds = %if.else.i.i
-  %56 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup63
 
 ehcleanup63:                                      ; preds = %lpad5, %lpad21, %lpad60, %ehcleanup58
-  %.pn8.pn = phi { ptr, i32 } [ %56, %lpad60 ], [ %.pn.pn.pn.pn.pn, %ehcleanup58 ], [ %28, %lpad21 ], [ %27, %lpad5 ]
-  %57 = load ptr, ptr %errors, align 8, !tbaa !32
-  %cmp.not4.i.i44 = icmp eq ptr %57, %errors
+  %.pn8.pn = phi { ptr, i32 } [ %54, %lpad60 ], [ %.pn.pn.pn.pn.pn, %ehcleanup58 ], [ %28, %lpad21 ], [ %27, %lpad5 ]
+  %55 = load ptr, ptr %errors, align 8, !tbaa !32
+  %cmp.not4.i.i44 = icmp eq ptr %55, %errors
   br i1 %cmp.not4.i.i44, label %ehcleanup64, label %while.body.i.i45
 
 while.body.i.i45:                                 ; preds = %ehcleanup63, %while.body.i.i45
-  %__cur.05.i.i46 = phi ptr [ %58, %while.body.i.i45 ], [ %57, %ehcleanup63 ]
-  %58 = load ptr, ptr %__cur.05.i.i46, align 8, !tbaa !32
+  %__cur.05.i.i46 = phi ptr [ %56, %while.body.i.i45 ], [ %55, %ehcleanup63 ]
+  %56 = load ptr, ptr %__cur.05.i.i46, align 8, !tbaa !32
   call void @_ZdlPvm(ptr noundef nonnull %__cur.05.i.i46, i64 noundef 24) #23
-  %cmp.not.i.i47 = icmp eq ptr %58, %errors
+  %cmp.not.i.i47 = icmp eq ptr %56, %errors
   br i1 %cmp.not.i.i47, label %ehcleanup64, label %while.body.i.i45, !llvm.loop !47
 
 ehcleanup64:                                      ; preds = %while.body.i.i.i, %while.body.i.i45, %ehcleanup63, %lpad9.i

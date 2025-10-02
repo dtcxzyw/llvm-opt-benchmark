@@ -6027,8 +6027,8 @@ define hidden void @"_ZN235_$LT$$LT$h3i..actions..h3.._..$LT$impl$u20$serde..de.
   %.sink3 = ptrtoint ptr %6 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i64 %.sink3, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %5, ptr %7, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %5, ptr %13, align 8
   ret void
 }
 

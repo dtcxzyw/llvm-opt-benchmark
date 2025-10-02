@@ -3905,42 +3905,42 @@ _Py_dict_lookup_threadsafe_stackref.exit.thread:  ; preds = %7
   br i1 %.not.i18, label %PyObject_TypeCheck.exit.thread, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %23
-  %27 = tail call i32 @PyType_IsSubtype(ptr noundef %.val16, ptr noundef nonnull @PyModule_Type) #23
-  %.not24 = icmp eq i32 %27, 0
-  br i1 %.not24, label %29, label %PyObject_TypeCheck.exit.thread
+  %25 = tail call i32 @PyType_IsSubtype(ptr noundef %.val16, ptr noundef nonnull @PyModule_Type) #23
+  %.not24 = icmp eq i32 %25, 0
+  br i1 %.not24, label %27, label %PyObject_TypeCheck.exit.thread
 
 PyObject_TypeCheck.exit.thread:                   ; preds = %23, %PyObject_TypeCheck.exit
-  %28 = getelementptr i8, ptr %25, i64 16
-  %.val17 = load ptr, ptr %28, align 8, !tbaa !148
-  br label %29
+  %26 = getelementptr i8, ptr %25, i64 16
+  %.val17 = load ptr, ptr %26, align 8, !tbaa !148
+  br label %27
 
-29:                                               ; preds = %PyObject_TypeCheck.exit.thread, %PyObject_TypeCheck.exit
+27:                                               ; preds = %PyObject_TypeCheck.exit.thread, %PyObject_TypeCheck.exit
   %.0 = phi ptr [ %.val17, %PyObject_TypeCheck.exit.thread ], [ %25, %PyObject_TypeCheck.exit ]
-  %30 = load i32, ptr %.0, align 8, !tbaa !41
-  %31 = icmp slt i32 %30, 0
-  br i1 %31, label %Py_INCREF.exit, label %32
+  %28 = load i32, ptr %.0, align 8, !tbaa !41
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %Py_INCREF.exit, label %30
 
-32:                                               ; preds = %29
-  %33 = add nuw i32 %30, 1
-  store i32 %33, ptr %.0, align 8, !tbaa !41
+30:                                               ; preds = %27
+  %31 = add nuw i32 %28, 1
+  store i32 %31, ptr %.0, align 8, !tbaa !41
   br label %Py_INCREF.exit
 
-Py_INCREF.exit:                                   ; preds = %29, %32
-  %34 = load i32, ptr %25, align 8, !tbaa !41
-  %.not.i = icmp sgt i32 %34, -1
-  br i1 %.not.i, label %35, label %_Py_NewRef.exit
+Py_INCREF.exit:                                   ; preds = %27, %30
+  %32 = load i32, ptr %25, align 8, !tbaa !41
+  %.not.i = icmp sgt i32 %32, -1
+  br i1 %.not.i, label %33, label %_Py_NewRef.exit
 
-35:                                               ; preds = %Py_INCREF.exit
-  %36 = add nsw i32 %34, -1
-  store i32 %36, ptr %25, align 8, !tbaa !41
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %_Py_NewRef.exit
+33:                                               ; preds = %Py_INCREF.exit
+  %34 = add nsw i32 %32, -1
+  store i32 %34, ptr %25, align 8, !tbaa !41
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %_Py_NewRef.exit
 
-38:                                               ; preds = %35
+36:                                               ; preds = %33
   tail call void @_Py_Dealloc(ptr noundef nonnull %25) #23
   br label %_Py_NewRef.exit
 
-_Py_NewRef.exit:                                  ; preds = %_Py_dict_lookup_threadsafe_stackref.exit, %_Py_dict_lookup_threadsafe_stackref.exit.thread, %.thread, %21, %Py_INCREF.exit, %35, %38, %6
+_Py_NewRef.exit:                                  ; preds = %_Py_dict_lookup_threadsafe_stackref.exit, %_Py_dict_lookup_threadsafe_stackref.exit.thread, %.thread, %21, %Py_INCREF.exit, %33, %36, %6
   %.011 = phi ptr [ null, %6 ], [ null, %_Py_dict_lookup_threadsafe_stackref.exit ], [ null, %_Py_dict_lookup_threadsafe_stackref.exit.thread ], [ %18, %.thread ], [ %18, %21 ], [ %.0, %Py_INCREF.exit ], [ %.0, %35 ], [ %.0, %38 ]
   ret ptr %.011
 }

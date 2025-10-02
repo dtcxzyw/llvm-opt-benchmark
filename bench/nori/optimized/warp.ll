@@ -87,7 +87,7 @@ define hidden noundef float @_ZN4nori4Warp24squareToUniformSquarePdfERKNS_6TPoin
   %5 = fcmp ult float %4, 0.000000e+00
   br i1 %5, label %_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIffLNS2_14ComparisonNameE2EEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIfEENS_5ArrayIfLi2ELi1ELi0ELi2ELi1EEEEEKNS_12ArrayWrapperIKNS_6MatrixIfLi2ELi1ELi0ELi2ELi1EEEEEEEE3allEv.exit.thread, label %_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIffLNS2_14ComparisonNameE2EEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIfEENS_5ArrayIfLi2ELi1ELi0ELi2ELi1EEEEEKNS_12ArrayWrapperIKNS_6MatrixIfLi2ELi1ELi0ELi2ELi1EEEEEEEE3allEv.exit
 
-_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIffLNS2_14ComparisonNameE2EEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIfEENS_5ArrayIfLi2ELi1ELi0ELi2ELi1EEEEEKNS_12ArrayWrapperIKNS_6MatrixIfLi2ELi1ELi0ELi2ELi1EEEEEEEE3allEv.exit: ; preds = %1
+_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIffLNS2_14ComparisonNameE2EEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIfEENS_5ArrayIfLi2ELi1ELi0ELi2ELi1EEEEEKNS_12ArrayWrapperIKNS_6MatrixIfLi2ELi1ELi0ELi2ELi1EEEEEEEE3allEv.exit:; preds = %1
   %6 = getelementptr i8, ptr %3, i64 4
   %7 = load float, ptr %6, align 4
   %.fr = freeze float %7
@@ -1189,7 +1189,7 @@ attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

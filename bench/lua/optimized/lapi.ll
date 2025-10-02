@@ -2801,8 +2801,8 @@ index2value.exit:                                 ; preds = %6, %12, %18, %25, %
   %56 = and i32 %55, 63
   switch i32 %56, label %75 [
     i32 22, label %57
-    i32 7, label %61
-    i32 2, label %61
+    i32 7, label %59
+    i32 2, label %59
   ]
 
 57:                                               ; preds = %index2value.exit
@@ -2811,40 +2811,40 @@ index2value.exit:                                 ; preds = %6, %12, %18, %25, %
   %60 = inttoptr i64 %59 to ptr
   br label %touserdata.exit
 
-61:                                               ; preds = %index2value.exit, %index2value.exit
-  %62 = and i8 %54, 15
-  switch i8 %62, label %touserdata.exit [
-    i8 7, label %63
-    i8 2, label %73
+59:                                               ; preds = %index2value.exit, %index2value.exit
+  %60 = and i8 %54, 15
+  switch i8 %60, label %touserdata.exit [
+    i8 7, label %61
+    i8 2, label %71
   ]
 
-63:                                               ; preds = %61
-  %64 = load ptr, ptr %.1.i, align 8, !tbaa !20
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 10
-  %66 = load i16, ptr %65, align 2, !tbaa !52
-  %67 = icmp eq i16 %66, 0
-  %68 = zext i16 %66 to i64
-  %69 = shl nuw nsw i64 %68, 4
-  %70 = add nuw nsw i64 %69, 40
-  %71 = select i1 %67, i64 32, i64 %70
-  %72 = getelementptr inbounds nuw i8, ptr %64, i64 %71
+61:                                               ; preds = %59
+  %62 = load ptr, ptr %.1.i, align 8, !tbaa !20
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 10
+  %64 = load i16, ptr %63, align 2, !tbaa !52
+  %65 = icmp eq i16 %64, 0
+  %66 = zext i16 %64 to i64
+  %67 = shl nuw nsw i64 %66, 4
+  %68 = add nuw nsw i64 %67, 40
+  %69 = select i1 %65, i64 32, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 %69
   br label %touserdata.exit
 
-73:                                               ; preds = %61
-  %74 = load ptr, ptr %.1.i, align 8, !tbaa !20
+71:                                               ; preds = %59
+  %72 = load ptr, ptr %.1.i, align 8, !tbaa !20
   br label %touserdata.exit
 
-75:                                               ; preds = %index2value.exit
-  %76 = and i32 %55, 64
-  %.not = icmp eq i32 %76, 0
-  br i1 %.not, label %touserdata.exit, label %77
+73:                                               ; preds = %index2value.exit
+  %74 = and i32 %55, 64
+  %.not = icmp eq i32 %74, 0
+  br i1 %.not, label %touserdata.exit, label %75
 
-77:                                               ; preds = %75
-  %78 = load ptr, ptr %.1.i, align 8, !tbaa !20
+75:                                               ; preds = %73
+  %76 = load ptr, ptr %.1.i, align 8, !tbaa !20
   br label %touserdata.exit
 
-touserdata.exit:                                  ; preds = %73, %63, %61, %75, %77, %57
-  %.0 = phi ptr [ %78, %77 ], [ %60, %57 ], [ null, %75 ], [ %72, %63 ], [ %74, %73 ], [ null, %61 ]
+touserdata.exit:                                  ; preds = %71, %61, %59, %73, %75, %57
+  %.0 = phi ptr [ %76, %77 ], [ %60, %57 ], [ null, %75 ], [ %70, %63 ], [ %72, %73 ], [ null, %61 ]
   ret ptr %.0
 }
 

@@ -43690,7 +43690,7 @@ define hidden void @"_ZN17cranelift_codegen15scoped_hash_map26ScopedHashMap$LT$K
 83:                                               ; preds = %21, %28
   %84 = ptrtoint ptr %.sroa.454.0.copyload.i to i64
   %85 = inttoptr i64 %84 to ptr
-  %86 = getelementptr inbounds i8, ptr %85, i64 -16
+  %.sroa.35.0..sroa_idx.i = getelementptr inbounds i8, ptr %85, i64 -16
   store i32 %2, ptr %86, align 4, !noalias !8243
   %.sroa.35.0..sroa_idx.i = getelementptr inbounds i8, ptr %85, i64 -12
   store i32 %3, ptr %.sroa.35.0..sroa_idx.i, align 4, !noalias !8243
