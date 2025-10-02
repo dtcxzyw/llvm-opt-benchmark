@@ -7437,8 +7437,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread158:      ; preds = %_ZN4llvmeqENS_9Stri
 
 59:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread158
   %60 = load ptr, ptr %38, align 8, !tbaa !11
-  call void @llvm.assume(i1 true) [ "align"(ptr %60, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %60, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %60, align 1
   %61 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %62 = inttoptr i64 %61 to ptr
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 28
@@ -7740,8 +7739,7 @@ select.unfold:                                    ; preds = %192, %179, %_ZNK5cl
 
 219:                                              ; preds = %207
   %220 = load ptr, ptr %103, align 8, !tbaa !11
-  call void @llvm.assume(i1 true) [ "align"(ptr %220, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i110 = load i64, ptr %220, align 8
+  %.0.copyload.i.i.i.i.i.i.i110 = load i64, ptr %220, align 1
   %221 = and i64 %.0.copyload.i.i.i.i.i.i.i110, -8
   %222 = inttoptr i64 %221 to ptr
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 28
@@ -8205,8 +8203,7 @@ define dso_local i64 @_ZN5clang4Sema27LookupInlineAsmVarDeclFieldEPNS_4ExprEN4ll
 
 68:                                               ; preds = %35
   %69 = load ptr, ptr %43, align 8, !tbaa !11
-  call void @llvm.assume(i1 true) [ "align"(ptr %69, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %69, align 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %69, align 1
   %70 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %71 = inttoptr i64 %70 to ptr
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 28
@@ -8233,7 +8230,6 @@ _ZNK5clang12LookupResult12getFoundDeclEv.exit:    ; preds = %68, %75
   br i1 %78, label %79, label %.critedge
 
 79:                                               ; preds = %_ZNK5clang12LookupResult12getFoundDeclEv.exit
-  call void @llvm.assume(i1 true) [ "align"(ptr %69, i64 8) ]
   switch i32 %74, label %_ZNK5clang12LookupResult12getFoundDeclEv.exit30 [
     i32 51, label %80
     i32 52, label %80

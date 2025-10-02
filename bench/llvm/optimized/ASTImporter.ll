@@ -78875,8 +78875,7 @@ _ZN4llvm5ErrorD2Ev.exit57:                        ; preds = %47
 
 _ZN5clang15ASTNodeImporter6importINS_9NamedDeclEEENSt11conditionalIXsr3stdE12is_base_of_vINS_4TypeET_EEN4llvm8ExpectedIPKS5_EENS7_IPS5_EEE4typeESB_.exit: ; preds = %.lr.ph, %66
   %.sroa.0104.0125 = phi ptr [ %.1.i.i.i.i, %.lr.ph ], [ %74, %66 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0104.0125, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.0104.0125, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.0104.0125, align 1
   %75 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %76 = inttoptr i64 %75 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !8648
@@ -79427,8 +79426,7 @@ _ZN4llvm5ErrorD2Ev.exit68:                        ; preds = %101
 
 _ZN5clang15ASTNodeImporter6importINS_4DeclEEENSt11conditionalIXsr3stdE12is_base_of_vINS_4TypeET_EEN4llvm8ExpectedIPKS5_EENS7_IPS5_EEE4typeESB_.exit: ; preds = %.lr.ph, %120
   %.sroa.0105.0142 = phi ptr [ %.1.i.i.i.i, %.lr.ph ], [ %128, %120 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0105.0142, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.0105.0142, align 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.0105.0142, align 1
   %129 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %130 = inttoptr i64 %129 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !8711

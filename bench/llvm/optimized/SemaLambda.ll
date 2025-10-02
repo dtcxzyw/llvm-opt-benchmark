@@ -5093,8 +5093,7 @@ thread-pre-split:                                 ; preds = %_ZN5clang12CXXScope
 
 679:                                              ; preds = %677
   %680 = load ptr, ptr %187, align 8, !tbaa !819
-  call void @llvm.assume(i1 true) [ "align"(ptr %680, i64 8) ]
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %680, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %680, align 1
   %681 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %682 = inttoptr i64 %681 to ptr
   %683 = getelementptr inbounds nuw i8, ptr %682, i64 28
@@ -5121,7 +5120,6 @@ _ZNK5clang12LookupResult12getFoundDeclEv.exit.i:  ; preds = %686, %679
   br i1 %688, label %select.unfold514, label %689
 
 689:                                              ; preds = %_ZNK5clang12LookupResult12getFoundDeclEv.exit.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %680, i64 8) ]
   switch i32 %685, label %_ZNK5clang12LookupResult12getFoundDeclEv.exit.i255 [
     i32 51, label %690
     i32 52, label %690
@@ -5301,7 +5299,6 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i260: ; preds = %75
   br label %_ZNK5clang12LookupResult11getAsSingleINS_11BindingDeclEEEPT_v.exit
 
 770:                                              ; preds = %_ZNK5clang12LookupResult12getFoundDeclEv.exit.i255
-  call void @llvm.assume(i1 true) [ "align"(ptr %680, i64 8) ]
   switch i32 %685, label %_ZNK5clang12LookupResult12getFoundDeclEv.exit.i267 [
     i32 51, label %771
     i32 52, label %771

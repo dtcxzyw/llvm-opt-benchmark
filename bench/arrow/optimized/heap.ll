@@ -243,6 +243,7 @@ define hidden ptr @mi_heap_new() local_unnamed_addr #0 {
 
 8:                                                ; preds = %0
   call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr @_mi_heap_empty, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3056) %6, ptr noundef nonnull readonly align 8 dereferenceable(3056) @_mi_heap_empty, i64 range(i64 1800, 3057) 3056, i1 false)
   %9 = load ptr, ptr %5, align 8, !tbaa !3
   store ptr %9, ptr %6, align 8, !tbaa !3

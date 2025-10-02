@@ -67787,8 +67787,7 @@ _ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader33LazySpecializationIn
   %129 = zext i32 %126 to i64
   %130 = shl nuw nsw i64 %129, 2
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 %130
-  call void @llvm.assume(i1 true) [ "align"(ptr %131, i64 4) ]
-  %.0.copyload.i.i.i.i = load i32, ptr %131, align 4, !noalias !2671
+  %.0.copyload.i.i.i.i = load i32, ptr %131, align 1, !noalias !2671
   %132 = icmp eq i32 %.0.copyload.i.i.i.i, 0
   br i1 %132, label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader33LazySpecializationInfoLookupTraitEE11find_hashedERKjjPS4_.exit.thread, label %133
 
@@ -107100,8 +107099,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %2, %17
 
 30:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit7
   %.sroa.08.013 = phi ptr [ %27, %.lr.ph ], [ %66, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit7 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.08.013, i64 8) ]
-  %.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.08.013, align 8
+  %.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.08.013, align 1
   %31 = and i64 %.0.copyload.i.i.i.i.i, -8
   %32 = inttoptr i64 %31 to ptr
   %33 = load ptr, ptr %29, align 8, !tbaa !11
@@ -107132,8 +107130,7 @@ _ZN5clang15ASTRecordWriter10AddDeclRefEPKNS_4DeclE.exit: ; preds = %30, %40
   %49 = add i32 %48, 1
   store i32 %49, ptr %36, align 8, !tbaa !42
   %50 = load ptr, ptr %3, align 8, !tbaa !29
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.08.013, i64 8) ]
-  %.0.copyload.i.i.i.i.i4 = load i64, ptr %.sroa.08.013, align 8
+  %.0.copyload.i.i.i.i.i4 = load i64, ptr %.sroa.08.013, align 1
   %51 = and i64 %.0.copyload.i.i.i.i.i4, 3
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !42
