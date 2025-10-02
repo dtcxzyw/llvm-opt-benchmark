@@ -5405,13 +5405,12 @@ _ZZN4llvm11AArch64TLBI16lookupTLBIByNameENS_9StringRefEEN7KeyTypeD2Ev.exit: ; pr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef ptr @_ZN4llvm11AArch64SVCR20lookupSVCRByEncodingEh(i8 noundef zeroext %0) local_unnamed_addr #0 {
-  %.sroa.speculate.load.false.sroa.speculated = tail call i8 @llvm.umax.i8(i8 %0, i8 1)
-  %.sroa.speculated = tail call i8 @llvm.umin.i8(i8 %.sroa.speculate.load.false.sroa.speculated, i8 3)
-  %.not = icmp eq i8 %0, %.sroa.speculated
-  %2 = zext i8 %0 to i64
-  %3 = getelementptr %"struct.llvm::AArch64SVCR::SVCR", ptr @_ZN4llvm11AArch64SVCRL9SVCRsListE, i64 %2
-  %4 = getelementptr i8, ptr %3, i64 -56
-  %.0 = select i1 %.not, ptr %4, ptr null
+  %2 = add i8 %0, -1
+  %.not = icmp ult i8 %2, 3
+  %3 = zext i8 %0 to i64
+  %4 = getelementptr %"struct.llvm::AArch64SVCR::SVCR", ptr @_ZN4llvm11AArch64SVCRL9SVCRsListE, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 -56
+  %.0 = select i1 %.not, ptr %5, ptr null
   ret ptr %.0
 }
 
@@ -5551,12 +5550,6 @@ declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
