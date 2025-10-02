@@ -2525,7 +2525,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8.i:              ; preds = %105, %103, %_ZN4llv
   br i1 %.not6.i, label %"_ZZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_9BlockNodeEEEEEENK3$_0clERKSt6vectorIiSaIiEE.exit", label %80
 
 "_ZZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_9BlockNodeEEEEEENK3$_0clERKSt6vectorIiSaIiEE.exit": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8.i, %_ZN4llvm9PrintableD2Ev.exit, %._crit_edge
-  %.not67.i156 = phi ptr [ %.sroa.11.3, %._crit_edge ], [ null, %_ZN4llvm9PrintableD2Ev.exit ], [ %.sroa.095.2, %_ZN4llvm11raw_ostreamlsEPKc.exit8.i ]
+  %.sroa.095.0.lcssa154 = phi ptr [ %.sroa.11.3, %._crit_edge ], [ null, %_ZN4llvm9PrintableD2Ev.exit ], [ %.sroa.095.2, %_ZN4llvm11raw_ostreamlsEPKc.exit8.i ]
   %.sroa.095.0.lcssa155 = phi ptr [ %.sroa.095.2, %._crit_edge ], [ null, %_ZN4llvm9PrintableD2Ev.exit ], [ %.sroa.095.2, %_ZN4llvm11raw_ostreamlsEPKc.exit8.i ]
   %.sroa.21.0.lcssa153 = phi ptr [ %.sroa.21.2, %._crit_edge ], [ null, %_ZN4llvm9PrintableD2Ev.exit ], [ %.sroa.21.2, %_ZN4llvm11raw_ostreamlsEPKc.exit8.i ]
   %109 = getelementptr inbounds nuw i8, ptr %11, i64 120
@@ -2844,7 +2844,7 @@ _ZNK4llvm3rdf8CodeNode7membersERKNS0_13DataFlowGraphE.exit: ; preds = %_ZNK4llvm
 .lr.ph122:                                        ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit58, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82
   %.039121 = phi ptr [ %284, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82 ], [ %140, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ]
   %.sroa.095.1120 = phi ptr [ %.sroa.095.3, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82 ], [ %.sroa.095.0.lcssa155, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ]
-  %.sroa.11.1119 = phi ptr [ %.sroa.11.4, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82 ], [ %.not67.i156, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ]
+  %.sroa.11.1119 = phi ptr [ %.sroa.11.4, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82 ], [ %.sroa.095.0.lcssa154, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ]
   %.sroa.21.1118 = phi ptr [ %.sroa.21.3, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82 ], [ %.sroa.21.0.lcssa153, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ]
   %262 = load ptr, ptr %.039121, align 8, !tbaa !271
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 24

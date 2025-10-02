@@ -45,7 +45,7 @@ define hidden void @_ZN7Strutil7vformatB5cxx11EPKcP13__va_list_tag(ptr dead_on_u
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %0, align 8, !tbaa !4
   %10 = icmp eq ptr %.sroa.032.2, null
-  %11 = icmp ne i32 %69, 0
+  %11 = icmp ne i32 %68, 0
   %or.cond.i = and i1 %10, %11
   br i1 %or.cond.i, label %12, label %13
 
@@ -58,7 +58,7 @@ define hidden void @_ZN7Strutil7vformatB5cxx11EPKcP13__va_list_tag(ptr dead_on_u
 
 13:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %14 = phi ptr [ %8, %._crit_edge.thread ], [ %9, %._crit_edge ]
-  %.lcssa88 = phi i32 [ %7, %._crit_edge.thread ], [ %69, %._crit_edge ]
+  %.lcssa88 = phi i32 [ %7, %._crit_edge.thread ], [ %68, %._crit_edge ]
   %.022.lcssa87 = phi ptr [ %5, %._crit_edge.thread ], [ %.sroa.032.2, %._crit_edge ]
   %.sroa.032.0.lcssa85 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.032.2, %._crit_edge ]
   %.sroa.13.0.lcssa83 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.13.2, %._crit_edge ]
@@ -82,27 +82,27 @@ define hidden void @_ZN7Strutil7vformatB5cxx11EPKcP13__va_list_tag(ptr dead_on_u
   %19 = phi ptr [ %17, %.noexc27 ], [ %14, %13 ]
   switch i32 %.lcssa88, label %22 [
     i32 1, label %20
-    i32 0, label %78
+    i32 0, label %77
   ]
 
 20:                                               ; preds = %._crit_edge.i.i
   %21 = load i8, ptr %.022.lcssa87, align 1, !tbaa !14
   store i8 %21, ptr %19, align 1, !tbaa !14
-  br label %78
+  br label %77
 
 22:                                               ; preds = %._crit_edge.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %.022.lcssa87, i64 %15, i1 false)
-  br label %78
+  br label %77
 
 23:                                               ; preds = %.noexc.i, %12
   %.sroa.032.0.lcssa86 = phi ptr [ %.sroa.032.0.lcssa85, %.noexc.i ], [ null, %12 ]
   %.sroa.13.0.lcssa84 = phi ptr [ %.sroa.13.0.lcssa83, %.noexc.i ], [ %.sroa.13.2, %12 ]
   %24 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
 .lr.ph:                                           ; preds = %3, %68
-  %25 = phi i32 [ %69, %68 ], [ %7, %3 ]
+  %25 = phi i32 [ %68, %68 ], [ %7, %3 ]
   %.02161 = phi i64 [ %30, %68 ], [ 1024, %3 ]
   %.sroa.032.060 = phi ptr [ %.sroa.032.2, %68 ], [ null, %3 ]
   %.sroa.13.059 = phi ptr [ %.sroa.13.2, %68 ], [ null, %3 ]
@@ -198,7 +198,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %60, %_ZNSt
   %65 = icmp ult i64 %30, %33
   br i1 %65, label %66, label %68
 
-66:                                               ; preds = %64
+66:; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.032.060, i64 %30
   %.not.i4.i = icmp eq ptr %.sroa.9.058, %67
   %spec.select = select i1 %.not.i4.i, ptr %.sroa.9.058, ptr %67
@@ -212,63 +212,63 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %60, %_ZNSt
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.va_copy.p0(ptr nonnull %6, ptr %2)
-  %69 = call i32 @vsnprintf(ptr noundef %.sroa.032.2, i64 noundef %30, ptr noundef %1, ptr noundef %2) #15
+  %68 = call i32 @vsnprintf(ptr noundef %.sroa.032.2, i64 noundef %30, ptr noundef %1, ptr noundef %2) #15
   call void @llvm.va_end.p0(ptr %2)
-  %70 = trunc i64 %30 to i32
-  %71 = icmp sge i32 %69, %70
-  %72 = icmp slt i32 %69, 0
-  %or.cond.not = or i1 %71, %72
+  %69 = trunc i64 %30 to i32
+  %70 = icmp sge i32 %68, %69
+  %71 = icmp slt i32 %68, 0
+  %or.cond.not = or i1 %70, %71
   br i1 %or.cond.not, label %.lr.ph, label %._crit_edge
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
 .loopexit.split-lp:                               ; preds = %50
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-73:                                               ; preds = %.loopexit, %.loopexit.split-lp, %23
+72:                                               ; preds = %.loopexit, %.loopexit.split-lp, %23
   %.sroa.13.055 = phi ptr [ %.sroa.13.0.lcssa84, %23 ], [ %.sroa.13.059, %.loopexit ], [ %.sroa.13.059, %.loopexit.split-lp ]
   %.sroa.032.051 = phi ptr [ %.sroa.032.0.lcssa86, %23 ], [ %.sroa.032.060, %.loopexit ], [ %.sroa.032.060, %.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i.i.i = icmp eq ptr %.sroa.032.051, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %74
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %73
 
-74:                                               ; preds = %73
-  %75 = ptrtoint ptr %.sroa.13.055 to i64
-  %76 = ptrtoint ptr %.sroa.032.051 to i64
-  %77 = sub i64 %75, %76
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.032.051, i64 noundef %77) #18
+73:                                               ; preds = %72
+  %74 = ptrtoint ptr %.sroa.13.055 to i64
+  %75 = ptrtoint ptr %.sroa.032.051 to i64
+  %76 = sub i64 %74, %75
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.032.051, i64 noundef %76) #18
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
-_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %73, %74
+_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %72, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 
-78:                                               ; preds = %._crit_edge.i.i, %20, %22
-  %79 = load i64, ptr %4, align 8, !tbaa !10
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %79, ptr %80, align 8, !tbaa !15
-  %81 = load ptr, ptr %0, align 8, !tbaa !12
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %79
-  store i8 0, ptr %82, align 1, !tbaa !14
+77:                                               ; preds = %._crit_edge.i.i, %20, %22
+  %78 = load i64, ptr %4, align 8, !tbaa !10
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %78, ptr %79, align 8, !tbaa !15
+  %80 = load ptr, ptr %0, align 8, !tbaa !12
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %78
+  store i8 0, ptr %81, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i.i.i30 = icmp eq ptr %.sroa.032.0.lcssa85, null
-  br i1 %.not.i.i.i30, label %_ZNSt6vectorIcSaIcEED2Ev.exit31, label %83
+  br i1 %.not.i.i.i30, label %_ZNSt6vectorIcSaIcEED2Ev.exit31, label %82
 
-83:                                               ; preds = %78
-  %84 = ptrtoint ptr %.sroa.13.0.lcssa83 to i64
-  %85 = ptrtoint ptr %.sroa.032.0.lcssa85 to i64
-  %86 = sub i64 %84, %85
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.032.0.lcssa85, i64 noundef %86) #18
+82:                                               ; preds = %77
+  %83 = ptrtoint ptr %.sroa.13.0.lcssa83 to i64
+  %84 = ptrtoint ptr %.sroa.032.0.lcssa85 to i64
+  %85 = sub i64 %83, %84
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.032.0.lcssa85, i64 noundef %85) #18
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit31
 
-_ZNSt6vectorIcSaIcEED2Ev.exit31:                  ; preds = %78, %83
+_ZNSt6vectorIcSaIcEED2Ev.exit31:                  ; preds = %77, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

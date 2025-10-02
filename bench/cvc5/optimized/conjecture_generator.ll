@@ -4622,7 +4622,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt3mapIN4cvc58in
   br label %_ZN4cvc58internal12NodeTemplateILb0EEaSERKNS1_ILb1EEE.exit
 
 _ZN4cvc58internal12NodeTemplateILb0EEaSERKNS1_ILb1EEE.exit: ; preds = %71, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %68
-  %.sroa.0531.0 = phi ptr [ %8, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %8, %68 ], [ %spec.store.select, %71 ]
+  %.sroa.0530.0 = phi ptr [ %8, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %8, %68 ], [ %spec.store.select, %71 ]
   %75 = load ptr, ptr %2, align 8, !tbaa !3
   %76 = load i64, ptr %75, align 8
   %77 = lshr i64 %76, 40
@@ -4648,17 +4648,17 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKNS1_ILb1EEE.exit: ; preds = %71, %_ZN4
   %90 = or i64 %76, 1152920405095219200
   store i64 %90, ptr %75, align 8
   tail call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %75)
-  %.pre533.pre = load i64, ptr %75, align 8
+  %.pre531.pre = load i64, ptr %75, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit47
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit47: ; preds = %89, %87, %81
-  %.pre533 = phi i64 [ %.pre533.pre, %89 ], [ %76, %87 ], [ %86, %81 ]
+  %.pre531 = phi i64 [ %.pre531.pre, %89 ], [ %76, %87 ], [ %86, %81 ]
   %91 = load ptr, ptr %25, align 8, !tbaa !21
   %.not10.i.i.i48 = icmp eq ptr %91, null
   br i1 %.not10.i.i.i48, label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers19ConjectureGenerator7EqcInfoESt4lessIS3_ESaISt4pairIKS3_S8_EEE4findERSC_.exit60, label %.lr.ph.i.i.i49
 
 .lr.ph.i.i.i49:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit47
-  %92 = and i64 %.pre533, 1099511627775
+  %92 = and i64 %.pre531, 1099511627775
   br label %93
 
 93:                                               ; preds = %93, %.lr.ph.i.i.i49
@@ -4691,14 +4691,14 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory11qua
 
 _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers19ConjectureGenerator7EqcInfoESt4lessIS3_ESaISt4pairIKS3_S8_EEE4findERSC_.exit60: ; preds = %100, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory11quantifiers19ConjectureGenerator7EqcInfoEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS5_.exit.i.i57, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit47
   %.sroa.0.0.i.i59 = phi ptr [ %27, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory11quantifiers19ConjectureGenerator7EqcInfoEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS5_.exit.i.i57 ], [ %27, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit47 ], [ %spec.select.i.i58, %100 ]
-  %106 = and i64 %.pre533, 1152920405095219200
+  %106 = and i64 %.pre531, 1152920405095219200
   %.not.i.i61 = icmp eq i64 %106, 1152920405095219200
   br i1 %.not.i.i61, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit62, label %107, !prof !15
 
 107:                                              ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers19ConjectureGenerator7EqcInfoESt4lessIS3_ESaISt4pairIKS3_S8_EEE4findERSC_.exit60
-  %108 = add i64 %.pre533, 1152920405095219200
+  %108 = add i64 %.pre531, 1152920405095219200
   %109 = and i64 %108, 1152920405095219200
-  %110 = and i64 %.pre533, -1152920405095219201
+  %110 = and i64 %.pre531, -1152920405095219201
   %111 = or disjoint i64 %109, %110
   store i64 %111, ptr %75, align 8
   %112 = icmp eq i64 %109, 0
@@ -4767,7 +4767,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit62: ; preds = %_ZNSt3mapIN4cvc58in
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit377: ; preds = %135, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit62, %132
   %.sroa.0529.0 = phi ptr [ %9, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit62 ], [ %9, %132 ], [ %spec.store.select524, %135 ]
   store ptr %.sroa.0529.0, ptr %4, align 8, !tbaa !3
-  store ptr %.sroa.0531.0, ptr %5, align 8, !tbaa !3
+  store ptr %.sroa.0530.0, ptr %5, align 8, !tbaa !3
   %139 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers19ConjectureGenerator19isUniversalLessThanENS0_12NodeTemplateILb0EEES5_(ptr noundef nonnull align 8 dereferenceable(4072) %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
   br i1 %139, label %140, label %217
 

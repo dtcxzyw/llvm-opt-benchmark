@@ -38,11 +38,11 @@ define void @_ZN9grpc_core18HandshakerRegistry7Builder25RegisterHandshakerFactor
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  %9 = icmp eq ptr %6, %8
-  %spec.select = select i1 %9, ptr %6, ptr %8
+  %.not12 = icmp eq ptr %6, %8
+  %spec.select = select i1 %.not12, ptr %6, ptr %8
   br i1 %9, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %21
+.lr.ph:; preds = %3, %20
   %.sroa.08.013 = phi ptr [ %22, %21 ], [ %6, %3 ]
   %10 = load ptr, ptr %2, align 8, !tbaa !8
   %11 = load ptr, ptr %10, align 8, !tbaa !10
@@ -56,62 +56,62 @@ define void @_ZN9grpc_core18HandshakerRegistry7Builder25RegisterHandshakerFactor
   %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(8) %15)
   %20 = icmp slt i32 %14, %19
   %.pre16.pre = load ptr, ptr %7, align 8, !tbaa !12
-  br i1 %20, label %._crit_edge.loopexit, label %21
+  br i1 %20, label %._crit_edge.loopexit, label %20
 
-21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 8
-  %.not = icmp eq ptr %22, %.pre16.pre
+20:                                               ; preds = %.lr.ph
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 8
+  %.not = icmp eq ptr %21, %.pre16.pre
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %21
+._crit_edge.loopexit:                             ; preds = %.lr.ph, %20
   %.sroa.011.0.ph = phi ptr [ %spec.select, %21 ], [ %.sroa.08.013, %.lr.ph ]
   %.pre = load ptr, ptr %5, align 8, !tbaa !3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %23 = phi ptr [ %8, %3 ], [ %.pre16.pre, %._crit_edge.loopexit ]
-  %24 = phi ptr [ %6, %3 ], [ %.pre, %._crit_edge.loopexit ]
+  %22 = phi ptr [ %8, %3 ], [ %.pre16.pre, %._crit_edge.loopexit ]
+  %23 = phi ptr [ %6, %3 ], [ %.pre, %._crit_edge.loopexit ]
   %.sroa.011.0 = phi ptr [ %6, %3 ], [ %.sroa.011.0.ph, %._crit_edge.loopexit ]
-  %25 = ptrtoint ptr %.sroa.011.0 to i64
-  %26 = ptrtoint ptr %24 to i64
-  %27 = sub i64 %25, %26
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !16
-  %.not.i.i = icmp eq ptr %23, %29
-  br i1 %.not.i.i, label %58, label %30
+  %24 = ptrtoint ptr %.sroa.011.0 to i64
+  %25 = ptrtoint ptr %23 to i64
+  %26 = sub i64 %24, %25
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %28 = load ptr, ptr %27, align 8, !tbaa !16
+  %.not.i.i = icmp eq ptr %22, %28
+  br i1 %.not.i.i, label %57, label %29
 
-30:                                               ; preds = %._crit_edge
-  %31 = icmp eq ptr %.sroa.011.0, %23
-  br i1 %31, label %32, label %35
+29:                                               ; preds = %._crit_edge
+  %30 = icmp eq ptr %.sroa.011.0, %22
+  br i1 %30, label %31, label %34
 
-32:                                               ; preds = %30
-  %33 = load i64, ptr %2, align 8, !tbaa !8
-  store i64 %33, ptr %23, align 8, !tbaa !8
+31:                                               ; preds = %29
+  %32 = load i64, ptr %2, align 8, !tbaa !8
+  store i64 %32, ptr %22, align 8, !tbaa !8
   store ptr null, ptr %2, align 8, !tbaa !8
-  %34 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %34, ptr %7, align 8, !tbaa !12
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store ptr %33, ptr %7, align 8, !tbaa !12
   br label %_ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EESaIS5_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEOS5_.exit
 
-35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %24, i64 %27
-  %37 = getelementptr inbounds i8, ptr %23, i64 -8
-  %38 = load i64, ptr %37, align 8, !tbaa !8
-  store i64 %38, ptr %23, align 8, !tbaa !8
-  store ptr null, ptr %37, align 8, !tbaa !8
-  %39 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %39, ptr %7, align 8, !tbaa !12
-  %40 = ptrtoint ptr %37 to i64
-  %41 = sub i64 %40, %25
-  %42 = ashr exact i64 %41, 3
-  %43 = icmp sgt i64 %42, 0
-  br i1 %43, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit.i.i.i
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds i8, ptr %23, i64 %26
+  %36 = getelementptr inbounds i8, ptr %22, i64 -8
+  %37 = load i64, ptr %36, align 8, !tbaa !8
+  store i64 %37, ptr %22, align 8, !tbaa !8
+  store ptr null, ptr %36, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store ptr %38, ptr %7, align 8, !tbaa !12
+  %39 = ptrtoint ptr %36 to i64
+  %40 = sub i64 %39, %24
+  %41 = ashr exact i64 %40, 3
+  %42 = icmp sgt i64 %41, 0
+  br i1 %42, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %35, %_ZNSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i
-  %.010.i.i.i.i.i.i.i.i = phi i64 [ %51, %_ZNSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i ], [ %42, %35 ]
-  %.069.i.i.i.i.i.i.i.i = phi ptr [ %45, %_ZNSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i ], [ %23, %35 ]
-  %.078.i.i.i.i.i.i.i.i = phi ptr [ %44, %_ZNSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i ], [ %37, %35 ]
-  %44 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i.i, i64 -8
-  %45 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i, i64 -8
+.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %34, %_ZNSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i
+  %.010.i.i.i.i.i.i.i.i = phi i64 [ %50, %_ZNSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i ], [ %41, %35 ]
+  %.069.i.i.i.i.i.i.i.i = phi ptr [ %44, %_ZNSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i ], [ %22, %35 ]
+  %.078.i.i.i.i.i.i.i.i = phi ptr [ %43, %_ZNSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i ], [ %36, %35 ]
+  %43 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i.i, i64 -8
+  %44 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i, i64 -8
   %46 = load ptr, ptr %44, align 8, !tbaa !8
   store ptr null, ptr %44, align 8, !tbaa !8
   %47 = load ptr, ptr %45, align 8, !tbaa !8
@@ -120,38 +120,38 @@ define void @_ZN9grpc_core18HandshakerRegistry7Builder25RegisterHandshakerFactor
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN9grpc_core17HandshakerFactoryEEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN9grpc_core17HandshakerFactoryEEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
-  %48 = load ptr, ptr %47, align 8, !tbaa !10
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8
+  %47 = load ptr, ptr %47, align 8, !tbaa !10
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %49 = load ptr, ptr %48, align 8
   tail call void %50(ptr noundef nonnull align 8 dereferenceable(8) %47) #13
   br label %_ZNSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core17HandshakerFactoryEEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
-  %51 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
-  %52 = icmp sgt i64 %.010.i.i.i.i.i.i.i.i, 1
-  br i1 %52, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit.i.i.i, !llvm.loop !17
+  %50 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
+  %51 = icmp sgt i64 %.010.i.i.i.i.i.i.i.i, 1
+  br i1 %51, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit.i.i.i, !llvm.loop !17
 
-_ZSt13move_backwardIPSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i, %35
-  %53 = load ptr, ptr %2, align 8, !tbaa !8
+_ZSt13move_backwardIPSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i, %34
+  %52 = load ptr, ptr %2, align 8, !tbaa !8
   store ptr null, ptr %2, align 8, !tbaa !8
-  %54 = load ptr, ptr %36, align 8, !tbaa !8
-  store ptr %53, ptr %36, align 8, !tbaa !8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %54, null
+  %53 = load ptr, ptr %35, align 8, !tbaa !8
+  store ptr %52, ptr %35, align 8, !tbaa !8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %53, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EESaIS5_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEOS5_.exit, label %_ZNKSt14default_deleteIN9grpc_core17HandshakerFactoryEEclEPS1_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN9grpc_core17HandshakerFactoryEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %_ZSt13move_backwardIPSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit.i.i.i
-  %55 = load ptr, ptr %54, align 8, !tbaa !10
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %57 = load ptr, ptr %56, align 8
-  tail call void %57(ptr noundef nonnull align 8 dereferenceable(8) %54) #13
+  %54 = load ptr, ptr %53, align 8, !tbaa !10
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %56 = load ptr, ptr %55, align 8
+  tail call void %57(ptr noundef nonnull align 8 dereferenceable(8) %53) #13
   br label %_ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EESaIS5_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEOS5_.exit
 
-58:                                               ; preds = %._crit_edge
-  %59 = getelementptr inbounds i8, ptr %24, i64 %27
-  tail call void @_ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %59, ptr noundef nonnull align 8 dereferenceable(8) %2)
+57:                                               ; preds = %._crit_edge
+  %58 = getelementptr inbounds i8, ptr %23, i64 %26
+  tail call void @_ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %58, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %_ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EESaIS5_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEOS5_.exit
 
-_ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EESaIS5_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEOS5_.exit: ; preds = %32, %_ZSt13move_backwardIPSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit.i.i.i, %_ZNKSt14default_deleteIN9grpc_core17HandshakerFactoryEEclEPS1_.exit.i.i.i.i.i.i.i, %58
+_ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EESaIS5_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEOS5_.exit: ; preds = %31, %_ZSt13move_backwardIPSt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit.i.i.i, %_ZNKSt14default_deleteIN9grpc_core17HandshakerFactoryEEclEPS1_.exit.i.i.i.i.i.i.i, %57
   ret void
 }
 

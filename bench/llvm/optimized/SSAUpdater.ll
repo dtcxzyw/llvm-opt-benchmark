@@ -7432,10 +7432,10 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_10SSAUpdaterEE6BBInfoE
   %29 = add i32 %28, 1
   store i32 %29, ptr %15, align 8, !tbaa !61
   %30 = load i32, ptr %6, align 8, !tbaa !61
-  %.not.i90 = icmp eq i32 %30, 0
-  br i1 %.not.i90, label %.loopexit, label %.lr.ph92
+  %.not.i89 = icmp eq i32 %30, 0
+  br i1 %.not.i89, label %.loopexit, label %.lr.ph91
 
-.lr.ph92:                                         ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_10SSAUpdaterEE6BBInfoELb1EE9push_backES5_.exit
+.lr.ph91:                                         ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_10SSAUpdaterEE6BBInfoELb1EE9push_backES5_.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -7451,7 +7451,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_10SSAUpdaterEE6BBInfoE
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %.loopexit, label %36
 
-36:                                               ; preds = %.lr.ph92, %.critedge.loopexit
+36:                                               ; preds = %.lr.ph91, %.critedge.loopexit
   %37 = phi i32 [ %30, %.lr.ph92 ], [ %35, %.critedge.loopexit ]
   %38 = load ptr, ptr %3, align 8, !tbaa !60
   %39 = zext i32 %37 to i64
@@ -7463,8 +7463,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_10SSAUpdaterEE6BBInfoE
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 134217727
-  %.not7588 = icmp eq i32 %46, 0
-  br i1 %.not7588, label %.critedge.loopexit, label %.lr.ph
+  %.not7587 = icmp eq i32 %46, 0
+  br i1 %.not7587, label %.critedge.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
   %47 = getelementptr inbounds i8, ptr %42, i64 -8
@@ -7646,8 +7646,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEPNS_14SSAUpdaterImplINS_10S
 
 142:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEPNS_14SSAUpdaterImplINS_10SSAUpdaterEE6BBInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_EixEOS3_.exit
   %143 = load i8, ptr %53, align 8, !tbaa !74
-  %.not77 = icmp eq i8 %143, 84
-  br i1 %.not77, label %144, label %.loopexit, !llvm.loop !266
+  %.not = icmp eq i8 %143, 84
+  br i1 %.not, label %144, label %.loopexit, !llvm.loop !266
 
 144:                                              ; preds = %142
   %145 = getelementptr inbounds nuw i8, ptr %53, i64 40
@@ -7720,7 +7720,7 @@ select.unfold:                                    ; preds = %151, %140, %_ZN4llv
   br i1 %.not75, label %.critedge.loopexit.loopexit, label %50, !llvm.loop !267
 
 .loopexit:                                        ; preds = %.critedge.loopexit, %151, %142, %144, %140, %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_10SSAUpdaterEE6BBInfoELb1EE9push_backES5_.exit
-  %.not.i87 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_10SSAUpdaterEE6BBInfoELb1EE9push_backES5_.exit ], [ false, %140 ], [ false, %144 ], [ false, %142 ], [ false, %151 ], [ true, %.critedge.loopexit ]
+  %.not.i86 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_10SSAUpdaterEE6BBInfoELb1EE9push_backES5_.exit ], [ false, %140 ], [ false, %144 ], [ false, %142 ], [ false, %151 ], [ true, %.critedge.loopexit ]
   %178 = load ptr, ptr %3, align 8, !tbaa !60
   %179 = icmp eq ptr %178, %5
   br i1 %179, label %_ZN4llvm11SmallVectorIPNS_7PHINodeELj20EED2Ev.exit, label %180
@@ -7731,7 +7731,7 @@ select.unfold:                                    ; preds = %151, %140, %_ZN4llv
 
 _ZN4llvm11SmallVectorIPNS_7PHINodeELj20EED2Ev.exit: ; preds = %.loopexit, %180
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not.i87, label %_ZN4llvm6detail10scope_exitIZNS_14SSAUpdaterImplINS_10SSAUpdaterEE17CheckIfPHIMatchesEPNS_7PHINodeERNS_15SmallVectorImplIPNS4_6BBInfoEEEEUlvE_ED2Ev.exit, label %181
+  br i1 %.not.i86, label %_ZN4llvm6detail10scope_exitIZNS_14SSAUpdaterImplINS_10SSAUpdaterEE17CheckIfPHIMatchesEPNS_7PHINodeERNS_15SmallVectorImplIPNS4_6BBInfoEEEEUlvE_ED2Ev.exit, label %181
 
 181:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_7PHINodeELj20EED2Ev.exit
   %182 = load ptr, ptr %2, align 8, !tbaa !60
@@ -7756,7 +7756,7 @@ _ZZN4llvm14SSAUpdaterImplINS_10SSAUpdaterEE17CheckIfPHIMatchesEPNS_7PHINodeERNS_
   br label %_ZN4llvm6detail10scope_exitIZNS_14SSAUpdaterImplINS_10SSAUpdaterEE17CheckIfPHIMatchesEPNS_7PHINodeERNS_15SmallVectorImplIPNS4_6BBInfoEEEEUlvE_ED2Ev.exit
 
 _ZN4llvm6detail10scope_exitIZNS_14SSAUpdaterImplINS_10SSAUpdaterEE17CheckIfPHIMatchesEPNS_7PHINodeERNS_15SmallVectorImplIPNS4_6BBInfoEEEEUlvE_ED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPNS_7PHINodeELj20EED2Ev.exit, %_ZZN4llvm14SSAUpdaterImplINS_10SSAUpdaterEE17CheckIfPHIMatchesEPNS_7PHINodeERNS_15SmallVectorImplIPNS2_6BBInfoEEEENKUlvE_clEv.exit.i
-  ret i1 %.not.i87
+  ret i1 %.not.i86
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
