@@ -13551,45 +13551,51 @@ define internal noundef i32 @dissect_amqp_1_0_zero(ptr noundef %0, ptr noundef %
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @format_amqp_1_0_int(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #0 {
-  switch i32 %2, label %16 [
-    i32 1, label %5
-    i32 2, label %8
-    i32 4, label %11
-    i32 8, label %14
+  %5 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2)
+  %6 = icmp eq i32 %5, 1
+  br i1 %6, label %.split, label %19
+
+.split:                                           ; preds = %4
+  %7 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
+  switch i32 %7, label %19 [
+    i32 0, label %8
+    i32 1, label %11
+    i32 2, label %14
+    i32 3, label %17
   ]
 
-5:                                                ; preds = %4
-  %6 = tail call signext i8 @tvb_get_int8(ptr noundef %0, i32 noundef %1)
-  %7 = sext i8 %6 to i64
-  br label %19
-
-8:                                                ; preds = %4
-  %9 = tail call signext i16 @tvb_get_ntohis(ptr noundef %0, i32 noundef %1)
-  %10 = sext i16 %9 to i64
-  br label %19
-
-11:                                               ; preds = %4
-  %12 = tail call i32 @tvb_get_ntohil(ptr noundef %0, i32 noundef %1)
-  %13 = sext i32 %12 to i64
-  br label %19
-
-14:                                               ; preds = %4
-  %15 = tail call i64 @tvb_get_ntohi64(ptr noundef %0, i32 noundef %1)
-  br label %19
-
-16:                                               ; preds = %4
-  %17 = tail call ptr @wmem_packet_scope()
-  %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %17, ptr noundef nonnull @.str.1514, i32 noundef %2)
+8:                                                ; preds = %.split
+  %9 = tail call signext i8 @tvb_get_int8(ptr noundef %0, i32 noundef %1)
+  %10 = sext i8 %9 to i64
   br label %22
 
-19:                                               ; preds = %8, %14, %11, %5
-  %.0 = phi i64 [ %7, %5 ], [ %10, %8 ], [ %13, %11 ], [ %15, %14 ]
+11:                                               ; preds = %.split
+  %12 = tail call signext i16 @tvb_get_ntohis(ptr noundef %0, i32 noundef %1)
+  %13 = sext i16 %12 to i64
+  br label %22
+
+14:                                               ; preds = %.split
+  %15 = tail call i32 @tvb_get_ntohil(ptr noundef %0, i32 noundef %1)
+  %16 = sext i32 %15 to i64
+  br label %22
+
+17:                                               ; preds = %.split
+  %18 = tail call i64 @tvb_get_ntohi64(ptr noundef %0, i32 noundef %1)
+  br label %22
+
+19:                                               ; preds = %4, %.split
   %20 = tail call ptr @wmem_packet_scope()
-  %21 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %20, ptr noundef nonnull @.str.1581, i64 noundef %.0)
-  br label %22
+  %21 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %20, ptr noundef nonnull @.str.1514, i32 noundef %2)
+  br label %25
 
-22:                                               ; preds = %19, %16
-  %storemerge = phi ptr [ %18, %16 ], [ %21, %19 ]
+22:                                               ; preds = %11, %17, %14, %8
+  %.0 = phi i64 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ], [ %18, %17 ]
+  %23 = tail call ptr @wmem_packet_scope()
+  %24 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %23, ptr noundef nonnull @.str.1581, i64 noundef %.0)
+  br label %25
+
+25:                                               ; preds = %22, %19
+  %storemerge = phi ptr [ %21, %19 ], [ %24, %22 ]
   store ptr %storemerge, ptr %3, align 8
   ret i32 %2
 }
@@ -14041,6 +14047,12 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11

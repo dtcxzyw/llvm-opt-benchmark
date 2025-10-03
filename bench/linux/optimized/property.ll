@@ -54,7 +54,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_is_acpi_data
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @acpi_data_add_props(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
-  %5 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 40) #14
+  %5 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 40) #15
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7
 
@@ -113,12 +113,12 @@ define dso_local void @acpi_init_properties(ptr noundef %0) local_unnamed_addr #
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 @strcmp(ptr noundef %20, ptr noundef nonnull dereferenceable(8) @.str) #15
+  %21 = tail call i32 @strcmp(ptr noundef %20, ptr noundef nonnull dereferenceable(8) @.str) #16
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %14, !llvm.loop !5
 
 23:                                               ; preds = %18, %14
-  %24 = call i32 @acpi_evaluate_object_typed(ptr noundef nonnull %10, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull %2, i32 noundef 4) #15
+  %24 = call i32 @acpi_evaluate_object_typed(ptr noundef nonnull %10, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull %2, i32 noundef 4) #16
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %164
 
@@ -166,7 +166,7 @@ define dso_local void @acpi_init_properties(ptr noundef %0) local_unnamed_addr #
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(11) @.str.10, ptr noundef %50) #15
+  %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(11) @.str.10, ptr noundef %50) #16
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %.thread.thread, label %.lr.ph
 
@@ -188,7 +188,7 @@ define dso_local void @acpi_init_properties(ptr noundef %0) local_unnamed_addr #
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
-  %64 = call i32 @strcmp(ptr noundef nonnull dereferenceable(11) @.str.10, ptr noundef %63) #15
+  %64 = call i32 @strcmp(ptr noundef nonnull dereferenceable(11) @.str.10, ptr noundef %63) #16
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %.thread, label %.lr.ph, !llvm.loop !8
 
@@ -266,7 +266,7 @@ define dso_local void @acpi_init_properties(ptr noundef %0) local_unnamed_addr #
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
-  %110 = call i32 @strcmp(ptr noundef nonnull dereferenceable(11) @.str.10, ptr noundef %109) #15
+  %110 = call i32 @strcmp(ptr noundef nonnull dereferenceable(11) @.str.10, ptr noundef %109) #16
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %.thread21.thread, label %.lr.ph57
 
@@ -288,7 +288,7 @@ define dso_local void @acpi_init_properties(ptr noundef %0) local_unnamed_addr #
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8
-  %123 = call i32 @strcmp(ptr noundef nonnull dereferenceable(11) @.str.10, ptr noundef %122) #15
+  %123 = call i32 @strcmp(ptr noundef nonnull dereferenceable(11) @.str.10, ptr noundef %122) #16
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %.thread21, label %.lr.ph57, !llvm.loop !8
 
@@ -359,7 +359,7 @@ thread-pre-split:                                 ; preds = %150
 
 159:                                              ; preds = %156
   %160 = load ptr, ptr %3, align 8
-  call void @kfree(ptr noundef %160) #15
+  call void @kfree(ptr noundef %160) #16
   br label %164
 
 161:                                              ; preds = %156
@@ -382,7 +382,7 @@ thread-pre-split:                                 ; preds = %150
 
 170:                                              ; preds = %165
   %171 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.2, ptr noundef %171, ptr noundef nonnull @.str.3) #15
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.2, ptr noundef %171, ptr noundef nonnull @.str.3) #16
   br label %172
 
 172:                                              ; preds = %170, %165, %164
@@ -391,7 +391,7 @@ thread-pre-split:                                 ; preds = %150
   br i1 %174, label %175, label %176
 
 175:                                              ; preds = %172
-  call void @acpi_extract_apple_properties(ptr noundef %0) #15
+  call void @acpi_extract_apple_properties(ptr noundef %0) #16
   br label %176
 
 176:                                              ; preds = %175, %172, %1
@@ -464,7 +464,7 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
   %42 = zext i32 %41 to i64
   %43 = shl nuw nsw i64 %42, 5
   %44 = add nuw nsw i64 %43, 64
-  %45 = call noalias ptr @kvmalloc_node(i64 noundef %44, i32 noundef 3520, i32 noundef -1) #16
+  %45 = call noalias ptr @kvmalloc_node(i64 noundef %44, i32 noundef 3520, i32 noundef -1) #17
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread10, label %47
 
@@ -510,7 +510,7 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
 
 ._crit_edge:                                      ; preds = %61
   %71 = trunc nuw i64 %62 to i32
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %71, i32 noundef %69) #15
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %71, i32 noundef %69) #16
   br label %104
 
 72:                                               ; preds = %61
@@ -525,13 +525,13 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
   br i1 %or.cond32, label %80, label %79
 
 79:                                               ; preds = %72
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %76, i32 noundef %.pre19) #15
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %76, i32 noundef %.pre19) #16
   br label %104
 
 80:                                               ; preds = %72
   %81 = getelementptr i8, ptr %74, i64 32
   %82 = load ptr, ptr %81, align 8
-  %83 = call i32 @acpi_evaluate_object_typed(ptr noundef %0, ptr noundef %82, ptr noundef null, ptr noundef nonnull %4, i32 noundef 3) #15
+  %83 = call i32 @acpi_evaluate_object_typed(ptr noundef %0, ptr noundef %82, ptr noundef null, ptr noundef nonnull %4, i32 noundef 3) #16
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %89, label %85
 
@@ -539,7 +539,7 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
   %86 = getelementptr i8, ptr %74, i64 28
   %87 = load i32, ptr %86, align 4
   %88 = load ptr, ptr %81, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %87, ptr noundef %88) #15
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %87, ptr noundef %88) #16
   br label %104
 
 89:                                               ; preds = %80
@@ -593,7 +593,7 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
   br label %.thread10
 
 .thread:                                          ; preds = %47, %110
-  call void @kvfree(ptr noundef nonnull %45) #15
+  call void @kvfree(ptr noundef nonnull %45) #16
   br label %.thread10
 
 .preheader:                                       ; preds = %36, %120
@@ -689,7 +689,7 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
 
 .critedge:                                        ; preds = %126, %.loopexit
   %168 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
-  %169 = call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %168, i32 noundef 3520, i64 noundef 40) #14
+  %169 = call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %168, i32 noundef 3520, i64 noundef 40) #15
   %170 = icmp eq ptr %169, null
   br i1 %170, label %.thread10, label %171
 
@@ -818,7 +818,7 @@ define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0
   %63 = load ptr, ptr %54, align 8
   %64 = getelementptr i8, ptr %63, i64 32
   %65 = load ptr, ptr %64, align 8
-  %66 = call i32 @acpi_get_handle(ptr noundef nonnull %0, ptr noundef %65, ptr noundef nonnull %6) #15
+  %66 = call i32 @acpi_get_handle(ptr noundef nonnull %0, ptr noundef %65, ptr noundef nonnull %6) #16
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %79
 
@@ -827,7 +827,7 @@ define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 -1, ptr %5, align 8
   store ptr null, ptr %16, align 8
-  %70 = call i32 @acpi_evaluate_object_typed(ptr noundef %69, ptr noundef null, ptr noundef null, ptr noundef nonnull %5, i32 noundef 4) #15
+  %70 = call i32 @acpi_evaluate_object_typed(ptr noundef %69, ptr noundef null, ptr noundef null, ptr noundef nonnull %5, i32 noundef 4) #16
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %77
 
@@ -838,7 +838,7 @@ define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0
 
 75:                                               ; preds = %72
   %76 = load ptr, ptr %16, align 8
-  call void @kfree(ptr noundef %76) #15
+  call void @kfree(ptr noundef %76) #16
   br label %77
 
 77:                                               ; preds = %75, %72, %68
@@ -857,7 +857,7 @@ define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 -1, ptr %7, align 8
   store ptr null, ptr %14, align 8
-  %84 = call i32 @acpi_evaluate_object_typed(ptr noundef %83, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, i32 noundef 4) #15
+  %84 = call i32 @acpi_evaluate_object_typed(ptr noundef %83, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, i32 noundef 4) #16
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %91
 
@@ -868,7 +868,7 @@ define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0
 
 89:                                               ; preds = %86
   %90 = load ptr, ptr %14, align 8
-  call void @kfree(ptr noundef %90) #15
+  call void @kfree(ptr noundef %90) #16
   br label %91
 
 91:                                               ; preds = %89, %86, %81
@@ -924,7 +924,7 @@ define internal fastcc noundef zeroext i1 @acpi_tie_nondev_subnodes(ptr noundef 
   %8 = getelementptr i8, ptr %5, i64 -136
   %9 = getelementptr i8, ptr %5, i64 -128
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @acpi_attach_data(ptr noundef %10, ptr noundef nonnull @acpi_nondev_subnode_tag, ptr noundef %8) #15
+  %11 = tail call i32 @acpi_attach_data(ptr noundef %10, ptr noundef nonnull @acpi_nondev_subnode_tag, ptr noundef %8) #16
   switch i32 %11, label %12 [
     i32 7, label %15
     i32 0, label %15
@@ -933,7 +933,7 @@ define internal fastcc noundef zeroext i1 @acpi_tie_nondev_subnodes(ptr noundef 
 12:                                               ; preds = %7
   %13 = getelementptr i8, ptr %5, i64 -128
   %14 = load ptr, ptr %13, align 8
-  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.11, ptr noundef %14, ptr noundef nonnull @.str.12) #15
+  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.11, ptr noundef %14, ptr noundef nonnull @.str.12) #16
   br label %.loopexit
 
 15:                                               ; preds = %7, %7
@@ -957,7 +957,7 @@ define internal fastcc void @acpi_untie_nondev_subnodes(ptr noundef readonly cap
   %5 = phi ptr [ %10, %.preheader ], [ %3, %1 ]
   %6 = getelementptr i8, ptr %5, i64 -128
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 @acpi_detach_data(ptr noundef %7, ptr noundef nonnull @acpi_nondev_subnode_tag) #15
+  %8 = tail call i32 @acpi_detach_data(ptr noundef %7, ptr noundef nonnull @acpi_nondev_subnode_tag) #16
   %9 = getelementptr i8, ptr %5, i64 -48
   tail call fastcc void @acpi_untie_nondev_subnodes(ptr noundef %9)
   %10 = load ptr, ptr %5, align 8
@@ -981,7 +981,7 @@ define dso_local void @acpi_free_properties(ptr noundef %0) local_unnamed_addr #
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 560
   tail call fastcc void @acpi_destroy_nondev_subnodes(ptr noundef nonnull %3)
   %4 = load ptr, ptr %2, align 8
-  tail call void @kfree(ptr noundef %4) #15
+  tail call void @kfree(ptr noundef %4) #16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store ptr null, ptr %5, align 8
   store ptr null, ptr %2, align 8
@@ -1019,7 +1019,7 @@ define dso_local void @acpi_free_properties(ptr noundef %0) local_unnamed_addr #
   %25 = load ptr, ptr %15, align 8
   %26 = getelementptr ptr, ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8
-  tail call void @kfree(ptr noundef %27) #15
+  tail call void @kfree(ptr noundef %27) #16
   %28 = add nuw nsw i64 %24, 1
   %29 = load ptr, ptr %19, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -1029,7 +1029,7 @@ define dso_local void @acpi_free_properties(ptr noundef %0) local_unnamed_addr #
   br i1 %33, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %18, %.preheader2
-  tail call void @kvfree(ptr noundef %10) #15
+  tail call void @kvfree(ptr noundef %10) #16
   %34 = icmp eq ptr %11, %6
   br i1 %34, label %.loopexit3, label %.preheader2, !llvm.loop !22
 
@@ -1058,7 +1058,7 @@ define internal fastcc void @acpi_destroy_nondev_subnodes(ptr noundef %0) unname
   %13 = getelementptr i8, ptr %8, i64 -16
   tail call fastcc void @acpi_destroy_nondev_subnodes(ptr noundef %13)
   %14 = getelementptr i8, ptr %8, i64 80
-  tail call void @wait_for_completion(ptr noundef %14) #15
+  tail call void @wait_for_completion(ptr noundef %14) #16
   %15 = load ptr, ptr %9, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1067,7 +1067,7 @@ define internal fastcc void @acpi_destroy_nondev_subnodes(ptr noundef %0) unname
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %8, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %9, align 8
   %18 = load ptr, ptr %12, align 8
-  tail call void @kfree(ptr noundef %18) #15
+  tail call void @kfree(ptr noundef %18) #16
   %19 = getelementptr i8, ptr %8, i64 -40
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %19
@@ -1102,7 +1102,7 @@ define internal fastcc void @acpi_destroy_nondev_subnodes(ptr noundef %0) unname
   %38 = load ptr, ptr %28, align 8
   %39 = getelementptr ptr, ptr %38, i64 %37
   %40 = load ptr, ptr %39, align 8
-  tail call void @kfree(ptr noundef %40) #15
+  tail call void @kfree(ptr noundef %40) #16
   %41 = add nuw nsw i64 %37, 1
   %42 = load ptr, ptr %32, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
@@ -1112,12 +1112,12 @@ define internal fastcc void @acpi_destroy_nondev_subnodes(ptr noundef %0) unname
   br i1 %46, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %31, %.preheader5
-  tail call void @kvfree(ptr noundef %23) #15
+  tail call void @kvfree(ptr noundef %23) #16
   %47 = icmp eq ptr %24, %19
   br i1 %47, label %.loopexit6, label %.preheader5, !llvm.loop !22
 
 .loopexit6:                                       ; preds = %.loopexit, %.preheader7
-  tail call void @kfree(ptr noundef %10) #15
+  tail call void @kfree(ptr noundef %10) #16
   %48 = icmp eq ptr %11, %0
   br i1 %48, label %.loopexit8, label %.preheader7, !llvm.loop !23
 
@@ -1176,7 +1176,7 @@ define dso_local range(i32 -71, 1) i32 @acpi_dev_get_property(ptr noundef %0, pt
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %33) #15
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %33) #16
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %25
 
@@ -1271,7 +1271,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_node_prop_get(ptr noundef %
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %42) #15
+  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %42) #16
   %.not16 = icmp eq i32 %43, 0
   br i1 %.not16, label %.thread, label %44, !llvm.loop !9
 
@@ -1312,7 +1312,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_node_prop_get(ptr noundef %
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %65) #15
+  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %65) #16
   %.not15 = icmp eq i32 %66, 0
   br i1 %.not15, label %.thread10, label %57
 
@@ -1394,7 +1394,7 @@ select.unfold:                                    ; preds = %19, %17
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %45) #15
+  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %45) #16
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %.thread31, label %48
 
@@ -1415,7 +1415,7 @@ select.unfold:                                    ; preds = %19, %17
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %59) #15
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %59) #16
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %.split.loop.exit, label %51, !llvm.loop !8
 
@@ -1440,7 +1440,7 @@ select.unfold:                                    ; preds = %19, %17
 67:                                               ; preds = %65
   %68 = getelementptr i8, ptr %.lcssa120.lcssa.sink, i64 32
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %69) #15
+  %70 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %69) #16
   %71 = icmp eq ptr %70, null
   br i1 %71, label %.thread, label %72
 
@@ -1473,19 +1473,19 @@ select.unfold:                                    ; preds = %19, %17
   store ptr null, ptr %9, align 8, !annotation !16
   %84 = getelementptr i8, ptr %0, i64 -8
   %85 = load ptr, ptr %84, align 8
-  %86 = call i32 @acpi_get_handle(ptr noundef %85, ptr noundef %81, ptr noundef nonnull %8) #15
+  %86 = call i32 @acpi_get_handle(ptr noundef %85, ptr noundef %81, ptr noundef nonnull %8) #16
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %acpi_parse_string_ref.exit.thread
 
 88:                                               ; preds = %83
   %89 = load ptr, ptr %8, align 8
-  %90 = call ptr @acpi_fetch_acpi_dev(ptr noundef %89) #15
+  %90 = call ptr @acpi_fetch_acpi_dev(ptr noundef %89) #16
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %select.unfold34
 
 92:                                               ; preds = %88
   %93 = load ptr, ptr %8, align 8
-  %94 = call i32 @acpi_get_data_full(ptr noundef %93, ptr noundef nonnull @acpi_nondev_subnode_tag, ptr noundef nonnull %9, ptr noundef null) #15
+  %94 = call i32 @acpi_get_data_full(ptr noundef %93, ptr noundef nonnull @acpi_nondev_subnode_tag, ptr noundef nonnull %9, ptr noundef null) #16
   %95 = icmp eq i32 %94, 0
   %96 = load ptr, ptr %9, align 8
   %97 = icmp ne ptr %96, null
@@ -1539,7 +1539,7 @@ select.unfold34:                                  ; preds = %88, %92
 118:                                              ; preds = %114
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %120 = load ptr, ptr %119, align 8
-  %121 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %120) #15
+  %121 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %120) #16
   %122 = icmp eq ptr %121, null
   br i1 %122, label %.thread, label %123
 
@@ -1636,19 +1636,19 @@ select.unfold34:                                  ; preds = %88, %92
   store ptr null, ptr %6, align 8, !annotation !16
   store ptr null, ptr %7, align 8, !annotation !16
   %172 = load ptr, ptr %113, align 8
-  %173 = call i32 @acpi_get_handle(ptr noundef %172, ptr noundef %167, ptr noundef nonnull %6) #15
+  %173 = call i32 @acpi_get_handle(ptr noundef %172, ptr noundef %167, ptr noundef nonnull %6) #16
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %175, label %acpi_parse_string_ref.exit30.thread
 
 175:                                              ; preds = %171
   %176 = load ptr, ptr %6, align 8
-  %177 = call ptr @acpi_fetch_acpi_dev(ptr noundef %176) #15
+  %177 = call ptr @acpi_fetch_acpi_dev(ptr noundef %176) #16
   %178 = icmp eq ptr %177, null
   br i1 %178, label %179, label %select.unfold42
 
 179:                                              ; preds = %175
   %180 = load ptr, ptr %6, align 8
-  %181 = call i32 @acpi_get_data_full(ptr noundef %180, ptr noundef nonnull @acpi_nondev_subnode_tag, ptr noundef nonnull %7, ptr noundef null) #15
+  %181 = call i32 @acpi_get_data_full(ptr noundef %180, ptr noundef nonnull @acpi_nondev_subnode_tag, ptr noundef nonnull %7, ptr noundef null) #16
   %182 = icmp eq i32 %181, 0
   %183 = load ptr, ptr %7, align 8
   %184 = icmp ne ptr %183, null
@@ -1819,7 +1819,7 @@ define dso_local ptr @acpi_get_next_subnode(ptr noundef %0, ptr noundef %1) #0 a
   %30 = phi ptr [ %11, %.thread12 ], [ %17, %27 ]
   %31 = phi ptr [ null, %.thread12 ], [ %28, %27 ]
   store ptr %31, ptr %3, align 8
-  %32 = call i32 @acpi_dev_for_each_child(ptr noundef nonnull %29, ptr noundef nonnull @stop_on_next, ptr noundef nonnull %3) #15
+  %32 = call i32 @acpi_dev_for_each_child(ptr noundef nonnull %29, ptr noundef nonnull @stop_on_next, ptr noundef nonnull %3) #16
   %33 = load ptr, ptr %3, align 8
   %34 = icmp eq ptr %33, null
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -1969,7 +1969,7 @@ define internal zeroext i1 @acpi_fwnode_device_is_available(ptr noundef %0) #0 a
 
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %0, i64 -16
-  %11 = tail call zeroext i1 @acpi_device_is_present(ptr noundef %10) #15
+  %11 = tail call zeroext i1 @acpi_device_is_present(ptr noundef %10) #16
   br label %12
 
 12:                                               ; preds = %9, %5, %1
@@ -1979,7 +1979,7 @@ define internal zeroext i1 @acpi_fwnode_device_is_available(ptr noundef %0) #0 a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @acpi_fwnode_device_get_match_data(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
-  %3 = tail call ptr @acpi_device_get_match_data(ptr noundef %1) #15
+  %3 = tail call ptr @acpi_device_get_match_data(ptr noundef %1) #16
   ret ptr %3
 }
 
@@ -2001,7 +2001,7 @@ define internal zeroext i1 @acpi_fwnode_device_dma_supported(ptr noundef %0) #0 
 
 .thread:                                          ; preds = %5, %1
   %10 = phi ptr [ null, %1 ], [ %spec.select, %5 ]
-  %11 = tail call zeroext i1 @acpi_dma_supported(ptr noundef %10) #15
+  %11 = tail call zeroext i1 @acpi_dma_supported(ptr noundef %10) #16
   ret i1 %11
 }
 
@@ -2023,7 +2023,7 @@ define internal i32 @acpi_fwnode_device_get_dma_attr(ptr noundef %0) #0 align 16
 
 .thread:                                          ; preds = %5, %1
   %10 = phi ptr [ null, %1 ], [ %spec.select, %5 ]
-  %11 = tail call i32 @acpi_get_dma_attr(ptr noundef %10) #15
+  %11 = tail call i32 @acpi_get_dma_attr(ptr noundef %10) #16
   ret i32 %11
 }
 
@@ -2075,7 +2075,7 @@ define internal noundef zeroext i1 @acpi_fwnode_property_present(ptr noundef %0,
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %36) #15
+  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %36) #16
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %.thread, label %39
 
@@ -2096,7 +2096,7 @@ define internal noundef zeroext i1 @acpi_fwnode_property_present(ptr noundef %0,
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %50) #15
+  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %50) #16
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %42, !llvm.loop !8
 
@@ -2116,30 +2116,22 @@ define internal noundef zeroext i1 @acpi_fwnode_property_present(ptr noundef %0,
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
 define internal i32 @acpi_fwnode_property_read_int_array(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i64 noundef %4) #4 align 16 {
-  switch i32 %2, label %12 [
-    i32 1, label %9
-    i32 2, label %6
-    i32 4, label %7
-    i32 8, label %8
-  ]
+  %6 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2)
+  %7 = icmp eq i32 %6, 1
+  br i1 %7, label %.split, label %11
 
-6:                                                ; preds = %5
-  br label %9
+.split:                                           ; preds = %5
+  %8 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
+  %switch = icmp samesign ult i32 %8, 4
+  br i1 %switch, label %9, label %11
 
-7:                                                ; preds = %5
-  br label %9
+9:                                                ; preds = %.split
+  %10 = tail call fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef %1, i32 noundef %8, ptr noundef %3, i64 noundef %4)
+  br label %11
 
-8:                                                ; preds = %5
-  br label %9
-
-9:                                                ; preds = %8, %7, %6, %5
-  %10 = phi i32 [ 3, %8 ], [ 2, %7 ], [ 1, %6 ], [ 0, %5 ]
-  %11 = tail call fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef %1, i32 noundef %10, ptr noundef %3, i64 noundef %4)
-  br label %12
-
-12:                                               ; preds = %9, %5
-  %13 = phi i32 [ %11, %9 ], [ -6, %5 ]
-  ret i32 %13
+11:                                               ; preds = %.split, %5, %9
+  %12 = phi i32 [ %10, %9 ], [ -6, %.split ], [ -6, %5 ]
+  ret i32 %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
@@ -2150,12 +2142,12 @@ define internal i32 @acpi_fwnode_property_read_string_array(ptr noundef %0, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @acpi_fwnode_get_name(ptr noundef %0) #0 align 16 {
-  %2 = tail call ptr @fwnode_get_parent(ptr noundef %0) #15
+  %2 = tail call ptr @fwnode_get_parent(ptr noundef %0) #16
   %3 = icmp eq ptr %2, null
   br i1 %3, label %22, label %4
 
 4:                                                ; preds = %1
-  tail call void @fwnode_handle_put(ptr noundef nonnull %2) #15
+  tail call void @fwnode_handle_put(ptr noundef nonnull %2) #16
   %5 = icmp eq ptr %0, null
   %6 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %7 = or i1 %5, %6
@@ -2180,9 +2172,9 @@ define internal ptr @acpi_fwnode_get_name(ptr noundef %0) #0 align 16 {
   br i1 %19, label %.thread, label %20, !prof !27
 
 .thread:                                          ; preds = %4, %15
-  tail call void asm sideeffect "321: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 321b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 321) #15, !srcloc !28
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1582, i32 2305, i64 12) #15, !srcloc !29
-  tail call void asm sideeffect "322: nop\0A\09.pushsection .discard.instr_end\0A\09.long 322b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 322) #15, !srcloc !30
+  tail call void asm sideeffect "321: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 321b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 321) #16, !srcloc !28
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1582, i32 2305, i64 12) #16, !srcloc !29
+  tail call void asm sideeffect "322: nop\0A\09.pushsection .discard.instr_end\0A\09.long 322b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 322) #16, !srcloc !30
   br label %22
 
 20:                                               ; preds = %15
@@ -2196,17 +2188,17 @@ define internal ptr @acpi_fwnode_get_name(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef nonnull ptr @acpi_fwnode_get_name_prefix(ptr noundef %0) #0 align 16 {
-  %2 = tail call ptr @fwnode_get_parent(ptr noundef %0) #15
+  %2 = tail call ptr @fwnode_get_parent(ptr noundef %0) #16
   %3 = icmp eq ptr %2, null
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @fwnode_get_next_parent(ptr noundef nonnull %2) #15
+  %5 = tail call ptr @fwnode_get_next_parent(ptr noundef nonnull %2) #16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void @fwnode_handle_put(ptr noundef nonnull %5) #15
+  tail call void @fwnode_handle_put(ptr noundef nonnull %5) #16
   br label %8
 
 8:                                                ; preds = %7, %4, %1
@@ -2256,7 +2248,7 @@ define internal ptr @acpi_node_get_parent(ptr noundef readonly captures(address)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @acpi_fwnode_get_named_child_node(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
-  %3 = tail call ptr @fwnode_get_next_child_node(ptr noundef %0, ptr noundef null) #15
+  %3 = tail call ptr @fwnode_get_next_child_node(ptr noundef %0, ptr noundef null) #16
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -2274,18 +2266,18 @@ define internal ptr @acpi_fwnode_get_named_child_node(ptr noundef %0, ptr nounde
 11:                                               ; preds = %7
   %12 = getelementptr i8, ptr %5, i64 -16
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @strcmp(ptr noundef %13, ptr noundef %1) #15
+  %14 = tail call i32 @strcmp(ptr noundef %13, ptr noundef %1) #16
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.loopexit, label %20
 
 16:                                               ; preds = %7, %.preheader
   %17 = getelementptr i8, ptr %5, i64 104
-  %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef %1, i64 noundef 4) #15
+  %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef %1, i64 noundef 4) #16
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %16, %11
-  %21 = tail call ptr @fwnode_get_next_child_node(ptr noundef %0, ptr noundef nonnull %5) #15
+  %21 = tail call ptr @fwnode_get_next_child_node(ptr noundef %0, ptr noundef nonnull %5) #16
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !31
 
@@ -2309,7 +2301,7 @@ define internal ptr @acpi_graph_get_next_endpoint(ptr noundef %0, ptr noundef %1
 
 .preheader10:                                     ; preds = %2, %is_acpi_graph_node.exit
   %4 = phi ptr [ %5, %is_acpi_graph_node.exit ], [ null, %2 ]
-  %5 = tail call ptr @fwnode_get_next_child_node(ptr noundef %0, ptr noundef %4) #15
+  %5 = tail call ptr @fwnode_get_next_child_node(ptr noundef %0, ptr noundef %4) #16
   %6 = icmp eq ptr %5, null
   %7 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
   %8 = or i1 %6, %7
@@ -2324,11 +2316,11 @@ define internal ptr @acpi_graph_get_next_endpoint(ptr noundef %0, ptr noundef %1
 13:                                               ; preds = %9
   %14 = getelementptr i8, ptr %5, i64 -16
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %5, ptr noundef nonnull @.str.19) #15
+  %16 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %5, ptr noundef nonnull @.str.19) #16
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %13
-  %18 = tail call i32 @strncmp(ptr noundef %15, ptr noundef nonnull dereferenceable(5) @.str.17, i64 noundef 4) #15
+  %18 = tail call i32 @strncmp(ptr noundef %15, ptr noundef nonnull dereferenceable(5) @.str.17, i64 noundef 4) #16
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %24
 
@@ -2339,7 +2331,7 @@ define internal ptr @acpi_graph_get_next_endpoint(ptr noundef %0, ptr noundef %1
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %20, %17, %13
-  %25 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %5, ptr noundef nonnull @.str.17) #15
+  %25 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %5, ptr noundef nonnull @.str.17) #16
   br label %is_acpi_graph_node.exit
 
 is_acpi_graph_node.exit:                          ; preds = %.preheader10, %9, %24
@@ -2348,7 +2340,7 @@ is_acpi_graph_node.exit:                          ; preds = %.preheader10, %9, %
   br i1 %27, label %.loopexit11, label %.preheader10, !llvm.loop !33
 
 28:                                               ; preds = %2
-  %29 = tail call ptr @fwnode_get_parent(ptr noundef nonnull %1) #15
+  %29 = tail call ptr @fwnode_get_parent(ptr noundef nonnull %1) #16
   br label %.loopexit11
 
 .loopexit11:                                      ; preds = %is_acpi_graph_node.exit, %28
@@ -2358,13 +2350,13 @@ is_acpi_graph_node.exit:                          ; preds = %.preheader10, %9, %
 
 .thread:                                          ; preds = %20, %.loopexit11
   %32 = phi ptr [ %30, %.loopexit11 ], [ %5, %20 ]
-  %33 = tail call ptr @fwnode_get_next_child_node(ptr noundef nonnull %32, ptr noundef %1) #15
+  %33 = tail call ptr @fwnode_get_next_child_node(ptr noundef nonnull %32, ptr noundef %1) #16
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.thread, %59
   %35 = phi ptr [ %36, %59 ], [ %32, %.thread ]
-  %36 = tail call ptr @fwnode_get_next_child_node(ptr noundef %0, ptr noundef nonnull %35) #15
+  %36 = tail call ptr @fwnode_get_next_child_node(ptr noundef %0, ptr noundef nonnull %35) #16
   %37 = icmp eq ptr %36, null
   br i1 %37, label %is_acpi_graph_node.exit6.thread, label %38
 
@@ -2381,11 +2373,11 @@ is_acpi_graph_node.exit:                          ; preds = %.preheader10, %9, %
 44:                                               ; preds = %40
   %45 = getelementptr i8, ptr %36, i64 -16
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %36, ptr noundef nonnull @.str.19) #15
+  %47 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %36, ptr noundef nonnull @.str.19) #16
   br i1 %47, label %48, label %55
 
 48:                                               ; preds = %44
-  %49 = tail call i32 @strncmp(ptr noundef %46, ptr noundef nonnull dereferenceable(5) @.str.17, i64 noundef 4) #15
+  %49 = tail call i32 @strncmp(ptr noundef %46, ptr noundef nonnull dereferenceable(5) @.str.17, i64 noundef 4) #16
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %55
 
@@ -2396,11 +2388,11 @@ is_acpi_graph_node.exit:                          ; preds = %.preheader10, %9, %
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %51, %48, %44
-  %56 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %36, ptr noundef nonnull @.str.17) #15
+  %56 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %36, ptr noundef nonnull @.str.17) #16
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %55, %51
-  %58 = tail call ptr @fwnode_get_next_child_node(ptr noundef nonnull %36, ptr noundef null) #15
+  %58 = tail call ptr @fwnode_get_next_child_node(ptr noundef nonnull %36, ptr noundef null) #16
   br label %59
 
 59:                                               ; preds = %57, %55, %40, %38
@@ -2422,11 +2414,11 @@ is_acpi_graph_node.exit:                          ; preds = %.preheader10, %9, %
 68:                                               ; preds = %64
   %69 = getelementptr i8, ptr %62, i64 -16
   %70 = load ptr, ptr %69, align 8
-  %71 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %62, ptr noundef nonnull @.str.19) #15
+  %71 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %62, ptr noundef nonnull @.str.19) #16
   br i1 %71, label %72, label %is_acpi_graph_node.exit6
 
 72:                                               ; preds = %68
-  %73 = tail call i32 @strncmp(ptr noundef %70, ptr noundef nonnull dereferenceable(9) @.str.18, i64 noundef 8) #15
+  %73 = tail call i32 @strncmp(ptr noundef %70, ptr noundef nonnull dereferenceable(9) @.str.18, i64 noundef 8) #16
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %is_acpi_graph_node.exit6
 
@@ -2437,7 +2429,7 @@ is_acpi_graph_node.exit:                          ; preds = %.preheader10, %9, %
   br i1 %78, label %is_acpi_graph_node.exit6.thread8, label %is_acpi_graph_node.exit6
 
 is_acpi_graph_node.exit6:                         ; preds = %68, %72, %75
-  %79 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %62, ptr noundef nonnull @.str.18) #15
+  %79 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %62, ptr noundef nonnull @.str.18) #16
   %cond.fr = freeze i1 %79
   br i1 %cond.fr, label %is_acpi_graph_node.exit6.thread8, label %is_acpi_graph_node.exit6.thread
 
@@ -2493,7 +2485,7 @@ define internal ptr @acpi_graph_get_remote_endpoint(ptr noundef %0) #0 align 16 
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = trunc i64 %30 to i32
-  %32 = call ptr @fwnode_get_next_child_node(ptr noundef nonnull %8, ptr noundef null) #15
+  %32 = call ptr @fwnode_get_next_child_node(ptr noundef nonnull %8, ptr noundef null) #16
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.loopexit6, label %.preheader5
 
@@ -2502,7 +2494,7 @@ define internal ptr @acpi_graph_get_remote_endpoint(ptr noundef %0) #0 align 16 
   %35 = phi ptr [ %42, %44 ], [ undef, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !16
-  %36 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %34, ptr noundef nonnull @.str.17, ptr noundef nonnull %3, i64 noundef 1) #15
+  %36 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %34, ptr noundef nonnull @.str.17, ptr noundef nonnull %3, i64 noundef 1) #16
   %37 = icmp eq i32 %36, 0
   %38 = load i32, ptr %3, align 4
   %39 = icmp eq i32 %38, %28
@@ -2517,13 +2509,13 @@ define internal ptr @acpi_graph_get_remote_endpoint(ptr noundef %0) #0 align 16 
   ]
 
 44:                                               ; preds = %.preheader5, %.preheader5
-  %45 = call ptr @fwnode_get_next_child_node(ptr noundef nonnull %8, ptr noundef nonnull %34) #15
+  %45 = call ptr @fwnode_get_next_child_node(ptr noundef nonnull %8, ptr noundef nonnull %34) #16
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.loopexit6, label %.preheader5, !llvm.loop !35
 
 .loopexit6:                                       ; preds = %44, %.preheader5, %25
   %47 = phi ptr [ null, %25 ], [ null, %44 ], [ %42, %.preheader5 ]
-  %48 = call ptr @fwnode_get_next_child_node(ptr noundef %47, ptr noundef null) #15
+  %48 = call ptr @fwnode_get_next_child_node(ptr noundef %47, ptr noundef null) #16
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.loopexit, label %.preheader
 
@@ -2532,7 +2524,7 @@ define internal ptr @acpi_graph_get_remote_endpoint(ptr noundef %0) #0 align 16 
   %51 = phi ptr [ %58, %60 ], [ undef, %.loopexit6 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !annotation !16
-  %52 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %50, ptr noundef nonnull @.str.18, ptr noundef nonnull %2, i64 noundef 1) #15
+  %52 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %50, ptr noundef nonnull @.str.18, ptr noundef nonnull %2, i64 noundef 1) #16
   %53 = icmp eq i32 %52, 0
   %54 = load i32, ptr %2, align 4
   %55 = icmp eq i32 %54, %31
@@ -2547,7 +2539,7 @@ define internal ptr @acpi_graph_get_remote_endpoint(ptr noundef %0) #0 align 16 
   ]
 
 60:                                               ; preds = %.preheader, %.preheader
-  %61 = call ptr @fwnode_get_next_child_node(ptr noundef %47, ptr noundef nonnull %50) #15
+  %61 = call ptr @fwnode_get_next_child_node(ptr noundef %47, ptr noundef nonnull %50) #16
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.loopexit, label %.preheader, !llvm.loop !35
 
@@ -2599,25 +2591,25 @@ define internal ptr @acpi_fwnode_get_parent(ptr noundef readonly captures(addres
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @acpi_fwnode_graph_parse_endpoint(ptr noundef %0, ptr noundef initializes((8, 16)) %1) #0 align 16 {
-  %3 = tail call ptr @fwnode_get_parent(ptr noundef %0) #15
+  %3 = tail call ptr @fwnode_get_parent(ptr noundef %0) #16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %4, align 8
-  %5 = tail call i32 @fwnode_property_read_u32_array(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef %1, i64 noundef 1) #15
+  %5 = tail call i32 @fwnode_property_read_u32_array(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef %1, i64 noundef 1) #16
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @fwnode_property_read_u32_array(ptr noundef %3, ptr noundef nonnull @.str.17, ptr noundef %1, i64 noundef 1) #15
+  %8 = tail call i32 @fwnode_property_read_u32_array(ptr noundef %3, ptr noundef nonnull @.str.17, ptr noundef %1, i64 noundef 1) #16
   br label %9
 
 9:                                                ; preds = %7, %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %11 = tail call i32 @fwnode_property_read_u32_array(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef nonnull %10, i64 noundef 1) #15
+  %11 = tail call i32 @fwnode_property_read_u32_array(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef nonnull %10, i64 noundef 1) #16
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %9
-  %14 = tail call i32 @fwnode_property_read_u32_array(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %10, i64 noundef 1) #15
+  %14 = tail call i32 @fwnode_property_read_u32_array(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %10, i64 noundef 1) #16
   br label %15
 
 15:                                               ; preds = %13, %9
@@ -2642,7 +2634,7 @@ declare dso_local noalias ptr @kvmalloc_node(i64 noundef, i32 noundef, i32 nound
 define internal fastcc noundef zeroext i1 @acpi_nondev_subnode_extract(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
-  %8 = tail call noalias align 8 dereferenceable_or_null(248) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 248) #14
+  %8 = tail call noalias align 8 dereferenceable_or_null(248) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 248) #15
   %9 = icmp eq ptr %8, null
   br i1 %9, label %47, label %10
 
@@ -2681,7 +2673,7 @@ define internal fastcc noundef zeroext i1 @acpi_nondev_subnode_extract(ptr nound
 29:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !annotation !16
-  %30 = call i32 @acpi_get_parent(ptr noundef nonnull %1, ptr noundef nonnull %6) #15
+  %30 = call i32 @acpi_get_parent(ptr noundef nonnull %1, ptr noundef nonnull %6) #16
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %36
 
@@ -2716,7 +2708,7 @@ define internal fastcc noundef zeroext i1 @acpi_nondev_subnode_extract(ptr nound
   br label %47
 
 46:                                               ; preds = %32, %36, %37
-  call void @kfree(ptr noundef nonnull %8) #15
+  call void @kfree(ptr noundef nonnull %8) #16
   br label %47
 
 47:                                               ; preds = %46, %40, %5
@@ -2837,7 +2829,7 @@ define internal fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef read
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %51) #15
+  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %51) #16
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %.thread.thread, label %.lr.ph137
 
@@ -2859,7 +2851,7 @@ define internal fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef read
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
-  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %64) #15
+  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %64) #16
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %.thread, label %.lr.ph137, !llvm.loop !8
 
@@ -2914,7 +2906,7 @@ define internal fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef read
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8
-  %97 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %96) #15
+  %97 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %96) #16
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %.thread52.thread, label %.lr.ph
 
@@ -2936,7 +2928,7 @@ define internal fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef read
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
-  %110 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %109) #15
+  %110 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %109) #16
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %.thread52, label %.lr.ph, !llvm.loop !8
 
@@ -3082,7 +3074,7 @@ default.unreachable273:                           ; preds = %279, %121
   %182 = load ptr, ptr %181, align 8
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %184 = load ptr, ptr %183, align 8
-  %185 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %184) #15
+  %185 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %184) #16
   %186 = icmp eq i32 %185, 0
   br i1 %186, label %.thread56.thread, label %.lr.ph147
 
@@ -3105,7 +3097,7 @@ default.unreachable273:                           ; preds = %279, %121
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %198 = load ptr, ptr %197, align 8
-  %199 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %198) #15
+  %199 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %198) #16
   %200 = icmp eq i32 %199, 0
   br i1 %200, label %.thread56, label %.lr.ph147, !llvm.loop !8
 
@@ -3172,7 +3164,7 @@ default.unreachable273:                           ; preds = %279, %121
   %234 = load ptr, ptr %233, align 8
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %236 = load ptr, ptr %235, align 8
-  %237 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %236) #15
+  %237 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %236) #16
   %238 = icmp eq i32 %237, 0
   br i1 %238, label %.thread58.thread, label %.lr.ph159
 
@@ -3194,7 +3186,7 @@ default.unreachable273:                           ; preds = %279, %121
   %247 = load ptr, ptr %246, align 8
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %249 = load ptr, ptr %248, align 8
-  %250 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %249) #15
+  %250 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef %249) #16
   %251 = icmp eq i32 %250, 0
   br i1 %251, label %.thread58, label %.lr.ph159, !llvm.loop !8
 
@@ -3489,6 +3481,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #14
+
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -3503,9 +3501,10 @@ attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind allocsize(2) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind allocsize(0) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind allocsize(2) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -1290,58 +1290,62 @@ define internal i32 @dissect_abis_oml(ptr noundef %0, ptr noundef %1, ptr nounde
   %37 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef %30)
   %38 = load ptr, ptr @sub_om2000, align 8
   %.not54 = icmp eq ptr %38, null
-  br i1 %.not54, label %62, label %39
+  br i1 %.not54, label %63, label %39
 
 39:                                               ; preds = %36
   %40 = tail call i32 @call_dissector(ptr noundef nonnull %38, ptr noundef %37, ptr noundef %1, ptr noundef %2)
-  br label %62
+  br label %63
 
 41:                                               ; preds = %33
-  %42 = add nsw i32 %22, -16
-  %43 = tail call i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 28)
-  switch i32 %43, label %62 [
-    i32 7, label %44
-    i32 0, label %46
+  %42 = tail call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %22)
+  %43 = icmp eq i32 %42, 1
+  br i1 %43, label %.split, label %63
+
+.split:                                           ; preds = %41
+  %44 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %22, i1 true)
+  switch i32 %44, label %63 [
+    i32 7, label %45
+    i32 4, label %47
   ]
 
-44:                                               ; preds = %41
-  %45 = tail call fastcc i32 @dissect_oml_fom(ptr noundef %0, ptr noundef %1, ptr noundef %13, i32 noundef 4, ptr noundef %11)
-  br label %62
+45:                                               ; preds = %.split
+  %46 = tail call fastcc i32 @dissect_oml_fom(ptr noundef %0, ptr noundef %1, ptr noundef %13, i32 noundef 4, ptr noundef %11)
+  br label %63
 
-46:                                               ; preds = %41
+47:                                               ; preds = %.split
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %47 = load i32, ptr @hf_oml_manuf_id_len, align 4
-  %48 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %13, i32 noundef %47, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
-  %49 = load i32, ptr @hf_oml_manuf_id_val, align 4
-  %50 = load i32, ptr %5, align 4
-  %51 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %49, ptr noundef %0, i32 noundef 5, i32 noundef %50, i32 noundef 0)
-  %52 = load i32, ptr %5, align 4
-  %53 = add i32 %52, -13
-  %or.cond.i = icmp ult i32 %53, 2
-  br i1 %or.cond.i, label %54, label %60
+  %48 = load i32, ptr @hf_oml_manuf_id_len, align 4
+  %49 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %13, i32 noundef %48, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
+  %50 = load i32, ptr @hf_oml_manuf_id_val, align 4
+  %51 = load i32, ptr %5, align 4
+  %52 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %50, ptr noundef %0, i32 noundef 5, i32 noundef %51, i32 noundef 0)
+  %53 = load i32, ptr %5, align 4
+  %54 = add i32 %53, -13
+  %or.cond.i = icmp ult i32 %54, 2
+  br i1 %or.cond.i, label %55, label %61
 
-54:                                               ; preds = %46
-  %55 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 5, ptr noundef nonnull @ipaccess_magic, i64 noundef 13)
-  %.not.i = icmp eq i32 %55, 0
-  br i1 %.not.i, label %56, label %60
+55:                                               ; preds = %47
+  %56 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 5, ptr noundef nonnull @ipaccess_magic, i64 noundef 13)
+  %.not.i = icmp eq i32 %56, 0
+  br i1 %.not.i, label %57, label %61
 
-56:                                               ; preds = %54
-  %57 = load i32, ptr %5, align 4
-  %58 = add i32 %57, 5
-  %59 = call fastcc i32 @dissect_oml_fom(ptr noundef %0, ptr noundef %1, ptr noundef %13, i32 noundef %58, ptr noundef %11)
+57:                                               ; preds = %55
+  %58 = load i32, ptr %5, align 4
+  %59 = add i32 %58, 5
+  %60 = call fastcc i32 @dissect_oml_fom(ptr noundef %0, ptr noundef %1, ptr noundef %13, i32 noundef %59, ptr noundef %11)
   br label %dissect_oml_manuf.exit
 
-60:                                               ; preds = %54, %46
-  %61 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %11, ptr noundef nonnull @ei_unknown_manuf)
+61:                                               ; preds = %55, %47
+  %62 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %11, ptr noundef nonnull @ei_unknown_manuf)
   br label %dissect_oml_manuf.exit
 
-dissect_oml_manuf.exit:                           ; preds = %56, %60
-  %.0.i = phi i32 [ 4, %60 ], [ %59, %56 ]
+dissect_oml_manuf.exit:                           ; preds = %57, %61
+  %.0.i = phi i32 [ 4, %61 ], [ %60, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %62
+  br label %63
 
-62:                                               ; preds = %36, %39, %44, %dissect_oml_manuf.exit, %41
-  %.051 = phi i32 [ 4, %41 ], [ %45, %44 ], [ %.0.i, %dissect_oml_manuf.exit ], [ 4, %39 ], [ 4, %36 ]
+63:                                               ; preds = %36, %39, %45, %dissect_oml_manuf.exit, %41, %.split
+  %.051 = phi i32 [ 4, %.split ], [ %46, %45 ], [ %.0.i, %dissect_oml_manuf.exit ], [ 4, %41 ], [ 4, %39 ], [ 4, %36 ]
   ret i32 %.051
 }
 
@@ -2181,7 +2185,10 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #4
+declare i32 @llvm.ctpop.i32(i32) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

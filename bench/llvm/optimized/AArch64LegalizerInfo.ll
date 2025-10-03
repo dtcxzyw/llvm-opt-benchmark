@@ -30543,19 +30543,21 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i:      ; preds = %43, %41
   store i8 %.sroa.3.0.i16.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %51 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %52 = add i64 %51, -8
-  %53 = call i64 @llvm.fshl.i64(i64 %52, i64 %52, i64 61)
-  %54 = icmp ult i64 %53, 8
-  br i1 %54, label %switch.lookup, label %"_ZSt10__invoke_rIbRZN4llvm20AArch64LegalizerInfoC1ERKNS0_16AArch64SubtargetEE4$_38JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
+  %52 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %51)
+  %53 = icmp eq i64 %52, 1
+  br i1 %53, label %.split.i.i.i, label %55
 
-switch.lookup:                                    ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i
-  %switch.cast = trunc nuw i64 %53 to i8
-  %switch.downshift = lshr i8 -117, %switch.cast
-  %switch.masked = trunc i8 %switch.downshift to i1
+.split.i.i.i:                                     ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i
+  %54 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %51, i1 true)
+  %.off.i.i.i = add nsw i64 %54, -3
+  %switch.i.i.i = icmp ult i64 %.off.i.i.i, 4
+  br i1 %switch.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm20AArch64LegalizerInfoC1ERKNS0_16AArch64SubtargetEE4$_38JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %55
+
+55:                                               ; preds = %.split.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i
   br label %"_ZSt10__invoke_rIbRZN4llvm20AArch64LegalizerInfoC1ERKNS0_16AArch64SubtargetEE4$_38JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm20AArch64LegalizerInfoC1ERKNS0_16AArch64SubtargetEE4$_38JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i, %switch.lookup, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
-  %.0.i.i.i = phi i1 [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i ], [ %switch.masked, %switch.lookup ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit22.i.i.i ]
+"_ZSt10__invoke_rIbRZN4llvm20AArch64LegalizerInfoC1ERKNS0_16AArch64SubtargetEE4$_38JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, %.split.i.i.i, %55
+  %.0.i.i.i = phi i1 [ false, %55 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i ], [ true, %.split.i.i.i ]
   ret i1 %.0.i.i.i
 }
 
@@ -32097,7 +32099,10 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #18
+declare i64 @llvm.ctpop.i64(i64) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19

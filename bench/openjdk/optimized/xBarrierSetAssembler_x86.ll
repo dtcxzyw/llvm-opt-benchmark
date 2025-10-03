@@ -91,7 +91,6 @@ $_ZTV9Assembler = comdat any
 @_ZTV17C2_MacroAssembler = linkonce_odr hidden unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr null, ptr @_ZN14MacroAssembler22bang_stack_with_offsetEi, ptr @_ZN14MacroAssembler17call_VM_leaf_baseEPhi, ptr @_ZN14MacroAssembler12call_VM_baseE8RegisterS0_S0_Phib, ptr @_ZN14MacroAssembler25check_and_handle_popframeE8Register, ptr @_ZN14MacroAssembler25check_and_handle_earlyretE8Register] }, comdat, align 8
 @_ZTV9Assembler = linkonce_odr hidden unnamed_addr constant { [3 x ptr] } { [3 x ptr] [ptr null, ptr null, ptr @__cxa_pure_virtual] }, comdat, align 8
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZN18XSaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE = private unnamed_addr constant [8 x i32] [i32 10, i32 11, i32 poison, i32 12, i32 poison, i32 poison, i32 poison, i32 13], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20XBarrierSetAssembler7load_atEP14MacroAssemblerm9BasicType8Register7AddressS3_S3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, i32 %4, ptr noundef %5, i32 %6, i32 %7) unnamed_addr #0 align 2 {
@@ -2751,25 +2750,24 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %16, %18, %20
   %.0.i = phi i32 [ %17, %16 ], [ %23, %20 ], [ -1, %18 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %25 = load i32, ptr %24, align 4
-  %26 = add i32 %25, -8
-  %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 29)
-  %28 = icmp ult i32 %27, 8
-  %switch.maskindex = trunc i32 %27 to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %28, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %29
+  %26 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %25)
+  %27 = icmp eq i32 %26, 1
+  br i1 %27, label %.split.i, label %30
 
-29:                                               ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
-  %30 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %30, align 1
+.split.i:                                         ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
+  %28 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %25, i1 true)
+  %switch.tableidx = add nsw i32 %28, -3
+  %29 = icmp ult i32 %switch.tableidx, 4
+  br i1 %29, label %switch.lookup, label %30
+
+30:                                               ; preds = %.split.i, %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
+  %31 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %31, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.4, i32 noundef 427, ptr noundef nonnull @.str.6, i32 noundef %25) #10
   unreachable
 
-switch.lookup:                                    ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
-  %31 = zext nneg i32 %27 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN18XSaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE, i64 %31
-  %switch.load = load i32, ptr %switch.gep, align 4
+switch.lookup:                                    ; preds = %.split.i
+  %switch.offset = add nuw nsw i32 %28, 7
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %33 = load i32, ptr %32, align 4
   %34 = sub nsw i32 %33, %25
@@ -2785,7 +2783,7 @@ switch.lookup:                                    ; preds = %_ZN7OptoReg10as_Opt
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17C2_MacroAssembler, i64 16), ptr %3, align 8
   %40 = load i32, ptr %32, align 4
   %41 = load ptr, ptr @tty, align 8
-  call void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(ptr noundef nonnull %3, i1 noundef zeroext false, i32 noundef %40, i32 noundef %.0.i, i32 noundef %switch.load, ptr noundef %41) #9
+  call void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(ptr noundef nonnull %3, i1 noundef zeroext false, i32 noundef %40, i32 noundef %.0.i, i32 noundef %switch.offset, ptr noundef %41) #9
   ret void
 }
 
@@ -3212,25 +3210,24 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %16, %18, %20
   %.0.i = phi i32 [ %17, %16 ], [ %23, %20 ], [ -1, %18 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %25 = load i32, ptr %24, align 4
-  %26 = add i32 %25, -8
-  %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 29)
-  %28 = icmp ult i32 %27, 8
-  %switch.maskindex = trunc i32 %27 to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %28, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %29
+  %26 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %25)
+  %27 = icmp eq i32 %26, 1
+  br i1 %27, label %.split.i, label %30
 
-29:                                               ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
-  %30 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %30, align 1
+.split.i:                                         ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
+  %28 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %25, i1 true)
+  %switch.tableidx = add nsw i32 %28, -3
+  %29 = icmp ult i32 %switch.tableidx, 4
+  br i1 %29, label %switch.lookup, label %30
+
+30:                                               ; preds = %.split.i, %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
+  %31 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %31, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.4, i32 noundef 427, ptr noundef nonnull @.str.6, i32 noundef %25) #10
   unreachable
 
-switch.lookup:                                    ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
-  %31 = zext nneg i32 %27 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN18XSaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE, i64 %31
-  %switch.load = load i32, ptr %switch.gep, align 4
+switch.lookup:                                    ; preds = %.split.i
+  %switch.offset = add nuw nsw i32 %28, 7
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
@@ -3243,7 +3240,7 @@ switch.lookup:                                    ; preds = %_ZN7OptoReg10as_Opt
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %38 = load i32, ptr %37, align 4
   %39 = load ptr, ptr @tty, align 8
-  call void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(ptr noundef nonnull %3, i1 noundef zeroext true, i32 noundef %38, i32 noundef %.0.i, i32 noundef %switch.load, ptr noundef %39) #9
+  call void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(ptr noundef nonnull %3, i1 noundef zeroext true, i32 noundef %38, i32 noundef %.0.i, i32 noundef %switch.offset, ptr noundef %39) #9
   %40 = load i32, ptr %24, align 4
   %41 = load i32, ptr %37, align 4
   %42 = add nsw i32 %41, %40
@@ -3499,10 +3496,10 @@ _ZN13GrowableArrayI8RegisterE10deallocateEPS0_.exit: ; preds = %31, %.loopexit.t
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #7
+declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #7
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(ptr captures(none)) #8

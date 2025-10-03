@@ -11,6 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_tabview_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_obj_class, ptr @lv_tabview_constructor, ptr null, ptr @lv_tabview_event, ptr null, ptr @.str, i32 536871012, i32 536871012, i8 -128, i8 4, i8 0, [5 x i8] zeroinitializer }, align 8
 @lv_button_class = external constant %struct._lv_obj_class_t, align 8
 @lv_label_class = external constant %struct._lv_obj_class_t, align 8
+@switch.table.lv_tabview_set_tab_bar_position = private unnamed_addr constant [4 x i32] [i32 0, i32 8, i32 1, i32 9], align 4
 
 ; Function Attrs: nounwind uwtable
 define internal void @lv_tabview_constructor(ptr readnone captures(none) %0, ptr noundef initializes((68, 72)) %1) #0 {
@@ -294,78 +295,82 @@ define void @lv_tabview_set_tab_bar_position(ptr noundef %0, i32 noundef %1) loc
   br label %.preheader
 
 3:                                                ; preds = %2
-  switch i32 %1, label %10 [
-    i32 4, label %.thread
-    i32 8, label %4
-    i32 1, label %.thread35
-    i32 2, label %5
+  %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
+  %5 = icmp eq i32 %4, 1
+  br i1 %5, label %.split, label %9
+
+.split:                                           ; preds = %3
+  %6 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
+  %7 = icmp samesign ult i32 %6, 4
+  br i1 %7, label %switch.lookup, label %9
+
+switch.lookup:                                    ; preds = %.split
+  %8 = zext nneg i32 %6 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lv_tabview_set_tab_bar_position, i64 %8
+  %switch.load = load i32, ptr %switch.gep, align 4
+  tail call void @lv_obj_set_flex_flow(ptr noundef nonnull %0, i32 noundef %switch.load) #5
+  br label %9
+
+9:                                                ; preds = %.split, %switch.lookup, %3
+  %10 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef 0) #5
+  %11 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef 1) #5
+  br i1 %5, label %.split1, label %15
+
+.split1:                                          ; preds = %9
+  %12 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
+  switch i32 %12, label %15 [
+    i32 2, label %13
+    i32 3, label %13
+    i32 0, label %14
+    i32 1, label %14
   ]
 
-4:                                                ; preds = %3
-  br label %.thread
+13:                                               ; preds = %.split1, %.split1
+  tail call void @lv_obj_set_width(ptr noundef %11, i32 noundef 536871012) #5
+  br label %.sink.split35
 
-5:                                                ; preds = %3
-  br label %.thread35
+14:                                               ; preds = %.split1, %.split1
+  tail call void @lv_obj_set_height(ptr noundef %11, i32 noundef 536871012) #5
+  br label %.sink.split35
 
-.thread:                                          ; preds = %3, %4
-  %.sink = phi i32 [ 9, %4 ], [ 1, %3 ]
-  tail call void @lv_obj_set_flex_flow(ptr noundef nonnull %0, i32 noundef %.sink) #5
-  %6 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef 0) #5
-  %7 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef 1) #5
-  tail call void @lv_obj_set_width(ptr noundef %7, i32 noundef 536871012) #5
-  tail call void @lv_obj_set_flex_grow(ptr noundef %7, i8 noundef zeroext 1) #5
-  tail call void @lv_obj_set_flex_flow(ptr noundef %6, i32 noundef 0) #5
-  tail call void @lv_obj_set_flex_flow(ptr noundef %7, i32 noundef 0) #5
-  tail call void @lv_obj_set_scroll_snap_x(ptr noundef %7, i32 noundef 3) #5
-  tail call void @lv_obj_set_scroll_snap_y(ptr noundef %7, i32 noundef 0) #5
-  br label %13
+.sink.split35:                                    ; preds = %13, %14
+  %.sink39 = phi i32 [ 1, %14 ], [ 0, %13 ]
+  %.sink37 = phi i32 [ 0, %14 ], [ 3, %13 ]
+  %.sink36 = phi i32 [ 3, %14 ], [ 0, %13 ]
+  tail call void @lv_obj_set_flex_grow(ptr noundef %11, i8 noundef zeroext 1) #5
+  tail call void @lv_obj_set_flex_flow(ptr noundef %10, i32 noundef %.sink39) #5
+  tail call void @lv_obj_set_flex_flow(ptr noundef %11, i32 noundef %.sink39) #5
+  tail call void @lv_obj_set_scroll_snap_x(ptr noundef %11, i32 noundef %.sink37) #5
+  tail call void @lv_obj_set_scroll_snap_y(ptr noundef %11, i32 noundef %.sink36) #5
+  br label %15
 
-.thread35:                                        ; preds = %3, %5
-  %.sink36 = phi i32 [ 8, %5 ], [ 0, %3 ]
-  tail call void @lv_obj_set_flex_flow(ptr noundef nonnull %0, i32 noundef %.sink36) #5
-  %8 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef 0) #5
-  %9 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef 1) #5
-  tail call void @lv_obj_set_height(ptr noundef %9, i32 noundef 536871012) #5
-  tail call void @lv_obj_set_flex_grow(ptr noundef %9, i8 noundef zeroext 1) #5
-  tail call void @lv_obj_set_flex_flow(ptr noundef %8, i32 noundef 1) #5
-  tail call void @lv_obj_set_flex_flow(ptr noundef %9, i32 noundef 1) #5
-  tail call void @lv_obj_set_scroll_snap_x(ptr noundef %9, i32 noundef 0) #5
-  tail call void @lv_obj_set_scroll_snap_y(ptr noundef %9, i32 noundef 3) #5
-  br label %13
+15:                                               ; preds = %.sink.split35, %9, %.split1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %17 = load i32, ptr %16, align 4, !tbaa !3
+  %18 = and i32 %17, 12
+  %19 = and i32 %1, 12
+  %20 = icmp ne i32 %19, 0
+  %21 = icmp eq i32 %18, 0
+  %.not34 = xor i1 %20, %21
+  br i1 %.not34, label %29, label %22
 
-10:                                               ; preds = %3
-  %11 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef 0) #5
-  %12 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef 1) #5
-  br label %13
+22:                                               ; preds = %15
+  %23 = tail call ptr @lv_obj_get_display(ptr noundef nonnull %0) #5
+  %24 = tail call i32 @lv_display_get_dpi(ptr noundef %23) #5
+  %25 = tail call i32 @lv_pct(i32 noundef 100) #5
+  br i1 %20, label %26, label %28
 
-13:                                               ; preds = %10, %.thread35, %.thread
-  %14 = phi ptr [ %8, %.thread35 ], [ %6, %.thread ], [ %11, %10 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %16 = load i32, ptr %15, align 4, !tbaa !3
-  %17 = and i32 %16, 12
-  %18 = and i32 %1, 12
-  %19 = icmp ne i32 %18, 0
-  %20 = icmp eq i32 %17, 0
-  %.not33 = xor i1 %19, %20
-  br i1 %.not33, label %28, label %21
+26:                                               ; preds = %22
+  %27 = sdiv i32 %24, 2
+  tail call void @lv_obj_set_size(ptr noundef %10, i32 noundef %25, i32 noundef %27) #5
+  br label %29
 
-21:                                               ; preds = %13
-  %22 = tail call ptr @lv_obj_get_display(ptr noundef nonnull %0) #5
-  %23 = tail call i32 @lv_display_get_dpi(ptr noundef %22) #5
-  %24 = tail call i32 @lv_pct(i32 noundef 100) #5
-  br i1 %19, label %25, label %27
+28:                                               ; preds = %22
+  tail call void @lv_obj_set_size(ptr noundef %10, i32 noundef %24, i32 noundef %25) #5
+  br label %29
 
-25:                                               ; preds = %21
-  %26 = sdiv i32 %23, 2
-  tail call void @lv_obj_set_size(ptr noundef %14, i32 noundef %24, i32 noundef %26) #5
-  br label %28
-
-27:                                               ; preds = %21
-  tail call void @lv_obj_set_size(ptr noundef %14, i32 noundef %23, i32 noundef %24) #5
-  br label %28
-
-28:                                               ; preds = %25, %27, %13
-  store i32 %1, ptr %15, align 4, !tbaa !3
+29:                                               ; preds = %26, %28, %15
+  store i32 %1, ptr %16, align 4, !tbaa !3
   ret void
 }
 
@@ -548,6 +553,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4

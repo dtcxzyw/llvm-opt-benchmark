@@ -7437,45 +7437,49 @@ all_zero.exit851:                                 ; preds = %247
   br label %.thread869
 
 1148:                                             ; preds = %31
-  %1149 = add i64 %24, -2
-  %1150 = tail call i64 @llvm.fshl.i64(i64 %1149, i64 %1149, i64 63)
-  switch i64 %1150, label %.thread869 [
-    i64 0, label %1151
-    i64 1, label %1153
-    i64 3, label %1155
-    i64 7, label %1157
+  %1149 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %24)
+  %1150 = icmp eq i64 %1149, 1
+  br i1 %1150, label %.split, label %.thread869
+
+.split:                                           ; preds = %1148
+  %1151 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %24, i1 true)
+  switch i64 %1151, label %.thread869 [
+    i64 1, label %1152
+    i64 2, label %1154
+    i64 3, label %1156
+    i64 4, label %1158
   ]
 
-1151:                                             ; preds = %1148
+1152:                                             ; preds = %.split
   %.val = load half, ptr %0, align 1
   %.val786 = load half, ptr %1, align 1
-  %1152 = tail call fastcc i64 @diff_float16_element(half %.val, half %.val786, i64 noundef %2, ptr noundef nonnull %3)
+  %1153 = tail call fastcc i64 @diff_float16_element(half %.val, half %.val786, i64 noundef %2, ptr noundef nonnull %3)
   br label %.thread869
 
-1153:                                             ; preds = %1148
+1154:                                             ; preds = %.split
   %.val787 = load float, ptr %0, align 1
   %.val788 = load float, ptr %1, align 1
-  %1154 = tail call fastcc i64 @diff_float_element(float %.val787, float %.val788, i64 noundef %2, ptr noundef nonnull %3)
+  %1155 = tail call fastcc i64 @diff_float_element(float %.val787, float %.val788, i64 noundef %2, ptr noundef nonnull %3)
   br label %.thread869
 
-1155:                                             ; preds = %1148
+1156:                                             ; preds = %.split
   %.val789 = load double, ptr %0, align 1
   %.val790 = load double, ptr %1, align 1
-  %1156 = tail call fastcc i64 @diff_double_element(double %.val789, double %.val790, i64 noundef %2, ptr noundef nonnull %3)
+  %1157 = tail call fastcc i64 @diff_double_element(double %.val789, double %.val790, i64 noundef %2, ptr noundef nonnull %3)
   br label %.thread869
 
-1157:                                             ; preds = %1148
+1158:                                             ; preds = %.split
   %.val791 = load x86_fp80, ptr %0, align 1
   %.val792 = load x86_fp80, ptr %1, align 1
-  %1158 = tail call fastcc i64 @diff_ldouble_element(x86_fp80 %.val791, x86_fp80 %.val792, i64 noundef %2, ptr noundef nonnull %3)
+  %1159 = tail call fastcc i64 @diff_ldouble_element(x86_fp80 %.val791, x86_fp80 %.val792, i64 noundef %2, ptr noundef nonnull %3)
   br label %.thread869
 
-.thread869:                                       ; preds = %.lr.ph897, %.lr.ph901, %character_compare.exit, %character_compare.exit837, %.thread1051, %.preheader876, %.preheader874, %.preheader872, %.preheader, %all_zero.exit851.thr_comm, %1148, %1140, %1144, %1132, %1123, %1127, %1115, %107, %42, %46, %34, %._crit_edge913, %201, %._crit_edge889, %._crit_edge, %1022, %1071, %1079, %1075, %1067, %1090, %1097, %1104, %1111, %1131, %1108, %1101, %1094, %1086, %1153, %1157, %1155, %1151, %251, %29
-  %.0584 = phi i32 [ %30, %29 ], [ %21, %1151 ], [ %21, %1153 ], [ %21, %1155 ], [ %21, %1157 ], [ %21, %1086 ], [ %21, %1090 ], [ %21, %1094 ], [ %21, %1097 ], [ %21, %1101 ], [ %21, %1104 ], [ %21, %1108 ], [ %21, %1111 ], [ %21, %1131 ], [ %21, %1067 ], [ %21, %1071 ], [ %21, %1075 ], [ %21, %1079 ], [ %21, %._crit_edge913 ], [ %21, %201 ], [ %21, %._crit_edge889 ], [ %252, %251 ], [ %.4588, %1022 ], [ %21, %._crit_edge ], [ 2, %34 ], [ 2, %46 ], [ 2, %42 ], [ %21, %107 ], [ 2, %1115 ], [ 2, %1127 ], [ 2, %1123 ], [ 2, %1132 ], [ 2, %1144 ], [ 2, %1140 ], [ %21, %1148 ], [ %21, %all_zero.exit851.thr_comm ], [ %21, %.preheader ], [ %21, %.preheader872 ], [ %21, %.preheader874 ], [ %21, %.preheader876 ], [ %21, %.thread1051 ], [ %21, %character_compare.exit837 ], [ %21, %character_compare.exit ], [ %21, %.lr.ph901 ], [ %21, %.lr.ph897 ]
-  %.0577 = phi i64 [ 0, %29 ], [ %1152, %1151 ], [ %1154, %1153 ], [ %1156, %1155 ], [ %1158, %1157 ], [ %1087, %1086 ], [ %1091, %1090 ], [ %1095, %1094 ], [ %1098, %1097 ], [ %1102, %1101 ], [ %1105, %1104 ], [ %1109, %1108 ], [ %1112, %1111 ], [ 0, %1131 ], [ %1070, %1067 ], [ %1074, %1071 ], [ %1078, %1075 ], [ %1080, %1079 ], [ %.1578.lcssa, %._crit_edge913 ], [ %.7, %201 ], [ %.9.lcssa, %._crit_edge889 ], [ 1, %251 ], [ %.24, %1022 ], [ %.25.lcssa, %._crit_edge ], [ 0, %34 ], [ 0, %46 ], [ 0, %42 ], [ %spec.select784865, %107 ], [ 0, %1115 ], [ 0, %1127 ], [ 0, %1123 ], [ 0, %1132 ], [ 0, %1144 ], [ 0, %1140 ], [ 0, %1148 ], [ 0, %all_zero.exit851.thr_comm ], [ %spec.select7848651074, %.preheader ], [ %spec.select7848651074, %.preheader872 ], [ 0, %.preheader874 ], [ 0, %.preheader876 ], [ %spec.select7848651058, %.thread1051 ], [ %138, %character_compare.exit837 ], [ %spec.select7848651074, %character_compare.exit ], [ %143, %.lr.ph901 ], [ %148, %.lr.ph897 ]
-  %1159 = load i32, ptr %20, align 8, !tbaa !52
-  %1160 = or i32 %1159, %.0584
-  store i32 %1160, ptr %20, align 8, !tbaa !52
+.thread869:                                       ; preds = %.lr.ph897, %.lr.ph901, %character_compare.exit, %character_compare.exit837, %.thread1051, %.preheader876, %.preheader874, %.preheader872, %.preheader, %all_zero.exit851.thr_comm, %1148, %.split, %1140, %1144, %1132, %1123, %1127, %1115, %107, %42, %46, %34, %._crit_edge913, %201, %._crit_edge889, %._crit_edge, %1022, %1071, %1079, %1075, %1067, %1090, %1097, %1104, %1111, %1131, %1108, %1101, %1094, %1086, %1154, %1158, %1156, %1152, %251, %29
+  %.0584 = phi i32 [ %30, %29 ], [ %21, %1152 ], [ %21, %1154 ], [ %21, %1156 ], [ %21, %1158 ], [ %21, %1086 ], [ %21, %1090 ], [ %21, %1094 ], [ %21, %1097 ], [ %21, %1101 ], [ %21, %1104 ], [ %21, %1108 ], [ %21, %1111 ], [ %21, %1131 ], [ %21, %1067 ], [ %21, %1071 ], [ %21, %1075 ], [ %21, %1079 ], [ %21, %._crit_edge913 ], [ %21, %201 ], [ %21, %._crit_edge889 ], [ %252, %251 ], [ %.4588, %1022 ], [ %21, %._crit_edge ], [ 2, %34 ], [ 2, %46 ], [ 2, %42 ], [ %21, %107 ], [ 2, %1115 ], [ 2, %1127 ], [ 2, %1123 ], [ 2, %1132 ], [ 2, %1144 ], [ 2, %1140 ], [ %21, %.split ], [ %21, %1148 ], [ %21, %all_zero.exit851.thr_comm ], [ %21, %.preheader ], [ %21, %.preheader872 ], [ %21, %.preheader874 ], [ %21, %.preheader876 ], [ %21, %.thread1051 ], [ %21, %character_compare.exit837 ], [ %21, %character_compare.exit ], [ %21, %.lr.ph901 ], [ %21, %.lr.ph897 ]
+  %.0577 = phi i64 [ 0, %29 ], [ %1153, %1152 ], [ %1155, %1154 ], [ %1157, %1156 ], [ %1159, %1158 ], [ %1087, %1086 ], [ %1091, %1090 ], [ %1095, %1094 ], [ %1098, %1097 ], [ %1102, %1101 ], [ %1105, %1104 ], [ %1109, %1108 ], [ %1112, %1111 ], [ 0, %1131 ], [ %1070, %1067 ], [ %1074, %1071 ], [ %1078, %1075 ], [ %1080, %1079 ], [ %.1578.lcssa, %._crit_edge913 ], [ %.7, %201 ], [ %.9.lcssa, %._crit_edge889 ], [ 1, %251 ], [ %.24, %1022 ], [ %.25.lcssa, %._crit_edge ], [ 0, %34 ], [ 0, %46 ], [ 0, %42 ], [ %spec.select784865, %107 ], [ 0, %1115 ], [ 0, %1127 ], [ 0, %1123 ], [ 0, %1132 ], [ 0, %1144 ], [ 0, %1140 ], [ 0, %.split ], [ 0, %1148 ], [ 0, %all_zero.exit851.thr_comm ], [ %spec.select7848651074, %.preheader ], [ %spec.select7848651074, %.preheader872 ], [ 0, %.preheader874 ], [ 0, %.preheader876 ], [ %spec.select7848651058, %.thread1051 ], [ %138, %character_compare.exit837 ], [ %spec.select7848651074, %character_compare.exit ], [ %143, %.lr.ph901 ], [ %148, %.lr.ph897 ]
+  %1160 = load i32, ptr %20, align 8, !tbaa !52
+  %1161 = or i32 %1160, %.0584
+  store i32 %1161, ptr %20, align 8, !tbaa !52
   ret i64 %.0577
 }
 
@@ -8619,65 +8623,69 @@ define internal fastcc range(i64 0, 2) i64 @diff_complex_element(ptr noundef rea
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i32 2, ptr %10, align 8, !tbaa !52
-  br label %35
+  br label %36
 
 11:                                               ; preds = %4
   %12 = lshr i64 %7, 1
-  %13 = add nsw i64 %12, -2
-  %14 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 63)
-  switch i64 %14, label %35 [
-    i64 0, label %15
-    i64 1, label %23
-    i64 3, label %27
-    i64 7, label %31
+  %13 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %12)
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %.split, label %36
+
+.split:                                           ; preds = %11
+  %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %12, i1 true)
+  switch i64 %15, label %36 [
+    i64 1, label %16
+    i64 2, label %24
+    i64 3, label %28
+    i64 4, label %32
   ]
 
-15:                                               ; preds = %11
+16:                                               ; preds = %.split
   %.0.copyload33 = load half, ptr %0, align 1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %.0.copyload31 = load half, ptr %16, align 1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %.0.copyload31 = load half, ptr %17, align 1
   %.0.copyload29 = load half, ptr %1, align 1
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %.0.copyload27 = load half, ptr %17, align 1
-  %18 = fpext half %.0.copyload33 to float
-  %19 = fpext half %.0.copyload31 to float
-  %20 = fpext half %.0.copyload29 to float
-  %21 = fpext half %.0.copyload27 to float
-  %22 = tail call fastcc i64 @diff_float_complex(float noundef %18, float noundef %19, float noundef %20, float noundef %21, i64 noundef %2, ptr noundef nonnull %3)
-  br label %35
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %.0.copyload27 = load half, ptr %18, align 1
+  %19 = fpext half %.0.copyload33 to float
+  %20 = fpext half %.0.copyload31 to float
+  %21 = fpext half %.0.copyload29 to float
+  %22 = fpext half %.0.copyload27 to float
+  %23 = tail call fastcc i64 @diff_float_complex(float noundef %19, float noundef %20, float noundef %21, float noundef %22, i64 noundef %2, ptr noundef nonnull %3)
+  br label %36
 
-23:                                               ; preds = %11
+24:                                               ; preds = %.split
   %.0.copyload25 = load float, ptr %0, align 1
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.0.copyload23 = load float, ptr %24, align 1
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.0.copyload23 = load float, ptr %25, align 1
   %.0.copyload21 = load float, ptr %1, align 1
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.0.copyload19 = load float, ptr %25, align 1
-  %26 = tail call fastcc i64 @diff_float_complex(float noundef %.0.copyload25, float noundef %.0.copyload23, float noundef %.0.copyload21, float noundef %.0.copyload19, i64 noundef %2, ptr noundef nonnull %3)
-  br label %35
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.0.copyload19 = load float, ptr %26, align 1
+  %27 = tail call fastcc i64 @diff_float_complex(float noundef %.0.copyload25, float noundef %.0.copyload23, float noundef %.0.copyload21, float noundef %.0.copyload19, i64 noundef %2, ptr noundef nonnull %3)
+  br label %36
 
-27:                                               ; preds = %11
+28:                                               ; preds = %.split
   %.0.copyload17 = load double, ptr %0, align 1
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.0.copyload15 = load double, ptr %28, align 1
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.0.copyload15 = load double, ptr %29, align 1
   %.0.copyload13 = load double, ptr %1, align 1
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.0.copyload11 = load double, ptr %29, align 1
-  %30 = tail call fastcc i64 @diff_double_complex(double noundef %.0.copyload17, double noundef %.0.copyload15, double noundef %.0.copyload13, double noundef %.0.copyload11, i64 noundef %2, ptr noundef nonnull %3)
-  br label %35
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.0.copyload11 = load double, ptr %30, align 1
+  %31 = tail call fastcc i64 @diff_double_complex(double noundef %.0.copyload17, double noundef %.0.copyload15, double noundef %.0.copyload13, double noundef %.0.copyload11, i64 noundef %2, ptr noundef nonnull %3)
+  br label %36
 
-31:                                               ; preds = %11
+32:                                               ; preds = %.split
   %.0.copyload8 = load x86_fp80, ptr %0, align 1
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.0.copyload5 = load x86_fp80, ptr %32, align 1
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.0.copyload5 = load x86_fp80, ptr %33, align 1
   %.0.copyload2 = load x86_fp80, ptr %1, align 1
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.0.copyload = load x86_fp80, ptr %33, align 1
-  %34 = tail call fastcc i64 @diff_ldouble_complex(x86_fp80 noundef %.0.copyload8, x86_fp80 noundef %.0.copyload5, x86_fp80 noundef %.0.copyload2, x86_fp80 noundef %.0.copyload, i64 noundef %2, ptr noundef nonnull %3)
-  br label %35
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.0.copyload = load x86_fp80, ptr %34, align 1
+  %35 = tail call fastcc i64 @diff_ldouble_complex(x86_fp80 noundef %.0.copyload8, x86_fp80 noundef %.0.copyload5, x86_fp80 noundef %.0.copyload2, x86_fp80 noundef %.0.copyload, i64 noundef %2, ptr noundef nonnull %3)
+  br label %36
 
-35:                                               ; preds = %23, %31, %27, %15, %11, %9
-  %.0 = phi i64 [ 0, %9 ], [ %22, %15 ], [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ 0, %11 ]
+36:                                               ; preds = %11, %24, %32, %28, %16, %.split, %9
+  %.0 = phi i64 [ 0, %9 ], [ %23, %16 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ 0, %.split ], [ 0, %11 ]
   ret i64 %.0
 }
 
@@ -11302,7 +11310,10 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #14
+declare i64 @llvm.ctpop.i64(i64) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

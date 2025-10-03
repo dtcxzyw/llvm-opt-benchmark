@@ -67839,33 +67839,37 @@ define noundef range(i8 0, 3) i8 @"_ZN144_$LT$polars_parquet..parquet..parquet_b
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 8) i8 @"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E"(i32 noundef %0, i1 noundef zeroext %1) unnamed_addr #6 {
-  %3 = add i32 %0, -8
-  %4 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 29)
-  switch i32 %4, label %9 [
-    i32 0, label %5
-    i32 1, label %6
-    i32 3, label %7
-    i32 7, label %8
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %4 = icmp eq i32 %3, 1
+  br i1 %4, label %.split, label %10
+
+.split:                                           ; preds = %2
+  %5 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  switch i32 %5, label %10 [
+    i32 3, label %6
+    i32 4, label %7
+    i32 5, label %8
+    i32 6, label %9
   ]
 
-5:                                                ; preds = %2
+6:                                                ; preds = %.split
   %. = select i1 %1, i8 0, i8 4
-  br label %9
+  br label %10
 
-6:                                                ; preds = %2
+7:                                                ; preds = %.split
   %.1 = select i1 %1, i8 1, i8 5
-  br label %9
+  br label %10
 
-7:                                                ; preds = %2
+8:                                                ; preds = %.split
   %.2 = select i1 %1, i8 2, i8 6
-  br label %9
+  br label %10
 
-8:                                                ; preds = %2
+9:                                                ; preds = %.split
   %.3 = select i1 %1, i8 3, i8 7
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %7, %6, %5, %2
-  %.sroa.0.0 = phi i8 [ 2, %2 ], [ %., %5 ], [ %.1, %6 ], [ %.2, %7 ], [ %.3, %8 ]
+10:                                               ; preds = %9, %8, %7, %6, %.split, %2
+  %.sroa.0.0 = phi i8 [ 2, %2 ], [ 2, %.split ], [ %., %6 ], [ %.1, %7 ], [ %.2, %8 ], [ %.3, %9 ]
   ret i8 %.sroa.0.0
 }
 
@@ -67930,11 +67934,11 @@ define void @"_ZN162_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogic
     i8 6, label %27
     i8 7, label %32
     i8 8, label %37
-    i8 9, label %50
-    i8 10, label %51
-    i8 11, label %52
-    i8 12, label %53
-    i8 13, label %54
+    i8 9, label %51
+    i8 10, label %52
+    i8 11, label %53
+    i8 12, label %54
+    i8 13, label %55
   ]
 
 9:                                                ; preds = %2
@@ -67965,7 +67969,7 @@ define void @"_ZN162_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogic
   store ptr %17, ptr %.sroa.410.sroa.4.0..sroa.410.0..sroa_idx.sroa_idx, align 8
   %.sroa.410.sroa.5.0..sroa.410.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 30, ptr %.sroa.410.sroa.5.0..sroa.410.0..sroa_idx.sroa_idx, align 8
-  br label %64
+  br label %65
 
 19:                                               ; preds = %2
   br label %"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E.exit"
@@ -67976,7 +67980,7 @@ define void @"_ZN162_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogic
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load i32, ptr %23, align 4, !noundef !6
   %25 = icmp sgt i32 %24, -1
-  br i1 %25, label %58, label %56
+  br i1 %25, label %59, label %57
 
 26:                                               ; preds = %2
   br label %"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E.exit"
@@ -68002,32 +68006,33 @@ define void @"_ZN162_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogic
   %41 = load i8, ptr %38, align 1, !range !2030, !noundef !6
   %42 = trunc nuw i8 %41 to i1
   %43 = sext i8 %40 to i32
-  %44 = add nsw i32 %43, -8
-  %45 = tail call i32 @llvm.fshl.i32(i32 %44, i32 %44, i32 29)
-  switch i32 %45, label %"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E.exit" [
-    i32 0, label %46
-    i32 1, label %47
-    i32 3, label %48
-    i32 7, label %49
+  %44 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %43)
+  %45 = icmp eq i32 %44, 1
+  br i1 %45, label %.split.i, label %"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E.exit"
+
+.split.i:                                         ; preds = %37
+  %46 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %43, i1 true)
+  switch i32 %46, label %"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E.exit" [
+    i32 3, label %47
+    i32 4, label %48
+    i32 5, label %49
+    i32 6, label %50
   ]
 
-46:                                               ; preds = %37
+47:                                               ; preds = %.split.i
   %..i = select i1 %42, i8 0, i8 4
   br label %"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E.exit"
 
-47:                                               ; preds = %37
+48:                                               ; preds = %.split.i
   %.1.i = select i1 %42, i8 1, i8 5
   br label %"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E.exit"
 
-48:                                               ; preds = %37
+49:                                               ; preds = %.split.i
   %.2.i = select i1 %42, i8 2, i8 6
   br label %"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E.exit"
 
-49:                                               ; preds = %37
+50:                                               ; preds = %.split.i
   %.3.i = select i1 %42, i8 3, i8 7
-  br label %"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E.exit"
-
-50:                                               ; preds = %2
   br label %"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E.exit"
 
 51:                                               ; preds = %2
@@ -68042,14 +68047,17 @@ define void @"_ZN162_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogic
 54:                                               ; preds = %2
   br label %"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E.exit"
 
-"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E.exit": ; preds = %49, %48, %47, %46, %37, %2, %61, %54, %53, %52, %51, %50, %32, %27, %26, %19
-  %.sroa.22.0 = phi i64 [ undef, %19 ], [ %63, %61 ], [ undef, %26 ], [ undef, %27 ], [ undef, %32 ], [ undef, %50 ], [ undef, %51 ], [ undef, %52 ], [ undef, %53 ], [ undef, %54 ], [ undef, %2 ], [ undef, %37 ], [ undef, %46 ], [ undef, %47 ], [ undef, %48 ], [ undef, %49 ]
-  %.sroa.211.0 = phi i64 [ undef, %19 ], [ %62, %61 ], [ undef, %26 ], [ undef, %27 ], [ undef, %32 ], [ undef, %50 ], [ undef, %51 ], [ undef, %52 ], [ undef, %53 ], [ undef, %54 ], [ undef, %2 ], [ undef, %37 ], [ undef, %46 ], [ undef, %47 ], [ undef, %48 ], [ undef, %49 ]
-  %.sroa.19.0 = phi i8 [ undef, %19 ], [ undef, %61 ], [ undef, %26 ], [ %29, %27 ], [ %34, %32 ], [ undef, %50 ], [ undef, %51 ], [ undef, %52 ], [ undef, %53 ], [ undef, %54 ], [ undef, %2 ], [ undef, %37 ], [ undef, %46 ], [ undef, %47 ], [ undef, %48 ], [ undef, %49 ]
-  %.sroa.16.0 = phi i8 [ undef, %19 ], [ undef, %61 ], [ undef, %26 ], [ %31, %27 ], [ %36, %32 ], [ undef, %50 ], [ undef, %51 ], [ undef, %52 ], [ undef, %53 ], [ undef, %54 ], [ undef, %2 ], [ 2, %37 ], [ %..i, %46 ], [ %.1.i, %47 ], [ %.2.i, %48 ], [ %.3.i, %49 ]
-  %.sroa.0.0 = phi i8 [ 1, %19 ], [ 2, %61 ], [ 3, %26 ], [ 4, %27 ], [ 5, %32 ], [ 7, %50 ], [ 8, %51 ], [ 9, %52 ], [ 10, %53 ], [ 11, %54 ], [ %8, %2 ], [ 6, %37 ], [ 6, %46 ], [ 6, %47 ], [ 6, %48 ], [ 6, %49 ]
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.0.0, ptr %55, align 8
+55:                                               ; preds = %2
+  br label %"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E.exit"
+
+"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E.exit": ; preds = %50, %49, %48, %47, %.split.i, %37, %2, %62, %55, %54, %53, %52, %51, %32, %27, %26, %19
+  %.sroa.22.0 = phi i64 [ undef, %19 ], [ %64, %62 ], [ undef, %26 ], [ undef, %27 ], [ undef, %32 ], [ undef, %51 ], [ undef, %52 ], [ undef, %53 ], [ undef, %54 ], [ undef, %55 ], [ undef, %2 ], [ undef, %37 ], [ undef, %.split.i ], [ undef, %47 ], [ undef, %48 ], [ undef, %49 ], [ undef, %50 ]
+  %.sroa.211.0 = phi i64 [ undef, %19 ], [ %63, %62 ], [ undef, %26 ], [ undef, %27 ], [ undef, %32 ], [ undef, %51 ], [ undef, %52 ], [ undef, %53 ], [ undef, %54 ], [ undef, %55 ], [ undef, %2 ], [ undef, %37 ], [ undef, %.split.i ], [ undef, %47 ], [ undef, %48 ], [ undef, %49 ], [ undef, %50 ]
+  %.sroa.19.0 = phi i8 [ undef, %19 ], [ undef, %62 ], [ undef, %26 ], [ %29, %27 ], [ %34, %32 ], [ undef, %51 ], [ undef, %52 ], [ undef, %53 ], [ undef, %54 ], [ undef, %55 ], [ undef, %2 ], [ undef, %37 ], [ undef, %.split.i ], [ undef, %47 ], [ undef, %48 ], [ undef, %49 ], [ undef, %50 ]
+  %.sroa.16.0 = phi i8 [ undef, %19 ], [ undef, %62 ], [ undef, %26 ], [ %31, %27 ], [ %36, %32 ], [ undef, %51 ], [ undef, %52 ], [ undef, %53 ], [ undef, %54 ], [ undef, %55 ], [ undef, %2 ], [ 2, %37 ], [ 2, %.split.i ], [ %..i, %47 ], [ %.1.i, %48 ], [ %.2.i, %49 ], [ %.3.i, %50 ]
+  %.sroa.0.0 = phi i8 [ 1, %19 ], [ 2, %62 ], [ 3, %26 ], [ 4, %27 ], [ 5, %32 ], [ 7, %51 ], [ 8, %52 ], [ 9, %53 ], [ 10, %54 ], [ 11, %55 ], [ %8, %2 ], [ 6, %37 ], [ 6, %.split.i ], [ 6, %47 ], [ 6, %48 ], [ 6, %49 ], [ 6, %50 ]
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sroa.0.0, ptr %56, align 8
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 %.sroa.16.0, ptr %.sroa.16.0..sroa_idx, align 1
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -68059,9 +68067,9 @@ define void @"_ZN162_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogic
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.22.0, ptr %.sroa.22.0..sroa_idx, align 8
   store i64 -9223372036854775803, ptr %0, align 8
-  br label %64
+  br label %65
 
-56:                                               ; preds = %20
+57:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4202)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4202
@@ -68078,29 +68086,29 @@ define void @"_ZN162_$LT$polars_parquet..parquet..parquet_bridge..PrimitiveLogic
   store i64 1, ptr %.sroa.6.0..sroa_idx.i13, align 8, !noalias !4213
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !4213
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @_ZN5alloc3fmt6format12format_inner17h1e07221face03266E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  call void @_ZN5alloc3fmt6format12format_inner17h1e07221face03266E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %58, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !4205
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4202
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !4202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %64
+  br label %65
 
-58:                                               ; preds = %20
-  %59 = icmp sgt i32 %22, -1
-  br i1 %59, label %61, label %60
+59:                                               ; preds = %20
+  %60 = icmp sgt i32 %22, -1
+  br i1 %60, label %62, label %61
 
-60:                                               ; preds = %58
+61:                                               ; preds = %59
   tail call void @"_ZN125_$LT$polars_parquet..parquet..error..ParquetError$u20$as$u20$core..convert..From$LT$core..num..error..TryFromIntError$GT$$GT$4from17ha1e085fcf72b7d24E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0)
-  br label %64
+  br label %65
 
-61:                                               ; preds = %58
-  %62 = zext nneg i32 %24 to i64
-  %63 = zext nneg i32 %22 to i64
+62:                                               ; preds = %59
+  %63 = zext nneg i32 %24 to i64
+  %64 = zext nneg i32 %22 to i64
   br label %"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E.exit"
 
-64:                                               ; preds = %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit", %60, %56, %"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E.exit"
+65:                                               ; preds = %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit", %61, %57, %"_ZN118_$LT$polars_parquet..parquet..parquet_bridge..IntegerType$u20$as$u20$core..convert..From$LT$$LP$i32$C$bool$RP$$GT$$GT$4from17hdec247d7523a6c00E.exit"
   ret void
 }
 
@@ -79626,7 +79634,10 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #27
+declare i32 @llvm.ctpop.i32(i32) #27
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #27

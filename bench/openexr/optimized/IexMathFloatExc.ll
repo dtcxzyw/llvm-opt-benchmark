@@ -28,96 +28,108 @@ declare void @_ZN7Iex_3_421setFpExceptionHandlerEPFviPKcE(ptr noundef) local_unn
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN7Iex_3_412_GLOBAL__N_110fpeHandlerEiPKc(i32 noundef %0, ptr noundef %1) #2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call ptr @__cxa_allocate_exception(i64 72) #8
-  switch i32 %0, label %24 [
-    i32 1, label %4
-    i32 2, label %8
-    i32 4, label %12
-    i32 8, label %16
-    i32 16, label %20
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %4 = icmp eq i32 %3, 1
+  br i1 %4, label %.split, label %31
+
+.split:                                           ; preds = %2
+  %5 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  switch i32 %5, label %31 [
+    i32 0, label %6
+    i32 1, label %11
+    i32 2, label %16
+    i32 3, label %21
+    i32 4, label %26
   ]
 
-4:                                                ; preds = %2
-  invoke void @_ZN7Iex_3_411OverflowExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef %1)
-          to label %5 unwind label %6
+6:                                                ; preds = %.split
+  %7 = tail call ptr @__cxa_allocate_exception(i64 72) #9
+  invoke void @_ZN7Iex_3_411OverflowExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef %1)
+          to label %8 unwind label %9
 
-5:                                                ; preds = %4
-  tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN7Iex_3_411OverflowExcE, ptr nonnull @_ZN7Iex_3_411OverflowExcD1Ev) #9
+8:                                                ; preds = %6
+  tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN7Iex_3_411OverflowExcE, ptr nonnull @_ZN7Iex_3_411OverflowExcD1Ev) #10
   unreachable
 
-6:                                                ; preds = %4
-  %7 = landingpad { ptr, i32 }
+9:                                                ; preds = %6
+  %10 = landingpad { ptr, i32 }
           cleanup
-  br label %28
+  br label %36
 
-8:                                                ; preds = %2
-  invoke void @_ZN7Iex_3_412UnderflowExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef %1)
-          to label %9 unwind label %10
-
-9:                                                ; preds = %8
-  tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN7Iex_3_412UnderflowExcE, ptr nonnull @_ZN7Iex_3_412UnderflowExcD1Ev) #9
-  unreachable
-
-10:                                               ; preds = %8
-  %11 = landingpad { ptr, i32 }
-          cleanup
-  br label %28
-
-12:                                               ; preds = %2
-  invoke void @_ZN7Iex_3_410DivzeroExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef %1)
+11:                                               ; preds = %.split
+  %12 = tail call ptr @__cxa_allocate_exception(i64 72) #9
+  invoke void @_ZN7Iex_3_412UnderflowExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef %1)
           to label %13 unwind label %14
 
-13:                                               ; preds = %12
-  tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN7Iex_3_410DivzeroExcE, ptr nonnull @_ZN7Iex_3_410DivzeroExcD1Ev) #9
+13:                                               ; preds = %11
+  tail call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTIN7Iex_3_412UnderflowExcE, ptr nonnull @_ZN7Iex_3_412UnderflowExcD1Ev) #10
   unreachable
 
-14:                                               ; preds = %12
+14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  br label %28
+  br label %36
 
-16:                                               ; preds = %2
-  invoke void @_ZN7Iex_3_410InexactExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef %1)
-          to label %17 unwind label %18
-
-17:                                               ; preds = %16
-  tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN7Iex_3_410InexactExcE, ptr nonnull @_ZN7Iex_3_410InexactExcD1Ev) #9
-  unreachable
+16:                                               ; preds = %.split
+  %17 = tail call ptr @__cxa_allocate_exception(i64 72) #9
+  invoke void @_ZN7Iex_3_410DivzeroExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef %1)
+          to label %18 unwind label %19
 
 18:                                               ; preds = %16
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  br label %28
-
-20:                                               ; preds = %2
-  invoke void @_ZN7Iex_3_414InvalidFpOpExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef %1)
-          to label %21 unwind label %22
-
-21:                                               ; preds = %20
-  tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN7Iex_3_414InvalidFpOpExcE, ptr nonnull @_ZN7Iex_3_414InvalidFpOpExcD1Ev) #9
+  tail call void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTIN7Iex_3_410DivzeroExcE, ptr nonnull @_ZN7Iex_3_410DivzeroExcD1Ev) #10
   unreachable
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+19:                                               ; preds = %16
+  %20 = landingpad { ptr, i32 }
           cleanup
-  br label %28
+  br label %36
 
-24:                                               ; preds = %2
-  invoke void @_ZN7Iex_3_47MathExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef %1)
-          to label %25 unwind label %26
+21:                                               ; preds = %.split
+  %22 = tail call ptr @__cxa_allocate_exception(i64 72) #9
+  invoke void @_ZN7Iex_3_410InexactExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef %1)
+          to label %23 unwind label %24
 
-25:                                               ; preds = %24
-  tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN7Iex_3_47MathExcE, ptr nonnull @_ZN7Iex_3_47MathExcD1Ev) #9
+23:                                               ; preds = %21
+  tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTIN7Iex_3_410InexactExcE, ptr nonnull @_ZN7Iex_3_410InexactExcD1Ev) #10
   unreachable
 
-26:                                               ; preds = %24
-  %27 = landingpad { ptr, i32 }
+24:                                               ; preds = %21
+  %25 = landingpad { ptr, i32 }
           cleanup
-  br label %28
+  br label %36
 
-28:                                               ; preds = %26, %22, %18, %14, %10, %6
-  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ %19, %18 ], [ %23, %22 ]
-  tail call void @__cxa_free_exception(ptr nonnull %3) #8
+26:                                               ; preds = %.split
+  %27 = tail call ptr @__cxa_allocate_exception(i64 72) #9
+  invoke void @_ZN7Iex_3_414InvalidFpOpExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %27, ptr noundef %1)
+          to label %28 unwind label %29
+
+28:                                               ; preds = %26
+  tail call void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTIN7Iex_3_414InvalidFpOpExcE, ptr nonnull @_ZN7Iex_3_414InvalidFpOpExcD1Ev) #10
+  unreachable
+
+29:                                               ; preds = %26
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  br label %36
+
+31:                                               ; preds = %2, %.split
+  %32 = tail call ptr @__cxa_allocate_exception(i64 72) #9
+  invoke void @_ZN7Iex_3_47MathExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %32, ptr noundef %1)
+          to label %33 unwind label %34
+
+33:                                               ; preds = %31
+  tail call void @__cxa_throw(ptr nonnull %32, ptr nonnull @_ZTIN7Iex_3_47MathExcE, ptr nonnull @_ZN7Iex_3_47MathExcD1Ev) #10
+  unreachable
+
+34:                                               ; preds = %31
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  br label %36
+
+36:                                               ; preds = %34, %29, %24, %19, %14, %9
+  %.sink = phi ptr [ %32, %34 ], [ %27, %29 ], [ %22, %24 ], [ %17, %19 ], [ %12, %14 ], [ %7, %9 ]
+  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %30, %29 ], [ %25, %24 ], [ %20, %19 ], [ %15, %14 ], [ %10, %9 ]
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #9
   resume { ptr, i32 } %.pn
 }
 
@@ -171,7 +183,7 @@ _ZN7Iex_3_49mathExcOnEi.exit:                     ; preds = %.noexc, %1
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #10
+  tail call void @__clang_call_terminate(ptr %9) #11
   unreachable
 }
 
@@ -179,8 +191,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
-  tail call void @_ZSt9terminatev() #10
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
+  tail call void @_ZSt9terminatev() #11
   unreachable
 }
 
@@ -234,6 +246,12 @@ declare void @_ZN7Iex_3_47MathExcC1EPKc(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: nounwind
 declare void @_ZN7Iex_3_47MathExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #6
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -242,9 +260,10 @@ attributes #4 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "
 attributes #5 = { cold nofree noreturn }
 attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold noreturn }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn }
-attributes #10 = { noreturn nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

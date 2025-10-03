@@ -676,34 +676,27 @@ define void @"_ZN148_$LT$cranelift_codegen_meta..cdsl..types..ValueType$u20$as$u
 define hidden { i1, i8 } @_ZN22cranelift_codegen_meta4cdsl5types8LaneType13int_from_bits17h043f94d568948750E(i16 %0) unnamed_addr #0 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  switch i16 %0, label %4 [
-    i16 8, label %9
-    i16 16, label %5
-    i16 32, label %6
-    i16 64, label %7
-    i16 128, label %8
-  ]
+  %4 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %0)
+  %5 = icmp eq i16 %4, 1
+  br i1 %5, label %.split, label %8
 
-4:                                                ; preds = %1
+.split:                                           ; preds = %1
+  %6 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %0, i1 true)
+  %switch.tableidx = add nsw i16 %6, -3
+  %7 = icmp ult i16 %switch.tableidx, 5
+  br i1 %7, label %switch.lookup, label %8
+
+8:                                                ; preds = %.split, %1
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.12, i64 1, ptr nonnull align 8 %2, i64 0)
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.14) #17
   unreachable
 
-5:                                                ; preds = %1
-  br label %9
-
-6:                                                ; preds = %1
-  br label %9
-
-7:                                                ; preds = %1
-  br label %9
-
-8:                                                ; preds = %1
-  br label %9
-
-9:                                                ; preds = %1, %8, %7, %6, %5
-  %.0 = phi i8 [ 16, %5 ], [ 32, %6 ], [ 64, %7 ], [ -128, %8 ], [ 8, %1 ]
-  %10 = insertvalue { i1, i8 } { i1 true, i8 poison }, i8 %.0, 1
+switch.lookup:                                    ; preds = %.split
+  %9 = shl nuw nsw i16 %switch.tableidx, 3
+  %switch.shiftamt = zext nneg i16 %9 to i40
+  %switch.downshift = lshr i40 -548679970808, %switch.shiftamt
+  %switch.masked = trunc i40 %switch.downshift to i8
+  %10 = insertvalue { i1, i8 } { i1 true, i8 poison }, i8 %switch.masked, 1
   ret { i1, i8 } %10
 }
 
@@ -1236,6 +1229,12 @@ declare i8 @"_ZN115_$LT$cranelift_codegen_meta..shared..types..ReferenceIterator
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare i8 @_ZN4core3ops8function6FnOnce9call_once17hbe0e1311121f2a68E(i8) unnamed_addr #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.ctpop.i16(i16) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.cttz.i8(i8, i1 immarg) #12

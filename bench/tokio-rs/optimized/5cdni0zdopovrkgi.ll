@@ -136,6 +136,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.832e62666b6255bc19293ed26de40573.99.llvm.9340333246167201960 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hae47677991530a43E" = private unnamed_addr constant [3 x i64] [i64 8, i64 10, i64 7], align 8
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hae47677991530a43E.20" = private unnamed_addr constant [3 x ptr] [ptr @anon.ba4985a049956e0df762c1765696dc31.116, ptr @anon.ba4985a049956e0df762c1765696dc31.117, ptr @anon.ba4985a049956e0df762c1765696dc31.118], align 8
+@switch.table._ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E = private unnamed_addr constant [6 x i64] [i64 5, i64 10, i64 0, i64 0, i64 20, i64 32], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef i64 @_ZN11parking_lot7condvar7Condvar10notify_all17h4281c1b5e82a9165E.llvm.4117860391599875382(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
@@ -9239,27 +9240,22 @@ _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit54: ; preds = %10
 define void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E(ptr noalias noundef writeonly sret({ i64, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) initializes((0, 10)) %0, ptr noundef nonnull readonly align 128 captures(none) %1, i64 noundef %2) unnamed_addr #14 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load atomic i64, ptr %4 acquire, align 16
-  switch i64 %2, label %_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit [
-    i64 1, label %6
-    i64 2, label %7
-    i64 16, label %8
-    i64 32, label %9
-  ]
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %7 = icmp eq i64 %6, 1
+  br i1 %7, label %.split.i, label %_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit
 
-6:                                                ; preds = %3
+.split.i:                                         ; preds = %3
+  %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %9 = icmp samesign ult i64 %8, 6
+  br i1 %9, label %switch.lookup, label %_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit
+
+switch.lookup:                                    ; preds = %.split.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E, i64 %8
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit
 
-7:                                                ; preds = %3
-  br label %_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit
-
-8:                                                ; preds = %3
-  br label %_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit
-
-9:                                                ; preds = %3
-  br label %_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit
-
-_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit: ; preds = %3, %6, %7, %8, %9
-  %.0.i = phi i64 [ 5, %6 ], [ 10, %7 ], [ 20, %8 ], [ 32, %9 ], [ 0, %3 ]
+_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit: ; preds = %switch.lookup, %.split.i, %3
+  %.0.i = phi i64 [ 0, %3 ], [ 0, %.split.i ], [ %switch.load, %switch.lookup ]
   %10 = lshr i64 %5, 16
   %11 = trunc i64 %10 to i8
   %12 = and i64 %5, %.0.i
@@ -11185,14 +11181,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #24
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #26
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #24
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
+declare void @llvm.experimental.noalias.scope.decl(metadata) #25
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umax.i8(i8, i8) #24
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -11218,9 +11220,9 @@ attributes #20 = { nounwind nonlazybind allockind("alloc,uninitialized,aligned")
 attributes #21 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #22 = { nounwind }
 attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #26 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #27 = { noreturn }
 attributes #28 = { cold }
 attributes #29 = { cold noreturn nounwind }

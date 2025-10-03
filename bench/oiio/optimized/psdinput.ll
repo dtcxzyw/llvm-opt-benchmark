@@ -822,6 +822,7 @@ $_ZN3fmt2v86detail15basic_impl_dataIvE14power_of_10_64E = comdat any
 @.str.160 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @.str.161 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_psdinput.cpp, ptr null }]
+@switch.table._ZN11OpenImageIO6v3_1_08PSDInput13set_type_descEv = private unnamed_addr constant [6 x i64] [i64 258, i64 poison, i64 poison, i64 258, i64 260, i64 267], align 8
 
 @_ZN11OpenImageIO6v3_1_08PSDInputC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN11OpenImageIO6v3_1_08PSDInputC2Ev
 
@@ -4012,26 +4013,29 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %70, %72, %74, %76
 define hidden void @_ZN11OpenImageIO6v3_1_08PSDInput13set_type_descEv(ptr noundef nonnull align 8 captures(none) dereferenceable(840) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %3 = load i16, ptr %2, align 8, !tbaa !222
-  switch i16 %3, label %7 [
-    i16 1, label %.sink.split
-    i16 8, label %.sink.split
-    i16 16, label %4
-    i16 32, label %5
-  ]
+  %4 = zext i16 %3 to i32
+  %5 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %4)
+  %6 = icmp eq i32 %5, 1
+  br i1 %6, label %.split, label %11
 
-4:                                                ; preds = %1
-  br label %.sink.split
+.split:                                           ; preds = %1
+  %7 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %4, i1 true)
+  %8 = icmp samesign ult i32 %7, 6
+  %switch.maskindex = trunc nuw nsw i32 %7 to i8
+  %switch.shifted = lshr i8 57, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %8, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %11
 
-5:                                                ; preds = %1
-  br label %.sink.split
+switch.lookup:                                    ; preds = %.split
+  %9 = zext nneg i32 %7 to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11OpenImageIO6v3_1_08PSDInput13set_type_descEv, i64 %9
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 572
+  store i64 %switch.load, ptr %10, align 4
+  br label %11
 
-.sink.split:                                      ; preds = %1, %1, %4, %5
-  %.sink = phi i64 [ 267, %5 ], [ 260, %4 ], [ 258, %1 ], [ 258, %1 ]
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 572
-  store i64 %.sink, ptr %6, align 4
-  br label %7
-
-7:                                                ; preds = %.sink.split, %1
+11:                                               ; preds = %.split, %switch.lookup, %1
   ret void
 }
 
@@ -7484,7 +7488,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08PSDInput15validate_hea
 
 3:                                                ; preds = %1
   tail call void @_ZNK11OpenImageIO6v3_1_010ImageInput8errorfmtIJEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.46)
-  br label %45
+  br label %48
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 660
@@ -7495,7 +7499,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08PSDInput15validate_hea
 
 7:                                                ; preds = %4
   tail call void @_ZNK11OpenImageIO6v3_1_010ImageInput8errorfmtIJEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.47)
-  br label %45
+  br label %48
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 662
@@ -7506,7 +7510,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08PSDInput15validate_hea
 
 12:                                               ; preds = %8
   tail call void @_ZNK11OpenImageIO6v3_1_010ImageInput8errorfmtIJEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.48)
-  br label %45
+  br label %48
 
 13:                                               ; preds = %8
   %switch19 = icmp eq i16 %6, 1
@@ -7521,7 +7525,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08PSDInput15validate_hea
 
 18:                                               ; preds = %16
   tail call void @_ZNK11OpenImageIO6v3_1_010ImageInput8errorfmtIJEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.49)
-  br label %45
+  br label %48
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 668
@@ -7532,7 +7536,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08PSDInput15validate_hea
 
 23:                                               ; preds = %19
   tail call void @_ZNK11OpenImageIO6v3_1_010ImageInput8errorfmtIJEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.50)
-  br label %45
+  br label %48
 
 24:                                               ; preds = %13
   %25 = add i32 %15, -300001
@@ -7541,7 +7545,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08PSDInput15validate_hea
 
 26:                                               ; preds = %24
   tail call void @_ZNK11OpenImageIO6v3_1_010ImageInput8errorfmtIJjEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.51, ptr noundef nonnull align 4 dereferenceable(4) %14)
-  br label %45
+  br label %48
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 668
@@ -7552,52 +7556,58 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08PSDInput15validate_hea
 
 31:                                               ; preds = %27
   tail call void @_ZNK11OpenImageIO6v3_1_010ImageInput8errorfmtIJjEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.52, ptr noundef nonnull align 4 dereferenceable(4) %28)
-  br label %45
+  br label %48
 
 32:                                               ; preds = %27, %19
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %34 = load i16, ptr %33, align 8, !tbaa !222
-  switch i16 %34, label %35 [
-    i16 1, label %36
-    i16 8, label %36
-    i16 16, label %36
-    i16 32, label %36
+  %35 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %34)
+  %36 = icmp eq i16 %35, 1
+  br i1 %36, label %.split, label %38
+
+.split:                                           ; preds = %32
+  %37 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %34, i1 true)
+  switch i16 %37, label %38 [
+    i16 0, label %39
+    i16 3, label %39
+    i16 4, label %39
+    i16 5, label %39
   ]
 
-35:                                               ; preds = %32
+38:                                               ; preds = %32, %.split
   tail call void @_ZNK11OpenImageIO6v3_1_010ImageInput8errorfmtIJtEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.53, ptr noundef nonnull align 2 dereferenceable(2) %33)
-  br label %45
+  br label %48
 
-36:                                               ; preds = %32, %32, %32, %32
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %38 = load i8, ptr %37, align 8, !tbaa !115, !range !249, !noundef !250
-  %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %45, label %40
+39:                                               ; preds = %.split, %.split, %.split, %.split
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %41 = load i8, ptr %40, align 8, !tbaa !115, !range !249, !noundef !250
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %48, label %43
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 674
-  %42 = load i16, ptr %41, align 2, !tbaa !171
-  switch i16 %42, label %44 [
-    i16 0, label %45
-    i16 2, label %45
-    i16 3, label %45
-    i16 1, label %45
-    i16 4, label %45
-    i16 7, label %45
-    i16 8, label %43
-    i16 9, label %43
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 674
+  %45 = load i16, ptr %44, align 2, !tbaa !171
+  switch i16 %45, label %47 [
+    i16 0, label %48
+    i16 2, label %48
+    i16 3, label %48
+    i16 1, label %48
+    i16 4, label %48
+    i16 7, label %48
+    i16 8, label %46
+    i16 9, label %46
   ]
 
-43:                                               ; preds = %40, %40
-  tail call void @_ZNK11OpenImageIO6v3_1_010ImageInput8errorfmtIJtEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.54, ptr noundef nonnull align 2 dereferenceable(2) %41)
-  br label %45
+46:                                               ; preds = %43, %43
+  tail call void @_ZNK11OpenImageIO6v3_1_010ImageInput8errorfmtIJtEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.54, ptr noundef nonnull align 2 dereferenceable(2) %44)
+  br label %48
 
-44:                                               ; preds = %40
-  tail call void @_ZNK11OpenImageIO6v3_1_010ImageInput8errorfmtIJtEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.55, ptr noundef nonnull align 2 dereferenceable(2) %41)
-  br label %45
+47:                                               ; preds = %43
+  tail call void @_ZNK11OpenImageIO6v3_1_010ImageInput8errorfmtIJtEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.55, ptr noundef nonnull align 2 dereferenceable(2) %44)
+  br label %48
 
-45:                                               ; preds = %40, %40, %40, %40, %40, %40, %36, %44, %43, %35, %31, %26, %23, %18, %12, %7, %3
-  %.0 = phi i1 [ false, %7 ], [ false, %12 ], [ false, %35 ], [ false, %44 ], [ false, %43 ], [ false, %18 ], [ false, %23 ], [ false, %26 ], [ false, %31 ], [ false, %3 ], [ true, %36 ], [ true, %40 ], [ true, %40 ], [ true, %40 ], [ true, %40 ], [ true, %40 ], [ true, %40 ]
+48:                                               ; preds = %43, %43, %43, %43, %43, %43, %39, %47, %46, %38, %31, %26, %23, %18, %12, %7, %3
+  %.0 = phi i1 [ false, %7 ], [ false, %12 ], [ false, %38 ], [ false, %47 ], [ false, %46 ], [ false, %18 ], [ false, %23 ], [ false, %26 ], [ false, %31 ], [ false, %3 ], [ true, %39 ], [ true, %43 ], [ true, %43 ], [ true, %43 ], [ true, %43 ], [ true, %43 ], [ true, %43 ]
   ret i1 %.0
 }
 
@@ -40157,41 +40167,50 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #28
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #28
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #29
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #29
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #30
+declare i16 @llvm.ctpop.i16(i16) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #30
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #30
+declare i64 @llvm.umax.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #30
+declare i64 @llvm.usub.sat.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #30
+declare float @llvm.fabs.f32(float) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #30
+declare i32 @llvm.umin.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #30
+declare i32 @llvm.smax.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #30
+declare double @llvm.fabs.f64(double) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #30
+declare i32 @llvm.smin.i32(i32, i32) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.abs.i64(i64, i1 immarg) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #30
+declare i32 @llvm.umax.i32(i32, i32) #29
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -40222,8 +40241,8 @@ attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn mem
 attributes #26 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #27 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #29 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #30 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #30 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #31 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #32 = { nounwind }
 attributes #33 = { builtin nounwind }

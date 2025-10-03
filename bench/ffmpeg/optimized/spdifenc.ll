@@ -646,49 +646,38 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_dts(ptr noundef %0, 
   %83 = shl nuw nsw i32 %75, 5
   %84 = mul nsw i32 %77, %83
   %85 = sdiv i32 %84, %.047
-  switch i32 %85, label %spdif_dts4_subtype.exit.i [
-    i32 512, label %91
-    i32 1024, label %86
-    i32 2048, label %87
-    i32 4096, label %88
-    i32 8192, label %89
-    i32 16384, label %90
-  ]
+  %86 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %85)
+  %87 = icmp eq i32 %86, 1
+  br i1 %87, label %.split.i.i, label %spdif_dts4_subtype.exit.i
 
-86:                                               ; preds = %82
-  br label %91
+.split.i.i:                                       ; preds = %82
+  %88 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %85, i1 true)
+  %switch.tableidx = add nsw i32 %88, -9
+  %89 = icmp ult i32 %switch.tableidx, 6
+  br i1 %89, label %switch.lookup, label %spdif_dts4_subtype.exit.i
 
-87:                                               ; preds = %82
-  br label %91
-
-88:                                               ; preds = %82
-  br label %91
-
-89:                                               ; preds = %82
-  br label %91
-
-90:                                               ; preds = %82
-  br label %91
-
-spdif_dts4_subtype.exit.i:                        ; preds = %82
+spdif_dts4_subtype.exit.i:                        ; preds = %.split.i.i, %82
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.21, i32 noundef %77, i32 noundef %85, i32 noundef %83, i32 noundef %.047) #7
   br label %spdif_header_dts4.exit
 
-91:                                               ; preds = %90, %89, %88, %87, %86, %82
-  %.0.i.ph.i = phi i32 [ 17, %82 ], [ 1297, %90 ], [ 1041, %89 ], [ 785, %88 ], [ 529, %87 ], [ 273, %86 ]
-  %92 = shl nuw nsw i32 %85, 2
-  %93 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %92, ptr %93, align 8, !tbaa !48
-  %94 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %.0.i.ph.i, ptr %94, align 8, !tbaa !51
+switch.lookup:                                    ; preds = %.split.i.i
+  %switch.idx.mult = shl nuw nsw i32 %switch.tableidx, 8
+  %switch.offset = or disjoint i32 %switch.idx.mult, 17
+  %90 = shl nsw i32 %85, 2
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 %90, ptr %91, align 8, !tbaa !48
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %switch.offset, ptr %92, align 8, !tbaa !51
   %narrow = add nuw i32 %10, 12
-  %95 = add nsw i32 %92, -8
-  %96 = icmp ugt i32 %narrow, %95
+  %93 = zext i32 %narrow to i64
+  %94 = add nsw i32 %90, -8
+  %95 = sext i32 %94 to i64
+  %96 = icmp ugt i64 %93, %95
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %98 = load i32, ptr %97, align 8, !tbaa !59
   br i1 %96, label %99, label %._crit_edge.i
 
-99:                                               ; preds = %91
+99:                                               ; preds = %switch.lookup
   %.not63.i = icmp eq i32 %98, 0
   br i1 %.not63.i, label %100, label %101
 
@@ -712,8 +701,8 @@ spdif_dts4_subtype.exit.i:                        ; preds = %82
   store i32 1, ptr %97, align 8, !tbaa !59
   br label %110
 
-._crit_edge.i:                                    ; preds = %105, %91
-  %108 = phi i32 [ %107, %105 ], [ %98, %91 ]
+._crit_edge.i:                                    ; preds = %105, %switch.lookup
+  %108 = phi i32 [ %107, %105 ], [ %98, %switch.lookup ]
   %.not64.i = icmp eq i32 %108, 0
   br i1 %.not64.i, label %115, label %._crit_edge.i._crit_edge
 
@@ -1212,6 +1201,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6

@@ -98,6 +98,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.489e625cf0d9bafa89a816c128d01e73.7.llvm.18090272232049510573 = external hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }>, align 8
 @anon.489e625cf0d9bafa89a816c128d01e73.8.llvm.18090272232049510573 = external hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }>, align 8
 @__rust_no_alloc_shim_is_unstable = external global i8
+@switch.table._ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E = private unnamed_addr constant [6 x i64] [i64 5, i64 10, i64 0, i64 0, i64 20, i64 32], align 8
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0b8b4a32ae2fc9b5E"(i64 noundef %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -5524,27 +5525,22 @@ define hidden void @_ZN5tokio2io8interest8Interest6to_mio7mio_add17ha3e0e47a1294
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i64 0, 33) i64 @_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E(i64 noundef %0) unnamed_addr #9 {
-  switch i64 %0, label %6 [
-    i64 1, label %2
-    i64 2, label %3
-    i64 16, label %4
-    i64 32, label %5
-  ]
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
+  %3 = icmp eq i64 %2, 1
+  br i1 %3, label %.split, label %6
 
-2:                                                ; preds = %1
+.split:                                           ; preds = %1
+  %4 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %0, i1 true)
+  %5 = icmp samesign ult i64 %4, 6
+  br i1 %5, label %switch.lookup, label %6
+
+switch.lookup:                                    ; preds = %.split
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E, i64 %4
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %6
 
-3:                                                ; preds = %1
-  br label %6
-
-4:                                                ; preds = %1
-  br label %6
-
-5:                                                ; preds = %1
-  br label %6
-
-6:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi i64 [ 5, %2 ], [ 10, %3 ], [ 20, %4 ], [ 32, %5 ], [ 0, %1 ]
+6:                                                ; preds = %switch.lookup, %.split, %1
+  %.0 = phi i64 [ 0, %1 ], [ 0, %.split ], [ %switch.load, %switch.lookup ]
   ret i64 %.0
 }
 
@@ -7631,17 +7627,23 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #32
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #32
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #33
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i128(i128, i128) #34
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #33
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
+declare void @llvm.experimental.noalias.scope.decl(metadata) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i128(i128, i128) #33
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #34
+declare i8 @llvm.umax.i8(i8, i8) #33
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -7676,8 +7678,8 @@ attributes #29 = { nounwind nonlazybind allockind("alloc,zeroed,aligned") allocs
 attributes #30 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #31 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #32 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #33 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #34 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #33 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #34 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #35 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #36 = { cold noreturn nounwind }
 attributes #37 = { nounwind }

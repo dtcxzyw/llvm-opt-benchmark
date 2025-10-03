@@ -1461,6 +1461,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.6304b5dd1a3cc6f12717cf8e882b5aae.1432 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr62drop_in_place$LT$yara_x..modules..protos..console..Console$GT$17ha4df14c0ad348b5dE", [16 x i8] c"\10\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN80_$LT$yara_x..modules..protos..console..Console$u20$as$u20$core..fmt..Display$GT$3fmt17h2d8eac12b2abc9d3E" }>, align 8
 @anon.6304b5dd1a3cc6f12717cf8e882b5aae.1433 = private unnamed_addr constant <{ ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }> <{ ptr @"_ZN4core3ptr62drop_in_place$LT$yara_x..modules..protos..console..Console$GT$17ha4df14c0ad348b5dE", [16 x i8] c"\10\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN36_$LT$T$u20$as$u20$core..any..Any$GT$7type_id17h432cd87bc79b8698E", ptr @"_ZN78_$LT$yara_x..modules..protos..console..Console$u20$as$u20$core..fmt..Debug$GT$3fmt17h6a640f5f92906668E", ptr @anon.6304b5dd1a3cc6f12717cf8e882b5aae.1431, ptr @"_ZN80_$LT$yara_x..modules..protos..console..Console$u20$as$u20$core..fmt..Display$GT$3fmt17h2d8eac12b2abc9d3E", ptr @anon.6304b5dd1a3cc6f12717cf8e882b5aae.1432, ptr @"_ZN55_$LT$M$u20$as$u20$protobuf..message_dyn..MessageDyn$GT$14descriptor_dyn17hdd9f5293efc927eaE", ptr @"_ZN55_$LT$M$u20$as$u20$protobuf..message_dyn..MessageDyn$GT$14merge_from_dyn17he7d9d96be6421541E", ptr @"_ZN55_$LT$M$u20$as$u20$protobuf..message_dyn..MessageDyn$GT$30write_to_with_cached_sizes_dyn17h48d177eb13c2c1fdE", ptr @"_ZN55_$LT$M$u20$as$u20$protobuf..message_dyn..MessageDyn$GT$16compute_size_dyn17h30efeff5f525d459E", ptr @"_ZN55_$LT$M$u20$as$u20$protobuf..message_dyn..MessageDyn$GT$18is_initialized_dyn17h0cc8bc218a071d7cE", ptr @"_ZN55_$LT$M$u20$as$u20$protobuf..message_dyn..MessageDyn$GT$18special_fields_dyn17hc4f5d032c6781991E", ptr @"_ZN55_$LT$M$u20$as$u20$protobuf..message_dyn..MessageDyn$GT$22mut_special_fields_dyn17h9ff09add55d132aeE" }>, align 8
 @llvm.used = appending global [10 x ptr] [ptr @_ZN6yara_x7modules7console24export____thunk__log_hex17h9a9b20c7bb4660bbE, ptr @_ZN6yara_x7modules7console24export____thunk__log_int17h9ade198fec11b9adE, ptr @_ZN6yara_x7modules7console24export____thunk__log_str17h8762ac03816b7804E, ptr @_ZN6yara_x7modules7console25export____thunk__log_bool17hbc8ccf5a3523b37cE, ptr @_ZN6yara_x7modules7console26export____thunk__log_float17h7d0e1b8160365e49E, ptr @_ZN6yara_x7modules7console28export____thunk__log_msg_hex17h982ead56e94e2ba6E, ptr @_ZN6yara_x7modules7console28export____thunk__log_msg_int17h3fd75958f90981e7E, ptr @_ZN6yara_x7modules7console28export____thunk__log_msg_str17hf48c102ff202fbb7E, ptr @_ZN6yara_x7modules7console29export____thunk__log_msg_bool17ha3ca3ede4fc2450cE, ptr @_ZN6yara_x7modules7console30export____thunk__log_msg_float17h187ea641a19c53d7E], section "llvm.metadata"
+@"switch.table._ZN86_$LT$yara_x..modules..protos..lnk..FileAttributes$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h8c3693dddae1bcd0E" = private unnamed_addr constant [15 x i16] [i16 1, i16 2, i16 4, i16 8, i16 16, i16 32, i16 64, i16 128, i16 256, i16 512, i16 1024, i16 2048, i16 4096, i16 8192, i16 16384], align 2
 @"switch.table._ZN91_$LT$yara_x..modules..protos..lnk..ShowCommand$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17h1064cef37f42a448E" = private unnamed_addr constant [7 x i64] [i64 0, i64 poison, i64 1, i64 poison, i64 poison, i64 poison, i64 2], align 8
 @"switch.table._ZN88_$LT$yara_x..modules..protos..sandbox..BehaviourTag$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hb698ba56b59ae796E" = private unnamed_addr constant [66 x i8] c"\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0FB\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123456789:;<=>?@A", align 1
 @"switch.table._ZN96_$LT$yara_x..modules..protos..sandbox..BehaviourTag$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17hd53a4d9006c381b9E" = private unnamed_addr constant [66 x i64] [i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7, i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15, i64 poison, i64 17, i64 18, i64 19, i64 20, i64 21, i64 22, i64 23, i64 24, i64 25, i64 16, i64 26, i64 27, i64 28, i64 29, i64 30, i64 31, i64 32, i64 33, i64 34, i64 35, i64 36, i64 37, i64 38, i64 39, i64 40, i64 41, i64 42, i64 43, i64 44, i64 45, i64 46, i64 47, i64 48, i64 49, i64 50, i64 51, i64 52, i64 53, i64 54, i64 55, i64 56, i64 57, i64 58, i64 59, i64 60, i64 61, i64 62, i64 63, i64 64], align 8
@@ -61171,71 +61172,23 @@ define noundef range(i32 1, 16385) i32 @"_ZN86_$LT$yara_x..modules..protos..lnk.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i16 0, 16385) i16 @"_ZN86_$LT$yara_x..modules..protos..lnk..FileAttributes$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h8c3693dddae1bcd0E"(i32 noundef %0) unnamed_addr #2 {
-  switch i32 %0, label %17 [
-    i32 1, label %2
-    i32 2, label %3
-    i32 4, label %4
-    i32 8, label %5
-    i32 16, label %6
-    i32 32, label %7
-    i32 64, label %8
-    i32 128, label %9
-    i32 256, label %10
-    i32 512, label %11
-    i32 1024, label %12
-    i32 2048, label %13
-    i32 4096, label %14
-    i32 8192, label %15
-    i32 16384, label %16
-  ]
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %.split, label %7
 
-2:                                                ; preds = %1
-  br label %17
+.split:                                           ; preds = %1
+  %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  %5 = icmp samesign ult i32 %4, 15
+  br i1 %5, label %switch.lookup, label %7
 
-3:                                                ; preds = %1
-  br label %17
+switch.lookup:                                    ; preds = %.split
+  %6 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw i16, ptr @"switch.table._ZN86_$LT$yara_x..modules..protos..lnk..FileAttributes$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h8c3693dddae1bcd0E", i64 %6
+  %switch.load = load i16, ptr %switch.gep, align 2
+  br label %7
 
-4:                                                ; preds = %1
-  br label %17
-
-5:                                                ; preds = %1
-  br label %17
-
-6:                                                ; preds = %1
-  br label %17
-
-7:                                                ; preds = %1
-  br label %17
-
-8:                                                ; preds = %1
-  br label %17
-
-9:                                                ; preds = %1
-  br label %17
-
-10:                                               ; preds = %1
-  br label %17
-
-11:                                               ; preds = %1
-  br label %17
-
-12:                                               ; preds = %1
-  br label %17
-
-13:                                               ; preds = %1
-  br label %17
-
-14:                                               ; preds = %1
-  br label %17
-
-15:                                               ; preds = %1
-  br label %17
-
-16:                                               ; preds = %1
-  br label %17
-
-17:                                               ; preds = %1, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i16 [ 1, %2 ], [ 2, %3 ], [ 4, %4 ], [ 8, %5 ], [ 16, %6 ], [ 32, %7 ], [ 64, %8 ], [ 128, %9 ], [ 256, %10 ], [ 512, %11 ], [ 1024, %12 ], [ 2048, %13 ], [ 4096, %14 ], [ 8192, %15 ], [ 16384, %16 ], [ 0, %1 ]
+7:                                                ; preds = %switch.lookup, %.split, %1
+  %.sroa.0.0 = phi i16 [ 0, %1 ], [ 0, %.split ], [ %switch.load, %switch.lookup ]
   ret i16 %.sroa.0.0
 }
 
@@ -109924,6 +109877,12 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #29

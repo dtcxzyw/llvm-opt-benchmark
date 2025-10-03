@@ -985,17 +985,21 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$43parse_binary_expression_or_higher_recursive17h70d2e8fe02e6995aE" = private unnamed_addr constant [13 x i8] c"\18\19\1A<\1B\22-+,\1C*\1D9", align 1
 @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.537" = private unnamed_addr constant [3 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.619, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.620, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.621], align 8
 @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.538" = private unnamed_addr constant [3 x i64] [i64 14, i64 15, i64 17], align 8
+@switch.table._ZN18ruff_python_parser6parser6Parser39is_enclosing_list_element_or_terminator17hbde3b425b9f5825fE = private unnamed_addr constant [31 x i8] [i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 0, i8 1, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 0, i8 1, i8 2, i8 1, i8 0, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 1, i8 0, i8 0, i8 1, i8 poison, i8 2, i8 0, i8 1], align 1
+@switch.table._ZN18ruff_python_parser6parser6Parser39is_enclosing_list_element_or_terminator17hbde3b425b9f5825fE.539 = private unnamed_addr constant [31 x i8] [i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 12, i8 13, i8 13, i8 13, i8 14, i8 15, i8 16, i8 17, i8 18, i8 19, i8 19, i8 20, i8 20, i8 poison, i8 20, i8 21, i8 21], align 1
+@switch.table._ZN18ruff_python_parser6parser15RecoveryContext7to_kind17h14ad08fb7daa27e8E = private unnamed_addr constant [31 x i8] [i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 0, i8 1, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 0, i8 1, i8 2, i8 1, i8 0, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 1, i8 0, i8 0, i8 1, i8 undef, i8 2, i8 0, i8 1], align 1
+@switch.table._ZN18ruff_python_parser6parser15RecoveryContext7to_kind17h14ad08fb7daa27e8E.540 = private unnamed_addr constant [31 x i8] c"\00\01\02\03\04\05\06\06\07\08\09\0A\0B\0C\0C\0D\0D\0D\0E\0F\10\11\12\13\13\14\14\16\14\15\15", align 1
 @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E" = private unnamed_addr constant [4 x i64] [i64 7, i64 11, i64 12, i64 26], align 8
-@"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E.539" = private unnamed_addr constant [4 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.892, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.893, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.894, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.895], align 8
+@"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E.541" = private unnamed_addr constant [4 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.892, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.893, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.894, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.895], align 8
 @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E" = private unnamed_addr constant [3 x i64] [i64 5, i64 10, i64 5], align 8
-@"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E.540" = private unnamed_addr constant [3 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.460, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.896, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.430], align 8
+@"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E.542" = private unnamed_addr constant [3 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.460, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.896, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.430], align 8
 @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E" = private unnamed_addr constant [7 x i64] [i64 13, i64 15, i64 20, i64 17, i64 15, i64 18, i64 10], align 8
-@"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E.541" = private unnamed_addr constant [7 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.897, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.898, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.899, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.900, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.901, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.902, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.903], align 8
+@"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E.543" = private unnamed_addr constant [7 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.897, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.898, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.899, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.900, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.901, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.902, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.903], align 8
 @"switch.table._ZN97_$LT$ruff_python_parser..semantic_errors..InvalidExpressionKind$u20$as$u20$core..fmt..Display$GT$3fmt17hff8bcec1c7b8d260E" = private unnamed_addr constant [3 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.904, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.905, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.906], align 8
 @"switch.table._ZN75_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Display$GT$3fmt17h77b52f1fc675feb4E" = private unnamed_addr constant [103 x i64] [i64 4, i64 3, i64 5, i64 7, i64 6, i64 12, i64 13, i64 10, i64 22, i64 7, i64 7, i64 17, i64 6, i64 6, i64 11, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 4, i64 4, i64 4, i64 4, i64 3, i64 3, i64 4, i64 4, i64 4, i64 5, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 5, i64 5, i64 4, i64 5, i64 4, i64 3, i64 4, i64 4, i64 5, i64 5, i64 4, i64 8, i64 7, i64 7, i64 7, i64 7, i64 10, i64 5, i64 5, i64 6, i64 6, i64 8, i64 7, i64 9, i64 5, i64 6, i64 8, i64 4, i64 8, i64 4, i64 4, i64 8, i64 6, i64 10, i64 5, i64 4, i64 6, i64 7, i64 8, i64 6, i64 5, i64 7, i64 6, i64 7, i64 6, i64 7, i64 6, i64 7], align 8
-@"switch.table._ZN75_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Display$GT$3fmt17h77b52f1fc675feb4E.542" = private unnamed_addr constant [103 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.958, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.959, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.960, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.961, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.962, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.963, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.964, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.965, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.630, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.966, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.967, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.968, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.969, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.970, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.971, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.972, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.973, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.974, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.975, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.976, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.977, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.978, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.979, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.980, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.981, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.982, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.983, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.984, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.985, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.986, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.987, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.988, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.989, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.990, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.991, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.992, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.993, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.994, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.995, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.996, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.997, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.998, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.999, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1000, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1001, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1002, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1003, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1004, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1005, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1006, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1007, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1008, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1009, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1010, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1011, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1012, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1013, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1014, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1015, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1016, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1017, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1018, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1019, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1020, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1021, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1022, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1023, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1024, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1025, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1026, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1027, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1028, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1029, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1030, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1031, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1032, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1033, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1034, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1035, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1036, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1037, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1038, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1039, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1040, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1041, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1042, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1043, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1044, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1045, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1046, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1047, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1048, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1049, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1050, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1051, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1052, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1053, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1054, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1055, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1056, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1057, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1058, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1059], align 8
+@"switch.table._ZN75_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Display$GT$3fmt17h77b52f1fc675feb4E.544" = private unnamed_addr constant [103 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.958, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.959, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.960, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.961, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.962, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.963, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.964, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.965, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.630, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.966, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.967, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.968, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.969, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.970, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.971, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.972, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.973, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.974, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.975, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.976, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.977, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.978, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.979, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.980, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.981, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.982, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.983, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.984, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.985, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.986, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.987, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.988, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.989, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.990, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.991, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.992, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.993, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.994, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.995, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.996, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.997, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.998, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.999, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1000, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1001, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1002, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1003, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1004, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1005, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1006, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1007, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1008, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1009, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1010, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1011, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1012, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1013, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1014, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1015, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1016, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1017, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1018, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1019, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1020, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1021, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1022, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1023, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1024, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1025, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1026, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1027, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1028, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1029, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1030, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1031, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1032, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1033, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1034, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1035, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1036, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1037, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1038, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1039, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1040, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1041, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1042, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1043, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1044, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1045, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1046, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1047, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1048, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1049, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1050, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1051, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1052, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1053, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1054, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1055, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1056, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1057, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1058, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1059], align 8
 @"switch.table._ZN73_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h521b78006e6d718fE" = private unnamed_addr constant [103 x i64] [i64 4, i64 3, i64 5, i64 7, i64 6, i64 12, i64 13, i64 10, i64 16, i64 7, i64 7, i64 17, i64 6, i64 6, i64 9, i64 8, i64 11, i64 4, i64 4, i64 4, i64 4, i64 5, i64 5, i64 4, i64 4, i64 5, i64 4, i64 5, i64 4, i64 5, i64 4, i64 7, i64 5, i64 3, i64 7, i64 6, i64 6, i64 7, i64 8, i64 9, i64 12, i64 5, i64 10, i64 9, i64 10, i64 10, i64 15, i64 9, i64 10, i64 9, i64 10, i64 12, i64 10, i64 9, i64 15, i64 14, i64 15, i64 11, i64 16, i64 10, i64 2, i64 7, i64 6, i64 8, i64 3, i64 2, i64 6, i64 5, i64 5, i64 5, i64 5, i64 8, i64 3, i64 3, i64 4, i64 4, i64 6, i64 5, i64 7, i64 3, i64 4, i64 6, i64 2, i64 6, i64 2, i64 2, i64 6, i64 4, i64 8, i64 3, i64 2, i64 4, i64 5, i64 6, i64 4, i64 3, i64 5, i64 4, i64 5, i64 4, i64 5, i64 4, i64 7], align 8
-@"switch.table._ZN73_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h521b78006e6d718fE.543" = private unnamed_addr constant [103 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1171, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1172, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1173, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1174, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1175, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.963, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.964, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.965, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1176, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1177, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1178, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.968, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1179, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1180, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1181, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1182, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1183, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1184, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1185, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1186, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1187, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1188, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1189, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1190, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1191, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1192, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1193, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1194, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1195, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1196, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1197, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1198, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1199, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1200, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1201, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1202, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1203, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1204, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1205, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1206, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1207, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1208, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1209, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1210, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1211, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1212, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1213, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1214, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1215, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1216, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1217, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1218, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1219, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1220, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1221, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1222, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1223, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1224, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1225, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1226, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1227, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1228, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1229, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1230, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1231, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1232, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1233, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1234, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1235, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1236, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1237, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1238, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1239, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1240, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1241, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1242, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1243, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.424, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1244, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1245, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1246, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1247, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1248, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1249, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1250, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1251, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.511, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.194, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1252, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1253, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1254, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1255, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1256, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1257, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.425, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1258, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1259, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1260, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1261, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1262, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1263, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1264, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1059], align 8
+@"switch.table._ZN73_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h521b78006e6d718fE.545" = private unnamed_addr constant [103 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1171, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1172, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1173, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1174, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1175, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.963, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.964, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.965, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1176, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1177, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1178, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.968, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1179, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1180, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1181, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1182, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1183, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1184, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1185, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1186, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1187, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1188, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1189, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1190, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1191, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1192, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1193, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1194, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1195, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1196, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1197, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1198, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1199, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1200, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1201, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1202, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1203, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1204, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1205, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1206, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1207, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1208, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1209, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1210, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1211, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1212, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1213, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1214, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1215, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1216, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1217, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1218, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1219, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1220, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1221, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1222, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1223, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1224, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1225, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1226, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1227, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1228, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1229, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1230, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1231, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1232, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1233, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1234, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1235, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1236, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1237, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1238, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1239, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1240, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1241, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1242, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1243, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.424, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1244, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1245, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1246, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1247, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1248, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1249, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1250, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1251, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.511, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.194, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1252, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1253, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1254, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1255, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1256, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1257, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.425, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1258, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1259, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1260, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1261, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1262, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1263, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1264, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1059], align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc { i64, ptr } @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9f819c25ab292f96E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -1704,7 +1708,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E.540", i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E.542", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !123
   ret i1 %6
@@ -1731,7 +1735,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E.539", i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E.541", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !128
   ret i1 %6
@@ -1754,7 +1758,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E.541", i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E.543", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !134
   ret i1 %6
@@ -80073,10 +80077,10 @@ _ZN18ruff_python_parser6parser6Parser9add_error17hb1396644f1a5196aE.exit.i: ; pr
 define internal fastcc noundef zeroext i1 @_ZN18ruff_python_parser6parser6Parser39is_enclosing_list_element_or_terminator17hbde3b425b9f5825fE(i8 %.170.val, i32 %.272.val) unnamed_addr #10 personality ptr @rust_eh_personality {
   br label %1
 
-1:                                                ; preds = %23, %0
-  %.sroa.73.0 = phi i64 [ 0, %0 ], [ %.sroa.73.210, %23 ]
-  %.sroa.13.0 = phi i32 [ %.272.val, %0 ], [ %.sroa.13.111, %23 ]
-  %.sroa.17.0 = phi i1 [ false, %0 ], [ %.sroa.17.112, %23 ]
+1:                                                ; preds = %25, %0
+  %.sroa.73.0 = phi i64 [ 0, %0 ], [ %.sroa.73.210, %25 ]
+  %.sroa.13.0 = phi i32 [ %.272.val, %0 ], [ %.sroa.13.111, %25 ]
+  %.sroa.17.0 = phi i1 [ false, %0 ], [ %.sroa.17.112, %25 ]
   %2 = icmp ugt i64 %.sroa.73.0, 29
   %3 = icmp eq i32 %.sroa.13.0, 0
   %or.cond = select i1 %2, i1 true, i1 %3
@@ -80106,36 +80110,48 @@ define internal fastcc noundef zeroext i1 @_ZN18ruff_python_parser6parser6Parser
 
 ._crit_edge.i.i:                                  ; preds = %.backedge.i.i, %1
   %.sroa.73.1 = phi i64 [ %.sroa.73.0, %1 ], [ 30, %.backedge.i.i ]
-  %or.cond22 = select i1 %.sroa.17.0, i1 true, i1 %3
-  br i1 %or.cond22, label %"_ZN88_$LT$bitflags..iter..Iter$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h323834934d8cf276E.exit.thread14", label %15
+  %or.cond26 = select i1 %.sroa.17.0, i1 true, i1 %3
+  br i1 %or.cond26, label %"_ZN88_$LT$bitflags..iter..Iter$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h323834934d8cf276E.exit.thread14", label %15
 
 15:                                               ; preds = %._crit_edge.i.i, %"_ZN88_$LT$bitflags..iter..Iter$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h323834934d8cf276E.exit.thread"
   %.sroa.5.0.i13 = phi i32 [ %8, %"_ZN88_$LT$bitflags..iter..Iter$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h323834934d8cf276E.exit.thread" ], [ %.sroa.13.0, %._crit_edge.i.i ]
   %.sroa.17.112 = phi i1 [ %.sroa.17.0, %"_ZN88_$LT$bitflags..iter..Iter$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h323834934d8cf276E.exit.thread" ], [ true, %._crit_edge.i.i ]
   %.sroa.13.111 = phi i32 [ %14, %"_ZN88_$LT$bitflags..iter..Iter$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h323834934d8cf276E.exit.thread" ], [ %.sroa.13.0, %._crit_edge.i.i ]
   %.sroa.73.210 = phi i64 [ %5, %"_ZN88_$LT$bitflags..iter..Iter$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h323834934d8cf276E.exit.thread" ], [ %.sroa.73.1, %._crit_edge.i.i ]
-  %16 = tail call { i8, i8 } @_ZN18ruff_python_parser6parser15RecoveryContext7to_kind17h14ad08fb7daa27e8E(i32 noundef %.sroa.5.0.i13)
-  %17 = extractvalue { i8, i8 } %16, 0
-  %.not = icmp eq i8 %17, 22
-  br i1 %.not, label %22, label %19, !prof !32
+  %16 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.sroa.5.0.i13)
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %.split.i, label %24
 
-"_ZN88_$LT$bitflags..iter..Iter$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h323834934d8cf276E.exit.thread14": ; preds = %19, %23, %._crit_edge.i.i
-  %18 = phi i1 [ false, %._crit_edge.i.i ], [ true, %23 ], [ true, %19 ]
-  ret i1 %18
+.split.i:                                         ; preds = %15
+  %18 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.5.0.i13, i1 true)
+  %19 = icmp ne i32 %18, 31
+  %switch.shifted = lshr i32 2013265919, %18
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond42 = select i1 %19, i1 %switch.lobit, i1 false
+  br i1 %or.cond42, label %switch.lookup, label %24
 
-19:                                               ; preds = %15
-  %20 = extractvalue { i8, i8 } %16, 1
-  %21 = tail call fastcc noundef i8 @_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E(i8 noundef range(i8 0, 22) %17, i8 %20, i8 %.170.val)
-  %.not21 = icmp eq i8 %21, 2
-  br i1 %.not21, label %23, label %"_ZN88_$LT$bitflags..iter..Iter$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h323834934d8cf276E.exit.thread14"
+"_ZN88_$LT$bitflags..iter..Iter$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h323834934d8cf276E.exit.thread14": ; preds = %switch.lookup, %25, %._crit_edge.i.i
+  %20 = phi i1 [ false, %._crit_edge.i.i ], [ true, %25 ], [ true, %switch.lookup ]
+  ret i1 %20
 
-22:                                               ; preds = %15
+switch.lookup:                                    ; preds = %.split.i
+  %21 = zext nneg i32 %18 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN18ruff_python_parser6parser6Parser39is_enclosing_list_element_or_terminator17hbde3b425b9f5825fE, i64 %21
+  %switch.load = load i8, ptr %switch.gep, align 1
+  %22 = zext nneg i32 %18 to i64
+  %switch.gep40 = getelementptr inbounds nuw i8, ptr @switch.table._ZN18ruff_python_parser6parser6Parser39is_enclosing_list_element_or_terminator17hbde3b425b9f5825fE.539, i64 %22
+  %switch.load41 = load i8, ptr %switch.gep40, align 1
+  %23 = tail call fastcc noundef i8 @_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E(i8 noundef range(i8 0, 22) %switch.load41, i8 %switch.load, i8 %.170.val)
+  %.not25 = icmp eq i8 %23, 2
+  br i1 %.not25, label %25, label %"_ZN88_$LT$bitflags..iter..Iter$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h323834934d8cf276E.exit.thread14"
+
+24:                                               ; preds = %.split.i, %15
   tail call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.aab41dc2a4de2fafba55bf875aa63917.789, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.790) #37
   unreachable
 
-23:                                               ; preds = %19
-  %24 = tail call fastcc noundef zeroext i1 @_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E(i8 noundef %17, i8 %.170.val)
-  br i1 %24, label %"_ZN88_$LT$bitflags..iter..Iter$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h323834934d8cf276E.exit.thread14", label %1
+25:                                               ; preds = %switch.lookup
+  %26 = tail call fastcc noundef zeroext i1 @_ZN18ruff_python_parser6parser19RecoveryContextKind15is_list_element17h538e5332a49ec748E(i8 noundef %switch.load41, i8 %.170.val)
+  br i1 %26, label %"_ZN88_$LT$bitflags..iter..Iter$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h323834934d8cf276E.exit.thread14", label %1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -81301,135 +81317,30 @@ default.unreachable165:                           ; preds = %3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i8, i8 } @_ZN18ruff_python_parser6parser15RecoveryContext7to_kind17h14ad08fb7daa27e8E(i32 noundef %0) unnamed_addr #5 {
-  switch i32 %0, label %32 [
-    i32 1, label %31
-    i32 2, label %2
-    i32 4, label %3
-    i32 8, label %4
-    i32 16, label %5
-    i32 32, label %6
-    i32 64, label %7
-    i32 128, label %8
-    i32 256, label %9
-    i32 512, label %10
-    i32 1024, label %11
-    i32 2048, label %12
-    i32 4096, label %13
-    i32 8192, label %14
-    i32 16384, label %15
-    i32 32768, label %16
-    i32 65536, label %17
-    i32 131072, label %18
-    i32 262144, label %19
-    i32 524288, label %20
-    i32 1048576, label %21
-    i32 2097152, label %22
-    i32 4194304, label %23
-    i32 8388608, label %24
-    i32 16777216, label %25
-    i32 33554432, label %26
-    i32 67108864, label %27
-    i32 268435456, label %28
-    i32 536870912, label %29
-    i32 1073741824, label %30
-  ]
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %.split, label %7
 
-2:                                                ; preds = %1
-  br label %32
+.split:                                           ; preds = %1
+  %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  %.not = icmp eq i32 %4, 31
+  br i1 %.not, label %7, label %switch.lookup
 
-3:                                                ; preds = %1
-  br label %32
+switch.lookup:                                    ; preds = %.split
+  %5 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN18ruff_python_parser6parser15RecoveryContext7to_kind17h14ad08fb7daa27e8E, i64 %5
+  %switch.load = load i8, ptr %switch.gep, align 1
+  %6 = zext nneg i32 %4 to i64
+  %switch.gep2 = getelementptr inbounds nuw i8, ptr @switch.table._ZN18ruff_python_parser6parser15RecoveryContext7to_kind17h14ad08fb7daa27e8E.540, i64 %6
+  %switch.load3 = load i8, ptr %switch.gep2, align 1
+  br label %7
 
-4:                                                ; preds = %1
-  br label %32
-
-5:                                                ; preds = %1
-  br label %32
-
-6:                                                ; preds = %1
-  br label %32
-
-7:                                                ; preds = %1
-  br label %32
-
-8:                                                ; preds = %1
-  br label %32
-
-9:                                                ; preds = %1
-  br label %32
-
-10:                                               ; preds = %1
-  br label %32
-
-11:                                               ; preds = %1
-  br label %32
-
-12:                                               ; preds = %1
-  br label %32
-
-13:                                               ; preds = %1
-  br label %32
-
-14:                                               ; preds = %1
-  br label %32
-
-15:                                               ; preds = %1
-  br label %32
-
-16:                                               ; preds = %1
-  br label %32
-
-17:                                               ; preds = %1
-  br label %32
-
-18:                                               ; preds = %1
-  br label %32
-
-19:                                               ; preds = %1
-  br label %32
-
-20:                                               ; preds = %1
-  br label %32
-
-21:                                               ; preds = %1
-  br label %32
-
-22:                                               ; preds = %1
-  br label %32
-
-23:                                               ; preds = %1
-  br label %32
-
-24:                                               ; preds = %1
-  br label %32
-
-25:                                               ; preds = %1
-  br label %32
-
-26:                                               ; preds = %1
-  br label %32
-
-27:                                               ; preds = %1
-  br label %32
-
-28:                                               ; preds = %1
-  br label %32
-
-29:                                               ; preds = %1
-  br label %32
-
-30:                                               ; preds = %1
-  br label %32
-
-31:                                               ; preds = %1
-  br label %32
-
-32:                                               ; preds = %2, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %1, %31
-  %.sroa.3.0 = phi i8 [ undef, %1 ], [ undef, %2 ], [ undef, %3 ], [ undef, %4 ], [ undef, %5 ], [ undef, %6 ], [ 0, %7 ], [ 1, %8 ], [ undef, %9 ], [ undef, %10 ], [ undef, %11 ], [ undef, %12 ], [ undef, %13 ], [ 0, %14 ], [ 1, %15 ], [ 2, %16 ], [ 1, %17 ], [ 0, %18 ], [ undef, %19 ], [ undef, %20 ], [ undef, %21 ], [ undef, %22 ], [ undef, %23 ], [ 1, %24 ], [ 0, %25 ], [ 0, %26 ], [ 1, %27 ], [ 2, %28 ], [ 0, %29 ], [ 1, %30 ], [ undef, %31 ]
-  %.sroa.0.0 = phi i8 [ 22, %1 ], [ 1, %2 ], [ 2, %3 ], [ 3, %4 ], [ 4, %5 ], [ 5, %6 ], [ 6, %7 ], [ 6, %8 ], [ 7, %9 ], [ 8, %10 ], [ 9, %11 ], [ 10, %12 ], [ 11, %13 ], [ 12, %14 ], [ 12, %15 ], [ 13, %16 ], [ 13, %17 ], [ 13, %18 ], [ 14, %19 ], [ 15, %20 ], [ 16, %21 ], [ 17, %22 ], [ 18, %23 ], [ 19, %24 ], [ 19, %25 ], [ 20, %26 ], [ 20, %27 ], [ 20, %28 ], [ 21, %29 ], [ 21, %30 ], [ 0, %31 ]
-  %33 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
-  %34 = insertvalue { i8, i8 } %33, i8 %.sroa.3.0, 1
-  ret { i8, i8 } %34
+7:                                                ; preds = %switch.lookup, %.split, %1
+  %.sroa.3.0 = phi i8 [ undef, %1 ], [ undef, %.split ], [ %switch.load, %switch.lookup ]
+  %.sroa.0.0 = phi i8 [ 22, %1 ], [ 22, %.split ], [ %switch.load3, %switch.lookup ]
+  %8 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
+  %9 = insertvalue { i8, i8 } %8, i8 %.sroa.3.0, 1
+  ret { i8, i8 } %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -81876,7 +81787,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E.539", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E.541", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -81897,7 +81808,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E.540", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E.542", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -81911,7 +81822,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E.541", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E.543", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -84517,7 +84428,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN75_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Display$GT$3fmt17h77b52f1fc675feb4E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN75_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Display$GT$3fmt17h77b52f1fc675feb4E.542", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN75_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Display$GT$3fmt17h77b52f1fc675feb4E.544", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -88861,7 +88772,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN73_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h521b78006e6d718fE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN73_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h521b78006e6d718fE.543", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN73_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h521b78006e6d718fE.545", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -90001,6 +89912,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #32
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #32
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #33
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #33

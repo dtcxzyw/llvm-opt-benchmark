@@ -30322,7 +30322,7 @@ define internal fastcc void @_ZN12polars_arrow2io3ipc4read6schema19deserialize_i
   store i32 %.sroa.624.0.copyload, ptr %.sroa.3.0..sroa_idx, align 4
   call void @"_ZN94_$LT$polars_error..PolarsError$u20$as$u20$core..convert..From$LT$planus..errors..Error$GT$$GT$4from17h4ff3ab80d031a924E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(80) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %33
+  br label %36
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -30347,64 +30347,70 @@ define internal fastcc void @_ZN12polars_arrow2io3ipc4read6schema19deserialize_i
   store i8 %17, ptr %.sroa.217.0..sroa_idx, align 1
   call void @"_ZN94_$LT$polars_error..PolarsError$u20$as$u20$core..convert..From$LT$planus..errors..Error$GT$$GT$4from17h4ff3ab80d031a924E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(80) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %33
+  br label %36
 
 19:                                               ; preds = %12
   %20 = trunc nuw i8 %17 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  switch i32 %14, label %21 [
-    i32 8, label %26
-    i32 16, label %27
-    i32 32, label %28
-    i32 64, label %29
-    i32 128, label %30
+  %21 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14)
+  %22 = icmp eq i32 %21, 1
+  br i1 %22, label %.split, label %24
+
+.split:                                           ; preds = %19
+  %23 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %14, i1 true)
+  switch i32 %23, label %24 [
+    i32 3, label %29
+    i32 4, label %30
+    i32 5, label %31
+    i32 6, label %32
+    i32 7, label %33
   ], !prof !4674
 
-21:                                               ; preds = %30, %19
+24:                                               ; preds = %19, %33, %.split
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @anon.12fdc07856d7ebb6d546cb5a5802aed3.215, ptr %6, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 1, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %3, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 0, ptr %25, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 1, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %3, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 0, ptr %28, align 8
   call fastcc void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf4266919b56f5873E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 @anon.12fdc07856d7ebb6d546cb5a5802aed3.214, i64 61, ptr noalias noundef readonly align 8 dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17ha8e8e4232d5beca2E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %.sroa.439.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
   store i64 2, ptr %0, align 8
-  br label %33
+  br label %36
 
-26:                                               ; preds = %19
+29:                                               ; preds = %.split
   %. = select i1 %20, i8 0, i8 5
-  br label %31
+  br label %34
 
-27:                                               ; preds = %19
+30:                                               ; preds = %.split
   %.34 = select i1 %20, i8 1, i8 6
-  br label %31
+  br label %34
 
-28:                                               ; preds = %19
+31:                                               ; preds = %.split
   %.35 = select i1 %20, i8 2, i8 7
-  br label %31
+  br label %34
 
-29:                                               ; preds = %19
+32:                                               ; preds = %.split
   %.36 = select i1 %20, i8 3, i8 8
-  br label %31
+  br label %34
 
-30:                                               ; preds = %19
-  br i1 %20, label %31, label %21, !prof !108
+33:                                               ; preds = %.split
+  br i1 %20, label %34, label %24, !prof !108
 
-31:                                               ; preds = %30, %29, %28, %27, %26
-  %.sroa.0.0 = phi i8 [ %., %26 ], [ %.34, %27 ], [ %.35, %28 ], [ %.36, %29 ], [ 4, %30 ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.0.0, ptr %32, align 8
+34:                                               ; preds = %33, %32, %31, %30, %29
+  %.sroa.0.0 = phi i8 [ %., %29 ], [ %.34, %30 ], [ %.35, %31 ], [ %.36, %32 ], [ 4, %33 ]
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sroa.0.0, ptr %35, align 8
   store i64 17, ptr %0, align 8
-  br label %33
+  br label %36
 
-33:                                               ; preds = %18, %21, %11, %31
+36:                                               ; preds = %18, %24, %11, %34
   ret void
 }
 
@@ -46203,17 +46209,23 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #27
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #28
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #28
+declare void @llvm.experimental.noalias.scope.decl(metadata) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #29
+declare i64 @llvm.umax.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #29
+declare i64 @llvm.umin.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #29
+declare i8 @llvm.umin.i8(i8, i8) #28
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -46243,8 +46255,8 @@ attributes #24 = { nounwind nonlazybind allockind("alloc,uninitialized,aligned")
 attributes #25 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #26 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #28 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #29 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #30 = { nounwind }
 attributes #31 = { noreturn }
 attributes #32 = { cold }

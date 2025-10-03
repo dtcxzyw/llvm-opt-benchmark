@@ -5117,70 +5117,76 @@ define void @dtgtk_cairo_paint_alignment(ptr noundef %0, i32 noundef %1, i32 nou
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %26 = ashr i32 %5, 14
-  switch i32 %26, label %36 [
-    i32 1, label %27
-    i32 2, label %28
-    i32 4, label %29
-    i32 8, label %30
-    i32 16, label %31
-    i32 32, label %32
-    i32 64, label %33
-    i32 128, label %34
-    i32 256, label %35
+  %27 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %26)
+  %28 = icmp eq i32 %27, 1
+  br i1 %28, label %.split, label %39
+
+.split:                                           ; preds = %7
+  %29 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %26, i1 true)
+  switch i32 %29, label %39 [
+    i32 0, label %30
+    i32 1, label %31
+    i32 2, label %32
+    i32 3, label %33
+    i32 4, label %34
+    i32 5, label %35
+    i32 6, label %36
+    i32 7, label %37
+    i32 8, label %38
   ]
 
-27:                                               ; preds = %7
+30:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 9.000000e-01) #9
-  br label %36
+  br label %39
 
-28:                                               ; preds = %7
+31:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 1.000000e-01) #9
-  br label %36
+  br label %39
 
-29:                                               ; preds = %7
+32:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 9.000000e-01) #9
-  br label %36
+  br label %39
 
-30:                                               ; preds = %7
+33:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 9.000000e-01) #9
-  br label %36
+  br label %39
 
-31:                                               ; preds = %7
+34:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 5.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 5.000000e-01) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 9.000000e-01) #9
-  br label %36
+  br label %39
 
-32:                                               ; preds = %7
+35:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 9.000000e-01) #9
-  br label %36
+  br label %39
 
-33:                                               ; preds = %7
+36:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01) #9
-  br label %36
+  br label %39
 
-34:                                               ; preds = %7
+37:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 9.000000e-01) #9
-  br label %36
+  br label %39
 
-35:                                               ; preds = %7
+38:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 1.000000e-01) #9
-  br label %36
+  br label %39
 
-36:                                               ; preds = %35, %34, %33, %32, %31, %30, %29, %28, %27, %7
+39:                                               ; preds = %7, %38, %37, %36, %35, %34, %33, %32, %31, %30, %.split
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
@@ -7924,6 +7930,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8

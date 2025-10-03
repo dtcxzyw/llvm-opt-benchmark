@@ -49,68 +49,74 @@ define i32 @av_int_list_length_for_size(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  switch i32 %0, label %28 [
-    i32 1, label %.preheader
-    i32 2, label %.preheader33
-    i32 4, label %17
-    i32 8, label %.preheader36
+  %5 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %6 = icmp eq i32 %5, 1
+  br i1 %6, label %.split, label %31
+
+.split:                                           ; preds = %4
+  %7 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  switch i32 %7, label %31 [
+    i32 0, label %.preheader
+    i32 1, label %.preheader33
+    i32 2, label %20
+    i32 3, label %.preheader36
   ]
 
-.preheader33:                                     ; preds = %4
-  %5 = trunc i64 %2 to i16
-  br label %12
+.preheader33:                                     ; preds = %.split
+  %8 = trunc i64 %2 to i16
+  br label %15
 
-.preheader:                                       ; preds = %4
-  %6 = trunc i64 %2 to i8
-  br label %7
+.preheader:                                       ; preds = %.split
+  %9 = trunc i64 %2 to i8
+  br label %10
 
-7:                                                ; preds = %7, %.preheader
-  %.027 = phi i32 [ %11, %7 ], [ 0, %.preheader ]
-  %8 = zext i32 %.027 to i64
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %8
-  %10 = load i8, ptr %9, align 1, !tbaa !4
-  %.not32 = icmp eq i8 %10, %6
-  %11 = add i32 %.027, 1
-  br i1 %.not32, label %.loopexit, label %7, !llvm.loop !7
+10:                                               ; preds = %10, %.preheader
+  %.027 = phi i32 [ %14, %10 ], [ 0, %.preheader ]
+  %11 = zext i32 %.027 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %11
+  %13 = load i8, ptr %12, align 1, !tbaa !4
+  %.not32 = icmp eq i8 %13, %9
+  %14 = add i32 %.027, 1
+  br i1 %.not32, label %.loopexit, label %10, !llvm.loop !7
 
-12:                                               ; preds = %12, %.preheader33
-  %.2 = phi i32 [ %16, %12 ], [ 0, %.preheader33 ]
-  %13 = zext i32 %.2 to i64
-  %14 = getelementptr inbounds nuw i16, ptr %1, i64 %13
-  %15 = load i16, ptr %14, align 2, !tbaa !9
-  %.not31 = icmp eq i16 %15, %5
-  %16 = add i32 %.2, 1
-  br i1 %.not31, label %.loopexit, label %12, !llvm.loop !11
+15:                                               ; preds = %15, %.preheader33
+  %.2 = phi i32 [ %19, %15 ], [ 0, %.preheader33 ]
+  %16 = zext i32 %.2 to i64
+  %17 = getelementptr inbounds nuw i16, ptr %1, i64 %16
+  %18 = load i16, ptr %17, align 2, !tbaa !9
+  %.not31 = icmp eq i16 %18, %8
+  %19 = add i32 %.2, 1
+  br i1 %.not31, label %.loopexit, label %15, !llvm.loop !11
 
-17:                                               ; preds = %4
-  %18 = trunc i64 %2 to i32
-  br label %19
+20:                                               ; preds = %.split
+  %21 = trunc i64 %2 to i32
+  br label %22
 
-19:                                               ; preds = %19, %17
-  %.3 = phi i32 [ 0, %17 ], [ %23, %19 ]
-  %20 = zext i32 %.3 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %20
-  %22 = load i32, ptr %21, align 4, !tbaa !12
-  %.not30 = icmp eq i32 %22, %18
-  %23 = add i32 %.3, 1
-  br i1 %.not30, label %.loopexit, label %19, !llvm.loop !14
+22:                                               ; preds = %22, %20
+  %.3 = phi i32 [ 0, %20 ], [ %26, %22 ]
+  %23 = zext i32 %.3 to i64
+  %24 = getelementptr inbounds nuw i32, ptr %1, i64 %23
+  %25 = load i32, ptr %24, align 4, !tbaa !12
+  %.not30 = icmp eq i32 %25, %21
+  %26 = add i32 %.3, 1
+  br i1 %.not30, label %.loopexit, label %22, !llvm.loop !14
 
-.preheader36:                                     ; preds = %4, %.preheader36
-  %.4 = phi i32 [ %27, %.preheader36 ], [ 0, %4 ]
-  %24 = zext i32 %.4 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %1, i64 %24
-  %26 = load i64, ptr %25, align 8, !tbaa !15
-  %.not29 = icmp eq i64 %26, %2
-  %27 = add i32 %.4, 1
+.preheader36:                                     ; preds = %.split, %.preheader36
+  %.4 = phi i32 [ %30, %.preheader36 ], [ 0, %.split ]
+  %27 = zext i32 %.4 to i64
+  %28 = getelementptr inbounds nuw i64, ptr %1, i64 %27
+  %29 = load i64, ptr %28, align 8, !tbaa !15
+  %.not29 = icmp eq i64 %29, %2
+  %30 = add i32 %.4, 1
   br i1 %.not29, label %.loopexit, label %.preheader36, !llvm.loop !17
 
-28:                                               ; preds = %4
+31:                                               ; preds = %.split, %4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 69) #8
   tail call void @abort() #9
   unreachable
 
-.loopexit:                                        ; preds = %.preheader36, %19, %12, %7, %3
-  %.0 = phi i32 [ 0, %3 ], [ %.027, %7 ], [ %.2, %12 ], [ %.3, %19 ], [ %.4, %.preheader36 ]
+.loopexit:                                        ; preds = %.preheader36, %22, %15, %10, %3
+  %.0 = phi i32 [ 0, %3 ], [ %.027, %10 ], [ %.2, %15 ], [ %.3, %22 ], [ %.4, %.preheader36 ]
   ret i32 %.0
 }
 
@@ -181,11 +187,17 @@ define void @av_assert0_fpu() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #6
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #7
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
+declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -193,8 +205,8 @@ attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 attributes #3 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #8 = { nounwind }
 attributes #9 = { noreturn nounwind }
 

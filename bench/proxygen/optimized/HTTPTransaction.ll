@@ -21153,40 +21153,46 @@ define linkonce_odr void @_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev(ptr nound
 entry:
   %state_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load atomic i8, ptr %state_ monotonic, align 16
-  switch i8 %0, label %sw.default [
-    i8 2, label %sw.bb11
-    i8 32, label %sw.bb11
-    i8 16, label %sw.bb12
-    i8 64, label %sw.epilog
+  %1 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %0)
+  %2 = icmp eq i8 %1, 1
+  br i1 %2, label %entry.split, label %sw.default
+
+entry.split:                                      ; preds = %entry
+  %3 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %0, i1 true)
+  switch i8 %3, label %sw.default [
+    i8 1, label %sw.bb11
+    i8 5, label %sw.bb11
+    i8 4, label %sw.bb12
+    i8 6, label %sw.epilog
   ]
 
-sw.bb11:                                          ; preds = %entry, %entry
+sw.bb11:                                          ; preds = %entry.split, %entry.split
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %1 = load i32, ptr %add.ptr, align 8
-  %cond.i.i = icmp eq i32 %1, 1
+  %4 = load i32, ptr %add.ptr, align 8
+  %cond.i.i = icmp eq i32 %4, 1
   br i1 %cond.i.i, label %if.then4.i.i, label %sw.epilog
 
 if.then4.i.i:                                     ; preds = %sw.bb11
-  %2 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %3 = load ptr, ptr %2, align 16
-  %tobool.not.i.i.i.i = icmp eq ptr %3, null
+  %5 = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %6 = load ptr, ptr %5, align 16
+  %tobool.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i, label %sw.epilog, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then4.i.i
-  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #29
+  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #29
   br label %sw.epilog
 
-sw.bb12:                                          ; preds = %entry
+sw.bb12:                                          ; preds = %entry.split
   %proxy_ = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %4 = load ptr, ptr %proxy_, align 16
-  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %4) #29
+  %7 = load ptr, ptr %proxy_, align 16
+  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %7) #29
   br label %sw.epilog
 
-sw.default:                                       ; preds = %entry
+sw.default:                                       ; preds = %entry, %entry.split
   tail call void @_ZN5folly6detail15terminate_with_ISt11logic_errorJPKcEEEvDpT0_(ptr noundef nonnull @.str.150) #35
   unreachable
 
-sw.epilog:                                        ; preds = %if.then.i.i.i.i, %if.then4.i.i, %sw.bb11, %entry, %sw.bb12
+sw.epilog:                                        ; preds = %if.then.i.i.i.i, %if.then4.i.i, %sw.bb11, %entry.split, %sw.bb12
   tail call void @_ZN5folly7futures6detail8CoreBaseD2Ev(ptr noundef nonnull align 16 dereferenceable(136) %this) #29
   ret void
 }
@@ -21196,40 +21202,46 @@ define linkonce_odr void @_ZN5folly7futures6detail4CoreINS_4UnitEED0Ev(ptr nound
 entry:
   %state_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load atomic i8, ptr %state_.i monotonic, align 16
-  switch i8 %0, label %sw.default.i [
-    i8 2, label %sw.bb11.i
-    i8 32, label %sw.bb11.i
-    i8 16, label %sw.bb12.i
-    i8 64, label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit
+  %1 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %0)
+  %2 = icmp eq i8 %1, 1
+  br i1 %2, label %entry.split.i, label %sw.default.i
+
+entry.split.i:                                    ; preds = %entry
+  %3 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %0, i1 true)
+  switch i8 %3, label %sw.default.i [
+    i8 1, label %sw.bb11.i
+    i8 5, label %sw.bb11.i
+    i8 4, label %sw.bb12.i
+    i8 6, label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit
   ]
 
-sw.bb11.i:                                        ; preds = %entry, %entry
+sw.bb11.i:                                        ; preds = %entry.split.i, %entry.split.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %1 = load i32, ptr %add.ptr.i, align 8
-  %cond.i.i.i = icmp eq i32 %1, 1
+  %4 = load i32, ptr %add.ptr.i, align 8
+  %cond.i.i.i = icmp eq i32 %4, 1
   br i1 %cond.i.i.i, label %if.then4.i.i.i, label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit
 
 if.then4.i.i.i:                                   ; preds = %sw.bb11.i
-  %2 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %3 = load ptr, ptr %2, align 16
-  %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
+  %5 = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %6 = load ptr, ptr %5, align 16
+  %tobool.not.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then4.i.i.i
-  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #29
+  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #29
   br label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit
 
-sw.bb12.i:                                        ; preds = %entry
+sw.bb12.i:                                        ; preds = %entry.split.i
   %proxy_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %4 = load ptr, ptr %proxy_.i, align 16
-  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %4) #29
+  %7 = load ptr, ptr %proxy_.i, align 16
+  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %7) #29
   br label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit
 
-sw.default.i:                                     ; preds = %entry
+sw.default.i:                                     ; preds = %entry.split.i, %entry
   tail call void @_ZN5folly6detail15terminate_with_ISt11logic_errorJPKcEEEvDpT0_(ptr noundef nonnull @.str.150) #35
   unreachable
 
-_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit: ; preds = %entry, %sw.bb11.i, %if.then4.i.i.i, %if.then.i.i.i.i.i, %sw.bb12.i
+_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit: ; preds = %entry.split.i, %sw.bb11.i, %if.then4.i.i.i, %if.then.i.i.i.i.i, %sw.bb12.i
   tail call void @_ZN5folly7futures6detail8CoreBaseD2Ev(ptr noundef nonnull align 16 dereferenceable(160) %this) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #30
   ret void
@@ -26748,57 +26760,63 @@ define linkonce_odr void @_ZN5folly7futures6detail4CoreIN8proxygen12WebTransport
 entry:
   %state_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load atomic i8, ptr %state_ monotonic, align 16
-  switch i8 %0, label %sw.default [
-    i8 2, label %sw.bb10
-    i8 32, label %sw.bb10
-    i8 16, label %sw.bb11
-    i8 64, label %sw.epilog
+  %1 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %0)
+  %2 = icmp eq i8 %1, 1
+  br i1 %2, label %entry.split, label %sw.default
+
+entry.split:                                      ; preds = %entry
+  %3 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %0, i1 true)
+  switch i8 %3, label %sw.default [
+    i8 1, label %sw.bb10
+    i8 5, label %sw.bb10
+    i8 4, label %sw.bb11
+    i8 6, label %sw.epilog
   ]
 
-sw.bb10:                                          ; preds = %entry, %entry
+sw.bb10:                                          ; preds = %entry.split, %entry.split
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %1 = load i32, ptr %add.ptr, align 8
-  switch i32 %1, label %sw.epilog [
+  %4 = load i32, ptr %add.ptr, align 8
+  switch i32 %4, label %sw.epilog [
     i32 0, label %if.then.i.i
     i32 1, label %if.then4.i.i
   ]
 
 if.then.i.i:                                      ; preds = %sw.bb10
-  %2 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %3 = load ptr, ptr %2, align 16
-  %cmp.not.i.i.i.i = icmp eq ptr %3, null
+  %5 = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %6 = load ptr, ptr %5, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i, label %_ZN8proxygen12WebTransport10StreamDataD2Ev.exit.i.i, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i: ; preds = %if.then.i.i
-  tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #29
-  tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %3) #29
+  tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #29
+  tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %6) #29
   br label %_ZN8proxygen12WebTransport10StreamDataD2Ev.exit.i.i
 
 _ZN8proxygen12WebTransport10StreamDataD2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i, %if.then.i.i
-  store ptr null, ptr %2, align 16
+  store ptr null, ptr %5, align 16
   br label %sw.epilog
 
 if.then4.i.i:                                     ; preds = %sw.bb10
-  %4 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %5 = load ptr, ptr %4, align 16
-  %tobool.not.i.i.i.i = icmp eq ptr %5, null
+  %7 = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %8 = load ptr, ptr %7, align 16
+  %tobool.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i, label %sw.epilog, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then4.i.i
-  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #29
+  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #29
   br label %sw.epilog
 
-sw.bb11:                                          ; preds = %entry
+sw.bb11:                                          ; preds = %entry.split
   %proxy_ = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %6 = load ptr, ptr %proxy_, align 16
-  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %6) #29
+  %9 = load ptr, ptr %proxy_, align 16
+  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %9) #29
   br label %sw.epilog
 
-sw.default:                                       ; preds = %entry
+sw.default:                                       ; preds = %entry, %entry.split
   tail call void @_ZN5folly6detail15terminate_with_ISt11logic_errorJPKcEEEvDpT0_(ptr noundef nonnull @.str.150) #35
   unreachable
 
-sw.epilog:                                        ; preds = %if.then.i.i.i.i, %if.then4.i.i, %_ZN8proxygen12WebTransport10StreamDataD2Ev.exit.i.i, %sw.bb10, %entry, %sw.bb11
+sw.epilog:                                        ; preds = %if.then.i.i.i.i, %if.then4.i.i, %_ZN8proxygen12WebTransport10StreamDataD2Ev.exit.i.i, %sw.bb10, %entry.split, %sw.bb11
   tail call void @_ZN5folly7futures6detail8CoreBaseD2Ev(ptr noundef nonnull align 16 dereferenceable(136) %this) #29
   ret void
 }
@@ -26821,6 +26839,12 @@ entry:
 
 ; Function Attrs: nofree nosync nounwind memory(none)
 declare i32 @llvm.eh.typeid.for.p0(ptr) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ctpop.i8(i8) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.cttz.i8(i8, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #25

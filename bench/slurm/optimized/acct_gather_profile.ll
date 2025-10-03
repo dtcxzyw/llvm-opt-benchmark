@@ -95,7 +95,6 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._timer_thread = private unnamed_addr constant [14 x i8] c"_timer_thread\00", align 1
 @.str.56 = private unnamed_addr constant [26 x i8] c"profile signaling type %s\00", align 1
 @.str.57 = private unnamed_addr constant [39 x i8] c"%s:%d %s: pthread_cond_timedwait(): %m\00", align 1
-@switch.table.acct_gather_profile_type_to_string = private unnamed_addr constant [8 x ptr] [ptr @.str.8, ptr @.str.12, ptr @.str.19, ptr @.str.10, ptr @.str.19, ptr @.str.19, ptr @.str.19, ptr @.str.11], align 8
 @switch.table.acct_gather_profile_type_t_name = private unnamed_addr constant [5 x ptr] [ptr @.str.8, ptr @.str.12, ptr @.str.10, ptr @.str.11, ptr @.str.20], align 8
 @switch.table._timer_thread = private unnamed_addr constant [4 x ptr] [ptr @.str.8, ptr @.str.12, ptr @.str.10, ptr @.str.11], align 8
 
@@ -568,19 +567,24 @@ declare ptr @xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @acct_gather_profile_type_to_string(i32 noundef %0) local_unnamed_addr #7 {
-  %2 = add i32 %0, -2
-  %3 = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 31)
-  %4 = icmp ult i32 %3, 8
-  br i1 %4, label %switch.lookup, label %6
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %.split, label %7
 
-switch.lookup:                                    ; preds = %1
-  %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.acct_gather_profile_type_to_string, i64 %5
+.split:                                           ; preds = %1
+  %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
+  %switch.tableidx = add nsw i32 %4, -1
+  %5 = icmp ult i32 %switch.tableidx, 4
+  br i1 %5, label %switch.lookup, label %7
+
+switch.lookup:                                    ; preds = %.split
+  %6 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._timer_thread, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %6
+  br label %7
 
-6:                                                ; preds = %1, %switch.lookup
-  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.19, %1 ]
+7:                                                ; preds = %1, %.split, %switch.lookup
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.19, %.split ], [ @.str.19, %1 ]
   ret ptr %.0
 }
 
@@ -1613,7 +1617,10 @@ declare i64 @strlen(ptr captures(none)) local_unnamed_addr #12
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #14
+declare i32 @llvm.ctpop.i32(i32) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -335,6 +335,7 @@ $_ZZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEmE4args = comdat a
 @.str.124 = private unnamed_addr constant [21 x i8] c"(index) < (length())\00", align 1
 @.str.125 = private unnamed_addr constant [123 x i8] c"T &node::MaybeStackBuffer<v8::Local<v8::Value>, 16>::operator[](size_t) [T = v8::Local<v8::Value>, kStackStorageSize = 16]\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_node_v8.cc, ptr null }]
+@switch.table._ZN4node8v8_utilsL16BeforeGCCallbackEPN2v87IsolateENS1_6GCTypeENS1_15GCCallbackFlagsEPv = private unnamed_addr constant [5 x ptr] [ptr @.str.72, ptr @.str.76, ptr @.str.73, ptr @.str.74, ptr @.str.75], align 8
 
 @_ZN4node8v8_utils11BindingDataC1EPNS_5RealmEN2v85LocalINS4_6ObjectEEEPNS1_17InternalFieldInfoE = dso_local unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN4node8v8_utils11BindingDataC2EPNS_5RealmEN2v85LocalINS4_6ObjectEEEPNS1_17InternalFieldInfoE
 @_ZN4node8v8_utils10GCProfilerC1EPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEE = dso_local unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4node8v8_utils10GCProfilerC2EPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEE
@@ -2371,70 +2372,66 @@ _ZN4node10JSONWriter10json_startEv.exit:          ; preds = %for.body.i.i, %_ZN4
   %add.i.i = add nsw i32 %10, 2
   store i32 %add.i.i, ptr %indent_.i4.i, align 4
   store i32 0, ptr %state_.i, align 8
-  switch i32 %gc_type, label %sw.default.i [
-    i32 1, label %_ZN4node8v8_utilsL13GetGCTypeNameEN2v86GCTypeE.exit
-    i32 4, label %sw.bb1.i
-    i32 8, label %sw.bb2.i
-    i32 16, label %sw.bb3.i
-  ]
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %gc_type)
+  %12 = icmp eq i32 %11, 1
+  br i1 %12, label %entry.split.i, label %_ZN4node8v8_utilsL13GetGCTypeNameEN2v86GCTypeE.exit
 
-sw.bb1.i:                                         ; preds = %_ZN4node10JSONWriter10json_startEv.exit
+entry.split.i:                                    ; preds = %_ZN4node10JSONWriter10json_startEv.exit
+  %13 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %gc_type, i1 true)
+  %14 = icmp samesign ult i32 %13, 5
+  br i1 %14, label %switch.lookup, label %_ZN4node8v8_utilsL13GetGCTypeNameEN2v86GCTypeE.exit
+
+switch.lookup:                                    ; preds = %entry.split.i
+  %15 = zext nneg i32 %13 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4node8v8_utilsL16BeforeGCCallbackEPN2v87IsolateENS1_6GCTypeENS1_15GCCallbackFlagsEPv, i64 %15
+  %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4node8v8_utilsL13GetGCTypeNameEN2v86GCTypeE.exit
 
-sw.bb2.i:                                         ; preds = %_ZN4node10JSONWriter10json_startEv.exit
-  br label %_ZN4node8v8_utilsL13GetGCTypeNameEN2v86GCTypeE.exit
-
-sw.bb3.i:                                         ; preds = %_ZN4node10JSONWriter10json_startEv.exit
-  br label %_ZN4node8v8_utilsL13GetGCTypeNameEN2v86GCTypeE.exit
-
-sw.default.i:                                     ; preds = %_ZN4node10JSONWriter10json_startEv.exit
-  br label %_ZN4node8v8_utilsL13GetGCTypeNameEN2v86GCTypeE.exit
-
-_ZN4node8v8_utilsL13GetGCTypeNameEN2v86GCTypeE.exit: ; preds = %_ZN4node10JSONWriter10json_startEv.exit, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.default.i
-  %retval.0.i = phi ptr [ @.str.76, %sw.default.i ], [ @.str.73, %sw.bb1.i ], [ @.str.74, %sw.bb2.i ], [ @.str.75, %sw.bb3.i ], [ @.str.72, %_ZN4node10JSONWriter10json_startEv.exit ]
+_ZN4node8v8_utilsL13GetGCTypeNameEN2v86GCTypeE.exit: ; preds = %_ZN4node10JSONWriter10json_startEv.exit, %entry.split.i, %switch.lookup
+  %retval.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.76, %entry.split.i ], [ @.str.76, %_ZN4node10JSONWriter10json_startEv.exit ]
   store ptr %retval.0.i, ptr %ref.tmp, align 8
   call void @_ZN4node10JSONWriter13json_keyvalueIA7_cPKcEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %writer_.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.70, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   call void @_ZN4node10JSONWriter16json_objectstartIPKcEEvT_(ptr noundef nonnull align 8 dereferenceable(20) %writer_.i, ptr noundef nonnull @.str.71)
   call fastcc void @_ZN4node8v8_utilsL17SetHeapStatisticsEPNS_10JSONWriterEPN2v87IsolateE(ptr noundef %writer_.i, ptr noundef %isolate)
-  %11 = load i8, ptr %compact_.i.i, align 8
-  %tobool.i.i10 = trunc i8 %11 to i1
+  %16 = load i8, ptr %compact_.i.i, align 8
+  %tobool.i.i10 = trunc i8 %16 to i1
   br i1 %tobool.i.i10, label %_ZN4node10JSONWriter14write_new_lineEv.exit.i14, label %if.end.i.i11
 
 if.end.i.i11:                                     ; preds = %_ZN4node8v8_utilsL13GetGCTypeNameEN2v86GCTypeE.exit
-  %12 = load ptr, ptr %writer_.i, align 8
-  %call.i.i12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %12, i8 noundef signext 10) #20
+  %17 = load ptr, ptr %writer_.i, align 8
+  %call.i.i12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %17, i8 noundef signext 10) #20
   %.pre.i13 = load i8, ptr %compact_.i.i, align 8
   br label %_ZN4node10JSONWriter14write_new_lineEv.exit.i14
 
 _ZN4node10JSONWriter14write_new_lineEv.exit.i14:  ; preds = %if.end.i.i11, %_ZN4node8v8_utilsL13GetGCTypeNameEN2v86GCTypeE.exit
-  %13 = phi i8 [ %11, %_ZN4node8v8_utilsL13GetGCTypeNameEN2v86GCTypeE.exit ], [ %.pre.i13, %if.end.i.i11 ]
-  %14 = load i32, ptr %indent_.i4.i, align 4
-  %sub.i.i = add nsw i32 %14, -2
+  %18 = phi i8 [ %16, %_ZN4node8v8_utilsL13GetGCTypeNameEN2v86GCTypeE.exit ], [ %.pre.i13, %if.end.i.i11 ]
+  %19 = load i32, ptr %indent_.i4.i, align 4
+  %sub.i.i = add nsw i32 %19, -2
   store i32 %sub.i.i, ptr %indent_.i4.i, align 4
-  %tobool.i2.i16 = trunc i8 %13 to i1
-  %cmp2.i.i17 = icmp slt i32 %14, 3
+  %tobool.i2.i16 = trunc i8 %18 to i1
+  %cmp2.i.i17 = icmp slt i32 %19, 3
   %or.cond.not.i = select i1 %tobool.i2.i16, i1 true, i1 %cmp2.i.i17
   br i1 %or.cond.not.i, label %_ZN4node10JSONWriter7advanceEv.exit.i, label %for.body.i.i18
 
 for.body.i.i18:                                   ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit.i14, %for.body.i.i18
   %i.03.i.i19 = phi i32 [ %inc.i.i20, %for.body.i.i18 ], [ 0, %_ZN4node10JSONWriter14write_new_lineEv.exit.i14 ]
-  %15 = load ptr, ptr %writer_.i, align 8
-  %call.i4.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %15, i8 noundef signext 32) #20
+  %20 = load ptr, ptr %writer_.i, align 8
+  %call.i4.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 32) #20
   %inc.i.i20 = add nuw nsw i32 %i.03.i.i19, 1
-  %16 = load i32, ptr %indent_.i4.i, align 4
-  %cmp.i.i21 = icmp slt i32 %inc.i.i20, %16
+  %21 = load i32, ptr %indent_.i4.i, align 4
+  %cmp.i.i21 = icmp slt i32 %inc.i.i20, %21
   br i1 %cmp.i.i21, label %for.body.i.i18, label %_ZN4node10JSONWriter7advanceEv.exit.i, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit.i:            ; preds = %for.body.i.i18, %_ZN4node10JSONWriter14write_new_lineEv.exit.i14
-  %17 = load ptr, ptr %writer_.i, align 8
-  %call.i22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %17, i8 noundef signext 125) #20
-  %18 = load i32, ptr %indent_.i4.i, align 4
-  %cmp.i23 = icmp eq i32 %18, 0
+  %22 = load ptr, ptr %writer_.i, align 8
+  %call.i22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %22, i8 noundef signext 125) #20
+  %23 = load i32, ptr %indent_.i4.i, align 4
+  %cmp.i23 = icmp eq i32 %23, 0
   br i1 %cmp.i23, label %if.then.i26, label %_ZN4node10JSONWriter14json_objectendEv.exit
 
 if.then.i26:                                      ; preds = %_ZN4node10JSONWriter7advanceEv.exit.i
-  %19 = load ptr, ptr %writer_.i, align 8
-  %call3.i27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %19, i8 noundef signext 10) #20
+  %24 = load ptr, ptr %writer_.i, align 8
+  %call3.i27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %24, i8 noundef signext 10) #20
   br label %_ZN4node10JSONWriter14json_objectendEv.exit
 
 _ZN4node10JSONWriter14json_objectendEv.exit:      ; preds = %_ZN4node10JSONWriter7advanceEv.exit.i, %if.then.i26
@@ -6937,23 +6934,29 @@ entry:
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #16
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #18
+declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
+declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #19
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6971,10 +6974,10 @@ attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #20 = { nounwind }
 attributes #21 = { noreturn nounwind }
 attributes #22 = { nounwind allocsize(0) }

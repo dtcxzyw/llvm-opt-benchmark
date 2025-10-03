@@ -28083,7 +28083,7 @@ define linkonce_odr void @_ZN7rocksdb9BlockIterINS_5SliceEE9UpdateKeyEv(ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(592) %0)
-  br i1 %7, label %8, label %97
+  br i1 %7, label %8, label %100
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -28183,7 +28183,7 @@ _ZN7rocksdb7IterKey14SetInternalKeyERKNS_5SliceEmNS_9ValueTypeEPS2_.exit: ; pred
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %64 = load i8, ptr %63, align 8, !tbaa !996
   %.not = icmp eq i8 %64, 0
-  br i1 %.not, label %97, label %65
+  br i1 %.not, label %100, label %65
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -28206,41 +28206,47 @@ _ZN7rocksdb7IterKey14SetInternalKeyERKNS_5SliceEmNS_9ValueTypeEPS2_.exit: ; pred
   %83 = mul nsw i32 %82, %80
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i8, ptr %79, i64 %84
-  switch i8 %77, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread [
-    i8 1, label %86
-    i8 2, label %90
-    i8 4, label %93
-    i8 8, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit
+  %86 = tail call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %80)
+  %87 = icmp eq i32 %86, 1
+  br i1 %87, label %.split.i.i, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread
+
+.split.i.i:                                       ; preds = %65
+  %88 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %80, i1 true)
+  switch i32 %88, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread [
+    i32 0, label %89
+    i32 1, label %93
+    i32 2, label %96
+    i32 3, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit
   ]
 
-86:                                               ; preds = %65
-  %87 = load i8, ptr %85, align 1, !tbaa !28
-  %88 = trunc i64 %76 to i8
-  %89 = icmp eq i8 %87, %88
-  br i1 %89, label %97, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread
+89:                                               ; preds = %.split.i.i
+  %90 = load i8, ptr %85, align 1, !tbaa !28
+  %91 = trunc i64 %76 to i8
+  %92 = icmp eq i8 %90, %91
+  br i1 %92, label %100, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread
 
-90:                                               ; preds = %65
+93:                                               ; preds = %.split.i.i
   %.0.copyload.i.i.i19 = load i16, ptr %85, align 1
-  %91 = trunc i64 %76 to i16
-  %92 = icmp eq i16 %.0.copyload.i.i.i19, %91
-  br i1 %92, label %97, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread
+  %94 = trunc i64 %76 to i16
+  %95 = icmp eq i16 %.0.copyload.i.i.i19, %94
+  br i1 %95, label %100, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread
 
-93:                                               ; preds = %65
+96:                                               ; preds = %.split.i.i
   %.0.copyload.i6.i.i = load i32, ptr %85, align 1
-  %94 = trunc i64 %76 to i32
-  %95 = icmp eq i32 %.0.copyload.i6.i.i, %94
-  br i1 %95, label %97, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread
+  %97 = trunc i64 %76 to i32
+  %98 = icmp eq i32 %.0.copyload.i6.i.i, %97
+  br i1 %98, label %100, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread
 
-_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit: ; preds = %65
+_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit: ; preds = %.split.i.i
   %.0.copyload.i7.i.i = load i64, ptr %85, align 1
-  %96 = icmp eq i64 %.0.copyload.i7.i.i, %76
-  br i1 %96, label %97, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread
+  %99 = icmp eq i64 %.0.copyload.i7.i.i, %76
+  br i1 %99, label %100, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread
 
-_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread: ; preds = %65, %93, %90, %86, %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit
+_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread: ; preds = %.split.i.i, %65, %96, %93, %89, %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit
   tail call void @_ZN7rocksdb9BlockIterINS_5SliceEE28PerKVChecksumCorruptionErrorEv(ptr noundef nonnull align 8 dereferenceable(592) %0)
-  br label %97
+  br label %100
 
-97:                                               ; preds = %93, %90, %86, %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit, %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread, %1, %62
+100:                                              ; preds = %96, %93, %89, %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit, %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread, %1, %62
   ret void
 }
 
@@ -30615,6 +30621,12 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #26

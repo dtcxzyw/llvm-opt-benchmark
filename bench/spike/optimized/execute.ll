@@ -1586,48 +1586,55 @@ declare noundef ptr @_Z8csr_namei(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #14 {
-  %4 = add i32 %1, -8
-  %5 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 29)
-  switch i32 %5, label %20 [
-    i32 0, label %6
-    i32 1, label %10
-    i32 3, label %14
-    i32 7, label %17
+  %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
+  %5 = icmp eq i32 %4, 1
+  br i1 %5, label %.split, label %21
+
+.split:                                           ; preds = %3
+  %6 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
+  switch i32 %6, label %.thread [
+    i32 3, label %7
+    i32 4, label %11
+    i32 5, label %15
+    i32 6, label %18
   ]
 
-6:                                                ; preds = %3
-  %7 = load i8, ptr %2, align 1, !tbaa !240
-  %8 = zext i8 %7 to i32
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %8) #22
+7:                                                ; preds = %.split
+  %8 = load i8, ptr %2, align 1, !tbaa !240
+  %9 = zext i8 %8 to i32
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %9) #22
   br label %.loopexit
 
-10:                                               ; preds = %3
-  %11 = load i16, ptr %2, align 2, !tbaa !221
-  %12 = zext i16 %11 to i32
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %12) #22
+11:                                               ; preds = %.split
+  %12 = load i16, ptr %2, align 2, !tbaa !221
+  %13 = zext i16 %12 to i32
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %13) #22
   br label %.loopexit
 
-14:                                               ; preds = %3
-  %15 = load i32, ptr %2, align 4, !tbaa !241
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %15) #22
+15:                                               ; preds = %.split
+  %16 = load i32, ptr %2, align 4, !tbaa !241
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %16) #22
   br label %.loopexit
 
-17:                                               ; preds = %3
-  %18 = load i64, ptr %2, align 8, !tbaa !160
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef %18) #22
+18:                                               ; preds = %.split
+  %19 = load i64, ptr %2, align 8, !tbaa !160
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef %19) #22
   br label %.loopexit
 
-20:                                               ; preds = %3
-  %21 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
-  %22 = icmp samesign ult i32 %21, 2
-  br i1 %22, label %23, label %32
+21:                                               ; preds = %3
+  %22 = icmp eq i32 %1, 0
+  br i1 %22, label %.thread.thread, label %32
 
-23:                                               ; preds = %20
+.thread.thread:                                   ; preds = %21
+  %23 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 2, i64 1, ptr %0)
+  br label %.loopexit
+
+.thread:                                          ; preds = %.split
   %24 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 2, i64 1, ptr %0)
   %25 = icmp sgt i32 %1, 63
   br i1 %25, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %23
+.lr.ph.preheader:                                 ; preds = %.thread
   %26 = lshr i32 %1, 6
   %27 = zext nneg i32 %26 to i64
   br label %.lr.ph
@@ -1641,11 +1648,11 @@ define internal fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr nound
   %31 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !242
 
-32:                                               ; preds = %20
+32:                                               ; preds = %21
   tail call void @abort() #24
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph, %23, %17, %14, %10, %6
+.loopexit:                                        ; preds = %.lr.ph, %.thread.thread, %.thread, %18, %15, %11, %7
   ret void
 }
 
@@ -1876,16 +1883,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #21
+declare i32 @llvm.ctpop.i32(i32) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #21
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #21
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
