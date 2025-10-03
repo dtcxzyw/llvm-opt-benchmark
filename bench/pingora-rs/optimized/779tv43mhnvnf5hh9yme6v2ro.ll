@@ -27703,7 +27703,7 @@ default.unreachable:                              ; preds = %select.unfold
   %41 = ptrtoint ptr %39 to i64
   %42 = and i64 %41, 3
   %switch.i.i.i48 = icmp eq i64 %42, 1
-  %or.cond = select i1 %40, i1 %switch.i.i.i48, i1 false
+  %or.cond = select i1 %40, i1 %switch.i.i.i48, i1 false, !prof !212
   br i1 %or.cond, label %90, label %115, !prof !212
 
 43:                                               ; preds = %82, %76
