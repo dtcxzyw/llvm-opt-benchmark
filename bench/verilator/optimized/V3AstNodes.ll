@@ -188223,13 +188223,13 @@ switch.edge:
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZNK7AstNode5widthEv.exit, label %5
 
-5:                                                ; preds = %switch.edge
+_ZNK7AstNode5widthEv.exit:                        ; preds = %switch.edge
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %7 = load i32, ptr %6, align 8, !tbaa !422
-  br label %_ZNK7AstNode5widthEv.exit
+  br label %switch.edge
 
-_ZNK7AstNode5widthEv.exit:                        ; preds = %switch.edge, %5
-  %8 = phi i32 [ %7, %5 ], [ 0, %switch.edge ]
+switch.edge:                                      ; preds = %switch.edge, %_ZNK7AstNode5widthEv.exit
+  %9 = phi i32 [ %7, %5 ], [ 0, %switch.edge ]
   %9 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %8)
   %10 = icmp ne i32 %9, 1
   %11 = and i32 %8, 31

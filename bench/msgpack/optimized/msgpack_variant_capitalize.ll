@@ -14746,9 +14746,9 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %11 = alloca [6 x i8], align 1
   %12 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %13 = icmp eq i64 %12, 1
-  br i1 %13, label %.split, label %40
+  br i1 %13, label %.split, label %37
 
-.split:                                           ; preds = %3
+.split:; preds = %3
   %14 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
   switch i64 %14, label %40 [
     i64 0, label %15
@@ -14758,114 +14758,114 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
     i64 4, label %35
   ]
 
-15:                                               ; preds = %.split
+12:                                               ; preds = %.split
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 -44, ptr %4, align 1, !tbaa !40
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %2, ptr %16, align 1, !tbaa !40
-  %17 = load ptr, ptr %0, align 8, !tbaa !305
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %4, i64 noundef 2)
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i8 %2, ptr %13, align 1, !tbaa !40
+  %14 = load ptr, ptr %0, align 8, !tbaa !305
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %4, i64 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %66
+  br label %63
 
-20:                                               ; preds = %.split
+17:                                               ; preds = %.split
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 -43, ptr %5, align 1, !tbaa !40
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %2, ptr %21, align 1, !tbaa !40
-  %22 = load ptr, ptr %0, align 8, !tbaa !305
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %5, i64 noundef 2)
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %2, ptr %18, align 1, !tbaa !40
+  %19 = load ptr, ptr %0, align 8, !tbaa !305
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %5, i64 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %66
+  br label %63
 
-25:                                               ; preds = %.split
+22:                                               ; preds = %.split
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 -42, ptr %6, align 1, !tbaa !40
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 %2, ptr %26, align 1, !tbaa !40
-  %27 = load ptr, ptr %0, align 8, !tbaa !305
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %6, i64 noundef 2)
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  store i8 %2, ptr %23, align 1, !tbaa !40
+  %24 = load ptr, ptr %0, align 8, !tbaa !305
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull %6, i64 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %66
+  br label %63
 
-30:                                               ; preds = %.split
+27:                                               ; preds = %.split
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 -41, ptr %7, align 1, !tbaa !40
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 %2, ptr %31, align 1, !tbaa !40
-  %32 = load ptr, ptr %0, align 8, !tbaa !305
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %7, i64 noundef 2)
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store i8 %2, ptr %28, align 1, !tbaa !40
+  %29 = load ptr, ptr %0, align 8, !tbaa !305
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %7, i64 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %66
+  br label %63
 
-35:                                               ; preds = %.split
+32:                                               ; preds = %.split
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 -40, ptr %8, align 1, !tbaa !40
-  %36 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %2, ptr %36, align 1, !tbaa !40
-  %37 = load ptr, ptr %0, align 8, !tbaa !305
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull %8, i64 noundef 2)
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  store i8 %2, ptr %33, align 1, !tbaa !40
+  %34 = load ptr, ptr %0, align 8, !tbaa !305
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull %8, i64 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %66
+  br label %63
 
-40:                                               ; preds = %3, %.split
-  %41 = icmp ult i64 %1, 256
-  br i1 %41, label %42, label %49
+37:                                               ; preds = %3, %.split
+  %38 = icmp ult i64 %1, 256
+  br i1 %38, label %39, label %46
 
-42:                                               ; preds = %40
+39:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 -57, ptr %9, align 1, !tbaa !40
-  %43 = trunc nuw i64 %1 to i8
-  %44 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store i8 %43, ptr %44, align 1, !tbaa !40
-  %45 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  store i8 %2, ptr %45, align 1, !tbaa !40
-  %46 = load ptr, ptr %0, align 8, !tbaa !305
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull %9, i64 noundef 3)
+  %40 = trunc nuw i64 %1 to i8
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  store i8 %40, ptr %41, align 1, !tbaa !40
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  store i8 %2, ptr %42, align 1, !tbaa !40
+  %43 = load ptr, ptr %0, align 8, !tbaa !305
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %9, i64 noundef 3)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %66
+  br label %63
 
-49:                                               ; preds = %40
-  %50 = icmp ult i64 %1, 65536
-  br i1 %50, label %51, label %58
+46:                                               ; preds = %37
+  %47 = icmp ult i64 %1, 65536
+  br i1 %47, label %48, label %55
 
-51:                                               ; preds = %49
+48:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 -56, ptr %10, align 1, !tbaa !40
-  %52 = trunc nuw i64 %1 to i16
-  %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %52)
-  %53 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store i16 %rev.i, ptr %53, align 1
-  %54 = getelementptr inbounds nuw i8, ptr %10, i64 3
-  store i8 %2, ptr %54, align 1, !tbaa !40
-  %55 = load ptr, ptr %0, align 8, !tbaa !305
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull %10, i64 noundef 4)
+  %49 = trunc nuw i64 %1 to i16
+  %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %49)
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  store i16 %rev.i, ptr %50, align 1
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 3
+  store i8 %2, ptr %51, align 1, !tbaa !40
+  %52 = load ptr, ptr %0, align 8, !tbaa !305
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull %10, i64 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %66
+  br label %63
 
-58:                                               ; preds = %49
+55:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 -55, ptr %11, align 1, !tbaa !40
-  %59 = trunc i64 %1 to i32
-  %60 = tail call noundef i32 @llvm.bswap.i32(i32 %59)
-  %61 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store i32 %60, ptr %61, align 1
-  %62 = getelementptr inbounds nuw i8, ptr %11, i64 5
-  store i8 %2, ptr %62, align 1, !tbaa !40
-  %63 = load ptr, ptr %0, align 8, !tbaa !305
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %65 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull %11, i64 noundef 6)
+  %56 = trunc i64 %1 to i32
+  %57 = tail call noundef i32 @llvm.bswap.i32(i32 %56)
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  store i32 %57, ptr %58, align 1
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 5
+  store i8 %2, ptr %59, align 1, !tbaa !40
+  %60 = load ptr, ptr %0, align 8, !tbaa !305
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %62 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull %11, i64 noundef 6)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %66
+  br label %63
 
-66:                                               ; preds = %42, %58, %51, %35, %30, %25, %20, %15
+63:                                               ; preds = %39, %55, %48, %32, %27, %22, %17, %12
   ret ptr %0
 }
 

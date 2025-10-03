@@ -60212,9 +60212,9 @@ define noundef range(i32 1, 32769) i32 @"_ZN86_$LT$yara_x..modules..protos..pe..
 define noundef range(i16 0, -32767) i16 @"_ZN86_$LT$yara_x..modules..protos..pe..Characteristics$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hbaced0f45fed0677E"(i32 noundef %0) unnamed_addr #1 {
   %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
   %3 = icmp eq i32 %2, 1
-  br i1 %3, label %.split, label %7
+  br i1 %3, label %4, label %13
 
-.split:                                           ; preds = %1
+16:                                               ; preds = %1
   %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
   %5 = icmp samesign ult i32 %4, 16
   br i1 %5, label %switch.lookup, label %7
@@ -60225,7 +60225,7 @@ switch.lookup:                                    ; preds = %.split
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %7
 
-7:                                                ; preds = %switch.lookup, %.split, %1
+17:                                               ; preds = %6, %16, %1
   %.sroa.0.0 = phi i16 [ 0, %1 ], [ 0, %.split ], [ %switch.load, %switch.lookup ]
   ret i16 %.sroa.0.0
 }
@@ -61277,21 +61277,21 @@ define noundef range(i32 32, 32769) i32 @"_ZN89_$LT$yara_x..modules..protos..pe.
 define noundef range(i16 31, -32767) i16 @"_ZN89_$LT$yara_x..modules..protos..pe..DllCharacteristics$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h2512e6215bf97138E"(i32 noundef %0) unnamed_addr #1 {
   %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
   %3 = icmp eq i32 %2, 1
-  br i1 %3, label %.split, label %7
+  br i1 %3, label %4, label %13
 
-.split:                                           ; preds = %1
+4:                                                ; preds = %1
   %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
   %switch.tableidx = add nsw i32 %4, -5
   %5 = icmp ult i32 %switch.tableidx, 11
-  br i1 %5, label %switch.lookup, label %7
+  br i1 %5, label %6, label %13
 
-switch.lookup:                                    ; preds = %.split
+6:                                                ; preds = %16
   %6 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i16, ptr @"switch.table._ZN89_$LT$yara_x..modules..protos..pe..DllCharacteristics$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h2512e6215bf97138E", i64 %6
   %switch.load = load i16, ptr %switch.gep, align 2
-  br label %7
+  br label %13
 
-7:                                                ; preds = %switch.lookup, %.split, %1
+13:                                               ; preds = %6, %16, %1
   %.sroa.0.0 = phi i16 [ 31, %1 ], [ 31, %.split ], [ %switch.load, %switch.lookup ]
   ret i16 %.sroa.0.0
 }

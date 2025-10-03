@@ -648,19 +648,19 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_dts(ptr noundef %0, 
   %85 = sdiv i32 %84, %.047
   %86 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %85)
   %87 = icmp eq i32 %86, 1
-  br i1 %87, label %.split.i.i, label %spdif_dts4_subtype.exit.i
+  br i1 %87, label %90, label %spdif_dts4_subtype.exit.i
 
-.split.i.i:                                       ; preds = %82
+90:                                               ; preds = %82
   %88 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %85, i1 true)
   %switch.tableidx = add nsw i32 %88, -9
   %89 = icmp ult i32 %switch.tableidx, 6
   br i1 %89, label %switch.lookup, label %spdif_dts4_subtype.exit.i
 
-spdif_dts4_subtype.exit.i:                        ; preds = %.split.i.i, %82
+spdif_dts4_subtype.exit.i:                        ; preds = %90, %82
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.21, i32 noundef %77, i32 noundef %85, i32 noundef %83, i32 noundef %.047) #7
   br label %spdif_header_dts4.exit
 
-switch.lookup:                                    ; preds = %.split.i.i
+91:                                               ; preds = %90
   %switch.idx.mult = shl nuw nsw i32 %switch.tableidx, 8
   %switch.offset = or disjoint i32 %switch.idx.mult, 17
   %90 = shl nsw i32 %85, 2
@@ -677,7 +677,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   %98 = load i32, ptr %97, align 8, !tbaa !59
   br i1 %96, label %99, label %._crit_edge.i
 
-99:                                               ; preds = %switch.lookup
+99:                                               ; preds = %91
   %.not63.i = icmp eq i32 %98, 0
   br i1 %.not63.i, label %100, label %101
 
@@ -701,7 +701,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   store i32 1, ptr %97, align 8, !tbaa !59
   br label %110
 
-._crit_edge.i:                                    ; preds = %105, %switch.lookup
+._crit_edge.i:                                    ; preds = %105, %91
   %108 = phi i32 [ %107, %105 ], [ %98, %switch.lookup ]
   %.not64.i = icmp eq i32 %108, 0
   br i1 %.not64.i, label %115, label %._crit_edge.i._crit_edge

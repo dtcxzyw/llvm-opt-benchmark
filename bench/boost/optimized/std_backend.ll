@@ -670,7 +670,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_std24std_localization_bac
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %.split, label %37
 
-.split:                                           ; preds = %5
+.split:; preds = %5
   %8 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %3, i1 true)
   switch i32 %8, label %37 [
     i32 0, label %9
@@ -683,63 +683,63 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_std24std_localization_bac
     i32 17, label %35
   ]
 
-9:                                                ; preds = %.split
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %12 = load i32, ptr %11, align 8, !tbaa !35
-  tail call void @_ZN5boost6locale8impl_std14create_convertERKSt6localeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12char_facet_tENS1_12utf8_supportE(ptr dead_on_unwind writable sret(%"class.std::locale") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %4, i32 noundef %12)
-  br label %38
+6:                                                ; preds = %.split
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %9 = load i32, ptr %8, align 8, !tbaa !35
+  tail call void @_ZN5boost6locale8impl_std14create_convertERKSt6localeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12char_facet_tENS1_12utf8_supportE(ptr dead_on_unwind writable sret(%"class.std::locale") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %4, i32 noundef %9)
+  br label %35
 
-13:                                               ; preds = %.split
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %16 = load i32, ptr %15, align 8, !tbaa !35
-  tail call void @_ZN5boost6locale8impl_std14create_collateERKSt6localeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12char_facet_tENS1_12utf8_supportE(ptr dead_on_unwind writable sret(%"class.std::locale") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef %4, i32 noundef %16)
-  br label %38
+10:                                               ; preds = %.split
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %13 = load i32, ptr %12, align 8, !tbaa !35
+  tail call void @_ZN5boost6locale8impl_std14create_collateERKSt6localeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12char_facet_tENS1_12utf8_supportE(ptr dead_on_unwind writable sret(%"class.std::locale") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef %4, i32 noundef %13)
+  br label %35
 
-17:                                               ; preds = %.split
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %20 = load i32, ptr %19, align 8, !tbaa !35
-  tail call void @_ZN5boost6locale8impl_std17create_formattingERKSt6localeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12char_facet_tENS1_12utf8_supportE(ptr dead_on_unwind writable sret(%"class.std::locale") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef %4, i32 noundef %20)
-  br label %38
+14:                                               ; preds = %.split
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %17 = load i32, ptr %16, align 8, !tbaa !35
+  tail call void @_ZN5boost6locale8impl_std17create_formattingERKSt6localeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12char_facet_tENS1_12utf8_supportE(ptr dead_on_unwind writable sret(%"class.std::locale") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef %4, i32 noundef %17)
+  br label %35
 
-21:                                               ; preds = %.split
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %24 = load i32, ptr %23, align 8, !tbaa !35
-  tail call void @_ZN5boost6locale8impl_std14create_parsingERKSt6localeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12char_facet_tENS1_12utf8_supportE(ptr dead_on_unwind writable sret(%"class.std::locale") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef %4, i32 noundef %24)
-  br label %38
+18:                                               ; preds = %.split
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %21 = load i32, ptr %20, align 8, !tbaa !35
+  tail call void @_ZN5boost6locale8impl_std14create_parsingERKSt6localeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12char_facet_tENS1_12utf8_supportE(ptr dead_on_unwind writable sret(%"class.std::locale") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef %4, i32 noundef %21)
+  br label %35
 
-25:                                               ; preds = %.split
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %28 = load i32, ptr %27, align 8, !tbaa !35
-  tail call void @_ZN5boost6locale8impl_std14create_codecvtERKSt6localeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12char_facet_tENS1_12utf8_supportE(ptr dead_on_unwind writable sret(%"class.std::locale") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %26, i32 noundef %4, i32 noundef %28)
-  br label %38
+22:                                               ; preds = %.split
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %25 = load i32, ptr %24, align 8, !tbaa !35
+  tail call void @_ZN5boost6locale8impl_std14create_codecvtERKSt6localeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12char_facet_tENS1_12utf8_supportE(ptr dead_on_unwind writable sret(%"class.std::locale") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef %4, i32 noundef %25)
+  br label %35
 
-29:                                               ; preds = %.split
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  tail call void @_ZN5boost6locale4util26install_gregorian_calendarERKSt6localeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::locale") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %30)
-  br label %38
+26:                                               ; preds = %.split
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  tail call void @_ZN5boost6locale4util26install_gregorian_calendarERKSt6localeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::locale") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %27)
+  br label %35
 
-31:                                               ; preds = %.split
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @_ZN5boost6locale6detail21install_message_facetERKSt6localeNS0_12char_facet_tERKNS0_4util11locale_dataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EESK_(ptr dead_on_unwind writable sret(%"class.std::locale") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(129) %32, ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %34)
-  br label %38
+28:                                               ; preds = %.split
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @_ZN5boost6locale6detail21install_message_facetERKSt6localeNS0_12char_facet_tERKNS0_4util11locale_dataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EESK_(ptr dead_on_unwind writable sret(%"class.std::locale") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(129) %29, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %31)
+  br label %35
 
-35:                                               ; preds = %.split
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  tail call void @_ZN5boost6locale4util11create_infoERKSt6localeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::locale") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %36)
-  br label %38
+32:                                               ; preds = %.split
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  tail call void @_ZN5boost6locale4util11create_infoERKSt6localeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::locale") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %33)
+  br label %35
 
-37:                                               ; preds = %5, %.split
+34:                                               ; preds = %5, %.split
   tail call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %2) #23
-  br label %38
+  br label %35
 
-38:                                               ; preds = %37, %35, %31, %29, %25, %21, %17, %13, %9
+35:                                               ; preds = %34, %32, %28, %26, %22, %18, %14, %10, %6
   ret void
 }
 
@@ -3395,16 +3395,16 @@ declare i32 @llvm.ctpop.i32(i32) #17
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #18
+declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
@@ -3427,7 +3427,7 @@ attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #21 = { builtin allocsize(0) }

@@ -2754,13 +2754,13 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %16, %18, %20
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %.split.i, label %30
 
-.split.i:                                         ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
+.split.i:; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
   %28 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %25, i1 true)
   %switch.tableidx = add nsw i32 %28, -3
   %29 = icmp ult i32 %switch.tableidx, 4
   br i1 %29, label %switch.lookup, label %30
 
-30:                                               ; preds = %.split.i, %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
+30:; preds = %.split.i, %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
   %31 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %31, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.4, i32 noundef 427, ptr noundef nonnull @.str.6, i32 noundef %25) #10
@@ -3214,13 +3214,13 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %16, %18, %20
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %.split.i, label %30
 
-.split.i:                                         ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
+.split.i:; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
   %28 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %25, i1 true)
   %switch.tableidx = add nsw i32 %28, -3
   %29 = icmp ult i32 %switch.tableidx, 4
   br i1 %29, label %switch.lookup, label %30
 
-30:                                               ; preds = %.split.i, %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
+30:; preds = %.split.i, %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
   %31 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %31, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.4, i32 noundef 427, ptr noundef nonnull @.str.6, i32 noundef %25) #10

@@ -80457,20 +80457,20 @@ define noundef range(i32 1, 33554433) i32 @"_ZN82_$LT$yara_x..modules..protos..m
 define noundef range(i32 0, 33554433) i32 @"_ZN82_$LT$yara_x..modules..protos..macho..FileFlag$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h2928e4c8a5a8f313E"(i32 noundef %0) unnamed_addr #6 {
   %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
   %3 = icmp eq i32 %2, 1
-  br i1 %3, label %.split, label %7
+  br i1 %2, label %.split, label %7
 
-.split:                                           ; preds = %1
+.split:; preds = %1
   %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
   %5 = icmp samesign ult i32 %4, 26
   br i1 %5, label %switch.lookup, label %7
 
-switch.lookup:                                    ; preds = %.split
+switch.lookup:; preds = %.split
   %6 = zext nneg i32 %4 to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN82_$LT$yara_x..modules..protos..macho..FileFlag$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h2928e4c8a5a8f313E", i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %7
 
-7:                                                ; preds = %switch.lookup, %.split, %1
+3:                                                ; preds = %switch.lookup, %.split, %1
   %.sroa.0.0 = phi i32 [ 0, %1 ], [ 0, %.split ], [ %switch.load, %switch.lookup ]
   ret i32 %.sroa.0.0
 }
@@ -80697,10 +80697,10 @@ define noundef range(i32 1, 9) i32 @"_ZN85_$LT$yara_x..modules..protos..macho..S
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 9) i8 @"_ZN85_$LT$yara_x..modules..protos..macho..SegmentFlag$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h141457b6b6844585E"(i32 noundef %0) unnamed_addr #6 {
   %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
-  %3 = icmp eq i32 %2, 1
+  %2 = icmp eq i32 %2, 1
   br i1 %3, label %.split, label %6
 
-.split:                                           ; preds = %1
+.split:; preds = %1
   %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
   %5 = icmp samesign ult i32 %4, 4
   br i1 %5, label %switch.lookup, label %6

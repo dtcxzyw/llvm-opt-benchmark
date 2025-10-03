@@ -5529,7 +5529,7 @@ define hidden noundef range(i64 0, 33) i64 @_ZN5tokio2io8interest8Interest4mask1
   %3 = icmp eq i64 %2, 1
   br i1 %3, label %.split, label %6
 
-.split:                                           ; preds = %1
+.split:; preds = %1
   %4 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %0, i1 true)
   %5 = icmp samesign ult i64 %4, 6
   br i1 %5, label %switch.lookup, label %6
@@ -7634,16 +7634,16 @@ declare i64 @llvm.ctpop.i64(i64) #33
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #34
+declare void @llvm.experimental.noalias.scope.decl(metadata) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i128(i128, i128) #33
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i128(i128, i128) #34
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #33
+declare i8 @llvm.umax.i8(i8, i8) #34
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

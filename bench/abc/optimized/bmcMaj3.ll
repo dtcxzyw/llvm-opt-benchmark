@@ -7124,19 +7124,19 @@ Abc_UtilStrsav.exit:
   %19 = trunc i64 %18 to i32
   %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %19)
   %21 = icmp eq i32 %20, 1
-  br i1 %21, label %.split, label %24
+  br i1 %21, label %22, label %24
 
-.split:                                           ; preds = %._crit_edge
+22:                                               ; preds = %._crit_edge
   %22 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %19, i1 true)
   %23 = icmp samesign ult i32 %22, 7
   br i1 %23, label %switch.lookup, label %24
 
-24:                                               ; preds = %.split, %._crit_edge
+23:                                               ; preds = %22, %._crit_edge
   tail call void @free(ptr noundef nonnull %7) #24
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
-  br label %39
+  br label %42
 
-switch.lookup:                                    ; preds = %.split
+27:                                               ; preds = %22
   %switch.offset = add nuw nsw i32 %22, 2
   store i32 %switch.offset, ptr %2, align 4, !tbaa !27
   tail call fastcc void @Abc_TtReadHex(ptr noundef %1, ptr noundef nonnull %7)
@@ -7145,26 +7145,26 @@ switch.lookup:                                    ; preds = %.split
   br i1 %.not5672, label %.critedge.thread, label %.lr.ph75
 
 thread-pre-split:                                 ; preds = %.lr.ph75
-  br i1 %27, label %.critedge.thread, label %.lr.ph75
+  br i1 %30, label %.critedge.thread, label %.lr.ph75
 
-.lr.ph75:                                         ; preds = %switch.lookup, %thread-pre-split
-  %.173 = phi ptr [ %26, %thread-pre-split ], [ %.046.lcssa, %switch.lookup ]
-  %25 = phi i8 [ %.pre, %thread-pre-split ], [ %.lcssa65, %switch.lookup ]
-  %26 = getelementptr inbounds nuw i8, ptr %.173, i64 1
-  %.not57 = icmp eq i8 %25, 45
-  %.pre = load i8, ptr %26, align 1, !tbaa !185
-  %27 = icmp eq i8 %.pre, 0
+.lr.ph75:                                         ; preds = %27, %thread-pre-split
+  %.173 = phi ptr [ %29, %thread-pre-split ], [ %.046.lcssa, %switch.lookup ]
+  %28 = phi i8 [ %.pre, %thread-pre-split ], [ %.lcssa65, %switch.lookup ]
+  %29 = getelementptr inbounds nuw i8, ptr %.173, i64 1
+  %.not57 = icmp eq i8 %28, 45
+  %.pre = load i8, ptr %29, align 1, !tbaa !185
+  %30 = icmp eq i8 %.pre, 0
   br i1 %.not57, label %.critedge, label %thread-pre-split, !llvm.loop !197
 
 .critedge:                                        ; preds = %.lr.ph75
-  br i1 %27, label %.critedge.thread, label %28
+  br i1 %30, label %.critedge.thread, label %28
 
-.critedge.thread:                                 ; preds = %thread-pre-split, %switch.lookup, %.critedge
+.critedge.thread:                                 ; preds = %thread-pre-split, %27, %.critedge
   tail call void @free(ptr noundef %7) #24
   %puts61 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
-  br label %39
+  br label %42
 
-28:                                               ; preds = %.critedge
+.critedge2.thread:                                ; preds = %.critedge
   %29 = tail call i64 @strtol(ptr noundef nonnull captures(none) %26, ptr noundef null, i32 noundef 10) #24
   %30 = trunc i64 %29 to i32
   store i32 %30, ptr %3, align 4, !tbaa !27
@@ -7189,16 +7189,16 @@ thread-pre-split:                                 ; preds = %.lr.ph75
 .critedge2.thread:                                ; preds = %31, %.critedge2
   tail call void @free(ptr noundef %7) #24
   %puts60 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  br label %39
+  br label %42
 
-36:                                               ; preds = %.critedge2
-  %37 = tail call i64 @strtol(ptr noundef nonnull captures(none) %34, ptr noundef null, i32 noundef 10) #24
-  %38 = trunc i64 %37 to i32
-  store i32 %38, ptr %4, align 4, !tbaa !27
+39:                                               ; preds = %.critedge2
+  %40 = tail call i64 @strtol(ptr noundef nonnull captures(none) %34, ptr noundef null, i32 noundef 10) #24
+  %41 = trunc i64 %40 to i32
+  store i32 %41, ptr %4, align 4, !tbaa !27
   tail call void @free(ptr noundef %7) #24
-  br label %39
+  br label %42
 
-39:                                               ; preds = %36, %.critedge2.thread, %.critedge.thread, %24
+42:                                               ; preds = %39, %.critedge2.thread, %.critedge.thread, %24
   %.0 = phi i32 [ 0, %.critedge.thread ], [ 0, %.critedge2.thread ], [ 1, %36 ], [ 0, %24 ]
   ret i32 %.0
 }

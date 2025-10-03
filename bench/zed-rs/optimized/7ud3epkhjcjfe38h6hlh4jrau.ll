@@ -39331,7 +39331,7 @@ define internal fastcc { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_col
   %53 = icmp eq i8 %52, 1
   br i1 %53, label %.split, label %55
 
-.split:                                           ; preds = %51
+.split:; preds = %51
   %54 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %.sroa.011.3, i1 true)
   switch i8 %54, label %default.unreachable33 [
     i8 0, label %56
@@ -39341,7 +39341,7 @@ define internal fastcc { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_col
     i8 4, label %59
   ]
 
-default.unreachable33:                            ; preds = %.split
+52:                                               ; preds = %.split
   unreachable
 
 55:                                               ; preds = %51

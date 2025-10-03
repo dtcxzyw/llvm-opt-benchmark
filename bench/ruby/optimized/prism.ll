@@ -32793,7 +32793,7 @@ pm_node_alloc.exit:                               ; preds = %3
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %.split, label %22
 
-.split:                                           ; preds = %pm_node_alloc.exit
+.split:; preds = %pm_node_alloc.exit
   %19 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %9, i1 true)
   %switch.tableidx = add nsw i32 %19, -2
   %20 = icmp ult i32 %switch.tableidx, 4
@@ -32861,7 +32861,7 @@ pm_node_alloc.exit.i:                             ; preds = %pm_node_alloc.exit
   %25 = icmp eq i32 %24, 1
   br i1 %25, label %.split.i, label %pm_integer_node_create.exit
 
-.split.i:                                         ; preds = %pm_node_alloc.exit.i
+.split.i:; preds = %pm_node_alloc.exit.i
   %26 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %21, i1 true)
   %switch.tableidx = add nsw i32 %26, -2
   %27 = icmp ult i32 %switch.tableidx, 4
@@ -32928,7 +32928,7 @@ pm_node_alloc.exit:                               ; preds = %3
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %.split, label %22
 
-.split:                                           ; preds = %pm_node_alloc.exit
+.split:; preds = %pm_node_alloc.exit
   %19 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %9, i1 true)
   %switch.tableidx = add nsw i32 %19, -2
   %20 = icmp ult i32 %switch.tableidx, 4
@@ -32955,38 +32955,38 @@ define internal fastcc noalias nonnull ptr @pm_integer_node_rational_imaginary_c
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %pm_node_alloc.exit
 
-7:                                                ; preds = %3
-  %8 = load ptr, ptr @stderr, align 8, !tbaa !105
-  %9 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str.94, i32 noundef 32) #31
+6:                                                ; preds = %3
+  %7 = load ptr, ptr @stderr, align 8, !tbaa !105
+  %8 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %7, i32 noundef 1, ptr noundef nonnull @.str.94, i32 noundef 32) #31
   tail call void @abort() #35
   unreachable
 
 pm_node_alloc.exit:                               ; preds = %3
-  %10 = load i32, ptr %0, align 8, !tbaa !107
-  %11 = add i32 %10, 1
-  store i32 %11, ptr %0, align 8, !tbaa !107
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !125
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !126
+  %9 = load i32, ptr %0, align 8, !tbaa !107
+  %10 = add i32 %9, 1
+  store i32 %10, ptr %0, align 8, !tbaa !107
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !125
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !126
   store i32 60, ptr %4, align 8, !tbaa !124
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %13, ptr %17, align 8, !tbaa !125
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %19 = getelementptr i8, ptr %15, i64 -1
+  %19 = getelementptr i8, ptr %14, i64 -1
   store ptr %19, ptr %18, align 8, !tbaa !126
   %20 = call fastcc ptr @pm_integer_node_rational_create(ptr noundef nonnull %0, i16 noundef zeroext %1, ptr noundef nonnull %4)
   store i16 68, ptr %5, align 8, !tbaa !108
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 2, ptr %.sroa.2.0..sroa_idx, align 2, !tbaa !108
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %11, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !7
+  store i32 %10, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !7
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %13, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !14
+  store ptr %12, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !14
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %15, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !14
+  store ptr %14, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !14
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %20, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !103
   ret ptr %5

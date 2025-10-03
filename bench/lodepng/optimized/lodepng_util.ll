@@ -2408,7 +2408,7 @@ define noundef range(i32 0, 256) i32 @_ZN7lodepng15getPaletteValueEPKhmi(ptr nou
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %.split, label %38
 
-.split:                                           ; preds = %3
+.split:; preds = %3
   %6 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
   switch i32 %6, label %38 [
     i32 3, label %7
@@ -2417,49 +2417,49 @@ define noundef range(i32 0, 256) i32 @_ZN7lodepng15getPaletteValueEPKhmi(ptr nou
     i32 0, label %29
   ]
 
-7:                                                ; preds = %.split
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %9 = load i8, ptr %8, align 1, !tbaa !18
-  %10 = zext i8 %9 to i32
-  br label %38
+4:                                                ; preds = %.split
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %6 = load i8, ptr %5, align 1, !tbaa !18
+  %7 = zext i8 %6 to i32
+  br label %35
 
-11:                                               ; preds = %.split
-  %12 = lshr i64 %1, 1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !18
-  %15 = zext i8 %14 to i32
+8:                                                ; preds = %.split
+  %9 = lshr i64 %1, 1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %9
+  %11 = load i8, ptr %10, align 1, !tbaa !18
+  %12 = zext i8 %11 to i32
   %.tr16 = trunc i64 %1 to i32
-  %16 = shl i32 %.tr16, 2
-  %17 = and i32 %16, 4
-  %18 = lshr i32 %15, %17
-  %19 = and i32 %18, 15
-  br label %38
+  %13 = shl i32 %.tr16, 2
+  %14 = and i32 %13, 4
+  %15 = lshr i32 %12, %14
+  %16 = and i32 %15, 15
+  br label %35
 
-20:                                               ; preds = %.split
-  %21 = lshr i64 %1, 2
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !18
-  %24 = zext i8 %23 to i32
+17:                                               ; preds = %.split
+  %18 = lshr i64 %1, 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
+  %20 = load i8, ptr %19, align 1, !tbaa !18
+  %21 = zext i8 %20 to i32
   %.tr = trunc i64 %1 to i32
-  %25 = shl i32 %.tr, 1
-  %26 = and i32 %25, 6
-  %27 = lshr i32 %24, %26
-  %28 = and i32 %27, 3
-  br label %38
+  %22 = shl i32 %.tr, 1
+  %23 = and i32 %22, 6
+  %24 = lshr i32 %21, %23
+  %25 = and i32 %24, 3
+  br label %35
 
-29:                                               ; preds = %.split
-  %30 = lshr i64 %1, 3
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 %30
-  %32 = load i8, ptr %31, align 1, !tbaa !18
-  %33 = zext i8 %32 to i32
-  %34 = trunc i64 %1 to i32
-  %35 = and i32 %34, 7
-  %36 = lshr i32 %33, %35
-  %37 = and i32 %36, 1
-  br label %38
+26:                                               ; preds = %.split
+  %27 = lshr i64 %1, 3
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !18
+  %30 = zext i8 %29 to i32
+  %31 = trunc i64 %1 to i32
+  %32 = and i32 %31, 7
+  %33 = lshr i32 %30, %32
+  %34 = and i32 %33, 1
+  br label %35
 
-38:                                               ; preds = %3, %.split, %29, %20, %11, %7
-  %.0 = phi i32 [ %10, %7 ], [ %19, %11 ], [ %28, %20 ], [ %37, %29 ], [ 0, %.split ], [ 0, %3 ]
+35:                                               ; preds = %3, %.split, %26, %17, %8, %4
+  %.0 = phi i32 [ %7, %7 ], [ %16, %11 ], [ %25, %20 ], [ %34, %29 ], [ 0, %.split ], [ 0, %3 ]
   ret i32 %.0
 }
 

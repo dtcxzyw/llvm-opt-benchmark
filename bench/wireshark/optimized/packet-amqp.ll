@@ -13555,7 +13555,7 @@ define internal noundef i32 @format_amqp_1_0_int(ptr noundef %0, i32 noundef %1,
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %.split, label %19
 
-.split:                                           ; preds = %4
+.split:; preds = %4
   %7 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
   switch i32 %7, label %19 [
     i32 0, label %8
@@ -13564,9 +13564,9 @@ define internal noundef i32 @format_amqp_1_0_int(ptr noundef %0, i32 noundef %1,
     i32 3, label %17
   ]
 
-8:                                                ; preds = %.split
-  %9 = tail call signext i8 @tvb_get_int8(ptr noundef %0, i32 noundef %1)
-  %10 = sext i8 %9 to i64
+5:                                                ; preds = %.split
+  %6 = tail call signext i8 @tvb_get_int8(ptr noundef %0, i32 noundef %1)
+  %7 = sext i8 %6 to i64
   br label %22
 
 11:                                               ; preds = %.split
@@ -13579,8 +13579,8 @@ define internal noundef i32 @format_amqp_1_0_int(ptr noundef %0, i32 noundef %1,
   %16 = sext i32 %15 to i64
   br label %22
 
-17:                                               ; preds = %.split
-  %18 = tail call i64 @tvb_get_ntohi64(ptr noundef %0, i32 noundef %1)
+16:                                               ; preds = %.split
+  %17 = tail call i64 @tvb_get_ntohi64(ptr noundef %0, i32 noundef %1)
   br label %22
 
 19:                                               ; preds = %4, %.split
@@ -13588,8 +13588,8 @@ define internal noundef i32 @format_amqp_1_0_int(ptr noundef %0, i32 noundef %1,
   %21 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %20, ptr noundef nonnull @.str.1514, i32 noundef %2)
   br label %25
 
-22:                                               ; preds = %11, %17, %14, %8
-  %.0 = phi i64 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ], [ %18, %17 ]
+22:                                               ; preds = %11, %16, %14, %8
+  %storemerge = phi i64 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ], [ %15, %17 ]
   %23 = tail call ptr @wmem_packet_scope()
   %24 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %23, ptr noundef nonnull @.str.1581, i64 noundef %.0)
   br label %25

@@ -3344,7 +3344,7 @@ define hidden range(i32 -1, 2) i32 @ruby_is_fd_loadable(i32 noundef %0) local_un
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %2) #22
   %4 = icmp slt i32 %3, 0
-  br i1 %4, label %17, label %5
+  br i1 %4, label %16, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3354,7 +3354,7 @@ define hidden range(i32 -1, 2) i32 @ruby_is_fd_loadable(i32 noundef %0) local_un
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %.split, label %15
 
-.split:                                           ; preds = %5
+.split:; preds = %5
   %11 = tail call range(i32 12, 33) i32 @llvm.cttz.i32(i32 %8, i1 true)
   switch i32 %11, label %default.unreachable [
     i32 15, label %17
@@ -3363,23 +3363,23 @@ define hidden range(i32 -1, 2) i32 @ruby_is_fd_loadable(i32 noundef %0) local_un
     i32 14, label %13
   ]
 
-12:                                               ; preds = %.split, %.split
-  br label %17
+11:                                               ; preds = %.split, %.split
+  br label %16
 
-13:                                               ; preds = %.split
-  %14 = tail call ptr @rb_errno_ptr() #22
-  store i32 21, ptr %14, align 4, !tbaa !26
-  br label %17
+12:                                               ; preds = %.split
+  %13 = tail call ptr @rb_errno_ptr() #22
+  store i32 21, ptr %13, align 4, !tbaa !26
+  br label %16
 
-default.unreachable:                              ; preds = %.split
+14:                                               ; preds = %.split
   unreachable
 
-15:                                               ; preds = %5
+15:; preds = %5
   %16 = tail call ptr @rb_errno_ptr() #22
   store i32 6, ptr %16, align 4, !tbaa !26
   br label %17
 
-17:                                               ; preds = %13, %15, %.split, %1, %12
+16:                                               ; preds = %12, %15, %.split, %1, %11
   %.0 = phi i32 [ -1, %12 ], [ 0, %1 ], [ 1, %.split ], [ 0, %15 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -3397,12 +3397,12 @@ define hidden range(i32 -1, 2) i32 @rb_file_load_ok(ptr noundef %0) local_unname
   %7 = load i32, ptr %6, align 4, !tbaa !26
   %8 = tail call i32 @rb_gc_for_fd(i32 noundef %7) #22
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %28, label %9
+  br i1 %.not, label %27, label %9
 
 9:                                                ; preds = %5
   %10 = tail call i32 @rb_cloexec_open(ptr noundef %0, i32 noundef 2048, i32 noundef 0) #22
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %28, label %12
+  br i1 %11, label %27, label %12
 
 12:                                               ; preds = %9, %1
   %.0 = phi i32 [ %10, %9 ], [ %3, %1 ]
@@ -3420,7 +3420,7 @@ define hidden range(i32 -1, 2) i32 @rb_file_load_ok(ptr noundef %0) local_unname
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %.split.i, label %25
 
-.split.i:                                         ; preds = %15
+.split.i:; preds = %15
   %21 = tail call range(i32 12, 33) i32 @llvm.cttz.i32(i32 %18, i1 true)
   switch i32 %21, label %default.unreachable.i [
     i32 15, label %ruby_is_fd_loadable.exit
@@ -3429,15 +3429,15 @@ define hidden range(i32 -1, 2) i32 @rb_file_load_ok(ptr noundef %0) local_unname
     i32 14, label %23
   ]
 
-22:                                               ; preds = %.split.i, %.split.i
+21:                                               ; preds = %.split.i, %.split.i
   br label %ruby_is_fd_loadable.exit
 
-23:                                               ; preds = %.split.i
-  %24 = tail call ptr @rb_errno_ptr() #22
-  store i32 21, ptr %24, align 4, !tbaa !26
+22:                                               ; preds = %.split.i
+  %23 = tail call ptr @rb_errno_ptr() #22
+  store i32 21, ptr %23, align 4, !tbaa !26
   br label %ruby_is_fd_loadable.exit
 
-default.unreachable.i:                            ; preds = %.split.i
+24:                                               ; preds = %.split.i
   unreachable
 
 25:                                               ; preds = %15
@@ -3445,13 +3445,13 @@ default.unreachable.i:                            ; preds = %.split.i
   store i32 6, ptr %26, align 4, !tbaa !26
   br label %ruby_is_fd_loadable.exit
 
-ruby_is_fd_loadable.exit:                         ; preds = %12, %.split.i, %22, %23, %25
+ruby_is_fd_loadable.exit:                         ; preds = %12, %.split.i, %21, %22, %25
   %.0.i = phi i32 [ -1, %22 ], [ 0, %12 ], [ 1, %.split.i ], [ 0, %25 ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %27 = tail call i32 @close(i32 noundef %.0) #22
-  br label %28
+  %26 = tail call i32 @close(i32 noundef %.0) #22
+  br label %27
 
-28:                                               ; preds = %9, %5, %ruby_is_fd_loadable.exit
+27:                                               ; preds = %9, %5, %ruby_is_fd_loadable.exit
   %.010 = phi i32 [ %.0.i, %ruby_is_fd_loadable.exit ], [ 0, %5 ], [ 0, %9 ]
   ret i32 %.010
 }
@@ -12058,10 +12058,10 @@ declare i32 @llvm.ctpop.i32(i32) #19
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #20
+declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
+declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21

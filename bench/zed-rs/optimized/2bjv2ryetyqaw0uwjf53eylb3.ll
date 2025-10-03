@@ -37440,10 +37440,10 @@ define { ptr, i64 } @_ZN6search13SearchOptions5label17ha8aa4f1bf5771b29E(ptr noa
   store ptr %0, ptr %4, align 8
   %5 = load i8, ptr %0, align 1, !noundef !4
   %6 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %5)
-  %7 = icmp eq i8 %6, 1
+  %6 = icmp eq i8 %6, 1
   br i1 %7, label %.split, label %10
 
-.split:                                           ; preds = %1
+7:                                                ; preds = %1
   %8 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %5, i1 true)
   %9 = icmp samesign ult i8 %8, 4
   br i1 %9, label %switch.lookup, label %10
@@ -37455,27 +37455,27 @@ define { ptr, i64 } @_ZN6search13SearchOptions5label17ha8aa4f1bf5771b29E(ptr noa
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2b37d8eee55510cdE", ptr %.sroa.43.0..sroa_idx, align 8
   store ptr @anon.cfae85451d85cf72f2eced67e2a83e68.181.llvm.1856919498638270738, ptr %3, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 2, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 1, ptr %14, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 2, ptr %8, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %2, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 1, ptr %11, align 8
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cfae85451d85cf72f2eced67e2a83e68.183.llvm.1856919498638270738) #39
   unreachable
 
-switch.lookup:                                    ; preds = %.split
-  %15 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6search13SearchOptions5label17ha8aa4f1bf5771b29E, i64 %15
+switch.lookup:                                    ; preds = %7
+  %12 = zext nneg i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6search13SearchOptions5label17ha8aa4f1bf5771b29E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
-  %16 = zext nneg i8 %8 to i64
-  %switch.gep4 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6search13SearchOptions5label17ha8aa4f1bf5771b29E.142, i64 %16
+  %13 = zext nneg i8 %8 to i64
+  %switch.gep4 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6search13SearchOptions5label17ha8aa4f1bf5771b29E.142, i64 %13
   %switch.load5 = load ptr, ptr %switch.gep4, align 8
-  %17 = insertvalue { ptr, i64 } poison, ptr %switch.load5, 0
-  %18 = insertvalue { ptr, i64 } %17, i64 %switch.load, 1
-  ret { ptr, i64 } %18
+  %14 = insertvalue { ptr, i64 } poison, ptr %switch.load5, 0
+  %15 = insertvalue { ptr, i64 } %14, i64 %switch.load, 1
+  ret { ptr, i64 } %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37486,10 +37486,10 @@ define noundef range(i8 27, -92) i8 @_ZN6search13SearchOptions4icon17ha8dc6192c2
   store ptr %0, ptr %4, align 8
   %5 = load i8, ptr %0, align 1, !noundef !4
   %6 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %5)
-  %7 = icmp eq i8 %6, 1
+  %6 = icmp eq i8 %6, 1
   br i1 %7, label %.split, label %10
 
-.split:                                           ; preds = %1
+7:                                                ; preds = %1
   %8 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %5, i1 true)
   %9 = icmp samesign ult i8 %8, 4
   br i1 %9, label %switch.lookup, label %10
@@ -37501,20 +37501,20 @@ define noundef range(i8 27, -92) i8 @_ZN6search13SearchOptions4icon17ha8dc6192c2
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2b37d8eee55510cdE", ptr %.sroa.43.0..sroa_idx, align 8
   store ptr @anon.cfae85451d85cf72f2eced67e2a83e68.181.llvm.1856919498638270738, ptr %3, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 2, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 1, ptr %14, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 2, ptr %8, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %2, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 1, ptr %11, align 8
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cfae85451d85cf72f2eced67e2a83e68.184.llvm.1856919498638270738) #39
   unreachable
 
-switch.lookup:                                    ; preds = %.split
-  %15 = shl nuw nsw i8 %8, 3
-  %switch.shiftamt = zext nneg i8 %15 to i32
+switch.lookup:                                    ; preds = %7
+  %12 = shl nuw nsw i8 %8, 3
+  %switch.shiftamt = zext nneg i8 %12 to i32
   %switch.downshift = lshr i32 1904745379, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
   ret i8 %switch.masked
@@ -37528,10 +37528,10 @@ define { ptr, ptr } @_ZN6search13SearchOptions16to_toggle_action17hf49c680f5ac4e
   store ptr %0, ptr %4, align 8
   %5 = load i8, ptr %0, align 1, !noundef !4
   %6 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %5)
-  %7 = icmp eq i8 %6, 1
+  %6 = icmp eq i8 %6, 1
   br i1 %7, label %.split, label %10
 
-.split:                                           ; preds = %1
+7:                                                ; preds = %1
   %8 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %5, i1 true)
   %9 = icmp samesign ult i8 %8, 4
   br i1 %9, label %switch.lookup, label %10
@@ -37543,23 +37543,23 @@ define { ptr, ptr } @_ZN6search13SearchOptions16to_toggle_action17hf49c680f5ac4e
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2b37d8eee55510cdE", ptr %.sroa.43.0..sroa_idx, align 8
   store ptr @anon.cfae85451d85cf72f2eced67e2a83e68.181.llvm.1856919498638270738, ptr %3, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 2, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 1, ptr %14, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 2, ptr %8, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %2, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 1, ptr %11, align 8
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cfae85451d85cf72f2eced67e2a83e68.189.llvm.1856919498638270738) #39
   unreachable
 
-switch.lookup:                                    ; preds = %.split
-  %15 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6search13SearchOptions16to_toggle_action17hf49c680f5ac4e799E, i64 %15
+switch.lookup:                                    ; preds = %7
+  %12 = zext nneg i8 %8 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6search13SearchOptions16to_toggle_action17hf49c680f5ac4e799E, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %16 = insertvalue { ptr, ptr } { ptr inttoptr (i64 1 to ptr), ptr poison }, ptr %switch.load, 1
-  ret { ptr, ptr } %16
+  %13 = insertvalue { ptr, ptr } { ptr inttoptr (i64 1 to ptr), ptr poison }, ptr %switch.load, 1
+  ret { ptr, ptr } %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

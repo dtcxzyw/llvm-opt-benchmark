@@ -3754,29 +3754,29 @@ define internal fastcc void @parse_mpeg1waveformatex(ptr captures(none) initiali
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %.split, label %22
 
-.split:                                           ; preds = %7
+.split:; preds = %7
   %17 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %14, i1 true)
   %18 = icmp samesign ult i32 %17, 4
   br i1 %18, label %switch.lookup, label %22
 
-switch.lookup:                                    ; preds = %.split
+switch.lookup:; preds = %.split
   %19 = zext nneg i32 %17 to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.parse_mpeg1waveformatex, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
-  %20 = zext nneg i32 %17 to i64
-  %switch.gep6 = getelementptr inbounds nuw i64, ptr @switch.table.parse_mpeg1waveformatex.4, i64 %20
+  %16 = zext nneg i32 %17 to i64
+  %switch.gep6 = getelementptr inbounds nuw i64, ptr @switch.table.parse_mpeg1waveformatex.4, i64 %16
   %switch.load7 = load i64, ptr %switch.gep6, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %.16.val, i64 128
-  store i32 1, ptr %21, align 8, !tbaa !57
+  %17 = getelementptr inbounds nuw i8, ptr %.16.val, i64 128
+  store i32 1, ptr %17, align 8, !tbaa !57
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.16.val, i64 132
   store i32 %switch.load, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !57
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.16.val, i64 136
   store i64 %switch.load7, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !36
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.16.val, i64 144
   store ptr null, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !102
-  br label %22
+  br label %18
 
-22:                                               ; preds = %.split, %switch.lookup, %7
+18:                                               ; preds = %.split, %switch.lookup, %7
   ret void
 }
 
@@ -3909,16 +3909,16 @@ declare i32 @llvm.ctpop.i32(i32) #9
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #9
+declare i64 @llvm.smin.i64(i64, i64) #10
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -6307,32 +6307,32 @@ define internal noundef zeroext i1 @update_someip_parameter_base_type_list(ptr n
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %.split, label %19
 
-.split:                                           ; preds = %12
+.split:; preds = %12
   %18 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %15, i1 true)
   %.off = add nsw i32 %18, -3
   %switch = icmp ult i32 %.off, 4
   br i1 %switch, label %21, label %19
 
-19:                                               ; preds = %.split, %12
+19:; preds = %.split, %12
   %20 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.415, i32 noundef %13, ptr noundef nonnull %4)
   br label %.sink.split
 
-21:                                               ; preds = %.split
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load i32, ptr %22, align 8
-  %.not27 = icmp eq i32 %15, %23
-  br i1 %.not27, label %26, label %24
+20:                                               ; preds = %.split
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %22 = load i32, ptr %21, align 8
+  %.not27 = icmp eq i32 %15, %22
+  br i1 %.not27, label %25, label %23
 
-24:                                               ; preds = %21
-  %25 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.416, i32 noundef %13, ptr noundef nonnull %4)
+23:                                               ; preds = %20
+  %24 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.416, i32 noundef %13, ptr noundef nonnull %4)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %9, %19, %24
-  %.sink = phi ptr [ %25, %24 ], [ %20, %19 ], [ %11, %9 ]
+.sink.split:                                      ; preds = %9, %19, %23
+  %.sink = phi ptr [ %24, %24 ], [ %20, %19 ], [ %11, %9 ]
   store ptr %.sink, ptr %1, align 8
-  br label %26
+  br label %25
 
-26:                                               ; preds = %.sink.split, %21
+25:                                               ; preds = %.sink.split, %20
   %.0 = phi i1 [ true, %21 ], [ false, %.sink.split ]
   ret i1 %.0
 }

@@ -387,10 +387,10 @@ define range(i32 0, 2) i32 @glslang_shader_preprocess(ptr noundef %0, ptr nounde
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %28 = load i32, ptr %27, align 4
   %29 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %28)
-  %30 = icmp eq i32 %29, 1
-  br i1 %30, label %.split.i, label %_ZL16c_shader_profile17glslang_profile_t.exit
+  %29 = icmp eq i32 %29, 1
+  br i1 %29, label %switch.lookup, label %_ZL16c_shader_profile17glslang_profile_t.exit
 
-.split.i:                                         ; preds = %20
+switch.lookup:                                    ; preds = %20
   %31 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %28, i1 true)
   %32 = icmp samesign ult i32 %31, 4
   br i1 %32, label %switch.lookup, label %_ZL16c_shader_profile17glslang_profile_t.exit
@@ -403,32 +403,32 @@ switch.lookup:                                    ; preds = %.split.i
 
 _ZL16c_shader_profile17glslang_profile_t.exit:    ; preds = %20, %.split.i, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %.split.i ], [ 0, %20 ]
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %35 = load i32, ptr %34, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %32 = load i32, ptr %31, align 8
   %36 = icmp ne i32 %35, 0
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %38 = load i32, ptr %37, align 4
   %39 = icmp ne i32 %38, 0
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %41 = load i32, ptr %40, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %41 = load i32, ptr %39, align 8
   %.15.i = and i32 %41, 98303
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = call noundef zeroext i1 @_ZN7glslang7TShader10preprocessEPK16TBuiltInResourcei8EProfilebb11EShMessagesPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_8IncluderE(ptr noundef nonnull align 8 dereferenceable(165) %22, ptr noundef %24, i32 noundef %26, i32 noundef %.0.i, i1 noundef zeroext %36, i1 noundef zeroext %39, i32 noundef %.15.i, ptr noundef nonnull %42, ptr noundef nonnull align 8 dereferenceable(8) %21) #15
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV20DirStackFileIncluder, i64 16), ptr %3, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %45 = load ptr, ptr %7, align 8
-  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef %45)
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %46, %48
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %42 = load ptr, ptr %7, align 8
+  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef %42)
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %43, %45
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZL16c_shader_profile17glslang_profile_t.exit, %.lr.ph.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i.i.i ], [ %46, %_ZL16c_shader_profile17glslang_profile_t.exit ]
+  %.05.i.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i.i ], [ %43, %_ZL16c_shader_profile17glslang_profile_t.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i) #15
-  %49 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i = icmp eq ptr %49, %48
+  %46 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i = icmp eq ptr %46, %45
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i.i
@@ -436,22 +436,22 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, %_ZL16c_shader_profile17glslang_profile_t.exit
-  %50 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %46, %_ZL16c_shader_profile17glslang_profile_t.exit ]
-  %.not.i.i.i.i = icmp eq ptr %50, null
-  br i1 %.not.i.i.i.i, label %_ZN20DirStackFileIncluderD2Ev.exit, label %51
+  %47 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %43, %_ZL16c_shader_profile17glslang_profile_t.exit ]
+  %.not.i.i.i.i = icmp eq ptr %47, null
+  br i1 %.not.i.i.i.i, label %_ZN20DirStackFileIncluderD2Ev.exit, label %48
 
-51:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %53 = load ptr, ptr %52, align 8
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %50 to i64
-  %56 = sub i64 %54, %55
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #17
+48:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = ptrtoint ptr %50 to i64
+  %52 = ptrtoint ptr %47 to i64
+  %53 = sub i64 %51, %52
+  call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef %53) #17
   br label %_ZN20DirStackFileIncluderD2Ev.exit
 
-_ZN20DirStackFileIncluderD2Ev.exit:               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %51
-  %57 = zext i1 %43 to i32
-  ret i32 %57
+_ZN20DirStackFileIncluderD2Ev.exit:               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %48
+  %54 = zext i1 %43 to i32
+  ret i32 %54
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

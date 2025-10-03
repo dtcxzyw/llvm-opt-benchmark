@@ -4060,15 +4060,15 @@ define ptr @SSL_CIPHER_description(ptr noundef readonly captures(none) %0, ptr n
 5:                                                ; preds = %3
   %6 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 128, ptr noundef nonnull @.str.12, i32 noundef 1681) #13
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %60, label %10
+  br i1 %7, label %81, label %10
 
 8:                                                ; preds = %3
   %9 = icmp slt i32 %2, 128
-  br i1 %9, label %60, label %10
+  br i1 %9, label %81, label %10
 
 10:                                               ; preds = %8, %5
-  %.023 = phi i32 [ 128, %5 ], [ %2, %8 ]
-  %.022 = phi ptr [ %6, %5 ], [ %1, %8 ]
+  %.022 = phi i32 [ 128, %5 ], [ %2, %8 ]
+  %.021 = phi ptr [ %6, %5 ], [ %1, %8 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4, !tbaa !139
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4128,7 +4128,7 @@ define ptr @SSL_CIPHER_description(ptr noundef readonly captures(none) %0, ptr n
   br label %33
 
 33:                                               ; preds = %10, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22
-  %.024 = phi ptr [ @.str.25, %32 ], [ @.str.1, %22 ], [ @.str.2, %23 ], [ @.str.17, %24 ], [ @.str.18, %25 ], [ @.str.19, %26 ], [ @.str.20, %27 ], [ @.str.21, %28 ], [ @.str.22, %29 ], [ @.str.23, %30 ], [ @.str.24, %31 ], [ @.str.16, %10 ]
+  %.023 = phi ptr [ @.str.25, %32 ], [ @.str.1, %22 ], [ @.str.2, %23 ], [ @.str.17, %24 ], [ @.str.18, %25 ], [ @.str.19, %26 ], [ @.str.20, %27 ], [ @.str.21, %28 ], [ @.str.22, %29 ], [ @.str.23, %30 ], [ @.str.24, %31 ], [ @.str.16, %10 ]
   switch i32 %14, label %42 [
     i32 1, label %43
     i32 2, label %34
@@ -4169,29 +4169,29 @@ define ptr @SSL_CIPHER_description(ptr noundef readonly captures(none) %0, ptr n
   br label %43
 
 43:                                               ; preds = %33, %42, %41, %40, %39, %38, %37, %36, %35, %34
-  %.027 = phi ptr [ @.str.25, %42 ], [ @.str.26, %34 ], [ @.str.27, %35 ], [ @.str.3, %36 ], [ @.str.17, %37 ], [ @.str.21, %38 ], [ @.str.28, %39 ], [ @.str.29, %40 ], [ @.str.24, %41 ], [ @.str.16, %33 ]
+  %.026 = phi ptr [ @.str.25, %42 ], [ @.str.26, %34 ], [ @.str.27, %35 ], [ @.str.3, %36 ], [ @.str.17, %37 ], [ @.str.21, %38 ], [ @.str.28, %39 ], [ @.str.29, %40 ], [ @.str.24, %41 ], [ @.str.16, %33 ]
   %44 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %16)
   %45 = icmp eq i32 %44, 1
   br i1 %45, label %.split, label %49
 
-.split:                                           ; preds = %43
+.split:; preds = %43
   %46 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %16, i1 true)
   %47 = icmp samesign ult i32 %46, 24
   br i1 %47, label %switch.lookup, label %49
 
-switch.lookup:                                    ; preds = %.split
+switch.lookup:; preds = %.split
   %48 = zext nneg i32 %46 to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SSL_CIPHER_description, i64 %48
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %49
 
-49:                                               ; preds = %43, %.split, %switch.lookup
+49: ; preds = %43, %.split, %switch.lookup
   %.026 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.25, %.split ], [ @.str.25, %43 ]
   %50 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %18)
   %51 = icmp eq i32 %50, 1
   br i1 %51, label %.split1, label %55
 
-.split1:                                          ; preds = %49
+.split1:; preds = %49
   %52 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %18, i1 true)
   %53 = icmp samesign ult i32 %52, 10
   br i1 %53, label %switch.lookup34, label %55
@@ -4202,16 +4202,16 @@ switch.lookup34:                                  ; preds = %.split1
   %switch.load36 = load ptr, ptr %switch.gep35, align 8
   br label %55
 
-55:                                               ; preds = %49, %.split1, %switch.lookup34
+76:                                               ; preds = %49, %.split1, %switch.lookup34
   %.025 = phi ptr [ %switch.load36, %switch.lookup34 ], [ @.str.25, %.split1 ], [ @.str.25, %49 ]
-  %56 = zext nneg i32 %.023 to i64
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !163
-  %59 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %.022, i64 noundef %56, ptr noundef nonnull @.str.15, ptr noundef %58, ptr noundef %21, ptr noundef nonnull %.024, ptr noundef nonnull %.027, ptr noundef nonnull %.026, ptr noundef nonnull %.025) #13
-  br label %60
+  %77 = zext nneg i32 %.022 to i64
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %79 = load ptr, ptr %78, align 8, !tbaa !163
+  %80 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %.021, i64 noundef %77, ptr noundef nonnull @.str.15, ptr noundef %79, ptr noundef %21, ptr noundef nonnull %.023, ptr noundef nonnull %.027, ptr noundef nonnull %.026, ptr noundef nonnull %.025) #13
+  br label %81
 
-60:                                               ; preds = %8, %5, %55
-  %.0 = phi ptr [ %.022, %55 ], [ null, %5 ], [ null, %8 ]
+81:                                               ; preds = %8, %5, %76
+  %.0 = phi ptr [ %.021, %55 ], [ null, %5 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -4924,10 +4924,10 @@ declare i32 @llvm.ctpop.i32(i32) #11
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

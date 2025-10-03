@@ -289,7 +289,7 @@ define noundef range(i32 0, 65) i32 @_ZN12SimpleDialog4execEv(ptr noundef align 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %36, label %4
+  br i1 %.not, label %33, label %4
 
 4:                                                ; preds = %1
   tail call void @_ZN11QMessageBox18setInformativeTextERK7QString(ptr noundef nonnull align 8 dereferenceable_or_null(40) %3, ptr noundef align 8 dereferenceable(24) %0)
@@ -350,9 +350,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i5:     ; preds = %_ZN7QStringD2Ev.exi
 _ZN7QStringD2Ev.exit7:                            ; preds = %_ZN7QStringD2Ev.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i5, %27
   %28 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14)
   %29 = icmp eq i32 %28, 1
-  br i1 %29, label %.split, label %35
+  br i1 %29, label %.split, label %32
 
-.split:                                           ; preds = %_ZN7QStringD2Ev.exit7
+.split:; preds = %_ZN7QStringD2Ev.exit7
   %30 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %14, i1 true)
   switch i32 %30, label %35 [
     i32 10, label %36
@@ -362,22 +362,22 @@ _ZN7QStringD2Ev.exit7:                            ; preds = %_ZN7QStringD2Ev.exi
     i32 23, label %34
   ]
 
+28:                                               ; preds = %.split
+  br label %33
+
+29:                                               ; preds = %.split
+  br label %33
+
+30:                                               ; preds = %.split
+  br label %33
+
 31:                                               ; preds = %.split
-  br label %36
+  br label %33
 
-32:                                               ; preds = %.split
-  br label %36
+32:                                               ; preds = %_ZN7QStringD2Ev.exit7, %.split
+  br label %33
 
-33:                                               ; preds = %.split
-  br label %36
-
-34:                                               ; preds = %.split
-  br label %36
-
-35:                                               ; preds = %_ZN7QStringD2Ev.exit7, %.split
-  br label %36
-
-36:                                               ; preds = %31, %32, %33, %34, %35, %.split, %1
+33:                                               ; preds = %28, %29, %30, %31, %32, %.split, %1
   %.0 = phi i32 [ 0, %1 ], [ 2, %35 ], [ 4, %31 ], [ 8, %32 ], [ 32, %33 ], [ 64, %34 ], [ 1, %.split ]
   ret i32 %.0
 }

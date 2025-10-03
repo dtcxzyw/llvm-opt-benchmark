@@ -61176,18 +61176,18 @@ define noundef range(i16 0, 16385) i16 @"_ZN86_$LT$yara_x..modules..protos..lnk.
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %.split, label %7
 
-.split:                                           ; preds = %1
+.split:; preds = %1
   %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
   %5 = icmp samesign ult i32 %4, 15
   br i1 %5, label %switch.lookup, label %7
 
-switch.lookup:                                    ; preds = %.split
+switch.lookup:; preds = %.split
   %6 = zext nneg i32 %4 to i64
   %switch.gep = getelementptr inbounds nuw i16, ptr @"switch.table._ZN86_$LT$yara_x..modules..protos..lnk..FileAttributes$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h8c3693dddae1bcd0E", i64 %6
   %switch.load = load i16, ptr %switch.gep, align 2
-  br label %7
+  br label %17
 
-7:                                                ; preds = %switch.lookup, %.split, %1
+17:                                               ; preds = %switch.lookup, %.split, %1
   %.sroa.0.0 = phi i16 [ 0, %1 ], [ 0, %.split ], [ %switch.load, %switch.lookup ]
   ret i16 %.sroa.0.0
 }

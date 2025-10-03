@@ -38421,7 +38421,7 @@ define internal fastcc void @_ZN6open3d1t2ioL26GetDtypeFromPCDHeaderFieldEci(ptr
 
 13:                                               ; preds = %3
   invoke void @_ZSt16__throw_bad_castv() #38
-          to label %.noexc unwind label %23
+          to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %13
   unreachable
@@ -38431,15 +38431,15 @@ _ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale.exit.i: ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = invoke noundef signext i8 %16(ptr noundef nonnull align 8 dereferenceable(570) %12, i8 noundef signext %1)
-          to label %_ZSt7toupperIcET_S0_RKSt6locale.exit unwind label %23
+          to label %_ZSt7toupperIcET_S0_RKSt6locale.exit unwind label %20
 
 _ZSt7toupperIcET_S0_RKSt6locale.exit:             ; preds = %_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale.exit.i
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   switch i8 %17, label %42 [
     i8 73, label %18
-    i8 85, label %29
-    i8 70, label %38
+    i8 85, label %26
+    i8 70, label %32
   ]
 
 18:                                               ; preds = %_ZSt7toupperIcET_S0_RKSt6locale.exit
@@ -38447,7 +38447,7 @@ _ZSt7toupperIcET_S0_RKSt6locale.exit:             ; preds = %_ZSt9use_facetISt5c
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %.split, label %28
 
-.split:                                           ; preds = %18
+.split:; preds = %18
   %21 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
   switch i32 %21, label %28 [
     i32 0, label %22
@@ -38456,39 +38456,39 @@ _ZSt7toupperIcET_S0_RKSt6locale.exit:             ; preds = %_ZSt9use_facetISt5c
     i32 3, label %27
   ]
 
-22:                                               ; preds = %.split
+19:                                               ; preds = %.split
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5Dtype4Int8E, i64 32, i1 false), !tbaa.struct !141
-  br label %43
+  br label %37
 
-23:                                               ; preds = %_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale.exit.i, %13
-  %24 = landingpad { ptr, i32 }
+20:                                               ; preds = %_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale.exit.i, %13
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %21
 
-25:                                               ; preds = %.split
+22:                                               ; preds = %.split
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5Dtype5Int16E, i64 32, i1 false), !tbaa.struct !141
-  br label %43
+  br label %37
 
-26:                                               ; preds = %.split
+23:                                               ; preds = %.split
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5Dtype5Int32E, i64 32, i1 false), !tbaa.struct !141
-  br label %43
+  br label %37
 
-27:                                               ; preds = %.split
+24:                                               ; preds = %.split
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5Dtype5Int64E, i64 32, i1 false), !tbaa.struct !141
-  br label %43
+  br label %37
 
-28:                                               ; preds = %18, %.split
+25:                                               ; preds = %18, %.split
   call void @_ZN6open3d7utility6Logger9LogError_IJRiRcEEEvPKciS6_S6_DpOT_(ptr noundef nonnull @.str.6, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t2ioL26GetDtypeFromPCDHeaderFieldEci, ptr noundef nonnull @.str.98, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 dereferenceable(1) %4) #38
   unreachable
 
-29:                                               ; preds = %_ZSt7toupperIcET_S0_RKSt6locale.exit
+26:                                               ; preds = %_ZSt7toupperIcET_S0_RKSt6locale.exit
   %30 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2)
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %.split7, label %37
 
-.split7:                                          ; preds = %29
+.split7:; preds = %29
   %32 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
   switch i32 %32, label %37 [
     i32 0, label %33
@@ -38497,49 +38497,49 @@ _ZSt7toupperIcET_S0_RKSt6locale.exit:             ; preds = %_ZSt9use_facetISt5c
     i32 3, label %36
   ]
 
-33:                                               ; preds = %.split7
+27:                                               ; preds = %.split7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5Dtype5UInt8E, i64 32, i1 false), !tbaa.struct !141
-  br label %43
+  br label %37
 
-34:                                               ; preds = %.split7
+28:                                               ; preds = %.split7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5Dtype6UInt16E, i64 32, i1 false), !tbaa.struct !141
-  br label %43
+  br label %37
 
-35:                                               ; preds = %.split7
+29:                                               ; preds = %.split7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5Dtype6UInt32E, i64 32, i1 false), !tbaa.struct !141
-  br label %43
+  br label %37
 
-36:                                               ; preds = %.split7
+30:                                               ; preds = %.split7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5Dtype6UInt64E, i64 32, i1 false), !tbaa.struct !141
-  br label %43
+  br label %37
 
-37:                                               ; preds = %29, %.split7
+31:                                               ; preds = %26, %.split7
   call void @_ZN6open3d7utility6Logger9LogError_IJRiRcEEEvPKciS6_S6_DpOT_(ptr noundef nonnull @.str.6, i32 noundef 110, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t2ioL26GetDtypeFromPCDHeaderFieldEci, ptr noundef nonnull @.str.98, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 dereferenceable(1) %4) #38
   unreachable
 
-38:                                               ; preds = %_ZSt7toupperIcET_S0_RKSt6locale.exit
+32:                                               ; preds = %_ZSt7toupperIcET_S0_RKSt6locale.exit
   switch i32 %2, label %41 [
-    i32 4, label %39
-    i32 8, label %40
+    i32 4, label %33
+    i32 8, label %34
   ]
 
-39:                                               ; preds = %38
+33:                                               ; preds = %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5Dtype7Float32E, i64 32, i1 false), !tbaa.struct !141
-  br label %43
+  br label %37
 
-40:                                               ; preds = %38
+34:                                               ; preds = %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5Dtype7Float64E, i64 32, i1 false), !tbaa.struct !141
-  br label %43
+  br label %37
 
-41:                                               ; preds = %38
+35:                                               ; preds = %32
   call void @_ZN6open3d7utility6Logger9LogError_IJRiRcEEEvPKciS6_S6_DpOT_(ptr noundef nonnull @.str.6, i32 noundef 117, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t2ioL26GetDtypeFromPCDHeaderFieldEci, ptr noundef nonnull @.str.98, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 dereferenceable(1) %4) #38
   unreachable
 
-42:                                               ; preds = %_ZSt7toupperIcET_S0_RKSt6locale.exit
+36:                                               ; preds = %_ZSt7toupperIcET_S0_RKSt6locale.exit
   call void @_ZN6open3d7utility6Logger9LogError_IJRcEEEvPKciS5_S5_DpOT_(ptr noundef nonnull @.str.6, i32 noundef 119, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d1t2ioL26GetDtypeFromPCDHeaderFieldEci, ptr noundef nonnull @.str.99, ptr noundef nonnull align 1 dereferenceable(1) %4) #38
   unreachable
 
-43:                                               ; preds = %40, %39, %36, %35, %34, %33, %27, %26, %25, %22
+37:                                               ; preds = %34, %33, %30, %29, %28, %27, %24, %23, %22, %19
   ret void
 }
 

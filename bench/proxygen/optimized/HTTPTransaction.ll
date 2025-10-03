@@ -21157,7 +21157,7 @@ entry:
   %2 = icmp eq i8 %1, 1
   br i1 %2, label %entry.split, label %sw.default
 
-entry.split:                                      ; preds = %entry
+entry.split:; preds = %entry
   %3 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %0, i1 true)
   switch i8 %3, label %sw.default [
     i8 1, label %sw.bb11
@@ -21168,24 +21168,24 @@ entry.split:                                      ; preds = %entry
 
 sw.bb11:                                          ; preds = %entry.split, %entry.split
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %4 = load i32, ptr %add.ptr, align 8
-  %cond.i.i = icmp eq i32 %4, 1
+  %1 = load i32, ptr %add.ptr, align 8
+  %cond.i.i = icmp eq i32 %1, 1
   br i1 %cond.i.i, label %if.then4.i.i, label %sw.epilog
 
 if.then4.i.i:                                     ; preds = %sw.bb11
-  %5 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %6 = load ptr, ptr %5, align 16
-  %tobool.not.i.i.i.i = icmp eq ptr %6, null
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %3 = load ptr, ptr %2, align 16
+  %tobool.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i, label %sw.epilog, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then4.i.i
-  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #29
+  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #29
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry.split
   %proxy_ = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %7 = load ptr, ptr %proxy_, align 16
-  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %7) #29
+  %4 = load ptr, ptr %proxy_, align 16
+  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %4) #29
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry, %entry.split
@@ -21206,7 +21206,7 @@ entry:
   %2 = icmp eq i8 %1, 1
   br i1 %2, label %entry.split.i, label %sw.default.i
 
-entry.split.i:                                    ; preds = %entry
+entry.split.i:; preds = %entry
   %3 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %0, i1 true)
   switch i8 %3, label %sw.default.i [
     i8 1, label %sw.bb11.i
@@ -21217,24 +21217,24 @@ entry.split.i:                                    ; preds = %entry
 
 sw.bb11.i:                                        ; preds = %entry.split.i, %entry.split.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %4 = load i32, ptr %add.ptr.i, align 8
-  %cond.i.i.i = icmp eq i32 %4, 1
+  %1 = load i32, ptr %add.ptr.i, align 8
+  %cond.i.i.i = icmp eq i32 %1, 1
   br i1 %cond.i.i.i, label %if.then4.i.i.i, label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit
 
 if.then4.i.i.i:                                   ; preds = %sw.bb11.i
-  %5 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %6 = load ptr, ptr %5, align 16
-  %tobool.not.i.i.i.i.i = icmp eq ptr %6, null
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %3 = load ptr, ptr %2, align 16
+  %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then4.i.i.i
-  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #29
+  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #29
   br label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit
 
 sw.bb12.i:                                        ; preds = %entry.split.i
   %proxy_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %7 = load ptr, ptr %proxy_.i, align 16
-  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %7) #29
+  %4 = load ptr, ptr %proxy_.i, align 16
+  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %4) #29
   br label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit
 
 sw.default.i:                                     ; preds = %entry.split.i, %entry
@@ -26764,7 +26764,7 @@ entry:
   %2 = icmp eq i8 %1, 1
   br i1 %2, label %entry.split, label %sw.default
 
-entry.split:                                      ; preds = %entry
+entry.split:; preds = %entry
   %3 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %0, i1 true)
   switch i8 %3, label %sw.default [
     i8 1, label %sw.bb10
@@ -26775,41 +26775,41 @@ entry.split:                                      ; preds = %entry
 
 sw.bb10:                                          ; preds = %entry.split, %entry.split
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %4 = load i32, ptr %add.ptr, align 8
-  switch i32 %4, label %sw.epilog [
+  %1 = load i32, ptr %add.ptr, align 8
+  switch i32 %1, label %sw.epilog [
     i32 0, label %if.then.i.i
     i32 1, label %if.then4.i.i
   ]
 
 if.then.i.i:                                      ; preds = %sw.bb10
-  %5 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %6 = load ptr, ptr %5, align 16
-  %cmp.not.i.i.i.i = icmp eq ptr %6, null
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %3 = load ptr, ptr %2, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN8proxygen12WebTransport10StreamDataD2Ev.exit.i.i, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i: ; preds = %if.then.i.i
-  tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #29
-  tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %6) #29
+  tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #29
+  tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %3) #29
   br label %_ZN8proxygen12WebTransport10StreamDataD2Ev.exit.i.i
 
 _ZN8proxygen12WebTransport10StreamDataD2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i, %if.then.i.i
-  store ptr null, ptr %5, align 16
+  store ptr null, ptr %2, align 16
   br label %sw.epilog
 
 if.then4.i.i:                                     ; preds = %sw.bb10
-  %7 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %8 = load ptr, ptr %7, align 16
-  %tobool.not.i.i.i.i = icmp eq ptr %8, null
+  %4 = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %5 = load ptr, ptr %4, align 16
+  %tobool.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i, label %sw.epilog, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then4.i.i
-  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #29
+  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #29
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry.split
   %proxy_ = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %9 = load ptr, ptr %proxy_, align 16
-  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %9) #29
+  %6 = load ptr, ptr %proxy_, align 16
+  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %6) #29
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry, %entry.split

@@ -678,9 +678,9 @@ define hidden { i1, i8 } @_ZN22cranelift_codegen_meta4cdsl5types8LaneType13int_f
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %0)
   %5 = icmp eq i16 %4, 1
-  br i1 %5, label %.split, label %8
+  br i1 %5, label %4, label %8
 
-.split:                                           ; preds = %1
+4:                                                ; preds = %1
   %6 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %0, i1 true)
   %switch.tableidx = add nsw i16 %6, -3
   %7 = icmp ult i16 %switch.tableidx, 5
@@ -691,7 +691,7 @@ define hidden { i1, i8 } @_ZN22cranelift_codegen_meta4cdsl5types8LaneType13int_f
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.14) #17
   unreachable
 
-switch.lookup:                                    ; preds = %.split
+5:                                                ; preds = %4
   %9 = shl nuw nsw i16 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i16 %9 to i40
   %switch.downshift = lshr i40 -548679970808, %switch.shiftamt

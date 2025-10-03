@@ -12549,7 +12549,7 @@ entry:
   %2 = icmp eq i8 %1, 1
   br i1 %2, label %entry.split, label %sw.default
 
-entry.split:                                      ; preds = %entry
+entry.split:; preds = %entry
   %3 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %0, i1 true)
   switch i8 %3, label %sw.default [
     i8 1, label %sw.bb10
@@ -12560,24 +12560,24 @@ entry.split:                                      ; preds = %entry
 
 sw.bb10:                                          ; preds = %entry.split, %entry.split
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %4 = load i32, ptr %add.ptr, align 8
-  %cond.i.i = icmp eq i32 %4, 1
+  %1 = load i32, ptr %add.ptr, align 8
+  %cond.i.i = icmp eq i32 %1, 1
   br i1 %cond.i.i, label %if.then4.i.i, label %sw.epilog
 
 if.then4.i.i:                                     ; preds = %sw.bb10
-  %5 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %6 = load ptr, ptr %5, align 16
-  %tobool.not.i.i.i.i = icmp eq ptr %6, null
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %3 = load ptr, ptr %2, align 16
+  %tobool.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i, label %sw.epilog, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then4.i.i
-  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #35
+  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #35
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry.split
   %proxy_ = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %7 = load ptr, ptr %proxy_, align 16
-  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %7) #35
+  %4 = load ptr, ptr %proxy_, align 16
+  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %4) #35
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry, %entry.split
@@ -12598,7 +12598,7 @@ entry:
   %2 = icmp eq i8 %1, 1
   br i1 %2, label %entry.split.i, label %sw.default.i
 
-entry.split.i:                                    ; preds = %entry
+entry.split.i:; preds = %entry
   %3 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %0, i1 true)
   switch i8 %3, label %sw.default.i [
     i8 1, label %sw.bb10.i
@@ -12609,24 +12609,24 @@ entry.split.i:                                    ; preds = %entry
 
 sw.bb10.i:                                        ; preds = %entry.split.i, %entry.split.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %4 = load i32, ptr %add.ptr.i, align 8
-  %cond.i.i.i = icmp eq i32 %4, 1
+  %1 = load i32, ptr %add.ptr.i, align 8
+  %cond.i.i.i = icmp eq i32 %1, 1
   br i1 %cond.i.i.i, label %if.then4.i.i.i, label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit
 
 if.then4.i.i.i:                                   ; preds = %sw.bb10.i
-  %5 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %6 = load ptr, ptr %5, align 16
-  %tobool.not.i.i.i.i.i = icmp eq ptr %6, null
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %3 = load ptr, ptr %2, align 16
+  %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then4.i.i.i
-  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #35
+  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #35
   br label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit
 
 sw.bb11.i:                                        ; preds = %entry.split.i
   %proxy_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %7 = load ptr, ptr %proxy_.i, align 16
-  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %7) #35
+  %4 = load ptr, ptr %proxy_.i, align 16
+  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %4) #35
   br label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit
 
 sw.default.i:                                     ; preds = %entry.split.i, %entry
@@ -14485,13 +14485,13 @@ declare i8 @llvm.ctpop.i8(i8) #32
 declare i8 @llvm.cttz.i8(i8, i1 immarg) #32
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #33
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #32
+declare i64 @llvm.umax.i64(i64, i64) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #32
+declare i64 @llvm.umin.i64(i64, i64) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(ptr captures(none)) #34
@@ -14500,13 +14500,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #34
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #32
+declare i32 @llvm.smin.i32(i32, i32) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #32
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #32
+declare i64 @llvm.smin.i64(i64, i64) #33
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

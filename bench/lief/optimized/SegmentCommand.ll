@@ -3365,19 +3365,19 @@ _ZNKSt8functionIFvRSt6vectorIhSaIhEEmmEEclES3_mm.exit: ; preds = %4
 define noundef nonnull ptr @_ZN4LIEF5MachO9to_stringENS0_14SegmentCommand5FLAGSE(i64 noundef %0) local_unnamed_addr #4 {
   %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
   %3 = icmp eq i64 %2, 1
-  br i1 %3, label %.split, label %6
+  br i1 %3, label %3, label %6
 
-.split:                                           ; preds = %1
+3:                                                ; preds = %1
   %4 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %0, i1 true)
   %5 = icmp samesign ult i64 %4, 5
-  br i1 %5, label %switch.lookup, label %6
+  br i1 %5, label %6, label %6
 
-switch.lookup:                                    ; preds = %.split
+6:                                                ; preds = %3
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4LIEF5MachO9to_stringENS0_14SegmentCommand5FLAGSE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
-6:                                                ; preds = %1, %.split, %switch.lookup
+7:                                                ; preds = %1, %3, %6
   %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.6, %.split ], [ @.str.6, %1 ]
   ret ptr %.0
 }

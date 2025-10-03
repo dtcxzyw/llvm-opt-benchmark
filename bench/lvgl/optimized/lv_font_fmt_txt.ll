@@ -71,7 +71,7 @@ define ptr @lv_font_get_bitmap_fmt_txt(ptr noundef readonly captures(none) %0, p
   %46 = icmp eq i16 %45, 1
   br i1 %46, label %.split, label %.loopexit
 
-.split:                                           ; preds = %38
+.split:; preds = %38
   %47 = and i32 %40, 1048575
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 %48
@@ -89,7 +89,7 @@ define ptr @lv_font_get_bitmap_fmt_txt(ptr noundef readonly captures(none) %0, p
   br i1 %.not255, label %.loopexit, label %.preheader201.lr.ph
 
 .preheader201.lr.ph:                              ; preds = %.preheader202
-  %52 = zext i32 %41 to i64
+  %49 = zext i32 %41 to i64
   %.pre = load i8, ptr %25, align 4, !tbaa !23
   br label %.preheader201
 
@@ -97,7 +97,7 @@ define ptr @lv_font_get_bitmap_fmt_txt(ptr noundef readonly captures(none) %0, p
   br i1 %.not255, label %.loopexit, label %.preheader198.lr.ph
 
 .preheader198.lr.ph:                              ; preds = %.preheader199
-  %53 = zext i32 %41 to i64
+  %51 = zext i32 %41 to i64
   %.pre275 = load i8, ptr %25, align 4, !tbaa !23
   br label %.preheader198
 
@@ -105,7 +105,7 @@ define ptr @lv_font_get_bitmap_fmt_txt(ptr noundef readonly captures(none) %0, p
   br i1 %.not255, label %.loopexit, label %.preheader195.lr.ph
 
 .preheader195.lr.ph:                              ; preds = %.preheader196
-  %54 = zext i32 %41 to i64
+  %53 = zext i32 %41 to i64
   %.pre277 = load i8, ptr %25, align 4, !tbaa !23
   br label %.preheader195
 
@@ -314,7 +314,7 @@ define ptr @lv_font_get_bitmap_fmt_txt(ptr noundef readonly captures(none) %0, p
   %spec.select189.idx = zext i1 %or.cond3 to i64
   %spec.select189 = getelementptr inbounds nuw i8, ptr %.5162.lcssa, i64 %spec.select189.idx
   %spec.select190 = select i1 %36, i32 0, i32 %.4.lcssa
-  %135 = getelementptr inbounds nuw i8, ptr %.1154235, i64 %54
+  %135 = getelementptr inbounds nuw i8, ptr %.1154235, i64 %53
   %136 = add nuw nsw i32 %.1142237, 1
   %137 = zext i8 %132 to i32
   %138 = icmp samesign ult i32 %136, %137
@@ -335,11 +335,11 @@ define ptr @lv_font_get_bitmap_fmt_txt(ptr noundef readonly captures(none) %0, p
   %.7217 = phi i32 [ %146, %.lr.ph219 ], [ %.6225, %.preheader198 ]
   %.9166216 = phi ptr [ %.10167, %.lr.ph219 ], [ %.8165223, %.preheader198 ]
   %141 = and i32 %.7217, 1
-  %.not302 = icmp eq i32 %141, 0
+  %.not301 = icmp eq i32 %141, 0
   %142 = load i8, ptr %.9166216, align 1, !tbaa !19
   %143 = lshr i8 %142, 4
   %144 = and i8 %142, 15
-  %.pn.in = select i1 %.not302, i8 %143, i8 %144
+  %.pn.in = select i1 %.not301, i8 %143, i8 %144
   %.10167.idx = zext nneg i32 %141 to i64
   %.10167 = getelementptr inbounds nuw i8, ptr %.9166216, i64 %.10167.idx
   %.pn = zext nneg i8 %.pn.in to i64
@@ -368,7 +368,7 @@ define ptr @lv_font_get_bitmap_fmt_txt(ptr noundef readonly captures(none) %0, p
   %spec.select191.idx = zext i1 %or.cond5 to i64
   %spec.select191 = getelementptr inbounds nuw i8, ptr %.9166.lcssa, i64 %spec.select191.idx
   %spec.select192 = select i1 %36, i32 0, i32 %.7.lcssa
-  %153 = getelementptr inbounds nuw i8, ptr %.2155224, i64 %53
+  %153 = getelementptr inbounds nuw i8, ptr %.2155224, i64 %51
   %154 = add nuw nsw i32 %.2143226, 1
   %155 = zext i8 %150 to i32
   %156 = icmp samesign ult i32 %154, %155
@@ -404,13 +404,13 @@ define ptr @lv_font_get_bitmap_fmt_txt(ptr noundef readonly captures(none) %0, p
   %165 = phi i8 [ %157, %.preheader201 ], [ %.pre274, %._crit_edge.loopexit ]
   %166 = phi i8 [ 0, %.preheader201 ], [ %162, %._crit_edge.loopexit ]
   %.13.lcssa = phi ptr [ %.12212, %.preheader201 ], [ %161, %._crit_edge.loopexit ]
-  %167 = getelementptr inbounds nuw i8, ptr %.3156213, i64 %52
+  %167 = getelementptr inbounds nuw i8, ptr %.3156213, i64 %49
   %168 = add nuw nsw i32 %.3144215, 1
   %169 = zext i8 %165 to i32
   %170 = icmp samesign ult i32 %168, %169
   br i1 %170, label %.preheader201, label %.loopexit, !llvm.loop !34
 
-.lr.ph241.unreachabledefault:                     ; preds = %.lr.ph241
+.loopexit:                                        ; preds = %.lr.ph241
   unreachable
 
 .lr.ph230.unreachabledefault:                     ; preds = %.lr.ph230
@@ -472,7 +472,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %15, ptr %29, align 4, !tbaa !40
   %30 = zext nneg i32 %25 to i64
-  %31 = call ptr @lv_utils_bsearch(ptr noundef nonnull %5, ptr noundef %28, i64 noundef %30, i64 noundef 2, ptr noundef nonnull @kern_pair_8_compare) #5
+  %31 = call ptr @lv_utils_bsearch(ptr noundef nonnull %5, ptr noundef %28, i64 noundef %30, i64 noundef 2, ptr noundef nonnull @kern_pair_8_compare) #4
   %.not43.i = icmp eq ptr %31, null
   br i1 %.not43.i, label %41, label %32
 
@@ -504,7 +504,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
   store i32 %15, ptr %46, align 4, !tbaa !40
   %47 = and i32 %25, 1073741823
   %48 = zext nneg i32 %47 to i64
-  %49 = call ptr @lv_utils_bsearch(ptr noundef nonnull %6, ptr noundef %45, i64 noundef %48, i64 noundef 4, ptr noundef nonnull @kern_pair_16_compare) #5
+  %49 = call ptr @lv_utils_bsearch(ptr noundef nonnull %6, ptr noundef %45, i64 noundef %48, i64 noundef 4, ptr noundef nonnull @kern_pair_16_compare) #4
   %.not.i = icmp eq ptr %49, null
   br i1 %.not.i, label %59, label %50
 
@@ -714,7 +714,7 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %47 = load i16, ptr %46, align 8, !tbaa !66
   %48 = zext i16 %47 to i64
-  %49 = call ptr @lv_utils_bsearch(ptr noundef nonnull %3, ptr noundef %45, i64 noundef %48, i64 noundef 2, ptr noundef nonnull @unicode_list_compare) #5
+  %49 = call ptr @lv_utils_bsearch(ptr noundef nonnull %3, ptr noundef %45, i64 noundef %48, i64 noundef 2, ptr noundef nonnull @unicode_list_compare) #4
   %.not78 = icmp eq ptr %49, null
   br i1 %.not78, label %64, label %50
 
@@ -748,7 +748,7 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
   %69 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %70 = load i16, ptr %69, align 8, !tbaa !66
   %71 = zext i16 %70 to i64
-  %72 = call ptr @lv_utils_bsearch(ptr noundef nonnull %4, ptr noundef %68, i64 noundef %71, i64 noundef 2, ptr noundef nonnull @unicode_list_compare) #5
+  %72 = call ptr @lv_utils_bsearch(ptr noundef nonnull %4, ptr noundef %68, i64 noundef %71, i64 noundef 2, ptr noundef nonnull @unicode_list_compare) #4
   %.not77 = icmp eq ptr %72, null
   br i1 %.not77, label %90, label %73
 

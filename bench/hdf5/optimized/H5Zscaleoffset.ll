@@ -870,7 +870,7 @@ define internal fastcc range(i32 0, 13) i32 @H5Z__scaleoffset_get_type(i32 nound
 10:                                               ; preds = %3
   switch i32 %0, label %.thread26 [
     i32 0, label %11
-    i32 1, label %30
+    i32 1, label %24
   ]
 
 11:                                               ; preds = %10
@@ -881,60 +881,60 @@ define internal fastcc range(i32 0, 13) i32 @H5Z__scaleoffset_get_type(i32 nound
 
 12:                                               ; preds = %11
   %13 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
-  %14 = icmp eq i32 %13, 1
+  %13 = icmp eq i32 %13, 1
   br i1 %14, label %.split, label %17
 
-.split:                                           ; preds = %12
+.split:; preds = %12
   %15 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
   %16 = icmp samesign ult i32 %15, 4
   br i1 %16, label %switch.lookup, label %17
 
-17:                                               ; preds = %.split, %12
-  %18 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
+17:; preds = %.split, %12
+  %16 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %19 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
   %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__scaleoffset_get_type, i32 noundef 825, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.18) #13
   br label %.thread26
 
-21:                                               ; preds = %11
+21:; preds = %11
   %22 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
   %23 = icmp eq i32 %22, 1
   br i1 %23, label %.split23, label %26
 
-.split23:                                         ; preds = %21
+.split23:; preds = %21
   %24 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
   %25 = icmp samesign ult i32 %24, 4
   br i1 %25, label %switch.lookup28, label %26
 
-26:                                               ; preds = %.split23, %21
+26:; preds = %.split23, %21
   %27 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %28 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__scaleoffset_get_type, i32 noundef 842, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.18) #13
   br label %.thread26
 
-30:                                               ; preds = %10
+24:                                               ; preds = %10
   switch i32 %1, label %32 [
     i32 4, label %.thread26
-    i32 8, label %31
+    i32 8, label %25
   ]
 
-31:                                               ; preds = %30
+25:                                               ; preds = %24
   br label %.thread26
 
-32:                                               ; preds = %30
-  %33 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
-  %34 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
-  %35 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__scaleoffset_get_type, i32 noundef 852, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.18) #13
+26:                                               ; preds = %24
+  %27 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
+  %28 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
+  %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__scaleoffset_get_type, i32 noundef 852, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.18) #13
   br label %.thread26
 
 switch.lookup:                                    ; preds = %.split
   %switch.offset = add nuw nsw i32 %15, 1
   br label %.thread26
 
-switch.lookup28:                                  ; preds = %.split23
+switch.lookup28:; preds = %.split23
   %switch.offset29 = add nuw nsw i32 %24, 6
   br label %.thread26
 
-.thread26:                                        ; preds = %switch.lookup28, %switch.lookup, %10, %11, %31, %30, %17, %26, %32, %3
+.thread26:; preds = %switch.lookup28, %switch.lookup, %10, %11, %31, %30, %17, %26, %32, %3
   %.0 = phi i32 [ 0, %32 ], [ 0, %26 ], [ 0, %17 ], [ 0, %3 ], [ 12, %31 ], [ 11, %30 ], [ 0, %11 ], [ 0, %10 ], [ %switch.offset, %switch.lookup ], [ %switch.offset29, %switch.lookup28 ]
   ret i32 %.0
 }

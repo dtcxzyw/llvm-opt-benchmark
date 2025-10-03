@@ -10511,74 +10511,74 @@ define internal fastcc ptr @evhttp_method_(ptr noundef readonly captures(none) %
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %.split, label %9
+  br i1 %6, label %8, label %9
 
-.split:                                           ; preds = %3
+8:                                                ; preds = %3
   %7 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
   %8 = icmp samesign ult i32 %7, 16
-  br i1 %8, label %switch.lookup, label %9
+  br i1 %8, label %36, label %9
 
-9:                                                ; preds = %.split, %3
+11:                                               ; preds = %8, %3
   store ptr null, ptr %4, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %1, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i16 0, ptr %11, align 4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %13 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %27, label %14
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %1, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  store i16 0, ptr %22, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %24 = load ptr, ptr %23, align 8
+  %.not = icmp eq ptr %24, null
+  br i1 %.not, label %38, label %25
 
-14:                                               ; preds = %9
-  %15 = call i32 %13(ptr noundef nonnull %4) #18
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %27
+25:                                               ; preds = %9
+  %26 = call i32 %13(ptr noundef nonnull %4) #18
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %38
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr %10, align 8
-  %.not23 = icmp eq i32 %18, %1
-  br i1 %.not23, label %22, label %19
+28:                                               ; preds = %25
+  %29 = load i32, ptr %21, align 8
+  %.not23 = icmp eq i32 %29, %1
+  br i1 %.not23, label %33, label %30
 
-19:                                               ; preds = %17
-  %20 = load i32, ptr @event_debug_logging_mask_, align 4
-  %.not25 = icmp eq i32 %20, 0
-  br i1 %.not25, label %32, label %21
+30:                                               ; preds = %28
+  %31 = load i32, ptr @event_debug_logging_mask_, align 4
+  %.not25 = icmp eq i32 %31, 0
+  br i1 %.not25, label %41, label %32
 
-21:                                               ; preds = %19
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.84, ptr noundef nonnull @__func__.evhttp_method_, i32 noundef %1, i32 noundef %18) #18
-  br label %32
+32:                                               ; preds = %30
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.84, ptr noundef nonnull @__func__.evhttp_method_, i32 noundef %1, i32 noundef %29) #18
+  br label %41
 
-22:                                               ; preds = %17
-  %23 = load ptr, ptr %4, align 8
-  %24 = load i16, ptr %11, align 4
-  br label %27
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %4, align 8
+  %35 = load i16, ptr %22, align 4
+  br label %38
 
-switch.lookup:                                    ; preds = %.split
+36:                                               ; preds = %8
   %25 = zext nneg i32 %7 to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.evhttp_method_, i64 %25
-  %switch.load = load ptr, ptr %switch.gep, align 8
+  %37 = load ptr, ptr %switch.gep, align 8
   %26 = zext nneg i32 %7 to i64
   %switch.gep29 = getelementptr inbounds nuw i16, ptr @switch.table.evhttp_method_.9, i64 %26
   %switch.load30 = load i16, ptr %switch.gep29, align 2
   br label %27
 
-27:                                               ; preds = %switch.lookup, %22, %14, %9
-  %.017 = phi ptr [ %23, %22 ], [ null, %14 ], [ null, %9 ], [ %switch.load, %switch.lookup ]
-  %.0 = phi i16 [ %24, %22 ], [ 0, %14 ], [ 0, %9 ], [ %switch.load30, %switch.lookup ]
+38:                                               ; preds = %36, %33, %14, %9
+  %.017 = phi ptr [ %34, %22 ], [ null, %14 ], [ null, %9 ], [ %37, %switch.lookup ]
+  %.0 = phi i16 [ %35, %22 ], [ 0, %14 ], [ 0, %9 ], [ %switch.load30, %switch.lookup ]
   %28 = load i32, ptr @event_debug_logging_mask_, align 4
   %.not24 = icmp eq i32 %28, 0
   br i1 %.not24, label %31, label %29
 
-29:                                               ; preds = %27
+40:                                               ; preds = %38
   %30 = zext i16 %.0 to i32
   call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.85, ptr noundef nonnull @__func__.evhttp_method_, i32 noundef %1, ptr noundef %.017, i32 noundef %30) #18
   br label %31
 
 31:                                               ; preds = %27, %29
   store i16 %.0, ptr %2, align 2
-  br label %32
+  br label %41
 
-32:                                               ; preds = %19, %21, %31
+41:                                               ; preds = %30, %32, %31
   %.018 = phi ptr [ %.017, %31 ], [ null, %21 ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.018

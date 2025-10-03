@@ -429,47 +429,47 @@ define hidden void @_ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl8setBytesEi
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %.split, label %9
+  br i1 %6, label %12, label %9
 
-.split:                                           ; preds = %2
+10:                                               ; preds = %2
   %7 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
   %8 = icmp samesign ult i32 %7, 7
   br i1 %8, label %switch.lookup, label %9
 
-9:                                                ; preds = %.split, %2
+11:                                               ; preds = %10, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %4)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -5, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__._ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl8setBytesEi, ptr noundef nonnull @.str.2, i32 noundef 449) #23
-          to label %10 unwind label %11
+          to label %10 unwind label %13
 
-10:                                               ; preds = %9
+12:                                               ; preds = %11
   unreachable
 
-11:                                               ; preds = %9
-  %12 = landingpad { ptr, i32 }
+13:                                               ; preds = %11
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %13 = load ptr, ptr %3, align 8, !tbaa !37
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %15 = icmp eq ptr %13, %14
-  br i1 %15, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %15 = load ptr, ptr %3, align 8, !tbaa !37
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %17 = icmp eq ptr %15, %16
+  br i1 %17, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %11
-  call void @_ZdlPv(ptr noundef %13) #24
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %13
+  call void @_ZdlPv(ptr noundef %15) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %14
 
-switch.lookup:                                    ; preds = %.split
+18:                                               ; preds = %10
   %16 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl8setBytesEi, i64 %16
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %switch.load, ptr %17, align 8, !tbaa !61
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl8setBytesEi, i64 %16
+  %switch.load = load ptr, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %switch.load, ptr %20, align 8, !tbaa !61
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %18, align 8, !tbaa !68
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -481,7 +481,7 @@ switch.lookup:                                    ; preds = %.split
   %26 = icmp ult i64 %25, 12288
   br i1 %26, label %27, label %32
 
-27:                                               ; preds = %switch.lookup
+27:; preds = %18
   %28 = tail call noalias noundef nonnull dereferenceable(12288) ptr @_Znwm(i64 noundef 12288) #25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12288) %28, ptr noundef nonnull align 16 dereferenceable(12288) @__const._ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.sampling_points_arr, i64 12288, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -494,50 +494,50 @@ switch.lookup:                                    ; preds = %.split
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i: ; preds = %30, %27
   store ptr %28, ptr %19, align 8, !tbaa !41
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 12288
-  store ptr %31, ptr %29, align 8, !tbaa !70
-  store ptr %31, ptr %20, align 8, !tbaa !69
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 12288
+  store ptr %33, ptr %211, align 8, !tbaa !70
+  store ptr %33, ptr %20, align 8, !tbaa !69
   br label %_ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.exit
 
-32:                                               ; preds = %switch.lookup
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load ptr, ptr %33, align 8, !tbaa !70
-  %35 = ptrtoint ptr %34 to i64
-  %36 = sub i64 %35, %24
-  %.not.i.i = icmp ult i64 %36, 12288
-  br i1 %.not.i.i, label %_ZSt7advanceIPimEvRT_T0_.exit.i.i, label %37
+34:                                               ; preds = %18
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %36 = load ptr, ptr %35, align 8, !tbaa !70
+  %37 = ptrtoint ptr %36 to i64
+  %38 = sub i64 %37, %24
+  %.not.i.i = icmp ult i64 %38, 12288
+  br i1 %.not.i.i, label %_ZSt7advanceIPimEvRT_T0_.exit.i.i, label %39
 
-37:                                               ; preds = %32
+39:                                               ; preds = %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12288) %22, ptr noundef nonnull align 16 dereferenceable(12288) @__const._ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.sampling_points_arr, i64 12288, i1 false)
-  %.pre.i.i = load ptr, ptr %33, align 8, !tbaa !70
-  %38 = getelementptr inbounds nuw i8, ptr %22, i64 12288
-  %.not.i16.i.i = icmp eq ptr %.pre.i.i, %38
-  br i1 %.not.i16.i.i, label %_ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.exit, label %39
+  %.pre.i.i = load ptr, ptr %35, align 8, !tbaa !70
+  %40 = getelementptr inbounds nuw i8, ptr %22, i64 12288
+  %.not.i16.i.i = icmp eq ptr %.pre.i.i, %40
+  br i1 %.not.i16.i.i, label %_ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.exit, label %311
 
-39:                                               ; preds = %37
-  store ptr %38, ptr %33, align 8, !tbaa !70
+311:                                               ; preds = %39
+  store ptr %40, ptr %35, align 8, !tbaa !70
   br label %_ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.exit
 
-_ZSt7advanceIPimEvRT_T0_.exit.i.i:                ; preds = %32
-  %.not.i.i.i.i.i17.i.i = icmp eq ptr %34, %22
+_ZSt7advanceIPimEvRT_T0_.exit.i.i:                ; preds = %34
+  %.not.i.i.i.i.i17.i.i = icmp eq ptr %36, %22
   br i1 %.not.i.i.i.i.i17.i.i, label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.thread.i, label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.i
 
 _ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.i:           ; preds = %_ZSt7advanceIPimEvRT_T0_.exit.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %22, ptr noundef nonnull align 16 dereferenceable(1) @__const._ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.sampling_points_arr, i64 %36, i1 false)
-  %.pre26.i.i = load ptr, ptr %33, align 8, !tbaa !70
-  %gepdiff.i = sub nsw i64 12288, %36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %22, ptr noundef nonnull align 16 dereferenceable(1) @__const._ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.sampling_points_arr, i64 %38, i1 false)
+  %.pre26.i.i = load ptr, ptr %35, align 8, !tbaa !70
+  %gepdiff.i = sub nsw i64 12288, %38
   br label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.thread.i
 
 _ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.thread.i:    ; preds = %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.i, %_ZSt7advanceIPimEvRT_T0_.exit.i.i
-  %40 = phi i64 [ %gepdiff.i, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.i ], [ 12288, %_ZSt7advanceIPimEvRT_T0_.exit.i.i ]
-  %41 = phi ptr [ %.pre26.i.i, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.i ], [ %34, %_ZSt7advanceIPimEvRT_T0_.exit.i.i ]
-  %.sink.i.i25.i.ptr.i = getelementptr inbounds nuw i8, ptr @__const._ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.sampling_points_arr, i64 %36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %41, ptr nonnull align 4 %.sink.i.i25.i.ptr.i, i64 %40, i1 false)
-  %42 = getelementptr inbounds i8, ptr %41, i64 %40
-  store ptr %42, ptr %33, align 8, !tbaa !70
+  %42 = phi i64 [ %gepdiff.i, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.i ], [ 12288, %_ZSt7advanceIPimEvRT_T0_.exit.i.i ]
+  %43 = phi ptr [ %.pre26.i.i, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.i ], [ %36, %_ZSt7advanceIPimEvRT_T0_.exit.i.i ]
+  %.sink.i.i25.i.ptr.i = getelementptr inbounds nuw i8, ptr @__const._ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.sampling_points_arr, i64 %38
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %43, ptr nonnull align 4 %.sink.i.i25.i.ptr.i, i64 %42, i1 false)
+  %44 = getelementptr inbounds i8, ptr %43, i64 %42
+  store ptr %44, ptr %35, align 8, !tbaa !70
   br label %_ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.exit
 
-_ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.exit: ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i, %37, %39, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.thread.i
+_ZN2cv11xfeatures2d28LATCHDescriptorExtractorImpl17setSamplingPointsEv.exit: ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i, %39, %311, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit18.i.thread.i
   ret void
 }
 
@@ -3952,13 +3952,13 @@ declare i32 @llvm.ctpop.i32(i32) #19
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #20
+declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #19
+declare i32 @llvm.smin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
+declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21

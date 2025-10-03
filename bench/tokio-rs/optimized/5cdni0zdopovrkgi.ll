@@ -9242,19 +9242,19 @@ define void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc
   %5 = load atomic i64, ptr %4 acquire, align 16
   %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %.split.i, label %_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit
+  br i1 %7, label %7, label %_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit
 
-.split.i:                                         ; preds = %3
+7:                                                ; preds = %3
   %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
   %9 = icmp samesign ult i64 %8, 6
   br i1 %9, label %switch.lookup, label %_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit
 
-switch.lookup:                                    ; preds = %.split.i
+8:                                                ; preds = %7
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit
 
-_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit: ; preds = %switch.lookup, %.split.i, %3
+_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit: ; preds = %8, %7, %3
   %.0.i = phi i64 [ 0, %3 ], [ 0, %.split.i ], [ %switch.load, %switch.lookup ]
   %10 = lshr i64 %5, 16
   %11 = trunc i64 %10 to i8
@@ -11188,13 +11188,13 @@ declare i64 @llvm.ctpop.i64(i64) #24
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #25
+declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #26
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #24
+declare i8 @llvm.umax.i8(i8, i8) #26
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -11221,7 +11221,7 @@ attributes #21 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #22 = { nounwind }
 attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #26 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #27 = { noreturn }
 attributes #28 = { cold }

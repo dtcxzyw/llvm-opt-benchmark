@@ -571,7 +571,7 @@ define dso_local noundef nonnull ptr @acct_gather_profile_type_to_string(i32 nou
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %.split, label %7
 
-.split:                                           ; preds = %1
+switch.lookup:                                    ; preds = %1
   %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
   %switch.tableidx = add nsw i32 %4, -1
   %5 = icmp ult i32 %switch.tableidx, 4
@@ -581,9 +581,9 @@ switch.lookup:                                    ; preds = %.split
   %6 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._timer_thread, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %7
+  br label %6
 
-7:                                                ; preds = %1, %.split, %switch.lookup
+6:                                                ; preds = %1, %.split, %switch.lookup
   %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.19, %.split ], [ @.str.19, %1 ]
   ret ptr %.0
 }

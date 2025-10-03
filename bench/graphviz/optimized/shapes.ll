@@ -5243,12 +5243,12 @@ define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noun
   %130 = icmp eq i32 %129, 1
   br i1 %130, label %.split.i, label %invflip_side.exit
 
-.split.i:                                         ; preds = %127
+.split.i:; preds = %127
   %131 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %128, i1 true)
   %132 = icmp samesign ult i32 %131, 4
   br i1 %132, label %switch.lookup, label %invflip_side.exit
 
-133:                                              ; preds = %117
+133:; preds = %117
   %134 = zext i8 %.0128 to i32
   %135 = tail call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %134)
   %136 = icmp eq i32 %135, 1
@@ -5263,49 +5263,49 @@ default.unreachable:                              ; preds = %invflip_side.exit, 
   unreachable
 
 switch.lookup:                                    ; preds = %.split.i
-  %switch.shiftamt = shl nuw nsw i32 %131, 3
-  %switch.downshift = lshr i32 67240200, %switch.shiftamt
+  %131 = shl nuw nsw i32 %131, 3
+  %switch.downshift = lshr i32 67240200, %131
   %switch.masked = trunc i32 %switch.downshift to i8
   br label %invflip_side.exit
 
-switch.lookup161:                                 ; preds = %.split1.i
-  %switch.shiftamt162 = shl nuw nsw i32 %137, 3
-  %switch.downshift163 = lshr i32 16909320, %switch.shiftamt162
+switch.lookup164:                                 ; preds = %.split1.i
+  %132 = shl nuw nsw i32 %137, 3
+  %switch.downshift163 = lshr i32 16909320, %132
   %switch.masked164 = trunc i32 %switch.downshift163 to i8
   br label %invflip_side.exit
 
-invflip_side.exit:                                ; preds = %switch.lookup161, %.split1.i, %switch.lookup, %.split.i, %133, %127, %126, %125, %124, %117, %106
+invflip_side.exit:                                ; preds = %switch.lookup164, %.split1.i, %switch.lookup, %.split.i, %133, %127, %126, %125, %124, %117, %106
   %.0.i.sink = phi i8 [ %.0128, %106 ], [ %.0128, %117 ], [ %.0128, %124 ], [ 1, %125 ], [ 4, %126 ], [ %.0128, %.split.i ], [ %.0128, %127 ], [ %.0128, %.split1.i ], [ %.0128, %133 ], [ %switch.masked, %switch.lookup ], [ %switch.masked164, %switch.lookup161 ]
-  %139 = getelementptr inbounds nuw i8, ptr %2, i64 37
-  store i8 %.0.i.sink, ptr %139, align 1, !tbaa !129
-  %140 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %1, ptr %140, align 8, !tbaa !131
+  %133 = getelementptr inbounds nuw i8, ptr %2, i64 37
+  store i8 %.0.i.sink, ptr %133, align 1, !tbaa !129
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr %1, ptr %134, align 8, !tbaa !131
   store double %115, ptr %2, align 8, !tbaa !4
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %116, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !4
-  %141 = tail call ptr @agraphof(ptr noundef %0) #27
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  %143 = load ptr, ptr %142, align 8, !tbaa !21
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 132
-  %145 = load i32, ptr %144, align 4, !tbaa !101
-  %146 = and i32 %145, 3
-  switch i32 %146, label %default.unreachable [
+  %135 = tail call ptr @agraphof(ptr noundef %0) #27
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
+  %137 = load ptr, ptr %136, align 8, !tbaa !21
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 132
+  %139 = load i32, ptr %138, align 4, !tbaa !101
+  %140 = and i32 %139, 3
+  switch i32 %140, label %default.unreachable [
     i32 0, label %invflip_angle.exit
-    i32 2, label %147
-    i32 1, label %149
-    i32 3, label %151
+    i32 2, label %141
+    i32 1, label %143
+    i32 3, label %145
   ]
 
-147:                                              ; preds = %invflip_side.exit
-  %148 = fneg double %.0125
+141:                                              ; preds = %invflip_side.exit
+  %142 = fneg double %.0125
   br label %invflip_angle.exit
 
-149:                                              ; preds = %invflip_side.exit
-  %150 = fadd double %.0125, 0xBFF921FB54442D18
+143:                                              ; preds = %invflip_side.exit
+  %144 = fadd double %.0125, 0xBFF921FB54442D18
   br label %invflip_angle.exit
 
-151:                                              ; preds = %invflip_side.exit
-  %152 = fcmp oeq double %.0125, 0x400921FB54442D18
+145:                                              ; preds = %invflip_side.exit
+  %146 = fcmp oeq double %.0125, 0x400921FB54442D18
   br i1 %152, label %invflip_angle.exit, label %153
 
 153:                                              ; preds = %151
@@ -5332,39 +5332,39 @@ invflip_side.exit:                                ; preds = %switch.lookup161, %
   br label %invflip_angle.exit
 
 invflip_angle.exit:                               ; preds = %invflip_side.exit, %147, %149, %151, %153, %155, %157, %159, %161, %163
-  %.0.i151 = phi double [ %.0125, %invflip_side.exit ], [ %148, %147 ], [ %150, %149 ], [ 0x400921FB54442D18, %163 ], [ %.0125, %161 ], [ 0xBFF921FB54442D18, %151 ], [ 0xBFE921FB54442D18, %153 ], [ 0.000000e+00, %155 ], [ 0x3FF921FB54442D18, %157 ], [ 0x4002D97C7F3321D2, %159 ]
-  %164 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double %.0.i151, ptr %164, align 8, !tbaa !136
-  %165 = fcmp oeq double %115, 0.000000e+00
-  %166 = fcmp oeq double %116, 0.000000e+00
-  %or.cond = select i1 %165, i1 %166, i1 false
-  br i1 %or.cond, label %176, label %167
+  %.0.i151 = phi double [ %.0125, %invflip_side.exit ], [ %142, %147 ], [ %150, %149 ], [ 0x400921FB54442D18, %163 ], [ %.0125, %161 ], [ 0xBFF921FB54442D18, %151 ], [ 0xBFE921FB54442D18, %153 ], [ 0.000000e+00, %155 ], [ 0x3FF921FB54442D18, %157 ], [ 0x4002D97C7F3321D2, %159 ]
+  %158 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store double %.0.i151, ptr %158, align 8, !tbaa !136
+  %159 = fcmp oeq double %115, 0.000000e+00
+  %160 = fcmp oeq double %116, 0.000000e+00
+  %or.cond = select i1 %159, i1 %160, i1 false
+  br i1 %or.cond, label %170, label %161
 
-167:                                              ; preds = %invflip_angle.exit
-  %168 = tail call double @atan2(double noundef %116, double noundef %115) #27, !tbaa !17
-  %169 = fadd double %168, 0x4012D97C7F3321D2
-  %170 = fcmp ult double %169, 0x401921FB54442D18
-  %171 = fadd double %169, 0xC01921FB54442D18
-  %.0 = select i1 %170, double %169, double %171
-  %172 = fmul double %.0, 2.560000e+02
-  %173 = fdiv double %172, 0x401921FB54442D18
-  %174 = fptosi double %173 to i32
-  %175 = trunc i32 %174 to i8
-  br label %176
+161:                                              ; preds = %invflip_angle.exit
+  %162 = tail call double @atan2(double noundef %116, double noundef %115) #27, !tbaa !17
+  %163 = fadd double %162, 0x4012D97C7F3321D2
+  %164 = fcmp ult double %163, 0x401921FB54442D18
+  %165 = fadd double %163, 0xC01921FB54442D18
+  %.0 = select i1 %164, double %163, double %165
+  %166 = fmul double %.0, 2.560000e+02
+  %167 = fdiv double %166, 0x401921FB54442D18
+  %168 = fptosi double %167 to i32
+  %169 = trunc i32 %168 to i8
+  br label %170
 
-176:                                              ; preds = %invflip_angle.exit, %167
-  %.sink = phi i8 [ %175, %167 ], [ -128, %invflip_angle.exit ]
-  %177 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i8 %.sink, ptr %177, align 4, !tbaa !137
-  %178 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  store i8 %.0126, ptr %178, align 1, !tbaa !138
-  %179 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i8 %.1, ptr %179, align 8, !tbaa !139
-  %180 = getelementptr inbounds nuw i8, ptr %2, i64 34
-  store i8 %.0129, ptr %180, align 2, !tbaa !140
-  %181 = getelementptr inbounds nuw i8, ptr %2, i64 35
-  %182 = zext i1 %.0127 to i8
-  store i8 %182, ptr %181, align 1, !tbaa !141
+170:                                              ; preds = %invflip_angle.exit, %161
+  %.sink = phi i8 [ %169, %167 ], [ -128, %invflip_angle.exit ]
+  %171 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  store i8 %.sink, ptr %171, align 4, !tbaa !137
+  %172 = getelementptr inbounds nuw i8, ptr %2, i64 33
+  store i8 %.0126, ptr %172, align 1, !tbaa !138
+  %173 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i8 %.1, ptr %173, align 8, !tbaa !139
+  %174 = getelementptr inbounds nuw i8, ptr %2, i64 34
+  store i8 %.0129, ptr %174, align 2, !tbaa !140
+  %175 = getelementptr inbounds nuw i8, ptr %2, i64 35
+  %176 = zext i1 %.0127 to i8
+  store i8 %176, ptr %175, align 1, !tbaa !141
   ret i32 %.0124
 }
 

@@ -14802,13 +14802,13 @@ define hidden { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_color_type17
 24:                                               ; preds = %26, %22, %14
   %.0 = phi i8 [ 8, %14 ], [ %16, %22 ], [ %spec.select, %26 ]
   %25 = and i32 %3, 65552
-  %or.cond31 = icmp eq i32 %25, 0
-  br i1 %or.cond31, label %35, label %28
+  %or.cond30 = icmp eq i32 %25, 0
+  br i1 %or.cond30, label %35, label %28
 
 26:                                               ; preds = %22
   %27 = and i32 %3, 65552
-  %or.cond30 = icmp eq i32 %27, 0
-  %spec.select = select i1 %or.cond30, i8 %16, i8 8
+  %or.cond29 = icmp eq i32 %27, 0
+  %spec.select = select i1 %or.cond29, i8 %16, i8 8
   br label %24
 
 28:                                               ; preds = %24
@@ -14850,7 +14850,7 @@ define hidden { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_color_type17
   %.not29 = icmp eq i8 %43, 1
   br i1 %.not29, label %.split, label %.critedge
 
-.split:                                           ; preds = %42
+.split:; preds = %42
   %44 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %.0, i1 true)
   switch i8 %44, label %default.unreachable34 [
     i8 0, label %19
@@ -14928,13 +14928,13 @@ define hidden { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_color_type17
 24:                                               ; preds = %26, %22, %14
   %.0 = phi i8 [ 8, %14 ], [ %16, %22 ], [ %spec.select, %26 ]
   %25 = and i32 %3, 65552
-  %or.cond31 = icmp eq i32 %25, 0
-  br i1 %or.cond31, label %35, label %28
+  %or.cond30 = icmp eq i32 %25, 0
+  br i1 %or.cond30, label %35, label %28
 
 26:                                               ; preds = %22
   %27 = and i32 %3, 65552
-  %or.cond30 = icmp eq i32 %27, 0
-  %spec.select = select i1 %or.cond30, i8 %16, i8 8
+  %or.cond29 = icmp eq i32 %27, 0
+  %spec.select = select i1 %or.cond29, i8 %16, i8 8
   br label %24
 
 28:                                               ; preds = %24
@@ -14976,7 +14976,7 @@ define hidden { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_color_type17
   %.not29 = icmp eq i8 %43, 1
   br i1 %.not29, label %.split, label %.critedge
 
-.split:                                           ; preds = %42
+.split:; preds = %42
   %44 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %.0, i1 true)
   switch i8 %44, label %default.unreachable34 [
     i8 0, label %19

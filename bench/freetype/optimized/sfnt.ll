@@ -21153,7 +21153,7 @@ define internal fastcc i32 @tt_sbit_decoder_alloc_bitmap(ptr noundef captures(no
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %.split, label %54
 
-.split:                                           ; preds = %7
+.split:; preds = %7
   %21 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %18, i1 true)
   switch i32 %21, label %54 [
     i32 0, label %22
@@ -21163,7 +21163,7 @@ define internal fastcc i32 @tt_sbit_decoder_alloc_bitmap(ptr noundef captures(no
     i32 5, label %36
   ]
 
-22:                                               ; preds = %.split
+18:                                               ; preds = %.split
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 26
   store i8 1, ptr %23, align 2, !tbaa !465
   %24 = add nuw nsw i32 %12, 7
@@ -21184,19 +21184,19 @@ define internal fastcc i32 @tt_sbit_decoder_alloc_bitmap(ptr noundef captures(no
   %33 = lshr i32 %32, 1
   br label %39
 
-34:                                               ; preds = %.split
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  store i8 2, ptr %35, align 2, !tbaa !465
+32:                                               ; preds = %.split
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 26
+  store i8 2, ptr %33, align 2, !tbaa !465
   br label %39
 
-36:                                               ; preds = %.split
+35:                                               ; preds = %.split
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 26
   store i8 7, ptr %37, align 2, !tbaa !465
   %38 = shl nuw nsw i32 %12, 2
-  br label %39
+  br label %50
 
-39:                                               ; preds = %36, %34, %30, %26, %22
-  %.sink44 = phi i32 [ %38, %36 ], [ %12, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %22 ]
+50:                                               ; preds = %36, %34, %30, %26, %18
+  %.0 = phi i32 [ %38, %36 ], [ %12, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %22 ]
   %.sink = phi i16 [ 256, %36 ], [ 256, %34 ], [ 16, %30 ], [ 4, %26 ], [ 2, %22 ]
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.sink44, ptr %40, align 8, !tbaa !473

@@ -44,9 +44,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i64 @h5tools_get_little_endian_type(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @H5Tget_class(i64 noundef %0) #3
-  %3 = tail call i64 @H5Tget_size(i64 noundef %0) #3
-  %4 = tail call i32 @H5Tget_sign(i64 noundef %0) #3
+  %2 = tail call i32 @H5Tget_class(i64 noundef %0) #2
+  %3 = tail call i64 @H5Tget_size(i64 noundef %0) #2
+  %4 = tail call i32 @H5Tget_sign(i64 noundef %0) #2
   switch i32 %2, label %32 [
     i32 0, label %5
     i32 1, label %19
@@ -90,7 +90,7 @@ define i64 @h5tools_get_little_endian_type(i64 noundef %0) local_unnamed_addr #0
 
 18:                                               ; preds = %17
   %or.cond15 = select i1 %13, i1 %15, i1 false
-  br i1 %or.cond15, label %.sink.split, label %32
+  br i1 %or.cond15, label %.sink.split, label %29
 
 19:                                               ; preds = %1
   switch i64 %3, label %32 [
@@ -107,25 +107,25 @@ define i64 @h5tools_get_little_endian_type(i64 noundef %0) local_unnamed_addr #0
 
 22:                                               ; preds = %1
   %23 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
-  %24 = icmp eq i64 %23, 1
+  %23 = icmp eq i64 %23, 1
   br i1 %24, label %.split, label %32
 
-.split:                                           ; preds = %22
+.split:; preds = %22
   %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %3, i1 true)
   %26 = icmp samesign ult i64 %25, 4
   br i1 %26, label %switch.lookup, label %32
 
-27:                                               ; preds = %1
+27:; preds = %1
   switch i64 %3, label %32 [
     i64 4, label %.sink.split
-    i64 8, label %28
-    i64 16, label %29
+    i64 8, label %25
+    i64 16, label %26
   ]
 
-28:                                               ; preds = %27
+25:                                               ; preds = %27
   br label %.sink.split
 
-29:                                               ; preds = %27
+26:                                               ; preds = %27
   br label %.sink.split
 
 switch.lookup:                                    ; preds = %.split
@@ -133,14 +133,14 @@ switch.lookup:                                    ; preds = %.split
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %switch.lookup, %27, %19, %18, %17, %16, %14, %12, %10, %8, %5, %20, %21, %28, %29
+.sink.split:                                      ; preds = %switch.lookup, %27, %19, %18, %17, %16, %14, %12, %10, %8, %5, %20, %21, %25, %26
   %H5T_COMPLEX_IEEE_F16LE_g.sink = phi ptr [ @H5T_COMPLEX_IEEE_F64LE_g, %29 ], [ @H5T_COMPLEX_IEEE_F32LE_g, %28 ], [ @H5T_IEEE_F64LE_g, %21 ], [ @H5T_IEEE_F32LE_g, %20 ], [ @H5T_STD_I8LE_g, %5 ], [ @H5T_STD_I16LE_g, %8 ], [ @H5T_STD_I32LE_g, %10 ], [ @H5T_STD_I64LE_g, %12 ], [ @H5T_STD_U8LE_g, %14 ], [ @H5T_STD_U16LE_g, %16 ], [ @H5T_STD_U32LE_g, %17 ], [ @H5T_STD_U64LE_g, %18 ], [ @H5T_IEEE_F16LE_g, %19 ], [ @H5T_COMPLEX_IEEE_F16LE_g, %27 ], [ %switch.load, %switch.lookup ]
-  %30 = load i64, ptr %H5T_COMPLEX_IEEE_F16LE_g.sink, align 8, !tbaa !3
-  %31 = tail call i64 @H5Tcopy(i64 noundef %30) #3
-  br label %32
+  %27 = load i64, ptr %H5T_COMPLEX_IEEE_F16LE_g.sink, align 8, !tbaa !3
+  %28 = tail call i64 @H5Tcopy(i64 noundef %27) #2
+  br label %29
 
-32:                                               ; preds = %.split, %.sink.split, %22, %27, %19, %1, %18
-  %.0 = phi i64 [ -1, %1 ], [ -1, %18 ], [ -1, %19 ], [ -1, %.split ], [ -1, %27 ], [ -1, %22 ], [ %31, %.sink.split ]
+29:                                               ; preds = %.split, %.sink.split, %22, %27, %19, %1, %18
+  %.0 = phi i64 [ -1, %1 ], [ -1, %18 ], [ -1, %19 ], [ -1, %.split ], [ -1, %27 ], [ -1, %22 ], [ %28, %.sink.split ]
   ret i64 %.0
 }
 
@@ -154,9 +154,9 @@ declare i64 @H5Tcopy(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i64 @h5tools_get_big_endian_type(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @H5Tget_class(i64 noundef %0) #3
-  %3 = tail call i64 @H5Tget_size(i64 noundef %0) #3
-  %4 = tail call i32 @H5Tget_sign(i64 noundef %0) #3
+  %2 = tail call i32 @H5Tget_class(i64 noundef %0) #2
+  %3 = tail call i64 @H5Tget_size(i64 noundef %0) #2
+  %4 = tail call i32 @H5Tget_sign(i64 noundef %0) #2
   switch i32 %2, label %32 [
     i32 0, label %5
     i32 1, label %19
@@ -200,7 +200,7 @@ define i64 @h5tools_get_big_endian_type(i64 noundef %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %17
   %or.cond15 = select i1 %13, i1 %15, i1 false
-  br i1 %or.cond15, label %.sink.split, label %32
+  br i1 %or.cond15, label %.sink.split, label %29
 
 19:                                               ; preds = %1
   switch i64 %3, label %32 [
@@ -217,25 +217,25 @@ define i64 @h5tools_get_big_endian_type(i64 noundef %0) local_unnamed_addr #0 {
 
 22:                                               ; preds = %1
   %23 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
-  %24 = icmp eq i64 %23, 1
+  %23 = icmp eq i64 %23, 1
   br i1 %24, label %.split, label %32
 
-.split:                                           ; preds = %22
+.split:; preds = %22
   %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %3, i1 true)
   %26 = icmp samesign ult i64 %25, 4
   br i1 %26, label %switch.lookup, label %32
 
-27:                                               ; preds = %1
+27:; preds = %1
   switch i64 %3, label %32 [
     i64 4, label %.sink.split
-    i64 8, label %28
-    i64 16, label %29
+    i64 8, label %25
+    i64 16, label %26
   ]
 
-28:                                               ; preds = %27
+25:                                               ; preds = %27
   br label %.sink.split
 
-29:                                               ; preds = %27
+26:                                               ; preds = %27
   br label %.sink.split
 
 switch.lookup:                                    ; preds = %.split
@@ -243,14 +243,14 @@ switch.lookup:                                    ; preds = %.split
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %switch.lookup, %27, %19, %18, %17, %16, %14, %12, %10, %8, %5, %20, %21, %28, %29
+.sink.split:                                      ; preds = %switch.lookup, %27, %19, %18, %17, %16, %14, %12, %10, %8, %5, %20, %21, %25, %26
   %H5T_COMPLEX_IEEE_F16BE_g.sink = phi ptr [ @H5T_COMPLEX_IEEE_F64BE_g, %29 ], [ @H5T_COMPLEX_IEEE_F32BE_g, %28 ], [ @H5T_IEEE_F64BE_g, %21 ], [ @H5T_IEEE_F32BE_g, %20 ], [ @H5T_STD_I8BE_g, %5 ], [ @H5T_STD_I16BE_g, %8 ], [ @H5T_STD_I32BE_g, %10 ], [ @H5T_STD_I64BE_g, %12 ], [ @H5T_STD_U8BE_g, %14 ], [ @H5T_STD_U16BE_g, %16 ], [ @H5T_STD_U32BE_g, %17 ], [ @H5T_STD_U64BE_g, %18 ], [ @H5T_IEEE_F16BE_g, %19 ], [ @H5T_COMPLEX_IEEE_F16BE_g, %27 ], [ %switch.load, %switch.lookup ]
-  %30 = load i64, ptr %H5T_COMPLEX_IEEE_F16BE_g.sink, align 8, !tbaa !3
-  %31 = tail call i64 @H5Tcopy(i64 noundef %30) #3
-  br label %32
+  %27 = load i64, ptr %H5T_COMPLEX_IEEE_F16BE_g.sink, align 8, !tbaa !3
+  %28 = tail call i64 @H5Tcopy(i64 noundef %27) #2
+  br label %29
 
-32:                                               ; preds = %.split, %.sink.split, %22, %27, %19, %1, %18
-  %.0 = phi i64 [ -1, %1 ], [ -1, %18 ], [ -1, %19 ], [ -1, %.split ], [ -1, %27 ], [ -1, %22 ], [ %31, %.sink.split ]
+29:                                               ; preds = %.split, %.sink.split, %22, %27, %19, %1, %18
+  %.0 = phi i64 [ -1, %1 ], [ -1, %18 ], [ -1, %19 ], [ -1, %.split ], [ -1, %27 ], [ -1, %22 ], [ %28, %.sink.split ]
   ret i64 %.0
 }
 

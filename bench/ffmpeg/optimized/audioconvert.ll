@@ -19,12 +19,12 @@ define noalias ptr @swri_audio_convert_alloc(i32 noundef %0, i32 noundef %1, i32
   %11 = getelementptr inbounds ptr, ptr @fmt_pair_to_conv_functions, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %36, label %13
+  br i1 %.not, label %33, label %13
 
 13:                                               ; preds = %5
   %14 = tail call noalias ptr @av_mallocz(i64 noundef 48) #8
   %.not32 = icmp eq ptr %14, null
-  br i1 %.not32, label %36, label %15
+  br i1 %.not32, label %33, label %15
 
 15:                                               ; preds = %13
   %16 = icmp eq i32 %2, 1
@@ -57,28 +57,28 @@ define noalias ptr @swri_audio_convert_alloc(i32 noundef %0, i32 noundef %1, i32
   %26 = icmp ne i32 %.028, %.029
   %27 = icmp ne ptr %3, null
   %or.cond3 = or i1 %27, %26
-  br i1 %or.cond3, label %36, label %28
+  br i1 %or.cond3, label %33, label %28
 
 28:                                               ; preds = %25
   %29 = tail call i32 @av_get_bytes_per_sample(i32 noundef %.029) #8
   %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
-  %31 = icmp eq i32 %30, 1
+  %30 = icmp eq i32 %30, 1
   br i1 %31, label %.split, label %36
 
-.split:                                           ; preds = %28
+.split:; preds = %28
   %32 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %29, i1 true)
   %33 = icmp samesign ult i32 %32, 4
   br i1 %33, label %switch.lookup, label %36
 
-switch.lookup:                                    ; preds = %.split
+switch.lookup:; preds = %.split
   %34 = zext nneg i32 %32 to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.swri_audio_convert_alloc, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %switch.load, ptr %35, align 8, !tbaa !14
-  br label %36
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store ptr %switch.load, ptr %32, align 8, !tbaa !14
+  br label %33
 
-36:                                               ; preds = %.split, %switch.lookup, %25, %28, %13, %5
+33:                                               ; preds = %.split, %switch.lookup, %25, %28, %13, %5
   %.0 = phi ptr [ null, %5 ], [ null, %13 ], [ %14, %.split ], [ %14, %28 ], [ %14, %25 ], [ %14, %switch.lookup ]
   ret ptr %.0
 }

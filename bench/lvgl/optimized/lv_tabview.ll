@@ -299,7 +299,7 @@ define void @lv_tabview_set_tab_bar_position(ptr noundef %0, i32 noundef %1) loc
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %.split, label %9
 
-.split:                                           ; preds = %3
+.split:; preds = %3
   %6 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
   %7 = icmp samesign ult i32 %6, 4
   br i1 %7, label %switch.lookup, label %9
@@ -325,7 +325,7 @@ switch.lookup:                                    ; preds = %.split
     i32 1, label %14
   ]
 
-13:                                               ; preds = %.split1, %.split1
+4:                                                ; preds = %.split1, %.split1
   tail call void @lv_obj_set_width(ptr noundef %11, i32 noundef 536871012) #5
   br label %.sink.split35
 
@@ -344,7 +344,7 @@ switch.lookup:                                    ; preds = %.split
   tail call void @lv_obj_set_scroll_snap_y(ptr noundef %11, i32 noundef %.sink36) #5
   br label %15
 
-15:                                               ; preds = %.sink.split35, %9, %.split1
+5:                                                ; preds = %.sink.split35, %9, %.split1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = and i32 %17, 12
@@ -354,22 +354,22 @@ switch.lookup:                                    ; preds = %.split
   %.not34 = xor i1 %20, %21
   br i1 %.not34, label %29, label %22
 
-22:                                               ; preds = %15
+.thread:                                          ; preds = %5
   %23 = tail call ptr @lv_obj_get_display(ptr noundef nonnull %0) #5
   %24 = tail call i32 @lv_display_get_dpi(ptr noundef %23) #5
-  %25 = tail call i32 @lv_pct(i32 noundef 100) #5
+  %6 = tail call i32 @lv_pct(i32 noundef 100) #5
   br i1 %20, label %26, label %28
 
-26:                                               ; preds = %22
+26:  ; preds = %.thread
   %27 = sdiv i32 %24, 2
-  tail call void @lv_obj_set_size(ptr noundef %10, i32 noundef %25, i32 noundef %27) #5
+  tail call void @lv_obj_set_size(ptr noundef %10, i32 noundef %6, i32 noundef %27) #5
   br label %29
 
-28:                                               ; preds = %22
+28:; preds = %22
   tail call void @lv_obj_set_size(ptr noundef %10, i32 noundef %24, i32 noundef %25) #5
   br label %29
 
-29:                                               ; preds = %26, %28, %15
+29:  ; preds = %26, %28, %5
   store i32 %1, ptr %16, align 4, !tbaa !3
   ret void
 }

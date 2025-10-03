@@ -2311,10 +2311,10 @@ SDL_SurfaceValid.exit:                            ; preds = %4
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceValid.exit
   %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
-  br label %24
+  br label %21
 
 9:                                                ; preds = %SDL_SurfaceValid.exit
-  br i1 %.not, label %24, label %10
+  br i1 %.not, label %21, label %10
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -2324,7 +2324,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceVali
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %.split, label %23
 
-.split:                                           ; preds = %10
+.split:; preds = %10
   %16 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %13, i1 true)
   switch i32 %16, label %default.unreachable [
     i32 4, label %17
@@ -2335,38 +2335,38 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceVali
     i32 9, label %22
   ]
 
-17:                                               ; preds = %.split
+14:                                               ; preds = %.split
   store i32 1, ptr %1, align 4
-  br label %24
+  br label %21
+
+15:                                               ; preds = %.split
+  store i32 16, ptr %1, align 4
+  br label %21
+
+16:                                               ; preds = %.split
+  store i32 2, ptr %1, align 4
+  br label %21
+
+17:                                               ; preds = %.split
+  store i32 32, ptr %1, align 4
+  br label %21
 
 18:                                               ; preds = %.split
-  store i32 16, ptr %1, align 4
-  br label %24
+  store i32 4, ptr %1, align 4
+  br label %21
 
 19:                                               ; preds = %.split
-  store i32 2, ptr %1, align 4
-  br label %24
-
-20:                                               ; preds = %.split
-  store i32 32, ptr %1, align 4
-  br label %24
-
-21:                                               ; preds = %.split
-  store i32 4, ptr %1, align 4
-  br label %24
-
-22:                                               ; preds = %.split
   store i32 8, ptr %1, align 4
-  br label %24
+  br label %21
 
 default.unreachable:                              ; preds = %.split
   unreachable
 
-23:                                               ; preds = %10
+20:                                               ; preds = %10
   store i32 0, ptr %1, align 4
-  br label %24
+  br label %21
 
-24:                                               ; preds = %17, %18, %19, %20, %21, %22, %23, %9, %SDL_SurfaceValid.exit.thread
+21:                                               ; preds = %17, %18, %19, %20, %21, %22, %23, %9, %SDL_SurfaceValid.exit.thread
   %.0 = phi i1 [ %8, %SDL_SurfaceValid.exit.thread ], [ true, %9 ], [ true, %23 ], [ true, %22 ], [ true, %21 ], [ true, %20 ], [ true, %19 ], [ true, %18 ], [ true, %17 ]
   ret i1 %.0
 }

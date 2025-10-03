@@ -1095,11 +1095,11 @@ define internal fastcc void @x64_classify(ptr noundef readonly captures(none) %0
 
 19:                                               ; preds = %5
   %20 = tail call i32 @type_size(ptr noundef nonnull %8) #7
-  %21 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %20)
+  %21 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %.split.i, label %39
 
-.split.i:                                         ; preds = %19
+.split.i:; preds = %19
   %23 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %20, i1 true)
   switch i32 %23, label %39 [
     i32 2, label %24
@@ -1109,59 +1109,59 @@ define internal fastcc void @x64_classify(ptr noundef readonly captures(none) %0
     i32 4, label %42
   ]
 
-24:                                               ; preds = %.split.i, %.split.i, %.split.i
+21:                                               ; preds = %.split.i, %.split.i, %.split.i
   store i32 2, ptr %7, align 4
-  %25 = zext nneg i32 %20 to i64
-  %26 = add i64 %1, -1
-  %27 = add i64 %26, %25
-  %.not30.unshifted.i = xor i64 %27, %1
+  %22 = zext nneg i32 %20 to i64
+  %23 = add i64 %1, -1
+  %24 = add i64 %23, %22
+  %.not30.unshifted.i = xor i64 %24, %1
   %.not30.i = icmp ult i64 %.not30.unshifted.i, 8
-  br i1 %.not30.i, label %x64_classify_vector.exit, label %28
+  br i1 %.not30.i, label %x64_classify_vector.exit, label %25
 
-28:                                               ; preds = %24
-  %29 = load i32, ptr %2, align 4
+25:                                               ; preds = %21
+  %26 = load i32, ptr %2, align 4
   br label %.sink.split.i
 
-30:                                               ; preds = %.split.i
-  %31 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %32 = load ptr, ptr %31, align 8
-  %33 = load i32, ptr %32, align 8
-  %34 = icmp eq i32 %33, 16
-  br i1 %34, label %x64_classify_vector.exit, label %35
+27:                                               ; preds = %.split.i
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp eq i32 %30, 16
+  br i1 %31, label %x64_classify_vector.exit, label %32
 
-35:                                               ; preds = %30
+32:                                               ; preds = %27
   store i32 3, ptr %7, align 4
-  %36 = and i64 %1, -9
-  %or.cond5.not.i = icmp eq i64 %36, 0
-  br i1 %or.cond5.not.i, label %x64_classify_vector.exit, label %37
+  %33 = and i64 %1, -9
+  %or.cond5.not.i = icmp eq i64 %33, 0
+  br i1 %or.cond5.not.i, label %x64_classify_vector.exit, label %34
 
-37:                                               ; preds = %35
-  %38 = load i32, ptr %2, align 4
+34:                                               ; preds = %32
+  %35 = load i32, ptr %2, align 4
   br label %.sink.split.i
 
-39:                                               ; preds = %.split.i, %19
-  %40 = icmp ne i32 %4, 1
-  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 268), align 4
-  %.not.i = icmp ugt i32 %20, %41
-  %or.cond.i = select i1 %40, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %x64_classify_vector.exit, label %42
+36:                                               ; preds = %.split.i, %19
+  %37 = icmp ne i32 %4, 1
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 268), align 4
+  %.not.i = icmp ugt i32 %20, %38
+  %or.cond.i = select i1 %37, i1 true, i1 %.not.i
+  br i1 %or.cond.i, label %x64_classify_vector.exit, label %39
 
-42:                                               ; preds = %39, %.split.i
-  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
-  %44 = and i32 %43, 524288
-  %.not29.i = icmp eq i32 %44, 0
-  br i1 %.not29.i, label %45, label %x64_classify_vector.exit
+39:                                               ; preds = %36, %.split.i
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
+  %41 = and i32 %40, 524288
+  %.not29.i = icmp eq i32 %41, 0
+  br i1 %.not29.i, label %42, label %x64_classify_vector.exit
 
-45:                                               ; preds = %42
+42:                                               ; preds = %39
   store i32 3, ptr %2, align 4
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %45, %37, %28
-  %.sink.i = phi i32 [ %38, %37 ], [ %29, %28 ], [ 4, %45 ]
+.sink.split.i:                                    ; preds = %42, %34, %25
+  %.sink.i = phi i32 [ %35, %37 ], [ %26, %25 ], [ 4, %45 ]
   store i32 %.sink.i, ptr %3, align 4
   br label %x64_classify_vector.exit
 
-x64_classify_vector.exit:                         ; preds = %.sink.split.i, %42, %39, %35, %30, %24, %18, %17, %16, %15, %14, %13, %12, %11, %5
+x64_classify_vector.exit:                         ; preds = %.sink.split.i, %39, %36, %32, %27, %21, %18, %17, %16, %15, %14, %13, %12, %11, %5
   ret void
 }
 
@@ -1349,7 +1349,7 @@ define dso_local void @x64_classify_vector(ptr noundef %0, i64 noundef %1, ptr n
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %.split, label %26
 
-.split:                                           ; preds = %6
+.split:; preds = %6
   %10 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %7, i1 true)
   switch i32 %10, label %26 [
     i32 2, label %11
@@ -1359,59 +1359,59 @@ define dso_local void @x64_classify_vector(ptr noundef %0, i64 noundef %1, ptr n
     i32 4, label %29
   ]
 
-11:                                               ; preds = %.split, %.split, %.split
+8:                                                ; preds = %.split, %.split, %.split
   store i32 2, ptr %2, align 4
-  %12 = zext nneg i32 %7 to i64
-  %13 = add i64 %1, -1
-  %14 = add i64 %13, %12
-  %.not30.unshifted = xor i64 %14, %1
+  %9 = zext nneg i32 %7 to i64
+  %10 = add i64 %1, -1
+  %11 = add i64 %10, %9
+  %.not30.unshifted = xor i64 %11, %1
   %.not30 = icmp ult i64 %.not30.unshifted, 8
-  br i1 %.not30, label %33, label %15
+  br i1 %.not30, label %30, label %12
 
-15:                                               ; preds = %11
-  %16 = load i32, ptr %3, align 4
+12:                                               ; preds = %8
+  %13 = load i32, ptr %3, align 4
   br label %.sink.split
 
-17:                                               ; preds = %.split
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp eq i32 %20, 16
-  br i1 %21, label %33, label %22
+14:                                               ; preds = %.split
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %16 = load ptr, ptr %15, align 8
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp eq i32 %17, 16
+  br i1 %18, label %30, label %19
 
-22:                                               ; preds = %17
+19:                                               ; preds = %14
   store i32 3, ptr %2, align 4
-  %23 = and i64 %1, -9
-  %or.cond5.not = icmp eq i64 %23, 0
-  br i1 %or.cond5.not, label %33, label %24
+  %20 = and i64 %1, -9
+  %or.cond5.not = icmp eq i64 %20, 0
+  br i1 %or.cond5.not, label %30, label %21
 
-24:                                               ; preds = %22
-  %25 = load i32, ptr %3, align 4
+21:                                               ; preds = %19
+  %22 = load i32, ptr %3, align 4
   br label %.sink.split
 
-26:                                               ; preds = %6, %.split
-  %27 = icmp ne i32 %5, 1
-  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 268), align 4
-  %.not = icmp ugt i32 %7, %28
-  %or.cond = select i1 %27, i1 true, i1 %.not
-  br i1 %or.cond, label %33, label %29
+23:                                               ; preds = %6, %.split
+  %24 = icmp ne i32 %5, 1
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 268), align 4
+  %.not = icmp ugt i32 %7, %25
+  %or.cond = select i1 %24, i1 true, i1 %.not
+  br i1 %or.cond, label %30, label %26
 
-29:                                               ; preds = %26, %.split
-  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
-  %31 = and i32 %30, 524288
-  %.not29 = icmp eq i32 %31, 0
-  br i1 %.not29, label %32, label %33
+26:                                               ; preds = %23, %.split
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
+  %28 = and i32 %27, 524288
+  %.not29 = icmp eq i32 %28, 0
+  br i1 %.not29, label %29, label %30
 
-32:                                               ; preds = %29
+29:                                               ; preds = %26
   store i32 3, ptr %3, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %32, %15, %24
-  %.sink = phi i32 [ %25, %24 ], [ %16, %15 ], [ 4, %32 ]
+.sink.split:                                      ; preds = %29, %12, %21
+  %.sink = phi i32 [ %22, %24 ], [ %13, %15 ], [ 4, %29 ]
   store i32 %.sink, ptr %4, align 4
-  br label %33
+  br label %30
 
-33:                                               ; preds = %.sink.split, %29, %22, %17, %11, %26
+30:                                               ; preds = %.sink.split, %26, %19, %14, %8, %23
   ret void
 }
 

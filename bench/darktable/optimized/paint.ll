@@ -5121,7 +5121,7 @@ define void @dtgtk_cairo_paint_alignment(ptr noundef %0, i32 noundef %1, i32 nou
   %28 = icmp eq i32 %27, 1
   br i1 %28, label %.split, label %39
 
-.split:                                           ; preds = %7
+.split:; preds = %7
   %29 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %26, i1 true)
   switch i32 %29, label %39 [
     i32 0, label %30
@@ -5135,58 +5135,58 @@ define void @dtgtk_cairo_paint_alignment(ptr noundef %0, i32 noundef %1, i32 nou
     i32 8, label %38
   ]
 
-30:                                               ; preds = %.split
+27:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 9.000000e-01) #9
-  br label %39
+  br label %36
 
-31:                                               ; preds = %.split
+28:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 1.000000e-01) #9
-  br label %39
+  br label %36
 
-32:                                               ; preds = %.split
+29:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 9.000000e-01) #9
-  br label %39
+  br label %36
 
-33:                                               ; preds = %.split
+30:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 9.000000e-01) #9
-  br label %39
+  br label %36
 
-34:                                               ; preds = %.split
+31:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 5.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 5.000000e-01) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 9.000000e-01) #9
-  br label %39
+  br label %36
 
-35:                                               ; preds = %.split
+32:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 9.000000e-01) #9
-  br label %39
+  br label %36
 
-36:                                               ; preds = %.split
+33:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01) #9
-  br label %39
+  br label %36
 
-37:                                               ; preds = %.split
+34:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 9.000000e-01) #9
-  br label %39
+  br label %36
 
-38:                                               ; preds = %.split
+35:                                               ; preds = %.split
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 1.000000e-01) #9
-  br label %39
+  br label %36
 
-39:                                               ; preds = %7, %38, %37, %36, %35, %34, %33, %32, %31, %30, %.split
+36:                                               ; preds = %7, %38, %37, %36, %35, %34, %33, %32, %31, %30, %.split
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9

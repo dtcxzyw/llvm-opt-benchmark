@@ -3780,20 +3780,20 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 define noundef range(i32 0, 1073741825) i32 @_ZN9MeshModel5io2mmEi(i32 noundef %0) local_unnamed_addr #18 align 2 {
   %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
   %3 = icmp eq i32 %2, 1
-  br i1 %3, label %.split, label %7
+  br i1 %3, label %.split, label %18
 
-.split:                                           ; preds = %1
+.split:; preds = %1
   %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
   %5 = icmp samesign ult i32 %4, 18
   br i1 %5, label %switch.lookup, label %7
 
-switch.lookup:                                    ; preds = %.split
+switch.lookup:; preds = %.split
   %6 = zext nneg i32 %4 to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN9MeshModel5io2mmEi, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %7
+  br label %18
 
-7:                                                ; preds = %1, %.split, %switch.lookup
+18:                                               ; preds = %1, %.split, %switch.lookup
   %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %.split ], [ 0, %1 ]
   ret i32 %.0
 }
@@ -9659,10 +9659,10 @@ declare i32 @llvm.ctpop.i32(i32) #24
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #24
+declare float @llvm.sqrt.f32(float) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
@@ -9677,10 +9677,10 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #24
+declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #24
+declare i64 @llvm.umin.i64(i64, i64) #25
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

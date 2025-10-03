@@ -3029,7 +3029,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   %.val.val.i = load i16, ptr %15, align 4
   %16 = and i16 %.val.val.i, 1
   %.not.i.i = icmp eq i16 %16, 0
-  br i1 %.not.i.i, label %17, label %58
+  br i1 %.not.i.i, label %17, label %55
 
 17:                                               ; preds = %14
   %18 = zext nneg i32 %1 to i64
@@ -3037,7 +3037,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   %20 = getelementptr i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, -1
-  br i1 %22, label %23, label %56
+  br i1 %22, label %23, label %53
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %.val.i, i64 22
@@ -3054,10 +3054,10 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   %35 = sext i16 %34 to i32
   br i1 %32, label %36, label %54
 
-36:                                               ; preds = %23
+36:; preds = %23
   %37 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 range(i32 -32768, 32768) %35)
   %38 = icmp eq i32 %37, 1
-  br i1 %38, label %.split.i.i, label %51
+  br i1 %38, label %.split.i.i, label %47
 
 .split.i.i:                                       ; preds = %36
   %39 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 -32768, 32768) %35, i1 true)
@@ -3068,59 +3068,59 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
     i32 3, label %49
   ]
 
-40:                                               ; preds = %.split.i.i
-  %41 = load i8, ptr %29, align 1
-  %42 = sext i8 %41 to i64
+36:                                               ; preds = %.split.i.i
+  %37 = load i8, ptr %29, align 1
+  %38 = sext i8 %37 to i64
   br label %fastgetattr.exit
 
-43:                                               ; preds = %.split.i.i
-  %44 = load i16, ptr %29, align 2
-  %45 = sext i16 %44 to i64
+39:                                               ; preds = %.split.i.i
+  %40 = load i16, ptr %29, align 2
+  %41 = sext i16 %40 to i64
   br label %fastgetattr.exit
 
-46:                                               ; preds = %.split.i.i
-  %47 = load i32, ptr %29, align 4
-  %48 = sext i32 %47 to i64
+42:                                               ; preds = %.split.i.i
+  %43 = load i32, ptr %29, align 4
+  %44 = sext i32 %43 to i64
   br label %fastgetattr.exit
 
-49:                                               ; preds = %.split.i.i
-  %50 = load i64, ptr %29, align 8
+45:                                               ; preds = %.split.i.i
+  %46 = load i64, ptr %29, align 8
   br label %fastgetattr.exit
 
-51:                                               ; preds = %.split.i.i, %36
+47:                                               ; preds = %.split.i.i, %36
   %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  %53 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.109, i32 noundef range(i32 -32768, 32768) %35) #14
+  %49 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.109, i32 noundef range(i32 -32768, 32768) %35) #15
   tail call void @errfinish(ptr noundef nonnull @.str.110, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #14
   unreachable
 
-54:                                               ; preds = %23
-  %55 = ptrtoint ptr %29 to i64
+51:                                               ; preds = %23
+  %52 = ptrtoint ptr %29 to i64
   br label %fastgetattr.exit
 
-56:                                               ; preds = %17
-  %57 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 6, 9) %1, ptr noundef nonnull %2) #14
+53:                                               ; preds = %17
+  %54 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 6, 9) %1, ptr noundef nonnull %2) #14
   br label %fastgetattr.exit
 
-58:                                               ; preds = %14
-  %59 = add nsw i32 %1, -1
-  %60 = getelementptr inbounds nuw i8, ptr %.val.i, i64 23
-  %.val20.i = load i8, ptr %60, align 1
-  %61 = zext i8 %.val20.i to i32
-  %62 = shl nuw nsw i32 1, %59
-  %63 = and i32 %62, %61
-  %.not.i21.i = icmp eq i32 %63, 0
-  br i1 %.not.i21.i, label %64, label %65
+55:                                               ; preds = %14
+  %56 = add nsw i32 %1, -1
+  %57 = getelementptr inbounds nuw i8, ptr %.val.i, i64 23
+  %.val20.i = load i8, ptr %57, align 1
+  %58 = zext i8 %.val20.i to i32
+  %59 = shl nuw nsw i32 1, %56
+  %60 = and i32 %59, %58
+  %.not.i21.i = icmp eq i32 %60, 0
+  br i1 %.not.i21.i, label %61, label %62
 
-64:                                               ; preds = %58
+61:                                               ; preds = %55
   store i8 1, ptr %3, align 1
   br label %fastgetattr.exit
 
-65:                                               ; preds = %58
-  %66 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 6, 9) %1, ptr noundef %2) #14
+62:                                               ; preds = %55
+  %63 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 6, 9) %1, ptr noundef %2) #14
   br label %fastgetattr.exit
 
-fastgetattr.exit:                                 ; preds = %65, %64, %56, %54, %49, %46, %43, %40, %12
-  %.0 = phi i64 [ %13, %12 ], [ 0, %64 ], [ %66, %65 ], [ %57, %56 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %50, %49 ], [ %55, %54 ]
+fastgetattr.exit:                                 ; preds = %62, %61, %53, %51, %45, %42, %39, %36, %12
+  %.0 = phi i64 [ %13, %12 ], [ 0, %64 ], [ %63, %65 ], [ %54, %56 ], [ %38, %40 ], [ %41, %43 ], [ %44, %46 ], [ %46, %49 ], [ %52, %54 ]
   ret i64 %.0
 }
 

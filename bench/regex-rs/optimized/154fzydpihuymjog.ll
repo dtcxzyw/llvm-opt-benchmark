@@ -8002,11 +8002,11 @@ define noundef zeroext i1 @"_ZN63_$LT$regex_syntax..hir..LookSet$u20$as$u20$core
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.split13.i, %switch.lookup, %26, %14
+.loopexit:                                        ; preds = %.split13.i, %switch.lookup, %24, %14
   %.0 = phi i1 [ %19, %14 ], [ false, %26 ], [ false, %.split13.i ], [ true, %switch.lookup ]
   ret i1 %.0
 
-.split13.i:                                       ; preds = %.preheader, %26
+.split13.i:                                       ; preds = %.preheader, %24
   %.01417 = phi i32 [ %7, %.preheader ], [ %28, %26 ]
   %20 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.01417, i1 true)
   %21 = icmp samesign ult i32 %20, 18
@@ -8019,11 +8019,11 @@ switch.lookup:                                    ; preds = %.split13.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %23 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %switch.load, i1 true)
-  %24 = zext nneg i32 %23 to i64
-  %switch.gep21 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN63_$LT$regex_syntax..hir..LookSet$u20$as$u20$core..fmt..Debug$GT$3fmt17h43980ddaf38838a3E.30", i64 %24
-  %switch.load22 = load i32, ptr %switch.gep21, align 4
-  store i32 %switch.load22, ptr %3, align 4
+  %21 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %switch.load, i1 true)
+  %22 = zext nneg i32 %21 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN63_$LT$regex_syntax..hir..LookSet$u20$as$u20$core..fmt..Debug$GT$3fmt17h43980ddaf38838a3E.30", i64 %22
+  %switch.load = load i32, ptr %switch.gep, align 4
+  store i32 %switch.load, ptr %3, align 4
   store ptr %3, ptr %4, align 8
   store ptr @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17he4f8681ce2737fc3E", ptr %9, align 8
   store ptr @anon.e7a22afab2d73454c3fec61b403322c0.73, ptr %5, align 8, !alias.scope !1339, !noalias !1342
@@ -8031,14 +8031,14 @@ switch.lookup:                                    ; preds = %.split13.i
   store ptr null, ptr %11, align 8, !alias.scope !1339, !noalias !1342
   store ptr %4, ptr %12, align 8, !alias.scope !1339, !noalias !1342
   store i64 1, ptr %13, align 8, !alias.scope !1339, !noalias !1342
-  %25 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
+  %23 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %25, label %.loopexit, label %26
+  br i1 %23, label %.loopexit, label %24
 
-26:                                               ; preds = %switch.lookup
-  %27 = xor i32 %switch.load, -1
+24:                                               ; preds = %switch.lookup
+  %25 = xor i32 %switch.load, -1
   %28 = and i32 %.01417, %27
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %.loopexit, label %.split13.i

@@ -645,8 +645,8 @@ define internal i32 @dissect_pvfs(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %or.cond17 = and i1 %12, %switch
   br i1 %or.cond17, label %14, label %26
 
-14:                                               ; preds = %9
-  %15 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 20)
+11:                                               ; preds = %9
+  %12 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 20)
   %16 = zext i32 %15 to i64
   %17 = shl nuw i64 %16, 32
   %18 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 16)
@@ -656,7 +656,7 @@ define internal i32 @dissect_pvfs(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %or.cond = icmp ult i64 %21, -1000000
   br i1 %or.cond, label %26, label %22
 
-22:                                               ; preds = %14
+22:; preds = %14
   %23 = load i8, ptr @pvfs_desegment, align 1, !range !6, !noundef !7
   %24 = trunc nuw i8 %23 to i1
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %24, i32 noundef 24, ptr noundef nonnull @get_pvfs_pdu_len, ptr noundef nonnull @dissect_pvfs_pdu, ptr noundef %3)
@@ -2529,10 +2529,10 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
+declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+declare i32 @llvm.umin.i32(i32, i32) #10
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

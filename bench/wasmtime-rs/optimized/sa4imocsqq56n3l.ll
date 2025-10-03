@@ -20470,7 +20470,7 @@ define { i16, i16 } @_ZN17cranelift_codegen2ir5types4Type3int17hf2d12c65acab3350
   %3 = icmp eq i16 %2, 1
   br i1 %3, label %.split, label %switch.lookup
 
-.split:                                           ; preds = %1
+.split:; preds = %1
   %4 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %0, i1 true)
   %switch.tableidx = add nsw i16 %4, -3
   %5 = icmp ult i16 %switch.tableidx, 5
@@ -20494,9 +20494,9 @@ define { i16, i16 } @_ZN17cranelift_codegen2ir5types4Type18int_with_byte_size17h
   %4 = tail call range(i16 0, 14) i16 @llvm.ctpop.i16(i16 %2)
   %5 = icmp eq i16 %4, 1
   %or.cond = select i1 %3, i1 %5, i1 false
-  br i1 %or.cond, label %.split.i, label %_ZN17cranelift_codegen2ir5types4Type3int17hf2d12c65acab3350E.exit
+  br i1 %or.cond, label %.split.i, label %8
 
-.split.i:                                         ; preds = %1
+.split.i:; preds = %1
   %6 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %2, i1 true)
   %switch.tableidx = add nsw i16 %6, -3
   %7 = icmp ult i16 %switch.tableidx, 5
@@ -20505,7 +20505,7 @@ define { i16, i16 } @_ZN17cranelift_codegen2ir5types4Type18int_with_byte_size17h
   %spec.select4 = zext i1 %7 to i16
   br label %_ZN17cranelift_codegen2ir5types4Type3int17hf2d12c65acab3350E.exit
 
-_ZN17cranelift_codegen2ir5types4Type3int17hf2d12c65acab3350E.exit: ; preds = %.split.i, %1
+8:                                                ; preds = %.split.i, %1
   %.sroa.3.0 = phi i16 [ undef, %1 ], [ %spec.select, %.split.i ]
   %.sroa.0.0 = phi i16 [ 0, %1 ], [ %spec.select4, %.split.i ]
   %8 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
@@ -24506,7 +24506,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 495:                                              ; preds = %490
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit"
 
-"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit": ; preds = %490, %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.thread6.i", %495
+"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.i": ; preds = %490, %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.thread6.i", %495
   %.sroa.7.0.i.ph.i = phi i16 [ 121, %495 ], [ 119, %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.thread6.i" ], [ 120, %490 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %496 = load ptr, ptr %42, align 8, !nonnull !4, !align !15, !noundef !4
@@ -24651,7 +24651,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4load17habafee347fd3309cE.exit: ; 
 561:                                              ; preds = %538
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit66"
 
-"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit66": ; preds = %538, %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.thread6.i64", %561
+"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.i63": ; preds = %538, %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.thread6.i64", %561
   %.sroa.7.0.i.ph.i63 = phi i16 [ 121, %561 ], [ 119, %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.thread6.i64" ], [ 120, %538 ]
   %562 = load ptr, ptr %42, align 8, !nonnull !4, !align !15, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !2930)
@@ -24890,7 +24890,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 679:                                              ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit83
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit87"
 
-"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit87": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit83, %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.thread6.i85", %679
+"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.i84": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit83, %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.thread6.i85", %679
   %.sroa.7.0.i.ph.i84 = phi i16 [ 121, %679 ], [ 119, %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.thread6.i85" ], [ 120, %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit83 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %680 = load ptr, ptr %42, align 8, !nonnull !4, !align !15, !noundef !4
@@ -25014,7 +25014,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4load17habafee347fd3309cE.exit106:
 732:                                              ; preds = %721
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit110"
 
-"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit110": ; preds = %721, %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.thread6.i108", %732
+"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.i107": ; preds = %721, %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.thread6.i108", %732
   %.sroa.7.0.i.ph.i107 = phi i16 [ 121, %732 ], [ 119, %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit.thread6.i108" ], [ 120, %721 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %733 = load ptr, ptr %42, align 8, !nonnull !4, !align !15, !noundef !4
@@ -29263,19 +29263,19 @@ declare i16 @llvm.ctpop.i16(i16) #36
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #37
+declare void @llvm.experimental.noalias.scope.decl(metadata) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #36
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #36
+declare i64 @llvm.umin.i64(i64, i64) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #36
+declare i64 @llvm.umax.i64(i64, i64) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #36
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #37
 
 attributes #0 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
