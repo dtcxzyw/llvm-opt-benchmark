@@ -37,7 +37,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   %10 = trunc i64 %9 to i32
   %11 = tail call noalias ptr @hwloc_bitmap_alloc() #15
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %200, label %12
+  br i1 %.not, label %198, label %12
 
 12:                                               ; preds = %4
   %13 = tail call noalias dereferenceable_or_null(36) ptr @malloc(i64 noundef 36) #16
@@ -192,7 +192,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 88:                                               ; preds = %87, %65
   %89 = and i64 %3, 1
   %.not176 = icmp eq i64 %89, 0
-  br i1 %.not176, label %185, label %90
+  br i1 %.not176, label %183, label %90
 
 90:                                               ; preds = %88
   %91 = call noalias dereferenceable_or_null(33) ptr @malloc(i64 noundef 33) #16
@@ -200,24 +200,24 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   %93 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %91, i64 noundef 33, ptr noundef nonnull @.str.6, i64 noundef %92) #15
   %94 = call ptr @opendir(ptr noundef nonnull %91)
   %.not177 = icmp eq ptr %94, null
-  br i1 %.not177, label %184, label %95
+  br i1 %.not177, label %182, label %95
 
 95:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %96 = call ptr @readdir(ptr noundef nonnull %94) #15
-  %.not178199 = icmp eq ptr %96, null
-  br i1 %.not178199, label %.thread, label %.lr.ph
+  %.not178197 = icmp eq ptr %96, null
+  br i1 %.not178197, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %95, %.lr.ph
   %97 = phi ptr [ %103, %.lr.ph ], [ %96, %95 ]
-  %.0146200 = phi i32 [ %spec.select195, %.lr.ph ], [ 0, %95 ]
+  %.0146198 = phi i32 [ %spec.select195, %.lr.ph ], [ 0, %95 ]
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 19
   %99 = call i64 @strtol(ptr noundef nonnull %98, ptr noundef nonnull %8, i32 noundef 10) #15
   %100 = load ptr, ptr %8, align 8, !tbaa !14
   %101 = load i8, ptr %100, align 1, !tbaa !12
   %.not194 = icmp eq i8 %101, 0
   %102 = zext i1 %.not194 to i32
-  %spec.select195 = add i32 %.0146200, %102
+  %spec.select195 = add i32 %.0146198, %102
   %103 = call ptr @readdir(ptr noundef nonnull %94) #15
   %.not178 = icmp eq ptr %103, null
   br i1 %.not178, label %._crit_edge, label %.lr.ph, !llvm.loop !16
@@ -237,17 +237,17 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 109:                                              ; preds = %105
   call void @rewinddir(ptr noundef nonnull %94) #15
   %110 = call ptr @readdir(ptr noundef nonnull %94) #15
-  %.not180201 = icmp eq ptr %110, null
-  br i1 %.not180201, label %.thread, label %.lr.ph204
+  %.not184 = icmp eq ptr %110, null
+  br i1 %.not182, label %.thread, label %.lr.ph204
 
-.lr.ph204:                                        ; preds = %109
+.lr.ph204:; preds = %109
   %111 = and i64 %3, 2
   %.not184 = icmp eq i64 %111, 0
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 1120
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 1116
   br label %114
 
-114:                                              ; preds = %.lr.ph204, %181
+114:; preds = %.lr.ph204, %181
   %115 = phi ptr [ %110, %.lr.ph204 ], [ %182, %181 ]
   %.0145202 = phi i32 [ 0, %.lr.ph204 ], [ %.1, %181 ]
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 19
@@ -365,9 +365,9 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   %179 = add i32 %178, 1
   store i32 %179, ptr %113, align 4, !tbaa !25
   %180 = icmp eq i32 %177, %spec.select195
-  br i1 %180, label %.thread, label %181
+  br i1 %180, label %.thread, label %.loopexit
 
-181:                                              ; preds = %176, %114
+.loopexit:                                        ; preds = %176, %114
   %.1 = phi i32 [ %.0145202, %114 ], [ %177, %176 ]
   %182 = call ptr @readdir(ptr noundef nonnull %94) #15
   %.not180 = icmp eq ptr %182, null
@@ -376,52 +376,52 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 .thread:                                          ; preds = %181, %176, %95, %109, %105, %._crit_edge
   %183 = call i32 @closedir(ptr noundef nonnull %94)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %184
+  br label %182
 
-184:                                              ; preds = %.thread, %90
+182:                                              ; preds = %.thread, %90
   call void @free(ptr noundef %91) #15
-  br label %185
+  br label %183
 
-185:                                              ; preds = %184, %88
-  %186 = and i64 %3, 2
-  %.not189 = icmp eq i64 %186, 0
-  br i1 %.not189, label %189, label %187
+183:                                              ; preds = %182, %88
+  %184 = and i64 %3, 2
+  %.not189 = icmp eq i64 %184, 0
+  br i1 %.not189, label %187, label %185
 
-187:                                              ; preds = %185
-  %188 = call i32 @hwloc_get_proc_last_cpu_location(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %11, i32 noundef 0) #15
-  %.not191 = icmp eq i32 %188, 0
-  br i1 %.not191, label %191, label %199
+185:                                              ; preds = %183
+  %186 = call i32 @hwloc_get_proc_last_cpu_location(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %11, i32 noundef 0) #15
+  %.not191 = icmp eq i32 %186, 0
+  br i1 %.not191, label %189, label %197
 
-189:                                              ; preds = %185
-  %190 = call i32 @hwloc_get_proc_cpubind(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %11, i32 noundef 0) #15
-  %.not190 = icmp eq i32 %190, 0
-  br i1 %.not190, label %191, label %199
+187:                                              ; preds = %183
+  %188 = call i32 @hwloc_get_proc_cpubind(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %11, i32 noundef 0) #15
+  %.not190 = icmp eq i32 %188, 0
+  br i1 %.not190, label %189, label %197
 
-191:                                              ; preds = %189, %187
-  %192 = call i32 @hwloc_bitmap_and(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef %1) #15
-  %193 = call i32 @hwloc_bitmap_iszero(ptr noundef nonnull %11) #17
-  %.not192 = icmp eq i32 %193, 0
-  br i1 %.not192, label %194, label %199
+189:                                              ; preds = %187, %185
+  %190 = call i32 @hwloc_bitmap_and(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef %1) #15
+  %191 = call i32 @hwloc_bitmap_iszero(ptr noundef nonnull %11) #17
+  %.not192 = icmp eq i32 %191, 0
+  br i1 %.not192, label %192, label %197
 
-194:                                              ; preds = %191
-  %195 = call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %11, ptr noundef %1) #17
-  %.not193 = icmp eq i32 %195, 0
-  %196 = zext i1 %.not193 to i32
-  %197 = getelementptr inbounds nuw i8, ptr %2, i64 1112
-  store i32 %196, ptr %197, align 8, !tbaa !26
-  %198 = getelementptr inbounds nuw i8, ptr %2, i64 1096
-  store ptr %11, ptr %198, align 8, !tbaa !27
-  br label %200
+192:                                              ; preds = %189
+  %193 = call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %11, ptr noundef %1) #17
+  %.not193 = icmp eq i32 %193, 0
+  %194 = zext i1 %.not193 to i32
+  %195 = getelementptr inbounds nuw i8, ptr %2, i64 1112
+  store i32 %194, ptr %195, align 8, !tbaa !26
+  %196 = getelementptr inbounds nuw i8, ptr %2, i64 1096
+  store ptr %11, ptr %196, align 8, !tbaa !27
+  br label %198
 
 .sink.split:                                      ; preds = %18, %12
   tail call void @free(ptr noundef nonnull %13) #15
-  br label %199
+  br label %197
 
-199:                                              ; preds = %.sink.split, %191, %189, %187
+197:                                              ; preds = %.sink.split, %189, %187, %185
   call void @hwloc_bitmap_free(ptr noundef nonnull %11) #15
-  br label %200
+  br label %198
 
-200:                                              ; preds = %4, %199, %194
+198:                                              ; preds = %4, %197, %192
   %.0 = phi i32 [ -1, %199 ], [ 0, %194 ], [ -1, %4 ]
   ret i32 %.0
 }
@@ -890,10 +890,10 @@ hwloc_ps_free_process.exit:                       ; preds = %38, %30
 
 .preheader:                                       ; preds = %hwloc_ps_free_process.exit
   %47 = call ptr @readdir(ptr noundef nonnull %46) #15
-  %.not4149 = icmp eq ptr %47, null
-  br i1 %.not4149, label %._crit_edge, label %.lr.ph50
+  %.not4150 = icmp eq ptr %47, null
+  br i1 %.not4150, label %._crit_edge, label %.lr.ph51
 
-.lr.ph50:                                         ; preds = %.preheader, %66
+.lr.ph51:                                         ; preds = %.preheader, %66
   %48 = phi ptr [ %67, %66 ], [ %47, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %49 = load i64, ptr %9, align 8, !tbaa !3
@@ -903,7 +903,7 @@ hwloc_ps_free_process.exit:                       ; preds = %38, %30
   %.not42 = icmp eq ptr %52, null
   br i1 %.not42, label %66, label %53, !llvm.loop !32
 
-53:                                               ; preds = %.lr.ph50
+53:                                               ; preds = %.lr.ph51
   %54 = call i64 @fread(ptr noundef nonnull %11, i64 noundef 1, i64 noundef 4095, ptr noundef nonnull %52)
   %55 = call i32 @fclose(ptr noundef nonnull %52)
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 %54
@@ -929,11 +929,11 @@ hwloc_ps_free_process.exit:                       ; preds = %38, %30
   %65 = icmp eq ptr %64, %60
   br i1 %65, label %.thread, label %.lr.ph
 
-66:                                               ; preds = %.thread, %.lr.ph50
+66:                                               ; preds = %.thread, %.lr.ph51
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %67 = call ptr @readdir(ptr noundef nonnull %46) #15
   %.not41 = icmp eq ptr %67, null
-  br i1 %.not41, label %._crit_edge, label %.lr.ph50
+  br i1 %.not41, label %._crit_edge, label %.lr.ph51
 
 ._crit_edge:                                      ; preds = %66, %.preheader
   %68 = call i32 @closedir(ptr noundef nonnull %46)

@@ -975,8 +975,8 @@ define void @duckdb_je_extent_record(ptr noundef %0, ptr noundef %1, ptr noundef
 malloc_mutex_lock.exit:                           ; preds = %12, %18
   %.val36 = load i64, ptr %4, align 8, !tbaa !42
   %22 = and i64 %.val36, 65536
-  %.not40 = icmp eq i64 %22, 0
-  br i1 %.not40, label %23, label %51
+  %.not41 = icmp eq i64 %22, 0
+  br i1 %.not41, label %23, label %51
 
 23:                                               ; preds = %malloc_mutex_lock.exit
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 19432
@@ -1028,8 +1028,8 @@ atomic_load_zu.exit:                              ; preds = %33
 
 extent_may_force_decay.exit:                      ; preds = %44
   %47 = tail call i64 @duckdb_je_pac_decay_ms_get(ptr noundef nonnull %1, i32 noundef 2) #9
-  %.not41 = icmp eq i64 %47, -1
-  br i1 %.not41, label %.thread, label %48
+  %.not42 = icmp eq i64 %47, -1
+  br i1 %.not42, label %.thread, label %48
 
 .thread:                                          ; preds = %extent_may_force_decay.exit, %41, %atomic_load_zu.exit, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -130,7 +130,7 @@ define dso_local noundef i32 @_ZNK20btPolarDecomposition9decomposeERK11btMatrix3
   %81 = phi float [ %53, %.lr.ph ], [ %228, %256 ]
   %82 = phi float [ %45, %.lr.ph ], [ %220, %256 ]
   %83 = phi float [ %37, %.lr.ph ], [ %212, %256 ]
-  %.042271 = phi i32 [ 0, %.lr.ph ], [ %257, %256 ]
+  %.042275 = phi i32 [ 0, %.lr.ph ], [ %257, %256 ]
   %84 = tail call noundef float @llvm.fabs.f32(float %83)
   %85 = tail call noundef float @llvm.fabs.f32(float %82)
   %86 = fadd float %84, %85
@@ -343,7 +343,7 @@ define dso_local noundef i32 @_ZNK20btPolarDecomposition9decomposeERK11btMatrix3
   br i1 %255, label %256, label %260
 
 256:                                              ; preds = %149
-  %257 = add nuw i32 %.042271, 1
+  %257 = add nuw i32 %.042275, 1
   %258 = load i32, ptr %63, align 4, !tbaa !10
   %259 = icmp ult i32 %257, %258
   br i1 %259, label %74, label %.thread253, !llvm.loop !18
@@ -500,7 +500,7 @@ define dso_local noundef i32 @_ZNK20btPolarDecomposition9decomposeERK11btMatrix3
   br label %382
 
 382:                                              ; preds = %260, %.thread253
-  %.4 = phi i32 [ %381, %.thread253 ], [ %.042271, %260 ]
+  %.4 = phi i32 [ %381, %.thread253 ], [ %.042275, %260 ]
   ret i32 %.4
 }
 

@@ -22,21 +22,21 @@ $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__op
 define hidden noundef zeroext i1 @_ZN5ceres8internal12IsArrayValidElPKd(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp ne ptr %1, null
   %3 = icmp sgt i64 %0, 0
-  %or.cond16 = and i1 %.not, %3
-  br i1 %or.cond16, label %.lr.ph, label %.thread
+  %or.cond18 = and i1 %.not, %3
+  br i1 %or.cond18, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.0913 = phi i64 [ %9, %.lr.ph ], [ 0, %2 ]
-  %4 = getelementptr inbounds nuw double, ptr %1, i64 %.0913
+  %.0915 = phi i64 [ %9, %.lr.ph ], [ 0, %2 ]
+  %4 = getelementptr inbounds nuw double, ptr %1, i64 %.0915
   %5 = load double, ptr %4, align 8, !tbaa !3
   %6 = tail call double @llvm.fabs.f64(double %5)
   %7 = fcmp one double %6, 0x7FF0000000000000
   %8 = fcmp une double %5, 1.000000e+302
   %or.cond.not = select i1 %7, i1 %8, i1 false
-  %9 = add nuw nsw i64 %.0913, 1
+  %9 = add nuw nsw i64 %.0915, 1
   %exitcond.not = icmp ne i64 %9, %0
-  %or.cond.not21 = select i1 %or.cond.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not21, label %.lr.ph, label %.thread, !llvm.loop !7
+  %or.cond.not23 = select i1 %or.cond.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not23, label %.lr.ph, label %.thread, !llvm.loop !7
 
 .thread:                                          ; preds = %.lr.ph, %2
   %.1 = phi i1 [ true, %2 ], [ %or.cond.not, %.lr.ph ]
@@ -50,7 +50,7 @@ define hidden noundef i64 @_ZN5ceres8internal16FindInvalidValueElPKd(i64 noundef
   %or.cond19 = and i1 %3, %4
   br i1 %or.cond19, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %2, %10
+.lr.ph: ; preds = %2, %10
   %.01216 = phi i64 [ %11, %10 ], [ 0, %2 ]
   %5 = getelementptr inbounds nuw double, ptr %1, i64 %.01216
   %6 = load double, ptr %5, align 8, !tbaa !3
@@ -60,12 +60,12 @@ define hidden noundef i64 @_ZN5ceres8internal16FindInvalidValueElPKd(i64 noundef
   %or.cond = select i1 %8, i1 true, i1 %9
   br i1 %or.cond, label %.thread, label %10
 
-10:                                               ; preds = %.lr.ph
+10:; preds = %.lr.ph
   %11 = add nuw nsw i64 %.01216, 1
   %exitcond.not = icmp eq i64 %11, %0
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !9
 
-.thread:                                          ; preds = %10, %.lr.ph, %2
+.thread:; preds = %10, %.lr.ph, %2
   %.013 = phi i64 [ %0, %2 ], [ %0, %10 ], [ %.01216, %.lr.ph ]
   ret i64 %.013
 }

@@ -6521,12 +6521,12 @@ define linkonce_odr void @_ZN4pkpy11LiteralExprD2Ev(ptr noundef nonnull align 8 
     i8 3, label %4
   ]
 
-4:                                                ; preds = %1
+6:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #32
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateldN4pkpy3StrEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_ldS5_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i
 
-_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateldN4pkpy3StrEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_ldS5_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i: ; preds = %4, %1
+_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateldN4pkpy3StrEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_ldS5_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i: ; preds = %6, %1
   store i8 -1, ptr %2, align 8
   br label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit
 

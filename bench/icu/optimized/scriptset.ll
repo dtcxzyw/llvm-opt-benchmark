@@ -254,7 +254,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779ScriptSet10intersectsERKS0
 3:                                                ; preds = %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %10, label %4, !llvm.loop !13
+  br i1 %exitcond.not, label %9, label %4, !llvm.loop !13
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
@@ -266,7 +266,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779ScriptSet10intersectsERKS0
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %3, label %10
 
-10:                                               ; preds = %3, %4
+9:                                                ; preds = %3, %4
   %11 = phi i8 [ 1, %4 ], [ 0, %3 ]
   ret i8 %11
 }
@@ -403,8 +403,8 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779ScriptSet7isEmptyEv(ptr no
 
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %6, label %3, !llvm.loop !18
+  %exitcond = icmp eq i64 %indvars.iv.next, 7
+  br i1 %exitcond, label %6, label %3, !llvm.loop !18
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
@@ -413,7 +413,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779ScriptSet7isEmptyEv(ptr no
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %2, label %6
 
-6:                                                ; preds = %2, %3
+5:                                                ; preds = %2, %3
   %7 = phi i8 [ 0, %3 ], [ 1, %2 ]
   ret i8 %7
 }

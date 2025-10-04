@@ -70,7 +70,7 @@ define hidden range(i32 0, 2) i32 @internal_exr_is_standard_type(ptr noundef rea
   %exitcond.not = icmp eq i64 %indvars.iv.next, 29
   br i1 %exitcond.not, label %8, label %3, !llvm.loop !3
 
-3:                                                ; preds = %1, %2
+7:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %4 = getelementptr inbounds nuw %struct._internal_exr_attr_map, ptr @the_predefined_attr_typenames, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !5
@@ -1123,16 +1123,16 @@ define internal fastcc i32 @add_to_list(ptr noundef nonnull %0, ptr noundef capt
   %47 = getelementptr inbounds ptr, ptr %.073, i64 %45
   store ptr %2, ptr %47, align 8, !tbaa !28
   %48 = icmp sgt i32 %4, 0
-  br i1 %48, label %.lr.ph13.preheader, label %.thread3
+  br i1 %48, label %.lr.ph14.preheader, label %.thread3
 
-.lr.ph13.preheader:                               ; preds = %44
+.lr.ph14.preheader:                               ; preds = %44
   %49 = zext nneg i32 %4 to i64
-  br label %.lr.ph13
+  br label %.lr.ph14
 
-.lr.ph13:                                         ; preds = %.lr.ph13.preheader, %56
-  %indvars.iv17 = phi i64 [ %49, %.lr.ph13.preheader ], [ %indvars.iv.next18, %56 ]
-  %indvars.iv.next18 = add nsw i64 %indvars.iv17, -1
-  %50 = getelementptr inbounds nuw ptr, ptr %.073, i64 %indvars.iv.next18
+.lr.ph14:                                         ; preds = %.lr.ph14.preheader, %56
+  %indvars.iv18 = phi i64 [ %49, %.lr.ph13.preheader ], [ %indvars.iv.next19, %56 ]
+  %indvars.iv.next19 = add nsw i64 %indvars.iv18, -1
+  %50 = getelementptr inbounds nuw ptr, ptr %.073, i64 %indvars.iv.next19
   %51 = load ptr, ptr %50, align 8, !tbaa !28
   %52 = load ptr, ptr %2, align 8, !tbaa !57
   %53 = load ptr, ptr %51, align 8, !tbaa !57
@@ -1140,14 +1140,14 @@ define internal fastcc i32 @add_to_list(ptr noundef nonnull %0, ptr noundef capt
   %55 = icmp sgt i32 %54, -1
   br i1 %55, label %.thread3, label %56
 
-56:                                               ; preds = %.lr.ph13
+56:                                               ; preds = %.lr.ph14
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %51, ptr %57, align 8, !tbaa !28
   store ptr %2, ptr %50, align 8, !tbaa !28
-  %58 = icmp samesign ugt i64 %indvars.iv17, 1
-  br i1 %58, label %.lr.ph13, label %.thread3
+  %58 = icmp samesign ugt i64 %indvars.iv18, 1
+  br i1 %58, label %.lr.ph14, label %.thread3
 
-.thread3:                                         ; preds = %56, %.lr.ph13, %44
+.thread3:                                         ; preds = %56, %.lr.ph14, %44
   store i32 %5, ptr %1, align 8, !tbaa !16
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %60 = load i32, ptr %59, align 4, !tbaa !30

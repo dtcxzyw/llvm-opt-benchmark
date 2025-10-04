@@ -20,24 +20,24 @@ $__clang_call_terminate = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN5boost7atomics6detail20find_address_genericEPVKvPKS3_m(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not11.not = icmp eq i64 %2, 0
+  br i1 %.not11.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %7
   %.0912 = phi i64 [ %8, %7 ], [ 0, %3 ]
   %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0912
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = icmp eq ptr %5, %0
-  br i1 %6, label %._crit_edge, label %7
+  br i1 %6, label %._crit_edge.loopexit, label %7
 
 7:                                                ; preds = %.lr.ph
   %8 = add nuw i64 %.0912, 1
   %exitcond.not = icmp eq i64 %8, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %.lr.ph, %7, %3
-  %9 = phi i64 [ 0, %3 ], [ %2, %7 ], [ %.0912, %.lr.ph ]
-  ret i64 %9
+._crit_edge.loopexit:                             ; preds = %.lr.ph, %7, %3
+  %.09.lcssa.ph = phi i64 [ 0, %3 ], [ %2, %7 ], [ %.0912, %.lr.ph ]
+  ret i64 %.09.lcssa.ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -47,7 +47,7 @@ define noundef nonnull ptr @_ZN5boost7atomics6detail9lock_pool10short_lockEm(i64
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i: ; preds = %.critedge.i.i, %1
-  %.026.i.i = phi i32 [ 0, %1 ], [ %11, %.critedge.i.i ]
+  %.028.i.i = phi i32 [ 0, %1 ], [ %11, %.critedge.i.i ]
   %4 = load atomic volatile i32, ptr %3 monotonic, align 64
   %5 = and i32 %4, 1
   %6 = icmp eq i32 %5, 0
@@ -61,7 +61,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
 
 .critedge.i.i:                                    ; preds = %7, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i
   tail call void asm sideeffect "pause;", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
-  %11 = add nuw nsw i32 %.026.i.i, 1
+  %11 = add nuw nsw i32 %.028.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %11, 10
   br i1 %exitcond.not.i.i, label %12, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i, !llvm.loop !11
 
@@ -96,7 +96,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exch
   br label %.backedge
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i.i: ; preds = %22
-  %27 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 128, i32 noundef %23, ptr noundef null, ptr noundef null, i32 noundef 0) #16
+  %27 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 128, i32 noundef %23, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   %28 = load atomic volatile i32, ptr %3 monotonic, align 64
   br label %.backedge
 
@@ -115,7 +115,7 @@ define noundef nonnull ptr @_ZN5boost7atomics6detail9lock_pool9long_lockEm(i64 n
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i: ; preds = %.critedge.i, %1
-  %.026.i = phi i32 [ 0, %1 ], [ %11, %.critedge.i ]
+  %.028.i = phi i32 [ 0, %1 ], [ %11, %.critedge.i ]
   %4 = load atomic volatile i32, ptr %3 monotonic, align 64
   %5 = and i32 %4, 1
   %6 = icmp eq i32 %5, 0
@@ -129,7 +129,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
 
 .critedge.i:                                      ; preds = %7, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i
   tail call void asm sideeffect "pause;", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
-  %11 = add nuw nsw i32 %.026.i, 1
+  %11 = add nuw nsw i32 %.028.i, 1
   %exitcond.not.i = icmp eq i32 %11, 10
   br i1 %exitcond.not.i, label %12, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i, !llvm.loop !11
 
@@ -164,7 +164,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exch
   br label %.backedge
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i: ; preds = %22
-  %27 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 128, i32 noundef %23, ptr noundef null, ptr noundef null, i32 noundef 0) #16
+  %27 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 128, i32 noundef %23, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   %28 = load atomic volatile i32, ptr %3 monotonic, align 64
   br label %.backedge
 
@@ -181,7 +181,7 @@ define internal fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110l
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit: ; preds = %1, %.critedge
-  %.026 = phi i32 [ 0, %1 ], [ %9, %.critedge ]
+  %.028 = phi i32 [ 0, %1 ], [ %9, %.critedge ]
   %2 = load atomic volatile i32, ptr %0 monotonic, align 8
   %3 = and i32 %2, 1
   %4 = icmp eq i32 %3, 0
@@ -195,7 +195,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
 
 .critedge:                                        ; preds = %5, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit
   tail call void asm sideeffect "pause;", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
-  %9 = add nuw nsw i32 %.026, 1
+  %9 = add nuw nsw i32 %.028, 1
   %exitcond.not = icmp eq i32 %9, 10
   br i1 %exitcond.not, label %10, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit, !llvm.loop !11
 
@@ -230,7 +230,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exch
   br label %.backedge
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i: ; preds = %20
-  %25 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 128, i32 noundef %21, ptr noundef null, ptr noundef null, i32 noundef 0) #16
+  %25 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 128, i32 noundef %21, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   %26 = load atomic volatile i32, ptr %0 monotonic, align 8
   br label %.backedge
 
@@ -268,7 +268,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exch
   br i1 %.not.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit, label %14
 
 14:                                               ; preds = %._crit_edge.i
-  %15 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #16
+  %15 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   %16 = and i64 %15, 4294967295
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %18, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit
@@ -309,7 +309,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exch
   br i1 %.not, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE23compare_exchange_strongERVjRjjNS_12memory_orderES7_.exit, label %13
 
 13:                                               ; preds = %._crit_edge
-  %14 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %0, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #16
+  %14 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %0, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   %15 = and i64 %14, 4294967295
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE23compare_exchange_strongERVjRjjNS_12memory_orderES7_.exit
@@ -331,7 +331,7 @@ define noundef ptr @_ZN5boost7atomics6detail9lock_pool19allocate_wait_stateEPvPV
   br i1 %5, label %6, label %9, !prof !16
 
 6:                                                ; preds = %2
-  %7 = tail call fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list15allocate_bufferEmPNS4_6headerE(i64 noundef 2, ptr noundef null) #16
+  %7 = tail call fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list15allocate_bufferEmPNS4_6headerE(i64 noundef 2, ptr noundef null) #17
   store ptr %7, ptr %3, align 8, !tbaa !13
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit.thread, label %.critedge.thread.i, !prof !16
@@ -351,14 +351,14 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i
 
 _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i._ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread_crit_edge.i: ; preds = %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
-  %.pre33.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !20
+  %.pre34.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !20
   br label %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread.i
 
 16:                                               ; preds = %9
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #17
+  tail call void @__clang_call_terminate(ptr %18) #18
   unreachable
 
 _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.i: ; preds = %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i.i
@@ -372,20 +372,20 @@ _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exi
   br i1 %.not.i, label %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit, !prof !21
 
 _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread.i: ; preds = %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.i, %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i._ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread_crit_edge.i
-  %25 = phi i64 [ %.pre33.i, %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i._ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread_crit_edge.i ], [ %21, %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.i ]
+  %25 = phi i64 [ %.pre34.i, %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i._ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread_crit_edge.i ], [ %21, %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.i ]
   %26 = load i64, ptr %.pre.i, align 8, !tbaa !17
   %27 = icmp eq i64 %26, %25
   br i1 %27, label %28, label %.critedge.thread.i, !prof !16
 
 28:                                               ; preds = %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread.i
   %29 = shl i64 %25, 1
-  %30 = tail call fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list15allocate_bufferEmPNS4_6headerE(i64 noundef %29, ptr noundef nonnull %.pre.i) #16
+  %30 = tail call fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list15allocate_bufferEmPNS4_6headerE(i64 noundef %29, ptr noundef nonnull %.pre.i) #17
   %.not27.i = icmp eq ptr %30, null
   br i1 %.not27.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit.thread, label %31, !prof !16
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr %3, align 8, !tbaa !13
-  tail call void @free(ptr noundef %32) #16
+  tail call void @free(ptr noundef %32) #17
   store ptr %30, ptr %3, align 8, !tbaa !13
   br label %.critedge.thread.i
 
@@ -402,7 +402,7 @@ _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exi
   br i1 %41, label %42, label %49, !prof !16
 
 42:                                               ; preds = %.critedge.thread.i
-  %43 = tail call noalias noundef dereferenceable_or_null(24) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 24, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #18
+  %43 = tail call noalias noundef dereferenceable_or_null(24) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 24, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #19
   %44 = icmp eq ptr %43, null
   br i1 %44, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit.thread, label %45
 
@@ -500,7 +500,7 @@ define void @_ZN5boost7atomics6detail9lock_pool15free_wait_stateEPvS3_(ptr nound
   br i1 %33, label %34, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list5eraseEPNS3_10wait_stateE.exit, !prof !16
 
 34:                                               ; preds = %27
-  tail call fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list10free_spareEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
+  tail call fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list10free_spareEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #17
   br label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list5eraseEPNS3_10wait_stateE.exit
 
 _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list5eraseEPNS3_10wait_stateE.exit: ; preds = %34, %27, %3, %2
@@ -544,7 +544,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exch
   br i1 %.not.i.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit.i.preheader, label %22
 
 22:                                               ; preds = %._crit_edge.i.i
-  %23 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #16
+  %23 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   %24 = and i64 %23, 4294967295
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %26, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit.i.preheader
@@ -558,13 +558,13 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit.i.pre
   br label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit.i
 
 _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit.i: ; preds = %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit.i.preheader, %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit.i
-  %29 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %5, i32 noundef 128, i32 noundef %6, ptr noundef null, ptr noundef null, i32 noundef 0) #16
+  %29 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %5, i32 noundef 128, i32 noundef %6, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   %30 = and i64 %29, 4294967295
   %.not.i = icmp eq i64 %30, 4
   br i1 %.not.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit.i, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i: ; preds = %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit.i, %.critedge.i.i
-  %.026.i.i = phi i32 [ %38, %.critedge.i.i ], [ 0, %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit.i ]
+  %.028.i.i = phi i32 [ %38, %.critedge.i.i ], [ 0, %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit.i ]
   %31 = load atomic volatile i32, ptr %0 monotonic, align 4
   %32 = and i32 %31, 1
   %33 = icmp eq i32 %32, 0
@@ -578,7 +578,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
 
 .critedge.i.i:                                    ; preds = %34, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i
   tail call void asm sideeffect "pause;", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
-  %38 = add nuw nsw i32 %.026.i.i, 1
+  %38 = add nuw nsw i32 %.028.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %38, 10
   br i1 %exitcond.not.i.i, label %39, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i, !llvm.loop !11
 
@@ -613,7 +613,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exch
   br label %.backedge
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i.i: ; preds = %49
-  %54 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 128, i32 noundef %50, ptr noundef null, ptr noundef null, i32 noundef 0) #16
+  %54 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 128, i32 noundef %50, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   %55 = load atomic volatile i32, ptr %0 monotonic, align 4
   br label %.backedge
 
@@ -628,7 +628,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state4waitERNS3_10lock_st
   br label %64
 
 58:                                               ; preds = %2
-  tail call fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
+  tail call fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %3, align 8
@@ -640,12 +640,12 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state4waitERNS3_10lock_st
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #17
+  call void @__clang_call_terminate(ptr %63) #18
   unreachable
 
 _ZN5boost7atomics6detail9wait_someEv.exit:        ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state9long_lockEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
+  call fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state9long_lockEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
   br label %64
 
 64:                                               ; preds = %_ZN5boost7atomics6detail9wait_someEv.exit, %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state4waitERNS3_10lock_stateE.exit
@@ -675,7 +675,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #17
+  tail call void @__clang_call_terminate(ptr %14) #18
   unreachable
 
 _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit: ; preds = %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i
@@ -700,7 +700,7 @@ _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exi
   br i1 %.not.i6, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_oneERNS3_10lock_stateE.exit, label %27, !prof !16
 
 27:                                               ; preds = %21
-  %28 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %22, i32 noundef 131, i32 noundef 0, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0) #16
+  %28 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %22, i32 noundef 131, i32 noundef 0, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0) #17
   tail call void asm sideeffect "lock; orl $1, $0\0A\09", "=*m,ir,*m,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) align 8 dereferenceable(24) %0, i32 2, ptr nonnull elementtype(i32) align 8 dereferenceable(24) %0) #16, !srcloc !33
   br label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_oneERNS3_10lock_stateE.exit
 
@@ -731,7 +731,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #17
+  tail call void @__clang_call_terminate(ptr %14) #18
   unreachable
 
 _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit: ; preds = %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i
@@ -756,7 +756,7 @@ _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exi
   br i1 %.not.i6, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_allERNS3_10lock_stateE.exit, label %27, !prof !16
 
 27:                                               ; preds = %21
-  %28 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %22, i32 noundef 131, i32 noundef 0, i64 noundef 2147483647, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0) #16
+  %28 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %22, i32 noundef 131, i32 noundef 0, i64 noundef 2147483647, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0) #17
   tail call void asm sideeffect "lock; orl $1, $0\0A\09", "=*m,ir,*m,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) align 8 dereferenceable(24) %0, i32 2, ptr nonnull elementtype(i32) align 8 dereferenceable(24) %0) #16, !srcloc !33
   br label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_allERNS3_10lock_stateE.exit
 
@@ -797,14 +797,14 @@ define internal fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL_
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @atexit(ptr noundef nonnull @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_117cleanup_lock_poolEv) #16
+  %10 = tail call i32 @atexit(ptr noundef nonnull @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_117cleanup_lock_poolEv) #17
   br label %11
 
 11:                                               ; preds = %6, %9, %2
   %12 = shl i64 %0, 4
   %13 = add i64 %12, 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %14 = call i32 @posix_memalign(ptr noundef nonnull %3, i64 noundef 16, i64 noundef %13) #16
+  %14 = call i32 @posix_memalign(ptr noundef nonnull %3, i64 noundef 16, i64 noundef %13) #17
   %.not.i = icmp ne i32 %14, 0
   %.pre.i = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -876,7 +876,7 @@ define internal void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_117cleanup_
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i: ; preds = %.critedge.i, %2
-  %.026.i = phi i32 [ 0, %2 ], [ %11, %.critedge.i ]
+  %.028.i = phi i32 [ 0, %2 ], [ %11, %.critedge.i ]
   %4 = load atomic volatile i32, ptr %3 monotonic, align 64
   %5 = and i32 %4, 1
   %6 = icmp eq i32 %5, 0
@@ -890,7 +890,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
 
 .critedge.i:                                      ; preds = %7, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i
   tail call void asm sideeffect "pause;", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
-  %11 = add nuw nsw i32 %.026.i, 1
+  %11 = add nuw nsw i32 %.028.i, 1
   %exitcond.not.i = icmp eq i32 %11, 10
   br i1 %exitcond.not.i, label %12, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i, !llvm.loop !11
 
@@ -925,7 +925,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exch
   br label %.backedge
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i: ; preds = %22
-  %27 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 128, i32 noundef %23, ptr noundef null, ptr noundef null, i32 noundef 0) #16
+  %27 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 128, i32 noundef %23, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   %28 = load atomic volatile i32, ptr %3 monotonic, align 64
   br label %.backedge
 
@@ -958,7 +958,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state9long_lockEv.exit: ;
   br i1 %.not12.not.i, label %.critedge.loopexit.i, label %41
 
 41:                                               ; preds = %.lr.ph.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef 24) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef 24) #20
   store ptr null, ptr %39, align 8, !tbaa !3
   %42 = add i64 %.013.i, 1
   %exitcond.not.i7 = icmp eq i64 %42, %35
@@ -976,7 +976,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state9long_lockEv.exit: ;
   br i1 %45, label %46, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list10free_spareEv.exit
 
 46:                                               ; preds = %.critedge.i6
-  tail call void @free(ptr noundef nonnull %44) #16
+  tail call void @free(ptr noundef nonnull %44) #17
   store ptr null, ptr %29, align 8, !tbaa !13
   br label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list10free_spareEv.exit
 
@@ -1005,7 +1005,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exch
   br i1 %.not.i9, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit, label %59
 
 59:                                               ; preds = %._crit_edge.i
-  %60 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #16
+  %60 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 129, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   %61 = and i64 %60, 4294967295
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %63, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit
@@ -1050,7 +1050,7 @@ define internal fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115w
   br i1 %.not12.not, label %.critedge.loopexit, label %12
 
 12:                                               ; preds = %.lr.ph
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 24) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 24) #20
   store ptr null, ptr %10, align 8, !tbaa !3
   %13 = add i64 %.013, 1
   %exitcond.not = icmp eq i64 %13, %6
@@ -1068,7 +1068,7 @@ define internal fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115w
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %15) #16
+  tail call void @free(ptr noundef nonnull %15) #17
   store ptr null, ptr %0, align 8, !tbaa !13
   br label %18
 
@@ -1091,8 +1091,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
-  tail call void @_ZSt9terminatev() #17
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  tail call void @_ZSt9terminatev() #18
   unreachable
 }
 

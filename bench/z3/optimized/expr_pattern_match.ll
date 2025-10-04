@@ -284,13 +284,13 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %4
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread, label %_ZNK15ref_vector_coreI10quantifier19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
 
-17:                                               ; preds = %25
+17:; preds = %25
   %18 = add nuw i32 %.0912, 1
   %19 = load ptr, ptr %14, align 8, !tbaa !25
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread, label %_ZNK15ref_vector_coreI10quantifier19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, !llvm.loop !28
 
-_ZNK15ref_vector_coreI10quantifier19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %11, %17
+_ZNK15ref_vector_coreI10quantifier19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:; preds = %11, %17
   %21 = phi ptr [ %19, %17 ], [ %15, %11 ]
   %.0912 = phi i32 [ %18, %17 ], [ 0, %11 ]
   %22 = getelementptr inbounds i8, ptr %21, i64 -4
@@ -1652,25 +1652,25 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %4
 
 _ZNK15ref_vector_coreI10quantifier19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %12, %.critedge
   %18 = phi ptr [ %25, %.critedge ], [ %16, %12 ]
-  %.01116 = phi i32 [ %24, %.critedge ], [ 0, %12 ]
+  %.01121 = phi i32 [ %24, %.critedge ], [ 0, %12 ]
   %19 = getelementptr inbounds i8, ptr %18, i64 -4
   %20 = load i32, ptr %19, align 4, !tbaa !12
-  %21 = icmp ult i32 %.01116, %20
+  %21 = icmp ult i32 %.01121, %20
   br i1 %21, label %22, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread
 
 22:                                               ; preds = %_ZNK15ref_vector_coreI10quantifier19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %23 = call noundef zeroext i1 @_ZN18expr_pattern_match16match_quantifierEjP10quantifierR10ref_vectorI3app11ast_managerERj(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %.01116, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %23 = call noundef zeroext i1 @_ZN18expr_pattern_match16match_quantifierEjP10quantifierR10ref_vectorI3app11ast_managerERj(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %.01121, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br i1 %23, label %27, label %.critedge
 
-.critedge:                                        ; preds = %22
+24:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = add nuw i32 %.01116, 1
   %25 = load ptr, ptr %15, align 8, !tbaa !25
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread, label %_ZNK15ref_vector_coreI10quantifier19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, !llvm.loop !134
 
-27:                                               ; preds = %22
+.critedge:                                        ; preds = %22
   store i32 %.01116, ptr %3, align 4, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread

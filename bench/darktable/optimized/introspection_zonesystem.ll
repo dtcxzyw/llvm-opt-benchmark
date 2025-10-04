@@ -1870,26 +1870,26 @@ _iop_zonesystem_calculate_zonemap.exit:           ; preds = %.loopexit.i, %3
   %61 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.next.i32
   %62 = load float, ptr %61, align 4, !tbaa !86
   %63 = fcmp reassoc nsz arcp contract afn ult float %62, %58
-  br i1 %63, label %59, label %.split.loop.exit13.i
+  br i1 %63, label %59, label %.split.loop.exit.i
 
-.split.loop.exit13.i:                             ; preds = %60
+.split.loop.exit.i:                               ; preds = %60
   %64 = trunc nuw nsw i64 %indvars.iv.i30 to i32
   br label %_iop_zonesystem_zone_index_from_lightness.exit
 
-_iop_zonesystem_zone_index_from_lightness.exit:   ; preds = %59, %.split.loop.exit13.i
-  %65 = phi i32 [ %64, %.split.loop.exit13.i ], [ %21, %59 ]
-  %66 = add nsw i32 %65, 1
+_iop_zonesystem_zone_index_from_lightness.exit:   ; preds = %59, %.split.loop.exit.i
+  %.09.lcssa.i = phi i32 [ %64, %.split.loop.exit13.i ], [ %21, %59 ]
+  %66 = add nsw i32 %.09.lcssa.i, 1
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds float, ptr %5, i64 %67
   %69 = load float, ptr %68, align 4, !tbaa !86
-  %70 = sext i32 %65 to i64
+  %70 = sext i32 %.09.lcssa.i to i64
   %71 = getelementptr inbounds float, ptr %5, i64 %70
   %72 = load float, ptr %71, align 4, !tbaa !86
   %73 = fsub reassoc nsz arcp contract afn float %69, %72
   %74 = fmul reassoc nsz arcp contract afn float %73, 5.000000e-01
   %75 = fadd reassoc nsz arcp contract afn float %74, %72
   %76 = fcmp reassoc nsz arcp contract afn ogt float %58, %75
-  %.0 = select i1 %76, i32 %66, i32 %65
+  %.0 = select i1 %76, i32 %66, i32 %.09.lcssa.i
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %78 = load i32, ptr %77, align 4, !tbaa !175
   switch i32 %78, label %97 [

@@ -568,27 +568,27 @@ define range(i32 0, 2) i32 @lv_style_get_prop(ptr noundef readonly captures(none
 
 7:                                                ; preds = %3
   %8 = load i8, ptr %6, align 8, !tbaa !10
-  %.not.not34.i = icmp eq i8 %8, 0
-  br i1 %.not.not34.i, label %lv_style_get_prop_inlined.exit, label %.lr.ph36.i.preheader
+  %.not.not37.i = icmp eq i8 %8, 0
+  br i1 %.not.not37.i, label %lv_style_get_prop_inlined.exit, label %.lr.ph39.i.preheader
 
-.lr.ph36.i.preheader:                             ; preds = %7
+.lr.ph39.i.preheader:                             ; preds = %7
   %9 = icmp eq i8 %8, %1
-  br i1 %9, label %.lr.ph36.i._crit_edge, label %.lr.ph
+  br i1 %9, label %.lr.ph39.i._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph36.i.preheader, %.lr.ph36.i
-  %.02635.i5 = phi i32 [ %10, %.lr.ph36.i ], [ 0, %.lr.ph36.i.preheader ]
-  %10 = add i32 %.02635.i5, 1
+.lr.ph:                                           ; preds = %.lr.ph39.i.preheader, %.lr.ph39.i
+  %.02638.i5 = phi i32 [ %10, %.lr.ph36.i ], [ 0, %.lr.ph36.i.preheader ]
+  %10 = add i32 %.02638.i5, 1
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw %struct.lv_style_const_prop_t, ptr %6, i64 %11
   %13 = load i8, ptr %12, align 8, !tbaa !10
   %.not.not.i = icmp eq i8 %13, 0
-  br i1 %.not.not.i, label %lv_style_get_prop_inlined.exit, label %.lr.ph36.i, !llvm.loop !46
+  br i1 %.not.not.i, label %lv_style_get_prop_inlined.exit, label %.lr.ph39.i, !llvm.loop !46
 
-.lr.ph36.i:                                       ; preds = %.lr.ph
+.lr.ph39.i:                                       ; preds = %.lr.ph
   %14 = icmp eq i8 %13, %1
-  br i1 %14, label %.lr.ph36.i._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %14, label %.lr.ph39.i._crit_edge, label %.lr.ph, !llvm.loop !46
 
-.lr.ph36.i._crit_edge:                            ; preds = %.lr.ph36.i, %.lr.ph36.i.preheader
+.lr.ph39.i._crit_edge:                            ; preds = %.lr.ph39.i, %.lr.ph39.i.preheader
   %.lcssa = phi ptr [ %6, %.lr.ph36.i.preheader ], [ %12, %.lr.ph36.i ]
   %15 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   br label %.thread.sink.split.i
@@ -616,7 +616,7 @@ define range(i32 0, 2) i32 @lv_style_get_prop(ptr noundef readonly captures(none
   %25 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %6, i64 %indvars.iv.i
   br label %.thread.sink.split.i
 
-.thread.sink.split.i:                             ; preds = %24, %.lr.ph36.i._crit_edge
+.thread.sink.split.i:                             ; preds = %24, %.lr.ph39.i._crit_edge
   %.sink.in.i = phi ptr [ %25, %24 ], [ %15, %.lr.ph36.i._crit_edge ]
   %.sink.i = load i64, ptr %.sink.in.i, align 8, !tbaa !12
   store i64 %.sink.i, ptr %2, align 8, !tbaa !12

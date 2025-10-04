@@ -188,7 +188,7 @@ define hidden { ptr, i64 } @"_ZN105_$LT$std..ffi..os_str..OsString$u20$as$u20$co
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i8 0, 5) i8 @_ZN21uv_distribution_types10dist_error13DistErrorKind9from_dist17h164c00fdbf5cae24E(ptr noalias noundef readonly align 8 dereferenceable(160) %0, ptr noalias noundef readonly align 8 dereferenceable(112) %1) unnamed_addr #1 {
   %3 = tail call noundef zeroext i1 @"_ZN104_$LT$uv_distribution..error..Error$u20$as$u20$uv_distribution_types..dist_error..IsBuildBackendError$GT$22is_build_backend_error17h89faa9a1a2e866a1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1)
-  br i1 %3, label %12, label %4
+  br i1 %3, label %switch.lookup, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr %0, align 8, !range !4, !noundef !3
@@ -198,7 +198,7 @@ define hidden noundef range(i8 0, 5) i8 @_ZN21uv_distribution_types10dist_error1
 7:                                                ; preds = %4
   %8 = icmp sgt i64 %5, -9223372036854775807
   %. = select i1 %8, i8 4, i8 0
-  br label %12
+  br label %switch.lookup
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -207,14 +207,14 @@ define hidden noundef range(i8 0, 5) i8 @_ZN21uv_distribution_types10dist_error1
   %switch = icmp ult i64 %.off, 3
   br i1 %switch, label %13, label %12
 
-12:                                               ; preds = %9, %13, %7, %2
+switch.lookup:                                    ; preds = %9, %12, %7, %2
   %.sroa.0.0 = phi i8 [ 3, %2 ], [ %., %7 ], [ %.1, %13 ], [ 2, %9 ]
   ret i8 %.sroa.0.0
 
-13:                                               ; preds = %9
-  %14 = tail call noundef zeroext i1 @_ZN21uv_distribution_types10SourceDist8is_local17hd656cee380149e64E(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %10)
-  %.1 = select i1 %14, i8 2, i8 1
-  br label %12
+12:                                               ; preds = %9
+  %13 = tail call noundef zeroext i1 @_ZN21uv_distribution_types10SourceDist8is_local17hd656cee380149e64E(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %10)
+  %.1 = select i1 %13, i8 2, i8 1
+  br label %switch.lookup
 }
 
 ; Function Attrs: nonlazybind uwtable

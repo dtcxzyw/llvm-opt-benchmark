@@ -292,7 +292,7 @@ define noundef ptr @cli_htu32_next(ptr noundef readonly captures(address_is_null
   %18 = add i64 %5, -1
   br label %21
 
-19:                                               ; preds = %21
+.loopexit:                                        ; preds = %21
   %20 = add i64 %.12033, 1
   %exitcond.not = icmp eq i64 %20, %5
   br i1 %exitcond.not, label %.loopexit, label %21
@@ -1519,8 +1519,8 @@ define range(i32 0, 21) i32 @cli_hashset_addkey(ptr noundef captures(none) %0, i
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 28
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !38
-  %.phi.trans.insert34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre35 = load ptr, ptr %.phi.trans.insert34, align 8, !tbaa !42
+  %.phi.trans.insert35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre36 = load ptr, ptr %.phi.trans.insert35, align 8, !tbaa !42
   br label %124
 
 9:                                                ; preds = %2
@@ -1781,7 +1781,7 @@ cli_hashset_grow.exit:                            ; preds = %117, %121
   br label %124
 
 124:                                              ; preds = %._crit_edge, %cli_hashset_grow.exit
-  %125 = phi ptr [ %.pre35, %._crit_edge ], [ %.sroa.9.0.i, %cli_hashset_grow.exit ]
+  %125 = phi ptr [ %.pre36, %._crit_edge ], [ %.sroa.9.0.i, %cli_hashset_grow.exit ]
   %126 = phi i32 [ %.pre, %._crit_edge ], [ %.sroa.16.0.i, %cli_hashset_grow.exit ]
   %127 = xor i32 %1, -1
   %128 = shl i32 %1, 15
@@ -1825,7 +1825,7 @@ cli_hashset_grow.exit:                            ; preds = %117, %121
   %.pre19.i = shl nuw nsw i64 1, %.pre.i11
   %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds nuw i32, ptr %125, i64 %.pre18.i
   %.pre11.i.pre = load i32, ptr %.phi.trans.insert.i.phi.trans.insert, align 4, !tbaa !32
-  %.pre37 = zext i32 %.pre11.i.pre to i64
+  %.pre38 = zext i32 %.pre11.i.pre to i64
   br label %cli_hashset_search.exit.i
 
 152:                                              ; preds = %149
@@ -1844,7 +1844,7 @@ cli_hashset_grow.exit:                            ; preds = %117, %121
 
 cli_hashset_search.exit.i:                        ; preds = %152, %.cli_hashset_search.exit.loopexit_crit_edge.i, %124
   %.pre-phi17.i = phi i64 [ %145, %124 ], [ %.pre19.i, %.cli_hashset_search.exit.loopexit_crit_edge.i ], [ %161, %152 ]
-  %.pre-phi13.i = phi i64 [ %143, %124 ], [ %.pre37, %.cli_hashset_search.exit.loopexit_crit_edge.i ], [ %159, %152 ]
+  %.pre-phi13.i = phi i64 [ %143, %124 ], [ %.pre38, %.cli_hashset_search.exit.loopexit_crit_edge.i ], [ %159, %152 ]
   %163 = phi i32 [ %142, %124 ], [ %.pre11.i.pre, %.cli_hashset_search.exit.loopexit_crit_edge.i ], [ %158, %152 ]
   %.pre-phi.i = phi i64 [ %140, %124 ], [ %.pre18.i, %.cli_hashset_search.exit.loopexit_crit_edge.i ], [ %156, %152 ]
   %.011.lcssa.i.i = phi i64 [ %139, %124 ], [ %.01114.i.i, %.cli_hashset_search.exit.loopexit_crit_edge.i ], [ %155, %152 ]

@@ -20255,8 +20255,8 @@ _ZN6vectorIP4exprLb0EjE4backEv.exit.i:            ; preds = %208, %._ZN6vectorIP
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8pop_backEv.exit: ; preds = %217
   call void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %216, ptr noundef nonnull %214)
-  %.pre215 = load ptr, ptr %8, align 8, !tbaa !139
-  %222 = icmp eq ptr %.pre215, null
+  %.pre216 = load ptr, ptr %8, align 8, !tbaa !139
+  %222 = icmp eq ptr %.pre216, null
   br i1 %222, label %223, label %_ZN4smt26parser10expr_stackEv.exit48
 
 223:                                              ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8pop_backEv.exit
@@ -20279,7 +20279,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8pop_backEv.ex
   br label %_ZN4smt26parser10expr_stackEv.exit48
 
 _ZN4smt26parser10expr_stackEv.exit48:             ; preds = %217, %_ZN6vectorIP4exprLb0EjE4backEv.exit.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8pop_backEv.exit, %223, %231
-  %232 = phi ptr [ %224, %231 ], [ %230, %223 ], [ %.pre215, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8pop_backEv.exit ], [ %204, %_ZN6vectorIP4exprLb0EjE4backEv.exit.i ], [ %204, %217 ]
+  %232 = phi ptr [ %224, %231 ], [ %230, %223 ], [ %.pre216, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8pop_backEv.exit ], [ %204, %_ZN6vectorIP4exprLb0EjE4backEv.exit.i ], [ %204, %217 ]
   %.not.i.i.i.i49 = icmp eq ptr %192, null
   br i1 %.not.i.i.i.i49, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %233
 
@@ -20934,9 +20934,9 @@ thread-pre-split:                                 ; preds = %_ZN4smt26parser4nex
   br i1 %.not, label %.thread, label %59
 
 .thread.sink.split.sink.split:                    ; preds = %_ZN4smt26parser18check_in_quant_ctxEPNS0_15attr_expr_frameE.exit114, %_ZN4smt26parser18check_in_quant_ctxEPNS0_15attr_expr_frameE.exit99
-  %.sink291 = phi ptr [ %381, %_ZN4smt26parser18check_in_quant_ctxEPNS0_15attr_expr_frameE.exit99 ], [ %404, %_ZN4smt26parser18check_in_quant_ctxEPNS0_15attr_expr_frameE.exit114 ]
+  %.sink292 = phi ptr [ %381, %_ZN4smt26parser18check_in_quant_ctxEPNS0_15attr_expr_frameE.exit99 ], [ %404, %_ZN4smt26parser18check_in_quant_ctxEPNS0_15attr_expr_frameE.exit114 ]
   %.0.ph.ph = phi i32 [ 2, %_ZN4smt26parser18check_in_quant_ctxEPNS0_15attr_expr_frameE.exit99 ], [ 0, %_ZN4smt26parser18check_in_quant_ctxEPNS0_15attr_expr_frameE.exit114 ]
-  %476 = getelementptr inbounds i8, ptr %.sink291, i64 -4
+  %476 = getelementptr inbounds i8, ptr %.sink292, i64 -4
   %477 = load i32, ptr %476, align 4, !tbaa !106
   br label %.thread.sink.split
 

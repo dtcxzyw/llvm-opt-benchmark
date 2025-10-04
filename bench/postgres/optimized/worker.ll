@@ -5512,15 +5512,15 @@ slot_getallattrs.exit:                            ; preds = %69, %57, %53
   %.1 = phi ptr [ %56, %53 ], [ %.0146, %57 ], [ %.0146, %69 ]
   store ptr %32, ptr @CurrentMemoryContext, align 8
   %70 = icmp eq i32 %3, 3
-  br i1 %70, label %.thread, label %71
+  br i1 %70, label %73, label %71
 
-71:                                               ; preds = %slot_getallattrs.exit
+72:                                               ; preds = %slot_getallattrs.exit
   %72 = tail call ptr @logicalrep_partition_open(ptr noundef %11, ptr noundef nonnull %35, ptr noundef %.0149) #16
   tail call fastcc void @check_relation_updatable(ptr noundef %72)
   %73 = icmp eq i32 %3, 2
   br i1 %73, label %78, label %75
 
-.thread:                                          ; preds = %slot_getallattrs.exit
+73:                                               ; preds = %slot_getallattrs.exit
   %.val = load ptr, ptr %0, align 8
   tail call void @ExecOpenIndices(ptr noundef nonnull %33, i1 noundef zeroext true) #16
   tail call void @InitConflictIndexes(ptr noundef nonnull %33) #16
@@ -5530,13 +5530,13 @@ slot_getallattrs.exit:                            ; preds = %69, %57, %53
   tail call void @ExecCloseIndices(ptr noundef nonnull %33) #16
   br label %197
 
-75:                                               ; preds = %71
+75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 92
   %77 = load i32, ptr %76, align 4
   tail call fastcc void @apply_handle_delete_internal(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef %.1, i32 noundef %77)
   br label %197
 
-78:                                               ; preds = %71
+78:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -5769,7 +5769,7 @@ slot_getallattrs.exit167:                         ; preds = %193, %181, %177
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %197
 
-197:                                              ; preds = %196, %.thread, %75
+default.unreachable186:                           ; preds = %196, %73, %75
   ret void
 }
 

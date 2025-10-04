@@ -1987,7 +1987,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
   %or.cond = select i1 %.not35, i1 true, i1 %switch
   br i1 %or.cond, label %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit28.thread, label %20
 
-20:                                               ; preds = %18
+_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit28: ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = load float, ptr %21, align 8
   %23 = fdiv contract float 1.000000e+00, %22
@@ -2022,7 +2022,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
   %50 = fdiv contract float %48, %49
   br label %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit28.thread
 
-_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit28.thread: ; preds = %18, %20
+_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit28.thread: ; preds = %18, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit28
   %.025 = phi float [ %50, %20 ], [ 1.000000e+00, %18 ]
   %51 = fmul contract float %9, 0x3FD45F3060000000
   %52 = fmul contract float %51, %.025

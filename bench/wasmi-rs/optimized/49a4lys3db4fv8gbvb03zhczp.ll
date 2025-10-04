@@ -418,37 +418,37 @@ define hidden { i32, i32 } @_ZN5wasmi5table7element14ElementSegment3new17ha94131
   %15 = add nsw i32 %14, -4
   %16 = icmp ne i32 %15, 1
   call void @llvm.assume(i1 %16)
-  %17 = icmp eq i32 %15, 2
-  br i1 %17, label %26, label %18
+  %switch.not = icmp eq i32 %15, 2
+  br i1 %switch.not, label %25, label %17
 
-18:                                               ; preds = %4
-  %19 = call { ptr, i64 } @_ZN5wasmi6module7element14ElementSegment5items17h9f26e8117f878beeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
-  %20 = extractvalue { ptr, i64 } %19, 0
-  %21 = extractvalue { ptr, i64 } %19, 1
-  %22 = getelementptr inbounds nuw { { i32, [5 x i32] } }, ptr %20, i64 %21
+17:                                               ; preds = %4
+  %18 = call { ptr, i64 } @_ZN5wasmi6module7element14ElementSegment5items17h9f26e8117f878beeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
+  %19 = extractvalue { ptr, i64 } %18, 0
+  %20 = extractvalue { ptr, i64 } %18, 1
+  %21 = getelementptr inbounds nuw { { i32, [5 x i32] } }, ptr %19, i64 %20
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !47
-  store ptr %20, ptr %5, align 8
+  store ptr %19, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %22, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %21, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.69.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %8, ptr %.sroa.69.0..sroa_idx, align 8
-  %23 = call { ptr, i64 } @"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17h8f0c0be022614db7E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5), !noalias !47
+  %22 = call { ptr, i64 } @"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17h8f0c0be022614db7E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5), !noalias !47
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !47
-  %24 = extractvalue { ptr, i64 } %23, 0
-  %25 = extractvalue { ptr, i64 } %23, 1
-  br label %26
+  %23 = extractvalue { ptr, i64 } %22, 0
+  %24 = extractvalue { ptr, i64 } %22, 1
+  br label %25
 
-26:                                               ; preds = %4, %18
-  %.sroa.6.0 = phi i64 [ %25, %18 ], [ 0, %4 ]
-  %.sroa.0.0 = phi ptr [ %24, %18 ], [ inttoptr (i64 8 to ptr), %4 ]
-  %27 = invoke noundef i8 @_ZN5wasmi6module7element14ElementSegment2ty17h02c02d0affaed741E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
+25:                                               ; preds = %4, %17
+  %.sroa.6.0 = phi i64 [ %24, %18 ], [ 0, %4 ]
+  %.sroa.0.0 = phi ptr [ %23, %18 ], [ inttoptr (i64 8 to ptr), %4 ]
+  %26 = invoke noundef i8 @_ZN5wasmi6module7element14ElementSegment2ty17h02c02d0affaed741E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
           to label %28 unwind label %30
 
-28:                                               ; preds = %26
+27:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @_ZN10wasmi_core5table7element14ElementSegment3new17h2d5cebbc19bda908E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i8 noundef %27, ptr noalias noundef nonnull align 8 %.sroa.0.0, i64 noundef %.sroa.6.0)
+  call void @_ZN10wasmi_core5table7element14ElementSegment3new17h2d5cebbc19bda908E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i8 noundef %26, ptr noalias noundef nonnull align 8 %.sroa.0.0, i64 noundef %.sroa.6.0)
   %.val = load ptr, ptr %11, align 8, !nonnull !3, !align !29, !noundef !3
   %29 = call { i32, i32 } @_ZN5wasmi5store5inner10StoreInner21alloc_element_segment17ha1abc48cd9f2d413E(ptr noalias noundef nonnull align 8 dereferenceable(240) %.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -456,7 +456,7 @@ define hidden { i32, i32 } @_ZN5wasmi5table7element14ElementSegment3new17ha94131
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret { i32, i32 } %29
 
-30:                                               ; preds = %26
+30:                                               ; preds = %25
   %31 = landingpad { ptr, i32 }
           cleanup
   %32 = icmp eq i64 %.sroa.6.0, 0

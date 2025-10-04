@@ -1015,8 +1015,8 @@ define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZN4base12_GLOBAL
 
 _ZN4base16ParseProcStatCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %44
   %.fr = freeze i32 %49
-  %.fr60 = freeze i32 %48
-  %50 = add i32 %.fr, %.fr60
+  %.fr62 = freeze i32 %48
+  %50 = add i32 %.fr, %.fr62
   %51 = call i32 @llvm.smax.i32(i32 %50, i32 0)
   %spec.select = add nuw nsw i32 %51, %.024.ph
   br label %_ZN4base16ParseProcStatCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread

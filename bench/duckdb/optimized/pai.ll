@@ -6,15 +6,15 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i64 @duckdb_je_pai_alloc_batch_default(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(none) %4, i1 noundef zeroext %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca i8, align 1
-  %.not25 = icmp eq i64 %3, 0
-  br i1 %.not25, label %.loopexit, label %.lr.ph
+  %.not2023.not = icmp eq i64 %3, 0
+  br i1 %.not2023.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %33
-  %.01724 = phi i64 [ %35, %33 ], [ 0, %7 ]
+  %.01724 = phi i64 [ %36, %33 ], [ 0, %7 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !tbaa !3
   %9 = load ptr, ptr %1, align 8, !tbaa !7
-  %10 = call ptr %9(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef 4096, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext %5, ptr noundef nonnull %8) #2
+  %10 = call ptr %9(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef 4096, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext %5, ptr noundef nonnull %8) #3
   %11 = load i8, ptr %8, align 1, !tbaa !3, !range !10, !noundef !11
   %12 = load i8, ptr %6, align 1, !tbaa !3, !range !10, !noundef !11
   %13 = or i8 %12, %11
@@ -22,7 +22,7 @@ define i64 @duckdb_je_pai_alloc_batch_default(ptr noundef %0, ptr noundef %1, i6
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %36, label %14
 
-14:                                               ; preds = %.lr.ph
+.thread:                                          ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %10, ptr %15, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -31,7 +31,7 @@ define i64 @duckdb_je_pai_alloc_batch_default(ptr noundef %0, ptr noundef %1, i6
   %18 = icmp eq ptr %17, null
   br i1 %18, label %33, label %19
 
-19:                                               ; preds = %14
+19:; preds = %.thread
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !12
   store ptr %21, ptr %15, align 8, !tbaa !12
@@ -40,28 +40,28 @@ define i64 @duckdb_je_pai_alloc_batch_default(ptr noundef %0, ptr noundef %1, i6
   store ptr %10, ptr %23, align 8, !tbaa !12
   %24 = load ptr, ptr %16, align 8, !tbaa !12
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !12
-  store ptr %26, ptr %16, align 8, !tbaa !12
+  %25 = load ptr, ptr %25, align 8, !tbaa !12
+  store ptr %25, ptr %16, align 8, !tbaa !12
   %27 = load ptr, ptr %4, align 8, !tbaa !13
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %29 = load ptr, ptr %28, align 8, !tbaa !12
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  store ptr %27, ptr %30, align 8, !tbaa !12
+  %28 = load ptr, ptr %28, align 8, !tbaa !12
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  store ptr %27, ptr %29, align 8, !tbaa !12
   %31 = load ptr, ptr %16, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store ptr %10, ptr %32, align 8, !tbaa !12
   %.pre.i = load ptr, ptr %15, align 8, !tbaa !12
   br label %33
 
-33:                                               ; preds = %14, %19
+33:; preds = %14, %19
   %34 = phi ptr [ %.pre.i, %19 ], [ %10, %14 ]
   store ptr %34, ptr %4, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %35 = add nuw i64 %.01724, 1
-  %exitcond.not = icmp eq i64 %35, %3
+  %36 = add nuw i64 %.01724, 1
+  %exitcond.not = icmp eq i64 %36, %3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
-36:                                               ; preds = %.lr.ph
+.loopexit:                                        ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
@@ -121,7 +121,7 @@ define void @duckdb_je_pai_dalloc_batch_default(ptr noundef %0, ptr noundef %1, 
 
 edata_list_active_remove.exit:                    ; preds = %.thread.i, %27
   %28 = load ptr, ptr %6, align 8, !tbaa !17
-  call void %28(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.val9, ptr noundef nonnull %5) #2
+  call void %28(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.val9, ptr noundef nonnull %5) #3
   %29 = load i8, ptr %5, align 1, !tbaa !3, !range !10, !noundef !11
   %30 = load i8, ptr %3, align 1, !tbaa !3, !range !10, !noundef !11
   %31 = or i8 %30, %29

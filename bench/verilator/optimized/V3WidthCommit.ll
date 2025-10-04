@@ -7071,16 +7071,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8AstClass12existsMemberIZN
 
 8:                                                ; preds = %2, %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.020 = load ptr, ptr %9, align 8, !tbaa !106
-  %.not1521 = icmp eq ptr %.020, null
+  %10 = load ptr, ptr %9, align 8, !tbaa !106
+  %.not1521 = icmp eq ptr %10, null
   br i1 %.not1521, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %8
-  %10 = load ptr, ptr %1, align 8, !tbaa !273
+.lr.ph:; preds = %8
+  %.0 = load ptr, ptr %1, align 8, !tbaa !273
   br label %13
 
-11:                                               ; preds = %13
-  %12 = getelementptr inbounds nuw i8, ptr %.022, i64 8
+11:; preds = %13
+  %13 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %.0 = load ptr, ptr %12, align 8, !tbaa !106
   %.not15 = icmp eq ptr %.0, null
   br i1 %.not15, label %.loopexit, label %13, !llvm.loop !287

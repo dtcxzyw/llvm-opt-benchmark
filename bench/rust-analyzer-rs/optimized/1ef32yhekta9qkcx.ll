@@ -2232,10 +2232,10 @@ define void @_ZN3mbe8validate17he3828157b3017cb8E(ptr noalias noundef writeonly 
   br i1 %39, label %.backedge.i, label %.critedge
 
 "_ZN3mbe8validate28_$u7b$$u7b$closure$u7d$$u7d$17h6bbd71c946dfd4cbE.exit.i": ; preds = %.lr.ph.i
-  %40 = getelementptr inbounds nuw i8, ptr %30, i64 120
-  %41 = load i8, ptr %40, align 8, !range !378, !alias.scope !371, !noalias !374, !noundef !4
-  %.not.i = icmp eq i8 %41, 1
-  br i1 %.not.i, label %.critedge, label %.backedge.i
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 120
+  %40 = load i8, ptr %39, align 8, !range !378, !alias.scope !371, !noalias !374, !noundef !4
+  %41 = icmp eq i8 %40, 1
+  br i1 %41, label %.critedge, label %.backedge.i
 
 .backedge.i:                                      ; preds = %"_ZN3mbe8validate28_$u7b$$u7b$closure$u7d$$u7d$17h6bbd71c946dfd4cbE.exit.i", %36
   %42 = icmp eq ptr %31, %28

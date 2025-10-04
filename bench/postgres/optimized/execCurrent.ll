@@ -409,8 +409,8 @@ define internal fastcc ptr @search_plan_tree(ptr noundef readonly captures(addre
   %.not = icmp eq ptr %21, null
   %.not40 = icmp ne ptr %.23355, null
   %not..not = xor i1 %.not, true
-  %switch = select i1 %not..not, i1 %.not40, i1 false
-  br i1 %switch, label %.thread, label %22
+  %.035 = select i1 %not..not, i1 %.not40, i1 false
+  br i1 %.035, label %.thread, label %22
 
 22:                                               ; preds = %17
   %23 = select i1 %.not, i1 true, i1 %.not40

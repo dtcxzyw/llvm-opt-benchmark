@@ -4250,7 +4250,7 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 
   br i1 %or.cond, label %47, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %41
-  %.pre98 = uitofp i32 %5 to float
+  %.pre99 = uitofp i32 %5 to float
   br label %54
 
 47:                                               ; preds = %41
@@ -4264,7 +4264,7 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 
   br label %54
 
 54:                                               ; preds = %._crit_edge, %47
-  %.pre-phi = phi float [ %.pre98, %._crit_edge ], [ %49, %47 ]
+  %.pre-phi = phi float [ %.pre99, %._crit_edge ], [ %49, %47 ]
   %55 = phi float [ %.pre, %._crit_edge ], [ %53, %47 ]
   %56 = sub i32 %43, %.1
   %57 = sitofp i32 %56 to float
@@ -4298,9 +4298,9 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 
 
 .lr.ph:                                           ; preds = %54, %99
   %80 = phi i32 [ %89, %99 ], [ %42, %54 ]
-  %.05492 = phi i32 [ %.2, %99 ], [ %59, %54 ]
-  %.05691 = phi i32 [ %.258, %99 ], [ 0, %54 ]
-  %.06090 = phi i32 [ %90, %99 ], [ %.1, %54 ]
+  %.05493 = phi i32 [ %.2, %99 ], [ %59, %54 ]
+  %.05692 = phi i32 [ %.258, %99 ], [ 0, %54 ]
+  %.06091 = phi i32 [ %90, %99 ], [ %.1, %54 ]
   %81 = call fastcc i32 @SyncOneBuffer(i32 noundef %80, i1 noundef zeroext true, ptr noundef %0)
   %82 = load i32, ptr @BgBufferSync.next_to_clean, align 4
   %83 = add i32 %82, 1
@@ -4318,14 +4318,14 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 
 
 88:                                               ; preds = %85, %.lr.ph
   %89 = phi i32 [ 0, %85 ], [ %83, %.lr.ph ]
-  %90 = add nsw i32 %.06090, -1
+  %90 = add nsw i32 %.06091, -1
   %91 = and i32 %81, 1
   %.not77 = icmp eq i32 %91, 0
   br i1 %.not77, label %98, label %92
 
 92:                                               ; preds = %88
-  %93 = add nsw i32 %.05492, 1
-  %94 = add i32 %.05691, 1
+  %93 = add nsw i32 %.05493, 1
+  %94 = add i32 %.05692, 1
   %95 = load i32, ptr @bgwriter_lru_maxpages, align 4
   %.not79 = icmp slt i32 %94, %95
   br i1 %.not79, label %99, label %.thread
@@ -4338,13 +4338,13 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 
 
 98:                                               ; preds = %88
   %.lobit = lshr exact i32 %81, 1
-  %spec.select80 = add nsw i32 %.lobit, %.05492
+  %spec.select80 = add nsw i32 %.lobit, %.05493
   br label %99
 
 99:                                               ; preds = %98, %92
-  %.258 = phi i32 [ %94, %92 ], [ %.05691, %98 ]
+  %.258 = phi i32 [ %94, %92 ], [ %.05692, %98 ]
   %.2 = phi i32 [ %93, %92 ], [ %spec.select80, %98 ]
-  %100 = icmp samesign ugt i32 %.06090, 1
+  %100 = icmp samesign ugt i32 %.06091, 1
   %101 = icmp slt i32 %.2, %spec.select
   %102 = select i1 %100, i1 %101, i1 false
   br i1 %102, label %.lr.ph, label %.loopexit

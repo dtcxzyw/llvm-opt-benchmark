@@ -657,8 +657,8 @@ init_thp_state.exit:                              ; preds = %62, %66, %70, %71
 
 je_pages_purge_lazy.exit:                         ; preds = %76
   %77 = call i32 @madvise(ptr noundef nonnull %75, i64 noundef 4096, i32 noundef 8) #8
-  %.not12 = icmp eq i32 %77, 0
-  br i1 %.not12, label %78, label %je_pages_purge_lazy.exit.thread
+  %.not13 = icmp eq i32 %77, 0
+  br i1 %.not13, label %78, label %je_pages_purge_lazy.exit.thread
 
 je_pages_purge_lazy.exit.thread:                  ; preds = %76, %je_pages_purge_lazy.exit
   store i1 true, ptr @pages_can_purge_lazy_runtime, align 1

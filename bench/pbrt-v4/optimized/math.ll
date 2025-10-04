@@ -471,9 +471,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi2EEneERK
 
 .preheader:                                       ; preds = %2, %13
   %3 = phi i1 [ true, %2 ], [ false, %13 ]
-  %indvars.iv26 = phi i64 [ 0, %2 ], [ 1, %13 ]
-  %4 = getelementptr inbounds nuw [2 x float], ptr %0, i64 %indvars.iv26
-  %5 = getelementptr inbounds nuw [2 x float], ptr %1, i64 %indvars.iv26
+  %indvars.iv24 = phi i64 [ 0, %2 ], [ 1, %13 ]
+  %4 = getelementptr inbounds nuw [2 x float], ptr %0, i64 %indvars.iv24
+  %5 = getelementptr inbounds nuw [2 x float], ptr %1, i64 %indvars.iv24
   br label %7
 
 6:                                                ; preds = %7
@@ -502,9 +502,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi2EEltERK
 
 .preheader:                                       ; preds = %2, %12
   %3 = phi i1 [ true, %2 ], [ false, %12 ]
-  %indvars.iv34 = phi i64 [ 0, %2 ], [ 1, %12 ]
-  %4 = getelementptr inbounds nuw [2 x float], ptr %0, i64 %indvars.iv34
-  %5 = getelementptr inbounds nuw [2 x float], ptr %1, i64 %indvars.iv34
+  %indvars.iv31 = phi i64 [ 0, %2 ], [ 1, %12 ]
+  %4 = getelementptr inbounds nuw [2 x float], ptr %0, i64 %indvars.iv31
+  %5 = getelementptr inbounds nuw [2 x float], ptr %1, i64 %indvars.iv31
   br label %7
 
 6:                                                ; preds = %7
@@ -518,13 +518,13 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi2EEltERK
   %10 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !4
   %or.cond = fcmp ueq float %9, %11
-  br i1 %or.cond, label %6, label %.loopexit.loopexit
+  br i1 %or.cond, label %6, label %.thread
 
 12:                                               ; preds = %6
-  br i1 %3, label %.preheader, label %.loopexit, !llvm.loop !32
+  br i1 %3, label %.preheader, label %.thread, !llvm.loop !32
 
-.loopexit.loopexit:                               ; preds = %7
-  %13 = fcmp olt float %9, %11
+.thread:                                          ; preds = %7
+  %spec.select = fcmp olt float %9, %11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %.loopexit.loopexit
@@ -1324,9 +1324,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi3EEneERK
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %12
-  %indvars.iv26 = phi i64 [ 0, %2 ], [ %indvars.iv.next27, %12 ]
-  %3 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv26
-  %4 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv26
+  %indvars.iv24 = phi i64 [ 0, %2 ], [ %indvars.iv.next25, %12 ]
+  %3 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv24
+  %4 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv24
   br label %6
 
 5:                                                ; preds = %6
@@ -1344,9 +1344,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi3EEneERK
   br i1 %11, label %.loopexit, label %5
 
 12:                                               ; preds = %5
-  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %exitcond29.not = icmp eq i64 %indvars.iv.next27, 3
-  br i1 %exitcond29.not, label %.loopexit, label %.preheader, !llvm.loop !66
+  %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
+  %exitcond27.not = icmp eq i64 %indvars.iv.next25, 3
+  br i1 %exitcond27.not, label %.loopexit, label %.preheader, !llvm.loop !66
 
 .loopexit:                                        ; preds = %12, %6
   ret i1 %11
@@ -1357,9 +1357,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi3EEltERK
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %11
-  %indvars.iv34 = phi i64 [ 0, %2 ], [ %indvars.iv.next35, %11 ]
-  %3 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv34
-  %4 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv34
+  %indvars.iv31 = phi i64 [ 0, %2 ], [ %indvars.iv.next32, %11 ]
+  %3 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv31
+  %4 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv31
   br label %6
 
 5:                                                ; preds = %6
@@ -1374,20 +1374,20 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi3EEltERK
   %9 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %10 = load float, ptr %9, align 4, !tbaa !4
   %or.cond = fcmp ueq float %8, %10
-  br i1 %or.cond, label %5, label %.loopexit.loopexit
+  br i1 %or.cond, label %5, label %.thread
 
 11:                                               ; preds = %5
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %exitcond37.not = icmp eq i64 %indvars.iv.next35, 3
-  br i1 %exitcond37.not, label %.loopexit, label %.preheader, !llvm.loop !68
+  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+  %exitcond34.not = icmp eq i64 %indvars.iv.next32, 3
+  br i1 %exitcond34.not, label %.thread, label %.preheader, !llvm.loop !68
 
 .loopexit.loopexit:                               ; preds = %6
   %12 = fcmp olt float %8, %10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %.loopexit.loopexit
-  %13 = phi i1 [ %12, %.loopexit.loopexit ], [ false, %11 ]
-  ret i1 %13
+.thread:                                          ; preds = %11, %.thread
+  %spec.select = phi i1 [ %12, %.loopexit.loopexit ], [ false, %11 ]
+  ret i1 %spec.select
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -1923,9 +1923,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EEneERK
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %12
-  %indvars.iv26 = phi i64 [ 0, %2 ], [ %indvars.iv.next27, %12 ]
-  %3 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv26
-  %4 = getelementptr inbounds nuw [4 x float], ptr %1, i64 %indvars.iv26
+  %indvars.iv24 = phi i64 [ 0, %2 ], [ %indvars.iv.next25, %12 ]
+  %3 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv24
+  %4 = getelementptr inbounds nuw [4 x float], ptr %1, i64 %indvars.iv24
   br label %6
 
 5:                                                ; preds = %6
@@ -1943,9 +1943,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EEneERK
   br i1 %11, label %.loopexit, label %5
 
 12:                                               ; preds = %5
-  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %exitcond29.not = icmp eq i64 %indvars.iv.next27, 4
-  br i1 %exitcond29.not, label %.loopexit, label %.preheader, !llvm.loop !89
+  %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
+  %exitcond27.not = icmp eq i64 %indvars.iv.next25, 4
+  br i1 %exitcond27.not, label %.loopexit, label %.preheader, !llvm.loop !89
 
 .loopexit:                                        ; preds = %12, %6
   ret i1 %11
@@ -1956,9 +1956,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EEltERK
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %11
-  %indvars.iv34 = phi i64 [ 0, %2 ], [ %indvars.iv.next35, %11 ]
-  %3 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv34
-  %4 = getelementptr inbounds nuw [4 x float], ptr %1, i64 %indvars.iv34
+  %indvars.iv31 = phi i64 [ 0, %2 ], [ %indvars.iv.next32, %11 ]
+  %3 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv31
+  %4 = getelementptr inbounds nuw [4 x float], ptr %1, i64 %indvars.iv31
   br label %6
 
 5:                                                ; preds = %6
@@ -1973,20 +1973,20 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EEltERK
   %9 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %10 = load float, ptr %9, align 4, !tbaa !4
   %or.cond = fcmp ueq float %8, %10
-  br i1 %or.cond, label %5, label %.loopexit.loopexit
+  br i1 %or.cond, label %5, label %.thread
 
 11:                                               ; preds = %5
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %exitcond37.not = icmp eq i64 %indvars.iv.next35, 4
-  br i1 %exitcond37.not, label %.loopexit, label %.preheader, !llvm.loop !91
+  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+  %exitcond34.not = icmp eq i64 %indvars.iv.next32, 4
+  br i1 %exitcond34.not, label %.thread, label %.preheader, !llvm.loop !91
 
 .loopexit.loopexit:                               ; preds = %6
   %12 = fcmp olt float %8, %10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %.loopexit.loopexit
-  %13 = phi i1 [ %12, %.loopexit.loopexit ], [ false, %11 ]
-  ret i1 %13
+.thread:                                          ; preds = %11, %.thread
+  %spec.select = phi i1 [ %12, %.loopexit.loopexit ], [ false, %11 ]
+  ret i1 %spec.select
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

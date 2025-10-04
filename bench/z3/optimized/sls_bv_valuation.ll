@@ -1953,8 +1953,8 @@ define hidden noundef zeroext i1 @_ZN3sls12bv_valuation22commit_eval_check_tabuE
   %2 = alloca %class.mpn_manager, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %4 = load i32, ptr %3, align 4, !tbaa !68
-  %.not18 = icmp eq i32 %4, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not20 = icmp eq i32 %4, 0
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2005,9 +2005,9 @@ define hidden noundef zeroext i1 @_ZN3sls12bv_valuation22commit_eval_check_tabuE
   br i1 %29, label %35, label %36
 
 35:                                               ; preds = %28
-  br i1 %34, label %_ZNK3sls12bv_valuation8in_rangeERKNS_5bvectE.exit, label %_ZNK3sls12bv_valuation8in_rangeERKNS_5bvectE.exit.thread11
+  br i1 %34, label %_ZNK3sls12bv_valuation8in_rangeERKNS_5bvectE.exit, label %_ZNK3sls12bv_valuation8in_rangeERKNS_5bvectE.exit.thread13
 
-_ZNK3sls12bv_valuation8in_rangeERKNS_5bvectE.exit.thread11: ; preds = %35
+_ZNK3sls12bv_valuation8in_rangeERKNS_5bvectE.exit.thread13: ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN3sls12bv_valuation23commit_eval_ignore_tabuEv.exit
 
@@ -2049,7 +2049,7 @@ _ZNK3sls12bv_valuation8in_rangeERKNS_5bvectE.exit: ; preds = %35, %36
   %52 = icmp samesign ult i64 %indvars.iv.next.i, %51
   br i1 %52, label %46, label %_ZN3sls12bv_valuation23commit_eval_ignore_tabuEv.exit, !llvm.loop !72
 
-_ZN3sls12bv_valuation23commit_eval_ignore_tabuEv.exit: ; preds = %12, %46, %42, %_ZNK3sls12bv_valuation8in_rangeERKNS_5bvectE.exit.thread11, %_ZNK3sls12bv_valuation8in_rangeERKNS_5bvectE.exit
+_ZN3sls12bv_valuation23commit_eval_ignore_tabuEv.exit: ; preds = %12, %46, %42, %_ZNK3sls12bv_valuation8in_rangeERKNS_5bvectE.exit.thread13, %_ZNK3sls12bv_valuation8in_rangeERKNS_5bvectE.exit
   %.1 = phi i1 [ false, %_ZNK3sls12bv_valuation8in_rangeERKNS_5bvectE.exit ], [ false, %_ZNK3sls12bv_valuation8in_rangeERKNS_5bvectE.exit.thread11 ], [ true, %42 ], [ true, %46 ], [ false, %12 ]
   ret i1 %.1
 }
@@ -2184,9 +2184,9 @@ _ZNK3sls5bvect7copy_toEjRS0_.exit:                ; preds = %10, %3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load i32, ptr %6, align 4, !tbaa !68
   %34 = add i32 %33, -1
-  %.not12.i = icmp eq i32 %34, 0
+  %.not14.i = icmp eq i32 %34, 0
   %.pre.i = load ptr, ptr %32, align 8, !tbaa !14
-  br i1 %.not12.i, label %_ZNK3sls12bv_valuation7is_zeroERKNS_5bvectE.exit, label %.lr.ph.i9
+  br i1 %.not14.i, label %_ZNK3sls12bv_valuation7is_zeroERKNS_5bvectE.exit, label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %31
   %wide.trip.count.i10 = zext i32 %34 to i64
@@ -2453,8 +2453,8 @@ define hidden noundef zeroext i1 @_ZNK3sls12bv_valuation7can_setERKNS_5bvectE(pt
   %3 = alloca %class.mpn_manager, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %5 = load i32, ptr %4, align 4, !tbaa !68
-  %.not16 = icmp eq i32 %5, 0
-  br i1 %.not16, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq i32 %5, 0
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %6 = load ptr, ptr %1, align 8, !tbaa !14
@@ -2914,9 +2914,9 @@ _ZN3sls5bvect6set_bwEj.exit:                      ; preds = %_ZNK6vectorIjLb0EjE
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %38 = load i32, ptr %37, align 4, !tbaa !68
   %39 = add i32 %38, -1
-  %.not12.i = icmp eq i32 %39, 0
+  %.not14.i = icmp eq i32 %39, 0
   %.pre.i = load ptr, ptr %6, align 8, !tbaa !14
-  br i1 %.not12.i, label %_ZNK3sls12bv_valuation7is_zeroERKNS_5bvectE.exit, label %.lr.ph.i
+  br i1 %.not14.i, label %_ZNK3sls12bv_valuation7is_zeroERKNS_5bvectE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %36
   %wide.trip.count.i = zext i32 %39 to i64
@@ -3139,9 +3139,9 @@ define hidden void @_ZN3sls12bv_valuation16set_random_belowERNS_5bvectER10random
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %5 = load i32, ptr %4, align 4, !tbaa !68
   %6 = add i32 %5, -1
-  %.not12.i = icmp eq i32 %6, 0
+  %.not14.i = icmp eq i32 %6, 0
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !14
-  br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %wide.trip.count.i = zext i32 %6 to i64
@@ -5263,7 +5263,7 @@ define hidden noundef i32 @_ZNK3sls12bv_valuation3msbERKNS_5bvectE(ptr noundef n
 7:                                                ; preds = %8, %2
   %indvars.iv = phi i64 [ %9, %8 ], [ %6, %2 ]
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %17, label %8
+  br i1 %.not, label %.loopexit, label %8
 
 8:                                                ; preds = %7
   %9 = add nsw i64 %indvars.iv, -1
@@ -5279,12 +5279,12 @@ define hidden noundef i32 @_ZNK3sls12bv_valuation3msbERKNS_5bvectE(ptr noundef n
   %16 = add i32 %15, %14
   br label %20
 
-17:                                               ; preds = %7
+.loopexit:                                        ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %19 = load i32, ptr %18, align 8
   br label %20
 
-20:                                               ; preds = %12, %17
+20:; preds = %12, %.loopexit
   %21 = phi i32 [ %19, %17 ], [ %16, %12 ]
   ret i32 %21
 }

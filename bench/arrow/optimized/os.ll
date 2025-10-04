@@ -1115,8 +1115,8 @@ define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i6
 27:                                               ; preds = %22
   %28 = inttoptr i64 %.0.i to ptr
   %29 = tail call i64 @_mi_clock_start() #10
-  %.not77 = icmp eq i64 %0, 0
-  br i1 %.not77, label %.thread68, label %.lr.ph
+  %.not80 = icmp eq i64 %0, 0
+  br i1 %.not80, label %.thread68, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
   %or.cond.i = icmp ult i32 %1, 64
@@ -1128,8 +1128,8 @@ define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i6
   br label %35
 
 35:                                               ; preds = %.lr.ph, %66
-  %.04375 = phi i64 [ 0, %.lr.ph ], [ %67, %66 ]
-  %36 = shl i64 %.04375, 30
+  %.04376 = phi i64 [ 0, %.lr.ph ], [ %67, %66 ]
+  %36 = shl i64 %.04376, 30
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 %36
   %38 = load atomic i64, ptr @mi_unix_mmap.large_page_try_ok acquire, align 8
   %.b.i.i = load i1, ptr @mi_unix_mmap.mi_huge_pages_available, align 1
@@ -1182,7 +1182,7 @@ mi_os_alloc_huge_os_pagesx.exit:                  ; preds = %mi_unix_mmap.exit.t
   br i1 %.not57, label %.thread68, label %51
 
 51:                                               ; preds = %50
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str, i64 noundef %.04375, ptr noundef nonnull %37) #10
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str, i64 noundef %.04376, ptr noundef nonnull %37) #10
   %52 = call i32 @munmap(ptr noundef nonnull %.3.i17.i, i64 noundef 1073741824) #10
   %.not.i60 = icmp eq i32 %52, -1
   br i1 %.not.i60, label %53, label %_mi_os_free_ex.exit
@@ -1206,11 +1206,11 @@ _mi_os_free_ex.exit:                              ; preds = %51, %53
 
 58:                                               ; preds = %57
   %59 = call i64 @_mi_clock_end(i64 noundef %29) #10
-  %.not55 = icmp eq i64 %.04375, 0
+  %.not55 = icmp eq i64 %.04376, 0
   br i1 %.not55, label %65, label %60
 
 60:                                               ; preds = %58
-  %61 = add nuw i64 %.04375, 1
+  %61 = add nuw i64 %.04376, 1
   %62 = udiv i64 %59, %61
   %63 = mul i64 %62, %0
   %64 = icmp sgt i64 %63, %33
@@ -1227,28 +1227,28 @@ _mi_os_free_ex.exit:                              ; preds = %51, %53
   br label %.thread68
 
 66:                                               ; preds = %65, %57
-  %67 = add nuw i64 %.04375, 1
+  %67 = add nuw i64 %.04376, 1
   %exitcond.not = icmp eq i64 %67, %0
   br i1 %exitcond.not, label %.thread68, label %35, !llvm.loop !21
 
 .thread68:                                        ; preds = %66, %mi_unix_mmapx.exit.thread.i.i, %27, %.thread66, %50, %_mi_os_free_ex.exit
-  %.04372 = phi i64 [ %.04375, %.thread66 ], [ %.04375, %50 ], [ %.04375, %_mi_os_free_ex.exit ], [ 0, %27 ], [ %0, %66 ], [ %.04375, %mi_unix_mmapx.exit.thread.i.i ]
+  %.04373 = phi i64 [ %.04376, %.thread66 ], [ %.04376, %50 ], [ %.04376, %_mi_os_free_ex.exit ], [ 0, %27 ], [ %0, %66 ], [ %.04376, %mi_unix_mmapx.exit.thread.i.i ]
   br i1 %.not53, label %69, label %68
 
 68:                                               ; preds = %.thread68
-  store i64 %.04372, ptr %3, align 8, !tbaa !9
+  store i64 %.04373, ptr %3, align 8, !tbaa !9
   br label %69
 
 69:                                               ; preds = %68, %.thread68
   br i1 %.not, label %72, label %70
 
 70:                                               ; preds = %69
-  %71 = shl i64 %.04372, 30
+  %71 = shl i64 %.04373, 30
   store i64 %71, ptr %4, align 8, !tbaa !9
   br label %72
 
 72:                                               ; preds = %69, %70
-  %73 = icmp eq i64 %.04372, 0
+  %73 = icmp eq i64 %.04373, 0
   %74 = select i1 %73, ptr null, ptr %28
   ret ptr %74
 }
@@ -1480,8 +1480,8 @@ use_large_os_page.exit:                           ; preds = %11
   %46 = urem i64 %.025.i.i, %2
   %.not.i.i = icmp ne i64 %46, 0
   %.not.i = icmp eq i64 %.025.i.i, 0
-  %or.cond31.i = or i1 %.not.i, %.not.i.i
-  br i1 %or.cond31.i, label %.thread.i, label %47
+  %or.cond32.i = or i1 %.not.i, %.not.i.i
+  br i1 %or.cond32.i, label %.thread.i, label %47
 
 47:                                               ; preds = %45
   %48 = inttoptr i64 %.025.i.i to ptr
@@ -1535,8 +1535,8 @@ mi_unix_mmapx.exit.thread:                        ; preds = %.thread.i, %mi_unix
   %72 = urem i64 %.025.i.i92, %2
   %.not.i.i93 = icmp ne i64 %72, 0
   %.not.i94 = icmp eq i64 %.025.i.i92, 0
-  %or.cond31.i95 = or i1 %.not.i94, %.not.i.i93
-  br i1 %or.cond31.i95, label %.thread.i98, label %73
+  %or.cond32.i95 = or i1 %.not.i94, %.not.i.i93
+  br i1 %or.cond32.i95, label %.thread.i98, label %73
 
 73:                                               ; preds = %71
   %74 = inttoptr i64 %.025.i.i92 to ptr
@@ -1597,8 +1597,8 @@ mi_unix_mmapx.exit101:                            ; preds = %.thread.i98, %73
   %98 = urem i64 %.025.i.i105, %2
   %.not.i.i106 = icmp ne i64 %98, 0
   %.not.i107 = icmp eq i64 %.025.i.i105, 0
-  %or.cond31.i108 = or i1 %.not.i107, %.not.i.i106
-  br i1 %or.cond31.i108, label %.thread.i111, label %99
+  %or.cond32.i108 = or i1 %.not.i107, %.not.i.i106
+  br i1 %or.cond32.i108, label %.thread.i111, label %99
 
 99:                                               ; preds = %97
   %100 = inttoptr i64 %.025.i.i105 to ptr

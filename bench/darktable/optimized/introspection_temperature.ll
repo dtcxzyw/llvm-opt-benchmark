@@ -3494,9 +3494,9 @@ _calculate_bogus_daylight_wb.exit:                ; preds = %26
 68:                                               ; preds = %69
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %_ignore_missing_wb.exit, label %69
+  br i1 %exitcond.not.i, label %72, label %69
 
-69:                                               ; preds = %68, %66
+_ignore_missing_wb.exit:                          ; preds = %68, %66
   %indvars.iv.i = phi i64 [ 0, %66 ], [ %indvars.iv.next.i, %68 ]
   %70 = getelementptr inbounds nuw ptr, ptr @_ignore_missing_wb.ignored_cameras, i64 %indvars.iv.i
   %71 = load ptr, ptr %70, align 8, !tbaa !196
@@ -3504,24 +3504,24 @@ _calculate_bogus_daylight_wb.exit:                ; preds = %26
   %.not14.i = icmp eq i32 %72, 0
   br i1 %.not14.i, label %.loopexit.sink.split, label %68
 
-_ignore_missing_wb.exit:                          ; preds = %68
+72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 1224
   %74 = load i32, ptr %73, align 8, !tbaa !197
   %.not58 = icmp eq i32 %74, 0
   br i1 %.not58, label %75, label %78
 
-75:                                               ; preds = %_ignore_missing_wb.exit
+75:                                               ; preds = %72
   %76 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.68, i32 noundef 5) #24
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 1228
   call void (ptr, ...) @dt_control_log(ptr noundef %76, ptr noundef nonnull %77) #24
   br label %78
 
-78:                                               ; preds = %75, %_ignore_missing_wb.exit
+78:                                               ; preds = %75, %72
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 1228
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.69, ptr noundef nonnull %79) #24
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %69, %78, %.critedge60, %63, %_calculate_bogus_daylight_wb.exit, %23
+.loopexit.sink.split:                             ; preds = %_ignore_missing_wb.exit, %78, %.critedge60, %63, %_calculate_bogus_daylight_wb.exit, %23
   %.sink91 = phi double [ %34, %_calculate_bogus_daylight_wb.exit ], [ 1.000000e+00, %23 ], [ 2.000000e+00, %63 ], [ 2.000000e+00, %.critedge60 ], [ 2.000000e+00, %78 ], [ 2.000000e+00, %69 ]
   %.sink88 = phi double [ %37, %_calculate_bogus_daylight_wb.exit ], [ 1.000000e+00, %23 ], [ 1.500000e+00, %63 ], [ 1.500000e+00, %.critedge60 ], [ 1.500000e+00, %78 ], [ 1.500000e+00, %69 ]
   %.sink = phi double [ %40, %_calculate_bogus_daylight_wb.exit ], [ 1.000000e+00, %23 ], [ 1.000000e+00, %63 ], [ 1.000000e+00, %.critedge60 ], [ 1.000000e+00, %78 ], [ 1.000000e+00, %69 ]

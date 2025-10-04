@@ -172,8 +172,8 @@ define internal fastcc range(i32 0, 2) i32 @opj_jp2_apply_color_postprocessing(p
 
 29:                                               ; preds = %25, %22, %14
   %.0141.i = phi i32 [ %28, %25 ], [ %19, %22 ], [ %19, %14 ]
-  %.not220.i = icmp eq i16 %17, 0
-  br i1 %.not220.i, label %.preheader190.i, label %.lr.ph.preheader.i
+  %.not218.i = icmp eq i16 %17, 0
+  br i1 %.not218.i, label %.preheader190.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %29
   %wide.trip.count.i = zext i16 %17 to i64
@@ -189,17 +189,17 @@ define internal fastcc range(i32 0, 2) i32 @opj_jp2_apply_color_postprocessing(p
   br label %31
 
 31:                                               ; preds = %36, %.preheader189.us.i
-  %indvars.iv232.i = phi i64 [ 0, %.preheader189.us.i ], [ %indvars.iv.next233.i, %36 ]
-  %32 = getelementptr inbounds nuw %struct.opj_jp2_cdef_info, ptr %15, i64 %indvars.iv232.i
+  %indvars.iv229.i = phi i64 [ 0, %.preheader189.us.i ], [ %indvars.iv.next230.i, %36 ]
+  %32 = getelementptr inbounds nuw %struct.opj_jp2_cdef_info, ptr %15, i64 %indvars.iv229.i
   %33 = load i16, ptr %32, align 2, !tbaa !34
   %34 = zext i16 %33 to i32
   %35 = icmp eq i32 %30, %34
   br i1 %35, label %._crit_edge.us.i, label %36
 
 36:                                               ; preds = %31
-  %indvars.iv.next233.i = add nuw nsw i64 %indvars.iv232.i, 1
-  %exitcond236.not.i = icmp eq i64 %indvars.iv.next233.i, %wide.trip.count.i
-  br i1 %exitcond236.not.i, label %.split.us.i, label %31, !llvm.loop !36
+  %indvars.iv.next230.i = add nuw nsw i64 %indvars.iv229.i, 1
+  %exitcond233.not.i = icmp eq i64 %indvars.iv.next230.i, %wide.trip.count.i
+  br i1 %exitcond233.not.i, label %.split.us.i, label %31, !llvm.loop !36
 
 ._crit_edge.us.i:                                 ; preds = %31
   %.not161.us.i = icmp eq i32 %30, 0
@@ -255,18 +255,18 @@ define internal fastcc range(i32 0, 2) i32 @opj_jp2_apply_color_postprocessing(p
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 34
   %58 = load i8, ptr %57, align 2, !tbaa !33
-  %.not222.i = icmp eq i8 %58, 0
-  br i1 %.not222.i, label %._crit_edge.thread.i, label %.lr.ph204.i
+  %.not220.i = icmp eq i8 %58, 0
+  br i1 %.not220.i, label %._crit_edge.thread.i, label %.lr.ph204.i
 
 .lr.ph204.i:                                      ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %wide.trip.count240.i = zext i8 %58 to i64
+  %wide.trip.count237.i = zext i8 %58 to i64
   br label %60
 
 60:                                               ; preds = %67, %.lr.ph204.i
-  %indvars.iv237.i = phi i64 [ 0, %.lr.ph204.i ], [ %indvars.iv.next238.i, %67 ]
+  %indvars.iv234.i = phi i64 [ 0, %.lr.ph204.i ], [ %indvars.iv.next235.i, %67 ]
   %.0134202.i = phi i32 [ 1, %.lr.ph204.i ], [ %.1135.i, %67 ]
-  %61 = getelementptr inbounds nuw %struct.opj_jp2_cmap_comp, ptr %55, i64 %indvars.iv237.i
+  %61 = getelementptr inbounds nuw %struct.opj_jp2_cmap_comp, ptr %55, i64 %indvars.iv234.i
   %62 = load i16, ptr %61, align 2, !tbaa !41
   %63 = zext i16 %62 to i32
   %64 = load i32, ptr %59, align 8, !tbaa !27
@@ -279,29 +279,29 @@ define internal fastcc range(i32 0, 2) i32 @opj_jp2_apply_color_postprocessing(p
 
 67:                                               ; preds = %65, %60
   %.1135.i = phi i32 [ 0, %65 ], [ %.0134202.i, %60 ]
-  %indvars.iv.next238.i = add nuw nsw i64 %indvars.iv237.i, 1
-  %exitcond241.not.i = icmp eq i64 %indvars.iv.next238.i, %wide.trip.count240.i
-  br i1 %exitcond241.not.i, label %._crit_edge.i, label %60, !llvm.loop !43
+  %indvars.iv.next235.i = add nuw nsw i64 %indvars.iv234.i, 1
+  %exitcond238.not.i = icmp eq i64 %indvars.iv.next235.i, %wide.trip.count237.i
+  br i1 %exitcond238.not.i, label %._crit_edge.i, label %60, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %67
-  %68 = tail call ptr @opj_calloc(i64 noundef %wide.trip.count240.i, i64 noundef 4) #6
+  %68 = tail call ptr @opj_calloc(i64 noundef %wide.trip.count237.i, i64 noundef 4) #6
   %.not167.i = icmp eq ptr %68, null
   br i1 %.not167.i, label %.critedge182.i, label %.lr.ph208.i
 
 ._crit_edge.thread.i:                             ; preds = %56
   %69 = tail call ptr @opj_calloc(i64 noundef 0, i64 noundef 4) #6
-  %.not167279.i = icmp eq ptr %69, null
-  br i1 %.not167279.i, label %.critedge182.i, label %opj_jp2_check_color.exit.sink.split
+  %.not167276.i = icmp eq ptr %69, null
+  br i1 %.not167276.i, label %.critedge182.i, label %opj_jp2_check_color.exit.sink.split
 
 .critedge182.i:                                   ; preds = %._crit_edge.thread.i, %._crit_edge.i
   %70 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.13) #6
   br label %opj_jp2_check_color.exit.thread
 
 .lr.ph208.i:                                      ; preds = %._crit_edge.i, %100
-  %indvars.iv242.i = phi i64 [ %indvars.iv.next243.i, %100 ], [ 0, %._crit_edge.i ]
+  %indvars.iv239.i = phi i64 [ %indvars.iv.next240.i, %100 ], [ 0, %._crit_edge.i ]
   %.2136206.i = phi i32 [ %.3137.i, %100 ], [ %.1135.i, %._crit_edge.i ]
-  %indvars87 = trunc i64 %indvars.iv242.i to i32
-  %71 = getelementptr inbounds nuw %struct.opj_jp2_cmap_comp, ptr %55, i64 %indvars.iv242.i
+  %indvars85 = trunc i64 %indvars.iv239.i to i32
+  %71 = getelementptr inbounds nuw %struct.opj_jp2_cmap_comp, ptr %55, i64 %indvars.iv239.i
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 2
   %73 = load i8, ptr %72, align 2, !tbaa !44
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 3
@@ -311,7 +311,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_jp2_apply_color_postprocessing(p
 
 76:                                               ; preds = %.lr.ph208.i
   %77 = zext i8 %73 to i32
-  %78 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.14, i32 noundef %indvars87, i32 noundef %77) #6
+  %78 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.14, i32 noundef %indvars85, i32 noundef %77) #6
   br label %100
 
 79:                                               ; preds = %.lr.ph208.i
@@ -343,16 +343,16 @@ define internal fastcc range(i32 0, 2) i32 @opj_jp2_apply_color_postprocessing(p
   br i1 %or.cond9.i, label %94, label %96
 
 94:                                               ; preds = %91
-  %95 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.17, i32 noundef %indvars87, i32 noundef %80) #6
+  %95 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.17, i32 noundef %indvars85, i32 noundef %80) #6
   br label %100
 
 96:                                               ; preds = %91
-  %.not175.i = icmp ne i32 %indvars87, %80
+  %.not175.i = icmp ne i32 %indvars85, %80
   %or.cond178.not.i = select i1 %88, i1 %.not175.i, i1 false
   br i1 %or.cond178.not.i, label %97, label %99
 
 97:                                               ; preds = %96
-  %98 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.18, i32 noundef %indvars87, i32 noundef %indvars87, i32 noundef %80) #6
+  %98 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.18, i32 noundef %indvars85, i32 noundef %indvars85, i32 noundef %80) #6
   br label %100
 
 99:                                               ; preds = %96
@@ -361,47 +361,47 @@ define internal fastcc range(i32 0, 2) i32 @opj_jp2_apply_color_postprocessing(p
 
 100:                                              ; preds = %99, %97, %94, %89, %81, %76
   %.3137.i = phi i32 [ 0, %76 ], [ 0, %81 ], [ 0, %89 ], [ 0, %94 ], [ 0, %97 ], [ %.2136206.i, %99 ]
-  %indvars.iv.next243.i = add nuw nsw i64 %indvars.iv242.i, 1
-  %exitcond245.not.i = icmp eq i64 %indvars.iv.next243.i, %wide.trip.count240.i
-  br i1 %exitcond245.not.i, label %.lr.ph212.i.outer.preheader, label %.lr.ph208.i, !llvm.loop !47
+  %indvars.iv.next240.i = add nuw nsw i64 %indvars.iv239.i, 1
+  %exitcond242.not.i = icmp eq i64 %indvars.iv.next240.i, %wide.trip.count237.i
+  br i1 %exitcond242.not.i, label %.lr.ph212.i.outer.preheader, label %.lr.ph208.i, !llvm.loop !47
 
 .lr.ph212.i.outer.preheader:                      ; preds = %100
   %101 = icmp eq i32 %.3137.i, 0
   br label %.lr.ph212.i.outer
 
 .lr.ph212.i.outer:                                ; preds = %.lr.ph212.i.outer.preheader, %.thread
-  %indvars.iv246.i.ph = phi i64 [ %indvars.iv.next247.i47, %.thread ], [ 0, %.lr.ph212.i.outer.preheader ]
+  %indvars.iv243.i.ph = phi i64 [ %indvars.iv.next244.i47, %.thread ], [ 0, %.lr.ph212.i.outer.preheader ]
   %.ph = phi i32 [ %112, %.thread ], [ 0, %.lr.ph212.i.outer.preheader ]
   %.4138210.i.ph = phi i1 [ true, %.thread ], [ %101, %.lr.ph212.i.outer.preheader ]
   br label %.lr.ph212.i
 
 .lr.ph212.i:                                      ; preds = %.lr.ph212.i.outer, %109
-  %indvars.iv246.i = phi i64 [ %indvars.iv.next247.i, %109 ], [ %indvars.iv246.i.ph, %.lr.ph212.i.outer ]
+  %indvars.iv243.i = phi i64 [ %indvars.iv.next244.i, %109 ], [ %indvars.iv243.i.ph, %.lr.ph212.i.outer ]
   %102 = phi i32 [ %110, %109 ], [ %.ph, %.lr.ph212.i.outer ]
-  %103 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv246.i
+  %103 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv243.i
   %104 = load i32, ptr %103, align 4, !tbaa !46
   %.not172.i = icmp eq i32 %104, 0
   br i1 %.not172.i, label %105, label %109
 
 105:                                              ; preds = %.lr.ph212.i
-  %106 = getelementptr inbounds nuw %struct.opj_jp2_cmap_comp, ptr %55, i64 %indvars.iv246.i
+  %106 = getelementptr inbounds nuw %struct.opj_jp2_cmap_comp, ptr %55, i64 %indvars.iv243.i
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 2
   %108 = load i8, ptr %107, align 2, !tbaa !44
   %.not173.i = icmp eq i8 %108, 0
   br i1 %.not173.i, label %109, label %.thread
 
 109:                                              ; preds = %105, %.lr.ph212.i
-  %indvars.iv.next247.i = add nuw nsw i64 %indvars.iv246.i, 1
-  %110 = trunc nuw nsw i64 %indvars.iv.next247.i to i32
-  %exitcond249.not.i = icmp eq i64 %indvars.iv.next247.i, %wide.trip.count240.i
-  br i1 %exitcond249.not.i, label %._crit_edge213.i, label %.lr.ph212.i, !llvm.loop !48
+  %indvars.iv.next244.i = add nuw nsw i64 %indvars.iv243.i, 1
+  %110 = trunc nuw nsw i64 %indvars.iv.next244.i to i32
+  %exitcond246.not.i = icmp eq i64 %indvars.iv.next244.i, %wide.trip.count237.i
+  br i1 %exitcond246.not.i, label %._crit_edge213.i, label %.lr.ph212.i, !llvm.loop !48
 
 .thread:                                          ; preds = %105
   %111 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.19, i32 noundef %102) #6
-  %indvars.iv.next247.i47 = add nuw nsw i64 %indvars.iv246.i, 1
-  %112 = trunc nuw nsw i64 %indvars.iv.next247.i47 to i32
-  %exitcond249.not.i48 = icmp eq i64 %indvars.iv.next247.i47, %wide.trip.count240.i
-  br i1 %exitcond249.not.i48, label %.critedge180.thread184.i, label %.lr.ph212.i.outer, !llvm.loop !48
+  %indvars.iv.next244.i47 = add nuw nsw i64 %indvars.iv243.i, 1
+  %112 = trunc nuw nsw i64 %indvars.iv.next244.i47 to i32
+  %exitcond246.not.i48 = icmp eq i64 %indvars.iv.next244.i47, %wide.trip.count237.i
+  br i1 %exitcond246.not.i48, label %.critedge180.thread184.i, label %.lr.ph212.i.outer, !llvm.loop !48
 
 ._crit_edge213.i:                                 ; preds = %109
   br i1 %.4138210.i.ph, label %.critedge180.thread184.i, label %113
@@ -416,13 +416,13 @@ define internal fastcc range(i32 0, 2) i32 @opj_jp2_apply_color_postprocessing(p
   br i1 %115, label %.lr.ph216.i, label %opj_jp2_check_color.exit.sink.split
 
 116:                                              ; preds = %.lr.ph216.i
-  %indvars.iv.next251.i = add nuw nsw i64 %indvars.iv250.i, 1
-  %exitcond254.not.i = icmp eq i64 %indvars.iv.next251.i, %wide.trip.count240.i
-  br i1 %exitcond254.not.i, label %opj_jp2_check_color.exit.sink.split, label %.lr.ph216.i, !llvm.loop !49
+  %indvars.iv.next248.i = add nuw nsw i64 %indvars.iv247.i, 1
+  %exitcond251.not.i = icmp eq i64 %indvars.iv.next248.i, %wide.trip.count237.i
+  br i1 %exitcond251.not.i, label %opj_jp2_check_color.exit.sink.split, label %.lr.ph216.i, !llvm.loop !49
 
 .lr.ph216.i:                                      ; preds = %113, %116
-  %indvars.iv250.i = phi i64 [ %indvars.iv.next251.i, %116 ], [ 0, %113 ]
-  %117 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv250.i
+  %indvars.iv247.i = phi i64 [ %indvars.iv.next248.i, %116 ], [ 0, %113 ]
+  %117 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv247.i
   %118 = load i32, ptr %117, align 4, !tbaa !46
   %.not169.i = icmp eq i32 %118, 0
   br i1 %.not169.i, label %119, label %116
@@ -432,16 +432,16 @@ define internal fastcc range(i32 0, 2) i32 @opj_jp2_apply_color_postprocessing(p
   br label %121
 
 121:                                              ; preds = %121, %119
-  %indvars.iv255.i = phi i64 [ 0, %119 ], [ %indvars.iv.next256.i, %121 ]
-  %122 = getelementptr inbounds nuw %struct.opj_jp2_cmap_comp, ptr %55, i64 %indvars.iv255.i
+  %indvars.iv252.i = phi i64 [ 0, %119 ], [ %indvars.iv.next253.i, %121 ]
+  %122 = getelementptr inbounds nuw %struct.opj_jp2_cmap_comp, ptr %55, i64 %indvars.iv252.i
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 2
   store i8 1, ptr %123, align 2, !tbaa !44
-  %124 = trunc i64 %indvars.iv255.i to i8
+  %124 = trunc i64 %indvars.iv252.i to i8
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 3
   store i8 %124, ptr %125, align 1, !tbaa !45
-  %indvars.iv.next256.i = add nuw nsw i64 %indvars.iv255.i, 1
-  %exitcond259.not.i = icmp eq i64 %indvars.iv.next256.i, %wide.trip.count240.i
-  br i1 %exitcond259.not.i, label %opj_jp2_check_color.exit.sink.split, label %121, !llvm.loop !50
+  %indvars.iv.next253.i = add nuw nsw i64 %indvars.iv252.i, 1
+  %exitcond256.not.i = icmp eq i64 %indvars.iv.next253.i, %wide.trip.count237.i
+  br i1 %exitcond256.not.i, label %opj_jp2_check_color.exit.sink.split, label %121, !llvm.loop !50
 
 opj_jp2_check_color.exit.sink.split:              ; preds = %116, %121, %._crit_edge.thread.i, %113
   %.sink = phi ptr [ %68, %113 ], [ %69, %._crit_edge.thread.i ], [ %68, %121 ], [ %68, %116 ]
@@ -851,8 +851,8 @@ opj_jp2_apply_pclr.exit:                          ; preds = %266, %._crit_edge14
 319:                                              ; preds = %.sink.split.i, %317
   %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next86.i to i16
-  %exitcond89 = icmp eq i16 %272, %lftr.wideiv
-  br i1 %exitcond89, label %._crit_edge.i43, label %.lr.ph.i44, !llvm.loop !73
+  %exitcond87 = icmp eq i16 %272, %lftr.wideiv
+  br i1 %exitcond87, label %._crit_edge.i43, label %.lr.ph.i44, !llvm.loop !73
 
 ._crit_edge.i43:                                  ; preds = %319, %304
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

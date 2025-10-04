@@ -1613,13 +1613,13 @@ define hidden void @"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filte
   %9 = load i64, ptr %8, align 8, !noundef !3
   %10 = call noundef i8 @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %9)
   %11 = icmp eq i8 %10, 1
-  br i1 %11, label %12, label %14
+  br i1 %11, label %12, label %13
 
-12:                                               ; preds = %5
-  %13 = call noundef i8 @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, i64 noundef %9)
-  br label %14
+11:                                               ; preds = %5
+  %12 = call noundef i8 @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, i64 noundef %9)
+  br label %13
 
-14:                                               ; preds = %12, %5
+13:                                               ; preds = %11, %5
   ret void
 }
 

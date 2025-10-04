@@ -2337,7 +2337,7 @@ define dso_local range(i32 -1, 1) i32 @verifyClusterNodeId(ptr noundef readonly 
   %.not = icmp eq i32 %1, 40
   br i1 %.not, label %.preheader, label %.loopexit
 
-3:                                                ; preds = %.preheader
+.preheader:                                       ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !97
@@ -2385,8 +2385,8 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @isValidAuxString(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
-  %.not12 = icmp eq i32 %1, 0
-  br i1 %.not12, label %._crit_edge, label %.lr.ph
+  %.not910 = icmp eq i32 %1, 0
+  br i1 %.not910, label %isValidAuxChar.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %3 = tail call ptr @__ctype_b_loc() #21
@@ -2409,16 +2409,16 @@ isValidAuxChar.exit:                              ; preds = %5
   %12 = sext i8 %7 to i32
   %memchr.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.47, i32 %12, i64 23)
   %.not = icmp eq ptr %memchr.i, null
-  br i1 %.not, label %isValidAuxChar.exit.thread, label %._crit_edge
+  br i1 %.not, label %isValidAuxChar.exit.thread, label %isValidAuxChar.exit._crit_edge
 
 isValidAuxChar.exit.thread:                       ; preds = %5, %isValidAuxChar.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !100
+  br i1 %exitcond.not, label %isValidAuxChar.exit._crit_edge, label %5, !llvm.loop !100
 
-._crit_edge:                                      ; preds = %isValidAuxChar.exit, %isValidAuxChar.exit.thread, %2
-  %13 = phi i32 [ 1, %2 ], [ 1, %isValidAuxChar.exit.thread ], [ 0, %isValidAuxChar.exit ]
-  ret i32 %13
+isValidAuxChar.exit._crit_edge:                   ; preds = %isValidAuxChar.exit, %isValidAuxChar.exit.thread, %2
+  %.not9.lcssa = phi i32 [ 1, %2 ], [ 1, %isValidAuxChar.exit.thread ], [ 0, %isValidAuxChar.exit ]
+  ret i32 %.not9.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

@@ -5691,7 +5691,7 @@ define internal noundef ptr @_curses_resizeterm(ptr noundef %0, ptr noundef read
 10:                                               ; preds = %6
   %11 = tail call ptr @PyErr_Occurred() #9
   %.not26 = icmp eq ptr %11, null
-  br i1 %.not26, label %.thread31, label %_curses_resizeterm_impl.exit
+  br i1 %.not26, label %.thread32, label %_curses_resizeterm_impl.exit
 
 12:                                               ; preds = %6
   %13 = icmp slt i64 %8, -32768
@@ -5704,14 +5704,14 @@ define internal noundef ptr @_curses_resizeterm(ptr noundef %0, ptr noundef read
 
 16:                                               ; preds = %12
   %17 = icmp sgt i64 %8, 32767
-  br i1 %17, label %18, label %.thread31
+  br i1 %17, label %18, label %.thread32
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !11
   tail call void @PyErr_SetString(ptr noundef %19, ptr noundef nonnull @.str.90) #9
   br label %_curses_resizeterm_impl.exit
 
-.thread31:                                        ; preds = %10, %16
+.thread32:                                        ; preds = %10, %16
   %20 = trunc nsw i64 %8 to i32
   %21 = getelementptr i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !11
@@ -5719,12 +5719,12 @@ define internal noundef ptr @_curses_resizeterm(ptr noundef %0, ptr noundef read
   %24 = icmp eq i64 %23, -1
   br i1 %24, label %25, label %27
 
-25:                                               ; preds = %.thread31
+25:                                               ; preds = %.thread32
   %26 = tail call ptr @PyErr_Occurred() #9
   %.not27 = icmp eq ptr %26, null
-  br i1 %.not27, label %.thread36, label %_curses_resizeterm_impl.exit
+  br i1 %.not27, label %.thread38, label %_curses_resizeterm_impl.exit
 
-27:                                               ; preds = %.thread31
+27:                                               ; preds = %.thread32
   %28 = icmp slt i64 %23, -32768
   br i1 %28, label %29, label %31
 
@@ -5735,24 +5735,24 @@ define internal noundef ptr @_curses_resizeterm(ptr noundef %0, ptr noundef read
 
 31:                                               ; preds = %27
   %32 = icmp sgt i64 %23, 32767
-  br i1 %32, label %33, label %.thread36
+  br i1 %32, label %33, label %.thread38
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !11
   tail call void @PyErr_SetString(ptr noundef %34, ptr noundef nonnull @.str.90) #9
   br label %_curses_resizeterm_impl.exit
 
-.thread36:                                        ; preds = %25, %31
+.thread38:                                        ; preds = %25, %31
   %.b.i = load i1, ptr @curses_initscr_called, align 4
   br i1 %.b.i, label %_PyCursesStatefulCheckFunction.exit.i, label %_PyCursesStatefulCheckFunction.exit.thread.i
 
-_PyCursesStatefulCheckFunction.exit.thread.i:     ; preds = %.thread36
+_PyCursesStatefulCheckFunction.exit.thread.i:     ; preds = %.thread38
   %35 = tail call ptr @PyModule_GetState(ptr noundef %0) #9
   %36 = load ptr, ptr %35, align 8, !tbaa !3
   %37 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %36, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.30) #9
   br label %_curses_resizeterm_impl.exit
 
-_PyCursesStatefulCheckFunction.exit.i:            ; preds = %.thread36
+_PyCursesStatefulCheckFunction.exit.i:            ; preds = %.thread38
   %38 = trunc nsw i64 %23 to i32
   %39 = tail call i32 @resizeterm(i32 noundef %20, i32 noundef %38) #9
   %.not.i12.i = icmp eq i32 %39, -1
@@ -5808,7 +5808,7 @@ define internal noundef ptr @_curses_resize_term(ptr noundef %0, ptr noundef rea
 10:                                               ; preds = %6
   %11 = tail call ptr @PyErr_Occurred() #9
   %.not26 = icmp eq ptr %11, null
-  br i1 %.not26, label %.thread31, label %_curses_resize_term_impl.exit
+  br i1 %.not26, label %.thread32, label %_curses_resize_term_impl.exit
 
 12:                                               ; preds = %6
   %13 = icmp slt i64 %8, -32768
@@ -5821,14 +5821,14 @@ define internal noundef ptr @_curses_resize_term(ptr noundef %0, ptr noundef rea
 
 16:                                               ; preds = %12
   %17 = icmp sgt i64 %8, 32767
-  br i1 %17, label %18, label %.thread31
+  br i1 %17, label %18, label %.thread32
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !11
   tail call void @PyErr_SetString(ptr noundef %19, ptr noundef nonnull @.str.90) #9
   br label %_curses_resize_term_impl.exit
 
-.thread31:                                        ; preds = %10, %16
+.thread32:                                        ; preds = %10, %16
   %20 = trunc nsw i64 %8 to i32
   %21 = getelementptr i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !11
@@ -5836,12 +5836,12 @@ define internal noundef ptr @_curses_resize_term(ptr noundef %0, ptr noundef rea
   %24 = icmp eq i64 %23, -1
   br i1 %24, label %25, label %27
 
-25:                                               ; preds = %.thread31
+25:                                               ; preds = %.thread32
   %26 = tail call ptr @PyErr_Occurred() #9
   %.not27 = icmp eq ptr %26, null
-  br i1 %.not27, label %.thread36, label %_curses_resize_term_impl.exit
+  br i1 %.not27, label %.thread38, label %_curses_resize_term_impl.exit
 
-27:                                               ; preds = %.thread31
+27:                                               ; preds = %.thread32
   %28 = icmp slt i64 %23, -32768
   br i1 %28, label %29, label %31
 
@@ -5852,24 +5852,24 @@ define internal noundef ptr @_curses_resize_term(ptr noundef %0, ptr noundef rea
 
 31:                                               ; preds = %27
   %32 = icmp sgt i64 %23, 32767
-  br i1 %32, label %33, label %.thread36
+  br i1 %32, label %33, label %.thread38
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !11
   tail call void @PyErr_SetString(ptr noundef %34, ptr noundef nonnull @.str.90) #9
   br label %_curses_resize_term_impl.exit
 
-.thread36:                                        ; preds = %25, %31
+.thread38:                                        ; preds = %25, %31
   %.b.i = load i1, ptr @curses_initscr_called, align 4
   br i1 %.b.i, label %_PyCursesStatefulCheckFunction.exit.i, label %_PyCursesStatefulCheckFunction.exit.thread.i
 
-_PyCursesStatefulCheckFunction.exit.thread.i:     ; preds = %.thread36
+_PyCursesStatefulCheckFunction.exit.thread.i:     ; preds = %.thread38
   %35 = tail call ptr @PyModule_GetState(ptr noundef %0) #9
   %36 = load ptr, ptr %35, align 8, !tbaa !3
   %37 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %36, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.30) #9
   br label %_curses_resize_term_impl.exit
 
-_PyCursesStatefulCheckFunction.exit.i:            ; preds = %.thread36
+_PyCursesStatefulCheckFunction.exit.i:            ; preds = %.thread38
   %38 = trunc nsw i64 %23 to i32
   %39 = tail call i32 @resize_term(i32 noundef %20, i32 noundef %38) #9
   %.not.i12.i = icmp eq i32 %39, -1
@@ -6241,13 +6241,13 @@ define internal noundef ptr @_curses_setupterm(ptr noundef %0, ptr noundef %1, i
   br i1 %.not.i, label %_curses_setupterm_impl.exit, label %53
 
 53:                                               ; preds = %44, %51
-  %.03465 = phi ptr [ %.034.ph, %51 ], [ %.1, %44 ]
+  %.03466 = phi ptr [ %.034.ph, %51 ], [ %.1, %44 ]
   %.016.i = phi i32 [ %52, %51 ], [ %40, %44 ]
   %.b.i = load i1, ptr @curses_setupterm_called, align 4
   br i1 %.b.i, label %61, label %54
 
 54:                                               ; preds = %53
-  %55 = call i32 @setupterm(ptr noundef %.03465, i32 noundef %.016.i, ptr noundef nonnull %5) #9
+  %55 = call i32 @setupterm(ptr noundef %.03466, i32 noundef %.016.i, ptr noundef nonnull %5) #9
   %56 = icmp eq i32 %55, -1
   br i1 %56, label %57, label %61
 
@@ -13332,19 +13332,19 @@ PyCursesCheckERR_ForWin.exit:                     ; preds = %13
 
 .lr.ph:                                           ; preds = %PyCursesCheckERR_ForWin.exit, %32
   %24 = phi i64 [ %33, %32 ], [ %22, %PyCursesCheckERR_ForWin.exit ]
-  %.129 = phi ptr [ %30, %32 ], [ @_Py_NoneStruct, %PyCursesCheckERR_ForWin.exit ]
-  %25 = load i32, ptr %.129, align 8, !tbaa !12
+  %.130 = phi ptr [ %30, %32 ], [ @_Py_NoneStruct, %PyCursesCheckERR_ForWin.exit ]
+  %25 = load i32, ptr %.130, align 8, !tbaa !12
   %.not.i = icmp sgt i32 %25, -1
   br i1 %.not.i, label %26, label %Py_DECREF.exit
 
 26:                                               ; preds = %.lr.ph
   %27 = add nsw i32 %25, -1
-  store i32 %27, ptr %.129, align 8, !tbaa !12
+  store i32 %27, ptr %.130, align 8, !tbaa !12
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %Py_DECREF.exit
 
 29:                                               ; preds = %26
-  call void @_Py_Dealloc(ptr noundef nonnull %.129) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %.130) #9
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %.lr.ph, %26, %29

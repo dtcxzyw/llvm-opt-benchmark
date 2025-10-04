@@ -24544,8 +24544,8 @@ define linkonce_odr ptr @_ZNSt18unordered_multimapIllSt4hashIlESt8equal_toIlESaI
 13:                                               ; preds = %14, %11
   %.sroa.0.0.in.i.i.i.i = phi ptr [ %12, %11 ], [ %.sroa.0.0.i.i.i.i, %14 ]
   %.sroa.0.0.i.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i.i, align 8, !tbaa !127
-  %.not28.i.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i, null
-  br i1 %.not28.i.i.i.i, label %.loopexit.i.i.i, label %14
+  %.not33.i.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i, null
+  br i1 %.not33.i.i.i.i, label %.loopexit.i.i.i, label %14
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 8
@@ -24554,8 +24554,8 @@ define linkonce_odr ptr @_ZNSt18unordered_multimapIllSt4hashIlESt8equal_toIlESaI
   br i1 %17, label %.loopexit.i.i.i, label %13, !llvm.loop !289
 
 .loopexit.i.i.i:                                  ; preds = %14, %13, %2
-  %.sroa.020.2.i.i.i.i = phi ptr [ null, %2 ], [ %.sroa.0.0.i.i.i.i, %14 ], [ null, %13 ]
-  %18 = invoke ptr @_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE20_M_insert_multi_nodeEPNS4_10_Hash_nodeIS2_Lb0EEEmSI_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %.sroa.020.2.i.i.i.i, i64 noundef %5, ptr noundef nonnull %3)
+  %.sroa.021.2.i.i.i.i = phi ptr [ null, %2 ], [ %.sroa.0.0.i.i.i.i, %14 ], [ null, %13 ]
+  %18 = invoke ptr @_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE20_M_insert_multi_nodeEPNS4_10_Hash_nodeIS2_Lb0EEEmSI_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %.sroa.021.2.i.i.i.i, i64 noundef %5, ptr noundef nonnull %3)
           to label %_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE7emplaceIJRS0_IllEEEENS4_14_Node_iteratorIS2_Lb0ELb0EEEDpOT_.exit unwind label %_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit9.i.i.i
 
 _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit9.i.i.i: ; preds = %.loopexit.i.i.i
@@ -31104,19 +31104,19 @@ _ZN5faiss3nsg5GraphIiED2Ev.exit:                  ; preds = %1, %5, %9
 define linkonce_odr noundef i64 @_ZNK5faiss3nsg5GraphIiE13get_neighborsEiPi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #18 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !308
-  %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph, label %.._crit_edge_crit_edge
+  %.not19 = icmp sgt i32 %5, 0
+  br i1 %.not19, label %.lr.ph, label %.lr.ph
 
-.._crit_edge_crit_edge:                           ; preds = %3
+.lr.ph:                                           ; preds = %3
   %.pre = sext i32 %5 to i64
   br label %._crit_edge
 
-.lr.ph:                                           ; preds = %3
+8:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !312
   br label %9
 
-9:                                                ; preds = %.lr.ph, %18
+17:                                               ; preds = %8, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %10 = phi i32 [ %5, %.lr.ph ], [ %20, %18 ]
   %11 = mul nsw i32 %10, %1
@@ -31132,12 +31132,12 @@ define linkonce_odr noundef i64 @_ZNK5faiss3nsg5GraphIiE13get_neighborsEiPi(ptr 
   %19 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %16, ptr %19, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = load i32, ptr %4, align 8, !tbaa !308
-  %21 = sext i32 %20 to i64
-  %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %9, label %._crit_edge, !llvm.loop !330
+  %19 = load i32, ptr %4, align 8, !tbaa !308
+  %20 = sext i32 %19 to i64
+  %.not = icmp slt i64 %indvars.iv.next, %20
+  br i1 %.not, label %9, label %._crit_edge, !llvm.loop !330
 
-23:                                               ; preds = %9
+.loopexit.thread:                                 ; preds = %17
   %24 = and i64 %indvars.iv, 4294967295
   br label %._crit_edge
 

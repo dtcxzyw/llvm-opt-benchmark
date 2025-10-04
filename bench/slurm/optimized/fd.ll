@@ -108,32 +108,32 @@ define dso_local void @closeall_except(i32 noundef %0, ptr noundef readonly capt
 
 .preheader:                                       ; preds = %2
   %5 = tail call ptr @readdir(ptr noundef nonnull %4) #10
-  %.not1322 = icmp eq ptr %5, null
-  br i1 %.not1322, label %._crit_edge, label %.lr.ph
+  %.not1321 = icmp eq ptr %5, null
+  br i1 %.not1321, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %_is_fd_skipped.exit.us
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %14
   %6 = phi ptr [ %15, %_is_fd_skipped.exit.us ], [ %5, %.lr.ph ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %8 = load i8, ptr %7, align 2
   %.not14.us = icmp eq i8 %8, 4
-  br i1 %.not14.us, label %_is_fd_skipped.exit.us, label %9
+  br i1 %.not14.us, label %14, label %9
 
 9:                                                ; preds = %.lr.ph.split.us
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 19
   %11 = tail call i64 @strtol(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 10) #10
   %12 = trunc i64 %11 to i32
   %.not15.us = icmp sgt i32 %0, %12
-  br i1 %.not15.us, label %_is_fd_skipped.exit.us, label %13
+  br i1 %.not15.us, label %14, label %_is_fd_skipped.exit.thread.us
 
-13:                                               ; preds = %9
-  %14 = tail call i32 @close(i32 noundef %12) #10
-  br label %_is_fd_skipped.exit.us
+_is_fd_skipped.exit.thread.us:                    ; preds = %9
+  %13 = tail call i32 @close(i32 noundef %12) #10
+  br label %14
 
-_is_fd_skipped.exit.us:                           ; preds = %13, %9, %.lr.ph.split.us
+14:                                               ; preds = %_is_fd_skipped.exit.thread.us, %9, %.lr.ph.split.us
   %15 = tail call ptr @readdir(ptr noundef nonnull %4) #10
   %.not13.us = icmp eq ptr %15, null
   br i1 %.not13.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
@@ -170,18 +170,18 @@ _is_fd_skipped.exit.us:                           ; preds = %13, %9, %.lr.ph.spl
 
 .lr.ph.i:                                         ; preds = %25
   %.not.i.i = icmp eq ptr %1, null
-  br i1 %.not.i.i, label %_is_fd_skipped.exit.us.i, label %.preheader.i.i
+  br i1 %.not.i.i, label %_is_fd_skipped.exit.thread.us.i, label %.preheader.i.i
 
-_is_fd_skipped.exit.us.i:                         ; preds = %.lr.ph.i, %_is_fd_skipped.exit.us.i
+_is_fd_skipped.exit.thread.us.i:                  ; preds = %.lr.ph.i, %_is_fd_skipped.exit.thread.us.i
   %indvars.iv8.i = phi i64 [ %indvars.iv.next9.i, %_is_fd_skipped.exit.us.i ], [ %27, %.lr.ph.i ]
   %29 = trunc nsw i64 %indvars.iv8.i to i32
   %30 = call i32 @close(i32 noundef %29) #10
   %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 1
   %31 = load i64, ptr %3, align 8
   %32 = icmp ugt i64 %31, %indvars.iv.next9.i
-  br i1 %32, label %_is_fd_skipped.exit.us.i, label %_slow_closeall.exit, !llvm.loop !11
+  br i1 %32, label %_is_fd_skipped.exit.thread.us.i, label %_slow_closeall.exit, !llvm.loop !11
 
-.preheader.i.i:                                   ; preds = %.lr.ph.i, %_is_fd_skipped.exit.i
+_is_fd_skipped.exit.i:                            ; preds = %.lr.ph.i, %40
   %33 = phi i64 [ %44, %_is_fd_skipped.exit.i ], [ %26, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_is_fd_skipped.exit.i ], [ %27, %.lr.ph.i ]
   %34 = load i32, ptr %1, align 4
@@ -189,7 +189,7 @@ _is_fd_skipped.exit.us.i:                         ; preds = %.lr.ph.i, %_is_fd_s
   %36 = trunc nsw i64 %indvars.iv.i to i32
   br i1 %35, label %.lr.ph.i.i, label %.loopexit.i
 
-37:                                               ; preds = %.lr.ph.i.i
+_is_fd_skipped.exit.thread.i:                     ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %38 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next.i.i
   %39 = load i32, ptr %38, align 4
@@ -205,38 +205,38 @@ _is_fd_skipped.exit.us.i:                         ; preds = %.lr.ph.i, %_is_fd_s
 .loopexit.i:                                      ; preds = %37, %.preheader.i.i
   %43 = call i32 @close(i32 noundef %36) #10
   %.pre12.i = load i64, ptr %3, align 8
-  br label %_is_fd_skipped.exit.i
+  br label %40
 
-_is_fd_skipped.exit.i:                            ; preds = %.lr.ph.i.i, %.loopexit.i
-  %44 = phi i64 [ %.pre12.i, %.loopexit.i ], [ %33, %.lr.ph.i.i ]
+40:                                               ; preds = %.lr.ph.i.i, %.loopexit.i
+  %41 = phi i64 [ %.pre12.i, %.loopexit.i ], [ %33, %.lr.ph.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %45 = icmp ugt i64 %44, %indvars.iv.next.i
-  br i1 %45, label %.preheader.i.i, label %_slow_closeall.exit, !llvm.loop !11
+  %42 = icmp ugt i64 %41, %indvars.iv.next.i
+  br i1 %42, label %.preheader.i.i, label %_slow_closeall.exit, !llvm.loop !11
 
-_slow_closeall.exit:                              ; preds = %_is_fd_skipped.exit.i, %_is_fd_skipped.exit.us.i, %25
+_slow_closeall.exit:                              ; preds = %40, %_is_fd_skipped.exit.thread.us.i, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %64
+  br label %58
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_is_fd_skipped.exit
-  %46 = phi ptr [ %62, %_is_fd_skipped.exit ], [ %5, %.lr.ph ]
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 18
-  %48 = load i8, ptr %47, align 2
-  %.not14 = icmp eq i8 %48, 4
-  br i1 %.not14, label %_is_fd_skipped.exit, label %49
+  %43 = phi ptr [ %62, %_is_fd_skipped.exit ], [ %5, %.lr.ph ]
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 18
+  %45 = load i8, ptr %44, align 2
+  %.not14 = icmp eq i8 %45, 4
+  br i1 %.not14, label %_is_fd_skipped.exit, label %46
 
-49:                                               ; preds = %.lr.ph.split
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 19
-  %51 = tail call i64 @strtol(ptr noundef nonnull captures(none) %50, ptr noundef null, i32 noundef 10) #10
-  %52 = trunc i64 %51 to i32
-  %.not15 = icmp sgt i32 %0, %52
+46:                                               ; preds = %.lr.ph.split
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 19
+  %48 = tail call i64 @strtol(ptr noundef nonnull captures(none) %47, ptr noundef null, i32 noundef 10) #10
+  %49 = trunc i64 %48 to i32
+  %.not15 = icmp sgt i32 %0, %49
   br i1 %.not15, label %_is_fd_skipped.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %49
+.preheader.i:                                     ; preds = %46
   %53 = load i32, ptr %1, align 4
   %54 = icmp sgt i32 %53, -1
   br i1 %54, label %.lr.ph.i17, label %.loopexit
 
-55:                                               ; preds = %.lr.ph.i17
+55:; preds = %.lr.ph.i17
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
   %56 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next.i19
   %57 = load i32, ptr %56, align 4
@@ -249,7 +249,7 @@ _slow_closeall.exit:                              ; preds = %_is_fd_skipped.exit
   %60 = icmp eq i32 %59, %52
   br i1 %60, label %_is_fd_skipped.exit, label %55
 
-.loopexit:                                        ; preds = %55, %.preheader.i
+.loopexit:; preds = %55, %.preheader.i
   %61 = tail call i32 @close(i32 noundef %52) #10
   br label %_is_fd_skipped.exit
 
@@ -258,11 +258,11 @@ _is_fd_skipped.exit:                              ; preds = %.lr.ph.i17, %49, %.
   %.not13 = icmp eq ptr %62, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %_is_fd_skipped.exit, %_is_fd_skipped.exit.us, %.preheader
-  %63 = tail call i32 @closedir(ptr noundef nonnull %4)
-  br label %64
+._crit_edge:                                      ; preds = %_is_fd_skipped.exit, %14, %.preheader
+  %57 = tail call i32 @closedir(ptr noundef nonnull %4)
+  br label %58
 
-64:                                               ; preds = %._crit_edge, %_slow_closeall.exit
+58:                                               ; preds = %._crit_edge, %_slow_closeall.exit
   ret void
 }
 

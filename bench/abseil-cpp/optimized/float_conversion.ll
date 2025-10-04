@@ -187,8 +187,8 @@ _ZN4absl19str_format_internal12_GLOBAL__N_112LeadingZerosENS_7uint128E.exit.i.i:
 _ZN4absl19str_format_internal12_GLOBAL__N_112LeadingZerosENS_7uint128E.exit.thread.i.i: ; preds = %67
   %72 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.011.0.copyload.i, i1 false)
   %73 = trunc nuw nsw i64 %72 to i32
-  %reass.sub40.i.i = sub nsw i32 %58, %73
-  %74 = add nsw i32 %reass.sub40.i.i, 64
+  %reass.sub41.i.i = sub nsw i32 %58, %73
+  %74 = add nsw i32 %reass.sub41.i.i, 64
   %75 = icmp samesign ugt i32 %74, 128
   br i1 %75, label %76, label %_ZN4absl19str_format_internal12_GLOBAL__N_112LeadingZerosENS_7uint128E.exit.i.i.i, !prof !33
 
