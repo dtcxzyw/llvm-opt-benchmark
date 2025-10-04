@@ -40715,8 +40715,8 @@ define hidden noundef align 8 ptr @_ZN18serde_json_lenient4read13ignore_escape17
   %90 = add i16 %88, %89
   br i1 %exitcond.not.i14, label %91, label %65
 
-.loopexit:                                        ; preds = %61, %83, %82, %57, %56, %25, %25, %25, %25, %25, %25, %25, %25, %25, %91, %94, %29, %28
-  %.sroa.0.0 = phi ptr [ %34, %29 ], [ %99, %94 ], [ %.sroa.718.0.ph, %28 ], [ null, %91 ], [ null, %25 ], [ null, %25 ], [ null, %25 ], [ null, %25 ], [ null, %25 ], [ null, %25 ], [ null, %25 ], [ null, %25 ], [ null, %25 ], [ %60, %57 ], [ %.sroa.77.1.ph.i, %56 ], [ %86, %83 ], [ %.sroa.77.1.ph.i11, %82 ], [ null, %61 ]
+.loopexit:                                        ; preds = %61, %83, %82, %57, %56, %25, %25, %25, %25, %25, %25, %25, %25, %25, %91, %96, %29, %28
+  %.sroa.0.0 = phi ptr [ %34, %29 ], [ %101, %94 ], [ %.sroa.718.0.ph, %28 ], [ null, %91 ], [ null, %25 ], [ null, %25 ], [ null, %25 ], [ null, %25 ], [ null, %25 ], [ null, %25 ], [ null, %25 ], [ null, %25 ], [ null, %25 ], [ %60, %57 ], [ %.sroa.77.1.ph.i, %56 ], [ %86, %83 ], [ %.sroa.77.1.ph.i11, %82 ], [ null, %61 ]
   ret ptr %.sroa.0.0
 
 91:                                               ; preds = %87
@@ -40724,15 +40724,15 @@ define hidden noundef align 8 ptr @_ZN18serde_json_lenient4read13ignore_escape17
   %93 = icmp ult i16 %92, 2048
   br i1 %93, label %94, label %.loopexit
 
-94:                                               ; preds = %91
+96:                                               ; preds = %91
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8181)
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %96 = load i64, ptr %95, align 8, !alias.scope !8184, !noalias !8187, !noundef !4
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %98 = load i64, ptr %97, align 8, !alias.scope !8184, !noalias !8187, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !8189
   store i64 17, ptr %2, align 8, !noalias !8181
-  %99 = call noundef nonnull align 8 ptr @_ZN18serde_json_lenient5error5Error6syntax17h0f44a907e13a927fE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, i64 noundef %96, i64 noundef %98), !noalias !8189
+  %101 = call noundef nonnull align 8 ptr @_ZN18serde_json_lenient5error5Error6syntax17h0f44a907e13a927fE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, i64 noundef %96, i64 noundef %98), !noalias !8189
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !8189
   br label %.loopexit
 }

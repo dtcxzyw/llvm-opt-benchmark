@@ -1397,7 +1397,7 @@ yynewstate.backedge:                              ; preds = %if.end48, %cleanup
   br i1 %cmp, label %_ZN8facebook5velox4type6Parser6yypop_Ei.exit556, label %yybackup.backedge
 
 yybackup.backedge:                                ; preds = %yynewstate.backedge, %invoke.cont817
-  %.be = phi i8 [ %25, %yynewstate.backedge ], [ %321, %invoke.cont817 ]
+  %.be = phi i8 [ %25, %yynewstate.backedge ], [ %319, %invoke.cont817 ]
   %yyerrstatus_.0688.be = phi i32 [ %yyerrstatus_.0.be, %yynewstate.backedge ], [ 3, %invoke.cont817 ]
   br label %yybackup
 
@@ -2855,34 +2855,34 @@ yyerrlab1:                                        ; preds = %for.body.i.i500, %i
   %arrayidx783912 = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser7yypact_E, i64 %idxprom782911
   %302 = load i8, ptr %arrayidx783912, align 1
   %cmp788913 = icmp sgt i8 %302, -2
-  %303 = icmp eq i8 %301, 0
-  %or.cond857914 = and i1 %cmp788913, %303
-  br i1 %or.cond857914, label %for.end, label %if.end803
+  %cmp794914 = icmp eq i8 %301, 0
+  %or.cond857915 = and i1 %cmp788913, %cmp794914
+  br i1 %or.cond857915, label %for.end, label %if.end803
 
 if.end803:                                        ; preds = %yyerrlab1, %for.body.i.i520.preheader
-  %sub.ptr.sub.i.i.i509915 = phi i64 [ %sub.ptr.sub.i.i.i509, %for.body.i.i520.preheader ], [ %sub.ptr.sub.i.i.i509909, %yyerrlab1 ]
-  %304 = phi ptr [ %305, %for.body.i.i520.preheader ], [ %298, %yyerrlab1 ]
-  %cmp806 = icmp eq i64 %sub.ptr.sub.i.i.i509915, 64
+  %sub.ptr.sub.i.i.i509916 = phi i64 [ %sub.ptr.sub.i.i.i509, %for.body.i.i520.preheader ], [ %sub.ptr.sub.i.i.i509909, %yyerrlab1 ]
+  %303 = phi ptr [ %304, %for.body.i.i520.preheader ], [ %298, %yyerrlab1 ]
+  %cmp806 = icmp eq i64 %sub.ptr.sub.i.i.i509916, 64
   br i1 %cmp806, label %cleanup850, label %for.body.i.i520.preheader
 
 for.body.i.i520.preheader:                        ; preds = %if.end803
-  %incdec.ptr.i.i.i522 = getelementptr inbounds i8, ptr %304, i64 -64
+  %incdec.ptr.i.i.i522 = getelementptr inbounds i8, ptr %303, i64 -64
   store ptr %incdec.ptr.i.i.i522, ptr %_M_finish.i.i.i, align 8
   call void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_8by_stateEE5clearEv(ptr noundef nonnull align 16 dereferenceable(64) %incdec.ptr.i.i.i522) #26
-  %305 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %306 = load ptr, ptr %yystack_, align 8
-  %sub.ptr.lhs.cast.i.i.i507 = ptrtoint ptr %305 to i64
-  %sub.ptr.rhs.cast.i.i.i508 = ptrtoint ptr %306 to i64
+  %304 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %305 = load ptr, ptr %yystack_, align 8
+  %sub.ptr.lhs.cast.i.i.i507 = ptrtoint ptr %304 to i64
+  %sub.ptr.rhs.cast.i.i.i508 = ptrtoint ptr %305 to i64
   %sub.ptr.sub.i.i.i509 = sub i64 %sub.ptr.lhs.cast.i.i.i507, %sub.ptr.rhs.cast.i.i.i508
-  %307 = getelementptr i8, ptr %306, i64 %sub.ptr.sub.i.i.i509
-  %add.ptr.i.i510 = getelementptr i8, ptr %307, i64 -64
-  %308 = load i8, ptr %add.ptr.i.i510, align 16
-  %idxprom782 = sext i8 %308 to i64
+  %306 = getelementptr i8, ptr %305, i64 %sub.ptr.sub.i.i.i509
+  %add.ptr.i.i510 = getelementptr i8, ptr %306, i64 -64
+  %307 = load i8, ptr %add.ptr.i.i510, align 16
+  %idxprom782 = sext i8 %307 to i64
   %arrayidx783 = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser7yypact_E, i64 %idxprom782
-  %309 = load i8, ptr %arrayidx783, align 1
-  %cmp788 = icmp sgt i8 %309, -2
-  %310 = icmp eq i8 %308, 0
-  %or.cond857 = and i1 %cmp788, %310
+  %308 = load i8, ptr %arrayidx783, align 1
+  %cmp788 = icmp sgt i8 %308, -2
+  %cmp794 = icmp eq i8 %307, 0
+  %or.cond857 = and i1 %cmp788, %cmp794
   br i1 %or.cond857, label %for.end, label %if.end803, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body.i.i520.preheader, %yyerrlab1
@@ -2896,114 +2896,114 @@ invoke.cont813:                                   ; preds = %for.end
           to label %.noexc541 unwind label %lpad816
 
 .noexc541:                                        ; preds = %invoke.cont813
-  %311 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %312 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %cmp.not.i.i.i.i530 = icmp eq ptr %311, %312
+  %309 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %310 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %cmp.not.i.i.i.i530 = icmp eq ptr %309, %310
   br i1 %cmp.not.i.i.i.i530, label %if.else.i.i.i.i540, label %if.then.i.i.i.i531
 
 if.then.i.i.i.i531:                               ; preds = %.noexc541
-  invoke void @_ZN8facebook5velox4type6Parser17stack_symbol_typeC1EOS3_(ptr noundef nonnull align 16 dereferenceable(64) %311, ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp.i.i526)
+  invoke void @_ZN8facebook5velox4type6Parser17stack_symbol_typeC1EOS3_(ptr noundef nonnull align 16 dereferenceable(64) %309, ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp.i.i526)
           to label %.noexc.i.i533 unwind label %lpad.i.i532
 
 .noexc.i.i533:                                    ; preds = %if.then.i.i.i.i531
-  %313 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i.i534 = getelementptr inbounds nuw i8, ptr %313, i64 64
+  %311 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %incdec.ptr.i.i.i.i534 = getelementptr inbounds nuw i8, ptr %311, i64 64
   store ptr %incdec.ptr.i.i.i.i534, ptr %_M_finish.i.i.i, align 8
   br label %_ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_EEE4pushEOS4_.exit.i535
 
 if.else.i.i.i.i540:                               ; preds = %.noexc541
-  invoke void @_ZNSt6vectorIN8facebook5velox4type6Parser17stack_symbol_typeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %yystack_, ptr %311, ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp.i.i526)
+  invoke void @_ZNSt6vectorIN8facebook5velox4type6Parser17stack_symbol_typeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %yystack_, ptr %309, ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp.i.i526)
           to label %_ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_EEE4pushEOS4_.exit.i535 unwind label %lpad.i.i532
 
 lpad.i.i532:                                      ; preds = %if.else.i.i.i.i540, %if.then.i.i.i.i531
-  %314 = landingpad { ptr, i32 }
+  %312 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_8by_stateEE5clearEv(ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp.i.i526) #26
   br label %lpad816.body
 
 _ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_EEE4pushEOS4_.exit.i535: ; preds = %if.else.i.i.i.i540, %.noexc.i.i533
   call void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_8by_stateEE5clearEv(ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp.i.i526) #26
-  %315 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %316 = load ptr, ptr %yystack_, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i536 = ptrtoint ptr %315 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i537 = ptrtoint ptr %316 to i64
+  %313 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %314 = load ptr, ptr %yystack_, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i536 = ptrtoint ptr %313 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i537 = ptrtoint ptr %314 to i64
   %sub.ptr.sub.i.i.i.i.i538 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i536, %sub.ptr.rhs.cast.i.i.i.i.i537
-  %317 = getelementptr i8, ptr %316, i64 %sub.ptr.sub.i.i.i.i.i538
-  %add.ptr.i.i.i.i539 = getelementptr i8, ptr %317, i64 -64
+  %315 = getelementptr i8, ptr %314, i64 %sub.ptr.sub.i.i.i.i.i538
+  %add.ptr.i.i.i.i539 = getelementptr i8, ptr %315, i64 -64
   invoke void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_8by_stateEE4moveERS5_(ptr noundef nonnull align 16 dereferenceable(64) %add.ptr.i.i.i.i539, ptr noundef nonnull align 16 dereferenceable(64) %error_token)
           to label %invoke.cont817 unwind label %lpad816
 
 invoke.cont817:                                   ; preds = %_ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_EEE4pushEOS4_.exit.i535
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i526)
   call void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_8by_stateEE5clearEv(ptr noundef nonnull align 16 dereferenceable(64) %error_token) #26
-  %318 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %319 = load ptr, ptr %yystack_, align 8
-  %sub.ptr.lhs.cast.i.i.i683 = ptrtoint ptr %318 to i64
-  %sub.ptr.rhs.cast.i.i.i684 = ptrtoint ptr %319 to i64
+  %316 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %317 = load ptr, ptr %yystack_, align 8
+  %sub.ptr.lhs.cast.i.i.i683 = ptrtoint ptr %316 to i64
+  %sub.ptr.rhs.cast.i.i.i684 = ptrtoint ptr %317 to i64
   %sub.ptr.sub.i.i.i685 = sub i64 %sub.ptr.lhs.cast.i.i.i683, %sub.ptr.rhs.cast.i.i.i684
-  %320 = getelementptr i8, ptr %319, i64 %sub.ptr.sub.i.i.i685
-  %add.ptr.i.i686 = getelementptr i8, ptr %320, i64 -64
-  %321 = load i8, ptr %add.ptr.i.i686, align 16
-  %cmp687 = icmp eq i8 %321, 34
+  %318 = getelementptr i8, ptr %317, i64 %sub.ptr.sub.i.i.i685
+  %add.ptr.i.i686 = getelementptr i8, ptr %318, i64 -64
+  %319 = load i8, ptr %add.ptr.i.i686, align 16
+  %cmp687 = icmp eq i8 %319, 34
   br i1 %cmp687, label %_ZN8facebook5velox4type6Parser6yypop_Ei.exit556, label %yybackup.backedge
 
 lpad816:                                          ; preds = %_ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_EEE4pushEOS4_.exit.i535, %invoke.cont813
-  %322 = landingpad { ptr, i32 }
+  %320 = landingpad { ptr, i32 }
           catch ptr null
   br label %lpad816.body
 
 lpad816.body:                                     ; preds = %lpad.i.i532, %lpad816
-  %eh.lpad-body542 = phi { ptr, i32 } [ %322, %lpad816 ], [ %314, %lpad.i.i532 ]
-  %323 = extractvalue { ptr, i32 } %eh.lpad-body542, 0
+  %eh.lpad-body542 = phi { ptr, i32 } [ %320, %lpad816 ], [ %312, %lpad.i.i532 ]
+  %321 = extractvalue { ptr, i32 } %eh.lpad-body542, 0
   call void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_8by_stateEE5clearEv(ptr noundef nonnull align 16 dereferenceable(64) %error_token) #26
   br label %catch830
 
 catch830:                                         ; preds = %lpad15, %lpad19, %lpad816.body, %lpad761, %ehcleanup754, %lpad
-  %exn.slot.0 = phi ptr [ %323, %lpad816.body ], [ %6, %lpad ], [ %295, %lpad761 ], [ %exn.slot.1, %ehcleanup754 ], [ %18, %lpad19 ], [ %13, %lpad15 ]
-  %324 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
-  %325 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %326 = load ptr, ptr %yystack_, align 8
-  %sub.ptr.lhs.cast.i.i576697 = ptrtoint ptr %325 to i64
-  %sub.ptr.rhs.cast.i.i577698 = ptrtoint ptr %326 to i64
+  %exn.slot.0 = phi ptr [ %321, %lpad816.body ], [ %6, %lpad ], [ %295, %lpad761 ], [ %exn.slot.1, %ehcleanup754 ], [ %18, %lpad19 ], [ %13, %lpad15 ]
+  %322 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
+  %323 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %324 = load ptr, ptr %yystack_, align 8
+  %sub.ptr.lhs.cast.i.i576697 = ptrtoint ptr %323 to i64
+  %sub.ptr.rhs.cast.i.i577698 = ptrtoint ptr %324 to i64
   %sub.ptr.sub.i.i578699 = sub i64 %sub.ptr.lhs.cast.i.i576697, %sub.ptr.rhs.cast.i.i577698
   %cmp840700 = icmp sgt i64 %sub.ptr.sub.i.i578699, 64
   br i1 %cmp840700, label %while.body841, label %while.end846
 
 _ZN8facebook5velox4type6Parser6yypop_Ei.exit556:  ; preds = %invoke.cont817, %if.then766, %yynewstate.backedge, %yynewstate.preheader
   %sub.ptr.sub.i.i560703.pre-phi = phi i64 [ %sub.ptr.sub.i.i.i685691, %yynewstate.preheader ], [ %sub.ptr.sub.i.i.i685, %invoke.cont817 ], [ %sub.ptr.sub.i.i.i55, %if.then766 ], [ %sub.ptr.sub.i.i.i, %yynewstate.backedge ]
-  %327 = phi ptr [ %2, %yynewstate.preheader ], [ %318, %invoke.cont817 ], [ %26, %if.then766 ], [ %22, %yynewstate.backedge ]
+  %325 = phi ptr [ %2, %yynewstate.preheader ], [ %316, %invoke.cont817 ], [ %26, %if.then766 ], [ %22, %yynewstate.backedge ]
   %yyresult.0605 = phi i32 [ 0, %yynewstate.preheader ], [ 0, %invoke.cont817 ], [ 1, %if.then766 ], [ 0, %yynewstate.backedge ]
   %cmp825704 = icmp sgt i64 %sub.ptr.sub.i.i560703.pre-phi, 64
   br i1 %cmp825704, label %while.body, label %cleanup850
 
 while.body:                                       ; preds = %_ZN8facebook5velox4type6Parser6yypop_Ei.exit556, %while.body
-  %328 = phi ptr [ %329, %while.body ], [ %327, %_ZN8facebook5velox4type6Parser6yypop_Ei.exit556 ]
-  %incdec.ptr.i.i.i571 = getelementptr inbounds i8, ptr %328, i64 -64
+  %326 = phi ptr [ %327, %while.body ], [ %325, %_ZN8facebook5velox4type6Parser6yypop_Ei.exit556 ]
+  %incdec.ptr.i.i.i571 = getelementptr inbounds i8, ptr %326, i64 -64
   store ptr %incdec.ptr.i.i.i571, ptr %_M_finish.i.i.i, align 8
   call void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_8by_stateEE5clearEv(ptr noundef nonnull align 16 dereferenceable(64) %incdec.ptr.i.i.i571) #26
-  %329 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %330 = load ptr, ptr %yystack_, align 8
-  %sub.ptr.lhs.cast.i.i558 = ptrtoint ptr %329 to i64
-  %sub.ptr.rhs.cast.i.i559 = ptrtoint ptr %330 to i64
+  %327 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %328 = load ptr, ptr %yystack_, align 8
+  %sub.ptr.lhs.cast.i.i558 = ptrtoint ptr %327 to i64
+  %sub.ptr.rhs.cast.i.i559 = ptrtoint ptr %328 to i64
   %sub.ptr.sub.i.i560 = sub i64 %sub.ptr.lhs.cast.i.i558, %sub.ptr.rhs.cast.i.i559
   %cmp825 = icmp sgt i64 %sub.ptr.sub.i.i560, 64
   br i1 %cmp825, label %while.body, label %cleanup850, !llvm.loop !8
 
 lpad834:                                          ; preds = %while.end846
-  %331 = landingpad { ptr, i32 }
+  %329 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont848 unwind label %terminate.lpad
 
 while.body841:                                    ; preds = %catch830, %while.body841
-  %332 = phi ptr [ %333, %while.body841 ], [ %325, %catch830 ]
-  %incdec.ptr.i.i.i589 = getelementptr inbounds i8, ptr %332, i64 -64
+  %330 = phi ptr [ %331, %while.body841 ], [ %323, %catch830 ]
+  %incdec.ptr.i.i.i589 = getelementptr inbounds i8, ptr %330, i64 -64
   store ptr %incdec.ptr.i.i.i589, ptr %_M_finish.i.i.i, align 8
   call void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_8by_stateEE5clearEv(ptr noundef nonnull align 16 dereferenceable(64) %incdec.ptr.i.i.i589) #26
-  %333 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %334 = load ptr, ptr %yystack_, align 8
-  %sub.ptr.lhs.cast.i.i576 = ptrtoint ptr %333 to i64
-  %sub.ptr.rhs.cast.i.i577 = ptrtoint ptr %334 to i64
+  %331 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %332 = load ptr, ptr %yystack_, align 8
+  %sub.ptr.lhs.cast.i.i576 = ptrtoint ptr %331 to i64
+  %sub.ptr.rhs.cast.i.i577 = ptrtoint ptr %332 to i64
   %sub.ptr.sub.i.i578 = sub i64 %sub.ptr.lhs.cast.i.i576, %sub.ptr.rhs.cast.i.i577
   %cmp840 = icmp sgt i64 %sub.ptr.sub.i.i578, 64
   br i1 %cmp840, label %while.body841, label %while.end846, !llvm.loop !9
@@ -3014,7 +3014,7 @@ while.end846:                                     ; preds = %while.body841, %cat
 
 invoke.cont848:                                   ; preds = %lpad834
   call void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_7by_kindEE5clearEv(ptr noundef nonnull align 16 dereferenceable(64) %yyla) #26
-  resume { ptr, i32 } %331
+  resume { ptr, i32 } %329
 
 cleanup850:                                       ; preds = %if.end803, %while.body, %_ZN8facebook5velox4type6Parser6yypop_Ei.exit556
   %yyresult.0605804 = phi i32 [ %yyresult.0605, %_ZN8facebook5velox4type6Parser6yypop_Ei.exit556 ], [ %yyresult.0605, %while.body ], [ 1, %if.end803 ]
@@ -3022,10 +3022,10 @@ cleanup850:                                       ; preds = %if.end803, %while.b
   ret i32 %yyresult.0605804
 
 terminate.lpad:                                   ; preds = %lpad834, %lpad747, %lpad19
-  %335 = landingpad { ptr, i32 }
+  %333 = landingpad { ptr, i32 }
           catch ptr null
-  %336 = extractvalue { ptr, i32 } %335, 0
-  call void @__clang_call_terminate(ptr %336) #25
+  %334 = extractvalue { ptr, i32 } %333, 0
+  call void @__clang_call_terminate(ptr %334) #25
   unreachable
 
 unreachable:                                      ; preds = %while.end846

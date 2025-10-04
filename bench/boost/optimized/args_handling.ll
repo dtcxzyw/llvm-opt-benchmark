@@ -72842,7 +72842,7 @@ _ZN5boost7process2v15child7_exitedEv.exit:        ; preds = %2
 .critedge.i:                                      ; preds = %.critedge.backedge.i, %16
   %17 = phi i32 [ %.pre, %.critedge.backedge.i ], [ %14, %16 ]
   %18 = invoke i32 @waitpid(i32 noundef %17, ptr noundef nonnull %3, i32 noundef 0)
-          to label %19 unwind label %30
+          to label %19 unwind label %34
 
 19:                                               ; preds = %.critedge.i
   %20 = icmp eq i32 %18, -1
@@ -72857,44 +72857,44 @@ _ZN5boost7process2v15child7_exitedEv.exit:        ; preds = %2
 25:                                               ; preds = %19
   %26 = load i32, ptr %3, align 4, !tbaa !263
   %27 = and i32 %26, 127
-  %cond.i = icmp eq i32 %27, 127
-  br i1 %cond.i, label %.critedge.backedge.i, label %_ZN5boost7process2v16detail5posix4waitERKNS3_12child_handleERiRSt10error_code.exit.thread
+  %28 = icmp eq i32 %27, 127
+  br i1 %28, label %29, label %_ZN5boost7process2v16detail5posix4waitERKNS3_12child_handleERiRSt10error_code.exit.thread
 
-.critedge.backedge.i:                             ; preds = %25, %21
+29:                                               ; preds = %25, %21
   %.pre = load i32, ptr %0, align 8, !tbaa !1476
   br label %.critedge.i, !llvm.loop !1495
 
 _ZN5boost7process2v16detail5posix4waitERKNS3_12child_handleERiRSt10error_code.exit.thread: ; preds = %25
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #64
+  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #64
   store i32 0, ptr %1, align 8, !tbaa !1473
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %28, ptr %29, align 8, !tbaa !1475
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %32, ptr %33, align 8, !tbaa !1475
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %34
+  br label %38
 
-30:                                               ; preds = %.critedge.i
-  %31 = landingpad { ptr, i32 }
+34:                                               ; preds = %.critedge.i
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #58
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #58
   unreachable
 
 _ZN5boost7process2v16detail5posix4waitERKNS3_12child_handleERiRSt10error_code.exit: ; preds = %21
-  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #64
+  %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #64
   store i32 %23, ptr %1, align 8, !tbaa !263
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %33, ptr %.sroa.43.0..sroa_idx.i, align 8, !tbaa !174
+  store ptr %37, ptr %.sroa.43.0..sroa_idx.i, align 8, !tbaa !174
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %34, label %_ZN5boost7process2v15child7_exitedEv.exit.thread
+  br i1 %.not, label %38, label %_ZN5boost7process2v15child7_exitedEv.exit.thread
 
-34:                                               ; preds = %_ZN5boost7process2v16detail5posix4waitERKNS3_12child_handleERiRSt10error_code.exit.thread, %_ZN5boost7process2v16detail5posix4waitERKNS3_12child_handleERiRSt10error_code.exit
+38:                                               ; preds = %_ZN5boost7process2v16detail5posix4waitERKNS3_12child_handleERiRSt10error_code.exit.thread, %_ZN5boost7process2v16detail5posix4waitERKNS3_12child_handleERiRSt10error_code.exit
   %.04 = phi i32 [ %26, %_ZN5boost7process2v16detail5posix4waitERKNS3_12child_handleERiRSt10error_code.exit.thread ], [ 0, %_ZN5boost7process2v16detail5posix4waitERKNS3_12child_handleERiRSt10error_code.exit ]
-  %35 = load ptr, ptr %7, align 8, !tbaa !1478
-  store atomic i32 %.04, ptr %35 seq_cst, align 4
+  %39 = load ptr, ptr %7, align 8, !tbaa !1478
+  store atomic i32 %.04, ptr %39 seq_cst, align 4
   br label %_ZN5boost7process2v15child7_exitedEv.exit.thread
 
-_ZN5boost7process2v15child7_exitedEv.exit.thread: ; preds = %2, %_ZN5boost7process2v16detail5posix4waitERKNS3_12child_handleERiRSt10error_code.exit, %34, %_ZN5boost7process2v15child7_exitedEv.exit
+_ZN5boost7process2v15child7_exitedEv.exit.thread: ; preds = %2, %_ZN5boost7process2v16detail5posix4waitERKNS3_12child_handleERiRSt10error_code.exit, %38, %_ZN5boost7process2v15child7_exitedEv.exit
   ret void
 }
 

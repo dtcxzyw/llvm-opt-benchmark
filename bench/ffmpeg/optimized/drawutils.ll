@@ -294,7 +294,7 @@ define range(i32 -38, 1) i32 @ff_draw_init2(ptr noundef %0, i32 noundef %1, i32 
   br i1 %27, label %.thread124, label %.preheader
 
 .preheader:                                       ; preds = %23, %22, %22, %22, %22, %22, %26
-  %.095139 = phi i32 [ %3, %26 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ], [ %25, %23 ], [ 2, %22 ]
+  %.095140 = phi i32 [ %3, %26 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ], [ %25, %23 ], [ 2, %22 ]
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = load i8, ptr %28, align 8, !tbaa !11
   %.not117126.not = icmp eq i8 %29, 0
@@ -390,7 +390,7 @@ define range(i32 -38, 1) i32 @ff_draw_init2(ptr noundef %0, i32 noundef %1, i32 
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.090.lcssa, ptr %65, align 4, !tbaa !29
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %.095139, ptr %66, align 4, !tbaa !30
+  store i32 %.095140, ptr %66, align 4, !tbaa !30
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %.093, ptr %67, align 4, !tbaa !31
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 48

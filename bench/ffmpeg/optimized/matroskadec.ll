@@ -3002,28 +3002,28 @@ matroska_aac_sri.exit180.i.i.i:                   ; preds = %562, %.split.loop.e
   br label %712
 
 712:                                              ; preds = %747, %.lr.ph.i.i.i.i
-  %.03047.i.i.i.i = phi ptr [ %710, %.lr.ph.i.i.i.i ], [ %749, %747 ]
-  %.03346.i.i.i.i = phi i32 [ %709, %.lr.ph.i.i.i.i ], [ %750, %747 ]
-  %713 = getelementptr inbounds nuw i8, ptr %.03047.i.i.i.i, i64 1
+  %.03048.i.i.i.i = phi ptr [ %710, %.lr.ph.i.i.i.i ], [ %749, %747 ]
+  %.03347.i.i.i.i = phi i32 [ %709, %.lr.ph.i.i.i.i ], [ %750, %747 ]
+  %713 = getelementptr inbounds nuw i8, ptr %.03048.i.i.i.i, i64 1
   %714 = load i8, ptr %713, align 1, !tbaa !119
   %715 = zext i8 %714 to i32
   %716 = shl nuw nsw i32 %715, 16
-  %717 = getelementptr inbounds nuw i8, ptr %.03047.i.i.i.i, i64 2
+  %717 = getelementptr inbounds nuw i8, ptr %.03048.i.i.i.i, i64 2
   %718 = load i8, ptr %717, align 1, !tbaa !119
   %719 = zext i8 %718 to i32
   %720 = shl nuw nsw i32 %719, 8
   %721 = or disjoint i32 %720, %716
-  %722 = getelementptr inbounds nuw i8, ptr %.03047.i.i.i.i, i64 3
+  %722 = getelementptr inbounds nuw i8, ptr %.03048.i.i.i.i, i64 3
   %723 = load i8, ptr %722, align 1, !tbaa !119
   %724 = zext i8 %723 to i32
   %725 = or disjoint i32 %721, %724
-  %726 = getelementptr inbounds nuw i8, ptr %.03047.i.i.i.i, i64 4
-  %727 = add nsw i32 %.03346.i.i.i.i, -4
-  %.not42.i.i.i.i = icmp samesign ugt i32 %725, %727
-  br i1 %.not42.i.i.i.i, label %mka_parse_audio_codec.exit.thread53.i.i, label %728
+  %726 = getelementptr inbounds nuw i8, ptr %.03048.i.i.i.i, i64 4
+  %727 = add nsw i32 %.03347.i.i.i.i, -4
+  %.not43.i.i.i.i = icmp samesign ugt i32 %725, %727
+  br i1 %.not43.i.i.i.i, label %mka_parse_audio_codec.exit.thread53.i.i, label %728
 
 728:                                              ; preds = %712
-  %729 = load i8, ptr %.03047.i.i.i.i, align 1, !tbaa !119
+  %729 = load i8, ptr %.03048.i.i.i.i, align 1, !tbaa !119
   %730 = and i8 %729, 127
   %731 = icmp eq i8 %730, 4
   br i1 %731, label %732, label %747

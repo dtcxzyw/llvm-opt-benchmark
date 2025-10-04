@@ -3408,9 +3408,9 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit114: ; preds = %_ZNSt6v
   %222 = call float @llvm.fmuladd.f32(float %188, float %188, float %221)
   %223 = fpext float %222 to double
   %sqrt.i122 = call double @llvm.sqrt.f64(double %223)
-  br label %232
+  br label %231
 
-._crit_edge196:                                   ; preds = %232, %174
+._crit_edge196:                                   ; preds = %231, %174
   %.073.lcssa = phi i64 [ 0, %174 ], [ %.174, %232 ]
   %.072.lcssa = phi i64 [ 0, %174 ], [ %.1, %232 ]
   %224 = icmp ule i64 %.073.lcssa, %.072.lcssa
@@ -3426,57 +3426,57 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit114: ; preds = %_ZNSt6v
   %228 = ptrtoint ptr %227 to i64
   %229 = ptrtoint ptr %175 to i64
   %230 = sub i64 %228, %229
-  %231 = icmp eq i64 %230, 8
-  br i1 %231, label %._crit_edge201, label %.lr.ph200
+  %.not208 = icmp eq i64 %230, 8
+  br i1 %.not208, label %._crit_edge201, label %.lr.ph200
 
-232:                                              ; preds = %.lr.ph195, %232
-  %.071193 = phi i64 [ 0, %.lr.ph195 ], [ %251, %232 ]
+231:                                              ; preds = %.lr.ph195, %231
+  %.071193 = phi i64 [ 0, %.lr.ph195 ], [ %250, %232 ]
   %.072192 = phi i64 [ 0, %.lr.ph195 ], [ %.1, %232 ]
   %.073191 = phi i64 [ 0, %.lr.ph195 ], [ %.174, %232 ]
-  %233 = getelementptr inbounds nuw %"class.cv::Point_", ptr %205, i64 %.071193
-  %.val91 = load float, ptr %233, align 4, !tbaa !41
-  %234 = getelementptr i8, ptr %233, i64 4
-  %.val92 = load float, ptr %234, align 4, !tbaa !44
-  %235 = fmul float %210, %.val92
-  %236 = call float @llvm.fmuladd.f32(float %.val91, float %180, float %235)
-  %237 = fadd float %213, %236
-  %238 = call noundef float @llvm.fabs.f32(float %237)
-  %239 = fpext float %238 to double
-  %240 = fdiv double %239, %sqrt.i121
-  %241 = fcmp olt double %240, %202
-  %242 = zext i1 %241 to i64
-  %.174 = add i64 %.073191, %242
-  %243 = fmul float %217, %.val92
-  %244 = call float @llvm.fmuladd.f32(float %.val91, float %188, float %243)
-  %245 = fadd float %220, %244
-  %246 = call noundef float @llvm.fabs.f32(float %245)
-  %247 = fpext float %246 to double
-  %248 = fdiv double %247, %sqrt.i122
-  %249 = fcmp olt double %248, %202
-  %250 = zext i1 %249 to i64
-  %.1 = add i64 %.072192, %250
-  %251 = add nuw i64 %.071193, 1
-  %exitcond.not = icmp eq i64 %251, %209
-  br i1 %exitcond.not, label %._crit_edge196, label %232, !llvm.loop !179
+  %232 = getelementptr inbounds nuw %"class.cv::Point_", ptr %205, i64 %.071193
+  %.val91 = load float, ptr %232, align 4, !tbaa !41
+  %233 = getelementptr i8, ptr %232, i64 4
+  %.val92 = load float, ptr %233, align 4, !tbaa !44
+  %234 = fmul float %210, %.val92
+  %235 = call float @llvm.fmuladd.f32(float %.val91, float %180, float %234)
+  %236 = fadd float %213, %235
+  %237 = call noundef float @llvm.fabs.f32(float %236)
+  %238 = fpext float %237 to double
+  %239 = fdiv double %238, %sqrt.i121
+  %240 = fcmp olt double %239, %202
+  %241 = zext i1 %240 to i64
+  %.174 = add i64 %.073191, %241
+  %242 = fmul float %217, %.val92
+  %243 = call float @llvm.fmuladd.f32(float %.val91, float %188, float %242)
+  %244 = fadd float %220, %243
+  %245 = call noundef float @llvm.fabs.f32(float %244)
+  %246 = fpext float %245 to double
+  %247 = fdiv double %246, %sqrt.i122
+  %248 = fcmp olt double %247, %202
+  %249 = zext i1 %248 to i64
+  %.1 = add i64 %.072192, %249
+  %250 = add nuw i64 %.071193, 1
+  %exitcond.not = icmp eq i64 %250, %209
+  br i1 %exitcond.not, label %._crit_edge196, label %231, !llvm.loop !179
 
 ._crit_edge201:                                   ; preds = %.lr.ph200, %.preheader
-  %.lcssa168 = phi ptr [ %175, %.preheader ], [ %260, %.lr.ph200 ]
+  %.lcssa168 = phi ptr [ %175, %.preheader ], [ %259, %.lr.ph200 ]
   %.lcssa = phi i64 [ 0, %.preheader ], [ %265, %.lr.ph200 ]
-  %252 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.lcssa168, i64 %.lcssa
-  %253 = load i64, ptr %7, align 8
-  store i64 %253, ptr %252, align 4
+  %251 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.lcssa168, i64 %.lcssa
+  %252 = load i64, ptr %7, align 8
+  store i64 %252, ptr %251, align 4
   br label %267
 
 .lr.ph200:                                        ; preds = %.preheader, %.lr.ph200
-  %254 = phi ptr [ %260, %.lr.ph200 ], [ %175, %.preheader ]
-  %.0199 = phi i64 [ %255, %.lr.ph200 ], [ 0, %.preheader ]
-  %255 = add nuw i64 %.0199, 1
-  %256 = getelementptr inbounds nuw %"class.cv::Point_", ptr %254, i64 %255
-  %257 = getelementptr inbounds nuw %"class.cv::Point_", ptr %254, i64 %.0199
-  %258 = load i64, ptr %256, align 4
-  store i64 %258, ptr %257, align 4
-  %259 = load ptr, ptr %92, align 8, !tbaa !3
-  %260 = load ptr, ptr %5, align 8, !tbaa !9
+  %253 = phi ptr [ %259, %.lr.ph200 ], [ %175, %.preheader ]
+  %.0199 = phi i64 [ %254, %.lr.ph200 ], [ 0, %.preheader ]
+  %254 = add nuw i64 %.0199, 1
+  %255 = getelementptr inbounds nuw %"class.cv::Point_", ptr %253, i64 %254
+  %256 = getelementptr inbounds nuw %"class.cv::Point_", ptr %253, i64 %.0199
+  %257 = load i64, ptr %255, align 4
+  store i64 %257, ptr %256, align 4
+  %258 = load ptr, ptr %92, align 8, !tbaa !3
+  %259 = load ptr, ptr %5, align 8, !tbaa !9
   %261 = ptrtoint ptr %259 to i64
   %262 = ptrtoint ptr %260 to i64
   %263 = sub i64 %261, %262

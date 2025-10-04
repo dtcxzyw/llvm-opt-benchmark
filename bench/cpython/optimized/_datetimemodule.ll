@@ -4051,8 +4051,8 @@ define internal fastcc void @ord_to_ymd(i32 noundef %0, ptr noundef nonnull capt
   %20 = add nsw i32 %19, %.sext
   store i32 %20, ptr %1, align 4, !tbaa !16
   %21 = icmp eq i32 %12, 1460
-  %22 = icmp eq i32 %7, 146096
-  %or.cond = or i1 %21, %22
+  %21 = icmp eq i32 %7, 146096
+  %or.cond = or i1 %21, %21
   br i1 %or.cond, label %23, label %25
 
 23:                                               ; preds = %4
@@ -8031,21 +8031,21 @@ define internal ptr @datetime_date_fromtimestamp(ptr noundef %0, ptr noundef %1)
 define internal ptr @date_fromordinal(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.123, ptr noundef nonnull %3) #18
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %new_date_subclass_ex.exit, label %5
+  %7 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.123, ptr noundef nonnull %3) #18
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %26, label %8
 
-5:                                                ; preds = %2
+8:                                                ; preds = %2
   %6 = load i32, ptr %3, align 4, !tbaa !16
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %8, label %10
 
-8:                                                ; preds = %5
-  %9 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !14
-  call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.124) #18
+11:                                               ; preds = %8
+  %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !14
+  call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.124) #18
   br label %new_date_subclass_ex.exit
 
-10:                                               ; preds = %5
+13:                                               ; preds = %8
   %11 = add nsw i32 %6, -1
   %12 = udiv i32 %11, 146097
   %13 = urem i32 %11, 146097
@@ -8079,13 +8079,13 @@ define internal ptr @date_fromordinal(ptr noundef %0, ptr noundef %1) #0 {
   %33 = icmp samesign ugt i16 %18, 1094
   br i1 %33, label %34, label %38
 
-34:                                               ; preds = %32
+18:                                               ; preds = %32
   %35 = icmp samesign ult i32 %16, 35064
   %36 = icmp samesign ugt i32 %13, 109571
   %37 = select i1 %35, i1 true, i1 %36
   br label %38
 
-38:                                               ; preds = %34, %32
+20:                                               ; preds = %18, %32
   %39 = phi i1 [ false, %32 ], [ %37, %34 ]
   %40 = add nuw nsw i32 %.sext46.i, 50
   %41 = lshr i32 %40, 5
@@ -8126,7 +8126,7 @@ days_in_month.exit.i:                             ; preds = %is_leap.exit.thread
   %61 = sub i32 %48, %.0.i.i
   br label %62
 
-62:                                               ; preds = %days_in_month.exit.i, %38
+22:                                               ; preds = %days_in_month.exit.i, %20
   %.09 = phi i32 [ %51, %days_in_month.exit.i ], [ %41, %38 ]
   %.0.i = phi i32 [ %61, %days_in_month.exit.i ], [ %48, %38 ]
   %63 = add nuw nsw i32 %.sext46.i, 1
@@ -8144,7 +8144,7 @@ ord_to_ymd.exit:                                  ; preds = %30, %62
   %67 = call ptr @new_date_ex(i32 noundef %.08, i32 noundef %.110, i32 noundef %storemerge.i, ptr noundef nonnull @PyDateTime_DateType)
   br label %new_date_subclass_ex.exit
 
-68:                                               ; preds = %ord_to_ymd.exit
+24:                                               ; preds = %ord_to_ymd.exit
   %69 = icmp eq ptr %0, @PyDateTime_DateTimeType
   br i1 %69, label %70, label %72
 
@@ -8152,11 +8152,11 @@ ord_to_ymd.exit:                                  ; preds = %30, %62
   %71 = call ptr @new_datetime_ex2(i32 noundef %.08, i32 noundef %.110, i32 noundef %storemerge.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @_Py_NoneStruct, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
   br label %new_date_subclass_ex.exit
 
-72:                                               ; preds = %68
+new_date_subclass_ex.exit:                        ; preds = %611
   %73 = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %0, ptr noundef nonnull @.str.63, i32 noundef %.08, i32 noundef %.110, i32 noundef %storemerge.i) #18
-  br label %new_date_subclass_ex.exit
+  br label %26
 
-new_date_subclass_ex.exit:                        ; preds = %8, %66, %70, %72, %2
+26:                                               ; preds = %8, %66, %70, %new_date_subclass_ex.exit, %2
   %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ %67, %66 ], [ %71, %70 ], [ %73, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0

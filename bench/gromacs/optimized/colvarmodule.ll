@@ -45176,54 +45176,54 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRKN12
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
-  %18 = icmp eq i64 %17, 8
-  br i1 %18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %17, 8
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %19 = phi ptr [ %34, %.lr.ph ], [ %14, %2 ]
-  %.022 = phi i64 [ %32, %.lr.ph ], [ 0, %2 ]
-  %20 = load ptr, ptr %0, align 8, !tbaa !100
-  %21 = getelementptr i8, ptr %20, i64 -24
-  %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 %22
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i64 %8, ptr %24, align 8, !tbaa !610
-  %25 = load i64, ptr %21, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 %10, ptr %27, align 8, !tbaa !948
-  %28 = getelementptr inbounds nuw double, ptr %19, i64 %.022
-  %29 = load double, ptr %28, align 8, !tbaa !124
-  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %29)
-  %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.204, i64 noundef 3)
-  %32 = add nuw i64 %.022, 1
-  %33 = load ptr, ptr %12, align 8, !tbaa !1012
-  %34 = load ptr, ptr %1, align 8, !tbaa !1013
+  %18 = phi ptr [ %33, %.lr.ph ], [ %14, %2 ]
+  %.022 = phi i64 [ %31, %.lr.ph ], [ 0, %2 ]
+  %19 = load ptr, ptr %0, align 8, !tbaa !100
+  %20 = getelementptr i8, ptr %19, i64 -24
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store i64 %8, ptr %23, align 8, !tbaa !610
+  %24 = load i64, ptr %20, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i64 %10, ptr %26, align 8, !tbaa !948
+  %27 = getelementptr inbounds nuw double, ptr %18, i64 %.022
+  %28 = load double, ptr %27, align 8, !tbaa !124
+  %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %28)
+  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.204, i64 noundef 3)
+  %31 = add nuw i64 %.022, 1
+  %32 = load ptr, ptr %12, align 8, !tbaa !1012
+  %33 = load ptr, ptr %1, align 8, !tbaa !1013
   %35 = ptrtoint ptr %33 to i64
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = ashr exact i64 %37, 3
   %39 = add nsw i64 %38, -1
-  %40 = icmp ult i64 %32, %39
+  %40 = icmp ult i64 %31, %39
   br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !1014
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.lcssa21 = phi ptr [ %14, %2 ], [ %34, %.lr.ph ]
+  %.lcssa21 = phi ptr [ %14, %2 ], [ %33, %.lr.ph ]
   %.lcssa = phi i64 [ 0, %2 ], [ %39, %.lr.ph ]
-  %41 = load ptr, ptr %0, align 8, !tbaa !100
-  %42 = getelementptr i8, ptr %41, i64 -24
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 %43
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i64 %8, ptr %45, align 8, !tbaa !610
-  %46 = load i64, ptr %42, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 %46
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i64 %10, ptr %48, align 8, !tbaa !948
-  %49 = getelementptr inbounds nuw double, ptr %.lcssa21, i64 %.lcssa
-  %50 = load double, ptr %49, align 8, !tbaa !124
-  %51 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %50)
-  %52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull @.str.205, i64 noundef 2)
+  %40 = load ptr, ptr %0, align 8, !tbaa !100
+  %41 = getelementptr i8, ptr %40, i64 -24
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  store i64 %8, ptr %44, align 8, !tbaa !610
+  %45 = load i64, ptr %41, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store i64 %10, ptr %47, align 8, !tbaa !948
+  %48 = getelementptr inbounds nuw double, ptr %.lcssa21, i64 %.lcssa
+  %49 = load double, ptr %48, align 8, !tbaa !124
+  %50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %49)
+  %51 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull @.str.205, i64 noundef 2)
   ret ptr %0
 }
 

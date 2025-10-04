@@ -1897,108 +1897,108 @@ _ZNK4llvm21ConstantAggregateZero15getElementValueEj.exit: ; preds = %.critedge.i
 
 68:                                               ; preds = %63
   switch i8 %3, label %101 [
-    i8 13, label %69
+    i8 13, label %70
     i8 12, label %85
   ]
 
-69:                                               ; preds = %68
-  %.not132 = icmp eq i32 %66, 16
-  br i1 %.not132, label %70, label %74
+70:                                               ; preds = %68
+  %.not133 = icmp eq i32 %66, 16
+  br i1 %.not133, label %71, label %75
 
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %72 = load i64, ptr %71, align 8, !tbaa !91
-  %73 = trunc i64 %72 to i32
+71:                                               ; preds = %70
+  %72 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %73 = load i64, ptr %72, align 8, !tbaa !91
+  %74 = trunc i64 %73 to i32
   br label %_ZNK4llvm10UndefValue14getNumElementsEv.exit
 
-74:                                               ; preds = %69
-  %75 = add nsw i32 %66, -19
-  %spec.select.i.i.i.i.i.i.i.i.i84 = icmp ult i32 %75, -2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i84, label %79, label %76
+75:                                               ; preds = %70
+  %76 = add nsw i32 %66, -19
+  %spec.select.i.i.i.i.i.i.i.i.i84 = icmp ult i32 %76, -2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i84, label %80, label %77
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %78 = load i32, ptr %77, align 8, !tbaa !89
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %79 = load i32, ptr %78, align 8, !tbaa !89
   br label %_ZNK4llvm10UndefValue14getNumElementsEv.exit
 
-79:                                               ; preds = %74
-  %80 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %81 = load i32, ptr %80, align 4, !tbaa !93
+80:                                               ; preds = %75
+  %81 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %82 = load i32, ptr %81, align 4, !tbaa !93
   br label %_ZNK4llvm10UndefValue14getNumElementsEv.exit
 
-_ZNK4llvm10UndefValue14getNumElementsEv.exit:     ; preds = %70, %76, %79
-  %.1.i = phi i32 [ %81, %79 ], [ %78, %76 ], [ %73, %70 ]
-  %82 = icmp ult i32 %1, %.1.i
-  br i1 %82, label %83, label %.thread
+_ZNK4llvm10UndefValue14getNumElementsEv.exit:     ; preds = %71, %77, %80
+  %.1.i = phi i32 [ %82, %79 ], [ %79, %76 ], [ %74, %70 ]
+  %83 = icmp ult i32 %1, %.1.i
+  br i1 %83, label %84, label %.thread
 
-83:                                               ; preds = %_ZNK4llvm10UndefValue14getNumElementsEv.exit
-  %84 = tail call noundef ptr @_ZNK4llvm11PoisonValue15getElementValueEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+84:                                               ; preds = %_ZNK4llvm10UndefValue14getNumElementsEv.exit
+  %85 = tail call noundef ptr @_ZNK4llvm11PoisonValue15getElementValueEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
   br label %.thread
 
-85:                                               ; preds = %68
+86:                                               ; preds = %68
   %.not = icmp eq i32 %66, 16
   br i1 %.not, label %86, label %90
 
-86:                                               ; preds = %85
-  %87 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %88 = load i64, ptr %87, align 8, !tbaa !91
-  %89 = trunc i64 %88 to i32
+89:                                               ; preds = %85
+  %90 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %91 = load i64, ptr %90, align 8, !tbaa !91
+  %92 = trunc i64 %91 to i32
   br label %_ZNK4llvm10UndefValue14getNumElementsEv.exit92
 
-90:                                               ; preds = %85
-  %91 = add nsw i32 %66, -19
-  %spec.select.i.i.i.i.i.i.i.i.i90 = icmp ult i32 %91, -2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i90, label %95, label %92
+93:                                               ; preds = %85
+  %94 = add nsw i32 %66, -19
+  %spec.select.i.i.i.i.i.i.i.i.i90 = icmp ult i32 %94, -2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i90, label %98, label %95
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %94 = load i32, ptr %93, align 8, !tbaa !89
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %97 = load i32, ptr %96, align 8, !tbaa !89
   br label %_ZNK4llvm10UndefValue14getNumElementsEv.exit92
 
-95:                                               ; preds = %90
-  %96 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %97 = load i32, ptr %96, align 4, !tbaa !93
+98:                                               ; preds = %93
+  %99 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %100 = load i32, ptr %99, align 4, !tbaa !93
   br label %_ZNK4llvm10UndefValue14getNumElementsEv.exit92
 
-_ZNK4llvm10UndefValue14getNumElementsEv.exit92:   ; preds = %86, %92, %95
-  %.1.i89 = phi i32 [ %97, %95 ], [ %94, %92 ], [ %89, %86 ]
-  %98 = icmp ult i32 %1, %.1.i89
-  br i1 %98, label %99, label %.thread
+_ZNK4llvm10UndefValue14getNumElementsEv.exit92:   ; preds = %89, %95, %98
+  %.1.i89 = phi i32 [ %100, %95 ], [ %97, %92 ], [ %92, %86 ]
+  %101 = icmp ult i32 %1, %.1.i89
+  br i1 %101, label %102, label %.thread
 
-99:                                               ; preds = %_ZNK4llvm10UndefValue14getNumElementsEv.exit92
-  %100 = tail call noundef ptr @_ZNK4llvm10UndefValue15getElementValueEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+102:                                              ; preds = %_ZNK4llvm10UndefValue14getNumElementsEv.exit92
+  %103 = tail call noundef ptr @_ZNK4llvm10UndefValue15getElementValueEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
   br label %.thread
 
-101:                                              ; preds = %68
-  %102 = add i8 %3, -17
-  %spec.select.i.i.i.i.i.i.i.i93 = icmp ult i8 %102, -2
-  br i1 %spec.select.i.i.i.i.i.i.i.i93, label %.thread, label %103
+104:                                              ; preds = %68
+  %105 = add i8 %3, -17
+  %spec.select.i.i.i.i.i.i.i.i93 = icmp ult i8 %105, -2
+  br i1 %spec.select.i.i.i.i.i.i.i.i93, label %.thread, label %106
 
-103:                                              ; preds = %101
-  %.not133 = icmp eq i32 %66, 16
-  %104 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  br i1 %.not133, label %105, label %108
+106:                                              ; preds = %104
+  %.not = icmp eq i32 %66, 16
+  %107 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  br i1 %.not, label %108, label %111
 
-105:                                              ; preds = %103
-  %106 = load i64, ptr %104, align 8, !tbaa !91
-  %107 = trunc i64 %106 to i32
+108:                                              ; preds = %106
+  %109 = load i64, ptr %107, align 8, !tbaa !91
+  %110 = trunc i64 %109 to i32
   br label %_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit
 
-108:                                              ; preds = %103
-  %109 = load i32, ptr %104, align 8, !tbaa !89
+111:                                              ; preds = %106
+  %112 = load i32, ptr %107, align 8, !tbaa !89
   br label %_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit
 
-_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit: ; preds = %105, %108
-  %.1.i95 = phi i32 [ %109, %108 ], [ %107, %105 ]
-  %110 = icmp ult i32 %1, %.1.i95
-  br i1 %110, label %111, label %.thread
+_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit: ; preds = %108, %111
+  %.1.i95 = phi i32 [ %112, %108 ], [ %110, %105 ]
+  %113 = icmp ult i32 %1, %.1.i95
+  br i1 %113, label %114, label %.thread
 
-111:                                              ; preds = %_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit
-  %112 = tail call noundef ptr @_ZNK4llvm22ConstantDataSequential20getElementAsConstantEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1)
+114:                                              ; preds = %_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit
+  %115 = tail call noundef ptr @_ZNK4llvm22ConstantDataSequential20getElementAsConstantEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1)
   br label %.thread
 
-.thread:                                          ; preds = %_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit, %111, %101, %_ZNK4llvm10UndefValue14getNumElementsEv.exit92, %99, %_ZNK4llvm10UndefValue14getNumElementsEv.exit, %83, %55, %59, %47, %51, %_ZNK4llvm21ConstantAggregateZero15getElementCountEv.exit, %_ZNK4llvm21ConstantAggregateZero15getElementValueEj.exit, %5, %10, %63
-  %.1 = phi ptr [ null, %63 ], [ null, %5 ], [ %16, %10 ], [ null, %_ZNK4llvm21ConstantAggregateZero15getElementCountEv.exit ], [ %46, %_ZNK4llvm21ConstantAggregateZero15getElementValueEj.exit ], [ null, %47 ], [ %54, %51 ], [ null, %55 ], [ %62, %59 ], [ null, %_ZNK4llvm10UndefValue14getNumElementsEv.exit ], [ %84, %83 ], [ null, %_ZNK4llvm10UndefValue14getNumElementsEv.exit92 ], [ %100, %99 ], [ %112, %111 ], [ null, %_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit ], [ null, %101 ]
+.thread:                                          ; preds = %_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit, %114, %104, %_ZNK4llvm10UndefValue14getNumElementsEv.exit92, %102, %_ZNK4llvm10UndefValue14getNumElementsEv.exit, %84, %55, %59, %47, %51, %_ZNK4llvm21ConstantAggregateZero15getElementCountEv.exit, %_ZNK4llvm21ConstantAggregateZero15getElementValueEj.exit, %5, %10, %63
+  %.1 = phi ptr [ null, %63 ], [ null, %5 ], [ %16, %10 ], [ null, %_ZNK4llvm21ConstantAggregateZero15getElementCountEv.exit ], [ %46, %_ZNK4llvm21ConstantAggregateZero15getElementValueEj.exit ], [ null, %47 ], [ %54, %51 ], [ null, %55 ], [ %62, %59 ], [ null, %_ZNK4llvm10UndefValue14getNumElementsEv.exit ], [ %85, %83 ], [ null, %_ZNK4llvm10UndefValue14getNumElementsEv.exit92 ], [ %103, %99 ], [ %112, %111 ], [ null, %_ZNK4llvm22ConstantDataSequential14getNumElementsEv.exit ], [ null, %101 ]
   ret ptr %.1
 }
 

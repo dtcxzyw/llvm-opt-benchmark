@@ -2790,55 +2790,55 @@ type_flatten.exit86:                              ; preds = %type_flatten.exit
   %85 = icmp eq i32 %19, 26
   br i1 %85, label %86, label %.loopexit
 
-86:                                               ; preds = %83
-  %87 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 104
-  %90 = load ptr, ptr %89, align 8
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 104
+  %91 = load ptr, ptr %90, align 8
   %.not = icmp eq ptr %84, null
-  br i1 %.not, label %.loopexit, label %91
+  br i1 %.not, label %.loopexit, label %92
 
-91:                                               ; preds = %86
-  %92 = getelementptr inbounds i8, ptr %84, i64 -8
-  %93 = load i32, ptr %92, align 4
-  %.not116 = icmp eq i32 %93, 0
+92:                                               ; preds = %87
+  %93 = getelementptr inbounds i8, ptr %84, i64 -8
+  %94 = load i32, ptr %93, align 4
+  %.not116 = icmp eq i32 %94, 0
   br i1 %.not116, label %.loopexit, label %.lr.ph104.preheader
 
-.lr.ph104.preheader:                              ; preds = %91
-  %wide.trip.count133 = zext i32 %93 to i64
+.lr.ph104.preheader:                              ; preds = %92
+  %wide.trip.count133 = zext i32 %94 to i64
   br label %.lr.ph104
 
-94:                                               ; preds = %104
+95:                                               ; preds = %105
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
   br i1 %exitcond134.not, label %.loopexit, label %.lr.ph104, !llvm.loop !15
 
-.lr.ph104:                                        ; preds = %.lr.ph104.preheader, %94
+.lr.ph104:                                        ; preds = %.lr.ph104.preheader, %95
   %indvars.iv130 = phi i64 [ 0, %.lr.ph104.preheader ], [ %indvars.iv.next131, %94 ]
-  %95 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv130
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 72
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv130
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 72
-  %102 = load ptr, ptr %101, align 8
-  %103 = tail call zeroext i1 @type_is_structurally_equivalent(ptr noundef %98, ptr noundef %102)
-  br i1 %103, label %104, label %.loopexit
+  %96 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv130
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 72
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv130
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 72
+  %103 = load ptr, ptr %102, align 8
+  %104 = tail call zeroext i1 @type_is_structurally_equivalent(ptr noundef %99, ptr noundef %103)
+  br i1 %104, label %105, label %.loopexit
 
-104:                                              ; preds = %.lr.ph104
-  %105 = load ptr, ptr %95, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 48
-  %107 = load i64, ptr %106, align 8
-  %108 = trunc i64 %107 to i32
-  %109 = load ptr, ptr %99, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 48
-  %111 = load i64, ptr %110, align 8
-  %112 = trunc i64 %111 to i32
-  %.not80 = icmp eq i32 %108, %112
-  br i1 %.not80, label %94, label %.loopexit
+105:                                              ; preds = %.lr.ph104
+  %106 = load ptr, ptr %96, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 48
+  %108 = load i64, ptr %107, align 8
+  %109 = trunc i64 %108 to i32
+  %110 = load ptr, ptr %100, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 48
+  %112 = load i64, ptr %111, align 8
+  %113 = trunc i64 %112 to i32
+  %.not80 = icmp eq i32 %109, %113
+  br i1 %.not80, label %95, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph104, %104, %94, %.lr.ph111, %86, %74, %33, %75, %91, %38, %.thread, %83, %56, %type_flatten.exit86, %52, %48
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph104, %105, %95, %.lr.ph111, %87, %74, %33, %75, %92, %38, %.thread, %83, %56, %type_flatten.exit86, %52, %48
   %.072 = phi i1 [ %49, %48 ], [ %53, %52 ], [ true, %type_flatten.exit86 ], [ false, %56 ], [ false, %83 ], [ false, %.thread ], [ false, %38 ], [ true, %91 ], [ false, %75 ], [ false, %33 ], [ false, %74 ], [ true, %86 ], [ %45, %.lr.ph111 ], [ false, %.lr.ph104 ], [ false, %104 ], [ true, %94 ], [ %82, %.lr.ph ]
   ret i1 %.072
 }

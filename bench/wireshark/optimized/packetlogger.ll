@@ -407,42 +407,42 @@ packetlogger_read_header.exit._crit_edge:         ; preds = %packetlogger_read_h
 
 25:                                               ; preds = %20
   %26 = icmp ugt i32 %21, 262152
-  br i1 %26, label %27, label %30
+  br i1 %26, label %27, label %31
 
-27:                                               ; preds = %25
+28:                                               ; preds = %25
   store i32 -13, ptr %2, align 4
-  %28 = add i32 %21, -8
-  %29 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %28, i32 noundef 262144)
-  store ptr %29, ptr %3, align 8
+  %29 = add i32 %21, -8
+  %30 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %29, i32 noundef 262144)
+  store ptr %30, ptr %3, align 8
   br label %packetlogger_read_header.exit.thread
 
-30:                                               ; preds = %25
+31:                                               ; preds = %25
   store i32 0, ptr %1, align 8
-  %31 = call ptr @wtap_block_create(i32 noundef 5)
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 1, ptr %33, align 4
-  %34 = load i32, ptr %5, align 4
-  %35 = add i32 %34, -8
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  store i32 %35, ptr %37, align 4
-  store i32 %35, ptr %36, align 8
-  %38 = load i32, ptr %9, align 4
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %39, ptr %40, align 8
-  %41 = load i32, ptr %12, align 4
-  %42 = mul i32 %41, 1000
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %42, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %45 = call zeroext i1 @wtap_read_bytes_buffer(ptr noundef %0, ptr noundef nonnull %44, i32 noundef %35, ptr noundef %2, ptr noundef %3)
+  %32 = call ptr @wtap_block_create(i32 noundef 5)
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  store ptr %32, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 1, ptr %34, align 4
+  %35 = load i32, ptr %5, align 4
+  %36 = add i32 %35, -8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  store i32 %36, ptr %38, align 4
+  store i32 %36, ptr %37, align 8
+  %39 = load i32, ptr %9, align 4
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %40, ptr %41, align 8
+  %42 = load i32, ptr %12, align 4
+  %43 = mul i32 %42, 1000
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 %43, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %46 = call zeroext i1 @wtap_read_bytes_buffer(ptr noundef %0, ptr noundef nonnull %45, i32 noundef %36, ptr noundef %2, ptr noundef %3)
   br label %packetlogger_read_header.exit.thread
 
-packetlogger_read_header.exit.thread:             ; preds = %8, %4, %packetlogger_read_header.exit, %30, %27, %23
-  %.0 = phi i1 [ false, %23 ], [ false, %27 ], [ %45, %30 ], [ false, %packetlogger_read_header.exit ], [ false, %4 ], [ false, %8 ]
+packetlogger_read_header.exit.thread:             ; preds = %8, %4, %packetlogger_read_header.exit, %31, %28, %23
+  %.0 = phi i1 [ false, %23 ], [ false, %27 ], [ %46, %30 ], [ false, %packetlogger_read_header.exit ], [ false, %4 ], [ false, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }

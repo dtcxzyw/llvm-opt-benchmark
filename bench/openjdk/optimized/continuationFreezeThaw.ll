@@ -9839,38 +9839,38 @@ define linkonce_odr hidden noundef ptr @_ZNK19StackChunkAllocator10initializeEPP
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = ashr i32 %5, 3
-  %7 = icmp eq i32 %6, 2
-  br i1 %7, label %_ZN4Copy21fill_to_aligned_wordsEPP12HeapWordImplmj.exit, label %.lr.ph.i.i.i.preheader
+  %.not6.i.i.i = icmp eq i32 %6, 2
+  br i1 %.not6.i.i.i, label %_ZN4Copy21fill_to_aligned_wordsEPP12HeapWordImplmj.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %2
-  %8 = getelementptr i8, ptr %1, i64 16
-  %9 = sext i32 %6 to i64
-  %10 = shl nsw i64 %9, 3
-  %11 = add nsw i64 %10, -16
-  tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %11, i1 false)
+  %7 = getelementptr i8, ptr %1, i64 16
+  %8 = sext i32 %6 to i64
+  %9 = shl nsw i64 %8, 3
+  %10 = add nsw i64 %9, -16
+  tail call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 %10, i1 false)
   br label %_ZN4Copy21fill_to_aligned_wordsEPP12HeapWordImplmj.exit
 
 _ZN4Copy21fill_to_aligned_wordsEPP12HeapWordImplmj.exit: ; preds = %.lr.ph.i.i.i.preheader, %2
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load i64, ptr %12, align 8
-  %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load i32, ptr %15, align 8
-  %17 = sub nsw i32 %14, %16
-  %18 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %1, i64 %19
-  store i32 %14, ptr %20, align 4
-  %21 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_bottom_offsetE, align 4
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %1, i64 %22
-  store i32 %17, ptr %23, align 4
-  %24 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i8, ptr %1, i64 %25
-  store i32 %17, ptr %26, align 4
-  %27 = tail call noundef ptr @_ZNK12MemAllocator6finishEPP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #16
-  ret ptr %27
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = load i64, ptr %11, align 8
+  %13 = trunc i64 %12 to i32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %15 = load i32, ptr %14, align 8
+  %16 = sub nsw i32 %13, %15
+  %17 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds i8, ptr %1, i64 %18
+  store i32 %13, ptr %19, align 4
+  %20 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_bottom_offsetE, align 4
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds i8, ptr %1, i64 %21
+  store i32 %16, ptr %22, align 4
+  %23 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds i8, ptr %1, i64 %24
+  store i32 %16, ptr %25, align 4
+  %26 = tail call noundef ptr @_ZNK12MemAllocator6finishEPP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #16
+  ret ptr %26
 }
 
 declare noundef ptr @_ZNK12MemAllocator6finishEPP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3

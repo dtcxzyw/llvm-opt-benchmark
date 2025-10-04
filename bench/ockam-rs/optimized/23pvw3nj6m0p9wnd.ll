@@ -46391,14 +46391,14 @@ define hidden void @_ZN17crossbeam_channel7channel7bounded17h49fd35437f07e0a3E(p
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #50, !noalias !6245
   unreachable
 
-common.resume:                                    ; preds = %33, %14
-  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %34, %33 ]
+common.resume:                                    ; preds = %34, %14
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %35, %33 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN17crossbeam_channel7counter3new17h284dabc8f1c5f4c2E.exit: ; preds = %.noexc.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(136) %5, i64 136, i1 false), !noalias !6245
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !6245
-  br label %37
+  br label %38
 
 18:                                               ; preds = %2
   %19 = icmp eq i64 %1, -1
@@ -46409,10 +46409,10 @@ _ZN17crossbeam_channel7counter3new17h284dabc8f1c5f4c2E.exit: ; preds = %.noexc.i
   %23 = shl i64 %.0.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !6248
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hf3b20e9c93894a09E.llvm.9060417697508566391"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %4, i64 noundef 0, i64 noundef range(i64 1, 0) %1), !noalias !6248
-  %24 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hc5f1b5812df533ddE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4), !noalias !6248
+  %25 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hc5f1b5812df533ddE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4), !noalias !6248
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6248
-  %25 = extractvalue { ptr, i64 } %24, 0
-  %26 = extractvalue { ptr, i64 } %24, 1
+  %26 = extractvalue { ptr, i64 } %25, 0
+  %27 = extractvalue { ptr, i64 } %25, 1
   %.sroa.825.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 272
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !6251
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.825.0..sroa_idx, i8 0, i64 16, i1 false)
@@ -46452,38 +46452,38 @@ _ZN17crossbeam_channel7counter3new17h284dabc8f1c5f4c2E.exit: ; preds = %.noexc.i
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 400
   store i64 %.0.i, ptr %.sroa.21.0..sroa_idx, align 16
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 408
-  store ptr %25, ptr %.sroa.22.0..sroa_idx, align 8
+  store ptr %26, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 416
-  store i64 %26, ptr %.sroa.23.0..sroa_idx, align 32
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 512
-  store i64 1, ptr %27, align 128, !noalias !6251
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 520
-  store i64 1, ptr %28, align 8, !noalias !6251
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 528
-  store i8 0, ptr %29, align 16, !noalias !6251
-  %30 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.llvm.6545128362769768385(ptr noalias noundef nonnull readonly align 1 @anon.6f5aa1baf96411d151817ad1d392605a.2.llvm.6545128362769768385, i64 noundef 128, i64 noundef 640, i1 noundef zeroext false)
-          to label %.noexc.i14 unwind label %33, !noalias !6251
+  store i64 %27, ptr %.sroa.23.0..sroa_idx, align 32
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 512
+  store i64 1, ptr %28, align 128, !noalias !6251
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 520
+  store i64 1, ptr %29, align 8, !noalias !6251
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 528
+  store i8 0, ptr %30, align 16, !noalias !6251
+  %31 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.llvm.6545128362769768385(ptr noalias noundef nonnull readonly align 1 @anon.6f5aa1baf96411d151817ad1d392605a.2.llvm.6545128362769768385, i64 noundef 128, i64 noundef 640, i1 noundef zeroext false)
+          to label %.noexc.i14 unwind label %34, !noalias !6251
 
 .noexc.i14:                                       ; preds = %18
-  %.fca.0.extract.i.i15 = extractvalue { ptr, i64 } %30, 0
-  %31 = icmp eq ptr %.fca.0.extract.i.i15, null
-  br i1 %31, label %32, label %_ZN17crossbeam_channel7counter3new17hec52aaca64af7abdE.exit
+  %.fca.0.extract.i.i15 = extractvalue { ptr, i64 } %31, 0
+  %32 = icmp eq ptr %.fca.0.extract.i.i15, null
+  br i1 %32, label %33, label %_ZN17crossbeam_channel7counter3new17hec52aaca64af7abdE.exit
 
-32:                                               ; preds = %.noexc.i14
+33:                                               ; preds = %.noexc.i14
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h047bf044e422c00fE(i64 noundef 128, i64 noundef 640) #51
-          to label %.noexc7.i unwind label %33, !noalias !6251
+          to label %.noexc7.i unwind label %34, !noalias !6251
 
-.noexc7.i:                                        ; preds = %32
+.noexc7.i:                                        ; preds = %33
   unreachable
 
-33:                                               ; preds = %32, %18
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %33, %18
+  %35 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr122drop_in_place$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$$LP$$RP$$GT$$GT$$GT$17h7ed553443b53c69fE"(ptr noalias noundef nonnull align 128 dereferenceable(640) %3) #49
-          to label %common.resume unwind label %35, !noalias !6251
+          to label %common.resume unwind label %36, !noalias !6251
 
-35:                                               ; preds = %33
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %34
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #50, !noalias !6251
   unreachable
@@ -46491,18 +46491,18 @@ _ZN17crossbeam_channel7counter3new17h284dabc8f1c5f4c2E.exit: ; preds = %.noexc.i
 _ZN17crossbeam_channel7counter3new17hec52aaca64af7abdE.exit: ; preds = %.noexc.i14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(640) %.fca.0.extract.i.i15, ptr noundef nonnull align 128 dereferenceable(640) %3, i64 640, i1 false), !noalias !6251
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !6251
-  br label %37
+  br label %38
 
-37:                                               ; preds = %_ZN17crossbeam_channel7counter3new17hec52aaca64af7abdE.exit, %_ZN17crossbeam_channel7counter3new17h284dabc8f1c5f4c2E.exit
+38:                                               ; preds = %_ZN17crossbeam_channel7counter3new17hec52aaca64af7abdE.exit, %_ZN17crossbeam_channel7counter3new17h284dabc8f1c5f4c2E.exit
   %.sink37 = phi i64 [ 0, %_ZN17crossbeam_channel7counter3new17hec52aaca64af7abdE.exit ], [ 2, %_ZN17crossbeam_channel7counter3new17h284dabc8f1c5f4c2E.exit ]
   %.fca.0.extract.i.i15.sink35 = phi ptr [ %.fca.0.extract.i.i15, %_ZN17crossbeam_channel7counter3new17hec52aaca64af7abdE.exit ], [ %.fca.0.extract.i.i, %_ZN17crossbeam_channel7counter3new17h284dabc8f1c5f4c2E.exit ]
   store i64 %.sink37, ptr %0, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.fca.0.extract.i.i15.sink35, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink37, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.fca.0.extract.i.i15.sink35, ptr %40, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.fca.0.extract.i.i15.sink35, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sink37, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.fca.0.extract.i.i15.sink35, ptr %41, align 8
   ret void
 }
 
@@ -46568,14 +46568,14 @@ define hidden void @_ZN17crossbeam_channel7channel7bounded17hb93f7ac3fdae15b3E(p
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #50, !noalias !6254
   unreachable
 
-common.resume:                                    ; preds = %33, %14
-  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %34, %33 ]
+common.resume:                                    ; preds = %34, %14
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %35, %33 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN17crossbeam_channel7counter3new17h99edbdd07a6d7380E.exit: ; preds = %.noexc.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(136) %5, i64 136, i1 false), !noalias !6254
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !6254
-  br label %37
+  br label %38
 
 18:                                               ; preds = %2
   %19 = icmp eq i64 %1, -1
@@ -46586,10 +46586,10 @@ _ZN17crossbeam_channel7counter3new17h99edbdd07a6d7380E.exit: ; preds = %.noexc.i
   %23 = shl i64 %.0.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !6257
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h98f74eb88ab7c06eE.llvm.9060417697508566391"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %4, i64 noundef 0, i64 noundef range(i64 1, 0) %1), !noalias !6257
-  %24 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h717fa5d8e591baecE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4), !noalias !6257
+  %25 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h717fa5d8e591baecE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4), !noalias !6257
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6257
-  %25 = extractvalue { ptr, i64 } %24, 0
-  %26 = extractvalue { ptr, i64 } %24, 1
+  %26 = extractvalue { ptr, i64 } %25, 0
+  %27 = extractvalue { ptr, i64 } %25, 1
   %.sroa.825.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 272
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !6260
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.825.0..sroa_idx, i8 0, i64 16, i1 false)
@@ -46629,38 +46629,38 @@ _ZN17crossbeam_channel7counter3new17h99edbdd07a6d7380E.exit: ; preds = %.noexc.i
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 400
   store i64 %.0.i, ptr %.sroa.21.0..sroa_idx, align 16
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 408
-  store ptr %25, ptr %.sroa.22.0..sroa_idx, align 8
+  store ptr %26, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 416
-  store i64 %26, ptr %.sroa.23.0..sroa_idx, align 32
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 512
-  store i64 1, ptr %27, align 128, !noalias !6260
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 520
-  store i64 1, ptr %28, align 8, !noalias !6260
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 528
-  store i8 0, ptr %29, align 16, !noalias !6260
-  %30 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.llvm.6545128362769768385(ptr noalias noundef nonnull readonly align 1 @anon.6f5aa1baf96411d151817ad1d392605a.2.llvm.6545128362769768385, i64 noundef 128, i64 noundef 640, i1 noundef zeroext false)
-          to label %.noexc.i14 unwind label %33, !noalias !6260
+  store i64 %27, ptr %.sroa.23.0..sroa_idx, align 32
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 512
+  store i64 1, ptr %28, align 128, !noalias !6260
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 520
+  store i64 1, ptr %29, align 8, !noalias !6260
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 528
+  store i8 0, ptr %30, align 16, !noalias !6260
+  %31 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.llvm.6545128362769768385(ptr noalias noundef nonnull readonly align 1 @anon.6f5aa1baf96411d151817ad1d392605a.2.llvm.6545128362769768385, i64 noundef 128, i64 noundef 640, i1 noundef zeroext false)
+          to label %.noexc.i14 unwind label %34, !noalias !6260
 
 .noexc.i14:                                       ; preds = %18
-  %.fca.0.extract.i.i15 = extractvalue { ptr, i64 } %30, 0
-  %31 = icmp eq ptr %.fca.0.extract.i.i15, null
-  br i1 %31, label %32, label %_ZN17crossbeam_channel7counter3new17haff73ec03cec2a9eE.exit
+  %.fca.0.extract.i.i15 = extractvalue { ptr, i64 } %31, 0
+  %32 = icmp eq ptr %.fca.0.extract.i.i15, null
+  br i1 %32, label %33, label %_ZN17crossbeam_channel7counter3new17haff73ec03cec2a9eE.exit
 
-32:                                               ; preds = %.noexc.i14
+33:                                               ; preds = %.noexc.i14
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h047bf044e422c00fE(i64 noundef 128, i64 noundef 640) #51
-          to label %.noexc7.i unwind label %33, !noalias !6260
+          to label %.noexc7.i unwind label %34, !noalias !6260
 
-.noexc7.i:                                        ; preds = %32
+.noexc7.i:                                        ; preds = %33
   unreachable
 
-33:                                               ; preds = %32, %18
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %33, %18
+  %35 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr135drop_in_place$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$tracing_appender..Msg$GT$$GT$$GT$17hee88ed407c574d40E"(ptr noalias noundef nonnull align 128 dereferenceable(640) %3) #49
-          to label %common.resume unwind label %35, !noalias !6260
+          to label %common.resume unwind label %36, !noalias !6260
 
-35:                                               ; preds = %33
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %34
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #50, !noalias !6260
   unreachable
@@ -46668,18 +46668,18 @@ _ZN17crossbeam_channel7counter3new17h99edbdd07a6d7380E.exit: ; preds = %.noexc.i
 _ZN17crossbeam_channel7counter3new17haff73ec03cec2a9eE.exit: ; preds = %.noexc.i14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(640) %.fca.0.extract.i.i15, ptr noundef nonnull align 128 dereferenceable(640) %3, i64 640, i1 false), !noalias !6260
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !6260
-  br label %37
+  br label %38
 
-37:                                               ; preds = %_ZN17crossbeam_channel7counter3new17haff73ec03cec2a9eE.exit, %_ZN17crossbeam_channel7counter3new17h99edbdd07a6d7380E.exit
+38:                                               ; preds = %_ZN17crossbeam_channel7counter3new17haff73ec03cec2a9eE.exit, %_ZN17crossbeam_channel7counter3new17h99edbdd07a6d7380E.exit
   %.sink37 = phi i64 [ 0, %_ZN17crossbeam_channel7counter3new17haff73ec03cec2a9eE.exit ], [ 2, %_ZN17crossbeam_channel7counter3new17h99edbdd07a6d7380E.exit ]
   %.fca.0.extract.i.i15.sink35 = phi ptr [ %.fca.0.extract.i.i15, %_ZN17crossbeam_channel7counter3new17haff73ec03cec2a9eE.exit ], [ %.fca.0.extract.i.i, %_ZN17crossbeam_channel7counter3new17h99edbdd07a6d7380E.exit ]
   store i64 %.sink37, ptr %0, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.fca.0.extract.i.i15.sink35, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink37, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.fca.0.extract.i.i15.sink35, ptr %40, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.fca.0.extract.i.i15.sink35, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sink37, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.fca.0.extract.i.i15.sink35, ptr %41, align 8
   ret void
 }
 

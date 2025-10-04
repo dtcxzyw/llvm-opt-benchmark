@@ -104,9 +104,9 @@ define hidden noundef i32 @ir_assign_virtual_registers(ptr noundef captures(none
 
 35:                                               ; preds = %.lr.ph.i
   %.not48.i = icmp eq i8 %30, 63
-  br i1 %.not48.i, label %36, label %._crit_edge74
+  br i1 %.not48.i, label %36, label %._crit_edge75
 
-._crit_edge74:                                    ; preds = %35
+._crit_edge75:                                    ; preds = %35
   %.pre = sext i32 %.04253.i to i64
   br label %52
 
@@ -133,7 +133,7 @@ define hidden noundef i32 @ir_assign_virtual_registers(ptr noundef captures(none
   %51 = icmp sgt i32 %50, 1
   br i1 %51, label %52, label %59
 
-52:                                               ; preds = %._crit_edge74, %45, %36
+52:                                               ; preds = %._crit_edge75, %45, %36
   %.pre.i.pre-phi = phi i64 [ %.pre, %._crit_edge74 ], [ %47, %45 ], [ %38, %36 ]
   %53 = load ptr, ptr %2, align 8, !tbaa !4
   %.not50.i = icmp eq ptr %53, null
@@ -186,9 +186,9 @@ define hidden noundef i32 @ir_assign_virtual_registers(ptr noundef captures(none
 
 77:                                               ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %97 ]
-  %.pn = phi ptr [ %74, %.lr.ph ], [ %.06072, %97 ]
-  %.06270 = phi i32 [ 0, %.lr.ph ], [ %.163, %97 ]
-  %.06072 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
+  %.pn = phi ptr [ %74, %.lr.ph ], [ %.06073, %97 ]
+  %.06271 = phi i32 [ 0, %.lr.ph ], [ %.163, %97 ]
+  %.06073 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   %78 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4, !tbaa !34
   %80 = add i32 %79, -1073741824
@@ -196,18 +196,18 @@ define hidden noundef i32 @ir_assign_virtual_registers(ptr noundef captures(none
   br i1 %or.cond, label %97, label %81
 
 81:                                               ; preds = %77
-  %82 = load i8, ptr %.06072, align 8, !tbaa !32
+  %82 = load i8, ptr %.06073, align 8, !tbaa !32
   %83 = zext i8 %82 to i64
   %84 = getelementptr inbounds nuw i32, ptr @ir_op_flags, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !34
   %86 = and i32 %85, 256
-  %.not67 = icmp eq i32 %86, 0
-  br i1 %.not67, label %87, label %95
+  %.not68 = icmp eq i32 %86, 0
+  br i1 %.not68, label %87, label %95
 
 87:                                               ; preds = %81
   %88 = and i32 %85, 1024
-  %.not68 = icmp eq i32 %88, 0
-  br i1 %.not68, label %97, label %89
+  %.not69 = icmp eq i32 %88, 0
+  br i1 %.not69, label %97, label %89
 
 89:                                               ; preds = %87
   %90 = load ptr, ptr %76, align 8, !tbaa !35
@@ -218,11 +218,11 @@ define hidden noundef i32 @ir_assign_virtual_registers(ptr noundef captures(none
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %89, %81
-  %96 = add i32 %.06270, 1
+  %96 = add i32 %.06271, 1
   br label %97
 
 97:                                               ; preds = %87, %89, %95, %77
-  %.163 = phi i32 [ %.06270, %77 ], [ %96, %95 ], [ %.06270, %89 ], [ %.06270, %87 ]
+  %.163 = phi i32 [ %.06271, %77 ], [ %96, %95 ], [ %.06271, %89 ], [ %.06271, %87 ]
   %.059 = phi i32 [ 0, %77 ], [ %96, %95 ], [ 0, %89 ], [ 0, %87 ]
   %98 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv
   store i32 %.059, ptr %98, align 4, !tbaa !34

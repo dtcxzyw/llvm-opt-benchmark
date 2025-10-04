@@ -5181,12 +5181,12 @@ define internal fastcc noundef ptr @eth_addr_resolve(ptr noundef returned %0) un
   br i1 %39, label %.lr.ph27.preheader.i, label %._crit_edge28.i
 
 .lr.ph27.preheader.i:                             ; preds = %.lr.ph.preheader.i, %._crit_edge.thread.i
-  %.018.lcssa41.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %narrow.i, %.lr.ph.preheader.i ]
-  %40 = zext nneg i32 %.018.lcssa41.i to i64
+  %.018.lcssa40.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %narrow.i, %.lr.ph.preheader.i ]
+  %40 = zext nneg i32 %.018.lcssa40.i to i64
   %41 = getelementptr i8, ptr %7, i64 %40
   %scevgep.i = getelementptr i8, ptr %41, i64 1
-  %narrow38.i = sub nuw nsw i32 5, %.018.lcssa41.i
-  %42 = zext nneg i32 %narrow38.i to i64
+  %narrow37.i = sub nuw nsw i32 5, %.018.lcssa40.i
+  %42 = zext nneg i32 %narrow37.i to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %42, i1 false)
   br label %._crit_edge28.i
 
@@ -5283,12 +5283,12 @@ wka_name_lookup.exit:                             ; preds = %._crit_edge28.i
   br i1 %88, label %.lr.ph27.preheader.i101, label %._crit_edge28.i105
 
 .lr.ph27.preheader.i101:                          ; preds = %.lr.ph.preheader.i108, %._crit_edge.thread.i100
-  %.018.lcssa41.i102 = phi i32 [ 0, %._crit_edge.thread.i100 ], [ %narrow.i109, %.lr.ph.preheader.i108 ]
-  %89 = zext nneg i32 %.018.lcssa41.i102 to i64
+  %.018.lcssa40.i102 = phi i32 [ 0, %._crit_edge.thread.i100 ], [ %narrow.i109, %.lr.ph.preheader.i108 ]
+  %89 = zext nneg i32 %.018.lcssa40.i102 to i64
   %90 = getelementptr i8, ptr %6, i64 %89
   %scevgep.i103 = getelementptr i8, ptr %90, i64 1
-  %narrow38.i104 = sub nuw nsw i32 5, %.018.lcssa41.i102
-  %91 = zext nneg i32 %narrow38.i104 to i64
+  %narrow37.i104 = sub nuw nsw i32 5, %.018.lcssa40.i102
+  %91 = zext nneg i32 %narrow37.i104 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i103, i8 0, i64 %91, i1 false)
   br label %._crit_edge28.i105
 
@@ -5387,12 +5387,12 @@ wka_name_lookup.exit117:                          ; preds = %._crit_edge28.i105
   br i1 %139, label %.lr.ph27.preheader.i120, label %._crit_edge28.i124
 
 .lr.ph27.preheader.i120:                          ; preds = %.lr.ph.preheader.i127, %._crit_edge.thread.i119
-  %.018.lcssa41.i121 = phi i32 [ 0, %._crit_edge.thread.i119 ], [ %narrow.i128, %.lr.ph.preheader.i127 ]
-  %140 = zext nneg i32 %.018.lcssa41.i121 to i64
+  %.018.lcssa40.i121 = phi i32 [ 0, %._crit_edge.thread.i119 ], [ %narrow.i128, %.lr.ph.preheader.i127 ]
+  %140 = zext nneg i32 %.018.lcssa40.i121 to i64
   %141 = getelementptr i8, ptr %5, i64 %140
   %scevgep.i122 = getelementptr i8, ptr %141, i64 1
-  %narrow38.i123 = sub nuw nsw i32 5, %.018.lcssa41.i121
-  %142 = zext nneg i32 %narrow38.i123 to i64
+  %narrow37.i123 = sub nuw nsw i32 5, %.018.lcssa40.i121
+  %142 = zext nneg i32 %narrow37.i123 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i122, i8 0, i64 %142, i1 false)
   br label %._crit_edge28.i124
 
@@ -5523,12 +5523,12 @@ wka_name_lookup.exit136:                          ; preds = %._crit_edge28.i124
   br i1 %212, label %.lr.ph27.preheader.i139, label %._crit_edge28.i143
 
 .lr.ph27.preheader.i139:                          ; preds = %.lr.ph.preheader.i146, %._crit_edge.thread.i138
-  %.018.lcssa41.i140 = phi i32 [ 0, %._crit_edge.thread.i138 ], [ %narrow.i147, %.lr.ph.preheader.i146 ]
-  %213 = zext nneg i32 %.018.lcssa41.i140 to i64
+  %.018.lcssa40.i140 = phi i32 [ 0, %._crit_edge.thread.i138 ], [ %narrow.i147, %.lr.ph.preheader.i146 ]
+  %213 = zext nneg i32 %.018.lcssa40.i140 to i64
   %214 = getelementptr i8, ptr %4, i64 %213
   %scevgep.i141 = getelementptr i8, ptr %214, i64 1
-  %narrow38.i142 = sub nuw nsw i32 5, %.018.lcssa41.i140
-  %215 = zext nneg i32 %narrow38.i142 to i64
+  %narrow37.i142 = sub nuw nsw i32 5, %.018.lcssa40.i140
+  %215 = zext nneg i32 %narrow37.i142 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i141, i8 0, i64 %215, i1 false)
   br label %._crit_edge28.i143
 
@@ -5633,12 +5633,12 @@ wka_name_lookup.exit155:                          ; preds = %._crit_edge28.i143
   br i1 %267, label %.lr.ph27.preheader.i158, label %._crit_edge28.i162
 
 .lr.ph27.preheader.i158:                          ; preds = %.lr.ph.preheader.i165, %._crit_edge.thread.i157
-  %.018.lcssa41.i159 = phi i32 [ 0, %._crit_edge.thread.i157 ], [ %narrow.i166, %.lr.ph.preheader.i165 ]
-  %268 = zext nneg i32 %.018.lcssa41.i159 to i64
+  %.018.lcssa40.i159 = phi i32 [ 0, %._crit_edge.thread.i157 ], [ %narrow.i166, %.lr.ph.preheader.i165 ]
+  %268 = zext nneg i32 %.018.lcssa40.i159 to i64
   %269 = getelementptr i8, ptr %3, i64 %268
   %scevgep.i160 = getelementptr i8, ptr %269, i64 1
-  %narrow38.i161 = sub nuw nsw i32 5, %.018.lcssa41.i159
-  %270 = zext nneg i32 %narrow38.i161 to i64
+  %narrow37.i161 = sub nuw nsw i32 5, %.018.lcssa40.i159
+  %270 = zext nneg i32 %narrow37.i161 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i160, i8 0, i64 %270, i1 false)
   br label %._crit_edge28.i162
 
@@ -5749,12 +5749,12 @@ wka_name_lookup.exit174:                          ; preds = %._crit_edge28.i162
   br i1 %326, label %.lr.ph27.preheader.i177, label %._crit_edge28.i181
 
 .lr.ph27.preheader.i177:                          ; preds = %.lr.ph.preheader.i184, %._crit_edge.thread.i176
-  %.018.lcssa41.i178 = phi i32 [ 0, %._crit_edge.thread.i176 ], [ %narrow.i185, %.lr.ph.preheader.i184 ]
-  %327 = zext nneg i32 %.018.lcssa41.i178 to i64
+  %.018.lcssa40.i178 = phi i32 [ 0, %._crit_edge.thread.i176 ], [ %narrow.i185, %.lr.ph.preheader.i184 ]
+  %327 = zext nneg i32 %.018.lcssa40.i178 to i64
   %328 = getelementptr i8, ptr %2, i64 %327
   %scevgep.i179 = getelementptr i8, ptr %328, i64 1
-  %narrow38.i180 = sub nuw nsw i32 5, %.018.lcssa41.i178
-  %329 = zext nneg i32 %narrow38.i180 to i64
+  %narrow37.i180 = sub nuw nsw i32 5, %.018.lcssa40.i178
+  %329 = zext nneg i32 %narrow37.i180 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i179, i8 0, i64 %329, i1 false)
   br label %._crit_edge28.i181
 

@@ -67088,12 +67088,12 @@ hb_language_from_string.exit.i:                   ; preds = %25, %22, %_ZNK16hb_
 60:                                               ; preds = %29
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 %.sroa.3.8.insert.ext.i.i.i.i
   %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %104, label %62
+  br i1 %.not.i.i, label %110, label %62
 
 62:                                               ; preds = %60
   %63 = load i32, ptr %3, align 4, !tbaa !127
   %.not44.i.i = icmp eq i32 %63, 0
-  br i1 %.not44.i.i, label %104, label %64
+  br i1 %.not44.i.i, label %110, label %64
 
 64:                                               ; preds = %62
   %65 = add i32 %63, -1
@@ -67117,103 +67117,103 @@ hb_language_from_string.exit.i:                   ; preds = %25, %22, %_ZNK16hb_
   %76 = icmp samesign ult i32 %spec.select.i.i.i, 128
   br i1 %76, label %77, label %80
 
-77:                                               ; preds = %.lr.ph.i.i
+79:                                               ; preds = %.lr.ph.i.i
   %78 = trunc nuw nsw i32 %spec.select.i.i.i to i8
   %79 = getelementptr inbounds nuw i8, ptr %.13549.i.i, i64 1
   store i8 %78, ptr %.13549.i.i, align 1, !tbaa !219
   br label %_ZN9hb_utf8_t6encodeEPhPKhj.exit.i.i
 
-80:                                               ; preds = %.lr.ph.i.i
+84:                                               ; preds = %.lr.ph.i.i
   %81 = ptrtoint ptr %.13549.i.i to i64
   %82 = sub i64 %68, %81
   br i1 %74, label %.thread39.i.i.i, label %83
 
-83:                                               ; preds = %80
+85:                                               ; preds = %84
   %84 = icmp sgt i64 %82, 1
   br i1 %84, label %85, label %_ZN9hb_utf8_t6encodeEPhPKhj.exit.thread.i.i
 
-85:                                               ; preds = %83
-  %86 = lshr i8 %72, 6
-  %87 = or disjoint i8 %86, -64
-  %88 = getelementptr inbounds nuw i8, ptr %.13549.i.i, i64 1
-  store i8 %87, ptr %.13549.i.i, align 1, !tbaa !219
-  %89 = and i8 %72, 63
-  %90 = or disjoint i8 %89, -128
-  %91 = getelementptr inbounds nuw i8, ptr %.13549.i.i, i64 2
-  store i8 %90, ptr %88, align 1, !tbaa !219
+89:                                               ; preds = %85
+  %90 = lshr i8 %72, 6
+  %91 = or disjoint i8 %90, -64
+  %92 = getelementptr inbounds nuw i8, ptr %.13549.i.i, i64 1
+  store i8 %91, ptr %.13549.i.i, align 1, !tbaa !219
+  %93 = and i8 %72, 63
+  %94 = or disjoint i8 %93, -128
+  %95 = getelementptr inbounds nuw i8, ptr %.13549.i.i, i64 2
+  store i8 %94, ptr %92, align 1, !tbaa !219
   br label %_ZN9hb_utf8_t6encodeEPhPKhj.exit.i.i
 
-.thread39.i.i.i:                                  ; preds = %80
+.thread39.i.i.i:                                  ; preds = %84
   %92 = icmp sgt i64 %82, 2
   br i1 %92, label %93, label %_ZN9hb_utf8_t6encodeEPhPKhj.exit.thread.i.i
 
-93:                                               ; preds = %.thread39.i.i.i
-  %94 = getelementptr inbounds nuw i8, ptr %.13549.i.i, i64 1
+99:                                               ; preds = %.thread39.i.i.i
+  %100 = getelementptr inbounds nuw i8, ptr %.13549.i.i, i64 1
   store i8 -17, ptr %.13549.i.i, align 1, !tbaa !219
-  %95 = getelementptr inbounds nuw i8, ptr %.13549.i.i, i64 2
-  store i8 -65, ptr %94, align 1, !tbaa !219
-  %96 = getelementptr inbounds nuw i8, ptr %.13549.i.i, i64 3
-  store i8 -67, ptr %95, align 1, !tbaa !219
+  %101 = getelementptr inbounds nuw i8, ptr %.13549.i.i, i64 2
+  store i8 -65, ptr %100, align 1, !tbaa !219
+  %102 = getelementptr inbounds nuw i8, ptr %.13549.i.i, i64 3
+  store i8 -67, ptr %101, align 1, !tbaa !219
   br label %_ZN9hb_utf8_t6encodeEPhPKhj.exit.i.i
 
-_ZN9hb_utf8_t6encodeEPhPKhj.exit.i.i:             ; preds = %93, %85, %77
-  %.032.i.i.i = phi ptr [ %79, %77 ], [ %91, %85 ], [ %96, %93 ]
-  %97 = icmp ult ptr %75, %61
-  %98 = icmp ult ptr %.032.i.i.i, %67
-  %99 = select i1 %97, i1 %98, i1 false
-  br i1 %99, label %.lr.ph.i.i, label %_ZN9hb_utf8_t6encodeEPhPKhj.exit.thread.i.i
+_ZN9hb_utf8_t6encodeEPhPKhj.exit.i.i:             ; preds = %99, %89, %77
+  %.032.i.i.i = phi ptr [ %79, %77 ], [ %95, %85 ], [ %102, %93 ]
+  %103 = icmp ult ptr %75, %61
+  %104 = icmp ult ptr %.032.i.i.i, %67
+  %105 = select i1 %103, i1 %104, i1 false
+  br i1 %105, label %.lr.ph.i.i, label %_ZN9hb_utf8_t6encodeEPhPKhj.exit.thread.i.i
 
-_ZN9hb_utf8_t6encodeEPhPKhj.exit.thread.i.i:      ; preds = %_ZN9hb_utf8_t6encodeEPhPKhj.exit.i.i, %.thread39.i.i.i, %83, %64
+_ZN9hb_utf8_t6encodeEPhPKhj.exit.thread.i.i:      ; preds = %_ZN9hb_utf8_t6encodeEPhPKhj.exit.i.i, %.thread39.i.i.i, %85, %64
   %.135.lcssa.i.i = phi ptr [ %4, %64 ], [ %.13549.i.i, %.thread39.i.i.i ], [ %.13549.i.i, %83 ], [ %.032.i.i.i, %_ZN9hb_utf8_t6encodeEPhPKhj.exit.i.i ]
   %.1.lcssa.i.i = phi ptr [ %56, %64 ], [ %.150.i.i, %.thread39.i.i.i ], [ %.150.i.i, %83 ], [ %75, %_ZN9hb_utf8_t6encodeEPhPKhj.exit.i.i ]
-  %100 = ptrtoint ptr %.135.lcssa.i.i to i64
-  %101 = ptrtoint ptr %4 to i64
-  %102 = sub i64 %100, %101
-  %103 = trunc i64 %102 to i32
-  store i32 %103, ptr %3, align 4, !tbaa !127
+  %106 = ptrtoint ptr %.135.lcssa.i.i to i64
+  %107 = ptrtoint ptr %4 to i64
+  %108 = sub i64 %106, %107
+  %109 = trunc i64 %108 to i32
+  store i32 %109, ptr %3, align 4, !tbaa !127
   store i8 0, ptr %.135.lcssa.i.i, align 1, !tbaa !219
-  br label %104
+  br label %110
 
-104:                                              ; preds = %_ZN9hb_utf8_t6encodeEPhPKhj.exit.thread.i.i, %62, %60
+110:                                              ; preds = %_ZN9hb_utf8_t6encodeEPhPKhj.exit.thread.i.i, %62, %60
   %.034.i.i = phi ptr [ %.135.lcssa.i.i, %_ZN9hb_utf8_t6encodeEPhPKhj.exit.thread.i.i ], [ %4, %62 ], [ %4, %60 ]
   %.033.i.i = phi ptr [ %.1.lcssa.i.i, %_ZN9hb_utf8_t6encodeEPhPKhj.exit.thread.i.i ], [ %56, %62 ], [ %56, %60 ]
-  %105 = ptrtoint ptr %.034.i.i to i64
-  %106 = ptrtoint ptr %4 to i64
-  %107 = sub i64 %105, %106
-  %108 = trunc i64 %107 to i32
-  %109 = icmp ult ptr %.033.i.i, %61
-  br i1 %109, label %_ZN9hb_utf8_t10encode_lenEj.exit.i.i, label %_ZL18hb_ot_name_get_utfI9hb_utf8_tEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit
+  %111 = ptrtoint ptr %.034.i.i to i64
+  %112 = ptrtoint ptr %4 to i64
+  %113 = sub i64 %111, %112
+  %114 = trunc i64 %113 to i32
+  %115 = icmp ult ptr %.033.i.i, %61
+  br i1 %115, label %_ZN9hb_utf8_t10encode_lenEj.exit.i.i, label %_ZL18hb_ot_name_get_utfI9hb_utf8_tEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit
 
-_ZN9hb_utf8_t10encode_lenEj.exit.i.i:             ; preds = %104, %_ZN9hb_utf8_t10encode_lenEj.exit.i.i
-  %.058.i.i = phi i32 [ %113, %_ZN9hb_utf8_t10encode_lenEj.exit.i.i ], [ %108, %104 ]
-  %.457.i.i = phi ptr [ %111, %_ZN9hb_utf8_t10encode_lenEj.exit.i.i ], [ %.033.i.i, %104 ]
-  %110 = load i8, ptr %.457.i.i, align 1, !tbaa !219
-  %111 = getelementptr inbounds nuw i8, ptr %.457.i.i, i64 1
-  %112 = icmp sgt i8 %110, -1
-  %.0.i.i.i = select i1 %112, i32 1, i32 3
-  %113 = add i32 %.0.i.i.i, %.058.i.i
-  %114 = icmp ult ptr %111, %61
-  br i1 %114, label %_ZN9hb_utf8_t10encode_lenEj.exit.i.i, label %_ZL18hb_ot_name_get_utfI9hb_utf8_tEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit, !llvm.loop !1559
+_ZN9hb_utf8_t10encode_lenEj.exit.i.i:             ; preds = %110, %_ZN9hb_utf8_t10encode_lenEj.exit.i.i
+  %.058.i.i = phi i32 [ %119, %_ZN9hb_utf8_t10encode_lenEj.exit.i.i ], [ %114, %104 ]
+  %.457.i.i = phi ptr [ %117, %_ZN9hb_utf8_t10encode_lenEj.exit.i.i ], [ %.033.i.i, %104 ]
+  %116 = load i8, ptr %.457.i.i, align 1, !tbaa !219
+  %117 = getelementptr inbounds nuw i8, ptr %.457.i.i, i64 1
+  %118 = icmp sgt i8 %116, -1
+  %.0.i.i.i = select i1 %118, i32 1, i32 3
+  %119 = add i32 %.0.i.i.i, %.058.i.i
+  %120 = icmp ult ptr %117, %61
+  br i1 %120, label %_ZN9hb_utf8_t10encode_lenEj.exit.i.i, label %_ZL18hb_ot_name_get_utfI9hb_utf8_tEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit, !llvm.loop !1559
 
 _ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t9hb_utf8_tEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i: ; preds = %29, %hb_language_from_string.exit.i
   %.not28.i = icmp eq ptr %3, null
-  br i1 %.not28.i, label %_ZL18hb_ot_name_get_utfI9hb_utf8_tEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit, label %115
+  br i1 %.not28.i, label %_ZL18hb_ot_name_get_utfI9hb_utf8_tEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit, label %121
 
-115:                                              ; preds = %_ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t9hb_utf8_tEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i
-  %116 = load i32, ptr %3, align 4, !tbaa !127
-  %.not29.i = icmp eq i32 %116, 0
-  br i1 %.not29.i, label %118, label %117
+121:                                              ; preds = %_ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t9hb_utf8_tEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i
+  %122 = load i32, ptr %3, align 4, !tbaa !127
+  %.not29.i = icmp eq i32 %122, 0
+  br i1 %.not29.i, label %124, label %123
 
-117:                                              ; preds = %115
+123:                                              ; preds = %121
   store i8 0, ptr %4, align 1, !tbaa !219
-  br label %118
+  br label %124
 
-118:                                              ; preds = %117, %115
+124:                                              ; preds = %123, %121
   store i32 0, ptr %3, align 4, !tbaa !127
   br label %_ZL18hb_ot_name_get_utfI9hb_utf8_tEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit
 
-_ZL18hb_ot_name_get_utfI9hb_utf8_tEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit: ; preds = %_ZN9hb_utf8_t10encode_lenEj.exit.i.i, %58, %104, %_ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t9hb_utf8_tEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i, %118
-  %.1.i = phi i32 [ 0, %118 ], [ 0, %_ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t9hb_utf8_tEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i ], [ %108, %104 ], [ %59, %58 ], [ %113, %_ZN9hb_utf8_t10encode_lenEj.exit.i.i ]
+_ZL18hb_ot_name_get_utfI9hb_utf8_tEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit: ; preds = %_ZN9hb_utf8_t10encode_lenEj.exit.i.i, %58, %110, %_ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t9hb_utf8_tEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i, %124
+  %.1.i = phi i32 [ 0, %118 ], [ 0, %_ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t9hb_utf8_tEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i ], [ %114, %104 ], [ %59, %58 ], [ %119, %_ZN9hb_utf8_t10encode_lenEj.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i
 }
@@ -67685,9 +67685,9 @@ _ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit48.i.i: ; preds = 
   %136 = icmp ne i32 %.sroa.speculated.i.i.i.i, 0
   %137 = icmp ne i32 %133, 0
   %138 = and i1 %136, %137
-  br i1 %138, label %_ZN13hb_utf32_xe_tIjLb1EE6encodeEPjPKjj.exit.i40.i, label %._crit_edge.i34.i
+  br i1 %138, label %.lr.ph.i40.i, label %._crit_edge.i34.i
 
-_ZN13hb_utf32_xe_tIjLb1EE6encodeEPjPKjj.exit.i40.i: ; preds = %132, %_ZN13hb_utf32_xe_tIjLb1EE6encodeEPjPKjj.exit.i40.i
+.lr.ph.i40.i:                                     ; preds = %132, %_ZN13hb_utf32_xe_tIjLb1EE6encodeEPjPKjj.exit.i40.i
   %.148.i.i = phi ptr [ %142, %_ZN13hb_utf32_xe_tIjLb1EE6encodeEPjPKjj.exit.i40.i ], [ %56, %132 ]
   %.13547.i.i = phi ptr [ %143, %_ZN13hb_utf32_xe_tIjLb1EE6encodeEPjPKjj.exit.i40.i ], [ %4, %132 ]
   %139 = load i8, ptr %.148.i.i, align 1, !tbaa !219
@@ -67700,7 +67700,7 @@ _ZN13hb_utf32_xe_tIjLb1EE6encodeEPjPKjj.exit.i40.i: ; preds = %132, %_ZN13hb_utf
   %144 = icmp ult ptr %142, %129
   %145 = icmp ult ptr %143, %135
   %146 = select i1 %144, i1 %145, i1 false
-  br i1 %146, label %_ZN13hb_utf32_xe_tIjLb1EE6encodeEPjPKjj.exit.i40.i, label %._crit_edge.loopexit.i.i
+  br i1 %146, label %.lr.ph.i40.i, label %._crit_edge.loopexit.i.i
 
 ._crit_edge.loopexit.i.i:                         ; preds = %_ZN13hb_utf32_xe_tIjLb1EE6encodeEPjPKjj.exit.i40.i
   %.pre59.i.i = ptrtoint ptr %142 to i64
@@ -67710,12 +67710,12 @@ _ZN13hb_utf32_xe_tIjLb1EE6encodeEPjPKjj.exit.i40.i: ; preds = %132, %_ZN13hb_utf
   %.pre.pre-phi.i.i = phi i64 [ %.pre59.i.i, %._crit_edge.loopexit.i.i ], [ %128, %132 ]
   %.135.lcssa.i35.i = phi ptr [ %143, %._crit_edge.loopexit.i.i ], [ %4, %132 ]
   %.1.lcssa.i36.i = phi ptr [ %142, %._crit_edge.loopexit.i.i ], [ %56, %132 ]
-  %147 = ptrtoint ptr %.135.lcssa.i35.i to i64
-  %148 = ptrtoint ptr %4 to i64
-  %149 = sub i64 %147, %148
-  %150 = lshr exact i64 %149, 2
-  %151 = trunc i64 %150 to i32
-  store i32 %151, ptr %3, align 4, !tbaa !127
+  %151 = ptrtoint ptr %.135.lcssa.i35.i to i64
+  %152 = ptrtoint ptr %4 to i64
+  %153 = sub i64 %151, %152
+  %154 = lshr exact i64 %153, 2
+  %155 = trunc i64 %154 to i32
+  store i32 %155, ptr %3, align 4, !tbaa !127
   store i32 0, ptr %.135.lcssa.i35.i, align 4, !tbaa !127
   br label %_ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t13hb_utf32_xe_tIjLb1EEEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i
 
@@ -67723,38 +67723,38 @@ _ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t13hb_utf32_xe_tIjLb1EEEEj10hb_array_t
   %.03358.pre-phi.i.i = phi i64 [ %.pre.pre-phi.i.i, %._crit_edge.i34.i ], [ %128, %130 ], [ %128, %127 ]
   %.034.i37.i = phi ptr [ %.135.lcssa.i35.i, %._crit_edge.i34.i ], [ %4, %130 ], [ %4, %127 ]
   %.033.i38.i = phi ptr [ %.1.lcssa.i36.i, %._crit_edge.i34.i ], [ %56, %130 ], [ %56, %127 ]
-  %152 = ptrtoint ptr %.034.i37.i to i64
-  %153 = ptrtoint ptr %4 to i64
-  %154 = sub i64 %152, %153
-  %155 = lshr i64 %154, 2
-  %156 = trunc i64 %155 to i32
-  %157 = icmp ult ptr %.033.i38.i, %129
-  %158 = trunc i64 %128 to i32
-  %159 = add i32 %.sroa.speculated.i.i.i.i, %158
-  %160 = trunc i64 %.03358.pre-phi.i.i to i32
-  %161 = sub i32 %159, %160
-  %162 = select i1 %157, i32 %161, i32 0
-  %.0.lcssa.i39.i = add i32 %162, %156
+  %156 = ptrtoint ptr %.034.i37.i to i64
+  %157 = ptrtoint ptr %4 to i64
+  %158 = sub i64 %156, %157
+  %159 = lshr i64 %158, 2
+  %160 = trunc i64 %159 to i32
+  %161 = icmp ult ptr %.033.i38.i, %129
+  %162 = trunc i64 %128 to i32
+  %163 = add i32 %.sroa.speculated.i.i.i.i, %162
+  %164 = trunc i64 %.03358.pre-phi.i.i to i32
+  %165 = sub i32 %163, %164
+  %166 = select i1 %161, i32 %165, i32 0
+  %.0.lcssa.i39.i = add i32 %166, %160
   br label %_ZL18hb_ot_name_get_utfI13hb_utf32_xe_tIjLb1EEEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit
 
 _ZN2OT22hb_ot_name_convert_utfI13hb_utf16_xe_tINS_7IntTypeItLj2EEEE13hb_utf32_xe_tIjLb1EEEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i: ; preds = %29, %hb_language_from_string.exit.i
   %.not28.i = icmp eq ptr %3, null
-  br i1 %.not28.i, label %_ZL18hb_ot_name_get_utfI13hb_utf32_xe_tIjLb1EEEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit, label %163
+  br i1 %.not28.i, label %_ZL18hb_ot_name_get_utfI13hb_utf32_xe_tIjLb1EEEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit, label %167
 
-163:                                              ; preds = %_ZN2OT22hb_ot_name_convert_utfI13hb_utf16_xe_tINS_7IntTypeItLj2EEEE13hb_utf32_xe_tIjLb1EEEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i
-  %164 = load i32, ptr %3, align 4, !tbaa !127
-  %.not29.i = icmp eq i32 %164, 0
-  br i1 %.not29.i, label %166, label %165
+167:                                              ; preds = %_ZN2OT22hb_ot_name_convert_utfI13hb_utf16_xe_tINS_7IntTypeItLj2EEEE13hb_utf32_xe_tIjLb1EEEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i
+  %168 = load i32, ptr %3, align 4, !tbaa !127
+  %.not29.i = icmp eq i32 %168, 0
+  br i1 %.not29.i, label %170, label %169
 
-165:                                              ; preds = %163
+169:                                              ; preds = %167
   store i32 0, ptr %4, align 4, !tbaa !127
-  br label %166
+  br label %170
 
-166:                                              ; preds = %165, %163
+170:                                              ; preds = %169, %167
   store i32 0, ptr %3, align 4, !tbaa !127
   br label %_ZL18hb_ot_name_get_utfI13hb_utf32_xe_tIjLb1EEEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit
 
-_ZL18hb_ot_name_get_utfI13hb_utf32_xe_tIjLb1EEEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit: ; preds = %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit48.i.i, %104, %_ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t13hb_utf32_xe_tIjLb1EEEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i, %_ZN2OT22hb_ot_name_convert_utfI13hb_utf16_xe_tINS_7IntTypeItLj2EEEE13hb_utf32_xe_tIjLb1EEEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i, %166
+_ZL18hb_ot_name_get_utfI13hb_utf32_xe_tIjLb1EEEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit: ; preds = %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit48.i.i, %104, %_ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t13hb_utf32_xe_tIjLb1EEEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i, %_ZN2OT22hb_ot_name_convert_utfI13hb_utf16_xe_tINS_7IntTypeItLj2EEEE13hb_utf32_xe_tIjLb1EEEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i, %170
   %.1.i = phi i32 [ 0, %166 ], [ 0, %_ZN2OT22hb_ot_name_convert_utfI13hb_utf16_xe_tINS_7IntTypeItLj2EEEE13hb_utf32_xe_tIjLb1EEEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i ], [ %109, %104 ], [ %.0.lcssa.i39.i, %_ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t13hb_utf32_xe_tIjLb1EEEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i ], [ %125, %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit48.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1.i

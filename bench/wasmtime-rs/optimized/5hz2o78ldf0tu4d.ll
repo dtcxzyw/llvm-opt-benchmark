@@ -25823,10 +25823,10 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i45: ; preds = %191
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %202 = load i8, ptr %201, align 2, !range !403, !alias.scope !4333, !noalias !4334, !noundef !4
   %203 = icmp samesign ult i8 %202, 6
-  %switch.shifted120 = lshr i8 51, %202
-  %switch.lobit121 = trunc i8 %switch.shifted120 to i1
-  %or.cond126 = select i1 %203, i1 %switch.lobit121, i1 false
-  br i1 %or.cond126, label %switch.lookup119, label %204
+  %switch.shifted117 = lshr i8 51, %202
+  %switch.lobit118 = trunc i8 %switch.shifted117 to i1
+  %or.cond123 = select i1 %203, i1 %switch.lobit118, i1 false
+  br i1 %or.cond123, label %switch.lookup116, label %204
 
 204:                                              ; preds = %200
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4336
@@ -25842,7 +25842,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i45: ; preds = %191
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.467) #36, !noalias !4336
   unreachable
 
-switch.lookup119:                                 ; preds = %200
+switch.lookup116:                                 ; preds = %200
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %210 = load i8, ptr %209, align 4, !range !316, !alias.scope !4333, !noalias !4334, !noundef !4
   %trunc.i.i = trunc nuw i8 %210 to i1
@@ -25853,13 +25853,13 @@ switch.lookup119:                                 ; preds = %200
   %215 = xor i8 %214, 120
   %..sroa.5.0.i.i = select i1 %trunc.i.i, i8 %215, i8 120
   %216 = shl nuw nsw i8 %202, 3
-  %switch.shiftamt123 = zext nneg i8 %216 to i48
-  %switch.downshift124 = lshr i48 2211908157696, %switch.shiftamt123
-  %switch.masked125 = trunc i48 %switch.downshift124 to i8
+  %switch.shiftamt120 = zext nneg i8 %216 to i48
+  %switch.downshift121 = lshr i48 2211908157696, %switch.shiftamt120
+  %switch.masked122 = trunc i48 %switch.downshift121 to i8
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val18 = load i8, ptr %217, align 4, !range !316, !noundef !4
   %218 = shl nuw nsw i8 %.val18, 2
-  %219 = or disjoint i8 %218, %switch.masked125
+  %219 = or disjoint i8 %218, %switch.masked122
   %220 = or disjoint i8 %219, %..sroa.5.0.i.i
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %222 = load i8, ptr %221, align 1, !alias.scope !4327, !noalias !4334, !noundef !4
@@ -25880,7 +25880,7 @@ switch.lookup119:                                 ; preds = %200
   %234 = icmp eq i64 %233, %.sink.i.i.i51
   br i1 %234, label %235, label %"_ZN186_$LT$cranelift_codegen..machinst..buffer..MachBuffer$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$$u20$as$u20$cranelift_codegen..isa..x64..encoding..ByteSink$GT$4put117h55c48a8d66213d63E.exit56"
 
-235:                                              ; preds = %switch.lookup119
+235:                                              ; preds = %switch.lookup116
   %236 = tail call { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h01e8fe5d7f2cc80fE"(ptr noalias noundef nonnull align 8 dereferenceable(1032) %227, i64 noundef 1)
   %237 = extractvalue { i64, i64 } %236, 0
   switch i64 %237, label %239 [
@@ -25902,7 +25902,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i54: ; preds = %235
   %.pre.i.i55 = load i64, ptr %232, align 8, !alias.scope !4346
   br label %"_ZN186_$LT$cranelift_codegen..machinst..buffer..MachBuffer$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$$u20$as$u20$cranelift_codegen..isa..x64..encoding..ByteSink$GT$4put117h55c48a8d66213d63E.exit56"
 
-"_ZN186_$LT$cranelift_codegen..machinst..buffer..MachBuffer$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$$u20$as$u20$cranelift_codegen..isa..x64..encoding..ByteSink$GT$4put117h55c48a8d66213d63E.exit56": ; preds = %switch.lookup119, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i54
+"_ZN186_$LT$cranelift_codegen..machinst..buffer..MachBuffer$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$$u20$as$u20$cranelift_codegen..isa..x64..encoding..ByteSink$GT$4put117h55c48a8d66213d63E.exit56": ; preds = %switch.lookup116, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i54
   %242 = phi i64 [ %.pre.i.i55, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i54 ], [ %233, %switch.lookup119 ]
   %.05.i.i52 = phi ptr [ %232, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i54 ], [ %.sink2.i.i.i50, %switch.lookup119 ]
   %.0.i.i53 = phi ptr [ %241, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i54 ], [ %.sink3.i.i.i49, %switch.lookup119 ]
@@ -25952,11 +25952,11 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i62: ; preds = %251
   br label %260
 
 260:                                              ; preds = %"_ZN186_$LT$cranelift_codegen..machinst..buffer..MachBuffer$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$$u20$as$u20$cranelift_codegen..isa..x64..encoding..ByteSink$GT$4put117h55c48a8d66213d63E.exit64", %"_ZN186_$LT$cranelift_codegen..machinst..buffer..MachBuffer$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$$u20$as$u20$cranelift_codegen..isa..x64..encoding..ByteSink$GT$4put117h55c48a8d66213d63E.exit47"
-  %.05.i.i60.sink116 = phi ptr [ %.05.i.i60, %"_ZN186_$LT$cranelift_codegen..machinst..buffer..MachBuffer$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$$u20$as$u20$cranelift_codegen..isa..x64..encoding..ByteSink$GT$4put117h55c48a8d66213d63E.exit64" ], [ %.05.i.i43, %"_ZN186_$LT$cranelift_codegen..machinst..buffer..MachBuffer$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$$u20$as$u20$cranelift_codegen..isa..x64..encoding..ByteSink$GT$4put117h55c48a8d66213d63E.exit47" ]
+  %.05.i.i60.sink114 = phi ptr [ %.05.i.i60, %"_ZN186_$LT$cranelift_codegen..machinst..buffer..MachBuffer$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$$u20$as$u20$cranelift_codegen..isa..x64..encoding..ByteSink$GT$4put117h55c48a8d66213d63E.exit64" ], [ %.05.i.i43, %"_ZN186_$LT$cranelift_codegen..machinst..buffer..MachBuffer$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$$u20$as$u20$cranelift_codegen..isa..x64..encoding..ByteSink$GT$4put117h55c48a8d66213d63E.exit47" ]
   %261 = phi i8 [ %222, %"_ZN186_$LT$cranelift_codegen..machinst..buffer..MachBuffer$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$$u20$as$u20$cranelift_codegen..isa..x64..encoding..ByteSink$GT$4put117h55c48a8d66213d63E.exit64" ], [ %122, %"_ZN186_$LT$cranelift_codegen..machinst..buffer..MachBuffer$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$$u20$as$u20$cranelift_codegen..isa..x64..encoding..ByteSink$GT$4put117h55c48a8d66213d63E.exit47" ]
-  %262 = load i64, ptr %.05.i.i60.sink116, align 8, !noundef !4
+  %262 = load i64, ptr %.05.i.i60.sink114, align 8, !noundef !4
   %263 = add i64 %262, 1
-  store i64 %263, ptr %.05.i.i60.sink116, align 8
+  store i64 %263, ptr %.05.i.i60.sink114, align 8
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %265 = load i8, ptr %264, align 4, !noundef !4
   %266 = getelementptr inbounds nuw i8, ptr %1, i64 48

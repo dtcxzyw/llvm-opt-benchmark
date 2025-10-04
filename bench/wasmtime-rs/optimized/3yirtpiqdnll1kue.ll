@@ -68,30 +68,30 @@ define hidden void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$13with_capacity17h
   %13 = add i64 %12, 1
   br label %14
 
-14:                                               ; preds = %2, %10
+14:; preds = %2, %10
   %.0 = phi i64 [ %13, %10 ], [ 1, %2 ]
   %15 = shl i64 %.0, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h8907985f6d061553E.llvm.137743244596658287"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %3, i64 noundef 0, i64 noundef %1)
-  %16 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hf5e679e07d368f63E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
+  %17 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hf5e679e07d368f63E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %17 = extractvalue { ptr, i64 } %16, 0
-  %18 = extractvalue { ptr, i64 } %16, 1
+  %18 = extractvalue { ptr, i64 } %17, 0
+  %19 = extractvalue { ptr, i64 } %17, 1
   store i64 0, ptr %0, align 128
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 0, ptr %19, align 128
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store ptr %17, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i64 %18, ptr %21, align 32
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store i64 %1, ptr %22, align 128
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store i64 %15, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store i64 %.0, ptr %24, align 16
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i32 0, ptr %25, align 128
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i64 0, ptr %20, align 128
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  store ptr %18, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  store i64 %19, ptr %22, align 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  store i64 %1, ptr %23, align 128
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  store i64 %15, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  store i64 %.0, ptr %25, align 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store i32 0, ptr %26, align 128
   %.sroa.08.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i8 0, ptr %.sroa.08.sroa.3.0..sroa_idx, align 4
   %.sroa.08.sroa.4.sroa.3.0..sroa.08.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -106,8 +106,8 @@ define hidden void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$13with_capacity17h
   store i64 0, ptr %.sroa.08.sroa.4.sroa.8.0..sroa.08.sroa.4.0..sroa_idx.sroa_idx, align 16
   %.sroa.39.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i8 1, ptr %.sroa.39.0..sroa_idx, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i32 0, ptr %26, align 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  store i32 0, ptr %27, align 64
   %.sroa.08.sroa.3.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store i8 0, ptr %.sroa.08.sroa.3.0..sroa_idx31, align 4
   %.sroa.08.sroa.4.sroa.3.0..sroa.08.sroa.4.0..sroa_idx33.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 328

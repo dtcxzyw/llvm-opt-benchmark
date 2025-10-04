@@ -2088,8 +2088,8 @@ define internal fastcc range(i32 0, 2) i32 @fill_commit_in_graph(ptr noundef %0,
   br i1 %7, label %.lr.ph, label %st_mult.exit
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.04355 = phi ptr [ %9, %.lr.ph ], [ %2, %4 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.04355, i64 88
+  %.04356 = phi ptr [ %9, %.lr.ph ], [ %2, %4 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.04356, i64 88
   %9 = load ptr, ptr %8, align 8, !tbaa !114
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load i32, ptr %10, align 8, !tbaa !116
@@ -2097,17 +2097,17 @@ define internal fastcc range(i32 0, 2) i32 @fill_commit_in_graph(ptr noundef %0,
   br i1 %12, label %.lr.ph, label %st_mult.exit, !llvm.loop !132
 
 st_mult.exit:                                     ; preds = %.lr.ph, %4
-  %.043.lcssa54 = phi ptr [ %2, %4 ], [ %9, %.lr.ph ]
-  %13 = getelementptr inbounds nuw i8, ptr %.043.lcssa54, i64 80
-  tail call fastcc void @fill_commit_graph_info(ptr noundef %1, ptr noundef nonnull %.043.lcssa54, i32 noundef %3)
-  %14 = getelementptr inbounds nuw i8, ptr %.043.lcssa54, i64 16
+  %.043.lcssa55 = phi ptr [ %2, %4 ], [ %9, %.lr.ph ]
+  %13 = getelementptr inbounds nuw i8, ptr %.043.lcssa55, i64 80
+  tail call fastcc void @fill_commit_graph_info(ptr noundef %1, ptr noundef nonnull %.043.lcssa55, i32 noundef %3)
+  %14 = getelementptr inbounds nuw i8, ptr %.043.lcssa55, i64 16
   %15 = load i32, ptr %13, align 8, !tbaa !116
   %16 = sub i32 %3, %15
   %17 = zext i32 %16 to i64
   %18 = load i8, ptr %14, align 8, !tbaa !81
   %19 = zext i8 %18 to i64
   %20 = add nuw nsw i64 %19, 16
-  %21 = getelementptr inbounds nuw i8, ptr %.043.lcssa54, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %.043.lcssa55, i64 112
   %22 = load ptr, ptr %21, align 8, !tbaa !100
   %23 = mul nuw nsw i64 %20, %17
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
@@ -2141,7 +2141,7 @@ st_mult.exit:                                     ; preds = %.lr.ph, %4
   br i1 %49, label %.loopexit, label %50
 
 50:                                               ; preds = %st_mult.exit
-  %51 = tail call fastcc ptr @insert_parent_or_die(ptr noundef %0, ptr noundef nonnull %.043.lcssa54, i32 noundef %48, ptr noundef nonnull %28)
+  %51 = tail call fastcc ptr @insert_parent_or_die(ptr noundef %0, ptr noundef nonnull %.043.lcssa55, i32 noundef %48, ptr noundef nonnull %28)
   %52 = load i8, ptr %14, align 8, !tbaa !81
   %53 = zext i8 %52 to i64
   %54 = getelementptr inbounds nuw i8, ptr %24, i64 %53
@@ -2167,76 +2167,76 @@ st_mult.exit:                                     ; preds = %.lr.ph, %4
   br i1 %73, label %.loopexit, label %74
 
 74:                                               ; preds = %50
-  %75 = icmp slt i32 %58, 0
-  br i1 %75, label %78, label %76
+  %.not = icmp slt i32 %58, 0
+  br i1 %.not, label %78, label %76
 
-76:                                               ; preds = %74
-  %77 = tail call fastcc ptr @insert_parent_or_die(ptr noundef %0, ptr noundef nonnull %.043.lcssa54, i32 noundef %72, ptr noundef nonnull %51)
+75:                                               ; preds = %74
+  %76 = tail call fastcc ptr @insert_parent_or_die(ptr noundef %0, ptr noundef nonnull %.043.lcssa55, i32 noundef %72, ptr noundef nonnull %51)
   br label %.loopexit
 
-78:                                               ; preds = %74
-  %79 = and i32 %72, 2147483647
-  %80 = getelementptr inbounds nuw i8, ptr %.043.lcssa54, i64 152
-  %81 = getelementptr inbounds nuw i8, ptr %.043.lcssa54, i64 144
-  br label %82
+77:                                               ; preds = %74
+  %78 = and i32 %72, 2147483647
+  %79 = getelementptr inbounds nuw i8, ptr %.043.lcssa55, i64 152
+  %80 = getelementptr inbounds nuw i8, ptr %.043.lcssa55, i64 144
+  br label %81
 
-82:                                               ; preds = %94, %78
-  %.045 = phi i32 [ %79, %78 ], [ %114, %94 ]
-  %.044 = phi ptr [ %51, %78 ], [ %113, %94 ]
-  %83 = load i64, ptr %80, align 8, !tbaa !134
-  %84 = lshr i64 %83, 2
-  %85 = zext i32 %.045 to i64
-  %.not = icmp samesign ugt i64 %84, %85
-  br i1 %.not, label %94, label %86
+81:                                               ; preds = %93, %77
+  %.045 = phi i32 [ %78, %78 ], [ %113, %94 ]
+  %.044 = phi ptr [ %51, %78 ], [ %112, %94 ]
+  %82 = load i64, ptr %79, align 8, !tbaa !134
+  %83 = lshr i64 %82, 2
+  %84 = zext i32 %.045 to i64
+  %.not50 = icmp samesign ugt i64 %83, %84
+  br i1 %.not50, label %93, label %85
 
-86:                                               ; preds = %82
-  %87 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !47
-  %.not4.i = icmp eq i32 %87, 0
-  br i1 %.not4.i, label %_.exit, label %88
+85:                                               ; preds = %81
+  %86 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !47
+  %.not4.i = icmp eq i32 %86, 0
+  br i1 %.not4.i, label %_.exit, label %87
 
-88:                                               ; preds = %86
-  %89 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.45, i32 noundef 5) #24
+87:                                               ; preds = %85
+  %88 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.45, i32 noundef 5) #24
   br label %_.exit
 
-_.exit:                                           ; preds = %86, %88
-  %.0.i = phi ptr [ %89, %88 ], [ @.str.45, %86 ]
-  %90 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i) #24
-  %91 = load ptr, ptr %28, align 8, !tbaa !135
-  tail call void @free_commit_list(ptr noundef %91) #24
+_.exit:                                           ; preds = %85, %87
+  %.0.i = phi ptr [ %88, %88 ], [ @.str.45, %86 ]
+  %89 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i) #24
+  %90 = load ptr, ptr %28, align 8, !tbaa !135
+  tail call void @free_commit_list(ptr noundef %90) #24
   store ptr null, ptr %28, align 8, !tbaa !135
-  %92 = load i32, ptr %1, align 8
-  %93 = and i32 %92, -2
-  store i32 %93, ptr %1, align 8
+  %91 = load i32, ptr %1, align 8
+  %92 = and i32 %91, -2
+  store i32 %92, ptr %1, align 8
   br label %.loopexit
 
-94:                                               ; preds = %82
-  %95 = load ptr, ptr %81, align 8, !tbaa !136
-  %96 = shl nuw nsw i64 %85, 2
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 %96
-  %98 = load i8, ptr %97, align 1, !tbaa !80
-  %99 = zext i8 %98 to i32
-  %100 = shl nuw i32 %99, 24
-  %101 = getelementptr inbounds nuw i8, ptr %97, i64 1
-  %102 = load i8, ptr %101, align 1, !tbaa !80
-  %103 = zext i8 %102 to i32
-  %104 = shl nuw nsw i32 %103, 16
-  %105 = getelementptr inbounds nuw i8, ptr %97, i64 2
-  %106 = load i8, ptr %105, align 1, !tbaa !80
-  %107 = zext i8 %106 to i32
-  %108 = shl nuw nsw i32 %107, 8
-  %109 = getelementptr inbounds nuw i8, ptr %97, i64 3
-  %110 = load i8, ptr %109, align 1, !tbaa !80
-  %111 = zext i8 %110 to i32
-  %.masked53 = and i32 %100, 2130706432
-  %.masked52 = or disjoint i32 %104, %.masked53
-  %.masked = or disjoint i32 %.masked52, %108
-  %112 = or disjoint i32 %.masked, %111
-  %113 = tail call fastcc ptr @insert_parent_or_die(ptr noundef %0, ptr noundef nonnull %.043.lcssa54, i32 noundef %112, ptr noundef nonnull %.044)
-  %114 = add i32 %.045, 1
-  %.not50 = icmp sgt i32 %100, -1
-  br i1 %.not50, label %82, label %.loopexit, !llvm.loop !137
+93:                                               ; preds = %81
+  %94 = load ptr, ptr %80, align 8, !tbaa !136
+  %95 = shl nuw nsw i64 %84, 2
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 %95
+  %97 = load i8, ptr %96, align 1, !tbaa !80
+  %98 = zext i8 %97 to i32
+  %99 = shl nuw i32 %98, 24
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 1
+  %101 = load i8, ptr %100, align 1, !tbaa !80
+  %102 = zext i8 %101 to i32
+  %103 = shl nuw nsw i32 %102, 16
+  %104 = getelementptr inbounds nuw i8, ptr %96, i64 2
+  %105 = load i8, ptr %104, align 1, !tbaa !80
+  %106 = zext i8 %105 to i32
+  %107 = shl nuw nsw i32 %106, 8
+  %108 = getelementptr inbounds nuw i8, ptr %96, i64 3
+  %109 = load i8, ptr %108, align 1, !tbaa !80
+  %110 = zext i8 %109 to i32
+  %.masked54 = and i32 %99, 2130706432
+  %.masked53 = or disjoint i32 %103, %.masked54
+  %.masked = or disjoint i32 %.masked53, %107
+  %111 = or disjoint i32 %.masked, %110
+  %112 = tail call fastcc ptr @insert_parent_or_die(ptr noundef %0, ptr noundef nonnull %.043.lcssa55, i32 noundef %111, ptr noundef nonnull %.044)
+  %113 = add i32 %.045, 1
+  %.not51 = icmp sgt i32 %99, -1
+  br i1 %.not51, label %81, label %.loopexit, !llvm.loop !137
 
-.loopexit:                                        ; preds = %94, %50, %st_mult.exit, %_.exit, %76
+.loopexit:                                        ; preds = %93, %50, %st_mult.exit, %_.exit, %75
   %.0 = phi i32 [ 0, %_.exit ], [ 1, %76 ], [ 1, %st_mult.exit ], [ 1, %50 ], [ 1, %94 ]
   ret i32 %.0
 }

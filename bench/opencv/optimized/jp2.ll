@@ -2750,34 +2750,34 @@ define internal range(i32 0, 2) i32 @opj_jp2_read_ihdr(ptr noundef %0, ptr nound
   %29 = icmp ugt i32 %.pre53, 16384
   br i1 %29, label %30, label %32
 
-30:                                               ; preds = %28
-  %31 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.57) #6
+31:                                               ; preds = %28
+  %32 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.57) #6
   br label %64
 
-32:                                               ; preds = %28
-  %33 = zext nneg i32 %.pre53 to i64
-  %34 = tail call ptr @opj_calloc(i64 noundef %33, i64 noundef 12) #6
-  store ptr %34, ptr %5, align 8, !tbaa !83
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %38
+33:                                               ; preds = %28
+  %34 = zext nneg i32 %.pre53 to i64
+  %35 = tail call ptr @opj_calloc(i64 noundef %34, i64 noundef 12) #6
+  store ptr %35, ptr %5, align 8, !tbaa !83
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %39
 
-36:                                               ; preds = %32
-  %37 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.58) #6
+37:                                               ; preds = %33
+  %38 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.58) #6
   br label %64
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  tail call void @opj_read_bytes_LE(ptr noundef nonnull %18, ptr noundef nonnull %39, i32 noundef 1) #6
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @opj_read_bytes_LE(ptr noundef nonnull %40, ptr noundef nonnull %41, i32 noundef 1) #6
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %43 = load i32, ptr %41, align 8, !tbaa !92
-  %.not51 = icmp eq i32 %43, 7
-  br i1 %.not51, label %46, label %44
+39:                                               ; preds = %33
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  tail call void @opj_read_bytes_LE(ptr noundef nonnull %18, ptr noundef nonnull %40, i32 noundef 1) #6
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 11
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @opj_read_bytes_LE(ptr noundef nonnull %41, ptr noundef nonnull %42, i32 noundef 1) #6
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %44 = load i32, ptr %42, align 8, !tbaa !92
+  %.not51 = icmp eq i32 %44, 7
+  br i1 %.not51, label %46, label %45
 
-44:                                               ; preds = %38
-  %45 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 4, ptr noundef nonnull @.str.59, i32 noundef %43) #6
+45:                                               ; preds = %39
+  %46 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 4, ptr noundef nonnull @.str.59, i32 noundef %44) #6
   br label %46
 
 46:                                               ; preds = %44, %38
@@ -2806,7 +2806,7 @@ define internal range(i32 0, 2) i32 @opj_jp2_read_ihdr(ptr noundef %0, ptr nound
   store i8 1, ptr %63, align 1, !tbaa !115
   br label %64
 
-64:                                               ; preds = %46, %36, %30, %25, %10, %7
+47:                                               ; preds = %46, %36, %30, %25, %10, %7
   %.0 = phi i32 [ 1, %7 ], [ 0, %10 ], [ 0, %25 ], [ 0, %30 ], [ 0, %36 ], [ 1, %46 ]
   ret i32 %.0
 }

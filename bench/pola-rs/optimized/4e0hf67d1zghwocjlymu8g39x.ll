@@ -22679,16 +22679,16 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$3new1
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   store i64 0, ptr %0, align 128
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 0, ptr %18, align 128
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store ptr %16, ptr %19, align 16
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i64 %15, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i64 %1, ptr %21, align 128
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i64 %.sroa.05.0, ptr %22, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i64 0, ptr %19, align 128
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  store ptr %16, ptr %20, align 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store i64 %15, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store i64 %1, ptr %22, align 128
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store i64 %.sroa.05.0, ptr %23, align 8
   ret void
 }
 

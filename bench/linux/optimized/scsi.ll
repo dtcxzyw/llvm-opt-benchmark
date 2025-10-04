@@ -2866,10 +2866,10 @@ define dso_local ptr @scsi_device_lookup_by_target(ptr noundef readonly captures
   br label %.thread
 
 .thread:                                          ; preds = %30, %.loopexit, %48, %44, %37, %33
-  %54 = phi ptr [ null, %33 ], [ %34, %44 ], [ null, %37 ], [ null, %48 ], [ null, %.loopexit ], [ null, %30 ]
-  %55 = load ptr, ptr %16, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %55, i64 noundef %18) #15
-  ret ptr %54
+  %55 = phi ptr [ null, %33 ], [ %34, %44 ], [ null, %37 ], [ null, %48 ], [ null, %.loopexit ], [ null, %30 ]
+  %56 = load ptr, ptr %16, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %56, i64 noundef %18) #15
+  ret ptr %55
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
@@ -2988,10 +2988,10 @@ define dso_local ptr @scsi_device_lookup(ptr noundef readonly captures(address) 
   br label %.thread
 
 .thread:                                          ; preds = %26, %4, %44, %40, %33, %29
-  %50 = phi ptr [ null, %29 ], [ %30, %40 ], [ null, %33 ], [ null, %44 ], [ null, %4 ], [ null, %26 ]
-  %51 = load ptr, ptr %5, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %51, i64 noundef %7) #15
-  ret ptr %50
+  %51 = phi ptr [ null, %29 ], [ %30, %40 ], [ null, %33 ], [ null, %44 ], [ null, %4 ], [ null, %26 ]
+  %52 = load ptr, ptr %5, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %52, i64 noundef %7) #15
+  ret ptr %51
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
