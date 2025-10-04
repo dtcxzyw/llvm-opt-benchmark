@@ -7330,7 +7330,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN185_$LT$ruff_workspace..options
 define hidden range(i64 0, -4294967294) i64 @"_ZN185_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..IsortOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hb3e57a8f32e05340E"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i64 %0, 30
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !18
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -7509,7 +7509,7 @@ define hidden { i32, i32 } @"_ZN186_$LT$ruff_workspace..options.._..$LT$impl$u20
 69:                                               ; preds = %8
   %70 = landingpad { ptr, i32 }
           cleanup
-  %71 = load i64, ptr %3, align 8, !range !11, !alias.scope !18, !noundef !3
+  %71 = load i64, ptr %3, align 8, !range !11, !alias.scope !19, !noundef !3
   %72 = icmp eq i64 %71, -9223372036854775808
   br i1 %72, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %73
 
@@ -7518,7 +7518,7 @@ define hidden { i32, i32 } @"_ZN186_$LT$ruff_workspace..options.._..$LT$impl$u20
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %78
 
 74:                                               ; preds = %8
-  %75 = load i64, ptr %3, align 8, !range !11, !alias.scope !21, !noundef !3
+  %75 = load i64, ptr %3, align 8, !range !11, !alias.scope !22, !noundef !3
   %76 = icmp eq i64 %75, -9223372036854775808
   br i1 %76, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4", label %77
 
@@ -7595,7 +7595,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN186_$LT$ruff_workspace..options
     i64 18, label %489
     i64 13, label %560
     i64 17, label %610
-  ], !prof !24
+  ], !prof !25
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !noundef !3
@@ -8619,7 +8619,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN186_$LT$ruff_workspace..options
 677:                                              ; preds = %14
   %678 = landingpad { ptr, i32 }
           cleanup
-  %679 = load i64, ptr %3, align 8, !range !11, !alias.scope !25, !noundef !3
+  %679 = load i64, ptr %3, align 8, !range !11, !alias.scope !26, !noundef !3
   %680 = icmp eq i64 %679, -9223372036854775808
   br i1 %680, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %681
 
@@ -8628,7 +8628,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN186_$LT$ruff_workspace..options
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %688
 
 682:                                              ; preds = %14
-  %683 = load i64, ptr %3, align 8, !range !11, !alias.scope !28, !noundef !3
+  %683 = load i64, ptr %3, align 8, !range !11, !alias.scope !29, !noundef !3
   %684 = icmp eq i64 %683, -9223372036854775808
   br i1 %684, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit11", label %685
 
@@ -8714,7 +8714,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN186_$LT$ruff_workspace..options
 define hidden range(i64 0, -4294967294) i64 @"_ZN186_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..PylintOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hae65e18e87b6613dE"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i64 %0, 11
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !32
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -8992,7 +8992,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN188_$LT$ruff_workspace..options
   switch i64 %1, label %11 [
     i64 15, label %4
     i64 22, label %70
-  ], !prof !31
+  ], !prof !33
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !noundef !3
@@ -9231,7 +9231,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN188_$LT$ruff_workspace..options
 156:                                              ; preds = %11
   %157 = landingpad { ptr, i32 }
           cleanup
-  %158 = load i64, ptr %3, align 8, !range !11, !alias.scope !32, !noundef !3
+  %158 = load i64, ptr %3, align 8, !range !11, !alias.scope !34, !noundef !3
   %159 = icmp eq i64 %158, -9223372036854775808
   br i1 %159, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %160
 
@@ -9240,7 +9240,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN188_$LT$ruff_workspace..options
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %167
 
 161:                                              ; preds = %11
-  %162 = load i64, ptr %3, align 8, !range !11, !alias.scope !35, !noundef !3
+  %162 = load i64, ptr %3, align 8, !range !11, !alias.scope !37, !noundef !3
   %163 = icmp eq i64 %162, -9223372036854775808
   br i1 %163, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit7", label %164
 
@@ -9452,7 +9452,7 @@ define hidden { i32, i32 } @"_ZN189_$LT$ruff_workspace..options.._..$LT$impl$u20
 88:                                               ; preds = %8
   %89 = landingpad { ptr, i32 }
           cleanup
-  %90 = load i64, ptr %3, align 8, !range !11, !alias.scope !38, !noundef !3
+  %90 = load i64, ptr %3, align 8, !range !11, !alias.scope !40, !noundef !3
   %91 = icmp eq i64 %90, -9223372036854775808
   br i1 %91, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %92
 
@@ -9461,7 +9461,7 @@ define hidden { i32, i32 } @"_ZN189_$LT$ruff_workspace..options.._..$LT$impl$u20
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %97
 
 93:                                               ; preds = %8
-  %94 = load i64, ptr %3, align 8, !range !11, !alias.scope !41, !noundef !3
+  %94 = load i64, ptr %3, align 8, !range !11, !alias.scope !43, !noundef !3
   %95 = icmp eq i64 %94, -9223372036854775808
   br i1 %95, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit5", label %96
 
@@ -9546,7 +9546,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
   switch i64 %1, label %11 [
     i64 12, label %4
     i64 19, label %58
-  ], !prof !31
+  ], !prof !33
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !noundef !3
@@ -9751,7 +9751,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
 133:                                              ; preds = %11
   %134 = landingpad { ptr, i32 }
           cleanup
-  %135 = load i64, ptr %3, align 8, !range !11, !alias.scope !44, !noundef !3
+  %135 = load i64, ptr %3, align 8, !range !11, !alias.scope !46, !noundef !3
   %136 = icmp eq i64 %135, -9223372036854775808
   br i1 %136, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %137
 
@@ -9760,7 +9760,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %144
 
 138:                                              ; preds = %11
-  %139 = load i64, ptr %3, align 8, !range !11, !alias.scope !47, !noundef !3
+  %139 = load i64, ptr %3, align 8, !range !11, !alias.scope !49, !noundef !3
   %140 = icmp eq i64 %139, -9223372036854775808
   br i1 %140, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit6", label %141
 
@@ -9859,7 +9859,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
     i64 23, label %2075
     i64 5, label %2253
     i64 10, label %2272
-  ], !prof !50
+  ], !prof !52
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !noundef !3
@@ -10798,7 +10798,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
     i8 108, label %611
     i8 116, label %615
     i8 102, label %619
-  ], !prof !51
+  ], !prof !53
 
 607:                                              ; preds = %605
   %608 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -11563,7 +11563,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
     i8 115, label %1109
     i8 109, label %1113
     i8 112, label %1120
-  ], !prof !51
+  ], !prof !53
 
 1105:                                             ; preds = %1103
   %1106 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -13401,7 +13401,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
 2311:                                             ; preds = %6
   %2312 = landingpad { ptr, i32 }
           cleanup
-  %2313 = load i64, ptr %3, align 8, !range !11, !alias.scope !52, !noundef !3
+  %2313 = load i64, ptr %3, align 8, !range !11, !alias.scope !54, !noundef !3
   %2314 = icmp eq i64 %2313, -9223372036854775808
   br i1 %2314, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %2315
 
@@ -13410,7 +13410,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %2322
 
 2316:                                             ; preds = %6
-  %2317 = load i64, ptr %3, align 8, !range !11, !alias.scope !55, !noundef !3
+  %2317 = load i64, ptr %3, align 8, !range !11, !alias.scope !57, !noundef !3
   %2318 = icmp eq i64 %2317, -9223372036854775808
   br i1 %2318, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit26", label %2319
 
@@ -13632,7 +13632,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
 define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..LintCommonOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h2c0c29818d1d35d5E"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i64 %0, 45
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !60
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -13664,7 +13664,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
     i64 19, label %58
     i64 22, label %133
     i64 23, label %219
-  ], !prof !58
+  ], !prof !61
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !noundef !3
@@ -14135,7 +14135,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
 310:                                              ; preds = %11
   %311 = landingpad { ptr, i32 }
           cleanup
-  %312 = load i64, ptr %3, align 8, !range !11, !alias.scope !59, !noundef !3
+  %312 = load i64, ptr %3, align 8, !range !11, !alias.scope !62, !noundef !3
   %313 = icmp eq i64 %312, -9223372036854775808
   br i1 %313, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %314
 
@@ -14144,7 +14144,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %321
 
 315:                                              ; preds = %11
-  %316 = load i64, ptr %3, align 8, !range !11, !alias.scope !62, !noundef !3
+  %316 = load i64, ptr %3, align 8, !range !11, !alias.scope !65, !noundef !3
   %317 = icmp eq i64 %316, -9223372036854775808
   br i1 %317, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit6", label %318
 
@@ -14202,7 +14202,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
 define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Pep8NamingOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hc4c1bc2dc273561fE"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i64 %0, 4
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !68
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -14234,7 +14234,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
     i64 17, label %50
     i64 19, label %117
     i64 21, label %192
-  ], !prof !58
+  ], !prof !61
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !noundef !3
@@ -14653,7 +14653,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
 275:                                              ; preds = %11
   %276 = landingpad { ptr, i32 }
           cleanup
-  %277 = load i64, ptr %3, align 8, !range !11, !alias.scope !65, !noundef !3
+  %277 = load i64, ptr %3, align 8, !range !11, !alias.scope !69, !noundef !3
   %278 = icmp eq i64 %277, -9223372036854775808
   br i1 %278, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %279
 
@@ -14662,7 +14662,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %286
 
 280:                                              ; preds = %11
-  %281 = load i64, ptr %3, align 8, !range !11, !alias.scope !68, !noundef !3
+  %281 = load i64, ptr %3, align 8, !range !11, !alias.scope !72, !noundef !3
   %282 = icmp eq i64 %281, -9223372036854775808
   br i1 %282, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit5", label %283
 
@@ -14720,7 +14720,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
 define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..PydocstyleOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h4f30489ef83e7a37E"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i64 %0, 4
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !68
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -14751,7 +14751,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN191_$LT$ruff_workspace..options
     i64 15, label %4
     i64 14, label %70
     i64 29, label %125
-  ], !prof !71
+  ], !prof !75
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !noundef !3
@@ -15115,7 +15115,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN191_$LT$ruff_workspace..options
 239:                                              ; preds = %11
   %240 = landingpad { ptr, i32 }
           cleanup
-  %241 = load i64, ptr %3, align 8, !range !11, !alias.scope !72, !noundef !3
+  %241 = load i64, ptr %3, align 8, !range !11, !alias.scope !76, !noundef !3
   %242 = icmp eq i64 %241, -9223372036854775808
   br i1 %242, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %243
 
@@ -15124,7 +15124,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN191_$LT$ruff_workspace..options
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %250
 
 244:                                              ; preds = %11
-  %245 = load i64, ptr %3, align 8, !range !11, !alias.scope !75, !noundef !3
+  %245 = load i64, ptr %3, align 8, !range !11, !alias.scope !79, !noundef !3
   %246 = icmp eq i64 %245, -9223372036854775808
   br i1 %246, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit5", label %247
 
@@ -15178,7 +15178,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN191_$LT$ruff_workspace..options
 define hidden range(i64 0, -4294967294) i64 @"_ZN191_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..PycodestyleOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h0f395c40d76cb792E"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i64 %0, 3
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !82
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -15211,7 +15211,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN192_$LT$ruff_workspace..options
     i64 21, label %221
     i64 19, label %304
     i64 20, label %379
-  ], !prof !78
+  ], !prof !83
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !noundef !3
@@ -15901,7 +15901,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN192_$LT$ruff_workspace..options
 456:                                              ; preds = %11
   %457 = landingpad { ptr, i32 }
           cleanup
-  %458 = load i64, ptr %3, align 8, !range !11, !alias.scope !79, !noundef !3
+  %458 = load i64, ptr %3, align 8, !range !11, !alias.scope !84, !noundef !3
   %459 = icmp eq i64 %458, -9223372036854775808
   br i1 %459, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %460
 
@@ -15910,7 +15910,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN192_$LT$ruff_workspace..options
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %467
 
 461:                                              ; preds = %11
-  %462 = load i64, ptr %3, align 8, !range !11, !alias.scope !82, !noundef !3
+  %462 = load i64, ptr %3, align 8, !range !11, !alias.scope !87, !noundef !3
   %463 = icmp eq i64 %462, -9223372036854775808
   br i1 %463, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8", label %464
 
@@ -15972,7 +15972,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN192_$LT$ruff_workspace..options
 define hidden range(i64 0, -4294967294) i64 @"_ZN192_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8BanditOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417he0addbaa5644e4e3E"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i64 %0, 5
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !90
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -16123,7 +16123,7 @@ define hidden { i32, i32 } @"_ZN192_$LT$ruff_workspace..options.._..$LT$impl$u20
 81:                                               ; preds = %8
   %82 = landingpad { ptr, i32 }
           cleanup
-  %83 = load i64, ptr %3, align 8, !range !11, !alias.scope !85, !noundef !3
+  %83 = load i64, ptr %3, align 8, !range !11, !alias.scope !91, !noundef !3
   %84 = icmp eq i64 %83, -9223372036854775808
   br i1 %84, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %85
 
@@ -16132,7 +16132,7 @@ define hidden { i32, i32 } @"_ZN192_$LT$ruff_workspace..options.._..$LT$impl$u20
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %90
 
 86:                                               ; preds = %8
-  %87 = load i64, ptr %3, align 8, !range !11, !alias.scope !88, !noundef !3
+  %87 = load i64, ptr %3, align 8, !range !11, !alias.scope !94, !noundef !3
   %88 = icmp eq i64 %87, -9223372036854775808
   br i1 %88, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4", label %89
 
@@ -16201,7 +16201,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN192_$LT$ruff_workspace..options
     i64 13, label %4
     i64 16, label %62
     i64 12, label %184
-  ], !prof !71
+  ], !prof !75
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !noundef !3
@@ -16557,7 +16557,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN192_$LT$ruff_workspace..options
 231:                                              ; preds = %11
   %232 = landingpad { ptr, i32 }
           cleanup
-  %233 = load i64, ptr %3, align 8, !range !11, !alias.scope !91, !noundef !3
+  %233 = load i64, ptr %3, align 8, !range !11, !alias.scope !97, !noundef !3
   %234 = icmp eq i64 %233, -9223372036854775808
   br i1 %234, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %235
 
@@ -16566,7 +16566,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN192_$LT$ruff_workspace..options
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %242
 
 236:                                              ; preds = %11
-  %237 = load i64, ptr %3, align 8, !range !11, !alias.scope !94, !noundef !3
+  %237 = load i64, ptr %3, align 8, !range !11, !alias.scope !100, !noundef !3
   %238 = icmp eq i64 %237, -9223372036854775808
   br i1 %238, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit5", label %239
 
@@ -16624,7 +16624,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN192_$LT$ruff_workspace..options
 define hidden range(i64 0, -4294967294) i64 @"_ZN192_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8QuotesOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hdcbb36dee95dad82E"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i64 %0, 4
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !68
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -16801,7 +16801,7 @@ define hidden { i32, i32 } @"_ZN193_$LT$ruff_workspace..options.._..$LT$impl$u20
 99:                                               ; preds = %8
   %100 = landingpad { ptr, i32 }
           cleanup
-  %101 = load i64, ptr %3, align 8, !range !11, !alias.scope !97, !noundef !3
+  %101 = load i64, ptr %3, align 8, !range !11, !alias.scope !103, !noundef !3
   %102 = icmp eq i64 %101, -9223372036854775808
   br i1 %102, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %103
 
@@ -16810,7 +16810,7 @@ define hidden { i32, i32 } @"_ZN193_$LT$ruff_workspace..options.._..$LT$impl$u20
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %108
 
 104:                                              ; preds = %8
-  %105 = load i64, ptr %3, align 8, !range !11, !alias.scope !100, !noundef !3
+  %105 = load i64, ptr %3, align 8, !range !11, !alias.scope !106, !noundef !3
   %106 = icmp eq i64 %105, -9223372036854775808
   br i1 %106, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8", label %107
 
@@ -16878,7 +16878,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN193_$LT$ruff_workspace..options
   switch i64 %1, label %11 [
     i64 14, label %4
     i64 21, label %66
-  ], !prof !31
+  ], !prof !33
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !noundef !3
@@ -17107,7 +17107,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN193_$LT$ruff_workspace..options
 149:                                              ; preds = %11
   %150 = landingpad { ptr, i32 }
           cleanup
-  %151 = load i64, ptr %3, align 8, !range !11, !alias.scope !103, !noundef !3
+  %151 = load i64, ptr %3, align 8, !range !11, !alias.scope !109, !noundef !3
   %152 = icmp eq i64 %151, -9223372036854775808
   br i1 %152, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %153
 
@@ -17116,7 +17116,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN193_$LT$ruff_workspace..options
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %160
 
 154:                                              ; preds = %11
-  %155 = load i64, ptr %3, align 8, !range !11, !alias.scope !106, !noundef !3
+  %155 = load i64, ptr %3, align 8, !range !11, !alias.scope !112, !noundef !3
   %156 = icmp eq i64 %155, -9223372036854775808
   br i1 %156, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit6", label %157
 
@@ -17199,7 +17199,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN194_$LT$ruff_workspace..options
     i64 10, label %86
     i64 24, label %125
     i64 15, label %274
-  ], !prof !58
+  ], !prof !61
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !noundef !3
@@ -17792,7 +17792,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN194_$LT$ruff_workspace..options
 387:                                              ; preds = %11
   %388 = landingpad { ptr, i32 }
           cleanup
-  %389 = load i64, ptr %3, align 8, !range !11, !alias.scope !109, !noundef !3
+  %389 = load i64, ptr %3, align 8, !range !11, !alias.scope !115, !noundef !3
   %390 = icmp eq i64 %389, -9223372036854775808
   br i1 %390, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %391
 
@@ -17801,7 +17801,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN194_$LT$ruff_workspace..options
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %398
 
 392:                                              ; preds = %11
-  %393 = load i64, ptr %3, align 8, !range !11, !alias.scope !112, !noundef !3
+  %393 = load i64, ptr %3, align 8, !range !11, !alias.scope !118, !noundef !3
   %394 = icmp eq i64 %393, -9223372036854775808
   br i1 %394, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8", label %395
 
@@ -17867,7 +17867,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN194_$LT$ruff_workspace..options
 define hidden range(i64 0, -4294967294) i64 @"_ZN194_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8BuiltinsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hfab3f4f5fc8d392cE"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i64 %0, 6
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !121
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -17898,7 +17898,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN195_$LT$ruff_workspace..options
     i64 10, label %4
     i64 6, label %50
     i64 13, label %73
-  ], !prof !71
+  ], !prof !75
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !noundef !3
@@ -18090,7 +18090,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN195_$LT$ruff_workspace..options
 124:                                              ; preds = %11
   %125 = landingpad { ptr, i32 }
           cleanup
-  %126 = load i64, ptr %3, align 8, !range !11, !alias.scope !115, !noundef !3
+  %126 = load i64, ptr %3, align 8, !range !11, !alias.scope !122, !noundef !3
   %127 = icmp eq i64 %126, -9223372036854775808
   br i1 %127, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %128
 
@@ -18099,7 +18099,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN195_$LT$ruff_workspace..options
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %135
 
 129:                                              ; preds = %11
-  %130 = load i64, ptr %3, align 8, !range !11, !alias.scope !118, !noundef !3
+  %130 = load i64, ptr %3, align 8, !range !11, !alias.scope !125, !noundef !3
   %131 = icmp eq i64 %130, -9223372036854775808
   br i1 %131, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4", label %132
 
@@ -18153,7 +18153,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN195_$LT$ruff_workspace..options
 define hidden range(i64 0, -4294967294) i64 @"_ZN195_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8CopyrightOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h095ec29afa701878E"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i64 %0, 3
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !82
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -18186,7 +18186,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options
     i64 23, label %146
     i64 18, label %235
     i64 20, label %305
-  ], !prof !78
+  ], !prof !83
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !noundef !3
@@ -18764,7 +18764,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options
 383:                                              ; preds = %11
   %384 = landingpad { ptr, i32 }
           cleanup
-  %385 = load i64, ptr %3, align 8, !range !11, !alias.scope !121, !noundef !3
+  %385 = load i64, ptr %3, align 8, !range !11, !alias.scope !128, !noundef !3
   %386 = icmp eq i64 %385, -9223372036854775808
   br i1 %386, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %387
 
@@ -18773,7 +18773,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %394
 
 388:                                              ; preds = %11
-  %389 = load i64, ptr %3, align 8, !range !11, !alias.scope !124, !noundef !3
+  %389 = load i64, ptr %3, align 8, !range !11, !alias.scope !131, !noundef !3
   %390 = icmp eq i64 %389, -9223372036854775808
   br i1 %390, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit23", label %391
 
@@ -18835,7 +18835,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options
 define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8AnnotationsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h55ec113410a24f39E"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i64 %0, 5
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !90
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -19000,7 +19000,7 @@ define hidden { i32, i32 } @"_ZN197_$LT$ruff_workspace..options.._..$LT$impl$u20
 91:                                               ; preds = %8
   %92 = landingpad { ptr, i32 }
           cleanup
-  %93 = load i64, ptr %3, align 8, !range !11, !alias.scope !127, !noundef !3
+  %93 = load i64, ptr %3, align 8, !range !11, !alias.scope !134, !noundef !3
   %94 = icmp eq i64 %93, -9223372036854775808
   br i1 %94, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %95
 
@@ -19009,7 +19009,7 @@ define hidden { i32, i32 } @"_ZN197_$LT$ruff_workspace..options.._..$LT$impl$u20
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %100
 
 96:                                               ; preds = %8
-  %97 = load i64, ptr %3, align 8, !range !11, !alias.scope !130, !noundef !3
+  %97 = load i64, ptr %3, align 8, !range !11, !alias.scope !137, !noundef !3
   %98 = icmp eq i64 %97, -9223372036854775808
   br i1 %98, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8", label %99
 
@@ -19083,7 +19083,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options
     i64 31, label %553
     i64 16, label %676
     i64 30, label %739
-  ], !prof !133
+  ], !prof !140
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !noundef !3
@@ -20382,7 +20382,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options
 858:                                              ; preds = %11
   %859 = landingpad { ptr, i32 }
           cleanup
-  %860 = load i64, ptr %3, align 8, !range !11, !alias.scope !134, !noundef !3
+  %860 = load i64, ptr %3, align 8, !range !11, !alias.scope !141, !noundef !3
   %861 = icmp eq i64 %860, -9223372036854775808
   br i1 %861, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %862
 
@@ -20391,7 +20391,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %869
 
 863:                                              ; preds = %11
-  %864 = load i64, ptr %3, align 8, !range !11, !alias.scope !137, !noundef !3
+  %864 = load i64, ptr %3, align 8, !range !11, !alias.scope !144, !noundef !3
   %865 = icmp eq i64 %864, -9223372036854775808
   br i1 %865, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4", label %866
 
@@ -20469,7 +20469,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options
 define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8PytestStyleOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h1cf3a99eecf8ee70E"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i64 %0, 9
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !147
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -20500,7 +20500,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options
     i64 20, label %4
     i64 10, label %90
     i64 27, label %128
-  ], !prof !71
+  ], !prof !75
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !noundef !3
@@ -20856,7 +20856,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options
 234:                                              ; preds = %11
   %235 = landingpad { ptr, i32 }
           cleanup
-  %236 = load i64, ptr %3, align 8, !range !11, !alias.scope !140, !noundef !3
+  %236 = load i64, ptr %3, align 8, !range !11, !alias.scope !148, !noundef !3
   %237 = icmp eq i64 %236, -9223372036854775808
   br i1 %237, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %238
 
@@ -20865,7 +20865,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %245
 
 239:                                              ; preds = %11
-  %240 = load i64, ptr %3, align 8, !range !11, !alias.scope !143, !noundef !3
+  %240 = load i64, ptr %3, align 8, !range !11, !alias.scope !151, !noundef !3
   %241 = icmp eq i64 %240, -9223372036854775808
   br i1 %241, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8", label %242
 
@@ -20919,7 +20919,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options
 define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8TidyImportsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h73f8be67910666b5E"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i64 %0, 3
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !82
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -20952,7 +20952,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN198_$LT$ruff_workspace..options
     i64 30, label %89
     i64 28, label %207
     i64 17, label %318
-  ], !prof !78
+  ], !prof !83
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !noundef !3
@@ -21534,7 +21534,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN198_$LT$ruff_workspace..options
 384:                                              ; preds = %11
   %385 = landingpad { ptr, i32 }
           cleanup
-  %386 = load i64, ptr %3, align 8, !range !11, !alias.scope !146, !noundef !3
+  %386 = load i64, ptr %3, align 8, !range !11, !alias.scope !154, !noundef !3
   %387 = icmp eq i64 %386, -9223372036854775808
   br i1 %387, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %388
 
@@ -21543,7 +21543,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN198_$LT$ruff_workspace..options
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %395
 
 389:                                              ; preds = %11
-  %390 = load i64, ptr %3, align 8, !range !11, !alias.scope !149, !noundef !3
+  %390 = load i64, ptr %3, align 8, !range !11, !alias.scope !157, !noundef !3
   %391 = icmp eq i64 %390, -9223372036854775808
   br i1 %391, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8", label %392
 
@@ -21605,7 +21605,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN198_$LT$ruff_workspace..options
 define hidden range(i64 0, -4294967294) i64 @"_ZN198_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8TypeCheckingOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h8122929eea6ac3f4E"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i64 %0, 5
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !90
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -21884,7 +21884,7 @@ define hidden { i32, i32 } @"_ZN200_$LT$ruff_workspace..options.._..$LT$impl$u20
 167:                                              ; preds = %8
   %168 = landingpad { ptr, i32 }
           cleanup
-  %169 = load i64, ptr %3, align 8, !range !11, !alias.scope !152, !noundef !3
+  %169 = load i64, ptr %3, align 8, !range !11, !alias.scope !160, !noundef !3
   %170 = icmp eq i64 %169, -9223372036854775808
   br i1 %170, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %171
 
@@ -21893,7 +21893,7 @@ define hidden { i32, i32 } @"_ZN200_$LT$ruff_workspace..options.._..$LT$impl$u20
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %176
 
 172:                                              ; preds = %8
-  %173 = load i64, ptr %3, align 8, !range !11, !alias.scope !155, !noundef !3
+  %173 = load i64, ptr %3, align 8, !range !11, !alias.scope !163, !noundef !3
   %174 = icmp eq i64 %173, -9223372036854775808
   br i1 %174, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8", label %175
 
@@ -22106,7 +22106,7 @@ define hidden { i32, i32 } @"_ZN201_$LT$ruff_workspace..options.._..$LT$impl$u20
 97:                                               ; preds = %8
   %98 = landingpad { ptr, i32 }
           cleanup
-  %99 = load i64, ptr %3, align 8, !range !11, !alias.scope !158, !noundef !3
+  %99 = load i64, ptr %3, align 8, !range !11, !alias.scope !166, !noundef !3
   %100 = icmp eq i64 %99, -9223372036854775808
   br i1 %100, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %101
 
@@ -22115,7 +22115,7 @@ define hidden { i32, i32 } @"_ZN201_$LT$ruff_workspace..options.._..$LT$impl$u20
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %106
 
 102:                                              ; preds = %8
-  %103 = load i64, ptr %3, align 8, !range !11, !alias.scope !161, !noundef !3
+  %103 = load i64, ptr %3, align 8, !range !11, !alias.scope !169, !noundef !3
   %104 = icmp eq i64 %103, -9223372036854775808
   br i1 %104, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4", label %105
 
@@ -22290,7 +22290,7 @@ define hidden { i32, i32 } @"_ZN203_$LT$ruff_workspace..options.._..$LT$impl$u20
 72:                                               ; preds = %8
   %73 = landingpad { ptr, i32 }
           cleanup
-  %74 = load i64, ptr %3, align 8, !range !11, !alias.scope !164, !noundef !3
+  %74 = load i64, ptr %3, align 8, !range !11, !alias.scope !172, !noundef !3
   %75 = icmp eq i64 %74, -9223372036854775808
   br i1 %75, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %76
 
@@ -22299,7 +22299,7 @@ define hidden { i32, i32 } @"_ZN203_$LT$ruff_workspace..options.._..$LT$impl$u20
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %81
 
 77:                                               ; preds = %8
-  %78 = load i64, ptr %3, align 8, !range !11, !alias.scope !167, !noundef !3
+  %78 = load i64, ptr %3, align 8, !range !11, !alias.scope !175, !noundef !3
   %79 = icmp eq i64 %78, -9223372036854775808
   br i1 %79, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit5", label %80
 
@@ -22368,7 +22368,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN203_$LT$ruff_workspace..options
     i64 7, label %4
     i64 14, label %38
     i64 11, label %143
-  ], !prof !71
+  ], !prof !75
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !noundef !3
@@ -22654,7 +22654,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN203_$LT$ruff_workspace..options
 185:                                              ; preds = %11
   %186 = landingpad { ptr, i32 }
           cleanup
-  %187 = load i64, ptr %3, align 8, !range !11, !alias.scope !170, !noundef !3
+  %187 = load i64, ptr %3, align 8, !range !11, !alias.scope !178, !noundef !3
   %188 = icmp eq i64 %187, -9223372036854775808
   br i1 %188, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit", label %189
 
@@ -22663,7 +22663,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN203_$LT$ruff_workspace..options
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %196
 
 190:                                              ; preds = %11
-  %191 = load i64, ptr %3, align 8, !range !11, !alias.scope !173, !noundef !3
+  %191 = load i64, ptr %3, align 8, !range !11, !alias.scope !181, !noundef !3
   %192 = icmp eq i64 %191, -9223372036854775808
   br i1 %192, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit9", label %193
 
@@ -22721,7 +22721,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN203_$LT$ruff_workspace..options
 define hidden range(i64 0, -4294967294) i64 @"_ZN203_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ImportConventionsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417ha0718c5f2ade251cE"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i64 %0, 4
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !68
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -23944,7 +23944,7 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h1ab
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i8 %0, 4
   %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !68
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -23973,7 +23973,7 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h236
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i8 %0, 5
   %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !90
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -24009,7 +24009,7 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h268
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i8 %0, 11
   %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !32
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -24038,7 +24038,7 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h3ee
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i8 %0, 30
   %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !18
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -24067,7 +24067,7 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h4d7
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i8 %0, 5
   %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !90
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -24150,7 +24150,7 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h66e
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i8 %0, 9
   %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !147
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -24203,7 +24203,7 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h903
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i8 %0, 4
   %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !68
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -24256,7 +24256,7 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817haf6
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i8 %0, 3
   %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !82
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -24357,7 +24357,7 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817hdaa
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i8 %0, 6
   %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !121
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -24386,7 +24386,7 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817hdf0
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i8 %0, 3
   %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !82
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -24415,7 +24415,7 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817he77
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i8 %0, 4
   %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !68
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -24474,7 +24474,7 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817hecd
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i8 %0, 4
   %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !68
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -24503,7 +24503,7 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817hf06
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i8 %0, 5
   %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !90
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -24532,7 +24532,7 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817hf99
   %2 = alloca [24 x i8], align 8
   %3 = icmp ult i8 %0, 3
   %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4
+  br i1 %3, label %switch.lookup, label %4, !prof !82
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -24599,7 +24599,7 @@ define hidden void @"_ZN73_$LT$ruff_workspace..options..Alias$u20$as$u20$serde..
           to label %42 unwind label %40
 
 20:                                               ; preds = %13
-  br i1 %17, label %23, label %21, !prof !176
+  br i1 %17, label %23, label %21, !prof !184
 
 21:                                               ; preds = %20
   %22 = invoke noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers13is_identifier17h12ca16c8abe0530dE(ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %16)
@@ -24707,7 +24707,7 @@ define hidden void @"_ZN73_$LT$ruff_workspace..options..Alias$u20$as$u20$serde..
           to label %42 unwind label %40
 
 20:                                               ; preds = %13
-  br i1 %17, label %23, label %21, !prof !176
+  br i1 %17, label %23, label %21, !prof !184
 
 21:                                               ; preds = %20
   %22 = invoke noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers13is_identifier17h12ca16c8abe0530dE(ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %16)
@@ -24807,7 +24807,7 @@ define hidden void @"_ZN78_$LT$ruff_workspace..options..ModuleName$u20$as$u20$se
   %16 = icmp sgt i64 %15, -1
   tail call void @llvm.assume(i1 %16)
   %17 = icmp eq i64 %15, 0
-  br i1 %17, label %18, label %26, !prof !176
+  br i1 %17, label %18, label %26, !prof !184
 
 18:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -24952,7 +24952,7 @@ define hidden void @"_ZN78_$LT$ruff_workspace..options..ModuleName$u20$as$u20$se
   %16 = icmp sgt i64 %15, -1
   tail call void @llvm.assume(i1 %16)
   %17 = icmp eq i64 %15, 0
-  br i1 %17, label %18, label %26, !prof !176
+  br i1 %17, label %18, label %26, !prof !184
 
 18:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -25067,12 +25067,12 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
   %4 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h01212d965b06f732E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %2, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-  %5 = load i64, ptr %4, align 8, !range !177, !noundef !3
+  %5 = load i64, ptr %4, align 8, !range !185, !noundef !3
   %6 = trunc nuw i64 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8, !range !11, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br i1 %6, label %10, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hcf25508e597776b2E.exit", !prof !176
+  br i1 %6, label %10, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hcf25508e597776b2E.exit", !prof !184
 
 10:                                               ; preds = %3
   %11 = load i64, ptr %9, align 8
@@ -25096,19 +25096,19 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40ab5539431b6dd5E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  %3 = load i8, ptr %2, align 1, !range !178, !alias.scope !179, !noundef !3
+  %3 = load i8, ptr %2, align 1, !range !186, !alias.scope !187, !noundef !3
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hfa7cd35c653f7fb9E.exit", label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i = load ptr, ptr %6, align 8, !alias.scope !179, !nonnull !3, !align !182, !noundef !3
+  %.val.i = load ptr, ptr %6, align 8, !alias.scope !187, !nonnull !3, !align !190, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val1.i = load i64, ptr %7, align 8, !alias.scope !179, !noundef !3
+  %.val1.i = load i64, ptr %7, align 8, !alias.scope !187, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load i64, ptr %8, align 8, !alias.scope !183, !noalias !186, !noundef !3
-  %11 = load i64, ptr %9, align 8, !alias.scope !183, !noalias !186, !noundef !3
+  %10 = load i64, ptr %8, align 8, !alias.scope !191, !noalias !194, !noundef !3
+  %11 = load i64, ptr %9, align 8, !alias.scope !191, !noalias !194, !noundef !3
   %12 = icmp ult i64 %11, %10
   %.not35.i.i = icmp ugt i64 %11, %.val1.i
   %or.cond36.i.i = or i1 %12, %.not35.i.i
@@ -25123,14 +25123,14 @@ define internal fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$
   %.pre4547.i.i = phi i64 [ %.val1.i, %.lr.ph.i.i ], [ %.pre4548.i.i, %43 ]
   %16 = phi i64 [ %11, %.lr.ph.i.i ], [ %45, %43 ]
   %17 = phi i64 [ %10, %.lr.ph.i.i ], [ %44, %43 ]
-  %18 = load ptr, ptr %6, align 8, !alias.scope !183, !noalias !186, !nonnull !3, !align !182, !noundef !3
+  %18 = load ptr, ptr %6, align 8, !alias.scope !191, !noalias !194, !nonnull !3, !align !190, !noundef !3
   %19 = sub nuw i64 %16, %17
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %17
-  %21 = load i8, ptr %14, align 8, !alias.scope !183, !noalias !186, !noundef !3
+  %21 = load i8, ptr %14, align 8, !alias.scope !191, !noalias !194, !noundef !3
   %22 = zext i8 %21 to i64
   %23 = getelementptr i8, ptr %13, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1
-  %25 = load i8, ptr %24, align 1, !alias.scope !183, !noalias !186, !noundef !3
+  %25 = load i8, ptr %24, align 1, !alias.scope !191, !noalias !194, !noundef !3
   %26 = icmp ult i64 %19, 16
   br i1 %26, label %.preheader.i.i.i, label %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.i.i
 
@@ -25141,7 +25141,7 @@ define internal fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %30
   %.sroa.01.05.i.i.i = phi i64 [ %31, %30 ], [ 0, %.preheader.i.i.i ]
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.01.05.i.i.i
-  %28 = load i8, ptr %27, align 1, !alias.scope !188, !noalias !186, !noundef !3
+  %28 = load i8, ptr %27, align 1, !alias.scope !196, !noalias !194, !noundef !3
   %29 = icmp eq i8 %28, %25
   br i1 %29, label %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i, label %30
 
@@ -25151,20 +25151,20 @@ define internal fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.i.i, label %.lr.ph.i.i.i
 
 _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.i.i: ; preds = %15
-  %32 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h9672377a6eaa3e7eE(i8 noundef %25, ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %19), !noalias !186
+  %32 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h9672377a6eaa3e7eE(i8 noundef %25, ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %19), !noalias !194
   %33 = extractvalue { i64, i64 } %32, 0
   %34 = trunc nuw i64 %33 to i1
   br i1 %34, label %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16_crit_edge.i.i, label %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i
 
 _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i: ; preds = %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.i.i
-  %.pre46.pre.i.i = load i64, ptr %9, align 8, !alias.scope !183, !noalias !186
+  %.pre46.pre.i.i = load i64, ptr %9, align 8, !alias.scope !191, !noalias !194
   br label %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.i.i
 
 _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16_crit_edge.i.i: ; preds = %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.i.i
   %35 = extractvalue { i64, i64 } %32, 1
-  %.pre.i.i = load i64, ptr %8, align 8, !alias.scope !183, !noalias !186
-  %.pre42.i.i = load i8, ptr %14, align 8, !alias.scope !183, !noalias !186
-  %.pre45.pre.i.i = load i64, ptr %7, align 8, !alias.scope !183, !noalias !186
+  %.pre.i.i = load i64, ptr %8, align 8, !alias.scope !191, !noalias !194
+  %.pre42.i.i = load i8, ptr %14, align 8, !alias.scope !191, !noalias !194
+  %.pre45.pre.i.i = load i64, ptr %7, align 8, !alias.scope !191, !noalias !194
   %.pre51.i.i = zext i8 %.pre42.i.i to i64
   br label %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i
 
@@ -25176,13 +25176,13 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   %.sroa.4.0.i19.i.i = phi i64 [ %35, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16_crit_edge.i.i ], [ %.sroa.01.05.i.i.i, %.lr.ph.i.i.i ]
   %38 = add i64 %37, 1
   %39 = add i64 %38, %.sroa.4.0.i19.i.i
-  store i64 %39, ptr %8, align 8, !alias.scope !183, !noalias !186
+  store i64 %39, ptr %8, align 8, !alias.scope !191, !noalias !194
   %.not12.i.i = icmp ult i64 %39, %.pre-phi.i.i
   br i1 %.not12.i.i, label %43, label %41
 
 _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.i.i: ; preds = %.preheader.i.i.i, %30, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i
   %40 = phi i64 [ %.pre46.pre.i.i, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i ], [ %16, %30 ], [ %16, %.preheader.i.i.i ]
-  store i64 %40, ptr %8, align 8, !alias.scope !183, !noalias !186
+  store i64 %40, ptr %8, align 8, !alias.scope !191, !noalias !194
   br label %.loopexit.i
 
 41:                                               ; preds = %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i
@@ -25193,7 +25193,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.i.i: ; preds = %.pr
 43:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5f8d1fdf5db70540E.exit._crit_edge.i.i", %41, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i
   %.pre4548.i.i = phi i64 [ %.pre44.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5f8d1fdf5db70540E.exit._crit_edge.i.i" ], [ %.pre45.i.i, %41 ], [ %.pre45.i.i, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i ]
   %44 = phi i64 [ %.pre43.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5f8d1fdf5db70540E.exit._crit_edge.i.i" ], [ %39, %41 ], [ %39, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i ]
-  %45 = load i64, ptr %9, align 8, !alias.scope !183, !noalias !186, !noundef !3
+  %45 = load i64, ptr %9, align 8, !alias.scope !191, !noalias !194, !noundef !3
   %46 = icmp ult i64 %45, %44
   %.not.i.i = icmp ugt i64 %45, %.pre4548.i.i
   %or.cond.i.i = select i1 %46, i1 true, i1 %.not.i.i
@@ -25201,49 +25201,49 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.i.i: ; preds = %.pr
 
 47:                                               ; preds = %41
   %48 = icmp ugt i8 %36, 4
-  br i1 %48, label %49, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5f8d1fdf5db70540E.exit.i.i", !prof !176
+  br i1 %48, label %49, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5f8d1fdf5db70540E.exit.i.i", !prof !184
 
 49:                                               ; preds = %47
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef range(i64 0, 256) %.pre-phi.i.i, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b10352911ab5e248a2451ac49c104988.305) #12, !noalias !191
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef range(i64 0, 256) %.pre-phi.i.i, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b10352911ab5e248a2451ac49c104988.305) #12, !noalias !199
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5f8d1fdf5db70540E.exit.i.i": ; preds = %47
-  %50 = load ptr, ptr %6, align 8, !alias.scope !183, !noalias !186, !nonnull !3, !align !182, !noundef !3
+  %50 = load ptr, ptr %6, align 8, !alias.scope !191, !noalias !194, !nonnull !3, !align !190, !noundef !3
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %42
-  %52 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h441031d5f2746019E"(ptr noalias noundef nonnull readonly align 1 %51, i64 noundef %.pre-phi.i.i, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %.pre-phi.i.i), !noalias !186
-  %.pre43.i.i = load i64, ptr %8, align 8, !alias.scope !183, !noalias !186
+  %52 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h441031d5f2746019E"(ptr noalias noundef nonnull readonly align 1 %51, i64 noundef %.pre-phi.i.i, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %.pre-phi.i.i), !noalias !194
+  %.pre43.i.i = load i64, ptr %8, align 8, !alias.scope !191, !noalias !194
   br i1 %52, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i", label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5f8d1fdf5db70540E.exit._crit_edge.i.i"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5f8d1fdf5db70540E.exit._crit_edge.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5f8d1fdf5db70540E.exit.i.i"
-  %.pre44.i.i = load i64, ptr %7, align 8, !alias.scope !183, !noalias !186
+  %.pre44.i.i = load i64, ptr %7, align 8, !alias.scope !191, !noalias !194
   br label %43
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5f8d1fdf5db70540E.exit.i.i"
-  %53 = load i64, ptr %0, align 8, !alias.scope !179, !noundef !3
+  %53 = load i64, ptr %0, align 8, !alias.scope !187, !noundef !3
   %54 = sub nuw i64 %42, %53
   %55 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %53
-  store i64 %.pre43.i.i, ptr %0, align 8, !alias.scope !179
+  store i64 %.pre43.i.i, ptr %0, align 8, !alias.scope !187
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hfa7cd35c653f7fb9E.exit"
 
 .loopexit.i:                                      ; preds = %43, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.i.i, %5
-  %56 = load i8, ptr %2, align 1, !range !178, !alias.scope !194, !noundef !3
+  %56 = load i8, ptr %2, align 1, !range !186, !alias.scope !202, !noundef !3
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hfa7cd35c653f7fb9E.exit", label %58
 
 58:                                               ; preds = %.loopexit.i
-  store i8 1, ptr %2, align 1, !alias.scope !194
+  store i8 1, ptr %2, align 1, !alias.scope !202
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %60 = load i8, ptr %59, align 8, !range !178, !alias.scope !194, !noundef !3
+  %60 = load i8, ptr %59, align 8, !range !186, !alias.scope !202, !noundef !3
   %61 = trunc nuw i8 %60 to i1
-  %.pre.i2.i = load i64, ptr %0, align 8, !alias.scope !194
+  %.pre.i2.i = load i64, ptr %0, align 8, !alias.scope !202
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre2.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !194
+  %.pre2.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !202
   %.not.i3.i = icmp ne i64 %.pre2.i.i, %.pre.i2.i
   %or.cond.not.i.i = select i1 %61, i1 true, i1 %.not.i3.i
   br i1 %or.cond.not.i.i, label %._crit_edge.i.i, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hfa7cd35c653f7fb9E.exit"
 
 ._crit_edge.i.i:                                  ; preds = %58
-  %.val.i.i = load ptr, ptr %6, align 8, !alias.scope !194, !nonnull !3, !align !182, !noundef !3
+  %.val.i.i = load ptr, ptr %6, align 8, !alias.scope !202, !nonnull !3, !align !190, !noundef !3
   %62 = sub nuw i64 %.pre2.i.i, %.pre.i2.i
   %63 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 %.pre.i2.i
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hfa7cd35c653f7fb9E.exit"
@@ -25936,79 +25936,79 @@ attributes #12 = { noreturn }
 !15 = !{!16}
 !16 = distinct !{!16, !17, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
 !17 = distinct !{!17, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!20 = distinct !{!20, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!23 = distinct !{!23, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!24 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2000}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!27 = distinct !{!27, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!30 = distinct !{!30, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!31 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!34 = distinct !{!34, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!37 = distinct !{!37, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!40 = distinct !{!40, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!43 = distinct !{!43, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!46 = distinct !{!46, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!49 = distinct !{!49, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!50 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2000}
-!51 = !{!"branch_weights", i32 1, i32 2000, i32 2000, i32 2000, i32 2000}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!54 = distinct !{!54, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!57 = distinct !{!57, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!58 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2001, i32 2000}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!61 = distinct !{!61, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!18 = !{!"branch_weights", i32 60000, i32 1}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!21 = distinct !{!21, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!24 = distinct !{!24, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!25 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2000}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!28 = distinct !{!28, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!31 = distinct !{!31, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!32 = !{!"branch_weights", i32 22000, i32 1}
+!33 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!36 = distinct !{!36, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!39 = distinct !{!39, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!42 = distinct !{!42, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!45 = distinct !{!45, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!48 = distinct !{!48, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!51 = distinct !{!51, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!52 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2000}
+!53 = !{!"branch_weights", i32 1, i32 2000, i32 2000, i32 2000, i32 2000}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!56 = distinct !{!56, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!59 = distinct !{!59, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!60 = !{!"branch_weights", i32 90000, i32 1}
+!61 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2001, i32 2000}
 !62 = !{!63}
 !63 = distinct !{!63, !64, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
 !64 = distinct !{!64, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
 !65 = !{!66}
 !66 = distinct !{!66, !67, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
 !67 = distinct !{!67, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!70 = distinct !{!70, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!71 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2000}
+!68 = !{!"branch_weights", i32 8000, i32 1}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!71 = distinct !{!71, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
 !72 = !{!73}
 !73 = distinct !{!73, !74, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
 !74 = distinct !{!74, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!77 = distinct !{!77, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!78 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2001, i32 2001, i32 2000}
+!75 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2000}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!78 = distinct !{!78, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
 !79 = !{!80}
 !80 = distinct !{!80, !81, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
 !81 = distinct !{!81, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!84 = distinct !{!84, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!87 = distinct !{!87, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!90 = distinct !{!90, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!82 = !{!"branch_weights", i32 6000, i32 1}
+!83 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2001, i32 2001, i32 2000}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!86 = distinct !{!86, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!87 = !{!88}
+!88 = distinct !{!88, !89, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!89 = distinct !{!89, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!90 = !{!"branch_weights", i32 10000, i32 1}
 !91 = !{!92}
 !92 = distinct !{!92, !93, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
 !93 = distinct !{!93, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
@@ -26039,79 +26039,87 @@ attributes #12 = { noreturn }
 !118 = !{!119}
 !119 = distinct !{!119, !120, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
 !120 = distinct !{!120, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!121 = !{!122}
-!122 = distinct !{!122, !123, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!123 = distinct !{!123, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!126 = distinct !{!126, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!127 = !{!128}
-!128 = distinct !{!128, !129, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!129 = distinct !{!129, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!130 = !{!131}
-!131 = distinct !{!131, !132, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!132 = distinct !{!132, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!133 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2000}
+!121 = !{!"branch_weights", i32 12000, i32 1}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!124 = distinct !{!124, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!125 = !{!126}
+!126 = distinct !{!126, !127, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!127 = distinct !{!127, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!128 = !{!129}
+!129 = distinct !{!129, !130, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!130 = distinct !{!130, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!131 = !{!132}
+!132 = distinct !{!132, !133, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!133 = distinct !{!133, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
 !134 = !{!135}
 !135 = distinct !{!135, !136, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
 !136 = distinct !{!136, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
 !137 = !{!138}
 !138 = distinct !{!138, !139, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
 !139 = distinct !{!139, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!140 = !{!141}
-!141 = distinct !{!141, !142, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!142 = distinct !{!142, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!143 = !{!144}
-!144 = distinct !{!144, !145, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!145 = distinct !{!145, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!148 = distinct !{!148, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!149 = !{!150}
-!150 = distinct !{!150, !151, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!151 = distinct !{!151, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!152 = !{!153}
-!153 = distinct !{!153, !154, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!154 = distinct !{!154, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!155 = !{!156}
-!156 = distinct !{!156, !157, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!157 = distinct !{!157, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!158 = !{!159}
-!159 = distinct !{!159, !160, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!160 = distinct !{!160, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!161 = !{!162}
-!162 = distinct !{!162, !163, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!163 = distinct !{!163, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!164 = !{!165}
-!165 = distinct !{!165, !166, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!166 = distinct !{!166, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!167 = !{!168}
-!168 = distinct !{!168, !169, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!169 = distinct !{!169, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!170 = !{!171}
-!171 = distinct !{!171, !172, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!172 = distinct !{!172, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!173 = !{!174}
-!174 = distinct !{!174, !175, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
-!175 = distinct !{!175, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
-!176 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!177 = !{i64 0, i64 2}
-!178 = !{i8 0, i8 2}
-!179 = !{!180}
-!180 = distinct !{!180, !181, !"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hfa7cd35c653f7fb9E: argument 0"}
-!181 = distinct !{!181, !"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hfa7cd35c653f7fb9E"}
-!182 = !{i64 1}
-!183 = !{!184, !180}
-!184 = distinct !{!184, !185, !"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E: argument 1"}
-!185 = distinct !{!185, !"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E"}
-!186 = !{!187}
-!187 = distinct !{!187, !185, !"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E: argument 0"}
-!188 = !{!189}
-!189 = distinct !{!189, !190, !"_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E: argument 0"}
-!190 = distinct !{!190, !"_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E"}
-!191 = !{!192, !187}
-!192 = distinct !{!192, !193, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5f8d1fdf5db70540E: argument 0"}
-!193 = distinct !{!193, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5f8d1fdf5db70540E"}
-!194 = !{!195, !180}
-!195 = distinct !{!195, !196, !"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17ha58b25e3cd2ce9b6E: argument 0"}
-!196 = distinct !{!196, !"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17ha58b25e3cd2ce9b6E"}
+!140 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2000}
+!141 = !{!142}
+!142 = distinct !{!142, !143, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!143 = distinct !{!143, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!144 = !{!145}
+!145 = distinct !{!145, !146, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!146 = distinct !{!146, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!147 = !{!"branch_weights", i32 18000, i32 1}
+!148 = !{!149}
+!149 = distinct !{!149, !150, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!150 = distinct !{!150, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!151 = !{!152}
+!152 = distinct !{!152, !153, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!153 = distinct !{!153, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!154 = !{!155}
+!155 = distinct !{!155, !156, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!156 = distinct !{!156, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!157 = !{!158}
+!158 = distinct !{!158, !159, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!159 = distinct !{!159, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!160 = !{!161}
+!161 = distinct !{!161, !162, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!162 = distinct !{!162, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!163 = !{!164}
+!164 = distinct !{!164, !165, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!165 = distinct !{!165, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!166 = !{!167}
+!167 = distinct !{!167, !168, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!168 = distinct !{!168, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!169 = !{!170}
+!170 = distinct !{!170, !171, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!171 = distinct !{!171, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!172 = !{!173}
+!173 = distinct !{!173, !174, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!174 = distinct !{!174, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!175 = !{!176}
+!176 = distinct !{!176, !177, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!177 = distinct !{!177, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!178 = !{!179}
+!179 = distinct !{!179, !180, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!180 = distinct !{!180, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!181 = !{!182}
+!182 = distinct !{!182, !183, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E: argument 0"}
+!183 = distinct !{!183, !"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E"}
+!184 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!185 = !{i64 0, i64 2}
+!186 = !{i8 0, i8 2}
+!187 = !{!188}
+!188 = distinct !{!188, !189, !"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hfa7cd35c653f7fb9E: argument 0"}
+!189 = distinct !{!189, !"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hfa7cd35c653f7fb9E"}
+!190 = !{i64 1}
+!191 = !{!192, !188}
+!192 = distinct !{!192, !193, !"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E: argument 1"}
+!193 = distinct !{!193, !"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E"}
+!194 = !{!195}
+!195 = distinct !{!195, !193, !"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E: argument 0"}
+!196 = !{!197}
+!197 = distinct !{!197, !198, !"_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E: argument 0"}
+!198 = distinct !{!198, !"_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E"}
+!199 = !{!200, !195}
+!200 = distinct !{!200, !201, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5f8d1fdf5db70540E: argument 0"}
+!201 = distinct !{!201, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5f8d1fdf5db70540E"}
+!202 = !{!203, !188}
+!203 = distinct !{!203, !204, !"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17ha58b25e3cd2ce9b6E: argument 0"}
+!204 = distinct !{!204, !"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17ha58b25e3cd2ce9b6E"}

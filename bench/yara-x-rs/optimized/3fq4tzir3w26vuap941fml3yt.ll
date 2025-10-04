@@ -46109,7 +46109,7 @@ define noundef range(i8 2, 6) i8 @"_ZN6yara_x5types96_$LT$impl$u20$core..convert
   store i8 %0, ptr %4, align 1
   %switch.tableidx = add nsw i8 %0, -1
   %5 = icmp ult i8 %switch.tableidx, 4
-  br i1 %5, label %switch.lookup, label %6
+  br i1 %5, label %switch.lookup, label %6, !prof !3532
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -46139,7 +46139,7 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef range(i32 0, 17) i32 @"_ZN85_$LT$yara_x..modules..protos..gti_score..Verdict$u20$as$u20$protobuf..enums..Enum$GT$5value17h3fab2e263cbd45f1E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #1 {
-  %2 = load i8, ptr %0, align 1, !range !3532, !noundef !13
+  %2 = load i8, ptr %0, align 1, !range !3533, !noundef !13
   %3 = zext nneg i8 %2 to i32
   ret i32 %3
 }
@@ -46215,20 +46215,20 @@ define void @"_ZN93_$LT$yara_x..modules..protos..gti_score..Verdict$u20$as$u20$p
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN93_$LT$yara_x..modules..protos..gti_score..Verdict$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17ha4b734a1ccf78089E"(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
-  %4 = load i8, ptr %1, align 1, !range !3532, !noundef !13
+  %4 = load i8, ptr %1, align 1, !range !3533, !noundef !13
   %5 = zext nneg i8 %4 to i64
   %6 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 62)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !3533)
-  %7 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h02394dae45b1469bE"(ptr noundef nonnull align 8 @"_ZN93_$LT$yara_x..modules..protos..gti_score..Verdict$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17h7d1c17add8fb938dE"), !noalias !3533
-  %8 = load i64, ptr %7, align 8, !range !34, !noalias !3533, !noundef !13
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !3534)
+  %7 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h02394dae45b1469bE"(ptr noundef nonnull align 8 @"_ZN93_$LT$yara_x..modules..protos..gti_score..Verdict$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17h7d1c17add8fb938dE"), !noalias !3534
+  %8 = load i64, ptr %7, align 8, !range !34, !noalias !3534, !noundef !13
   %9 = trunc nuw i64 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %9, label %11, label %"_ZN93_$LT$yara_x..modules..protos..gti_score..Verdict$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h75a010609abbfec9E.exit"
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %10, align 8, !noalias !3533, !nonnull !13, !noundef !13
-  %13 = atomicrmw add ptr %12, i64 1 monotonic, align 8, !noalias !3533
+  %12 = load ptr, ptr %10, align 8, !noalias !3534, !nonnull !13, !noundef !13
+  %13 = atomicrmw add ptr %12, i64 1 monotonic, align 8, !noalias !3534
   %14 = icmp slt i64 %13, 0
   br i1 %14, label %15, label %"_ZN93_$LT$yara_x..modules..protos..gti_score..Verdict$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h75a010609abbfec9E.exit"
 
@@ -46238,14 +46238,14 @@ define void @"_ZN93_$LT$yara_x..modules..protos..gti_score..Verdict$u20$as$u20$p
 
 "_ZN93_$LT$yara_x..modules..protos..gti_score..Verdict$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h75a010609abbfec9E.exit": ; preds = %2, %11
   %.sroa.01.0.i = phi i64 [ 1, %11 ], [ 0, %2 ]
-  %.sroa.5.0.i = load ptr, ptr %10, align 8, !noalias !3533, !noundef !13
+  %.sroa.5.0.i = load ptr, ptr %10, align 8, !noalias !3534, !noundef !13
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %17 = load i64, ptr %16, align 8, !noalias !3533, !noundef !13
-  store i64 %.sroa.01.0.i, ptr %3, align 8, !alias.scope !3533
+  %17 = load i64, ptr %16, align 8, !noalias !3534, !noundef !13
+  store i64 %.sroa.01.0.i, ptr %3, align 8, !alias.scope !3534
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.sroa.5.0.i, ptr %18, align 8, !alias.scope !3533
+  store ptr %.sroa.5.0.i, ptr %18, align 8, !alias.scope !3534
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %17, ptr %19, align 8, !alias.scope !3533
+  store i64 %17, ptr %19, align 8, !alias.scope !3534
   invoke void @_ZN8protobuf7reflect5enums14EnumDescriptor14value_by_index17h4a6760bb87b03712E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, i64 noundef %6)
           to label %22 unwind label %20
 
@@ -46283,7 +46283,7 @@ define hidden void @_ZN6yara_x7modules6protos9gti_score7Verdict30generated_enum_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef range(i32 0, 17) i32 @"_ZN86_$LT$yara_x..modules..protos..gti_score..Severity$u20$as$u20$protobuf..enums..Enum$GT$5value17hf3958f23ced95f53E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #1 {
-  %2 = load i8, ptr %0, align 1, !range !3532, !noundef !13
+  %2 = load i8, ptr %0, align 1, !range !3533, !noundef !13
   %3 = zext nneg i8 %2 to i32
   ret i32 %3
 }
@@ -46359,20 +46359,20 @@ define void @"_ZN94_$LT$yara_x..modules..protos..gti_score..Severity$u20$as$u20$
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN94_$LT$yara_x..modules..protos..gti_score..Severity$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17h448d35cb3dacb670E"(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
-  %4 = load i8, ptr %1, align 1, !range !3532, !noundef !13
+  %4 = load i8, ptr %1, align 1, !range !3533, !noundef !13
   %5 = zext nneg i8 %4 to i64
   %6 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 62)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !3536)
-  %7 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hae7ba50c7fed4ee3E"(ptr noundef nonnull align 8 @"_ZN94_$LT$yara_x..modules..protos..gti_score..Severity$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17h45b8faa5d40bc742E"), !noalias !3536
-  %8 = load i64, ptr %7, align 8, !range !34, !noalias !3536, !noundef !13
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !3537)
+  %7 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hae7ba50c7fed4ee3E"(ptr noundef nonnull align 8 @"_ZN94_$LT$yara_x..modules..protos..gti_score..Severity$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17h45b8faa5d40bc742E"), !noalias !3537
+  %8 = load i64, ptr %7, align 8, !range !34, !noalias !3537, !noundef !13
   %9 = trunc nuw i64 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %9, label %11, label %"_ZN94_$LT$yara_x..modules..protos..gti_score..Severity$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h31fc089ebbc5aa11E.exit"
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %10, align 8, !noalias !3536, !nonnull !13, !noundef !13
-  %13 = atomicrmw add ptr %12, i64 1 monotonic, align 8, !noalias !3536
+  %12 = load ptr, ptr %10, align 8, !noalias !3537, !nonnull !13, !noundef !13
+  %13 = atomicrmw add ptr %12, i64 1 monotonic, align 8, !noalias !3537
   %14 = icmp slt i64 %13, 0
   br i1 %14, label %15, label %"_ZN94_$LT$yara_x..modules..protos..gti_score..Severity$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h31fc089ebbc5aa11E.exit"
 
@@ -46382,14 +46382,14 @@ define void @"_ZN94_$LT$yara_x..modules..protos..gti_score..Severity$u20$as$u20$
 
 "_ZN94_$LT$yara_x..modules..protos..gti_score..Severity$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h31fc089ebbc5aa11E.exit": ; preds = %2, %11
   %.sroa.01.0.i = phi i64 [ 1, %11 ], [ 0, %2 ]
-  %.sroa.5.0.i = load ptr, ptr %10, align 8, !noalias !3536, !noundef !13
+  %.sroa.5.0.i = load ptr, ptr %10, align 8, !noalias !3537, !noundef !13
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %17 = load i64, ptr %16, align 8, !noalias !3536, !noundef !13
-  store i64 %.sroa.01.0.i, ptr %3, align 8, !alias.scope !3536
+  %17 = load i64, ptr %16, align 8, !noalias !3537, !noundef !13
+  store i64 %.sroa.01.0.i, ptr %3, align 8, !alias.scope !3537
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.sroa.5.0.i, ptr %18, align 8, !alias.scope !3536
+  store ptr %.sroa.5.0.i, ptr %18, align 8, !alias.scope !3537
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %17, ptr %19, align 8, !alias.scope !3536
+  store i64 %17, ptr %19, align 8, !alias.scope !3537
   invoke void @_ZN8protobuf7reflect5enums14EnumDescriptor14value_by_index17h4a6760bb87b03712E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, i64 noundef %6)
           to label %22 unwind label %20
 
@@ -51251,10 +51251,11 @@ attributes #26 = { nounwind }
 !3529 = distinct !{!3529, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hfd89584074978ac0E"}
 !3530 = distinct !{!3530, !3531, !"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e9c6c5e79f4a5d9E: argument 0"}
 !3531 = distinct !{!3531, !"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e9c6c5e79f4a5d9E"}
-!3532 = !{i8 0, i8 17}
-!3533 = !{!3534}
-!3534 = distinct !{!3534, !3535, !"_ZN93_$LT$yara_x..modules..protos..gti_score..Verdict$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h75a010609abbfec9E: argument 0"}
-!3535 = distinct !{!3535, !"_ZN93_$LT$yara_x..modules..protos..gti_score..Verdict$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h75a010609abbfec9E"}
-!3536 = !{!3537}
-!3537 = distinct !{!3537, !3538, !"_ZN94_$LT$yara_x..modules..protos..gti_score..Severity$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h31fc089ebbc5aa11E: argument 0"}
-!3538 = distinct !{!3538, !"_ZN94_$LT$yara_x..modules..protos..gti_score..Severity$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h31fc089ebbc5aa11E"}
+!3532 = !{!"branch_weights", i32 8000, i32 1}
+!3533 = !{i8 0, i8 17}
+!3534 = !{!3535}
+!3535 = distinct !{!3535, !3536, !"_ZN93_$LT$yara_x..modules..protos..gti_score..Verdict$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h75a010609abbfec9E: argument 0"}
+!3536 = distinct !{!3536, !"_ZN93_$LT$yara_x..modules..protos..gti_score..Verdict$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h75a010609abbfec9E"}
+!3537 = !{!3538}
+!3538 = distinct !{!3538, !3539, !"_ZN94_$LT$yara_x..modules..protos..gti_score..Severity$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h31fc089ebbc5aa11E: argument 0"}
+!3539 = distinct !{!3539, !"_ZN94_$LT$yara_x..modules..protos..gti_score..Severity$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h31fc089ebbc5aa11E"}

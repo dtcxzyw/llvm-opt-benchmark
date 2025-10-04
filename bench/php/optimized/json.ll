@@ -804,7 +804,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %24 = load i8, ptr %23, align 8, !tbaa !28
   %switch.tableidx = add i8 %24, -1
   %25 = icmp ult i8 %switch.tableidx, 3
-  br i1 %25, label %switch.lookup, label %zend_parse_arg_bool_ex.exit
+  br i1 %25, label %switch.lookup, label %zend_parse_arg_bool_ex.exit, !prof !55
 
 zend_parse_arg_bool_ex.exit:                      ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -927,7 +927,7 @@ zend_parse_arg_long_ex.exit88..critedge_crit_edge: ; preds = %zend_parse_arg_lon
   br i1 %.195144, label %66, label %.sink.split
 
 .sink.split:                                      ; preds = %61
-  %62 = load i8, ptr %4, align 1, !tbaa !52, !range !55, !noundef !56
+  %62 = load i8, ptr %4, align 1, !tbaa !52, !range !56, !noundef !57
   %63 = trunc nuw i8 %62 to i1
   %64 = or i64 %54, 1
   %65 = and i64 %54, -2
@@ -1193,9 +1193,9 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @php_json_implement_json_serializable(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %4 = load i32, ptr %3, align 4, !tbaa !57
+  %4 = load i32, ptr %3, align 4, !tbaa !58
   %5 = or i32 %4, 2048
-  store i32 %5, ptr %3, align 4, !tbaa !57
+  store i32 %5, ptr %3, align 4, !tbaa !58
   ret i32 0
 }
 
@@ -1312,6 +1312,7 @@ attributes #16 = { nounwind willreturn memory(read) }
 !52 = !{!53, !53, i64 0}
 !53 = !{!"_Bool", !6, i64 0}
 !54 = !{!"branch_weights", i32 2146410443, i32 1073205}
-!55 = !{i8 0, i8 2}
-!56 = !{}
-!57 = !{!9, !11, i64 28}
+!55 = !{!"branch_weights", i32 8008001, i32 1}
+!56 = !{i8 0, i8 2}
+!57 = !{}
+!58 = !{!9, !11, i64 28}
