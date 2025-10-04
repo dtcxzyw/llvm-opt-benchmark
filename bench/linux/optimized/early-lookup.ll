@@ -210,9 +210,9 @@ define internal fastcc range(i32 -22, 1) i32 @devt_from_devname(ptr noundef read
   %15 = call fastcc i32 @blk_lookup_devt(ptr noundef nonnull %3, i32 noundef 0) #13
   store i32 %15, ptr %1, align 4
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %26
+  br i1 %16, label %.preheader, label %26
 
-17:                                               ; preds = %14
+.preheader:                                       ; preds = %14
   %18 = icmp eq ptr %9, %3
   br i1 %18, label %26, label %19
 
@@ -223,17 +223,17 @@ define internal fastcc range(i32 -22, 1) i32 @devt_from_devname(ptr noundef read
     i8 48, label %26
   ]
 
-21:                                               ; preds = %19
-  %22 = call i64 @simple_strtoul(ptr noundef %9, ptr noundef null, i32 noundef 10) #12
-  %23 = trunc i64 %22 to i32
+28:                                               ; preds = %19
+  %29 = call i64 @simple_strtoul(ptr noundef %9, ptr noundef null, i32 noundef 10) #12
+  %30 = trunc i64 %29 to i32
   store i8 0, ptr %9, align 1
-  %24 = call fastcc i32 @blk_lookup_devt(ptr noundef nonnull %3, i32 noundef %23) #13
-  store i32 %24, ptr %1, align 4
-  %25 = icmp eq i32 %24, 0
-  %spec.select = select i1 %25, i32 -19, i32 0
+  %31 = call fastcc i32 @blk_lookup_devt(ptr noundef nonnull %3, i32 noundef %30) #13
+  store i32 %31, ptr %1, align 4
+  %32 = icmp eq i32 %31, 0
+  %spec.select = select i1 %32, i32 -19, i32 0
   br label %26
 
-26:                                               ; preds = %21, %19, %19, %17, %14, %2
+26: ; preds = %28, %19, %19, %17, %14, %2
   %27 = phi i32 [ -22, %2 ], [ 0, %14 ], [ -19, %19 ], [ -19, %19 ], [ -19, %17 ], [ %spec.select, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %27

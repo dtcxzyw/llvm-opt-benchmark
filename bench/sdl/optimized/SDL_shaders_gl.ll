@@ -255,7 +255,7 @@ declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
 define internal fastcc zeroext i1 @CompileShaderProgram(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 -2147483648, 11) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca [10 x i8], align 1
   %5 = icmp eq i32 %1, 0
-  br i1 %5, label %61, label %6
+  br i1 %5, label %66, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
@@ -277,7 +277,7 @@ define internal fastcc zeroext i1 @CompileShaderProgram(ptr noundef nonnull read
   %21 = tail call fastcc zeroext i1 @CompileShader(ptr noundef %0, i32 noundef %18, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.28, ptr noundef %20)
   br i1 %21, label %22, label %61
 
-22:                                               ; preds = %6
+22:; preds = %6
   %23 = trunc nuw i8 %10 to i1
   %.str.29..str.30 = select i1 %23, ptr @.str.29, ptr @.str.30
   %24 = load ptr, ptr %16, align 8
@@ -289,29 +289,29 @@ define internal fastcc zeroext i1 @CompileShaderProgram(ptr noundef nonnull read
   %29 = tail call fastcc zeroext i1 @CompileShader(ptr noundef %0, i32 noundef %25, ptr noundef nonnull @.str.28, ptr noundef nonnull %.str.29..str.30, ptr noundef %28)
   br i1 %29, label %30, label %61
 
-30:                                               ; preds = %22
+30:; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %2, align 4
-  %34 = load i32, ptr %19, align 4
+  %33 = load i32, ptr %19, align 4
   tail call void %32(i32 noundef %33, i32 noundef %34) #5
   %35 = load ptr, ptr %31, align 8
   %36 = load i32, ptr %2, align 4
   %37 = load i32, ptr %26, align 4
   tail call void %35(i32 noundef %36, i32 noundef %37) #5
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %39 = load ptr, ptr %38, align 8
-  %40 = load i32, ptr %2, align 4
-  tail call void %39(i32 noundef %40) #5
+  %38 = load ptr, ptr %38, align 8
+  %39 = load i32, ptr %2, align 4
+  tail call void %39(i32 noundef %39) #5
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %42 = load ptr, ptr %41, align 8
-  %43 = load i32, ptr %2, align 4
+  %41 = load ptr, ptr %41, align 8
+  %42 = load i32, ptr %2, align 4
   tail call void %42(i32 noundef %43) #5
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %46
 
-46:                                               ; preds = %30, %54
+59:                                               ; preds = %30, %54
   %.04147 = phi i32 [ 0, %30 ], [ %55, %54 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %47 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %4, i64 noundef 10, ptr noundef nonnull @.str.31, i32 noundef %.04147) #5
@@ -328,20 +328,20 @@ define internal fastcc zeroext i1 @CompileShaderProgram(ptr noundef nonnull read
 
 54:                                               ; preds = %52, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %55 = add nuw nsw i32 %.04147, 1
-  %exitcond.not = icmp eq i32 %55, 4
-  br i1 %exitcond.not, label %56, label %46, !llvm.loop !7
+  %60 = add nuw nsw i32 %.04147, 1
+  %exitcond.not = icmp eq i32 %60, 4
+  br i1 %exitcond.not, label %61, label %59, !llvm.loop !7
 
-56:                                               ; preds = %54
-  %57 = load ptr, ptr %41, align 8
+61:                                               ; preds = %54
+  %62 = load ptr, ptr %41, align 8
   call void %57(i32 noundef 0) #5
-  %58 = load ptr, ptr %0, align 8
-  %59 = call i32 %58() #5
-  %60 = icmp eq i32 %59, 0
-  br label %61
+  %63 = load ptr, ptr %0, align 8
+  %64 = call i32 %58() #5
+  %65 = icmp eq i32 %64, 0
+  br label %66
 
-61:                                               ; preds = %22, %6, %3, %56
-  %.0 = phi i1 [ %60, %56 ], [ true, %3 ], [ false, %6 ], [ false, %22 ]
+66:                                               ; preds = %22, %6, %3, %61
+  %.0 = phi i1 [ %65, %56 ], [ true, %3 ], [ false, %6 ], [ false, %22 ]
   ret i1 %.0
 }
 

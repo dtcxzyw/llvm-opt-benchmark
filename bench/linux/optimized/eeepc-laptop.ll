@@ -668,15 +668,15 @@ define internal void @eeepc_acpi_notify(ptr noundef %0, i32 noundef %1) #3 align
   %26 = icmp eq ptr %25, null
   br i1 %26, label %31, label %27
 
-27:                                               ; preds = %19
+26:                                               ; preds = %19
   %28 = tail call zeroext i1 @sparse_keymap_report_event(ptr noundef nonnull %25, i32 noundef %1, i32 noundef 1, i1 noundef zeroext true) #13
   br i1 %28, label %31, label %29
 
-29:                                               ; preds = %27
-  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.99, i32 noundef %1) #14
+30:                                               ; preds = %26
+  %31 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.99, i32 noundef %1) #13
   br label %31
 
-31:                                               ; preds = %29, %27, %19, %2
+32:                                               ; preds = %29, %27, %19, %2
   ret void
 }
 

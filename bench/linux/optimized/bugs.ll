@@ -819,7 +819,7 @@ define internal fastcc void @spectre_v2_user_select_mitigation() unnamed_addr #3
   %5 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
   %6 = and i64 %5, 576460752303423488
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %64, label %8
+  br i1 %7, label %67, label %8
 
 8:                                                ; preds = %4, %0
   %9 = load i32, ptr @cpu_smt_control, align 4
@@ -887,7 +887,7 @@ define internal fastcc void @spectre_v2_user_select_mitigation() unnamed_addr #3
   %32 = and i64 %31, 576460752303423488
   %33 = icmp eq i64 %32, 0
   %34 = select i1 %33, i1 true, i1 %11
-  br i1 %34, label %64, label %35
+  br i1 %34, label %67, label %35
 
 35:                                               ; preds = %30
   %36 = load i32, ptr @spectre_v2_enabled, align 4
@@ -899,7 +899,7 @@ define internal fastcc void @spectre_v2_user_select_mitigation() unnamed_addr #3
   %40 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
   %41 = and i64 %40, 256
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %64, label %43
+  br i1 %42, label %67, label %43
 
 43:                                               ; preds = %39, %35
   br i1 %17, label %49, label %44
@@ -922,20 +922,20 @@ define internal fastcc void @spectre_v2_user_select_mitigation() unnamed_addr #3
   %55 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.54) #17
   br label %56
 
-56:                                               ; preds = %54, %49
+57:                                               ; preds = %54, %49
   %57 = phi i32 [ %50, %49 ], [ 2, %54 ]
   store i32 %57, ptr @spectre_v2_user_stibp, align 4
   %58 = zext nneg i32 %57 to i64
   br label %59
 
-59:                                               ; preds = %56, %8
+59:                                               ; preds = %57, %8
   %60 = phi i64 [ %58, %56 ], [ 0, %8 ]
   %61 = getelementptr ptr, ptr @spectre_v2_user_strings, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55, ptr noundef %62) #17
   br label %64
 
-64:                                               ; preds = %59, %39, %30, %4
+67:                                               ; preds = %59, %39, %30, %4
   ret void
 }
 

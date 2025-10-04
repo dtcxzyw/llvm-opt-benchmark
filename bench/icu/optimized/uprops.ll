@@ -575,7 +575,7 @@ declare i32 @ucptrie_getRange_77(ptr noundef, i32 noundef, i32 noundef, i32 noun
 ; Function Attrs: mustprogress uwtable
 define zeroext i1 @u_hasIDType_77(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 11
-  br i1 %3, label %12, label %4
+  br i1 %3, label %19, label %4
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
@@ -587,7 +587,7 @@ define zeroext i1 @u_hasIDType_77(i32 noundef %0, i32 noundef %1) local_unnamed_
   %11 = icmp eq i32 %10, %9
   br label %12
 
-12:                                               ; preds = %4, %2
+19:                                               ; preds = %4, %2
   %.0 = phi i1 [ false, %2 ], [ %11, %4 ]
   ret i1 %.0
 }

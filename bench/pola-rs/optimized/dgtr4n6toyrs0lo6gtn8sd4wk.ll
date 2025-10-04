@@ -146523,27 +146523,27 @@ define hidden noundef zeroext i1 @_ZN11polars_plan5utils26aexpr_is_simple_projec
   %5 = invoke { i64, ptr } @"_ZN98_$LT$polars_plan..plans..iterator..AExprIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8992ccbfaefbeb93E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc unwind label %7
 
-.noexc:                                           ; preds = %2
+8:                                                ; preds = %2
   %6 = extractvalue { i64, ptr } %5, 1
-  %.not.not.not.i.not = icmp eq ptr %6, null
+  %9 = icmp eq ptr %6, null
   call void @"_ZN4core3ptr60drop_in_place$LT$polars_plan..plans..iterator..AExprIter$GT$17h131ac0a68ea36923E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %.not.not.not.i.not
+  ret i1 %14
 
-7:                                                ; preds = %2
-  %8 = landingpad { ptr, i32 }
+11:                                               ; preds = %2
+  %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr60drop_in_place$LT$polars_plan..plans..iterator..AExprIter$GT$17h131ac0a68ea36923E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #32
-          to label %11 unwind label %9
+          to label %11 unwind label %14
 
-9:                                                ; preds = %7
-  %10 = landingpad { ptr, i32 }
+14:                                               ; preds = %11
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #33
   unreachable
 
-11:                                               ; preds = %7
-  resume { ptr, i32 } %8
+16:                                               ; preds = %11
+  resume { ptr, i32 } %12
 }
 
 ; Function Attrs: nonlazybind uwtable

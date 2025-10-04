@@ -33862,29 +33862,29 @@ define noundef i32 @_ZN5boost4json6detail3ryu14d2s_buffered_nEdPcb(double nounde
   br i1 %or.cond, label %.thread, label %33
 
 14:                                               ; preds = %3
-  %.not42 = icmp eq i64 %6, 0
+  %.not46 = icmp eq i64 %6, 0
   br i1 %2, label %15, label %24
 
 .thread:                                          ; preds = %11
-  br i1 %2, label %.thread35, label %.thread36
+  br i1 %2, label %.thread36, label %.thread37
 
 15:                                               ; preds = %14
-  br i1 %.not42, label %.thread35, label %16
+  br i1 %.not46, label %.thread36, label %16
 
 16:                                               ; preds = %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1, ptr noundef nonnull align 1 dereferenceable(3) @.str.107, i64 3, i1 false)
   br label %_ZN5boost4json6detail3ryu6detail16copy_special_strEPcbbb.exit
 
-.thread35:                                        ; preds = %.thread, %15
+.thread36:                                        ; preds = %.thread, %15
   br i1 %5, label %17, label %18
 
-17:                                               ; preds = %.thread35
+17:                                               ; preds = %.thread36
   store i8 45, ptr %1, align 1, !tbaa !15
   br label %18
 
-18:                                               ; preds = %17, %.thread35
-  %.lobit43 = lshr i64 %4, 63
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 %.lobit43
+18:                                               ; preds = %17, %.thread36
+  %.lobit47 = lshr i64 %4, 63
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 %.lobit47
   br i1 %10, label %20, label %22
 
 20:                                               ; preds = %18
@@ -33898,20 +33898,20 @@ define noundef i32 @_ZN5boost4json6detail3ryu14d2s_buffered_nEdPcb(double nounde
   br label %_ZN5boost4json6detail3ryu6detail16copy_special_strEPcbbb.exit
 
 24:                                               ; preds = %14
-  br i1 %.not42, label %.thread36, label %25
+  br i1 %.not46, label %.thread37, label %25
 
 25:                                               ; preds = %24
   store i32 1819047278, ptr %1, align 1
   br label %_ZN5boost4json6detail3ryu6detail16copy_special_strEPcbbb.exit
 
-.thread36:                                        ; preds = %.thread, %24
+.thread37:                                        ; preds = %.thread, %24
   br i1 %5, label %26, label %27
 
-26:                                               ; preds = %.thread36
+26:                                               ; preds = %.thread37
   store i8 45, ptr %1, align 1, !tbaa !15
   br label %27
 
-27:                                               ; preds = %26, %.thread36
+27:                                               ; preds = %26, %.thread37
   %.lobit = lshr i64 %4, 63
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %.lobit
   br i1 %10, label %29, label %31
@@ -33930,21 +33930,21 @@ define noundef i32 @_ZN5boost4json6detail3ryu14d2s_buffered_nEdPcb(double nounde
   %34 = invoke { i64, i32 } @_ZN5boost4json6detail3ryu6detail3d2dEmj(i64 noundef %6, i32 noundef %9)
           to label %35 unwind label %39
 
-35:                                               ; preds = %33
+36:                                               ; preds = %33
   %36 = extractvalue { i64, i32 } %34, 0
   %37 = extractvalue { i64, i32 } %34, 1
   %38 = invoke noundef i32 @_ZN5boost4json6detail3ryu6detail8to_charsENS3_19floating_decimal_64EbPc(i64 %36, i32 %37, i1 noundef zeroext %5, ptr noundef %1)
-          to label %_ZN5boost4json6detail3ryu6detail16copy_special_strEPcbbb.exit unwind label %39
+          to label %_ZN5boost4json6detail3ryu6detail16copy_special_strEPcbbb.exit unwind label %54
 
-_ZN5boost4json6detail3ryu6detail16copy_special_strEPcbbb.exit: ; preds = %35, %31, %29, %25, %22, %20, %16
+50:                                               ; preds = %35, %31, %29, %25, %22, %20, %16
   %.0 = phi i32 [ 3, %16 ], [ %21, %20 ], [ %23, %22 ], [ 4, %25 ], [ %30, %29 ], [ %32, %31 ], [ %38, %35 ]
   ret i32 %.0
 
-39:                                               ; preds = %35, %33
-  %40 = landingpad { ptr, i32 }
+54:                                               ; preds = %35, %33
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #50
+  %56 = extractvalue { ptr, i32 } %55, 0
+  tail call void @__clang_call_terminate(ptr %56) #50
   unreachable
 }
 

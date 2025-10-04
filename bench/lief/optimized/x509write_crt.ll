@@ -374,7 +374,7 @@ define hidden range(i32 -2147483648, 0) i32 @mbedtls_x509write_crt_set_key_usage
   %spec.select = select i1 %11, i32 %10, i32 -8576
   br label %12
 
-12:                                               ; preds = %7, %2
+12:; preds = %7, %2
   %.0 = phi i32 [ -8320, %2 ], [ %spec.select, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

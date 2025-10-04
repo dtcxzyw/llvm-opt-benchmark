@@ -5269,78 +5269,78 @@ define void @Mio_LibraryShortFormula(ptr noundef %0, ptr noundef %1, ptr noundef
 
 6:                                                ; preds = %3
   %strcpy = tail call ptr @strcpy(ptr nonnull dereferenceable(1) %2, ptr nonnull dereferenceable(1) %1)
-  br label %29
+  br label %34
 
 .lr.ph36:                                         ; preds = %.preheader28, %.backedge
-  %7 = phi i8 [ %11, %.backedge ], [ %5, %.preheader28 ]
+  %7 = phi i8 [ %14, %.backedge ], [ %5, %.preheader28 ]
   %.01935 = phi ptr [ %.019.be, %.backedge ], [ %2, %.preheader28 ]
   %.02034 = phi ptr [ %.020.be, %.backedge ], [ %1, %.preheader28 ]
   %.not42 = icmp eq i8 %7, 95
   br i1 %.not42, label %.preheader, label %8
 
-8:                                                ; preds = %.lr.ph36
+8:; preds = %.lr.ph36
   %9 = getelementptr inbounds nuw i8, ptr %.02034, i64 1
   br label %.backedge.sink.split
 
-.backedge.sink.split:                             ; preds = %8, %24
-  %.sink = phi i8 [ %25, %24 ], [ %7, %8 ]
+.backedge.sink.split:                             ; preds = %8, %29
+  %.sink = phi i8 [ %30, %24 ], [ %7, %8 ]
   %.020.be.ph = phi ptr [ %.0.i, %24 ], [ %9, %8 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.01935, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01935, i64 1
   store i8 %.sink, ptr %.01935, align 1, !tbaa !63
   br label %.backedge
 
-.backedge:                                        ; preds = %26, %.backedge.sink.split, %Abc_SclFindLimit.exit
+.backedge:                                        ; preds = %31, %.backedge.sink.split, %Abc_SclFindLimit.exit
   %.020.be = phi ptr [ %.0.i, %Abc_SclFindLimit.exit ], [ %.020.be.ph, %.backedge.sink.split ], [ %.0.i, %26 ]
-  %.019.be = phi ptr [ %.01935, %Abc_SclFindLimit.exit ], [ %10, %.backedge.sink.split ], [ %.01935, %26 ]
-  %11 = load i8, ptr %.020.be, align 1, !tbaa !63
-  %.not23 = icmp eq i8 %11, 0
+  %.019.be = phi ptr [ %.01935, %Abc_SclFindLimit.exit ], [ %13, %.backedge.sink.split ], [ %.01935, %26 ]
+  %14 = load i8, ptr %.020.be, align 1, !tbaa !63
+  %.not23 = icmp eq i8 %14, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph36, !llvm.loop !204
 
 .preheader:                                       ; preds = %.lr.ph36, %.preheader
   %.0.i = phi ptr [ %16, %.preheader ], [ %.02034, %.lr.ph36 ]
-  %12 = load i8, ptr %.0.i, align 1, !tbaa !63
-  %13 = icmp ne i8 %12, 95
-  %14 = add i8 %12, -58
-  %15 = icmp ult i8 %14, -10
+  %15 = load i8, ptr %.0.i, align 1, !tbaa !63
+  %13 = icmp ne i8 %15, 95
+  %17 = add i8 %12, -58
+  %or.cond10.i.i.i = icmp ult i8 %17, -10
   %narrow.i.not.i = and i1 %13, %15
   %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br i1 %narrow.i.not.i, label %Abc_SclFindLimit.exit, label %.preheader, !llvm.loop !205
 
 Abc_SclFindLimit.exit:                            ; preds = %.preheader
-  %17 = tail call ptr @Mio_GateReadPins(ptr noundef %0) #30
-  %.not2530 = icmp eq ptr %17, null
+  %22 = tail call ptr @Mio_GateReadPins(ptr noundef %0) #30
+  %.not2530 = icmp eq ptr %22, null
   br i1 %.not2530, label %.backedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Abc_SclFindLimit.exit
-  %18 = ptrtoint ptr %.0.i to i64
-  %19 = ptrtoint ptr %.02034 to i64
-  %20 = sub i64 %18, %19
-  br label %21
+  %23 = ptrtoint ptr %.0.i to i64
+  %24 = ptrtoint ptr %.02034 to i64
+  %25 = sub i64 %23, %24
+  br label %26
 
-21:                                               ; preds = %.lr.ph, %26
-  %.032 = phi i8 [ 0, %.lr.ph ], [ %27, %26 ]
-  %.02131 = phi ptr [ %17, %.lr.ph ], [ %28, %26 ]
-  %22 = load ptr, ptr %.02131, align 8, !tbaa !67
-  %23 = tail call i32 @strncmp(ptr noundef readonly %22, ptr noundef nonnull %.02034, i64 noundef %20) #32
-  %.not.i.not = icmp eq i32 %23, 0
-  br i1 %.not.i.not, label %24, label %26
+26:                                               ; preds = %.lr.ph, %31
+  %.032 = phi i8 [ 0, %.lr.ph ], [ %32, %26 ]
+  %.02131 = phi ptr [ %22, %.lr.ph ], [ %33, %26 ]
+  %27 = load ptr, ptr %.02131, align 8, !tbaa !67
+  %28 = tail call i32 @strncmp(ptr noundef readonly %27, ptr noundef nonnull %.02034, i64 noundef %25) #32
+  %.not.i.not = icmp eq i32 %28, 0
+  br i1 %.not.i.not, label %29, label %31
 
-24:                                               ; preds = %21
-  %25 = add i8 %.032, 97
+29:                                               ; preds = %26
+  %30 = add i8 %.032, 97
   br label %.backedge.sink.split
 
-26:                                               ; preds = %21
-  %27 = add i8 %.032, 1
-  %28 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.02131) #30
-  %.not25 = icmp eq ptr %28, null
-  br i1 %.not25, label %.backedge, label %21, !llvm.loop !206
+31:                                               ; preds = %26
+  %32 = add i8 %.032, 1
+  %33 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.02131) #30
+  %.not25 = icmp eq ptr %33, null
+  br i1 %.not25, label %.backedge, label %26, !llvm.loop !206
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader28
   %.019.lcssa = phi ptr [ %2, %.preheader28 ], [ %.019.be, %.backedge ]
   store i8 0, ptr %.019.lcssa, align 1, !tbaa !63
-  br label %29
+  br label %34
 
-29:                                               ; preds = %._crit_edge, %6
+34:                                               ; preds = %._crit_edge, %6
   ret void
 }
 

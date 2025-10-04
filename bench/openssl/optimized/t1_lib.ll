@@ -806,44 +806,44 @@ tls1_group_id_lookup.exit:                        ; preds = %13, %15, %6
   %51 = load i32, ptr %50, align 8, !tbaa !138
   %52 = and i32 %51, 8
   %.not48 = icmp eq i32 %52, 0
-  br i1 %.not48, label %53, label %58
+  br i1 %.not48, label %53, label %61
 
 53:                                               ; preds = %46
   %54 = icmp ne i32 %.1, 0
   %55 = icmp eq i32 %3, 772
   %56 = and i1 %55, %54
   %or.cond5 = and i1 %20, %56
-  br i1 %or.cond5, label %57, label %58
+  br i1 %or.cond5, label %57, label %61
 
 57:                                               ; preds = %53
   store i32 1, ptr %5, align 4, !tbaa !135
   br label %58
 
-58:                                               ; preds = %53, %57, %46
+61:                                               ; preds = %53, %57, %46
   %.not49 = icmp eq i32 %4, 0
   br i1 %.not49, label %73, label %sub_0
 
-sub_0:                                            ; preds = %58
-  %59 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !140
-  %61 = load i8, ptr %60, align 1
-  %.not51 = icmp eq i8 %61, 69
+sub_0:                                            ; preds = %61
+  %62 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
+  %63 = load ptr, ptr %62, align 8, !tbaa !140
+  %64 = load i8, ptr %63, align 1
+  %.not51 = icmp eq i8 %64, 69
   br i1 %.not51, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 1
-  %63 = load i8, ptr %62, align 1
-  %.not52 = icmp eq i8 %63, 67
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 1
+  %66 = load i8, ptr %65, align 1
+  %.not52 = icmp eq i8 %66, 67
   br i1 %.not52, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 2
-  %65 = load i8, ptr %64, align 1
-  %66 = icmp eq i8 %65, 0
-  br i1 %66, label %73, label %.tail.thread
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 2
+  %68 = load i8, ptr %67, align 1
+  %69 = icmp eq i8 %68, 0
+  br i1 %69, label %73, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
-  %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(7) @.str.4) #15
+  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(7) @.str.4) #15
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %73, label %69
 
@@ -853,13 +853,13 @@ sub_1:                                            ; preds = %sub_0
   %72 = zext i1 %71 to i32
   br label %73
 
-73:                                               ; preds = %69, %.tail.thread, %.tail, %58
+72:                                               ; preds = %69, %.tail.thread, %.tail, %58
   %74 = phi i32 [ 1, %.tail.thread ], [ 1, %.tail ], [ 1, %58 ], [ %72, %69 ]
   %75 = and i32 %74, %.1
   br label %76
 
 76:                                               ; preds = %24, %22, %73
-  %.0 = phi i32 [ %75, %73 ], [ 0, %22 ], [ 0, %24 ]
+  %77 = phi i32 [ %75, %73 ], [ 0, %22 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -4835,7 +4835,7 @@ ssl_hmac_free.exit:                               ; preds = %159, %.thread202
   %.not184 = icmp ne ptr %163, null
   %164 = icmp samesign ugt i32 %.0143224, 2
   %or.cond192 = and i1 %164, %.not184
-  br i1 %or.cond192, label %165, label %174
+  br i1 %or.cond192, label %165, label %175
 
 165:                                              ; preds = %ssl_hmac_free.exit
   %spec.store.select = call i64 @llvm.umin.i64(i64 %.0135228, i64 16)
@@ -4843,68 +4843,68 @@ ssl_hmac_free.exit:                               ; preds = %159, %.thread202
   %167 = load ptr, ptr %166, align 8, !tbaa !267
   %168 = call i32 %163(ptr noundef nonnull %0, ptr noundef %.0138226, ptr noundef %1, i64 noundef %spec.store.select, i32 noundef %.0143224, ptr noundef %167) #14
   switch i32 %168, label %174 [
-    i32 4, label %171
+    i32 4, label %172
     i32 1, label %169
     i32 2, label %170
-    i32 3, label %171
+    i32 3, label %172
   ]
 
 169:                                              ; preds = %165
   call void @SSL_SESSION_free(ptr noundef %.0138226) #14
-  br label %174
+  br label %175
 
 170:                                              ; preds = %165
   call void @SSL_SESSION_free(ptr noundef %.0138226) #14
-  br label %174
+  br label %175
 
-171:                                              ; preds = %165, %165
+172:                                              ; preds = %165, %165
   %or.cond9 = icmp samesign ult i32 %.0143224, 5
-  br i1 %or.cond9, label %174, label %172
+  br i1 %or.cond9, label %175, label %173
 
-172:                                              ; preds = %171
-  %173 = icmp eq i32 %168, 3
-  %.193 = select i1 %173, i32 5, i32 6
-  br label %174
+173:                                              ; preds = %172
+  %174 = icmp eq i32 %168, 3
+  %.193 = select i1 %174, i32 5, i32 6
+  br label %175
 
-174:                                              ; preds = %169, %170, %171, %172, %165, %ssl_hmac_free.exit
+175:                                              ; preds = %169, %170, %172, %173, %165, %ssl_hmac_free.exit
   %.3146 = phi i32 [ %.0143224, %ssl_hmac_free.exit ], [ 2, %169 ], [ 4, %170 ], [ 1, %171 ], [ %.193, %172 ], [ 1, %165 ]
   %.1139 = phi ptr [ %.0138226, %ssl_hmac_free.exit ], [ null, %169 ], [ null, %170 ], [ %.0138226, %171 ], [ %.0138226, %172 ], [ %.0138226, %165 ]
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 2784
-  %176 = load ptr, ptr %175, align 8, !tbaa !253
-  %177 = icmp eq ptr %176, null
-  br i1 %177, label %189, label %178
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 2784
+  %177 = load ptr, ptr %176, align 8, !tbaa !253
+  %178 = icmp eq ptr %177, null
+  br i1 %178, label %190, label %179
 
-178:                                              ; preds = %174
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %180 = load ptr, ptr %179, align 8, !tbaa !136
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 216
-  %182 = load ptr, ptr %181, align 8, !tbaa !137
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 80
-  %184 = load i32, ptr %183, align 8, !tbaa !138
-  %185 = and i32 %184, 8
-  %.not185 = icmp eq i32 %185, 0
-  br i1 %.not185, label %186, label %192
+179:                                              ; preds = %175
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %181 = load ptr, ptr %180, align 8, !tbaa !136
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 216
+  %183 = load ptr, ptr %182, align 8, !tbaa !137
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 80
+  %185 = load i32, ptr %184, align 8, !tbaa !138
+  %186 = and i32 %185, 8
+  %.not185 = icmp eq i32 %186, 0
+  br i1 %.not185, label %187, label %193
 
-186:                                              ; preds = %178
-  %187 = load i32, ptr %180, align 8, !tbaa !74
-  %188 = icmp slt i32 %187, 772
-  %.not186 = icmp eq i32 %187, 65536
-  %or.cond194 = or i1 %188, %.not186
-  br i1 %or.cond194, label %192, label %189
+187:                                              ; preds = %179
+  %188 = load i32, ptr %181, align 8, !tbaa !74
+  %189 = icmp slt i32 %188, 772
+  %.not186 = icmp eq i32 %188, 65536
+  %or.cond194 = or i1 %189, %.not186
+  br i1 %or.cond194, label %193, label %190
 
-189:                                              ; preds = %186, %174
+190:                                              ; preds = %187, %175
   switch i32 %.3146, label %192 [
-    i32 4, label %190
-    i32 6, label %190
-    i32 3, label %190
+    i32 4, label %191
+    i32 6, label %191
+    i32 3, label %191
   ]
 
-190:                                              ; preds = %189, %189, %189
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 2656
-  store i32 1, ptr %191, align 8, !tbaa !242
-  br label %192
+191:                                              ; preds = %190, %190, %190
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 2656
+  store i32 1, ptr %192, align 8, !tbaa !242
+  br label %193
 
-192:                                              ; preds = %189, %190, %186, %178
+193:                                              ; preds = %190, %191, %187, %179
   store ptr %.1139, ptr %5, align 8, !tbaa !241
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

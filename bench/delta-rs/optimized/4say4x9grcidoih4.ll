@@ -15582,7 +15582,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
   %40 = load ptr, ptr %39, align 8, !noalias !3432, !nonnull !24, !noundef !24
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !3432
   %41 = tail call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h42483480e3573db7E(ptr noundef nonnull %40), !noalias !3426
-  br label %202
+  br label %215
 
 42:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !3432
@@ -15594,7 +15594,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
   store i64 4, ptr %10, align 8, !noalias !3444
   %45 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17h3ce98be72ecc6c03E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10, i64 noundef %.val.i, i64 noundef %.val4.i), !noalias !3445
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !3440
-  br label %202
+  br label %215
 
 46:                                               ; preds = %37, %3
   %.sroa.5.0.ph = phi i8 [ %20, %3 ], [ %25, %37 ]
@@ -15619,7 +15619,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
   store i64 12, ptr %9, align 8
   %50 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17h3ce98be72ecc6c03E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, i64 noundef %.val, i64 noundef %.val32), !noalias !3449
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !3449
-  br label %202
+  br label %215
 
 51:                                               ; preds = %46
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -15642,7 +15642,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
   %61 = load i64, ptr %52, align 8, !alias.scope !3452, !noundef !24
   %62 = add i64 %61, 1
   store i64 %62, ptr %52, align 8, !alias.scope !3452
-  br label %202
+  br label %215
 
 63:                                               ; preds = %46
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -15665,7 +15665,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
   %73 = load i64, ptr %64, align 8, !alias.scope !3455, !noundef !24
   %74 = add i64 %73, 1
   store i64 %74, ptr %64, align 8, !alias.scope !3455
-  br label %202
+  br label %215
 
 75:                                               ; preds = %46
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -15688,7 +15688,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
   %85 = load i64, ptr %76, align 8, !alias.scope !3458, !noundef !24
   %86 = add i64 %85, 1
   store i64 %86, ptr %76, align 8, !alias.scope !3458
-  br label %202
+  br label %215
 
 87:                                               ; preds = %46
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -15711,7 +15711,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
   %97 = load i64, ptr %88, align 8, !alias.scope !3461, !noundef !24
   %98 = add i64 %97, 1
   store i64 %98, ptr %88, align 8, !alias.scope !3461
-  br label %202
+  br label %215
 
 99:                                               ; preds = %46
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -15734,7 +15734,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
   %109 = load i64, ptr %100, align 8, !alias.scope !3464, !noundef !24
   %110 = add i64 %109, 1
   store i64 %110, ptr %100, align 8, !alias.scope !3464
-  br label %202
+  br label %215
 
 111:                                              ; preds = %46
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -15757,7 +15757,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
   %121 = load i64, ptr %112, align 8, !alias.scope !3467, !noundef !24
   %122 = add i64 %121, 1
   store i64 %122, ptr %112, align 8, !alias.scope !3467
-  br label %202
+  br label %215
 
 123:                                              ; preds = %46
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -15780,7 +15780,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
   %133 = load i64, ptr %124, align 8, !alias.scope !3470, !noundef !24
   %134 = add i64 %133, 1
   store i64 %134, ptr %124, align 8, !alias.scope !3470
-  br label %202
+  br label %215
 
 135:                                              ; preds = %46
   %136 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -15803,7 +15803,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
   %145 = load i64, ptr %136, align 8, !alias.scope !3473, !noundef !24
   %146 = add i64 %145, 1
   store i64 %146, ptr %136, align 8, !alias.scope !3473
-  br label %202
+  br label %215
 
 147:                                              ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -15824,10 +15824,10 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
 153:                                              ; preds = %147
   %154 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %155 = load ptr, ptr %154, align 8, !nonnull !24, !align !25, !noundef !24
-  br label %201
+  br label %214
 
 156:                                              ; preds = %149
-  br i1 %1, label %215, label %214
+  br i1 %1, label %228, label %227
 
 157:                                              ; preds = %149
   %158 = zext i16 %151 to i32
@@ -15855,7 +15855,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
   %167 = extractvalue { ptr, i64 } %165, 1
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h0442491cb97dc7ceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %166, i64 noundef %167)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %202
+  br label %215
 
 168:                                              ; preds = %161
   %169 = getelementptr inbounds nuw i8, ptr %15, i64 1
@@ -15868,7 +15868,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
   %173 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %174 = load ptr, ptr %173, align 8, !nonnull !24, !align !25, !noundef !24
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %201
+  br label %214
 
 175:                                              ; preds = %168
   store i8 0, ptr %17, align 8, !alias.scope !3477
@@ -15879,7 +15879,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
   br i1 %trunc21, label %182, label %178
 
 177:                                              ; preds = %168
-  br i1 %1, label %210, label %209
+  br i1 %1, label %223, label %222
 
 178:                                              ; preds = %175
   %179 = getelementptr inbounds nuw i8, ptr %14, i64 1
@@ -15892,7 +15892,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
   %183 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %184 = load ptr, ptr %183, align 8, !nonnull !24, !align !25, !noundef !24
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %201
+  br label %214
 
 185:                                              ; preds = %178
   store i8 0, ptr %17, align 8, !alias.scope !3480
@@ -15903,7 +15903,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
   br i1 %trunc22, label %194, label %188
 
 187:                                              ; preds = %178
-  br i1 %1, label %205, label %203
+  br i1 %1, label %218, label %216
 
 188:                                              ; preds = %185
   %189 = getelementptr inbounds nuw i8, ptr %13, i64 2
@@ -15921,78 +15921,78 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
   %195 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %196 = load ptr, ptr %195, align 8, !nonnull !24, !align !25, !noundef !24
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %201
+  br label %214
 
-197:                                              ; preds = %188
+195:                                              ; preds = %188
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !3483
   store i64 20, ptr %8, align 8
   %198 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17h3ce98be72ecc6c03E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8, i64 noundef %.val33, i64 noundef %.val34), !noalias !3483
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !3483
-  br label %201
+  br label %214
 
 199:                                              ; preds = %188
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !3486
   store i64 15, ptr %7, align 8
-  %200 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17h3ce98be72ecc6c03E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7, i64 noundef %.val33, i64 noundef %.val34), !noalias !3486
+  %213 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17h3ce98be72ecc6c03E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7, i64 noundef %.val33, i64 noundef %.val34), !noalias !3486
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !3486
-  br label %201
+  br label %214
 
-201:                                              ; preds = %172, %209, %210, %182, %203, %205, %215, %214, %199, %197, %194, %153
-  %.1 = phi ptr [ %218, %215 ], [ null, %214 ], [ %198, %197 ], [ %200, %199 ], [ %196, %194 ], [ %208, %205 ], [ %204, %203 ], [ %184, %182 ], [ %213, %210 ], [ null, %209 ], [ %174, %172 ], [ %155, %153 ]
+214:                                              ; preds = %172, %222, %223, %182, %216, %218, %228, %227, %199, %195, %194, %153
+  %.1 = phi ptr [ %231, %215 ], [ null, %214 ], [ %198, %197 ], [ %200, %199 ], [ %196, %194 ], [ %208, %205 ], [ %204, %203 ], [ %184, %182 ], [ %226, %210 ], [ null, %209 ], [ %174, %172 ], [ %155, %153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %202
+  br label %215
 
-202:                                              ; preds = %38, %42, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit44", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit46", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit48", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit50", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit52", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit54", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit56", %164, %201, %47
+215:                                              ; preds = %38, %42, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit44", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit46", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit48", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit50", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit52", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit54", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit56", %164, %214, %47
   %.0 = phi ptr [ %50, %47 ], [ %.1, %201 ], [ null, %164 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit56" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit54" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit52" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit50" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit48" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit46" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit44" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h74c0fc69f1509a64E.exit" ], [ %41, %38 ], [ %45, %42 ]
   ret ptr %.0
 
-203:                                              ; preds = %187
+216:                                              ; preds = %187
   tail call void @_ZN10serde_json4read12parse_escape16encode_surrogate17hbe1a7edd7e133e7aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i16 noundef %151)
-  %204 = tail call fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17hdb7dae80300d4fb7E(ptr noalias noundef align 8 dereferenceable(48) %0, i1 noundef zeroext false, ptr noalias noundef align 8 dereferenceable(24) %2)
-  br label %201
+  %217 = tail call fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17hdb7dae80300d4fb7E(ptr noalias noundef align 8 dereferenceable(48) %0, i1 noundef zeroext false, ptr noalias noundef align 8 dereferenceable(24) %2)
+  br label %214
 
-205:                                              ; preds = %187
+218:                                              ; preds = %187
   store i8 0, ptr %17, align 8, !alias.scope !3489
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val37 = load i64, ptr %206, align 8, !alias.scope !3446, !noundef !24
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val38 = load i64, ptr %207, align 8, !alias.scope !3446, !noundef !24
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val37 = load i64, ptr %219, align 8, !alias.scope !3446, !noundef !24
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val38 = load i64, ptr %220, align 8, !alias.scope !3446, !noundef !24
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3492
   store i64 23, ptr %6, align 8
-  %208 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17h3ce98be72ecc6c03E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, i64 noundef %.val37, i64 noundef %.val38), !noalias !3492
+  %221 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17h3ce98be72ecc6c03E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, i64 noundef %.val37, i64 noundef %.val38), !noalias !3492
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !3492
-  br label %201
+  br label %214
 
-209:                                              ; preds = %177
+222:                                              ; preds = %177
   tail call void @_ZN10serde_json4read12parse_escape16encode_surrogate17hbe1a7edd7e133e7aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i16 noundef %151)
-  br label %201
+  br label %214
 
-210:                                              ; preds = %177
+223:                                              ; preds = %177
   store i8 0, ptr %17, align 8, !alias.scope !3495
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val39 = load i64, ptr %211, align 8, !alias.scope !3446, !noundef !24
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val40 = load i64, ptr %212, align 8, !alias.scope !3446, !noundef !24
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val39 = load i64, ptr %224, align 8, !alias.scope !3446, !noundef !24
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val40 = load i64, ptr %225, align 8, !alias.scope !3446, !noundef !24
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3498
   store i64 23, ptr %5, align 8
-  %213 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17h3ce98be72ecc6c03E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, i64 noundef %.val39, i64 noundef %.val40), !noalias !3498
+  %226 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17h3ce98be72ecc6c03E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, i64 noundef %.val39, i64 noundef %.val40), !noalias !3498
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3498
-  br label %201
+  br label %214
 
-214:                                              ; preds = %156
+227:                                              ; preds = %156
   tail call void @_ZN10serde_json4read12parse_escape16encode_surrogate17hbe1a7edd7e133e7aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i16 noundef %151)
-  br label %201
+  br label %214
 
-215:                                              ; preds = %156
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val41 = load i64, ptr %216, align 8, !alias.scope !3446, !noundef !24
-  %217 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val42 = load i64, ptr %217, align 8, !alias.scope !3446, !noundef !24
+228:                                              ; preds = %156
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val41 = load i64, ptr %229, align 8, !alias.scope !3446, !noundef !24
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val42 = load i64, ptr %230, align 8, !alias.scope !3446, !noundef !24
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3501
   store i64 20, ptr %4, align 8
-  %218 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17h3ce98be72ecc6c03E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, i64 noundef %.val41, i64 noundef %.val42), !noalias !3501
+  %231 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17h3ce98be72ecc6c03E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, i64 noundef %.val41, i64 noundef %.val42), !noalias !3501
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3501
-  br label %201
+  br label %214
 }
 
 ; Function Attrs: nonlazybind uwtable

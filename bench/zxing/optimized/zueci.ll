@@ -2968,13 +2968,13 @@ define internal range(i32 0, 2) i32 @zueci_u_ascii_inv(i32 noundef %0, ptr nound
 
 4:                                                ; preds = %2
   %5 = icmp ult i32 %0, 123
-  br i1 %5, label %switch.early.test, label %8
+  br i1 %5, label %switch.early.test, label %12
 
 switch.early.test:                                ; preds = %4
   switch i32 %0, label %6 [
-    i32 64, label %8
-    i32 36, label %8
-    i32 35, label %8
+    i32 64, label %12
+    i32 36, label %12
+    i32 35, label %12
   ]
 
 6:                                                ; preds = %switch.early.test, %2
@@ -2982,7 +2982,7 @@ switch.early.test:                                ; preds = %4
   store i8 %7, ptr %1, align 1, !tbaa !3
   br label %8
 
-8:                                                ; preds = %4, %switch.early.test, %switch.early.test, %switch.early.test, %6
+12:                                               ; preds = %4, %switch.early.test, %switch.early.test, %switch.early.test, %6
   %.0 = phi i32 [ 1, %6 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %4 ]
   ret i32 %.0
 }
@@ -3755,20 +3755,20 @@ define internal range(i32 0, 2) i32 @zueci_ascii_inv_u(ptr noundef readonly capt
 
 10:                                               ; preds = %4
   %11 = icmp ult i8 %.fr, 123
-  br i1 %11, label %switch.early.test, label %13
+  br i1 %11, label %switch.early.test, label %17
 
 switch.early.test:                                ; preds = %10
   switch i8 %.fr, label %12 [
-    i8 64, label %13
-    i8 36, label %13
-    i8 35, label %13
+    i8 64, label %17
+    i8 36, label %17
+    i8 35, label %17
   ]
 
 12:                                               ; preds = %switch.early.test, %4
   store i32 %8, ptr %3, align 4, !tbaa !12
-  br label %13
+  br label %17
 
-13:                                               ; preds = %10, %switch.early.test, %switch.early.test, %switch.early.test, %12
+17:                                               ; preds = %10, %switch.early.test, %switch.early.test, %switch.early.test, %12
   %.0 = phi i32 [ 1, %12 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %10 ]
   ret i32 %.0
 }

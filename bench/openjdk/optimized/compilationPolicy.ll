@@ -1233,7 +1233,7 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %_ZN13CompileBroker1
   %or.cond23 = or i1 %36, %5
   br i1 %or.cond23, label %_ZN14CompilerConfig9is_tieredEv.exit.thread, label %37
 
-37:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
+35:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
   %38 = tail call noundef double @_ZN9CodeCache18reverse_free_ratioEv() #12
   %39 = load double, ptr @_ZN17CompilationPolicy28_increase_threshold_at_ratioE, align 8
   %40 = fcmp ogt double %38, %39

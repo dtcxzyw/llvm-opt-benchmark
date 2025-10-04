@@ -226,7 +226,7 @@ define hidden noundef ptr @_Z12get_expr_refR11cmd_contextRK6symbol(ptr noundef n
   tail call void @__cxa_free_exception(ptr nonnull %9) #14
   resume { ptr, i32 } %12
 
-13:                                               ; preds = %2
+25:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !6
   ret ptr %15

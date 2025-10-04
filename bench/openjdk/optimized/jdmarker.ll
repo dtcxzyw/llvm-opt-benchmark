@@ -25,7 +25,7 @@ define hidden range(i32 0, 2) i32 @jResyncRestart(ptr noundef %0, i32 noundef %1
   %14 = icmp slt i32 %4, 192
   br i1 %14, label %select.unfold, label %.thread35
 
-.thread35:                                        ; preds = %34, %2
+.thread35:; preds = %34, %2
   %.031.lcssa = phi i32 [ %4, %2 ], [ %35, %34 ]
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -61,7 +61,7 @@ select.unfold:                                    ; preds = %2, %34
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %.loopexit, label %34
 
-34:                                               ; preds = %select.unfold
+34:; preds = %select.unfold
   %35 = load i32, ptr %3, align 4
   %36 = icmp slt i32 %35, 192
   br i1 %36, label %select.unfold, label %.thread35

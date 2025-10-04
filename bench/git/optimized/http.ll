@@ -4210,30 +4210,30 @@ define dso_local i32 @http_fetch_ref(ptr noundef %0, ptr noundef %1) local_unnam
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %10
 
-10:                                               ; preds = %24, %.lr.ph.i
-  %11 = phi i8 [ %7, %.lr.ph.i ], [ %26, %24 ]
-  %.09.i = phi ptr [ %6, %.lr.ph.i ], [ %25, %24 ]
+10:                                               ; preds = %26, %.lr.ph.i
+  %11 = phi i8 [ %7, %.lr.ph.i ], [ %28, %24 ]
+  %.09.i = phi ptr [ %6, %.lr.ph.i ], [ %27, %24 ]
   %12 = sext i8 %11 to i32
   %13 = add nsw i32 %12, -45
   %or.cond11.i.i = icmp ult i32 %13, 13
   br i1 %or.cond11.i.i, label %15, label %14
 
-14:                                               ; preds = %10
+14:; preds = %10
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.202, i32 noundef %12) #23
-  br label %24
+  br label %26
 
-15:                                               ; preds = %10
-  %16 = load i64, ptr %3, align 8, !tbaa !29
-  %.not.i.i.i = icmp eq i64 %16, 0
+17:                                               ; preds = %10
+  %18 = load i64, ptr %3, align 8, !tbaa !29
+  %.not.i.i.i = icmp eq i64 %18, 0
   br i1 %.not.i.i.i, label %strbuf_avail.exit.thread.i.i, label %strbuf_avail.exit.i.i
 
-strbuf_avail.exit.i.i:                            ; preds = %15
-  %17 = load i64, ptr %8, align 8, !tbaa !30
-  %.neg.i.i = add i64 %17, 1
-  %.not.i.i = icmp eq i64 %16, %.neg.i.i
+strbuf_avail.exit.i.i:                            ; preds = %17
+  %19 = load i64, ptr %8, align 8, !tbaa !30
+  %.neg.i.i = add i64 %19, 1
+  %.not.i.i = icmp eq i64 %18, %.neg.i.i
   br i1 %.not.i.i, label %strbuf_avail.exit.thread.i.i, label %strbuf_addch.exit.i
 
-strbuf_avail.exit.thread.i.i:                     ; preds = %strbuf_avail.exit.i.i, %15
+strbuf_avail.exit.thread.i.i:                     ; preds = %strbuf_avail.exit.i.i, %17
   call void @strbuf_grow(ptr noundef nonnull %3, i64 noundef 1) #23
   %.pre.i.i = load i64, ptr %8, align 8, !tbaa !30
   %.pre7.i.i = add i64 %.pre.i.i, 1
@@ -4241,56 +4241,56 @@ strbuf_avail.exit.thread.i.i:                     ; preds = %strbuf_avail.exit.i
 
 strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.thread.i.i, %strbuf_avail.exit.i.i
   %.pre-phi.i.i = phi i64 [ %.pre7.i.i, %strbuf_avail.exit.thread.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
-  %18 = phi i64 [ %.pre.i.i, %strbuf_avail.exit.thread.i.i ], [ %17, %strbuf_avail.exit.i.i ]
-  %19 = load ptr, ptr %9, align 8, !tbaa !23
-  store i64 %.pre-phi.i.i, ptr %8, align 8, !tbaa !30
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %18
-  store i8 %11, ptr %20, align 1, !tbaa !24
+  %20 = phi i64 [ %.pre.i.i, %strbuf_avail.exit.thread.i.i ], [ %19, %strbuf_avail.exit.i.i ]
   %21 = load ptr, ptr %9, align 8, !tbaa !23
-  %22 = load i64, ptr %8, align 8, !tbaa !30
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
-  store i8 0, ptr %23, align 1, !tbaa !24
-  br label %24
+  store i64 %.pre-phi.i.i, ptr %8, align 8, !tbaa !30
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %20
+  store i8 %11, ptr %22, align 1, !tbaa !24
+  %23 = load ptr, ptr %9, align 8, !tbaa !23
+  %24 = load i64, ptr %8, align 8, !tbaa !30
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
+  store i8 0, ptr %25, align 1, !tbaa !24
+  br label %26
 
-24:                                               ; preds = %strbuf_addch.exit.i, %14
-  %25 = getelementptr inbounds nuw i8, ptr %.09.i, i64 1
-  %26 = load i8, ptr %25, align 1, !tbaa !24
-  %.not.i = icmp eq i8 %26, 0
+26:                                               ; preds = %strbuf_addch.exit.i, %14
+  %27 = getelementptr inbounds nuw i8, ptr %.09.i, i64 1
+  %28 = load i8, ptr %27, align 1, !tbaa !24
+  %.not.i = icmp eq i8 %28, 0
   br i1 %.not.i, label %quote_ref_url.exit, label %10, !llvm.loop !138
 
-quote_ref_url.exit:                               ; preds = %24, %2
-  %27 = call ptr @strbuf_detach(ptr noundef nonnull %3, ptr noundef null) #23
+quote_ref_url.exit:                               ; preds = %26, %2
+  %29 = call ptr @strbuf_detach(ptr noundef nonnull %3, ptr noundef null) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %28 = call fastcc range(i32 0, 7) i32 @http_request_reauth(ptr noundef %27, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull readonly %4)
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %51
+  %30 = call fastcc range(i32 0, 7) i32 @http_request_reauth(ptr noundef %29, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull readonly %4)
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %51
 
-30:                                               ; preds = %quote_ref_url.exit
+32:                                               ; preds = %quote_ref_url.exit
   call void @strbuf_rtrim(ptr noundef nonnull %5) #23
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !30
-  %33 = load ptr, ptr @the_repository, align 8, !tbaa !39
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 400
-  %35 = load ptr, ptr %34, align 8, !tbaa !139
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = load i64, ptr %36, align 8, !tbaa !157
-  %38 = icmp eq i64 %32, %37
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !23
-  br i1 %38, label %41, label %44
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %34 = load i64, ptr %33, align 8, !tbaa !30
+  %35 = load ptr, ptr @the_repository, align 8, !tbaa !39
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 400
+  %37 = load ptr, ptr %36, align 8, !tbaa !139
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %39 = load i64, ptr %38, align 8, !tbaa !157
+  %40 = icmp eq i64 %34, %39
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !23
+  br i1 %40, label %43, label %46
 
-41:                                               ; preds = %30
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %43 = call i32 @get_oid_hex(ptr noundef %40, ptr noundef nonnull %42) #23
+43:                                               ; preds = %32
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %45 = call i32 @get_oid_hex(ptr noundef %42, ptr noundef nonnull %44) #23
   br label %51
 
-44:                                               ; preds = %30
-  %45 = call i32 @starts_with(ptr noundef %40, ptr noundef nonnull @.str.42) #23
-  %.not = icmp eq i32 %45, 0
+46:                                               ; preds = %32
+  %47 = call i32 @starts_with(ptr noundef %42, ptr noundef nonnull @.str.42) #23
+  %.not = icmp eq i32 %47, 0
   br i1 %.not, label %51, label %46
 
-46:                                               ; preds = %44
-  %47 = load ptr, ptr %39, align 8, !tbaa !23
+53:                                               ; preds = %44
+  %47 = load ptr, ptr %41, align 8, !tbaa !23
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 5
   %49 = call ptr @xstrdup(ptr noundef nonnull %48) #23
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -4300,7 +4300,7 @@ quote_ref_url.exit:                               ; preds = %24, %2
 51:                                               ; preds = %41, %46, %44, %quote_ref_url.exit
   %.0 = phi i32 [ %43, %41 ], [ 0, %46 ], [ -1, %44 ], [ -1, %quote_ref_url.exit ]
   call void @strbuf_release(ptr noundef nonnull %5) #23
-  call void @free(ptr noundef %27) #23
+  call void @free(ptr noundef %29) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

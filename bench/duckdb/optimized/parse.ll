@@ -5291,7 +5291,7 @@ define internal fastcc noundef zeroext i1 @_ZN10duckdb_re2L11ParseEscapeEPNS_11S
   store i32 1, ptr %2, align 8, !tbaa !57
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  br label %140
+  br label %149
 
 15:                                               ; preds = %11
   %16 = icmp eq i64 %9, 1
@@ -5301,7 +5301,7 @@ define internal fastcc noundef zeroext i1 @_ZN10duckdb_re2L11ParseEscapeEPNS_11S
   store i32 8, ptr %2, align 8, !tbaa !57
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  br label %140
+  br label %149
 
 19:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5361,12 +5361,12 @@ _ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit
     i32 55, label %51
     i32 48, label %thread-pre-split
     i32 120, label %82
-    i32 110, label %129
-    i32 114, label %130
-    i32 116, label %131
-    i32 97, label %132
-    i32 102, label %133
-    i32 118, label %134
+    i32 110, label %138
+    i32 114, label %139
+    i32 116, label %140
+    i32 97, label %141
+    i32 102, label %142
+    i32 118, label %143
   ]
 
 41:                                               ; preds = %40
@@ -5462,7 +5462,7 @@ thread-pre-split:                                 ; preds = %53, %40
 87:                                               ; preds = %84
   %88 = load i32, ptr %5, align 4, !tbaa !3
   %89 = icmp eq i32 %88, 123
-  br i1 %89, label %90, label %111
+  br i1 %89, label %90, label %114
 
 90:                                               ; preds = %87
   %91 = call fastcc noundef i32 @_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef %2)
@@ -5477,7 +5477,7 @@ thread-pre-split:                                 ; preds = %53, %40
   %or.cond.i76 = icmp ult i32 %94, -10
   br i1 %or.cond.i76, label %107, label %95
 
-95:                                               ; preds = %.preheader
+95:; preds = %.preheader
   %96 = add nuw nsw i32 %.0, 1
   %97 = shl nsw i32 %.1, 4
   %98 = call fastcc noundef i32 @_ZN10duckdb_re2L5UnHexEi(i32 noundef %93)
@@ -5485,7 +5485,7 @@ thread-pre-split:                                 ; preds = %53, %40
   %100 = icmp sgt i32 %99, %3
   br i1 %100, label %.thread, label %101
 
-101:                                              ; preds = %95
+101:; preds = %95
   %102 = load i64, ptr %8, align 8, !tbaa !96
   %103 = icmp eq i64 %102, 0
   br i1 %103, label %.thread, label %104
@@ -5505,10 +5505,10 @@ thread-pre-split:                                 ; preds = %53, %40
   store i32 %.1, ptr %1, align 4, !tbaa !3
   br label %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread
 
-111:                                              ; preds = %87
-  %112 = load i64, ptr %8, align 8, !tbaa !96
-  %113 = icmp eq i64 %112, 0
-  br i1 %113, label %.thread, label %114
+114:                                              ; preds = %87
+  %115 = load i64, ptr %8, align 8, !tbaa !96
+  %116 = icmp eq i64 %115, 0
+  br i1 %116, label %.thread, label %114
 
 114:                                              ; preds = %111
   %115 = call fastcc noundef i32 @_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef %2)
@@ -5524,10 +5524,10 @@ thread-pre-split:                                 ; preds = %53, %40
 120:                                              ; preds = %117
   %121 = load i32, ptr %6, align 4, !tbaa !3
   %122 = add i32 %121, -58
-  %or.cond.i79 = icmp ult i32 %122, -10
+  %or.cond.i77 = icmp ult i32 %122, -10
   br i1 %or.cond.i79, label %.thread, label %123
 
-123:                                              ; preds = %120
+123:; preds = %120
   %124 = call fastcc noundef i32 @_ZN10duckdb_re2L5UnHexEi(i32 noundef %118)
   %125 = shl nuw nsw i32 %124, 4
   %126 = load i32, ptr %6, align 4, !tbaa !3
@@ -5536,49 +5536,49 @@ thread-pre-split:                                 ; preds = %53, %40
   store i32 %128, ptr %1, align 4, !tbaa !3
   br label %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread
 
-129:                                              ; preds = %40
+138:                                              ; preds = %40
   store i32 10, ptr %1, align 4, !tbaa !3
   br label %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread
 
-130:                                              ; preds = %40
+139:                                              ; preds = %40
   store i32 13, ptr %1, align 4, !tbaa !3
   br label %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread
 
-131:                                              ; preds = %40
+140:                                              ; preds = %40
   store i32 9, ptr %1, align 4, !tbaa !3
   br label %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread
 
-132:                                              ; preds = %40
+141:                                              ; preds = %40
   store i32 7, ptr %1, align 4, !tbaa !3
   br label %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread
 
-133:                                              ; preds = %40
+142:                                              ; preds = %40
   store i32 12, ptr %1, align 4, !tbaa !3
   br label %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread
 
-134:                                              ; preds = %40
+143:                                              ; preds = %40
   store i32 11, ptr %1, align 4, !tbaa !3
   br label %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread
 
 .thread:                                          ; preds = %101, %95, %107, %117, %120, %111, %82, %79, %51, %53, %41, %43
   store i32 2, ptr %2, align 8, !tbaa !57
-  %135 = load ptr, ptr %0, align 8, !tbaa !92
-  %136 = ptrtoint ptr %135 to i64
-  %137 = ptrtoint ptr %7 to i64
-  %138 = sub i64 %136, %137
-  %139 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %7, ptr %139, align 8, !tbaa !17
+  %144 = load ptr, ptr %0, align 8, !tbaa !92
+  %145 = ptrtoint ptr %144 to i64
+  %146 = ptrtoint ptr %7 to i64
+  %147 = sub i64 %145, %146
+  %148 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %7, ptr %148, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %138, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !18
+  store i64 %147, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !18
   br label %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread
 
-_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread: ; preds = %104, %.thread28.i, %32, %110, %50, %81, %123, %129, %130, %131, %132, %133, %134, %.thread, %84, %90, %114, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit
+_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread: ; preds = %104, %.thread28.i, %32, %110, %50, %81, %123, %129, %130, %140, %141, %142, %143, %.thread, %84, %90, %114, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit
   %.166 = phi i1 [ false, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit ], [ false, %.thread ], [ true, %50 ], [ true, %81 ], [ true, %123 ], [ true, %129 ], [ true, %130 ], [ true, %131 ], [ true, %132 ], [ true, %133 ], [ true, %134 ], [ false, %84 ], [ false, %90 ], [ false, %114 ], [ true, %110 ], [ false, %32 ], [ false, %.thread28.i ], [ false, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %140
+  br label %149
 
-140:                                              ; preds = %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread, %17, %13
+149:                                              ; preds = %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread, %17, %13
   %.065 = phi i1 [ false, %13 ], [ false, %17 ], [ %.166, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread ]
   ret i1 %.065
 }

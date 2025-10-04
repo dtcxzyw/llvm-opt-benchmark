@@ -527,25 +527,25 @@ define { i64, i64 } @_RINvXsf_NtCsaPKTPzkFU9s_3nom6traitsReNtB6_9InputIter8posit
   %8 = icmp sgt i8 %7, -1
   br i1 %8, label %14, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit12.i.i
 
-_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit12.i.i: ; preds = %5
+_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit12.i.i:; preds = %5
   %9 = icmp ne i64 %3, 1
   tail call void @llvm.assume(i1 %9)
   %10 = icmp samesign ugt i8 %7, -33
   br i1 %10, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit14.i.i, label %14
 
 _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit14.i.i: ; preds = %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit12.i.i
-  %11 = icmp ne i64 %3, 2
-  tail call void @llvm.assume(i1 %11)
+  %25 = icmp ne i64 %3, 2
+  tail call void @llvm.assume(i1 %25)
   %12 = icmp samesign ugt i8 %7, -17
-  br i1 %12, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit16.i.i, label %14
+  br i1 %12, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit16.i.i, label %45
 
 _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit16.i.i: ; preds = %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit14.i.i
-  %13 = icmp ne i64 %3, 3
-  tail call void @llvm.assume(i1 %13)
+  %35 = icmp ne i64 %3, 3
+  tail call void @llvm.assume(i1 %35)
   br label %14
 
-14:                                               ; preds = %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit12.i.i, %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit14.i.i, %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit16.i.i, %5, %1
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ 1, %5 ], [ 1, %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit16.i.i ], [ 1, %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit14.i.i ], [ 1, %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit12.i.i ]
+45:                                               ; preds = %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit12.i.i, %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit14.i.i, %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit16.i.i, %5, %1
+  %.sroa.0.1 = phi i64 [ 0, %1 ], [ 1, %5 ], [ 1, %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit16.i.i ], [ 1, %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit14.i.i ], [ 1, %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCseG2FYMysgNb_3wax.exit12.i.i ]
   %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %16 = insertvalue { i64, i64 } %15, i64 0, 1
   ret { i64, i64 } %16
@@ -7099,7 +7099,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -9802,13 +9802,13 @@ define ptr @l_Lake_uriEncodeChar(i32 noundef %0, ptr noundef %1) local_unnamed_a
 
 6:                                                ; preds = %4
   %7 = tail call ptr @lean_string_push(ptr noundef %1, i32 noundef %0) #7
-  br label %19
+  br label %23
 
 lean_dec.exit:                                    ; preds = %2
-  %8 = icmp samesign ult i32 %0, 48
-  br i1 %8, label %9, label %13
+  %12 = icmp samesign ult i32 %0, 48
+  br i1 %12, label %13, label %17
 
-9:                                                ; preds = %lean_dec.exit
+13:                                               ; preds = %lean_dec.exit
   switch i32 %0, label %10 [
     i32 45, label %l_Lake_isUriUnreservedMark.exit.thread
     i32 41, label %l_Lake_isUriUnreservedMark.exit.thread
@@ -9819,38 +9819,38 @@ lean_dec.exit:                                    ; preds = %2
     i32 39, label %l_Lake_isUriUnreservedMark.exit.thread
   ]
 
-10:                                               ; preds = %9
-  %11 = tail call ptr @l_Lake_foldlUtf8M___at_Lake_uriEscapeChar___spec__1(i32 noundef %0, ptr noundef %1)
-  br label %19
+14:                                               ; preds = %13
+  %15 = tail call ptr @l_Lake_foldlUtf8M___at_Lake_uriEscapeChar___spec__1(i32 noundef %0, ptr noundef %1)
+  br label %113
 
-l_Lake_isUriUnreservedMark.exit.thread:           ; preds = %9, %9, %9, %9, %9, %9, %9
-  %12 = tail call ptr @lean_string_push(ptr noundef %1, i32 noundef %0) #7
-  br label %19
+l_Lake_isUriUnreservedMark.exit.thread:           ; preds = %13, %13, %13, %13, %13, %13, %13
+  %16 = tail call ptr @lean_string_push(ptr noundef %1, i32 noundef %0) #7
+  br label %113
 
-13:                                               ; preds = %lean_dec.exit
-  %14 = icmp samesign ugt i32 %0, 57
-  br i1 %14, label %.thread, label %17
+17:                                               ; preds = %lean_dec.exit
+  %18 = icmp samesign ugt i32 %0, 57
+  br i1 %18, label %.thread, label %21
 
-.thread:                                          ; preds = %4, %13
+.thread:                                          ; preds = %4, %17
   switch i32 %0, label %l_Lake_isUriUnreservedMark.exit72 [
     i32 126, label %l_Lake_isUriUnreservedMark.exit72.thread
     i32 95, label %l_Lake_isUriUnreservedMark.exit72.thread
   ]
 
 l_Lake_isUriUnreservedMark.exit72:                ; preds = %.thread
-  %15 = tail call ptr @l_Lake_foldlUtf8M___at_Lake_uriEscapeChar___spec__1(i32 noundef %0, ptr noundef %1)
-  br label %19
+  %19 = tail call ptr @l_Lake_foldlUtf8M___at_Lake_uriEscapeChar___spec__1(i32 noundef %0, ptr noundef %1)
+  br label %113
 
 l_Lake_isUriUnreservedMark.exit72.thread:         ; preds = %.thread, %.thread
-  %16 = tail call ptr @lean_string_push(ptr noundef %1, i32 noundef %0) #7
-  br label %19
+  %20 = tail call ptr @lean_string_push(ptr noundef %1, i32 noundef %0) #7
+  br label %113
 
-17:                                               ; preds = %13
-  %18 = tail call ptr @lean_string_push(ptr noundef %1, i32 noundef %0) #7
-  br label %19
+21:                                               ; preds = %17
+  %22 = tail call ptr @lean_string_push(ptr noundef %1, i32 noundef %0) #7
+  br label %113
 
-19:                                               ; preds = %6, %l_Lake_isUriUnreservedMark.exit.thread, %10, %l_Lake_isUriUnreservedMark.exit72, %l_Lake_isUriUnreservedMark.exit72.thread, %17
-  %.2 = phi ptr [ %11, %10 ], [ %12, %l_Lake_isUriUnreservedMark.exit.thread ], [ %18, %17 ], [ %15, %l_Lake_isUriUnreservedMark.exit72 ], [ %16, %l_Lake_isUriUnreservedMark.exit72.thread ], [ %7, %6 ]
+113:                                               ; preds = %6, %l_Lake_isUriUnreservedMark.exit.thread, %14, %l_Lake_isUriUnreservedMark.exit72, %l_Lake_isUriUnreservedMark.exit72.thread, %21
+  %.2 = phi ptr [ %15, %10 ], [ %12, %l_Lake_isUriUnreservedMark.exit.thread ], [ %18, %17 ], [ %15, %l_Lake_isUriUnreservedMark.exit72 ], [ %16, %l_Lake_isUriUnreservedMark.exit72.thread ], [ %7, %6 ]
   ret ptr %.2
 }
 

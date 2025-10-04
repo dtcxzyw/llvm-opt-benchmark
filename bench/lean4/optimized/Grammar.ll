@@ -11685,22 +11685,22 @@ define zeroext range(i8 0, 2) i8 @l_Lake_Toml_unquotedKeyFn___lambda__1(i32 noun
   br i1 %4, label %lean_dec.exit.thread, label %.critedge
 
 lean_dec.exit63:                                  ; preds = %lean_dec.exit, %lean_dec.exit.thread
-  %5 = icmp eq i32 %0, 45
-  %6 = zext i1 %5 to i8
+  %6 = icmp eq i32 %0, 45
+  %7 = zext i1 %6 to i8
   br label %.critedge
 
 lean_dec.exit:                                    ; preds = %1
-  %7 = icmp samesign ult i32 %0, 48
-  br i1 %7, label %lean_dec.exit63, label %lean_dec.exit.thread
+  %8 = icmp samesign ult i32 %0, 48
+  br i1 %8, label %lean_dec.exit63, label %lean_dec.exit.thread
 
 lean_dec.exit.thread:                             ; preds = %3, %lean_dec.exit
-  %8 = icmp ult i32 %0, 58
+  %9 = icmp ult i32 %0, 58
   %.not = icmp eq i32 %0, 95
-  %or.cond73 = or i1 %8, %.not
+  %or.cond73 = or i1 %9, %.not
   br i1 %or.cond73, label %.critedge, label %lean_dec.exit63
 
 .critedge:                                        ; preds = %lean_dec.exit.thread, %3, %lean_dec.exit63
-  %.2 = phi i8 [ %6, %lean_dec.exit63 ], [ 1, %3 ], [ 1, %lean_dec.exit.thread ]
+  %.2 = phi i8 [ %7, %lean_dec.exit63 ], [ 1, %3 ], [ 1, %lean_dec.exit.thread ]
   ret i8 %.2
 }
 
@@ -11748,24 +11748,24 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br i1 %15, label %lean_dec.exit.thread.i, label %l_Lake_Toml_unquotedKeyFn___lambda__1.exit
 
 lean_dec.exit63.i:                                ; preds = %lean_dec.exit.thread.i, %lean_dec.exit.i
-  %16 = icmp eq i32 %4, 45
-  %17 = select i1 %16, i64 3, i64 1
+  %17 = icmp eq i32 %4, 45
+  %18 = select i1 %17, i64 3, i64 1
   br label %l_Lake_Toml_unquotedKeyFn___lambda__1.exit
 
 lean_dec.exit.i:                                  ; preds = %lean_dec.exit
-  %18 = icmp samesign ult i32 %4, 48
-  br i1 %18, label %lean_dec.exit63.i, label %lean_dec.exit.thread.i
+  %19 = icmp samesign ult i32 %4, 48
+  br i1 %19, label %lean_dec.exit63.i, label %lean_dec.exit.thread.i
 
 lean_dec.exit.thread.i:                           ; preds = %lean_dec.exit.i, %14
-  %19 = icmp ult i32 %4, 58
+  %20 = icmp ult i32 %4, 58
   %.not.i4 = icmp eq i32 %4, 95
-  %or.cond73.i = or i1 %19, %.not.i4
+  %or.cond73.i = or i1 %20, %.not.i4
   br i1 %or.cond73.i, label %l_Lake_Toml_unquotedKeyFn___lambda__1.exit, label %lean_dec.exit63.i
 
 l_Lake_Toml_unquotedKeyFn___lambda__1.exit:       ; preds = %14, %lean_dec.exit63.i, %lean_dec.exit.thread.i
-  %.2.i = phi i64 [ %17, %lean_dec.exit63.i ], [ 3, %14 ], [ 3, %lean_dec.exit.thread.i ]
-  %20 = inttoptr i64 %.2.i to ptr
-  ret ptr %20
+  %.2.i = phi i64 [ %18, %lean_dec.exit63.i ], [ 3, %14 ], [ 3, %lean_dec.exit.thread.i ]
+  %21 = inttoptr i64 %.2.i to ptr
+  ret ptr %21
 }
 
 ; Function Attrs: nounwind uwtable

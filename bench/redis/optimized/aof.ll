@@ -5240,7 +5240,7 @@ define dso_local i32 @loadAppendOnlyFiles(ptr noundef captures(address_is_null) 
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %36 = load i64, ptr %35, align 8, !tbaa !73
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %133, label %.thread137
+  br i1 %37, label %136, label %.thread137
 
 .thread137:                                       ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5280,11 +5280,11 @@ getBaseAndIncrAppendOnlyFilesNum.exit:            ; preds = %39, %41
   ]
 
 53:                                               ; preds = %50
-  br label %133
+  br label %136
 
 54:                                               ; preds = %50
   %55 = icmp eq i64 %51, 0
-  br i1 %55, label %133, label %56
+  br i1 %55, label %136, label %56
 
 56:                                               ; preds = %54
   call void @startLoading(i64 noundef %51, i32 noundef 1, i32 noundef 0) #20
@@ -5456,14 +5456,14 @@ getBaseAndIncrAppendOnlyFilesNum.exit:            ; preds = %39, %41
 
 .thread101:                                       ; preds = %86, %83, %.thread115, %87, %128
   %.2 = phi i32 [ %68, %87 ], [ %.3, %128 ], [ 4, %.thread115 ], [ 4, %83 ], [ 4, %86 ]
-  %129 = icmp eq i32 %.2, 0
-  %130 = icmp eq i32 %.2, 5
-  %131 = or i1 %129, %130
-  %132 = zext i1 %131 to i32
-  call void @stopLoading(i32 noundef %132) #20
-  br label %133
+  %132 = icmp eq i32 %.2, 0
+  %133 = icmp eq i32 %.2, 5
+  %134 = or i1 %132, %133
+  %135 = zext i1 %134 to i32
+  call void @stopLoading(i32 noundef %135) #20
+  br label %136
 
-133:                                              ; preds = %53, %50, %54, %34, %.thread101
+136:                                              ; preds = %53, %50, %54, %34, %.thread101
   %.0 = phi i32 [ %.2, %.thread101 ], [ 1, %34 ], [ 2, %54 ], [ %52, %50 ], [ 4, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

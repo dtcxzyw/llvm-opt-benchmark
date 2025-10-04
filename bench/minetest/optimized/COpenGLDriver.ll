@@ -16955,14 +16955,14 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %factor.off.i18.i = add nsw i32 %shr4.i.i, -6
   %switch.i19.i = icmp ult i32 %factor.off.i18.i, 5
   %or.cond24.i = select i1 %or.cond.i, i1 true, i1 %switch.i19.i
-  br i1 %or.cond24.i, label %lor.end, label %if.end15.i
+  br i1 %or.cond24.i, label %lor.end, label %cleanup.i
 
-if.end15.i:                                       ; preds = %if.then.i, %land.lhs.true.i, %lor.rhs
+cleanup.i:                                        ; preds = %if.then.i, %land.lhs.true.i, %lor.rhs
   br label %lor.end
 
 lor.end:                                          ; preds = %if.end15.i, %if.then.i, %entry
-  %3 = phi i1 [ true, %entry ], [ false, %if.end15.i ], [ true, %if.then.i ]
-  ret i1 %3
+  %4 = phi i1 [ true, %entry ], [ false, %if.end15.i ], [ true, %if.then.i ]
+  ret i1 %4
 }
 
 declare noundef zeroext i1 @_ZNK3irr5video11CNullDriver26needsTransparentRenderPassERKNS0_9SMaterialE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(178)) unnamed_addr #1

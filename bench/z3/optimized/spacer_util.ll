@@ -10246,45 +10246,45 @@ define hidden void @_ZN6spacer6mk_eppC2EP3astR11ast_managerjjPKc(ptr noundef non
 13:                                               ; preds = %12
   %14 = load ptr, ptr %0, align 8, !tbaa !268
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %15 = load ptr, ptr %11, align 8, !tbaa !137
-  store ptr %15, ptr %7, align 8, !tbaa !10
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  invoke void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(976) %15)
+  %21 = load ptr, ptr %11, align 8, !tbaa !137
+  store ptr %21, ptr %7, align 8, !tbaa !10
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  invoke void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(976) %21)
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %17 = load ptr, ptr %11, align 8, !tbaa !137
-  invoke void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEEC1ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %8, ptr noundef nonnull align 8 dereferenceable(976) %17, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  %23 = load ptr, ptr %11, align 8, !tbaa !137
+  invoke void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEEC1ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %8, ptr noundef nonnull align 8 dereferenceable(976) %23, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %.noexc8 unwind label %21
 
 .noexc8:                                          ; preds = %.noexc
-  %18 = getelementptr inbounds nuw i8, ptr %8, i64 496
-  invoke void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEEclEP4exprR7obj_refIS3_11ast_managerERS5_I3appS6_E(ptr noundef nonnull align 8 dereferenceable(536) %8, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %18)
-          to label %24 unwind label %19
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 496
+  invoke void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEEclEP4exprR7obj_refIS3_11ast_managerERS5_I3appS6_E(ptr noundef nonnull align 8 dereferenceable(536) %8, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %24)
+          to label %24 unwind label %25
 
-19:                                               ; preds = %.noexc8
-  %20 = landingpad { ptr, i32 }
+25:                                               ; preds = %.noexc8
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %8) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.body
 
-21:                                               ; preds = %.noexc, %13, %12, %6
+27:                                               ; preds = %.noexc, %13, %12, %6
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %19, %21
-  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
+.body:                                            ; preds = %25, %21
+  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %26, %19 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #26
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #26
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #26
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #26
   resume { ptr, i32 } %eh.lpad-body
 
-24:                                               ; preds = %.noexc8
+32:                                               ; preds = %.noexc8
   call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %8) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

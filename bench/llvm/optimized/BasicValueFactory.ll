@@ -896,11 +896,11 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %42, %42, %42,
   br label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit
 
 _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24: ; preds = %42, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit
-  %54 = load ptr, ptr %0, align 8, !tbaa !77
-  %55 = tail call noundef i32 @_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %54, i64 %.sroa.0.0) #15
+  %53 = load ptr, ptr %0, align 8, !tbaa !77
+  %54 = tail call noundef i32 @_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %53, i64 %.sroa.0.0) #15
   br label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit
 
-_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit: ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
+_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit:; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
   %.sroa.3.0.shrunk = phi i64 [ %53, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ 0, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24 ]
   %.sroa.017.0 = phi i32 [ %50, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ %55, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24 ]
   %.sroa.017.0.insert.ext = zext i32 %.sroa.017.0 to i64

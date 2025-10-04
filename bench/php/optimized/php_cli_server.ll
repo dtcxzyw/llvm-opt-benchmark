@@ -3837,14 +3837,14 @@ define hidden range(i32 0, 2) i32 @do_cli_server(i32 noundef %0, ptr noundef %1)
 
 .outer:                                           ; preds = %17, %2
   %.023.ph = phi ptr [ %18, %17 ], [ null, %2 ]
-  %.021.ph = phi ptr [ %.021.ph137, %17 ], [ null, %2 ]
-  br label %.outer136
+  %.021.ph = phi ptr [ %.021.ph138, %17 ], [ null, %2 ]
+  br label %.outer137
 
-.outer136:                                        ; preds = %.outer, %19
-  %.021.ph137 = phi ptr [ %.021.ph, %.outer ], [ %20, %19 ]
+.outer137:                                        ; preds = %.outer, %19
+  %.021.ph138 = phi ptr [ %.021.ph, %.outer ], [ %20, %19 ]
   br label %15
 
-15:                                               ; preds = %.backedge, %.outer136
+15:                                               ; preds = %.backedge, %.outer137
   %16 = call i32 @php_getopt(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @OPTIONS, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 2) #29
   switch i32 %16, label %.backedge [
     i32 -1, label %26
@@ -3862,7 +3862,7 @@ define hidden range(i32 0, 2) i32 @do_cli_server(i32 noundef %0, ptr noundef %1)
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %11, align 8, !tbaa !91
-  br label %.outer136
+  br label %.outer137
 
 21:                                               ; preds = %15
   %22 = load i32, ptr @php_cli_server_log_level, align 4, !tbaa !50
@@ -3875,13 +3875,13 @@ define hidden range(i32 0, 2) i32 @do_cli_server(i32 noundef %0, ptr noundef %1)
   br label %.backedge
 
 26:                                               ; preds = %15
-  %.not27 = icmp eq ptr %.021.ph137, null
+  %.not27 = icmp eq ptr %.021.ph138, null
   br i1 %.not27, label %36, label %27
 
 27:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %14, i8 0, i64 144, i1 false)
-  %28 = call i32 @stat(ptr noundef nonnull %.021.ph137, ptr noundef nonnull %14) #29
+  %28 = call i32 @stat(ptr noundef nonnull %.021.ph138, ptr noundef nonnull %14) #29
   %.not29 = icmp eq i32 %28, 0
   br i1 %.not29, label %29, label %.critedge
 
@@ -3893,9 +3893,9 @@ define hidden range(i32 0, 2) i32 @do_cli_server(i32 noundef %0, ptr noundef %1)
   br i1 %33, label %34, label %.critedge
 
 34:                                               ; preds = %29
-  %35 = call ptr @tsrm_realpath(ptr noundef nonnull %.021.ph137, ptr noundef nonnull %13) #29
+  %35 = call ptr @tsrm_realpath(ptr noundef nonnull %.021.ph138, ptr noundef nonnull %13) #29
   %.not30 = icmp eq ptr %35, null
-  %spec.select = select i1 %.not30, ptr %.021.ph137, ptr %13
+  %spec.select = select i1 %.not30, ptr %.021.ph138, ptr %13
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %39
 
@@ -4590,7 +4590,7 @@ php_cli_server_do_event_loop.exit:                ; preds = %266, %269
   br i1 %297, label %.lr.ph.i37, label %._crit_edge.i
 
 .lr.ph.i37:                                       ; preds = %.preheader.i, %.critedge.i
-  %.01.i = phi i64 [ %308, %.critedge.i ], [ 0, %.preheader.i ]
+  %.01.i = phi i64 [ %311, %.critedge.i ], [ 0, %.preheader.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %298
 
@@ -4606,24 +4606,24 @@ php_cli_server_do_event_loop.exit:                ; preds = %266, %269
   %305 = load i32, ptr %3, align 4, !tbaa !50
   %306 = and i32 %305, 127
   %307 = icmp eq i32 %306, 127
-  br i1 %307, label %298, label %.critedge.i
+  br i1 %307, label %298, label %308
 
-.critedge.i:                                      ; preds = %304, %298
+308:                                              ; preds = %304, %298
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %308 = add nuw nsw i64 %.01.i, 1
-  %309 = load i64, ptr @php_cli_server_workers_max, align 8, !tbaa !95
-  %310 = icmp slt i64 %308, %309
-  br i1 %310, label %.lr.ph.i37, label %._crit_edge.i
+  %311 = add nuw nsw i64 %.01.i, 1
+  %312 = load i64, ptr @php_cli_server_workers_max, align 8, !tbaa !95
+  %313 = icmp slt i64 %311, %312
+  br i1 %313, label %.lr.ph.i37, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %.preheader.i
-  %311 = load ptr, ptr @php_cli_server_workers, align 8, !tbaa !108
-  call void @free(ptr noundef %311) #29
+  %314 = load ptr, ptr @php_cli_server_workers, align 8, !tbaa !108
+  call void @free(ptr noundef %314) #29
   br label %php_cli_server_dtor.exit
 
 .critedge:                                        ; preds = %29, %27
   %.str.8.sink = phi ptr [ @.str.7, %27 ], [ @.str.8, %29 ]
-  %312 = load ptr, ptr @stderr, align 8, !tbaa !97
-  %313 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %312, ptr noundef nonnull %.str.8.sink, ptr noundef nonnull %.021.ph137) #33
+  %315 = load ptr, ptr @stderr, align 8, !tbaa !97
+  %316 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %315, ptr noundef nonnull %.str.8.sink, ptr noundef nonnull %.021.ph138) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %php_cli_server_dtor.exit
 

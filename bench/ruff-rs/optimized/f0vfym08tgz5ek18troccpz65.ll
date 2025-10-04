@@ -339,7 +339,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers14is_module_name1
   %.not.i = icmp eq i32 %spec.select.i7.i, 95
   br i1 %.not.i, label %.preheader, label %_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E.exit
 
-83:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i", %.preheader
+83:; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i", %.preheader
   %84 = tail call noundef zeroext i1 @_ZN18ruff_python_stdlib7keyword10is_keyword17hea7a49f26f5ddeabE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
   %not. = xor i1 %84, true
   br label %_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E.exit
@@ -418,7 +418,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers17is_migration_na
   %.not.i = icmp eq i32 %spec.select.i7.i, 95
   br i1 %.not.i, label %4, label %.loopexit
 
-43:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i", %4
+43:; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i", %4
   %44 = tail call noundef zeroext i1 @_ZN18ruff_python_stdlib7keyword10is_keyword17hea7a49f26f5ddeabE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
   %not. = xor i1 %44, true
   br label %.loopexit

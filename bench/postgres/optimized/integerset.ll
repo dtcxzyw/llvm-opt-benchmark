@@ -574,35 +574,35 @@ intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i55
   br label %.critedge
 
 .lr.ph.preheader.i:                               ; preds = %77
-  %83 = zext i8 %75 to i64
-  %notmask.i = shl nsw i64 -1, %83
-  %84 = xor i64 %notmask.i, -1
-  %85 = tail call i8 @llvm.umax.i8(i8 %74, i8 1)
-  %umax.i = zext i8 %85 to i32
+  %84 = zext i8 %75 to i64
+  %notmask.i = shl nsw i64 -1, %84
+  %85 = xor i64 %notmask.i, -1
+  %86 = tail call i8 @llvm.umax.i8(i8 %74, i8 1)
+  %umax.i = zext i8 %86 to i32
   br label %.lr.ph.i58
 
-.lr.ph.i58:                                       ; preds = %89, %.lr.ph.preheader.i
-  %.02845.i = phi i32 [ %91, %89 ], [ 0, %.lr.ph.preheader.i ]
-  %.02944.i = phi i64 [ %88, %89 ], [ %66, %.lr.ph.preheader.i ]
-  %.03043.i = phi i64 [ %90, %89 ], [ %70, %.lr.ph.preheader.i ]
-  %86 = and i64 %.03043.i, %84
-  %87 = add i64 %.02944.i, 1
-  %88 = add i64 %87, %86
-  %.not.not.i.not.not.not.not.not = icmp uge i64 %88, %1
-  br i1 %.not.not.i.not.not.not.not.not, label %.split.loop.exit39.i, label %89
+.lr.ph.i58:                                       ; preds = %90, %.lr.ph.preheader.i
+  %.02845.i = phi i32 [ %92, %89 ], [ 0, %.lr.ph.preheader.i ]
+  %.02944.i = phi i64 [ %89, %89 ], [ %66, %.lr.ph.preheader.i ]
+  %.03043.i = phi i64 [ %91, %89 ], [ %70, %.lr.ph.preheader.i ]
+  %87 = and i64 %.03043.i, %85
+  %88 = add i64 %.02944.i, 1
+  %89 = add i64 %88, %87
+  %.not.not.i.not.not.not.not.not = icmp uge i64 %89, %1
+  br i1 %.not.not.i.not.not.not.not.not, label %.split.loop.exit39.i, label %90
 
-89:                                               ; preds = %.lr.ph.i58
-  %90 = lshr i64 %.03043.i, %83
-  %91 = add nuw nsw i32 %.02845.i, 1
-  %exitcond.not.i = icmp eq i32 %91, %umax.i
+90:                                               ; preds = %.lr.ph.i58
+  %91 = lshr i64 %.03043.i, %84
+  %92 = add nuw nsw i32 %.02845.i, 1
+  %exitcond.not.i = icmp eq i32 %92, %umax.i
   br i1 %exitcond.not.i, label %.split.loop.exit.i, label %.lr.ph.i58, !llvm.loop !12
 
 .split.loop.exit39.i:                             ; preds = %.lr.ph.i58
-  %92 = icmp eq i64 %88, %1
+  %93 = icmp eq i64 %89, %1
   br label %.split.loop.exit.i
 
-.split.loop.exit.i:                               ; preds = %89, %.split.loop.exit39.i
-  %.2.i = phi i1 [ %92, %.split.loop.exit39.i ], [ undef, %89 ]
+.split.loop.exit.i:                               ; preds = %90, %.split.loop.exit39.i
+  %.2.i = phi i1 [ %93, %.split.loop.exit39.i ], [ undef, %89 ]
   %spec.select.i = and i1 %.not.not.i.not.not.not.not.not, %.2.i
   br label %.critedge
 

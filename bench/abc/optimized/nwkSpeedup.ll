@@ -1581,7 +1581,7 @@ Vec_PtrFree.exit381:                              ; preds = %Vec_PtrFree.exit, %
   br label %441
 
 441:                                              ; preds = %Vec_PtrFree.exit381, %440
-  br i1 %.not268, label %.critedge21, label %442
+  br i1 %.not268, label %449, label %442
 
 442:                                              ; preds = %441
   %443 = getelementptr i8, ptr %0, i64 52
@@ -1592,31 +1592,31 @@ Vec_PtrFree.exit381:                              ; preds = %Vec_PtrFree.exit, %
   %446 = fdiv double %444, %445
   %447 = select i1 %.not271, double 0.000000e+00, double %446
   %448 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.val347, i32 noundef %.4.lcssa, i32 noundef %.2.lcssa, double noundef %447)
-  br label %.critedge21
+  br label %449
 
-.critedge21:                                      ; preds = %442, %441
-  br i1 %.not, label %449, label %450
+449:                                              ; preds = %442, %441
+  br i1 %.not, label %449, label %473
 
-449:                                              ; preds = %.critedge21
+454:                                              ; preds = %.critedge21
   store ptr %8, ptr %7, align 8, !tbaa !51
-  br label %450
+  br label %473
 
-450:                                              ; preds = %449, %.critedge21
+473:                                              ; preds = %449, %.critedge21
   %.not272 = icmp eq ptr %.0251, null
-  br i1 %.not272, label %454, label %451
+  br i1 %.not272, label %477, label %474
 
-451:                                              ; preds = %450
-  %452 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %453 = load ptr, ptr %452, align 8, !tbaa !69
-  tail call void @Tim_ManStop(ptr noundef %453) #13
-  store ptr %.0251, ptr %452, align 8, !tbaa !69
-  br label %454
+474:                                              ; preds = %473
+  %475 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %476 = load ptr, ptr %475, align 8, !tbaa !69
+  tail call void @Tim_ManStop(ptr noundef %476) #13
+  store ptr %.0251, ptr %475, align 8, !tbaa !69
+  br label %477
 
-454:                                              ; preds = %451, %450
-  %455 = tail call ptr @Aig_ManDupDfs(ptr noundef nonnull %117) #13
+477:                                              ; preds = %474, %473
+  %478 = tail call ptr @Aig_ManDupDfs(ptr noundef nonnull %117) #13
   tail call void @Aig_ManStop(ptr noundef nonnull %117) #13
-  %456 = tail call i32 @Aig_ManChoiceLevel(ptr noundef %455) #13
-  ret ptr %455
+  %479 = tail call i32 @Aig_ManChoiceLevel(ptr noundef %478) #13
+  ret ptr %478
 }
 
 declare ptr @Tim_ManDup(ptr noundef, i32 noundef) local_unnamed_addr #1

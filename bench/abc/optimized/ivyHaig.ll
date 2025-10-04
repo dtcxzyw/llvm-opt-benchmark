@@ -500,9 +500,9 @@ declare ptr @Ivy_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Ivy_ObjIsInTfi_rec(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #4 {
-  br label %tailrecurse
+  br label %5
 
-tailrecurse:                                      ; preds = %11, %3
+5:                                                ; preds = %11, %3
   %.tr = phi ptr [ %0, %3 ], [ %15, %11 ]
   %.tr30 = phi i32 [ %2, %3 ], [ %16, %11 ]
   %4 = icmp eq ptr %.tr, %1
@@ -535,7 +535,7 @@ tailrecurse:                                      ; preds = %11, %3
   %16 = add nsw i32 %.tr30, -1
   br label %tailrecurse
 
-17:                                               ; preds = %7, %7, %5, %10, %tailrecurse
+17:; preds = %7, %7, %5, %10, %5
   %.0 = phi i32 [ 1, %tailrecurse ], [ 0, %10 ], [ 0, %7 ], [ 0, %5 ], [ 0, %7 ]
   ret i32 %.0
 }

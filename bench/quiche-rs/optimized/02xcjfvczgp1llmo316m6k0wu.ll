@@ -4198,10 +4198,10 @@ _ZN6quiche8recovery10congestion4bbr27per_ack31bbr2_modulate_cwnd_for_recovery17h
   %71 = trunc nuw i8 %70 to i1
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   %73 = load i64, ptr %72, align 8, !alias.scope !397, !noundef !3
-  br i1 %71, label %106, label %104
+  br i1 %71, label %109, label %107
 
-74:                                               ; preds = %117, %_ZN6quiche8recovery10congestion4bbr27per_ack31bbr2_modulate_cwnd_for_recovery17h0993eb5429ae2b52E.exit.thread.i
-  %75 = phi i64 [ %.sroa.0.0.sroa.speculated.i1.i.i, %_ZN6quiche8recovery10congestion4bbr27per_ack31bbr2_modulate_cwnd_for_recovery17h0993eb5429ae2b52E.exit.thread.i ], [ %.sroa.0.0.sroa.speculated.i5.i, %117 ]
+74:                                               ; preds = %120, %_ZN6quiche8recovery10congestion4bbr27per_ack31bbr2_modulate_cwnd_for_recovery17h0993eb5429ae2b52E.exit.thread.i
+  %75 = phi i64 [ %.sroa.0.0.sroa.speculated.i1.i.i, %_ZN6quiche8recovery10congestion4bbr27per_ack31bbr2_modulate_cwnd_for_recovery17h0993eb5429ae2b52E.exit.thread.i ], [ %.sroa.0.0.sroa.speculated.i7.i, %117 ]
   switch i8 %51, label %_ZN6quiche8recovery10congestion4bbr27per_ack13bbr2_set_cwnd17h49c856cb4f3bc497E.exit [
     i8 6, label %76
     i8 3, label %95
@@ -4225,28 +4225,28 @@ _ZN6quiche8recovery10congestion4bbr27per_ack31bbr2_modulate_cwnd_for_recovery17h
   %88 = uitofp i64 %87 to double
   %89 = fmul double %88, 5.000000e-01
   %90 = tail call i64 @llvm.fptoui.sat.i64.f64(double %89)
-  br label %_ZN6quiche8recovery10congestion4bbr27per_ack29bbr2_bound_cwnd_for_probe_rtt17h22dcf74daf71ff26E.exit.thread.i
+  br label %.thread.i
 
 91:                                               ; preds = %76
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %93 = load i64, ptr %92, align 8, !alias.scope !420, !noundef !3
   %94 = mul i64 %93, %42
-  br label %_ZN6quiche8recovery10congestion4bbr27per_ack29bbr2_bound_cwnd_for_probe_rtt17h22dcf74daf71ff26E.exit.thread.i
+  br label %.thread.i
 
-_ZN6quiche8recovery10congestion4bbr27per_ack29bbr2_bound_cwnd_for_probe_rtt17h22dcf74daf71ff26E.exit.thread.i: ; preds = %91, %77
+.thread.i:                                        ; preds = %91, %77
   %.sroa.0.0.i.i.i.i = phi i64 [ %94, %91 ], [ %90, %77 ]
   %.sroa.0.0.sroa.speculated.i.i.i1.i = tail call noundef i64 @llvm.umax.i64(i64 %49, i64 %.sroa.0.0.i.i.i.i)
   %.sroa.0.0.sroa.speculated.i.i2.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.sroa.speculated.i.i.i1.i, i64 %75)
   br label %95
 
-95:                                               ; preds = %_ZN6quiche8recovery10congestion4bbr27per_ack29bbr2_bound_cwnd_for_probe_rtt17h22dcf74daf71ff26E.exit.thread.i, %74
+95:                                               ; preds = %.thread.i, %74
   %96 = phi i64 [ %75, %74 ], [ %.sroa.0.0.sroa.speculated.i.i2.i, %_ZN6quiche8recovery10congestion4bbr27per_ack29bbr2_bound_cwnd_for_probe_rtt17h22dcf74daf71ff26E.exit.thread.i ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %.val.i.i = load i64, ptr %97, align 8, !alias.scope !423, !noundef !3
   %98 = icmp eq i64 %.val.i.i, -1
   br i1 %98, label %_ZN6quiche8recovery10congestion4bbr27per_ack13bbr2_set_cwnd17h49c856cb4f3bc497E.exit, label %99
 
-99:                                               ; preds = %95
+99: ; preds = %95
   %100 = uitofp i64 %.val.i.i to double
   %101 = fmul double %100, 8.500000e-01
   %102 = tail call i64 @llvm.fptoui.sat.i64.f64(double %101)
@@ -4255,43 +4255,43 @@ _ZN6quiche8recovery10congestion4bbr27per_ack29bbr2_bound_cwnd_for_probe_rtt17h22
   %.sroa.0.0.sroa.speculated.i2.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %49, i64 %103)
   br label %_ZN6quiche8recovery10congestion4bbr27per_ack13bbr2_set_cwnd17h49c856cb4f3bc497E.exit
 
-104:                                              ; preds = %_ZN6quiche8recovery10congestion4bbr27per_ack31bbr2_modulate_cwnd_for_recovery17h0993eb5429ae2b52E.exit.i
-  %105 = icmp ult i64 %73, %.sroa.0.0.i1.i.i
-  br i1 %105, label %115, label %108
+107:                                              ; preds = %_ZN6quiche8recovery10congestion4bbr27per_ack31bbr2_modulate_cwnd_for_recovery17h0993eb5429ae2b52E.exit.i
+  %108 = icmp ult i64 %73, %.sroa.0.0.i1.i.i
+  br i1 %108, label %118, label %111
 
-106:                                              ; preds = %_ZN6quiche8recovery10congestion4bbr27per_ack31bbr2_modulate_cwnd_for_recovery17h0993eb5429ae2b52E.exit.i
-  %107 = add i64 %73, %14
-  %.sroa.0.0.sroa.speculated.i.i1 = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.i1.i.i, i64 %107)
-  br label %117
+109:                                              ; preds = %_ZN6quiche8recovery10congestion4bbr27per_ack31bbr2_modulate_cwnd_for_recovery17h0993eb5429ae2b52E.exit.i
+  %110 = add i64 %73, %14
+  %.sroa.0.0.sroa.speculated.i.i1 = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.i1.i.i, i64 %110)
+  br label %120
 
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  %110 = tail call noundef i64 @_ZN6quiche8recovery10congestion13delivery_rate4Rate9delivered17h362d02f6e0601691E(ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %109)
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 1456
-  %112 = load i64, ptr %111, align 8, !alias.scope !397, !noundef !3
-  %113 = mul i64 %112, %42
-  %114 = icmp ult i64 %110, %113
-  br i1 %114, label %115, label %117
+111:                                              ; preds = %107
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 1072
+  %113 = tail call noundef i64 @_ZN6quiche8recovery10congestion13delivery_rate4Rate9delivered17h362d02f6e0601691E(ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %112)
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 1456
+  %115 = load i64, ptr %114, align 8, !alias.scope !397, !noundef !3
+  %116 = mul i64 %115, %42
+  %117 = icmp ult i64 %113, %116
+  br i1 %117, label %118, label %120
 
-115:                                              ; preds = %108, %104
-  %116 = add i64 %73, %14
-  br label %117
+118:                                              ; preds = %111, %107
+  %119 = add i64 %73, %14
+  br label %120
 
-117:                                              ; preds = %115, %108, %106
-  %118 = phi i64 [ %116, %115 ], [ %73, %108 ], [ %.sroa.0.0.sroa.speculated.i.i1, %106 ]
-  %.sroa.0.0.sroa.speculated.i5.i = tail call noundef i64 @llvm.umax.i64(i64 %49, i64 %118)
+120:                                              ; preds = %118, %111, %109
+  %121 = phi i64 [ %119, %115 ], [ %73, %108 ], [ %.sroa.0.0.sroa.speculated.i.i1, %106 ]
+  %.sroa.0.0.sroa.speculated.i7.i = tail call noundef i64 @llvm.umax.i64(i64 %49, i64 %121)
   br label %74
 
 _ZN6quiche8recovery10congestion4bbr27per_ack13bbr2_set_cwnd17h49c856cb4f3bc497E.exit: ; preds = %74, %95, %99
-  %119 = phi i64 [ %96, %99 ], [ %96, %95 ], [ %75, %74 ]
+  %122 = phi i64 [ %96, %99 ], [ %96, %95 ], [ %75, %74 ]
   %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i2.i.i.i, %99 ], [ -1, %95 ], [ -1, %74 ]
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  %121 = load i64, ptr %120, align 8, !alias.scope !423, !noundef !3
-  %.sroa.0.0.sroa.speculated.i.i4.i = tail call noundef i64 @llvm.umin.i64(i64 %121, i64 %.sroa.0.0.i.i)
-  %.sroa.0.0.sroa.speculated.i11.i.i = tail call noundef i64 @llvm.umax.i64(i64 %49, i64 %.sroa.0.0.sroa.speculated.i.i4.i)
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 1424
-  %.sroa.0.0.sroa.speculated.i12.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.sroa.speculated.i11.i.i, i64 %119)
-  store i64 %.sroa.0.0.sroa.speculated.i12.i.i, ptr %122, align 8, !alias.scope !423
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %124 = load i64, ptr %123, align 8, !alias.scope !423, !noundef !3
+  %.sroa.0.0.sroa.speculated.i.i5.i = tail call noundef i64 @llvm.umin.i64(i64 %124, i64 %.sroa.0.0.i.i)
+  %.sroa.0.0.sroa.speculated.i11.i.i = tail call noundef i64 @llvm.umax.i64(i64 %49, i64 %.sroa.0.0.sroa.speculated.i.i5.i)
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 1424
+  %.sroa.0.0.sroa.speculated.i12.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.sroa.speculated.i11.i.i, i64 %122)
+  store i64 %.sroa.0.0.sroa.speculated.i12.i.i, ptr %125, align 8, !alias.scope !423
   ret void
 }
 

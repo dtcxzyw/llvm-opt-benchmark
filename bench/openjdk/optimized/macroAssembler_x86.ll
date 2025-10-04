@@ -9703,22 +9703,22 @@ define hidden void @_ZN14MacroAssembler6movptrE8Registerl(ptr noundef nonnull al
 5:                                                ; preds = %3
   %6 = trunc nuw i64 %2 to i32
   tail call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %6) #18
-  br label %12
+  br label %13
 
 7:                                                ; preds = %3
   %8 = icmp ugt i64 %2, -2147483649
-  br i1 %8, label %9, label %11
+  br i1 %8, label %9, label %12
 
-9:                                                ; preds = %7
-  %10 = trunc nsw i64 %2 to i32
-  tail call void @_ZN9Assembler4movqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %10) #18
-  br label %12
+10:                                               ; preds = %7
+  %11 = trunc nsw i64 %2 to i32
+  tail call void @_ZN9Assembler4movqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %11) #18
+  br label %13
 
-11:                                               ; preds = %7
+12:                                               ; preds = %7
   tail call void @_ZN9Assembler5mov64E8Registerl(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i64 noundef %2) #18
-  br label %12
+  br label %13
 
-12:                                               ; preds = %9, %11, %5
+13:                                               ; preds = %10, %12, %5
   ret void
 }
 

@@ -833,7 +833,7 @@ thread-pre-split:                                 ; preds = %69
 72:                                               ; preds = %thread-pre-split, %.backedge
   %73 = phi i32 [ %.pr, %thread-pre-split ], [ %36, %.backedge ]
   switch i32 %73, label %.loopexit [
-    i32 6, label %357
+    i32 6, label %373
     i32 4097, label %74
     i32 4098, label %.thread523
     i32 4099, label %79
@@ -1566,56 +1566,56 @@ check_max_len.exit.outer.backedge:                ; preds = %parse_http_line1.ex
 348:                                              ; preds = %343
   %349 = load i8, ptr %345, align 1, !tbaa !27
   %.not250 = icmp sgt i8 %349, -1
-  br i1 %.not250, label %353, label %350
+  br i1 %.not250, label %353, label %351
 
-350:                                              ; preds = %348
-  %351 = icmp samesign ult i64 %341, 6
-  br i1 %351, label %.backedge.backedge, label %352
+351:                                              ; preds = %348
+  %352 = icmp samesign ult i64 %341, 6
+  br i1 %352, label %.backedge.backedge, label %353
 
-352:                                              ; preds = %350
+353:                                              ; preds = %351
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 925, ptr noundef nonnull @__func__.OSSL_HTTP_REQ_CTX_nbio) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 109, ptr noundef null) #9
   br label %.loopexit
 
-353:                                              ; preds = %348
+.lr.ph.preheader:                                 ; preds = %348
   %narrow = add nuw i8 %349, 2
   %354 = zext i8 %narrow to i64
   %355 = call fastcc i32 @check_set_resp_len(ptr noundef nonnull @.str.23, ptr noundef %0, i64 noundef %354)
   %.not251 = icmp eq i32 %355, 0
   br i1 %.not251, label %.loopexit, label %356
 
-356:                                              ; preds = %353
+356: ; preds = %.lr.ph.preheader
   store i32 6, ptr %0, align 8, !tbaa !3
-  br label %357
+  br label %373
 
-357:                                              ; preds = %72, %356
+373:                                              ; preds = %72, %356
   %.2269 = phi i32 [ %.0267, %72 ], [ %.1268, %356 ]
   %.2206 = phi i64 [ %.0204, %72 ], [ %354, %356 ]
   %.2199 = phi i32 [ %.0197, %72 ], [ %.1198, %356 ]
   %.2193 = phi i64 [ %.0191, %72 ], [ %.1192, %356 ]
-  %358 = load ptr, ptr %9, align 8, !tbaa !19
-  %359 = call i64 @BIO_ctrl(ptr noundef %358, i32 noundef 3, i64 noundef 0, ptr noundef null) #9
-  %360 = icmp slt i64 %359, 0
-  br i1 %360, label %.backedge.backedge, label %361
+  %374 = load ptr, ptr %9, align 8, !tbaa !19
+  %375 = call i64 @BIO_ctrl(ptr noundef %374, i32 noundef 3, i64 noundef 0, ptr noundef null) #9
+  %376 = icmp slt i64 %375, 0
+  br i1 %376, label %.backedge.backedge, label %377
 
-.backedge.backedge:                               ; preds = %357, %361, %122, %131, %145, %155, %339, %350, %97
+.backedge.backedge:                               ; preds = %373, %377, %122, %131, %145, %155, %339, %351, %97
   %.0267.be = phi i32 [ %.0267, %97 ], [ %.0267, %131 ], [ %.0267, %122 ], [ %.3270.ph, %145 ], [ %.3270.ph, %155 ], [ %.1268, %339 ], [ %.1268, %350 ], [ %.2269, %361 ], [ %.2269, %357 ]
   %.0204.be = phi i64 [ %.0204, %97 ], [ %.0204, %131 ], [ %.0204, %122 ], [ %.3207, %145 ], [ %.3207, %155 ], [ %.1205, %339 ], [ %.1205, %350 ], [ %.2206, %361 ], [ %.2206, %357 ]
   %.0197.be = phi i32 [ %.0197, %97 ], [ %.0197, %131 ], [ %.0197, %122 ], [ %.3200.ph.ph, %145 ], [ %.3200.ph.ph, %155 ], [ %.1198, %339 ], [ %.1198, %350 ], [ %.2199, %361 ], [ %.2199, %357 ]
   %.0191.be = phi i64 [ %.0191, %97 ], [ %.0191, %131 ], [ %.0191, %122 ], [ %.3194.ph, %145 ], [ %.3194.ph, %155 ], [ %.1192, %339 ], [ %.1192, %350 ], [ %.2193, %361 ], [ %.2193, %357 ]
   br label %.backedge
 
-361:                                              ; preds = %357
-  %362 = load i64, ptr %34, align 8, !tbaa !25
-  %363 = icmp ult i64 %359, %362
-  br i1 %363, label %.backedge.backedge, label %364
+377:                                              ; preds = %373
+  %378 = load i64, ptr %34, align 8, !tbaa !25
+  %379 = icmp ult i64 %375, %378
+  br i1 %379, label %.backedge.backedge, label %380
 
-364:                                              ; preds = %361
+380:                                              ; preds = %377
   store i32 7, ptr %0, align 8, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %353, %72, %69, %306, %.thread297, %287, %check_max_len.exit.thread, %.thread, %132, %118, %65, %364, %352, %347, %337, %334, %330, %323, %319, %260, %174, %170, %158, %148, %135, %121, %77, %68, %63, %20, %7
+.loopexit:                                        ; preds = %353, %72, %69, %306, %.thread297, %287, %check_max_len.exit.thread, %.thread, %132, %118, %65, %380, %352, %347, %337, %334, %330, %323, %319, %260, %174, %170, %158, %148, %135, %121, %77, %68, %63, %20, %7
   %.0 = phi i32 [ 0, %7 ], [ 0, %20 ], [ 0, %63 ], [ 0, %68 ], [ 1, %364 ], [ 0, %77 ], [ 0, %135 ], [ 0, %121 ], [ 0, %148 ], [ 0, %158 ], [ 0, %170 ], [ 0, %174 ], [ 0, %260 ], [ 0, %323 ], [ 0, %334 ], [ 0, %347 ], [ 0, %352 ], [ 1, %337 ], [ 0, %330 ], [ 0, %319 ], [ 0, %287 ], [ -1, %65 ], [ -1, %118 ], [ -1, %132 ], [ %.4.ph, %.thread ], [ 0, %check_max_len.exit.thread ], [ 0, %.thread297 ], [ 0, %306 ], [ 0, %69 ], [ 0, %72 ], [ 0, %353 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

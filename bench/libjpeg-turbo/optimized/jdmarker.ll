@@ -24,7 +24,7 @@ define range(i32 0, 2) i32 @jpeg_resync_to_restart(ptr noundef %0, i32 noundef %
   %13 = icmp slt i32 %4, 192
   br i1 %13, label %select.unfold, label %.thread35
 
-.thread35:                                        ; preds = %31, %2
+.thread35:; preds = %31, %2
   %.031.lcssa = phi i32 [ %4, %2 ], [ %32, %31 ]
   %14 = load ptr, ptr %0, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -58,7 +58,7 @@ select.unfold:                                    ; preds = %2, %31
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %.loopexit, label %31
 
-31:                                               ; preds = %select.unfold
+31:; preds = %select.unfold
   %32 = load i32, ptr %3, align 4, !tbaa !3
   %33 = icmp slt i32 %32, 192
   br i1 %33, label %select.unfold, label %.thread35

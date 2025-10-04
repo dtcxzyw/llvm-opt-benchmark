@@ -2647,7 +2647,7 @@ define noundef range(i32 -1, 1) i32 @H5Pcopy_prop(i64 noundef %0, i64 noundef %1
   %48 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   br i1 %47, label %49, label %52
 
-49:                                               ; preds = %45
+48:                                               ; preds = %45
   %50 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !11
   %51 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Pcopy_prop, i32 noundef 1366, i64 noundef %48, i64 noundef %50, ptr noundef nonnull @.str.48) #4
   br label %.thread54
@@ -2657,11 +2657,11 @@ define noundef range(i32 -1, 1) i32 @H5Pcopy_prop(i64 noundef %0, i64 noundef %1
   %54 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Pcopy_prop, i32 noundef 1369, i64 noundef %48, i64 noundef %53, ptr noundef nonnull @.str.38) #4
   br label %.thread54
 
-.thread54:                                        ; preds = %52, %49, %41
+64:                                               ; preds = %52, %49, %41
   %55 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %56
 
-56:                                               ; preds = %.thread54, %13, %26, %33
+71:                                               ; preds = %64, %13, %26, %33
   %57 = call i32 @H5E_dump_api_stack() #4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 -1

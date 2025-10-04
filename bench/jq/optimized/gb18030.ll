@@ -75,15 +75,15 @@ define internal range(i32 -400, 5) i32 @gb18030_code_to_mbclen(i32 noundef %0) #
   %.not20 = icmp eq i8 %21, 1
   br i1 %.not20, label %25, label %24
 
-22:                                               ; preds = %12
+22:; preds = %12
   %23 = add nsw i32 %0, -129
   %.not17 = icmp ult i32 %23, 126
   br i1 %.not17, label %24, label %25
 
-24:                                               ; preds = %17, %22, %13, %2, %6
-  br label %25
+24:; preds = %17, %22, %13, %2, %6
+  br label %27
 
-25:                                               ; preds = %17, %22, %11, %6, %24
+27:                                               ; preds = %17, %22, %11, %6, %24
   %.014 = phi i32 [ -400, %24 ], [ 2, %17 ], [ 4, %6 ], [ -400, %11 ], [ 1, %22 ]
   ret i32 %.014
 }
@@ -674,11 +674,11 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %2, %13
-  %.02639 = phi ptr [ %14, %13 ], [ %0, %2 ]
+.lr.ph:                                           ; preds = %2, %25
+  %.02639 = phi ptr [ %26, %13 ], [ %0, %2 ]
   %4 = load i8, ptr %.02639, align 1, !tbaa !4
   %5 = icmp sgt i8 %4, -1
-  br i1 %5, label %13, label %6
+  br i1 %5, label %25, label %6
 
 6:                                                ; preds = %.lr.ph
   switch i8 %4, label %7 [
@@ -702,11 +702,11 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
     i8 -1, label %._crit_edge
   ]
 
-13:                                               ; preds = %12, %.lr.ph
+25:                                               ; preds = %12, %.lr.ph
   %.sink = phi i64 [ 1, %.lr.ph ], [ 2, %12 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.02639, i64 %.sink
-  %15 = icmp ult ptr %14, %1
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  %26 = getelementptr inbounds nuw i8, ptr %.02639, i64 %.sink
+  %27 = icmp ult ptr %26, %1
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %6, %6, %7, %12, %12, %13, %9, %2
   %.0 = phi i32 [ 1, %2 ], [ 0, %9 ], [ 1, %13 ], [ 0, %12 ], [ 0, %12 ], [ 0, %7 ], [ 0, %6 ], [ 0, %6 ]

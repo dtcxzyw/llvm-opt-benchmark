@@ -2549,7 +2549,7 @@ define internal fastcc void @png_icc_profile_error(ptr noalias noundef %0, ptr n
   %or.cond = icmp eq i64 %2, 538976288
   br i1 %or.cond, label %11, label %is_ICC_signature.exit.thread
 
-11:                                               ; preds = %4
+11:; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 %10
   store i8 39, ptr %12, align 1, !tbaa !27
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
@@ -2563,18 +2563,18 @@ define internal fastcc void @png_icc_profile_error(ptr noalias noundef %0, ptr n
   store i8 32, ptr %17, align 1, !tbaa !27
   br label %22
 
-is_ICC_signature.exit.thread:                     ; preds = %4
+is_ICC_signature.exit.thread:; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %19 = call ptr @png_format_number(ptr noundef nonnull %6, ptr noundef nonnull %18, i32 noundef 3, i64 noundef %2) #30
-  %20 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %10, ptr noundef %19) #30
-  %21 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %20, ptr noundef nonnull @.str.60) #30
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %65 = call ptr @png_format_number(ptr noundef nonnull %6, ptr noundef nonnull %64, i32 noundef 3, i64 noundef %2) #30
+  %66 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %10, ptr noundef %65) #30
+  %67 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %66, ptr noundef nonnull @.str.60) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %22
+  br label %68
 
-22:                                               ; preds = %is_ICC_signature.exit.thread, %11
-  %.0 = phi i64 [ %16, %11 ], [ %21, %is_ICC_signature.exit.thread ]
-  %23 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %.0, ptr noundef %3) #30
+68:                                               ; preds = %is_ICC_signature.exit.thread, %11
+  %.0 = phi i64 [ %16, %11 ], [ %67, %is_ICC_signature.exit.thread ]
+  %69 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %.0, ptr noundef %3) #30
   call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull %5) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void

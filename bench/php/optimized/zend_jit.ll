@@ -20307,11 +20307,11 @@ define hidden range(i32 -1, 1) i32 @zend_jit_config(ptr noundef %0, i32 noundef 
 
 7:                                                ; preds = %2
   %8 = icmp eq i32 %1, 16
-  br i1 %8, label %9, label %94
+  br i1 %8, label %9, label %96
 
 9:                                                ; preds = %7
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.25) #35
-  br label %94
+  br label %96
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -20328,7 +20328,7 @@ define hidden range(i32 -1, 1) i32 @zend_jit_config(ptr noundef %0, i32 noundef 
 17:                                               ; preds = %14
   store i8 0, ptr @jit_globals, align 8, !tbaa !63
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 1), align 1, !tbaa !71
-  br label %94
+  br label %96
 
 thread-pre-split:                                 ; preds = %14
   %.pr = load i64, ptr %11, align 8, !tbaa !261
@@ -20375,14 +20375,14 @@ thread-pre-split68:                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %33, i64 noundef 2, ptr noundef nonnull @.str.29, i64 noundef 2) #35
   %.not58 = icmp eq i32 %34, 0
-  br i1 %.not58, label %41, label %._crit_edge83
+  br i1 %.not58, label %41, label %._crit_edge79
 
-._crit_edge83:                                    ; preds = %32
-  %.pre84 = load i64, ptr %11, align 8, !tbaa !261
+._crit_edge79:                                    ; preds = %32
+  %.pre80 = load i64, ptr %11, align 8, !tbaa !261
   br label %35
 
-35:                                               ; preds = %._crit_edge83, %29
-  %36 = phi i64 [ %.pre84, %._crit_edge83 ], [ %30, %29 ]
+35:                                               ; preds = %._crit_edge79, %29
+  %36 = phi i64 [ %.pre80, %._crit_edge83 ], [ %30, %29 ]
   %37 = icmp eq i64 %36, 5
   br i1 %37, label %38, label %42
 
@@ -20395,7 +20395,7 @@ thread-pre-split68:                               ; preds = %26
 41:                                               ; preds = %18, %38, %32, %26, %20
   store i8 1, ptr @jit_globals, align 8, !tbaa !63
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 1), align 1, !tbaa !71
-  br label %94
+  br label %96
 
 thread-pre-split70:                               ; preds = %38
   %.pr71 = load i64, ptr %11, align 8, !tbaa !261
@@ -20410,14 +20410,14 @@ thread-pre-split70:                               ; preds = %38
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %46, i64 noundef 1, ptr noundef nonnull @.str.31, i64 noundef 1) #35
   %.not60 = icmp eq i32 %47, 0
-  br i1 %.not60, label %72, label %._crit_edge85
+  br i1 %.not60, label %72, label %._crit_edge81
 
-._crit_edge85:                                    ; preds = %45
-  %.pre86 = load i64, ptr %11, align 8, !tbaa !261
+._crit_edge81:                                    ; preds = %45
+  %.pre82 = load i64, ptr %11, align 8, !tbaa !261
   br label %48
 
-48:                                               ; preds = %._crit_edge85, %42
-  %49 = phi i64 [ %.pre86, %._crit_edge85 ], [ %43, %42 ]
+48:                                               ; preds = %._crit_edge81, %42
+  %49 = phi i64 [ %.pre82, %._crit_edge85 ], [ %43, %42 ]
   %50 = icmp eq i64 %49, 2
   br i1 %50, label %51, label %54
 
@@ -20440,14 +20440,14 @@ thread-pre-split72:                               ; preds = %51
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %59 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %58, i64 noundef 3, ptr noundef nonnull @.str.32, i64 noundef 3) #35
   %.not62 = icmp eq i32 %59, 0
-  br i1 %.not62, label %72, label %._crit_edge87
+  br i1 %.not62, label %72, label %._crit_edge83
 
-._crit_edge87:                                    ; preds = %57
-  %.pre88 = load i64, ptr %11, align 8, !tbaa !261
+._crit_edge83:                                    ; preds = %57
+  %.pre84 = load i64, ptr %11, align 8, !tbaa !261
   br label %60
 
-60:                                               ; preds = %._crit_edge87, %54
-  %61 = phi i64 [ %.pre88, %._crit_edge87 ], [ %55, %54 ]
+60:                                               ; preds = %._crit_edge83, %54
+  %61 = phi i64 [ %.pre84, %._crit_edge87 ], [ %55, %54 ]
   %62 = icmp eq i64 %61, 4
   br i1 %62, label %63, label %66
 
@@ -20470,10 +20470,10 @@ thread-pre-split74:                               ; preds = %63
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %71 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %70, i64 noundef 7, ptr noundef nonnull @.str.34, i64 noundef 7) #35
   %.not64 = icmp eq i32 %71, 0
-  br i1 %.not64, label %72, label %._crit_edge89
+  br i1 %.not64, label %72, label %._crit_edge85
 
-._crit_edge89:                                    ; preds = %69
-  %.pre90 = load i64, ptr %11, align 8, !tbaa !261
+._crit_edge85:                                    ; preds = %69
+  %.pre86 = load i64, ptr %11, align 8, !tbaa !261
   br label %73
 
 72:                                               ; preds = %69, %63, %57, %51, %45
@@ -20482,10 +20482,10 @@ thread-pre-split74:                               ; preds = %63
   store i8 4, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 3), align 1, !tbaa !73
   store i8 5, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 2), align 2, !tbaa !72
   store i32 6, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 4), align 4, !tbaa !74
-  br label %94
+  br label %96
 
-73:                                               ; preds = %._crit_edge89, %66
-  %74 = phi i64 [ %.pre90, %._crit_edge89 ], [ %67, %66 ]
+73:                                               ; preds = %._crit_edge85, %66
+  %74 = phi i64 [ %.pre86, %._crit_edge89 ], [ %67, %66 ]
   %75 = load ptr, ptr @zend_known_strings, align 8, !tbaa !347
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !348
@@ -20507,7 +20507,7 @@ thread-pre-split74:                               ; preds = %63
   store i8 5, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 3), align 1, !tbaa !73
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 2), align 2, !tbaa !72
   store i32 6, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 4), align 4, !tbaa !74
-  br label %94
+  br label %96
 
 86:                                               ; preds = %81, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -20519,22 +20519,22 @@ thread-pre-split74:                               ; preds = %63
   %.not66 = icmp eq ptr %89, %91
   %92 = icmp eq i64 %88, 0
   %or.cond82 = select i1 %.not66, i1 %92, i1 false
-  br i1 %or.cond82, label %zend_jit_parse_config_num.exit, label %93
+  br i1 %or.cond82, label %96, label %93
 
-zend_jit_parse_config_num.exit:                   ; preds = %86
+94:                                               ; preds = %86
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 1), align 1, !tbaa !71
   store i8 1, ptr @jit_globals, align 8, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %94
+  br label %96
 
-93:                                               ; preds = %86
+95:                                               ; preds = %86
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.35) #35
   store i8 0, ptr @jit_globals, align 8, !tbaa !63
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 1), align 1, !tbaa !71
-  br label %94
+  br label %96
 
-94:                                               ; preds = %zend_jit_parse_config_num.exit, %7, %9, %93, %85, %72, %41, %17
+96:                                               ; preds = %94, %7, %9, %95, %85, %72, %41, %17
   %.042 = phi i32 [ 0, %41 ], [ 0, %zend_jit_parse_config_num.exit ], [ -1, %93 ], [ 0, %85 ], [ 0, %72 ], [ 0, %17 ], [ -1, %9 ], [ -1, %7 ]
   ret i32 %.042
 }

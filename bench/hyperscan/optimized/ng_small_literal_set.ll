@@ -49,15 +49,15 @@ define hidden noundef zeroext i1 @_ZN3ue222handleSmallLiteralSetsERNS_9RoseBuild
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 42
   %12 = load i8, ptr %11, align 2, !range !5, !noundef !6
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %692
+  br i1 %13, label %14, label %714
 
 14:                                               ; preds = %3
   %15 = tail call noundef zeroext i1 @_ZN3ue29isAcyclicERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136) %1)
-  br i1 %15, label %16, label %692
+  br i1 %15, label %16, label %714
 
 16:                                               ; preds = %14
   %17 = tail call noundef zeroext i1 @_ZN3ue220hasNarrowReachVertexERKNS_8NGHolderEm(ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef 61)
-  br i1 %17, label %18, label %692
+  br i1 %17, label %18, label %714
 
 18:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1785,7 +1785,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   %.val22 = load i64, ptr %23, align 8
   %666 = icmp ugt i64 %.val22, 30
   %or.cond = select i1 %.not416511.i.not, i1 true, i1 %666
-  br i1 %or.cond, label %.loopexit, label %669
+  br i1 %or.cond, label %_ZN3ue2L33checkLongMixedSensitivityLiteralsERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit, label %669
 
 667:                                              ; preds = %18
   %668 = landingpad { ptr, i32 }
@@ -1814,11 +1814,11 @@ _ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4le
   %673 = icmp ult i64 %.sroa.speculated.i, 3
   %.val23 = load i64, ptr %23, align 8
   %674 = icmp ugt i64 %.val23, 20
-  %or.cond35 = select i1 %673, i1 %674, i1 false
-  br i1 %or.cond35, label %.loopexit, label %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit._ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread_crit_edge
+  %or.cond42 = select i1 %673, i1 %674, i1 false
+  br i1 %or.cond42, label %_ZN3ue2L33checkLongMixedSensitivityLiteralsERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit, label %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit._ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread_crit_edge
 
 _ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit._ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread_crit_edge: ; preds = %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit
-  %.val24.pre = load ptr, ptr %21, align 8
+  %.val.i.i.i.i33.pre = load ptr, ptr %21, align 8
   br label %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread
 
 675:                                              ; preds = %.lr.ph.i30
@@ -1827,42 +1827,42 @@ _ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4le
   br label %.body
 
 _ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread: ; preds = %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit._ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread_crit_edge, %669
-  %.val24 = phi ptr [ %.val24.pre, %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit._ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread_crit_edge ], [ %.val.i.i.i.i29, %669 ]
-  %.not50 = icmp eq ptr %.val24, %19
-  br i1 %.not50, label %.loopexit, label %.lr.ph
+  %.val.i.i.i.i33 = phi ptr [ %.val.i.i.i.i33.pre, %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit._ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread_crit_edge ], [ %.val.i.i.i.i29, %669 ]
+  %.not21.i = icmp eq ptr %.val.i.i.i.i33, %19
+  br i1 %.not21.i, label %_ZN3ue2L33checkLongMixedSensitivityLiteralsERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit, label %.lr.ph.i34
 
-.lr.ph:                                           ; preds = %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread, %688
-  %.sroa.033.051 = phi ptr [ %689, %688 ], [ %.val24, %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread ]
-  %677 = getelementptr inbounds nuw i8, ptr %.sroa.033.051, i64 32
-  %678 = getelementptr inbounds nuw i8, ptr %.sroa.033.051, i64 104
+.lr.ph.i34:                                       ; preds = %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread, %688
+  %.sroa.016.022.i = phi ptr [ %689, %688 ], [ %.val.i.i.i.i33, %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread ]
+  %677 = getelementptr inbounds nuw i8, ptr %.sroa.016.022.i, i64 32
+  %678 = getelementptr inbounds nuw i8, ptr %.sroa.016.022.i, i64 104
   %679 = load i8, ptr %677, align 8, !range !5, !noundef !6
   %680 = trunc nuw i8 %679 to i1
   %681 = getelementptr inbounds nuw i8, ptr %.sroa.033.051, i64 33
   %682 = load i8, ptr %681, align 1, !range !5, !noundef !6
   %683 = trunc nuw i8 %682 to i1
-  %684 = getelementptr inbounds nuw i8, ptr %.sroa.033.051, i64 40
+  %684 = getelementptr inbounds nuw i8, ptr %.sroa.016.022.i, i64 40
   %685 = load ptr, ptr %0, align 8
   %686 = getelementptr inbounds nuw i8, ptr %685, i64 16
   %687 = load ptr, ptr %686, align 8
   invoke void %687(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext %680, i1 noundef zeroext %683, ptr noundef nonnull align 8 dereferenceable(64) %684, ptr noundef nonnull align 8 dereferenceable(32) %678)
           to label %688 unwind label %690
 
-688:                                              ; preds = %.lr.ph
-  %689 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.033.051) #25
+688: ; preds = %.lr.ph.i34
+  %689 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.016.022.i) #25
   %.not = icmp eq ptr %689, %19
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-690:                                              ; preds = %.lr.ph
+690: ; preds = %.lr.ph.i34
   %691 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit:                                        ; preds = %688, %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread, %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit, %665
+_ZN3ue2L33checkLongMixedSensitivityLiteralsERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit: ; preds = %688, %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread, %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit, %665
   %.1 = phi i1 [ false, %665 ], [ false, %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit ], [ true, %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread ], [ true, %688 ]
   %.val27 = load ptr, ptr %20, align 8
   call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalESt4pairIKS2_NS0_8flat_setIjSt4lessIjESaIjEEEESt10_Select1stISA_ES6_IS2_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef %.val27)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %692
+  br label %714
 
 .body:                                            ; preds = %667, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit240.i, %675, %690
   %.pn.pn = phi { ptr, i32 } [ %691, %690 ], [ %676, %675 ], [ %668, %667 ], [ %.pn164.pn.pn.pn.pn.i, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit240.i ]
@@ -1871,7 +1871,7 @@ _ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4le
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn.pn
 
-692:                                              ; preds = %16, %14, %3, %.loopexit
+714:                                              ; preds = %16, %14, %3, %_ZN3ue2L33checkLongMixedSensitivityLiteralsERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit
   %.0 = phi i1 [ %.1, %.loopexit ], [ false, %3 ], [ false, %14 ], [ false, %16 ]
   ret i1 %.0
 }

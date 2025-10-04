@@ -11455,7 +11455,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN10tokenizers9t
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h59557ef4a43cd5a6E(i64 noundef %10, i64 noundef %15) #43, !noalias !2077
   unreachable
 
-16:                                               ; preds = %97
+16:                                               ; preds = %99
   resume { ptr, i32 } %lpad.phi
 
 17:                                               ; preds = %1
@@ -11591,15 +11591,15 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN10tokenizers9t
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %0
 
-"_ZN10tokenizers11normalizers7unicode6do_nmt28_$u7b$$u7b$closure$u7d$$u7d$17h765730eeb3620197E.exit.thread": ; preds = %69, %69, %69, %69, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12244614425474959946.exit.thread"
+"_ZN10tokenizers11normalizers7unicode6do_nmt28_$u7b$$u7b$closure$u7d$$u7d$17h765730eeb3620197E.exit": ; preds = %69, %69, %69, %69, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12244614425474959946.exit.thread"
   %81 = add i64 %.02346, 1
   br label %83
 
-"_ZN10tokenizers11normalizers7unicode6do_nmt28_$u7b$$u7b$closure$u7d$$u7d$17h765730eeb3620197E.exit": ; preds = %69
+"_ZN10tokenizers11normalizers7unicode6do_nmt28_$u7b$$u7b$closure$u7d$$u7d$17h765730eeb3620197E.exit":; preds = %69
   %82 = icmp eq i32 %.02545, 1114112
   br i1 %82, label %83, label %86
 
-83:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h650e76a1d96497f5E.exit31", %"_ZN10tokenizers11normalizers7unicode6do_nmt28_$u7b$$u7b$closure$u7d$$u7d$17h765730eeb3620197E.exit", %"_ZN10tokenizers11normalizers7unicode6do_nmt28_$u7b$$u7b$closure$u7d$$u7d$17h765730eeb3620197E.exit.thread"
+83:; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h650e76a1d96497f5E.exit31", %85, %85
   %84 = phi i64 [ %28, %"_ZN10tokenizers11normalizers7unicode6do_nmt28_$u7b$$u7b$closure$u7d$$u7d$17h765730eeb3620197E.exit.thread" ], [ %28, %"_ZN10tokenizers11normalizers7unicode6do_nmt28_$u7b$$u7b$closure$u7d$$u7d$17h765730eeb3620197E.exit" ], [ %96, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h650e76a1d96497f5E.exit31" ]
   %.126 = phi i32 [ %.02545, %"_ZN10tokenizers11normalizers7unicode6do_nmt28_$u7b$$u7b$closure$u7d$$u7d$17h765730eeb3620197E.exit.thread" ], [ %67, %"_ZN10tokenizers11normalizers7unicode6do_nmt28_$u7b$$u7b$closure$u7d$$u7d$17h765730eeb3620197E.exit" ], [ %67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h650e76a1d96497f5E.exit31" ]
   %.124 = phi i64 [ %81, %"_ZN10tokenizers11normalizers7unicode6do_nmt28_$u7b$$u7b$closure$u7d$$u7d$17h765730eeb3620197E.exit.thread" ], [ 0, %"_ZN10tokenizers11normalizers7unicode6do_nmt28_$u7b$$u7b$closure$u7d$$u7d$17h765730eeb3620197E.exit" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h650e76a1d96497f5E.exit31" ]
@@ -11607,49 +11607,49 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN10tokenizers9t
   %85 = icmp eq ptr %.sroa.0.137, %26
   br i1 %85, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12244614425474959946.exit.thread38", label %.lr.ph
 
-86:                                               ; preds = %"_ZN10tokenizers11normalizers7unicode6do_nmt28_$u7b$$u7b$closure$u7d$$u7d$17h765730eeb3620197E.exit"
-  %87 = sub i64 0, %.02346
-  %88 = load i64, ptr %4, align 8, !alias.scope !2091, !noundef !4
-  %89 = icmp eq i64 %28, %88
-  br i1 %89, label %90, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h650e76a1d96497f5E.exit31"
+88:                                               ; preds = %85
+  %89 = sub i64 0, %.02346
+  %90 = load i64, ptr %4, align 8, !alias.scope !2091, !noundef !4
+  %91 = icmp eq i64 %28, %90
+  br i1 %91, label %92, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h650e76a1d96497f5E.exit31"
 
-90:                                               ; preds = %86
+92:                                               ; preds = %88
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h069699b0bd0c692eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %28)
           to label %.noexc30 unwind label %.loopexit
 
-.noexc30:                                         ; preds = %90
+.noexc30:                                         ; preds = %92
   %.pre.i29 = load i64, ptr %23, align 8, !alias.scope !2091
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h650e76a1d96497f5E.exit31"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h650e76a1d96497f5E.exit31": ; preds = %86, %.noexc30
-  %91 = phi i64 [ %.pre.i29, %.noexc30 ], [ %28, %86 ]
-  %92 = load ptr, ptr %22, align 8, !alias.scope !2091, !nonnull !4, !noundef !4
-  %93 = getelementptr inbounds { i32, [1 x i32], i64 }, ptr %92, i64 %91
-  store i32 %.02545, ptr %93, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  store i64 %87, ptr %94, align 8
-  %95 = load i64, ptr %23, align 8, !alias.scope !2091, !noundef !4
-  %96 = add i64 %95, 1
-  store i64 %96, ptr %23, align 8, !alias.scope !2091
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h650e76a1d96497f5E.exit31": ; preds = %88, %.noexc30
+  %93 = phi i64 [ %.pre.i29, %.noexc30 ], [ %28, %86 ]
+  %94 = load ptr, ptr %22, align 8, !alias.scope !2091, !nonnull !4, !noundef !4
+  %95 = getelementptr inbounds { i32, [1 x i32], i64 }, ptr %94, i64 %93
+  store i32 %.02545, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  store i64 %89, ptr %96, align 8
+  %97 = load i64, ptr %23, align 8, !alias.scope !2091, !noundef !4
+  %98 = add i64 %97, 1
+  store i64 %98, ptr %23, align 8, !alias.scope !2091
   br label %83
 
-.loopexit:                                        ; preds = %90
+.loopexit:                                        ; preds = %92
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %97
+  br label %99
 
 .loopexit.split-lp:                               ; preds = %74
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %97
+  br label %99
 
-97:                                               ; preds = %.loopexit.split-lp, %.loopexit
+99:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$$LP$char$C$isize$RP$$GT$$GT$17hbd108debfb8420daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #45
-          to label %16 unwind label %98
+          to label %16 unwind label %100
 
-98:                                               ; preds = %97
-  %99 = landingpad { ptr, i32 }
+100:                                              ; preds = %99
+  %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hc8e2b17e1b6d1381E() #46
   unreachable

@@ -1973,7 +1973,7 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
 
 8:                                                ; preds = %3
   %9 = tail call ptr @cli_safer_strdup(ptr noundef nonnull @.str.17) #16
-  br label %72
+  br label %110
 
 10:                                               ; preds = %3
   %11 = and i64 %1, 1
@@ -1989,7 +1989,7 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
   %.088 = phi i64 [ %13, %12 ], [ %1, %10 ]
   %15 = tail call ptr @cli_max_malloc(i64 noundef %6) #16
   %.not99 = icmp eq ptr %15, null
-  br i1 %.not99, label %72, label %16
+  br i1 %.not99, label %110, label %16
 
 16:                                               ; preds = %14
   %17 = load i8, ptr %0, align 1, !tbaa !3
@@ -2027,7 +2027,7 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
 
 30:                                               ; preds = %.lr.ph, %64
   %.090106 = phi i64 [ 0, %.lr.ph ], [ %.1.fr, %64 ]
-  %.192105 = phi i64 [ %.091, %.lr.ph ], [ %65, %64 ]
+  %.192105 = phi i64 [ %.091, %.lr.ph ], [ %103, %64 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 %.192105
   %32 = load i16, ptr %31, align 1, !tbaa !3
   %rev = tail call i16 @llvm.bswap.i16(i16 %32)
@@ -2047,7 +2047,7 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 %.090106
   br i1 %39, label %41, label %50
 
-41:                                               ; preds = %38
+41:; preds = %38
   %42 = lshr i16 %spec.select, 6
   %43 = trunc nuw nsw i16 %42 to i8
   %44 = or disjoint i8 %43, -64
@@ -2068,9 +2068,9 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
   %54 = lshr i16 %spec.select, 6
   %55 = trunc i16 %54 to i8
   %56 = and i8 %55, 63
-  %57 = or disjoint i8 %56, -128
-  %58 = getelementptr inbounds nuw i8, ptr %40, i64 1
-  store i8 %57, ptr %58, align 1, !tbaa !3
+  %55 = or disjoint i8 %56, -128
+  %56 = getelementptr inbounds nuw i8, ptr %40, i64 1
+  store i8 %55, ptr %56, align 1, !tbaa !3
   %59 = trunc i16 %spec.select to i8
   %60 = and i8 %59, 63
   %61 = or disjoint i8 %60, -128
@@ -2079,27 +2079,27 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
   %63 = add nuw i64 %.090106, 3
   br label %64
 
-64:                                               ; preds = %41, %50, %34
+64:; preds = %41, %50, %34
   %.1 = phi i64 [ %36, %34 ], [ %49, %41 ], [ %63, %50 ]
   %.1.fr = freeze i64 %.1
-  %65 = add i64 %.192105, 2
-  %66 = icmp ult i64 %65, %.088
-  %67 = icmp ult i64 %.1.fr, %6
-  %68 = select i1 %66, i1 %67, i1 false
-  br i1 %68, label %30, label %._crit_edge
+  %103 = add i64 %.192105, 2
+  %104 = icmp ult i64 %103, %.088
+  %105 = icmp ult i64 %.1.fr, %6
+  %106 = select i1 %104, i1 %105, i1 false
+  br i1 %106, label %30, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %64
-  %69 = add nuw i64 %5, 1
-  %spec.select117 = select i1 %67, i64 %.1.fr, i64 %69
+  %107 = add nuw i64 %5, 1
+  %spec.select117 = select i1 %105, i64 %.1.fr, i64 %107
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %26
-  %70 = phi i64 [ 0, %26 ], [ %spec.select117, %._crit_edge ]
-  %71 = getelementptr inbounds nuw i8, ptr %15, i64 %70
-  store i8 0, ptr %71, align 1, !tbaa !3
-  br label %72
+  %108 = phi i64 [ 0, %26 ], [ %spec.select117, %._crit_edge ]
+  %109 = getelementptr inbounds nuw i8, ptr %15, i64 %108
+  store i8 0, ptr %109, align 1, !tbaa !3
+  br label %110
 
-72:                                               ; preds = %14, %._crit_edge.thread, %8
+110:                                              ; preds = %14, %._crit_edge.thread, %8
   %.0 = phi ptr [ %9, %8 ], [ %15, %._crit_edge.thread ], [ null, %14 ]
   ret ptr %.0
 }

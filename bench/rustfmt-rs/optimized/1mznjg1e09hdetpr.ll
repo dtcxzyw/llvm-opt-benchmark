@@ -13111,7 +13111,7 @@ define internal fastcc { i64, i64 } @_ZN15rustfmt_nightly7comment13ItemizedBlock
   store ptr @anon.ac9b56db96481140084a14b3a62254c9.180, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 2, ptr %13, align 8
-  %.sroa.gep52 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sroa.gep55 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %"_ZN15rustfmt_nightly7comment13ItemizedBlock17get_marker_length28_$u7b$$u7b$closure$u7d$$u7d$17heb679c5779930e49E.exit.backedge.i"
@@ -13151,40 +13151,40 @@ define internal fastcc { i64, i64 } @_ZN15rustfmt_nightly7comment13ItemizedBlock
 
 .noexc:                                           ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h82230762968f2579E.exit", %.critedge
   %.not.not.i = phi i1 [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h82230762968f2579E.exit" ], [ true, %.critedge ]
-  %.sroa.phi = phi ptr [ %5, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h82230762968f2579E.exit" ], [ %.sroa.gep52, %.critedge ]
-  %18 = load ptr, ptr %.sroa.phi, align 8, !alias.scope !2200, !nonnull !8, !align !458, !noundef !8
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.phi, i64 8
-  %20 = load i64, ptr %19, align 8, !alias.scope !2200, !noundef !8
+  %.sroa.phi = phi ptr [ %5, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h82230762968f2579E.exit" ], [ %.sroa.gep55, %.critedge ]
+  %17 = load ptr, ptr %.sroa.phi, align 8, !alias.scope !2200, !nonnull !8, !align !458, !noundef !8
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.phi, i64 8
+  %19 = load i64, ptr %18, align 8, !alias.scope !2200, !noundef !8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2203
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2203
-  call void @_ZN4core3str7pattern11StrSearcher3new17h093aebd81d9eb1ebE(ptr noalias noundef nonnull sret({ { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }) align 8 captures(none) dereferenceable(104) %3, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %20)
+  call void @_ZN4core3str7pattern11StrSearcher3new17h093aebd81d9eb1ebE(ptr noalias noundef nonnull sret({ { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }) align 8 captures(none) dereferenceable(104) %3, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %19)
   call fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he7c268187cb709a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef align 8 dereferenceable(104) %3)
-  %21 = load i64, ptr %4, align 8, !range !386, !noalias !2203, !noundef !8
-  %trunc.i = trunc nuw i64 %21 to i1
-  %22 = load i64, ptr %16, align 8, !noalias !2203
+  %20 = load i64, ptr %4, align 8, !range !386, !noalias !2203, !noundef !8
+  %trunc.i = trunc nuw i64 %20 to i1
+  %21 = load i64, ptr %16, align 8, !noalias !2203
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2203
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2203
-  %23 = add i64 %22, -1
-  %spec.select.i = icmp ult i64 %23, 2
+  %22 = add i64 %21, -1
+  %spec.select.i = icmp ult i64 %22, 2
   %or.cond = select i1 %trunc.i, i1 %spec.select.i, i1 false
-  br i1 %or.cond, label %26, label %.critedge
+  br i1 %or.cond, label %25, label %.critedge
 
 .loopexit:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.i.i.i", %17
-  %.sroa.0.1 = phi i64 [ 0, %17 ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.i.i.i" ]
+  %.sroa.4.1 = phi i64 [ 0, %17 ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %24 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %25 = insertvalue { i64, i64 } %24, i64 2, 1
-  ret { i64, i64 } %25
+  %23 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %24 = insertvalue { i64, i64 } %23, i64 2, 1
+  ret { i64, i64 } %24
 
 .critedge:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit13.i.i.i", %26, %.noexc
   br i1 %.not.not.i, label %17, label %.noexc
 
-26:                                               ; preds = %.noexc
+25:                                               ; preds = %.noexc
   %27 = load i8, ptr %0, align 1, !noalias !2208, !noundef !8
   %28 = icmp sgt i8 %27, -1
   br i1 %28, label %.critedge, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit13.i.i.i"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit13.i.i.i": ; preds = %26
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit13.i.i.i": ; preds = %25
   %29 = icmp samesign ne i64 %22, 1
   tail call void @llvm.assume(i1 %29)
   %30 = icmp ult i8 %27, -32

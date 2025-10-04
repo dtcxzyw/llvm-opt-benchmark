@@ -107,7 +107,7 @@ _ZN4llvm4User6op_endEv.exit:                      ; preds = %28, %31
 
 ._crit_edge:                                      ; preds = %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit
   %.not63 = icmp eq ptr %.4171, null
-  br i1 %.not63, label %._crit_edge.thread, label %192
+  br i1 %.not63, label %._crit_edge.thread, label %198
 
 60:                                               ; preds = %.lr.ph, %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit
   %.0152 = phi ptr [ %.0146, %.lr.ph ], [ %.0, %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit ]
@@ -408,19 +408,19 @@ _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i83: ; p
   %190 = select i1 %187, i64 %189, i64 0
   br label %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit
 
-_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit: ; preds = %180, %186
+192:                                              ; preds = %180, %186
   %.sink.i = phi i64 [ %190, %186 ], [ %185, %180 ]
   %.0 = getelementptr inbounds nuw i8, ptr %.0152, i64 32
   %.not = icmp eq ptr %.0, %37
   br i1 %.not, label %._crit_edge, label %60, !llvm.loop !50
 
 ._crit_edge.thread:                               ; preds = %_ZN4llvm4User6op_endEv.exit, %._crit_edge
-  %191 = call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %14) #5
-  br label %192
+  %197 = call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %14) #5
+  br label %198
 
-192:                                              ; preds = %._crit_edge, %._crit_edge.thread
-  %193 = phi ptr [ %191, %._crit_edge.thread ], [ %.4171, %._crit_edge ]
-  ret ptr %193
+198:                                              ; preds = %._crit_edge, %._crit_edge.thread
+  %199 = phi ptr [ %197, %._crit_edge.thread ], [ %.4171, %._crit_edge ]
+  ret ptr %199
 }
 
 declare noundef ptr @_ZNK4llvm10DataLayout12getIndexTypeEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496), ptr noundef) local_unnamed_addr #1

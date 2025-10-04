@@ -1967,7 +1967,7 @@ define hidden void @_ZN12regex_syntax3hir8interval8Interval10difference17h9e5157
 
 9:                                                ; preds = %3
   store i32 1114112, ptr %0, align 4
-  br label %24
+  br label %34
 
 10:                                               ; preds = %7
   %11 = icmp samesign ugt i32 %.val20, %.val
@@ -1979,7 +1979,7 @@ define hidden void @_ZN12regex_syntax3hir8interval8Interval10difference17h9e5157
   store i32 %.val, ptr %0, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.val19, ptr %14, align 4
-  br label %24
+  br label %34
 
 15:                                               ; preds = %10
   br i1 %11, label %18, label %17
@@ -1991,7 +1991,7 @@ define hidden void @_ZN12regex_syntax3hir8interval8Interval10difference17h9e5157
 17:                                               ; preds = %"_ZN59_$LT$char$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9decrement17hb21912a7c7011f34E.exit", %15
   %.sroa.07.0 = phi i32 [ %..i, %"_ZN59_$LT$char$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9decrement17hb21912a7c7011f34E.exit" ], [ 1114112, %15 ]
   %.sroa.7.0 = phi i32 [ %.6.i, %"_ZN59_$LT$char$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9decrement17hb21912a7c7011f34E.exit" ], [ undef, %15 ]
-  br i1 %12, label %21, label %20
+  br i1 %12, label %21, label %25
 
 18:                                               ; preds = %15
   %cond = icmp eq i32 %.val20, 57344
@@ -2003,10 +2003,10 @@ define hidden void @_ZN12regex_syntax3hir8interval8Interval10difference17h9e5157
 
 "_ZN59_$LT$char$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9decrement17hb21912a7c7011f34E.exit": ; preds = %18
   %..i = tail call i32 @llvm.umin.i32(i32 %.val, i32 55295)
-  %.6.i = tail call i32 @llvm.umax.i32(i32 %.val, i32 55295)
+  %..i = tail call i32 @llvm.umax.i32(i32 %.val, i32 55295)
   br label %17
 
-20:                                               ; preds = %"_ZN59_$LT$char$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9increment17hcc9ad0bc869411eeE.exit", %17
+25:                                               ; preds = %"_ZN59_$LT$char$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9increment17hcc9ad0bc869411eeE.exit", %17
   %.sroa.07.1 = phi i32 [ %.sroa.07.0, %17 ], [ %..sroa.07.0, %"_ZN59_$LT$char$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9increment17hcc9ad0bc869411eeE.exit" ]
   %.sroa.7.1 = phi i32 [ %.sroa.7.0, %17 ], [ %..sroa.7.0, %"_ZN59_$LT$char$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9increment17hcc9ad0bc869411eeE.exit" ]
   %.sroa.10.0 = phi i32 [ 1114112, %17 ], [ %., %"_ZN59_$LT$char$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9increment17hcc9ad0bc869411eeE.exit" ]
@@ -2016,26 +2016,26 @@ define hidden void @_ZN12regex_syntax3hir8interval8Interval10difference17h9e5157
   store i32 %.sroa.7.1, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.10.0, ptr %.sroa.10.0..sroa_idx, align 4
-  br label %24
+  br label %34
 
-21:                                               ; preds = %17
+28:                                               ; preds = %17
   %22 = icmp eq i32 %.val21, 55295
   br i1 %22, label %"_ZN59_$LT$char$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9increment17hcc9ad0bc869411eeE.exit", label %23
 
-23:                                               ; preds = %21
+33:                                               ; preds = %28
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.7eb7d200dc2f46b7a5cd845b93f5ca09.44.llvm.4042359526532701921, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7eb7d200dc2f46b7a5cd845b93f5ca09.50.llvm.4042359526532701921) #29
   unreachable
 
-"_ZN59_$LT$char$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9increment17hcc9ad0bc869411eeE.exit": ; preds = %21
+"_ZN59_$LT$char$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9increment17hcc9ad0bc869411eeE.exit": ; preds = %28
   %..i27 = tail call i32 @llvm.umin.i32(i32 %.val19, i32 57344)
-  %.6.i28 = tail call i32 @llvm.umax.i32(i32 %.val19, i32 57344)
+  %..i27 = tail call i32 @llvm.umax.i32(i32 %.val19, i32 57344)
   %.not = icmp eq i32 %.sroa.07.0, 1114112
   %..sroa.07.0 = select i1 %.not, i32 %..i27, i32 %.sroa.07.0
   %..sroa.7.0 = select i1 %.not, i32 %.6.i28, i32 %.sroa.7.0
   %. = select i1 %.not, i32 1114112, i32 %..i27
-  br label %20
+  br label %25
 
-24:                                               ; preds = %20, %13, %9
+34:                                               ; preds = %25, %13, %9
   %.sink = phi i64 [ 12, %20 ], [ 8, %13 ], [ 8, %9 ]
   %.sroa.12.0.sink = phi i32 [ %.sroa.12.0, %20 ], [ 1114112, %13 ], [ 1114112, %9 ]
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink

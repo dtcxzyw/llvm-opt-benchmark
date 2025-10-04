@@ -4577,23 +4577,23 @@ define dso_local noalias noundef ptr @lua_tocfunction(ptr noundef readonly captu
 4:                                                ; preds = %2
   switch i32 %1, label %.thread [
     i32 -10002, label %5
-    i32 -10001, label %13
+    i32 -10001, label %81
   ]
 
-5:                                                ; preds = %4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !21
-  %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 232
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %11 = load i64, ptr %10, align 8, !tbaa !24
-  %12 = or i64 %11, -1688849860263936
-  store i64 %12, ptr %9, align 8, !tbaa !17
+26:                                               ; preds = %4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = load i64, ptr %27, align 8, !tbaa !21
+  %29 = inttoptr i64 %28 to ptr
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 232
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %32 = load i64, ptr %31, align 8, !tbaa !24
+  %33 = or i64 %32, -1688849860263936
+  store i64 %33, ptr %30, align 8, !tbaa !17
   br label %.thread
 
-13:                                               ; preds = %4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !15
+81:                                               ; preds = %4
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %83 = load ptr, ptr %82, align 8, !tbaa !15
   %16 = getelementptr inbounds i8, ptr %15, i64 -16
   %17 = load i64, ptr %16, align 8, !tbaa !17
   %18 = and i64 %17, 140737488355327

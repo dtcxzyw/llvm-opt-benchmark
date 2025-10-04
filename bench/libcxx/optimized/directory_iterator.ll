@@ -2542,28 +2542,28 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   %11 = icmp ugt i64 %2, -10
   br i1 %11, label %12, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit
 
-12:                                               ; preds = %10
+13:                                               ; preds = %10
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE20__throw_length_errorB8ne210000Ev() #31
   unreachable
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit: ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %2, i64 44)
-  %14 = or i64 %.sroa.speculated.i, 7
-  %15 = add nuw i64 %14, 1
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %1, i64 %2, i1 false)
-  store ptr %16, ptr %13, align 8, !tbaa !51
-  %17 = or disjoint i64 %15, 1
-  store i64 %17, ptr %0, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %2, ptr %18, align 8, !tbaa !51
+  %15 = or i64 %.sroa.speculated.i, 7
+  %16 = add nuw i64 %15, 1
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %1, i64 %2, i1 false)
+  store ptr %17, ptr %14, align 8, !tbaa !51
+  %18 = or disjoint i64 %16, 1
+  store i64 %18, ptr %0, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %2, ptr %19, align 8, !tbaa !51
   br label %_ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit
 
 _ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit: ; preds = %9, %5, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit
-  %.sink21 = phi ptr [ %16, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit ], [ %6, %5 ], [ %6, %9 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.sink21, i64 %2
-  store i8 0, ptr %19, align 1, !tbaa !51
+  %.sink21 = phi ptr [ %17, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit ], [ %6, %5 ], [ %6, %9 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.sink21, i64 %2
+  store i8 0, ptr %20, align 1, !tbaa !51
   ret ptr %0
 }
 

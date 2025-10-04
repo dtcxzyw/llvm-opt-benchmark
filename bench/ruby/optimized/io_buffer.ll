@@ -6564,14 +6564,14 @@ io_buffer_validate_type.exit:                     ; preds = %3
   store i64 %5, ptr %2, align 8, !tbaa !22
   %11 = fpext float %10 to double
   %cond.i = tail call i1 @llvm.is.fpclass.f64(double %11, i32 64)
-  br i1 %cond.i, label %rb_float_new_inline.exit, label %12
+  br i1 %cond.i, label %25, label %12
 
-12:                                               ; preds = %io_buffer_validate_type.exit
+13:                                               ; preds = %io_buffer_validate_type.exit
   %13 = tail call i64 @rb_float_new_in_heap(double noundef %11) #25
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %io_buffer_validate_type.exit, %12
-  %.0.i = phi i64 [ %13, %12 ], [ -9223372036854775806, %io_buffer_validate_type.exit ]
+rb_float_new_inline.exit:                         ; preds = %io_buffer_validate_type.exit, %25
+  %.0.i = phi i64 [ %13, %25 ], [ -9223372036854775806, %io_buffer_validate_type.exit ]
   ret i64 %.0.i
 }
 
@@ -6595,13 +6595,13 @@ io_buffer_validate_type.exit:                     ; preds = %3
   store i64 %5, ptr %2, align 8, !tbaa !22
   %13 = fpext float %12 to double
   %cond.i = tail call i1 @llvm.is.fpclass.f64(double %13, i32 64)
-  br i1 %cond.i, label %rb_float_new_inline.exit, label %14
+  br i1 %cond.i, label %25, label %14
 
-14:                                               ; preds = %io_buffer_validate_type.exit
+15:                                               ; preds = %io_buffer_validate_type.exit
   %15 = tail call i64 @rb_float_new_in_heap(double noundef %13) #25
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %io_buffer_validate_type.exit, %14
+25:                                               ; preds = %io_buffer_validate_type.exit, %15
   %.0.i = phi i64 [ %15, %14 ], [ -9223372036854775806, %io_buffer_validate_type.exit ]
   ret i64 %.0.i
 }
@@ -6623,14 +6623,14 @@ io_buffer_validate_type.exit:                     ; preds = %3
   %10 = load double, ptr %9, align 1
   store i64 %5, ptr %2, align 8, !tbaa !22
   %cond.i = tail call i1 @llvm.is.fpclass.f64(double %10, i32 64)
-  br i1 %cond.i, label %rb_float_new_inline.exit, label %11
+  br i1 %cond.i, label %25, label %11
 
-11:                                               ; preds = %io_buffer_validate_type.exit
-  %12 = tail call i64 @rb_float_new_in_heap(double noundef %10) #25
+24:                                               ; preds = %io_buffer_validate_type.exit
+  %25 = tail call i64 @rb_float_new_in_heap(double noundef %10) #25
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %io_buffer_validate_type.exit, %11
-  %.0.i = phi i64 [ %12, %11 ], [ -9223372036854775806, %io_buffer_validate_type.exit ]
+rb_float_new_inline.exit:                         ; preds = %io_buffer_validate_type.exit, %24
+  %.0.i = phi i64 [ %25, %11 ], [ -9223372036854775806, %io_buffer_validate_type.exit ]
   ret i64 %.0.i
 }
 
@@ -6653,13 +6653,13 @@ io_buffer_validate_type.exit:                     ; preds = %3
   %12 = bitcast i64 %11 to double
   store i64 %5, ptr %2, align 8, !tbaa !22
   %cond.i = tail call i1 @llvm.is.fpclass.f64(double %12, i32 64)
-  br i1 %cond.i, label %rb_float_new_inline.exit, label %13
+  br i1 %cond.i, label %25, label %13
 
 13:                                               ; preds = %io_buffer_validate_type.exit
   %14 = tail call i64 @rb_float_new_in_heap(double noundef %12) #25
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %io_buffer_validate_type.exit, %13
+23:                                               ; preds = %io_buffer_validate_type.exit, %13
   %.0.i = phi i64 [ %14, %13 ], [ -9223372036854775806, %io_buffer_validate_type.exit ]
   ret i64 %.0.i
 }

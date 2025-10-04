@@ -3494,13 +3494,13 @@ if.else136:                                       ; preds = %if.then129
   store i32 11, ptr %mModifier.i, align 4
   br label %if.end150
 
-if.then145:                                       ; preds = %sw.bb116
+if.else139:                                       ; preds = %sw.bb116
   store i32 0, ptr %mnType108, align 4
   br label %if.end150
 
 if.end150:                                        ; preds = %if.then124, %if.then145, %if.then134, %if.else136, %if.then119
-  %17 = and i8 %c.3, -33
-  %or.cond2 = icmp eq i8 %17, 83
+  %18 = and i8 %c.3, -33
+  %or.cond2 = icmp eq i8 %18, 83
   br i1 %or.cond2, label %if.then156, label %sw.epilog275
 
 if.then156:                                       ; preds = %if.end150
@@ -3550,24 +3550,24 @@ if.then211:                                       ; preds = %sw.bb198
   store i32 1, ptr %mModifier.i, align 4
   br label %if.end224
 
-if.then219:                                       ; preds = %sw.bb198
+if.else213:                                       ; preds = %sw.bb198
   store i32 0, ptr %mnType108, align 4
   br label %if.end224
 
 if.end224:                                        ; preds = %if.then206, %if.then219, %if.then211, %if.then201
   %incdec.ptr225 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 1
-  %18 = load i8, ptr %incdec.ptr225, align 1
-  %cmp227.not = icmp eq i8 %18, 94
+  %20 = load i8, ptr %incdec.ptr225, align 1
+  %cmp227.not = icmp eq i8 %20, 94
   br i1 %cmp227.not, label %if.then228, label %if.end230
 
 if.then228:                                       ; preds = %if.end224
   %incdec.ptr229 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 2
-  %19 = load i8, ptr %incdec.ptr229, align 1
+  %21 = load i8, ptr %incdec.ptr229, align 1
   br label %if.end230
 
 if.end230:                                        ; preds = %if.then228, %if.end224
   %pFormatCurrent.5 = phi ptr [ %incdec.ptr229, %if.then228 ], [ %incdec.ptr225, %if.end224 ]
-  %c.4 = phi i8 [ %19, %if.then228 ], [ %18, %if.end224 ]
+  %c.4 = phi i8 [ %21, %if.then228 ], [ %20, %if.end224 ]
   %cmp232 = icmp eq i8 %c.4, 93
   br i1 %cmp232, label %if.then233, label %while.cond
 
@@ -3579,59 +3579,59 @@ if.then233:                                       ; preds = %if.end230
 while.cond.sink.split:                            ; preds = %if.end260, %if.then233
   %pFormatCurrent.5.sink = phi ptr [ %pFormatCurrent.5, %if.then233 ], [ %pFormatCurrent.8, %if.end260 ]
   %incdec.ptr235 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.5.sink, i64 1
-  %20 = load i8, ptr %incdec.ptr235, align 1
+  %22 = load i8, ptr %incdec.ptr235, align 1
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.sink.split, %if.end230
   %pFormatCurrent.7 = phi ptr [ %pFormatCurrent.5, %if.end230 ], [ %incdec.ptr235, %while.cond.sink.split ]
-  %c.6 = phi i8 [ %c.4, %if.end230 ], [ %20, %while.cond.sink.split ]
+  %c.6 = phi i8 [ %c.4, %if.end230 ], [ %22, %while.cond.sink.split ]
   switch i8 %c.6, label %while.body [
     i8 0, label %if.else269
     i8 93, label %if.then264
   ]
 
 while.body:                                       ; preds = %while.cond
-  %21 = and i8 %c.6, 31
-  %and.i67 = zext nneg i8 %21 to i32
+  %23 = and i8 %c.6, 31
+  %and.i67 = zext nneg i8 %23 to i32
   %shl.i = shl nuw i32 1, %and.i67
-  %22 = lshr i8 %c.6, 5
-  %idxprom.i68 = zext nneg i8 %22 to i64
+  %24 = lshr i8 %c.6, 5
+  %idxprom.i68 = zext nneg i8 %24 to i64
   %arrayidx.i69 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %idxprom.i68
-  %23 = load i32, ptr %arrayidx.i69, align 4
-  %or.i70 = or i32 %23, %shl.i
+  %25 = load i32, ptr %arrayidx.i69, align 4
+  %or.i70 = or i32 %25, %shl.i
   store i32 %or.i70, ptr %arrayidx.i69, align 4
   %arrayidx241 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.7, i64 1
-  %24 = load i8, ptr %arrayidx241, align 1
-  %cmp243 = icmp eq i8 %24, 45
+  %26 = load i8, ptr %arrayidx241, align 1
+  %cmp243 = icmp eq i8 %26, 45
   br i1 %cmp243, label %land.lhs.true244, label %if.end260
 
 land.lhs.true244:                                 ; preds = %while.body
   %arrayidx245 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.7, i64 2
-  %25 = load i8, ptr %arrayidx245, align 1
-  switch i8 %25, label %while.cond252.preheader [
+  %27 = load i8, ptr %arrayidx245, align 1
+  switch i8 %27, label %while.cond252.preheader [
     i8 0, label %if.end260
     i8 93, label %if.end260
   ]
 
 while.cond252.preheader:                          ; preds = %land.lhs.true244
   %inc88 = add i8 %c.6, 1
-  %cmp256.not89 = icmp sgt i8 %inc88, %25
+  %cmp256.not89 = icmp sgt i8 %inc88, %27
   br i1 %cmp256.not89, label %if.end260, label %while.body257
 
 while.body257:                                    ; preds = %while.cond252.preheader, %while.body257
   %inc90 = phi i8 [ %inc, %while.body257 ], [ %inc88, %while.cond252.preheader ]
-  %26 = and i8 %inc90, 31
-  %and.i71 = zext nneg i8 %26 to i32
+  %28 = and i8 %inc90, 31
+  %and.i71 = zext nneg i8 %28 to i32
   %shl.i72 = shl nuw i32 1, %and.i71
-  %27 = lshr i8 %inc90, 5
-  %idxprom.i73 = zext nneg i8 %27 to i64
+  %29 = lshr i8 %inc90, 5
+  %idxprom.i73 = zext nneg i8 %29 to i64
   %arrayidx.i74 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %idxprom.i73
-  %28 = load i32, ptr %arrayidx.i74, align 4
-  %or.i75 = or i32 %28, %shl.i72
+  %30 = load i32, ptr %arrayidx.i74, align 4
+  %or.i75 = or i32 %30, %shl.i72
   store i32 %or.i75, ptr %arrayidx.i74, align 4
   %inc = add i8 %inc90, 1
-  %29 = load i8, ptr %arrayidx245, align 1
-  %cmp256.not = icmp sgt i8 %inc, %29
+  %31 = load i8, ptr %arrayidx245, align 1
+  %cmp256.not = icmp sgt i8 %inc, %31
   br i1 %cmp256.not, label %if.end260, label %while.body257, !llvm.loop !34
 
 if.end260:                                        ; preds = %while.body257, %while.cond252.preheader, %land.lhs.true244, %land.lhs.true244, %while.body
@@ -3644,8 +3644,8 @@ if.then264:                                       ; preds = %while.cond
 for.body.i:                                       ; preds = %if.then264, %for.body.i
   %i.04.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then264 ]
   %arrayidx.i76 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %i.04.i
-  %30 = load i32, ptr %arrayidx.i76, align 4
-  %not.i = xor i32 %30, -1
+  %32 = load i32, ptr %arrayidx.i76, align 4
+  %not.i = xor i32 %32, -1
   store i32 %not.i, ptr %arrayidx.i76, align 4
   %inc.i = add nuw nsw i64 %i.04.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8
@@ -4808,13 +4808,13 @@ if.else136:                                       ; preds = %if.then129
   store i32 1, ptr %mModifier.i, align 4
   br label %if.end150
 
-if.then145:                                       ; preds = %sw.bb116
+if.else139:                                       ; preds = %sw.bb116
   store i32 0, ptr %mnType108, align 4
   br label %if.end150
 
 if.end150:                                        ; preds = %if.then124, %if.then145, %if.then134, %if.else136, %if.then119
-  %15 = and i16 %c.3, -33
-  %or.cond2 = icmp eq i16 %15, 83
+  %16 = and i16 %c.3, -33
+  %or.cond2 = icmp eq i16 %16, 83
   br i1 %or.cond2, label %if.then156, label %sw.epilog275
 
 if.then156:                                       ; preds = %if.end150
@@ -4864,24 +4864,24 @@ if.then211:                                       ; preds = %sw.bb198
   store i32 11, ptr %mModifier.i, align 4
   br label %if.end224
 
-if.then219:                                       ; preds = %sw.bb198
+if.else213:                                       ; preds = %sw.bb198
   store i32 0, ptr %mnType108, align 4
   br label %if.end224
 
 if.end224:                                        ; preds = %if.then206, %if.then219, %if.then211, %if.then201
   %incdec.ptr225 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 2
-  %16 = load i16, ptr %incdec.ptr225, align 2
-  %cmp227.not = icmp eq i16 %16, 94
+  %18 = load i16, ptr %incdec.ptr225, align 2
+  %cmp227.not = icmp eq i16 %18, 94
   br i1 %cmp227.not, label %if.then228, label %if.end230
 
 if.then228:                                       ; preds = %if.end224
   %incdec.ptr229 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 4
-  %17 = load i16, ptr %incdec.ptr229, align 2
+  %19 = load i16, ptr %incdec.ptr229, align 2
   br label %if.end230
 
 if.end230:                                        ; preds = %if.then228, %if.end224
   %pFormatCurrent.5 = phi ptr [ %incdec.ptr229, %if.then228 ], [ %incdec.ptr225, %if.end224 ]
-  %c.4 = phi i16 [ %17, %if.then228 ], [ %16, %if.end224 ]
+  %c.4 = phi i16 [ %19, %if.then228 ], [ %18, %if.end224 ]
   %cmp232 = icmp eq i16 %c.4, 93
   br i1 %cmp232, label %if.then233, label %while.cond
 
@@ -4893,12 +4893,12 @@ if.then233:                                       ; preds = %if.end230
 while.cond.sink.split:                            ; preds = %if.end260, %if.then233
   %pFormatCurrent.5.sink = phi ptr [ %pFormatCurrent.5, %if.then233 ], [ %pFormatCurrent.8, %if.end260 ]
   %incdec.ptr235 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.5.sink, i64 2
-  %18 = load i16, ptr %incdec.ptr235, align 2
+  %20 = load i16, ptr %incdec.ptr235, align 2
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.sink.split, %if.end230
   %pFormatCurrent.7 = phi ptr [ %pFormatCurrent.5, %if.end230 ], [ %incdec.ptr235, %while.cond.sink.split ]
-  %c.6 = phi i16 [ %c.4, %if.end230 ], [ %18, %while.cond.sink.split ]
+  %c.6 = phi i16 [ %c.4, %if.end230 ], [ %20, %while.cond.sink.split ]
   switch i16 %c.6, label %while.body [
     i16 0, label %if.else269
     i16 93, label %if.then264
@@ -4909,59 +4909,59 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp.i65, label %if.then.i, label %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDs.exit
 
 if.then.i:                                        ; preds = %while.body
-  %19 = and i16 %c.6, 31
-  %and.i = zext nneg i16 %19 to i32
+  %21 = and i16 %c.6, 31
+  %and.i = zext nneg i16 %21 to i32
   %shl.i = shl nuw i32 1, %and.i
-  %20 = lshr i16 %c.6, 5
-  %idxprom.i = zext nneg i16 %20 to i64
+  %22 = lshr i16 %c.6, 5
+  %idxprom.i = zext nneg i16 %22 to i64
   %arrayidx.i66 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %idxprom.i
-  %21 = load i32, ptr %arrayidx.i66, align 4
-  %or.i67 = or i32 %21, %shl.i
+  %23 = load i32, ptr %arrayidx.i66, align 4
+  %or.i67 = or i32 %23, %shl.i
   store i32 %or.i67, ptr %arrayidx.i66, align 4
   br label %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDs.exit
 
 _ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDs.exit:  ; preds = %while.body, %if.then.i
   %arrayidx241 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.7, i64 2
-  %22 = load i16, ptr %arrayidx241, align 2
-  %cmp243 = icmp eq i16 %22, 45
+  %24 = load i16, ptr %arrayidx241, align 2
+  %cmp243 = icmp eq i16 %24, 45
   br i1 %cmp243, label %land.lhs.true244, label %if.end260
 
 land.lhs.true244:                                 ; preds = %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDs.exit
   %arrayidx245 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.7, i64 4
-  %23 = load i16, ptr %arrayidx245, align 2
-  switch i16 %23, label %while.cond252.preheader [
+  %25 = load i16, ptr %arrayidx245, align 2
+  switch i16 %25, label %while.cond252.preheader [
     i16 0, label %if.end260
     i16 93, label %if.end260
   ]
 
 while.cond252.preheader:                          ; preds = %land.lhs.true244
   %inc88 = add i16 %c.6, 1
-  %cmp256.not89 = icmp ugt i16 %inc88, %23
+  %cmp256.not89 = icmp ugt i16 %inc88, %25
   br i1 %cmp256.not89, label %if.end260, label %while.body257
 
 while.body257:                                    ; preds = %while.cond252.preheader, %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDs.exit75
-  %24 = phi i16 [ %28, %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDs.exit75 ], [ %23, %while.cond252.preheader ]
+  %26 = phi i16 [ %30, %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDs.exit75 ], [ %25, %while.cond252.preheader ]
   %inc90 = phi i16 [ %inc, %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDs.exit75 ], [ %inc88, %while.cond252.preheader ]
   %cmp.i68 = icmp ult i16 %inc90, 256
   br i1 %cmp.i68, label %if.then.i69, label %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDs.exit75
 
 if.then.i69:                                      ; preds = %while.body257
-  %25 = and i16 %inc90, 31
-  %and.i70 = zext nneg i16 %25 to i32
+  %27 = and i16 %inc90, 31
+  %and.i70 = zext nneg i16 %27 to i32
   %shl.i71 = shl nuw i32 1, %and.i70
-  %26 = lshr i16 %inc90, 5
-  %idxprom.i72 = zext nneg i16 %26 to i64
+  %28 = lshr i16 %inc90, 5
+  %idxprom.i72 = zext nneg i16 %28 to i64
   %arrayidx.i73 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %idxprom.i72
-  %27 = load i32, ptr %arrayidx.i73, align 4
-  %or.i74 = or i32 %27, %shl.i71
+  %29 = load i32, ptr %arrayidx.i73, align 4
+  %or.i74 = or i32 %29, %shl.i71
   store i32 %or.i74, ptr %arrayidx.i73, align 4
   %.pre = load i16, ptr %arrayidx245, align 2
   br label %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDs.exit75
 
 _ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDs.exit75: ; preds = %while.body257, %if.then.i69
-  %28 = phi i16 [ %24, %while.body257 ], [ %.pre, %if.then.i69 ]
+  %30 = phi i16 [ %26, %while.body257 ], [ %.pre, %if.then.i69 ]
   %inc = add i16 %inc90, 1
-  %cmp256.not = icmp ugt i16 %inc, %28
+  %cmp256.not = icmp ugt i16 %inc, %30
   br i1 %cmp256.not, label %if.end260, label %while.body257, !llvm.loop !44
 
 if.end260:                                        ; preds = %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDs.exit75, %while.cond252.preheader, %land.lhs.true244, %land.lhs.true244, %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDs.exit
@@ -4974,8 +4974,8 @@ if.then264:                                       ; preds = %while.cond
 for.body.i:                                       ; preds = %if.then264, %for.body.i
   %i.04.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then264 ]
   %arrayidx.i76 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %i.04.i
-  %29 = load i32, ptr %arrayidx.i76, align 4
-  %not.i = xor i32 %29, -1
+  %31 = load i32, ptr %arrayidx.i76, align 4
+  %not.i = xor i32 %31, -1
   store i32 %not.i, ptr %arrayidx.i76, align 4
   %inc.i = add nuw nsw i64 %i.04.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8
@@ -6169,13 +6169,13 @@ if.else117:                                       ; preds = %if.then112
   store i32 1, ptr %mModifier.i, align 4
   br label %if.end131
 
-if.then126:                                       ; preds = %sw.bb99
+if.else120:                                       ; preds = %sw.bb99
   store i32 0, ptr %mnType92, align 4
   br label %if.end131
 
 if.end131:                                        ; preds = %if.then107, %if.then126, %if.then115, %if.else117, %if.then102
-  %15 = and i32 %c.3, -33
-  %or.cond2 = icmp eq i32 %15, 83
+  %16 = and i32 %c.3, -33
+  %or.cond2 = icmp eq i32 %16, 83
   br i1 %or.cond2, label %if.then135, label %sw.epilog247
 
 if.then135:                                       ; preds = %if.end131
@@ -6225,24 +6225,24 @@ if.then190:                                       ; preds = %sw.bb177
   store i32 11, ptr %mModifier.i, align 4
   br label %if.end203
 
-if.then198:                                       ; preds = %sw.bb177
+if.else192:                                       ; preds = %sw.bb177
   store i32 0, ptr %mnType92, align 4
   br label %if.end203
 
 if.end203:                                        ; preds = %if.then185, %if.then198, %if.then190, %if.then180
   %incdec.ptr204 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 4
-  %16 = load i32, ptr %incdec.ptr204, align 4
-  %cmp205.not = icmp eq i32 %16, 94
+  %18 = load i32, ptr %incdec.ptr204, align 4
+  %cmp205.not = icmp eq i32 %18, 94
   br i1 %cmp205.not, label %if.then206, label %if.end208
 
 if.then206:                                       ; preds = %if.end203
   %incdec.ptr207 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.3, i64 8
-  %17 = load i32, ptr %incdec.ptr207, align 4
+  %19 = load i32, ptr %incdec.ptr207, align 4
   br label %if.end208
 
 if.end208:                                        ; preds = %if.then206, %if.end203
   %pFormatCurrent.5 = phi ptr [ %incdec.ptr207, %if.then206 ], [ %incdec.ptr204, %if.end203 ]
-  %c.4 = phi i32 [ %17, %if.then206 ], [ %16, %if.end203 ]
+  %c.4 = phi i32 [ %19, %if.then206 ], [ %18, %if.end203 ]
   %cmp209 = icmp eq i32 %c.4, 93
   br i1 %cmp209, label %if.then210, label %while.cond
 
@@ -6254,12 +6254,12 @@ if.then210:                                       ; preds = %if.end208
 while.cond.sink.split:                            ; preds = %if.end232, %if.then210
   %pFormatCurrent.5.sink = phi ptr [ %pFormatCurrent.5, %if.then210 ], [ %pFormatCurrent.8, %if.end232 ]
   %incdec.ptr212 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.5.sink, i64 4
-  %18 = load i32, ptr %incdec.ptr212, align 4
+  %20 = load i32, ptr %incdec.ptr212, align 4
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.sink.split, %if.end208
   %pFormatCurrent.7 = phi ptr [ %pFormatCurrent.5, %if.end208 ], [ %incdec.ptr212, %while.cond.sink.split ]
-  %c.6 = phi i32 [ %c.4, %if.end208 ], [ %18, %while.cond.sink.split ]
+  %c.6 = phi i32 [ %c.4, %if.end208 ], [ %20, %while.cond.sink.split ]
   switch i32 %c.6, label %while.body [
     i32 0, label %if.else241
     i32 93, label %if.then236
@@ -6275,32 +6275,32 @@ if.then.i:                                        ; preds = %while.body
   %shr.i = lshr i32 %c.6, 5
   %idxprom.i = zext nneg i32 %shr.i to i64
   %arrayidx.i70 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %idxprom.i
-  %19 = load i32, ptr %arrayidx.i70, align 4
-  %or.i71 = or i32 %19, %shl.i
+  %21 = load i32, ptr %arrayidx.i70, align 4
+  %or.i71 = or i32 %21, %shl.i
   store i32 %or.i71, ptr %arrayidx.i70, align 4
   br label %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDi.exit
 
 _ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDi.exit:  ; preds = %while.body, %if.then.i
   %arrayidx217 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.7, i64 4
-  %20 = load i32, ptr %arrayidx217, align 4
-  %cmp218 = icmp eq i32 %20, 45
+  %22 = load i32, ptr %arrayidx217, align 4
+  %cmp218 = icmp eq i32 %22, 45
   br i1 %cmp218, label %land.lhs.true219, label %if.end232
 
 land.lhs.true219:                                 ; preds = %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDi.exit
   %arrayidx220 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.7, i64 8
-  %21 = load i32, ptr %arrayidx220, align 4
-  switch i32 %21, label %while.cond226.preheader [
+  %23 = load i32, ptr %arrayidx220, align 4
+  switch i32 %23, label %while.cond226.preheader [
     i32 0, label %if.end232
     i32 93, label %if.end232
   ]
 
 while.cond226.preheader:                          ; preds = %land.lhs.true219
   %inc93 = add i32 %c.6, 1
-  %cmp228.not94 = icmp ugt i32 %inc93, %21
+  %cmp228.not94 = icmp ugt i32 %inc93, %23
   br i1 %cmp228.not94, label %if.end232, label %while.body229
 
 while.body229:                                    ; preds = %while.cond226.preheader, %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDi.exit80
-  %22 = phi i32 [ %24, %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDi.exit80 ], [ %21, %while.cond226.preheader ]
+  %24 = phi i32 [ %26, %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDi.exit80 ], [ %23, %while.cond226.preheader ]
   %inc95 = phi i32 [ %inc, %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDi.exit80 ], [ %inc93, %while.cond226.preheader ]
   %cmp.i72 = icmp ult i32 %inc95, 256
   br i1 %cmp.i72, label %if.then.i73, label %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDi.exit80
@@ -6311,16 +6311,16 @@ if.then.i73:                                      ; preds = %while.body229
   %shr.i76 = lshr i32 %inc95, 5
   %idxprom.i77 = zext nneg i32 %shr.i76 to i64
   %arrayidx.i78 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %idxprom.i77
-  %23 = load i32, ptr %arrayidx.i78, align 4
-  %or.i79 = or i32 %23, %shl.i75
+  %25 = load i32, ptr %arrayidx.i78, align 4
+  %or.i79 = or i32 %25, %shl.i75
   store i32 %or.i79, ptr %arrayidx.i78, align 4
   %.pre = load i32, ptr %arrayidx220, align 4
   br label %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDi.exit80
 
 _ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDi.exit80: ; preds = %while.body229, %if.then.i73
-  %24 = phi i32 [ %22, %while.body229 ], [ %.pre, %if.then.i73 ]
+  %26 = phi i32 [ %24, %while.body229 ], [ %.pre, %if.then.i73 ]
   %inc = add i32 %inc95, 1
-  %cmp228.not = icmp ugt i32 %inc, %24
+  %cmp228.not = icmp ugt i32 %inc, %26
   br i1 %cmp228.not, label %if.end232, label %while.body229, !llvm.loop !53
 
 if.end232:                                        ; preds = %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDi.exit80, %while.cond226.preheader, %land.lhs.true219, %land.lhs.true219, %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDi.exit
@@ -6333,8 +6333,8 @@ if.then236:                                       ; preds = %while.cond
 for.body.i:                                       ; preds = %if.then236, %for.body.i
   %i.04.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then236 ]
   %arrayidx.i81 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %i.04.i
-  %25 = load i32, ptr %arrayidx.i81, align 4
-  %not.i = xor i32 %25, -1
+  %27 = load i32, ptr %arrayidx.i81, align 4
+  %not.i = xor i32 %27, -1
   store i32 %not.i, ptr %arrayidx.i81, align 4
   %inc.i = add nuw nsw i64 %i.04.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8

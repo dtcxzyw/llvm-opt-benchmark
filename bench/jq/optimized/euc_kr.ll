@@ -126,14 +126,14 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %.01219 = phi ptr [ %7, %6 ], [ %0, %2 ]
   %4 = load i8, ptr %.01219, align 1, !tbaa !4
   %5 = icmp sgt i8 %4, -1
-  br i1 %5, label %6, label %._crit_edge
+  br i1 %5, label %6, label %8
 
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds nuw i8, ptr %.01219, i64 1
-  %8 = icmp ult ptr %7, %1
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  %or.cond18 = icmp ult ptr %7, %1
+  br i1 %or.cond18, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %6, %.lr.ph, %2
+8:                                                ; preds = %6, %.lr.ph, %2
   %.0 = phi i32 [ 1, %2 ], [ 0, %.lr.ph ], [ 1, %6 ]
   ret i32 %.0
 }

@@ -5836,8 +5836,8 @@ default.unreachable:                              ; preds = %395, %385, %375, %3
   call void @llvm.experimental.noalias.scope.decl(metadata !1308)
   call void @llvm.experimental.noalias.scope.decl(metadata !1309)
   store i64 %.sroa.0715.0.copyload, ptr %39, align 8, !alias.scope !1310, !noalias !1311
-  %.not.not.i = icmp samesign ult i8 %.sroa.2728.0.lcssa, 2
-  br i1 %.not.not.i, label %329, label %"_ZN6deserr19FieldState$LT$T$GT$3map17h09d13ac890e3d62fE.exit.thread"
+  %or.cond = icmp samesign ult i8 %.sroa.2728.0.lcssa, 2
+  br i1 %or.cond, label %329, label %"_ZN6deserr19FieldState$LT$T$GT$3map17h09d13ac890e3d62fE.exit.thread"
 
 .noexc169:                                        ; preds = %"_ZN6deserr19FieldState$LT$T$GT$3map17h126570e6c6f2971eE.exit.thread"
   unreachable

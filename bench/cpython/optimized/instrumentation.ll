@@ -8315,9 +8315,9 @@ check_valid_tool.exit.i:                          ; preds = %.split
   %18 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %17, ptr noundef nonnull @.str.27, i32 noundef %8) #11
   br label %monitoring_register_callback_impl.exit
 
-19:                                               ; preds = %.split
-  %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
-  %.not16.i = icmp eq i32 %20, 1
+20:                                               ; preds = %.split
+  %21 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
+  %.not16 = icmp eq i32 %21, 1
   %21 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !46
   br i1 %.not16.i, label %23, label %22
 
@@ -8335,19 +8335,19 @@ check_valid_tool.exit.i:                          ; preds = %.split
   br i1 %.not16, label %.split13, label %monitoring_register_callback_impl.exit
 
 .split13:                                         ; preds = %25
-  %or.cond.i.i17 = icmp ugt i32 %8, 5
-  %27 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !46
-  br i1 %or.cond.i.i17, label %check_valid_tool.exit.i18, label %29
+  %or.cond.i.i = icmp ugt i32 %8, 5
+  %22 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !46
+  br i1 %or.cond.i.i, label %check_valid_tool.exit.i, label %24
 
-check_valid_tool.exit.i18:                        ; preds = %.split13
-  %28 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.27, i32 noundef %8) #11
+check_valid_tool.exit.i:                          ; preds = %.split13
+  %23 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %22, ptr noundef nonnull @.str.27, i32 noundef %8) #11
   br label %monitoring_register_callback_impl.exit
 
-29:                                               ; preds = %.split13
-  tail call void @PyErr_SetString(ptr noundef %27, ptr noundef nonnull @.str.28) #11
+24:                                               ; preds = %.split13
+  tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.28) #11
   br label %monitoring_register_callback_impl.exit
 
-monitoring_register_callback_impl.exit:           ; preds = %29, %check_valid_tool.exit.i18, %23, %22, %check_valid_tool.exit.i, %25, %10, %4
+monitoring_register_callback_impl.exit:           ; preds = %24, %check_valid_tool.exit.i, %23, %22, %check_valid_tool.exit.i, %25, %10, %4
   ret ptr null
 }
 

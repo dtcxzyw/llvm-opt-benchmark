@@ -1485,18 +1485,18 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
 
 47:                                               ; preds = %utf8_to_unicode.exit
   %48 = icmp samesign ult i32 %.0.i, 32
-  br i1 %48, label %ucs_wcwidth.exit, label %.thread
+  br i1 %48, label %ucs_wcwidth.exit, label %49
 
-.thread:                                          ; preds = %23, %47
+49:                                               ; preds = %23, %47
   %.0.i35 = phi i32 [ %.0.i, %47 ], [ -1, %23 ]
   %49 = add nsw i32 %.0.i35, -127
-  %or.cond.i = icmp ult i32 %49, 33
+  %51 = icmp ult i32 %49, 33
   %50 = icmp ugt i32 %.0.i35, 1114111
-  %or.cond3.i = or i1 %50, %or.cond.i
+  %or.cond3.i = or i1 %50, %51
   %spec.select.i = select i1 %or.cond3.i, i32 -1, i32 1
   br label %ucs_wcwidth.exit
 
-ucs_wcwidth.exit:                                 ; preds = %utf8_to_unicode.exit, %47, %.thread
+ucs_wcwidth.exit:; preds = %utf8_to_unicode.exit, %47, %49
   %.0.i1 = phi i32 [ 0, %utf8_to_unicode.exit ], [ -1, %47 ], [ %spec.select.i, %.thread ]
   ret i32 %.0.i1
 }

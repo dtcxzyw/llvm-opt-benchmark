@@ -33,7 +33,7 @@ define noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef rea
   %17 = xor i32 %notmask, -1
   %18 = and i32 %3, %17
   switch i8 %10, label %.thread94 [
-    i8 0, label %91
+    i8 0, label %92
     i8 1, label %44
     i8 3, label %19
     i8 2, label %32
@@ -107,9 +107,9 @@ define noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef rea
   %63 = icmp eq i32 %62, 55296
   %64 = icmp ne i8 %4, -2
   %or.cond = and i1 %64, %63
-  br i1 %or.cond, label %.critedge, label %82
+  br i1 %or.cond, label %.critedge, label %83
 
-.lr.ph:                                           ; preds = %15, %15
+.thread:                                          ; preds = %15, %15
   %65 = sext i32 %6 to i64
   %66 = add nsw i8 %10, -1
   %67 = zext nneg i8 %66 to i32
@@ -117,7 +117,7 @@ define noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef rea
   %69 = add i32 %68, 1
   br label %70
 
-70:                                               ; preds = %.lr.ph, %74
+70:; preds = %.thread, %74
   %indvars.iv = phi i64 [ %65, %.lr.ph ], [ %indvars.iv.next, %74 ]
   %.077108 = phi i8 [ %10, %.lr.ph ], [ %75, %74 ]
   %71 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
@@ -125,91 +125,91 @@ define noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef rea
   %73 = icmp slt i8 %72, -64
   br i1 %73, label %74, label %.critedge.loopexit.split.loop.exit125
 
-74:                                               ; preds = %70
+74: ; preds = %70
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %75 = add i8 %.077108, -1
-  %.not90 = icmp eq i8 %75, 0
+  %76 = add i8 %.077108, -1
+  %.not90 = icmp eq i8 %76, 0
   br i1 %.not90, label %.critedge, label %70, !llvm.loop !8
 
 .critedge.loopexit.split.loop.exit125:            ; preds = %70
-  %76 = trunc nsw i64 %indvars.iv to i32
+  %77 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %74, %.critedge.loopexit.split.loop.exit125, %44, %.thread94, %61, %19
   %.077.lcssa = phi i8 [ 3, %19 ], [ %10, %61 ], [ %10, %.thread94 ], [ %10, %44 ], [ %.077108, %.critedge.loopexit.split.loop.exit125 ], [ 0, %74 ]
-  %.482.lcssa = phi i32 [ %6, %19 ], [ %6, %61 ], [ %6, %.thread94 ], [ %6, %44 ], [ %76, %.critedge.loopexit.split.loop.exit125 ], [ %69, %74 ]
-  %77 = icmp sgt i8 %4, -1
-  br i1 %77, label %78, label %.thread101
+  %.482.lcssa = phi i32 [ %6, %19 ], [ %6, %61 ], [ %6, %.thread94 ], [ %6, %44 ], [ %77, %.critedge.loopexit.split.loop.exit125 ], [ %69, %74 ]
+  %78 = icmp sgt i8 %4, -1
+  br i1 %78, label %79, label %.thread101
 
-78:                                               ; preds = %.critedge
-  %79 = zext i8 %.077.lcssa to i32
-  %80 = sub nsw i32 %11, %79
-  %81 = sext i32 %80 to i64
+79:                                               ; preds = %.critedge
+  %80 = zext i8 %.077.lcssa to i32
+  %81 = sub nsw i32 %11, %80
+  %82 = sext i32 %81 to i64
   br label %.thread101.sink.split
 
-82:                                               ; preds = %61
-  %83 = icmp sgt i8 %4, 0
-  %84 = icmp sgt i32 %.07199, 64975
-  %or.cond4 = and i1 %83, %84
-  br i1 %or.cond4, label %85, label %.thread101
+83:                                               ; preds = %61
+  %84 = icmp sgt i8 %4, 0
+  %85 = icmp sgt i32 %.07199, 64975
+  %or.cond4 = and i1 %84, %85
+  br i1 %or.cond4, label %86, label %.thread101
 
-85:                                               ; preds = %82
-  %86 = icmp samesign ult i32 %.07199, 65008
-  br i1 %86, label %.thread101.sink.split, label %87
+86:                                               ; preds = %83
+  %87 = icmp samesign ult i32 %.07199, 65008
+  br i1 %87, label %.thread101.sink.split, label %88
 
-87:                                               ; preds = %85
-  %88 = and i32 %.07199, 65534
-  %89 = icmp eq i32 %88, 65534
-  %90 = icmp samesign ult i32 %.07199, 1114112
-  %or.cond6 = and i1 %90, %89
+88:                                               ; preds = %86
+  %89 = and i32 %.07199, 65534
+  %90 = icmp eq i32 %89, 65534
+  %91 = icmp samesign ult i32 %.07199, 1114112
+  %or.cond6 = and i1 %91, %90
   br i1 %or.cond6, label %.thread101.sink.split, label %.thread101
 
-91:                                               ; preds = %15
-  %92 = icmp sgt i8 %4, -1
-  %. = select i1 %92, i32 21, i32 -1
-  br label %104
+92:                                               ; preds = %15
+  %93 = icmp sgt i8 %4, -1
+  %. = select i1 %93, i32 21, i32 -1
+  br label %105
 
-.lr.ph114:                                        ; preds = %.lr.ph114.preheader, %96
+.lr.ph114:                                        ; preds = %.lr.ph114.preheader, %97
   %indvars.iv118 = phi i64 [ %14, %.lr.ph114.preheader ], [ %indvars.iv.next119, %96 ]
-  %93 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv118
-  %94 = load i8, ptr %93, align 1, !tbaa !7
-  %95 = icmp slt i8 %94, -64
-  br i1 %95, label %96, label %.critedge8.loopexit.split.loop.exit128
+  %94 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv118
+  %95 = load i8, ptr %94, align 1, !tbaa !7
+  %96 = icmp slt i8 %95, -64
+  br i1 %96, label %97, label %.critedge8.loopexit.split.loop.exit128
 
-96:                                               ; preds = %.lr.ph114
+97:                                               ; preds = %.lr.ph114
   %indvars.iv.next119 = add nsw i64 %indvars.iv118, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next119 to i32
   %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge8, label %.lr.ph114, !llvm.loop !10
 
 .critedge8.loopexit.split.loop.exit128:           ; preds = %.lr.ph114
-  %97 = trunc nsw i64 %indvars.iv118 to i32
+  %98 = trunc nsw i64 %indvars.iv118 to i32
   br label %.critedge8
 
-.critedge8:                                       ; preds = %96, %.critedge8.loopexit.split.loop.exit128, %.preheader
-  %.785.lcssa = phi i32 [ %6, %.preheader ], [ %97, %.critedge8.loopexit.split.loop.exit128 ], [ %2, %96 ]
-  %98 = icmp sgt i8 %4, -1
-  br i1 %98, label %99, label %.thread101
+.critedge8:                                       ; preds = %97, %.critedge8.loopexit.split.loop.exit128, %.preheader
+  %.785.lcssa = phi i32 [ %6, %.preheader ], [ %98, %.critedge8.loopexit.split.loop.exit128 ], [ %2, %96 ]
+  %99 = icmp sgt i8 %4, -1
+  br i1 %99, label %100, label %.thread101
 
-99:                                               ; preds = %.critedge8
-  %100 = sub nsw i32 %.785.lcssa, %6
-  %101 = sext i32 %100 to i64
+100:                                              ; preds = %.critedge8
+  %101 = sub nsw i32 %.785.lcssa, %6
+  %102 = sext i32 %101 to i64
   br label %.thread101.sink.split
 
-.thread101.sink.split:                            ; preds = %87, %85, %99, %78
-  %.sink130 = phi i64 [ %81, %78 ], [ %101, %99 ], [ %57, %85 ], [ %57, %87 ]
+.thread101.sink.split:                            ; preds = %88, %86, %100, %79
+  %.sink130 = phi i64 [ %82, %78 ], [ %102, %99 ], [ %57, %85 ], [ %57, %87 ]
   %.684.ph = phi i32 [ %.482.lcssa, %78 ], [ %.785.lcssa, %99 ], [ %.07898, %85 ], [ %.07898, %87 ]
-  %102 = getelementptr inbounds i32, ptr @_ZN8base_icuL15utf8_errorValueE, i64 %.sink130
-  %103 = load i32, ptr %102, align 4, !tbaa !3
+  %103 = getelementptr inbounds i32, ptr @_ZN8base_icuL15utf8_errorValueE, i64 %.sink130
+  %104 = load i32, ptr %103, align 4, !tbaa !3
   br label %.thread101
 
-.thread101:                                       ; preds = %.thread101.sink.split, %87, %82, %.critedge, %.critedge8
+.thread101:                                       ; preds = %.thread101.sink.split, %88, %83, %.critedge, %.critedge8
   %.684 = phi i32 [ %.785.lcssa, %.critedge8 ], [ %.482.lcssa, %.critedge ], [ %.07898, %82 ], [ %.07898, %87 ], [ %.684.ph, %.thread101.sink.split ]
-  %.6 = phi i32 [ -1, %.critedge8 ], [ -1, %.critedge ], [ %.07199, %82 ], [ %.07199, %87 ], [ %103, %.thread101.sink.split ]
+  %.6 = phi i32 [ -1, %.critedge8 ], [ -1, %.critedge ], [ %.07199, %82 ], [ %.07199, %87 ], [ %104, %.thread101.sink.split ]
   store i32 %.684, ptr %1, align 4, !tbaa !3
-  br label %104
+  br label %105
 
-104:                                              ; preds = %91, %.thread101
+105:                                              ; preds = %92, %.thread101
   %.1 = phi i32 [ %.6, %.thread101 ], [ %., %91 ]
   ret i32 %.1
 }

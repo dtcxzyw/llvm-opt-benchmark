@@ -49,7 +49,7 @@ define { i64, i32 } @_ZN20pingora_memory_cache11CacheStatus5stale17h770cdaa474e8
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #2
+declare i32 @llvm.umin.i32(i32, i32) #1
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

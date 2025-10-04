@@ -2328,10 +2328,10 @@ define noundef range(i32 -1, 10) i32 @_ZN7rocksdb7fromHexEc(i8 noundef signext %
   %3 = add nsw i8 %0, -32
   %spec.select = select i1 %or.cond, i8 %3, i8 %0
   %4 = add i8 %spec.select, -58
-  %or.cond20 = icmp ult i8 %4, -10
+  %5 = icmp ult i8 %4, -10
   %narrow = add nsw i8 %spec.select, -48
   %5 = zext nneg i8 %narrow to i32
-  %.016 = select i1 %or.cond20, i32 -1, i32 %5
+  %.016 = select i1 %5, i32 -1, i32 %5
   ret i32 %.016
 }
 
@@ -2565,17 +2565,17 @@ define noundef zeroext i1 @_ZNK7rocksdb5Slice9DecodeHexEPNSt7__cxx1112basic_stri
   store i8 0, ptr %8, align 1, !tbaa !25
   %9 = lshr exact i64 %4, 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %9)
-  %.not2735 = icmp eq i64 %4, 0
-  br i1 %.not2735, label %.critedge, label %.lr.ph
+  %.not2744 = icmp eq i64 %4, 0
+  br i1 %.not2744, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %11
 
 11:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
-  %.02136 = phi i64 [ 0, %.lr.ph ], [ %19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
+  %.02145 = phi i64 [ 0, %.lr.ph ], [ %19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
   %12 = load ptr, ptr %0, align 8, !tbaa !126
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.02136
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.02145
   %14 = load i8, ptr %13, align 1, !tbaa !25
   %15 = add i8 %14, -97
   %or.cond.i = icmp ult i8 %15, 6
@@ -2606,30 +2606,30 @@ define noundef zeroext i1 @_ZNK7rocksdb5Slice9DecodeHexEPNSt7__cxx1112basic_stri
   %31 = icmp eq ptr %30, %10
   br i1 %31, label %32, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
-32:                                               ; preds = %25
-  %33 = icmp ult i64 %28, 16
-  tail call void @llvm.assume(i1 %33)
+21:                                               ; preds = %25
+  %22 = icmp ult i64 %28, 16
+  tail call void @llvm.assume(i1 %22)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %32, %25
-  %34 = load i64, ptr %10, align 8
-  %35 = select i1 %31, i64 15, i64 %34
-  %36 = icmp ugt i64 %29, %35
-  br i1 %36, label %37, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
+  %42 = load i64, ptr %10, align 8
+  %43 = select i1 %31, i64 15, i64 %42
+  %44 = icmp ugt i64 %29, %43
+  br i1 %44, label %45, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
 
-37:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
+45:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %28, i64 noundef 0, ptr noundef null, i64 noundef 1)
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %37
-  %38 = phi ptr [ %.pre.i, %37 ], [ %30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ]
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %28
-  store i8 %27, ptr %39, align 1, !tbaa !25
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %45
+  %46 = phi ptr [ %.pre.i, %37 ], [ %30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ]
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %28
+  store i8 %27, ptr %47, align 1, !tbaa !25
   store i64 %29, ptr %7, align 8, !tbaa !24
-  %40 = load ptr, ptr %1, align 8, !tbaa !27
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %29
-  store i8 0, ptr %41, align 1, !tbaa !25
+  %48 = load ptr, ptr %1, align 8, !tbaa !27
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %29
+  store i8 0, ptr %49, align 1, !tbaa !25
   %.not27.not = icmp ult i64 %19, %4
   br i1 %.not27.not, label %11, label %.critedge, !llvm.loop !140
 

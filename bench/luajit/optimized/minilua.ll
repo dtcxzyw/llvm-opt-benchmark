@@ -3905,8 +3905,8 @@ define internal fastcc void @luaV_concat(ptr noundef %0, i32 noundef range(i32 -
   br label %9
 
 9:                                                ; preds = %luaV_tostring.exit74, %3
-  %.062 = phi i32 [ %2, %3 ], [ %117, %luaV_tostring.exit74 ]
-  %.0 = phi i32 [ %1, %3 ], [ %116, %luaV_tostring.exit74 ]
+  %.062 = phi i32 [ %2, %3 ], [ %120, %luaV_tostring.exit74 ]
+  %.0 = phi i32 [ %1, %3 ], [ %119, %luaV_tostring.exit74 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !86
   %11 = sext i32 %.062 to i64
   %12 = getelementptr inbounds %struct.lua_TValue, ptr %10, i64 %11
@@ -4063,11 +4063,11 @@ luaV_tostring.exit76:                             ; preds = %.lr.ph
   %72 = load ptr, ptr %71, align 8, !tbaa !44
   %73 = tail call ptr %70(ptr noundef %72, ptr noundef %68, i64 noundef %65, i64 noundef %spec.store.select.i) #36
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %75, label %92
+  br i1 %74, label %81, label %92
 
-75:                                               ; preds = %67
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %77 = load ptr, ptr %76, align 8, !tbaa !32
+81:                                               ; preds = %67
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %77 = load ptr, ptr %82, align 8, !tbaa !32
   %.not.i.i = icmp eq ptr %77, null
   br i1 %.not.i.i, label %81, label %78
 
@@ -4078,43 +4078,43 @@ luaV_tostring.exit76:                             ; preds = %.lr.ph
   tail call void @longjmp(ptr noundef nonnull %80, i32 noundef 1) #39
   unreachable
 
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 4, ptr %82, align 2, !tbaa !39
-  %83 = load ptr, ptr %8, align 8, !tbaa !29
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 152
-  %85 = load ptr, ptr %84, align 8, !tbaa !49
-  %.not10.i.i = icmp eq ptr %85, null
-  br i1 %.not10.i.i, label %91, label %86
+84:                                               ; preds = %75
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i8 4, ptr %85, align 2, !tbaa !39
+  %86 = load ptr, ptr %8, align 8, !tbaa !29
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 152
+  %88 = load ptr, ptr %87, align 8, !tbaa !49
+  %.not10.i.i = icmp eq ptr %88, null
+  br i1 %.not10.i.i, label %94, label %89
 
-86:                                               ; preds = %81
+89:                                               ; preds = %84
   tail call fastcc void @resetstack(ptr noundef nonnull %0, i32 noundef 4)
-  %87 = load ptr, ptr %8, align 8, !tbaa !29
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 152
-  %89 = load ptr, ptr %88, align 8, !tbaa !49
-  %90 = tail call i32 %89(ptr noundef nonnull %0) #36
-  br label %91
+  %90 = load ptr, ptr %8, align 8, !tbaa !29
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 152
+  %92 = load ptr, ptr %91, align 8, !tbaa !49
+  %93 = tail call i32 %89(ptr noundef nonnull %0) #36
+  br label %94
 
-91:                                               ; preds = %86, %81
+94:                                               ; preds = %89, %84
   tail call void @exit(i32 noundef 1) #40
   unreachable
 
-92:                                               ; preds = %67
-  %93 = getelementptr inbounds nuw i8, ptr %62, i64 120
-  %94 = load i64, ptr %93, align 8, !tbaa !54
-  %95 = sub i64 %spec.store.select.i, %65
-  %96 = add i64 %95, %94
-  store i64 %96, ptr %93, align 8, !tbaa !54
+luaM_realloc_.exit:                               ; preds = %67
+  %95 = getelementptr inbounds nuw i8, ptr %62, i64 120
+  %96 = load i64, ptr %95, align 8, !tbaa !54
+  %97 = sub i64 %spec.store.select.i, %65
+  %98 = add i64 %97, %96
+  store i64 %98, ptr %95, align 8, !tbaa !54
   store ptr %73, ptr %63, align 8, !tbaa !157
   store i64 %spec.store.select.i, ptr %64, align 8, !tbaa !156
   br label %luaZ_openspace.exit
 
-luaZ_openspace.exit:                              ; preds = %.critedge.luaZ_openspace.exit_crit_edge, %92
+99:                                               ; preds = %.critedge.luaZ_openspace.exit_crit_edge, %92
   %97 = phi ptr [ %.pre95, %.critedge.luaZ_openspace.exit_crit_edge ], [ %73, %92 ]
   %98 = zext i32 %.1.lcssa to i64
   br label %99
 
-99:                                               ; preds = %luaZ_openspace.exit, %99
+99:    ; preds = %luaZ_openspace.exit, %99
   %indvars.iv91 = phi i64 [ %98, %luaZ_openspace.exit ], [ %indvars.iv.next92, %99 ]
   %.16688 = phi i64 [ 0, %luaZ_openspace.exit ], [ %107, %99 ]
   %100 = sub nsw i64 0, %indvars.iv91
@@ -4122,33 +4122,33 @@ luaZ_openspace.exit:                              ; preds = %.critedge.luaZ_open
   %102 = load ptr, ptr %101, align 8, !tbaa !46
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %104 = load i64, ptr %103, align 8, !tbaa !46
-  %105 = getelementptr inbounds nuw i8, ptr %97, i64 %.16688
+  %104 = getelementptr inbounds nuw i8, ptr %97, i64 %.16688
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %105, ptr nonnull align 1 %106, i64 %104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %104, ptr nonnull align 1 %106, i64 %104, i1 false)
   %107 = add i64 %104, %.16688
   %indvars.iv.next92 = add nsw i64 %indvars.iv91, -1
-  %108 = trunc nuw i64 %indvars.iv91 to i32
-  %109 = icmp sgt i32 %108, 1
-  br i1 %109, label %99, label %110, !llvm.loop !158
+  %111 = trunc nuw i64 %indvars.iv91 to i32
+  %112 = icmp sgt i32 %111, 1
+  br i1 %112, label %99, label %113, !llvm.loop !158
 
-110:                                              ; preds = %99
-  %111 = sub nsw i64 0, %98
-  %112 = getelementptr inbounds %struct.lua_TValue, ptr %13, i64 %111
-  %113 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef %97, i64 noundef %107)
-  store ptr %113, ptr %112, align 8, !tbaa !46
-  %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  store i32 4, ptr %114, align 8, !tbaa !69
-  %115 = add nsw i32 %.1.lcssa, -1
+113:                                              ; preds = %99
+  %114 = sub nsw i64 0, %98
+  %115 = getelementptr inbounds %struct.lua_TValue, ptr %13, i64 %114
+  %116 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef %97, i64 noundef %107)
+  store ptr %116, ptr %115, align 8, !tbaa !46
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  store i32 4, ptr %117, align 8, !tbaa !69
+  %118 = add nsw i32 %.1.lcssa, -1
   br label %luaV_tostring.exit74
 
-luaV_tostring.exit74:                             ; preds = %38, %40, %110, %luaV_tostring.exit.thread
-  %.063 = phi i32 [ %115, %110 ], [ 1, %luaV_tostring.exit.thread ], [ 1, %40 ], [ 1, %38 ]
-  %116 = sub nsw i32 %.0, %.063
-  %117 = sub nsw i32 %.062, %.063
-  %118 = icmp sgt i32 %116, 1
-  br i1 %118, label %9, label %119, !llvm.loop !159
+luaV_tostring.exit74:                             ; preds = %38, %40, %113, %luaV_tostring.exit.thread
+  %.063 = phi i32 [ %118, %110 ], [ 1, %luaV_tostring.exit.thread ], [ 1, %40 ], [ 1, %38 ]
+  %119 = sub nsw i32 %.0, %.063
+  %120 = sub nsw i32 %.062, %.063
+  %121 = icmp sgt i32 %119, 1
+  br i1 %121, label %9, label %122, !llvm.loop !159
 
-119:                                              ; preds = %luaV_tostring.exit74
+122:                                              ; preds = %luaV_tostring.exit74
   ret void
 }
 

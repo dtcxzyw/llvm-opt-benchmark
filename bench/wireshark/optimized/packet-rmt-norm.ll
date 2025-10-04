@@ -877,7 +877,7 @@ define internal noundef zeroext i1 @dissect_norm_heur(ptr noundef %0, ptr readno
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   br label %9
 
-9:                                                ; preds = %7, %4
+9:; preds = %7, %4
   ret i1 false
 }
 

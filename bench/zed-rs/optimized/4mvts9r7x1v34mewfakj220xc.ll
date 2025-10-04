@@ -16607,7 +16607,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.thread6.i10.i: ;
 .body:                                            ; preds = %111, %163
   %eh.lpad-body = phi { ptr, i32 } [ %164, %163 ], [ %112, %111 ]
   invoke void @"_ZN4core3ptr356drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$rope..point..Point$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd3e1eb16568404cdE"(ptr noalias noundef nonnull align 8 dereferenceable(1208) %13) #41
-          to label %202 unwind label %200
+          to label %202 unwind label %201
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h09643ea8e8dc9561E.exit": ; preds = %_ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.i.i, %_ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.thread6.i10.i, %_ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.i9.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i.i.i.i8.i", %137, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i.i.i.i6.i", %.loopexit.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11.loopexit.split.loop.exit19.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11.loopexit.split.loop.exit.i, %70
   %.sroa.0.0.i = phi i32 [ 1114112, %.loopexit.i ], [ %158, %_ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.i9.i ], [ 1114112, %_ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.thread6.i10.i ], [ %138, %137 ], [ %147, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i.i.i.i8.i" ], [ %135, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i.i.i.i6.i" ], [ %71, %70 ], [ %114, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11.loopexit.split.loop.exit.i ], [ %116, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11.loopexit.split.loop.exit19.i ], [ %89, %_ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.i.i ]
@@ -16636,7 +16636,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.thread6.i10.i: ;
 "_ZN4core3ptr356drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$rope..point..Point$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd3e1eb16568404cdE.exit": ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h09643ea8e8dc9561E.exit", %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit.i.i.i.i.i.i.i11", %172
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %173 = icmp eq i32 %.sroa.0.0.i, 1114112
-  br i1 %173, label %186, label %174
+  br i1 %173, label %187, label %174
 
 174:                                              ; preds = %"_ZN4core3ptr356drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$rope..point..Point$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd3e1eb16568404cdE.exit"
   %175 = load i32, ptr %16, align 4, !range !2817, !noundef !4
@@ -16644,15 +16644,15 @@ _ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.thread6.i10.i: ;
   %177 = trunc nuw i8 %176 to i1
   br i1 %177, label %178, label %_ZN3vim6motion18is_character_match17hfd804e0140687db9E.exit
 
-178:                                              ; preds = %174
+178:; preds = %174
   %179 = icmp samesign ugt i32 %175, 127
   br i1 %179, label %180, label %182
 
-180:                                              ; preds = %178
+180:; preds = %178
   %181 = call noundef zeroext i1 @_ZN4core7unicode12unicode_data9uppercase6lookup17h3730f78382640962E(i32 noundef %175)
   br i1 %181, label %_ZN3vim6motion18is_character_match17hfd804e0140687db9E.exit, label %182
 
-182:                                              ; preds = %180, %178
+182:; preds = %180, %178
   %183 = add nsw i32 %.sroa.0.0.i, -65
   %or.cond2.i = icmp ult i32 %183, 26
   %184 = or disjoint i32 %.sroa.0.0.i, 32
@@ -16662,22 +16662,22 @@ _ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.thread6.i10.i: ;
 _ZN3vim6motion18is_character_match17hfd804e0140687db9E.exit: ; preds = %174, %180, %182
   %.pn.i = phi i32 [ %spec.select.i, %182 ], [ %.sroa.0.0.i, %174 ], [ %.sroa.0.0.i, %180 ]
   %.sroa.08.0.in.i = icmp eq i32 %175, %.pn.i
-  br i1 %.sroa.08.0.in.i, label %185, label %186
+  br i1 %.sroa.08.0.in.i, label %186, label %187
 
-185:                                              ; preds = %_ZN3vim6motion18is_character_match17hfd804e0140687db9E.exit
+186:                                              ; preds = %_ZN3vim6motion18is_character_match17hfd804e0140687db9E.exit
   br i1 %3, label %192, label %189
 
-186:                                              ; preds = %_ZN3vim6motion18is_character_match17hfd804e0140687db9E.exit, %"_ZN4core3ptr356drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$rope..point..Point$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd3e1eb16568404cdE.exit"
-  %187 = insertvalue { i32, i32 } poison, i32 %1, 0
-  %188 = insertvalue { i32, i32 } %187, i32 %2, 1
+187:                                              ; preds = %_ZN3vim6motion18is_character_match17hfd804e0140687db9E.exit, %"_ZN4core3ptr356drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$rope..point..Point$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd3e1eb16568404cdE.exit"
+  %188 = insertvalue { i32, i32 } poison, i32 %1, 0
+  %189 = insertvalue { i32, i32 } %188, i32 %2, 1
   br label %199
 
-189:                                              ; preds = %185
+193:                                              ; preds = %186
   %190 = insertvalue { i32, i32 } poison, i32 %39, 0
   %191 = insertvalue { i32, i32 } %190, i32 %38, 1
   br label %199
 
-192:                                              ; preds = %185
+192:; preds = %185
   %193 = call noundef align 4 dereferenceable(4) ptr @_ZN6editor11display_map12DisplayPoint10column_mut17h5e5ecfe88ea016d7E(ptr noalias noundef nonnull align 4 dereferenceable(8) %14)
   %194 = load i32, ptr %193, align 4, !noundef !4
   %195 = add i32 %194, 1
@@ -16692,13 +16692,13 @@ _ZN3vim6motion18is_character_match17hfd804e0140687db9E.exit: ; preds = %174, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret { i32, i32 } %.merged
 
-200:                                              ; preds = %.body
-  %201 = landingpad { ptr, i32 }
+201:                                              ; preds = %.body
+  %202 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #40
   unreachable
 
-202:                                              ; preds = %.body
+203:                                              ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

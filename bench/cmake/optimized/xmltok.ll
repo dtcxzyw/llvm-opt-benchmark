@@ -17501,7 +17501,7 @@ define internal fastcc range(i32 0, 2) i32 @parsePseudoAttribute(ptr noundef %0,
 
 30:                                               ; preds = %7
   store ptr null, ptr %3, align 8, !tbaa !4
-  br label %133
+  br label %135
 
 31:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
@@ -17535,7 +17535,7 @@ isSpace.exit:                                     ; preds = %31, %31, %31, %31
 
 42:                                               ; preds = %31
   store ptr %1, ptr %6, align 8, !tbaa !4
-  br label %133
+  br label %135
 
 isSpace.exit113:                                  ; preds = %isSpace.exit113.backedge, %isSpace.exit
   %.099 = phi ptr [ %1, %isSpace.exit ], [ %45, %isSpace.exit113.backedge ]
@@ -17573,7 +17573,7 @@ isSpace.exit113.backedge:                         ; preds = %isSpace.exit113, %i
 
 54:                                               ; preds = %52
   store ptr null, ptr %3, align 8, !tbaa !4
-  br label %133
+  br label %135
 
 55:                                               ; preds = %52
   store ptr %45, ptr %3, align 8, !tbaa !4
@@ -17608,7 +17608,7 @@ isSpace.exit113.backedge:                         ; preds = %isSpace.exit113, %i
 
 64:                                               ; preds = %57
   store ptr %.1, ptr %6, align 8, !tbaa !4
-  br label %133
+  br label %135
 
 65:                                               ; preds = %57
   store ptr %.1, ptr %4, align 8, !tbaa !4
@@ -17652,7 +17652,7 @@ isSpace.exit119.backedge:                         ; preds = %isSpace.exit119, %i
 
 76:                                               ; preds = %isSpace.exit119
   store ptr %69, ptr %6, align 8, !tbaa !4
-  br label %133
+  br label %135
 
 77:                                               ; preds = %57
   %78 = load i32, ptr %40, align 8, !tbaa !51
@@ -17668,7 +17668,7 @@ isSpace.exit119.backedge:                         ; preds = %isSpace.exit119, %i
 
 83:                                               ; preds = %.loopexit
   store ptr %.2, ptr %6, align 8, !tbaa !4
-  br label %133
+  br label %135
 
 select.unfold.preheader:                          ; preds = %.loopexit
   %84 = load i32, ptr %40, align 8, !tbaa !51
@@ -17728,7 +17728,7 @@ isSpace.exit122:                                  ; preds = %select.unfold, %sel
 
 104:                                              ; preds = %select.unfold
   store ptr %.4, ptr %6, align 8, !tbaa !4
-  br label %133
+  br label %135
 
 105:                                              ; preds = %select.unfold, %select.unfold
   %106 = load i32, ptr %40, align 8, !tbaa !51
@@ -17756,57 +17756,57 @@ isSpace.exit122:                                  ; preds = %select.unfold, %sel
   %116 = icmp eq i32 %.0.i124149, %.098
   br i1 %116, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %105, %119
+.lr.ph:                                           ; preds = %105, %121
   %.0.i124151 = phi i32 [ %.0.i124, %119 ], [ %.0.i124149, %105 ]
-  %.5150 = phi ptr [ %122, %119 ], [ %108, %105 ]
+  %.5150 = phi ptr [ %124, %119 ], [ %108, %105 ]
   %117 = add nsw i32 %.0.i124151, -58
   %or.cond7 = icmp ult i32 %117, -10
   br i1 %or.cond7, label %switch.early.test, label %119
 
 switch.early.test:                                ; preds = %.lr.ph
   switch i32 %.0.i124151, label %118 [
-    i32 95, label %119
-    i32 46, label %119
-    i32 45, label %119
+    i32 95, label %121
+    i32 46, label %121
+    i32 45, label %121
   ]
 
-118:                                              ; preds = %switch.early.test
+120:                                              ; preds = %switch.early.test
   store ptr %.5150, ptr %6, align 8, !tbaa !4
-  br label %133
+  br label %135
 
-119:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph
-  %120 = load i32, ptr %40, align 8, !tbaa !51
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds i8, ptr %.5150, i64 %121
+121:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph
+  %122 = load i32, ptr %40, align 8, !tbaa !51
+  %123 = sext i32 %122 to i64
+  %124 = getelementptr inbounds i8, ptr %.5150, i64 %123
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr %122, ptr %8, align 8, !tbaa !4
+  store ptr %124, ptr %8, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %9, ptr %10, align 8, !tbaa !4
-  %123 = load ptr, ptr %32, align 8, !tbaa !53
-  %124 = call i32 %123(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %109) #13
-  %125 = load ptr, ptr %10, align 8, !tbaa !4
-  %.fr = freeze ptr %125
-  %126 = icmp eq ptr %.fr, %9
-  %127 = load i8, ptr %9, align 1
-  %.fr137 = freeze i8 %127
-  %128 = sext i8 %.fr137 to i32
-  %.0.i124 = select i1 %126, i32 -1, i32 %128
+  %125 = load ptr, ptr %32, align 8, !tbaa !53
+  %126 = call i32 %123(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %109) #13
+  %127 = load ptr, ptr %10, align 8, !tbaa !4
+  %.fr = freeze ptr %127
+  %128 = icmp eq ptr %.fr, %9
+  %129 = load i8, ptr %9, align 1
+  %.fr137 = freeze i8 %129
+  %130 = sext i8 %.fr137 to i32
+  %.0.i124 = select i1 %128, i32 -1, i32 %130
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %129 = icmp eq i32 %.0.i124, %.098
-  br i1 %129, label %._crit_edge, label %.lr.ph
+  %131 = icmp eq i32 %.0.i124, %.098
+  br i1 %131, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %119, %105
-  %.5.lcssa = phi ptr [ %108, %105 ], [ %122, %119 ]
-  %130 = load i32, ptr %40, align 8, !tbaa !51
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds i8, ptr %.5.lcssa, i64 %131
-  store ptr %132, ptr %6, align 8, !tbaa !4
-  br label %133
+._crit_edge:                                      ; preds = %121, %105
+  %.5.lcssa = phi ptr [ %108, %105 ], [ %124, %119 ]
+  %132 = load i32, ptr %40, align 8, !tbaa !51
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds i8, ptr %.5.lcssa, i64 %133
+  store ptr %134, ptr %6, align 8, !tbaa !4
+  br label %135
 
-133:                                              ; preds = %._crit_edge, %118, %104, %83, %76, %64, %54, %42, %30
+135:                                              ; preds = %._crit_edge, %120, %104, %83, %76, %64, %54, %42, %30
   %.0 = phi i32 [ 1, %30 ], [ 1, %54 ], [ 0, %64 ], [ 0, %83 ], [ 0, %104 ], [ 1, %._crit_edge ], [ 0, %118 ], [ 0, %76 ], [ 0, %42 ]
   ret i32 %.0
 }
