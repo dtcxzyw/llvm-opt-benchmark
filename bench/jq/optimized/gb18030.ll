@@ -44,50 +44,47 @@ define internal range(i32 -400, 5) i32 @gb18030_code_to_mbclen(i32 noundef %0) #
   %3 = lshr i32 %0, 24
   %4 = add nsw i32 %3, -129
   %5 = icmp ult i32 %4, 126
-  br i1 %5, label %6, label %27
+  br i1 %5, label %6, label %24
 
 6:                                                ; preds = %2
   %7 = lshr i32 %0, 16
   %8 = and i32 %7, 254
   %9 = add nsw i32 %8, -48
   %10 = icmp ult i32 %9, 10
-  br i1 %10, label %28, label %27
+  br i1 %10, label %25, label %24
 
 11:                                               ; preds = %1
   %.not15 = icmp samesign ult i32 %0, 65536
-  br i1 %.not15, label %12, label %28
+  br i1 %.not15, label %12, label %25
 
 12:                                               ; preds = %11
   %.not16 = icmp samesign ult i32 %0, 256
-  br i1 %.not16, label %25, label %13
+  br i1 %.not16, label %22, label %13
 
 13:                                               ; preds = %12
   %14 = lshr i32 %0, 8
   %15 = add nsw i32 %14, -129
   %16 = icmp ult i32 %15, 126
-  br i1 %16, label %17, label %27
+  br i1 %16, label %17, label %24
 
 17:                                               ; preds = %13
   %18 = and i32 %0, 255
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !4
-  %22 = add nsw i32 %18, -255
-  %23 = icmp ult i32 %22, -126
-  %24 = icmp ne i8 %21, 1
-  %or.cond.not = select i1 %23, i1 %24, i1 false
-  br i1 %or.cond.not, label %27, label %28
+  %.not20 = icmp eq i8 %21, 1
+  br i1 %.not20, label %25, label %24
 
-25:                                               ; preds = %12
-  %26 = add nsw i32 %0, -129
-  %.not17 = icmp ult i32 %26, 126
-  br i1 %.not17, label %27, label %28
+22:                                               ; preds = %12
+  %23 = add nsw i32 %0, -129
+  %.not17 = icmp ult i32 %23, 126
+  br i1 %.not17, label %24, label %25
 
-27:                                               ; preds = %17, %25, %13, %2, %6
-  br label %28
+24:                                               ; preds = %17, %22, %13, %2, %6
+  br label %25
 
-28:                                               ; preds = %17, %25, %11, %6, %27
-  %.014 = phi i32 [ -400, %27 ], [ 2, %17 ], [ 4, %6 ], [ -400, %11 ], [ 1, %25 ]
+25:                                               ; preds = %17, %22, %11, %6, %24
+  %.014 = phi i32 [ -400, %24 ], [ 2, %17 ], [ 4, %6 ], [ -400, %11 ], [ 1, %22 ]
   ret i32 %.014
 }
 
@@ -677,11 +674,11 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %2, %25
-  %.02639 = phi ptr [ %26, %25 ], [ %0, %2 ]
+.lr.ph:                                           ; preds = %2, %13
+  %.02639 = phi ptr [ %14, %13 ], [ %0, %2 ]
   %4 = load i8, ptr %.02639, align 1, !tbaa !4
   %5 = icmp sgt i8 %4, -1
-  br i1 %5, label %25, label %6
+  br i1 %5, label %13, label %6
 
 6:                                                ; preds = %.lr.ph
   switch i8 %4, label %7 [
@@ -697,49 +694,22 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
 9:                                                ; preds = %7
   %10 = load i8, ptr %8, align 1, !tbaa !4
   %11 = icmp ult i8 %10, 64
-  br i1 %11, label %12, label %24
+  br i1 %11, label %._crit_edge, label %12
 
 12:                                               ; preds = %9
-  %13 = add nsw i8 %10, -58
-  %or.cond = icmp ult i8 %13, -10
-  br i1 %or.cond, label %._crit_edge, label %14
-
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %.02639, i64 2
-  %.not35 = icmp ult ptr %15, %1
-  br i1 %.not35, label %16, label %._crit_edge
-
-16:                                               ; preds = %14
-  %17 = load i8, ptr %15, align 1, !tbaa !4
-  %18 = add i8 %17, 1
-  %or.cond37 = icmp ult i8 %18, -126
-  br i1 %or.cond37, label %._crit_edge, label %19
-
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %.02639, i64 3
-  %.not36 = icmp ult ptr %20, %1
-  br i1 %.not36, label %21, label %._crit_edge
-
-21:                                               ; preds = %19
-  %22 = load i8, ptr %20, align 1, !tbaa !4
-  %23 = add i8 %22, -58
-  %or.cond38 = icmp ult i8 %23, -10
-  br i1 %or.cond38, label %._crit_edge, label %25
-
-24:                                               ; preds = %9
-  switch i8 %10, label %25 [
+  switch i8 %10, label %13 [
     i8 127, label %._crit_edge
     i8 -1, label %._crit_edge
   ]
 
-25:                                               ; preds = %24, %21, %.lr.ph
-  %.sink = phi i64 [ 1, %.lr.ph ], [ 4, %21 ], [ 2, %24 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.02639, i64 %.sink
-  %27 = icmp ult ptr %26, %1
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+13:                                               ; preds = %12, %.lr.ph
+  %.sink = phi i64 [ 1, %.lr.ph ], [ 2, %12 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.02639, i64 %.sink
+  %15 = icmp ult ptr %14, %1
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %6, %6, %7, %12, %14, %16, %19, %21, %24, %24, %25, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %25 ], [ 0, %24 ], [ 0, %24 ], [ 0, %21 ], [ 0, %19 ], [ 0, %16 ], [ 0, %14 ], [ 0, %12 ], [ 0, %7 ], [ 0, %6 ], [ 0, %6 ]
+._crit_edge:                                      ; preds = %6, %6, %7, %12, %12, %13, %9, %2
+  %.0 = phi i32 [ 1, %2 ], [ 0, %9 ], [ 1, %13 ], [ 0, %12 ], [ 0, %12 ], [ 0, %7 ], [ 0, %6 ], [ 0, %6 ]
   ret i32 %.0
 }
 

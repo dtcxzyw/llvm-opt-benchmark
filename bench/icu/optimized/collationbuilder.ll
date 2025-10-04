@@ -6639,41 +6639,8 @@ declare noundef ptr @_ZNK6icu_777UObject17getDynamicClassIDEv(ptr noundef nonnul
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK6icu_7711CEFinalizer10modifyCE32Ej(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = and i32 %1, 254
-  %.not.i = icmp eq i32 %3, 0
-  br i1 %.not.i, label %_ZN6icu_7716CollationBuilder10isTempCE32Ej.exit.thread, label %4
-
-4:                                                ; preds = %2
-  %5 = lshr i32 %1, 8
-  %6 = and i32 %5, 254
-  %7 = add nsw i32 %6, -70
-  %or.cond = icmp ult i32 %7, -64
-  br i1 %or.cond, label %_ZN6icu_7716CollationBuilder10isTempCE32Ej.exit.thread, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !113
-  %11 = add i32 %1, -1077937696
-  %12 = lshr i32 %11, 11
-  %13 = and i32 %12, 1040384
-  %14 = lshr i32 %11, 10
-  %15 = and i32 %14, 8128
-  %16 = or disjoint i32 %13, %15
-  %17 = lshr i32 %11, 8
-  %18 = and i32 %17, 63
-  %19 = or disjoint i32 %16, %18
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i64, ptr %10, i64 %20
-  %22 = load i64, ptr %21, align 8, !tbaa !99
-  %23 = shl i32 %1, 8
-  %24 = and i32 %23, 49152
-  %25 = zext nneg i32 %24 to i64
-  %26 = or i64 %22, %25
-  br label %_ZN6icu_7716CollationBuilder10isTempCE32Ej.exit.thread
-
-_ZN6icu_7716CollationBuilder10isTempCE32Ej.exit.thread: ; preds = %2, %4, %8
-  %.0 = phi i64 [ %26, %8 ], [ 4311744768, %4 ], [ 4311744768, %2 ]
-  ret i64 %.0
+_ZN6icu_7716CollationBuilder10isTempCE32Ej.exit.thread:
+  ret i64 4311744768
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

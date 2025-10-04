@@ -525,23 +525,13 @@ define hidden range(i32 0, 2) i32 @SDL_isxdigit_REAL(i32 noundef %0) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden range(i32 0, 2) i32 @SDL_ispunct_REAL(i32 noundef %0) local_unnamed_addr #2 {
-  %2 = add i32 %0, -127
-  %3 = icmp ult i32 %2, -94
-  br i1 %3, label %10, label %4
-
-4:                                                ; preds = %1
-  %5 = and i32 %0, 95
-  %6 = add nsw i32 %5, -91
-  %narrow.i.i = icmp ult i32 %6, -26
-  %7 = add nsw i32 %0, -58
-  %8 = icmp ult i32 %7, -10
-  %narrow.i.not = and i1 %8, %narrow.i.i
-  %9 = zext i1 %narrow.i.not to i32
-  br label %10
-
-10:                                               ; preds = %4, %1
-  %11 = phi i32 [ 0, %1 ], [ %9, %4 ]
-  ret i32 %11
+  %2 = add i32 %0, -33
+  %3 = icmp ult i32 %2, 94
+  %4 = add nsw i32 %0, -58
+  %5 = icmp ult i32 %4, -10
+  %narrow = select i1 %3, i1 %5, i1 false
+  %6 = zext i1 %narrow to i32
+  ret i32 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

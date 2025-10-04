@@ -255,104 +255,93 @@ declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
 define internal fastcc zeroext i1 @CompileShaderProgram(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 -2147483648, 11) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca [10 x i8], align 1
   %5 = icmp eq i32 %1, 0
-  br i1 %5, label %66, label %6
+  br i1 %5, label %61, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i32 %7() #5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load i8, ptr %9, align 8, !range !5, !noundef !6
-  %11 = trunc nuw i8 %10 to i1
-  %.str.29..str.30 = select i1 %11, ptr @.str.29, ptr @.str.30
-  %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds %struct.anon, ptr @shader_source, i64 %12
-  %14 = add i32 %1, -6
-  %.not = icmp ult i32 %14, -2
-  br i1 %.not, label %18, label %15
-
-15:                                               ; preds = %6
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %11 = sext i32 %1 to i64
+  %12 = getelementptr inbounds %struct.anon, ptr @shader_source, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call i32 %14() #5
+  store i32 %15, ptr %2, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
-  br label %18
+  %18 = tail call i32 %17(i32 noundef 35633) #5
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 %18, ptr %19, align 4
+  %20 = load ptr, ptr %12, align 8
+  %21 = tail call fastcc zeroext i1 @CompileShader(ptr noundef %0, i32 noundef %18, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.28, ptr noundef %20)
+  br i1 %21, label %22, label %61
 
-18:                                               ; preds = %15, %6
-  %.042 = phi ptr [ %17, %15 ], [ @.str.28, %6 ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %20() #5
-  store i32 %21, ptr %2, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %23(i32 noundef 35633) #5
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %24, ptr %25, align 4
-  %26 = load ptr, ptr %13, align 8
-  %27 = tail call fastcc zeroext i1 @CompileShader(ptr noundef %0, i32 noundef %24, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.28, ptr noundef %26)
-  br i1 %27, label %28, label %66
+22:                                               ; preds = %6
+  %23 = trunc nuw i8 %10 to i1
+  %.str.29..str.30 = select i1 %23, ptr @.str.29, ptr @.str.30
+  %24 = load ptr, ptr %16, align 8
+  %25 = tail call i32 %24(i32 noundef 35632) #5
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %25, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call fastcc zeroext i1 @CompileShader(ptr noundef %0, i32 noundef %25, ptr noundef nonnull @.str.28, ptr noundef nonnull %.str.29..str.30, ptr noundef %28)
+  br i1 %29, label %30, label %61
 
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %22, align 8
-  %30 = tail call i32 %29(i32 noundef 35632) #5
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %30, ptr %31, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call fastcc zeroext i1 @CompileShader(ptr noundef %0, i32 noundef %30, ptr noundef %.042, ptr noundef nonnull %.str.29..str.30, ptr noundef %33)
-  br i1 %34, label %35, label %66
+30:                                               ; preds = %22
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i32, ptr %2, align 4
+  %34 = load i32, ptr %19, align 4
+  tail call void %32(i32 noundef %33, i32 noundef %34) #5
+  %35 = load ptr, ptr %31, align 8
+  %36 = load i32, ptr %2, align 4
+  %37 = load i32, ptr %26, align 4
+  tail call void %35(i32 noundef %36, i32 noundef %37) #5
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %39 = load ptr, ptr %38, align 8
+  %40 = load i32, ptr %2, align 4
+  tail call void %39(i32 noundef %40) #5
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %42 = load ptr, ptr %41, align 8
+  %43 = load i32, ptr %2, align 4
+  tail call void %42(i32 noundef %43) #5
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  br label %46
 
-35:                                               ; preds = %28
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = load i32, ptr %2, align 4
-  %39 = load i32, ptr %25, align 4
-  tail call void %37(i32 noundef %38, i32 noundef %39) #5
-  %40 = load ptr, ptr %36, align 8
-  %41 = load i32, ptr %2, align 4
-  %42 = load i32, ptr %31, align 4
-  tail call void %40(i32 noundef %41, i32 noundef %42) #5
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %44 = load ptr, ptr %43, align 8
-  %45 = load i32, ptr %2, align 4
-  tail call void %44(i32 noundef %45) #5
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %47 = load ptr, ptr %46, align 8
-  %48 = load i32, ptr %2, align 4
-  tail call void %47(i32 noundef %48) #5
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  br label %51
-
-51:                                               ; preds = %35, %59
-  %.04147 = phi i32 [ 0, %35 ], [ %60, %59 ]
+46:                                               ; preds = %30, %54
+  %.04147 = phi i32 [ 0, %30 ], [ %55, %54 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %52 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %4, i64 noundef 10, ptr noundef nonnull @.str.31, i32 noundef %.04147) #5
-  %53 = load ptr, ptr %49, align 8
-  %54 = load i32, ptr %2, align 4
-  %55 = call i32 %53(i32 noundef %54, ptr noundef nonnull %4) #5
-  %56 = icmp sgt i32 %55, -1
-  br i1 %56, label %57, label %59
+  %47 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %4, i64 noundef 10, ptr noundef nonnull @.str.31, i32 noundef %.04147) #5
+  %48 = load ptr, ptr %44, align 8
+  %49 = load i32, ptr %2, align 4
+  %50 = call i32 %48(i32 noundef %49, ptr noundef nonnull %4) #5
+  %51 = icmp sgt i32 %50, -1
+  br i1 %51, label %52, label %54
 
-57:                                               ; preds = %51
-  %58 = load ptr, ptr %50, align 8
-  call void %58(i32 noundef %55, i32 noundef %.04147) #5
-  br label %59
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %45, align 8
+  call void %53(i32 noundef %50, i32 noundef %.04147) #5
+  br label %54
 
-59:                                               ; preds = %57, %51
+54:                                               ; preds = %52, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %60 = add nuw nsw i32 %.04147, 1
-  %exitcond.not = icmp eq i32 %60, 4
-  br i1 %exitcond.not, label %61, label %51, !llvm.loop !7
+  %55 = add nuw nsw i32 %.04147, 1
+  %exitcond.not = icmp eq i32 %55, 4
+  br i1 %exitcond.not, label %56, label %46, !llvm.loop !7
 
-61:                                               ; preds = %59
-  %62 = load ptr, ptr %46, align 8
-  call void %62(i32 noundef 0) #5
-  %63 = load ptr, ptr %0, align 8
-  %64 = call i32 %63() #5
-  %65 = icmp eq i32 %64, 0
-  br label %66
+56:                                               ; preds = %54
+  %57 = load ptr, ptr %41, align 8
+  call void %57(i32 noundef 0) #5
+  %58 = load ptr, ptr %0, align 8
+  %59 = call i32 %58() #5
+  %60 = icmp eq i32 %59, 0
+  br label %61
 
-66:                                               ; preds = %28, %18, %3, %61
-  %.0 = phi i1 [ %65, %61 ], [ true, %3 ], [ false, %18 ], [ false, %28 ]
+61:                                               ; preds = %22, %6, %3, %56
+  %.0 = phi i1 [ %60, %56 ], [ true, %3 ], [ false, %6 ], [ false, %22 ]
   ret i1 %.0
 }
 

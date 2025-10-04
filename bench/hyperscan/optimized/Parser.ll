@@ -6412,7 +6412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2387: ; preds = %3
           to label %3243 unwind label %.loopexit5571
 
 3243:                                             ; preds = %3240
-  %3244 = zext i8 %3242 to i32
+  %3244 = zext nneg i8 %3242 to i32
   %3245 = load ptr, ptr %.sroa.04580.3, align 8
   %3246 = getelementptr inbounds nuw i8, ptr %3245, i64 136
   %3247 = load ptr, ptr %3246, align 8
@@ -7188,7 +7188,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2444: ; preds = %3
           to label %3521 unwind label %.loopexit5571
 
 3521:                                             ; preds = %3518
-  %3522 = zext i8 %3520 to i32
+  %3522 = zext nneg i8 %3520 to i32
   %3523 = load ptr, ptr %.sroa.04580.3, align 8
   %3524 = getelementptr inbounds nuw i8, ptr %3523, i64 136
   %3525 = load ptr, ptr %3524, align 8
@@ -19692,7 +19692,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i8 @_ZN3ue2L10decodeCtrlEc(i8 noundef signext %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext range(i8 0, -128) i8 @_ZN3ue2L10decodeCtrlEc(i8 noundef signext %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.2", align 1
   %.not = icmp sgt i8 %0, -1
@@ -19710,7 +19710,7 @@ define internal fastcc noundef zeroext i8 @_ZN3ue2L10decodeCtrlEc(i8 noundef sig
 
 7:                                                ; preds = %6
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN3ue217LocatedParseErrorE, ptr nonnull @_ZN3ue217LocatedParseErrorD1Ev) #27
-          to label %21 unwind label %9
+          to label %18 unwind label %9
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %4
   %8 = landingpad { ptr, i32 }
@@ -19729,31 +19729,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.0, label %14, label %20
+  br i1 %.0, label %14, label %17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %9
   call void @_ZdlPv(ptr noundef %11) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.0, label %14, label %20
+  br i1 %.0, label %14, label %17
 
 14:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn10 = phi { ptr, i32 } [ %8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @__cxa_free_exception(ptr %5) #26
-  br label %20
+  br label %17
 
 15:                                               ; preds = %1
-  %16 = add nsw i8 %0, -123
-  %17 = icmp ult i8 %16, -26
-  %18 = add nsw i8 %0, -32
-  %.0.i = select i1 %17, i8 %0, i8 %18
-  %19 = xor i8 %.0.i, 64
-  ret i8 %19
+  %16 = xor i8 %0, 64
+  ret i8 %16
 
-20:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %14
+17:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %14
   %.pn9 = phi { ptr, i32 } [ %10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn10, %14 ], [ %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   resume { ptr, i32 } %.pn9
 
-21:                                               ; preds = %7
+18:                                               ; preds = %7
   unreachable
 }
 

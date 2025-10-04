@@ -3,12 +3,9 @@ source_filename = "bench/postgres/original/wchar.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.mbinterval = type { i32, i32 }
 %struct.pg_wchar_tbl = type { ptr, ptr, ptr, ptr, ptr, ptr, i32 }
 
 @pg_wchar_table = dso_local local_unnamed_addr constant [42 x { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] }] [{ ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_ascii2wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_ascii_mblen, ptr @pg_ascii_dsplen, ptr @pg_ascii_verifychar, ptr @pg_ascii_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_eucjp2wchar_with_len, ptr @pg_wchar2euc_with_len, ptr @pg_eucjp_mblen, ptr @pg_eucjp_dsplen, ptr @pg_eucjp_verifychar, ptr @pg_eucjp_verifystr, i32 3, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_euccn2wchar_with_len, ptr @pg_wchar2euc_with_len, ptr @pg_euccn_mblen, ptr @pg_euccn_dsplen, ptr @pg_euckr_verifychar, ptr @pg_euckr_verifystr, i32 2, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_euckr2wchar_with_len, ptr @pg_wchar2euc_with_len, ptr @pg_euckr_mblen, ptr @pg_euckr_dsplen, ptr @pg_euckr_verifychar, ptr @pg_euckr_verifystr, i32 3, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_euctw2wchar_with_len, ptr @pg_wchar2euc_with_len, ptr @pg_euctw_mblen, ptr @pg_euctw_dsplen, ptr @pg_euctw_verifychar, ptr @pg_euctw_verifystr, i32 4, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_eucjp2wchar_with_len, ptr @pg_wchar2euc_with_len, ptr @pg_eucjp_mblen, ptr @pg_eucjp_dsplen, ptr @pg_eucjp_verifychar, ptr @pg_eucjp_verifystr, i32 3, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_utf2wchar_with_len, ptr @pg_wchar2utf_with_len, ptr @pg_utf_mblen_private, ptr @pg_utf_dsplen, ptr @pg_utf8_verifychar, ptr @pg_utf8_verifystr, i32 4, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_mule2wchar_with_len, ptr @pg_wchar2mule_with_len, ptr @pg_mule_mblen, ptr @pg_mule_dsplen, ptr @pg_mule_verifychar, ptr @pg_mule_verifystr, i32 4, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @pg_latin12wchar_with_len, ptr @pg_wchar2single_with_len, ptr @pg_latin1_mblen, ptr @pg_latin1_dsplen, ptr @pg_latin1_verifychar, ptr @pg_latin1_verifystr, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr null, ptr null, ptr @pg_sjis_mblen, ptr @pg_sjis_dsplen, ptr @pg_sjis_verifychar, ptr @pg_sjis_verifystr, i32 2, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr null, ptr null, ptr @pg_big5_mblen, ptr @pg_big5_dsplen, ptr @pg_big5_verifychar, ptr @pg_big5_verifystr, i32 2, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr null, ptr null, ptr @pg_gbk_mblen, ptr @pg_gbk_dsplen, ptr @pg_gbk_verifychar, ptr @pg_gbk_verifystr, i32 2, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr null, ptr null, ptr @pg_uhc_mblen, ptr @pg_uhc_dsplen, ptr @pg_uhc_verifychar, ptr @pg_uhc_verifystr, i32 2, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr null, ptr null, ptr @pg_gb18030_mblen, ptr @pg_gb18030_dsplen, ptr @pg_gb18030_verifychar, ptr @pg_gb18030_verifystr, i32 4, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr null, ptr null, ptr @pg_johab_mblen, ptr @pg_johab_dsplen, ptr @pg_johab_verifychar, ptr @pg_johab_verifystr, i32 3, [4 x i8] zeroinitializer }, { ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr null, ptr null, ptr @pg_sjis_mblen, ptr @pg_sjis_dsplen, ptr @pg_sjis_verifychar, ptr @pg_sjis_verifystr, i32 2, [4 x i8] zeroinitializer }], align 16
-@ucs_wcwidth.nonspacing = internal unnamed_addr constant [322 x %struct.mbinterval] [%struct.mbinterval { i32 173, i32 173 }, %struct.mbinterval { i32 768, i32 879 }, %struct.mbinterval { i32 1155, i32 1161 }, %struct.mbinterval { i32 1425, i32 1469 }, %struct.mbinterval { i32 1471, i32 1471 }, %struct.mbinterval { i32 1473, i32 1474 }, %struct.mbinterval { i32 1476, i32 1477 }, %struct.mbinterval { i32 1479, i32 1479 }, %struct.mbinterval { i32 1536, i32 1541 }, %struct.mbinterval { i32 1552, i32 1562 }, %struct.mbinterval { i32 1564, i32 1564 }, %struct.mbinterval { i32 1611, i32 1631 }, %struct.mbinterval { i32 1648, i32 1648 }, %struct.mbinterval { i32 1750, i32 1757 }, %struct.mbinterval { i32 1759, i32 1764 }, %struct.mbinterval { i32 1767, i32 1768 }, %struct.mbinterval { i32 1770, i32 1773 }, %struct.mbinterval { i32 1807, i32 1807 }, %struct.mbinterval { i32 1809, i32 1809 }, %struct.mbinterval { i32 1840, i32 1866 }, %struct.mbinterval { i32 1958, i32 1968 }, %struct.mbinterval { i32 2027, i32 2035 }, %struct.mbinterval { i32 2045, i32 2045 }, %struct.mbinterval { i32 2070, i32 2073 }, %struct.mbinterval { i32 2075, i32 2083 }, %struct.mbinterval { i32 2085, i32 2087 }, %struct.mbinterval { i32 2089, i32 2093 }, %struct.mbinterval { i32 2137, i32 2139 }, %struct.mbinterval { i32 2192, i32 2207 }, %struct.mbinterval { i32 2250, i32 2306 }, %struct.mbinterval { i32 2362, i32 2362 }, %struct.mbinterval { i32 2364, i32 2364 }, %struct.mbinterval { i32 2369, i32 2376 }, %struct.mbinterval { i32 2381, i32 2381 }, %struct.mbinterval { i32 2385, i32 2391 }, %struct.mbinterval { i32 2402, i32 2403 }, %struct.mbinterval { i32 2433, i32 2433 }, %struct.mbinterval { i32 2492, i32 2492 }, %struct.mbinterval { i32 2497, i32 2500 }, %struct.mbinterval { i32 2509, i32 2509 }, %struct.mbinterval { i32 2530, i32 2531 }, %struct.mbinterval { i32 2558, i32 2562 }, %struct.mbinterval { i32 2620, i32 2620 }, %struct.mbinterval { i32 2625, i32 2641 }, %struct.mbinterval { i32 2672, i32 2673 }, %struct.mbinterval { i32 2677, i32 2677 }, %struct.mbinterval { i32 2689, i32 2690 }, %struct.mbinterval { i32 2748, i32 2748 }, %struct.mbinterval { i32 2753, i32 2760 }, %struct.mbinterval { i32 2765, i32 2765 }, %struct.mbinterval { i32 2786, i32 2787 }, %struct.mbinterval { i32 2810, i32 2817 }, %struct.mbinterval { i32 2876, i32 2876 }, %struct.mbinterval { i32 2879, i32 2879 }, %struct.mbinterval { i32 2881, i32 2884 }, %struct.mbinterval { i32 2893, i32 2902 }, %struct.mbinterval { i32 2914, i32 2915 }, %struct.mbinterval { i32 2946, i32 2946 }, %struct.mbinterval { i32 3008, i32 3008 }, %struct.mbinterval { i32 3021, i32 3021 }, %struct.mbinterval { i32 3072, i32 3072 }, %struct.mbinterval { i32 3076, i32 3076 }, %struct.mbinterval { i32 3132, i32 3132 }, %struct.mbinterval { i32 3134, i32 3136 }, %struct.mbinterval { i32 3142, i32 3158 }, %struct.mbinterval { i32 3170, i32 3171 }, %struct.mbinterval { i32 3201, i32 3201 }, %struct.mbinterval { i32 3260, i32 3260 }, %struct.mbinterval { i32 3263, i32 3263 }, %struct.mbinterval { i32 3270, i32 3270 }, %struct.mbinterval { i32 3276, i32 3277 }, %struct.mbinterval { i32 3298, i32 3299 }, %struct.mbinterval { i32 3328, i32 3329 }, %struct.mbinterval { i32 3387, i32 3388 }, %struct.mbinterval { i32 3393, i32 3396 }, %struct.mbinterval { i32 3405, i32 3405 }, %struct.mbinterval { i32 3426, i32 3427 }, %struct.mbinterval { i32 3457, i32 3457 }, %struct.mbinterval { i32 3530, i32 3530 }, %struct.mbinterval { i32 3538, i32 3542 }, %struct.mbinterval { i32 3633, i32 3633 }, %struct.mbinterval { i32 3636, i32 3642 }, %struct.mbinterval { i32 3655, i32 3662 }, %struct.mbinterval { i32 3761, i32 3761 }, %struct.mbinterval { i32 3764, i32 3772 }, %struct.mbinterval { i32 3784, i32 3790 }, %struct.mbinterval { i32 3864, i32 3865 }, %struct.mbinterval { i32 3893, i32 3893 }, %struct.mbinterval { i32 3895, i32 3895 }, %struct.mbinterval { i32 3897, i32 3897 }, %struct.mbinterval { i32 3953, i32 3966 }, %struct.mbinterval { i32 3968, i32 3972 }, %struct.mbinterval { i32 3974, i32 3975 }, %struct.mbinterval { i32 3981, i32 4028 }, %struct.mbinterval { i32 4038, i32 4038 }, %struct.mbinterval { i32 4141, i32 4144 }, %struct.mbinterval { i32 4146, i32 4151 }, %struct.mbinterval { i32 4153, i32 4154 }, %struct.mbinterval { i32 4157, i32 4158 }, %struct.mbinterval { i32 4184, i32 4185 }, %struct.mbinterval { i32 4190, i32 4192 }, %struct.mbinterval { i32 4209, i32 4212 }, %struct.mbinterval { i32 4226, i32 4226 }, %struct.mbinterval { i32 4229, i32 4230 }, %struct.mbinterval { i32 4237, i32 4237 }, %struct.mbinterval { i32 4253, i32 4253 }, %struct.mbinterval { i32 4957, i32 4959 }, %struct.mbinterval { i32 5906, i32 5908 }, %struct.mbinterval { i32 5938, i32 5939 }, %struct.mbinterval { i32 5970, i32 5971 }, %struct.mbinterval { i32 6002, i32 6003 }, %struct.mbinterval { i32 6068, i32 6069 }, %struct.mbinterval { i32 6071, i32 6077 }, %struct.mbinterval { i32 6086, i32 6086 }, %struct.mbinterval { i32 6089, i32 6099 }, %struct.mbinterval { i32 6109, i32 6109 }, %struct.mbinterval { i32 6155, i32 6159 }, %struct.mbinterval { i32 6277, i32 6278 }, %struct.mbinterval { i32 6313, i32 6313 }, %struct.mbinterval { i32 6432, i32 6434 }, %struct.mbinterval { i32 6439, i32 6440 }, %struct.mbinterval { i32 6450, i32 6450 }, %struct.mbinterval { i32 6457, i32 6459 }, %struct.mbinterval { i32 6679, i32 6680 }, %struct.mbinterval { i32 6683, i32 6683 }, %struct.mbinterval { i32 6742, i32 6742 }, %struct.mbinterval { i32 6744, i32 6752 }, %struct.mbinterval { i32 6754, i32 6754 }, %struct.mbinterval { i32 6757, i32 6764 }, %struct.mbinterval { i32 6771, i32 6783 }, %struct.mbinterval { i32 6832, i32 6915 }, %struct.mbinterval { i32 6964, i32 6964 }, %struct.mbinterval { i32 6966, i32 6970 }, %struct.mbinterval { i32 6972, i32 6972 }, %struct.mbinterval { i32 6978, i32 6978 }, %struct.mbinterval { i32 7019, i32 7027 }, %struct.mbinterval { i32 7040, i32 7041 }, %struct.mbinterval { i32 7074, i32 7077 }, %struct.mbinterval { i32 7080, i32 7081 }, %struct.mbinterval { i32 7083, i32 7085 }, %struct.mbinterval { i32 7142, i32 7142 }, %struct.mbinterval { i32 7144, i32 7145 }, %struct.mbinterval { i32 7149, i32 7149 }, %struct.mbinterval { i32 7151, i32 7153 }, %struct.mbinterval { i32 7212, i32 7219 }, %struct.mbinterval { i32 7222, i32 7223 }, %struct.mbinterval { i32 7376, i32 7378 }, %struct.mbinterval { i32 7380, i32 7392 }, %struct.mbinterval { i32 7394, i32 7400 }, %struct.mbinterval { i32 7405, i32 7405 }, %struct.mbinterval { i32 7412, i32 7412 }, %struct.mbinterval { i32 7416, i32 7417 }, %struct.mbinterval { i32 7616, i32 7679 }, %struct.mbinterval { i32 8203, i32 8207 }, %struct.mbinterval { i32 8234, i32 8238 }, %struct.mbinterval { i32 8288, i32 8303 }, %struct.mbinterval { i32 8400, i32 8432 }, %struct.mbinterval { i32 11503, i32 11505 }, %struct.mbinterval { i32 11647, i32 11647 }, %struct.mbinterval { i32 11744, i32 11775 }, %struct.mbinterval { i32 12330, i32 12333 }, %struct.mbinterval { i32 12441, i32 12442 }, %struct.mbinterval { i32 42607, i32 42610 }, %struct.mbinterval { i32 42612, i32 42621 }, %struct.mbinterval { i32 42654, i32 42655 }, %struct.mbinterval { i32 42736, i32 42737 }, %struct.mbinterval { i32 43010, i32 43010 }, %struct.mbinterval { i32 43014, i32 43014 }, %struct.mbinterval { i32 43019, i32 43019 }, %struct.mbinterval { i32 43045, i32 43046 }, %struct.mbinterval { i32 43052, i32 43052 }, %struct.mbinterval { i32 43204, i32 43205 }, %struct.mbinterval { i32 43232, i32 43249 }, %struct.mbinterval { i32 43263, i32 43263 }, %struct.mbinterval { i32 43302, i32 43309 }, %struct.mbinterval { i32 43335, i32 43345 }, %struct.mbinterval { i32 43392, i32 43394 }, %struct.mbinterval { i32 43443, i32 43443 }, %struct.mbinterval { i32 43446, i32 43449 }, %struct.mbinterval { i32 43452, i32 43453 }, %struct.mbinterval { i32 43493, i32 43493 }, %struct.mbinterval { i32 43561, i32 43566 }, %struct.mbinterval { i32 43569, i32 43570 }, %struct.mbinterval { i32 43573, i32 43574 }, %struct.mbinterval { i32 43587, i32 43587 }, %struct.mbinterval { i32 43596, i32 43596 }, %struct.mbinterval { i32 43644, i32 43644 }, %struct.mbinterval { i32 43696, i32 43696 }, %struct.mbinterval { i32 43698, i32 43700 }, %struct.mbinterval { i32 43703, i32 43704 }, %struct.mbinterval { i32 43710, i32 43711 }, %struct.mbinterval { i32 43713, i32 43713 }, %struct.mbinterval { i32 43756, i32 43757 }, %struct.mbinterval { i32 43766, i32 43766 }, %struct.mbinterval { i32 44005, i32 44005 }, %struct.mbinterval { i32 44008, i32 44008 }, %struct.mbinterval { i32 44013, i32 44013 }, %struct.mbinterval { i32 64286, i32 64286 }, %struct.mbinterval { i32 65024, i32 65039 }, %struct.mbinterval { i32 65056, i32 65071 }, %struct.mbinterval { i32 65279, i32 65279 }, %struct.mbinterval { i32 65529, i32 65531 }, %struct.mbinterval { i32 66045, i32 66045 }, %struct.mbinterval { i32 66272, i32 66272 }, %struct.mbinterval { i32 66422, i32 66426 }, %struct.mbinterval { i32 68097, i32 68111 }, %struct.mbinterval { i32 68152, i32 68159 }, %struct.mbinterval { i32 68325, i32 68326 }, %struct.mbinterval { i32 68900, i32 68903 }, %struct.mbinterval { i32 69291, i32 69292 }, %struct.mbinterval { i32 69373, i32 69375 }, %struct.mbinterval { i32 69446, i32 69456 }, %struct.mbinterval { i32 69506, i32 69509 }, %struct.mbinterval { i32 69633, i32 69633 }, %struct.mbinterval { i32 69688, i32 69702 }, %struct.mbinterval { i32 69744, i32 69744 }, %struct.mbinterval { i32 69747, i32 69748 }, %struct.mbinterval { i32 69759, i32 69761 }, %struct.mbinterval { i32 69811, i32 69814 }, %struct.mbinterval { i32 69817, i32 69818 }, %struct.mbinterval { i32 69821, i32 69821 }, %struct.mbinterval { i32 69826, i32 69837 }, %struct.mbinterval { i32 69888, i32 69890 }, %struct.mbinterval { i32 69927, i32 69931 }, %struct.mbinterval { i32 69933, i32 69940 }, %struct.mbinterval { i32 70003, i32 70003 }, %struct.mbinterval { i32 70016, i32 70017 }, %struct.mbinterval { i32 70070, i32 70078 }, %struct.mbinterval { i32 70089, i32 70092 }, %struct.mbinterval { i32 70095, i32 70095 }, %struct.mbinterval { i32 70191, i32 70193 }, %struct.mbinterval { i32 70196, i32 70196 }, %struct.mbinterval { i32 70198, i32 70199 }, %struct.mbinterval { i32 70206, i32 70206 }, %struct.mbinterval { i32 70209, i32 70209 }, %struct.mbinterval { i32 70367, i32 70367 }, %struct.mbinterval { i32 70371, i32 70378 }, %struct.mbinterval { i32 70400, i32 70401 }, %struct.mbinterval { i32 70459, i32 70460 }, %struct.mbinterval { i32 70464, i32 70464 }, %struct.mbinterval { i32 70502, i32 70516 }, %struct.mbinterval { i32 70712, i32 70719 }, %struct.mbinterval { i32 70722, i32 70724 }, %struct.mbinterval { i32 70726, i32 70726 }, %struct.mbinterval { i32 70750, i32 70750 }, %struct.mbinterval { i32 70835, i32 70840 }, %struct.mbinterval { i32 70842, i32 70842 }, %struct.mbinterval { i32 70847, i32 70848 }, %struct.mbinterval { i32 70850, i32 70851 }, %struct.mbinterval { i32 71090, i32 71093 }, %struct.mbinterval { i32 71100, i32 71101 }, %struct.mbinterval { i32 71103, i32 71104 }, %struct.mbinterval { i32 71132, i32 71133 }, %struct.mbinterval { i32 71219, i32 71226 }, %struct.mbinterval { i32 71229, i32 71229 }, %struct.mbinterval { i32 71231, i32 71232 }, %struct.mbinterval { i32 71339, i32 71339 }, %struct.mbinterval { i32 71341, i32 71341 }, %struct.mbinterval { i32 71344, i32 71349 }, %struct.mbinterval { i32 71351, i32 71351 }, %struct.mbinterval { i32 71453, i32 71455 }, %struct.mbinterval { i32 71458, i32 71461 }, %struct.mbinterval { i32 71463, i32 71467 }, %struct.mbinterval { i32 71727, i32 71735 }, %struct.mbinterval { i32 71737, i32 71738 }, %struct.mbinterval { i32 71995, i32 71996 }, %struct.mbinterval { i32 71998, i32 71998 }, %struct.mbinterval { i32 72003, i32 72003 }, %struct.mbinterval { i32 72148, i32 72155 }, %struct.mbinterval { i32 72160, i32 72160 }, %struct.mbinterval { i32 72193, i32 72202 }, %struct.mbinterval { i32 72243, i32 72248 }, %struct.mbinterval { i32 72251, i32 72254 }, %struct.mbinterval { i32 72263, i32 72263 }, %struct.mbinterval { i32 72273, i32 72278 }, %struct.mbinterval { i32 72281, i32 72283 }, %struct.mbinterval { i32 72330, i32 72342 }, %struct.mbinterval { i32 72344, i32 72345 }, %struct.mbinterval { i32 72752, i32 72765 }, %struct.mbinterval { i32 72767, i32 72767 }, %struct.mbinterval { i32 72850, i32 72871 }, %struct.mbinterval { i32 72874, i32 72880 }, %struct.mbinterval { i32 72882, i32 72883 }, %struct.mbinterval { i32 72885, i32 72886 }, %struct.mbinterval { i32 73009, i32 73029 }, %struct.mbinterval { i32 73031, i32 73031 }, %struct.mbinterval { i32 73104, i32 73105 }, %struct.mbinterval { i32 73109, i32 73109 }, %struct.mbinterval { i32 73111, i32 73111 }, %struct.mbinterval { i32 73459, i32 73460 }, %struct.mbinterval { i32 73472, i32 73473 }, %struct.mbinterval { i32 73526, i32 73530 }, %struct.mbinterval { i32 73536, i32 73536 }, %struct.mbinterval { i32 73538, i32 73538 }, %struct.mbinterval { i32 78896, i32 78912 }, %struct.mbinterval { i32 78919, i32 78933 }, %struct.mbinterval { i32 92912, i32 92916 }, %struct.mbinterval { i32 92976, i32 92982 }, %struct.mbinterval { i32 94031, i32 94031 }, %struct.mbinterval { i32 94095, i32 94098 }, %struct.mbinterval { i32 94180, i32 94180 }, %struct.mbinterval { i32 113821, i32 113822 }, %struct.mbinterval { i32 113824, i32 118598 }, %struct.mbinterval { i32 119143, i32 119145 }, %struct.mbinterval { i32 119155, i32 119170 }, %struct.mbinterval { i32 119173, i32 119179 }, %struct.mbinterval { i32 119210, i32 119213 }, %struct.mbinterval { i32 119362, i32 119364 }, %struct.mbinterval { i32 121344, i32 121398 }, %struct.mbinterval { i32 121403, i32 121452 }, %struct.mbinterval { i32 121461, i32 121461 }, %struct.mbinterval { i32 121476, i32 121476 }, %struct.mbinterval { i32 121499, i32 121519 }, %struct.mbinterval { i32 122880, i32 122922 }, %struct.mbinterval { i32 123023, i32 123023 }, %struct.mbinterval { i32 123184, i32 123190 }, %struct.mbinterval { i32 123566, i32 123566 }, %struct.mbinterval { i32 123628, i32 123631 }, %struct.mbinterval { i32 124140, i32 124143 }, %struct.mbinterval { i32 125136, i32 125142 }, %struct.mbinterval { i32 125252, i32 125258 }, %struct.mbinterval { i32 917505, i32 917999 }], align 16
-@ucs_wcwidth.east_asian_fw = internal unnamed_addr constant [120 x %struct.mbinterval] [%struct.mbinterval { i32 4352, i32 4447 }, %struct.mbinterval { i32 8986, i32 8987 }, %struct.mbinterval { i32 9001, i32 9002 }, %struct.mbinterval { i32 9193, i32 9196 }, %struct.mbinterval { i32 9200, i32 9200 }, %struct.mbinterval { i32 9203, i32 9203 }, %struct.mbinterval { i32 9725, i32 9726 }, %struct.mbinterval { i32 9748, i32 9749 }, %struct.mbinterval { i32 9800, i32 9811 }, %struct.mbinterval { i32 9855, i32 9855 }, %struct.mbinterval { i32 9875, i32 9875 }, %struct.mbinterval { i32 9889, i32 9889 }, %struct.mbinterval { i32 9898, i32 9899 }, %struct.mbinterval { i32 9917, i32 9918 }, %struct.mbinterval { i32 9924, i32 9925 }, %struct.mbinterval { i32 9934, i32 9934 }, %struct.mbinterval { i32 9940, i32 9940 }, %struct.mbinterval { i32 9962, i32 9962 }, %struct.mbinterval { i32 9970, i32 9971 }, %struct.mbinterval { i32 9973, i32 9973 }, %struct.mbinterval { i32 9978, i32 9978 }, %struct.mbinterval { i32 9981, i32 9981 }, %struct.mbinterval { i32 9989, i32 9989 }, %struct.mbinterval { i32 9994, i32 9995 }, %struct.mbinterval { i32 10024, i32 10024 }, %struct.mbinterval { i32 10060, i32 10060 }, %struct.mbinterval { i32 10062, i32 10062 }, %struct.mbinterval { i32 10067, i32 10069 }, %struct.mbinterval { i32 10071, i32 10071 }, %struct.mbinterval { i32 10133, i32 10135 }, %struct.mbinterval { i32 10160, i32 10160 }, %struct.mbinterval { i32 10175, i32 10175 }, %struct.mbinterval { i32 11035, i32 11036 }, %struct.mbinterval { i32 11088, i32 11088 }, %struct.mbinterval { i32 11093, i32 11093 }, %struct.mbinterval { i32 11904, i32 11929 }, %struct.mbinterval { i32 11931, i32 12019 }, %struct.mbinterval { i32 12032, i32 12245 }, %struct.mbinterval { i32 12272, i32 12350 }, %struct.mbinterval { i32 12353, i32 12438 }, %struct.mbinterval { i32 12441, i32 12543 }, %struct.mbinterval { i32 12549, i32 12591 }, %struct.mbinterval { i32 12593, i32 12686 }, %struct.mbinterval { i32 12688, i32 12771 }, %struct.mbinterval { i32 12783, i32 12830 }, %struct.mbinterval { i32 12832, i32 12871 }, %struct.mbinterval { i32 12880, i32 19903 }, %struct.mbinterval { i32 19968, i32 42124 }, %struct.mbinterval { i32 42128, i32 42182 }, %struct.mbinterval { i32 43360, i32 43388 }, %struct.mbinterval { i32 44032, i32 55203 }, %struct.mbinterval { i32 63744, i32 64255 }, %struct.mbinterval { i32 65040, i32 65049 }, %struct.mbinterval { i32 65072, i32 65106 }, %struct.mbinterval { i32 65108, i32 65126 }, %struct.mbinterval { i32 65128, i32 65131 }, %struct.mbinterval { i32 65281, i32 65376 }, %struct.mbinterval { i32 65504, i32 65510 }, %struct.mbinterval { i32 94176, i32 94180 }, %struct.mbinterval { i32 94192, i32 94193 }, %struct.mbinterval { i32 94208, i32 100343 }, %struct.mbinterval { i32 100352, i32 101589 }, %struct.mbinterval { i32 101632, i32 101640 }, %struct.mbinterval { i32 110576, i32 110579 }, %struct.mbinterval { i32 110581, i32 110587 }, %struct.mbinterval { i32 110589, i32 110590 }, %struct.mbinterval { i32 110592, i32 110882 }, %struct.mbinterval { i32 110898, i32 110898 }, %struct.mbinterval { i32 110928, i32 110930 }, %struct.mbinterval { i32 110933, i32 110933 }, %struct.mbinterval { i32 110948, i32 110951 }, %struct.mbinterval { i32 110960, i32 111355 }, %struct.mbinterval { i32 126980, i32 126980 }, %struct.mbinterval { i32 127183, i32 127183 }, %struct.mbinterval { i32 127374, i32 127374 }, %struct.mbinterval { i32 127377, i32 127386 }, %struct.mbinterval { i32 127488, i32 127490 }, %struct.mbinterval { i32 127504, i32 127547 }, %struct.mbinterval { i32 127552, i32 127560 }, %struct.mbinterval { i32 127568, i32 127569 }, %struct.mbinterval { i32 127584, i32 127589 }, %struct.mbinterval { i32 127744, i32 127776 }, %struct.mbinterval { i32 127789, i32 127797 }, %struct.mbinterval { i32 127799, i32 127868 }, %struct.mbinterval { i32 127870, i32 127891 }, %struct.mbinterval { i32 127904, i32 127946 }, %struct.mbinterval { i32 127951, i32 127955 }, %struct.mbinterval { i32 127968, i32 127984 }, %struct.mbinterval { i32 127988, i32 127988 }, %struct.mbinterval { i32 127992, i32 128062 }, %struct.mbinterval { i32 128064, i32 128064 }, %struct.mbinterval { i32 128066, i32 128252 }, %struct.mbinterval { i32 128255, i32 128317 }, %struct.mbinterval { i32 128331, i32 128334 }, %struct.mbinterval { i32 128336, i32 128359 }, %struct.mbinterval { i32 128378, i32 128378 }, %struct.mbinterval { i32 128405, i32 128406 }, %struct.mbinterval { i32 128420, i32 128420 }, %struct.mbinterval { i32 128507, i32 128591 }, %struct.mbinterval { i32 128640, i32 128709 }, %struct.mbinterval { i32 128716, i32 128716 }, %struct.mbinterval { i32 128720, i32 128722 }, %struct.mbinterval { i32 128725, i32 128727 }, %struct.mbinterval { i32 128732, i32 128735 }, %struct.mbinterval { i32 128747, i32 128748 }, %struct.mbinterval { i32 128756, i32 128764 }, %struct.mbinterval { i32 128992, i32 129003 }, %struct.mbinterval { i32 129008, i32 129008 }, %struct.mbinterval { i32 129292, i32 129338 }, %struct.mbinterval { i32 129340, i32 129349 }, %struct.mbinterval { i32 129351, i32 129535 }, %struct.mbinterval { i32 129648, i32 129660 }, %struct.mbinterval { i32 129664, i32 129672 }, %struct.mbinterval { i32 129680, i32 129725 }, %struct.mbinterval { i32 129727, i32 129733 }, %struct.mbinterval { i32 129742, i32 129755 }, %struct.mbinterval { i32 129760, i32 129768 }, %struct.mbinterval { i32 129776, i32 129784 }, %struct.mbinterval { i32 131072, i32 196605 }, %struct.mbinterval { i32 196608, i32 262141 }], align 16
 @Utf8Transition = internal unnamed_addr constant <{ [245 x i32], [11 x i32] }> <{ [245 x i32] [i32 0, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 22528, i32 1091239968, i32 1091239968, i32 1091239968, i32 1091239968, i32 1091239968, i32 1091239968, i32 1091239968, i32 1091239968, i32 1091239968, i32 1091239968, i32 1091239968, i32 1091239968, i32 1091239968, i32 1091239968, i32 1091239968, i32 1091239968, i32 51052576, i32 51052576, i32 51052576, i32 51052576, i32 51052576, i32 51052576, i32 51052576, i32 51052576, i32 51052576, i32 51052576, i32 51052576, i32 51052576, i32 51052576, i32 51052576, i32 51052576, i32 51052576, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 34276384, i32 0, i32 0, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 32768, i32 12288, i32 2048, i32 2048, i32 2048, i32 2048, i32 2048, i32 2048, i32 2048, i32 2048, i32 2048, i32 2048, i32 2048, i32 2048, i32 40960, i32 2048, i32 2048, i32 51200, i32 10240, i32 10240, i32 10240, i32 61440], [11 x i32] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -1416,8 +1413,8 @@ pg_utf_mblen_private.exit:                        ; preds = %49, %unicode_to_utf
   ret i32 %.012.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 -1, 3) i32 @pg_utf_dsplen(ptr noundef readonly captures(none) %0) #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define internal range(i32 -1, 2) i32 @pg_utf_dsplen(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = icmp sgt i8 %2, -1
@@ -1452,7 +1449,7 @@ define internal range(i32 -1, 3) i32 @pg_utf_dsplen(ptr noundef readonly capture
 23:                                               ; preds = %11
   %24 = and i32 %3, 248
   %25 = icmp eq i32 %24, 240
-  br i1 %25, label %26, label %ucs_wcwidth.exit
+  br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %23
   %27 = shl nuw nsw i32 %3, 18
@@ -1488,89 +1485,19 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
 
 47:                                               ; preds = %utf8_to_unicode.exit
   %48 = icmp samesign ult i32 %.0.i, 32
-  br i1 %48, label %ucs_wcwidth.exit, label %49
+  br i1 %48, label %ucs_wcwidth.exit, label %.thread
 
-49:                                               ; preds = %47
-  %50 = add nsw i32 %.0.i, -127
-  %or.cond.i = icmp ult i32 %50, 33
-  %51 = icmp samesign ugt i32 %.0.i, 1114111
-  %or.cond3.i = or i1 %51, %or.cond.i
-  br i1 %or.cond3.i, label %ucs_wcwidth.exit, label %52
+.thread:                                          ; preds = %23, %47
+  %.0.i35 = phi i32 [ %.0.i, %47 ], [ -1, %23 ]
+  %49 = add nsw i32 %.0.i35, -127
+  %or.cond.i = icmp ult i32 %49, 33
+  %50 = icmp ugt i32 %.0.i35, 1114111
+  %or.cond3.i = or i1 %50, %or.cond.i
+  %spec.select.i = select i1 %or.cond3.i, i32 -1, i32 1
+  br label %ucs_wcwidth.exit
 
-52:                                               ; preds = %49
-  %53 = add nsw i32 %.0.i, -918000
-  %or.cond27.i = icmp ult i32 %53, -917827
-  br i1 %or.cond27.i, label %ucs_wcwidth.exit, label %.preheader.i.i
-
-.preheader.i.i:                                   ; preds = %52, %68
-  %.01722.i.i = phi i32 [ %.1.i.i, %68 ], [ 0, %52 ]
-  %.01821.i.i = phi i32 [ %.119.i.i, %68 ], [ 321, %52 ]
-  %54 = add i32 %.01821.i.i, %.01722.i.i
-  %55 = sdiv i32 %54, 2
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.mbinterval, ptr @ucs_wcwidth.nonspacing, i64 %56
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %59 = load i32, ptr %58, align 4
-  %60 = icmp ugt i32 %.0.i, %59
-  br i1 %60, label %61, label %63
-
-61:                                               ; preds = %.preheader.i.i
-  %62 = add nsw i32 %55, 1
-  br label %68
-
-63:                                               ; preds = %.preheader.i.i
-  %64 = load i32, ptr %57, align 8
-  %65 = icmp ult i32 %.0.i, %64
-  br i1 %65, label %66, label %ucs_wcwidth.exit
-
-66:                                               ; preds = %63
-  %67 = add nsw i32 %55, -1
-  br label %68
-
-68:                                               ; preds = %66, %61
-  %.119.i.i = phi i32 [ %.01821.i.i, %61 ], [ %67, %66 ]
-  %.1.i.i = phi i32 [ %62, %61 ], [ %.01722.i.i, %66 ]
-  %.not.i.i = icmp slt i32 %.119.i.i, %.1.i.i
-  br i1 %.not.i.i, label %69, label %.preheader.i.i, !llvm.loop !13
-
-69:                                               ; preds = %68
-  %70 = add nsw i32 %.0.i, -262142
-  %or.cond28.i = icmp ult i32 %70, -257790
-  br i1 %or.cond28.i, label %ucs_wcwidth.exit, label %.preheader.i13.i
-
-.preheader.i13.i:                                 ; preds = %69, %85
-  %.01722.i14.i = phi i32 [ %.1.i18.i, %85 ], [ 0, %69 ]
-  %.01821.i15.i = phi i32 [ %.119.i17.i, %85 ], [ 119, %69 ]
-  %71 = add i32 %.01821.i15.i, %.01722.i14.i
-  %72 = sdiv i32 %71, 2
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds %struct.mbinterval, ptr @ucs_wcwidth.east_asian_fw, i64 %73
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  %76 = load i32, ptr %75, align 4
-  %77 = icmp ugt i32 %.0.i, %76
-  br i1 %77, label %78, label %80
-
-78:                                               ; preds = %.preheader.i13.i
-  %79 = add nsw i32 %72, 1
-  br label %85
-
-80:                                               ; preds = %.preheader.i13.i
-  %81 = load i32, ptr %74, align 8
-  %82 = icmp ult i32 %.0.i, %81
-  br i1 %82, label %83, label %ucs_wcwidth.exit
-
-83:                                               ; preds = %80
-  %84 = add nsw i32 %72, -1
-  br label %85
-
-85:                                               ; preds = %83, %78
-  %.119.i17.i = phi i32 [ %.01821.i15.i, %78 ], [ %84, %83 ]
-  %.1.i18.i = phi i32 [ %79, %78 ], [ %.01722.i14.i, %83 ]
-  %.not.i19.i = icmp slt i32 %.119.i17.i, %.1.i18.i
-  br i1 %.not.i19.i, label %ucs_wcwidth.exit, label %.preheader.i13.i, !llvm.loop !13
-
-ucs_wcwidth.exit:                                 ; preds = %63, %80, %85, %23, %utf8_to_unicode.exit, %47, %49, %52, %69
-  %.0.i1 = phi i32 [ 0, %utf8_to_unicode.exit ], [ -1, %49 ], [ -1, %47 ], [ 1, %69 ], [ 1, %52 ], [ -1, %23 ], [ 2, %80 ], [ 1, %85 ], [ 0, %63 ]
+ucs_wcwidth.exit:                                 ; preds = %utf8_to_unicode.exit, %47, %.thread
+  %.0.i1 = phi i32 [ 0, %utf8_to_unicode.exit ], [ -1, %47 ], [ %spec.select.i, %.thread ]
   ret i32 %.0.i1
 }
 
@@ -1641,7 +1568,7 @@ define internal i32 @pg_utf8_verifystr(ptr noundef %0, i32 noundef %1) #6 {
   %8 = bitcast <16 x i8> %7 to <2 x i64>
   %9 = or <2 x i64> %.013.i, %8
   %10 = or <2 x i64> %9, %.010.ptr.val.i
-  br i1 %4, label %.preheader53, label %is_valid_ascii.exit, !llvm.loop !14
+  br i1 %4, label %.preheader53, label %is_valid_ascii.exit, !llvm.loop !13
 
 is_valid_ascii.exit:                              ; preds = %.preheader53
   %11 = bitcast <2 x i64> %10 to <16 x i8>
@@ -1666,7 +1593,7 @@ is_valid_ascii.exit:                              ; preds = %.preheader53
   %22 = lshr i32 %20, %21
   %23 = add nsw i32 %.07.i, -1
   %24 = icmp samesign ugt i32 %.07.i, 1
-  br i1 %24, label %14, label %utf8_advance.exit, !llvm.loop !15
+  br i1 %24, label %14, label %utf8_advance.exit, !llvm.loop !14
 
 utf8_advance.exit:                                ; preds = %14
   %25 = and i32 %22, 31
@@ -1677,7 +1604,7 @@ utf8_advance.exit:                                ; preds = %14
   %27 = getelementptr inbounds nuw i8, ptr %.160, i64 32
   %28 = add i32 %.12859, -32
   %29 = icmp ugt i32 %28, 31
-  br i1 %29, label %.preheader54, label %30, !llvm.loop !16
+  br i1 %29, label %.preheader54, label %30, !llvm.loop !15
 
 30:                                               ; preds = %26
   switch i32 %.142, label %.preheader [
@@ -1707,7 +1634,7 @@ utf8_advance.exit:                                ; preds = %14
   br i1 %or.cond52, label %pg_utf_mblen_private.exit.thread, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %35, %.preheader
-  br label %.preheader, !llvm.loop !17
+  br label %.preheader, !llvm.loop !16
 
 .fold.split:                                      ; preds = %30
   br label %pg_utf_mblen_private.exit.thread
@@ -1905,7 +1832,7 @@ define internal i32 @pg_mule2wchar_with_len(ptr noundef readonly captures(none) 
   %75 = getelementptr inbounds nuw i8, ptr %.05875, i64 4
   %76 = add i32 %.077, 1
   %77 = icmp sgt i32 %74, 0
-  br i1 %77, label %.lr.ph, label %.critedge, !llvm.loop !18
+  br i1 %77, label %.lr.ph, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %.lr.ph, %73, %3
   %.058.lcssa = phi ptr [ %1, %3 ], [ %75, %73 ], [ %.05875, %.lr.ph ]
@@ -2052,7 +1979,7 @@ define internal i32 @pg_wchar2mule_with_len(ptr noundef readonly captures(none) 
   %73 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %74 = add nsw i32 %.07984, -1
   %75 = icmp sgt i32 %.07984, 1
-  br i1 %75, label %.lr.ph, label %.critedge, !llvm.loop !19
+  br i1 %75, label %.lr.ph, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %.lr.ph, %71, %3
   %.080.lcssa = phi ptr [ %1, %3 ], [ %.181, %71 ], [ %.08083, %.lr.ph ]
@@ -2120,7 +2047,7 @@ pg_mule_mblen.exit:                               ; preds = %2, %5, %7
   %13 = getelementptr inbounds nuw i8, ptr %.07, i64 1
   %14 = load i8, ptr %13, align 1
   %.not = icmp sgt i8 %14, -1
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader, %11, %pg_mule_mblen.exit
   %.0 = phi i32 [ -1, %pg_mule_mblen.exit ], [ %.0.i, %.preheader ], [ -1, %11 ]
@@ -2175,7 +2102,7 @@ pg_mule_mblen.exit.i:                             ; preds = %11, %9, %7
   %17 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %18 = load i8, ptr %17, align 1
   %.not.i = icmp sgt i8 %18, -1
-  br i1 %.not.i, label %.thread, label %.preheader.i, !llvm.loop !20
+  br i1 %.not.i, label %.thread, label %.preheader.i, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader.i, %5
   %.013 = phi i32 [ 1, %5 ], [ %.0.i.i, %.preheader.i ]
@@ -2214,7 +2141,7 @@ define internal i32 @pg_latin12wchar_with_len(ptr noundef readonly captures(none
   store i32 %7, ptr %.0812, align 4
   %10 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %10, %2
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !20
 
 .critedge:                                        ; preds = %.lr.ph, %6, %3
   %.08.lcssa = phi ptr [ %1, %3 ], [ %9, %6 ], [ %.0812, %.lr.ph ]
@@ -2447,7 +2374,7 @@ define internal range(i32 -1, 3) i32 @pg_big5_verifychar(ptr noundef readonly ca
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   %spec.select = select i1 %15, i32 -1, i32 %..i
-  br label %.loopexit, !llvm.loop !22
+  br label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %12, %7, %11, %2
   %.0 = phi i32 [ -1, %2 ], [ %.mux, %7 ], [ %..i, %11 ], [ %spec.select, %12 ]
@@ -2488,7 +2415,7 @@ define internal i32 @pg_big5_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %16 = getelementptr inbounds nuw i8, ptr %.01427, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %.thread, label %.loopexit, !llvm.loop !22
+  br i1 %18, label %.thread, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %15, %5
   %.013 = phi i32 [ 1, %5 ], [ 2, %15 ]
@@ -2563,7 +2490,7 @@ define internal range(i32 -1, 3) i32 @pg_gbk_verifychar(ptr noundef readonly cap
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   %spec.select = select i1 %15, i32 -1, i32 %..i
-  br label %.loopexit, !llvm.loop !23
+  br label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %12, %7, %11, %2
   %.0 = phi i32 [ -1, %2 ], [ %.mux, %7 ], [ %..i, %11 ], [ %spec.select, %12 ]
@@ -2604,7 +2531,7 @@ define internal i32 @pg_gbk_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %16 = getelementptr inbounds nuw i8, ptr %.01427, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %.thread, label %.loopexit, !llvm.loop !23
+  br i1 %18, label %.thread, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %15, %5
   %.013 = phi i32 [ 1, %5 ], [ 2, %15 ]
@@ -2679,7 +2606,7 @@ define internal range(i32 -1, 3) i32 @pg_uhc_verifychar(ptr noundef readonly cap
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   %spec.select = select i1 %15, i32 -1, i32 %..i
-  br label %.loopexit, !llvm.loop !24
+  br label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %12, %7, %11, %2
   %.0 = phi i32 [ -1, %2 ], [ %.mux, %7 ], [ %..i, %11 ], [ %spec.select, %12 ]
@@ -2720,7 +2647,7 @@ define internal i32 @pg_uhc_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %16 = getelementptr inbounds nuw i8, ptr %.01427, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %.thread, label %.loopexit, !llvm.loop !24
+  br i1 %18, label %.thread, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %15, %5
   %.013 = phi i32 [ 1, %5 ], [ 2, %15 ]
@@ -3006,7 +2933,7 @@ pg_johab_mblen.exit:                              ; preds = %2, %3, %4
   %11 = load i8, ptr %10, align 1
   %12 = add i8 %11, 95
   %or.cond = icmp ult i8 %12, 94
-  br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !25
+  br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader, %8, %6, %pg_johab_mblen.exit
   %.0 = phi i32 [ -1, %pg_johab_mblen.exit ], [ %.0.i.i, %6 ], [ %.0.i.i, %.preheader ], [ -1, %8 ]
@@ -3047,7 +2974,7 @@ pg_johab_mblen.exit.i:                            ; preds = %.lr.ph
   %12 = load i8, ptr %11, align 1
   %13 = add i8 %12, 95
   %or.cond.i = icmp ult i8 %13, 94
-  br i1 %or.cond.i, label %.preheader.i, label %.thread, !llvm.loop !25
+  br i1 %or.cond.i, label %.preheader.i, label %.thread, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader.i, %5
   %.013 = phi i32 [ 1, %5 ], [ %spec.select, %.preheader.i ]
@@ -3242,4 +3169,3 @@ attributes #10 = { nounwind }
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}

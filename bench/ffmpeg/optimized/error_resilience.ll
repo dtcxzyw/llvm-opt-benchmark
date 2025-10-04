@@ -91,14 +91,14 @@ define void @ff_er_add_slice(ptr noundef captures(none) %0, i32 noundef %1, i32 
   %15 = mul nsw i32 %8, %4
   %16 = add nsw i32 %15, %3
   %17 = icmp slt i32 %16, 0
-  %..i92 = tail call i32 @llvm.smin.i32(i32 %16, i32 %12)
-  %.0.i93 = select i1 %17, i32 0, i32 %..i92
+  %..i91 = tail call i32 @llvm.smin.i32(i32 %16, i32 %12)
+  %.0.i92 = select i1 %17, i32 0, i32 %..i91
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !45
   %20 = sext i32 %.0.i to i64
   %21 = getelementptr inbounds i32, ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !46
-  %23 = sext i32 %.0.i93 to i64
+  %23 = sext i32 %.0.i92 to i64
   %24 = getelementptr inbounds i32, ptr %19, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !46
   %26 = load ptr, ptr %0, align 8, !tbaa !4
@@ -108,7 +108,7 @@ define void @ff_er_add_slice(ptr noundef captures(none) %0, i32 noundef %1, i32 
   br i1 %.not, label %29, label %er_supported.exit.thread
 
 29:                                               ; preds = %6
-  %30 = icmp sgt i32 %.0.i, %.0.i93
+  %30 = icmp sgt i32 %.0.i, %.0.i92
   %31 = icmp sgt i32 %22, %25
   %or.cond = select i1 %30, i1 true, i1 %31
   br i1 %or.cond, label %32, label %33
@@ -130,7 +130,7 @@ define void @ff_er_add_slice(ptr noundef captures(none) %0, i32 noundef %1, i32 
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %40 = xor i32 %.0.i93, -1
+  %40 = xor i32 %.0.i92, -1
   %41 = add i32 %.0.i, %40
   %42 = atomicrmw add ptr %39, i32 %41 seq_cst, align 8
   br label %43
@@ -144,7 +144,7 @@ define void @ff_er_add_slice(ptr noundef captures(none) %0, i32 noundef %1, i32 
 45:                                               ; preds = %43
   %46 = and i32 %.0, -38
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %48 = xor i32 %.0.i93, -1
+  %48 = xor i32 %.0.i92, -1
   %49 = add i32 %.0.i, %48
   %50 = atomicrmw add ptr %47, i32 %49 seq_cst, align 8
   br label %51
@@ -158,7 +158,7 @@ define void @ff_er_add_slice(ptr noundef captures(none) %0, i32 noundef %1, i32 
 53:                                               ; preds = %51
   %54 = and i32 %.1, -73
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %56 = xor i32 %.0.i93, -1
+  %56 = xor i32 %.0.i92, -1
   %57 = add i32 %.0.i, %56
   %58 = atomicrmw add ptr %55, i32 %57 seq_cst, align 8
   br label %59
@@ -214,7 +214,7 @@ define void @ff_er_add_slice(ptr noundef captures(none) %0, i32 noundef %1, i32 
 
 .loopexit:                                        ; preds = %77, %.preheader, %70
   %82 = load i32, ptr %11, align 8, !tbaa !41
-  %83 = icmp eq i32 %.0.i93, %82
+  %83 = icmp eq i32 %.0.i92, %82
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %.loopexit
@@ -285,26 +285,13 @@ er_supported.exit:                                ; preds = %115
   br i1 %125, label %126, label %er_supported.exit.thread
 
 126:                                              ; preds = %120
-  %127 = load ptr, ptr %100, align 8, !tbaa !38
-  %128 = load ptr, ptr %18, align 8, !tbaa !45
-  %129 = getelementptr i32, ptr %128, i64 %20
-  %130 = getelementptr i8, ptr %129, i64 -4
-  %131 = load i32, ptr %130, align 4, !tbaa !46
-  %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds i8, ptr %127, i64 %132
-  %134 = load i8, ptr %133, align 1, !tbaa !42
-  %135 = and i8 %134, -2
-  %.not91 = icmp eq i8 %135, 112
-  br i1 %.not91, label %er_supported.exit.thread, label %136
-
-136:                                              ; preds = %126
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 1, ptr %137, align 4, !tbaa !43
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store atomic i32 2147483647, ptr %138 seq_cst, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 1, ptr %127, align 4, !tbaa !43
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store atomic i32 2147483647, ptr %128 seq_cst, align 8
   br label %er_supported.exit.thread
 
-er_supported.exit.thread:                         ; preds = %112, %115, %99, %107, %er_supported.exit, %120, %136, %126, %33, %6, %32
+er_supported.exit.thread:                         ; preds = %112, %115, %99, %107, %er_supported.exit, %120, %126, %33, %6, %32
   ret void
 }
 

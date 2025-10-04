@@ -27,7 +27,6 @@ $_ZTV13cmd_exception = comdat any
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTS13cmd_exception = linkonce_odr hidden constant [16 x i8] c"13cmd_exception\00", comdat, align 1
 @_ZTI17default_exception = external constant ptr
-@.str.1 = private unnamed_addr constant [42 x i8] c"global variable does not reference a term\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"AST\00", align 1
 @_ZTV13cmd_exception = linkonce_odr hidden unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTI13cmd_exception, ptr @_ZN17default_exceptionD2Ev, ptr @_ZN13cmd_exceptionD0Ev, ptr @_ZNK17default_exception4whatEv, ptr @_ZNK12z3_exception10error_codeEv] }, comdat, align 8
 @.str.3 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
@@ -210,7 +209,7 @@ define hidden noundef ptr @_Z12get_expr_refR11cmd_contextRK6symbol(ptr noundef n
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(12) %3)
   %.not.i = icmp eq ptr %7, @.str.2
-  br i1 %.not.i, label %_Z11get_ast_refR11cmd_contextRK6symbol.exit, label %8
+  br i1 %.not.i, label %13, label %8
 
 8:                                                ; preds = %2
   %9 = tail call ptr @__cxa_allocate_exception(i64 48) #14
@@ -221,43 +220,16 @@ define hidden noundef ptr @_Z12get_expr_refR11cmd_contextRK6symbol(ptr noundef n
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI13cmd_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #15
   unreachable
 
-common.resume:                                    ; preds = %23, %11
-  %.sink = phi ptr [ %21, %23 ], [ %9, %11 ]
-  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %12, %11 ]
-  tail call void @__cxa_free_exception(ptr nonnull %.sink) #14
-  resume { ptr, i32 } %common.resume.op
-
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  tail call void @__cxa_free_exception(ptr nonnull %9) #14
+  resume { ptr, i32 } %12
 
-_Z11get_ast_refR11cmd_contextRK6symbol.exit:      ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !6
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = and i32 %16, 65535
-  %18 = add nsw i32 %17, -5
-  %19 = icmp ult i32 %18, -2
-  br i1 %19, label %25, label %20
-
-20:                                               ; preds = %_Z11get_ast_refR11cmd_contextRK6symbol.exit
-  %21 = tail call ptr @__cxa_allocate_exception(i64 48) #14
-  invoke void @_ZN13cmd_exceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull @.str.1)
-          to label %22 unwind label %23
-
-22:                                               ; preds = %20
-  tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTI13cmd_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #15
-  unreachable
-
-23:                                               ; preds = %20
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  br label %common.resume
-
-25:                                               ; preds = %_Z11get_ast_refR11cmd_contextRK6symbol.exit
-  ret ptr %14
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %15 = load ptr, ptr %14, align 8, !tbaa !6
+  ret ptr %15
 }
 
 ; Function Attrs: mustprogress uwtable

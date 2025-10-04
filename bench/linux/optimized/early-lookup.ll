@@ -183,7 +183,7 @@ define internal fastcc range(i32 -22, 1) i32 @devt_from_devname(ptr noundef read
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i64 @strlen(ptr noundef %0) #12
   %5 = icmp ugt i64 %4, 31
-  br i1 %5, label %49, label %6
+  br i1 %5, label %26, label %6
 
 6:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !7
@@ -210,70 +210,33 @@ define internal fastcc range(i32 -22, 1) i32 @devt_from_devname(ptr noundef read
   %15 = call fastcc i32 @blk_lookup_devt(ptr noundef nonnull %3, i32 noundef 0) #13
   store i32 %15, ptr %1, align 4
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.preheader, label %49
+  br i1 %16, label %17, label %26
 
-.preheader:                                       ; preds = %14, %19
-  %17 = phi ptr [ %20, %19 ], [ %9, %14 ]
-  %18 = icmp ugt ptr %17, %3
-  br i1 %18, label %19, label %24
+17:                                               ; preds = %14
+  %18 = icmp eq ptr %9, %3
+  br i1 %18, label %26, label %19
 
-19:                                               ; preds = %.preheader
-  %20 = getelementptr i8, ptr %17, i64 -1
-  %21 = load i8, ptr %20, align 1
-  %22 = add i8 %21, -58
-  %23 = icmp ult i8 %22, -10
-  br i1 %23, label %24, label %.preheader, !llvm.loop !11
-
-24:                                               ; preds = %19, %.preheader
-  %25 = icmp eq ptr %17, %3
-  br i1 %25, label %49, label %26
-
-26:                                               ; preds = %24
-  %27 = load i8, ptr %17, align 1
-  switch i8 %27, label %28 [
-    i8 0, label %49
-    i8 48, label %49
+19:                                               ; preds = %17
+  %20 = load i8, ptr %9, align 1
+  switch i8 %20, label %21 [
+    i8 0, label %26
+    i8 48, label %26
   ]
 
-28:                                               ; preds = %26
-  %29 = call i64 @simple_strtoul(ptr noundef %17, ptr noundef null, i32 noundef 10) #12
-  %30 = trunc i64 %29 to i32
-  store i8 0, ptr %17, align 1
-  %31 = call fastcc i32 @blk_lookup_devt(ptr noundef nonnull %3, i32 noundef %30) #13
-  store i32 %31, ptr %1, align 4
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %49
+21:                                               ; preds = %19
+  %22 = call i64 @simple_strtoul(ptr noundef %9, ptr noundef null, i32 noundef 10) #12
+  %23 = trunc i64 %22 to i32
+  store i8 0, ptr %9, align 1
+  %24 = call fastcc i32 @blk_lookup_devt(ptr noundef nonnull %3, i32 noundef %23) #13
+  store i32 %24, ptr %1, align 4
+  %25 = icmp eq i32 %24, 0
+  %spec.select = select i1 %25, i32 -19, i32 0
+  br label %26
 
-33:                                               ; preds = %28
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %35 = icmp ult ptr %17, %34
-  br i1 %35, label %49, label %36
-
-36:                                               ; preds = %33
-  %37 = getelementptr i8, ptr %17, i64 -2
-  %38 = load i8, ptr %37, align 1
-  %39 = add i8 %38, -58
-  %40 = icmp ult i8 %39, -10
-  br i1 %40, label %49, label %41
-
-41:                                               ; preds = %36
-  %42 = getelementptr i8, ptr %17, i64 -1
-  %43 = load i8, ptr %42, align 1
-  %44 = icmp eq i8 %43, 112
-  br i1 %44, label %45, label %49
-
-45:                                               ; preds = %41
-  store i8 0, ptr %42, align 1
-  %46 = call fastcc i32 @blk_lookup_devt(ptr noundef nonnull %3, i32 noundef %30) #13
-  store i32 %46, ptr %1, align 4
-  %47 = icmp eq i32 %46, 0
-  %48 = select i1 %47, i32 -19, i32 0
-  br label %49
-
-49:                                               ; preds = %45, %41, %36, %33, %28, %26, %26, %24, %14, %2
-  %50 = phi i32 [ -22, %2 ], [ 0, %14 ], [ -19, %26 ], [ -19, %26 ], [ -19, %24 ], [ 0, %28 ], [ -19, %41 ], [ -19, %36 ], [ -19, %33 ], [ %48, %45 ]
+26:                                               ; preds = %21, %19, %19, %17, %14, %2
+  %27 = phi i32 [ -22, %2 ], [ 0, %14 ], [ -19, %19 ], [ -19, %19 ], [ -19, %17 ], [ %spec.select, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %50
+  ret i32 %27
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -368,14 +331,14 @@ define dso_local void @printk_all_partitions() local_unnamed_addr #0 section ".i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %64, label %14, !llvm.loop !12
+  br i1 %13, label %64, label %14, !llvm.loop !11
 
 14:                                               ; preds = %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 344
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 2
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %64, !llvm.loop !12
+  br i1 %18, label %19, label %64, !llvm.loop !11
 
 19:                                               ; preds = %14
   call void @__rcu_read_lock() #12
@@ -442,7 +405,7 @@ define dso_local void @printk_all_partitions() local_unnamed_addr #0 section ".i
 61:                                               ; preds = %59, %56, %47, %25
   %62 = call ptr @xa_find_after(ptr noundef nonnull %20, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #12
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %.loopexit, label %25, !llvm.loop !13
+  br i1 %63, label %.loopexit, label %25, !llvm.loop !12
 
 .loopexit:                                        ; preds = %61, %19
   call void @__rcu_read_unlock() #12
@@ -610,7 +573,7 @@ define internal fastcc i32 @blk_lookup_devt(ptr noundef readonly captures(none) 
   %17 = phi ptr [ %15, %14 ], [ %12, %8 ]
   %18 = call i32 @strcmp(ptr noundef %17, ptr noundef %0) #12
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %5, !llvm.loop !14
+  br i1 %19, label %20, label %5, !llvm.loop !13
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -693,4 +656,3 @@ attributes #14 = { cold nounwind }
 !11 = distinct !{!11, !9, !10}
 !12 = distinct !{!12, !9, !10}
 !13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}

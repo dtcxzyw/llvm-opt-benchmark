@@ -2660,66 +2660,14 @@ gettyperecord.exit:                               ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 -1, 256) i32 @_PyUnicode_ToDecimalDigit(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = icmp ugt i32 %0, 1114111
-  br i1 %2, label %gettyperecord.exit.thread, label %gettyperecord.exit
-
-gettyperecord.exit:                               ; preds = %1
-  %3 = lshr i32 %0, 6
-  %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr i16, ptr @index1, i64 %4
-  %6 = load i16, ptr %5, align 2, !tbaa !4
-  %7 = zext i16 %6 to i32
-  %8 = shl nuw nsw i32 %7, 6
-  %9 = and i32 %0, 63
-  %10 = or disjoint i32 %8, %9
-  %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr i16, ptr @index2, i64 %11
-  %13 = load i16, ptr %12, align 2, !tbaa !4
-  %14 = add i16 %13, -16
-  %.not = icmp ult i16 %14, -10
-  br i1 %.not, label %gettyperecord.exit.thread, label %15
-
-15:                                               ; preds = %gettyperecord.exit
-  %16 = zext nneg i16 %13 to i64
-  %17 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %16
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %19 = load i8, ptr %18, align 4, !tbaa !13
-  %20 = zext i8 %19 to i32
-  br label %gettyperecord.exit.thread
-
-gettyperecord.exit.thread:                        ; preds = %1, %gettyperecord.exit, %15
-  %21 = phi i32 [ %20, %15 ], [ -1, %gettyperecord.exit ], [ -1, %1 ]
-  ret i32 %21
+define dso_local noundef range(i32 -1, 256) i32 @_PyUnicode_ToDecimalDigit(i32 noundef %0) local_unnamed_addr #0 {
+gettyperecord.exit:
+  ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 0, 2) i32 @_PyUnicode_IsDecimalDigit(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = icmp ugt i32 %0, 1114111
-  br i1 %2, label %_PyUnicode_ToDecimalDigit.exit.thread, label %gettyperecord.exit.i
-
-gettyperecord.exit.i:                             ; preds = %1
-  %3 = lshr i32 %0, 6
-  %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr i16, ptr @index1, i64 %4
-  %6 = load i16, ptr %5, align 2, !tbaa !4
-  %7 = zext i16 %6 to i32
-  %8 = shl nuw nsw i32 %7, 6
-  %9 = and i32 %0, 63
-  %10 = or disjoint i32 %8, %9
-  %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr i16, ptr @index2, i64 %11
-  %13 = load i16, ptr %12, align 2, !tbaa !4
-  %14 = add i16 %13, -16
-  %.not.i = icmp ult i16 %14, -10
-  br i1 %.not.i, label %_PyUnicode_ToDecimalDigit.exit.thread, label %_PyUnicode_ToDecimalDigit.exit
-
-_PyUnicode_ToDecimalDigit.exit.thread:            ; preds = %1, %gettyperecord.exit.i
-  br label %_PyUnicode_ToDecimalDigit.exit
-
-_PyUnicode_ToDecimalDigit.exit:                   ; preds = %gettyperecord.exit.i, %_PyUnicode_ToDecimalDigit.exit.thread
-  %15 = phi i32 [ 0, %_PyUnicode_ToDecimalDigit.exit.thread ], [ 1, %gettyperecord.exit.i ]
-  ret i32 %15
+define dso_local noundef range(i32 0, 2) i32 @_PyUnicode_IsDecimalDigit(i32 noundef %0) local_unnamed_addr #0 {
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2753,7 +2701,7 @@ gettyperecord.exit:                               ; preds = %1, %3
 
 20:                                               ; preds = %gettyperecord.exit
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 13
-  %22 = load i8, ptr %21, align 1, !tbaa !14
+  %22 = load i8, ptr %21, align 1, !tbaa !13
   %23 = zext i8 %22 to i32
   br label %24
 
@@ -2944,7 +2892,7 @@ gettyperecord.exit:                               ; preds = %1, %3
   %18 = load i16, ptr %17, align 2, !tbaa !8
   %19 = and i16 %18, 16384
   %.not = icmp eq i16 %19, 0
-  %20 = load i32, ptr %16, align 16, !tbaa !15
+  %20 = load i32, ptr %16, align 16, !tbaa !14
   br i1 %.not, label %26, label %21
 
 21:                                               ; preds = %gettyperecord.exit
@@ -2991,7 +2939,7 @@ gettyperecord.exit:                               ; preds = %1, %3
   %19 = and i16 %18, 16384
   %.not = icmp eq i16 %19, 0
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !16
+  %21 = load i32, ptr %20, align 4, !tbaa !15
   br i1 %.not, label %27, label %22
 
 22:                                               ; preds = %gettyperecord.exit
@@ -3038,7 +2986,7 @@ gettyperecord.exit:                               ; preds = %2, %4
   %20 = and i16 %19, 16384
   %.not = icmp eq i16 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !16
+  %22 = load i32, ptr %21, align 4, !tbaa !15
   br i1 %.not, label %30, label %23
 
 23:                                               ; preds = %gettyperecord.exit
@@ -3061,7 +3009,7 @@ gettyperecord.exit:                               ; preds = %2, %4
   store i32 %28, ptr %29, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 30:                                               ; preds = %gettyperecord.exit
   %31 = add i32 %22, %0
@@ -3124,7 +3072,7 @@ gettyperecord.exit:                               ; preds = %2, %4
   store i32 %28, ptr %29, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 30:                                               ; preds = %gettyperecord.exit
   %31 = add i32 %22, %0
@@ -3163,7 +3111,7 @@ gettyperecord.exit:                               ; preds = %2, %4
   %19 = load i16, ptr %18, align 2, !tbaa !8
   %20 = and i16 %19, 16384
   %.not = icmp eq i16 %20, 0
-  %21 = load i32, ptr %17, align 16, !tbaa !15
+  %21 = load i32, ptr %17, align 16, !tbaa !14
   br i1 %.not, label %29, label %22
 
 22:                                               ; preds = %gettyperecord.exit
@@ -3186,7 +3134,7 @@ gettyperecord.exit:                               ; preds = %2, %4
   store i32 %27, ptr %28, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 29:                                               ; preds = %gettyperecord.exit
   %30 = add i32 %21, %0
@@ -3229,7 +3177,7 @@ gettyperecord.exit:                               ; preds = %2, %4
 
 21:                                               ; preds = %gettyperecord.exit
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !16
+  %23 = load i32, ptr %22, align 4, !tbaa !15
   %24 = lshr i32 %23, 20
   %25 = and i32 %24, 7
   %.not18 = icmp eq i32 %25, 0
@@ -3252,7 +3200,7 @@ gettyperecord.exit:                               ; preds = %2, %4
   store i32 %32, ptr %33, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_PyUnicode_ToLowerFull.exit, label %31, !llvm.loop !21
+  br i1 %exitcond.not, label %_PyUnicode_ToLowerFull.exit, label %31, !llvm.loop !20
 
 34:                                               ; preds = %21, %gettyperecord.exit
   br i1 %3, label %gettyperecord.exit.i, label %35
@@ -3280,7 +3228,7 @@ gettyperecord.exit.i:                             ; preds = %35, %34
   %51 = and i16 %50, 16384
   %.not.i = icmp eq i16 %51, 0
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %53 = load i32, ptr %52, align 4, !tbaa !16
+  %53 = load i32, ptr %52, align 4, !tbaa !15
   br i1 %.not.i, label %61, label %54
 
 54:                                               ; preds = %gettyperecord.exit.i
@@ -3303,7 +3251,7 @@ gettyperecord.exit.i:                             ; preds = %35, %34
   store i32 %59, ptr %60, align 4, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_PyUnicode_ToLowerFull.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %_PyUnicode_ToLowerFull.exit, label %.lr.ph.i, !llvm.loop !16
 
 61:                                               ; preds = %gettyperecord.exit.i
   %62 = add i32 %53, %0
@@ -3425,12 +3373,11 @@ attributes #1 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable
 !10 = !{!"int", !6, i64 0}
 !11 = !{!9, !10, i64 8}
 !12 = !{!10, !10, i64 0}
-!13 = !{!9, !6, i64 12}
-!14 = !{!9, !6, i64 13}
-!15 = !{!9, !10, i64 0}
-!16 = !{!9, !10, i64 4}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
+!13 = !{!9, !6, i64 13}
+!14 = !{!9, !10, i64 0}
+!15 = !{!9, !10, i64 4}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
+!20 = distinct !{!20, !17}

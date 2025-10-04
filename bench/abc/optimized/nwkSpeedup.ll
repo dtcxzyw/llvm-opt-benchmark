@@ -1581,7 +1581,7 @@ Vec_PtrFree.exit381:                              ; preds = %Vec_PtrFree.exit, %
   br label %441
 
 441:                                              ; preds = %Vec_PtrFree.exit381, %440
-  br i1 %.not268, label %449, label %442
+  br i1 %.not268, label %.critedge21, label %442
 
 442:                                              ; preds = %441
   %443 = getelementptr i8, ptr %0, i64 52
@@ -1592,90 +1592,31 @@ Vec_PtrFree.exit381:                              ; preds = %Vec_PtrFree.exit, %
   %446 = fdiv double %444, %445
   %447 = select i1 %.not271, double 0.000000e+00, double %446
   %448 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.val347, i32 noundef %.4.lcssa, i32 noundef %.2.lcssa, double noundef %447)
-  br label %449
+  br label %.critedge21
 
-449:                                              ; preds = %442, %441
-  %450 = load ptr, ptr %118, align 8, !tbaa !76
-  %451 = getelementptr i8, ptr %450, i64 4
-  %.val = load i32, ptr %451, align 4, !tbaa !24
-  %452 = icmp sgt i32 %.val, 0
-  br i1 %452, label %.lr.ph447, label %.critedge21
+.critedge21:                                      ; preds = %442, %441
+  br i1 %.not, label %449, label %450
 
-.lr.ph447:                                        ; preds = %449
-  %453 = getelementptr i8, ptr %450, i64 8
-  %.val308 = load ptr, ptr %453, align 8, !tbaa !27
-  %wide.trip.count485 = zext nneg i32 %.val to i64
+449:                                              ; preds = %.critedge21
+  store ptr %8, ptr %7, align 8, !tbaa !51
+  br label %450
+
+450:                                              ; preds = %449, %.critedge21
+  %.not272 = icmp eq ptr %.0251, null
+  br i1 %.not272, label %454, label %451
+
+451:                                              ; preds = %450
+  %452 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %453 = load ptr, ptr %452, align 8, !tbaa !69
+  tail call void @Tim_ManStop(ptr noundef %453) #13
+  store ptr %.0251, ptr %452, align 8, !tbaa !69
   br label %454
 
-454:                                              ; preds = %.lr.ph447, %Aig_ObjEquiv.exit.thread
-  %indvars.iv482 = phi i64 [ 0, %.lr.ph447 ], [ %indvars.iv.next483, %Aig_ObjEquiv.exit.thread ]
-  %455 = getelementptr inbounds nuw ptr, ptr %.val308, i64 %indvars.iv482
-  %456 = load ptr, ptr %455, align 8, !tbaa !28
-  %457 = icmp eq ptr %456, null
-  br i1 %457, label %Aig_ObjEquiv.exit.thread, label %458
-
-458:                                              ; preds = %454
-  %459 = getelementptr i8, ptr %456, i64 24
-  %.val348 = load i64, ptr %459, align 8
-  %460 = trunc i64 %.val348 to i32
-  %461 = and i32 %460, 7
-  %462 = add nsw i32 %461, -7
-  %narrow.i = icmp ult i32 %462, -2
-  br i1 %narrow.i, label %Aig_ObjEquiv.exit.thread, label %463
-
-463:                                              ; preds = %458
-  %.val319 = load ptr, ptr %124, align 8, !tbaa !48
-  %.not.i382 = icmp eq ptr %.val319, null
-  br i1 %.not.i382, label %Aig_ObjEquiv.exit.thread, label %Aig_ObjEquiv.exit
-
-Aig_ObjEquiv.exit:                                ; preds = %463
-  %464 = getelementptr inbounds nuw i8, ptr %456, i64 36
-  %465 = load i32, ptr %464, align 4, !tbaa !49
-  %466 = sext i32 %465 to i64
-  %467 = getelementptr inbounds ptr, ptr %.val319, i64 %466
-  %468 = load ptr, ptr %467, align 8, !tbaa !44
-  %.not274 = icmp eq ptr %468, null
-  br i1 %.not274, label %Aig_ObjEquiv.exit.thread, label %Aig_ObjEquiv.exit384
-
-Aig_ObjEquiv.exit384:                             ; preds = %Aig_ObjEquiv.exit
-  %469 = getelementptr i8, ptr %468, i64 24
-  %.val349 = load i64, ptr %469, align 8
-  %470 = and i64 %.val349, 4294967232
-  %.not275 = icmp eq i64 %470, 0
-  br i1 %.not275, label %Aig_ObjEquiv.exit.thread, label %471
-
-471:                                              ; preds = %Aig_ObjEquiv.exit384
-  store ptr null, ptr %467, align 8, !tbaa !44
-  br label %Aig_ObjEquiv.exit.thread
-
-Aig_ObjEquiv.exit.thread:                         ; preds = %463, %458, %454, %Aig_ObjEquiv.exit384, %471, %Aig_ObjEquiv.exit
-  %indvars.iv.next483 = add nuw nsw i64 %indvars.iv482, 1
-  %exitcond486.not = icmp eq i64 %indvars.iv.next483, %wide.trip.count485
-  br i1 %exitcond486.not, label %.critedge21, label %454, !llvm.loop !85
-
-.critedge21:                                      ; preds = %Aig_ObjEquiv.exit.thread, %449
-  br i1 %.not, label %472, label %473
-
-472:                                              ; preds = %.critedge21
-  store ptr %8, ptr %7, align 8, !tbaa !51
-  br label %473
-
-473:                                              ; preds = %472, %.critedge21
-  %.not272 = icmp eq ptr %.0251, null
-  br i1 %.not272, label %477, label %474
-
-474:                                              ; preds = %473
-  %475 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %476 = load ptr, ptr %475, align 8, !tbaa !69
-  tail call void @Tim_ManStop(ptr noundef %476) #13
-  store ptr %.0251, ptr %475, align 8, !tbaa !69
-  br label %477
-
-477:                                              ; preds = %474, %473
-  %478 = tail call ptr @Aig_ManDupDfs(ptr noundef nonnull %117) #13
+454:                                              ; preds = %451, %450
+  %455 = tail call ptr @Aig_ManDupDfs(ptr noundef nonnull %117) #13
   tail call void @Aig_ManStop(ptr noundef nonnull %117) #13
-  %479 = tail call i32 @Aig_ManChoiceLevel(ptr noundef %478) #13
-  ret ptr %478
+  %456 = tail call i32 @Aig_ManChoiceLevel(ptr noundef %455) #13
+  ret ptr %455
 }
 
 declare ptr @Tim_ManDup(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1826,4 +1767,3 @@ attributes #13 = { nounwind }
 !82 = distinct !{!82, !36}
 !83 = distinct !{!83, !36}
 !84 = distinct !{!84, !36}
-!85 = distinct !{!85, !36}

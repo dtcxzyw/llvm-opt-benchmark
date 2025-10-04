@@ -5240,7 +5240,7 @@ define dso_local i32 @loadAppendOnlyFiles(ptr noundef captures(address_is_null) 
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %36 = load i64, ptr %35, align 8, !tbaa !73
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %136, label %.thread137
+  br i1 %37, label %133, label %.thread137
 
 .thread137:                                       ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5274,17 +5274,17 @@ getBaseAndIncrAppendOnlyFilesNum.exit:            ; preds = %39, %41
 50:                                               ; preds = %getBaseAndIncrAppendOnlyFilesNum.exit
   %51 = call i64 @getBaseAndIncrAppendOnlyFilesSize(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %52 = load i32, ptr %2, align 4, !tbaa !21
-  switch i32 %52, label %136 [
+  switch i32 %52, label %133 [
     i32 0, label %54
     i32 1, label %53
   ]
 
 53:                                               ; preds = %50
-  br label %136
+  br label %133
 
 54:                                               ; preds = %50
   %55 = icmp eq i64 %51, 0
-  br i1 %55, label %136, label %56
+  br i1 %55, label %133, label %56
 
 56:                                               ; preds = %54
   call void @startLoading(i64 noundef %51, i32 noundef 1, i32 noundef 0) #20
@@ -5362,7 +5362,7 @@ getBaseAndIncrAppendOnlyFilesNum.exit:            ; preds = %39, %41
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %91 = load i64, ptr %90, align 8, !tbaa !73
   %.not96 = icmp eq i64 %91, 0
-  br i1 %.not96, label %131, label %92
+  br i1 %.not96, label %128, label %92
 
 92:                                               ; preds = %.thread104
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -5371,7 +5371,7 @@ getBaseAndIncrAppendOnlyFilesNum.exit:            ; preds = %39, %41
   %.not97122 = icmp eq ptr %93, null
   br i1 %.not97122, label %.thread112, label %.lr.ph
 
-94:                                               ; preds = %128
+94:                                               ; preds = %121
   %95 = call ptr @listNext(ptr noundef nonnull %3) #20
   %.not97 = icmp eq ptr %95, null
   br i1 %.not97, label %.thread112, label %.lr.ph, !llvm.loop !153
@@ -5379,7 +5379,7 @@ getBaseAndIncrAppendOnlyFilesNum.exit:            ; preds = %39, %41
 .thread112:                                       ; preds = %94, %92
   %.4.lcssa = phi i32 [ %.073, %92 ], [ %spec.store.select, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %131
+  br label %128
 
 .lr.ph:                                           ; preds = %92, %94
   %96 = phi ptr [ %95, %94 ], [ %93, %92 ]
@@ -5433,7 +5433,7 @@ getBaseAndIncrAppendOnlyFilesNum.exit:            ; preds = %39, %41
   %spec.store.select = select i1 %122, i32 0, i32 %108
   %123 = icmp ne i32 %spec.store.select, 5
   %or.cond9 = select i1 %123, i1 true, i1 %106
-  br i1 %or.cond9, label %128, label %124
+  br i1 %or.cond9, label %94, label %124
 
 124:                                              ; preds = %121
   %125 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !65
@@ -5448,31 +5448,22 @@ getBaseAndIncrAppendOnlyFilesNum.exit:            ; preds = %39, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread101
 
-128:                                              ; preds = %121
-  %129 = add nsw i32 %spec.store.select, -5
-  %or.cond11 = icmp ult i32 %129, -2
-  br i1 %or.cond11, label %94, label %130, !llvm.loop !153
-
-130:                                              ; preds = %128
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread101
-
-131:                                              ; preds = %.thread112, %.thread104
+128:                                              ; preds = %.thread112, %.thread104
   %.3 = phi i32 [ %.073, %.thread104 ], [ %.4.lcssa, %.thread112 ]
   store i64 %51, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6568), align 8, !tbaa !108
   store i64 %.078, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6560), align 8, !tbaa !154
   br label %.thread101
 
-.thread101:                                       ; preds = %130, %86, %83, %.thread115, %87, %131
-  %.2 = phi i32 [ %68, %87 ], [ %.3, %131 ], [ %108, %130 ], [ 4, %.thread115 ], [ 4, %83 ], [ 4, %86 ]
-  %132 = icmp eq i32 %.2, 0
-  %133 = icmp eq i32 %.2, 5
-  %134 = or i1 %132, %133
-  %135 = zext i1 %134 to i32
-  call void @stopLoading(i32 noundef %135) #20
-  br label %136
+.thread101:                                       ; preds = %86, %83, %.thread115, %87, %128
+  %.2 = phi i32 [ %68, %87 ], [ %.3, %128 ], [ 4, %.thread115 ], [ 4, %83 ], [ 4, %86 ]
+  %129 = icmp eq i32 %.2, 0
+  %130 = icmp eq i32 %.2, 5
+  %131 = or i1 %129, %130
+  %132 = zext i1 %131 to i32
+  call void @stopLoading(i32 noundef %132) #20
+  br label %133
 
-136:                                              ; preds = %53, %50, %54, %34, %.thread101
+133:                                              ; preds = %53, %50, %54, %34, %.thread101
   %.0 = phi i32 [ %.2, %.thread101 ], [ 1, %34 ], [ 2, %54 ], [ %52, %50 ], [ 4, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

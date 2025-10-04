@@ -31739,19 +31739,13 @@ if.else:                                          ; preds = %entry
   %call2 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #38
   %call3 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #38
   %cmp.i.not18 = icmp eq ptr %call2, %call3
-  br i1 %cmp.i.not18, label %if.end25, label %for.body
+  br i1 %cmp.i.not18, label %if.end25, label %land.lhs.true14
 
-for.body:                                         ; preds = %if.else, %for.inc
+land.lhs.true14:                                  ; preds = %if.else, %for.inc
   %__begin3.sroa.0.019 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %call2, %if.else ]
   %0 = load i8, ptr %__begin3.sroa.0.019, align 1
-  %1 = and i8 %0, -33
-  %2 = add i8 %1, -91
-  %or.cond15 = icmp ult i8 %2, -26
-  br i1 %or.cond15, label %land.lhs.true14, label %for.inc
-
-land.lhs.true14:                                  ; preds = %for.body
-  %3 = add i8 %0, -58
-  %or.cond2 = icmp ult i8 %3, -10
+  %1 = add i8 %0, -58
+  %or.cond2 = icmp ult i8 %1, -10
   %cmp22 = icmp ne i8 %0, 95
   %or.cond3 = and i1 %cmp22, %or.cond2
   br i1 %or.cond3, label %if.then23, label %for.inc
@@ -31761,10 +31755,10 @@ if.then23:                                        ; preds = %land.lhs.true14
   call void @_ZN6google8protobuf17DescriptorBuilder8AddErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7MessageENS0_14DescriptorPool14ErrorCollector13ErrorLocationEN4absl12lts_2023080211FunctionRefIFS7_vEEE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %full_name, ptr noundef nonnull align 8 dereferenceable(16) %proto, i32 noundef 0, ptr nonnull %ref.tmp, ptr nonnull @"_ZN4absl12lts_2023080219functional_internal12InvokeObjectIZN6google8protobuf17DescriptorBuilder18ValidateSymbolNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RKNS4_7MessageEE3$_0SB_JEEET0_NS1_7VoidPtrEDpNS1_8ForwardTIT1_E4typeE")
   br label %if.end25
 
-for.inc:                                          ; preds = %for.body, %land.lhs.true14
+for.inc:                                          ; preds = %land.lhs.true14
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.019, i64 1
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %call3
-  br i1 %cmp.i.not, label %if.end25, label %for.body
+  br i1 %cmp.i.not, label %if.end25, label %land.lhs.true14
 
 if.end25:                                         ; preds = %for.inc, %if.else, %if.then23, %if.then
   ret void

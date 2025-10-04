@@ -6521,61 +6521,49 @@ define void @Abc_NtkUpdateIncLevel_rec(ptr noundef %0) local_unnamed_addr #2 {
   %6 = and i32 %.val18, 15
   %.not = icmp eq i32 %6, 7
   %or.cond = and i1 %5, %.not
-  br i1 %or.cond, label %7, label %13
+  br i1 %or.cond, label %7, label %.preheader
 
 7:                                                ; preds = %1
   %8 = getelementptr i8, ptr %0, i64 28
   %.val14 = load i32, ptr %8, align 4, !tbaa !121
   %9 = icmp sgt i32 %.val14, 0
-  br i1 %9, label %.critedge, label %.thread
+  br i1 %9, label %.critedge, label %.preheader
 
-.thread:                                          ; preds = %7
-  %10 = shl nuw i32 %2, 12
-  %11 = and i32 %.val18, 4087
+.preheader:                                       ; preds = %1, %7
+  %10 = shl i32 %2, 12
+  %11 = and i32 %.val18, 4095
   %12 = or disjoint i32 %11, %10
   store i32 %12, ptr %3, align 4
-  br label %.preheader
-
-13:                                               ; preds = %1
-  %14 = shl i32 %2, 12
-  %15 = and i32 %.val18, 4095
-  %16 = or disjoint i32 %15, %14
-  store i32 %16, ptr %3, align 4
-  %17 = add nsw i32 %6, -5
-  %narrow.i = icmp ult i32 %17, -2
-  br i1 %narrow.i, label %.preheader, label %.critedge
-
-.preheader:                                       ; preds = %.thread, %13
-  %18 = getelementptr i8, ptr %0, i64 44
-  %.val1520 = load i32, ptr %18, align 4, !tbaa !126
-  %19 = icmp sgt i32 %.val1520, 0
-  br i1 %19, label %.lr.ph, label %.critedge
+  %13 = getelementptr i8, ptr %0, i64 44
+  %.val1520 = load i32, ptr %13, align 4, !tbaa !126
+  %14 = icmp sgt i32 %.val1520, 0
+  br i1 %14, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
-  %20 = getelementptr i8, ptr %0, i64 48
-  br label %21
+  %15 = getelementptr i8, ptr %0, i64 48
+  br label %16
 
-21:                                               ; preds = %.lr.ph, %21
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+16:                                               ; preds = %.lr.ph, %16
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.val16 = load ptr, ptr %0, align 8, !tbaa !124
-  %.val17 = load ptr, ptr %20, align 8, !tbaa !133
-  %22 = getelementptr i8, ptr %.val16, i64 32
-  %.val16.val = load ptr, ptr %22, align 8, !tbaa !78
-  %23 = getelementptr i8, ptr %.val16.val, i64 8
-  %.val16.val.val = load ptr, ptr %23, align 8, !tbaa !80
-  %24 = getelementptr inbounds nuw i32, ptr %.val17, i64 %indvars.iv
-  %25 = load i32, ptr %24, align 4, !tbaa !96
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %.val16.val.val, i64 %26
-  %28 = load ptr, ptr %27, align 8, !tbaa !81
-  tail call void @Abc_NtkUpdateIncLevel_rec(ptr noundef %28)
+  %.val17 = load ptr, ptr %15, align 8, !tbaa !133
+  %17 = getelementptr i8, ptr %.val16, i64 32
+  %.val16.val = load ptr, ptr %17, align 8, !tbaa !78
+  %18 = getelementptr i8, ptr %.val16.val, i64 8
+  %.val16.val.val = load ptr, ptr %18, align 8, !tbaa !80
+  %19 = getelementptr inbounds nuw i32, ptr %.val17, i64 %indvars.iv
+  %20 = load i32, ptr %19, align 4, !tbaa !96
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds ptr, ptr %.val16.val.val, i64 %21
+  %23 = load ptr, ptr %22, align 8, !tbaa !81
+  tail call void @Abc_NtkUpdateIncLevel_rec(ptr noundef %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val15 = load i32, ptr %18, align 4, !tbaa !126
-  %29 = sext i32 %.val15 to i64
-  %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %21, label %.critedge, !llvm.loop !218
+  %.val15 = load i32, ptr %13, align 4, !tbaa !126
+  %24 = sext i32 %.val15 to i64
+  %25 = icmp slt i64 %indvars.iv.next, %24
+  br i1 %25, label %16, label %.critedge, !llvm.loop !218
 
-.critedge:                                        ; preds = %21, %.preheader, %13, %7
+.critedge:                                        ; preds = %16, %.preheader, %7
   ret void
 }
 

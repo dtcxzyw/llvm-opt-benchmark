@@ -638,7 +638,7 @@ define internal void @eeepc_acpi_notify(ptr noundef %0, i32 noundef %1) #3 align
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ugt i32 %1, 127
-  br i1 %5, label %51, label %6
+  br i1 %5, label %31, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 14
@@ -663,49 +663,20 @@ define internal void @eeepc_acpi_notify(ptr noundef %0, i32 noundef %1) #3 align
   %21 = trunc nuw nsw i32 %1 to i8
   %22 = zext i16 %10 to i32
   %23 = tail call i32 @acpi_bus_generate_netlink_event(ptr noundef nonnull %12, ptr noundef %20, i8 noundef zeroext %21, i32 noundef %22) #13
-  %24 = add nsw i32 %1, -48
-  %25 = icmp ult i32 %24, -16
-  br i1 %25, label %26, label %32
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 296
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %31, label %27
 
-26:                                               ; preds = %19
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 296
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %51, label %30
+27:                                               ; preds = %19
+  %28 = tail call zeroext i1 @sparse_keymap_report_event(ptr noundef nonnull %25, i32 noundef %1, i32 noundef 1, i1 noundef zeroext true) #13
+  br i1 %28, label %31, label %29
 
-30:                                               ; preds = %26
-  %31 = tail call zeroext i1 @sparse_keymap_report_event(ptr noundef nonnull %28, i32 noundef %1, i32 noundef 1, i1 noundef zeroext true) #13
-  br i1 %31, label %51, label %48
+29:                                               ; preds = %27
+  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.99, i32 noundef %1) #14
+  br label %31
 
-32:                                               ; preds = %19
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 288
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %51, label %36
-
-36:                                               ; preds = %32
-  %37 = load i32, ptr %34, align 8
-  tail call void @backlight_force_update(ptr noundef nonnull %34, i32 noundef 0) #13
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 296
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %51, label %41
-
-41:                                               ; preds = %36
-  %42 = add nsw i32 %1, -32
-  %43 = icmp slt i32 %42, %37
-  %44 = icmp sgt i32 %42, %37
-  %45 = select i1 %44, i32 47, i32 %1
-  %46 = select i1 %43, i32 32, i32 %45
-  %47 = tail call zeroext i1 @sparse_keymap_report_event(ptr noundef nonnull %39, i32 noundef %46, i32 noundef 1, i1 noundef zeroext true) #13
-  br i1 %47, label %51, label %48
-
-48:                                               ; preds = %41, %30
-  %49 = phi i32 [ %1, %30 ], [ %46, %41 ]
-  %50 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.99, i32 noundef %49) #14
-  br label %51
-
-51:                                               ; preds = %48, %41, %36, %32, %30, %26, %2
+31:                                               ; preds = %29, %27, %19, %2
   ret void
 }
 
@@ -2365,9 +2336,6 @@ declare dso_local i32 @acpi_bus_generate_netlink_event(ptr noundef, ptr noundef,
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @sparse_keymap_report_event(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
-
-; Function Attrs: null_pointer_is_valid
-declare dso_local void @backlight_force_update(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @eeepc_hotk_thaw(ptr noundef readonly captures(none) %0) #3 align 16 {

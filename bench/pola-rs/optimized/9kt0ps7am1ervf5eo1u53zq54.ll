@@ -51411,10 +51411,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 define noundef zeroext i1 @_ZN11polars_plan3dsl4expr8Operator13is_arithmetic17hf004f72e6478e8b1E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #8 {
   %2 = load i8, ptr %0, align 1, !range !6716, !alias.scope !6724, !noundef !12
   %switch.i.i = icmp samesign ugt i8 %2, 7
-  %3 = add nsw i8 %2, -18
-  %switch.i1.i = icmp ult i8 %3, -3
-  %.sroa.0.0.i.not = select i1 %switch.i.i, i1 %switch.i1.i, i1 false
-  ret i1 %.sroa.0.0.i.not
+  ret i1 %switch.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable

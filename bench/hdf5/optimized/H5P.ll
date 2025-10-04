@@ -101,9 +101,6 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5Pcopy_prop = private unnamed_addr constant [13 x i8] c"H5Pcopy_prop\00", align 1
 @.str.47 = private unnamed_addr constant [18 x i8] c"invalid source ID\00", align 1
 @.str.48 = private unnamed_addr constant [23 x i8] c"invalid destination ID\00", align 1
-@.str.49 = private unnamed_addr constant [14 x i8] c"no name given\00", align 1
-@.str.50 = private unnamed_addr constant [34 x i8] c"can't copy property between lists\00", align 1
-@.str.51 = private unnamed_addr constant [36 x i8] c"can't copy property between classes\00", align 1
 @__func__.H5Punregister = private unnamed_addr constant [14 x i8] c"H5Punregister\00", align 1
 @.str.52 = private unnamed_addr constant [37 x i8] c"unable to remove property from class\00", align 1
 @__func__.H5Pclose = private unnamed_addr constant [9 x i8] c"H5Pclose\00", align 1
@@ -2574,7 +2571,7 @@ define range(i32 -1, -2147483648) i32 @H5Premove(i64 noundef %0, ptr noundef %1)
 declare i32 @H5P_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pcopy_prop(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef range(i32 -1, 1) i32 @H5Pcopy_prop(i64 noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5CX_node_t, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %4, i8 0, i64 480, i1 false)
@@ -2598,7 +2595,7 @@ define range(i32 -1, 1) i32 @H5Pcopy_prop(i64 noundef %0, i64 noundef %1, ptr no
   %14 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !11
   %15 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !11
   %16 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Pcopy_prop, i32 noundef 1360, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.1) #4
-  br label %.thread48
+  br label %56
 
 17:                                               ; preds = %._crit_edge, %3
   %18 = phi i8 [ %.pre, %._crit_edge ], [ %7, %3 ]
@@ -2619,7 +2616,7 @@ define range(i32 -1, 1) i32 @H5Pcopy_prop(i64 noundef %0, i64 noundef %1, ptr no
   %27 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !11
   %28 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !11
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Pcopy_prop, i32 noundef 1360, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.2) #4
-  br label %.thread48
+  br label %56
 
 30:                                               ; preds = %17, %23
   %31 = call i32 @H5CX_push(ptr noundef nonnull %4) #4
@@ -2630,7 +2627,7 @@ define range(i32 -1, 1) i32 @H5Pcopy_prop(i64 noundef %0, i64 noundef %1, ptr no
   %34 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !11
   %35 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
   %36 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Pcopy_prop, i32 noundef 1360, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.3) #4
-  br label %.thread48
+  br label %56
 
 37:                                               ; preds = %30
   %38 = call i32 @H5E_clear_stack() #4
@@ -2647,100 +2644,28 @@ define range(i32 -1, 1) i32 @H5Pcopy_prop(i64 noundef %0, i64 noundef %1, ptr no
 45:                                               ; preds = %37
   %46 = call i32 @H5I_get_type(i64 noundef %0) #4
   %47 = icmp slt i32 %46, 0
-  br i1 %47, label %48, label %52
+  %48 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
+  br i1 %47, label %49, label %52
 
-48:                                               ; preds = %45
-  %49 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
+49:                                               ; preds = %45
   %50 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !11
-  %51 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Pcopy_prop, i32 noundef 1366, i64 noundef %49, i64 noundef %50, ptr noundef nonnull @.str.48) #4
+  %51 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Pcopy_prop, i32 noundef 1366, i64 noundef %48, i64 noundef %50, ptr noundef nonnull @.str.48) #4
   br label %.thread54
 
 52:                                               ; preds = %45
-  %53 = add nsw i32 %39, -12
-  %or.cond = icmp ult i32 %53, -2
-  %54 = add nsw i32 %46, -12
-  %or.cond3 = icmp ult i32 %54, -2
-  %or.cond39 = select i1 %or.cond, i1 true, i1 %or.cond3
-  br i1 %or.cond39, label %55, label %59
-
-55:                                               ; preds = %52
-  %56 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
-  %57 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !11
-  %58 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Pcopy_prop, i32 noundef 1369, i64 noundef %56, i64 noundef %57, ptr noundef nonnull @.str.38) #4
+  %53 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !11
+  %54 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Pcopy_prop, i32 noundef 1369, i64 noundef %48, i64 noundef %53, ptr noundef nonnull @.str.38) #4
   br label %.thread54
 
-59:                                               ; preds = %52
-  %.not = icmp eq i32 %39, %46
-  br i1 %.not, label %64, label %60
+.thread54:                                        ; preds = %52, %49, %41
+  %55 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
+  br label %56
 
-60:                                               ; preds = %59
-  %61 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
-  %62 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !11
-  %63 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Pcopy_prop, i32 noundef 1371, i64 noundef %61, i64 noundef %62, ptr noundef nonnull @.str.39) #4
-  br label %.thread54
-
-64:                                               ; preds = %59
-  %.not37 = icmp eq ptr %2, null
-  br i1 %.not37, label %67, label %65
-
-65:                                               ; preds = %64
-  %66 = load i8, ptr %2, align 1, !tbaa !15
-  %.not38 = icmp eq i8 %66, 0
-  br i1 %.not38, label %67, label %71
-
-67:                                               ; preds = %64, %65
-  %68 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
-  %69 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !11
-  %70 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Pcopy_prop, i32 noundef 1373, i64 noundef %68, i64 noundef %69, ptr noundef nonnull @.str.49) #4
-  br label %.thread54
-
-71:                                               ; preds = %65
-  %72 = icmp eq i32 %39, 11
-  br i1 %72, label %73, label %80
-
-73:                                               ; preds = %71
-  %74 = call i32 @H5P__copy_prop_plist(i64 noundef %0, i64 noundef %1, ptr noundef nonnull %2) #4
-  %75 = icmp slt i32 %74, 0
-  br i1 %75, label %76, label %88
-
-76:                                               ; preds = %73
-  %77 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
-  %78 = load i64, ptr @H5E_CANTCOPY_g, align 8, !tbaa !11
-  %79 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Pcopy_prop, i32 noundef 1378, i64 noundef %77, i64 noundef %78, ptr noundef nonnull @.str.50) #4
-  br label %.thread54
-
-80:                                               ; preds = %71
-  %81 = call i32 @H5P__copy_prop_pclass(i64 noundef %0, i64 noundef %1, ptr noundef nonnull %2) #4
-  %82 = icmp slt i32 %81, 0
-  br i1 %82, label %83, label %88
-
-83:                                               ; preds = %80
-  %84 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
-  %85 = load i64, ptr @H5E_CANTCOPY_g, align 8, !tbaa !11
-  %86 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Pcopy_prop, i32 noundef 1383, i64 noundef %84, i64 noundef %85, ptr noundef nonnull @.str.51) #4
-  br label %.thread54
-
-.thread54:                                        ; preds = %67, %83, %76, %60, %55, %48, %41
-  %87 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
-  br label %.thread48
-
-88:                                               ; preds = %80, %73
-  %89 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
-  br label %91
-
-.thread48:                                        ; preds = %33, %26, %13, %.thread54
-  %90 = call i32 @H5E_dump_api_stack() #4
-  br label %91
-
-91:                                               ; preds = %88, %.thread48
-  %.0334351 = phi i32 [ -1, %.thread48 ], [ 0, %88 ]
+56:                                               ; preds = %.thread54, %13, %26, %33
+  %57 = call i32 @H5E_dump_api_stack() #4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.0334351
+  ret i32 -1
 }
-
-declare i32 @H5P__copy_prop_plist(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @H5P__copy_prop_pclass(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @H5Punregister(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {

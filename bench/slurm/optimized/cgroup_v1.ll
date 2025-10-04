@@ -1096,14 +1096,14 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %76, label %5
+  br i1 %.not, label %75, label %5
 
 5:                                                ; preds = %3
-  switch i32 %0, label %74 [
+  switch i32 %0, label %73 [
     i32 0, label %.thread
     i32 1, label %6
     i32 2, label %18
-    i32 3, label %42
+    i32 3, label %41
   ]
 
 6:                                                ; preds = %5
@@ -1149,15 +1149,14 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   br label %.thread98
 
 25:                                               ; preds = %18
-  %26 = add i32 %1, -3
-  %or.cond11 = icmp ult i32 %26, 2
-  switch i32 %1, label %32 [
+  %26 = icmp eq i32 %1, 4
+  switch i32 %1, label %.thread [
     i32 8, label %.thread98
     i32 4, label %.thread98
   ]
 
 .thread98:                                        ; preds = %20, %23, %25, %25
-  %or.cond11102 = phi i1 [ %or.cond11, %25 ], [ %or.cond11, %25 ], [ true, %23 ], [ true, %20 ]
+  %or.cond11102 = phi i1 [ %26, %25 ], [ %26, %25 ], [ true, %23 ], [ true, %20 ]
   %.2101 = phi i32 [ 0, %25 ], [ 0, %25 ], [ %24, %23 ], [ 0, %20 ]
   %27 = zext nneg i32 %1 to i64
   %28 = getelementptr inbounds nuw %struct.xcgroup_t, ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 720), i64 %27
@@ -1166,104 +1165,95 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   %31 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %28, ptr noundef nonnull @.str.28, i64 noundef %30) #11
   %.not84 = icmp eq i32 %31, 0
   %spec.select91 = select i1 %.not84, i32 %.2101, i32 -1
-  br i1 %or.cond11102, label %33, label %.thread
+  br i1 %or.cond11102, label %32, label %.thread
 
-32:                                               ; preds = %25
-  br i1 %or.cond11, label %._crit_edge, label %.thread
+32:                                               ; preds = %.thread98
+  %33 = getelementptr inbounds nuw %struct.xcgroup_t, ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 720), i64 %27
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %35 = load i64, ptr %34, align 8
+  %36 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %33, ptr noundef nonnull @.str.29, i64 noundef %35) #11
+  %.not85 = icmp eq i32 %36, 0
+  %spec.select92 = select i1 %.not85, i32 %spec.select91, i32 -1
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %38 = load i64, ptr %37, align 8
+  %.not86 = icmp eq i64 %38, -2
+  br i1 %.not86, label %.thread, label %39
 
-._crit_edge:                                      ; preds = %32
-  %.pre = zext nneg i32 %1 to i64
-  br label %33
-
-33:                                               ; preds = %._crit_edge, %.thread98
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %27, %.thread98 ]
-  %.3104 = phi i32 [ 0, %._crit_edge ], [ %spec.select91, %.thread98 ]
-  %34 = getelementptr inbounds nuw %struct.xcgroup_t, ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 720), i64 %.pre-phi
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %36 = load i64, ptr %35, align 8
-  %37 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %34, ptr noundef nonnull @.str.29, i64 noundef %36) #11
-  %.not85 = icmp eq i32 %37, 0
-  %spec.select92 = select i1 %.not85, i32 %.3104, i32 -1
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %39 = load i64, ptr %38, align 8
-  %.not86 = icmp eq i64 %39, -2
-  br i1 %.not86, label %.thread, label %40
-
-40:                                               ; preds = %33
-  %41 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %34, ptr noundef nonnull @.str.30, i64 noundef %39) #11
-  %.not87 = icmp eq i32 %41, 0
+39:                                               ; preds = %32
+  %40 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %33, ptr noundef nonnull @.str.30, i64 noundef %38) #11
+  %.not87 = icmp eq i32 %40, 0
   %spec.select93 = select i1 %.not87, i32 %spec.select92, i32 -1
   br label %.thread
 
-42:                                               ; preds = %5
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  %44 = tail call ptr @gres_device_id2str(ptr noundef nonnull %43) #11
-  store ptr %44, ptr %4, align 8
-  %45 = add i32 %1, -3
-  %or.cond17 = icmp ult i32 %45, 2
-  br i1 %or.cond17, label %46, label %56
+41:                                               ; preds = %5
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  %43 = tail call ptr @gres_device_id2str(ptr noundef nonnull %42) #11
+  store ptr %43, ptr %4, align 8
+  %44 = add i32 %1, -3
+  %or.cond17 = icmp ult i32 %44, 2
+  br i1 %or.cond17, label %45, label %55
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %48 = load i8, ptr %47, align 8, !range !12, !noundef !13
-  %49 = trunc nuw i8 %48 to i1
-  %50 = zext nneg i32 %1 to i64
-  %51 = getelementptr inbounds nuw %struct.xcgroup_t, ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 1080), i64 %50
-  br i1 %49, label %52, label %54
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %47 = load i8, ptr %46, align 8, !range !12, !noundef !13
+  %48 = trunc nuw i8 %47 to i1
+  %49 = zext nneg i32 %1 to i64
+  %50 = getelementptr inbounds nuw %struct.xcgroup_t, ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 1080), i64 %49
+  br i1 %48, label %51, label %53
 
-52:                                               ; preds = %46
-  %53 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %51, ptr noundef nonnull @.str.31, ptr noundef %44) #11
-  %.not81 = icmp ne i32 %53, 0
+51:                                               ; preds = %45
+  %52 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %50, ptr noundef nonnull @.str.31, ptr noundef %43) #11
+  %.not81 = icmp ne i32 %52, 0
   %spec.select94 = sext i1 %.not81 to i32
   br label %.thread
 
-54:                                               ; preds = %46
-  %55 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %51, ptr noundef nonnull @.str.32, ptr noundef %44) #11
-  %.not80 = icmp ne i32 %55, 0
+53:                                               ; preds = %45
+  %54 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %50, ptr noundef nonnull @.str.32, ptr noundef %43) #11
+  %.not80 = icmp ne i32 %54, 0
   %spec.select95 = sext i1 %.not80 to i32
   br label %.thread
 
-56:                                               ; preds = %42
-  %57 = icmp eq i32 %1, 7
-  br i1 %57, label %58, label %.thread
+55:                                               ; preds = %41
+  %56 = icmp eq i32 %1, 7
+  br i1 %56, label %57, label %.thread
 
-58:                                               ; preds = %56
-  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_task_list, i64 24), align 8
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %61 = tail call ptr @list_find_first(ptr noundef %59, ptr noundef nonnull @_find_task_cg_info, ptr noundef nonnull %60) #11
-  %.not82 = icmp eq ptr %61, null
-  br i1 %.not82, label %62, label %66
+57:                                               ; preds = %55
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_task_list, i64 24), align 8
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %60 = tail call ptr @list_find_first(ptr noundef %58, ptr noundef nonnull @_find_task_cg_info, ptr noundef nonnull %59) #11
+  %.not82 = icmp eq ptr %60, null
+  br i1 %.not82, label %61, label %65
 
-62:                                               ; preds = %58
-  %63 = load i32, ptr %60, align 8
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_cg_name, i64 24), align 8
-  %65 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.33, i32 noundef %63, ptr noundef %64) #11
+61:                                               ; preds = %57
+  %62 = load i32, ptr %59, align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_cg_name, i64 24), align 8
+  %64 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.33, i32 noundef %62, ptr noundef %63) #11
   br label %.thread
 
-66:                                               ; preds = %58
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %68 = load i8, ptr %67, align 8, !range !12, !noundef !13
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %72
+65:                                               ; preds = %57
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %67 = load i8, ptr %66, align 8, !range !12, !noundef !13
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %69, label %71
 
-70:                                               ; preds = %66
-  %71 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %61, ptr noundef nonnull @.str.31, ptr noundef %44) #11
+69:                                               ; preds = %65
+  %70 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %60, ptr noundef nonnull @.str.31, ptr noundef %43) #11
   br label %.thread
 
-72:                                               ; preds = %66
-  %73 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %61, ptr noundef nonnull @.str.32, ptr noundef %44) #11
+71:                                               ; preds = %65
+  %72 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %60, ptr noundef nonnull @.str.32, ptr noundef %43) #11
   br label %.thread
 
-74:                                               ; preds = %5
-  %75 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, i32 noundef %0) #11
+73:                                               ; preds = %5
+  %74 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, i32 noundef %0) #11
   br label %.thread
 
-.thread:                                          ; preds = %52, %54, %6, %.thread98, %40, %14, %56, %72, %70, %32, %33, %7, %74, %62, %5
-  %.071 = phi i32 [ -1, %74 ], [ %0, %5 ], [ %spec.select, %7 ], [ %spec.select92, %33 ], [ 0, %32 ], [ %71, %70 ], [ %73, %72 ], [ -1, %62 ], [ 0, %56 ], [ %spec.select90, %14 ], [ %spec.select93, %40 ], [ %spec.select91, %.thread98 ], [ 0, %6 ], [ %spec.select95, %54 ], [ %spec.select94, %52 ]
+.thread:                                          ; preds = %25, %51, %53, %6, %.thread98, %39, %14, %55, %71, %69, %32, %7, %73, %61, %5
+  %.071 = phi i32 [ -1, %73 ], [ %0, %5 ], [ %spec.select, %7 ], [ %spec.select92, %32 ], [ %70, %69 ], [ %72, %71 ], [ -1, %61 ], [ 0, %55 ], [ %spec.select90, %14 ], [ %spec.select93, %39 ], [ %spec.select91, %.thread98 ], [ 0, %6 ], [ %spec.select95, %53 ], [ %spec.select94, %51 ], [ 0, %25 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #11
-  br label %76
+  br label %75
 
-76:                                               ; preds = %3, %.thread
+75:                                               ; preds = %3, %.thread
   %.0 = phi i32 [ %.071, %.thread ], [ -1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

@@ -3064,7 +3064,7 @@ define internal fastcc range(i32 0, 3) i32 @aa_xref(ptr noundef readonly capture
   %81 = icmp eq ptr %.061, %.163
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %83 = load i8, ptr %82, align 4, !tbaa !4
-  br i1 %81, label %84, label %109
+  br i1 %81, label %84, label %105
 
 84:                                               ; preds = %80
   %85 = zext i8 %83 to i64
@@ -3076,105 +3076,101 @@ define internal fastcc range(i32 0, 3) i32 @aa_xref(ptr noundef readonly capture
   %91 = getelementptr inbounds nuw i8, ptr @lj_ir_type_size, i64 %90
   %92 = load i8, ptr %91, align 1, !tbaa !4
   %93 = icmp eq i64 %.058, %.160
-  br i1 %93, label %94, label %103
+  br i1 %93, label %94, label %99
 
 94:                                               ; preds = %84
   %95 = icmp eq i8 %87, %92
-  br i1 %95, label %96, label %108
+  br i1 %95, label %96, label %104
 
 96:                                               ; preds = %94
   %97 = and i8 %83, 31
-  %98 = add nsw i8 %97, -13
-  %narrow = icmp ult i8 %98, 2
-  %99 = and i8 %89, 31
-  %100 = add nsw i8 %99, -15
-  %101 = icmp ult i8 %100, -2
-  %102 = xor i1 %narrow, %101
-  br i1 %102, label %aa_cnew.exit, label %108
+  %98 = add nsw i8 %97, -15
+  %narrow = icmp ult i8 %98, -2
+  br i1 %narrow, label %aa_cnew.exit, label %104
 
-103:                                              ; preds = %84
-  %104 = zext i8 %92 to i64
-  %105 = zext i8 %87 to i64
-  %106 = add nsw i64 %.058, %105
-  %.not = icmp sgt i64 %106, %.160
-  %107 = add nsw i64 %.160, %104
-  %.not66 = icmp sgt i64 %107, %.058
+99:                                               ; preds = %84
+  %100 = zext i8 %92 to i64
+  %101 = zext i8 %87 to i64
+  %102 = add nsw i64 %.058, %101
+  %.not = icmp sgt i64 %102, %.160
+  %103 = add nsw i64 %.160, %100
+  %.not66 = icmp sgt i64 %103, %.058
   %or.cond = select i1 %.not, i1 %.not66, i1 false
-  br i1 %or.cond, label %108, label %aa_cnew.exit
+  br i1 %or.cond, label %104, label %aa_cnew.exit
 
-108:                                              ; preds = %103, %94, %96
+104:                                              ; preds = %99, %94, %96
   br label %aa_cnew.exit
 
-109:                                              ; preds = %80
-  %110 = zext i8 %83 to i32
-  %111 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %112 = load i8, ptr %111, align 4, !tbaa !4
-  %113 = zext i8 %112 to i32
-  %114 = xor i32 %113, %110
-  %115 = and i32 %114, 31
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %126, label %117
+105:                                              ; preds = %80
+  %106 = zext i8 %83 to i32
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %108 = load i8, ptr %107, align 4, !tbaa !4
+  %109 = zext i8 %108 to i32
+  %110 = xor i32 %109, %106
+  %111 = and i32 %110, 31
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %122, label %113
 
-117:                                              ; preds = %109
-  %118 = and i32 %110, 31
-  %119 = add nsw i32 %118, -15
-  %120 = icmp ult i32 %119, 8
-  br i1 %120, label %121, label %aa_cnew.exit
+113:                                              ; preds = %105
+  %114 = and i32 %106, 31
+  %115 = add nsw i32 %114, -15
+  %116 = icmp ult i32 %115, 8
+  br i1 %116, label %117, label %aa_cnew.exit
 
-121:                                              ; preds = %117
-  %122 = add nsw i32 %110, -15
-  %123 = add nsw i32 %113, -15
-  %124 = xor i32 %123, %122
-  %125 = icmp eq i32 %124, 1
-  br i1 %125, label %126, label %aa_cnew.exit
+117:                                              ; preds = %113
+  %118 = add nsw i32 %106, -15
+  %119 = add nsw i32 %109, -15
+  %120 = xor i32 %119, %118
+  %121 = icmp eq i32 %120, 1
+  br i1 %121, label %122, label %aa_cnew.exit
 
-126:                                              ; preds = %121, %109
-  %127 = tail call fastcc ptr @aa_findcnew(ptr noundef nonnull readonly %0, ptr noundef nonnull %.061)
-  %128 = tail call fastcc ptr @aa_findcnew(ptr noundef nonnull readonly %0, ptr noundef nonnull %.163)
-  %129 = icmp eq ptr %127, %128
-  br i1 %129, label %aa_cnew.exit, label %130
+122:                                              ; preds = %117, %105
+  %123 = tail call fastcc ptr @aa_findcnew(ptr noundef nonnull readonly %0, ptr noundef nonnull %.061)
+  %124 = tail call fastcc ptr @aa_findcnew(ptr noundef nonnull readonly %0, ptr noundef nonnull %.163)
+  %125 = icmp eq ptr %123, %124
+  br i1 %125, label %aa_cnew.exit, label %126
 
-130:                                              ; preds = %126
-  %131 = icmp ne ptr %127, null
-  %132 = icmp ne ptr %128, null
-  %or.cond.i = and i1 %131, %132
-  br i1 %or.cond.i, label %aa_cnew.exit, label %133
+126:                                              ; preds = %122
+  %127 = icmp ne ptr %123, null
+  %128 = icmp ne ptr %124, null
+  %or.cond.i = and i1 %127, %128
+  br i1 %or.cond.i, label %aa_cnew.exit, label %129
 
-133:                                              ; preds = %130
-  %spec.select.i = select i1 %132, ptr %.061, ptr %.163
-  %spec.select19.i = select i1 %132, ptr %128, ptr %127
-  %134 = ptrtoint ptr %spec.select19.i to i64
-  %135 = ptrtoint ptr %6 to i64
-  %136 = sub i64 %134, %135
-  %137 = lshr exact i64 %136, 3
-  %138 = trunc i64 %137 to i32
+129:                                              ; preds = %126
+  %spec.select.i = select i1 %128, ptr %.061, ptr %.163
+  %spec.select19.i = select i1 %128, ptr %124, ptr %123
+  %130 = ptrtoint ptr %spec.select19.i to i64
+  %131 = ptrtoint ptr %6 to i64
+  %132 = sub i64 %130, %131
+  %133 = lshr exact i64 %132, 3
+  %134 = trunc i64 %133 to i32
   %.0121.i.i = getelementptr inbounds nuw i8, ptr %spec.select19.i, i64 8
-  %139 = icmp ult ptr %.0121.i.i, %spec.select.i
-  br i1 %139, label %.lr.ph.i.i, label %aa_cnew.exit
+  %135 = icmp ult ptr %.0121.i.i, %spec.select.i
+  br i1 %135, label %.lr.ph.i.i, label %aa_cnew.exit
 
-.lr.ph.i.i:                                       ; preds = %133, %147
-  %.0123.i.i = phi ptr [ %.012.i.i, %147 ], [ %.0121.i.i, %133 ]
-  %.pn2.i.i = phi ptr [ %.0123.i.i, %147 ], [ %spec.select19.i, %133 ]
-  %140 = getelementptr inbounds nuw i8, ptr %.pn2.i.i, i64 10
-  %141 = load i16, ptr %140, align 2, !tbaa !4
-  %142 = zext i16 %141 to i32
-  %143 = icmp eq i32 %142, %138
-  br i1 %143, label %144, label %147
+.lr.ph.i.i:                                       ; preds = %129, %143
+  %.0123.i.i = phi ptr [ %.012.i.i, %143 ], [ %.0121.i.i, %129 ]
+  %.pn2.i.i = phi ptr [ %.0123.i.i, %143 ], [ %spec.select19.i, %129 ]
+  %136 = getelementptr inbounds nuw i8, ptr %.pn2.i.i, i64 10
+  %137 = load i16, ptr %136, align 2, !tbaa !4
+  %138 = zext i16 %137 to i32
+  %139 = icmp eq i32 %138, %134
+  br i1 %139, label %140, label %143
 
-144:                                              ; preds = %.lr.ph.i.i
-  %145 = getelementptr inbounds nuw i8, ptr %.pn2.i.i, i64 13
-  %146 = load i8, ptr %145, align 1, !tbaa !4
-  %.off.i.i = add i8 %146, -74
+140:                                              ; preds = %.lr.ph.i.i
+  %141 = getelementptr inbounds nuw i8, ptr %.pn2.i.i, i64 13
+  %142 = load i8, ptr %141, align 1, !tbaa !4
+  %.off.i.i = add i8 %142, -74
   %switch.i.i = icmp ult i8 %.off.i.i, 4
-  br i1 %switch.i.i, label %aa_cnew.exit, label %147
+  br i1 %switch.i.i, label %aa_cnew.exit, label %143
 
-147:                                              ; preds = %144, %.lr.ph.i.i
+143:                                              ; preds = %140, %.lr.ph.i.i
   %.012.i.i = getelementptr inbounds nuw i8, ptr %.0123.i.i, i64 8
-  %148 = icmp ult ptr %.012.i.i, %spec.select.i
-  br i1 %148, label %.lr.ph.i.i, label %aa_cnew.exit, !llvm.loop !28
+  %144 = icmp ult ptr %.012.i.i, %spec.select.i
+  br i1 %144, label %.lr.ph.i.i, label %aa_cnew.exit, !llvm.loop !28
 
-aa_cnew.exit:                                     ; preds = %147, %144, %133, %130, %126, %117, %121, %108, %96, %103, %11
-  %.0 = phi i32 [ 2, %11 ], [ 1, %108 ], [ 2, %96 ], [ 0, %103 ], [ 0, %121 ], [ 0, %117 ], [ 1, %126 ], [ 0, %130 ], [ 0, %133 ], [ 1, %144 ], [ 0, %147 ]
+aa_cnew.exit:                                     ; preds = %143, %140, %129, %126, %122, %113, %117, %104, %96, %99, %11
+  %.0 = phi i32 [ 2, %11 ], [ 1, %104 ], [ 2, %96 ], [ 0, %99 ], [ 0, %117 ], [ 0, %113 ], [ 1, %122 ], [ 0, %126 ], [ 0, %129 ], [ 1, %140 ], [ 0, %143 ]
   ret i32 %.0
 }
 

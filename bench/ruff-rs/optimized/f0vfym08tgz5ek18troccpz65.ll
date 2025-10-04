@@ -278,7 +278,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers14is_module_name1
 .preheader:                                       ; preds = %41, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i"
   %45 = phi ptr [ %82, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i" ], [ %.sroa.0.0.ph, %41 ]
   %.not.i.i = icmp eq ptr %45, %3
-  br i1 %.not.i.i, label %86, label %46
+  br i1 %.not.i.i, label %83, label %46
 
 46:                                               ; preds = %.preheader
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 1
@@ -331,27 +331,21 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers14is_module_name1
   %80 = or disjoint i32 %77, %79
   %81 = or disjoint i32 %80, %76
   %.not.not.i = icmp eq i32 %81, 1114112
-  br i1 %.not.not.i, label %86, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i"
+  br i1 %.not.not.i, label %83, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f655ae0a6a88539E.exit14.i.i.i", %60, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f655ae0a6a88539E.exit12.i.i.i"
   %82 = phi ptr [ %73, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i" ], [ %53, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f655ae0a6a88539E.exit12.i.i.i" ], [ %63, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f655ae0a6a88539E.exit14.i.i.i" ], [ %47, %60 ]
   %spec.select.i7.i = phi i32 [ %81, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i" ], [ %58, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f655ae0a6a88539E.exit12.i.i.i" ], [ %70, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f655ae0a6a88539E.exit14.i.i.i" ], [ %61, %60 ]
-  %83 = add nsw i32 %spec.select.i7.i, -123
-  %or.cond.i.i.i = icmp ult i32 %83, -26
-  %84 = add nsw i32 %spec.select.i7.i, -58
-  %or.cond1.i.i.i = icmp ult i32 %84, -10
-  %or.cond2.i.not1.i.i = select i1 %or.cond.i.i.i, i1 %or.cond1.i.i.i, i1 false
-  %85 = icmp ne i32 %spec.select.i7.i, 95
-  %spec.select.i.not.i.i = and i1 %85, %or.cond2.i.not1.i.i
-  br i1 %spec.select.i.not.i.i, label %_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E.exit, label %.preheader
+  %.not.i = icmp eq i32 %spec.select.i7.i, 95
+  br i1 %.not.i, label %.preheader, label %_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E.exit
 
-86:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i", %.preheader
-  %87 = tail call noundef zeroext i1 @_ZN18ruff_python_stdlib7keyword10is_keyword17hea7a49f26f5ddeabE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
-  %not. = xor i1 %87, true
+83:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i", %.preheader
+  %84 = tail call noundef zeroext i1 @_ZN18ruff_python_stdlib7keyword10is_keyword17hea7a49f26f5ddeabE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
+  %not. = xor i1 %84, true
   br label %_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E.exit
 
-_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E.exit: ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i", %2, %86, %41
-  %.sroa.0.1 = phi i1 [ false, %41 ], [ %not., %86 ], [ false, %2 ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i" ]
+_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E.exit: ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i", %2, %83, %41
+  %.sroa.0.1 = phi i1 [ false, %41 ], [ %not., %83 ], [ false, %2 ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i" ]
   ret i1 %.sroa.0.1
 }
 
@@ -363,7 +357,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers17is_migration_na
 4:                                                ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i", %2
   %5 = phi ptr [ %42, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i" ], [ %0, %2 ]
   %.not.i.i = icmp eq ptr %5, %3
-  br i1 %.not.i.i, label %46, label %6
+  br i1 %.not.i.i, label %43, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -416,27 +410,21 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers17is_migration_na
   %40 = or disjoint i32 %37, %39
   %41 = or disjoint i32 %40, %36
   %.not.not.i = icmp eq i32 %41, 1114112
-  br i1 %.not.not.i, label %46, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i"
+  br i1 %.not.not.i, label %43, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f655ae0a6a88539E.exit14.i.i.i", %20, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f655ae0a6a88539E.exit12.i.i.i"
   %42 = phi ptr [ %33, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i" ], [ %13, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f655ae0a6a88539E.exit12.i.i.i" ], [ %23, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f655ae0a6a88539E.exit14.i.i.i" ], [ %7, %20 ]
   %spec.select.i7.i = phi i32 [ %41, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i" ], [ %18, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f655ae0a6a88539E.exit12.i.i.i" ], [ %30, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f655ae0a6a88539E.exit14.i.i.i" ], [ %21, %20 ]
-  %43 = add nsw i32 %spec.select.i7.i, -123
-  %or.cond.i.i.i = icmp ult i32 %43, -26
-  %44 = add nsw i32 %spec.select.i7.i, -58
-  %or.cond1.i.i.i = icmp ult i32 %44, -10
-  %or.cond2.i.not1.i.i = select i1 %or.cond.i.i.i, i1 %or.cond1.i.i.i, i1 false
-  %45 = icmp ne i32 %spec.select.i7.i, 95
-  %spec.select.i.not.i.i = and i1 %45, %or.cond2.i.not1.i.i
-  br i1 %spec.select.i.not.i.i, label %.loopexit, label %4
+  %.not.i = icmp eq i32 %spec.select.i7.i, 95
+  br i1 %.not.i, label %4, label %.loopexit
 
-46:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i", %4
-  %47 = tail call noundef zeroext i1 @_ZN18ruff_python_stdlib7keyword10is_keyword17hea7a49f26f5ddeabE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
-  %not. = xor i1 %47, true
+43:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i", %4
+  %44 = tail call noundef zeroext i1 @_ZN18ruff_python_stdlib7keyword10is_keyword17hea7a49f26f5ddeabE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
+  %not. = xor i1 %44, true
   br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i", %46
-  %.sroa.0.0 = phi i1 [ %not., %46 ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i" ]
+.loopexit:                                        ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i", %43
+  %.sroa.0.0 = phi i1 [ %not., %43 ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i" ]
   ret i1 %.sroa.0.0
 }
 

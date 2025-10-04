@@ -29,7 +29,7 @@ define internal i32 @euckr_mbc_to_code(ptr noundef %0, ptr noundef %1) #2 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal range(i32 -400, 3) i32 @euckr_code_to_mbclen(i32 noundef %0) #3 {
   %.not = icmp ult i32 %0, 65536
-  br i1 %.not, label %2, label %11
+  br i1 %.not, label %2, label %7
 
 2:                                                ; preds = %1
   %.not5 = icmp samesign ult i32 %0, 256
@@ -39,18 +39,11 @@ define internal range(i32 -400, 3) i32 @euckr_code_to_mbclen(i32 noundef %0) #3 
   %4 = lshr i32 %0, 8
   %5 = add nsw i32 %4, -161
   %6 = icmp ult i32 %5, 94
-  br i1 %6, label %11, label %10
+  %spec.select = select i1 %6, i32 2, i32 -400
+  br label %7
 
-7:                                                ; preds = %2
-  %8 = add nsw i32 %0, -255
-  %9 = icmp ult i32 %8, -94
-  br i1 %9, label %11, label %10
-
-10:                                               ; preds = %7, %3
-  br label %11
-
-11:                                               ; preds = %7, %3, %1, %10
-  %.0 = phi i32 [ -400, %10 ], [ -400, %1 ], [ 2, %3 ], [ 1, %7 ]
+7:                                                ; preds = %3, %2, %1
+  %.0 = phi i32 [ -400, %1 ], [ 1, %2 ], [ %spec.select, %3 ]
   ret i32 %.0
 }
 
@@ -129,36 +122,19 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %2, %13
-  %.01219 = phi ptr [ %14, %13 ], [ %0, %2 ]
+.lr.ph:                                           ; preds = %2, %6
+  %.01219 = phi ptr [ %7, %6 ], [ %0, %2 ]
   %4 = load i8, ptr %.01219, align 1, !tbaa !4
   %5 = icmp sgt i8 %4, -1
-  br i1 %5, label %13, label %6
+  br i1 %5, label %6, label %._crit_edge
 
 6:                                                ; preds = %.lr.ph
-  %7 = add nsw i8 %4, 1
-  %or.cond18 = icmp ult i8 %7, -94
-  br i1 %or.cond18, label %._crit_edge, label %8
+  %7 = getelementptr inbounds nuw i8, ptr %.01219, i64 1
+  %8 = icmp ult ptr %7, %1
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
-8:                                                ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %.01219, i64 1
-  %.not17 = icmp ult ptr %9, %1
-  br i1 %.not17, label %10, label %._crit_edge
-
-10:                                               ; preds = %8
-  %11 = load i8, ptr %9, align 1, !tbaa !4
-  %12 = add i8 %11, 1
-  %or.cond = icmp ult i8 %12, -94
-  br i1 %or.cond, label %._crit_edge, label %13
-
-13:                                               ; preds = %10, %.lr.ph
-  %.sink = phi i64 [ 1, %.lr.ph ], [ 2, %10 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.01219, i64 %.sink
-  %15 = icmp ult ptr %14, %1
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !15
-
-._crit_edge:                                      ; preds = %6, %8, %10, %13, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %13 ], [ 0, %10 ], [ 0, %8 ], [ 0, %6 ]
+._crit_edge:                                      ; preds = %6, %.lr.ph, %2
+  %.0 = phi i32 [ 1, %2 ], [ 0, %.lr.ph ], [ 1, %6 ]
   ret i32 %.0
 }
 

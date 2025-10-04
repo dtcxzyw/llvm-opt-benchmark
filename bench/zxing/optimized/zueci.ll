@@ -2964,33 +2964,26 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal range(i32 0, 2) i32 @zueci_u_ascii_inv(i32 noundef %0, ptr noundef writeonly captures(none) %1) unnamed_addr #2 {
   %3 = icmp eq i32 %0, 127
-  br i1 %3, label %10, label %4
+  br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = icmp ult i32 %0, 123
-  br i1 %5, label %switch.early.test, label %12
+  br i1 %5, label %switch.early.test, label %8
 
 switch.early.test:                                ; preds = %4
   switch i32 %0, label %6 [
-    i32 64, label %12
-    i32 36, label %12
-    i32 35, label %12
+    i32 64, label %8
+    i32 36, label %8
+    i32 35, label %8
   ]
 
-6:                                                ; preds = %switch.early.test
-  %7 = icmp eq i32 %0, 95
-  %8 = add nsw i32 %0, -97
-  %9 = icmp ult i32 %8, -6
-  %or.cond9 = or i1 %7, %9
-  br i1 %or.cond9, label %10, label %12
+6:                                                ; preds = %switch.early.test, %2
+  %7 = trunc nuw nsw i32 %0 to i8
+  store i8 %7, ptr %1, align 1, !tbaa !3
+  br label %8
 
-10:                                               ; preds = %6, %2
-  %11 = trunc nuw nsw i32 %0 to i8
-  store i8 %11, ptr %1, align 1, !tbaa !3
-  br label %12
-
-12:                                               ; preds = %6, %4, %switch.early.test, %switch.early.test, %switch.early.test, %10
-  %.0 = phi i32 [ 1, %10 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %4 ], [ 0, %6 ]
+8:                                                ; preds = %4, %switch.early.test, %switch.early.test, %switch.early.test, %6
+  %.0 = phi i32 [ 1, %6 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -3758,32 +3751,25 @@ define internal range(i32 0, 2) i32 @zueci_ascii_inv_u(ptr noundef readonly capt
   %8 = zext i8 %.fr to i32
   %9 = icmp eq i8 %.fr, 127
   %or.cond = or i1 %7, %9
-  br i1 %or.cond, label %16, label %10
+  br i1 %or.cond, label %12, label %10
 
 10:                                               ; preds = %4
   %11 = icmp ult i8 %.fr, 123
-  br i1 %11, label %switch.early.test, label %17
+  br i1 %11, label %switch.early.test, label %13
 
 switch.early.test:                                ; preds = %10
   switch i8 %.fr, label %12 [
-    i8 64, label %17
-    i8 36, label %17
-    i8 35, label %17
+    i8 64, label %13
+    i8 36, label %13
+    i8 35, label %13
   ]
 
-12:                                               ; preds = %switch.early.test
-  %13 = icmp eq i8 %.fr, 95
-  %14 = add nsw i8 %.fr, -97
-  %15 = icmp ult i8 %14, -6
-  %or.cond17 = or i1 %13, %15
-  br i1 %or.cond17, label %16, label %17
-
-16:                                               ; preds = %12, %4
+12:                                               ; preds = %switch.early.test, %4
   store i32 %8, ptr %3, align 4, !tbaa !12
-  br label %17
+  br label %13
 
-17:                                               ; preds = %12, %10, %switch.early.test, %switch.early.test, %switch.early.test, %16
-  %.0 = phi i32 [ 1, %16 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %10 ], [ 0, %12 ]
+13:                                               ; preds = %10, %switch.early.test, %switch.early.test, %switch.early.test, %12
+  %.0 = phi i32 [ 1, %12 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %10 ]
   ret i32 %.0
 }
 

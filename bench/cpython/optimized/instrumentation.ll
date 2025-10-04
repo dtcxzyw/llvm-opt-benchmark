@@ -981,8 +981,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.27 = private unnamed_addr constant [42 x i8] c"invalid tool %d (must be between 0 and 5)\00", align 1
 @.str.28 = private unnamed_addr constant [53 x i8] c"The callback can only be set for one event at a time\00", align 1
 @.str.29 = private unnamed_addr constant [17 x i8] c"invalid event %d\00", align 1
-@.str.30 = private unnamed_addr constant [33 x i8] c"sys.monitoring.register_callback\00", align 1
-@.str.31 = private unnamed_addr constant [2 x i8] c"O\00", align 1
 @.str.32 = private unnamed_addr constant [23 x i8] c"invalid event set 0x%x\00", align 1
 @.str.33 = private unnamed_addr constant [52 x i8] c"cannot set C_RETURN or C_RAISE events independently\00", align 1
 @PyCode_Type = external global %struct._typeobject, align 8
@@ -8281,7 +8279,7 @@ monitoring_get_tool_impl.exit:                    ; preds = %20, %17, %7, %check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @monitoring_register_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
+define internal noalias noundef ptr @monitoring_register_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %or.cond = icmp eq i64 %2, 3
   br i1 %or.cond, label %6, label %4
 
@@ -8306,35 +8304,51 @@ define internal ptr @monitoring_register_callback(ptr readnone captures(none) %0
   %14 = load ptr, ptr %13, align 8, !tbaa !46
   %15 = tail call i32 @PyLong_AsInt(ptr noundef %14) #11
   %16 = icmp eq i32 %15, -1
-  br i1 %16, label %20, label %.split
+  br i1 %16, label %25, label %.split
 
 .split:                                           ; preds = %12
-  %17 = getelementptr i8, ptr %1, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !46
-  %19 = tail call fastcc ptr @monitoring_register_callback_impl(i32 noundef %8, i32 noundef %15, ptr noundef %18)
+  %or.cond.i.i = icmp ugt i32 %8, 5
+  br i1 %or.cond.i.i, label %check_valid_tool.exit.i, label %19
+
+check_valid_tool.exit.i:                          ; preds = %.split
+  %17 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !46
+  %18 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %17, ptr noundef nonnull @.str.27, i32 noundef %8) #11
   br label %monitoring_register_callback_impl.exit
 
-20:                                               ; preds = %12
-  %21 = tail call ptr @PyErr_Occurred() #11
-  %.not16 = icmp eq ptr %21, null
+19:                                               ; preds = %.split
+  %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
+  %.not16.i = icmp eq i32 %20, 1
+  %21 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !46
+  br i1 %.not16.i, label %23, label %22
+
+22:                                               ; preds = %19
+  tail call void @PyErr_SetString(ptr noundef %21, ptr noundef nonnull @.str.28) #11
+  br label %monitoring_register_callback_impl.exit
+
+23:                                               ; preds = %19
+  %24 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %21, ptr noundef nonnull @.str.29, i32 noundef %15) #11
+  br label %monitoring_register_callback_impl.exit
+
+25:                                               ; preds = %12
+  %26 = tail call ptr @PyErr_Occurred() #11
+  %.not16 = icmp eq ptr %26, null
   br i1 %.not16, label %.split13, label %monitoring_register_callback_impl.exit
 
-.split13:                                         ; preds = %20
-  %or.cond.i.i = icmp ugt i32 %8, 5
-  %22 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !46
-  br i1 %or.cond.i.i, label %check_valid_tool.exit.i, label %24
+.split13:                                         ; preds = %25
+  %or.cond.i.i17 = icmp ugt i32 %8, 5
+  %27 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !46
+  br i1 %or.cond.i.i17, label %check_valid_tool.exit.i18, label %29
 
-check_valid_tool.exit.i:                          ; preds = %.split13
-  %23 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %22, ptr noundef nonnull @.str.27, i32 noundef %8) #11
+check_valid_tool.exit.i18:                        ; preds = %.split13
+  %28 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.27, i32 noundef %8) #11
   br label %monitoring_register_callback_impl.exit
 
-24:                                               ; preds = %.split13
-  tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.28) #11
+29:                                               ; preds = %.split13
+  tail call void @PyErr_SetString(ptr noundef %27, ptr noundef nonnull @.str.28) #11
   br label %monitoring_register_callback_impl.exit
 
-monitoring_register_callback_impl.exit:           ; preds = %24, %check_valid_tool.exit.i, %.split, %20, %10, %4
-  %.0 = phi ptr [ null, %10 ], [ null, %20 ], [ null, %4 ], [ %19, %.split ], [ null, %check_valid_tool.exit.i ], [ null, %24 ]
-  ret ptr %.0
+monitoring_register_callback_impl.exit:           ; preds = %29, %check_valid_tool.exit.i18, %23, %22, %check_valid_tool.exit.i, %25, %10, %4
+  ret ptr null
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8815,63 +8829,6 @@ declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #3
 declare ptr @PyErr_Occurred() local_unnamed_addr #3
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: nounwind uwtable
-define internal fastcc ptr @monitoring_register_callback_impl(i32 noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 {
-  %or.cond.i = icmp ugt i32 %0, 5
-  br i1 %or.cond.i, label %check_valid_tool.exit, label %6
-
-check_valid_tool.exit:                            ; preds = %3
-  %4 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !46
-  %5 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.27, i32 noundef %0) #11
-  br label %26
-
-6:                                                ; preds = %3
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
-  %.not16 = icmp eq i32 %7, 1
-  br i1 %.not16, label %10, label %8
-
-8:                                                ; preds = %6
-  %9 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !46
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.28) #11
-  br label %26
-
-10:                                               ; preds = %6
-  %11 = sext i32 %1 to i64
-  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -2147483648, 2147483648) %11, i1 true)
-  %13 = trunc nuw nsw i64 %12 to i32
-  %14 = xor i32 %13, 63
-  %15 = or disjoint i32 %13, -64
-  %or.cond = icmp samesign ult i32 %15, -19
-  br i1 %or.cond, label %16, label %19
-
-16:                                               ; preds = %10
-  %17 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !46
-  %18 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %17, ptr noundef nonnull @.str.29, i32 noundef %1) #11
-  br label %26
-
-19:                                               ; preds = %10
-  %20 = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef %2) #11
-  %21 = icmp slt i32 %20, 0
-  br i1 %21, label %26, label %22
-
-22:                                               ; preds = %19
-  %23 = icmp eq ptr %2, @_Py_NoneStruct
-  %spec.store.select = select i1 %23, ptr null, ptr %2
-  %24 = tail call ptr @_PyMonitoring_RegisterCallback(i32 noundef %0, i32 noundef %14, ptr noundef %spec.store.select)
-  %25 = icmp eq ptr %24, null
-  %_Py_NoneStruct. = select i1 %25, ptr @_Py_NoneStruct, ptr %24
-  br label %26
-
-26:                                               ; preds = %check_valid_tool.exit, %16, %19, %22, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %check_valid_tool.exit ], [ null, %16 ], [ null, %19 ], [ %_Py_NoneStruct., %22 ]
-  ret ptr %.0
-}
-
-declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @monitoring_set_local_events_impl(i32 noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {

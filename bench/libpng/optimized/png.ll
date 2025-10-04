@@ -2546,118 +2546,35 @@ define internal fastcc void @png_icc_profile_error(ptr noalias noundef %0, ptr n
   %8 = add i64 %7, 79
   %9 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef %8, i64 noundef %7, ptr noundef %1) #30
   %10 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %9, ptr noundef nonnull @.str.59) #30
-  %11 = lshr i64 %2, 24
-  %12 = icmp ne i64 %11, 32
-  %13 = add nsw i64 %11, -58
-  %or.cond.i.i = icmp ult i64 %13, -10
-  %or.cond10.i.not23.i = select i1 %12, i1 %or.cond.i.i, i1 false
-  %14 = add nsw i64 %11, -91
-  %or.cond3.i.i = icmp ult i64 %14, -26
-  %or.cond11.i.not22.i = select i1 %or.cond10.i.not23.i, i1 %or.cond3.i.i, i1 false
-  %15 = add nsw i64 %11, -123
-  %16 = icmp ult i64 %15, -26
-  %narrow.i.not.i = select i1 %or.cond11.i.not22.i, i1 %16, i1 false
-  br i1 %narrow.i.not.i, label %is_ICC_signature.exit.thread, label %17
+  %or.cond = icmp eq i64 %2, 538976288
+  br i1 %or.cond, label %11, label %is_ICC_signature.exit.thread
 
-17:                                               ; preds = %4
-  %18 = lshr i64 %2, 16
-  %19 = and i64 %18, 255
-  %20 = icmp ne i64 %19, 32
-  %21 = add nsw i64 %19, -58
-  %or.cond.i6.i = icmp ult i64 %21, -10
-  %or.cond10.i7.not26.i = select i1 %20, i1 %or.cond.i6.i, i1 false
-  %22 = add nsw i64 %19, -91
-  %or.cond3.i8.i = icmp ult i64 %22, -26
-  %or.cond11.i9.not24.i = select i1 %or.cond10.i7.not26.i, i1 %or.cond3.i8.i, i1 false
-  %23 = add nsw i64 %19, -123
-  %24 = icmp ult i64 %23, -26
-  %narrow.i10.not.i = select i1 %or.cond11.i9.not24.i, i1 %24, i1 false
-  br i1 %narrow.i10.not.i, label %is_ICC_signature.exit.thread, label %25
+11:                                               ; preds = %4
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 %10
+  store i8 39, ptr %12, align 1, !tbaa !27
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 5
+  store i32 538976288, ptr %13, align 1
+  store i8 39, ptr %14, align 1, !tbaa !27
+  %15 = getelementptr i8, ptr %12, i64 6
+  store i8 58, ptr %15, align 1, !tbaa !27
+  %16 = add i64 %10, 8
+  %17 = getelementptr i8, ptr %12, i64 7
+  store i8 32, ptr %17, align 1, !tbaa !27
+  br label %22
 
-25:                                               ; preds = %17
-  %26 = lshr i64 %2, 8
-  %27 = and i64 %26, 255
-  %28 = icmp ne i64 %27, 32
-  %29 = add nsw i64 %27, -58
-  %or.cond.i11.i = icmp ult i64 %29, -10
-  %or.cond10.i12.not29.i = select i1 %28, i1 %or.cond.i11.i, i1 false
-  %30 = add nsw i64 %27, -91
-  %or.cond3.i13.i = icmp ult i64 %30, -26
-  %or.cond11.i14.not27.i = select i1 %or.cond10.i12.not29.i, i1 %or.cond3.i13.i, i1 false
-  %31 = add nsw i64 %27, -123
-  %32 = icmp ult i64 %31, -26
-  %narrow.i15.not.i = select i1 %or.cond11.i14.not27.i, i1 %32, i1 false
-  br i1 %narrow.i15.not.i, label %is_ICC_signature.exit.thread, label %is_ICC_signature.exit
-
-is_ICC_signature.exit:                            ; preds = %25
-  %33 = and i64 %2, 255
-  %34 = icmp ne i64 %33, 32
-  %35 = add nsw i64 %33, -58
-  %or.cond.i16.i = icmp ult i64 %35, -10
-  %or.cond10.i17.i.not20 = select i1 %34, i1 %or.cond.i16.i, i1 false
-  %36 = add nsw i64 %33, -91
-  %or.cond3.i18.i = icmp ult i64 %36, -26
-  %or.cond11.i19.i.not19 = select i1 %or.cond10.i17.i.not20, i1 %or.cond3.i18.i, i1 false
-  %37 = add nsw i64 %33, -123
-  %38 = icmp ult i64 %37, -26
-  %narrow.i20.i.not = select i1 %or.cond11.i19.i.not19, i1 %38, i1 false
-  br i1 %narrow.i20.i.not, label %is_ICC_signature.exit.thread, label %39
-
-39:                                               ; preds = %is_ICC_signature.exit
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 %10
-  %41 = trunc nuw i64 %2 to i32
-  store i8 39, ptr %40, align 1, !tbaa !27
-  %42 = lshr i32 %41, 24
-  %43 = add nsw i32 %42, -32
-  %or.cond.i.i15 = icmp ult i32 %43, 95
-  %44 = trunc nuw nsw i32 %42 to i8
-  %.0.i.i = select i1 %or.cond.i.i15, i8 %44, i8 63
-  %45 = getelementptr inbounds nuw i8, ptr %40, i64 1
-  store i8 %.0.i.i, ptr %45, align 1, !tbaa !27
-  %46 = lshr i32 %41, 16
-  %47 = and i32 %46, 255
-  %48 = add nsw i32 %47, -32
-  %or.cond.i9.i = icmp ult i32 %48, 95
-  %49 = trunc i32 %46 to i8
-  %.0.i10.i = select i1 %or.cond.i9.i, i8 %49, i8 63
-  %50 = getelementptr inbounds nuw i8, ptr %40, i64 2
-  store i8 %.0.i10.i, ptr %50, align 1, !tbaa !27
-  %51 = lshr i32 %41, 8
-  %52 = and i32 %51, 255
-  %53 = add nsw i32 %52, -32
-  %or.cond.i11.i16 = icmp ult i32 %53, 95
-  %54 = trunc i32 %51 to i8
-  %.0.i12.i = select i1 %or.cond.i11.i16, i8 %54, i8 63
-  %55 = getelementptr inbounds nuw i8, ptr %40, i64 3
-  store i8 %.0.i12.i, ptr %55, align 1, !tbaa !27
-  %56 = and i32 %41, 255
-  %57 = add nsw i32 %56, -32
-  %or.cond.i13.i = icmp ult i32 %57, 95
-  %58 = trunc i64 %2 to i8
-  %.0.i14.i = select i1 %or.cond.i13.i, i8 %58, i8 63
-  %59 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  store i8 %.0.i14.i, ptr %59, align 1, !tbaa !27
-  %60 = getelementptr inbounds nuw i8, ptr %40, i64 5
-  store i8 39, ptr %60, align 1, !tbaa !27
-  %61 = getelementptr i8, ptr %40, i64 6
-  store i8 58, ptr %61, align 1, !tbaa !27
-  %62 = add i64 %10, 8
-  %63 = getelementptr i8, ptr %40, i64 7
-  store i8 32, ptr %63, align 1, !tbaa !27
-  br label %68
-
-is_ICC_signature.exit.thread:                     ; preds = %4, %17, %25, %is_ICC_signature.exit
+is_ICC_signature.exit.thread:                     ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %65 = call ptr @png_format_number(ptr noundef nonnull %6, ptr noundef nonnull %64, i32 noundef 3, i64 noundef %2) #30
-  %66 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %10, ptr noundef %65) #30
-  %67 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %66, ptr noundef nonnull @.str.60) #30
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %19 = call ptr @png_format_number(ptr noundef nonnull %6, ptr noundef nonnull %18, i32 noundef 3, i64 noundef %2) #30
+  %20 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %10, ptr noundef %19) #30
+  %21 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %20, ptr noundef nonnull @.str.60) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %68
+  br label %22
 
-68:                                               ; preds = %is_ICC_signature.exit.thread, %39
-  %.0 = phi i64 [ %62, %39 ], [ %67, %is_ICC_signature.exit.thread ]
-  %69 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %.0, ptr noundef %3) #30
+22:                                               ; preds = %is_ICC_signature.exit.thread, %11
+  %.0 = phi i64 [ %16, %11 ], [ %21, %is_ICC_signature.exit.thread ]
+  %23 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %.0, ptr noundef %3) #30
   call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull %5) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void

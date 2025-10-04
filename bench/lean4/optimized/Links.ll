@@ -563,35 +563,32 @@ define zeroext range(i8 0, 2) i8 @l_Lean_rewriteManualLinksCore_urlChar(i32 noun
 
 3:                                                ; preds = %1
   %4 = icmp ugt i32 %0, 90
-  %5 = add i32 %0, -123
-  %or.cond = icmp ult i32 %5, -26
-  %or.cond179 = and i1 %4, %or.cond
-  br i1 %or.cond179, label %switch.early.test, label %.critedge
+  br i1 %4, label %switch.early.test, label %.critedge
 
 lean_dec.exit135:                                 ; preds = %lean_dec.exit
   %switch.tableidx = add nsw i32 %0, -33
-  %6 = icmp ult i32 %switch.tableidx, 15
+  %5 = icmp ult i32 %switch.tableidx, 15
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 32365, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond180 = select i1 %6, i1 %switch.lobit, i1 false
-  br i1 %or.cond180, label %.critedge, label %7
+  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %.critedge, label %6
 
-7:                                                ; preds = %lean_dec.exit135, %switch.early.test
-  %8 = icmp eq i32 %0, 61
-  %9 = zext i1 %8 to i8
+6:                                                ; preds = %lean_dec.exit135, %switch.early.test
+  %7 = icmp eq i32 %0, 61
+  %8 = zext i1 %7 to i8
   br label %.critedge
 
 lean_dec.exit:                                    ; preds = %1
-  %10 = icmp ult i32 %0, 48
-  br i1 %10, label %lean_dec.exit135, label %11
+  %9 = icmp ult i32 %0, 48
+  br i1 %9, label %lean_dec.exit135, label %10
 
-11:                                               ; preds = %lean_dec.exit
-  %12 = icmp ult i32 %0, 58
-  br i1 %12, label %.critedge, label %switch.early.test
+10:                                               ; preds = %lean_dec.exit
+  %11 = icmp ult i32 %0, 58
+  br i1 %11, label %.critedge, label %switch.early.test
 
-switch.early.test:                                ; preds = %3, %11
-  switch i32 %0, label %7 [
+switch.early.test:                                ; preds = %3, %10
+  switch i32 %0, label %6 [
     i32 126, label %.critedge
     i32 95, label %.critedge
     i32 93, label %.critedge
@@ -602,8 +599,8 @@ switch.early.test:                                ; preds = %3, %11
     i32 58, label %.critedge
   ]
 
-.critedge:                                        ; preds = %lean_dec.exit135, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %11, %3, %7
-  %.2 = phi i8 [ %9, %7 ], [ 1, %3 ], [ 1, %11 ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %lean_dec.exit135 ]
+.critedge:                                        ; preds = %lean_dec.exit135, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %10, %3, %6
+  %.2 = phi i8 [ %8, %6 ], [ 1, %3 ], [ 1, %10 ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %lean_dec.exit135 ]
   ret i8 %.2
 }
 

@@ -9586,9 +9586,8 @@ define dso_local noundef i32 @_ZNK5clang13SourceManager13getLineNumberENS_6FileI
 17:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !128
-  %18 = add i32 %1, 1
-  %or.cond.i.i = icmp ult i32 %18, 2
-  br i1 %or.cond.i.i, label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread84, label %19
+  %18 = icmp eq i32 %1, -1
+  br i1 %18, label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread84, label %19
 
 19:                                               ; preds = %17
   %20 = icmp slt i32 %1, 0
@@ -10482,9 +10481,8 @@ define dso_local i32 @_ZNK5clang13SourceManager13translateFileEPKNS_9FileEntryE(
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !128
-  %7 = add i32 %5, 1
-  %or.cond.i.i = icmp ult i32 %7, 2
-  br i1 %or.cond.i.i, label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread98, label %8
+  %7 = icmp eq i32 %5, -1
+  br i1 %7, label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread98, label %8
 
 8:                                                ; preds = %6
   %9 = icmp slt i32 %5, 0
@@ -10785,9 +10783,8 @@ define dso_local i32 @_ZNK5clang13SourceManager16translateLineColENS_6FileIDEjj(
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !128
-  %9 = add i32 %1, 1
-  %or.cond.i.i = icmp ult i32 %9, 2
-  br i1 %or.cond.i.i, label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread63, label %10
+  %9 = icmp eq i32 %1, -1
+  br i1 %9, label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread63, label %10
 
 10:                                               ; preds = %8
   %11 = icmp slt i32 %1, 0

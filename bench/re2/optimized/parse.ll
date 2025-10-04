@@ -5450,11 +5450,7 @@ while.cond:                                       ; preds = %if.then64, %if.end7
   %17 = load i32, ptr %c, align 4
   %18 = add i32 %17, -58
   %or.cond.i102 = icmp ult i32 %18, -10
-  %19 = and i32 %17, -33
-  %20 = add i32 %19, -71
-  %21 = icmp ult i32 %20, -6
-  %narrow.i.not = and i1 %or.cond.i102, %21
-  br i1 %narrow.i.not, label %while.end, label %while.body
+  br i1 %or.cond.i102, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
   %inc = add nuw nsw i32 %nhex.0, 1
@@ -5465,8 +5461,8 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp73, label %BadEscape, label %if.end75
 
 if.end75:                                         ; preds = %while.body
-  %22 = load i64, ptr %length_.i, align 8
-  %cmp.i105 = icmp eq i64 %22, 0
+  %19 = load i64, ptr %length_.i, align 8
+  %cmp.i105 = icmp eq i64 %19, 0
   br i1 %cmp.i105, label %BadEscape, label %if.end78
 
 if.end78:                                         ; preds = %if.end75
@@ -5485,8 +5481,8 @@ if.end87:                                         ; preds = %while.end
   br label %return
 
 if.end88:                                         ; preds = %if.end62
-  %23 = load i64, ptr %length_.i, align 8
-  %cmp.i107 = icmp eq i64 %23, 0
+  %20 = load i64, ptr %length_.i, align 8
+  %cmp.i107 = icmp eq i64 %20, 0
   br i1 %cmp.i107, label %BadEscape, label %if.end91
 
 if.end91:                                         ; preds = %if.end88
@@ -5495,30 +5491,22 @@ if.end91:                                         ; preds = %if.end88
   br i1 %cmp93, label %return, label %if.end95
 
 if.end95:                                         ; preds = %if.end91
-  %24 = load i32, ptr %c, align 4
-  %25 = add i32 %24, -58
-  %or.cond.i108 = icmp ult i32 %25, -10
-  %26 = and i32 %24, -33
-  %27 = add i32 %26, -71
-  %28 = icmp ult i32 %27, -6
-  %narrow.i109.not = and i1 %or.cond.i108, %28
-  br i1 %narrow.i109.not, label %BadEscape, label %lor.lhs.false98
+  %21 = load i32, ptr %c, align 4
+  %22 = add i32 %21, -58
+  %or.cond.i108 = icmp ult i32 %22, -10
+  br i1 %or.cond.i108, label %BadEscape, label %lor.lhs.false98
 
 lor.lhs.false98:                                  ; preds = %if.end95
-  %29 = load i32, ptr %c1, align 4
-  %30 = add i32 %29, -58
-  %or.cond.i111 = icmp ult i32 %30, -10
-  %31 = and i32 %29, -33
-  %32 = add i32 %31, -71
-  %33 = icmp ult i32 %32, -6
-  %narrow.i112.not = and i1 %or.cond.i111, %33
-  br i1 %narrow.i112.not, label %BadEscape, label %if.end102
+  %23 = load i32, ptr %c1, align 4
+  %24 = add i32 %23, -58
+  %or.cond.i111 = icmp ult i32 %24, -10
+  br i1 %or.cond.i111, label %BadEscape, label %if.end102
 
 if.end102:                                        ; preds = %lor.lhs.false98
-  %call103 = call fastcc noundef i32 @_ZN3re2L5UnHexEi(i32 noundef %24)
+  %call103 = call fastcc noundef i32 @_ZN3re2L5UnHexEi(i32 noundef %21)
   %mul104 = shl nuw nsw i32 %call103, 4
-  %34 = load i32, ptr %c1, align 4
-  %call105 = call fastcc noundef i32 @_ZN3re2L5UnHexEi(i32 noundef %34)
+  %25 = load i32, ptr %c1, align 4
+  %call105 = call fastcc noundef i32 @_ZN3re2L5UnHexEi(i32 noundef %25)
   %add106 = or disjoint i32 %call105, %mul104
   store i32 %add106, ptr %rp, align 4
   br label %return
@@ -5549,8 +5537,8 @@ sw.bb112:                                         ; preds = %if.end11
 
 BadEscape:                                        ; preds = %if.end75, %while.body, %if.end95, %lor.lhs.false98, %if.end88, %while.end, %sw.bb55, %if.end51, %sw.bb, %_ZNK4absl7debian211string_viewixEm.exit68, %sw.default, %land.lhs.true
   store i32 2, ptr %status, align 8
-  %35 = load ptr, ptr %s, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %35 to i64
+  %26 = load ptr, ptr %s, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %26 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub, -1

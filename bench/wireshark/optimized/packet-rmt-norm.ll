@@ -868,36 +868,17 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @dissect_norm_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
+define internal noundef zeroext i1 @dissect_norm_heur(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 12
-  br i1 %6, label %18, label %7
+  br i1 %6, label %9, label %7
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %9 = zext i8 %8 to i32
-  %.mask = and i32 %9, 240
-  %.not = icmp eq i32 %.mask, 16
-  br i1 %.not, label %10, label %18
+  br label %9
 
-10:                                               ; preds = %7
-  %11 = and i32 %9, 15
-  %12 = add nsw i32 %11, -7
-  %or.cond = icmp ult i32 %12, -6
-  br i1 %or.cond, label %18, label %13
-
-13:                                               ; preds = %10
-  %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %15 = icmp ugt i8 %14, 20
-  br i1 %15, label %18, label %16
-
-16:                                               ; preds = %13
-  %17 = tail call i32 @dissect_norm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %18
-
-18:                                               ; preds = %13, %10, %7, %4, %16
-  %.0 = phi i1 [ true, %16 ], [ false, %4 ], [ false, %7 ], [ false, %10 ], [ false, %13 ]
-  ret i1 %.0
+9:                                                ; preds = %7, %4
+  ret i1 false
 }
 
 ; Function Attrs: null_pointer_is_valid

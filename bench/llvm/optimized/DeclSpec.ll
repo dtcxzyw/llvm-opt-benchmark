@@ -7864,28 +7864,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 
 declare i32 @_ZN5clang4Sema19getLocForEndOfTokenENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(17504), i32, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN5clang8DeclSpec21isMissingDeclaratorOkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0) local_unnamed_addr #9 align 2 {
-  %2 = load i64, ptr %0, align 8
-  %3 = trunc i64 %2 to i32
-  %4 = lshr i32 %3, 12
-  %5 = and i32 %4, 127
-  %6 = add nsw i32 %5, -28
-  %switch.i = icmp ult i32 %6, -5
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8
-  %.not = icmp eq ptr %8, null
-  %or.cond = select i1 %switch.i, i1 true, i1 %.not
-  br i1 %or.cond, label %12, label %9
-
-9:                                                ; preds = %1
-  %10 = and i64 %2, 7
-  %11 = icmp ne i64 %10, 1
-  br label %12
-
-12:                                               ; preds = %9, %1
-  %13 = phi i1 [ false, %1 ], [ %11, %9 ]
-  ret i1 %13
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local noundef zeroext i1 @_ZN5clang8DeclSpec21isMissingDeclaratorOkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0) local_unnamed_addr #10 align 2 {
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

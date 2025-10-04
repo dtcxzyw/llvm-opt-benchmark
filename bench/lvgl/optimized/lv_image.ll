@@ -716,13 +716,13 @@ define void @lv_image_set_src(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   store ptr null, ptr %17, align 8, !tbaa !3
   %18 = or i16 %16, 3
   store i16 %18, ptr %9, align 4
-  br label %95
+  br label %90
 
 19:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = call i32 @lv_image_decoder_get_info(ptr noundef %1, ptr noundef nonnull %3) #6
   %.not61 = icmp eq i32 %20, 1
-  br i1 %.not61, label %21, label %94
+  br i1 %.not61, label %21, label %89
 
 21:                                               ; preds = %19
   %22 = icmp eq i32 %6, 0
@@ -755,116 +755,105 @@ define void @lv_image_set_src(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = load ptr, ptr %34, align 8, !tbaa !3
   %.not62 = icmp eq ptr %35, %1
-  br i1 %.not62, label %44, label %36
+  br i1 %.not62, label %39, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %38 = load i16, ptr %37, align 4
-  %39 = call ptr @lv_strdup(ptr noundef %1) #6
-  %.not63 = icmp eq ptr %39, null
-  br i1 %.not63, label %.preheader74, label %40
+  %37 = call ptr @lv_strdup(ptr noundef %1) #6
+  %.not63 = icmp eq ptr %37, null
+  br i1 %.not63, label %.preheader74, label %38
 
 .preheader74:                                     ; preds = %36, %.preheader74
   br label %.preheader74
 
-40:                                               ; preds = %36
-  %41 = and i16 %38, 3
-  %42 = add nsw i16 %41, -3
-  %switch71 = icmp ult i16 %42, -2
-  store ptr %39, ptr %34, align 8, !tbaa !3
-  %.not6473 = icmp eq ptr %35, null
-  %.not64 = or i1 %.not6473, %switch71
-  br i1 %.not64, label %44, label %43
+38:                                               ; preds = %36
+  store ptr %37, ptr %34, align 8, !tbaa !3
+  br label %39
 
-43:                                               ; preds = %40
-  call void @lv_free(ptr noundef nonnull %35) #6
-  br label %44
+39:                                               ; preds = %38, %33
+  %40 = icmp eq i32 %6, 2
+  br i1 %40, label %41, label %.thread
 
-44:                                               ; preds = %43, %40, %33
-  %45 = icmp eq i32 %6, 2
-  br i1 %45, label %46, label %.thread
-
-46:                                               ; preds = %44
-  %47 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 90) #6
-  %48 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 91) #6
-  %49 = ptrtoint ptr %48 to i64
-  %.sroa.0.0.extract.trunc.i = trunc i64 %49 to i32
-  %50 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 92) #6
-  %51 = ptrtoint ptr %50 to i64
-  %.sroa.0.0.extract.trunc.i72 = trunc i64 %51 to i32
+41:                                               ; preds = %39
+  %42 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 90) #6
+  %43 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 91) #6
+  %44 = ptrtoint ptr %43 to i64
+  %.sroa.0.0.extract.trunc.i = trunc i64 %44 to i32
+  %45 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 92) #6
+  %46 = ptrtoint ptr %45 to i64
+  %.sroa.0.0.extract.trunc.i72 = trunc i64 %46 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @lv_text_get_size(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %47, i32 noundef %.sroa.0.0.extract.trunc.i, i32 noundef %.sroa.0.0.extract.trunc.i72, i32 noundef 536870911, i32 noundef 0) #6
-  %52 = load i32, ptr %4, align 4, !tbaa !23
-  %53 = load i64, ptr %3, align 8
-  %54 = and i32 %52, 65535
-  %55 = zext nneg i32 %54 to i64
-  %56 = shl nuw nsw i64 %55, 32
-  %57 = and i64 %53, 4294967295
-  %58 = or disjoint i64 %56, %57
-  %59 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %60 = load i32, ptr %59, align 4, !tbaa !25
-  %61 = and i32 %60, 65535
-  %62 = zext nneg i32 %61 to i64
-  %63 = shl nuw i64 %62, 48
-  %64 = or disjoint i64 %63, %58
-  store i64 %64, ptr %3, align 8
+  call void @lv_text_get_size(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %42, i32 noundef %.sroa.0.0.extract.trunc.i, i32 noundef %.sroa.0.0.extract.trunc.i72, i32 noundef 536870911, i32 noundef 0) #6
+  %47 = load i32, ptr %4, align 4, !tbaa !23
+  %48 = load i64, ptr %3, align 8
+  %49 = and i32 %47, 65535
+  %50 = zext nneg i32 %49 to i64
+  %51 = shl nuw nsw i64 %50, 32
+  %52 = and i64 %48, 4294967295
+  %53 = or disjoint i64 %51, %52
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %55 = load i32, ptr %54, align 4, !tbaa !25
+  %56 = and i32 %55, 65535
+  %57 = zext nneg i32 %56 to i64
+  %58 = shl nuw i64 %57, 48
+  %59 = or disjoint i64 %58, %53
+  store i64 %59, ptr %3, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
-.thread:                                          ; preds = %30, %32, %46, %44
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %66 = trunc i32 %6 to i16
-  %67 = load i16, ptr %65, align 4
-  %68 = and i16 %66, 3
-  %69 = and i16 %67, -128
-  %70 = or disjoint i16 %69, %68
-  %71 = load i64, ptr %3, align 8
-  %72 = lshr i64 %71, 32
-  %73 = trunc nuw i64 %72 to i32
-  %74 = and i32 %73, 65535
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !17
-  %76 = lshr i64 %71, 48
-  %77 = trunc nuw nsw i64 %76 to i32
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 %77, ptr %78, align 4, !tbaa !18
-  %79 = trunc i64 %71 to i16
-  %80 = lshr i16 %79, 6
-  %81 = and i16 %80, 124
-  %82 = or disjoint i16 %81, %70
-  store i16 %82, ptr %65, align 4
-  %83 = call zeroext i1 @lv_obj_refresh_self_size(ptr noundef nonnull %0) #6
+.thread:                                          ; preds = %30, %32, %41, %39
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %61 = trunc i32 %6 to i16
+  %62 = load i16, ptr %60, align 4
+  %63 = and i16 %61, 3
+  %64 = and i16 %62, -128
+  %65 = or disjoint i16 %64, %63
+  %66 = load i64, ptr %3, align 8
+  %67 = lshr i64 %66, 32
+  %68 = trunc nuw i64 %67 to i32
+  %69 = and i32 %68, 65535
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %69, ptr %70, align 8, !tbaa !17
+  %71 = lshr i64 %66, 48
+  %72 = trunc nuw nsw i64 %71 to i32
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  store i32 %72, ptr %73, align 4, !tbaa !18
+  %74 = trunc i64 %66 to i16
+  %75 = lshr i16 %74, 6
+  %76 = and i16 %75, 124
+  %77 = or disjoint i16 %76, %65
+  store i16 %77, ptr %60, align 4
+  %78 = call zeroext i1 @lv_obj_refresh_self_size(ptr noundef nonnull %0) #6
   call fastcc void @update_align(ptr noundef nonnull %0)
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %85 = load i32, ptr %84, align 8, !tbaa !19
-  %.not65 = icmp eq i32 %85, 0
-  br i1 %.not65, label %86, label %92
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %80 = load i32, ptr %79, align 8, !tbaa !19
+  %.not65 = icmp eq i32 %80, 0
+  br i1 %.not65, label %81, label %87
 
-86:                                               ; preds = %.thread
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %88 = load i32, ptr %87, align 4, !tbaa !20
-  %.not66 = icmp eq i32 %88, 256
-  br i1 %.not66, label %89, label %92
+81:                                               ; preds = %.thread
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %83 = load i32, ptr %82, align 4, !tbaa !20
+  %.not66 = icmp eq i32 %83, 256
+  br i1 %.not66, label %84, label %87
 
-89:                                               ; preds = %86
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %91 = load i32, ptr %90, align 8, !tbaa !21
-  %.not67 = icmp eq i32 %91, 256
-  br i1 %.not67, label %93, label %92
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %86 = load i32, ptr %85, align 8, !tbaa !21
+  %.not67 = icmp eq i32 %86, 256
+  br i1 %.not67, label %88, label %87
 
-92:                                               ; preds = %89, %86, %.thread
+87:                                               ; preds = %84, %81, %.thread
   call void @lv_obj_refresh_ext_draw_size(ptr noundef nonnull %0) #6
-  br label %93
+  br label %88
 
-93:                                               ; preds = %92, %89
+88:                                               ; preds = %87, %84
   call void @lv_obj_invalidate(ptr noundef nonnull %0) #6
-  br label %94
+  br label %89
 
-94:                                               ; preds = %19, %93
+89:                                               ; preds = %19, %88
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %95
+  br label %90
 
-95:                                               ; preds = %94, %15
+90:                                               ; preds = %89, %15
   ret void
 }
 

@@ -819,7 +819,7 @@ define internal fastcc void @spectre_v2_user_select_mitigation() unnamed_addr #3
   %5 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
   %6 = and i64 %5, 576460752303423488
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %67, label %8
+  br i1 %7, label %64, label %8
 
 8:                                                ; preds = %4, %0
   %9 = load i32, ptr @cpu_smt_control, align 4
@@ -827,7 +827,7 @@ define internal fastcc void @spectre_v2_user_select_mitigation() unnamed_addr #3
   %11 = icmp eq i32 %10, 2
   %12 = tail call fastcc i32 @spectre_v2_parse_user_cmdline() #16
   switch i32 %12, label %16 [
-    i32 0, label %62
+    i32 0, label %59
     i32 2, label %13
     i32 1, label %14
     i32 3, label %14
@@ -887,7 +887,7 @@ define internal fastcc void @spectre_v2_user_select_mitigation() unnamed_addr #3
   %32 = and i64 %31, 576460752303423488
   %33 = icmp eq i64 %32, 0
   %34 = select i1 %33, i1 true, i1 %11
-  br i1 %34, label %67, label %35
+  br i1 %34, label %64, label %35
 
 35:                                               ; preds = %30
   %36 = load i32, ptr @spectre_v2_enabled, align 4
@@ -899,7 +899,7 @@ define internal fastcc void @spectre_v2_user_select_mitigation() unnamed_addr #3
   %40 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
   %41 = and i64 %40, 256
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %67, label %43
+  br i1 %42, label %64, label %43
 
 43:                                               ; preds = %39, %35
   br i1 %17, label %49, label %44
@@ -916,31 +916,26 @@ define internal fastcc void @spectre_v2_user_select_mitigation() unnamed_addr #3
   %51 = load i32, ptr @retbleed_mitigation, align 4
   %52 = add nsw i32 %51, -1
   %53 = icmp ult i32 %52, 2
-  br i1 %53, label %54, label %59
+  br i1 %53, label %54, label %56
 
 54:                                               ; preds = %49
-  %55 = add nsw i32 %50, -3
-  %56 = icmp ult i32 %55, -2
-  br i1 %56, label %57, label %59
+  %55 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.54) #17
+  br label %56
 
-57:                                               ; preds = %54
-  %58 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.54) #17
+56:                                               ; preds = %54, %49
+  %57 = phi i32 [ %50, %49 ], [ 2, %54 ]
+  store i32 %57, ptr @spectre_v2_user_stibp, align 4
+  %58 = zext nneg i32 %57 to i64
   br label %59
 
-59:                                               ; preds = %57, %54, %49
-  %60 = phi i32 [ %50, %49 ], [ 2, %57 ], [ 2, %54 ]
-  store i32 %60, ptr @spectre_v2_user_stibp, align 4
-  %61 = zext nneg i32 %60 to i64
-  br label %62
+59:                                               ; preds = %56, %8
+  %60 = phi i64 [ %58, %56 ], [ 0, %8 ]
+  %61 = getelementptr ptr, ptr @spectre_v2_user_strings, i64 %60
+  %62 = load ptr, ptr %61, align 8
+  %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55, ptr noundef %62) #17
+  br label %64
 
-62:                                               ; preds = %59, %8
-  %63 = phi i64 [ %61, %59 ], [ 0, %8 ]
-  %64 = getelementptr ptr, ptr @spectre_v2_user_strings, i64 %63
-  %65 = load ptr, ptr %64, align 8
-  %66 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55, ptr noundef %65) #17
-  br label %67
-
-67:                                               ; preds = %62, %39, %30, %4
+64:                                               ; preds = %59, %39, %30, %4
   ret void
 }
 

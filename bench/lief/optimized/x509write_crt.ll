@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [4 x i8] c"U\1D\13\00", align 1
-@.str.1 = private unnamed_addr constant [4 x i8] c"U\1D\0F\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"U\1D%\00", align 1
 @.str.3 = private unnamed_addr constant [10 x i8] c"`\86H\01\86\F8B\01\01\00", align 1
 @.str.4 = private unnamed_addr constant [29 x i8] c"-----BEGIN CERTIFICATE-----\0A\00", align 1
@@ -353,7 +352,7 @@ define hidden i32 @mbedtls_x509write_crt_set_authority_key_identifier(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_x509write_crt_set_key_usage(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden range(i32 -2147483648, 0) i32 @mbedtls_x509write_crt_set_key_usage(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca [5 x i8], align 1
   %4 = alloca [2 x i8], align 2
   %5 = alloca ptr, align 8
@@ -363,7 +362,7 @@ define hidden i32 @mbedtls_x509write_crt_set_key_usage(ptr noundef %0, i32 nound
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = and i32 %1, -33024
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %19
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 5
@@ -372,22 +371,11 @@ define hidden i32 @mbedtls_x509write_crt_set_key_usage(ptr noundef %0, i32 nound
   store i16 %9, ptr %4, align 2
   %10 = call i32 @mbedtls_asn1_write_named_bitstring(ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 9) #11
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %19, label %12
+  %spec.select = select i1 %11, i32 %10, i32 -8576
+  br label %12
 
-12:                                               ; preds = %7
-  %13 = add nsw i32 %10, -6
-  %or.cond = icmp ult i32 %13, -3
-  br i1 %or.cond, label %19, label %14
-
-14:                                               ; preds = %12
-  %15 = load ptr, ptr %5, align 8, !tbaa !17
-  %16 = zext nneg i32 %10 to i64
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %18 = call i32 @mbedtls_x509_set_extension(ptr noundef nonnull %17, ptr noundef nonnull @.str.1, i64 noundef 3, i32 noundef 1, ptr noundef %15, i64 noundef %16) #11
-  br label %19
-
-19:                                               ; preds = %14, %12, %7, %2
-  %.0 = phi i32 [ -8320, %2 ], [ %10, %7 ], [ -8576, %12 ], [ %18, %14 ]
+12:                                               ; preds = %7, %2
+  %.0 = phi i32 [ -8320, %2 ], [ %spec.select, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

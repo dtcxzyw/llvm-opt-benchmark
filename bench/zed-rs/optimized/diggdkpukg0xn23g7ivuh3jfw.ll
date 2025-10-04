@@ -50775,17 +50775,16 @@ default.unreachable:                              ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN4repl7kernels6Kernel19set_execution_state17h2fdcd02e4a6052f3E(ptr noalias noundef align 8 captures(none) dereferenceable(512) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #29 {
   %3 = load i64, ptr %0, align 8, !range !4949, !noundef !9
-  %4 = or disjoint i64 %3, -8
-  %5 = icmp samesign ult i64 %4, -5
-  br i1 %5, label %6, label %9
+  %4 = icmp samesign ult i64 %3, 3
+  br i1 %4, label %5, label %8
 
-6:                                                ; preds = %2
-  %7 = load i8, ptr %1, align 1, !range !107, !noundef !9
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  store i8 %7, ptr %8, align 8
-  br label %9
+5:                                                ; preds = %2
+  %6 = load i8, ptr %1, align 1, !range !107, !noundef !9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  store i8 %6, ptr %7, align 8
+  br label %8
 
-9:                                                ; preds = %6, %2
+8:                                                ; preds = %5, %2
   ret void
 }
 
@@ -50793,35 +50792,34 @@ define void @_ZN4repl7kernels6Kernel19set_execution_state17h2fdcd02e4a6052f3E(pt
 define void @_ZN4repl7kernels6Kernel15set_kernel_info17hc0224ed6a60c17c8E(ptr noalias noundef align 8 dereferenceable(512) %0, ptr noalias noundef readonly align 8 dereferenceable(312) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [312 x i8], align 8
   %4 = load i64, ptr %0, align 8, !range !4949, !noundef !9
-  %5 = or disjoint i64 %4, -8
-  %6 = icmp samesign ult i64 %5, -5
-  br i1 %6, label %7, label %12
+  %5 = icmp samesign ult i64 %4, 3
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %2
+6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN86_$LT$runtimelib..messaging..content..KernelInfoReply$u20$as$u20$core..clone..Clone$GT$5clone17heca118cf923519ccE.llvm.4353189056609371792"(ptr noalias noundef nonnull sret([312 x i8]) align 8 captures(none) dereferenceable(312) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(312) %1)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %9 = load i64, ptr %8, align 8, !range !84, !alias.scope !10690, !noundef !9
-  %10 = icmp eq i64 %9, -9223372036854775808
-  br i1 %10, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$runtimelib..messaging..content..KernelInfoReply$GT$$GT$17h1ed525ef1011f3a5E.llvm.4353189056609371792.exit", label %11
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %8 = load i64, ptr %7, align 8, !range !84, !alias.scope !10690, !noundef !9
+  %9 = icmp eq i64 %8, -9223372036854775808
+  br i1 %9, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$runtimelib..messaging..content..KernelInfoReply$GT$$GT$17h1ed525ef1011f3a5E.llvm.4353189056609371792.exit", label %10
 
-11:                                               ; preds = %7
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$runtimelib..messaging..content..KernelInfoReply$GT$17h14eb5399f1b074a7E"(ptr noalias noundef nonnull align 8 dereferenceable(312) %8)
-          to label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$runtimelib..messaging..content..KernelInfoReply$GT$$GT$17h1ed525ef1011f3a5E.llvm.4353189056609371792.exit" unwind label %13
+10:                                               ; preds = %6
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$runtimelib..messaging..content..KernelInfoReply$GT$17h14eb5399f1b074a7E"(ptr noalias noundef nonnull align 8 dereferenceable(312) %7)
+          to label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$runtimelib..messaging..content..KernelInfoReply$GT$$GT$17h1ed525ef1011f3a5E.llvm.4353189056609371792.exit" unwind label %12
 
-12:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$runtimelib..messaging..content..KernelInfoReply$GT$$GT$17h1ed525ef1011f3a5E.llvm.4353189056609371792.exit", %2
+11:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$runtimelib..messaging..content..KernelInfoReply$GT$$GT$17h1ed525ef1011f3a5E.llvm.4353189056609371792.exit", %2
   ret void
 
-13:                                               ; preds = %11
-  %14 = landingpad { ptr, i32 }
+12:                                               ; preds = %10
+  %13 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %8, ptr noundef nonnull align 8 dereferenceable(312) %3, i64 312, i1 false)
-  resume { ptr, i32 } %14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %7, ptr noundef nonnull align 8 dereferenceable(312) %3, i64 312, i1 false)
+  resume { ptr, i32 } %13
 
-"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$runtimelib..messaging..content..KernelInfoReply$GT$$GT$17h1ed525ef1011f3a5E.llvm.4353189056609371792.exit": ; preds = %7, %11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %8, ptr noundef nonnull align 8 dereferenceable(312) %3, i64 312, i1 false)
+"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$runtimelib..messaging..content..KernelInfoReply$GT$$GT$17h1ed525ef1011f3a5E.llvm.4353189056609371792.exit": ; preds = %6, %10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %7, ptr noundef nonnull align 8 dereferenceable(312) %3, i64 312, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %12
+  br label %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

@@ -4570,133 +4570,46 @@ index2adr.exit:                                   ; preds = %4, %13, %20, %26, %
 declare hidden i32 @lj_tab_len(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @lua_tocfunction(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
-  %3 = icmp sgt i32 %1, 0
-  br i1 %3, label %4, label %18
+define dso_local noalias noundef ptr @lua_tocfunction(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
+  %3 = icmp sgt i32 %1, -10000
+  br i1 %3, label %.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !15
-  %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr %union.TValue, ptr %6, i64 %7
-  %9 = getelementptr i8, ptr %8, i64 -8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !14
-  %12 = icmp ult ptr %9, %11
-  br i1 %12, label %index2adr.exit, label %13
-
-13:                                               ; preds = %4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !21
-  %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 248
-  br label %index2adr.exit
-
-18:                                               ; preds = %2
-  %19 = icmp sgt i32 %1, -10000
-  br i1 %19, label %20, label %25
-
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !14
-  %23 = sext i32 %1 to i64
-  %24 = getelementptr inbounds %union.TValue, ptr %22, i64 %23
-  br label %index2adr.exit
-
-25:                                               ; preds = %18
-  switch i32 %1, label %39 [
-    i32 -10002, label %26
-    i32 -10000, label %34
+  switch i32 %1, label %.thread [
+    i32 -10002, label %5
+    i32 -10001, label %13
   ]
 
-26:                                               ; preds = %25
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !21
-  %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 232
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %32 = load i64, ptr %31, align 8, !tbaa !24
-  %33 = or i64 %32, -1688849860263936
-  store i64 %33, ptr %30, align 8, !tbaa !17
-  br label %index2adr.exit
-
-34:                                               ; preds = %25
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = load i64, ptr %35, align 8, !tbaa !21
-  %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 272
-  br label %index2adr.exit
-
-39:                                               ; preds = %25
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !15
-  %42 = getelementptr inbounds i8, ptr %41, i64 -16
-  %43 = load i64, ptr %42, align 8, !tbaa !17
-  %44 = and i64 %43, 140737488355327
-  %45 = inttoptr i64 %44 to ptr
-  %46 = icmp eq i32 %1, -10001
-  br i1 %46, label %47, label %55
-
-47:                                               ; preds = %39
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %49 = load i64, ptr %48, align 8, !tbaa !21
-  %50 = inttoptr i64 %49 to ptr
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 232
-  %52 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %53 = load i64, ptr %52, align 8, !tbaa !17
-  %54 = or i64 %53, -1688849860263936
-  store i64 %54, ptr %51, align 8, !tbaa !17
-  br label %index2adr.exit
-
-55:                                               ; preds = %39
-  %56 = sub nuw nsw i32 -10002, %1
-  %57 = getelementptr inbounds nuw i8, ptr %45, i64 11
-  %58 = load i8, ptr %57, align 1, !tbaa !17
-  %59 = zext i8 %58 to i32
-  %.not.i = icmp samesign ugt i32 %56, %59
-  br i1 %.not.i, label %65, label %60
-
-60:                                               ; preds = %55
-  %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  %62 = sub nsw i32 -10003, %1
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
-  br label %index2adr.exit
-
-65:                                               ; preds = %55
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %67 = load i64, ptr %66, align 8, !tbaa !21
-  %68 = inttoptr i64 %67 to ptr
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 248
-  br label %index2adr.exit
-
-index2adr.exit:                                   ; preds = %4, %13, %20, %26, %34, %47, %60, %65
-  %.0.i = phi ptr [ %24, %20 ], [ %30, %26 ], [ %38, %34 ], [ %17, %13 ], [ %9, %4 ], [ %51, %47 ], [ %64, %60 ], [ %69, %65 ]
-  %70 = load i64, ptr %.0.i, align 8, !tbaa !17
-  %.mask = and i64 %70, -140737488355328
-  %71 = icmp eq i64 %.mask, -1266637395197952
-  br i1 %71, label %72, label %.thread
-
-72:                                               ; preds = %index2adr.exit
-  %73 = and i64 %70, 140737488355327
-  %74 = inttoptr i64 %73 to ptr
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  %76 = load i64, ptr %75, align 8, !tbaa !17
-  %77 = inttoptr i64 %76 to ptr
-  %78 = load i32, ptr %77, align 4, !tbaa !28
-  %79 = and i32 %78, 255
-  %80 = add nsw i32 %79, -97
-  %or.cond = icmp ult i32 %80, -2
-  br i1 %or.cond, label %.thread, label %81
-
-81:                                               ; preds = %72
-  %82 = getelementptr inbounds nuw i8, ptr %74, i64 40
-  %83 = load ptr, ptr %82, align 8, !tbaa !17
+5:                                                ; preds = %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load i64, ptr %6, align 8, !tbaa !21
+  %8 = inttoptr i64 %7 to ptr
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 232
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %11 = load i64, ptr %10, align 8, !tbaa !24
+  %12 = or i64 %11, -1688849860263936
+  store i64 %12, ptr %9, align 8, !tbaa !17
   br label %.thread
 
-.thread:                                          ; preds = %72, %index2adr.exit, %81
-  %.1 = phi ptr [ %83, %81 ], [ null, %index2adr.exit ], [ null, %72 ]
-  ret ptr %.1
+13:                                               ; preds = %4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = load ptr, ptr %14, align 8, !tbaa !15
+  %16 = getelementptr inbounds i8, ptr %15, i64 -16
+  %17 = load i64, ptr %16, align 8, !tbaa !17
+  %18 = and i64 %17, 140737488355327
+  %19 = inttoptr i64 %18 to ptr
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = load i64, ptr %20, align 8, !tbaa !21
+  %22 = inttoptr i64 %21 to ptr
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 232
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %25 = load i64, ptr %24, align 8, !tbaa !17
+  %26 = or i64 %25, -1688849860263936
+  store i64 %26, ptr %23, align 8, !tbaa !17
+  br label %.thread
+
+.thread:                                          ; preds = %4, %13, %5, %2
+  ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable

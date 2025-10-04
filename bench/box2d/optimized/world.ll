@@ -3684,34 +3684,9 @@ define void @b2World_GetContactEvents(ptr dead_on_unwind noalias writable writeo
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define zeroext i1 @b2World_IsValid(i32 %0) local_unnamed_addr #4 {
-  %.sroa.5.0.extract.shift = lshr i32 %0, 16
-  %2 = and i32 %0, 65535
-  %3 = add nsw i32 %2, -129
-  %or.cond = icmp ult i32 %3, -128
-  br i1 %or.cond, label %16, label %4
-
-4:                                                ; preds = %1
-  %5 = add nsw i32 %2, -1
-  %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw %struct.b2World, ptr @b2_worlds, i64 %6
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1780
-  %9 = load i16, ptr %8, align 4, !tbaa !83
-  %10 = zext i16 %9 to i32
-  %.not = icmp eq i32 %5, %10
-  br i1 %.not, label %11, label %16
-
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 1592
-  %13 = load i16, ptr %12, align 8, !tbaa !82
-  %14 = zext i16 %13 to i32
-  %15 = icmp eq i32 %.sroa.5.0.extract.shift, %14
-  br label %16
-
-16:                                               ; preds = %11, %4, %1
-  %.0 = phi i1 [ false, %1 ], [ %15, %11 ], [ false, %4 ]
-  ret i1 %.0
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define noundef zeroext i1 @b2World_IsValid(i32 %0) local_unnamed_addr #3 {
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

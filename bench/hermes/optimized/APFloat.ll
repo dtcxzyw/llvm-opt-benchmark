@@ -5836,12 +5836,8 @@ while.end.i:                                      ; preds = %while.body.i35, %la
   %19 = load i8, ptr %p.addr.0.lcssa.i, align 1
   %20 = add i8 %19, -58
   %or.cond.i.i = icmp ult i8 %20, -10
-  %21 = and i8 %19, -33
-  %22 = add i8 %21, -71
-  %23 = icmp ult i8 %22, -6
-  %or.cond16.i = and i1 %or.cond.i.i, %23
   %cmp11.i = icmp eq i32 %retval.0.i2850, 0
-  br i1 %or.cond16.i, label %if.then10.i, label %if.else12.i
+  br i1 %or.cond.i.i, label %if.then10.i, label %if.else12.i
 
 if.then10.i:                                      ; preds = %while.end.i
   %cond.i = select i1 %cmp11.i, i32 0, i32 2
@@ -5875,15 +5871,15 @@ if.then21:                                        ; preds = %while.end
   %conv25.lobit = lshr i32 %conv25, 31
   %spec.select = add nsw i32 %conv25.lobit, %conv25
   %mul29 = shl nsw i32 %spec.select, 2
-  %24 = load ptr, ptr %this, align 8
-  %precision = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %25 = load i32, ptr %precision, align 4
+  %21 = load ptr, ptr %this, align 8
+  %precision = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %22 = load i32, ptr %precision, align 4
   %reass.sub = sub i32 %mul29, %8
   %add = add i32 %reass.sub, -65
-  %sub32 = add i32 %add, %25
+  %sub32 = add i32 %add, %22
   %add.ptr = getelementptr inbounds nuw i8, ptr %p.0.lcssa, i64 1
-  %26 = load i8, ptr %add.ptr, align 1
-  %.fr.i = freeze i8 %26
+  %23 = load i8, ptr %add.ptr, align 1
+  %.fr.i = freeze i8 %23
   %cmp.i37 = icmp eq i8 %.fr.i, 45
   %cmp4.i = icmp eq i8 %.fr.i, 43
   %or.cond18.i = or i1 %cmp.i37, %cmp4.i
@@ -5900,8 +5896,8 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %if.then21, %for.cond.i
   %p.addr.124.i = phi ptr [ %incdec.ptr10.i, %for.cond.i ], [ %p.addr.0.i, %if.then21 ]
   %unsignedExponent.023.i = phi i32 [ %add.i39, %for.cond.i ], [ 0, %if.then21 ]
-  %27 = load i8, ptr %p.addr.124.i, align 1
-  %.fr = freeze i8 %27
+  %24 = load i8, ptr %p.addr.124.i, align 1
+  %.fr = freeze i8 %24
   %conv6.i = sext i8 %.fr to i32
   %mul.i = mul i32 %unsignedExponent.023.i, 10
   %sub.i.i38 = add i32 %mul.i, -48
@@ -5911,8 +5907,8 @@ for.body.i:                                       ; preds = %if.then21, %for.con
 
 for.end.i:                                        ; preds = %for.cond.i, %if.then21
   %unsignedExponent.1.i = phi i32 [ 0, %if.then21 ], [ %add.i39, %for.cond.i ]
-  %28 = add i32 %sub32, -32768
-  %or.cond.i40 = icmp ult i32 %28, -65536
+  %25 = add i32 %sub32, -32768
+  %or.cond.i40 = icmp ult i32 %25, -65536
   br i1 %or.cond.i40, label %if.end26.thread.i, label %if.end26.i
 
 if.end26.thread.i:                                ; preds = %for.body.i, %for.end.i
@@ -5923,15 +5919,15 @@ if.end26.i:                                       ; preds = %for.end.i
   %sub.i41 = sub i32 0, %unsignedExponent.1.i
   %spec.select19.i = select i1 %cmp.i37, i32 %sub.i41, i32 %unsignedExponent.1.i
   %add20.i = add i32 %spec.select19.i, %sub32
-  %29 = add i32 %add20.i, -32768
-  %or.cond1.i42 = icmp ult i32 %29, -65536
+  %26 = add i32 %add20.i, -32768
+  %or.cond1.i42 = icmp ult i32 %26, -65536
   %cond.i43 = select i1 %cmp.i37, i32 -32768, i32 32767
   %spec.select.i44 = select i1 %or.cond1.i42, i32 %cond.i43, i32 %add20.i
   br label %_ZN4llvhL13totalExponentEPKcS1_i.exit
 
 _ZN4llvhL13totalExponentEPKcS1_i.exit:            ; preds = %if.end26.thread.i, %if.end26.i
-  %30 = phi i32 [ %cond35.i, %if.end26.thread.i ], [ %spec.select.i44, %if.end26.i ]
-  %conv34 = trunc i32 %30 to i16
+  %27 = phi i32 [ %cond35.i, %if.end26.thread.i ], [ %spec.select.i44, %if.end26.i ]
+  %conv34 = trunc i32 %27 to i16
   store i16 %conv34, ptr %exponent, align 8
   br label %if.end36
 

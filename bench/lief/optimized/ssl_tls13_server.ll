@@ -76,8 +76,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.64 = private unnamed_addr constant [21 x i8] c"Pre shared key found\00", align 1
 @.str.65 = private unnamed_addr constant [9 x i8] c"identity\00", align 1
 @.str.66 = private unnamed_addr constant [23 x i8] c"mbedtls_ssl_set_hs_psk\00", align 1
-@.str.67 = private unnamed_addr constant [20 x i8] c"Ticket-resumed PSK:\00", align 1
-@.str.68 = private unnamed_addr constant [34 x i8] c"ticket: obfuscated_ticket_age: %u\00", align 1
 @.str.69 = private unnamed_addr constant [31 x i8] c"=> check_identity_match_ticket\00", align 1
 @.str.70 = private unnamed_addr constant [18 x i8] c"ticket is expired\00", align 1
 @.str.71 = private unnamed_addr constant [24 x i8] c"ticket is not authentic\00", align 1
@@ -3042,11 +3040,11 @@ define internal fastcc i32 @ssl_tls13_offered_psks_check_identity_match(ptr noun
 
 19:                                               ; preds = %15
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 233, ptr noundef nonnull @.str.71) #9
-  br label %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread62
+  br label %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread60
 
 20:                                               ; preds = %15
   tail call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 238, ptr noundef nonnull @.str.72, i32 noundef %18) #9
-  br label %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread62
+  br label %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread60
 
 21:                                               ; preds = %15
   tail call void @free(ptr noundef nonnull %13) #9
@@ -3057,7 +3055,7 @@ define internal fastcc i32 @ssl_tls13_offered_psks_check_identity_match(ptr noun
 
 24:                                               ; preds = %21
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 256, ptr noundef nonnull @.str.73) #9
-  br label %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread59
+  br label %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread57
 
 25:                                               ; preds = %21
   %26 = tail call i64 @mbedtls_ms_time() #9
@@ -3068,7 +3066,7 @@ define internal fastcc i32 @ssl_tls13_offered_psks_check_identity_match(ptr noun
 
 30:                                               ; preds = %25
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 267, ptr noundef nonnull @.str.74, i64 noundef %26, i64 noundef %28) #9
-  br label %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread59
+  br label %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread57
 
 31:                                               ; preds = %25
   %32 = sub nsw i64 %26, %28
@@ -3077,7 +3075,7 @@ define internal fastcc i32 @ssl_tls13_offered_psks_check_identity_match(ptr noun
 
 34:                                               ; preds = %31
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 286, ptr noundef nonnull @.str.75, i64 noundef %32) #9
-  br label %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread59
+  br label %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread57
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 160
@@ -3085,20 +3083,15 @@ define internal fastcc i32 @ssl_tls13_offered_psks_check_identity_match(ptr noun
   %38 = sub i32 %3, %37
   %39 = zext i32 %38 to i64
   %40 = sub nsw i64 %32, %39
-  %41 = add i64 %40, -6001
-  %or.cond3.i = icmp ult i64 %41, -12001
-  br i1 %or.cond3.i, label %42, label %43
-
-42:                                               ; preds = %35
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 309, ptr noundef nonnull @.str.76, i64 noundef %40) #9
-  br label %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread59
+  br label %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread57
 
-ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread59: ; preds = %42, %34, %30, %24
+ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread57: ; preds = %35, %34, %30, %24
   tail call void @mbedtls_ssl_session_free(ptr noundef nonnull %5) #9
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 324, ptr noundef nonnull @.str.77) #9
-  br label %80
+  br label %68
 
-ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread62: ; preds = %19, %20
+ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread60: ; preds = %19, %20
   tail call void @free(ptr noundef nonnull %13) #9
   tail call void @mbedtls_ssl_session_free(ptr noundef nonnull %5) #9
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 324, ptr noundef nonnull @.str.77) #9
@@ -3110,80 +3103,58 @@ ssl_tls13_offered_psks_check_identity_match_ticket.exit: ; preds = %15
   tail call void @free(ptr noundef nonnull %13) #9
   tail call void @mbedtls_ssl_session_free(ptr noundef nonnull %5) #9
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 324, ptr noundef nonnull @.str.77) #9
-  br label %80
+  br label %68
 
-43:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 324, ptr noundef nonnull @.str.77) #9
-  store i32 1, ptr %4, align 4, !tbaa !106
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 166
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 165
-  %46 = load i8, ptr %45, align 1, !tbaa !103
-  %47 = zext i8 %46 to i64
-  %48 = tail call i32 @mbedtls_ssl_set_hs_psk(ptr noundef nonnull %0, ptr noundef nonnull %44, i64 noundef %47) #9
-  %.not54 = icmp eq i32 %48, 0
-  br i1 %.not54, label %50, label %49
+ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread: ; preds = %12, %6, %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread60
+  %41 = phi ptr [ %7, %12 ], [ %7, %6 ], [ %.pre, %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread60 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 128
+  %43 = load ptr, ptr %42, align 8, !tbaa !124
+  %.not = icmp eq ptr %43, null
+  br i1 %.not, label %49, label %44
 
-49:                                               ; preds = %43
-  tail call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 355, ptr noundef nonnull @.str.66, i32 noundef %48) #9
-  br label %80
+44:                                               ; preds = %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 136
+  %46 = load ptr, ptr %45, align 8, !tbaa !125
+  %47 = tail call i32 %43(ptr noundef %46, ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #9
+  %48 = icmp eq i32 %47, 0
+  %. = select i1 %48, i32 0, i32 2
+  br label %68
 
-50:                                               ; preds = %43
-  %51 = load i8, ptr %45, align 1, !tbaa !103
-  %52 = zext i8 %51 to i64
-  tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef 361, ptr noundef nonnull @.str.67, ptr noundef nonnull %44, i64 noundef %52) #9
-  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef 363, ptr noundef nonnull @.str.68, i32 noundef %3) #9
-  br label %80
-
-ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread: ; preds = %12, %6, %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread62
-  %53 = phi ptr [ %7, %12 ], [ %7, %6 ], [ %.pre, %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread62 ]
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 128
-  %55 = load ptr, ptr %54, align 8, !tbaa !124
-  %.not = icmp eq ptr %55, null
-  br i1 %.not, label %61, label %56
-
-56:                                               ; preds = %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 136
-  %58 = load ptr, ptr %57, align 8, !tbaa !125
-  %59 = tail call i32 %55(ptr noundef %58, ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #9
-  %60 = icmp eq i32 %59, 0
-  %. = select i1 %60, i32 0, i32 2
-  br label %80
-
-61:                                               ; preds = %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread
+49:                                               ; preds = %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull @.str, i32 noundef 379, ptr noundef nonnull @.str.65, ptr noundef %1, i64 noundef %2) #9
-  %62 = load ptr, ptr %0, align 8, !tbaa !40
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 312
-  %64 = load ptr, ptr %63, align 8, !tbaa !126
-  %.not52 = icmp eq ptr %64, null
-  br i1 %.not52, label %80, label %65
+  %50 = load ptr, ptr %0, align 8, !tbaa !40
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 312
+  %52 = load ptr, ptr %51, align 8, !tbaa !126
+  %.not52 = icmp eq ptr %52, null
+  br i1 %.not52, label %68, label %53
 
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds nuw i8, ptr %62, i64 320
-  %67 = load i64, ptr %66, align 8, !tbaa !127
-  %68 = icmp eq i64 %2, %67
-  br i1 %68, label %69, label %80
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 320
+  %55 = load i64, ptr %54, align 8, !tbaa !127
+  %56 = icmp eq i64 %2, %55
+  br i1 %56, label %57, label %68
 
-69:                                               ; preds = %65
-  %70 = tail call i32 @mbedtls_ct_memcmp(ptr noundef nonnull %64, ptr noundef %1, i64 noundef %2) #9
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %80
+57:                                               ; preds = %53
+  %58 = tail call i32 @mbedtls_ct_memcmp(ptr noundef nonnull %52, ptr noundef %1, i64 noundef %2) #9
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %68
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr %0, align 8, !tbaa !40
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 296
-  %75 = load ptr, ptr %74, align 8, !tbaa !128
-  %76 = getelementptr inbounds nuw i8, ptr %73, i64 304
-  %77 = load i64, ptr %76, align 8, !tbaa !129
-  %78 = tail call i32 @mbedtls_ssl_set_hs_psk(ptr noundef nonnull %0, ptr noundef %75, i64 noundef %77) #9
-  %.not53 = icmp eq i32 %78, 0
-  br i1 %.not53, label %80, label %79
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %0, align 8, !tbaa !40
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 296
+  %63 = load ptr, ptr %62, align 8, !tbaa !128
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 304
+  %65 = load i64, ptr %64, align 8, !tbaa !129
+  %66 = tail call i32 @mbedtls_ssl_set_hs_psk(ptr noundef nonnull %0, ptr noundef %63, i64 noundef %65) #9
+  %.not53 = icmp eq i32 %66, 0
+  br i1 %.not53, label %68, label %67
 
-79:                                               ; preds = %72
-  tail call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 387, ptr noundef nonnull @.str.66, i32 noundef %78) #9
-  br label %80
+67:                                               ; preds = %60
+  tail call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 387, ptr noundef nonnull @.str.66, i32 noundef %66) #9
+  br label %68
 
-80:                                               ; preds = %ssl_tls13_offered_psks_check_identity_match_ticket.exit, %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread59, %61, %65, %69, %72, %56, %79, %50, %49
-  %.0 = phi i32 [ %48, %49 ], [ 0, %50 ], [ %78, %79 ], [ 1, %ssl_tls13_offered_psks_check_identity_match_ticket.exit ], [ %., %56 ], [ 0, %72 ], [ 2, %69 ], [ 2, %65 ], [ 2, %61 ], [ 1, %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread59 ]
+68:                                               ; preds = %ssl_tls13_offered_psks_check_identity_match_ticket.exit, %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread57, %49, %53, %57, %60, %44, %67
+  %.0 = phi i32 [ %66, %67 ], [ 1, %ssl_tls13_offered_psks_check_identity_match_ticket.exit ], [ %., %44 ], [ 0, %60 ], [ 2, %57 ], [ 2, %53 ], [ 2, %49 ], [ 1, %ssl_tls13_offered_psks_check_identity_match_ticket.exit.thread57 ]
   ret i32 %.0
 }
 

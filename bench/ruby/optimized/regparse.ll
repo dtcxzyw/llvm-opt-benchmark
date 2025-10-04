@@ -30,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [29 x i8] c"invalid Unicode Property \\%c\00", align 1
 @.str.3 = private unnamed_addr constant [2 x i8] c"]\00", align 1
 @.str.4 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@.str.5 = private unnamed_addr constant [30 x i8] c"Unknown escape \\%c is ignored\00", align 1
 @.str.6 = private unnamed_addr constant [43 x i8] c"regular expression has '%s' without escape\00", align 1
 @.str.7 = private unnamed_addr constant [37 x i8] c"character class has duplicated range\00", align 1
 @.str.8 = private unnamed_addr constant [30 x i8] c"Grapheme_Cluster_Break=Extend\00", align 1
@@ -5503,7 +5502,7 @@ define internal fastcc range(i32 -109, 1) i32 @fetch_escaped_value(ptr noundef n
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = load ptr, ptr %0, align 8, !tbaa !67
   %10 = icmp ult ptr %9, %1
-  br i1 %10, label %11, label %187
+  br i1 %10, label %11, label %177
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -5557,7 +5556,7 @@ define internal fastcc range(i32 -109, 1) i32 @fetch_escaped_value(ptr noundef n
 
 38:                                               ; preds = %34
   %39 = icmp ult ptr %33, %1
-  br i1 %39, label %40, label %187
+  br i1 %39, label %40, label %177
 
 40:                                               ; preds = %38
   %41 = load i32, ptr %12, align 8, !tbaa !68
@@ -5592,11 +5591,11 @@ define internal fastcc range(i32 -109, 1) i32 @fetch_escaped_value(ptr noundef n
   %59 = sext i32 %58 to i64
   %60 = getelementptr i8, ptr %33, i64 %59
   %.not89 = icmp eq i32 %52, 45
-  br i1 %.not89, label %61, label %187
+  br i1 %.not89, label %61, label %177
 
 61:                                               ; preds = %57
   %62 = icmp ult ptr %60, %1
-  br i1 %62, label %63, label %187
+  br i1 %62, label %63, label %177
 
 63:                                               ; preds = %61
   %64 = load i32, ptr %12, align 8, !tbaa !68
@@ -5641,7 +5640,7 @@ define internal fastcc range(i32 -109, 1) i32 @fetch_escaped_value(ptr noundef n
 88:                                               ; preds = %80
   %89 = call fastcc i32 @fetch_escaped_value(ptr noundef %6, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %5)
   %90 = icmp slt i32 %89, 0
-  br i1 %90, label %187, label %._crit_edge99
+  br i1 %90, label %177, label %._crit_edge99
 
 ._crit_edge99:                                    ; preds = %88
   %.pre100 = load i32, ptr %5, align 4, !tbaa !11
@@ -5662,7 +5661,7 @@ define internal fastcc range(i32 -109, 1) i32 @fetch_escaped_value(ptr noundef n
 
 99:                                               ; preds = %95
   %100 = icmp ult ptr %33, %1
-  br i1 %100, label %101, label %187
+  br i1 %100, label %101, label %177
 
 101:                                              ; preds = %99
   %102 = load i32, ptr %12, align 8, !tbaa !68
@@ -5697,7 +5696,7 @@ define internal fastcc range(i32 -109, 1) i32 @fetch_escaped_value(ptr noundef n
   %120 = sext i32 %119 to i64
   %121 = getelementptr i8, ptr %33, i64 %120
   %.not87 = icmp eq i32 %113, 45
-  br i1 %.not87, label %125, label %187
+  br i1 %.not87, label %125, label %177
 
 122:                                              ; preds = %30
   %123 = load i32, ptr %.pre102, align 4, !tbaa !103
@@ -5708,7 +5707,7 @@ define internal fastcc range(i32 -109, 1) i32 @fetch_escaped_value(ptr noundef n
 125:                                              ; preds = %122, %118
   %126 = phi ptr [ %33, %122 ], [ %121, %118 ]
   %127 = icmp ult ptr %126, %1
-  br i1 %127, label %128, label %187
+  br i1 %127, label %128, label %177
 
 128:                                              ; preds = %125
   %129 = load i32, ptr %12, align 8, !tbaa !68
@@ -5758,7 +5757,7 @@ define internal fastcc range(i32 -109, 1) i32 @fetch_escaped_value(ptr noundef n
 156:                                              ; preds = %150
   %157 = call fastcc i32 @fetch_escaped_value(ptr noundef %6, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %5)
   %158 = icmp slt i32 %157, 0
-  br i1 %158, label %187, label %._crit_edge
+  br i1 %158, label %177, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %156
   %.pre96 = load i32, ptr %5, align 4, !tbaa !11
@@ -5776,7 +5775,7 @@ define internal fastcc range(i32 -109, 1) i32 @fetch_escaped_value(ptr noundef n
   br i1 %.not.i, label %UNKNOWN_ESC_WARN.exit.i, label %164
 
 164:                                              ; preds = %._crit_edge101
-  switch i32 %24, label %175 [
+  switch i32 %24, label %UNKNOWN_ESC_WARN.exit.i [
     i32 110, label %conv_backslash_value.exit
     i32 116, label %165
     i32 114, label %166
@@ -5812,37 +5811,17 @@ define internal fastcc range(i32 -109, 1) i32 @fetch_escaped_value(ptr noundef n
   %.not13.i = icmp eq i32 %174, 0
   br i1 %.not13.i, label %UNKNOWN_ESC_WARN.exit.i, label %conv_backslash_value.exit
 
-175:                                              ; preds = %164
-  %176 = and i32 %24, -33
-  %177 = add i32 %176, -91
-  %or.cond14.i = icmp ult i32 %177, -26
-  %178 = load ptr, ptr @onig_warn, align 8
-  %179 = icmp eq ptr %178, @onig_null_warn
-  %or.cond16.i = select i1 %or.cond14.i, i1 true, i1 %179
-  br i1 %or.cond16.i, label %UNKNOWN_ESC_WARN.exit.i, label %180
-
-180:                                              ; preds = %175
-  %181 = tail call ptr @rb_ruby_verbose_ptr() #25
-  %182 = load i64, ptr %181, align 8, !tbaa !54
-  %183 = and i64 %182, -5
-  %.not.i.i = icmp eq i64 %183, 0
-  br i1 %.not.i.i, label %UNKNOWN_ESC_WARN.exit.i, label %184
-
-184:                                              ; preds = %180
-  tail call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.5, i32 noundef %24)
-  br label %UNKNOWN_ESC_WARN.exit.i
-
-UNKNOWN_ESC_WARN.exit.i:                          ; preds = %184, %180, %175, %171, %._crit_edge101
+UNKNOWN_ESC_WARN.exit.i:                          ; preds = %171, %164, %._crit_edge101
   br label %conv_backslash_value.exit
 
 conv_backslash_value.exit:                        ; preds = %UNKNOWN_ESC_WARN.exit.i, %171, %170, %169, %168, %167, %166, %165, %164, %145, %159, %91
-  %185 = phi i32 [ %161, %159 ], [ %94, %91 ], [ 127, %145 ], [ %24, %UNKNOWN_ESC_WARN.exit.i ], [ 9, %165 ], [ 13, %166 ], [ 12, %167 ], [ 7, %168 ], [ 8, %169 ], [ 27, %170 ], [ 10, %164 ], [ 11, %171 ]
-  %186 = load ptr, ptr %6, align 8, !tbaa !67
-  store ptr %186, ptr %0, align 8, !tbaa !67
-  store i32 %185, ptr %3, align 4, !tbaa !11
-  br label %187
+  %175 = phi i32 [ %161, %159 ], [ %94, %91 ], [ 127, %145 ], [ %24, %UNKNOWN_ESC_WARN.exit.i ], [ 9, %165 ], [ 13, %166 ], [ 12, %167 ], [ 7, %168 ], [ 8, %169 ], [ 27, %170 ], [ 10, %164 ], [ 11, %171 ]
+  %176 = load ptr, ptr %6, align 8, !tbaa !67
+  store ptr %176, ptr %0, align 8, !tbaa !67
+  store i32 %175, ptr %3, align 4, !tbaa !11
+  br label %177
 
-187:                                              ; preds = %156, %125, %118, %99, %88, %61, %57, %38, %4, %conv_backslash_value.exit
+177:                                              ; preds = %156, %125, %118, %99, %88, %61, %57, %38, %4, %conv_backslash_value.exit
   %.0 = phi i32 [ 0, %conv_backslash_value.exit ], [ -104, %4 ], [ -105, %38 ], [ -108, %57 ], [ -105, %61 ], [ %89, %88 ], [ -106, %99 ], [ -109, %118 ], [ -106, %125 ], [ %157, %156 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

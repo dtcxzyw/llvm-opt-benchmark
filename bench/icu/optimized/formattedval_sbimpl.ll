@@ -726,8 +726,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
 78:                                               ; preds = %77
   %79 = sub nsw i32 %.0156362, %67
   %80 = icmp ne i8 %.sroa.0215.0361, 38
-  %.mask.i = and i8 %.sroa.0215.0361, -16
-  %81 = icmp ne i8 %.mask.i, 48
+  %81 = icmp ugt i8 %.sroa.0215.0361, 15
   %82 = and i1 %80, %81
   br i1 %82, label %83, label %.thread231
 

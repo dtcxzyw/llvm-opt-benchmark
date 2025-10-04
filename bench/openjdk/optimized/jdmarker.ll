@@ -22,97 +22,52 @@ define hidden range(i32 0, 2) i32 @jResyncRestart(ptr noundef %0, i32 noundef %1
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %0, i32 noundef -1) #7
-  %14 = add nsw i32 %1, 1
-  %15 = and i32 %14, 7
-  %16 = or disjoint i32 %15, 208
-  %17 = add nsw i32 %1, 2
-  %18 = and i32 %17, 7
-  %19 = or disjoint i32 %18, 208
-  %20 = add i32 %1, 7
-  %21 = and i32 %20, 7
-  %22 = or disjoint i32 %21, 208
-  %23 = add i32 %1, 6
-  %24 = and i32 %23, 7
-  %25 = or disjoint i32 %24, 208
-  br label %26
+  %14 = icmp slt i32 %4, 192
+  br i1 %14, label %select.unfold, label %.thread35
 
-26:                                               ; preds = %64, %2
-  %.031 = phi i32 [ %4, %2 ], [ %65, %64 ]
-  %27 = icmp slt i32 %.031, 192
-  br i1 %27, label %select.unfold, label %28
-
-28:                                               ; preds = %26
-  %29 = add nsw i32 %.031, -216
-  %or.cond = icmp ult i32 %29, -8
-  %30 = icmp eq i32 %.031, %16
-  %or.cond39 = select i1 %or.cond, i1 true, i1 %30
-  %31 = icmp eq i32 %.031, %19
-  %or.cond40 = select i1 %or.cond39, i1 true, i1 %31
-  br i1 %or.cond40, label %.thread35, label %32
-
-32:                                               ; preds = %28
-  %33 = icmp eq i32 %.031, %22
-  %34 = icmp eq i32 %.031, %25
-  %or.cond41 = select i1 %33, i1 true, i1 %34
-  br i1 %or.cond41, label %select.unfold, label %44
-
-.thread35:                                        ; preds = %28
-  %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  store i32 97, ptr %36, align 8
-  %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 44
-  store i32 %.031, ptr %38, align 4
-  %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
-  store i32 3, ptr %40, align 4
-  %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef nonnull %0, i32 noundef 4) #7
+.thread35:                                        ; preds = %34, %2
+  %.031.lcssa = phi i32 [ %4, %2 ], [ %35, %34 ]
+  %15 = load ptr, ptr %0, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store i32 97, ptr %16, align 8
+  %17 = load ptr, ptr %0, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 44
+  store i32 %.031.lcssa, ptr %18, align 4
+  %19 = load ptr, ptr %0, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  store i32 3, ptr %20, align 4
+  %21 = load ptr, ptr %0, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  tail call void %23(ptr noundef nonnull %0, i32 noundef 4) #7
   br label %.loopexit
 
-44:                                               ; preds = %32
-  %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  store i32 97, ptr %46, align 8
-  %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 44
-  store i32 %.031, ptr %48, align 4
-  %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
-  store i32 1, ptr %50, align 4
-  %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %53 = load ptr, ptr %52, align 8
-  tail call void %53(ptr noundef nonnull %0, i32 noundef 4) #7
-  store i32 0, ptr %3, align 4
-  br label %.loopexit
+select.unfold:                                    ; preds = %2, %34
+  %.03146 = phi i32 [ %35, %34 ], [ %4, %2 ]
+  %24 = load ptr, ptr %0, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  store i32 97, ptr %25, align 8
+  %26 = load ptr, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 44
+  store i32 %.03146, ptr %27, align 4
+  %28 = load ptr, ptr %0, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  store i32 2, ptr %29, align 4
+  %30 = load ptr, ptr %0, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8
+  tail call void %32(ptr noundef nonnull %0, i32 noundef 4) #7
+  %33 = tail call fastcc i32 @next_marker(ptr noundef nonnull %0)
+  %.not = icmp eq i32 %33, 0
+  br i1 %.not, label %.loopexit, label %34
 
-select.unfold:                                    ; preds = %26, %32
-  %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  store i32 97, ptr %55, align 8
-  %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 44
-  store i32 %.031, ptr %57, align 4
-  %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  store i32 2, ptr %59, align 4
-  %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %62 = load ptr, ptr %61, align 8
-  tail call void %62(ptr noundef nonnull %0, i32 noundef 4) #7
-  %63 = tail call fastcc i32 @next_marker(ptr noundef nonnull %0)
-  %.not = icmp eq i32 %63, 0
-  br i1 %.not, label %.loopexit, label %64
+34:                                               ; preds = %select.unfold
+  %35 = load i32, ptr %3, align 4
+  %36 = icmp slt i32 %35, 192
+  br i1 %36, label %select.unfold, label %.thread35
 
-64:                                               ; preds = %select.unfold
-  %65 = load i32, ptr %3, align 4
-  br label %26
-
-.loopexit:                                        ; preds = %select.unfold, %.thread35, %44
-  %.032 = phi i32 [ 1, %44 ], [ 1, %.thread35 ], [ 0, %select.unfold ]
+.loopexit:                                        ; preds = %select.unfold, %.thread35
+  %.032 = phi i32 [ 1, %.thread35 ], [ 0, %select.unfold ]
   ret i32 %.032
 }
 

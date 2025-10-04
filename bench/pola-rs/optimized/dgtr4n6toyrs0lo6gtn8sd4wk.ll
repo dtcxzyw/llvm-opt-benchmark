@@ -146520,44 +146520,30 @@ define hidden noundef zeroext i1 @_ZN11polars_plan5utils26aexpr_is_simple_projec
   store ptr %1, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN134_$LT$$RF$polars_utils..arena..Arena$LT$polars_plan..plans..aexpr..AExpr$GT$$u20$as$u20$polars_plan..plans..iterator..ArenaExprIter$GT$4iter17hcdd49856b42e5cebE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %0)
-  br label %5
+  %5 = invoke { i64, ptr } @"_ZN98_$LT$polars_plan..plans..iterator..AExprIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8992ccbfaefbeb93E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
+          to label %.noexc unwind label %7
 
-5:                                                ; preds = %8, %2
-  %6 = invoke { i64, ptr } @"_ZN98_$LT$polars_plan..plans..iterator..AExprIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8992ccbfaefbeb93E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
-          to label %.noexc unwind label %11
-
-.noexc:                                           ; preds = %5
-  %7 = extractvalue { i64, ptr } %6, 1
-  %.not.not.not.not.i.not = icmp eq ptr %7, null
-  br i1 %.not.not.not.not.i.not, label %13, label %8
-
-8:                                                ; preds = %.noexc
-  %.val.i = load i64, ptr %7, align 16, !range !3900, !noundef !4
-  %9 = icmp ne i64 %.val.i, -9223372036854775796
-  call void @llvm.assume(i1 %9)
-  %10 = add i64 %.val.i, 9223372036854775805
-  %switch.i.i.i = icmp ult i64 %10, -2
-  br i1 %switch.i.i.i, label %13, label %5
-
-11:                                               ; preds = %5
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr60drop_in_place$LT$polars_plan..plans..iterator..AExprIter$GT$17h131ac0a68ea36923E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #32
-          to label %16 unwind label %14
-
-13:                                               ; preds = %.noexc, %8
+.noexc:                                           ; preds = %2
+  %6 = extractvalue { i64, ptr } %5, 1
+  %.not.not.not.i.not = icmp eq ptr %6, null
   call void @"_ZN4core3ptr60drop_in_place$LT$polars_plan..plans..iterator..AExprIter$GT$17h131ac0a68ea36923E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %.not.not.not.not.i.not
+  ret i1 %.not.not.not.i.not
 
-14:                                               ; preds = %11
-  %15 = landingpad { ptr, i32 }
+7:                                                ; preds = %2
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr60drop_in_place$LT$polars_plan..plans..iterator..AExprIter$GT$17h131ac0a68ea36923E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #32
+          to label %11 unwind label %9
+
+9:                                                ; preds = %7
+  %10 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #33
   unreachable
 
-16:                                               ; preds = %11
-  resume { ptr, i32 } %12
+11:                                               ; preds = %7
+  resume { ptr, i32 } %8
 }
 
 ; Function Attrs: nonlazybind uwtable

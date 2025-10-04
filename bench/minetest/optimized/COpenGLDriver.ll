@@ -16955,21 +16955,14 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %factor.off.i18.i = add nsw i32 %shr4.i.i, -6
   %switch.i19.i = icmp ult i32 %factor.off.i18.i, 5
   %or.cond24.i = select i1 %or.cond.i, i1 true, i1 %switch.i19.i
-  br i1 %or.cond24.i, label %lor.end, label %cleanup.i
+  br i1 %or.cond24.i, label %lor.end, label %if.end15.i
 
-cleanup.i:                                        ; preds = %if.then.i
-  %and5.i.i = lshr i32 %2, 8
-  %shr6.i.i = and i32 %and5.i.i, 15
-  %3 = add nsw i32 %shr6.i.i, -11
-  %switch.i21.i = icmp ult i32 %3, -5
-  br i1 %switch.i21.i, label %if.end15.i, label %lor.end
-
-if.end15.i:                                       ; preds = %cleanup.i, %land.lhs.true.i, %lor.rhs
+if.end15.i:                                       ; preds = %if.then.i, %land.lhs.true.i, %lor.rhs
   br label %lor.end
 
-lor.end:                                          ; preds = %if.end15.i, %cleanup.i, %if.then.i, %entry
-  %4 = phi i1 [ true, %entry ], [ true, %cleanup.i ], [ false, %if.end15.i ], [ true, %if.then.i ]
-  ret i1 %4
+lor.end:                                          ; preds = %if.end15.i, %if.then.i, %entry
+  %3 = phi i1 [ true, %entry ], [ false, %if.end15.i ], [ true, %if.then.i ]
+  ret i1 %3
 }
 
 declare noundef zeroext i1 @_ZNK3irr5video11CNullDriver26needsTransparentRenderPassERKNS0_9SMaterialE(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef nonnull align 8 dereferenceable(178)) unnamed_addr #1

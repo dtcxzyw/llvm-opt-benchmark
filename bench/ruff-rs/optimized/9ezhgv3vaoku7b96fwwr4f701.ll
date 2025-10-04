@@ -38420,12 +38420,10 @@ _ZN15ruff_python_ast7helpers11is_constant17h79959e90414154a4E.exit: ; preds = %1
   br i1 %switch.i.i, label %_ZN15ruff_python_ast7helpers11is_constant17h79959e90414154a4E.exit.thread, label %_ZN15ruff_python_ast7helpers11is_constant17h79959e90414154a4E.exit.thread2
 
 _ZN15ruff_python_ast7helpers11is_constant17h79959e90414154a4E.exit.thread: ; preds = %10, %_ZN15ruff_python_ast7helpers11is_constant17h79959e90414154a4E.exit
-  %15 = add nsw i32 %2, -24
-  %switch.i = icmp ult i32 %15, -3
   br label %_ZN15ruff_python_ast7helpers11is_constant17h79959e90414154a4E.exit.thread2
 
 _ZN15ruff_python_ast7helpers11is_constant17h79959e90414154a4E.exit.thread2: ; preds = %12, %_ZN15ruff_python_ast7helpers11is_constant17h79959e90414154a4E.exit, %_ZN15ruff_python_ast7helpers11is_constant17h79959e90414154a4E.exit.thread
-  %.sroa.0.0 = phi i1 [ %switch.i, %_ZN15ruff_python_ast7helpers11is_constant17h79959e90414154a4E.exit.thread ], [ false, %_ZN15ruff_python_ast7helpers11is_constant17h79959e90414154a4E.exit ], [ false, %12 ]
+  %.sroa.0.0 = phi i1 [ true, %_ZN15ruff_python_ast7helpers11is_constant17h79959e90414154a4E.exit.thread ], [ false, %_ZN15ruff_python_ast7helpers11is_constant17h79959e90414154a4E.exit ], [ false, %12 ]
   ret i1 %.sroa.0.0
 }
 
