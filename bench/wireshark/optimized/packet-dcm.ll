@@ -10865,7 +10865,7 @@ dissect_dcm_assoc_role_selection.exit.i:          ; preds = %122, %96
   %217 = load i32, ptr @hf_dcm_info_extneg_fuzzy_semantic_matching, align 4
   %218 = add i32 %212, 8
   %219 = tail call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %217, ptr noundef %0, i32 noundef %218, i32 noundef 1, i32 noundef 0)
-  %220 = icmp samesign ult i32 %.073.i.i, 3
+  %220 = icmp eq i32 %.073.i.i, 2
   br i1 %220, label %dissect_dcm_assoc_async_negotiation.exit.i, label %221
 
 221:                                              ; preds = %216

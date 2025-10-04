@@ -22669,27 +22669,26 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$3new1
 
 9:                                                ; preds = %2
   %10 = tail call { ptr, i64 } @"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17hcfb162655a0ce03dE"(i64 noundef 0, i64 noundef range(i64 1, 0) %1)
-  %11 = add i64 %1, 1
-  %12 = icmp ult i64 %11, 2
-  %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
-  %14 = lshr i64 -1, %13
-  %15 = add i64 %14, 1
-  %.sroa.05.0 = select i1 %12, i64 1, i64 %15
-  %16 = extractvalue { ptr, i64 } %10, 1
-  %17 = extractvalue { ptr, i64 } %10, 0
-  %18 = icmp ne ptr %17, null
-  tail call void @llvm.assume(i1 %18)
+  %11 = icmp eq i64 %1, -1
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
+  %13 = lshr i64 -1, %12
+  %14 = add i64 %13, 1
+  %.sroa.05.0 = select i1 %11, i64 1, i64 %14
+  %15 = extractvalue { ptr, i64 } %10, 1
+  %16 = extractvalue { ptr, i64 } %10, 0
+  %17 = icmp ne ptr %16, null
+  tail call void @llvm.assume(i1 %17)
   store i64 0, ptr %0, align 128
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 0, ptr %19, align 128
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store ptr %17, ptr %20, align 16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i64 %16, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i64 %1, ptr %22, align 128
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i64 %.sroa.05.0, ptr %23, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i64 0, ptr %18, align 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  store ptr %16, ptr %19, align 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store i64 %15, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store i64 %1, ptr %21, align 128
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store i64 %.sroa.05.0, ptr %22, align 8
   ret void
 }
 

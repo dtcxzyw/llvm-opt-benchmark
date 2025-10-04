@@ -1227,15 +1227,13 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %_ZN13CompileBroker1
   %33 = icmp ne i32 %30, 2
   %34 = and i1 %33, %.not
   %or.cond = and i1 %34, %28
-  br i1 %or.cond, label %35, label %_ZN14CompilerConfig9is_tieredEv.exit.thread
+  %or.cond.not = xor i1 %or.cond, true
+  %35 = icmp eq i32 %30, 3
+  %36 = or i1 %35, %or.cond.not
+  %or.cond23 = or i1 %36, %5
+  br i1 %or.cond23, label %_ZN14CompilerConfig9is_tieredEv.exit.thread, label %37
 
-35:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
-  %36 = and i32 %30, -2
-  %spec.select.i15 = icmp eq i32 %36, 2
-  %brmerge = or i1 %5, %spec.select.i15
-  br i1 %brmerge, label %_ZN14CompilerConfig9is_tieredEv.exit.thread, label %37
-
-37:                                               ; preds = %35
+37:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
   %38 = tail call noundef double @_ZN9CodeCache18reverse_free_ratioEv() #12
   %39 = load double, ptr @_ZN17CompilationPolicy28_increase_threshold_at_ratioE, align 8
   %40 = fcmp ogt double %38, %39
@@ -1247,8 +1245,8 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %_ZN13CompileBroker1
   %44 = fmul double %21, %43
   br label %_ZN14CompilerConfig9is_tieredEv.exit.thread
 
-_ZN14CompilerConfig9is_tieredEv.exit.thread:      ; preds = %35, %_ZN13CompileBroker10queue_sizeEi.exit, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i, %2, %41, %37
-  %.0 = phi double [ %21, %35 ], [ %44, %41 ], [ %21, %37 ], [ 1.000000e+00, %2 ], [ %21, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i ], [ %21, %_ZN13CompileBroker10queue_sizeEi.exit ]
+_ZN14CompilerConfig9is_tieredEv.exit.thread:      ; preds = %_ZN13CompileBroker10queue_sizeEi.exit, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i, %2, %41, %37
+  %.0 = phi double [ %44, %41 ], [ %21, %37 ], [ 1.000000e+00, %2 ], [ %21, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i ], [ %21, %_ZN13CompileBroker10queue_sizeEi.exit ]
   ret double %.0
 }
 

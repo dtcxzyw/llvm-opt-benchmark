@@ -1540,17 +1540,16 @@ define hidden range(i32 0, -127) i32 @mbedtls_rsa_gen_key(ptr noundef %0, ptr no
   call void @mbedtls_mpi_free(ptr noundef nonnull %7) #14
   call void @mbedtls_mpi_free(ptr noundef nonnull %8) #14
   %.not92 = icmp eq i32 %.0, 0
-  br i1 %.not92, label %76, label %72
+  br i1 %.not92, label %75, label %72
 
 72:                                               ; preds = %.loopexit
   call void @mbedtls_rsa_free(ptr noundef %0)
-  %73 = add i32 %.0, 127
-  %74 = icmp ult i32 %73, 128
-  %75 = add nsw i32 %.0, -16768
-  %spec.select = select i1 %74, i32 %75, i32 %.0
-  br label %76
+  %73 = icmp ugt i32 %.0, -128
+  %74 = add nsw i32 %.0, -16768
+  %spec.select = select i1 %73, i32 %74, i32 %.0
+  br label %75
 
-76:                                               ; preds = %72, %.loopexit
+75:                                               ; preds = %72, %.loopexit
   %.056 = phi i32 [ 0, %.loopexit ], [ %spec.select, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

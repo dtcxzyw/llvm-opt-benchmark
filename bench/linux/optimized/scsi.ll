@@ -2837,40 +2837,39 @@ define dso_local ptr @scsi_device_lookup_by_target(ptr noundef readonly captures
 33:                                               ; preds = %26
   %34 = getelementptr i8, ptr %22, i64 -32
   %35 = icmp eq ptr %34, null
-  %36 = add i32 %24, -3
-  %37 = icmp ult i32 %36, 2
-  %or.cond = or i1 %35, %37
-  br i1 %or.cond, label %.thread, label %38
+  %36 = icmp eq i32 %24, 3
+  %or.cond = or i1 %35, %36
+  br i1 %or.cond, label %.thread, label %37
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %34, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 168
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %43 = load ptr, ptr %42, align 8
-  %44 = tail call zeroext i1 @try_module_get(ptr noundef %43) #15
-  br i1 %44, label %45, label %.thread
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %34, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 168
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call zeroext i1 @try_module_get(ptr noundef %42) #15
+  br i1 %43, label %44, label %.thread
 
-45:                                               ; preds = %38
-  %46 = getelementptr i8, ptr %22, i64 408
-  %47 = tail call ptr @get_device(ptr noundef nonnull %46) #15
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %.thread
+44:                                               ; preds = %37
+  %45 = getelementptr i8, ptr %22, i64 408
+  %46 = tail call ptr @get_device(ptr noundef nonnull %45) #15
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %.thread
 
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %34, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 168
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %54 = load ptr, ptr %53, align 8
-  tail call void @module_put(ptr noundef %54) #15
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %34, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 168
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %53 = load ptr, ptr %52, align 8
+  tail call void @module_put(ptr noundef %53) #15
   br label %.thread
 
-.thread:                                          ; preds = %30, %.loopexit, %49, %45, %38, %33
-  %55 = phi ptr [ null, %33 ], [ %34, %45 ], [ null, %38 ], [ null, %49 ], [ null, %.loopexit ], [ null, %30 ]
-  %56 = load ptr, ptr %16, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %56, i64 noundef %18) #15
-  ret ptr %55
+.thread:                                          ; preds = %30, %.loopexit, %48, %44, %37, %33
+  %54 = phi ptr [ null, %33 ], [ %34, %44 ], [ null, %37 ], [ null, %48 ], [ null, %.loopexit ], [ null, %30 ]
+  %55 = load ptr, ptr %16, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %55, i64 noundef %18) #15
+  ret ptr %54
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
@@ -2960,40 +2959,39 @@ define dso_local ptr @scsi_device_lookup(ptr noundef readonly captures(address) 
 29:                                               ; preds = %22
   %30 = getelementptr i8, ptr %10, i64 -16
   %31 = icmp eq ptr %30, null
-  %32 = add i32 %12, -3
-  %33 = icmp ult i32 %32, 2
-  %or.cond = or i1 %31, %33
-  br i1 %or.cond, label %.thread, label %34
+  %32 = icmp eq i32 %12, 3
+  %or.cond = or i1 %31, %32
+  br i1 %or.cond, label %.thread, label %33
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr %30, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 168
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call zeroext i1 @try_module_get(ptr noundef %39) #15
-  br i1 %40, label %41, label %.thread
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %30, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 168
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call zeroext i1 @try_module_get(ptr noundef %38) #15
+  br i1 %39, label %40, label %.thread
 
-41:                                               ; preds = %34
-  %42 = getelementptr i8, ptr %10, i64 424
-  %43 = tail call ptr @get_device(ptr noundef nonnull %42) #15
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %.thread
+40:                                               ; preds = %33
+  %41 = getelementptr i8, ptr %10, i64 424
+  %42 = tail call ptr @get_device(ptr noundef nonnull %41) #15
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %.thread
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %30, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 168
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8
-  tail call void @module_put(ptr noundef %50) #15
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %30, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 168
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %49 = load ptr, ptr %48, align 8
+  tail call void @module_put(ptr noundef %49) #15
   br label %.thread
 
-.thread:                                          ; preds = %26, %4, %45, %41, %34, %29
-  %51 = phi ptr [ null, %29 ], [ %30, %41 ], [ null, %34 ], [ null, %45 ], [ null, %4 ], [ null, %26 ]
-  %52 = load ptr, ptr %5, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %52, i64 noundef %7) #15
-  ret ptr %51
+.thread:                                          ; preds = %26, %4, %44, %40, %33, %29
+  %50 = phi ptr [ null, %29 ], [ %30, %40 ], [ null, %33 ], [ null, %44 ], [ null, %4 ], [ null, %26 ]
+  %51 = load ptr, ptr %5, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %51, i64 noundef %7) #15
+  ret ptr %50
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

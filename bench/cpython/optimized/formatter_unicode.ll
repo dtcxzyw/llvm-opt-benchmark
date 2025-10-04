@@ -188,9 +188,8 @@ define hidden i32 @_PyUnicode_FormatAdvancedWriter(ptr noundef %0, ptr noundef %
   br label %calc_padding.exit.i
 
 67:                                               ; preds = %._crit_edge.i
-  %68 = and i32 %47, -2
-  %or.cond.i.i = icmp eq i32 %68, 60
-  tail call void @llvm.assume(i1 %or.cond.i.i)
+  %68 = icmp eq i32 %47, 60
+  tail call void @llvm.assume(i1 %68)
   br label %calc_padding.exit.i
 
 calc_padding.exit.i:                              ; preds = %67, %64, %62
@@ -2222,9 +2221,8 @@ define hidden i32 @_PyComplex_FormatAdvancedWriter(ptr noundef %0, ptr noundef %
   br label %calc_padding.exit.i
 
 131:                                              ; preds = %120
-  %132 = and i32 %48, -2
-  %or.cond.i.i = icmp eq i32 %132, 60
-  call void @llvm.assume(i1 %or.cond.i.i)
+  %132 = icmp eq i32 %48, 60
+  call void @llvm.assume(i1 %132)
   br label %calc_padding.exit.i
 
 calc_padding.exit.i:                              ; preds = %131, %128, %126

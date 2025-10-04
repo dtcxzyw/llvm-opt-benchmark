@@ -9703,23 +9703,22 @@ define hidden void @_ZN14MacroAssembler6movptrE8Registerl(ptr noundef nonnull al
 5:                                                ; preds = %3
   %6 = trunc nuw i64 %2 to i32
   tail call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %6) #18
-  br label %13
+  br label %12
 
 7:                                                ; preds = %3
-  %8 = add i64 %2, 2147483648
-  %9 = icmp ult i64 %8, 4294967296
-  br i1 %9, label %10, label %12
+  %8 = icmp ugt i64 %2, -2147483649
+  br i1 %8, label %9, label %11
 
-10:                                               ; preds = %7
-  %11 = trunc nsw i64 %2 to i32
-  tail call void @_ZN9Assembler4movqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %11) #18
-  br label %13
+9:                                                ; preds = %7
+  %10 = trunc nsw i64 %2 to i32
+  tail call void @_ZN9Assembler4movqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %10) #18
+  br label %12
 
-12:                                               ; preds = %7
+11:                                               ; preds = %7
   tail call void @_ZN9Assembler5mov64E8Registerl(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i64 noundef %2) #18
-  br label %13
+  br label %12
 
-13:                                               ; preds = %10, %12, %5
+12:                                               ; preds = %9, %11, %5
   ret void
 }
 
@@ -18544,7 +18543,7 @@ define hidden void @_ZN14MacroAssembler29verify_secondary_supers_tableE8Register
   br label %_ZN14MacroAssembler6movptrE8Registerl.exit
 
 68:                                               ; preds = %7
-  %69 = icmp ult i64 add (i64 ptrtoint (ptr @.str.34 to i64), i64 2147483648), 4294967296
+  %69 = icmp ugt i64 ptrtoint (ptr @.str.34 to i64), -2147483649
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %68

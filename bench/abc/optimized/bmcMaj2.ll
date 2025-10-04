@@ -1418,8 +1418,7 @@ Abc_Clock.exit33:                                 ; preds = %607, %610
   br i1 %exitcond.not.i.i41, label %.lr.ph.preheader.i, label %.lr.ph.i.i40, !llvm.loop !62
 
 Maj_ManValue.exit.i:                              ; preds = %Abc_Clock.exit33
-  %notsub.i = add i32 %614, -1
-  %620 = icmp ult i32 %notsub.i, -2
+  %620 = icmp slt i32 %614, -1
   br label %._crit_edge.i34
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph.i.i40

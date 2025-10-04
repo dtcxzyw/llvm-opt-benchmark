@@ -564,51 +564,50 @@ intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i55
   br i1 %76, label %.critedge, label %77
 
 77:                                               ; preds = %68
-  %78 = or disjoint i64 %71, -16
-  %79 = icmp samesign ult i64 %78, -14
-  br i1 %79, label %80, label %.lr.ph.preheader.i
+  %78 = icmp ult i64 %70, 2305843009213693952
+  br i1 %78, label %79, label %.lr.ph.preheader.i
 
-80:                                               ; preds = %77
-  %81 = sub i64 %1, %66
-  %82 = zext i8 %74 to i64
-  %83 = icmp ule i64 %81, %82
+79:                                               ; preds = %77
+  %80 = sub i64 %1, %66
+  %81 = zext i8 %74 to i64
+  %82 = icmp ule i64 %80, %81
   br label %.critedge
 
 .lr.ph.preheader.i:                               ; preds = %77
-  %84 = zext i8 %75 to i64
-  %notmask.i = shl nsw i64 -1, %84
-  %85 = xor i64 %notmask.i, -1
-  %86 = tail call i8 @llvm.umax.i8(i8 %74, i8 1)
-  %umax.i = zext i8 %86 to i32
+  %83 = zext i8 %75 to i64
+  %notmask.i = shl nsw i64 -1, %83
+  %84 = xor i64 %notmask.i, -1
+  %85 = tail call i8 @llvm.umax.i8(i8 %74, i8 1)
+  %umax.i = zext i8 %85 to i32
   br label %.lr.ph.i58
 
-.lr.ph.i58:                                       ; preds = %90, %.lr.ph.preheader.i
-  %.02845.i = phi i32 [ %92, %90 ], [ 0, %.lr.ph.preheader.i ]
-  %.02944.i = phi i64 [ %89, %90 ], [ %66, %.lr.ph.preheader.i ]
-  %.03043.i = phi i64 [ %91, %90 ], [ %70, %.lr.ph.preheader.i ]
-  %87 = and i64 %.03043.i, %85
-  %88 = add i64 %.02944.i, 1
-  %89 = add i64 %88, %87
-  %.not.not.i.not.not.not.not.not = icmp uge i64 %89, %1
-  br i1 %.not.not.i.not.not.not.not.not, label %.split.loop.exit39.i, label %90
+.lr.ph.i58:                                       ; preds = %89, %.lr.ph.preheader.i
+  %.02845.i = phi i32 [ %91, %89 ], [ 0, %.lr.ph.preheader.i ]
+  %.02944.i = phi i64 [ %88, %89 ], [ %66, %.lr.ph.preheader.i ]
+  %.03043.i = phi i64 [ %90, %89 ], [ %70, %.lr.ph.preheader.i ]
+  %86 = and i64 %.03043.i, %84
+  %87 = add i64 %.02944.i, 1
+  %88 = add i64 %87, %86
+  %.not.not.i.not.not.not.not.not = icmp uge i64 %88, %1
+  br i1 %.not.not.i.not.not.not.not.not, label %.split.loop.exit39.i, label %89
 
-90:                                               ; preds = %.lr.ph.i58
-  %91 = lshr i64 %.03043.i, %84
-  %92 = add nuw nsw i32 %.02845.i, 1
-  %exitcond.not.i = icmp eq i32 %92, %umax.i
+89:                                               ; preds = %.lr.ph.i58
+  %90 = lshr i64 %.03043.i, %83
+  %91 = add nuw nsw i32 %.02845.i, 1
+  %exitcond.not.i = icmp eq i32 %91, %umax.i
   br i1 %exitcond.not.i, label %.split.loop.exit.i, label %.lr.ph.i58, !llvm.loop !12
 
 .split.loop.exit39.i:                             ; preds = %.lr.ph.i58
-  %93 = icmp eq i64 %89, %1
+  %92 = icmp eq i64 %88, %1
   br label %.split.loop.exit.i
 
-.split.loop.exit.i:                               ; preds = %90, %.split.loop.exit39.i
-  %.2.i = phi i1 [ %93, %.split.loop.exit39.i ], [ undef, %90 ]
+.split.loop.exit.i:                               ; preds = %89, %.split.loop.exit39.i
+  %.2.i = phi i1 [ %92, %.split.loop.exit39.i ], [ undef, %89 ]
   %spec.select.i = and i1 %.not.not.i.not.not.not.not.not, %.2.i
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %intset_binsrch_uint64.exit54, %._crit_edge, %.split.loop.exit.i, %80, %68, %62, %intset_binsrch_leaf.exit, %23, %intset_binsrch_uint64.exit, %18
-  %.0 = phi i1 [ %22, %18 ], [ false, %intset_binsrch_uint64.exit ], [ false, %23 ], [ false, %intset_binsrch_leaf.exit ], [ true, %62 ], [ %83, %80 ], [ false, %68 ], [ %spec.select.i, %.split.loop.exit.i ], [ false, %._crit_edge ], [ false, %intset_binsrch_uint64.exit54 ], [ false, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %intset_binsrch_uint64.exit54, %._crit_edge, %.split.loop.exit.i, %79, %68, %62, %intset_binsrch_leaf.exit, %23, %intset_binsrch_uint64.exit, %18
+  %.0 = phi i1 [ %22, %18 ], [ false, %intset_binsrch_uint64.exit ], [ false, %23 ], [ false, %intset_binsrch_leaf.exit ], [ true, %62 ], [ %82, %79 ], [ false, %68 ], [ %spec.select.i, %.split.loop.exit.i ], [ false, %._crit_edge ], [ false, %intset_binsrch_uint64.exit54 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

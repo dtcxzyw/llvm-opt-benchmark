@@ -207,18 +207,16 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
   br label %8
 
 6:                                                ; preds = %2
-  %7 = add i128 %1, 9223372036854775808
-  %or.cond1 = icmp ult i128 %7, 18446744073709551616
-  br i1 %or.cond1, label %9, label %10
+  %7 = icmp ugt i128 %1, -9223372036854775809
+  br i1 %7, label %9, label %10
 
 8:                                                ; preds = %10, %9, %5
   ret void
 
 9:                                                ; preds = %6
-  %.lobit = lshr i64 %4, 63
   store i8 2, ptr %0, align 8
   %.sroa.48.sroa.3.0..sroa.48.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.lobit, ptr %.sroa.48.sroa.3.0..sroa.48.0..sroa_idx.sroa_idx, align 8
+  store i64 1, ptr %.sroa.48.sroa.3.0..sroa.48.0..sroa_idx.sroa_idx, align 8
   %.sroa.48.sroa.4.0..sroa.48.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %4, ptr %.sroa.48.sroa.4.0..sroa.48.0..sroa_idx.sroa_idx, align 8
   br label %8

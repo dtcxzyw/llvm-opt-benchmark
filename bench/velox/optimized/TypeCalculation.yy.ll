@@ -1581,49 +1581,49 @@ yyerrlab1:                                        ; preds = %_ZNSt6vectorIN8face
   %180 = and i64 %178, 1108856939674073
   %cmp395.not632 = icmp ne i64 %180, 0
   %or.cond554.not556633 = and i1 %cmp.i279.not631, %cmp395.not632
-  %cmp401634 = icmp eq i8 %177, 0
-  %or.cond555635 = and i1 %or.cond554.not556633, %cmp401634
-  br i1 %or.cond555635, label %for.end, label %if.end410
+  %181 = icmp eq i8 %177, 0
+  %or.cond555634 = and i1 %or.cond554.not556633, %181
+  br i1 %or.cond555634, label %for.end, label %if.end410
 
 if.end410:                                        ; preds = %yyerrlab1, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i291
-  %sub.ptr.sub.i.i.i277636 = phi i64 [ %sub.ptr.sub.i.i.i277, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i291 ], [ %sub.ptr.sub.i.i.i277628, %yyerrlab1 ]
-  %181 = phi ptr [ %186, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i291 ], [ %175, %yyerrlab1 ]
-  %182 = phi ptr [ %185, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i291 ], [ %174, %yyerrlab1 ]
-  %cmp413 = icmp eq i64 %sub.ptr.sub.i.i.i277636, 48
+  %sub.ptr.sub.i.i.i277635 = phi i64 [ %sub.ptr.sub.i.i.i277, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i291 ], [ %sub.ptr.sub.i.i.i277628, %yyerrlab1 ]
+  %182 = phi ptr [ %187, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i291 ], [ %175, %yyerrlab1 ]
+  %183 = phi ptr [ %186, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i291 ], [ %174, %yyerrlab1 ]
+  %cmp413 = icmp eq i64 %sub.ptr.sub.i.i.i277635, 48
   br i1 %cmp413, label %if.end429, label %for.body.i.i287.preheader
 
 for.body.i.i287.preheader:                        ; preds = %if.end410
-  %incdec.ptr.i.i.i289 = getelementptr inbounds i8, ptr %182, i64 -48
+  %incdec.ptr.i.i.i289 = getelementptr inbounds i8, ptr %183, i64 -48
   store ptr %incdec.ptr.i.i.i289, ptr %_M_finish.i.i.i, align 8
-  %183 = load i8, ptr %incdec.ptr.i.i.i289, align 1
-  %184 = and i8 %183, -9
-  %cond.i.i.i.i.i.i.i.i290 = icmp eq i8 %184, 2
+  %184 = load i8, ptr %incdec.ptr.i.i.i289, align 1
+  %185 = and i8 %184, -9
+  %cond.i.i.i.i.i.i.i.i290 = icmp eq i8 %185, 2
   br i1 %cond.i.i.i.i.i.i.i.i290, label %sw.bb2.i.i.i.i.i.i.i.i294, label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i291
 
 sw.bb2.i.i.i.i.i.i.i.i294:                        ; preds = %for.body.i.i287.preheader
-  %value3.i.i.i.i.i.i.i.i295 = getelementptr inbounds i8, ptr %182, i64 -32
+  %value3.i.i.i.i.i.i.i.i295 = getelementptr inbounds i8, ptr %183, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i.i.i.i.i295) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i291
 
 _ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i291: ; preds = %sw.bb2.i.i.i.i.i.i.i.i294, %for.body.i.i287.preheader
   store i8 0, ptr %incdec.ptr.i.i.i289, align 1
-  %185 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %186 = load ptr, ptr %yystack_, align 8
-  %sub.ptr.lhs.cast.i.i.i275 = ptrtoint ptr %185 to i64
-  %sub.ptr.rhs.cast.i.i.i276 = ptrtoint ptr %186 to i64
+  %186 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %187 = load ptr, ptr %yystack_, align 8
+  %sub.ptr.lhs.cast.i.i.i275 = ptrtoint ptr %186 to i64
+  %sub.ptr.rhs.cast.i.i.i276 = ptrtoint ptr %187 to i64
   %sub.ptr.sub.i.i.i277 = sub i64 %sub.ptr.lhs.cast.i.i.i275, %sub.ptr.rhs.cast.i.i.i276
-  %187 = getelementptr i8, ptr %186, i64 %sub.ptr.sub.i.i.i277
-  %add.ptr.i.i278 = getelementptr i8, ptr %187, i64 -48
-  %188 = load i8, ptr %add.ptr.i.i278, align 16
-  %idxprom389480 = zext nneg i8 %188 to i64
-  %189 = shl nuw i64 1, %idxprom389480
-  %190 = and i64 %189, 3393093420254754
-  %cmp.i279.not = icmp eq i64 %190, 0
-  %191 = and i64 %189, 1108856939674073
-  %cmp395.not = icmp ne i64 %191, 0
+  %188 = getelementptr i8, ptr %187, i64 %sub.ptr.sub.i.i.i277
+  %add.ptr.i.i278 = getelementptr i8, ptr %188, i64 -48
+  %189 = load i8, ptr %add.ptr.i.i278, align 16
+  %idxprom389480 = zext nneg i8 %189 to i64
+  %190 = shl nuw i64 1, %idxprom389480
+  %191 = and i64 %190, 3393093420254754
+  %cmp.i279.not = icmp eq i64 %191, 0
+  %192 = and i64 %190, 1108856939674073
+  %cmp395.not = icmp ne i64 %192, 0
   %or.cond554.not556 = and i1 %cmp.i279.not, %cmp395.not
-  %cmp401 = icmp eq i8 %188, 0
-  %or.cond555 = and i1 %or.cond554.not556, %cmp401
+  %193 = icmp eq i8 %189, 0
+  %or.cond555 = and i1 %or.cond554.not556, %193
   br i1 %or.cond555, label %for.end, label %if.end410, !llvm.loop !7
 
 for.end:                                          ; preds = %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i291, %yyerrlab1
@@ -1636,9 +1636,9 @@ invoke.cont420:                                   ; preds = %for.end
           to label %invoke.cont424 unwind label %lpad423
 
 invoke.cont424:                                   ; preds = %invoke.cont420
-  %192 = load i8, ptr %error_token, align 16
-  %193 = and i8 %192, -9
-  %cond.i.i.i300 = icmp eq i8 %193, 2
+  %194 = load i8, ptr %error_token, align 16
+  %195 = and i8 %194, -9
+  %cond.i.i.i300 = icmp eq i8 %195, 2
   br i1 %cond.i.i.i300, label %sw.bb2.i.i.i301, label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit303
 
 sw.bb2.i.i.i301:                                  ; preds = %invoke.cont424
@@ -1650,12 +1650,12 @@ _ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit303: 
   br label %yynewstate.outer.backedge
 
 lpad423:                                          ; preds = %invoke.cont420
-  %194 = landingpad { ptr, i32 }
+  %196 = landingpad { ptr, i32 }
           catch ptr null
-  %195 = extractvalue { ptr, i32 } %194, 0
-  %196 = load i8, ptr %error_token, align 16
-  %197 = and i8 %196, -9
-  %cond.i.i.i304 = icmp eq i8 %197, 2
+  %197 = extractvalue { ptr, i32 } %196, 0
+  %198 = load i8, ptr %error_token, align 16
+  %199 = and i8 %198, -9
+  %cond.i.i.i304 = icmp eq i8 %199, 2
   br i1 %cond.i.i.i304, label %sw.bb2.i.i.i305, label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit307
 
 sw.bb2.i.i.i305:                                  ; preds = %lpad423
@@ -1667,19 +1667,19 @@ _ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit307: 
   br label %catch437
 
 catch437:                                         ; preds = %lpad15, %lpad19, %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit307, %lpad368, %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit258, %lpad.body
-  %exn.slot.0 = phi ptr [ %195, %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit307 ], [ %13, %lpad.body ], [ %169, %lpad368 ], [ %exn.slot.1, %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit258 ], [ %27, %lpad19 ], [ %22, %lpad15 ]
-  %198 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
-  %199 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %200 = load ptr, ptr %yystack_, align 8
-  %sub.ptr.lhs.cast.i.i347431 = ptrtoint ptr %199 to i64
-  %sub.ptr.rhs.cast.i.i348432 = ptrtoint ptr %200 to i64
+  %exn.slot.0 = phi ptr [ %197, %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit307 ], [ %13, %lpad.body ], [ %169, %lpad368 ], [ %exn.slot.1, %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit258 ], [ %27, %lpad19 ], [ %22, %lpad15 ]
+  %200 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
+  %201 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %202 = load ptr, ptr %yystack_, align 8
+  %sub.ptr.lhs.cast.i.i347431 = ptrtoint ptr %201 to i64
+  %sub.ptr.rhs.cast.i.i348432 = ptrtoint ptr %202 to i64
   %sub.ptr.sub.i.i349433 = sub i64 %sub.ptr.lhs.cast.i.i347431, %sub.ptr.rhs.cast.i.i348432
   %cmp447434 = icmp sgt i64 %sub.ptr.sub.i.i349433, 48
   br i1 %cmp447434, label %while.body448, label %while.end453
 
 if.end429:                                        ; preds = %if.then373, %yynewstate.outer, %_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit57, %if.end410
-  %201 = phi ptr [ %181, %if.end410 ], [ %37, %_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit57 ], [ %41, %if.then373 ], [ %10, %yynewstate.outer ]
-  %202 = phi ptr [ %182, %if.end410 ], [ %36, %_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit57 ], [ %40, %if.then373 ], [ %9, %yynewstate.outer ]
+  %203 = phi ptr [ %182, %if.end410 ], [ %37, %_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit57 ], [ %41, %if.then373 ], [ %10, %yynewstate.outer ]
+  %204 = phi ptr [ %183, %if.end410 ], [ %36, %_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit57 ], [ %40, %if.then373 ], [ %9, %yynewstate.outer ]
   %yyresult.0383 = phi i32 [ 1, %if.end410 ], [ 0, %_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit57 ], [ 1, %if.then373 ], [ 0, %yynewstate.outer ]
   %yylen.4381 = phi i32 [ %yylen.1, %if.end410 ], [ %yylen.0.ph, %_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit57 ], [ %yylen.0.ph, %yynewstate.outer ], [ %yylen.0.ph, %if.then373 ]
   %cmp2.i.i310 = icmp sgt i32 %yylen.4381, 0
@@ -1691,16 +1691,16 @@ for.body.lr.ph.i.i311:                            ; preds = %if.end429
 
 for.body.i.i314:                                  ; preds = %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i318, %for.body.lr.ph.i.i311
   %n.addr.03.i.i315 = phi i64 [ %conv.i312, %for.body.lr.ph.i.i311 ], [ %dec.i.i319, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i318 ]
-  %203 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i316 = getelementptr inbounds i8, ptr %203, i64 -48
+  %205 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %incdec.ptr.i.i.i316 = getelementptr inbounds i8, ptr %205, i64 -48
   store ptr %incdec.ptr.i.i.i316, ptr %_M_finish.i.i.i, align 8
-  %204 = load i8, ptr %incdec.ptr.i.i.i316, align 1
-  %205 = and i8 %204, -9
-  %cond.i.i.i.i.i.i.i.i317 = icmp eq i8 %205, 2
+  %206 = load i8, ptr %incdec.ptr.i.i.i316, align 1
+  %207 = and i8 %206, -9
+  %cond.i.i.i.i.i.i.i.i317 = icmp eq i8 %207, 2
   br i1 %cond.i.i.i.i.i.i.i.i317, label %sw.bb2.i.i.i.i.i.i.i.i321, label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i318
 
 sw.bb2.i.i.i.i.i.i.i.i321:                        ; preds = %for.body.i.i314
-  %value3.i.i.i.i.i.i.i.i322 = getelementptr inbounds i8, ptr %203, i64 -32
+  %value3.i.i.i.i.i.i.i.i322 = getelementptr inbounds i8, ptr %205, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i.i.i.i.i322) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i318
 
@@ -1716,64 +1716,64 @@ _ZN8facebook5velox10expression9calculate6Parser6yypop_Ei.exit323.loopexit: ; pre
   br label %_ZN8facebook5velox10expression9calculate6Parser6yypop_Ei.exit323
 
 _ZN8facebook5velox10expression9calculate6Parser6yypop_Ei.exit323: ; preds = %_ZN8facebook5velox10expression9calculate6Parser6yypop_Ei.exit323.loopexit, %if.end429
-  %206 = phi ptr [ %.pre473, %_ZN8facebook5velox10expression9calculate6Parser6yypop_Ei.exit323.loopexit ], [ %201, %if.end429 ]
-  %207 = phi ptr [ %.pre, %_ZN8facebook5velox10expression9calculate6Parser6yypop_Ei.exit323.loopexit ], [ %202, %if.end429 ]
-  %sub.ptr.lhs.cast.i.i325435 = ptrtoint ptr %207 to i64
-  %sub.ptr.rhs.cast.i.i326436 = ptrtoint ptr %206 to i64
+  %208 = phi ptr [ %.pre473, %_ZN8facebook5velox10expression9calculate6Parser6yypop_Ei.exit323.loopexit ], [ %203, %if.end429 ]
+  %209 = phi ptr [ %.pre, %_ZN8facebook5velox10expression9calculate6Parser6yypop_Ei.exit323.loopexit ], [ %204, %if.end429 ]
+  %sub.ptr.lhs.cast.i.i325435 = ptrtoint ptr %209 to i64
+  %sub.ptr.rhs.cast.i.i326436 = ptrtoint ptr %208 to i64
   %sub.ptr.sub.i.i327437 = sub i64 %sub.ptr.lhs.cast.i.i325435, %sub.ptr.rhs.cast.i.i326436
   %cmp432438 = icmp sgt i64 %sub.ptr.sub.i.i327437, 48
   br i1 %cmp432438, label %while.body, label %cleanup457
 
 while.body:                                       ; preds = %_ZN8facebook5velox10expression9calculate6Parser6yypop_Ei.exit323, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i340
-  %208 = phi ptr [ %211, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i340 ], [ %207, %_ZN8facebook5velox10expression9calculate6Parser6yypop_Ei.exit323 ]
-  %incdec.ptr.i.i.i338 = getelementptr inbounds i8, ptr %208, i64 -48
+  %210 = phi ptr [ %213, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i340 ], [ %209, %_ZN8facebook5velox10expression9calculate6Parser6yypop_Ei.exit323 ]
+  %incdec.ptr.i.i.i338 = getelementptr inbounds i8, ptr %210, i64 -48
   store ptr %incdec.ptr.i.i.i338, ptr %_M_finish.i.i.i, align 8
-  %209 = load i8, ptr %incdec.ptr.i.i.i338, align 1
-  %210 = and i8 %209, -9
-  %cond.i.i.i.i.i.i.i.i339 = icmp eq i8 %210, 2
+  %211 = load i8, ptr %incdec.ptr.i.i.i338, align 1
+  %212 = and i8 %211, -9
+  %cond.i.i.i.i.i.i.i.i339 = icmp eq i8 %212, 2
   br i1 %cond.i.i.i.i.i.i.i.i339, label %sw.bb2.i.i.i.i.i.i.i.i343, label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i340
 
 sw.bb2.i.i.i.i.i.i.i.i343:                        ; preds = %while.body
-  %value3.i.i.i.i.i.i.i.i344 = getelementptr inbounds i8, ptr %208, i64 -32
+  %value3.i.i.i.i.i.i.i.i344 = getelementptr inbounds i8, ptr %210, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i.i.i.i.i344) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i340
 
 _ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i340: ; preds = %sw.bb2.i.i.i.i.i.i.i.i343, %while.body
   store i8 0, ptr %incdec.ptr.i.i.i338, align 1
-  %211 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %212 = load ptr, ptr %yystack_, align 8
-  %sub.ptr.lhs.cast.i.i325 = ptrtoint ptr %211 to i64
-  %sub.ptr.rhs.cast.i.i326 = ptrtoint ptr %212 to i64
+  %213 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %214 = load ptr, ptr %yystack_, align 8
+  %sub.ptr.lhs.cast.i.i325 = ptrtoint ptr %213 to i64
+  %sub.ptr.rhs.cast.i.i326 = ptrtoint ptr %214 to i64
   %sub.ptr.sub.i.i327 = sub i64 %sub.ptr.lhs.cast.i.i325, %sub.ptr.rhs.cast.i.i326
   %cmp432 = icmp sgt i64 %sub.ptr.sub.i.i327, 48
   br i1 %cmp432, label %while.body, label %cleanup457, !llvm.loop !8
 
 lpad441:                                          ; preds = %while.end453
-  %213 = landingpad { ptr, i32 }
+  %215 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont455 unwind label %terminate.lpad
 
 while.body448:                                    ; preds = %catch437, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i362
-  %214 = phi ptr [ %217, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i362 ], [ %199, %catch437 ]
-  %incdec.ptr.i.i.i360 = getelementptr inbounds i8, ptr %214, i64 -48
+  %216 = phi ptr [ %219, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i362 ], [ %201, %catch437 ]
+  %incdec.ptr.i.i.i360 = getelementptr inbounds i8, ptr %216, i64 -48
   store ptr %incdec.ptr.i.i.i360, ptr %_M_finish.i.i.i, align 8
-  %215 = load i8, ptr %incdec.ptr.i.i.i360, align 1
-  %216 = and i8 %215, -9
-  %cond.i.i.i.i.i.i.i.i361 = icmp eq i8 %216, 2
+  %217 = load i8, ptr %incdec.ptr.i.i.i360, align 1
+  %218 = and i8 %217, -9
+  %cond.i.i.i.i.i.i.i.i361 = icmp eq i8 %218, 2
   br i1 %cond.i.i.i.i.i.i.i.i361, label %sw.bb2.i.i.i.i.i.i.i.i365, label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i362
 
 sw.bb2.i.i.i.i.i.i.i.i365:                        ; preds = %while.body448
-  %value3.i.i.i.i.i.i.i.i366 = getelementptr inbounds i8, ptr %214, i64 -32
+  %value3.i.i.i.i.i.i.i.i366 = getelementptr inbounds i8, ptr %216, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 16 dereferenceable(32) %value3.i.i.i.i.i.i.i.i366) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i362
 
 _ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i362: ; preds = %sw.bb2.i.i.i.i.i.i.i.i365, %while.body448
   store i8 0, ptr %incdec.ptr.i.i.i360, align 1
-  %217 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %218 = load ptr, ptr %yystack_, align 8
-  %sub.ptr.lhs.cast.i.i347 = ptrtoint ptr %217 to i64
-  %sub.ptr.rhs.cast.i.i348 = ptrtoint ptr %218 to i64
+  %219 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %220 = load ptr, ptr %yystack_, align 8
+  %sub.ptr.lhs.cast.i.i347 = ptrtoint ptr %219 to i64
+  %sub.ptr.rhs.cast.i.i348 = ptrtoint ptr %220 to i64
   %sub.ptr.sub.i.i349 = sub i64 %sub.ptr.lhs.cast.i.i347, %sub.ptr.rhs.cast.i.i348
   %cmp447 = icmp sgt i64 %sub.ptr.sub.i.i349, 48
   br i1 %cmp447, label %while.body448, label %while.end453, !llvm.loop !9
@@ -1783,8 +1783,8 @@ while.end453:                                     ; preds = %_ZNSt6vectorIN8face
           to label %unreachable unwind label %lpad441
 
 invoke.cont455:                                   ; preds = %lpad441
-  %219 = load i32, ptr %yyla, align 16
-  %cond.i.i.i368 = icmp eq i32 %219, 11
+  %221 = load i32, ptr %yyla, align 16
+  %cond.i.i.i368 = icmp eq i32 %221, 11
   br i1 %cond.i.i.i368, label %sw.bb2.i.i.i369, label %_ZN8facebook5velox10expression9calculate6Parser11symbol_typeD2Ev.exit
 
 sw.bb2.i.i.i369:                                  ; preds = %invoke.cont455
@@ -1792,12 +1792,12 @@ sw.bb2.i.i.i369:                                  ; preds = %invoke.cont455
   br label %_ZN8facebook5velox10expression9calculate6Parser11symbol_typeD2Ev.exit
 
 _ZN8facebook5velox10expression9calculate6Parser11symbol_typeD2Ev.exit: ; preds = %invoke.cont455, %sw.bb2.i.i.i369
-  resume { ptr, i32 } %213
+  resume { ptr, i32 } %215
 
 cleanup457:                                       ; preds = %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i340, %_ZN8facebook5velox10expression9calculate6Parser6yypop_Ei.exit323
   %retval.0 = phi i32 [ %yyresult.0383, %_ZN8facebook5velox10expression9calculate6Parser6yypop_Ei.exit323 ], [ %yyresult.0383, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i340 ], [ undef, %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit ]
-  %220 = load i32, ptr %yyla, align 16
-  %cond.i.i.i371 = icmp eq i32 %220, 11
+  %222 = load i32, ptr %yyla, align 16
+  %cond.i.i.i371 = icmp eq i32 %222, 11
   br i1 %cond.i.i.i371, label %sw.bb2.i.i.i372, label %_ZN8facebook5velox10expression9calculate6Parser11symbol_typeD2Ev.exit374
 
 sw.bb2.i.i.i372:                                  ; preds = %cleanup457
@@ -1808,10 +1808,10 @@ _ZN8facebook5velox10expression9calculate6Parser11symbol_typeD2Ev.exit374: ; pred
   ret i32 %retval.0
 
 terminate.lpad:                                   ; preds = %lpad441, %lpad356, %lpad19
-  %221 = landingpad { ptr, i32 }
+  %223 = landingpad { ptr, i32 }
           catch ptr null
-  %222 = extractvalue { ptr, i32 } %221, 0
-  call void @__clang_call_terminate(ptr %222) #25
+  %224 = extractvalue { ptr, i32 } %223, 0
+  call void @__clang_call_terminate(ptr %224) #25
   unreachable
 
 unreachable:                                      ; preds = %while.end453

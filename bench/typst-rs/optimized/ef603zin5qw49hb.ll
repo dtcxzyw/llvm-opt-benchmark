@@ -2895,9 +2895,8 @@ define hidden noundef zeroext i1 @_ZN12typst_syntax4node10SyntaxNode9numberize17
 define hidden noundef zeroext i1 @_ZN12typst_syntax4node10SyntaxNode7is_leaf17hf8e544c486f7c411E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !range !16, !noundef !7
-  %4 = and i8 %3, -2
-  %5 = icmp ne i8 %4, -126
-  ret i1 %5
+  %4 = icmp ult i8 %3, -126
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -5856,8 +5855,8 @@ define void @_ZN12typst_syntax4node10LinkedNode13leftmost_leaf17hc1c9e18beb13ea3
   %6 = load ptr, ptr %1, align 8, !alias.scope !927, !nonnull !7, !align !708, !noundef !7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 8, !range !16, !alias.scope !932, !noundef !7
-  %9 = icmp ugt i8 %8, -127
-  br i1 %9, label %_ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
+  %9 = icmp ult i8 %8, -126
+  br i1 %9, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit, label %_ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread
 
 _ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread: ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5870,7 +5869,7 @@ _ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread: ; 
   br i1 %14, label %_ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread.._crit_edge_crit_edge, label %.lr.ph
 
 _ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread.._crit_edge_crit_edge: ; preds = %_ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread
-  %.pre15 = load ptr, ptr %5, align 8, !alias.scope !944
+  %.pre14 = load ptr, ptr %5, align 8, !alias.scope !944
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread
@@ -5880,7 +5879,7 @@ _ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread.._c
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.pre = load i64, ptr %15, align 8, !alias.scope !951, !noalias !942
-  %.pre14 = load i64, ptr %16, align 8, !alias.scope !953, !noalias !956
+  %.pre13 = load i64, ptr %16, align 8, !alias.scope !953, !noalias !956
   br label %32
 
 _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit: ; preds = %2
@@ -5930,7 +5929,7 @@ _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit: ; preds = %2
   ret void
 
 32:                                               ; preds = %.lr.ph, %97
-  %33 = phi i64 [ %.pre14, %.lr.ph ], [ %61, %97 ]
+  %33 = phi i64 [ %.pre13, %.lr.ph ], [ %61, %97 ]
   %34 = phi i64 [ %.pre, %.lr.ph ], [ %37, %97 ]
   %35 = phi ptr [ %13, %.lr.ph ], [ %36, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !966)
@@ -6016,7 +6015,7 @@ _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit.i.i: ; preds = %
   br label %68
 
 ._crit_edge:                                      ; preds = %97, %_ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread.._crit_edge_crit_edge
-  %69 = phi ptr [ %.pre15, %_ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread.._crit_edge_crit_edge ], [ %62, %97 ]
+  %69 = phi ptr [ %.pre14, %_ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread.._crit_edge_crit_edge ], [ %62, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !990)
   call void @llvm.experimental.noalias.scope.decl(metadata !991)
   call void @llvm.experimental.noalias.scope.decl(metadata !992)
@@ -6512,8 +6511,8 @@ define void @_ZN12typst_syntax4node10LinkedNode14rightmost_leaf17h14113f3935e47a
   %6 = load ptr, ptr %1, align 8, !alias.scope !1112, !nonnull !7, !align !708, !noundef !7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 8, !range !16, !alias.scope !1117, !noundef !7
-  %9 = icmp ugt i8 %8, -127
-  br i1 %9, label %_ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
+  %9 = icmp ult i8 %8, -126
+  br i1 %9, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit, label %_ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread
 
 _ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread: ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -6523,7 +6522,7 @@ _ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread: ; 
   %12 = load ptr, ptr %11, align 8, !alias.scope !1120, !noalias !1127, !nonnull !7, !noundef !7
   %13 = load ptr, ptr %10, align 8, !alias.scope !1120, !noalias !1127, !nonnull !7, !noundef !7
   %14 = icmp eq ptr %13, %12
-  %.pre13 = load ptr, ptr %5, align 8, !alias.scope !1129
+  %.pre12 = load ptr, ptr %5, align 8, !alias.scope !1129
   br i1 %14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread
@@ -6534,7 +6533,7 @@ _ZN12typst_syntax4kind10SyntaxKind9is_trivia17h600c2baf858395b5E.exit.thread: ; 
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.pre = load i64, ptr %15, align 8, !alias.scope !1138, !noalias !1127
   %17 = ptrtoint ptr %13 to i64
-  %18 = icmp ne ptr %.pre13, null
+  %18 = icmp ne ptr %.pre12, null
   br label %33
 
 _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit: ; preds = %2
@@ -6641,11 +6640,11 @@ _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit.i.i: ; preds = %
   %64 = sub i64 %63, %.0.i.i.i
   store i64 %64, ptr %16, align 8, !alias.scope !1172, !noalias !1173
   call void @llvm.assume(i1 %18)
-  %65 = load i64, ptr %.pre13, align 8, !noalias !1174, !noundef !7
+  %65 = load i64, ptr %.pre12, align 8, !noalias !1174, !noundef !7
   %66 = icmp ne i64 %65, 0
   call void @llvm.assume(i1 %66)
   %67 = add i64 %65, 1
-  store i64 %67, ptr %.pre13, align 8, !noalias !1174
+  store i64 %67, ptr %.pre12, align 8, !noalias !1174
   %68 = icmp eq i64 %67, 0
   br i1 %68, label %69, label %"_ZN108_$LT$typst_syntax..node..LinkedChildren$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h62c891e60edf2094E.exit"
 
@@ -6673,16 +6672,16 @@ _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit.i.i: ; preds = %
   call void @llvm.experimental.noalias.scope.decl(metadata !1176)
   call void @llvm.experimental.noalias.scope.decl(metadata !1177)
   call void @llvm.experimental.noalias.scope.decl(metadata !1178)
-  %71 = load i64, ptr %.pre13, align 8, !noalias !1129, !noundef !7
+  %71 = load i64, ptr %.pre12, align 8, !noalias !1129, !noundef !7
   %72 = add i64 %71, -1
-  store i64 %72, ptr %.pre13, align 8, !noalias !1129
+  store i64 %72, ptr %.pre12, align 8, !noalias !1129
   %73 = icmp eq i64 %72, 0
   br i1 %73, label %74, label %"_ZN4core3ptr93drop_in_place$LT$core..iter..adapters..rev..Rev$LT$typst_syntax..node..LinkedChildren$GT$$GT$17hf9541f72bade571bE.exit"
 
 74:                                               ; preds = %._crit_edge
-  %75 = getelementptr inbounds nuw i8, ptr %.pre13, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.pre12, i64 16
   call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %75), !noalias !1129
-  %76 = getelementptr inbounds nuw i8, ptr %.pre13, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.pre12, i64 8
   %77 = load i64, ptr %76, align 8, !noalias !1129, !noundef !7
   %78 = add i64 %77, -1
   store i64 %78, ptr %76, align 8, !noalias !1129
@@ -6690,7 +6689,7 @@ _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit.i.i: ; preds = %
   br i1 %79, label %80, label %"_ZN4core3ptr93drop_in_place$LT$core..iter..adapters..rev..Rev$LT$typst_syntax..node..LinkedChildren$GT$$GT$17hf9541f72bade571bE.exit"
 
 80:                                               ; preds = %74
-  call void @__rust_dealloc(ptr noundef nonnull %.pre13, i64 noundef 48, i64 noundef 8) #37, !noalias !1179
+  call void @__rust_dealloc(ptr noundef nonnull %.pre12, i64 noundef 48, i64 noundef 8) #37, !noalias !1179
   br label %"_ZN4core3ptr93drop_in_place$LT$core..iter..adapters..rev..Rev$LT$typst_syntax..node..LinkedChildren$GT$$GT$17hf9541f72bade571bE.exit"
 
 "_ZN4core3ptr93drop_in_place$LT$core..iter..adapters..rev..Rev$LT$typst_syntax..node..LinkedChildren$GT$$GT$17hf9541f72bade571bE.exit": ; preds = %._crit_edge, %74, %80
@@ -6701,7 +6700,7 @@ _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit.i.i: ; preds = %
 "_ZN108_$LT$typst_syntax..node..LinkedChildren$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h62c891e60edf2094E.exit": ; preds = %_ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %35, ptr %4, align 8
-  store ptr %.pre13, ptr %.sroa.8.0..sroa_idx, align 8
+  store ptr %.pre12, ptr %.sroa.8.0..sroa_idx, align 8
   store i64 %39, ptr %.sroa.9.0..sroa_idx, align 8
   store i64 %64, ptr %.sroa.10.0..sroa_idx, align 8
   invoke void @_ZN12typst_syntax4node10LinkedNode14rightmost_leaf17h14113f3935e47a63E(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
@@ -6725,16 +6724,16 @@ _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit.i.i: ; preds = %
 
 86:                                               ; preds = %85
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %87 = load i64, ptr %.pre13, align 8, !noalias !1180, !noundef !7
+  %87 = load i64, ptr %.pre12, align 8, !noalias !1180, !noundef !7
   %88 = add i64 %87, -1
-  store i64 %88, ptr %.pre13, align 8, !noalias !1180
+  store i64 %88, ptr %.pre12, align 8, !noalias !1180
   %89 = icmp eq i64 %88, 0
   br i1 %89, label %90, label %"_ZN4core3ptr93drop_in_place$LT$core..iter..adapters..rev..Rev$LT$typst_syntax..node..LinkedChildren$GT$$GT$17hf9541f72bade571bE.exit4"
 
 90:                                               ; preds = %86
-  %91 = getelementptr inbounds nuw i8, ptr %.pre13, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.pre12, i64 16
   call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %91), !noalias !1180
-  %92 = getelementptr inbounds nuw i8, ptr %.pre13, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.pre12, i64 8
   %93 = load i64, ptr %92, align 8, !noalias !1180, !noundef !7
   %94 = add i64 %93, -1
   store i64 %94, ptr %92, align 8, !noalias !1180
@@ -6742,7 +6741,7 @@ _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit.i.i: ; preds = %
   br i1 %95, label %96, label %"_ZN4core3ptr93drop_in_place$LT$core..iter..adapters..rev..Rev$LT$typst_syntax..node..LinkedChildren$GT$$GT$17hf9541f72bade571bE.exit4"
 
 96:                                               ; preds = %90
-  call void @__rust_dealloc(ptr noundef nonnull %.pre13, i64 noundef 48, i64 noundef 8) #37, !noalias !1189
+  call void @__rust_dealloc(ptr noundef nonnull %.pre12, i64 noundef 48, i64 noundef 8) #37, !noalias !1189
   br label %"_ZN4core3ptr93drop_in_place$LT$core..iter..adapters..rev..Rev$LT$typst_syntax..node..LinkedChildren$GT$$GT$17hf9541f72bade571bE.exit4"
 
 "_ZN4core3ptr93drop_in_place$LT$core..iter..adapters..rev..Rev$LT$typst_syntax..node..LinkedChildren$GT$$GT$17hf9541f72bade571bE.exit4": ; preds = %86, %90, %96

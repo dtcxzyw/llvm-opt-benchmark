@@ -295,9 +295,8 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %38, %3
 42:                                               ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 0, ptr %12, align 1, !tbaa !417
-  %43 = add i32 %.sroa.02.0.i.i, 1
-  %or.cond.i = icmp ult i32 %43, 2
-  br i1 %or.cond.i, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread111, label %44
+  %43 = icmp eq i32 %.sroa.02.0.i.i, -1
+  br i1 %43, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread111, label %44
 
 44:                                               ; preds = %42
   %45 = icmp slt i32 %.sroa.02.0.i.i, 0
@@ -823,9 +822,8 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %25, %2
 29:                                               ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !417
-  %30 = add i32 %.sroa.02.0.i.i, 1
-  %or.cond.i = icmp ult i32 %30, 2
-  br i1 %or.cond.i, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread45, label %31
+  %30 = icmp eq i32 %.sroa.02.0.i.i, -1
+  br i1 %30, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread45, label %31
 
 31:                                               ; preds = %29
   %32 = icmp slt i32 %.sroa.02.0.i.i, 0
@@ -1810,9 +1808,8 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %22, %2
 26:                                               ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !417
-  %27 = add i32 %.sroa.02.0.i.i, 1
-  %or.cond.i = icmp ult i32 %27, 2
-  br i1 %or.cond.i, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread15, label %28
+  %27 = icmp eq i32 %.sroa.02.0.i.i, -1
+  br i1 %27, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread15, label %28
 
 28:                                               ; preds = %26
   %29 = icmp slt i32 %.sroa.02.0.i.i, 0

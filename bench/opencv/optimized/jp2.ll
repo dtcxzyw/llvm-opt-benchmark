@@ -2703,7 +2703,7 @@ define internal range(i32 0, 2) i32 @opj_jp2_read_ihdr(ptr noundef %0, ptr nound
 
 7:                                                ; preds = %4
   %8 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.54) #6
-  br label %65
+  br label %64
 
 9:                                                ; preds = %4
   %.not50 = icmp eq i32 %2, 14
@@ -2711,7 +2711,7 @@ define internal range(i32 0, 2) i32 @opj_jp2_read_ihdr(ptr noundef %0, ptr nound
 
 10:                                               ; preds = %9
   %11 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.55) #6
-  br label %65
+  br label %64
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2744,71 +2744,70 @@ define internal range(i32 0, 2) i32 @opj_jp2_read_ihdr(ptr noundef %0, ptr nound
 25:                                               ; preds = %._crit_edge, %23, %21
   %26 = phi i32 [ %.pre52, %._crit_edge ], [ 0, %23 ], [ %.pre53, %21 ]
   %27 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.56, i32 noundef %.pre, i32 noundef %19, i32 noundef %26) #6
-  br label %65
+  br label %64
 
 28:                                               ; preds = %23
-  %29 = add i32 %.pre53, -16385
-  %30 = icmp ult i32 %29, -16384
-  br i1 %30, label %31, label %33
+  %29 = icmp ugt i32 %.pre53, 16384
+  br i1 %29, label %30, label %32
 
-31:                                               ; preds = %28
-  %32 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.57) #6
-  br label %65
+30:                                               ; preds = %28
+  %31 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.57) #6
+  br label %64
 
-33:                                               ; preds = %28
-  %34 = zext nneg i32 %.pre53 to i64
-  %35 = tail call ptr @opj_calloc(i64 noundef %34, i64 noundef 12) #6
-  store ptr %35, ptr %5, align 8, !tbaa !83
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %39
+32:                                               ; preds = %28
+  %33 = zext nneg i32 %.pre53 to i64
+  %34 = tail call ptr @opj_calloc(i64 noundef %33, i64 noundef 12) #6
+  store ptr %34, ptr %5, align 8, !tbaa !83
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %38
 
-37:                                               ; preds = %33
-  %38 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.58) #6
-  br label %65
+36:                                               ; preds = %32
+  %37 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.58) #6
+  br label %64
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  tail call void @opj_read_bytes_LE(ptr noundef nonnull %18, ptr noundef nonnull %40, i32 noundef 1) #6
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @opj_read_bytes_LE(ptr noundef nonnull %41, ptr noundef nonnull %42, i32 noundef 1) #6
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %44 = load i32, ptr %42, align 8, !tbaa !92
-  %.not51 = icmp eq i32 %44, 7
-  br i1 %.not51, label %47, label %45
+38:                                               ; preds = %32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  tail call void @opj_read_bytes_LE(ptr noundef nonnull %18, ptr noundef nonnull %39, i32 noundef 1) #6
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 11
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @opj_read_bytes_LE(ptr noundef nonnull %40, ptr noundef nonnull %41, i32 noundef 1) #6
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %43 = load i32, ptr %41, align 8, !tbaa !92
+  %.not51 = icmp eq i32 %43, 7
+  br i1 %.not51, label %46, label %44
 
-45:                                               ; preds = %39
-  %46 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 4, ptr noundef nonnull @.str.59, i32 noundef %44) #6
-  br label %47
+44:                                               ; preds = %38
+  %45 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 4, ptr noundef nonnull @.str.59, i32 noundef %43) #6
+  br label %46
 
-47:                                               ; preds = %45, %39
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @opj_read_bytes_LE(ptr noundef nonnull %43, ptr noundef nonnull %48, i32 noundef 1) #6
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @opj_read_bytes_LE(ptr noundef nonnull %49, ptr noundef nonnull %50, i32 noundef 1) #6
-  %51 = load i32, ptr %40, align 4, !tbaa !90
-  %52 = icmp eq i32 %51, 255
-  %53 = load ptr, ptr %0, align 8, !tbaa !3
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 308
-  %55 = load i8, ptr %54, align 4
-  %56 = select i1 %52, i8 4, i8 0
-  %57 = and i8 %55, -5
-  %58 = or disjoint i8 %57, %56
-  store i8 %58, ptr %54, align 4
-  %59 = load i32, ptr %15, align 8, !tbaa !89
-  %60 = load ptr, ptr %0, align 8, !tbaa !3
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 360
-  store i32 %59, ptr %61, align 8, !tbaa !135
-  %62 = load i32, ptr %13, align 4, !tbaa !86
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 364
-  store i32 %62, ptr %63, align 4, !tbaa !143
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 173
-  store i8 1, ptr %64, align 1, !tbaa !115
-  br label %65
+46:                                               ; preds = %44, %38
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  tail call void @opj_read_bytes_LE(ptr noundef nonnull %42, ptr noundef nonnull %47, i32 noundef 1) #6
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 13
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @opj_read_bytes_LE(ptr noundef nonnull %48, ptr noundef nonnull %49, i32 noundef 1) #6
+  %50 = load i32, ptr %39, align 4, !tbaa !90
+  %51 = icmp eq i32 %50, 255
+  %52 = load ptr, ptr %0, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 308
+  %54 = load i8, ptr %53, align 4
+  %55 = select i1 %51, i8 4, i8 0
+  %56 = and i8 %54, -5
+  %57 = or disjoint i8 %56, %55
+  store i8 %57, ptr %53, align 4
+  %58 = load i32, ptr %15, align 8, !tbaa !89
+  %59 = load ptr, ptr %0, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 360
+  store i32 %58, ptr %60, align 8, !tbaa !135
+  %61 = load i32, ptr %13, align 4, !tbaa !86
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 364
+  store i32 %61, ptr %62, align 4, !tbaa !143
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 173
+  store i8 1, ptr %63, align 1, !tbaa !115
+  br label %64
 
-65:                                               ; preds = %47, %37, %31, %25, %10, %7
-  %.0 = phi i32 [ 1, %7 ], [ 0, %10 ], [ 0, %25 ], [ 0, %31 ], [ 0, %37 ], [ 1, %47 ]
+64:                                               ; preds = %46, %36, %30, %25, %10, %7
+  %.0 = phi i32 [ 1, %7 ], [ 0, %10 ], [ 0, %25 ], [ 0, %30 ], [ 0, %36 ], [ 1, %46 ]
   ret i32 %.0
 }
 
