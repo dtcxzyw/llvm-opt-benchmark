@@ -247,9 +247,8 @@ define hidden zeroext i1 @_ZN13logos_codegen5graph4rope4Miss7is_none17h5010679aa
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden i32 @_ZN13logos_codegen5graph4rope4Miss5first17h8bbbf9f71445b7e3E(i32 %0, i32 %1) unnamed_addr #2 {
-  %.off = add i32 %0, -1
-  %switch = icmp ult i32 %.off, 2
-  %.sroa.02.0 = select i1 %switch, i32 %1, i32 0
+  %3 = icmp eq i32 %0, 0
+  %.sroa.02.0 = select i1 %3, i32 0, i32 %1
   ret i32 %.sroa.02.0
 }
 
@@ -499,20 +498,19 @@ define hidden zeroext i1 @"_ZN73_$LT$logos_codegen..graph..rope..Rope$u20$as$u20
   br i1 %21, label %22, label %"_ZN73_$LT$logos_codegen..graph..rope..Miss$u20$as$u20$core..cmp..PartialEq$GT$2eq17haf58281b452b7c4dE.exit"
 
 22:                                               ; preds = %16
-  %.off.i = add i32 %19, -1
-  %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %.sink.split.i, label %"_ZN73_$LT$logos_codegen..graph..rope..Miss$u20$as$u20$core..cmp..PartialEq$GT$2eq17haf58281b452b7c4dE.exit"
+  %23 = icmp eq i32 %19, 0
+  br i1 %23, label %"_ZN73_$LT$logos_codegen..graph..rope..Miss$u20$as$u20$core..cmp..PartialEq$GT$2eq17haf58281b452b7c4dE.exit", label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %22
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp eq i32 %24, %26
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %25 = load i32, ptr %24, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp eq i32 %25, %27
   br label %"_ZN73_$LT$logos_codegen..graph..rope..Miss$u20$as$u20$core..cmp..PartialEq$GT$2eq17haf58281b452b7c4dE.exit"
 
 "_ZN73_$LT$logos_codegen..graph..rope..Miss$u20$as$u20$core..cmp..PartialEq$GT$2eq17haf58281b452b7c4dE.exit": ; preds = %.sink.split.i, %22, %16, %2, %10
-  %.sroa.0.0 = phi i1 [ false, %10 ], [ false, %2 ], [ false, %16 ], [ true, %22 ], [ %27, %.sink.split.i ]
+  %.sroa.0.0 = phi i1 [ false, %10 ], [ false, %2 ], [ false, %16 ], [ true, %22 ], [ %28, %.sink.split.i ]
   ret i1 %.sroa.0.0
 }
 

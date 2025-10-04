@@ -156,15 +156,11 @@ define internal range(i32 -1, 49) i32 @archive_read_format_iso9660_bid(ptr nound
   %.02665 = phi ptr [ %15, %.lr.ph ], [ %266, %isPVD.exit ]
   %26 = phi i64 [ %13, %.lr.ph ], [ %265, %isPVD.exit ]
   %27 = load i8, ptr %.02665, align 1, !tbaa !45
-  switch i8 %27, label %.loopexit [
-    i8 -1, label %28
-    i8 3, label %28
-    i8 2, label %28
-    i8 1, label %28
-    i8 0, label %28
-  ]
+  %.off = add i8 %27, -4
+  %switch = icmp ult i8 %.off, -5
+  br i1 %switch, label %.loopexit, label %28
 
-28:                                               ; preds = %25, %25, %25, %25, %25
+28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %.02665, i64 1
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %29, ptr noundef nonnull dereferenceable(5) @.str.3, i64 5)
   %.not30 = icmp eq i32 %bcmp, 0

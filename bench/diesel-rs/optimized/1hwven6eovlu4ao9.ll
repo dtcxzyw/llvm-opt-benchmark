@@ -505,10 +505,9 @@ define hidden void @"_ZN122_$LT$diesel..query_builder..from_clause..FromClause$L
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.28.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !200
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !200
-  %8 = and i64 %6, 6
-  %switch.i = icmp eq i64 %8, 2
-  %spec.select = select i1 %switch.i, ptr undef, ptr %.sroa.9.0.copyload
-  %spec.select27 = select i1 %switch.i, ptr undef, ptr %.sroa.7.0.copyload
+  %8 = icmp eq i64 %6, 1
+  %spec.select = select i1 %8, ptr %.sroa.9.0.copyload, ptr undef
+  %spec.select27 = select i1 %8, ptr %.sroa.7.0.copyload, ptr undef
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h0d6bdecd69c95ae9E.exit.i"
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h0d6bdecd69c95ae9E.exit.i": ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17hb04c4a7709d86b11E.exit", %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17hb04c4a7709d86b11E.exit.thread16", %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17hb04c4a7709d86b11E.exit.thread"
@@ -2014,9 +2013,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %32
 
 32:                                               ; preds = %44, %28
-  %.sroa.0.010.i.idx = phi i64 [ 0, %28 ], [ %.sroa.0.010.i.add, %44 ]
-  %.sroa.0.010.i.ptr = getelementptr inbounds nuw i8, ptr @anon.e0f049d80bdfd738301f61769ac79e9c.10, i64 %.sroa.0.010.i.idx
-  %.sroa.0.010.i.add = add nuw nsw i64 %.sroa.0.010.i.idx, 1
+  %.sroa.0.09.i.idx = phi i64 [ 0, %28 ], [ %.sroa.0.09.i.add, %44 ]
+  %.sroa.0.09.i.ptr = getelementptr inbounds nuw i8, ptr @anon.e0f049d80bdfd738301f61769ac79e9c.10, i64 %.sroa.0.09.i.idx
+  %.sroa.0.09.i.add = add nuw nsw i64 %.sroa.0.09.i.idx, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !529
   call void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h39d2e11dc5cf76acE.llvm.241371645245257412"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %11), !noalias !526
   %33 = load i8, ptr %5, align 8, !range !531, !noalias !529, !noundef !5
@@ -2042,13 +2041,13 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 41:                                               ; preds = %34
   %42 = load i8, ptr %31, align 2, !noalias !529
-  %43 = load i8, ptr %.sroa.0.010.i.ptr, align 1, !alias.scope !526, !noalias !532, !noundef !5
+  %43 = load i8, ptr %.sroa.0.09.i.ptr, align 1, !alias.scope !526, !noalias !532, !noundef !5
   %.not.i = icmp eq i8 %42, %43
   br i1 %.not.i, label %44, label %46
 
 44:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !529
-  %45 = icmp eq i64 %.sroa.0.010.i.add, 3
+  %45 = icmp eq i64 %.sroa.0.09.i.add, 3
   br i1 %45, label %48, label %32
 
 46:                                               ; preds = %41

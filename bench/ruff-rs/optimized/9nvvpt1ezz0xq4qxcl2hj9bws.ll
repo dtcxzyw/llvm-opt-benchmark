@@ -3113,13 +3113,12 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17hc5cf30bd7bdd9283E.exit.i:
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !388
   call void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0ff127f8b21ed2cE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %7), !noalias !392
   %54 = load i8, ptr %3, align 8, !range !361, !noalias !388, !noundef !3
-  %.not.i.i = icmp eq i8 %54, 10
+  %cond = icmp eq i8 %54, 10
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !388
-  %. = select i1 %.not.i.i, i1 true, i1 false
   br label %_ZN4core4iter6traits8iterator12iter_compare17haf4879b99181bfd1E.exit
 
 _ZN4core4iter6traits8iterator12iter_compare17haf4879b99181bfd1E.exit: ; preds = %.loopexit.i, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hc5cf30bd7bdd9283E.exit.i
-  %55 = phi i1 [ false, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hc5cf30bd7bdd9283E.exit.i ], [ %., %.loopexit.i ]
+  %55 = phi i1 [ false, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hc5cf30bd7bdd9283E.exit.i ], [ %cond, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %55
@@ -10628,25 +10627,25 @@ define noundef zeroext i1 @"_ZN7ruff_db5files4path125_$LT$impl$u20$core..cmp..Pa
   %.val1 = load i64, ptr %6, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1175)
   %7 = load i64, ptr %1, align 8, !range !204, !alias.scope !1175, !noundef !3
-  %switch.i = icmp eq i64 %7, 0
-  br i1 %switch.i, label %8, label %"_ZN115_$LT$ruff_db..files..path..FilePath$u20$as$u20$core..cmp..PartialEq$LT$ruff_db..system..path..SystemPathBuf$GT$$GT$2eq17he648c310c028664eE.exit"
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %9, label %"_ZN115_$LT$ruff_db..files..path..FilePath$u20$as$u20$core..cmp..PartialEq$LT$ruff_db..system..path..SystemPathBuf$GT$$GT$2eq17he648c310c028664eE.exit"
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !alias.scope !1175, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load i64, ptr %11, align 8, !alias.scope !1175, !noundef !3
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = load ptr, ptr %10, align 8, !alias.scope !1175, !nonnull !3, !noundef !3
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %13 = load i64, ptr %12, align 8, !alias.scope !1175, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1178
-  call void @_ZN3std4path4Path10components17h1f41ca383d8fbedeE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12), !noalias !1175
+  call void @_ZN3std4path4Path10components17h1f41ca383d8fbedeE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %13), !noalias !1175
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1178
   call void @_ZN3std4path4Path10components17h1f41ca383d8fbedeE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1), !noalias !1175
-  %13 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h4c2f128713da1631E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %3), !noalias !1175
+  %14 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h4c2f128713da1631E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %3), !noalias !1175
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1178
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1178
   br label %"_ZN115_$LT$ruff_db..files..path..FilePath$u20$as$u20$core..cmp..PartialEq$LT$ruff_db..system..path..SystemPathBuf$GT$$GT$2eq17he648c310c028664eE.exit"
 
-"_ZN115_$LT$ruff_db..files..path..FilePath$u20$as$u20$core..cmp..PartialEq$LT$ruff_db..system..path..SystemPathBuf$GT$$GT$2eq17he648c310c028664eE.exit": ; preds = %2, %8
-  %.sroa.0.0.i = phi i1 [ %13, %8 ], [ false, %2 ]
+"_ZN115_$LT$ruff_db..files..path..FilePath$u20$as$u20$core..cmp..PartialEq$LT$ruff_db..system..path..SystemPathBuf$GT$$GT$2eq17he648c310c028664eE.exit": ; preds = %2, %9
+  %.sroa.0.0.i = phi i1 [ %14, %9 ], [ false, %2 ]
   ret i1 %.sroa.0.0.i
 }
 

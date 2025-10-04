@@ -10886,10 +10886,9 @@ _ZN4cvc58internal7IntegerC2ERKS1_.exit680:        ; preds = %_ZN4cvc58internal11
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit681:            ; preds = %2195
-  switch i32 %2194, label %2199 [
-    i32 3, label %.loopexit992
-    i32 0, label %.loopexit992
-  ]
+  %.off = add nsw i32 %2194, -1
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %2199, label %.loopexit992
 
 2199:                                             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit681
   call void @llvm.lifetime.start.p0(ptr nonnull %89)
@@ -12392,8 +12391,8 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit804: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %_ZN4cvc58internal7IntegerD2Ev.exit682
 
-.loopexit992:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit660, %.critedge340, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit804, %_ZN4cvc58internal7IntegerD2Ev.exit681, %_ZN4cvc58internal7IntegerD2Ev.exit681, %._crit_edge1049, %2150
-  %.3 = phi i32 [ 0, %.critedge340 ], [ 0, %2150 ], [ 0, %._crit_edge1049 ], [ %2194, %_ZN4cvc58internal7IntegerD2Ev.exit681 ], [ %2194, %_ZN4cvc58internal7IntegerD2Ev.exit681 ], [ %2194, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit804 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit660 ]
+.loopexit992:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit660, %_ZN4cvc58internal7IntegerD2Ev.exit681, %.critedge340, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit804, %._crit_edge1049, %2150
+  %.3 = phi i32 [ 0, %.critedge340 ], [ 0, %2150 ], [ 0, %._crit_edge1049 ], [ %2194, %_ZN4cvc58internal7IntegerD2Ev.exit681 ], [ %2194, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit804 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit660 ]
   %2786 = load ptr, ptr %32, align 8, !tbaa !100
   %2787 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %2788 = load ptr, ptr %2787, align 8, !tbaa !97

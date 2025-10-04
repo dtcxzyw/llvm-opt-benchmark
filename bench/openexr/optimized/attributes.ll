@@ -63,22 +63,24 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @internal_exr_is_standard_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  br label %2
+  br label %3
 
-2:                                                ; preds = %2, %1
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw %struct._internal_exr_attr_map, ptr @the_predefined_attr_typenames, i64 %indvars.iv
-  %4 = load ptr, ptr %3, align 8, !tbaa !3
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #8
-  %6 = icmp eq i32 %5, 0
+2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 29
-  %or.cond = select i1 %6, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %7, label %2, !llvm.loop !11
+  br i1 %exitcond.not, label %8, label %3, !llvm.loop !3
 
-7:                                                ; preds = %2
-  %spec.select = zext i1 %6 to i32
-  ret i32 %spec.select
+3:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %4 = getelementptr inbounds nuw %struct._internal_exr_attr_map, ptr @the_predefined_attr_typenames, i64 %indvars.iv
+  %5 = load ptr, ptr %4, align 8, !tbaa !5
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %5) #8
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %2
+
+8:                                                ; preds = %2, %3
+  %9 = phi i32 [ 1, %3 ], [ 0, %2 ]
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -713,7 +715,7 @@ define hidden i32 @exr_attr_list_add_by_type(ptr noundef %0, ptr noundef capture
 55:                                               ; preds = %52, %54
   %indvars.iv = phi i64 [ 0, %52 ], [ %indvars.iv.next, %54 ]
   %56 = getelementptr inbounds nuw %struct._internal_exr_attr_map, ptr @the_predefined_attr_typenames, i64 %indvars.iv
-  %57 = load ptr, ptr %56, align 8, !tbaa !3
+  %57 = load ptr, ptr %56, align 8, !tbaa !5
   %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %57) #8
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %54
@@ -1121,16 +1123,16 @@ define internal fastcc i32 @add_to_list(ptr noundef nonnull %0, ptr noundef capt
   %47 = getelementptr inbounds ptr, ptr %.073, i64 %45
   store ptr %2, ptr %47, align 8, !tbaa !28
   %48 = icmp sgt i32 %4, 0
-  br i1 %48, label %.lr.ph14.preheader, label %.thread3
+  br i1 %48, label %.lr.ph13.preheader, label %.thread3
 
-.lr.ph14.preheader:                               ; preds = %44
+.lr.ph13.preheader:                               ; preds = %44
   %49 = zext nneg i32 %4 to i64
-  br label %.lr.ph14
+  br label %.lr.ph13
 
-.lr.ph14:                                         ; preds = %.lr.ph14.preheader, %56
-  %indvars.iv18 = phi i64 [ %49, %.lr.ph14.preheader ], [ %indvars.iv.next19, %56 ]
-  %indvars.iv.next19 = add nsw i64 %indvars.iv18, -1
-  %50 = getelementptr inbounds nuw ptr, ptr %.073, i64 %indvars.iv.next19
+.lr.ph13:                                         ; preds = %.lr.ph13.preheader, %56
+  %indvars.iv17 = phi i64 [ %49, %.lr.ph13.preheader ], [ %indvars.iv.next18, %56 ]
+  %indvars.iv.next18 = add nsw i64 %indvars.iv17, -1
+  %50 = getelementptr inbounds nuw ptr, ptr %.073, i64 %indvars.iv.next18
   %51 = load ptr, ptr %50, align 8, !tbaa !28
   %52 = load ptr, ptr %2, align 8, !tbaa !57
   %53 = load ptr, ptr %51, align 8, !tbaa !57
@@ -1138,14 +1140,14 @@ define internal fastcc i32 @add_to_list(ptr noundef nonnull %0, ptr noundef capt
   %55 = icmp sgt i32 %54, -1
   br i1 %55, label %.thread3, label %56
 
-56:                                               ; preds = %.lr.ph14
+56:                                               ; preds = %.lr.ph13
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %51, ptr %57, align 8, !tbaa !28
   store ptr %2, ptr %50, align 8, !tbaa !28
-  %58 = icmp samesign ugt i64 %indvars.iv18, 1
-  br i1 %58, label %.lr.ph14, label %.thread3
+  %58 = icmp samesign ugt i64 %indvars.iv17, 1
+  br i1 %58, label %.lr.ph13, label %.thread3
 
-.thread3:                                         ; preds = %56, %.lr.ph14, %44
+.thread3:                                         ; preds = %56, %.lr.ph13, %44
   store i32 %5, ptr %1, align 8, !tbaa !16
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %60 = load i32, ptr %59, align 4, !tbaa !30
@@ -1687,7 +1689,7 @@ create_attr_block.exit:                           ; preds = %64
 
 create_attr_block.exit.thread:                    ; preds = %create_attr_block.exit.thread.sink.split, %80, %create_attr_block.exit
   %86 = getelementptr i8, ptr %46, i64 -24
-  %87 = load ptr, ptr %86, align 8, !tbaa !3
+  %87 = load ptr, ptr %86, align 8, !tbaa !5
   %88 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %87, ptr %88, align 8, !tbaa !56
   %89 = getelementptr i8, ptr %46, i64 -16
@@ -1849,7 +1851,7 @@ create_attr_block.exit:                           ; preds = %58
 create_attr_block.exit.thread:                    ; preds = %create_attr_block.exit.thread.sink.split, %68, %create_attr_block.exit
   %74 = getelementptr i8, ptr %46, i64 -24
   store ptr %2, ptr %61, align 8, !tbaa !57
-  %75 = load ptr, ptr %74, align 8, !tbaa !3
+  %75 = load ptr, ptr %74, align 8, !tbaa !5
   %76 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %75, ptr %76, align 8, !tbaa !56
   %77 = trunc nuw i64 %25 to i8
@@ -2039,78 +2041,78 @@ attributes #9 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !5, i64 0}
-!4 = !{!"_internal_exr_attr_map", !5, i64 0, !9, i64 8, !9, i64 12, !10, i64 16}
-!5 = !{!"p1 omnipotent char", !6, i64 0}
-!6 = !{!"any pointer", !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C/C++ TBAA"}
-!9 = !{!"int", !7, i64 0}
-!10 = !{!"long", !7, i64 0}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.mustprogress"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = !{!6, !7, i64 0}
+!6 = !{!"_internal_exr_attr_map", !7, i64 0, !11, i64 8, !11, i64 12, !12, i64 16}
+!7 = !{!"p1 omnipotent char", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"int", !9, i64 0}
+!12 = !{!"long", !9, i64 0}
 !13 = !{!14, !15, i64 8}
-!14 = !{!"exr_attribute_list", !9, i64 0, !9, i64 4, !15, i64 8, !15, i64 16}
-!15 = !{!"any p2 pointer", !6, i64 0}
-!16 = !{!14, !9, i64 0}
-!17 = !{!18, !6, i64 96}
-!18 = !{!"_priv_exr_context_t", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3, !7, i64 4, !7, i64 5, !7, i64 6, !7, i64 7, !19, i64 8, !19, i64 24, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !9, i64 104, !9, i64 108, !9, i64 112, !9, i64 116, !9, i64 120, !20, i64 124, !6, i64 128, !6, i64 136, !6, i64 144, !10, i64 152, !6, i64 160, !6, i64 168, !10, i64 176, !9, i64 184, !9, i64 188, !9, i64 192, !9, i64 196, !21, i64 200, !26, i64 464, !27, i64 472, !14, i64 480, !7, i64 504, !7, i64 544, !7, i64 545, !7, i64 546, !9, i64 548}
-!19 = !{!"", !9, i64 0, !9, i64 4, !5, i64 8}
-!20 = !{!"float", !7, i64 0}
-!21 = !{!"_priv_exr_part_t", !9, i64 0, !9, i64 4, !14, i64 8, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !22, i64 144, !22, i64 160, !9, i64 176, !9, i64 180, !9, i64 184, !20, i64 188, !9, i64 192, !9, i64 196, !24, i64 200, !24, i64 208, !24, i64 216, !24, i64 224, !10, i64 232, !25, i64 240, !25, i64 242, !9, i64 244, !10, i64 248, !7, i64 256}
+!14 = !{!"exr_attribute_list", !11, i64 0, !11, i64 4, !15, i64 8, !15, i64 16}
+!15 = !{!"any p2 pointer", !8, i64 0}
+!16 = !{!14, !11, i64 0}
+!17 = !{!18, !8, i64 96}
+!18 = !{!"_priv_exr_context_t", !9, i64 0, !9, i64 1, !9, i64 2, !9, i64 3, !9, i64 4, !9, i64 5, !9, i64 6, !9, i64 7, !19, i64 8, !19, i64 24, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !11, i64 104, !11, i64 108, !11, i64 112, !11, i64 116, !11, i64 120, !20, i64 124, !8, i64 128, !8, i64 136, !8, i64 144, !12, i64 152, !8, i64 160, !8, i64 168, !12, i64 176, !11, i64 184, !11, i64 188, !11, i64 192, !11, i64 196, !21, i64 200, !26, i64 464, !27, i64 472, !14, i64 480, !9, i64 504, !9, i64 544, !9, i64 545, !9, i64 546, !11, i64 548}
+!19 = !{!"", !11, i64 0, !11, i64 4, !7, i64 8}
+!20 = !{!"float", !9, i64 0}
+!21 = !{!"_priv_exr_part_t", !11, i64 0, !11, i64 4, !14, i64 8, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !8, i64 104, !8, i64 112, !8, i64 120, !8, i64 128, !8, i64 136, !22, i64 144, !22, i64 160, !11, i64 176, !11, i64 180, !11, i64 184, !20, i64 188, !11, i64 192, !11, i64 196, !24, i64 200, !24, i64 208, !24, i64 216, !24, i64 224, !12, i64 232, !25, i64 240, !25, i64 242, !11, i64 244, !12, i64 248, !9, i64 256}
 !22 = !{!"", !23, i64 0, !23, i64 8}
-!23 = !{!"", !9, i64 0, !9, i64 4}
-!24 = !{!"p1 int", !6, i64 0}
-!25 = !{!"short", !7, i64 0}
-!26 = !{!"p1 _ZTS16_priv_exr_part_t", !6, i64 0}
+!23 = !{!"", !11, i64 0, !11, i64 4}
+!24 = !{!"p1 int", !8, i64 0}
+!25 = !{!"short", !9, i64 0}
+!26 = !{!"p1 _ZTS16_priv_exr_part_t", !8, i64 0}
 !27 = !{!"p2 _ZTS16_priv_exr_part_t", !15, i64 0}
-!28 = !{!6, !6, i64 0}
-!29 = distinct !{!29, !12}
-!30 = !{!31, !9, i64 20}
-!31 = !{!"", !5, i64 0, !5, i64 8, !7, i64 16, !7, i64 17, !7, i64 18, !9, i64 20, !7, i64 24}
-!32 = !{!7, !7, i64 0}
-!33 = !{!18, !6, i64 64}
-!34 = !{!10, !10, i64 0}
-!35 = !{!31, !7, i64 16}
-!36 = !{!31, !7, i64 17}
-!37 = !{!38, !9, i64 0}
-!38 = !{!"", !9, i64 0, !9, i64 4, !6, i64 8}
-!39 = !{!38, !6, i64 8}
-!40 = !{!41, !9, i64 0}
-!41 = !{!"", !19, i64 0, !9, i64 16, !7, i64 20, !7, i64 21, !9, i64 24, !9, i64 28}
-!42 = distinct !{!42, !12}
-!43 = !{!44, !9, i64 0}
-!44 = !{!"", !9, i64 0, !9, i64 4, !45, i64 8}
-!45 = !{!"p1 float", !6, i64 0}
-!46 = !{!47, !9, i64 0}
-!47 = !{!"", !9, i64 0, !9, i64 4, !10, i64 8, !5, i64 16}
-!48 = !{!47, !9, i64 4}
-!49 = !{!19, !9, i64 0}
-!50 = distinct !{!50, !12}
-!51 = !{!52, !6, i64 16}
-!52 = !{!"", !9, i64 0, !9, i64 4, !9, i64 8, !7, i64 12, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48}
-!53 = !{!52, !9, i64 0}
-!54 = !{!52, !6, i64 24}
-!55 = !{!18, !6, i64 72}
-!56 = !{!31, !5, i64 8}
-!57 = !{!31, !5, i64 0}
-!58 = !{!9, !9, i64 0}
-!59 = distinct !{!59, !12}
+!28 = !{!8, !8, i64 0}
+!29 = distinct !{!29, !4}
+!30 = !{!31, !11, i64 20}
+!31 = !{!"", !7, i64 0, !7, i64 8, !9, i64 16, !9, i64 17, !9, i64 18, !11, i64 20, !9, i64 24}
+!32 = !{!9, !9, i64 0}
+!33 = !{!18, !8, i64 64}
+!34 = !{!12, !12, i64 0}
+!35 = !{!31, !9, i64 16}
+!36 = !{!31, !9, i64 17}
+!37 = !{!38, !11, i64 0}
+!38 = !{!"", !11, i64 0, !11, i64 4, !8, i64 8}
+!39 = !{!38, !8, i64 8}
+!40 = !{!41, !11, i64 0}
+!41 = !{!"", !19, i64 0, !11, i64 16, !9, i64 20, !9, i64 21, !11, i64 24, !11, i64 28}
+!42 = distinct !{!42, !4}
+!43 = !{!44, !11, i64 0}
+!44 = !{!"", !11, i64 0, !11, i64 4, !45, i64 8}
+!45 = !{!"p1 float", !8, i64 0}
+!46 = !{!47, !11, i64 0}
+!47 = !{!"", !11, i64 0, !11, i64 4, !12, i64 8, !7, i64 16}
+!48 = !{!47, !11, i64 4}
+!49 = !{!19, !11, i64 0}
+!50 = distinct !{!50, !4}
+!51 = !{!52, !8, i64 16}
+!52 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !9, i64 12, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48}
+!53 = !{!52, !11, i64 0}
+!54 = !{!52, !8, i64 24}
+!55 = !{!18, !8, i64 72}
+!56 = !{!31, !7, i64 8}
+!57 = !{!31, !7, i64 0}
+!58 = !{!11, !11, i64 0}
+!59 = distinct !{!59, !4}
 !60 = !{!14, !15, i64 16}
-!61 = distinct !{!61, !12}
-!62 = !{!18, !7, i64 2}
-!63 = distinct !{!63, !12}
-!64 = !{!4, !10, i64 16}
-!65 = !{!4, !9, i64 8}
-!66 = !{!4, !9, i64 12}
-!67 = !{!5, !5, i64 0}
-!68 = !{!18, !6, i64 88}
-!69 = !{!18, !6, i64 56}
-!70 = !{!14, !9, i64 4}
-!71 = distinct !{!71, !12}
-!72 = distinct !{!72, !12}
-!73 = distinct !{!73, !12}
-!74 = distinct !{!74, !12}
-!75 = !{!52, !6, i64 32}
-!76 = !{!52, !6, i64 40}
-!77 = !{!52, !6, i64 48}
+!61 = distinct !{!61, !4}
+!62 = !{!18, !9, i64 2}
+!63 = distinct !{!63, !4}
+!64 = !{!6, !12, i64 16}
+!65 = !{!6, !11, i64 8}
+!66 = !{!6, !11, i64 12}
+!67 = !{!7, !7, i64 0}
+!68 = !{!18, !8, i64 88}
+!69 = !{!18, !8, i64 56}
+!70 = !{!14, !11, i64 4}
+!71 = distinct !{!71, !4}
+!72 = distinct !{!72, !4}
+!73 = distinct !{!73, !4}
+!74 = distinct !{!74, !4}
+!75 = !{!52, !8, i64 32}
+!76 = !{!52, !8, i64 40}
+!77 = !{!52, !8, i64 48}

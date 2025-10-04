@@ -1612,16 +1612,14 @@ define hidden void @"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filte
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8, !noundef !3
   %10 = call noundef i8 @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %9)
-  switch i8 %10, label %11 [
-    i8 2, label %13
-    i8 0, label %13
-  ]
+  %11 = icmp eq i8 %10, 1
+  br i1 %11, label %12, label %14
 
-11:                                               ; preds = %5
-  %12 = call noundef i8 @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, i64 noundef %9)
-  br label %13
+12:                                               ; preds = %5
+  %13 = call noundef i8 @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, i64 noundef %9)
+  br label %14
 
-13:                                               ; preds = %11, %5, %5
+14:                                               ; preds = %12, %5
   ret void
 }
 

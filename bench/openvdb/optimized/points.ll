@@ -186096,16 +186096,12 @@ lor.lhs.false.i:                                  ; preds = %for.cond.i.i
   %mValueMask.i = getelementptr inbounds nuw i8, ptr %2, i64 266240
   %4 = load i64, ptr %mValueMask.i, align 8
   %cmp.i4.i = icmp eq i64 %4, -1
-  switch i64 %4, label %for.inc [
-    i64 -1, label %land.rhs.i5.i.preheader
-    i64 0, label %land.rhs.i5.i.preheader
-  ]
+  %.off = add i64 %4, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %for.inc, label %land.rhs.i5.i
 
-land.rhs.i5.i.preheader:                          ; preds = %lor.lhs.false.i, %lor.lhs.false.i
-  br label %land.rhs.i5.i
-
-land.rhs.i5.i:                                    ; preds = %land.rhs.i5.i.preheader, %while.body.i.i
-  %w.0.idx6.i.i = phi i64 [ %w.0.add.i.i, %while.body.i.i ], [ 8, %land.rhs.i5.i.preheader ]
+land.rhs.i5.i:                                    ; preds = %lor.lhs.false.i, %while.body.i.i
+  %w.0.idx6.i.i = phi i64 [ %w.0.add.i.i, %while.body.i.i ], [ 8, %lor.lhs.false.i ]
   %w.0.ptr.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i, i64 %w.0.idx6.i.i
   %5 = load i64, ptr %w.0.ptr.i.i, align 8
   %cmp12.i.i = icmp eq i64 %5, %4
@@ -187906,16 +187902,12 @@ lor.lhs.false.i:                                  ; preds = %for.cond.i.i
   %mValueMask.i = getelementptr inbounds nuw i8, ptr %3, i64 33280
   %5 = load i64, ptr %mValueMask.i, align 8
   %cmp.i4.i = icmp eq i64 %5, -1
-  switch i64 %5, label %for.inc [
-    i64 -1, label %land.rhs.i5.i.preheader
-    i64 0, label %land.rhs.i5.i.preheader
-  ]
+  %.off = add i64 %5, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %for.inc, label %land.rhs.i5.i
 
-land.rhs.i5.i.preheader:                          ; preds = %lor.lhs.false.i, %lor.lhs.false.i
-  br label %land.rhs.i5.i
-
-land.rhs.i5.i:                                    ; preds = %land.rhs.i5.i.preheader, %while.body.i.i
-  %w.0.idx6.i.i = phi i64 [ %w.0.add.i.i, %while.body.i.i ], [ 8, %land.rhs.i5.i.preheader ]
+land.rhs.i5.i:                                    ; preds = %lor.lhs.false.i, %while.body.i.i
+  %w.0.idx6.i.i = phi i64 [ %w.0.add.i.i, %while.body.i.i ], [ 8, %lor.lhs.false.i ]
   %w.0.ptr.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i, i64 %w.0.idx6.i.i
   %6 = load i64, ptr %w.0.ptr.i.i, align 8
   %cmp12.i.i = icmp eq i64 %6, %5

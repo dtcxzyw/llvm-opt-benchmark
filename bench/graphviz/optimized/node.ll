@@ -1434,7 +1434,7 @@ define void @node_set_add(ptr noundef captures(none) %0, ptr noundef %1) local_u
   %3 = alloca %struct.graphviz_node_set, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !28
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %.thread79, label %node_set_get_capacity.exit
+  br i1 %5, label %.thread80, label %node_set_get_capacity.exit
 
 node_set_get_capacity.exit:                       ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1446,7 +1446,7 @@ node_set_get_capacity.exit:                       ; preds = %2
   %.not = icmp ult i64 %10, %11
   br i1 %.not, label %41, label %13
 
-.thread79:                                        ; preds = %2
+.thread80:                                        ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %20
 
@@ -1463,11 +1463,11 @@ node_set_get_capacity.exit:                       ; preds = %2
   tail call fastcc void @graphviz_exit() #22
   unreachable
 
-20:                                               ; preds = %.thread79, %13
-  %21 = phi i64 [ 1024, %.thread79 ], [ %16, %13 ]
-  %22 = phi i64 [ 10, %.thread79 ], [ %15, %13 ]
-  %23 = phi ptr [ %12, %.thread79 ], [ %8, %13 ]
-  %24 = phi i64 [ 0, %.thread79 ], [ %14, %13 ]
+20:                                               ; preds = %.thread80, %13
+  %21 = phi i64 [ 1024, %.thread80 ], [ %16, %13 ]
+  %22 = phi i64 [ 10, %.thread80 ], [ %15, %13 ]
+  %23 = phi ptr [ %12, %.thread80 ], [ %8, %13 ]
+  %24 = phi i64 [ 0, %.thread80 ], [ %14, %13 ]
   %25 = tail call noalias ptr @calloc(i64 noundef %21, i64 noundef 8) #20
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %gv_calloc.exit
@@ -1487,9 +1487,9 @@ gv_calloc.exit:                                   ; preds = %20
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %22, ptr %32, align 8, !tbaa !29
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.not65 = icmp eq i64 %24, 0
+  %.not66 = icmp eq i64 %24, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
-  br i1 %.not65, label %._crit_edge, label %.lr.ph
+  br i1 %.not66, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %39
   %.pre = load ptr, ptr %0, align 8, !tbaa !28
@@ -1503,22 +1503,21 @@ gv_calloc.exit:                                   ; preds = %20
   br label %41
 
 .lr.ph:                                           ; preds = %gv_calloc.exit, %39
-  %.04960 = phi i64 [ %40, %39 ], [ 0, %gv_calloc.exit ]
+  %.04961 = phi i64 [ %40, %39 ], [ 0, %gv_calloc.exit ]
   %35 = load ptr, ptr %0, align 8, !tbaa !28
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.04960
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.04961
   %37 = load ptr, ptr %36, align 8, !tbaa !30
   %magicptr = ptrtoint ptr %37 to i64
-  switch i64 %magicptr, label %38 [
-    i64 0, label %39
-    i64 -1, label %39
-  ]
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %38, label %39
 
 38:                                               ; preds = %.lr.ph
   call void @node_set_add(ptr noundef nonnull %3, ptr noundef nonnull %37)
   br label %39
 
-39:                                               ; preds = %.lr.ph, %.lr.ph, %38
-  %40 = add nuw i64 %.04960, 1
+39:                                               ; preds = %.lr.ph, %38
+  %40 = add nuw i64 %.04961, 1
   %exitcond.not = icmp eq i64 %40, %24
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !67
 
@@ -1531,21 +1530,21 @@ gv_calloc.exit:                                   ; preds = %20
   %47 = load ptr, ptr %46, align 8, !tbaa !32
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !52
-  br i1 %45, label %50, label %._crit_edge68
+  br i1 %45, label %50, label %._crit_edge69
 
 50:                                               ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load i64, ptr %51, align 8, !tbaa !26
   %53 = icmp ult i64 %49, %52
-  br i1 %53, label %._crit_edge68, label %55
+  br i1 %53, label %._crit_edge69, label %55
 
-._crit_edge68:                                    ; preds = %41, %50
+._crit_edge69:                                    ; preds = %41, %50
   store i8 1, ptr %43, align 8, !tbaa !20
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %49, ptr %54, align 8, !tbaa !26
   br label %55
 
-55:                                               ; preds = %._crit_edge68, %50
+55:                                               ; preds = %._crit_edge69, %50
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = load i64, ptr %56, align 8, !tbaa !27
   %58 = icmp ugt i64 %49, %57
@@ -1558,40 +1557,39 @@ gv_calloc.exit:                                   ; preds = %20
 60:                                               ; preds = %59, %55
   %61 = load ptr, ptr %0, align 8, !tbaa !28
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.critedge57, label %node_set_get_capacity.exit58
+  br i1 %62, label %.critedge57, label %node_set_get_capacity.exit59
 
-node_set_get_capacity.exit58:                     ; preds = %60
+node_set_get_capacity.exit59:                     ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load i64, ptr %63, align 8, !tbaa !29
   %65 = shl nuw i64 1, %64
   %66 = add i64 %65, -1
-  br label %67
+  br label %69
 
-67:                                               ; preds = %node_set_get_capacity.exit58, %72
-  %.04863 = phi i64 [ 0, %node_set_get_capacity.exit58 ], [ %73, %72 ]
-  %68 = add i64 %.04863, %49
-  %69 = and i64 %68, %66
-  %70 = getelementptr inbounds nuw ptr, ptr %61, i64 %69
-  %71 = load ptr, ptr %70, align 8, !tbaa !30
-  %magicptr55 = ptrtoint ptr %71 to i64
-  switch i64 %magicptr55, label %72 [
-    i64 0, label %76
-    i64 -1, label %76
-  ]
+67:                                               ; preds = %69
+  %68 = add nuw i64 %.04864, 1
+  %exitcond68.not = icmp eq i64 %68, %65
+  br i1 %exitcond68.not, label %.critedge57, label %69, !llvm.loop !68
 
-72:                                               ; preds = %67
-  %73 = add nuw i64 %.04863, 1
-  %exitcond67.not = icmp eq i64 %73, %65
-  br i1 %exitcond67.not, label %.critedge57, label %67, !llvm.loop !68
+69:                                               ; preds = %node_set_get_capacity.exit59, %67
+  %.04864 = phi i64 [ 0, %node_set_get_capacity.exit59 ], [ %68, %67 ]
+  %70 = add i64 %.04864, %49
+  %71 = and i64 %70, %66
+  %72 = getelementptr inbounds nuw ptr, ptr %61, i64 %71
+  %73 = load ptr, ptr %72, align 8, !tbaa !30
+  %magicptr55 = ptrtoint ptr %73 to i64
+  %magicptr55.off = add i64 %magicptr55, -1
+  %switch58 = icmp ult i64 %magicptr55.off, -2
+  br i1 %switch58, label %67, label %76
 
-.critedge57:                                      ; preds = %72, %60
+.critedge57:                                      ; preds = %67, %60
   %74 = load ptr, ptr @stderr, align 8, !tbaa !46
   %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 481) #21
   tail call void @abort() #23
   unreachable
 
-76:                                               ; preds = %67, %67
-  %77 = getelementptr inbounds nuw ptr, ptr %61, i64 %69
+76:                                               ; preds = %69
+  %77 = getelementptr inbounds nuw ptr, ptr %61, i64 %71
   store ptr %1, ptr %77, align 8, !tbaa !30
   %78 = load i64, ptr %42, align 8, !tbaa !53
   %79 = add i64 %78, 1

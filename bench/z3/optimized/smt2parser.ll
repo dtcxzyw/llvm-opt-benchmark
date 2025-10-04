@@ -20255,8 +20255,8 @@ _ZN6vectorIP4exprLb0EjE4backEv.exit.i:            ; preds = %208, %._ZN6vectorIP
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8pop_backEv.exit: ; preds = %217
   call void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %216, ptr noundef nonnull %214)
-  %.pre216 = load ptr, ptr %8, align 8, !tbaa !139
-  %222 = icmp eq ptr %.pre216, null
+  %.pre215 = load ptr, ptr %8, align 8, !tbaa !139
+  %222 = icmp eq ptr %.pre215, null
   br i1 %222, label %223, label %_ZN4smt26parser10expr_stackEv.exit48
 
 223:                                              ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8pop_backEv.exit
@@ -20279,7 +20279,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8pop_backEv.ex
   br label %_ZN4smt26parser10expr_stackEv.exit48
 
 _ZN4smt26parser10expr_stackEv.exit48:             ; preds = %217, %_ZN6vectorIP4exprLb0EjE4backEv.exit.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8pop_backEv.exit, %223, %231
-  %232 = phi ptr [ %224, %231 ], [ %230, %223 ], [ %.pre216, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8pop_backEv.exit ], [ %204, %_ZN6vectorIP4exprLb0EjE4backEv.exit.i ], [ %204, %217 ]
+  %232 = phi ptr [ %224, %231 ], [ %230, %223 ], [ %.pre215, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8pop_backEv.exit ], [ %204, %_ZN6vectorIP4exprLb0EjE4backEv.exit.i ], [ %204, %217 ]
   %.not.i.i.i.i49 = icmp eq ptr %192, null
   br i1 %.not.i.i.i.i49, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %233
 
@@ -20934,9 +20934,9 @@ thread-pre-split:                                 ; preds = %_ZN4smt26parser4nex
   br i1 %.not, label %.thread, label %59
 
 .thread.sink.split.sink.split:                    ; preds = %_ZN4smt26parser18check_in_quant_ctxEPNS0_15attr_expr_frameE.exit114, %_ZN4smt26parser18check_in_quant_ctxEPNS0_15attr_expr_frameE.exit99
-  %.sink292 = phi ptr [ %381, %_ZN4smt26parser18check_in_quant_ctxEPNS0_15attr_expr_frameE.exit99 ], [ %404, %_ZN4smt26parser18check_in_quant_ctxEPNS0_15attr_expr_frameE.exit114 ]
+  %.sink291 = phi ptr [ %381, %_ZN4smt26parser18check_in_quant_ctxEPNS0_15attr_expr_frameE.exit99 ], [ %404, %_ZN4smt26parser18check_in_quant_ctxEPNS0_15attr_expr_frameE.exit114 ]
   %.0.ph.ph = phi i32 [ 2, %_ZN4smt26parser18check_in_quant_ctxEPNS0_15attr_expr_frameE.exit99 ], [ 0, %_ZN4smt26parser18check_in_quant_ctxEPNS0_15attr_expr_frameE.exit114 ]
-  %476 = getelementptr inbounds i8, ptr %.sink292, i64 -4
+  %476 = getelementptr inbounds i8, ptr %.sink291, i64 -4
   %477 = load i32, ptr %476, align 4, !tbaa !106
   br label %.thread.sink.split
 
@@ -26777,10 +26777,9 @@ define linkonce_odr hidden noundef ptr @_ZN4smt26parser15parse_sort_nameEPKc(ptr
 10:                                               ; preds = %9, %2
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !568
-  switch i32 %12, label %13 [
-    i32 -1, label %18
-    i32 0, label %18
-  ]
+  %.off = add i32 %12, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %13, label %18
 
 13:                                               ; preds = %10
   %14 = call ptr @__cxa_allocate_exception(i64 48) #24
@@ -26796,7 +26795,7 @@ define linkonce_odr hidden noundef ptr @_ZN4smt26parser15parse_sort_nameEPKc(ptr
           cleanup
   br label %51
 
-18:                                               ; preds = %10, %10
+18:                                               ; preds = %10
   %19 = load ptr, ptr %0, align 8, !tbaa !114
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 312
   %21 = load ptr, ptr %20, align 8, !tbaa !355
@@ -38152,10 +38151,9 @@ define linkonce_odr hidden noundef ptr @_ZN4smt26parser16parse_psort_nameEb(ptr 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !568
-  switch i32 %10, label %11 [
-    i32 -1, label %16
-    i32 0, label %16
-  ]
+  %.off = add i32 %10, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %11, label %16
 
 11:                                               ; preds = %8
   %12 = call ptr @__cxa_allocate_exception(i64 48) #24
@@ -38173,7 +38171,7 @@ define linkonce_odr hidden noundef ptr @_ZN4smt26parser16parse_psort_nameEb(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %15
 
-16:                                               ; preds = %8, %8
+16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   %18 = load i32, ptr %17, align 8, !tbaa !8
   switch i32 %18, label %23 [

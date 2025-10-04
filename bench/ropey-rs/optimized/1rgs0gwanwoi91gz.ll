@@ -922,71 +922,69 @@ _ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit: ; preds = %.preh
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN5ropey9str_utils24last_line_start_byte_idx17hffb9b5071ca940c0E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #11 personality ptr @rust_eh_personality {
-  %.not.i.not.not58 = icmp eq i64 %1, 0
-  br i1 %.not.i.not.not58, label %.critedge, label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit.preheader"
+  %.not.i84 = icmp eq i64 %1, 0
+  br i1 %.not.i84, label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit", label %.lr.ph.preheader
 
-"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit.preheader": ; preds = %2
+.lr.ph.preheader:                                 ; preds = %2
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
-  br label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit"
+  br label %.lr.ph
 
-"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit": ; preds = %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit.preheader", %6
-  %.sroa.7.061 = phi ptr [ %.sroa.7.1, %6 ], [ %3, %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit.preheader" ]
-  %4 = getelementptr inbounds i8, ptr %.sroa.7.061, i64 -1
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit25.thread"
+  %.sroa.7.085 = phi ptr [ %.sroa.7.1, %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit25.thread" ], [ %3, %.lr.ph.preheader ]
+  %4 = getelementptr inbounds i8, ptr %.sroa.7.085, i64 -1
   %5 = load i8, ptr %4, align 1, !noalias !98, !noundef !4
-  switch i8 %5, label %6 [
-    i8 10, label %15
-    i8 13, label %15
-    i8 11, label %15
-    i8 12, label %15
-    i8 -123, label %7
-    i8 -88, label %11
-    i8 -87, label %11
+  switch i8 %5, label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit25.thread" [
+    i8 10, label %14
+    i8 13, label %14
+    i8 11, label %14
+    i8 12, label %14
+    i8 -123, label %6
+    i8 -88, label %10
+    i8 -87, label %10
   ]
 
-6:                                                ; preds = %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit34", %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit31", %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit28", %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit"
-  %.sroa.7.1 = phi ptr [ %4, %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit" ], [ %8, %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit28" ], [ %12, %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit31" ], [ %19, %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit34" ]
-  %.not.i.not.not = icmp eq ptr %0, %.sroa.7.1
-  br i1 %.not.i.not.not, label %.critedge, label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit"
+"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit25.thread": ; preds = %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit31", %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit28", %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit25", %.lr.ph
+  %.sroa.7.1 = phi ptr [ %4, %.lr.ph ], [ %7, %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit25" ], [ %11, %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit28" ], [ %17, %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit31" ]
+  %.not.i = icmp eq ptr %0, %.sroa.7.1
+  br i1 %.not.i, label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit", label %.lr.ph
 
-7:                                                ; preds = %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit"
-  %.not.i26.not.not = icmp eq ptr %0, %4
-  br i1 %.not.i26.not.not, label %.critedge, label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit28"
+6:                                                ; preds = %.lr.ph
+  %.not.i23 = icmp eq ptr %0, %4
+  br i1 %.not.i23, label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit", label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit25"
 
-"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit28": ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %.sroa.7.061, i64 -2
-  %9 = load i8, ptr %8, align 1, !noalias !106, !noundef !4
-  %10 = icmp eq i8 %9, -62
-  br i1 %10, label %15, label %6
+"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit25": ; preds = %6
+  %7 = getelementptr inbounds i8, ptr %.sroa.7.085, i64 -2
+  %8 = load i8, ptr %7, align 1, !noalias !106, !noundef !4
+  %9 = icmp eq i8 %8, -62
+  br i1 %9, label %14, label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit25.thread"
 
-11:                                               ; preds = %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit", %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit"
-  %.not.i29.not.not = icmp eq ptr %0, %4
-  br i1 %.not.i29.not.not, label %.critedge, label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit31"
+10:                                               ; preds = %.lr.ph, %.lr.ph
+  %.not.i26 = icmp eq ptr %0, %4
+  br i1 %.not.i26, label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit", label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit28"
 
-"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit31": ; preds = %11
-  %12 = getelementptr inbounds i8, ptr %.sroa.7.061, i64 -2
-  %13 = load i8, ptr %12, align 1, !noalias !114, !noundef !4
-  %14 = icmp eq i8 %13, -128
-  br i1 %14, label %18, label %6
+"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit28": ; preds = %10
+  %11 = getelementptr inbounds i8, ptr %.sroa.7.085, i64 -2
+  %12 = load i8, ptr %11, align 1, !noalias !114, !noundef !4
+  %13 = icmp ne i8 %12, -128
+  %.not.i29 = icmp eq ptr %0, %11
+  %or.cond = or i1 %.not.i29, %13
+  br i1 %or.cond, label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit25.thread", label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit31"
 
-15:                                               ; preds = %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit34", %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit28", %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit", %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit", %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit", %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit"
-  %16 = ptrtoint ptr %4 to i64
-  %17 = ptrtoint ptr %0 to i64
-  %reass.sub = sub i64 %16, %17
+14:                                               ; preds = %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit31", %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit25", %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %15 = ptrtoint ptr %4 to i64
+  %16 = ptrtoint ptr %0 to i64
+  %reass.sub = sub i64 %15, %16
   %.sroa.0.1 = add i64 %reass.sub, 1
-  br label %.critedge
+  br label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit"
 
-18:                                               ; preds = %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit31"
-  %.not.i32.not.not = icmp eq ptr %0, %12
-  br i1 %.not.i32.not.not, label %.critedge, label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit34"
+"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit31": ; preds = %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit28"
+  %17 = getelementptr inbounds i8, ptr %.sroa.7.085, i64 -3
+  %18 = load i8, ptr %17, align 1, !noalias !122, !noundef !4
+  %19 = icmp eq i8 %18, -30
+  br i1 %19, label %14, label %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit25.thread"
 
-"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit34": ; preds = %18
-  %19 = getelementptr inbounds i8, ptr %.sroa.7.061, i64 -3
-  %20 = load i8, ptr %19, align 1, !noalias !122, !noundef !4
-  %21 = icmp eq i8 %20, -30
-  br i1 %21, label %15, label %6
-
-.critedge:                                        ; preds = %18, %11, %7, %6, %2, %15
-  %.sroa.0.0 = phi i64 [ %.sroa.0.1, %15 ], [ 0, %2 ], [ 0, %6 ], [ 0, %7 ], [ 0, %11 ], [ 0, %18 ]
+"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit": ; preds = %10, %6, %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit25.thread", %2, %14
+  %.sroa.0.0 = phi i64 [ %.sroa.0.1, %14 ], [ 0, %2 ], [ 0, %"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd83d646be725aa31E.exit25.thread" ], [ 0, %6 ], [ 0, %10 ]
   ret i64 %.sroa.0.0
 }
 

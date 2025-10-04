@@ -2353,9 +2353,7 @@ define { ptr, ptr } @"_ZN68_$LT$quinn..recv_stream..ReadError$u20$as$u20$core..e
   %4 = icmp ugt i64 %3, 4
   %5 = icmp ne i64 %3, 1
   tail call void @llvm.assume(i1 %5)
-  %switch1 = icmp eq i64 %2, 11
-  %switch = or i1 %switch1, %4
-  %. = select i1 %switch, ptr %0, ptr null
+  %. = select i1 %4, ptr %0, ptr null
   %6 = insertvalue { ptr, ptr } poison, ptr %., 0
   %7 = insertvalue { ptr, ptr } %6, ptr @anon.bf2b533bfd639f2c31bd918c52d87b60.66, 1
   ret { ptr, ptr } %7
@@ -2483,9 +2481,7 @@ define { ptr, ptr } @"_ZN73_$LT$quinn..recv_stream..ReadExactError$u20$as$u20$co
   %5 = icmp ugt i64 %4, 4
   %6 = icmp ne i64 %4, 1
   tail call void @llvm.assume(i1 %6)
-  %switch1.i = icmp eq i64 %2, 11
-  %switch.i = or i1 %switch1.i, %5
-  %..i = select i1 %switch.i, ptr %0, ptr null
+  %..i = select i1 %5, ptr %0, ptr null
   br label %7
 
 7:                                                ; preds = %1, %3
@@ -2553,9 +2549,7 @@ define { ptr, ptr } @"_ZN69_$LT$quinn..send_stream..WriteError$u20$as$u20$core..
   %4 = icmp ugt i64 %3, 3
   %5 = icmp ne i64 %3, 1
   tail call void @llvm.assume(i1 %5)
-  %switch1 = icmp eq i64 %2, 11
-  %switch = or i1 %switch1, %4
-  %. = select i1 %switch, ptr %0, ptr null
+  %. = select i1 %4, ptr %0, ptr null
   %6 = insertvalue { ptr, ptr } poison, ptr %., 0
   %7 = insertvalue { ptr, ptr } %6, ptr @anon.bf2b533bfd639f2c31bd918c52d87b60.66, 1
   ret { ptr, ptr } %7

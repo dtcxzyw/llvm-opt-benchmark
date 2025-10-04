@@ -257,19 +257,19 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef capt
   %12 = tail call ptr @xstrdup(ptr noundef nonnull %0) #11
   store ptr %12, ptr %4, align 8
   %13 = call ptr @strtok_r(ptr noundef %12, ptr noundef nonnull @.str.37, ptr noundef nonnull %5) #11
-  %.not65 = icmp eq ptr %13, null
-  br i1 %.not65, label %.critedge, label %.lr.ph68
+  %.not64 = icmp eq ptr %13, null
+  br i1 %.not64, label %.critedge, label %.lr.ph67
 
-.lr.ph68:                                         ; preds = %10, %49
-  %.04266 = phi ptr [ %50, %49 ], [ %13, %10 ]
+.lr.ph67:                                         ; preds = %10, %49
+  %.04265 = phi ptr [ %50, %49 ], [ %13, %10 ]
   %14 = load i8, ptr %1, align 1, !range !11, !noundef !12
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %.preheader, label %.critedge
 
-.preheader:                                       ; preds = %.lr.ph68
-  %16 = load i8, ptr %.04266, align 1
-  %.not5063 = icmp eq i8 %16, 0
-  br i1 %.not5063, label %.thread.thread, label %.lr.ph
+.preheader:                                       ; preds = %.lr.ph67
+  %16 = load i8, ptr %.04265, align 1
+  %.not5062 = icmp eq i8 %16, 0
+  br i1 %.not5062, label %.thread.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %17 = tail call ptr @__ctype_b_loc() #12
@@ -293,7 +293,7 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef capt
   ]
 
 26:                                               ; preds = %25, %25
-  %27 = getelementptr inbounds nuw i8, ptr %.04266, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i8, ptr %.04265, i64 %indvars.iv
   store i8 0, ptr %27, align 1
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %29 = call i64 @strtol(ptr noundef nonnull %28, ptr noundef nonnull %3, i32 noundef 10) #11
@@ -309,7 +309,7 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef capt
 
 34:                                               ; preds = %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = getelementptr inbounds nuw i8, ptr %.04266, i64 %indvars.iv.next
+  %35 = getelementptr inbounds nuw i8, ptr %.04265, i64 %indvars.iv.next
   %36 = load i8, ptr %35, align 1
   %.not50 = icmp eq i8 %36, 0
   br i1 %.not50, label %.thread.thread, label %19, !llvm.loop !13
@@ -328,33 +328,33 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef capt
   br label %.critedge
 
 .thread.thread:                                   ; preds = %34, %.preheader, %.thread
-  %.05680 = phi i32 [ %30, %.thread ], [ 1, %.preheader ], [ 1, %34 ]
-  %40 = call ptr @list_find_first(ptr noundef %11, ptr noundef nonnull @_license_find_rec, ptr noundef nonnull %.04266) #11
+  %.05679 = phi i32 [ %30, %.thread ], [ 1, %.preheader ], [ 1, %34 ]
+  %40 = call ptr @list_find_first(ptr noundef %11, ptr noundef nonnull @_license_find_rec, ptr noundef nonnull %.04265) #11
   %.not53 = icmp eq ptr %40, null
   br i1 %.not53, label %45, label %41
 
 41:                                               ; preds = %.thread.thread
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 8
-  %44 = add i32 %43, %.05680
+  %44 = add i32 %43, %.05679
   store i32 %44, ptr %42, align 8
   br label %49
 
 45:                                               ; preds = %.thread.thread
   %46 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.22, i32 noundef 183, ptr noundef nonnull @__func__._build_license_list) #11
-  %47 = call ptr @xstrdup(ptr noundef nonnull %.04266) #11
+  %47 = call ptr @xstrdup(ptr noundef nonnull %.04265) #11
   store ptr %47, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store i32 %.05680, ptr %48, align 8
+  store i32 %.05679, ptr %48, align 8
   call void @list_push(ptr noundef %11, ptr noundef nonnull %46) #11
   br label %49
 
 49:                                               ; preds = %41, %45
   %50 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.37, ptr noundef nonnull %5) #11
   %.not = icmp eq ptr %50, null
-  br i1 %.not, label %.critedge, label %.lr.ph68
+  br i1 %.not, label %.critedge, label %.lr.ph67
 
-.critedge:                                        ; preds = %.lr.ph68, %49, %10, %.thread57
+.critedge:                                        ; preds = %.lr.ph67, %49, %10, %.thread57
   call void @slurm_xfree(ptr noundef nonnull %4) #11
   %51 = load i8, ptr %1, align 1, !range !11, !noundef !12
   %52 = icmp eq i8 %51, 0
@@ -2963,76 +2963,79 @@ define dso_local noundef zeroext i1 @slurm_bf_licenses_avail(ptr noundef %0, ptr
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %31, label %6
+  br i1 %.not, label %33, label %6
 
 6:                                                ; preds = %2
   %7 = tail call ptr @list_iterator_create(ptr noundef nonnull %5) #11
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 824
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %10 = tail call ptr @list_next(ptr noundef %7) #11
-  %.not3556 = icmp eq ptr %10, null
-  br i1 %.not3556, label %.thread, label %.lr.ph
+  %8 = tail call ptr @list_next(ptr noundef %7) #11
+  %.not3547 = icmp eq ptr %8, null
+  br i1 %.not3547, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6, %.backedge
-  %11 = phi ptr [ %30, %.backedge ], [ %10, %6 ]
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i32, ptr %12, align 8
-  %14 = load ptr, ptr %8, align 8
-  %.not36 = icmp eq ptr %14, null
-  br i1 %.not36, label %23, label %15
+.lr.ph:                                           ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 824
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %11
 
-15:                                               ; preds = %.lr.ph
+11:                                               ; preds = %.lr.ph, %31
+  %12 = phi ptr [ %8, %.lr.ph ], [ %32, %31 ]
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load i32, ptr %13, align 8
+  %15 = load ptr, ptr %9, align 8
+  %.not36 = icmp eq ptr %15, null
+  br i1 %.not36, label %24, label %16
+
+16:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %16 = load ptr, ptr %11, align 8
-  store ptr %16, ptr %3, align 8
-  store ptr %14, ptr %9, align 8
-  %17 = call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @_bf_licenses_find_resv, ptr noundef nonnull %3) #11
-  %.not37 = icmp eq ptr %17, null
-  br i1 %.not37, label %.critedge.thread, label %18
+  %17 = load ptr, ptr %12, align 8
+  store ptr %17, ptr %3, align 8
+  store ptr %15, ptr %10, align 8
+  %18 = call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @_bf_licenses_find_resv, ptr noundef nonnull %3) #11
+  %.not37 = icmp eq ptr %18, null
+  br i1 %.not37, label %.critedge.thread, label %19
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %20 = load i32, ptr %19, align 8
-  %.not38.not = icmp ugt i32 %13, %20
-  br i1 %.not38.not, label %21, label %.critedge, !llvm.loop !33
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %21 = load i32, ptr %20, align 8
+  %.not38.not = icmp ugt i32 %14, %21
+  br i1 %.not38.not, label %22, label %.critedge, !llvm.loop !33
 
-21:                                               ; preds = %18
-  %22 = sub nuw i32 %13, %20
+22:                                               ; preds = %19
+  %23 = sub nuw i32 %14, %21
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %15, %21
-  %.1.ph = phi i32 [ %13, %15 ], [ %22, %21 ]
+.critedge.thread:                                 ; preds = %16, %22
+  %.1.ph = phi i32 [ %14, %16 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %23
+  br label %24
 
-.critedge:                                        ; preds = %18
+.critedge:                                        ; preds = %19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.backedge
-
-23:                                               ; preds = %.critedge.thread, %.lr.ph
-  %.0 = phi i32 [ %13, %.lr.ph ], [ %.1.ph, %.critedge.thread ]
-  %24 = load ptr, ptr %11, align 8
-  %25 = call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @_bf_licenses_find_rec, ptr noundef %24) #11
-  %.not39 = icmp eq ptr %25, null
-  br i1 %.not39, label %.thread, label %26
-
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp ult i32 %28, %.0
-  br i1 %29, label %.thread, label %.backedge
-
-.backedge:                                        ; preds = %26, %.critedge
-  %30 = call ptr @list_next(ptr noundef %7) #11
-  %.not35 = icmp eq ptr %30, null
-  br i1 %.not35, label %.thread, label %.lr.ph
-
-.thread:                                          ; preds = %.backedge, %26, %23, %6
-  %.not35.lcssa = phi i1 [ true, %6 ], [ true, %.backedge ], [ false, %26 ], [ false, %23 ]
-  call void @list_iterator_destroy(ptr noundef %7) #11
   br label %31
 
-31:                                               ; preds = %2, %.thread
+24:                                               ; preds = %.critedge.thread, %11
+  %.0 = phi i32 [ %14, %11 ], [ %.1.ph, %.critedge.thread ]
+  %25 = load ptr, ptr %12, align 8
+  %26 = call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @_bf_licenses_find_rec, ptr noundef %25) #11
+  %.not39 = icmp eq ptr %26, null
+  br i1 %.not39, label %.thread, label %27
+
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %29 = load i32, ptr %28, align 8
+  %30 = icmp ult i32 %29, %.0
+  br i1 %30, label %.thread, label %31
+
+31:                                               ; preds = %.critedge, %27
+  %32 = call ptr @list_next(ptr noundef %7) #11
+  %.not35 = icmp eq ptr %32, null
+  br i1 %.not35, label %.thread, label %11
+
+.thread:                                          ; preds = %31, %24, %27, %6
+  %.not35.lcssa = phi i1 [ true, %6 ], [ false, %27 ], [ false, %24 ], [ true, %31 ]
+  call void @list_iterator_destroy(ptr noundef %7) #11
+  br label %33
+
+33:                                               ; preds = %2, %.thread
   %.023 = phi i1 [ %.not35.lcssa, %.thread ], [ true, %2 ]
   ret i1 %.023
 }

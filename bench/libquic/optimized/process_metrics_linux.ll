@@ -1015,8 +1015,8 @@ define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZN4base12_GLOBAL
 
 _ZN4base16ParseProcStatCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %44
   %.fr = freeze i32 %49
-  %.fr62 = freeze i32 %48
-  %50 = add i32 %.fr, %.fr62
+  %.fr60 = freeze i32 %48
+  %50 = add i32 %.fr, %.fr60
   %51 = call i32 @llvm.smax.i32(i32 %50, i32 0)
   %spec.select = add nuw nsw i32 %51, %.024.ph
   br label %_ZN4base16ParseProcStatCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
@@ -1567,10 +1567,9 @@ define noundef i32 @_ZNK4base14ProcessMetrics14GetOpenFdCountEv(ptr noundef nonn
   %29 = load i32, ptr %4, align 8, !tbaa !52
   %30 = call i64 (i64, ...) @syscall(i64 noundef 217, i32 noundef %29, ptr noundef nonnull %11, i64 noundef 512) #25
   %31 = trunc i64 %30 to i32
-  switch i32 %31, label %32 [
-    i32 0, label %_ZN4base14DirReaderLinux4NextEv.exit
-    i32 -1, label %_ZN4base14DirReaderLinux4NextEv.exit
-  ]
+  %.off.i = add i32 %31, -1
+  %switch.i = icmp ult i32 %.off.i, -2
+  br i1 %switch.i, label %32, label %_ZN4base14DirReaderLinux4NextEv.exit
 
 32:                                               ; preds = %28
   %sext.i = shl i64 %30, 32
@@ -1612,7 +1611,7 @@ sub_2:                                            ; preds = %sub_117
   %spec.select = add nuw nsw i32 %.not11, %.07.ph
   br label %.outer, !llvm.loop !59
 
-_ZN4base14DirReaderLinux4NextEv.exit:             ; preds = %28, %28
+_ZN4base14DirReaderLinux4NextEv.exit:             ; preds = %28
   %.pre = load i32, ptr %4, align 8, !tbaa !52
   %48 = icmp sgt i32 %.pre, -1
   br i1 %48, label %49, label %_ZN4base14DirReaderLinuxD2Ev.exit

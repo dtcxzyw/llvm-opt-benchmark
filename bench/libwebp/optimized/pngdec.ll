@@ -660,7 +660,7 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   %7 = icmp eq ptr %0, null
   %8 = icmp eq i64 %1, 0
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %53, label %9
+  br i1 %or.cond, label %52, label %9
 
 9:                                                ; preds = %3
   %10 = load i8, ptr %0, align 1, !tbaa !50
@@ -671,7 +671,7 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   %12 = sext i8 %10 to i32
   %13 = load ptr, ptr @stderr, align 8, !tbaa !26
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.10, i32 noundef %12) #19
-  br label %53
+  br label %52
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -700,7 +700,7 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   %25 = sext i8 %23 to i32
   %26 = load ptr, ptr @stderr, align 8, !tbaa !26
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.10, i32 noundef %25) #19
-  br label %53
+  br label %52
 
 28:                                               ; preds = %.critedge
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 1
@@ -712,19 +712,19 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   br i1 %32, label %HexStringToBytes.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %28
-  %.not45.i = icmp eq i64 %sext, 0
-  br i1 %.not45.i, label %HexStringToBytes.exit.thread24, label %.lr.ph.i
+  %.not42.i = icmp eq i64 %sext, 0
+  br i1 %.not42.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 2
   br label %35
 
-35:                                               ; preds = %47, %.lr.ph.i
-  %.01840.i = phi ptr [ %31, %.lr.ph.i ], [ %.136.i, %47 ]
-  %.02039.i = phi i64 [ 0, %.lr.ph.i ], [ %.235.i, %47 ]
-  %.02238.i = phi ptr [ %29, %.lr.ph.i ], [ %48, %47 ]
-  %36 = load i8, ptr %.02238.i, align 1, !tbaa !50
+35:                                               ; preds = %select.unfold.i, %.lr.ph.i
+  %.01839.i = phi ptr [ %31, %.lr.ph.i ], [ %.1.ph.i, %select.unfold.i ]
+  %.02038.i = phi i64 [ 0, %.lr.ph.i ], [ %.2.ph.i, %select.unfold.i ]
+  %.02237.i = phi ptr [ %29, %.lr.ph.i ], [ %48, %select.unfold.i ]
+  %36 = load i8, ptr %.02237.i, align 1, !tbaa !50
   %.not.i = icmp eq i8 %36, 0
   br i1 %.not.i, label %.critedge.i, label %37
 
@@ -732,60 +732,59 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = icmp eq i8 %36, 10
-  br i1 %38, label %.thread.i, label %39
-
-.thread.i:                                        ; preds = %37
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %47
+  br i1 %38, label %select.unfold.i, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %.02238.i, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.02237.i, i64 1
   store i8 %36, ptr %5, align 1, !tbaa !50
   %41 = load i8, ptr %40, align 1, !tbaa !50
   store i8 %41, ptr %33, align 1, !tbaa !50
   store i8 0, ptr %34, align 1, !tbaa !50
   %42 = call i64 @strtol(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16) #15
   %43 = trunc i64 %42 to i8
-  %44 = getelementptr inbounds nuw i8, ptr %.01840.i, i64 1
-  store i8 %43, ptr %.01840.i, align 1, !tbaa !50
+  %44 = getelementptr inbounds nuw i8, ptr %.01839.i, i64 1
+  store i8 %43, ptr %.01839.i, align 1, !tbaa !50
   %45 = load ptr, ptr %4, align 8, !tbaa !13
   %.not25.i = icmp eq ptr %45, %34
-  %46 = zext i1 %.not25.i to i64
-  %spec.select.i = add nuw i64 %.02039.i, %46
+  %46 = add nuw i64 %.02038.i, 1
+  br i1 %.not25.i, label %select.unfold.i, label %47
+
+47:                                               ; preds = %39
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not25.i, label %47, label %.critedge.i
+  br label %.critedge.i
 
-47:                                               ; preds = %39, %.thread.i
-  %.136.i = phi ptr [ %.01840.i, %.thread.i ], [ %44, %39 ]
-  %.235.i = phi i64 [ %.02039.i, %.thread.i ], [ %spec.select.i, %39 ]
-  %.12334.i = phi ptr [ %.02238.i, %.thread.i ], [ %40, %39 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.12334.i, i64 1
-  %49 = icmp ult i64 %.235.i, %30
+select.unfold.i:                                  ; preds = %39, %37
+  %.123.ph.i = phi ptr [ %.02237.i, %37 ], [ %40, %39 ]
+  %.2.ph.i = phi i64 [ %.02038.i, %37 ], [ %46, %39 ]
+  %.1.ph.i = phi ptr [ %.01839.i, %37 ], [ %44, %39 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %48 = getelementptr inbounds nuw i8, ptr %.123.ph.i, i64 1
+  %49 = icmp ult i64 %.2.ph.i, %30
   br i1 %49, label %35, label %.critedge.i, !llvm.loop !52
 
-.critedge.i:                                      ; preds = %47, %39, %35
-  %.121.ph.i = phi i64 [ %.02039.i, %35 ], [ %.235.i, %47 ], [ %spec.select.i, %39 ]
-  %50 = icmp eq i64 %.121.ph.i, %30
-  br i1 %50, label %HexStringToBytes.exit.thread24, label %51
+.critedge.i:                                      ; preds = %select.unfold.i, %35, %47, %.preheader.i
+  %.02036.i = phi i64 [ %.02038.i, %47 ], [ 0, %.preheader.i ], [ %.2.ph.i, %select.unfold.i ], [ %.02038.i, %35 ]
+  %.not26.i = icmp eq i64 %.02036.i, %30
+  br i1 %.not26.i, label %HexStringToBytes.exit, label %50
 
-51:                                               ; preds = %.critedge.i
+50:                                               ; preds = %.critedge.i
   call void @free(ptr noundef %31) #15
   br label %HexStringToBytes.exit.thread
 
-HexStringToBytes.exit.thread:                     ; preds = %51, %28
+HexStringToBytes.exit.thread:                     ; preds = %50, %28
   store ptr null, ptr %2, align 8, !tbaa !42
-  br label %53
+  br label %52
 
-HexStringToBytes.exit.thread24:                   ; preds = %.critedge.i, %.preheader.i
+HexStringToBytes.exit:                            ; preds = %.critedge.i
   store ptr %31, ptr %2, align 8, !tbaa !42
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %30, ptr %52, align 8, !tbaa !53
-  br label %53
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %30, ptr %51, align 8, !tbaa !53
+  br label %52
 
-53:                                               ; preds = %HexStringToBytes.exit.thread, %3, %HexStringToBytes.exit.thread24, %24, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %24 ], [ 1, %HexStringToBytes.exit.thread24 ], [ 0, %3 ], [ 0, %HexStringToBytes.exit.thread ]
+52:                                               ; preds = %HexStringToBytes.exit.thread, %3, %HexStringToBytes.exit, %24, %11
+  %.0 = phi i32 [ 0, %11 ], [ 0, %24 ], [ 1, %HexStringToBytes.exit ], [ 0, %3 ], [ 0, %HexStringToBytes.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

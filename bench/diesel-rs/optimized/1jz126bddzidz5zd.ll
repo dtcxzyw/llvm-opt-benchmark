@@ -148,9 +148,8 @@ define hidden void @"_ZN127_$LT$diesel..query_builder..order_clause..OrderClause
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %13 = and i64 %6, 6
-  %switch = icmp eq i64 %13, 2
-  br i1 %switch, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit", label %14
+  %13 = icmp eq i64 %6, 1
+  br i1 %13, label %14, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit"
 
 14:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17hfab71232e8b34e69E.exit"
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16

@@ -408,14 +408,11 @@ define internal fastcc ptr @search_plan_tree(ptr noundef readonly captures(addre
   %21 = tail call fastcc ptr @search_plan_tree(ptr noundef %20, i32 noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %21, null
   %.not40 = icmp ne ptr %.23355, null
-  %. = zext i1 %.not40 to i32
-  %.035 = select i1 %.not, i32 5, i32 %.
-  switch i32 %.035, label %.thread [
-    i32 0, label %22
-    i32 5, label %22
-  ]
+  %not..not = xor i1 %.not, true
+  %switch = select i1 %not..not, i1 %.not40, i1 false
+  br i1 %switch, label %.thread, label %22
 
-22:                                               ; preds = %17, %17
+22:                                               ; preds = %17
   %23 = select i1 %.not, i1 true, i1 %.not40
   %.334 = select i1 %23, ptr %.23355, ptr %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

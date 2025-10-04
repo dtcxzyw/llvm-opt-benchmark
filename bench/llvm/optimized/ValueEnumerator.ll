@@ -2296,12 +2296,12 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm15ValueEnum
   %817 = zext i32 %816 to i64
   %.idx.i304 = shl nuw nsw i64 %817, 3
   %818 = getelementptr inbounds nuw i8, ptr %814, i64 %.idx.i304
-  %.not116.i = icmp eq i32 %816, 0
-  br i1 %.not116.i, label %"_ZZN4llvm15ValueEnumeratorC1ERKNS_6ModuleEbENK3$_0clEPNS_8MetadataE.exit", label %.lr.ph.i305
+  %.not115.i = icmp eq i32 %816, 0
+  br i1 %.not115.i, label %"_ZZN4llvm15ValueEnumeratorC1ERKNS_6ModuleEbENK3$_0clEPNS_8MetadataE.exit", label %.lr.ph.i305
 
 .lr.ph.i305:                                      ; preds = %812, %879
-  %.097.i = phi ptr [ %880, %879 ], [ %814, %812 ]
-  %819 = load ptr, ptr %.097.i, align 8, !tbaa !177
+  %.096.i = phi ptr [ %880, %879 ], [ %814, %812 ]
+  %819 = load ptr, ptr %.096.i, align 8, !tbaa !177
   %820 = load i8, ptr %819, align 4, !tbaa !164
   %821 = icmp eq i8 %820, 1
   br i1 %821, label %822, label %879
@@ -2407,7 +2407,7 @@ _ZN4llvm15ValueEnumerator17EnumerateMetadataEPKNS_8FunctionEPKNS_8MetadataE.exit
   br label %879
 
 879:                                              ; preds = %_ZN4llvm15ValueEnumerator17EnumerateMetadataEPKNS_8FunctionEPKNS_8MetadataE.exit484, %.lr.ph.i305
-  %880 = getelementptr inbounds nuw i8, ptr %.097.i, i64 8
+  %880 = getelementptr inbounds nuw i8, ptr %.096.i, i64 8
   %.not11.i306 = icmp eq ptr %880, %818
   br i1 %.not11.i306, label %"_ZZN4llvm15ValueEnumeratorC1ERKNS_6ModuleEbENK3$_0clEPNS_8MetadataE.exit", label %.lr.ph.i305
 
@@ -2853,12 +2853,12 @@ _ZN4llvm8DebugLocD2Ev.exit361:                    ; preds = %_ZN4llvm15ValueEnum
   %1128 = zext i32 %1127 to i64
   %.idx.i363 = shl nuw nsw i64 %1128, 3
   %1129 = getelementptr inbounds nuw i8, ptr %1125, i64 %.idx.i363
-  %.not116.i364 = icmp eq i32 %1127, 0
-  br i1 %.not116.i364, label %"_ZZN4llvm15ValueEnumeratorC1ERKNS_6ModuleEbENK3$_0clEPNS_8MetadataE.exit368", label %.lr.ph.i365
+  %.not115.i364 = icmp eq i32 %1127, 0
+  br i1 %.not115.i364, label %"_ZZN4llvm15ValueEnumeratorC1ERKNS_6ModuleEbENK3$_0clEPNS_8MetadataE.exit368", label %.lr.ph.i365
 
 .lr.ph.i365:                                      ; preds = %1123, %1190
-  %.097.i366 = phi ptr [ %1191, %1190 ], [ %1125, %1123 ]
-  %1130 = load ptr, ptr %.097.i366, align 8, !tbaa !177
+  %.096.i366 = phi ptr [ %1191, %1190 ], [ %1125, %1123 ]
+  %1130 = load ptr, ptr %.096.i366, align 8, !tbaa !177
   %1131 = load i8, ptr %1130, align 4, !tbaa !164
   %1132 = icmp eq i8 %1131, 1
   br i1 %1132, label %1133, label %1190
@@ -2964,7 +2964,7 @@ _ZN4llvm15ValueEnumerator17EnumerateMetadataEPKNS_8FunctionEPKNS_8MetadataE.exit
   br label %1190
 
 1190:                                             ; preds = %_ZN4llvm15ValueEnumerator17EnumerateMetadataEPKNS_8FunctionEPKNS_8MetadataE.exit518, %.lr.ph.i365
-  %1191 = getelementptr inbounds nuw i8, ptr %.097.i366, i64 8
+  %1191 = getelementptr inbounds nuw i8, ptr %.096.i366, i64 8
   %.not11.i367 = icmp eq ptr %1191, %1129
   br i1 %.not11.i367, label %"_ZZN4llvm15ValueEnumeratorC1ERKNS_6ModuleEbENK3$_0clEPNS_8MetadataE.exit368", label %.lr.ph.i365
 
@@ -3307,12 +3307,12 @@ _ZN4llvm15ValueEnumerator17EnumerateMetadataEPKNS_8FunctionEPKNS_8MetadataE.exit
   %1380 = zext i32 %1379 to i64
   %.idx.i405 = shl nuw nsw i64 %1380, 3
   %1381 = getelementptr inbounds nuw i8, ptr %1377, i64 %.idx.i405
-  %.not116.i406 = icmp eq i32 %1379, 0
-  br i1 %.not116.i406, label %"_ZZN4llvm15ValueEnumeratorC1ERKNS_6ModuleEbENK3$_0clEPNS_8MetadataE.exit410", label %.lr.ph.i407
+  %.not115.i406 = icmp eq i32 %1379, 0
+  br i1 %.not115.i406, label %"_ZZN4llvm15ValueEnumeratorC1ERKNS_6ModuleEbENK3$_0clEPNS_8MetadataE.exit410", label %.lr.ph.i407
 
 .lr.ph.i407:                                      ; preds = %1375, %1442
-  %.097.i408 = phi ptr [ %1443, %1442 ], [ %1377, %1375 ]
-  %1382 = load ptr, ptr %.097.i408, align 8, !tbaa !177
+  %.096.i408 = phi ptr [ %1443, %1442 ], [ %1377, %1375 ]
+  %1382 = load ptr, ptr %.096.i408, align 8, !tbaa !177
   %1383 = load i8, ptr %1382, align 4, !tbaa !164
   %1384 = icmp eq i8 %1383, 1
   br i1 %1384, label %1385, label %1442
@@ -3418,7 +3418,7 @@ _ZN4llvm15ValueEnumerator17EnumerateMetadataEPKNS_8FunctionEPKNS_8MetadataE.exit
   br label %1442
 
 1442:                                             ; preds = %_ZN4llvm15ValueEnumerator17EnumerateMetadataEPKNS_8FunctionEPKNS_8MetadataE.exit552, %.lr.ph.i407
-  %1443 = getelementptr inbounds nuw i8, ptr %.097.i408, i64 8
+  %1443 = getelementptr inbounds nuw i8, ptr %.096.i408, i64 8
   %.not11.i409 = icmp eq ptr %1443, %1381
   br i1 %.not11.i409, label %"_ZZN4llvm15ValueEnumeratorC1ERKNS_6ModuleEbENK3$_0clEPNS_8MetadataE.exit410", label %.lr.ph.i407
 
@@ -4198,10 +4198,9 @@ define dso_local void @_ZN4llvm15ValueEnumerator13EnumerateTypeEPNS_4TypeE(ptr n
 ._crit_edge:                                      ; preds = %.lr.ph, %14
   %21 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4TypeEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %22 = load i32, ptr %21, align 4, !tbaa !19
-  switch i32 %22, label %62 [
-    i32 0, label %25
-    i32 -1, label %25
-  ]
+  %.off = add i32 %22, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %62, label %25
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
   %.025 = phi ptr [ %24, %.lr.ph ], [ %16, %14 ]
@@ -4211,7 +4210,7 @@ define dso_local void @_ZN4llvm15ValueEnumerator13EnumerateTypeEPNS_4TypeE(ptr n
   %.not18 = icmp eq ptr %24, %20
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
-25:                                               ; preds = %._crit_edge, %._crit_edge
+25:                                               ; preds = %._crit_edge
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load ptr, ptr %27, align 8, !tbaa !367
@@ -6177,7 +6176,7 @@ define dso_local noundef i32 @_ZNK4llvm15ValueEnumerator10getValueIDEPKNS_5Value
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %11 = load i32, ptr %10, align 8, !tbaa !322
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %_ZNK4llvm15ValueEnumerator13getMetadataIDEPKNS_8MetadataE.exit.thread10, label %13
+  br i1 %12, label %_ZNK4llvm15ValueEnumerator13getMetadataIDEPKNS_8MetadataE.exit.thread9, label %13
 
 13:                                               ; preds = %5
   %14 = ptrtoint ptr %7 to i64
@@ -6198,7 +6197,7 @@ define dso_local noundef i32 @_ZNK4llvm15ValueEnumerator10getValueIDEPKNS_5Value
   %.01828.i.i.i.i.i = phi i32 [ %.018.i.i.i.i.i, %26 ], [ %.01826.i.i.i.i.i, %13 ]
   %.01627.i.i.i.i.i = phi i32 [ %27, %26 ], [ 1, %13 ]
   %25 = icmp eq ptr %24, inttoptr (i64 -4096 to ptr)
-  br i1 %25, label %_ZNK4llvm15ValueEnumerator13getMetadataIDEPKNS_8MetadataE.exit.thread10, label %26, !prof !324
+  br i1 %25, label %_ZNK4llvm15ValueEnumerator13getMetadataIDEPKNS_8MetadataE.exit.thread9, label %26, !prof !324
 
 26:                                               ; preds = %.lr.ph.i.i.i.i.i
   %27 = add i32 %.01627.i.i.i.i.i, 1
@@ -6218,7 +6217,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MetadataENS_15ValueEnumerator7MDIndex
   %37 = lshr i64 %36, 32
   %38 = trunc nuw i64 %37 to i32
   %39 = add i32 %38, -1
-  br label %_ZNK4llvm15ValueEnumerator13getMetadataIDEPKNS_8MetadataE.exit.thread10
+  br label %_ZNK4llvm15ValueEnumerator13getMetadataIDEPKNS_8MetadataE.exit.thread9
 
 _ZNK4llvm15ValueEnumerator13getMetadataIDEPKNS_8MetadataE.exit.thread: ; preds = %2
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -6269,9 +6268,9 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6de
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 8
   %68 = load i32, ptr %67, align 8, !tbaa !330
   %69 = add i32 %68, -1
-  br label %_ZNK4llvm15ValueEnumerator13getMetadataIDEPKNS_8MetadataE.exit.thread10
+  br label %_ZNK4llvm15ValueEnumerator13getMetadataIDEPKNS_8MetadataE.exit.thread9
 
-_ZNK4llvm15ValueEnumerator13getMetadataIDEPKNS_8MetadataE.exit.thread10: ; preds = %.lr.ph.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MetadataENS_15ValueEnumerator7MDIndexENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i.i, %5, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit
+_ZNK4llvm15ValueEnumerator13getMetadataIDEPKNS_8MetadataE.exit.thread9: ; preds = %.lr.ph.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MetadataENS_15ValueEnumerator7MDIndexENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i.i, %5, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit
   %.1 = phi i32 [ %69, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit ], [ -1, %5 ], [ %39, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MetadataENS_15ValueEnumerator7MDIndexENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i.i ], [ -1, %.lr.ph.i.i.i.i.i ]
   ret i32 %.1
 }

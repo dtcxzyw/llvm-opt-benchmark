@@ -6514,22 +6514,20 @@ define linkonce_odr void @_ZN4pkpy8ImagExprD0Ev(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy11LiteralExprD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11LiteralExprE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load i8, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %4, -1
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = load i8, ptr %2, align 8
+  switch i8 %3, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateldN4pkpy3StrEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_ldS5_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i [
+    i8 -1, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit
+    i8 3, label %4
+  ]
 
-5:                                                ; preds = %1
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %4, 3
-  br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateldN4pkpy3StrEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_ldS5_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i, label %6
-
-6:                                                ; preds = %5
-  tail call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %2) #32
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #32
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateldN4pkpy3StrEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_ldS5_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i
 
-_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateldN4pkpy3StrEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_ldS5_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i: ; preds = %6, %5
-  store i8 -1, ptr %3, align 8
+_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateldN4pkpy3StrEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_ldS5_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i: ; preds = %4, %1
+  store i8 -1, ptr %2, align 8
   br label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit
 
 _ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit: ; preds = %1, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateldN4pkpy3StrEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_ldS5_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i
@@ -6541,19 +6539,15 @@ define linkonce_odr void @_ZN4pkpy11LiteralExprD0Ev(ptr noundef nonnull align 8 
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4pkpy11LiteralExprE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
-  switch i8 %3, label %4 [
-    i8 -1, label %_ZN4pkpy11LiteralExprD2Ev.exit
-    i8 2, label %_ZN4pkpy11LiteralExprD2Ev.exit
-    i8 1, label %_ZN4pkpy11LiteralExprD2Ev.exit
-    i8 0, label %_ZN4pkpy11LiteralExprD2Ev.exit
-  ]
+  %cond = icmp eq i8 %3, 3
+  br i1 %cond, label %4, label %_ZN4pkpy11LiteralExprD2Ev.exit
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #32
   br label %_ZN4pkpy11LiteralExprD2Ev.exit
 
-_ZN4pkpy11LiteralExprD2Ev.exit:                   ; preds = %1, %1, %1, %1, %4
+_ZN4pkpy11LiteralExprD2Ev.exit:                   ; preds = %1, %4
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #31
   ret void
 }
