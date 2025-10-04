@@ -127247,7 +127247,7 @@ bracketend.exit:                                  ; preds = %36
   switch i8 %35, label %.thread [
     i8 -110, label %94
     i8 -115, label %94
-  ]
+  ], !prof !344
 
 94:                                               ; preds = %80, %80
   %95 = icmp eq i8 %35, -115
@@ -127257,7 +127257,7 @@ bracketend.exit:                                  ; preds = %36
   %98 = icmp ne i8 %96, -91
   %narrow = and i1 %98, %or.cond792
   %.0712 = zext i1 %narrow to i32
-  br i1 %95, label %99, label %.thread, !prof !344
+  br i1 %95, label %99, label %.thread, !prof !126
 
 99:                                               ; preds = %94
   %.off806 = add i8 %91, -123
@@ -167632,7 +167632,7 @@ attributes #22 = { nounwind memory(none) }
 !341 = !{!306, !5, i64 48}
 !342 = !{!306, !5, i64 52}
 !343 = !{!306, !41, i64 24}
-!344 = !{!"branch_weights", !"expected", i32 1609807, i32 2145873841}
+!344 = !{!"branch_weights", i32 2000, i32 0, i32 0}
 !345 = !{!346, !5, i64 80}
 !346 = !{!"bracket_backtrack", !45, i64 0, !38, i64 40, !38, i64 48, !38, i64 56, !6, i64 64, !101, i64 72, !5, i64 80}
 !347 = !{!346, !38, i64 48}

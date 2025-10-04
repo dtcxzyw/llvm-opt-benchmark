@@ -6840,5 +6840,5 @@ attributes #28 = { cold noreturn nounwind }
 !297 = !{!298, !295}
 !298 = distinct !{!298, !299, !"_ZN4core4iter6traits8iterator8Iterator7collect17hf2d7810871111052E: argument 0"}
 !299 = distinct !{!299, !"_ZN4core4iter6traits8iterator8Iterator7collect17hf2d7810871111052E"}
-!300 = !{!"branch_weights", i32 1073205, i32 2146410443}
+!300 = !{!"branch_weights", i32 2000, i32 2000}
 !301 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}

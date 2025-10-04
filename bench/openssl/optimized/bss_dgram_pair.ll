@@ -1579,7 +1579,7 @@ dgram_pair_read_inner.exit.i:                     ; preds = %ring_buf_push_pop.e
   switch i64 %.012.lcssa.i.i, label %dgram_pair_ctrl_pending.exit [
     i64 232, label %104
     i64 0, label %104
-  ]
+  ], !prof !55
 
 104:                                              ; preds = %dgram_pair_read_inner.exit.i, %dgram_pair_read_inner.exit.i
   %.not20.i = icmp eq i64 %.012.lcssa.i.i, 0
@@ -1615,7 +1615,7 @@ dgram_pair_ctrl_pending.exit:                     ; preds = %70, %77, %dgram_pai
   %121 = lshr i8 %.val33.val, 1
   %122 = and i8 %121, 1
   %123 = zext nneg i8 %122 to i32
-  store i32 %123, ptr %3, align 4, !tbaa !55
+  store i32 %123, ptr %3, align 4, !tbaa !56
   br label %dgram_pair_ctrl_get_write_guarantee.exit
 
 124:                                              ; preds = %8
@@ -1948,4 +1948,5 @@ attributes #7 = { nounwind }
 !52 = distinct !{!52, !43}
 !53 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
 !54 = !{!"branch_weights", !"expected", i32 2145766520, i32 1717128}
-!55 = !{!13, !13, i64 0}
+!55 = !{!"branch_weights", i32 1, i32 1000, i32 1000}
+!56 = !{!13, !13, i64 0}

@@ -333,7 +333,7 @@ define internal fastcc ptr @evp_pkey_new0_key(ptr noundef %0, i32 noundef range(
   switch i32 %1, label %5 [
     i32 116, label %6
     i32 6, label %6
-  ]
+  ], !prof !11
 
 5:                                                ; preds = %4
   tail call void @ERR_new() #6
@@ -1554,7 +1554,7 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   %31 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %1) #6
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @RSA_get0_key(ptr noundef %31, ptr noundef null, ptr noundef nonnull %22, ptr noundef null) #6
-  %32 = load ptr, ptr %22, align 8, !tbaa !11
+  %32 = load ptr, ptr %22, align 8, !tbaa !12
   %33 = call i32 @BN_num_bits(ptr noundef %32) #6
   %34 = icmp sgt i32 %33, 32
   br i1 %34, label %.thread74.thread, label %35
@@ -1575,7 +1575,7 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @RSA_get0_key(ptr noundef %31, ptr noundef null, ptr noundef null, ptr noundef nonnull %23) #6
-  %41 = load ptr, ptr %23, align 8, !tbaa !11
+  %41 = load ptr, ptr %23, align 8, !tbaa !12
   %42 = call i32 @BN_num_bits(ptr noundef %41) #6
   %43 = add nsw i32 %42, 7
   %44 = sdiv i32 %43, 8
@@ -1585,7 +1585,7 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
 46:                                               ; preds = %40
   call void @RSA_get0_factors(ptr noundef %31, ptr noundef nonnull %24, ptr noundef nonnull %25) #6
   call void @RSA_get0_crt_params(ptr noundef %31, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %26) #6
-  %47 = load ptr, ptr %26, align 8, !tbaa !11
+  %47 = load ptr, ptr %26, align 8, !tbaa !12
   %48 = call i32 @BN_num_bits(ptr noundef %47) #6
   %49 = add nsw i32 %48, 7
   %50 = sdiv i32 %49, 8
@@ -1593,7 +1593,7 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   br i1 %51, label %.thread.i, label %52
 
 52:                                               ; preds = %46
-  %53 = load ptr, ptr %24, align 8, !tbaa !11
+  %53 = load ptr, ptr %24, align 8, !tbaa !12
   %54 = call i32 @BN_num_bits(ptr noundef %53) #6
   %55 = add nsw i32 %54, 7
   %56 = sdiv i32 %55, 8
@@ -1601,7 +1601,7 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   br i1 %57, label %.thread.i, label %58
 
 58:                                               ; preds = %52
-  %59 = load ptr, ptr %25, align 8, !tbaa !11
+  %59 = load ptr, ptr %25, align 8, !tbaa !12
   %60 = call i32 @BN_num_bits(ptr noundef %59) #6
   %61 = add nsw i32 %60, 7
   %62 = sdiv i32 %61, 8
@@ -1609,7 +1609,7 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   br i1 %63, label %.thread.i, label %64
 
 64:                                               ; preds = %58
-  %65 = load ptr, ptr %27, align 8, !tbaa !11
+  %65 = load ptr, ptr %27, align 8, !tbaa !12
   %66 = call i32 @BN_num_bits(ptr noundef %65) #6
   %67 = add nsw i32 %66, 7
   %68 = sdiv i32 %67, 8
@@ -1617,7 +1617,7 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   br i1 %69, label %.thread.i, label %70
 
 70:                                               ; preds = %64
-  %71 = load ptr, ptr %28, align 8, !tbaa !11
+  %71 = load ptr, ptr %28, align 8, !tbaa !12
   %72 = call i32 @BN_num_bits(ptr noundef %71) #6
   %73 = add nsw i32 %72, 7
   %74 = sdiv i32 %73, 8
@@ -1648,31 +1648,31 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
 78:                                               ; preds = %76
   %79 = tail call ptr @EVP_PKEY_get0_DSA(ptr noundef %1) #6
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store ptr null, ptr %17, align 8, !tbaa !11
+  store ptr null, ptr %17, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  store ptr null, ptr %18, align 8, !tbaa !11
+  store ptr null, ptr %18, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  store ptr null, ptr %19, align 8, !tbaa !11
+  store ptr null, ptr %19, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  store ptr null, ptr %20, align 8, !tbaa !11
+  store ptr null, ptr %20, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  store ptr null, ptr %21, align 8, !tbaa !11
+  store ptr null, ptr %21, align 8, !tbaa !12
   call void @DSA_get0_pqg(ptr noundef %79, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #6
   call void @DSA_get0_key(ptr noundef %79, ptr noundef nonnull %20, ptr noundef nonnull %21) #6
-  %80 = load ptr, ptr %17, align 8, !tbaa !11
+  %80 = load ptr, ptr %17, align 8, !tbaa !12
   %81 = call i32 @BN_num_bits(ptr noundef %80) #6
   %82 = and i32 %81, 7
   %.not.i35 = icmp eq i32 %82, 0
   br i1 %.not.i35, label %83, label %.thread102
 
 83:                                               ; preds = %78
-  %84 = load ptr, ptr %18, align 8, !tbaa !11
+  %84 = load ptr, ptr %18, align 8, !tbaa !12
   %85 = call i32 @BN_num_bits(ptr noundef %84) #6
   %.not10.i = icmp eq i32 %85, 160
   br i1 %.not10.i, label %86, label %.thread102
 
 86:                                               ; preds = %83
-  %87 = load ptr, ptr %19, align 8, !tbaa !11
+  %87 = load ptr, ptr %19, align 8, !tbaa !12
   %88 = call i32 @BN_num_bits(ptr noundef %87) #6
   %89 = icmp sgt i32 %88, %81
   br i1 %89, label %.thread102, label %90
@@ -1682,13 +1682,13 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   br i1 %.not11.i, label %95, label %91
 
 91:                                               ; preds = %90
-  %92 = load ptr, ptr %20, align 8, !tbaa !11
+  %92 = load ptr, ptr %20, align 8, !tbaa !12
   %93 = call i32 @BN_num_bits(ptr noundef %92) #6
   %94 = icmp sgt i32 %93, %81
   br i1 %94, label %.thread102, label %.thread114
 
 95:                                               ; preds = %90
-  %96 = load ptr, ptr %21, align 8, !tbaa !11
+  %96 = load ptr, ptr %21, align 8, !tbaa !12
   %97 = call i32 @BN_num_bits(ptr noundef %96) #6
   %98 = icmp sgt i32 %97, 160
   br i1 %98, label %.thread102, label %99
@@ -1823,10 +1823,10 @@ ossl_blob_length.exit:                            ; preds = %104, %108, %.thread
   %140 = call i32 @RSA_size(ptr noundef %139) #6
   %141 = call i32 @RSA_bits(ptr noundef %139) #6
   call void @RSA_get0_key(ptr noundef %139, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %10) #6
-  %142 = load ptr, ptr %11, align 8, !tbaa !11
+  %142 = load ptr, ptr %11, align 8, !tbaa !12
   %143 = call i32 @BN_bn2lebinpad(ptr noundef %142, ptr noundef nonnull %137, i32 noundef 4) #6
   %144 = getelementptr inbounds nuw i8, ptr %.064, i64 20
-  %145 = load ptr, ptr %9, align 8, !tbaa !11
+  %145 = load ptr, ptr %9, align 8, !tbaa !12
   %146 = call i32 @BN_bn2lebinpad(ptr noundef %145, ptr noundef nonnull %144, i32 noundef %140) #6
   br i1 %.not11.i3793, label %147, label %write_rsa.exit
 
@@ -1837,23 +1837,23 @@ ossl_blob_length.exit:                            ; preds = %104, %108, %.thread
   %151 = ashr i32 %150, 4
   call void @RSA_get0_factors(ptr noundef %139, ptr noundef nonnull %12, ptr noundef nonnull %13) #6
   call void @RSA_get0_crt_params(ptr noundef %139, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %14) #6
-  %152 = load ptr, ptr %12, align 8, !tbaa !11
+  %152 = load ptr, ptr %12, align 8, !tbaa !12
   %153 = call i32 @BN_bn2lebinpad(ptr noundef %152, ptr noundef nonnull %149, i32 noundef %151) #6
   %154 = sext i32 %151 to i64
   %155 = getelementptr inbounds i8, ptr %149, i64 %154
-  %156 = load ptr, ptr %13, align 8, !tbaa !11
+  %156 = load ptr, ptr %13, align 8, !tbaa !12
   %157 = call i32 @BN_bn2lebinpad(ptr noundef %156, ptr noundef nonnull %155, i32 noundef %151) #6
   %158 = getelementptr inbounds i8, ptr %155, i64 %154
-  %159 = load ptr, ptr %15, align 8, !tbaa !11
+  %159 = load ptr, ptr %15, align 8, !tbaa !12
   %160 = call i32 @BN_bn2lebinpad(ptr noundef %159, ptr noundef nonnull %158, i32 noundef %151) #6
   %161 = getelementptr inbounds i8, ptr %158, i64 %154
-  %162 = load ptr, ptr %16, align 8, !tbaa !11
+  %162 = load ptr, ptr %16, align 8, !tbaa !12
   %163 = call i32 @BN_bn2lebinpad(ptr noundef %162, ptr noundef nonnull %161, i32 noundef %151) #6
   %164 = getelementptr inbounds i8, ptr %161, i64 %154
-  %165 = load ptr, ptr %14, align 8, !tbaa !11
+  %165 = load ptr, ptr %14, align 8, !tbaa !12
   %166 = call i32 @BN_bn2lebinpad(ptr noundef %165, ptr noundef nonnull %164, i32 noundef %151) #6
   %167 = getelementptr inbounds i8, ptr %164, i64 %154
-  %168 = load ptr, ptr %10, align 8, !tbaa !11
+  %168 = load ptr, ptr %10, align 8, !tbaa !12
   %169 = call i32 @BN_bn2lebinpad(ptr noundef %168, ptr noundef nonnull %167, i32 noundef %140) #6
   br label %write_rsa.exit
 
@@ -1871,29 +1871,29 @@ write_rsa.exit:                                   ; preds = %138, %147
 170:                                              ; preds = %131
   %171 = call ptr @EVP_PKEY_get0_DSA(ptr noundef %1) #6
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr null, ptr %4, align 8, !tbaa !11
+  store ptr null, ptr %4, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !11
+  store ptr null, ptr %5, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr null, ptr %6, align 8, !tbaa !11
+  store ptr null, ptr %6, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store ptr null, ptr %7, align 8, !tbaa !11
+  store ptr null, ptr %7, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr null, ptr %8, align 8, !tbaa !11
+  store ptr null, ptr %8, align 8, !tbaa !12
   call void @DSA_get0_pqg(ptr noundef %171, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
   call void @DSA_get0_key(ptr noundef %171, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
-  %172 = load ptr, ptr %4, align 8, !tbaa !11
+  %172 = load ptr, ptr %4, align 8, !tbaa !12
   %173 = call i32 @BN_num_bits(ptr noundef %172) #6
   %174 = add nsw i32 %173, 7
   %175 = sdiv i32 %174, 8
-  %176 = load ptr, ptr %4, align 8, !tbaa !11
+  %176 = load ptr, ptr %4, align 8, !tbaa !12
   %177 = call i32 @BN_bn2lebinpad(ptr noundef %176, ptr noundef nonnull %137, i32 noundef %175) #6
   %178 = sext i32 %175 to i64
   %179 = getelementptr inbounds i8, ptr %137, i64 %178
-  %180 = load ptr, ptr %5, align 8, !tbaa !11
+  %180 = load ptr, ptr %5, align 8, !tbaa !12
   %181 = call i32 @BN_bn2lebinpad(ptr noundef %180, ptr noundef nonnull %179, i32 noundef 20) #6
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 20
-  %183 = load ptr, ptr %6, align 8, !tbaa !11
+  %183 = load ptr, ptr %6, align 8, !tbaa !12
   %184 = call i32 @BN_bn2lebinpad(ptr noundef %183, ptr noundef nonnull %182, i32 noundef %175) #6
   %185 = getelementptr inbounds i8, ptr %182, i64 %178
   %.15.i = select i1 %.not11.i3793, i32 20, i32 %175
@@ -1985,21 +1985,21 @@ define internal fastcc i32 @derive_pvk_key(ptr noundef nonnull %0, ptr noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = zext nneg i32 %4 to i64
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9, ptr noundef nonnull @.str.6, ptr noundef nonnull %3, i64 noundef %22) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 120
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !14
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 160
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11, ptr noundef nonnull @.str.9, ptr noundef %6, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !14
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !14
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %25 = call i32 @EVP_KDF_derive(ptr noundef nonnull %16, ptr noundef nonnull %0, i64 noundef 20, ptr noundef nonnull %8) #6
   call void @EVP_KDF_CTX_free(ptr noundef nonnull %16) #6
@@ -2081,9 +2081,10 @@ attributes #6 = { nounwind }
 !8 = !{!6, !6, i64 0}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !6, i64 0}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTS9bignum_st", !5, i64 0}
-!13 = !{i64 0, i64 8, !3, i64 8, i64 4, !9, i64 16, i64 8, !14, i64 24, i64 8, !15, i64 32, i64 8, !15}
-!14 = !{!5, !5, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"long", !6, i64 0}
+!11 = !{!"branch_weights", i32 1, i32 1000, i32 1000}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS9bignum_st", !5, i64 0}
+!14 = !{i64 0, i64 8, !3, i64 8, i64 4, !9, i64 16, i64 8, !15, i64 24, i64 8, !16, i64 32, i64 8, !16}
+!15 = !{!5, !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !6, i64 0}

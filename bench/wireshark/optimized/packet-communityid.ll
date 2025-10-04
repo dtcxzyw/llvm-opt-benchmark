@@ -509,7 +509,7 @@ define internal fastcc noundef zeroext i1 @communityid_calc(i8 noundef zeroext %
   switch i8 %1, label %18 [
     i8 16, label %19
     i8 4, label %19
-  ]
+  ], !prof !11
 
 18:                                               ; preds = %17
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.communityid_calc, ptr noundef nonnull @.str.18)
@@ -686,7 +686,7 @@ communityid_tuple_lt.exit.thread:                 ; preds = %45, %31, %34, %50
   %81 = add nuw nsw i64 %80, 3
   %82 = call noalias ptr @g_malloc(i64 noundef %81) #11
   store ptr %82, ptr %6, align 8
-  %83 = call ptr @__memcpy_chk(ptr noundef %82, ptr noundef nonnull @.str.21, i64 noundef 2, i64 noundef %81) #12, !alias.scope !11
+  %83 = call ptr @__memcpy_chk(ptr noundef %82, ptr noundef nonnull @.str.21, i64 noundef 2, i64 noundef %81) #12, !alias.scope !12
   %.not17 = icmp eq i32 %14, 0
   br i1 %.not17, label %.loopexit, label %.lr.ph
 
@@ -700,7 +700,7 @@ communityid_tuple_lt.exit.thread:                 ; preds = %45, %31, %34, %50
   %87 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.079, i64 noundef 3, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.22, i32 noundef %86)
   %88 = add nuw nsw i64 %.016, 1
   %exitcond.not = icmp eq i64 %88, %15
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %79, %72
   call void @g_free(ptr noundef %66)
@@ -794,8 +794,9 @@ attributes #12 = { nounwind }
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!11 = !{!12, !14}
-!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
-!13 = distinct !{!13, !"memcpy.inline"}
-!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
-!15 = distinct !{!15, !9}
+!11 = !{!"branch_weights", i32 1, i32 1000, i32 1000}
+!12 = !{!13, !15}
+!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
+!14 = distinct !{!14, !"memcpy.inline"}
+!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
+!16 = distinct !{!16, !9}

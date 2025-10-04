@@ -9007,7 +9007,7 @@ switch.early.test:                                ; preds = %7
     i8 60, label %.critedge
     i8 59, label %.critedge
     i8 58, label %.critedge
-  ]
+  ], !prof !112
 
 .critedge:                                        ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %7, %6
   ret i1 %.not.not.not.not.not
@@ -9045,7 +9045,7 @@ define dso_local range(i32 -1, 1) i32 @increment_function(ptr noundef %0) local_
 
 11:                                               ; preds = %9
   callbr void asm sideeffect "addq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.058.ph) #28
-          to label %fast_long_increment_function.exit [label %12], !srcloc !112
+          to label %fast_long_increment_function.exit [label %12], !srcloc !113
 
 12:                                               ; preds = %11
   store double 0x43E0000000000000, ptr %.058.ph, align 8, !tbaa !4
@@ -9200,7 +9200,7 @@ switch.early.test.i.i:                            ; preds = %64
     i8 60, label %68
     i8 59, label %68
     i8 58, label %68
-  ]
+  ], !prof !112
 
 68:                                               ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %64
   %69 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -9589,7 +9589,7 @@ define dso_local range(i32 -1, 1) i32 @decrement_function(ptr noundef %0) local_
 
 11:                                               ; preds = %9
   callbr void asm sideeffect "subq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.088.ph) #28
-          to label %fast_long_decrement_function.exit [label %12], !srcloc !113
+          to label %fast_long_decrement_function.exit [label %12], !srcloc !114
 
 12:                                               ; preds = %11
   store double 0xC3E0000000000000, ptr %.088.ph, align 8, !tbaa !4
@@ -9900,8 +9900,8 @@ define dso_local void @zend_update_current_locale() local_unnamed_addr #1 {
 
 3:                                                ; preds = %0
   %4 = tail call ptr @nl_langinfo(i32 noundef 14) #28
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 154), align 2, !tbaa !114
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 155), align 1, !tbaa !128
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 154), align 2, !tbaa !115
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 155), align 1, !tbaa !129
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -9948,16 +9948,16 @@ zend_binary_strcasecmp.exit:                      ; preds = %13
 
 .critedge:                                        ; preds = %14, %zend_binary_strcasecmp.exit
   %27 = getelementptr inbounds nuw i8, ptr %.011, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !129
+  %28 = load ptr, ptr %27, align 8, !tbaa !130
   %.not9 = icmp eq ptr %28, null
   br i1 %.not9, label %.loopexit, label %7
 
 29:                                               ; preds = %0
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 154), align 2, !tbaa !114
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 154), align 2, !tbaa !115
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %zend_binary_strcasecmp.exit, %7, %29
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 155), align 1, !tbaa !128
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 155), align 1, !tbaa !129
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.loopexit.sink.split, %3
@@ -10923,7 +10923,7 @@ tolower.exit:                                     ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %.021, i64 1
   %11 = load i8, ptr %.021, align 1, !tbaa !4
   %12 = tail call ptr @__ctype_tolower_loc() #33
-  %13 = load ptr, ptr %12, align 8, !tbaa !130
+  %13 = load ptr, ptr %12, align 8, !tbaa !131
   %14 = zext i8 %11 to i64
   %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !95
@@ -10970,7 +10970,7 @@ tolower.exit:                                     ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %.039, i64 1
   %12 = load i8, ptr %.039, align 1, !tbaa !4
   %13 = tail call ptr @__ctype_tolower_loc() #33
-  %14 = load ptr, ptr %13, align 8, !tbaa !130
+  %14 = load ptr, ptr %13, align 8, !tbaa !131
   %15 = zext i8 %12 to i64
   %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !95
@@ -11482,7 +11482,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
   br label %13
 
 17:                                               ; preds = %13
-  store ptr %.0105, ptr %8, align 8, !tbaa !129
+  store ptr %.0105, ptr %8, align 8, !tbaa !130
   %.not135 = icmp eq i8 %14, 45
   switch i8 %14, label %19 [
     i8 45, label %.sink.split
@@ -11491,7 +11491,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
 
 .sink.split:                                      ; preds = %17, %17
   %18 = getelementptr inbounds nuw i8, ptr %.0105, i64 1
-  store ptr %18, ptr %8, align 8, !tbaa !129
+  store ptr %18, ptr %8, align 8, !tbaa !130
   br label %19
 
 19:                                               ; preds = %17, %.sink.split
@@ -11508,7 +11508,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
 .lr.ph:                                           ; preds = %.preheader146, %.lr.ph
   %23 = phi ptr [ %24, %.lr.ph ], [ %.promoted, %.preheader146 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  store ptr %24, ptr %8, align 8, !tbaa !129
+  store ptr %24, ptr %8, align 8, !tbaa !130
   %25 = load i8, ptr %24, align 1, !tbaa !4
   %26 = icmp eq i8 %25, 48
   br i1 %26, label %.lr.ph, label %.loopexit
@@ -11543,7 +11543,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
   %39 = add i64 %38, %37
   %40 = add nsw i32 %.2102, 1
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  store ptr %41, ptr %8, align 8, !tbaa !129
+  store ptr %41, ptr %8, align 8, !tbaa !130
   br label %.loopexit
 
 42:                                               ; preds = %31
@@ -11576,7 +11576,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
 
 54:                                               ; preds = %51, %51
   %55 = getelementptr inbounds nuw i8, ptr %32, i64 2
-  store ptr %52, ptr %8, align 8, !tbaa !129
+  store ptr %52, ptr %8, align 8, !tbaa !130
   %.pre = load i8, ptr %55, align 1, !tbaa !4
   br label %56
 
@@ -11626,7 +11626,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
 
 76:                                               ; preds = %74
   %77 = call double @zend_strtod(ptr noundef nonnull %.0105, ptr noundef nonnull %8) #28
-  %.pre147 = load ptr, ptr %8, align 8, !tbaa !129
+  %.pre147 = load ptr, ptr %8, align 8, !tbaa !130
   br label %84
 
 78:                                               ; preds = %74
@@ -11635,7 +11635,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
 
 79:                                               ; preds = %78
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 1
-  store ptr %80, ptr %8, align 8, !tbaa !129
+  store ptr %80, ptr %8, align 8, !tbaa !130
   %81 = load i8, ptr %75, align 1, !tbaa !4
   %82 = icmp eq i8 %81, 46
   %83 = select i1 %82, i32 1, i32 2
@@ -12307,23 +12307,24 @@ attributes #33 = { nounwind willreturn memory(none) }
 !109 = !{!22, !15, i64 184}
 !110 = !{!25, !9, i64 424}
 !111 = !{!25, !9, i64 28}
-!112 = !{i64 2862811, i64 2862826}
-!113 = !{i64 2865017, i64 2865032}
-!114 = !{!115, !40, i64 154}
-!115 = !{!"_zend_compiler_globals", !50, i64 0, !18, i64 24, !26, i64 32, !9, i64 40, !116, i64 48, !20, i64 56, !20, i64 64, !20, i64 72, !5, i64 80, !40, i64 81, !40, i64 82, !40, i64 83, !40, i64 84, !117, i64 88, !119, i64 144, !40, i64 152, !40, i64 153, !40, i64 154, !40, i64 155, !26, i64 160, !9, i64 168, !9, i64 172, !120, i64 176, !123, i64 256, !125, i64 360, !28, i64 368, !126, i64 424, !12, i64 432, !40, i64 440, !40, i64 441, !40, i64 442, !127, i64 448, !125, i64 456, !50, i64 464, !20, i64 488, !9, i64 496, !15, i64 504, !15, i64 512, !12, i64 520, !12, i64 528, !20, i64 536, !20, i64 544, !20, i64 552, !18, i64 560, !9, i64 568, !15, i64 576, !9, i64 584, !50, i64 592}
-!116 = !{!"p1 _ZTS14_zend_op_array", !15, i64 0}
-!117 = !{!"_zend_llist", !118, i64 0, !118, i64 8, !12, i64 16, !12, i64 24, !15, i64 32, !5, i64 40, !118, i64 48}
-!118 = !{!"p1 _ZTS19_zend_llist_element", !15, i64 0}
-!119 = !{!"p1 _ZTS22_zend_ini_parser_param", !15, i64 0}
-!120 = !{!"_zend_oparray_context", !121, i64 0, !116, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !9, i64 40, !122, i64 48, !20, i64 56, !26, i64 64, !9, i64 72, !40, i64 76}
-!121 = !{!"p1 _ZTS21_zend_oparray_context", !15, i64 0}
-!122 = !{!"p1 _ZTS22_zend_brk_cont_element", !15, i64 0}
-!123 = !{!"_zend_file_context", !124, i64 0, !26, i64 8, !40, i64 16, !40, i64 17, !20, i64 24, !20, i64 32, !20, i64 40, !28, i64 48}
-!124 = !{!"_zend_declarables", !12, i64 0}
-!125 = !{!"p1 _ZTS11_zend_arena", !15, i64 0}
-!126 = !{!"p2 _ZTS14_zend_encoding", !15, i64 0}
-!127 = !{!"p1 _ZTS9_zend_ast", !15, i64 0}
-!128 = !{!115, !40, i64 155}
-!129 = !{!67, !67, i64 0}
-!130 = !{!131, !131, i64 0}
-!131 = !{!"p1 int", !15, i64 0}
+!112 = !{!"branch_weights", i32 -293967296, i32 308538923, i32 308538923, i32 308538923, i32 308538923, i32 308538923, i32 308538923, i32 308538923, i32 308538923, i32 308538923, i32 308538923, i32 308538923, i32 308538923, i32 308538923}
+!113 = !{i64 2862811, i64 2862826}
+!114 = !{i64 2865017, i64 2865032}
+!115 = !{!116, !40, i64 154}
+!116 = !{!"_zend_compiler_globals", !50, i64 0, !18, i64 24, !26, i64 32, !9, i64 40, !117, i64 48, !20, i64 56, !20, i64 64, !20, i64 72, !5, i64 80, !40, i64 81, !40, i64 82, !40, i64 83, !40, i64 84, !118, i64 88, !120, i64 144, !40, i64 152, !40, i64 153, !40, i64 154, !40, i64 155, !26, i64 160, !9, i64 168, !9, i64 172, !121, i64 176, !124, i64 256, !126, i64 360, !28, i64 368, !127, i64 424, !12, i64 432, !40, i64 440, !40, i64 441, !40, i64 442, !128, i64 448, !126, i64 456, !50, i64 464, !20, i64 488, !9, i64 496, !15, i64 504, !15, i64 512, !12, i64 520, !12, i64 528, !20, i64 536, !20, i64 544, !20, i64 552, !18, i64 560, !9, i64 568, !15, i64 576, !9, i64 584, !50, i64 592}
+!117 = !{!"p1 _ZTS14_zend_op_array", !15, i64 0}
+!118 = !{!"_zend_llist", !119, i64 0, !119, i64 8, !12, i64 16, !12, i64 24, !15, i64 32, !5, i64 40, !119, i64 48}
+!119 = !{!"p1 _ZTS19_zend_llist_element", !15, i64 0}
+!120 = !{!"p1 _ZTS22_zend_ini_parser_param", !15, i64 0}
+!121 = !{!"_zend_oparray_context", !122, i64 0, !117, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !9, i64 40, !123, i64 48, !20, i64 56, !26, i64 64, !9, i64 72, !40, i64 76}
+!122 = !{!"p1 _ZTS21_zend_oparray_context", !15, i64 0}
+!123 = !{!"p1 _ZTS22_zend_brk_cont_element", !15, i64 0}
+!124 = !{!"_zend_file_context", !125, i64 0, !26, i64 8, !40, i64 16, !40, i64 17, !20, i64 24, !20, i64 32, !20, i64 40, !28, i64 48}
+!125 = !{!"_zend_declarables", !12, i64 0}
+!126 = !{!"p1 _ZTS11_zend_arena", !15, i64 0}
+!127 = !{!"p2 _ZTS14_zend_encoding", !15, i64 0}
+!128 = !{!"p1 _ZTS9_zend_ast", !15, i64 0}
+!129 = !{!116, !40, i64 155}
+!130 = !{!67, !67, i64 0}
+!131 = !{!132, !132, i64 0}
+!132 = !{!"p1 int", !15, i64 0}

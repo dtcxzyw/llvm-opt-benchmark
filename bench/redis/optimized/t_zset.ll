@@ -13329,7 +13329,7 @@ define dso_local void @zrankGenericCommand(ptr noundef %0, i32 noundef %1) local
   switch i32 %35, label %36 [
     i32 8, label %37
     i32 0, label %37
-  ]
+  ], !prof !214
 
 36:                                               ; preds = %32
   tail call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.1, i32 noundef 3865) #18
@@ -13406,7 +13406,7 @@ define dso_local void @zscanCommand(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load ptr, ptr %3, align 8, !tbaa !136
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !146
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 480), align 8, !tbaa !214
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 480), align 8, !tbaa !215
   %14 = call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %13) #18
   %15 = icmp eq ptr %14, null
   br i1 %15, label %20, label %16
@@ -13462,7 +13462,7 @@ define dso_local void @genericZpopCommand(ptr noundef %0, ptr noundef readonly c
   %22 = load ptr, ptr %17, align 8, !tbaa !150
   %23 = tail call ptr @lookupKeyWrite(ptr noundef %22, ptr noundef %21) #18
   %.not139 = icmp eq ptr %23, null
-  br i1 %.not139, label %18, label %24, !llvm.loop !215
+  br i1 %.not139, label %18, label %24, !llvm.loop !216
 
 24:                                               ; preds = %19
   %25 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %23, i32 noundef 3) #18
@@ -13780,7 +13780,7 @@ sdslen.exit:                                      ; preds = %137, %142, %145, %1
   %160 = add nuw nsw i64 %.0126, 1
   %161 = add nsw i64 %.0127, -1
   %.not147 = icmp eq i64 %161, 0
-  br i1 %.not147, label %162, label %74, !llvm.loop !216
+  br i1 %.not147, label %162, label %74, !llvm.loop !217
 
 162:                                              ; preds = %sdslen.exit
   %163 = load i32, ptr %23, align 8
@@ -13847,7 +13847,7 @@ zsetLength.exit151:                               ; preds = %166, %171
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %196 = load ptr, ptr %195, align 8, !tbaa !168
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 96
-  %198 = load ptr, ptr %197, align 8, !tbaa !217
+  %198 = load ptr, ptr %197, align 8, !tbaa !218
   %199 = icmp eq ptr %198, @zmpopCommand
   br i1 %199, label %200, label %205
 
@@ -14140,11 +14140,11 @@ zsetLength.exit:                                  ; preds = %31, %37
 .critedge:                                        ; preds = %zsetLength.exit, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !218
+  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !219
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %61 = load i64, ptr %60, align 8, !tbaa !219
+  %61 = load i64, ptr %60, align 8, !tbaa !220
   %62 = and i64 %61, 2199023255552
   %.not40 = icmp eq i64 %62, 0
   br i1 %.not40, label %64, label %63
@@ -14409,7 +14409,7 @@ sdslen.exit181:                                   ; preds = %.critedge, %96, %99
   br label %114
 
 114:                                              ; preds = %sdslen.exit181, %89
-  %115 = load i64, ptr %55, align 8, !tbaa !219
+  %115 = load i64, ptr %55, align 8, !tbaa !220
   %116 = and i64 %115, 1024
   %.not171 = icmp eq i64 %116, 0
   br i1 %.not171, label %56, label %.loopexit
@@ -14438,12 +14438,12 @@ sdslen.exit181:                                   ; preds = %.critedge, %96, %99
   %130 = trunc nuw nsw i64 %127 to i32
   tail call void @lpRandomPairs(ptr noundef %129, i32 noundef %130, ptr noundef %120, ptr noundef %.0153, i32 noundef 2) #18
   tail call fastcc void @zrandmemberReplyWithListpack(ptr noundef nonnull %0, i32 noundef %130, ptr noundef %120, ptr noundef %.0153)
-  %131 = load i64, ptr %125, align 8, !tbaa !219
+  %131 = load i64, ptr %125, align 8, !tbaa !220
   %132 = and i64 %131, 1024
   %133 = icmp eq i64 %132, 0
   %134 = icmp ne i64 %128, 0
   %or.cond3 = and i1 %134, %133
-  br i1 %or.cond3, label %126, label %135, !llvm.loop !220
+  br i1 %or.cond3, label %126, label %135, !llvm.loop !221
 
 135:                                              ; preds = %126
   tail call void @zfree(ptr noundef %120) #18
@@ -14538,7 +14538,7 @@ zuiNewSdsFromValue.exit187.us:                    ; preds = %171, %167, %163, %1
   call void @addReplyBulkSds(ptr noundef nonnull %0, ptr noundef %.0.i184.us) #18
   %174 = call i32 @zuiNext(ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not168.us = icmp eq i32 %174, 0
-  br i1 %.not168.us, label %._crit_edge, label %.critedge174.us, !llvm.loop !221
+  br i1 %.not168.us, label %._crit_edge, label %.critedge174.us, !llvm.loop !222
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %196
   %175 = load i32, ptr %151, align 4, !tbaa !185
@@ -14593,7 +14593,7 @@ zuiNewSdsFromValue.exit187.us:                    ; preds = %171, %167, %163, %1
   call void @addReplyDouble(ptr noundef nonnull %0, double noundef %197) #18
   %198 = call i32 @zuiNext(ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not168 = icmp eq i32 %198, 0
-  br i1 %.not168, label %._crit_edge, label %.lr.ph.split, !llvm.loop !221
+  br i1 %.not168, label %._crit_edge, label %.lr.ph.split, !llvm.loop !222
 
 199:                                              ; preds = %149
   %200 = load i32, ptr %13, align 8
@@ -14710,7 +14710,7 @@ zuiNewSdsFromValue.exit192:                       ; preds = %233, %236, %240, %2
 252:                                              ; preds = %250, %249
   %253 = call i32 @zuiNext(ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not165 = icmp eq i32 %253, 0
-  br i1 %.not165, label %._crit_edge203, label %229, !llvm.loop !222
+  br i1 %.not165, label %._crit_edge203, label %229, !llvm.loop !223
 
 ._crit_edge203:                                   ; preds = %252, %220
   %254 = getelementptr inbounds nuw i8, ptr %221, i64 24
@@ -14740,7 +14740,7 @@ zuiNewSdsFromValue.exit192:                       ; preds = %233, %236, %240, %2
   call void @dictFreeUnlinkedEntry(ptr noundef nonnull %221, ptr noundef %262) #18
   %266 = add i64 %.0148204, -1
   %267 = icmp ugt i64 %266, %.0
-  br i1 %267, label %.lr.ph205, label %._crit_edge206, !llvm.loop !223
+  br i1 %267, label %.lr.ph205, label %._crit_edge206, !llvm.loop !224
 
 ._crit_edge206:                                   ; preds = %.lr.ph205, %.preheader
   %268 = call ptr @dictGetIterator(ptr noundef nonnull %221) #18
@@ -14758,7 +14758,7 @@ zuiNewSdsFromValue.exit192:                       ; preds = %233, %236, %240, %2
   call void @addReplyBulkSds(ptr noundef nonnull %0, ptr noundef %272) #18
   %273 = call ptr @dictNext(ptr noundef %268) #18
   %.not166.us = icmp eq ptr %273, null
-  br i1 %.not166.us, label %._crit_edge210, label %.critedge176.us, !llvm.loop !224
+  br i1 %.not166.us, label %._crit_edge210, label %.critedge176.us, !llvm.loop !225
 
 .lr.ph209.split:                                  ; preds = %.lr.ph209, %278
   %274 = phi ptr [ %281, %278 ], [ %269, %.lr.ph209 ]
@@ -14777,7 +14777,7 @@ zuiNewSdsFromValue.exit192:                       ; preds = %233, %236, %240, %2
   call void @addReplyDouble(ptr noundef nonnull %0, double noundef %280) #18
   %281 = call ptr @dictNext(ptr noundef %268) #18
   %.not166 = icmp eq ptr %281, null
-  br i1 %.not166, label %._crit_edge210, label %.lr.ph209.split, !llvm.loop !224
+  br i1 %.not166, label %._crit_edge210, label %.lr.ph209.split, !llvm.loop !225
 
 ._crit_edge210:                                   ; preds = %278, %.critedge176.us, %._crit_edge206
   call void @dictReleaseIterator(ptr noundef %268) #18
@@ -14820,7 +14820,7 @@ zsetSdsFromListpackEntry.exit:                    ; preds = %290, %294
 
 299:                                              ; preds = %zsetSdsFromListpackEntry.exit
   call void @sdsfree(ptr noundef %297) #18
-  br label %zsetReplyFromListpackEntry.exit196, !llvm.loop !225
+  br label %zsetReplyFromListpackEntry.exit196, !llvm.loop !226
 
 300:                                              ; preds = %zsetSdsFromListpackEntry.exit
   %301 = add nuw nsw i64 %.0149199, 1
@@ -14931,7 +14931,7 @@ define internal fastcc void @zrandmemberReplyWithListpack(ptr noundef %0, i32 no
 17:                                               ; preds = %14, %10
   %18 = add nuw nsw i64 %.031.us, 1
   %exitcond34.not = icmp eq i64 %18, %6
-  br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !226
+  br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !227
 
 ._crit_edge:                                      ; preds = %45, %17, %4
   ret void
@@ -14995,7 +14995,7 @@ define internal fastcc void @zrandmemberReplyWithListpack(ptr noundef %0, i32 no
   call void @addReplyDouble(ptr noundef nonnull %0, double noundef %.sink) #18
   %46 = add nuw nsw i64 %.031, 1
   %exitcond.not = icmp eq i64 %46, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !226
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !227
 }
 
 declare void @addReplyBulkSds(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -15234,7 +15234,7 @@ define dso_local void @zmpopGenericCommand(ptr noundef %0, i32 noundef %1, i32 n
   %52 = load ptr, ptr %51, align 8, !tbaa !146
   %53 = call i32 @getRangeLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %52, i64 noundef 1, i64 noundef 9223372036854775807, ptr noundef nonnull %5, ptr noundef nonnull @.str.78) #18
   %.not44 = icmp eq i32 %53, 0
-  br i1 %.not44, label %33, label %.loopexit, !llvm.loop !227
+  br i1 %.not44, label %33, label %.loopexit, !llvm.loop !228
 
 .critedge:                                        ; preds = %40, %39
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
@@ -15321,14 +15321,14 @@ define internal void @zrangeResultBeginClient(ptr noundef captures(none) initial
 16:                                               ; preds = %12, %._crit_edge
   %.sink = phi ptr [ %15, %12 ], [ null, %._crit_edge ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sink, ptr %17, align 8, !tbaa !228
+  store ptr %.sink, ptr %17, align 8, !tbaa !229
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @zrangeResultFinalizeClient(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !228
+  %4 = load ptr, ptr %3, align 8, !tbaa !229
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %13, label %5
 
@@ -15441,7 +15441,7 @@ define internal void @zrangeResultBeginStore(ptr noundef writeonly captures(none
 zsetTypeCreate.exit:                              ; preds = %5, %7
   %.0.i = phi ptr [ %6, %5 ], [ %8, %7 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.0.i, ptr %13, align 8, !tbaa !229
+  store ptr %.0.i, ptr %13, align 8, !tbaa !230
   ret void
 }
 
@@ -15458,7 +15458,7 @@ define internal void @zrangeResultFinalizeStore(ptr noundef readonly captures(no
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !202
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !229
+  %11 = load ptr, ptr %10, align 8, !tbaa !230
   tail call void @setKey(ptr noundef %4, ptr noundef %7, ptr noundef %9, ptr noundef %11, i32 noundef 0) #18
   %12 = load ptr, ptr %3, align 8, !tbaa !194
   tail call void @addReplyLongLong(ptr noundef %12, i64 noundef %1) #18
@@ -15506,7 +15506,7 @@ define internal void @zrangeResultFinalizeStore(ptr noundef readonly captures(no
 
 40:                                               ; preds = %.sink.split, %19
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !229
+  %42 = load ptr, ptr %41, align 8, !tbaa !230
   tail call void @decrRefCount(ptr noundef %42) #18
   ret void
 }
@@ -15519,7 +15519,7 @@ define internal void @zrangeResultEmitCBufferForStore(ptr noundef readonly captu
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call ptr @sdsnewlen(ptr noundef %1, i64 noundef %2) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !229
+  %9 = load ptr, ptr %8, align 8, !tbaa !230
   %10 = call i32 @zsetAdd(ptr noundef %9, double noundef %3, ptr noundef %7, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %5)
   call void @sdsfree(ptr noundef %7) #18
   %.not = icmp eq i32 %10, 0
@@ -15544,7 +15544,7 @@ define internal void @zrangeResultEmitLongLongForStore(ptr noundef readonly capt
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @sdsfromlonglong(i64 noundef %1) #18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !229
+  %8 = load ptr, ptr %7, align 8, !tbaa !230
   %9 = call i32 @zsetAdd(ptr noundef %8, double noundef %2, ptr noundef %6, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %4)
   call void @sdsfree(ptr noundef %6) #18
   %.not = icmp eq i32 %9, 0
@@ -15833,13 +15833,13 @@ attributes #20 = { nounwind willreturn memory(read) }
 !211 = distinct !{!211, !23}
 !212 = distinct !{!212, !23}
 !213 = distinct !{!213, !23}
-!214 = !{!62, !63, i64 480}
-!215 = distinct !{!215, !23}
+!214 = !{!"branch_weights", i32 1, i32 1000, i32 1000}
+!215 = !{!62, !63, i64 480}
 !216 = distinct !{!216, !23}
-!217 = !{!170, !11, i64 96}
-!218 = distinct !{!218, !23}
-!219 = !{!137, !15, i64 8}
-!220 = distinct !{!220, !23}
+!217 = distinct !{!217, !23}
+!218 = !{!170, !11, i64 96}
+!219 = distinct !{!219, !23}
+!220 = !{!137, !15, i64 8}
 !221 = distinct !{!221, !23}
 !222 = distinct !{!222, !23}
 !223 = distinct !{!223, !23}
@@ -15847,5 +15847,6 @@ attributes #20 = { nounwind willreturn memory(read) }
 !225 = distinct !{!225, !23}
 !226 = distinct !{!226, !23}
 !227 = distinct !{!227, !23}
-!228 = !{!195, !11, i64 32}
-!229 = !{!195, !63, i64 24}
+!228 = distinct !{!228, !23}
+!229 = !{!195, !11, i64 32}
+!230 = !{!195, !63, i64 24}

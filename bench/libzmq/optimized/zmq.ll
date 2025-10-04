@@ -3108,7 +3108,7 @@ _Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit: ; preds = %42, %43
   switch i32 %52, label %53 [
     i32 9, label %.thread59
     i32 4, label %.thread59
-  ]
+  ], !prof !71
 
 53:                                               ; preds = %.split73.us
   %54 = call ptr @strerror(i32 noundef %52) #21
@@ -3200,7 +3200,7 @@ define range(i32 -1, 1) i32 @zmq_poller_destroy(ptr noundef captures(address_is_
   br i1 %.not, label %.thread, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !71
+  %3 = load ptr, ptr %0, align 8, !tbaa !72
   %.not10 = icmp eq ptr %3, null
   br i1 %.not10, label %.thread, label %4
 
@@ -3211,7 +3211,7 @@ define range(i32 -1, 1) i32 @zmq_poller_destroy(ptr noundef captures(address_is_
 6:                                                ; preds = %4
   tail call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #21
   tail call void @_ZdlPv(ptr noundef nonnull %3) #22
-  store ptr null, ptr %0, align 8, !tbaa !71
+  store ptr null, ptr %0, align 8, !tbaa !72
   br label %8
 
 .thread:                                          ; preds = %2, %4, %1
@@ -3246,8 +3246,8 @@ _ZL12check_pollerPv.exit.thread:                  ; preds = %1, %2
 _ZL12check_pollerPv.exit:                         ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !72
-  %8 = load ptr, ptr %5, align 8, !tbaa !75
+  %7 = load ptr, ptr %6, align 8, !tbaa !73
+  %8 = load ptr, ptr %5, align 8, !tbaa !76
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -3527,7 +3527,7 @@ zmq_poller_wait_all.exit:                         ; preds = %_ZL12check_pollerPv
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 -1, ptr %13, align 8, !tbaa !41
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr null, ptr %14, align 8, !tbaa !76
+  store ptr null, ptr %14, align 8, !tbaa !77
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i16 0, ptr %15, align 8, !tbaa !37
   br label %16
@@ -3621,7 +3621,7 @@ _ZL16as_socket_base_tPv.exit.thread:              ; preds = %3, %4
   br label %11
 
 _ZL16as_socket_base_tPv.exit:                     ; preds = %4
-  %7 = load ptr, ptr %0, align 8, !tbaa !77
+  %7 = load ptr, ptr %0, align 8, !tbaa !78
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 248
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(1825) %0, ptr noundef %1, i64 noundef %2)
@@ -3664,7 +3664,7 @@ declare void @_ZN3zmq8timers_tC1Ev(ptr noundef nonnull align 8 dereferenceable(1
 
 ; Function Attrs: mustprogress uwtable
 define range(i32 -1, 1) i32 @zmq_timers_destroy(ptr noundef captures(none) %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !71
+  %2 = load ptr, ptr %0, align 8, !tbaa !72
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
 
@@ -3680,7 +3680,7 @@ define range(i32 -1, 1) i32 @zmq_timers_destroy(ptr noundef captures(none) %0) l
 7:                                                ; preds = %3
   tail call void @_ZN3zmq8timers_tD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #21
   tail call void @_ZdlPv(ptr noundef nonnull %2) #22
-  store ptr null, ptr %0, align 8, !tbaa !71
+  store ptr null, ptr %0, align 8, !tbaa !72
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -4107,11 +4107,12 @@ attributes #26 = { nounwind willreturn memory(read) }
 !68 = !{!"bool", !5, i64 0}
 !69 = !{i8 0, i8 2}
 !70 = !{}
-!71 = !{!13, !13, i64 0}
-!72 = !{!73, !74, i64 8}
-!73 = !{!"_ZTSNSt12_Vector_baseIN3zmq15socket_poller_t6item_tESaIS2_EE17_Vector_impl_dataE", !74, i64 0, !74, i64 8, !74, i64 16}
-!74 = !{!"p1 _ZTSN3zmq15socket_poller_t6item_tE", !13, i64 0}
-!75 = !{!73, !74, i64 0}
-!76 = !{!38, !13, i64 16}
-!77 = !{!78, !78, i64 0}
-!78 = !{!"vtable pointer", !6, i64 0}
+!71 = !{!"branch_weights", i32 1, i32 1000, i32 1000}
+!72 = !{!13, !13, i64 0}
+!73 = !{!74, !75, i64 8}
+!74 = !{!"_ZTSNSt12_Vector_baseIN3zmq15socket_poller_t6item_tESaIS2_EE17_Vector_impl_dataE", !75, i64 0, !75, i64 8, !75, i64 16}
+!75 = !{!"p1 _ZTSN3zmq15socket_poller_t6item_tE", !13, i64 0}
+!76 = !{!74, !75, i64 0}
+!77 = !{!38, !13, i64 16}
+!78 = !{!79, !79, i64 0}
+!79 = !{!"vtable pointer", !6, i64 0}

@@ -766,7 +766,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit: ; preds = %_ZN3zmq7ypipe_tI
   switch i32 %46, label %47 [
     i32 11, label %_ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit.thread
     i32 4, label %_ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit.thread
-  ]
+  ], !prof !55
 
 47:                                               ; preds = %44
   %48 = tail call ptr @strerror(i32 noundef %46) #15
@@ -1117,7 +1117,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit: ; preds = %2
   %21 = icmp ne ptr %20, %.0.i.i
   %.not5.i = icmp ne ptr %.0.i.i, null
   %or.cond6.not.i = and i1 %.not5.i, %21
-  br i1 %or.cond6.not.i, label %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread, label %22, !prof !55
+  br i1 %or.cond6.not.i, label %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread, label %22, !prof !56
 
 22:                                               ; preds = %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit
   %23 = load ptr, ptr @stderr, align 8, !tbaa !25
@@ -1227,4 +1227,5 @@ attributes #18 = { nounwind willreturn memory(none) }
 !52 = !{i8 0, i8 2}
 !53 = !{}
 !54 = !{!11, !11, i64 0}
-!55 = !{!"branch_weights", !"expected", i32 2145337238, i32 2146410}
+!55 = !{!"branch_weights", i32 1, i32 1000, i32 1000}
+!56 = !{!"branch_weights", !"expected", i32 2145337238, i32 2146410}

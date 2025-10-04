@@ -864,7 +864,7 @@ define internal noundef i32 @db_setmetatable(ptr noundef %0) #0 {
   switch i32 %2, label %3 [
     i32 5, label %5
     i32 0, label %5
-  ]
+  ], !prof !32
 
 3:                                                ; preds = %1
   %4 = tail call i32 @luaL_typeerror(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.55) #8
@@ -979,10 +979,10 @@ define internal void @hookf(ptr noundef %0, ptr noundef readonly captures(none) 
   br i1 %6, label %7, label %20
 
 7:                                                ; preds = %2
-  %8 = load i32, ptr %1, align 8, !tbaa !32
+  %8 = load i32, ptr %1, align 8, !tbaa !33
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds ptr, ptr @hookf.hooknames, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !33
+  %11 = load ptr, ptr %10, align 8, !tbaa !34
   %12 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef %11) #8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load i32, ptr %13, align 8, !tbaa !21
@@ -1150,5 +1150,6 @@ attributes #11 = { cold nounwind }
 !29 = !{!12, !7, i64 64}
 !30 = !{!12, !7, i64 63}
 !31 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!32 = !{!12, !13, i64 0}
-!33 = !{!14, !14, i64 0}
+!32 = !{!"branch_weights", i32 1, i32 1000, i32 1000}
+!33 = !{!12, !13, i64 0}
+!34 = !{!14, !14, i64 0}

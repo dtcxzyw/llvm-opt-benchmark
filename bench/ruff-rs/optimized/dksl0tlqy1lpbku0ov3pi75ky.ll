@@ -78507,7 +78507,7 @@ attributes #27 = { "function-inline-cost-multiplier"="2" }
 !562 = !{!563}
 !563 = distinct !{!563, !564, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h727a9de79fbcb017E: argument 0"}
 !564 = distinct !{!564, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h727a9de79fbcb017E"}
-!565 = !{!"branch_weights", i32 1073205, i32 2146410443}
+!565 = !{!"branch_weights", i32 2000, i32 2000}
 !566 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
 !567 = !{!568}
 !568 = distinct !{!568, !569, !"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17hf8929596a75554f3E: argument 0"}

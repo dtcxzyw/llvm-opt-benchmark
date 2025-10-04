@@ -152,7 +152,7 @@ define range(i32 0, 2) i32 @ossl_ecx_compute_key(ptr noundef %0, ptr noundef rea
   switch i64 %2, label %16 [
     i64 56, label %17
     i64 32, label %17
-  ]
+  ], !prof !18
 
 16:                                               ; preds = %14
   tail call void @ERR_new() #4
@@ -165,7 +165,7 @@ define range(i32 0, 2) i32 @ossl_ecx_compute_key(ptr noundef %0, ptr noundef rea
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %17
-  store i64 %2, ptr %4, align 8, !tbaa !18
+  store i64 %2, ptr %4, align 8, !tbaa !19
   br label %34
 
 20:                                               ; preds = %17
@@ -205,7 +205,7 @@ define range(i32 0, 2) i32 @ossl_ecx_compute_key(ptr noundef %0, ptr noundef rea
   br label %34
 
 33:                                               ; preds = %29, %25
-  store i64 %2, ptr %4, align 8, !tbaa !18
+  store i64 %2, ptr %4, align 8, !tbaa !19
   br label %34
 
 34:                                               ; preds = %33, %32, %28, %22, %19, %16, %13
@@ -249,4 +249,5 @@ attributes #4 = { nounwind }
 !15 = !{!12, !7, i64 0}
 !16 = !{!4, !9, i64 8}
 !17 = !{!4, !9, i64 80}
-!18 = !{!11, !11, i64 0}
+!18 = !{!"branch_weights", i32 1, i32 1000, i32 1000}
+!19 = !{!11, !11, i64 0}
