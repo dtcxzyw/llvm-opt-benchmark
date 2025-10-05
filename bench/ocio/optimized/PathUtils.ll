@@ -1694,10 +1694,12 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i14.i: ; preds = %56, %_
 
 60:                                               ; preds = %39
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.022.161.i, i64 %40
+  %.not.i4.i4.i = icmp eq ptr %.sroa.14.059.i, %61
+  %spec.select.i = select i1 %.not.i4.i4.i, ptr %.sroa.14.059.i, ptr %61
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit17.i
 
 _ZNSt6vectorIcSaIcEE6resizeEm.exit17.i:           ; preds = %60, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i14.i, %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i.i6.i
-  %.sroa.14.2.i = phi ptr [ %58, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i14.i ], [ %48, %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i.i6.i ], [ %61, %60 ]
+  %.sroa.14.2.i = phi ptr [ %58, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i14.i ], [ %48, %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i.i6.i ], [ %spec.select.i, %60 ]
   %.sroa.24.4.i = phi ptr [ %59, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i14.i ], [ %.sroa.24.160.i, %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i.i6.i ], [ %.sroa.24.160.i, %60 ]
   %.sroa.022.4.i = phi ptr [ %54, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i14.i ], [ %.sroa.022.161.i, %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i.i6.i ], [ %.sroa.022.161.i, %60 ]
   %62 = ptrtoint ptr %.sroa.14.2.i to i64

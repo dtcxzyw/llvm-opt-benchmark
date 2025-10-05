@@ -863,6 +863,7 @@ _ZNSt3mapIN4base18StatisticsRecorder9StringKeyEPNS0_13HistogramBaseESt4lessIS2_E
   %76 = load ptr, ptr %75, align 8, !tbaa !14
   %77 = icmp eq ptr %0, %76
   %spec.select = select i1 %77, ptr null, ptr %0
+  %spec.select59 = select i1 %77, ptr %0, ptr %76
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4base8CallbackIFviELNS6_8internal8CopyModeE1ELNS9_10RepeatModeE1EEESt4lessIS5_ESaISt4pairIKS5_SC_EEE4findERSG_.exit.thread
 
 78:                                               ; preds = %72, %70
@@ -882,7 +883,7 @@ _ZN4base8AutoLockD2Ev.exit:                       ; preds = %78
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4base8CallbackIFviELNS6_8internal8CopyModeE1ELNS9_10RepeatModeE1EEESt4lessIS5_ESaISt4pairIKS5_SC_EEE4findERSG_.exit.thread: ; preds = %_ZNSt3mapIN4base18StatisticsRecorder9StringKeyEPNS0_13HistogramBaseESt4lessIS2_ESaISt4pairIKS2_S4_EEE4findERS8_.exit, %39, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4base8CallbackIFviELNS8_8internal8CopyModeE1ELNSB_10RepeatModeE1EEEESt10_Select1stISF_ESt4lessIS5_ESaISF_EE14_M_lower_boundEPSt13_Rb_tree_nodeISF_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %69, %74, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4base8CallbackIFviELNS6_8internal8CopyModeE1ELNS9_10RepeatModeE1EEESt4lessIS5_ESaISt4pairIKS5_SC_EEE4findERSG_.exit, %5
   %.022 = phi ptr [ null, %5 ], [ null, %69 ], [ null, %74 ], [ null, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4base8CallbackIFviELNS6_8internal8CopyModeE1ELNS9_10RepeatModeE1EEESt4lessIS5_ESaISt4pairIKS5_SC_EEE4findERSG_.exit ], [ null, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4base8CallbackIFviELNS8_8internal8CopyModeE1ELNSB_10RepeatModeE1EEEESt10_Select1stISF_ESt4lessIS5_ESaISF_EE14_M_lower_boundEPSt13_Rb_tree_nodeISF_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ null, %39 ], [ %spec.select, %_ZNSt3mapIN4base18StatisticsRecorder9StringKeyEPNS0_13HistogramBaseESt4lessIS2_ESaISt4pairIKS2_S4_EEE4findERS8_.exit ]
-  %.020 = phi ptr [ %0, %5 ], [ %0, %69 ], [ %0, %74 ], [ %0, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4base8CallbackIFviELNS6_8internal8CopyModeE1ELNS9_10RepeatModeE1EEESt4lessIS5_ESaISt4pairIKS5_SC_EEE4findERSG_.exit ], [ %0, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4base8CallbackIFviELNS8_8internal8CopyModeE1ELNSB_10RepeatModeE1EEEESt10_Select1stISF_ESt4lessIS5_ESaISF_EE14_M_lower_boundEPSt13_Rb_tree_nodeISF_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %0, %39 ], [ %76, %_ZNSt3mapIN4base18StatisticsRecorder9StringKeyEPNS0_13HistogramBaseESt4lessIS2_ESaISt4pairIKS2_S4_EEE4findERS8_.exit ]
+  %.020 = phi ptr [ %0, %5 ], [ %0, %69 ], [ %0, %74 ], [ %0, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4base8CallbackIFviELNS6_8internal8CopyModeE1ELNS9_10RepeatModeE1EEESt4lessIS5_ESaISt4pairIKS5_SC_EEE4findERSG_.exit ], [ %0, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4base8CallbackIFviELNS8_8internal8CopyModeE1ELNSB_10RepeatModeE1EEEESt10_Select1stISF_ESt4lessIS5_ESaISF_EE14_M_lower_boundEPSt13_Rb_tree_nodeISF_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %0, %39 ], [ %spec.select59, %_ZNSt3mapIN4base18StatisticsRecorder9StringKeyEPNS0_13HistogramBaseESt4lessIS2_ESaISt4pairIKS2_S4_EEE4findERS8_.exit ]
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %_ZN4base8AutoLockD2Ev.exit34 unwind label %82
 
@@ -1115,6 +1116,7 @@ _ZNSt10unique_ptrIKN4base12BucketRangesESt14default_deleteIS2_EE5resetEPS2_.exit
 43:                                               ; preds = %42
   %44 = icmp eq ptr %40, %0
   %spec.select = select i1 %44, ptr null, ptr %0
+  %spec.select56 = select i1 %44, ptr %0, ptr %40
   br label %.thread
 
 45:                                               ; preds = %38
@@ -1151,7 +1153,7 @@ _ZNSt10unique_ptrIKN4base12BucketRangesESt14default_deleteIS2_EE5resetEPS2_.exit
 
 .thread:                                          ; preds = %43, %50, %_ZN4base8AutoLockC2ERNS_4LockE.exit
   %.pr = phi ptr [ null, %_ZN4base8AutoLockC2ERNS_4LockE.exit ], [ null, %50 ], [ %spec.select, %43 ]
-  %.1 = phi ptr [ %0, %_ZN4base8AutoLockC2ERNS_4LockE.exit ], [ %0, %50 ], [ %40, %43 ]
+  %.1 = phi ptr [ %0, %_ZN4base8AutoLockC2ERNS_4LockE.exit ], [ %0, %50 ], [ %spec.select56, %43 ]
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %_ZN4base8AutoLockD2Ev.exit25 unwind label %59
 

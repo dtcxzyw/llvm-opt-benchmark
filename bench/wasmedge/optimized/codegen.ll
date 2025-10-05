@@ -1551,6 +1551,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.ex
 ._crit_edge.i.i.i:                                ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i.i.i, %408
   %.pre-phi.i = phi i64 [ %410, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i.i.i ], [ 0, %408 ]
   %411 = getelementptr inbounds i8, ptr %.sroa.0318.2.i, i64 %.pre-phi.i
+  %.not.i.i.i145.i = icmp eq ptr %.sroa.12.2.i, %411
+  %spec.select381.i = select i1 %.not.i.i.i145.i, ptr %.sroa.12.2.i, ptr %411
   br label %_ZNSt6vectorImSaImEE5eraseEN9__gnu_cxx17__normal_iteratorIPKmS1_EES6_.exit.i
 
 _ZNSt6vectorImSaImEE5eraseEN9__gnu_cxx17__normal_iteratorIPKmS1_EES6_.exit.i: ; preds = %._crit_edge.i.i.i, %405, %._crit_edge.i, %.critedge.i
@@ -1561,7 +1563,7 @@ _ZNSt6vectorImSaImEE5eraseEN9__gnu_cxx17__normal_iteratorIPKmS1_EES6_.exit.i: ; 
   %.sroa.17.0.lcssa513.i = phi i64 [ %404, %._crit_edge.i ], [ %404, %405 ], [ %404, %._crit_edge.i.i.i ], [ 0, %.critedge.i ]
   %.sroa.0318.0.lcssa512.i = phi ptr [ %.sroa.0318.2.i, %._crit_edge.i ], [ %.sroa.0318.2.i, %405 ], [ %.sroa.0318.2.i, %._crit_edge.i.i.i ], [ null, %.critedge.i ]
   %.sroa.23.0.lcssa511.i = phi i64 [ %403, %._crit_edge.i ], [ %403, %405 ], [ %403, %._crit_edge.i.i.i ], [ 0, %.critedge.i ]
-  %.sroa.12.3.i = phi ptr [ %.sroa.12.2.i, %._crit_edge.i ], [ %.sroa.12.2.i, %405 ], [ %411, %._crit_edge.i.i.i ], [ null, %.critedge.i ]
+  %.sroa.12.3.i = phi ptr [ %.sroa.12.2.i, %._crit_edge.i ], [ %.sroa.12.2.i, %405 ], [ %spec.select381.i, %._crit_edge.i.i.i ], [ null, %.critedge.i ]
   br label %412
 
 412:                                              ; preds = %412, %_ZNSt6vectorImSaImEE5eraseEN9__gnu_cxx17__normal_iteratorIPKmS1_EES6_.exit.i

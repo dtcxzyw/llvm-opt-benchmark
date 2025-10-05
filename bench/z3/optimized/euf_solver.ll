@@ -11352,15 +11352,16 @@ _ZN3euflsERSoRKNS_6egraph4b_ppE.exit:             ; preds = %27, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf6solver18display_constraintERSom(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(8456) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf6solver18display_constraintERSom(ptr noundef nonnull align 8 dereferenceable(8456) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #4 align 2 {
   %4 = inttoptr i64 %2 to ptr
   %5 = load ptr, ptr %4, align 8, !tbaa !763
   %.not = icmp eq ptr %5, %0
+  %. = select i1 %.not, ptr %0, ptr %5
   %.17 = select i1 %.not, i64 232, i64 240
-  %6 = load ptr, ptr %5, align 8, !tbaa !405
+  %6 = load ptr, ptr %., align 8, !tbaa !405
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 %.17
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr %8(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2)
+  %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr %8(ptr noundef nonnull align 8 dereferenceable(32) %., ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2)
   ret ptr %9
 }
 

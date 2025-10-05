@@ -6659,10 +6659,12 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit53: ; preds = %_ZNSt13unordered_ma
   %196 = zext i1 %194 to i64
   %197 = getelementptr inbounds nuw ptr, ptr %195, i64 %196
   %198 = load ptr, ptr %197, align 8, !tbaa !88, !noalias !352
+  %.not.i58 = icmp eq ptr %186, %198
+  %spec.select = select i1 %.not.i58, ptr %186, ptr %198, !prof !340
   br label %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit59
 
 _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit59: ; preds = %193, %180
-  %.sroa.0124.0 = phi ptr [ %186, %180 ], [ %198, %193 ]
+  %.sroa.0124.0 = phi ptr [ %186, %180 ], [ %spec.select, %193 ]
   %199 = load i32, ptr %118, align 8, !tbaa !346
   %200 = add i32 %199, 1
   store i32 %200, ptr %118, align 8, !tbaa !346

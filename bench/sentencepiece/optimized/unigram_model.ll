@@ -5586,9 +5586,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %35, %31
 
 _ZNSt6vectorIfSaIfEE5clearEv.exit:                ; preds = %_ZNSt21discrete_distributionIiED2Ev.exit, %40
   %.sroa.065.0 = phi ptr [ null, %40 ], [ %.sroa.065.1.lcssa, %_ZNSt21discrete_distributionIiED2Ev.exit ]
+  %.sroa.10.0 = phi ptr [ null, %40 ], [ %.sroa.10.1.lcssa, %_ZNSt21discrete_distributionIiED2Ev.exit ]
   %.sroa.16.0 = phi ptr [ null, %40 ], [ %.sroa.16.1.lcssa, %_ZNSt21discrete_distributionIiED2Ev.exit ]
   %.087 = phi ptr [ %54, %40 ], [ %217, %_ZNSt21discrete_distributionIiED2Ev.exit ]
   %.023 = phi float [ %59, %40 ], [ %.124, %_ZNSt21discrete_distributionIiED2Ev.exit ]
+  %.not.i.i = icmp eq ptr %.sroa.10.0, %.sroa.065.0
+  %spec.select = select i1 %.not.i.i, ptr %.sroa.10.0, ptr %.sroa.065.0
   %75 = getelementptr inbounds nuw i8, ptr %.087, i64 16
   %76 = load i32, ptr %75, align 8, !tbaa !51
   %77 = zext i32 %76 to i64
@@ -5602,7 +5605,7 @@ _ZNSt6vectorIfSaIfEE5clearEv.exit:                ; preds = %_ZNSt21discrete_dis
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIfSaIfEE9push_backEOf.exit, %_ZNSt6vectorIfSaIfEE5clearEv.exit
   %.sroa.065.1.lcssa = phi ptr [ %.sroa.065.0, %_ZNSt6vectorIfSaIfEE5clearEv.exit ], [ %.sroa.065.2, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit ]
-  %.sroa.10.1.lcssa = phi ptr [ %.sroa.065.0, %_ZNSt6vectorIfSaIfEE5clearEv.exit ], [ %.sroa.10.3, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit ]
+  %.sroa.10.1.lcssa = phi ptr [ %spec.select, %_ZNSt6vectorIfSaIfEE5clearEv.exit ], [ %.sroa.10.3, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit ]
   %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.0, %_ZNSt6vectorIfSaIfEE5clearEv.exit ], [ %.sroa.16.2, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNSt21discrete_distributionIiE10param_typeC2IN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEET_SA_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr %.sroa.065.1.lcssa, ptr %.sroa.10.1.lcssa)
@@ -5622,7 +5625,7 @@ _ZNSt6vectorIfSaIfEE5clearEv.exit:                ; preds = %_ZNSt21discrete_dis
 .lr.ph:                                           ; preds = %_ZNSt6vectorIfSaIfEE5clearEv.exit, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit
   %.sroa.057.0120 = phi ptr [ %119, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit ], [ %80, %_ZNSt6vectorIfSaIfEE5clearEv.exit ]
   %.sroa.16.1119 = phi ptr [ %.sroa.16.2, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit ], [ %.sroa.16.0, %_ZNSt6vectorIfSaIfEE5clearEv.exit ]
-  %.sroa.10.1118 = phi ptr [ %.sroa.10.3, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit ], [ %.sroa.065.0, %_ZNSt6vectorIfSaIfEE5clearEv.exit ]
+  %.sroa.10.1118 = phi ptr [ %.sroa.10.3, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit ], [ %spec.select, %_ZNSt6vectorIfSaIfEE5clearEv.exit ]
   %.sroa.065.1117 = phi ptr [ %.sroa.065.2, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit ], [ %.sroa.065.0, %_ZNSt6vectorIfSaIfEE5clearEv.exit ]
   %87 = load ptr, ptr %.sroa.057.0120, align 8, !tbaa !27
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24

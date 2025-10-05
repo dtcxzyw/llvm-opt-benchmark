@@ -17038,22 +17038,29 @@ define hidden noundef ptr @_ZNK23ShenandoahIUBarrierNode5ValueEP8PhaseGVN(ptr no
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %17, label %8
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %14 = load ptr, ptr %13, align 8
-  %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
-  br label %17
+  %9 = load ptr, ptr @_ZN4Type3TOPE, align 8
+  br label %22
 
-17:                                               ; preds = %2, %8
-  %.0.in = phi ptr [ %16, %8 ], [ @_ZN4Type3TOPE, %2 ]
-  %.0 = load ptr, ptr %.0.in, align 8
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %14 = load i32, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = zext i32 %14 to i64
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr @_ZN4Type3TOPE, align 8
+  %21 = icmp eq ptr %19, %20
+  %spec.select = select i1 %21, ptr %20, ptr %19
+  br label %22
+
+22:                                               ; preds = %10, %8
+  %.0 = phi ptr [ %9, %8 ], [ %spec.select, %10 ]
   ret ptr %.0
 }
 

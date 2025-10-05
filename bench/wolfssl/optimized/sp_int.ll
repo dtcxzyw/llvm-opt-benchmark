@@ -337,9 +337,10 @@ define range(i32 -98, 1) i32 @sp_init_copy(ptr noundef writeonly captures(addres
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 129, ptr %6, align 2, !tbaa !10
   %7 = icmp eq ptr %1, null
+  %spec.store.select.i = select i1 %7, i32 -98, i32 0
   %.not.i = icmp eq ptr %1, %0
   %brmerge.i = or i1 %.not.i, %7
-  %spec.store.select.mux.i = select i1 %.not.i, i32 0, i32 -98
+  %spec.store.select.mux.i = select i1 %.not.i, i32 %spec.store.select.i, i32 -98
   br i1 %brmerge.i, label %sp_init.exit, label %8
 
 8:                                                ; preds = %4

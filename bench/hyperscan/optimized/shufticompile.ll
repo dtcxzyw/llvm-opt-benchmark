@@ -902,9 +902,9 @@ _ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backEOS1_.exit82: ; preds = %_ZNSt6vec
   %93 = lshr i64 %.059405, 6
   %94 = and i64 %.059405, 63
   %.not20.i.i = icmp eq i64 %94, 63
-  br i1 %.not20.i.i, label %.preheader590, label %95
+  br i1 %.not20.i.i, label %.preheader591, label %95
 
-.preheader590:                                    ; preds = %95, %92
+.preheader591:                                    ; preds = %95, %92
   br label %102
 
 95:                                               ; preds = %92
@@ -913,14 +913,14 @@ _ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backEOS1_.exit82: ; preds = %_ZNSt6vec
   %98 = shl nsw i64 -2, %94
   %99 = and i64 %97, %98
   %.not21.i.i = icmp eq i64 %99, 0
-  br i1 %.not21.i.i, label %.preheader590, label %100
+  br i1 %.not21.i.i, label %.preheader591, label %100
 
 100:                                              ; preds = %95
   %101 = and i64 %.059405, 192
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
-102:                                              ; preds = %.preheader590, %104
-  %.0.in.i.i = phi i64 [ %.0.i.i, %104 ], [ %93, %.preheader590 ]
+102:                                              ; preds = %.preheader591, %104
+  %.0.in.i.i = phi i64 [ %.0.i.i, %104 ], [ %93, %.preheader591 ]
   %103 = icmp samesign ult i64 %.0.in.i.i, 3
   br i1 %103, label %104, label %.preheader338
 
@@ -936,10 +936,10 @@ _ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backEOS1_.exit82: ; preds = %_ZNSt6vec
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %100, %107
-  %.sink539 = phi i64 [ %99, %100 ], [ %106, %107 ]
-  %.sink538 = phi i64 [ %101, %100 ], [ %108, %107 ]
-  %109 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink539, i1 true)
-  %110 = or disjoint i64 %109, %.sink538
+  %.sink540 = phi i64 [ %99, %100 ], [ %106, %107 ]
+  %.sink539 = phi i64 [ %101, %100 ], [ %108, %107 ]
+  %109 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink540, i1 true)
+  %110 = or disjoint i64 %109, %.sink539
   br label %.lr.ph406
 
 .loopexit339:                                     ; preds = %_ZNKSt6vectorISt5arrayItLm4EESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i74
@@ -1478,7 +1478,7 @@ _ZNSt8_Rb_treeISt5arrayItLm4EESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaI
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backERKS1_.exit, %116, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE5clearEv.exit
   %.sroa.33.3.lcssa = phi ptr [ %.sroa.33.2422, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE5clearEv.exit ], [ %.sroa.33.2422, %116 ], [ %.sroa.33.6, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backERKS1_.exit ]
-  %.sroa.16.3.lcssa = phi ptr [ %.sroa.0286.3424, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE5clearEv.exit ], [ %.sroa.0286.3424, %116 ], [ %.sroa.16.7, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backERKS1_.exit ]
+  %.sroa.16.3.lcssa = phi ptr [ %.sroa.0286.3424, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE5clearEv.exit ], [ %.sroa.16.2423, %116 ], [ %.sroa.16.7, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backERKS1_.exit ]
   %.sroa.0286.5.lcssa = phi ptr [ %.sroa.0286.3424, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE5clearEv.exit ], [ %.sroa.0286.3424, %116 ], [ %.sroa.0286.8, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backERKS1_.exit ]
   %268 = load ptr, ptr %60, align 8
   invoke void @_ZNSt8_Rb_treeISt5arrayItLm4EESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %268)

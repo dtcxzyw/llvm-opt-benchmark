@@ -10535,11 +10535,13 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i802: ; preds = %695, %_ZNSt
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i786: ; preds = %698, %697
   %699 = getelementptr inbounds i8, ptr %.sroa.0908.1, i64 %685
+  %.not.i18.i787 = icmp eq ptr %.sroa.21.0, %699
+  %spec.select1118 = select i1 %.not.i18.i787, ptr %.sroa.21.0, ptr %699
   br label %.noexc491
 
 .noexc491:                                        ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i786, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i802
   %.sroa.42.7 = phi ptr [ %696, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i802 ], [ %.sroa.21.0, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i786 ]
-  %.sroa.21.8 = phi ptr [ %696, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i802 ], [ %699, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i786 ]
+  %.sroa.21.8 = phi ptr [ %696, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i802 ], [ %spec.select1118, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i786 ]
   %.sroa.0908.14 = phi ptr [ %693, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i802 ], [ %.sroa.0908.1, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i786 ]
   %700 = load ptr, ptr %569, align 8, !tbaa !3
   %701 = load ptr, ptr %28, align 8, !tbaa !9
@@ -11769,6 +11771,8 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i848: ; preds = %1135, %.noe
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i832: ; preds = %1137
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0908.4, ptr nonnull align 4 %1120, i64 %1091, i1 false)
   %1142 = getelementptr inbounds nuw i8, ptr %.sroa.0908.4, i64 %1091
+  %.not.i18.i833 = icmp eq ptr %.sroa.21.2, %1142
+  %spec.select1120 = select i1 %.not.i18.i833, ptr %.sroa.21.2, ptr %1142
   br label %.noexc613
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.i835: ; preds = %1137
@@ -11794,7 +11798,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEE
   br label %.noexc613
 
 .noexc613:                                        ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i832, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit.i842, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i848
-  %.sroa.21.9 = phi ptr [ %1136, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i848 ], [ %1146, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit.i842 ], [ %1142, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i832 ]
+  %.sroa.21.9 = phi ptr [ %1136, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i848 ], [ %1146, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit.i842 ], [ %spec.select1120, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i832 ]
   %.sroa.0908.15 = phi ptr [ %1134, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i848 ], [ %.sroa.0908.4, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit.i842 ], [ %.sroa.0908.4, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i832 ]
   %1147 = load ptr, ptr %1098, align 8, !tbaa !3
   %1148 = load ptr, ptr %35, align 8, !tbaa !9

@@ -211,18 +211,19 @@ _mi_os_good_alloc_size.exit:                      ; preds = %4
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %spec.select = select i1 %11, i64 %15, i64 %10
+  %.017 = select i1 %.not, ptr %0, ptr %12
   %.0 = select i1 %.not, i64 %10, i64 %spec.select
   %16 = icmp eq i32 %6, 4
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %_mi_os_good_alloc_size.exit
-  %18 = icmp ne ptr %12, null
+  %18 = icmp ne ptr %.017, null
   %19 = icmp ugt i64 %.0, 1073741823
   %or.cond12.i = and i1 %18, %19
   br i1 %or.cond12.i, label %.lr.ph.i, label %mi_os_free_huge_os_pages.exit
 
 .lr.ph.i:                                         ; preds = %17, %mi_os_prim_free.exit.i
-  %.011.i = phi ptr [ %23, %mi_os_prim_free.exit.i ], [ %12, %17 ]
+  %.011.i = phi ptr [ %23, %mi_os_prim_free.exit.i ], [ %.017, %17 ]
   %.0710.i = phi i64 [ %22, %mi_os_prim_free.exit.i ], [ %.0, %17 ]
   %20 = tail call i32 @_mi_prim_free(ptr noundef nonnull %.011.i, i64 noundef 1073741824) #7
   %.not.i.i = icmp eq i32 %20, 0
@@ -244,18 +245,18 @@ mi_os_prim_free.exit.i:                           ; preds = %21, %.lr.ph.i
   %26 = select i1 %.not, i64 0, i64 %15
   %.018 = sub i64 %10, %26
   %27 = select i1 %2, i64 %.018, i64 0
-  %28 = icmp eq ptr %12, null
+  %28 = icmp eq ptr %.017, null
   %29 = icmp eq i64 %.0, 0
   %or.cond.i = or i1 %28, %29
   br i1 %or.cond.i, label %mi_os_free_huge_os_pages.exit, label %30
 
 30:                                               ; preds = %25
-  %31 = tail call i32 @_mi_prim_free(ptr noundef nonnull %12, i64 noundef %.0) #7
+  %31 = tail call i32 @_mi_prim_free(ptr noundef nonnull %.017, i64 noundef %.0) #7
   %.not.i23 = icmp eq i32 %31, 0
   br i1 %.not.i23, label %33, label %32
 
 32:                                               ; preds = %30
-  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.7, i32 noundef %31, i32 noundef %31, i64 noundef %.0, ptr noundef nonnull %12) #7
+  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.7, i32 noundef %31, i32 noundef %31, i64 noundef %.0, ptr noundef nonnull %.017) #7
   br label %33
 
 33:                                               ; preds = %32, %30

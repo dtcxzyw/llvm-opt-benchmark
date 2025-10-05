@@ -28670,280 +28670,282 @@ define linkonce_odr void @_ZN3vcg3tri19OddPointLoopGenericI6CMeshONS0_8CentroidI
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds ptr, ptr %8, i64 %14
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %20 = load i8, ptr %19, align 1
-  %21 = uitofp i8 %20 to float
-  %22 = load i8, ptr %18, align 1
-  %23 = uitofp i8 %22 to float
-  %24 = fmul float %23, 5.000000e-01
-  %25 = tail call float @llvm.fmuladd.f32(float %21, float 5.000000e-01, float %24)
-  %26 = fptoui float %25 to i8
-  store i8 %26, ptr %17, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %16, i64 41
-  %28 = load i8, ptr %27, align 1
-  %29 = uitofp i8 %28 to float
-  %30 = getelementptr inbounds nuw i8, ptr %11, i64 41
-  %31 = load i8, ptr %30, align 1
-  %32 = uitofp i8 %31 to float
-  %33 = fmul float %32, 5.000000e-01
-  %34 = tail call float @llvm.fmuladd.f32(float %29, float 5.000000e-01, float %33)
-  %35 = fptoui float %34 to i8
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  store i8 %35, ptr %36, align 1
-  %37 = getelementptr inbounds nuw i8, ptr %16, i64 42
-  %38 = load i8, ptr %37, align 1
-  %39 = uitofp i8 %38 to float
-  %40 = getelementptr inbounds nuw i8, ptr %11, i64 42
-  %41 = load i8, ptr %40, align 1
-  %42 = uitofp i8 %41 to float
-  %43 = fmul float %42, 5.000000e-01
-  %44 = tail call float @llvm.fmuladd.f32(float %39, float 5.000000e-01, float %43)
-  %45 = fptoui float %44 to i8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 42
-  store i8 %45, ptr %46, align 2
-  %47 = getelementptr inbounds nuw i8, ptr %16, i64 43
-  %48 = load i8, ptr %47, align 1
-  %49 = uitofp i8 %48 to float
-  %50 = getelementptr inbounds nuw i8, ptr %11, i64 43
-  %51 = load i8, ptr %50, align 1
-  %52 = uitofp i8 %51 to float
-  %53 = fmul float %52, 5.000000e-01
-  %54 = tail call float @llvm.fmuladd.f32(float %49, float 5.000000e-01, float %53)
-  %55 = fptoui float %54 to i8
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 43
-  store i8 %55, ptr %56, align 1
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 273
-  %59 = load i8, ptr %58, align 1
-  %60 = trunc i8 %59 to i1
-  br i1 %60, label %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit, label %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.thread
+  %17 = icmp eq ptr %16, %11
+  %storemerge.i = select i1 %17, ptr %11, ptr %16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %21 = load i8, ptr %20, align 1
+  %22 = uitofp i8 %21 to float
+  %23 = load i8, ptr %19, align 1
+  %24 = uitofp i8 %23 to float
+  %25 = fmul float %24, 5.000000e-01
+  %26 = tail call float @llvm.fmuladd.f32(float %22, float 5.000000e-01, float %25)
+  %27 = fptoui float %26 to i8
+  store i8 %27, ptr %18, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 41
+  %29 = load i8, ptr %28, align 1
+  %30 = uitofp i8 %29 to float
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 41
+  %32 = load i8, ptr %31, align 1
+  %33 = uitofp i8 %32 to float
+  %34 = fmul float %33, 5.000000e-01
+  %35 = tail call float @llvm.fmuladd.f32(float %30, float 5.000000e-01, float %34)
+  %36 = fptoui float %35 to i8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 41
+  store i8 %36, ptr %37, align 1
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 42
+  %39 = load i8, ptr %38, align 1
+  %40 = uitofp i8 %39 to float
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 42
+  %42 = load i8, ptr %41, align 1
+  %43 = uitofp i8 %42 to float
+  %44 = fmul float %43, 5.000000e-01
+  %45 = tail call float @llvm.fmuladd.f32(float %40, float 5.000000e-01, float %44)
+  %46 = fptoui float %45 to i8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 42
+  store i8 %46, ptr %47, align 2
+  %48 = getelementptr inbounds nuw i8, ptr %16, i64 43
+  %49 = load i8, ptr %48, align 1
+  %50 = uitofp i8 %49 to float
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 43
+  %52 = load i8, ptr %51, align 1
+  %53 = uitofp i8 %52 to float
+  %54 = fmul float %53, 5.000000e-01
+  %55 = tail call float @llvm.fmuladd.f32(float %50, float 5.000000e-01, float %54)
+  %56 = fptoui float %55 to i8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 43
+  store i8 %56, ptr %57, align 1
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 273
+  %60 = load i8, ptr %59, align 1
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit, label %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.thread
 
 _ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit:       ; preds = %3
-  %61 = getelementptr inbounds nuw i8, ptr %57, i64 240
-  %62 = load ptr, ptr %57, align 8
-  %63 = ptrtoint ptr %5 to i64
-  %64 = ptrtoint ptr %62 to i64
-  %65 = sub i64 %63, %64
-  %66 = sdiv exact i64 %65, 48
-  %67 = load ptr, ptr %61, align 8
-  %68 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %67, i64 %66
-  %69 = getelementptr inbounds ptr, ptr %68, i64 %9
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, %5
-  br i1 %71, label %72, label %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.thread
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 240
+  %63 = load ptr, ptr %58, align 8
+  %64 = ptrtoint ptr %5 to i64
+  %65 = ptrtoint ptr %63 to i64
+  %66 = sub i64 %64, %65
+  %67 = sdiv exact i64 %66, 48
+  %68 = load ptr, ptr %62, align 8
+  %69 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %68, i64 %67
+  %70 = getelementptr inbounds ptr, ptr %69, i64 %9
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr %71, %5
+  br i1 %72, label %73, label %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.thread
 
-72:                                               ; preds = %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit
-  %73 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %74 = load float, ptr %73, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %76 = load float, ptr %75, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %78 = load float, ptr %77, align 4
-  %79 = fmul float %74, 5.000000e-01
-  %80 = fmul float %76, 5.000000e-01
-  %81 = fmul float %78, 5.000000e-01
-  %82 = load float, ptr %4, align 8
-  %83 = fadd float %79, %82
-  store float %83, ptr %4, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %85 = load float, ptr %84, align 4
-  %86 = fadd float %80, %85
-  store float %86, ptr %84, align 4
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %88 = load float, ptr %87, align 8
-  %89 = fadd float %81, %88
-  store float %89, ptr %87, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %91 = load float, ptr %90, align 4
-  %92 = fadd float %91, 5.000000e-01
-  store float %92, ptr %90, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %94 = load float, ptr %93, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %96 = load float, ptr %95, align 4
-  %97 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %98 = load float, ptr %97, align 4
-  %99 = fmul float %94, 5.000000e-01
-  %100 = fmul float %96, 5.000000e-01
-  %101 = fmul float %98, 5.000000e-01
-  %102 = fadd float %83, %99
-  store float %102, ptr %4, align 8
-  %103 = fadd float %86, %100
-  store float %103, ptr %84, align 4
-  %104 = fadd float %89, %101
-  store float %104, ptr %87, align 8
-  %105 = fadd float %92, 5.000000e-01
-  store float %105, ptr %90, align 4
-  %106 = fdiv float %102, %105
-  %107 = fdiv float %103, %105
-  %108 = fdiv float %104, %105
-  br label %218
+73:                                               ; preds = %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit
+  %74 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %75 = load float, ptr %74, align 4
+  %76 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %77 = load float, ptr %76, align 4
+  %78 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %79 = load float, ptr %78, align 4
+  %80 = fmul float %75, 5.000000e-01
+  %81 = fmul float %77, 5.000000e-01
+  %82 = fmul float %79, 5.000000e-01
+  %83 = load float, ptr %4, align 8
+  %84 = fadd float %80, %83
+  store float %84, ptr %4, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %86 = load float, ptr %85, align 4
+  %87 = fadd float %81, %86
+  store float %87, ptr %85, align 4
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %89 = load float, ptr %88, align 8
+  %90 = fadd float %82, %89
+  store float %90, ptr %88, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %92 = load float, ptr %91, align 4
+  %93 = fadd float %92, 5.000000e-01
+  store float %93, ptr %91, align 4
+  %94 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 8
+  %95 = load float, ptr %94, align 4
+  %96 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 12
+  %97 = load float, ptr %96, align 4
+  %98 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 16
+  %99 = load float, ptr %98, align 4
+  %100 = fmul float %95, 5.000000e-01
+  %101 = fmul float %97, 5.000000e-01
+  %102 = fmul float %99, 5.000000e-01
+  %103 = fadd float %84, %100
+  store float %103, ptr %4, align 8
+  %104 = fadd float %87, %101
+  store float %104, ptr %85, align 4
+  %105 = fadd float %90, %102
+  store float %105, ptr %88, align 8
+  %106 = fadd float %93, 5.000000e-01
+  store float %106, ptr %91, align 4
+  %107 = fdiv float %103, %106
+  %108 = fdiv float %104, %106
+  %109 = fdiv float %105, %106
+  br label %219
 
 _ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.thread: ; preds = %3, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit
-  %109 = load ptr, ptr %15, align 8
-  %110 = icmp eq ptr %109, %16
-  br i1 %110, label %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit, label %111
+  %110 = load ptr, ptr %15, align 8
+  %111 = icmp eq ptr %110, %storemerge.i
+  br i1 %111, label %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit, label %112
 
-111:                                              ; preds = %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.thread
-  %112 = add nsw i32 %7, 2
-  %113 = srem i32 %112, 3
+112:                                              ; preds = %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.thread
+  %113 = add nsw i32 %7, 2
+  %114 = srem i32 %113, 3
   br label %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit
 
-_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit:           ; preds = %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.thread, %111
-  %storemerge.i15 = phi i32 [ %113, %111 ], [ %13, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.thread ]
+_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit:           ; preds = %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.thread, %112
+  %storemerge.i15 = phi i32 [ %114, %112 ], [ %13, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.thread ]
   %storemerge.i15.fr = freeze i32 %storemerge.i15
-  %114 = trunc nsw i32 %storemerge.i15.fr to i8
-  %.lhs.trunc = add nsw i8 %114, 1
-  %115 = srem i8 %.lhs.trunc, 3
-  %.sext = sext i8 %115 to i32
-  %116 = sext i8 %115 to i64
-  %117 = getelementptr inbounds ptr, ptr %8, i64 %116
-  %118 = load ptr, ptr %117, align 8
-  %119 = icmp eq ptr %118, %16
-  %120 = sext i32 %storemerge.i15.fr to i64
-  %121 = getelementptr inbounds ptr, ptr %8, i64 %120
-  %storemerge.in.i16 = select i1 %119, ptr %121, ptr %117
+  %115 = trunc nsw i32 %storemerge.i15.fr to i8
+  %.lhs.trunc = add nsw i8 %115, 1
+  %116 = srem i8 %.lhs.trunc, 3
+  %.sext = sext i8 %116 to i32
+  %117 = sext i8 %116 to i64
+  %118 = getelementptr inbounds ptr, ptr %8, i64 %117
+  %119 = load ptr, ptr %118, align 8
+  %120 = icmp eq ptr %119, %storemerge.i
+  %121 = sext i32 %storemerge.i15.fr to i64
+  %122 = getelementptr inbounds ptr, ptr %8, i64 %121
+  %storemerge.in.i16 = select i1 %120, ptr %122, ptr %118
   %storemerge.i17 = load ptr, ptr %storemerge.in.i16, align 8
-  %122 = icmp eq ptr %118, %storemerge.i17
-  %storemerge.in.i18 = select i1 %122, ptr %121, ptr %117
+  %123 = icmp eq ptr %119, %storemerge.i17
+  %storemerge.in.i18 = select i1 %123, ptr %122, ptr %118
   %storemerge.i19 = load ptr, ptr %storemerge.in.i18, align 8
-  %123 = icmp eq ptr %118, %storemerge.i19
-  %124 = add i32 %storemerge.i15.fr, 2
+  %124 = icmp eq ptr %119, %storemerge.i19
+  %125 = add i32 %storemerge.i15.fr, 2
   %.urem = add i32 %storemerge.i15.fr, -1
-  %.cmp = icmp ult i32 %124, 3
-  %125 = select i1 %.cmp, i32 %124, i32 %.urem
-  %storemerge.i20 = select i1 %123, i32 %.sext, i32 %125
-  %126 = getelementptr inbounds nuw i8, ptr %57, i64 240
-  %127 = load ptr, ptr %57, align 8
-  %128 = ptrtoint ptr %5 to i64
-  %129 = ptrtoint ptr %127 to i64
-  %130 = sub i64 %128, %129
-  %131 = sdiv exact i64 %130, 48
-  %132 = load ptr, ptr %126, align 8
-  %133 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %132, i64 %131
-  %134 = sext i32 %storemerge.i20 to i64
-  %135 = getelementptr inbounds ptr, ptr %133, i64 %134
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %133, i64 24
-  %138 = getelementptr inbounds i8, ptr %137, i64 %134
-  %139 = load i8, ptr %138, align 1
-  %140 = sext i8 %139 to i16
-  %.lhs.trunc74 = add nsw i16 %140, 1
-  %141 = srem i16 %.lhs.trunc74, 3
-  %142 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  %143 = sext i16 %141 to i64
-  %144 = getelementptr inbounds ptr, ptr %142, i64 %143
-  %145 = load ptr, ptr %144, align 8
-  %146 = icmp eq ptr %145, %storemerge.i19
-  br i1 %146, label %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit23, label %147
+  %.cmp = icmp ult i32 %125, 3
+  %126 = select i1 %.cmp, i32 %125, i32 %.urem
+  %storemerge.i20 = select i1 %124, i32 %.sext, i32 %126
+  %127 = getelementptr inbounds nuw i8, ptr %58, i64 240
+  %128 = load ptr, ptr %58, align 8
+  %129 = ptrtoint ptr %5 to i64
+  %130 = ptrtoint ptr %128 to i64
+  %131 = sub i64 %129, %130
+  %132 = sdiv exact i64 %131, 48
+  %133 = load ptr, ptr %127, align 8
+  %134 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %133, i64 %132
+  %135 = sext i32 %storemerge.i20 to i64
+  %136 = getelementptr inbounds ptr, ptr %134, i64 %135
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %134, i64 24
+  %139 = getelementptr inbounds i8, ptr %138, i64 %135
+  %140 = load i8, ptr %139, align 1
+  %141 = sext i8 %140 to i16
+  %.lhs.trunc74 = add nsw i16 %141, 1
+  %142 = srem i16 %.lhs.trunc74, 3
+  %143 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  %144 = sext i16 %142 to i64
+  %145 = getelementptr inbounds ptr, ptr %143, i64 %144
+  %146 = load ptr, ptr %145, align 8
+  %147 = icmp eq ptr %146, %storemerge.i19
+  br i1 %147, label %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit23, label %148
 
-147:                                              ; preds = %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit
-  %.lhs.trunc78 = add nsw i16 %140, 2
-  %148 = srem i16 %.lhs.trunc78, 3
-  %.pre = sext i16 %148 to i64
+148:                                              ; preds = %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit
+  %.lhs.trunc78 = add nsw i16 %141, 2
+  %149 = srem i16 %.lhs.trunc78, 3
+  %.pre = sext i16 %149 to i64
   br label %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit23
 
-_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit23:         ; preds = %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit, %147
-  %.pre-phi = phi i64 [ %143, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit ], [ %.pre, %147 ]
-  %storemerge.i22.in = phi i16 [ %141, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit ], [ %148, %147 ]
-  %149 = trunc nsw i16 %storemerge.i22.in to i8
-  %.lhs.trunc76 = add nsw i8 %149, 1
-  %150 = srem i8 %.lhs.trunc76, 3
-  %151 = sext i8 %150 to i64
-  %152 = getelementptr inbounds ptr, ptr %142, i64 %151
-  %153 = load ptr, ptr %152, align 8
-  %154 = icmp eq ptr %153, %storemerge.i19
-  %155 = getelementptr inbounds ptr, ptr %142, i64 %.pre-phi
-  %storemerge.in.i24 = select i1 %154, ptr %155, ptr %152
+_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit23:         ; preds = %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit, %148
+  %.pre-phi = phi i64 [ %144, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit ], [ %.pre, %148 ]
+  %storemerge.i22.in = phi i16 [ %142, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit ], [ %149, %148 ]
+  %150 = trunc nsw i16 %storemerge.i22.in to i8
+  %.lhs.trunc76 = add nsw i8 %150, 1
+  %151 = srem i8 %.lhs.trunc76, 3
+  %152 = sext i8 %151 to i64
+  %153 = getelementptr inbounds ptr, ptr %143, i64 %152
+  %154 = load ptr, ptr %153, align 8
+  %155 = icmp eq ptr %154, %storemerge.i19
+  %156 = getelementptr inbounds ptr, ptr %143, i64 %.pre-phi
+  %storemerge.in.i24 = select i1 %155, ptr %156, ptr %153
   %storemerge.i25 = load ptr, ptr %storemerge.in.i24, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %157 = load float, ptr %156, align 4
-  %158 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %159 = load float, ptr %158, align 4
-  %160 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %161 = load float, ptr %160, align 4
-  %162 = fmul float %157, 3.750000e-01
-  %163 = fmul float %159, 3.750000e-01
-  %164 = fmul float %161, 3.750000e-01
-  %165 = load float, ptr %4, align 8
-  %166 = fadd float %162, %165
-  store float %166, ptr %4, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %168 = load float, ptr %167, align 4
-  %169 = fadd float %163, %168
-  store float %169, ptr %167, align 4
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %171 = load float, ptr %170, align 8
-  %172 = fadd float %164, %171
-  store float %172, ptr %170, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %174 = load float, ptr %173, align 4
-  %175 = fadd float %174, 3.750000e-01
-  store float %175, ptr %173, align 4
-  %176 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %177 = load float, ptr %176, align 4
-  %178 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %179 = load float, ptr %178, align 4
-  %180 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %181 = load float, ptr %180, align 4
-  %182 = fmul float %177, 3.750000e-01
-  %183 = fmul float %179, 3.750000e-01
-  %184 = fmul float %181, 3.750000e-01
-  %185 = fadd float %166, %182
-  store float %185, ptr %4, align 8
-  %186 = fadd float %169, %183
-  store float %186, ptr %167, align 4
-  %187 = fadd float %172, %184
-  store float %187, ptr %170, align 8
-  %188 = fadd float %175, 3.750000e-01
-  store float %188, ptr %173, align 4
-  %189 = getelementptr inbounds nuw i8, ptr %storemerge.i17, i64 8
-  %190 = load float, ptr %189, align 4
-  %191 = getelementptr inbounds nuw i8, ptr %storemerge.i17, i64 12
-  %192 = load float, ptr %191, align 4
-  %193 = getelementptr inbounds nuw i8, ptr %storemerge.i17, i64 16
-  %194 = load float, ptr %193, align 4
-  %195 = fmul float %190, 1.250000e-01
-  %196 = fmul float %192, 1.250000e-01
-  %197 = fmul float %194, 1.250000e-01
-  %198 = fadd float %185, %195
-  store float %198, ptr %4, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %158 = load float, ptr %157, align 4
+  %159 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %160 = load float, ptr %159, align 4
+  %161 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %162 = load float, ptr %161, align 4
+  %163 = fmul float %158, 3.750000e-01
+  %164 = fmul float %160, 3.750000e-01
+  %165 = fmul float %162, 3.750000e-01
+  %166 = load float, ptr %4, align 8
+  %167 = fadd float %163, %166
+  store float %167, ptr %4, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %169 = load float, ptr %168, align 4
+  %170 = fadd float %164, %169
+  store float %170, ptr %168, align 4
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %172 = load float, ptr %171, align 8
+  %173 = fadd float %165, %172
+  store float %173, ptr %171, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %175 = load float, ptr %174, align 4
+  %176 = fadd float %175, 3.750000e-01
+  store float %176, ptr %174, align 4
+  %177 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 8
+  %178 = load float, ptr %177, align 4
+  %179 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 12
+  %180 = load float, ptr %179, align 4
+  %181 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 16
+  %182 = load float, ptr %181, align 4
+  %183 = fmul float %178, 3.750000e-01
+  %184 = fmul float %180, 3.750000e-01
+  %185 = fmul float %182, 3.750000e-01
+  %186 = fadd float %167, %183
+  store float %186, ptr %4, align 8
+  %187 = fadd float %170, %184
+  store float %187, ptr %168, align 4
+  %188 = fadd float %173, %185
+  store float %188, ptr %171, align 8
+  %189 = fadd float %176, 3.750000e-01
+  store float %189, ptr %174, align 4
+  %190 = getelementptr inbounds nuw i8, ptr %storemerge.i17, i64 8
+  %191 = load float, ptr %190, align 4
+  %192 = getelementptr inbounds nuw i8, ptr %storemerge.i17, i64 12
+  %193 = load float, ptr %192, align 4
+  %194 = getelementptr inbounds nuw i8, ptr %storemerge.i17, i64 16
+  %195 = load float, ptr %194, align 4
+  %196 = fmul float %191, 1.250000e-01
+  %197 = fmul float %193, 1.250000e-01
+  %198 = fmul float %195, 1.250000e-01
   %199 = fadd float %186, %196
-  store float %199, ptr %167, align 4
+  store float %199, ptr %4, align 8
   %200 = fadd float %187, %197
-  store float %200, ptr %170, align 8
-  %201 = fadd float %188, 1.250000e-01
-  store float %201, ptr %173, align 4
-  %202 = getelementptr inbounds nuw i8, ptr %storemerge.i25, i64 8
-  %203 = load float, ptr %202, align 4
-  %204 = getelementptr inbounds nuw i8, ptr %storemerge.i25, i64 12
-  %205 = load float, ptr %204, align 4
-  %206 = getelementptr inbounds nuw i8, ptr %storemerge.i25, i64 16
-  %207 = load float, ptr %206, align 4
-  %208 = fmul float %203, 1.250000e-01
-  %209 = fmul float %205, 1.250000e-01
-  %210 = fmul float %207, 1.250000e-01
-  %211 = fadd float %198, %208
-  store float %211, ptr %4, align 8
+  store float %200, ptr %168, align 4
+  %201 = fadd float %188, %198
+  store float %201, ptr %171, align 8
+  %202 = fadd float %189, 1.250000e-01
+  store float %202, ptr %174, align 4
+  %203 = getelementptr inbounds nuw i8, ptr %storemerge.i25, i64 8
+  %204 = load float, ptr %203, align 4
+  %205 = getelementptr inbounds nuw i8, ptr %storemerge.i25, i64 12
+  %206 = load float, ptr %205, align 4
+  %207 = getelementptr inbounds nuw i8, ptr %storemerge.i25, i64 16
+  %208 = load float, ptr %207, align 4
+  %209 = fmul float %204, 1.250000e-01
+  %210 = fmul float %206, 1.250000e-01
+  %211 = fmul float %208, 1.250000e-01
   %212 = fadd float %199, %209
-  store float %212, ptr %167, align 4
+  store float %212, ptr %4, align 8
   %213 = fadd float %200, %210
-  store float %213, ptr %170, align 8
-  %214 = fadd float %201, 1.250000e-01
-  store float %214, ptr %173, align 4
-  %215 = fdiv float %211, %214
-  %216 = fdiv float %212, %214
-  %217 = fdiv float %213, %214
-  br label %218
+  store float %213, ptr %168, align 4
+  %214 = fadd float %201, %211
+  store float %214, ptr %171, align 8
+  %215 = fadd float %202, 1.250000e-01
+  store float %215, ptr %174, align 4
+  %216 = fdiv float %212, %215
+  %217 = fdiv float %213, %215
+  %218 = fdiv float %214, %215
+  br label %219
 
-218:                                              ; preds = %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit23, %72
-  %.sink134 = phi float [ %215, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit23 ], [ %106, %72 ]
-  %.sink133 = phi float [ %216, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit23 ], [ %107, %72 ]
-  %.sink = phi float [ %217, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit23 ], [ %108, %72 ]
-  %219 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %.sink134, ptr %219, align 8
+219:                                              ; preds = %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit23, %73
+  %.sink134 = phi float [ %216, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit23 ], [ %107, %73 ]
+  %.sink133 = phi float [ %217, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit23 ], [ %108, %73 ]
+  %.sink = phi float [ %218, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit23 ], [ %109, %73 ]
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store float %.sink134, ptr %220, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
   store float %.sink133, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16

@@ -813,9 +813,13 @@ _ZNK4llvm3pdb11IPDBSession21getConcreteSymbolByIdINS0_13PDBSymbolDataEEESt10uniq
 define internal void @_ZN12_GLOBAL__N_121FunctionArgEnumerator5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((48, 56)) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !126
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = ptrtoint ptr %3 to i64
-  store i64 %5, ptr %4, align 8, !tbaa !126
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = load ptr, ptr %4, align 8, !tbaa !126
+  %6 = icmp eq ptr %3, %5
+  %spec.select = select i1 %6, ptr %5, ptr %3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = ptrtoint ptr %spec.select to i64
+  store i64 %8, ptr %7, align 8, !tbaa !126
   ret void
 }
 

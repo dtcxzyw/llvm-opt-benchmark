@@ -86,17 +86,19 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   br i1 %cmp.i.i, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i"
-  %seg.sroa.44.0.cond-lvalue.i.sroa_idx = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i, i64 -4
+  %cmp.i13.i = icmp eq ptr %__first.sroa.0.1.i.i.i, %3
+  %cond-lvalue.v.i = select i1 %cmp.i13.i, ptr %3, ptr %__first.sroa.0.1.i.i.i
+  %seg.sroa.44.0.cond-lvalue.i.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.v.i, i64 -4
   %seg.sroa.44.0.copyload = load i8, ptr %seg.sroa.44.0.cond-lvalue.i.sroa_idx, align 4
   %tobool.i2 = trunc i8 %seg.sroa.44.0.copyload to i1
   br i1 %tobool.i2, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %seg.sroa.3.0.cond-lvalue.i.sroa_idx = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i, i64 -16
+  %seg.sroa.3.0.cond-lvalue.i.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.v.i, i64 -16
   %seg.sroa.3.0.copyload = load i32, ptr %seg.sroa.3.0.cond-lvalue.i.sroa_idx, align 4
-  %seg.sroa.2.0.cond-lvalue.i.sroa_idx = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i, i64 -20
+  %seg.sroa.2.0.cond-lvalue.i.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.v.i, i64 -20
   %seg.sroa.2.0.copyload = load i32, ptr %seg.sroa.2.0.cond-lvalue.i.sroa_idx, align 4
-  %seg.sroa.1.0.cond-lvalue.i.sroa_idx = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i, i64 -24
+  %seg.sroa.1.0.cond-lvalue.i.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.v.i, i64 -24
   %seg.sroa.1.0.copyload = load i32, ptr %seg.sroa.1.0.cond-lvalue.i.sroa_idx, align 4
   %add = add i32 %seg.sroa.2.0.copyload, 1
   %add15 = add i32 %seg.sroa.3.0.copyload, 1
@@ -194,7 +196,9 @@ if.then22:                                        ; preds = %if.end8, %"_ZSt11up
   br label %return
 
 if.end23:                                         ; preds = %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit"
-  %cond-lvalue = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 -28
+  %cmp.i13 = icmp eq ptr %__first.sroa.0.1.i.i, %3
+  %cond-lvalue.v = select i1 %cmp.i13, ptr %3, ptr %__first.sroa.0.1.i.i
+  %cond-lvalue = getelementptr inbounds i8, ptr %cond-lvalue.v, i64 -28
   %hasVal.i.i15 = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i8 1, ptr %hasVal.i.i15, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %agg.result, ptr noundef nonnull align 4 dereferenceable(28) %cond-lvalue, i64 28, i1 false)
@@ -266,17 +270,19 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   br i1 %cmp.i.i.i, label %if.then.critedge, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i.i"
-  %seg.sroa.44.0.cond-lvalue.i.sroa_idx.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 -4
+  %cmp.i13.i.i = icmp eq ptr %__first.sroa.0.1.i.i.i.i, %3
+  %cond-lvalue.v.i.i = select i1 %cmp.i13.i.i, ptr %3, ptr %__first.sroa.0.1.i.i.i.i
+  %seg.sroa.44.0.cond-lvalue.i.sroa_idx.i = getelementptr inbounds i8, ptr %cond-lvalue.v.i.i, i64 -4
   %seg.sroa.44.0.copyload.i = load i8, ptr %seg.sroa.44.0.cond-lvalue.i.sroa_idx.i, align 4
   %tobool.i2.i = trunc i8 %seg.sroa.44.0.copyload.i to i1
   br i1 %tobool.i2.i, label %if.end.i, label %if.then.critedge
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %seg.sroa.3.0.cond-lvalue.i.sroa_idx.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 -16
+  %seg.sroa.3.0.cond-lvalue.i.sroa_idx.i = getelementptr inbounds i8, ptr %cond-lvalue.v.i.i, i64 -16
   %seg.sroa.3.0.copyload.i = load i32, ptr %seg.sroa.3.0.cond-lvalue.i.sroa_idx.i, align 4
-  %seg.sroa.2.0.cond-lvalue.i.sroa_idx.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 -20
+  %seg.sroa.2.0.cond-lvalue.i.sroa_idx.i = getelementptr inbounds i8, ptr %cond-lvalue.v.i.i, i64 -20
   %seg.sroa.2.0.copyload.i = load i32, ptr %seg.sroa.2.0.cond-lvalue.i.sroa_idx.i, align 4
-  %seg.sroa.1.0.cond-lvalue.i.sroa_idx.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 -24
+  %seg.sroa.1.0.cond-lvalue.i.sroa_idx.i = getelementptr inbounds i8, ptr %cond-lvalue.v.i.i, i64 -24
   %seg.sroa.1.0.copyload.i = load i32, ptr %seg.sroa.1.0.cond-lvalue.i.sroa_idx.i, align 4
   %add.i = add i32 %seg.sroa.2.0.copyload.i, 1
   %add15.i = add i32 %seg.sroa.3.0.copyload.i, 1

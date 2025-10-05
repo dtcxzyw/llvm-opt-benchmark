@@ -9263,6 +9263,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit474: ; preds = %_ZNSt3setIN4cvc58i
 
 263:                                              ; preds = %260
   %264 = load ptr, ptr %207, align 8, !tbaa !27
+  %.not.i478 = icmp eq ptr %.sroa.01129.01268, %264
+  %spec.select = select i1 %.not.i478, ptr %.sroa.01129.01268, ptr %264, !prof !24
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit503
 
 265:                                              ; preds = %222
@@ -9271,7 +9273,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit474: ; preds = %_ZNSt3setIN4cvc58i
   br label %.body
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit503: ; preds = %263, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit474
-  %.sroa.01129.1 = phi ptr [ %.sroa.01129.01268, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit474 ], [ %264, %263 ]
+  %.sroa.01129.1 = phi ptr [ %.sroa.01129.01268, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit474 ], [ %spec.select, %263 ]
   %267 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01118.01267) #30
   %.not1253 = icmp eq ptr %267, %166
   br i1 %.not1253, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit529, label %.lr.ph1270, !llvm.loop !529

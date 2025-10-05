@@ -3680,6 +3680,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %121, %115, %123
 
 _ZN4cvc58internal12NodeTemplateILb0EEaSERKNS1_ILb1EEE.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
   %127 = load ptr, ptr %8, align 8, !tbaa !16
+  %.not.i = icmp eq ptr %57, %127
+  %spec.select = select i1 %.not.i, ptr %57, ptr %127, !prof !20
   %128 = load i64, ptr %127, align 8
   %129 = and i64 %128, 1152920405095219200
   %.not.i.i37 = icmp eq i64 %129, 1152920405095219200
@@ -3790,11 +3792,11 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit42: ; preds = %_ZN4cvc58internal12
 
 176:                                              ; preds = %172, %168, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit42
   %177 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !22
-  %178 = icmp eq ptr %127, %177
+  %178 = icmp eq ptr %spec.select, %177
   br i1 %178, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit51, label %179
 
 179:                                              ; preds = %176
-  store ptr %127, ptr %11, align 8, !tbaa !45
+  store ptr %spec.select, ptr %11, align 8, !tbaa !45
   %180 = load ptr, ptr %20, align 8, !tbaa !16
   store ptr %180, ptr %12, align 8, !tbaa !45
   %181 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers6TermDb30isTermEligibleForInstantiationENS0_12NodeTemplateILb0EEES5_(ptr noundef nonnull align 8 dereferenceable(1088) %16, ptr noundef nonnull %11, ptr noundef nonnull %12)
@@ -3837,6 +3839,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit42: ; preds = %_ZN4cvc58internal12
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %._ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit_crit_edge, %195, %189
   %199 = phi i64 [ %.pre, %._ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit_crit_edge ], [ %184, %195 ], [ %194, %189 ]
+  %.not.i48 = icmp eq ptr %spec.select, %183
+  %spec.select70 = select i1 %.not.i48, ptr %spec.select, ptr %183, !prof !20
   %200 = and i64 %199, 1152920405095219200
   %.not.i.i50 = icmp eq i64 %200, 1152920405095219200
   br i1 %.not.i.i50, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit51, label %201, !prof !20
@@ -3925,7 +3929,7 @@ _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %._ZN4cvc58internal
   br label %.body
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit51: ; preds = %176, %207, %201, %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, %.critedge, %85
-  %.sroa.062.0 = phi ptr [ %57, %85 ], [ %127, %.critedge ], [ %183, %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit ], [ %183, %201 ], [ %183, %207 ], [ %127, %176 ]
+  %.sroa.062.0 = phi ptr [ %57, %85 ], [ %spec.select, %.critedge ], [ %spec.select70, %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit ], [ %spec.select70, %201 ], [ %spec.select70, %207 ], [ %spec.select, %176 ]
   %229 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %230 = icmp eq i8 %229, 0
   br i1 %230, label %231, label %239, !prof !21

@@ -1978,7 +1978,7 @@ if.end4:                                          ; preds = %if.end
 
 for.cond.outer:                                   ; preds = %if.end4, %_ZNSt6vectorIPN3re26RegexpESaIS2_EE6resizeEm.exit
   %stk.sroa.0.0.ph = phi ptr [ %stk.sroa.0.2, %_ZNSt6vectorIPN3re26RegexpESaIS2_EE6resizeEm.exit ], [ null, %if.end4 ]
-  %stk.sroa.13.0.ph = phi ptr [ %add.ptr.i, %_ZNSt6vectorIPN3re26RegexpESaIS2_EE6resizeEm.exit ], [ null, %if.end4 ]
+  %stk.sroa.13.0.ph = phi ptr [ %spec.select, %_ZNSt6vectorIPN3re26RegexpESaIS2_EE6resizeEm.exit ], [ null, %if.end4 ]
   %stk.sroa.27.0.ph = phi ptr [ %stk.sroa.27.1, %_ZNSt6vectorIPN3re26RegexpESaIS2_EE6resizeEm.exit ], [ null, %if.end4 ]
   %b.addr.0.ph = phi ptr [ %25, %_ZNSt6vectorIPN3re26RegexpESaIS2_EE6resizeEm.exit ], [ %b, %if.end4 ]
   %a.addr.0.ph = phi ptr [ %26, %_ZNSt6vectorIPN3re26RegexpESaIS2_EE6resizeEm.exit ], [ %a, %if.end4 ]
@@ -2226,13 +2226,13 @@ sw.epilog36:                                      ; preds = %for.cond, %for.inc,
   %stk.sroa.0.2 = phi ptr [ %stk.sroa.0.0.ph, %sw.bb8 ], [ %stk.sroa.0.6, %for.inc ], [ %stk.sroa.0.0.ph, %for.cond ]
   %stk.sroa.13.1 = phi ptr [ %stk.sroa.13.0.ph, %sw.bb8 ], [ %stk.sroa.13.4, %for.inc ], [ %stk.sroa.13.0.ph, %for.cond ]
   %stk.sroa.27.1 = phi ptr [ %stk.sroa.27.0.ph, %sw.bb8 ], [ %stk.sroa.27.4, %for.inc ], [ %stk.sroa.27.0.ph, %for.cond ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %stk.sroa.13.1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %stk.sroa.0.2 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp38 = icmp eq ptr %stk.sroa.13.1, %stk.sroa.0.2
   br i1 %cmp38, label %cleanup, label %if.end40
 
 if.end40:                                         ; preds = %sw.epilog36
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %stk.sroa.13.1 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %stk.sroa.0.2 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.i67 = icmp ult i64 %sub.ptr.sub.i, 9
   br i1 %cmp.i67, label %if.then.i.i, label %_ZNSt6vectorIPN3re26RegexpESaIS2_EE6resizeEm.exit
 
@@ -2249,6 +2249,8 @@ _ZNSt6vectorIPN3re26RegexpESaIS2_EE6resizeEm.exit: ; preds = %if.end40
   %25 = load ptr, ptr %add.ptr.i66, align 8
   %add.ptr.i = getelementptr i8, ptr %24, i64 -16
   %26 = load ptr, ptr %add.ptr.i, align 8
+  %tobool.not.i.i = icmp eq ptr %stk.sroa.13.1, %add.ptr.i
+  %spec.select = select i1 %tobool.not.i.i, ptr %stk.sroa.13.1, ptr %add.ptr.i
   br label %for.cond.outer
 
 cleanup:                                          ; preds = %sw.epilog36, %invoke.cont32, %invoke.cont19

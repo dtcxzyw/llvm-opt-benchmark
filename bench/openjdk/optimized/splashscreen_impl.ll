@@ -948,6 +948,7 @@ getRGBA.exit100:                                  ; preds = %202, %206
 .critedge4.thread:                                ; preds = %.preheader103
   %279 = icmp eq ptr %.071134, %.0135
   %spec.select = select i1 %279, ptr %.071134, ptr %.273
+  %spec.select164 = select i1 %279, ptr %.0135, ptr %.071134
   br label %.loopexit
 
 .lr.ph132.preheader:                              ; preds = %.critedge4
@@ -967,7 +968,7 @@ getRGBA.exit100:                                  ; preds = %202, %206
 
 .loopexit:                                        ; preds = %.lr.ph132, %.critedge4.thread, %.critedge4, %.critedge.thread, %259
   %.3 = phi ptr [ %.273.mux, %.critedge4 ], [ %.273, %259 ], [ %.273, %.critedge.thread ], [ %spec.select, %.critedge4.thread ], [ %.071134, %.lr.ph132 ]
-  %.1 = phi ptr [ %.071134.mux, %.critedge4 ], [ %.071134, %259 ], [ %.071134, %.critedge.thread ], [ %.071134, %.critedge4.thread ], [ %.0135, %.lr.ph132 ]
+  %.1 = phi ptr [ %.071134.mux, %.critedge4 ], [ %.071134, %259 ], [ %.071134, %.critedge.thread ], [ %spec.select164, %.critedge4.thread ], [ %.0135, %.lr.ph132 ]
   %284 = add nuw nsw i32 %.078133, 1
   %285 = load i32, ptr %0, align 8
   %286 = icmp slt i32 %284, %285

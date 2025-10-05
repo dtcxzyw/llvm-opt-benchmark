@@ -13393,6 +13393,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZN
 
 72:                                               ; preds = %34
   %73 = icmp eq ptr %19, %36
+  %. = select i1 %73, ptr %19, ptr %36
   %.034. = select i1 %73, i64 %.034, i64 %35
   %74 = load ptr, ptr %14, align 8, !tbaa !632
   %75 = load ptr, ptr %2, align 8, !tbaa !635
@@ -13541,7 +13542,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit64: ; preds = %132, %1
 
 136:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit61, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit64, %_ZNKSt8functionIFvvEEclEv.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
   %.135 = phi i64 [ %.034, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit64 ], [ %.034, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ], [ %97, %_ZNKSt8functionIFvvEEclEv.exit ], [ %.034, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit61 ]
-  %.233 = phi ptr [ %.031, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit64 ], [ %19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ], [ %36, %_ZNKSt8functionIFvvEEclEv.exit ], [ %100, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit61 ]
+  %.233 = phi ptr [ %.031, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit64 ], [ %19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ], [ %., %_ZNKSt8functionIFvvEEclEv.exit ], [ %100, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit61 ]
   %137 = getelementptr inbounds nuw i8, ptr %.233, i64 1
   br label %15, !llvm.loop !638
 

@@ -1699,7 +1699,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit:   ; preds = %_ZN4cvc58internal12
 
 _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit408: ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit408.backedge, %_ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit
   %46 = phi ptr [ %.pre, %_ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit ], [ %.be, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit408.backedge ]
-  %.sroa.0518.0 = phi ptr [ %45, %_ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit ], [ %173, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit408.backedge ]
+  %.sroa.0518.0 = phi ptr [ %45, %_ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit ], [ %spec.select, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit408.backedge ]
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i64, ptr %47, align 8
   %49 = trunc i64 %48 to i32
@@ -1906,6 +1906,8 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %156
   %171 = zext i1 %169 to i64
   %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load ptr, ptr %172, align 8, !tbaa !12, !noalias !78
+  %.not.i404 = icmp eq ptr %.sroa.0518.0, %173
+  %spec.select = select i1 %.not.i404, ptr %.sroa.0518.0, ptr %173, !prof !14
   %174 = load ptr, ptr %0, align 8, !tbaa !37, !noalias !81
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load i64, ptr %175, align 8, !noalias !81

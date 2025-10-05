@@ -9035,11 +9035,11 @@ define linkonce_odr hidden void @_ZN5boost9algorithm13trim_right_ifINSt7__cxx111
   resume { ptr, i32 } %26
 
 27:                                               ; preds = %.noexc.i, %14
-  %.sroa.0.0.lcssa.i.i = phi ptr [ %.sroa.0.0.i.i, %.noexc.i ], [ %5, %14 ]
+  %spec.select.i.i = phi ptr [ %5, %14 ], [ %.sroa.0.0.i.i, %.noexc.i ]
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %28 = load ptr, ptr %0, align 8, !tbaa !10
-  %29 = ptrtoint ptr %.sroa.0.0.lcssa.i.i to i64
+  %29 = ptrtoint ptr %spec.select.i.i to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   store i64 %31, ptr %6, align 8, !tbaa !13

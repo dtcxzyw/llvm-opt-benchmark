@@ -70651,8 +70651,10 @@ define hidden void @"_ZN91_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter.
   store ptr %1, ptr %5, align 8, !noalias !20420
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %2, ptr %9, align 8, !noalias !20420
-  %10 = getelementptr i8, ptr %1, i64 -16
-  %11 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f5ffcebb5242ccbE.llvm.7889846851399105414"(ptr noundef align 8 %10, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %1, inttoptr (i64 16 to ptr)
+  %10 = getelementptr inbounds i8, ptr %1, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %10
+  %11 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f5ffcebb5242ccbE.llvm.7889846851399105414"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %16 unwind label %12, !noalias !20420
 
 12:                                               ; preds = %3
@@ -86916,8 +86918,10 @@ common.resume:                                    ; preds = %45, %50, %34, %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !alias.scope !23423, !noalias !23424, !noundef !4
   %31 = load ptr, ptr %0, align 8, !alias.scope !23426, !noalias !23424, !nonnull !4, !noundef !4
-  %32 = getelementptr i8, ptr %31, i64 -16
-  %33 = invoke noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17hacc2f97ff03b95b4E.llvm.4622153547959463051"(ptr noundef align 8 %32, i64 noundef 0)
+  %.not.i.i.i = icmp eq ptr %31, inttoptr (i64 16 to ptr)
+  %32 = getelementptr inbounds i8, ptr %31, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %32
+  %33 = invoke noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17hacc2f97ff03b95b4E.llvm.4622153547959463051"(ptr noundef align 8 %spec.select.i.i.i, i64 noundef 0)
           to label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4ccd6317960eeed4E.llvm.4622153547959463051.exit.i.i" unwind label %34, !noalias !23431
 
 34:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4ccd6317960eeed4E.llvm.4622153547959463051.exit.i.i", %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$8set_font17h7acf0980c70a9fa1E.exit"

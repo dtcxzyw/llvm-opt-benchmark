@@ -1578,6 +1578,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %241, %235, %_ZNSt
   %530 = zext i1 %528 to i64
   %531 = getelementptr inbounds nuw ptr, ptr %529, i64 %530
   %532 = load ptr, ptr %531, align 8, !tbaa !27, !noalias !110
+  %.not.i349 = icmp eq ptr %123, %532
+  %spec.select = select i1 %.not.i349, ptr %123, ptr %532, !prof !33
   br label %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350
 
 533:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit
@@ -1741,7 +1743,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split: ; preds = %138
 
 _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350: ; preds = %527, %138, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split, %144, %.critedge274
   %609 = phi ptr [ %139, %.critedge274 ], [ %139, %138 ], [ %139, %144 ], [ %518, %527 ], [ %139, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split ]
-  %.sroa.0642.0 = phi ptr [ %123, %.critedge274 ], [ %123, %138 ], [ %123, %144 ], [ %532, %527 ], [ %123, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split ]
+  %.sroa.0642.0 = phi ptr [ %123, %.critedge274 ], [ %123, %138 ], [ %123, %144 ], [ %spec.select, %527 ], [ %123, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split ]
   %.0156 = phi i1 [ false, %.critedge274 ], [ true, %138 ], [ true, %144 ], [ %.1157.shrunk, %527 ], [ false, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split ]
   %.0154 = phi i32 [ 0, %.critedge274 ], [ 0, %138 ], [ 0, %144 ], [ %.1155, %527 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split ]
   %.0152 = phi i32 [ 5, %.critedge274 ], [ 24, %138 ], [ 5, %144 ], [ %.1153, %527 ], [ %127, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split ]

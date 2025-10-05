@@ -13906,6 +13906,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit984:         ; preds = %_ZN5Yosys5RTLIL8IdS
   %4990 = load ptr, ptr %4460, align 8, !tbaa !131
   %4991 = icmp eq ptr %4989, %4990
   %brmerge = or i1 %4991, %.not.i.i981
+  %.mux = select i1 %4991, ptr %4989, ptr %4990
   br i1 %brmerge, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i986, label %4992
 
 4992:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit984
@@ -13946,7 +13947,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit984:         ; preds = %_ZN5Yosys5RTLIL8IdS
   unreachable
 
 _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i986: ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit984, %._ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i986_crit_edge, %5006, %4992
-  %5012 = phi ptr [ %4990, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit984 ], [ %4990, %4992 ], [ %4990, %5006 ], [ %.pre5093, %._ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i986_crit_edge ]
+  %5012 = phi ptr [ %.mux, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit984 ], [ %4990, %4992 ], [ %4990, %5006 ], [ %.pre5093, %._ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i986_crit_edge ]
   %.0.i.i.i987 = phi i32 [ 0, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit984 ], [ %5003, %4992 ], [ %5003, %5006 ], [ %5003, %._ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE4findERKS3_.exit.i986_crit_edge ]
   %5013 = load ptr, ptr %69, align 8, !tbaa !131
   %5014 = icmp eq ptr %5013, %5012

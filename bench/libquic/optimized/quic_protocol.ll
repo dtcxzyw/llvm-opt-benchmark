@@ -993,9 +993,10 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; pre
   br label %.lr.ph
 
 _ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit: ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  store ptr null, ptr %18, align 8
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i, %.noexc10
@@ -1005,7 +1006,7 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit: ; preds = %_ZNSt6vectorIN
   br label %22
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit
-  %21 = phi ptr [ %17, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit ], [ %19, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
+  %21 = phi ptr [ %18, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit ], [ %19, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
   %.lcssa74 = phi ptr [ null, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit ], [ %163, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
   %.lcssa = phi ptr [ null, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit ], [ %164, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
   store ptr %.lcssa, ptr %21, align 1

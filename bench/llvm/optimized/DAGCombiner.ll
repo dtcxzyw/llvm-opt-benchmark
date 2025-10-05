@@ -27336,9 +27336,10 @@ _ZN4llvm5APIntD2Ev.exit857:                       ; preds = %614, %611, %_ZNK4ll
 624:                                              ; preds = %.critedge759
   %625 = load ptr, ptr %9, align 8, !tbaa !206
   %626 = icmp eq ptr %625, %517
+  %.sroa.0351.0.copyload = select i1 %626, ptr %517, ptr %625
   %.sroa.2653.0..sroa_idx.val = load i32, ptr %101, align 8
   %.sroa.2352.0.copyload = select i1 %626, i32 0, i32 %.sroa.2653.0..sroa_idx.val
-  call fastcc void @_ZN12_GLOBAL__N_111DAGCombiner9CombineToEPN4llvm6SDNodeENS1_7SDValueEb(ptr noundef nonnull align 8 dereferenceable(956) %0, ptr noundef nonnull %1, ptr %625, i32 %.sroa.2352.0.copyload, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_111DAGCombiner9CombineToEPN4llvm6SDNodeENS1_7SDValueEb(ptr noundef nonnull align 8 dereferenceable(956) %0, ptr noundef nonnull %1, ptr %.sroa.0351.0.copyload, i32 %.sroa.2352.0.copyload, i1 noundef zeroext true)
   %627 = load i16, ptr %618, align 8
   %628 = and i16 %627, 3072
   %629 = icmp eq i16 %628, 1024

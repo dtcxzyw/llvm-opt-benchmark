@@ -8605,8 +8605,10 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h020385701df02e31E
 
 29:                                               ; preds = %28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1982)
-  %30 = getelementptr i8, ptr %18, i64 -16
-  %31 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %30, i1 noundef zeroext true), !noalias !1985
+  %.not.i.i.i.i.i.i = icmp eq ptr %18, inttoptr (i64 16 to ptr)
+  %30 = getelementptr inbounds i8, ptr %18, i64 -16
+  %spec.select.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, ptr null, ptr %30
+  %31 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i.i.i.i, i1 noundef zeroext true), !noalias !1985
   br i1 %31, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit.i.i.i", label %32
 
 32:                                               ; preds = %29
@@ -33387,8 +33389,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h09c11d4bf56e7f9cE(ptr
 
 20:                                               ; preds = %19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6684)
-  %21 = getelementptr i8, ptr %7, i64 -16
-  %22 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %21, i1 noundef zeroext true), !noalias !6687
+  %.not.i.i.i = icmp eq ptr %7, inttoptr (i64 16 to ptr)
+  %21 = getelementptr inbounds i8, ptr %7, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %21
+  %22 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !6687
   br i1 %22, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %23
 
 23:                                               ; preds = %20
@@ -33538,8 +33542,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h0ea6f9c33fda3736E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6707)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !6710
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !6710
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -33889,8 +33895,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h11d67b40cbe3a2edE(ptr
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6770)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !6773
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !6773
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -34234,8 +34242,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h124e6a33f24f9c4dE.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6829)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !6832
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !6832
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -34586,8 +34596,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h13181abc1b469a80E.llv
 
 27:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6889)
-  %28 = getelementptr i8, ptr %13, i64 -16
-  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %28, i1 noundef zeroext true), !noalias !6892
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %28 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %28
+  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !6892
   br i1 %29, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %30
 
 30:                                               ; preds = %27
@@ -34928,8 +34940,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h138f1657b59cdcbfE.llv
 
 27:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6946)
-  %28 = getelementptr i8, ptr %13, i64 -16
-  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %28, i1 noundef zeroext true), !noalias !6949
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %28 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %28
+  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !6949
   br i1 %29, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %30
 
 30:                                               ; preds = %27
@@ -35267,8 +35281,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h1ba5be275e6cda62E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7003)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !7006
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7006
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -35616,8 +35632,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h1c29e323f79cec48E(ptr
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7062)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !7065
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7065
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -35971,8 +35989,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h1c2bc18f419cbab0E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7122)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !7125
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7125
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -36311,8 +36331,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h2049e133b6b86007E.llv
 
 23:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7181)
-  %24 = getelementptr i8, ptr %9, i64 -16
-  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %24, i1 noundef zeroext true), !noalias !7184
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %24 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %24
+  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7184
   br i1 %25, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %26
 
 26:                                               ; preds = %23
@@ -36461,8 +36483,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h209b9baa89d0828eE.llv
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7207)
-  %23 = getelementptr i8, ptr %9, i64 -16
-  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %23, i1 noundef zeroext true), !noalias !7210
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %23 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %23
+  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7210
   br i1 %24, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %25
 
 25:                                               ; preds = %22
@@ -36598,8 +36622,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h21d65a34024b1093E.llv
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7231)
-  %23 = getelementptr i8, ptr %9, i64 -16
-  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %23, i1 noundef zeroext true), !noalias !7234
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %23 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %23
+  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7234
   br i1 %24, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %25
 
 25:                                               ; preds = %22
@@ -36753,8 +36779,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h22c92750e0f780aaE.llv
 
 24:                                               ; preds = %23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7258)
-  %25 = getelementptr i8, ptr %11, i64 -16
-  %26 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %25, i1 noundef zeroext true), !noalias !7261
+  %.not.i.i.i = icmp eq ptr %11, inttoptr (i64 16 to ptr)
+  %25 = getelementptr inbounds i8, ptr %11, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %25
+  %26 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7261
   br i1 %26, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %27
 
 27:                                               ; preds = %24
@@ -37095,8 +37123,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h2348458ddf3d03f0E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7308)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !7311
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7311
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -37446,8 +37476,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h24361c08532b3e3fE.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7368)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !7371
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7371
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -37796,8 +37828,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h259df679954f7c92E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7427)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !7430
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7430
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -38141,8 +38175,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h25bb0e464ace6d6fE(ptr
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7486)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !7489
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7489
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -38492,8 +38528,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h36e15a3ce30a717eE.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7546)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !7549
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7549
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -38843,8 +38881,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h389c3c38966d879eE(ptr
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7605)
-  %23 = getelementptr i8, ptr %9, i64 -16
-  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %23, i1 noundef zeroext true), !noalias !7608
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %23 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %23
+  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7608
   br i1 %24, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %25
 
 25:                                               ; preds = %22
@@ -39002,8 +39042,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h3ca5ebc6b3673f45E.llv
 
 27:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7632)
-  %28 = getelementptr i8, ptr %13, i64 -16
-  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %28, i1 noundef zeroext true), !noalias !7635
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %28 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %28
+  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7635
   br i1 %29, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %30
 
 30:                                               ; preds = %27
@@ -39340,8 +39382,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h3f8b12c18d53e863E.llv
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7691)
-  %23 = getelementptr i8, ptr %9, i64 -16
-  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %23, i1 noundef zeroext true), !noalias !7694
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %23 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %23
+  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7694
   br i1 %24, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %25
 
 25:                                               ; preds = %22
@@ -39495,8 +39539,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h432d99a2df231f82E.llv
 
 23:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7718)
-  %24 = getelementptr i8, ptr %10, i64 -16
-  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %24, i1 noundef zeroext true), !noalias !7721
+  %.not.i.i.i = icmp eq ptr %10, inttoptr (i64 16 to ptr)
+  %24 = getelementptr inbounds i8, ptr %10, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %24
+  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7721
   br i1 %25, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %26
 
 26:                                               ; preds = %23
@@ -39666,8 +39712,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h446d2faf527b16f0E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7757)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !7760
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7760
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -40007,8 +40055,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h4b511bc3aa767d22E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7820)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !7823
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7823
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -40347,8 +40397,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h501d52317362b760E(ptr
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7879)
-  %23 = getelementptr i8, ptr %9, i64 -16
-  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %23, i1 noundef zeroext true), !noalias !7882
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %23 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %23
+  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7882
   br i1 %24, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %25
 
 25:                                               ; preds = %22
@@ -40494,8 +40546,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h50579182a75e3fc1E.llv
 
 27:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7903)
-  %28 = getelementptr i8, ptr %13, i64 -16
-  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %28, i1 noundef zeroext true), !noalias !7906
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %28 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %28
+  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7906
   br i1 %29, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %30
 
 30:                                               ; preds = %27
@@ -40833,8 +40887,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h52a4ebd5bebbda02E.llv
 
 27:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7961)
-  %28 = getelementptr i8, ptr %13, i64 -16
-  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %28, i1 noundef zeroext true), !noalias !7964
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %28 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %28
+  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !7964
   br i1 %29, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %30
 
 30:                                               ; preds = %27
@@ -41177,8 +41233,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h582038945cf760bfE.llv
 
 27:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8020)
-  %28 = getelementptr i8, ptr %13, i64 -16
-  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %28, i1 noundef zeroext true), !noalias !8023
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %28 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %28
+  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8023
   br i1 %29, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %30
 
 30:                                               ; preds = %27
@@ -41514,8 +41572,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h592c8d124b7ddbacE.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8078)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !8081
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8081
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -41860,8 +41920,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h5c20ed1d32b115bfE.llv
 
 27:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8137)
-  %28 = getelementptr i8, ptr %13, i64 -16
-  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %28, i1 noundef zeroext true), !noalias !8140
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %28 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %28
+  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8140
   br i1 %29, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %30
 
 30:                                               ; preds = %27
@@ -42202,8 +42264,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h5c7bba6abc80edb0E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8194)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !8197
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8197
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -42554,8 +42618,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h5cc18fd56cd35ed2E.llv
 
 27:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8253)
-  %28 = getelementptr i8, ptr %13, i64 -16
-  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %28, i1 noundef zeroext true), !noalias !8256
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %28 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %28
+  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8256
   br i1 %29, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %30
 
 30:                                               ; preds = %27
@@ -42893,8 +42959,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h5d331b91be117496E(ptr
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8310)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !8313
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8313
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -43234,8 +43302,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h668cf43326887a27E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8367)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !8370
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8370
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -43593,8 +43663,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h66c945f5befa3155E(ptr
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8426)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !8429
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8429
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -43952,8 +44024,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h6bb5355877020541E(ptr
 
 27:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8486)
-  %28 = getelementptr i8, ptr %13, i64 -16
-  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %28, i1 noundef zeroext true), !noalias !8489
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %28 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %28
+  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8489
   br i1 %29, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %30
 
 30:                                               ; preds = %27
@@ -44288,8 +44362,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h6f40967d364bda4dE.llv
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8543)
-  %23 = getelementptr i8, ptr %9, i64 -16
-  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %23, i1 noundef zeroext true), !noalias !8546
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %23 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %23
+  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8546
   br i1 %24, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %25
 
 25:                                               ; preds = %22
@@ -44448,8 +44524,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h76eef79a37be2e61E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8570)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !8573
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8573
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -44789,8 +44867,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h7891cc0459848f0fE.llv
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8629)
-  %23 = getelementptr i8, ptr %9, i64 -16
-  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %23, i1 noundef zeroext true), !noalias !8632
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %23 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %23
+  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8632
   br i1 %24, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %25
 
 25:                                               ; preds = %22
@@ -44947,8 +45027,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h7af278724cdf4648E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8656)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !8659
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8659
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -45299,8 +45381,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h7afe6073cf3c85d4E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8715)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !8718
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8718
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -45642,8 +45726,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h7dd55565c7cbfb26E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8774)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !8777
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8777
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -45997,8 +46083,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h7f32299fec31e1cbE.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8833)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !8836
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8836
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -46334,8 +46422,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h843d1c426aaad580E.llv
 
 27:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8890)
-  %28 = getelementptr i8, ptr %13, i64 -16
-  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %28, i1 noundef zeroext true), !noalias !8893
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %28 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %28
+  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8893
   br i1 %29, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %30
 
 30:                                               ; preds = %27
@@ -46675,8 +46765,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h84887f835ad5fd16E.llv
 
 23:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8947)
-  %24 = getelementptr i8, ptr %9, i64 -16
-  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %24, i1 noundef zeroext true), !noalias !8950
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %24 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %24
+  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8950
   br i1 %25, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %26
 
 26:                                               ; preds = %23
@@ -46829,8 +46921,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h8fe4a85ddc3e9d62E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8973)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !8976
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !8976
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -47169,8 +47263,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h93120bf71e2ac528E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9028)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !9031
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9031
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -47516,8 +47612,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h971c266ec8d142c3E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9087)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !9090
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9090
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -47852,8 +47950,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h98136292a02047ffE.llv
 
 23:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9149)
-  %24 = getelementptr i8, ptr %10, i64 -16
-  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %24, i1 noundef zeroext true), !noalias !9152
+  %.not.i.i.i = icmp eq ptr %10, inttoptr (i64 16 to ptr)
+  %24 = getelementptr inbounds i8, ptr %10, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %24
+  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9152
   br i1 %25, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %26
 
 26:                                               ; preds = %23
@@ -48025,8 +48125,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h98a02c62bc0f2a46E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9187)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !9190
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9190
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -48360,8 +48462,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h9f3c4c75b868d4e8E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9244)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !9247
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9247
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -48701,8 +48805,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17ha0a38282b563243bE.llv
 
 23:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9303)
-  %24 = getelementptr i8, ptr %10, i64 -16
-  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %24, i1 noundef zeroext true), !noalias !9306
+  %.not.i.i.i = icmp eq ptr %10, inttoptr (i64 16 to ptr)
+  %24 = getelementptr inbounds i8, ptr %10, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %24
+  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9306
   br i1 %25, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %26
 
 26:                                               ; preds = %23
@@ -48872,8 +48978,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17ha81583b7b4b22881E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9342)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !9345
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9345
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -49213,8 +49321,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hab1747f7755bbd7aE.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9405)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !9408
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9408
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -49548,8 +49658,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17had31ac62e20b7ad5E.llv
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9462)
-  %23 = getelementptr i8, ptr %9, i64 -16
-  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %23, i1 noundef zeroext true), !noalias !9465
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %23 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %23
+  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9465
   br i1 %24, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %25
 
 25:                                               ; preds = %22
@@ -49701,8 +49813,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17haf9f8c328f5f41c6E.llv
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9489)
-  %23 = getelementptr i8, ptr %9, i64 -16
-  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %23, i1 noundef zeroext true), !noalias !9492
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %23 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %23
+  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9492
   br i1 %24, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %25
 
 25:                                               ; preds = %22
@@ -49844,8 +49958,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hb028d32f76251891E.llv
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9515)
-  %23 = getelementptr i8, ptr %9, i64 -16
-  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %23, i1 noundef zeroext true), !noalias !9518
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %23 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %23
+  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9518
   br i1 %24, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %25
 
 25:                                               ; preds = %22
@@ -49999,8 +50115,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hb1109b479270f524E.llv
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9541)
-  %23 = getelementptr i8, ptr %9, i64 -16
-  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %23, i1 noundef zeroext true), !noalias !9544
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %23 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %23
+  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9544
   br i1 %24, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %25
 
 25:                                               ; preds = %22
@@ -50158,8 +50276,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hb32a3792f2bb889bE(ptr
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9568)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !9571
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9571
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -50497,8 +50617,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hb67c0807883d31adE.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9625)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !9628
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9628
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -50828,8 +50950,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hb8fa16d5acd6f7feE.llv
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9682)
-  %23 = getelementptr i8, ptr %9, i64 -16
-  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %23, i1 noundef zeroext true), !noalias !9685
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %23 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %23
+  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9685
   br i1 %24, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %25
 
 25:                                               ; preds = %22
@@ -50973,8 +51097,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hbb3dfff364c3f706E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9706)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !9709
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9709
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -51317,8 +51443,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hc4f71d312683bf91E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9765)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !9768
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9768
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -51654,8 +51782,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hc7b852b488884aa8E.llv
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9828)
-  %23 = getelementptr i8, ptr %9, i64 -16
-  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %23, i1 noundef zeroext true), !noalias !9831
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %23 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %23
+  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9831
   br i1 %24, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %25
 
 25:                                               ; preds = %22
@@ -51799,8 +51929,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hce07e62f5348cda0E.llv
 
 27:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9854)
-  %28 = getelementptr i8, ptr %13, i64 -16
-  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %28, i1 noundef zeroext true), !noalias !9857
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %28 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %28
+  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9857
   br i1 %29, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %30
 
 30:                                               ; preds = %27
@@ -52136,8 +52268,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hd30060c1812a9a2fE.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9911)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !9914
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9914
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -52480,8 +52614,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hd609d691f0e76fc8E.llv
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9970)
-  %23 = getelementptr i8, ptr %9, i64 -16
-  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %23, i1 noundef zeroext true), !noalias !9973
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %23 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %23
+  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9973
   br i1 %24, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %25
 
 25:                                               ; preds = %22
@@ -52625,8 +52761,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hd8656b9cdedc0273E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9994)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !9997
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !9997
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -52965,8 +53103,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hdfb42801f589cd2cE.llv
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10053)
-  %23 = getelementptr i8, ptr %9, i64 -16
-  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %23, i1 noundef zeroext true), !noalias !10056
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %23 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %23
+  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !10056
   br i1 %24, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %25
 
 25:                                               ; preds = %22
@@ -53113,8 +53253,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17he3346d74615bfe65E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10079)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !10082
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !10082
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -53461,8 +53603,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17he4ccc5a73c018ad6E.llv
 
 23:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10138)
-  %24 = getelementptr i8, ptr %9, i64 -16
-  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %24, i1 noundef zeroext true), !noalias !10141
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %24 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %24
+  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !10141
   br i1 %25, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %26
 
 26:                                               ; preds = %23
@@ -53615,8 +53759,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hf36dbc44d3e630e4E.llv
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10164)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !10167
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !10167
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -53964,8 +54110,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hf61c499fedbcf310E(ptr
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10223)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !10226
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !10226
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -54321,8 +54469,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hfb18ecea20e575e8E(ptr
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10284)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !10287
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !10287
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -54661,8 +54811,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hfbd3be22c0570e34E(ptr
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10341)
-  %27 = getelementptr i8, ptr %13, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !10344
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !10344
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -55009,8 +55161,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hfcfeecede2dcdfecE.llv
 
 23:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10400)
-  %24 = getelementptr i8, ptr %9, i64 -16
-  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %24, i1 noundef zeroext true), !noalias !10403
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %24 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %24
+  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !10403
   br i1 %25, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %26
 
 26:                                               ; preds = %23
@@ -55171,8 +55325,10 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hff9d13eb46624086E.llv
 
 27:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10427)
-  %28 = getelementptr i8, ptr %13, i64 -16
-  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %28, i1 noundef zeroext true), !noalias !10430
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %28 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %28
+  %29 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !10430
   br i1 %29, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %30
 
 30:                                               ; preds = %27
@@ -55484,12 +55640,12 @@ define void @_ZN5typst11foundations4args4Args7consume17h9f0551af7f5c6072E(ptr no
   %16 = load i64, ptr %15, align 8, !noundef !7
   %17 = icmp ne i64 %16, 0
   %18 = icmp ne i64 %2, 0
-  %or.cond50 = and i1 %17, %18
-  br i1 %or.cond50, label %.lr.ph, label %._crit_edge
+  %or.cond51 = and i1 %17, %18
+  br i1 %or.cond51, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %80, %3
-  %.lcssa28 = phi i1 [ %18, %3 ], [ %84, %80 ]
-  br i1 %.lcssa28, label %20, label %19
+  %.lcssa29 = phi i1 [ %18, %3 ], [ %84, %80 ]
+  br i1 %.lcssa29, label %20, label %19
 
 19:                                               ; preds = %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
@@ -55654,75 +55810,77 @@ common.resume:                                    ; preds = %"_ZN4core3ptr44drop
 .lr.ph:                                           ; preds = %3, %80
   %62 = phi i64 [ %81, %80 ], [ 0, %3 ]
   %63 = phi i64 [ %82, %80 ], [ %16, %3 ]
-  %.051 = phi i64 [ %.1, %80 ], [ 0, %3 ]
+  %.052 = phi i64 [ %.1, %80 ], [ 0, %3 ]
   %64 = load ptr, ptr %14, align 8, !nonnull !7, !noundef !7
-  %65 = getelementptr inbounds { { i64, [2 x i64] }, { { i8, [31 x i8] }, i64 }, i64 }, ptr %64, i64 %.051
+  %65 = getelementptr inbounds { { i64, [2 x i64] }, { { i8, [31 x i8] }, i64 }, i64 }, ptr %64, i64 %.052
   %66 = load i64, ptr %65, align 8, !range !1086, !noundef !7
   %.not = icmp eq i64 %66, 0
   br i1 %.not, label %69, label %67
 
 67:                                               ; preds = %.lr.ph
-  %68 = add nuw i64 %.051, 1
+  %68 = add nuw i64 %.052, 1
   br label %80
 
 69:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %.not.i = icmp ult i64 %.051, %63
+  %.not.i = icmp ult i64 %.052, %63
   br i1 %.not.i, label %70, label %79
 
 70:                                               ; preds = %69
-  %71 = getelementptr i8, ptr %64, i64 -16
-  %72 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %71, i1 noundef zeroext true)
-          to label %.noexc19 unwind label %.loopexit
-
-.noexc19:                                         ; preds = %70
-  br i1 %72, label %85, label %73
-
-73:                                               ; preds = %.noexc19
-  %74 = invoke { ptr, i64 } @"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17hecfdff1a894a5259E.llvm.4930786928582598558"(ptr noalias noundef nonnull readonly align 8 %64, i64 noundef %63)
+  %.not.i.i.i19 = icmp eq ptr %64, inttoptr (i64 16 to ptr)
+  %71 = getelementptr inbounds i8, ptr %64, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i19, ptr null, ptr %71
+  %72 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc20 unwind label %.loopexit
 
-.noexc20:                                         ; preds = %73
+.noexc20:                                         ; preds = %70
+  br i1 %72, label %85, label %73
+
+73:                                               ; preds = %.noexc20
+  %74 = invoke { ptr, i64 } @"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17hecfdff1a894a5259E.llvm.4930786928582598558"(ptr noalias noundef nonnull readonly align 8 %64, i64 noundef %63)
+          to label %.noexc21 unwind label %.loopexit
+
+.noexc21:                                         ; preds = %73
   %75 = extractvalue { ptr, i64 } %74, 0
   %76 = extractvalue { ptr, i64 } %74, 1
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h38dcb05e7e53488bE.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
           to label %"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i" unwind label %77, !noalias !10502
 
-77:                                               ; preds = %.noexc20
+77:                                               ; preds = %.noexc21
   %78 = landingpad { ptr, i32 }
           cleanup
   store ptr %75, ptr %14, align 8, !alias.scope !10505, !noalias !10502
   store i64 %76, ptr %15, align 8, !alias.scope !10505, !noalias !10502
   br label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit"
 
-"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i": ; preds = %.noexc20
+"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i": ; preds = %.noexc21
   store ptr %75, ptr %14, align 8, !alias.scope !10505, !noalias !10502
   store i64 %76, ptr %15, align 8, !alias.scope !10505, !noalias !10502
   br label %85
 
 79:                                               ; preds = %69
-  invoke void @_ZN4ecow3vec13out_of_bounds17hb6ef9e8b4463fd82E(i64 noundef %.051, i64 noundef %63) #61
-          to label %.noexc23 unwind label %.loopexit.split-lp
+  invoke void @_ZN4ecow3vec13out_of_bounds17hb6ef9e8b4463fd82E(i64 noundef %.052, i64 noundef %63) #61
+          to label %.noexc24 unwind label %.loopexit.split-lp
 
-.noexc23:                                         ; preds = %79
+.noexc24:                                         ; preds = %79
   unreachable
 
 80:                                               ; preds = %102, %67
   %81 = phi i64 [ %106, %102 ], [ %62, %67 ]
   %82 = phi i64 [ %.pre, %102 ], [ %63, %67 ]
-  %.1 = phi i64 [ %.051, %102 ], [ %68, %67 ]
+  %.1 = phi i64 [ %.052, %102 ], [ %68, %67 ]
   %83 = icmp ult i64 %.1, %82
   %84 = icmp ult i64 %81, %2
   %or.cond = select i1 %83, i1 %84, i1 false
   br i1 %or.cond, label %.lr.ph, label %._crit_edge
 
-85:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i", %.noexc19
-  %86 = phi i64 [ %63, %.noexc19 ], [ %76, %"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i" ]
-  %87 = phi ptr [ %64, %.noexc19 ], [ %75, %"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i" ]
-  %88 = getelementptr inbounds { { i64, [2 x i64] }, { { i8, [31 x i8] }, i64 }, i64 }, ptr %87, i64 %.051
+85:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i", %.noexc20
+  %86 = phi i64 [ %63, %.noexc20 ], [ %76, %"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i" ]
+  %87 = phi ptr [ %64, %.noexc20 ], [ %75, %"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i" ]
+  %88 = getelementptr inbounds { { i64, [2 x i64] }, { { i8, [31 x i8] }, i64 }, i64 }, ptr %87, i64 %.052
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %88, i64 72, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 72
-  %90 = xor i64 %.051, -1
+  %90 = xor i64 %.052, -1
   %91 = add i64 %86, %90
   %92 = mul i64 %91, 72
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %88, ptr nonnull align 8 %89, i64 %92, i1 false), !noalias !10502
@@ -56198,8 +56356,10 @@ define hidden void @_ZN5typst11foundations4args4Args6expect17h111f0c1dd1cf2aa8E(
 
 28:                                               ; preds = %27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10540)
-  %29 = getelementptr i8, ptr %17, i64 -16
-  %30 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %29, i1 noundef zeroext true), !noalias !10543
+  %.not.i.i.i.i = icmp eq ptr %17, inttoptr (i64 16 to ptr)
+  %29 = getelementptr inbounds i8, ptr %17, i64 -16
+  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %29
+  %30 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i.i, i1 noundef zeroext true), !noalias !10543
   br i1 %30, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit.i", label %31
 
 31:                                               ; preds = %28
@@ -56706,8 +56866,10 @@ define hidden void @_ZN5typst11foundations4args4Args6expect17h1c83ac39692a736eE(
 
 28:                                               ; preds = %27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10612)
-  %29 = getelementptr i8, ptr %17, i64 -16
-  %30 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %29, i1 noundef zeroext true), !noalias !10615
+  %.not.i.i.i.i = icmp eq ptr %17, inttoptr (i64 16 to ptr)
+  %29 = getelementptr inbounds i8, ptr %17, i64 -16
+  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %29
+  %30 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i.i, i1 noundef zeroext true), !noalias !10615
   br i1 %30, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit.i", label %31
 
 31:                                               ; preds = %28
@@ -57604,8 +57766,10 @@ define hidden void @_ZN5typst11foundations4args4Args6expect17h312ce5a0d993d677E(
 
 28:                                               ; preds = %27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10699)
-  %29 = getelementptr i8, ptr %17, i64 -16
-  %30 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %29, i1 noundef zeroext true), !noalias !10702
+  %.not.i.i.i.i = icmp eq ptr %17, inttoptr (i64 16 to ptr)
+  %29 = getelementptr inbounds i8, ptr %17, i64 -16
+  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %29
+  %30 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i.i, i1 noundef zeroext true), !noalias !10702
   br i1 %30, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit.i", label %31
 
 31:                                               ; preds = %28
@@ -58440,8 +58604,10 @@ define hidden void @_ZN5typst11foundations4args4Args6expect17h4c49325e1a5187f3E(
 
 28:                                               ; preds = %27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10783)
-  %29 = getelementptr i8, ptr %17, i64 -16
-  %30 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %29, i1 noundef zeroext true), !noalias !10786
+  %.not.i.i.i.i = icmp eq ptr %17, inttoptr (i64 16 to ptr)
+  %29 = getelementptr inbounds i8, ptr %17, i64 -16
+  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %29
+  %30 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i.i, i1 noundef zeroext true), !noalias !10786
   br i1 %30, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit.i", label %31
 
 31:                                               ; preds = %28
@@ -60090,8 +60256,10 @@ define internal fastcc void @_ZN5typst11foundations4args4Args6expect17h8e43cfa17
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10901)
-  %23 = getelementptr i8, ptr %11, i64 -16
-  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %23, i1 noundef zeroext true), !noalias !10904
+  %.not.i.i.i.i = icmp eq ptr %11, inttoptr (i64 16 to ptr)
+  %23 = getelementptr inbounds i8, ptr %11, i64 -16
+  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %23
+  %24 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i.i, i1 noundef zeroext true), !noalias !10904
   br i1 %24, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit.i", label %25
 
 25:                                               ; preds = %22
@@ -61759,8 +61927,10 @@ define hidden void @_ZN5typst11foundations4args4Args6expect17hca38bbb8c04a9f49E(
 
 28:                                               ; preds = %27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10999)
-  %29 = getelementptr i8, ptr %17, i64 -16
-  %30 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %29, i1 noundef zeroext true), !noalias !11002
+  %.not.i.i.i.i = icmp eq ptr %17, inttoptr (i64 16 to ptr)
+  %29 = getelementptr inbounds i8, ptr %17, i64 -16
+  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %29
+  %30 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i.i, i1 noundef zeroext true), !noalias !11002
   br i1 %30, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit.i", label %31
 
 31:                                               ; preds = %28
@@ -62275,8 +62445,10 @@ define internal fastcc void @_ZN5typst11foundations4args4Args6expect17hdf553f7cf
 
 25:                                               ; preds = %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11077)
-  %26 = getelementptr i8, ptr %14, i64 -16
-  %27 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %26, i1 noundef zeroext true), !noalias !11080
+  %.not.i.i.i.i = icmp eq ptr %14, inttoptr (i64 16 to ptr)
+  %26 = getelementptr inbounds i8, ptr %14, i64 -16
+  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %26
+  %27 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i.i, i1 noundef zeroext true), !noalias !11080
   br i1 %27, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit.i", label %28
 
 28:                                               ; preds = %25
@@ -63670,8 +63842,10 @@ define hidden void @_ZN5typst11foundations4args4Args4find17h23938bc7d8798db9E.ll
 
 25:                                               ; preds = %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11227)
-  %26 = getelementptr i8, ptr %9, i64 -16
-  %27 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %26, i1 noundef zeroext true), !noalias !11230
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %26 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %26
+  %27 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !11230
   br i1 %27, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %28
 
 28:                                               ; preds = %25
@@ -63859,8 +64033,10 @@ define hidden void @_ZN5typst11foundations4args4Args4find17h2b76daf0eea70320E(pt
 
 44:                                               ; preds = %43
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11260)
-  %45 = getelementptr i8, ptr %9, i64 -16
-  %46 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %45, i1 noundef zeroext true), !noalias !11263
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %45 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %45
+  %46 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !11263
   br i1 %46, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %47
 
 47:                                               ; preds = %44
@@ -64019,8 +64195,10 @@ define hidden void @_ZN5typst11foundations4args4Args4find17h6ba16e7bb1c68195E(pt
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11289)
-  %27 = getelementptr i8, ptr %9, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !11292
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !11292
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -64183,8 +64361,10 @@ define hidden void @_ZN5typst11foundations4args4Args4find17h788cdd3a33e1c1b3E(pt
 
 25:                                               ; preds = %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11319)
-  %26 = getelementptr i8, ptr %9, i64 -16
-  %27 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %26, i1 noundef zeroext true), !noalias !11322
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %26 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %26
+  %27 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !11322
   br i1 %27, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %28
 
 28:                                               ; preds = %25
@@ -64336,8 +64516,10 @@ define hidden void @_ZN5typst11foundations4args4Args4find17h7db73a2e7a7d37d1E.ll
 
 25:                                               ; preds = %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11352)
-  %26 = getelementptr i8, ptr %10, i64 -16
-  %27 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %26, i1 noundef zeroext true), !noalias !11355
+  %.not.i.i.i = icmp eq ptr %10, inttoptr (i64 16 to ptr)
+  %26 = getelementptr inbounds i8, ptr %10, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %26
+  %27 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !11355
   br i1 %27, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %28
 
 28:                                               ; preds = %25
@@ -64520,8 +64702,10 @@ define hidden void @_ZN5typst11foundations4args4Args4find17h842d27f1f30feef5E(pt
 
 25:                                               ; preds = %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11394)
-  %26 = getelementptr i8, ptr %9, i64 -16
-  %27 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %26, i1 noundef zeroext true), !noalias !11397
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %26 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %26
+  %27 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !11397
   br i1 %27, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %28
 
 28:                                               ; preds = %25
@@ -64675,8 +64859,10 @@ define hidden void @_ZN5typst11foundations4args4Args4find17h8afa947aca2d36d9E(pt
 
 23:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11425)
-  %24 = getelementptr i8, ptr %9, i64 -16
-  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %24, i1 noundef zeroext true), !noalias !11428
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %24 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %24
+  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !11428
   br i1 %25, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %26
 
 26:                                               ; preds = %23
@@ -64836,8 +65022,10 @@ define hidden void @_ZN5typst11foundations4args4Args4find17h96d67b8bb82d6389E.ll
 
 24:                                               ; preds = %23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11452)
-  %25 = getelementptr i8, ptr %9, i64 -16
-  %26 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %25, i1 noundef zeroext true), !noalias !11455
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %25 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %25
+  %26 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !11455
   br i1 %26, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %27
 
 27:                                               ; preds = %24
@@ -65007,8 +65195,10 @@ define hidden void @_ZN5typst11foundations4args4Args4find17hc823f65842148a0aE(pt
 
 29:                                               ; preds = %28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11484)
-  %30 = getelementptr i8, ptr %13, i64 -16
-  %31 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %30, i1 noundef zeroext true), !noalias !11487
+  %.not.i.i.i = icmp eq ptr %13, inttoptr (i64 16 to ptr)
+  %30 = getelementptr inbounds i8, ptr %13, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %30
+  %31 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !11487
   br i1 %31, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %32
 
 32:                                               ; preds = %29
@@ -65382,8 +65572,10 @@ define hidden void @_ZN5typst11foundations4args4Args4find17hcf60ecf6ae4a388aE(pt
 
 45:                                               ; preds = %"_ZN94_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hd3d611f4c52ad824E.exit.thread"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11554)
-  %46 = getelementptr i8, ptr %9, i64 -16
-  %47 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %46, i1 noundef zeroext true), !noalias !11557
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %46 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %46
+  %47 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !11557
   br i1 %47, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %48
 
 48:                                               ; preds = %45
@@ -65543,8 +65735,10 @@ define hidden void @_ZN5typst11foundations4args4Args4find17he6765115ba9210c2E(pt
 
 26:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11585)
-  %27 = getelementptr i8, ptr %10, i64 -16
-  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %27, i1 noundef zeroext true), !noalias !11588
+  %.not.i.i.i = icmp eq ptr %10, inttoptr (i64 16 to ptr)
+  %27 = getelementptr inbounds i8, ptr %10, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %27
+  %28 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !11588
   br i1 %28, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %29
 
 29:                                               ; preds = %26
@@ -65721,8 +65915,10 @@ define hidden void @_ZN5typst11foundations4args4Args4find17hf172a5747a0e0170E(pt
 
 23:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11627)
-  %24 = getelementptr i8, ptr %9, i64 -16
-  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %24, i1 noundef zeroext true), !noalias !11630
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %24 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %24
+  %25 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !11630
   br i1 %25, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %26
 
 26:                                               ; preds = %23
@@ -65883,8 +66079,10 @@ define hidden void @_ZN5typst11foundations4args4Args4find17hf5c81a3cef7b7dcfE(pt
 
 25:                                               ; preds = %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11659)
-  %26 = getelementptr i8, ptr %9, i64 -16
-  %27 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %26, i1 noundef zeroext true), !noalias !11662
+  %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 16 to ptr)
+  %26 = getelementptr inbounds i8, ptr %9, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %26
+  %27 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !11662
   br i1 %27, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %28
 
 28:                                               ; preds = %25
@@ -67743,8 +67941,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !11778)
   call void @llvm.experimental.noalias.scope.decl(metadata !11781)
   %38 = load ptr, ptr %14, align 8, !alias.scope !11784, !noalias !11776, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !11787
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !11787
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -68109,8 +68309,10 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !11841)
   call void @llvm.experimental.noalias.scope.decl(metadata !11844)
   %39 = load ptr, ptr %14, align 8, !alias.scope !11847, !noalias !11839, !nonnull !7, !noundef !7
-  %40 = getelementptr i8, ptr %39, i64 -16
-  %41 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %40, i1 noundef zeroext true), !noalias !11850
+  %.not.i.i.i = icmp eq ptr %39, inttoptr (i64 16 to ptr)
+  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %40
+  %41 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !11850
   br i1 %41, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %42
 
 42:                                               ; preds = %38
@@ -68472,8 +68674,10 @@ common.resume:                                    ; preds = %67, %41
   call void @llvm.experimental.noalias.scope.decl(metadata !11905)
   call void @llvm.experimental.noalias.scope.decl(metadata !11908)
   %34 = load ptr, ptr %10, align 8, !alias.scope !11911, !noalias !11903, !nonnull !7, !noundef !7
-  %35 = getelementptr i8, ptr %34, i64 -16
-  %36 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %35, i1 noundef zeroext true), !noalias !11914
+  %.not.i.i.i = icmp eq ptr %34, inttoptr (i64 16 to ptr)
+  %35 = getelementptr inbounds i8, ptr %34, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %35
+  %36 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !11914
   br i1 %36, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %37
 
 37:                                               ; preds = %33
@@ -68678,8 +68882,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h0153d601670c7293E(p
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr %15, align 8, !alias.scope !11940, !noalias !11938, !nonnull !7, !noundef !7
-  %42 = getelementptr i8, ptr %41, i64 -16
-  %43 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %42, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %41, inttoptr (i64 16 to ptr)
+  %42 = getelementptr inbounds i8, ptr %41, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %42
+  %43 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc56 unwind label %.loopexit
 
 .noexc56:                                         ; preds = %40
@@ -69100,8 +69306,10 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !12005)
   call void @llvm.experimental.noalias.scope.decl(metadata !12008)
   %39 = load ptr, ptr %14, align 8, !alias.scope !12011, !noalias !12003, !nonnull !7, !noundef !7
-  %40 = getelementptr i8, ptr %39, i64 -16
-  %41 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %40, i1 noundef zeroext true), !noalias !12014
+  %.not.i.i.i = icmp eq ptr %39, inttoptr (i64 16 to ptr)
+  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %40
+  %41 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !12014
   br i1 %41, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %42
 
 42:                                               ; preds = %38
@@ -69473,8 +69681,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h08391af77fbee024E(p
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %11, align 8, !alias.scope !12068, !noalias !12066, !nonnull !7, !noundef !7
-  %38 = getelementptr i8, ptr %37, i64 -16
-  %39 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %38, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %37, inttoptr (i64 16 to ptr)
+  %38 = getelementptr inbounds i8, ptr %37, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %38
+  %39 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc50 unwind label %.loopexit
 
 .noexc50:                                         ; preds = %36
@@ -69793,8 +70003,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h08b23c27e4d5ac7fE(p
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %15, align 8, !alias.scope !12141, !noalias !12139, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc52 unwind label %.loopexit
 
 .noexc52:                                         ; preds = %39
@@ -70247,8 +70459,10 @@ common.resume:                                    ; preds = %85, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !12228)
   call void @llvm.experimental.noalias.scope.decl(metadata !12231)
   %36 = load ptr, ptr %14, align 8, !alias.scope !12234, !noalias !12226, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true), !noalias !12237
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !12237
   br i1 %38, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %39
 
 39:                                               ; preds = %35
@@ -70636,8 +70850,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h09e24437745a8689E(p
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %15, align 8, !alias.scope !12295, !noalias !12293, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc51 unwind label %.loopexit
 
 .noexc51:                                         ; preds = %39
@@ -71051,8 +71267,10 @@ common.resume:                                    ; preds = %84, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !12360)
   call void @llvm.experimental.noalias.scope.decl(metadata !12363)
   %39 = load ptr, ptr %14, align 8, !alias.scope !12366, !noalias !12358, !nonnull !7, !noundef !7
-  %40 = getelementptr i8, ptr %39, i64 -16
-  %41 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %40, i1 noundef zeroext true), !noalias !12369
+  %.not.i.i.i = icmp eq ptr %39, inttoptr (i64 16 to ptr)
+  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %40
+  %41 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !12369
   br i1 %41, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %42
 
 42:                                               ; preds = %38
@@ -71417,8 +71635,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !12428)
   call void @llvm.experimental.noalias.scope.decl(metadata !12431)
   %38 = load ptr, ptr %14, align 8, !alias.scope !12434, !noalias !12426, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !12437
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !12437
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -71809,8 +72029,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h100b462a86acb22eE(p
 
 46:                                               ; preds = %44
   %47 = load ptr, ptr %15, align 8, !alias.scope !12499, !noalias !12497, !nonnull !7, !noundef !7
-  %48 = getelementptr i8, ptr %47, i64 -16
-  %49 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %48, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %47, inttoptr (i64 16 to ptr)
+  %48 = getelementptr inbounds i8, ptr %47, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %48
+  %49 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc58 unwind label %.loopexit
 
 .noexc58:                                         ; preds = %46
@@ -72242,8 +72464,10 @@ common.resume:                                    ; preds = %85, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !12578)
   call void @llvm.experimental.noalias.scope.decl(metadata !12581)
   %36 = load ptr, ptr %14, align 8, !alias.scope !12584, !noalias !12576, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true), !noalias !12587
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !12587
   br i1 %38, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %39
 
 39:                                               ; preds = %35
@@ -72610,8 +72834,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !12642)
   call void @llvm.experimental.noalias.scope.decl(metadata !12645)
   %38 = load ptr, ptr %14, align 8, !alias.scope !12648, !noalias !12640, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !12651
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !12651
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -72972,8 +73198,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !12706)
   call void @llvm.experimental.noalias.scope.decl(metadata !12709)
   %38 = load ptr, ptr %14, align 8, !alias.scope !12712, !noalias !12704, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !12715
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !12715
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -73360,8 +73588,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h1c9271c0aa392826E(p
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %15, align 8, !alias.scope !12772, !noalias !12770, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc58 unwind label %.loopexit
 
 .noexc58:                                         ; preds = %39
@@ -73792,8 +74022,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h1da4236bbde0e975E(p
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr %11, align 8, !alias.scope !12840, !noalias !12838, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc56 unwind label %.loopexit
 
 .noexc56:                                         ; preds = %35
@@ -74029,8 +74261,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !12873)
   call void @llvm.experimental.noalias.scope.decl(metadata !12876)
   %38 = load ptr, ptr %14, align 8, !alias.scope !12879, !noalias !12871, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !12882
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !12882
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -74408,8 +74642,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h21937c2b58e148ebE(p
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %15, align 8, !alias.scope !12936, !noalias !12934, !nonnull !7, !noundef !7
-  %40 = getelementptr i8, ptr %39, i64 -16
-  %41 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %40, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %39, inttoptr (i64 16 to ptr)
+  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %40
+  %41 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc55 unwind label %.loopexit
 
 .noexc55:                                         ; preds = %38
@@ -74835,8 +75071,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h228ede45d14804e6E(p
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %17, align 8, !alias.scope !12995, !noalias !12993, !nonnull !7, !noundef !7
-  %43 = getelementptr i8, ptr %42, i64 -16
-  %44 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %43, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %42, inttoptr (i64 16 to ptr)
+  %43 = getelementptr inbounds i8, ptr %42, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %43
+  %44 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc55 unwind label %.loopexit
 
 .noexc55:                                         ; preds = %41
@@ -75315,8 +75553,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h22b5f71570614c9fE(p
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %15, align 8, !alias.scope !13089, !noalias !13087, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc56 unwind label %.loopexit
 
 .noexc56:                                         ; preds = %39
@@ -75732,8 +75972,10 @@ common.resume:                                    ; preds = %69, %42
   call void @llvm.experimental.noalias.scope.decl(metadata !13154)
   call void @llvm.experimental.noalias.scope.decl(metadata !13157)
   %35 = load ptr, ptr %10, align 8, !alias.scope !13160, !noalias !13152, !nonnull !7, !noundef !7
-  %36 = getelementptr i8, ptr %35, i64 -16
-  %37 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %36, i1 noundef zeroext true), !noalias !13163
+  %.not.i.i.i = icmp eq ptr %35, inttoptr (i64 16 to ptr)
+  %36 = getelementptr inbounds i8, ptr %35, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %36
+  %37 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !13163
   br i1 %37, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %38
 
 38:                                               ; preds = %34
@@ -75909,8 +76151,10 @@ common.resume:                                    ; preds = %67, %41
   call void @llvm.experimental.noalias.scope.decl(metadata !13186)
   call void @llvm.experimental.noalias.scope.decl(metadata !13189)
   %34 = load ptr, ptr %10, align 8, !alias.scope !13192, !noalias !13184, !nonnull !7, !noundef !7
-  %35 = getelementptr i8, ptr %34, i64 -16
-  %36 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %35, i1 noundef zeroext true), !noalias !13195
+  %.not.i.i.i = icmp eq ptr %34, inttoptr (i64 16 to ptr)
+  %35 = getelementptr inbounds i8, ptr %34, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %35
+  %36 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !13195
   br i1 %36, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %37
 
 37:                                               ; preds = %33
@@ -76095,8 +76339,10 @@ common.resume:                                    ; preds = %67, %40
   call void @llvm.experimental.noalias.scope.decl(metadata !13218)
   call void @llvm.experimental.noalias.scope.decl(metadata !13221)
   %33 = load ptr, ptr %10, align 8, !alias.scope !13224, !noalias !13216, !nonnull !7, !noundef !7
-  %34 = getelementptr i8, ptr %33, i64 -16
-  %35 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %34, i1 noundef zeroext true), !noalias !13227
+  %.not.i.i.i = icmp eq ptr %33, inttoptr (i64 16 to ptr)
+  %34 = getelementptr inbounds i8, ptr %33, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %34
+  %35 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !13227
   br i1 %35, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %36
 
 36:                                               ; preds = %32
@@ -76300,8 +76546,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h287683369d89ae1dE(p
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %15, align 8, !alias.scope !13250, !noalias !13248, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc55 unwind label %.loopexit
 
 .noexc55:                                         ; preds = %39
@@ -76828,8 +77076,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h29fdbb10466877ebE(p
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %15, align 8, !alias.scope !13338, !noalias !13336, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc56 unwind label %.loopexit
 
 .noexc56:                                         ; preds = %39
@@ -77260,8 +77510,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h2a471a8cb9aa0637E(p
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %12, align 8, !alias.scope !13403, !noalias !13401, !nonnull !7, !noundef !7
-  %38 = getelementptr i8, ptr %37, i64 -16
-  %39 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %38, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %37, inttoptr (i64 16 to ptr)
+  %38 = getelementptr inbounds i8, ptr %37, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %38
+  %39 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc60 unwind label %.loopexit
 
 .noexc60:                                         ; preds = %36
@@ -77505,8 +77757,10 @@ common.resume:                                    ; preds = %81, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !13430)
   call void @llvm.experimental.noalias.scope.decl(metadata !13433)
   %38 = load ptr, ptr %14, align 8, !alias.scope !13436, !noalias !13428, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !13439
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !13439
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -77880,8 +78134,10 @@ common.resume:                                    ; preds = %85, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !13498)
   call void @llvm.experimental.noalias.scope.decl(metadata !13501)
   %36 = load ptr, ptr %14, align 8, !alias.scope !13504, !noalias !13496, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true), !noalias !13507
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !13507
   br i1 %38, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %39
 
 39:                                               ; preds = %35
@@ -78248,8 +78504,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !13562)
   call void @llvm.experimental.noalias.scope.decl(metadata !13565)
   %38 = load ptr, ptr %14, align 8, !alias.scope !13568, !noalias !13560, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !13571
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !13571
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -78610,8 +78868,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !13625)
   call void @llvm.experimental.noalias.scope.decl(metadata !13628)
   %38 = load ptr, ptr %14, align 8, !alias.scope !13631, !noalias !13623, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !13634
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !13634
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -78972,8 +79232,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !13688)
   call void @llvm.experimental.noalias.scope.decl(metadata !13691)
   %38 = load ptr, ptr %14, align 8, !alias.scope !13694, !noalias !13686, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !13697
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !13697
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -79334,8 +79596,10 @@ common.resume:                                    ; preds = %86, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !13751)
   call void @llvm.experimental.noalias.scope.decl(metadata !13754)
   %38 = load ptr, ptr %14, align 8, !alias.scope !13757, !noalias !13749, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !13760
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !13760
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -79706,8 +79970,10 @@ common.resume:                                    ; preds = %85, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !13814)
   call void @llvm.experimental.noalias.scope.decl(metadata !13817)
   %36 = load ptr, ptr %14, align 8, !alias.scope !13820, !noalias !13812, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true), !noalias !13823
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !13823
   br i1 %38, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %39
 
 39:                                               ; preds = %35
@@ -80092,8 +80358,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h36d199b167562b9dE(p
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr %17, align 8, !alias.scope !13878, !noalias !13876, !nonnull !7, !noundef !7
-  %45 = getelementptr i8, ptr %44, i64 -16
-  %46 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %45, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %44, inttoptr (i64 16 to ptr)
+  %45 = getelementptr inbounds i8, ptr %44, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %45
+  %46 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc50 unwind label %.loopexit
 
 .noexc50:                                         ; preds = %43
@@ -80588,8 +80856,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !13973)
   call void @llvm.experimental.noalias.scope.decl(metadata !13976)
   %38 = load ptr, ptr %14, align 8, !alias.scope !13979, !noalias !13971, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !13982
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !13982
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -80954,8 +81224,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !14036)
   call void @llvm.experimental.noalias.scope.decl(metadata !14039)
   %38 = load ptr, ptr %14, align 8, !alias.scope !14042, !noalias !14034, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !14045
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !14045
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -81327,8 +81599,10 @@ common.resume:                                    ; preds = %80, %47
   call void @llvm.experimental.noalias.scope.decl(metadata !14100)
   call void @llvm.experimental.noalias.scope.decl(metadata !14103)
   %40 = load ptr, ptr %11, align 8, !alias.scope !14106, !noalias !14098, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true), !noalias !14109
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !14109
   br i1 %42, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %43
 
 43:                                               ; preds = %39
@@ -81565,8 +81839,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h3d5d3e6111d1e7b1E(p
 
 46:                                               ; preds = %44
   %47 = load ptr, ptr %15, align 8, !alias.scope !14150, !noalias !14148, !nonnull !7, !noundef !7
-  %48 = getelementptr i8, ptr %47, i64 -16
-  %49 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %48, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %47, inttoptr (i64 16 to ptr)
+  %48 = getelementptr inbounds i8, ptr %47, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %48
+  %49 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc51 unwind label %.loopexit
 
 .noexc51:                                         ; preds = %46
@@ -81992,8 +82268,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !14221)
   call void @llvm.experimental.noalias.scope.decl(metadata !14224)
   %38 = load ptr, ptr %14, align 8, !alias.scope !14227, !noalias !14219, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !14230
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !14230
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -82354,8 +82632,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !14284)
   call void @llvm.experimental.noalias.scope.decl(metadata !14287)
   %38 = load ptr, ptr %14, align 8, !alias.scope !14290, !noalias !14282, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !14293
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !14293
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -82730,8 +83010,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h40ef602dc53ed47bE(p
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %15, align 8, !alias.scope !14348, !noalias !14346, !nonnull !7, !noundef !7
-  %40 = getelementptr i8, ptr %39, i64 -16
-  %41 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %40, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %39, inttoptr (i64 16 to ptr)
+  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %40
+  %41 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc50 unwind label %.loopexit
 
 .noexc50:                                         ; preds = %38
@@ -83239,8 +83521,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !14465)
   call void @llvm.experimental.noalias.scope.decl(metadata !14468)
   %38 = load ptr, ptr %14, align 8, !alias.scope !14471, !noalias !14463, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !14474
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !14474
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -83605,8 +83889,10 @@ common.resume:                                    ; preds = %70, %41
   call void @llvm.experimental.noalias.scope.decl(metadata !14528)
   call void @llvm.experimental.noalias.scope.decl(metadata !14531)
   %34 = load ptr, ptr %10, align 8, !alias.scope !14534, !noalias !14526, !nonnull !7, !noundef !7
-  %35 = getelementptr i8, ptr %34, i64 -16
-  %36 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %35, i1 noundef zeroext true), !noalias !14537
+  %.not.i.i.i = icmp eq ptr %34, inttoptr (i64 16 to ptr)
+  %35 = getelementptr inbounds i8, ptr %34, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %35
+  %36 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !14537
   br i1 %36, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %37
 
 37:                                               ; preds = %33
@@ -83790,8 +84076,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !14560)
   call void @llvm.experimental.noalias.scope.decl(metadata !14563)
   %38 = load ptr, ptr %14, align 8, !alias.scope !14566, !noalias !14558, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !14569
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !14569
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -84164,8 +84452,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h4bd3000dcf889b67E(p
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %11, align 8, !alias.scope !14623, !noalias !14621, !nonnull !7, !noundef !7
-  %38 = getelementptr i8, ptr %37, i64 -16
-  %39 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %38, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %37, inttoptr (i64 16 to ptr)
+  %38 = getelementptr inbounds i8, ptr %37, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %38
+  %39 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc49 unwind label %.loopexit
 
 .noexc49:                                         ; preds = %36
@@ -84414,8 +84704,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !14670)
   call void @llvm.experimental.noalias.scope.decl(metadata !14673)
   %38 = load ptr, ptr %14, align 8, !alias.scope !14676, !noalias !14668, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !14679
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !14679
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -84799,8 +85091,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h5077ffc65d272a73E(p
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr %11, align 8, !alias.scope !14736, !noalias !14734, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc56 unwind label %.loopexit
 
 .noexc56:                                         ; preds = %35
@@ -85048,8 +85342,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h50808d76e41d19f1E(p
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr %11, align 8, !alias.scope !14769, !noalias !14767, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc52 unwind label %.loopexit
 
 .noexc52:                                         ; preds = %35
@@ -85327,8 +85623,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h524d1f2ec401f348E(p
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %15, align 8, !alias.scope !14824, !noalias !14822, !nonnull !7, !noundef !7
-  %40 = getelementptr i8, ptr %39, i64 -16
-  %41 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %40, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %39, inttoptr (i64 16 to ptr)
+  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %40
+  %41 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc55 unwind label %.loopexit
 
 .noexc55:                                         ; preds = %38
@@ -85765,8 +86063,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h52f1e2b00a18a2baE(p
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr %15, align 8, !alias.scope !14891, !noalias !14889, !nonnull !7, !noundef !7
-  %47 = getelementptr i8, ptr %46, i64 -16
-  %48 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %47, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %46, inttoptr (i64 16 to ptr)
+  %47 = getelementptr inbounds i8, ptr %46, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %47
+  %48 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc51 unwind label %.loopexit
 
 .noexc51:                                         ; preds = %45
@@ -86189,8 +86489,10 @@ common.resume:                                    ; preds = %67, %41
   call void @llvm.experimental.noalias.scope.decl(metadata !14966)
   call void @llvm.experimental.noalias.scope.decl(metadata !14969)
   %34 = load ptr, ptr %10, align 8, !alias.scope !14972, !noalias !14964, !nonnull !7, !noundef !7
-  %35 = getelementptr i8, ptr %34, i64 -16
-  %36 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %35, i1 noundef zeroext true), !noalias !14975
+  %.not.i.i.i = icmp eq ptr %34, inttoptr (i64 16 to ptr)
+  %35 = getelementptr inbounds i8, ptr %34, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %35
+  %36 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !14975
   br i1 %36, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %37
 
 37:                                               ; preds = %33
@@ -86391,8 +86693,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h58649b86dea89b93E(p
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %15, align 8, !alias.scope !14998, !noalias !14996, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc63 unwind label %.loopexit
 
 .noexc63:                                         ; preds = %39
@@ -86924,8 +87228,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !15123)
   call void @llvm.experimental.noalias.scope.decl(metadata !15126)
   %39 = load ptr, ptr %14, align 8, !alias.scope !15129, !noalias !15121, !nonnull !7, !noundef !7
-  %40 = getelementptr i8, ptr %39, i64 -16
-  %41 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %40, i1 noundef zeroext true), !noalias !15132
+  %.not.i.i.i = icmp eq ptr %39, inttoptr (i64 16 to ptr)
+  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %40
+  %41 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !15132
   br i1 %41, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %42
 
 42:                                               ; preds = %38
@@ -87304,8 +87610,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h5a37a3aa573bd8ffE(p
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %15, align 8, !alias.scope !15186, !noalias !15184, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc57 unwind label %.loopexit
 
 .noexc57:                                         ; preds = %39
@@ -87815,8 +88123,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !15299)
   call void @llvm.experimental.noalias.scope.decl(metadata !15302)
   %38 = load ptr, ptr %14, align 8, !alias.scope !15305, !noalias !15297, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !15308
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !15308
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -88177,8 +88487,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !15362)
   call void @llvm.experimental.noalias.scope.decl(metadata !15365)
   %38 = load ptr, ptr %14, align 8, !alias.scope !15368, !noalias !15360, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !15371
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !15371
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -88544,8 +88856,10 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !15425)
   call void @llvm.experimental.noalias.scope.decl(metadata !15428)
   %40 = load ptr, ptr %14, align 8, !alias.scope !15431, !noalias !15423, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true), !noalias !15434
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !15434
   br i1 %42, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %43
 
 43:                                               ; preds = %39
@@ -88909,8 +89223,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !15488)
   call void @llvm.experimental.noalias.scope.decl(metadata !15491)
   %38 = load ptr, ptr %14, align 8, !alias.scope !15494, !noalias !15486, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !15497
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !15497
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -89283,8 +89599,10 @@ common.resume:                                    ; preds = %85, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !15551)
   call void @llvm.experimental.noalias.scope.decl(metadata !15554)
   %36 = load ptr, ptr %14, align 8, !alias.scope !15557, !noalias !15549, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true), !noalias !15560
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !15560
   br i1 %38, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %39
 
 39:                                               ; preds = %35
@@ -89663,8 +89981,10 @@ common.resume:                                    ; preds = %85, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !15615)
   call void @llvm.experimental.noalias.scope.decl(metadata !15618)
   %36 = load ptr, ptr %14, align 8, !alias.scope !15621, !noalias !15613, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true), !noalias !15624
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !15624
   br i1 %38, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %39
 
 39:                                               ; preds = %35
@@ -90031,8 +90351,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !15679)
   call void @llvm.experimental.noalias.scope.decl(metadata !15682)
   %38 = load ptr, ptr %14, align 8, !alias.scope !15685, !noalias !15677, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !15688
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !15688
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -90415,8 +90737,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h6abf6fdcc4c85ff8E(p
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %15, align 8, !alias.scope !15745, !noalias !15743, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc59 unwind label %.loopexit
 
 .noexc59:                                         ; preds = %39
@@ -90840,8 +91164,10 @@ common.resume:                                    ; preds = %85, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !15810)
   call void @llvm.experimental.noalias.scope.decl(metadata !15813)
   %36 = load ptr, ptr %14, align 8, !alias.scope !15816, !noalias !15808, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true), !noalias !15819
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !15819
   br i1 %38, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %39
 
 39:                                               ; preds = %35
@@ -91204,8 +91530,10 @@ common.resume:                                    ; preds = %68, %41
   call void @llvm.experimental.noalias.scope.decl(metadata !15874)
   call void @llvm.experimental.noalias.scope.decl(metadata !15877)
   %34 = load ptr, ptr %10, align 8, !alias.scope !15880, !noalias !15872, !nonnull !7, !noundef !7
-  %35 = getelementptr i8, ptr %34, i64 -16
-  %36 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %35, i1 noundef zeroext true), !noalias !15883
+  %.not.i.i.i = icmp eq ptr %34, inttoptr (i64 16 to ptr)
+  %35 = getelementptr inbounds i8, ptr %34, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %35
+  %36 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !15883
   br i1 %36, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %37
 
 37:                                               ; preds = %33
@@ -91398,8 +91726,10 @@ common.resume:                                    ; preds = %80, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !15906)
   call void @llvm.experimental.noalias.scope.decl(metadata !15909)
   %36 = load ptr, ptr %14, align 8, !alias.scope !15912, !noalias !15904, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true), !noalias !15915
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !15915
   br i1 %38, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %39
 
 39:                                               ; preds = %35
@@ -91763,8 +92093,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !15974)
   call void @llvm.experimental.noalias.scope.decl(metadata !15977)
   %38 = load ptr, ptr %14, align 8, !alias.scope !15980, !noalias !15972, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !15983
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !15983
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -92146,8 +92478,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h77e7774296936ac0E(p
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %15, align 8, !alias.scope !16040, !noalias !16038, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc58 unwind label %.loopexit
 
 .noexc58:                                         ; preds = %39
@@ -92578,8 +92912,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h7adc0b0e3e47d32fE(p
 
 46:                                               ; preds = %44
   %47 = load ptr, ptr %12, align 8, !alias.scope !16112, !noalias !16110, !nonnull !7, !noundef !7
-  %48 = getelementptr i8, ptr %47, i64 -16
-  %49 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %48, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %47, inttoptr (i64 16 to ptr)
+  %48 = getelementptr inbounds i8, ptr %47, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %48
+  %49 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc51 unwind label %.loopexit
 
 .noexc51:                                         ; preds = %46
@@ -92769,8 +93105,8 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h82e1a7be54053aedE(p
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 23
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sroa.5.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.8.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sroa.5.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.8.0..sroa_idx72 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.728.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -92779,16 +93115,16 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h82e1a7be54053aedE(p
 
 ._crit_edge:                                      ; preds = %49, %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit67"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit68"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit67": ; preds = %168, %165, %163, %161, %154, %._crit_edge
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit68": ; preds = %168, %165, %163, %161, %154, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 
 23:                                               ; preds = %.lr.ph, %49
-  %.049138 = phi i64 [ 0, %.lr.ph ], [ %.1, %49 ]
+  %.049139 = phi i64 [ 0, %.lr.ph ], [ %.1, %49 ]
   %24 = load ptr, ptr %15, align 8, !nonnull !7, !noundef !7
-  %25 = getelementptr inbounds { { i64, [2 x i64] }, { { i8, [31 x i8] }, i64 }, i64 }, ptr %24, i64 %.049138
+  %25 = getelementptr inbounds { { i64, [2 x i64] }, { { i8, [31 x i8] }, i64 }, i64 }, ptr %24, i64 %.049139
   %26 = load i64, ptr %25, align 8, !range !1086, !alias.scope !16145, !noundef !7
   %trunc.i = trunc nuw i64 %26 to i1
   br i1 %trunc.i, label %27, label %.critedge
@@ -92798,8 +93134,8 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h82e1a7be54053aedE(p
   %29 = invoke { ptr, i64 } @_ZN4ecow7dynamic10DynamicVec8as_slice17h242300dddb8de35eE.llvm.7889846851399105414(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %28)
           to label %30 unwind label %.loopexit
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %170, %.body.thread.i.i, %92, %66, %.thread78, %46
-  %.pn.pn = phi { ptr, i32 } [ %67, %66 ], [ %47, %46 ], [ %169, %.thread78 ], [ %eh.lpad-body.ph.i.i, %.body.thread.i.i ], [ %93, %92 ], [ %171, %170 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %170, %.body.thread.i.i, %92, %66, %.thread79, %46
+  %.pn.pn = phi { ptr, i32 } [ %67, %66 ], [ %47, %46 ], [ %169, %.thread79 ], [ %eh.lpad-body.ph.i.i, %.body.thread.i.i ], [ %93, %92 ], [ %171, %170 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #58
           to label %174 unwind label %172
 
@@ -92827,20 +93163,22 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h82e1a7be54053aedE(p
   br i1 %34, label %36, label %.critedge
 
 .critedge:                                        ; preds = %23, %30, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit"
-  %35 = add nuw i64 %.049138, 1
+  %35 = add nuw i64 %.049139, 1
   br label %49
 
 36:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %37 = load i64, ptr %16, align 8, !alias.scope !16152, !noalias !16155, !noundef !7
-  %.not.i56 = icmp ult i64 %.049138, %37
+  %.not.i56 = icmp ult i64 %.049139, %37
   br i1 %.not.i56, label %38, label %48
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %15, align 8, !alias.scope !16157, !noalias !16155, !nonnull !7, !noundef !7
-  %40 = getelementptr i8, ptr %39, i64 -16
-  %41 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %40, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %39, inttoptr (i64 16 to ptr)
+  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %40
+  %41 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc57 unwind label %.loopexit
 
 .noexc57:                                         ; preds = %38
@@ -92869,14 +93207,14 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h82e1a7be54053aedE(p
   br label %52
 
 48:                                               ; preds = %36
-  invoke void @_ZN4ecow3vec13out_of_bounds17hb6ef9e8b4463fd82E(i64 noundef %.049138, i64 noundef %37) #61
+  invoke void @_ZN4ecow3vec13out_of_bounds17hb6ef9e8b4463fd82E(i64 noundef %.049139, i64 noundef %37) #61
           to label %.noexc59 unwind label %.loopexit.split-lp
 
 .noexc59:                                         ; preds = %48
   unreachable
 
 49:                                               ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit", %.critedge
-  %.1 = phi i64 [ %.049138, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit" ], [ %35, %.critedge ]
+  %.1 = phi i64 [ %.049139, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit" ], [ %35, %.critedge ]
   %50 = load i64, ptr %16, align 8, !noundef !7
   %51 = icmp ult i64 %.1, %50
   br i1 %51, label %23, label %._crit_edge
@@ -92884,10 +93222,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h82e1a7be54053aedE(p
 52:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i", %.noexc57
   %53 = phi i64 [ %37, %.noexc57 ], [ %45, %"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i" ]
   %54 = phi ptr [ %39, %.noexc57 ], [ %44, %"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i" ]
-  %55 = getelementptr inbounds { { i64, [2 x i64] }, { { i8, [31 x i8] }, i64 }, i64 }, ptr %54, i64 %.049138
+  %55 = getelementptr inbounds { { i64, [2 x i64] }, { { i8, [31 x i8] }, i64 }, i64 }, ptr %54, i64 %.049139
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) %55, i64 72, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 72
-  %57 = xor i64 %.049138, -1
+  %57 = xor i64 %.049139, -1
   %58 = add i64 %53, %57
   %59 = mul i64 %58, 72
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %55, ptr nonnull align 8 %56, i64 %59, i1 false), !noalias !16155
@@ -92930,7 +93268,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h82e1a7be54053aedE(p
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !16177
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.5.0..sroa_idx69, i64 16, i1 false), !noalias !16172
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.5.0..sroa_idx70, i64 16, i1 false), !noalias !16172
   %74 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i8 0, ptr %74, align 8, !alias.scope !16180, !noalias !16183
   store i64 %68, ptr %9, align 8, !alias.scope !16180, !noalias !16183
@@ -93107,8 +93445,8 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h82e1a7be54053aedE(p
   unreachable
 
 143:                                              ; preds = %69
-  %.sroa.5.0.copyload70 = load ptr, ptr %.sroa.5.0..sroa_idx69, align 8, !alias.scope !16203
-  %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx71, align 8, !alias.scope !16203
+  %.sroa.5.0.copyload71 = load ptr, ptr %.sroa.5.0..sroa_idx70, align 8, !alias.scope !16203
+  %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx72, align 8, !alias.scope !16203
   %.sroa.11.0.copyload = load i64, ptr %.sroa.11.0..sroa_idx, align 8, !alias.scope !16203
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.experimental.noalias.scope.decl(metadata !16204)
@@ -93124,8 +93462,8 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h82e1a7be54053aedE(p
 148:                                              ; preds = %146
   call void @llvm.experimental.noalias.scope.decl(metadata !16210)
   %149 = load ptr, ptr %22, align 8, !alias.scope !16213, !noundef !7
-  %.not.i.i.i = icmp eq ptr %149, null
-  br i1 %.not.i.i.i, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit", label %150
+  %.not.i.i.i64 = icmp eq ptr %149, null
+  br i1 %.not.i.i.i64, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit", label %150
 
 150:                                              ; preds = %148
   %151 = atomicrmw sub ptr %149, i64 1 release, align 8, !noalias !16214
@@ -93134,11 +93472,11 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h82e1a7be54053aedE(p
 
 153:                                              ; preds = %150
   invoke void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.16845035774076767816(i8 noundef 2)
-          to label %.noexc64 unwind label %.thread78
+          to label %.noexc65 unwind label %.thread79
 
-.noexc64:                                         ; preds = %153
+.noexc65:                                         ; preds = %153
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h770d7b3d46ee205cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
-          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit" unwind label %.thread78
+          to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit" unwind label %.thread79
 
 154:                                              ; preds = %90
   %155 = load ptr, ptr %5, align 8, !noalias !16188, !nonnull !7, !noundef !7
@@ -93156,41 +93494,41 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h82e1a7be54053aedE(p
   call void @llvm.experimental.noalias.scope.decl(metadata !16221)
   %159 = load i64, ptr %14, align 8, !range !1137, !alias.scope !16221, !noundef !7
   %160 = icmp eq i64 %159, 2
-  br i1 %160, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit67", label %161
+  br i1 %160, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit68", label %161
 
 161:                                              ; preds = %154
   call void @llvm.experimental.noalias.scope.decl(metadata !16224)
   %162 = icmp eq i64 %159, 0
-  br i1 %162, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit67", label %163
+  br i1 %162, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit68", label %163
 
 163:                                              ; preds = %161
   call void @llvm.experimental.noalias.scope.decl(metadata !16227)
   %164 = load ptr, ptr %22, align 8, !alias.scope !16230, !noundef !7
-  %.not.i.i.i66 = icmp eq ptr %164, null
-  br i1 %.not.i.i.i66, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit67", label %165
+  %.not.i.i.i67 = icmp eq ptr %164, null
+  br i1 %.not.i.i.i67, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit68", label %165
 
 165:                                              ; preds = %163
   %166 = atomicrmw sub ptr %164, i64 1 release, align 8, !noalias !16231
   %167 = icmp eq i64 %166, 1
-  br i1 %167, label %168, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit67"
+  br i1 %167, label %168, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit68"
 
 168:                                              ; preds = %165
   call void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.16845035774076767816(i8 noundef 2), !noalias !16231
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h770d7b3d46ee205cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit67"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit68"
 
-.thread78:                                        ; preds = %153, %.noexc64
+.thread79:                                        ; preds = %153, %.noexc65
   %169 = landingpad { ptr, i32 }
           cleanup
   store i64 %70, ptr %14, align 8
-  store ptr %.sroa.5.0.copyload70, ptr %22, align 8
+  store ptr %.sroa.5.0.copyload71, ptr %22, align 8
   store i64 %.sroa.8.0.copyload, ptr %.sroa.728.0..sroa_idx29, align 8
   store i64 %.sroa.11.0.copyload, ptr %.sroa.8.0..sroa_idx31, align 8
   br label %.body
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit": ; preds = %150, %148, %146, %143, %.noexc64
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..quote..Attribution$GT$$GT$$GT$17hfb3b7ac34b55fc6eE.exit": ; preds = %150, %148, %146, %143, %.noexc65
   store i64 %70, ptr %14, align 8
-  store ptr %.sroa.5.0.copyload70, ptr %22, align 8
+  store ptr %.sroa.5.0.copyload71, ptr %22, align 8
   store i64 %.sroa.8.0.copyload, ptr %.sroa.728.0..sroa_idx29, align 8
   store i64 %.sroa.11.0.copyload, ptr %.sroa.8.0..sroa_idx31, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -93291,8 +93629,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !16250)
   call void @llvm.experimental.noalias.scope.decl(metadata !16253)
   %38 = load ptr, ptr %14, align 8, !alias.scope !16256, !noalias !16248, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !16259
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !16259
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -93658,8 +93998,10 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !16313)
   call void @llvm.experimental.noalias.scope.decl(metadata !16316)
   %40 = load ptr, ptr %14, align 8, !alias.scope !16319, !noalias !16311, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true), !noalias !16322
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !16322
   br i1 %42, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %43
 
 43:                                               ; preds = %39
@@ -94028,8 +94370,10 @@ common.resume:                                    ; preds = %89, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !16376)
   call void @llvm.experimental.noalias.scope.decl(metadata !16379)
   %40 = load ptr, ptr %14, align 8, !alias.scope !16382, !noalias !16374, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true), !noalias !16385
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !16385
   br i1 %42, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %43
 
 43:                                               ; preds = %39
@@ -94410,8 +94754,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h8846c79a5efc6d94E(p
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %17, align 8, !alias.scope !16439, !noalias !16437, !nonnull !7, !noundef !7
-  %43 = getelementptr i8, ptr %42, i64 -16
-  %44 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %43, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %42, inttoptr (i64 16 to ptr)
+  %43 = getelementptr inbounds i8, ptr %42, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %43
+  %44 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc50 unwind label %.loopexit
 
 .noexc50:                                         ; preds = %41
@@ -94872,8 +95218,10 @@ common.resume:                                    ; preds = %85, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !16522)
   call void @llvm.experimental.noalias.scope.decl(metadata !16525)
   %36 = load ptr, ptr %14, align 8, !alias.scope !16528, !noalias !16520, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true), !noalias !16531
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !16531
   br i1 %38, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %39
 
 39:                                               ; preds = %35
@@ -95240,8 +95588,10 @@ common.resume:                                    ; preds = %69, %42
   call void @llvm.experimental.noalias.scope.decl(metadata !16586)
   call void @llvm.experimental.noalias.scope.decl(metadata !16589)
   %35 = load ptr, ptr %10, align 8, !alias.scope !16592, !noalias !16584, !nonnull !7, !noundef !7
-  %36 = getelementptr i8, ptr %35, i64 -16
-  %37 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %36, i1 noundef zeroext true), !noalias !16595
+  %.not.i.i.i = icmp eq ptr %35, inttoptr (i64 16 to ptr)
+  %36 = getelementptr inbounds i8, ptr %35, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %36
+  %37 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !16595
   br i1 %37, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %38
 
 38:                                               ; preds = %34
@@ -95425,8 +95775,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !16618)
   call void @llvm.experimental.noalias.scope.decl(metadata !16621)
   %38 = load ptr, ptr %14, align 8, !alias.scope !16624, !noalias !16616, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !16627
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !16627
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -95797,8 +96149,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !16682)
   call void @llvm.experimental.noalias.scope.decl(metadata !16685)
   %38 = load ptr, ptr %14, align 8, !alias.scope !16688, !noalias !16680, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !16691
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !16691
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -96182,8 +96536,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h9679f10fe90dfd83E(p
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %15, align 8, !alias.scope !16745, !noalias !16743, !nonnull !7, !noundef !7
-  %40 = getelementptr i8, ptr %39, i64 -16
-  %41 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %40, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %39, inttoptr (i64 16 to ptr)
+  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %40
+  %41 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc63 unwind label %.loopexit
 
 .noexc63:                                         ; preds = %38
@@ -96618,8 +96974,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h96baf2e46cb79fafE(p
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %15, align 8, !alias.scope !16807, !noalias !16805, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc56 unwind label %.loopexit
 
 .noexc56:                                         ; preds = %39
@@ -97055,8 +97413,10 @@ define internal fastcc void @_ZN5typst11foundations4args4Args5named17h9b8fc7d89b
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %13, align 8, !alias.scope !16875, !noalias !16873, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc49 unwind label %.loopexit
 
 .noexc49:                                         ; preds = %39
@@ -97496,8 +97856,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h9bbcf524a085a59aE(p
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %16, align 8, !alias.scope !16944, !noalias !16942, !nonnull !7, !noundef !7
-  %43 = getelementptr i8, ptr %42, i64 -16
-  %44 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %43, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %42, inttoptr (i64 16 to ptr)
+  %43 = getelementptr inbounds i8, ptr %42, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %43
+  %44 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc61 unwind label %.loopexit
 
 .noexc61:                                         ; preds = %41
@@ -97923,8 +98285,10 @@ common.resume:                                    ; preds = %70, %41
   call void @llvm.experimental.noalias.scope.decl(metadata !17011)
   call void @llvm.experimental.noalias.scope.decl(metadata !17014)
   %34 = load ptr, ptr %10, align 8, !alias.scope !17017, !noalias !17009, !nonnull !7, !noundef !7
-  %35 = getelementptr i8, ptr %34, i64 -16
-  %36 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %35, i1 noundef zeroext true), !noalias !17020
+  %.not.i.i.i = icmp eq ptr %34, inttoptr (i64 16 to ptr)
+  %35 = getelementptr inbounds i8, ptr %34, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %35
+  %36 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !17020
   br i1 %36, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %37
 
 37:                                               ; preds = %33
@@ -98124,8 +98488,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h9cff675841aecf55E(p
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %15, align 8, !alias.scope !17043, !noalias !17041, !nonnull !7, !noundef !7
-  %40 = getelementptr i8, ptr %39, i64 -16
-  %41 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %40, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %39, inttoptr (i64 16 to ptr)
+  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %40
+  %41 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc57 unwind label %.loopexit
 
 .noexc57:                                         ; preds = %38
@@ -98545,8 +98911,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h9f676b5c0feb4a2dE.l
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %12, align 8, !alias.scope !17102, !noalias !17100, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc65 unwind label %.loopexit
 
 .noexc65:                                         ; preds = %37
@@ -98848,8 +99216,10 @@ common.resume:                                    ; preds = %68, %41
   call void @llvm.experimental.noalias.scope.decl(metadata !17179)
   call void @llvm.experimental.noalias.scope.decl(metadata !17182)
   %34 = load ptr, ptr %10, align 8, !alias.scope !17185, !noalias !17177, !nonnull !7, !noundef !7
-  %35 = getelementptr i8, ptr %34, i64 -16
-  %36 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %35, i1 noundef zeroext true), !noalias !17188
+  %.not.i.i.i = icmp eq ptr %34, inttoptr (i64 16 to ptr)
+  %35 = getelementptr inbounds i8, ptr %34, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %35
+  %36 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !17188
   br i1 %36, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %37
 
 37:                                               ; preds = %33
@@ -99035,8 +99405,10 @@ common.resume:                                    ; preds = %67, %39
   call void @llvm.experimental.noalias.scope.decl(metadata !17211)
   call void @llvm.experimental.noalias.scope.decl(metadata !17214)
   %32 = load ptr, ptr %10, align 8, !alias.scope !17217, !noalias !17209, !nonnull !7, !noundef !7
-  %33 = getelementptr i8, ptr %32, i64 -16
-  %34 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %33, i1 noundef zeroext true), !noalias !17220
+  %.not.i.i.i = icmp eq ptr %32, inttoptr (i64 16 to ptr)
+  %33 = getelementptr inbounds i8, ptr %32, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %33
+  %34 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !17220
   br i1 %34, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %35
 
 35:                                               ; preds = %31
@@ -99221,8 +99593,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !17243)
   call void @llvm.experimental.noalias.scope.decl(metadata !17246)
   %38 = load ptr, ptr %14, align 8, !alias.scope !17249, !noalias !17241, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !17252
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !17252
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -99590,8 +99964,10 @@ common.resume:                                    ; preds = %85, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !17306)
   call void @llvm.experimental.noalias.scope.decl(metadata !17309)
   %36 = load ptr, ptr %14, align 8, !alias.scope !17312, !noalias !17304, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true), !noalias !17315
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !17315
   br i1 %38, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %39
 
 39:                                               ; preds = %35
@@ -99957,8 +100333,10 @@ common.resume:                                    ; preds = %69, %42
   call void @llvm.experimental.noalias.scope.decl(metadata !17370)
   call void @llvm.experimental.noalias.scope.decl(metadata !17373)
   %35 = load ptr, ptr %10, align 8, !alias.scope !17376, !noalias !17368, !nonnull !7, !noundef !7
-  %36 = getelementptr i8, ptr %35, i64 -16
-  %37 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %36, i1 noundef zeroext true), !noalias !17379
+  %.not.i.i.i = icmp eq ptr %35, inttoptr (i64 16 to ptr)
+  %36 = getelementptr inbounds i8, ptr %35, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %36
+  %37 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !17379
   br i1 %37, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %38
 
 38:                                               ; preds = %34
@@ -100142,8 +100520,10 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !17402)
   call void @llvm.experimental.noalias.scope.decl(metadata !17405)
   %39 = load ptr, ptr %14, align 8, !alias.scope !17408, !noalias !17400, !nonnull !7, !noundef !7
-  %40 = getelementptr i8, ptr %39, i64 -16
-  %41 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %40, i1 noundef zeroext true), !noalias !17411
+  %.not.i.i.i = icmp eq ptr %39, inttoptr (i64 16 to ptr)
+  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %40
+  %41 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !17411
   br i1 %41, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %42
 
 42:                                               ; preds = %38
@@ -100509,8 +100889,10 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !17465)
   call void @llvm.experimental.noalias.scope.decl(metadata !17468)
   %39 = load ptr, ptr %14, align 8, !alias.scope !17471, !noalias !17463, !nonnull !7, !noundef !7
-  %40 = getelementptr i8, ptr %39, i64 -16
-  %41 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %40, i1 noundef zeroext true), !noalias !17474
+  %.not.i.i.i = icmp eq ptr %39, inttoptr (i64 16 to ptr)
+  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %40
+  %41 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !17474
   br i1 %41, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %42
 
 42:                                               ; preds = %38
@@ -100872,8 +101254,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !17528)
   call void @llvm.experimental.noalias.scope.decl(metadata !17531)
   %38 = load ptr, ptr %14, align 8, !alias.scope !17534, !noalias !17526, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !17537
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !17537
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -101234,8 +101618,10 @@ common.resume:                                    ; preds = %69, %42
   call void @llvm.experimental.noalias.scope.decl(metadata !17591)
   call void @llvm.experimental.noalias.scope.decl(metadata !17594)
   %35 = load ptr, ptr %10, align 8, !alias.scope !17597, !noalias !17589, !nonnull !7, !noundef !7
-  %36 = getelementptr i8, ptr %35, i64 -16
-  %37 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %36, i1 noundef zeroext true), !noalias !17600
+  %.not.i.i.i = icmp eq ptr %35, inttoptr (i64 16 to ptr)
+  %36 = getelementptr inbounds i8, ptr %35, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %36
+  %37 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !17600
   br i1 %37, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %38
 
 38:                                               ; preds = %34
@@ -101442,8 +101828,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hb212b74092abb79cE(p
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %15, align 8, !alias.scope !17626, !noalias !17624, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc56 unwind label %.loopexit
 
 .noexc56:                                         ; preds = %39
@@ -101877,8 +102265,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hb59665cd188d43fcE(p
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %9, align 8, !alias.scope !17694, !noalias !17692, !nonnull !7, !noundef !7
-  %35 = getelementptr i8, ptr %34, i64 -16
-  %36 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %35, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %34, inttoptr (i64 16 to ptr)
+  %35 = getelementptr inbounds i8, ptr %34, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %35
+  %36 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc64 unwind label %.loopexit
 
 .noexc64:                                         ; preds = %33
@@ -102117,8 +102507,10 @@ common.resume:                                    ; preds = %85, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !17723)
   call void @llvm.experimental.noalias.scope.decl(metadata !17726)
   %36 = load ptr, ptr %14, align 8, !alias.scope !17729, !noalias !17721, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true), !noalias !17732
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !17732
   br i1 %38, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %39
 
 39:                                               ; preds = %35
@@ -102496,8 +102888,10 @@ common.resume:                                    ; preds = %85, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !17787)
   call void @llvm.experimental.noalias.scope.decl(metadata !17790)
   %36 = load ptr, ptr %14, align 8, !alias.scope !17793, !noalias !17785, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true), !noalias !17796
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !17796
   br i1 %38, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %39
 
 39:                                               ; preds = %35
@@ -102865,8 +103259,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !17851)
   call void @llvm.experimental.noalias.scope.decl(metadata !17854)
   %38 = load ptr, ptr %14, align 8, !alias.scope !17857, !noalias !17849, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !17860
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !17860
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -103253,8 +103649,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hc1b43b4b60c3620dE(p
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr %15, align 8, !alias.scope !17917, !noalias !17915, !nonnull !7, !noundef !7
-  %42 = getelementptr i8, ptr %41, i64 -16
-  %43 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %42, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %41, inttoptr (i64 16 to ptr)
+  %42 = getelementptr inbounds i8, ptr %41, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %42
+  %43 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc59 unwind label %.loopexit
 
 .noexc59:                                         ; preds = %40
@@ -103680,8 +104078,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hc39c561acf0567daE(p
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %11, align 8, !alias.scope !17983, !noalias !17981, !nonnull !7, !noundef !7
-  %38 = getelementptr i8, ptr %37, i64 -16
-  %39 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %38, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %37, inttoptr (i64 16 to ptr)
+  %38 = getelementptr inbounds i8, ptr %37, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %38
+  %39 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc35 unwind label %.loopexit
 
 .noexc35:                                         ; preds = %36
@@ -103946,8 +104346,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hc57f2275c888faf9E(p
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr %15, align 8, !alias.scope !18033, !noalias !18031, !nonnull !7, !noundef !7
-  %42 = getelementptr i8, ptr %41, i64 -16
-  %43 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %42, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %41, inttoptr (i64 16 to ptr)
+  %42 = getelementptr inbounds i8, ptr %41, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %42
+  %43 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc59 unwind label %.loopexit
 
 .noexc59:                                         ; preds = %40
@@ -104371,8 +104773,10 @@ common.resume:                                    ; preds = %85, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !18099)
   call void @llvm.experimental.noalias.scope.decl(metadata !18102)
   %36 = load ptr, ptr %14, align 8, !alias.scope !18105, !noalias !18097, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true), !noalias !18108
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !18108
   br i1 %38, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %39
 
 39:                                               ; preds = %35
@@ -104740,8 +105144,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !18163)
   call void @llvm.experimental.noalias.scope.decl(metadata !18166)
   %38 = load ptr, ptr %14, align 8, !alias.scope !18169, !noalias !18161, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !18172
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !18172
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -105118,8 +105524,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hc9fab7ef6a55f382E(p
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %15, align 8, !alias.scope !18226, !noalias !18224, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc52 unwind label %.loopexit
 
 .noexc52:                                         ; preds = %39
@@ -105583,8 +105991,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hca6bfe0972383437E(p
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %15, align 8, !alias.scope !18320, !noalias !18318, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc56 unwind label %.loopexit
 
 .noexc56:                                         ; preds = %39
@@ -106023,8 +106433,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hcdb4132199911df4E(p
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr %15, align 8, !alias.scope !18385, !noalias !18383, !nonnull !7, !noundef !7
-  %45 = getelementptr i8, ptr %44, i64 -16
-  %46 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %45, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %44, inttoptr (i64 16 to ptr)
+  %45 = getelementptr inbounds i8, ptr %44, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %45
+  %46 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc37 unwind label %.loopexit
 
 .noexc37:                                         ; preds = %43
@@ -106465,8 +106877,10 @@ common.resume:                                    ; preds = %68, %40
   call void @llvm.experimental.noalias.scope.decl(metadata !18467)
   call void @llvm.experimental.noalias.scope.decl(metadata !18470)
   %33 = load ptr, ptr %10, align 8, !alias.scope !18473, !noalias !18465, !nonnull !7, !noundef !7
-  %34 = getelementptr i8, ptr %33, i64 -16
-  %35 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %34, i1 noundef zeroext true), !noalias !18476
+  %.not.i.i.i = icmp eq ptr %33, inttoptr (i64 16 to ptr)
+  %34 = getelementptr inbounds i8, ptr %33, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %34
+  %35 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !18476
   br i1 %35, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %36
 
 36:                                               ; preds = %32
@@ -106655,8 +107069,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !18499)
   call void @llvm.experimental.noalias.scope.decl(metadata !18502)
   %39 = load ptr, ptr %14, align 8, !alias.scope !18505, !noalias !18497, !nonnull !7, !noundef !7
-  %40 = getelementptr i8, ptr %39, i64 -16
-  %41 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %40, i1 noundef zeroext true), !noalias !18508
+  %.not.i.i.i = icmp eq ptr %39, inttoptr (i64 16 to ptr)
+  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %40
+  %41 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !18508
   br i1 %41, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %42
 
 42:                                               ; preds = %38
@@ -107038,8 +107454,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hd427f84935707cb4E(p
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %11, align 8, !alias.scope !18565, !noalias !18563, !nonnull !7, !noundef !7
-  %43 = getelementptr i8, ptr %42, i64 -16
-  %44 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %43, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %42, inttoptr (i64 16 to ptr)
+  %43 = getelementptr inbounds i8, ptr %42, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %43
+  %44 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc48 unwind label %.loopexit
 
 .noexc48:                                         ; preds = %41
@@ -107275,8 +107693,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !18598)
   call void @llvm.experimental.noalias.scope.decl(metadata !18601)
   %38 = load ptr, ptr %14, align 8, !alias.scope !18604, !noalias !18596, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !18607
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !18607
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -107648,8 +108068,10 @@ common.resume:                                    ; preds = %85, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !18661)
   call void @llvm.experimental.noalias.scope.decl(metadata !18664)
   %37 = load ptr, ptr %14, align 8, !alias.scope !18667, !noalias !18659, !nonnull !7, !noundef !7
-  %38 = getelementptr i8, ptr %37, i64 -16
-  %39 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %38, i1 noundef zeroext true), !noalias !18670
+  %.not.i.i.i = icmp eq ptr %37, inttoptr (i64 16 to ptr)
+  %38 = getelementptr inbounds i8, ptr %37, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %38
+  %39 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !18670
   br i1 %39, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %40
 
 40:                                               ; preds = %36
@@ -108032,8 +108454,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hd5bc9b76551334acE(p
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %15, align 8, !alias.scope !18725, !noalias !18723, !nonnull !7, !noundef !7
-  %40 = getelementptr i8, ptr %39, i64 -16
-  %41 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %40, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %39, inttoptr (i64 16 to ptr)
+  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %40
+  %41 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc57 unwind label %.loopexit
 
 .noexc57:                                         ; preds = %38
@@ -108510,8 +108934,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hd819767e48c36324E(p
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr %15, align 8, !alias.scope !18821, !noalias !18819, !nonnull !7, !noundef !7
-  %42 = getelementptr i8, ptr %41, i64 -16
-  %43 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %42, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %41, inttoptr (i64 16 to ptr)
+  %42 = getelementptr inbounds i8, ptr %41, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %42
+  %43 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc59 unwind label %.loopexit
 
 .noexc59:                                         ; preds = %40
@@ -108946,8 +109372,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hda2bdb3f1a178b2dE(p
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %15, align 8, !alias.scope !18889, !noalias !18887, !nonnull !7, !noundef !7
-  %43 = getelementptr i8, ptr %42, i64 -16
-  %44 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %43, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %42, inttoptr (i64 16 to ptr)
+  %43 = getelementptr inbounds i8, ptr %42, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %43
+  %44 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc51 unwind label %.loopexit
 
 .noexc51:                                         ; preds = %41
@@ -109390,8 +109818,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hdc8b9a731212bcd8E(p
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %15, align 8, !alias.scope !18957, !noalias !18955, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc56 unwind label %.loopexit
 
 .noexc56:                                         ; preds = %39
@@ -109811,8 +110241,10 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !19022)
   call void @llvm.experimental.noalias.scope.decl(metadata !19025)
   %40 = load ptr, ptr %14, align 8, !alias.scope !19028, !noalias !19020, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true), !noalias !19031
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !19031
   br i1 %42, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %43
 
 43:                                               ; preds = %39
@@ -110176,8 +110608,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !19085)
   call void @llvm.experimental.noalias.scope.decl(metadata !19088)
   %38 = load ptr, ptr %14, align 8, !alias.scope !19091, !noalias !19083, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !19094
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !19094
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -110538,8 +110972,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !19148)
   call void @llvm.experimental.noalias.scope.decl(metadata !19151)
   %38 = load ptr, ptr %14, align 8, !alias.scope !19154, !noalias !19146, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !19157
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !19157
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -110907,8 +111343,10 @@ common.resume:                                    ; preds = %86, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !19211)
   call void @llvm.experimental.noalias.scope.decl(metadata !19214)
   %38 = load ptr, ptr %14, align 8, !alias.scope !19217, !noalias !19209, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !19220
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !19220
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -111273,8 +111711,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !19274)
   call void @llvm.experimental.noalias.scope.decl(metadata !19277)
   %38 = load ptr, ptr %14, align 8, !alias.scope !19280, !noalias !19272, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !19283
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !19283
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -111639,8 +112079,10 @@ common.resume:                                    ; preds = %84, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !19337)
   call void @llvm.experimental.noalias.scope.decl(metadata !19340)
   %39 = load ptr, ptr %14, align 8, !alias.scope !19343, !noalias !19335, !nonnull !7, !noundef !7
-  %40 = getelementptr i8, ptr %39, i64 -16
-  %41 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %40, i1 noundef zeroext true), !noalias !19346
+  %.not.i.i.i = icmp eq ptr %39, inttoptr (i64 16 to ptr)
+  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %40
+  %41 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !19346
   br i1 %41, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %42
 
 42:                                               ; preds = %38
@@ -112005,8 +112447,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !19405)
   call void @llvm.experimental.noalias.scope.decl(metadata !19408)
   %38 = load ptr, ptr %14, align 8, !alias.scope !19411, !noalias !19403, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !19414
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !19414
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -112376,8 +112820,10 @@ common.resume:                                    ; preds = %86, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !19468)
   call void @llvm.experimental.noalias.scope.decl(metadata !19471)
   %38 = load ptr, ptr %14, align 8, !alias.scope !19474, !noalias !19466, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !19477
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !19477
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -112747,8 +113193,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !19532)
   call void @llvm.experimental.noalias.scope.decl(metadata !19535)
   %38 = load ptr, ptr %14, align 8, !alias.scope !19538, !noalias !19530, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !19541
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !19541
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -113129,8 +113577,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hfa8bb66bec3100e8E(p
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %15, align 8, !alias.scope !19598, !noalias !19596, !nonnull !7, !noundef !7
-  %41 = getelementptr i8, ptr %40, i64 -16
-  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %41, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %40, inttoptr (i64 16 to ptr)
+  %41 = getelementptr inbounds i8, ptr %40, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %41
+  %42 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %.noexc51 unwind label %.loopexit
 
 .noexc51:                                         ; preds = %39
@@ -113540,8 +113990,10 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !19663)
   call void @llvm.experimental.noalias.scope.decl(metadata !19666)
   %38 = load ptr, ptr %14, align 8, !alias.scope !19669, !noalias !19661, !nonnull !7, !noundef !7
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %39, i1 noundef zeroext true), !noalias !19672
+  %.not.i.i.i = icmp eq ptr %38, inttoptr (i64 16 to ptr)
+  %39 = getelementptr inbounds i8, ptr %38, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %39
+  %40 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !19672
   br i1 %40, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %41
 
 41:                                               ; preds = %37
@@ -113913,8 +114365,10 @@ common.resume:                                    ; preds = %85, %.body.thread.i
   call void @llvm.experimental.noalias.scope.decl(metadata !19726)
   call void @llvm.experimental.noalias.scope.decl(metadata !19729)
   %36 = load ptr, ptr %14, align 8, !alias.scope !19732, !noalias !19724, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true), !noalias !19735
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !19735
   br i1 %38, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %39
 
 39:                                               ; preds = %35
@@ -114281,8 +114735,10 @@ common.resume:                                    ; preds = %69, %42
   call void @llvm.experimental.noalias.scope.decl(metadata !19790)
   call void @llvm.experimental.noalias.scope.decl(metadata !19793)
   %35 = load ptr, ptr %10, align 8, !alias.scope !19796, !noalias !19788, !nonnull !7, !noundef !7
-  %36 = getelementptr i8, ptr %35, i64 -16
-  %37 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %36, i1 noundef zeroext true), !noalias !19799
+  %.not.i.i.i = icmp eq ptr %35, inttoptr (i64 16 to ptr)
+  %36 = getelementptr inbounds i8, ptr %35, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %36
+  %37 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true), !noalias !19799
   br i1 %37, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit", label %38
 
 38:                                               ; preds = %34
@@ -147219,8 +147675,10 @@ define void @"_ZN5typst13introspection1_93_$LT$impl$u20$typst..foundations..elem
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26370)
   %33 = load i64, ptr %8, align 8, !alias.scope !26373, !noalias !26374, !noundef !7
   %34 = load ptr, ptr %7, align 8, !alias.scope !26376, !noalias !26374, !nonnull !7, !noundef !7
-  %35 = getelementptr i8, ptr %34, i64 -16
-  %36 = invoke noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17hacc2f97ff03b95b4E.llvm.4622153547959463051"(ptr noundef align 8 %35, i64 noundef 0)
+  %.not.i.i.i = icmp eq ptr %34, inttoptr (i64 16 to ptr)
+  %35 = getelementptr inbounds i8, ptr %34, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %35
+  %36 = invoke noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17hacc2f97ff03b95b4E.llvm.4622153547959463051"(ptr noundef align 8 %spec.select.i.i.i, i64 noundef 0)
           to label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4ccd6317960eeed4E.llvm.4622153547959463051.exit.i.i" unwind label %37, !noalias !26381
 
 37:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4ccd6317960eeed4E.llvm.4622153547959463051.exit.i.i", %31
@@ -149705,8 +150163,10 @@ define void @"_ZN5typst6layout7spacing1_92_$LT$impl$u20$typst..foundations..elem
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26904)
   %32 = load i64, ptr %7, align 8, !alias.scope !26907, !noalias !26908, !noundef !7
   %33 = load ptr, ptr %6, align 8, !alias.scope !26910, !noalias !26908, !nonnull !7, !noundef !7
-  %34 = getelementptr i8, ptr %33, i64 -16
-  %35 = invoke noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17hacc2f97ff03b95b4E.llvm.4622153547959463051"(ptr noundef align 8 %34, i64 noundef 0)
+  %.not.i.i.i = icmp eq ptr %33, inttoptr (i64 16 to ptr)
+  %34 = getelementptr inbounds i8, ptr %33, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %34
+  %35 = invoke noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17hacc2f97ff03b95b4E.llvm.4622153547959463051"(ptr noundef align 8 %spec.select.i.i.i, i64 noundef 0)
           to label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4ccd6317960eeed4E.llvm.4622153547959463051.exit.i.i" unwind label %36, !noalias !26915
 
 36:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4ccd6317960eeed4E.llvm.4622153547959463051.exit.i.i", %30
@@ -150688,8 +151148,10 @@ define void @"_ZN5typst6layout7spacing1_92_$LT$impl$u20$typst..foundations..elem
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27110)
   %34 = load i64, ptr %7, align 8, !alias.scope !27113, !noalias !27114, !noundef !7
   %35 = load ptr, ptr %6, align 8, !alias.scope !27116, !noalias !27114, !nonnull !7, !noundef !7
-  %36 = getelementptr i8, ptr %35, i64 -16
-  %37 = invoke noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17hacc2f97ff03b95b4E.llvm.4622153547959463051"(ptr noundef align 8 %36, i64 noundef 0)
+  %.not.i.i.i = icmp eq ptr %35, inttoptr (i64 16 to ptr)
+  %36 = getelementptr inbounds i8, ptr %35, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %36
+  %37 = invoke noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17hacc2f97ff03b95b4E.llvm.4622153547959463051"(ptr noundef align 8 %spec.select.i.i.i, i64 noundef 0)
           to label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4ccd6317960eeed4E.llvm.4622153547959463051.exit.i.i" unwind label %38, !noalias !27121
 
 38:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4ccd6317960eeed4E.llvm.4622153547959463051.exit.i.i", %32
@@ -153963,8 +154425,10 @@ define void @"_ZN5typst5model4link1_97_$LT$impl$u20$typst..foundations..element.
 
 36:                                               ; preds = %35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27859)
-  %37 = getelementptr i8, ptr %25, i64 -16
-  %38 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %37, i1 noundef zeroext true), !noalias !27862
+  %.not.i.i.i.i.i = icmp eq ptr %25, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %25, i64 -16
+  %spec.select.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr null, ptr %37
+  %38 = tail call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h132881e9646b8faaE.llvm.4930786928582598558"(ptr noundef align 8 %spec.select.i.i.i.i.i, i1 noundef zeroext true), !noalias !27862
   br i1 %38, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$6remove17h8e17d2d3d3d3a4bbE.exit.i.i", label %39
 
 39:                                               ; preds = %36
@@ -157645,8 +158109,10 @@ define void @"_ZN5typst5model9reference1_95_$LT$impl$u20$typst..foundations..ele
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28791)
   %35 = load i64, ptr %8, align 8, !alias.scope !28794, !noalias !28795, !noundef !7
   %36 = load ptr, ptr %7, align 8, !alias.scope !28797, !noalias !28795, !nonnull !7, !noundef !7
-  %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = invoke noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17hacc2f97ff03b95b4E.llvm.4622153547959463051"(ptr noundef align 8 %37, i64 noundef 0)
+  %.not.i.i.i = icmp eq ptr %36, inttoptr (i64 16 to ptr)
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %37
+  %38 = invoke noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17hacc2f97ff03b95b4E.llvm.4622153547959463051"(ptr noundef align 8 %spec.select.i.i.i, i64 noundef 0)
           to label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4ccd6317960eeed4E.llvm.4622153547959463051.exit.i.i" unwind label %39, !noalias !28802
 
 39:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4ccd6317960eeed4E.llvm.4622153547959463051.exit.i.i", %33
@@ -158964,8 +159430,10 @@ define void @"_ZN5typst5model6strong1_95_$LT$impl$u20$typst..foundations..elemen
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29116)
   %34 = load i64, ptr %7, align 8, !alias.scope !29119, !noalias !29120, !noundef !7
   %35 = load ptr, ptr %6, align 8, !alias.scope !29122, !noalias !29120, !nonnull !7, !noundef !7
-  %36 = getelementptr i8, ptr %35, i64 -16
-  %37 = invoke noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17hacc2f97ff03b95b4E.llvm.4622153547959463051"(ptr noundef align 8 %36, i64 noundef 0)
+  %.not.i.i.i = icmp eq ptr %35, inttoptr (i64 16 to ptr)
+  %36 = getelementptr inbounds i8, ptr %35, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %36
+  %37 = invoke noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17hacc2f97ff03b95b4E.llvm.4622153547959463051"(ptr noundef align 8 %spec.select.i.i.i, i64 noundef 0)
           to label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4ccd6317960eeed4E.llvm.4622153547959463051.exit.i.i" unwind label %38, !noalias !29127
 
 38:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4ccd6317960eeed4E.llvm.4622153547959463051.exit.i.i", %32
@@ -167231,8 +167699,10 @@ define void @"_ZN118_$LT$typst..layout..axes..Axes$LT$typst..layout..length..Len
   store ptr %34, ptr %4, align 8, !noalias !30724
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %36, ptr %41, align 8, !noalias !30724
-  %42 = getelementptr i8, ptr %34, i64 -16
-  %43 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f5ffcebb5242ccbE.llvm.7889846851399105414"(ptr noundef align 8 %42, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %34, inttoptr (i64 16 to ptr)
+  %42 = getelementptr inbounds i8, ptr %34, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %42
+  %43 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f5ffcebb5242ccbE.llvm.7889846851399105414"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %50 unwind label %44, !noalias !30724
 
 44:                                               ; preds = %40
@@ -167852,8 +168322,10 @@ define void @"_ZN116_$LT$typst..layout..axes..Axes$LT$typst..layout..ratio..Rati
   store ptr %34, ptr %4, align 8, !noalias !30798
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %36, ptr %41, align 8, !noalias !30798
-  %42 = getelementptr i8, ptr %34, i64 -16
-  %43 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f5ffcebb5242ccbE.llvm.7889846851399105414"(ptr noundef align 8 %42, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %34, inttoptr (i64 16 to ptr)
+  %42 = getelementptr inbounds i8, ptr %34, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %42
+  %43 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f5ffcebb5242ccbE.llvm.7889846851399105414"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %50 unwind label %44, !noalias !30798
 
 44:                                               ; preds = %40
@@ -168484,8 +168956,10 @@ define void @"_ZN112_$LT$typst..layout..axes..Axes$LT$typst..layout..rel..Rel$GT
   store ptr %35, ptr %4, align 8, !noalias !30876
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %37, ptr %42, align 8, !noalias !30876
-  %43 = getelementptr i8, ptr %35, i64 -16
-  %44 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f5ffcebb5242ccbE.llvm.7889846851399105414"(ptr noundef align 8 %43, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %35, inttoptr (i64 16 to ptr)
+  %43 = getelementptr inbounds i8, ptr %35, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %43
+  %44 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f5ffcebb5242ccbE.llvm.7889846851399105414"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %51 unwind label %45, !noalias !30876
 
 45:                                               ; preds = %41

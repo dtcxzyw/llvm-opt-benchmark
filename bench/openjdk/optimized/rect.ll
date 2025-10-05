@@ -102,6 +102,7 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
 .critedge4.us.thread:                             ; preds = %.preheader84.us
   %51 = icmp eq ptr %.071119.us, %.0122.us
   %spec.select = select i1 %51, ptr %.071119.us, ptr %.273.us
+  %spec.select171 = select i1 %51, ptr %.0122.us, ptr %.071119.us
   br label %.loopexit.us
 
 .lr.ph115.us:                                     ; preds = %.lr.ph115.us.preheader, %.lr.ph115.us
@@ -122,7 +123,7 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
 
 .loopexit.us:                                     ; preds = %.lr.ph115.us, %.critedge4.us.thread, %.critedge4.us, %33, %.critedge.thread.us
   %.3.us = phi ptr [ %.273.us.mux, %.critedge4.us ], [ %.273.us, %33 ], [ %.273.us, %.critedge.thread.us ], [ %spec.select, %.critedge4.us.thread ], [ %.071119.us, %.lr.ph115.us ]
-  %.1.us = phi ptr [ %.071119.us.mux, %.critedge4.us ], [ %.071119.us, %33 ], [ %.071119.us, %.critedge.thread.us ], [ %.071119.us, %.critedge4.us.thread ], [ %.0122.us, %.lr.ph115.us ]
+  %.1.us = phi ptr [ %.071119.us.mux, %.critedge4.us ], [ %.071119.us, %33 ], [ %.071119.us, %.critedge.thread.us ], [ %spec.select171, %.critedge4.us.thread ], [ %.0122.us, %.lr.ph115.us ]
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
   br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph.lr.ph.us, !llvm.loop !9

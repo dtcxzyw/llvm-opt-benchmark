@@ -27303,7 +27303,9 @@ _ZN4llvm5ErrorD2Ev.exit246:                       ; preds = %71, %_ZN5clang15AST
   %.0179 = phi i32 [ %spec.select, %83 ], [ 32, %_ZN5clang15ASTNodeImporter10importIntoINS_15DeclarationNameEEEN4llvm5ErrorERT_RKS5_.exit ], [ 32, %71 ]
   %91 = load ptr, ptr %9, align 8, !tbaa !2001
   %92 = load ptr, ptr %10, align 8, !tbaa !2001
-  %93 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %92) #25
+  %.not204 = icmp eq ptr %91, %92
+  %. = select i1 %.not204, ptr %91, ptr %92
+  %93 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %.) #25
   %94 = and i1 %.0, %93
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8, !tbaa !2803
@@ -27938,7 +27940,7 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %337
   %399 = and i32 %398, -24577
   %400 = or disjoint i32 %399, %396
   store i32 %400, ptr %397, align 4
-  call void @_ZN5clang4Decl21setLexicalDeclContextEPNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(33) %394, ptr noundef nonnull %92) #25
+  call void @_ZN5clang4Decl21setLexicalDeclContextEPNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(33) %394, ptr noundef %92) #25
   %401 = load ptr, ptr %21, align 8, !tbaa !2803
   call void @_ZN5clang15ASTNodeImporter17addDeclToContextsEPNS_4DeclES2_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2, ptr noundef %401)
   %402 = call noundef ptr @_ZNK5clang13CXXRecordDecl25getDescribedClassTemplateEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #25
@@ -28242,7 +28244,7 @@ _ZN4llvm8ExpectedIN5clang14SourceLocationEED2Ev.exit: ; preds = %501
 
 539:                                              ; preds = %521
   %540 = load ptr, ptr %21, align 8, !tbaa !2803
-  call void @_ZN5clang4Decl21setLexicalDeclContextEPNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(33) %540, ptr noundef nonnull %92) #25
+  call void @_ZN5clang4Decl21setLexicalDeclContextEPNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(33) %540, ptr noundef %92) #25
   %541 = load ptr, ptr %21, align 8, !tbaa !2803
   call void @_ZN5clang15ASTNodeImporter17addDeclToContextsEPNS_4DeclES2_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2, ptr noundef %541)
   br label %.critedge235

@@ -2311,6 +2311,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit162: ; preds = %_ZN4cvc58internal1
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit166: ; preds = %._ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit166_crit_edge, %464, %458
   %468 = phi i64 [ %.pre446, %._ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit166_crit_edge ], [ %453, %464 ], [ %463, %458 ]
+  %.not.i167 = icmp eq ptr %259, %452
+  %spec.select = select i1 %.not.i167, ptr %259, ptr %452, !prof !39
   %469 = and i64 %468, 1152920405095219200
   %.not.i.i168 = icmp eq i64 %469, 1152920405095219200
   br i1 %.not.i.i168, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit170, label %470, !prof !39
@@ -2519,7 +2521,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit183: ; preds = %_ZN4cvc58internal1
   br i1 %278, label %277, label %.loopexit371, !llvm.loop !85
 
 .loopexit371:                                     ; preds = %561, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit183
-  %.sroa.0353.0 = phi ptr [ %452, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit183 ], [ %259, %561 ]
+  %.sroa.0353.0 = phi ptr [ %spec.select, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit183 ], [ %259, %561 ]
   %562 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %563 = icmp eq i8 %562, 0
   br i1 %563, label %564, label %572, !prof !49
@@ -2927,6 +2929,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit226: ; preds = %703, %707, %713
 
 _ZN4cvc58internal12NodeTemplateILb0EEaSERKNS1_ILb1EEE.exit231: ; preds = %.critedge
   %736 = load ptr, ptr %612, align 8, !tbaa !15
+  %.not.i230 = icmp eq ptr %.sroa.0353.3413, %736
+  %spec.select366 = select i1 %.not.i230, ptr %.sroa.0353.3413, ptr %736, !prof !39
   %737 = load ptr, ptr %16, align 8, !tbaa !15
   %738 = load ptr, ptr %25, align 8, !tbaa !15
   %.not.i232 = icmp eq ptr %737, %738
@@ -2997,7 +3001,7 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i234: ; preds = %748, %742, %739
   br label %.body228
 
 _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit237: ; preds = %729, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit226, %761, %755, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKNS1_ILb1EEE.exit231, %763, %.critedge
-  %.sroa.0353.5 = phi ptr [ %.sroa.0353.3413, %.critedge ], [ %736, %763 ], [ %736, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKNS1_ILb1EEE.exit231 ], [ %736, %755 ], [ %736, %761 ], [ %.sroa.0353.3413, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit226 ], [ %.sroa.0353.3413, %729 ]
+  %.sroa.0353.5 = phi ptr [ %.sroa.0353.3413, %.critedge ], [ %spec.select366, %763 ], [ %spec.select366, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKNS1_ILb1EEE.exit231 ], [ %spec.select366, %755 ], [ %spec.select366, %761 ], [ %.sroa.0353.3413, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit226 ], [ %.sroa.0353.3413, %729 ]
   %771 = load ptr, ptr %25, align 8, !tbaa !15
   %772 = load i64, ptr %771, align 8
   %773 = and i64 %772, 1152920405095219200

@@ -110174,8 +110174,10 @@ define hidden void @"_ZN5typst11foundations5array90_$LT$impl$u20$typst..foundati
   store ptr %8, ptr %3, align 8, !noalias !27679
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %10, ptr %12, align 8, !noalias !27679
-  %13 = getelementptr i8, ptr %8, i64 -16
-  %14 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f5ffcebb5242ccbE.llvm.7889846851399105414"(ptr noundef align 8 %13, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %8, inttoptr (i64 16 to ptr)
+  %13 = getelementptr inbounds i8, ptr %8, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %13
+  %14 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f5ffcebb5242ccbE.llvm.7889846851399105414"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %"_ZN94_$LT$typst..foundations..array..Array$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h807b59b6b3e9f6ceE.exit" unwind label %15, !noalias !27679
 
 15:                                               ; preds = %11
@@ -110241,8 +110243,10 @@ define hidden void @"_ZN5typst11foundations5array90_$LT$impl$u20$typst..foundati
   store ptr %8, ptr %3, align 8, !noalias !27685
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %10, ptr %12, align 8, !noalias !27685
-  %13 = getelementptr i8, ptr %8, i64 -16
-  %14 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f5ffcebb5242ccbE.llvm.7889846851399105414"(ptr noundef align 8 %13, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %8, inttoptr (i64 16 to ptr)
+  %13 = getelementptr inbounds i8, ptr %8, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %13
+  %14 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f5ffcebb5242ccbE.llvm.7889846851399105414"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %"_ZN94_$LT$typst..foundations..array..Array$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h807b59b6b3e9f6ceE.exit" unwind label %15, !noalias !27685
 
 15:                                               ; preds = %11
@@ -110308,8 +110312,10 @@ define hidden void @"_ZN5typst11foundations5array90_$LT$impl$u20$typst..foundati
   store ptr %8, ptr %3, align 8, !noalias !27691
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %10, ptr %12, align 8, !noalias !27691
-  %13 = getelementptr i8, ptr %8, i64 -16
-  %14 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f5ffcebb5242ccbE.llvm.7889846851399105414"(ptr noundef align 8 %13, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %8, inttoptr (i64 16 to ptr)
+  %13 = getelementptr inbounds i8, ptr %8, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %13
+  %14 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f5ffcebb5242ccbE.llvm.7889846851399105414"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %"_ZN94_$LT$typst..foundations..array..Array$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h807b59b6b3e9f6ceE.exit" unwind label %15, !noalias !27691
 
 15:                                               ; preds = %11
@@ -110375,8 +110381,10 @@ define hidden void @"_ZN5typst11foundations5array90_$LT$impl$u20$typst..foundati
   store ptr %8, ptr %3, align 8, !noalias !27697
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %10, ptr %12, align 8, !noalias !27697
-  %13 = getelementptr i8, ptr %8, i64 -16
-  %14 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f5ffcebb5242ccbE.llvm.7889846851399105414"(ptr noundef align 8 %13, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %8, inttoptr (i64 16 to ptr)
+  %13 = getelementptr inbounds i8, ptr %8, i64 -16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %13
+  %14 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2f5ffcebb5242ccbE.llvm.7889846851399105414"(ptr noundef align 8 %spec.select.i.i.i, i1 noundef zeroext true)
           to label %"_ZN94_$LT$typst..foundations..array..Array$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h807b59b6b3e9f6ceE.exit" unwind label %15, !noalias !27697
 
 15:                                               ; preds = %11

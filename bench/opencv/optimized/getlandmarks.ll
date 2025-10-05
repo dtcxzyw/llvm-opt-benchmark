@@ -1557,11 +1557,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156: ; preds = %35
   br label %754
 
 ._crit_edge328.loopexit:                          ; preds = %_ZN2cv4face7regtreeD2Ev.exit
-  %.pre353 = load i64, ptr %20, align 8, !tbaa !36
+  %.pre354 = load i64, ptr %20, align 8, !tbaa !36
   br label %._crit_edge328
 
 ._crit_edge328:                                   ; preds = %._crit_edge328.loopexit, %.preheader
-  %389 = phi i64 [ %375, %.preheader ], [ %.pre353, %._crit_edge328.loopexit ]
+  %389 = phi i64 [ %375, %.preheader ], [ %.pre354, %._crit_edge328.loopexit ]
   %390 = phi i64 [ 0, %.preheader ], [ %728, %._crit_edge328.loopexit ]
   %391 = add nuw i64 %.064329, 1
   %392 = icmp ult i64 %391, %389
@@ -2330,8 +2330,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit: ; preds = %.noexc204
   %646 = ptrtoint ptr %644 to i64
   %647 = ptrtoint ptr %645 to i64
   %648 = sub i64 %646, %647
-  %.not472 = icmp eq ptr %644, %645
-  br i1 %.not472, label %.loopexit, label %649
+  %.not473 = icmp eq ptr %644, %645
+  br i1 %.not473, label %.loopexit, label %649
 
 649:                                              ; preds = %643
   %650 = icmp ugt i64 %648, 9223372036854775800
@@ -2576,7 +2576,7 @@ _ZN2cv4face9tree_nodeD2Ev.exit:                   ; preds = %_ZSt4copyIN9__gnu_c
   br label %_ZN2cv4face9tree_nodeD2Ev.exit224
 
 _ZN2cv4face9tree_nodeD2Ev.exit224:                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit218, %629, %717, %718
-  %.pn73476 = phi { ptr, i32 } [ %.pn73, %717 ], [ %.pn73, %718 ], [ %.pn71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221 ], [ %lpad.phi, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit218 ], [ %630, %629 ]
+  %.pn73477 = phi { ptr, i32 } [ %.pn73, %717 ], [ %.pn73, %718 ], [ %.pn71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221 ], [ %lpad.phi, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit218 ], [ %630, %629 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   br label %.body
 
@@ -2624,7 +2624,7 @@ _ZN2cv4face7regtreeD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %729, label %.lr.ph327, label %._crit_edge328.loopexit, !llvm.loop !91
 
 .body:                                            ; preds = %.loopexit300, %.loopexit.split-lp301, %567, %.body259, %623, %_ZN2cv4face9tree_nodeD2Ev.exit224, %627, %625
-  %.pn73.pn.pn.pn = phi { ptr, i32 } [ %624, %623 ], [ %.pn73476, %_ZN2cv4face9tree_nodeD2Ev.exit224 ], [ %628, %627 ], [ %626, %625 ], [ %561, %567 ], [ %561, %.body259 ], [ %lpad.loopexit302, %.loopexit300 ], [ %lpad.loopexit.split-lp303, %.loopexit.split-lp301 ]
+  %.pn73.pn.pn.pn = phi { ptr, i32 } [ %624, %623 ], [ %.pn73477, %_ZN2cv4face9tree_nodeD2Ev.exit224 ], [ %628, %627 ], [ %626, %625 ], [ %561, %567 ], [ %561, %.body259 ], [ %lpad.loopexit302, %.loopexit300 ], [ %lpad.loopexit.split-lp303, %.loopexit.split-lp301 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %730
 

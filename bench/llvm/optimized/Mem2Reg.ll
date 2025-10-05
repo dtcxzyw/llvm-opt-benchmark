@@ -85,7 +85,7 @@ define internal fastcc noundef zeroext i1 @_ZL23promoteMemoryToRegisterRN4llvm8F
   br i1 %.not192544, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit
-  %.sroa.04.02448 = phi ptr [ %.sroa.04.024, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ], [ %.sroa.04.02443, %2 ]
+  %.sroa.04.02449 = phi ptr [ %.sroa.04.024, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ], [ %.sroa.04.02443, %2 ]
   %6 = phi ptr [ %39, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ], [ %5, %2 ]
   %.047 = phi i1 [ true, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ], [ false, %2 ]
   %.sroa.07.046 = phi ptr [ %.sroa.07.3, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ], [ null, %2 ]
@@ -97,7 +97,7 @@ define internal fastcc noundef zeroext i1 @_ZL23promoteMemoryToRegisterRN4llvm8F
   br i1 %7, label %._crit_edge.thread.loopexit, label %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit
-  %.sroa.04.029 = phi ptr [ %.sroa.04.0, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.04.02448, %.lr.ph.preheader ]
+  %.sroa.04.029 = phi ptr [ %.sroa.04.0, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.04.02449, %.lr.ph.preheader ]
   %.sroa.07.128 = phi ptr [ %.sroa.07.3, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.07.046, %.lr.ph.preheader ]
   %.sroa.1013.227 = phi ptr [ %.sroa.1013.4, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.07.046, %.lr.ph.preheader ]
   %.sroa.18.126 = phi ptr [ %.sroa.18.3, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.18.045, %.lr.ph.preheader ]

@@ -2525,7 +2525,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8.i:              ; preds = %105, %103, %_ZN4llv
   br i1 %.not6.i, label %"_ZZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_9BlockNodeEEEEEENK3$_0clERKSt6vectorIiSaIiEE.exit", label %80
 
 "_ZZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_9BlockNodeEEEEEENK3$_0clERKSt6vectorIiSaIiEE.exit": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8.i, %_ZN4llvm9PrintableD2Ev.exit, %._crit_edge
-  %.sroa.095.0.lcssa154 = phi ptr [ %.sroa.095.2, %._crit_edge ], [ null, %_ZN4llvm9PrintableD2Ev.exit ], [ %.sroa.095.2, %_ZN4llvm11raw_ostreamlsEPKc.exit8.i ]
+  %.not67.i156 = phi ptr [ %.sroa.11.3, %._crit_edge ], [ null, %_ZN4llvm9PrintableD2Ev.exit ], [ %.sroa.095.2, %_ZN4llvm11raw_ostreamlsEPKc.exit8.i ]
+  %.sroa.095.0.lcssa155 = phi ptr [ %.sroa.095.2, %._crit_edge ], [ null, %_ZN4llvm9PrintableD2Ev.exit ], [ %.sroa.095.2, %_ZN4llvm11raw_ostreamlsEPKc.exit8.i ]
   %.sroa.21.0.lcssa153 = phi ptr [ %.sroa.21.2, %._crit_edge ], [ null, %_ZN4llvm9PrintableD2Ev.exit ], [ %.sroa.21.2, %_ZN4llvm11raw_ostreamlsEPKc.exit8.i ]
   %109 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %110 = load i32, ptr %109, align 8, !tbaa !94
@@ -2583,7 +2584,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %134, %136
   %.idx131 = shl nuw nsw i64 %142, 3
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 %.idx131
   %.not40117 = icmp eq i32 %141, 0
-  br i1 %.not40117, label %"_ZZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_9BlockNodeEEEEEENK3$_0clERKSt6vectorIiSaIiEE.exit72", label %.lr.ph122
+  br i1 %.not40117, label %._crit_edge123, label %.lr.ph122
 
 .lr.ph:                                           ; preds = %_ZN4llvm9PrintableD2Ev.exit, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
   %.0114 = phi ptr [ %166, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ], [ %69, %_ZN4llvm9PrintableD2Ev.exit ]
@@ -2652,13 +2653,16 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %147, %_ZNSt6vectorI
   %.not = icmp eq ptr %166, %72
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge123:                                   ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82
-  %.not67.i63 = icmp eq ptr %.sroa.095.3, %.sroa.11.4
+._crit_edge123:                                   ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82, %_ZN4llvm11raw_ostreamlsEPKc.exit58
+  %.sroa.21.1.lcssa = phi ptr [ %.sroa.21.0.lcssa153, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ], [ %.sroa.21.3, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82 ]
+  %.sroa.11.1.lcssa = phi ptr [ %.not67.i156, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ], [ %.sroa.11.4, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82 ]
+  %.sroa.095.1.lcssa = phi ptr [ %.sroa.095.0.lcssa155, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ], [ %.sroa.095.3, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82 ]
+  %.not67.i63 = icmp eq ptr %.sroa.095.1.lcssa, %.sroa.11.1.lcssa
   br i1 %.not67.i63, label %"_ZZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_9BlockNodeEEEEEENK3$_0clERKSt6vectorIiSaIiEE.exit72", label %.lr.ph.i64
 
 .lr.ph.i64:                                       ; preds = %._crit_edge123
-  %167 = ptrtoint ptr %.sroa.11.4 to i64
-  %168 = ptrtoint ptr %.sroa.095.3 to i64
+  %167 = ptrtoint ptr %.sroa.11.1.lcssa to i64
+  %168 = ptrtoint ptr %.sroa.095.1.lcssa to i64
   %169 = sub i64 %167, %168
   %170 = lshr exact i64 %169, 2
   %171 = trunc i64 %170 to i32
@@ -2666,7 +2670,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %147, %_ZNSt6vectorI
 
 172:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8.i70, %.lr.ph.i64
   %.09.i65 = phi i32 [ %171, %.lr.ph.i64 ], [ %187, %_ZN4llvm11raw_ostreamlsEPKc.exit8.i70 ]
-  %.sroa.03.08.i66 = phi ptr [ %.sroa.095.3, %.lr.ph.i64 ], [ %200, %_ZN4llvm11raw_ostreamlsEPKc.exit8.i70 ]
+  %.sroa.03.08.i66 = phi ptr [ %.sroa.095.1.lcssa, %.lr.ph.i64 ], [ %200, %_ZN4llvm11raw_ostreamlsEPKc.exit8.i70 ]
   %173 = load i32, ptr %.sroa.03.08.i66, align 4, !tbaa !11
   %174 = load ptr, ptr %111, align 8, !tbaa !18
   %175 = load ptr, ptr %113, align 8, !tbaa !24
@@ -2717,12 +2721,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i67:             ; preds = %182, %180
 
 _ZN4llvm11raw_ostreamlsEPKc.exit8.i70:            ; preds = %197, %195, %_ZN4llvm11raw_ostreamlsEPKc.exit.i67
   %200 = getelementptr inbounds nuw i8, ptr %.sroa.03.08.i66, i64 4
-  %.not6.i71 = icmp eq ptr %.sroa.03.08.i66, %.pn103
+  %.not6.i71 = icmp eq ptr %200, %.sroa.11.1.lcssa
   br i1 %.not6.i71, label %"_ZZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_9BlockNodeEEEEEENK3$_0clERKSt6vectorIiSaIiEE.exit72", label %172
 
-"_ZZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_9BlockNodeEEEEEENK3$_0clERKSt6vectorIiSaIiEE.exit72": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8.i70, %_ZN4llvm11raw_ostreamlsEPKc.exit58, %._crit_edge123
-  %.sroa.095.1.lcssa160 = phi ptr [ %.sroa.095.3, %._crit_edge123 ], [ %.sroa.095.0.lcssa154, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ], [ %.sroa.095.3, %_ZN4llvm11raw_ostreamlsEPKc.exit8.i70 ]
-  %.sroa.21.1.lcssa159 = phi ptr [ %.sroa.21.3, %._crit_edge123 ], [ %.sroa.21.0.lcssa153, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ], [ %.sroa.21.3, %_ZN4llvm11raw_ostreamlsEPKc.exit8.i70 ]
+"_ZZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_9BlockNodeEEEEEENK3$_0clERKSt6vectorIiSaIiEE.exit72": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8.i70, %._crit_edge123
   %201 = load ptr, ptr %113, align 8, !tbaa !24
   %202 = load ptr, ptr %111, align 8, !tbaa !18
   %.not.i73 = icmp ult ptr %201, %202
@@ -2841,8 +2843,8 @@ _ZNK4llvm3rdf8CodeNode7membersERKNS0_13DataFlowGraphE.exit: ; preds = %_ZNK4llvm
 
 .lr.ph122:                                        ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit58, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82
   %.039121 = phi ptr [ %284, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82 ], [ %140, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ]
-  %.sroa.095.1120 = phi ptr [ %.sroa.095.3, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82 ], [ %.sroa.095.0.lcssa154, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ]
-  %.sroa.11.1119 = phi ptr [ %.sroa.11.4, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82 ], [ %.sroa.095.0.lcssa154, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ]
+  %.sroa.095.1120 = phi ptr [ %.sroa.095.3, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82 ], [ %.sroa.095.0.lcssa155, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ]
+  %.sroa.11.1119 = phi ptr [ %.sroa.11.4, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82 ], [ %.not67.i156, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ]
   %.sroa.21.1118 = phi ptr [ %.sroa.21.3, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82 ], [ %.sroa.21.0.lcssa153, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ]
   %262 = load ptr, ptr %.039121, align 8, !tbaa !271
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 24
@@ -2921,14 +2923,14 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit82:         ; preds = %265, %_ZNSt6vectorI
 
 _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i, %._crit_edge130, %287
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not.i.i.i83 = icmp eq ptr %.sroa.095.1.lcssa160, null
+  %.not.i.i.i83 = icmp eq ptr %.sroa.095.1.lcssa, null
   br i1 %.not.i.i.i83, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %288
 
 288:                                              ; preds = %_ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit
-  %289 = ptrtoint ptr %.sroa.21.1.lcssa159 to i64
-  %290 = ptrtoint ptr %.sroa.095.1.lcssa160 to i64
+  %289 = ptrtoint ptr %.sroa.21.1.lcssa to i64
+  %290 = ptrtoint ptr %.sroa.095.1.lcssa to i64
   %291 = sub i64 %289, %290
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.095.1.lcssa160, i64 noundef %291) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.095.1.lcssa, i64 noundef %291) #28
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit, %288

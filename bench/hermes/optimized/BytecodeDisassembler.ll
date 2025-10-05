@@ -12195,14 +12195,18 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i: ; preds = %if.then.i28.
 
 if.else.i33:                                      ; preds = %_ZNSt6vectorIhSaIhEE9push_backERKh.exit
   %cmp4.i = icmp ult i64 %sub, %sub.ptr.sub.i
+  br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
+
+if.then5.i:                                       ; preds = %if.else.i33
   %add.ptr.i = getelementptr inbounds i8, ptr %bytecode.sroa.0.1, i64 %sub
-  %spec.select = select i1 %cmp4.i, ptr %add.ptr.i, ptr %bytecode.sroa.11.1
+  %tobool.not.i.i34 = icmp eq ptr %bytecode.sroa.11.1, %add.ptr.i
+  %spec.select = select i1 %tobool.not.i.i34, ptr %bytecode.sroa.11.1, ptr %add.ptr.i
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
 
-_ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %if.else.i33, %if.then.i.i.i.i.i37, %if.then.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i
-  %bytecode.sroa.11.2 = phi ptr [ %add.ptr33.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i37 ], [ %add.ptr.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ %spec.select, %if.else.i33 ]
-  %bytecode.sroa.21.2 = phi ptr [ %add.ptr36.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ], [ %bytecode.sroa.21.1, %if.then.i.i.i.i.i37 ], [ %bytecode.sroa.21.1, %if.then.i.i.i.i.i.i.i.i.i ], [ %bytecode.sroa.21.1, %if.else.i33 ]
-  %bytecode.sroa.0.2 = phi ptr [ %call5.i.i.i.i.i42, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ], [ %bytecode.sroa.0.1, %if.then.i.i.i.i.i37 ], [ %bytecode.sroa.0.1, %if.then.i.i.i.i.i.i.i.i.i ], [ %bytecode.sroa.0.1, %if.else.i33 ]
+_ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %if.then5.i, %if.then.i.i.i.i.i37, %if.then.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i, %if.else.i33
+  %bytecode.sroa.11.2 = phi ptr [ %add.ptr33.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ], [ %bytecode.sroa.11.1, %if.else.i33 ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i37 ], [ %add.ptr.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ %spec.select, %if.then5.i ]
+  %bytecode.sroa.21.2 = phi ptr [ %add.ptr36.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ], [ %bytecode.sroa.21.1, %if.else.i33 ], [ %bytecode.sroa.21.1, %if.then.i.i.i.i.i37 ], [ %bytecode.sroa.21.1, %if.then.i.i.i.i.i.i.i.i.i ], [ %bytecode.sroa.21.1, %if.then5.i ]
+  %bytecode.sroa.0.2 = phi ptr [ %call5.i.i.i.i.i42, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i ], [ %bytecode.sroa.0.1, %if.else.i33 ], [ %bytecode.sroa.0.1, %if.then.i.i.i.i.i37 ], [ %bytecode.sroa.0.1, %if.then.i.i.i.i.i.i.i.i.i ], [ %bytecode.sroa.0.1, %if.then5.i ]
   %inc = add nuw i8 %storemerge74, 1
   %exitcond.not = icmp eq i8 %inc, -64
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !107

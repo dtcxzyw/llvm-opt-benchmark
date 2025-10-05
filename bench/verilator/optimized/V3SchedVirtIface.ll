@@ -5137,7 +5137,7 @@ _ZNKSt8functionIFvP9AstVarRefP8AstIfaceEEclES1_S3_.exit19.i.i.i: ; preds = %48
   %.sroa.21.1.i = phi ptr [ %.sroa.21.5.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i ], [ %13, %.lr.ph.i.preheader.i ]
   %.056.i.i = phi ptr [ %.1.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i ], [ %69, %.lr.ph.i.preheader.i ]
   %.05055.i.i = phi ptr [ %.151.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i ], [ %.ptr35.i, %.lr.ph.i.preheader.i ]
-  %75 = phi ptr [ %195, %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i ], [ %.3.ptr.i, %.lr.ph.i.preheader.i ]
+  %75 = phi ptr [ %196, %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i ], [ %.3.ptr.i, %.lr.ph.i.preheader.i ]
   %76 = getelementptr inbounds i8, ptr %75, i64 -8
   %77 = load ptr, ptr %76, align 8, !tbaa !151
   %78 = getelementptr inbounds i8, ptr %75, i64 -24
@@ -5147,7 +5147,7 @@ _ZNKSt8functionIFvP9AstVarRefP8AstIfaceEEclES1_S3_.exit19.i.i.i: ; preds = %48
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 64
   call void @llvm.prefetch.p0(ptr nonnull %81, i32 0, i32 3, i32 1)
   %.not17.i.i = icmp ult ptr %76, %.056.i.i
-  br i1 %.not17.i.i, label %129, label %82, !prof !117
+  br i1 %.not17.i.i, label %130, label %82, !prof !117
 
 82:                                               ; preds = %.lr.ph.i.i
   %83 = ptrtoint ptr %.sroa.13.1.i to i64
@@ -5233,25 +5233,29 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds =
 
 118:                                              ; preds = %82
   %119 = icmp ult i64 %87, %86
-  %120 = getelementptr inbounds nuw ptr, ptr %.sroa.0.1.i, i64 %87
-  %spec.select.i = select i1 %119, ptr %120, ptr %.sroa.13.1.i
+  br i1 %119, label %120, label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i
+
+120:                                              ; preds = %118
+  %121 = getelementptr inbounds nuw ptr, ptr %.sroa.0.1.i, i64 %87
+  %.not.i.i.i24.i.i = icmp eq ptr %.sroa.13.1.i, %121
+  %spec.select.i = select i1 %.not.i.i.i24.i.i, ptr %.sroa.13.1.i, ptr %121
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i
 
-_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i: ; preds = %118, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i, %97
-  %.sroa.0.3.i = phi ptr [ %108, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i ], [ %.sroa.0.1.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %.sroa.0.1.i, %97 ], [ %.sroa.0.1.i, %118 ]
-  %.sroa.13.3.i = phi ptr [ %116, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i ], [ %101, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %98, %97 ], [ %spec.select.i, %118 ]
-  %.sroa.21.3.i = phi ptr [ %117, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i ], [ %.sroa.21.1.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %.sroa.21.1.i, %97 ], [ %.sroa.21.1.i, %118 ]
-  %121 = ptrtoint ptr %76 to i64
-  %122 = ptrtoint ptr %.05055.i.i to i64
-  %123 = sub i64 %121, %122
-  %124 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i, i64 16
-  %125 = getelementptr inbounds i8, ptr %124, i64 %123
-  %126 = getelementptr inbounds nuw ptr, ptr %124, i64 %87
-  %127 = getelementptr inbounds i8, ptr %126, i64 -40
-  br label %129
+_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i: ; preds = %120, %118, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i, %97
+  %.sroa.0.3.i = phi ptr [ %.sroa.0.1.i, %118 ], [ %108, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i ], [ %.sroa.0.1.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %.sroa.0.1.i, %97 ], [ %.sroa.0.1.i, %120 ]
+  %.sroa.13.3.i = phi ptr [ %.sroa.13.1.i, %118 ], [ %116, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i ], [ %101, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %98, %97 ], [ %spec.select.i, %120 ]
+  %.sroa.21.3.i = phi ptr [ %.sroa.21.1.i, %118 ], [ %117, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i ], [ %.sroa.21.1.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %.sroa.21.1.i, %97 ], [ %.sroa.21.1.i, %120 ]
+  %122 = ptrtoint ptr %76 to i64
+  %123 = ptrtoint ptr %.05055.i.i to i64
+  %124 = sub i64 %122, %123
+  %125 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i, i64 16
+  %126 = getelementptr inbounds i8, ptr %125, i64 %124
+  %127 = getelementptr inbounds nuw ptr, ptr %125, i64 %87
+  %128 = getelementptr inbounds i8, ptr %127, i64 -40
+  br label %130
 
 .thread24.i:                                      ; preds = %_ZNKSt8functionIFvP9AstVarRefP8AstIfaceEEclES1_S3_.exit19.i.i.i, %_ZNKSt8functionIFvP9AstVarRefP8AstIfaceEEclES1_S3_.exit.i.i.i, %.invoke.i
-  %128 = landingpad { ptr, i32 }
+  %129 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit38.i.i
 
@@ -5272,95 +5276,95 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23
           cleanup
   br label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit38.i.i
 
-129:                                              ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i, %.lr.ph.i.i
+130:                                              ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i, %.lr.ph.i.i
   %.sroa.0.5.i = phi ptr [ %.sroa.0.1.i, %.lr.ph.i.i ], [ %.sroa.0.3.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i ]
   %.sroa.13.4.i = phi ptr [ %.sroa.13.1.i, %.lr.ph.i.i ], [ %.sroa.13.3.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i ]
   %.sroa.21.5.i = phi ptr [ %.sroa.21.1.i, %.lr.ph.i.i ], [ %.sroa.21.3.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i ]
-  %130 = phi ptr [ %76, %.lr.ph.i.i ], [ %125, %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i ]
-  %.151.i.i = phi ptr [ %.05055.i.i, %.lr.ph.i.i ], [ %124, %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i ]
-  %.1.i.i = phi ptr [ %.056.i.i, %.lr.ph.i.i ], [ %127, %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i ]
-  %131 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %132 = load ptr, ptr %131, align 8, !tbaa !155
-  %.not18.i.i = icmp eq ptr %132, null
-  br i1 %.not18.i.i, label %135, label %133
+  %131 = phi ptr [ %76, %.lr.ph.i.i ], [ %126, %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i ]
+  %.151.i.i = phi ptr [ %.05055.i.i, %.lr.ph.i.i ], [ %125, %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i ]
+  %.1.i.i = phi ptr [ %.056.i.i, %.lr.ph.i.i ], [ %128, %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i ]
+  %132 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %133 = load ptr, ptr %132, align 8, !tbaa !155
+  %.not18.i.i = icmp eq ptr %133, null
+  br i1 %.not18.i.i, label %136, label %134
 
-133:                                              ; preds = %129
-  %134 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store ptr %132, ptr %130, align 8, !tbaa !151
-  br label %135
+134:                                              ; preds = %130
+  %135 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  store ptr %133, ptr %131, align 8, !tbaa !151
+  br label %136
 
-135:                                              ; preds = %133, %129
-  %136 = phi ptr [ %134, %133 ], [ %130, %129 ]
-  %137 = getelementptr inbounds nuw i8, ptr %77, i64 64
-  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %137, align 8, !tbaa !193
-  %138 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i, 320
-  br i1 %138, label %139, label %172
+136:                                              ; preds = %134, %130
+  %137 = phi ptr [ %135, %134 ], [ %131, %130 ]
+  %138 = getelementptr inbounds nuw i8, ptr %77, i64 64
+  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %138, align 8, !tbaa !193
+  %139 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i, 320
+  br i1 %139, label %140, label %173
 
-139:                                              ; preds = %135
-  %140 = getelementptr inbounds nuw i8, ptr %77, i64 176
-  %.sroa.0.0.copyload.i.i22.i.i.i = load i8, ptr %140, align 8, !tbaa !194
-  %141 = icmp eq i8 %.sroa.0.0.copyload.i.i22.i.i.i, 0
-  br i1 %141, label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i, label %142
+140:                                              ; preds = %136
+  %141 = getelementptr inbounds nuw i8, ptr %77, i64 176
+  %.sroa.0.0.copyload.i.i22.i.i.i = load i8, ptr %141, align 8, !tbaa !194
+  %142 = icmp eq i8 %.sroa.0.0.copyload.i.i22.i.i.i, 0
+  br i1 %142, label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i, label %143
 
-142:                                              ; preds = %139
-  %143 = getelementptr inbounds nuw i8, ptr %77, i64 152
-  %144 = load ptr, ptr %143, align 8, !tbaa !196
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 72
-  %146 = load ptr, ptr %145, align 8, !tbaa !129
-  %.not.i.i.i31.i.i = icmp eq ptr %146, null
-  br i1 %.not.i.i.i31.i.i, label %166, label %147
+143:                                              ; preds = %140
+  %144 = getelementptr inbounds nuw i8, ptr %77, i64 152
+  %145 = load ptr, ptr %144, align 8, !tbaa !196
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 72
+  %147 = load ptr, ptr %146, align 8, !tbaa !129
+  %.not.i.i.i31.i.i = icmp eq ptr %147, null
+  br i1 %.not.i.i.i31.i.i, label %167, label %148
 
-147:                                              ; preds = %142
-  %148 = getelementptr inbounds nuw i8, ptr %146, i64 64
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i16, ptr %148, align 8, !tbaa !193
-  %149 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 64
-  br i1 %149, label %_ZN7AstNode11privateCastI16AstIfaceRefDTypeP12AstNodeDTypeEEPT_PS_.exit.i.i.i.i, label %166
+148:                                              ; preds = %143
+  %149 = getelementptr inbounds nuw i8, ptr %147, i64 64
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i16, ptr %149, align 8, !tbaa !193
+  %150 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 64
+  br i1 %150, label %_ZN7AstNode11privateCastI16AstIfaceRefDTypeP12AstNodeDTypeEEPT_PS_.exit.i.i.i.i, label %167
 
-_ZN7AstNode11privateCastI16AstIfaceRefDTypeP12AstNodeDTypeEEPT_PS_.exit.i.i.i.i: ; preds = %147
-  %150 = getelementptr inbounds nuw i8, ptr %146, i64 273
-  %151 = load i8, ptr %150, align 1, !tbaa !208, !range !72, !noundef !73
-  %152 = trunc nuw i8 %151 to i1
-  br i1 %152, label %153, label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i
+_ZN7AstNode11privateCastI16AstIfaceRefDTypeP12AstNodeDTypeEEPT_PS_.exit.i.i.i.i: ; preds = %148
+  %151 = getelementptr inbounds nuw i8, ptr %147, i64 273
+  %152 = load i8, ptr %151, align 1, !tbaa !208, !range !72, !noundef !73
+  %153 = trunc nuw i8 %152 to i1
+  br i1 %153, label %154, label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i
 
-153:                                              ; preds = %_ZN7AstNode11privateCastI16AstIfaceRefDTypeP12AstNodeDTypeEEPT_PS_.exit.i.i.i.i
-  %154 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %155 = load ptr, ptr %154, align 8, !tbaa !215
-  %.not.i14.i.i.i.i = icmp eq ptr %155, null
-  br i1 %.not.i14.i.i.i.i, label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i, label %156
+154:                                              ; preds = %_ZN7AstNode11privateCastI16AstIfaceRefDTypeP12AstNodeDTypeEEPT_PS_.exit.i.i.i.i
+  %155 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %156 = load ptr, ptr %155, align 8, !tbaa !215
+  %.not.i14.i.i.i.i = icmp eq ptr %156, null
+  br i1 %.not.i14.i.i.i.i, label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i, label %157
 
-156:                                              ; preds = %153
-  %157 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  %158 = load ptr, ptr %157, align 8, !tbaa !155
-  %.not1.i.i.i.i.i = icmp eq ptr %158, %77
+157:                                              ; preds = %154
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %159 = load ptr, ptr %158, align 8, !tbaa !155
+  %.not1.i.i.i.i.i = icmp eq ptr %159, %77
   br i1 %.not1.i.i.i.i.i, label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i, label %_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i.i
 
-_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i.i: ; preds = %156
-  %159 = getelementptr inbounds nuw i8, ptr %155, i64 64
-  %.sroa.0.0.copyload.i.i.i17.i.i.i.i = load i16, ptr %159, align 8, !tbaa !193
-  %160 = icmp eq i16 %.sroa.0.0.copyload.i.i.i17.i.i.i.i, 122
-  br i1 %160, label %161, label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i
+_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i.i: ; preds = %157
+  %160 = getelementptr inbounds nuw i8, ptr %156, i64 64
+  %.sroa.0.0.copyload.i.i.i17.i.i.i.i = load i16, ptr %160, align 8, !tbaa !193
+  %161 = icmp eq i16 %.sroa.0.0.copyload.i.i.i17.i.i.i.i, 122
+  br i1 %161, label %162, label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i
 
-161:                                              ; preds = %_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i.i
-  %162 = getelementptr inbounds nuw i8, ptr %146, i64 280
-  %163 = load ptr, ptr %162, align 8, !tbaa !232
+162:                                              ; preds = %_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i.i
+  %163 = getelementptr inbounds nuw i8, ptr %147, i64 280
+  %164 = load ptr, ptr %163, align 8, !tbaa !232
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %77, ptr %9, align 8, !tbaa !233
-  store ptr %163, ptr %10, align 8, !tbaa !132
-  %164 = load ptr, ptr %70, align 8, !tbaa !139
-  %.not.i.i.i.i.i.i = icmp eq ptr %164, null
+  store ptr %164, ptr %10, align 8, !tbaa !132
+  %165 = load ptr, ptr %70, align 8, !tbaa !139
+  %.not.i.i.i.i.i.i = icmp eq ptr %165, null
   br i1 %.not.i.i.i.i.i.i, label %.invoke.i.i, label %_ZNKSt8functionIFvP9AstVarRefP8AstIfaceEEclES1_S3_.exit.i.i.i.i
 
-.invoke.i.i:                                      ; preds = %169, %161
+.invoke.i.i:                                      ; preds = %170, %162
   invoke void @_ZSt25__throw_bad_function_callv() #28
           to label %.cont.i.i unwind label %.loopexit.split-lp.i.i
 
 .cont.i.i:                                        ; preds = %.invoke.i.i
   unreachable
 
-_ZNKSt8functionIFvP9AstVarRefP8AstIfaceEEclES1_S3_.exit.i.i.i.i: ; preds = %161
-  %165 = load ptr, ptr %71, align 8, !tbaa !136
-  invoke void %165(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+_ZNKSt8functionIFvP9AstVarRefP8AstIfaceEEclES1_S3_.exit.i.i.i.i: ; preds = %162
+  %166 = load ptr, ptr %71, align 8, !tbaa !136
+  invoke void %166(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %.noexc33.i.i unwind label %.loopexit.i.loopexit.i
 
 .noexc33.i.i:                                     ; preds = %_ZNKSt8functionIFvP9AstVarRefP8AstIfaceEEclES1_S3_.exit.i.i.i.i
@@ -5368,24 +5372,24 @@ _ZNKSt8functionIFvP9AstVarRefP8AstIfaceEEclES1_S3_.exit.i.i.i.i: ; preds = %161
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i
 
-166:                                              ; preds = %147, %142
-  %167 = getelementptr inbounds nuw i8, ptr %144, i64 272
-  %168 = load ptr, ptr %167, align 8, !tbaa !216
-  %.not13.i.i.i.i = icmp eq ptr %168, null
-  br i1 %.not13.i.i.i.i, label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i, label %169
+167:                                              ; preds = %148, %143
+  %168 = getelementptr inbounds nuw i8, ptr %145, i64 272
+  %169 = load ptr, ptr %168, align 8, !tbaa !216
+  %.not13.i.i.i.i = icmp eq ptr %169, null
+  br i1 %.not13.i.i.i.i, label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i, label %170
 
-169:                                              ; preds = %166
+170:                                              ; preds = %167
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %77, ptr %7, align 8, !tbaa !233
-  store ptr %168, ptr %8, align 8, !tbaa !132
-  %170 = load ptr, ptr %70, align 8, !tbaa !139
-  %.not.i.i18.i.i.i.i = icmp eq ptr %170, null
+  store ptr %169, ptr %8, align 8, !tbaa !132
+  %171 = load ptr, ptr %70, align 8, !tbaa !139
+  %.not.i.i18.i.i.i.i = icmp eq ptr %171, null
   br i1 %.not.i.i18.i.i.i.i, label %.invoke.i.i, label %_ZNKSt8functionIFvP9AstVarRefP8AstIfaceEEclES1_S3_.exit19.i.i.i.i
 
-_ZNKSt8functionIFvP9AstVarRefP8AstIfaceEEclES1_S3_.exit19.i.i.i.i: ; preds = %169
-  %171 = load ptr, ptr %71, align 8, !tbaa !136
-  invoke void %171(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+_ZNKSt8functionIFvP9AstVarRefP8AstIfaceEEclES1_S3_.exit19.i.i.i.i: ; preds = %170
+  %172 = load ptr, ptr %71, align 8, !tbaa !136
+  invoke void %172(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %.noexc35.i.i unwind label %.loopexit.i.loopexit.i
 
 .noexc35.i.i:                                     ; preds = %_ZNKSt8functionIFvP9AstVarRefP8AstIfaceEEclES1_S3_.exit19.i.i.i.i
@@ -5393,75 +5397,75 @@ _ZNKSt8functionIFvP9AstVarRefP8AstIfaceEEclES1_S3_.exit19.i.i.i.i: ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i
 
-172:                                              ; preds = %135
-  %173 = getelementptr inbounds nuw i8, ptr %77, i64 48
-  %174 = load ptr, ptr %173, align 8, !tbaa !150
-  %.not.i.i.i = icmp eq ptr %174, null
-  br i1 %.not.i.i.i, label %177, label %175
+173:                                              ; preds = %136
+  %174 = getelementptr inbounds nuw i8, ptr %77, i64 48
+  %175 = load ptr, ptr %174, align 8, !tbaa !150
+  %.not.i.i.i = icmp eq ptr %175, null
+  br i1 %.not.i.i.i, label %178, label %176
 
-175:                                              ; preds = %172
-  %176 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  store ptr %174, ptr %136, align 8, !tbaa !151
-  br label %177
+176:                                              ; preds = %173
+  %177 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  store ptr %175, ptr %137, align 8, !tbaa !151
+  br label %178
 
-177:                                              ; preds = %175, %172
-  %178 = phi ptr [ %176, %175 ], [ %136, %172 ]
-  %179 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  %180 = load ptr, ptr %179, align 8, !tbaa !140
-  %.not19.i.i.i = icmp eq ptr %180, null
-  br i1 %.not19.i.i.i, label %183, label %181
+178:                                              ; preds = %176, %173
+  %179 = phi ptr [ %177, %176 ], [ %137, %173 ]
+  %180 = getelementptr inbounds nuw i8, ptr %77, i64 40
+  %181 = load ptr, ptr %180, align 8, !tbaa !140
+  %.not19.i.i.i = icmp eq ptr %181, null
+  br i1 %.not19.i.i.i, label %184, label %182
 
-181:                                              ; preds = %177
-  %182 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  store ptr %180, ptr %178, align 8, !tbaa !151
-  br label %183
+182:                                              ; preds = %178
+  %183 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  store ptr %181, ptr %179, align 8, !tbaa !151
+  br label %184
 
-183:                                              ; preds = %181, %177
-  %184 = phi ptr [ %182, %181 ], [ %178, %177 ]
-  %185 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %186 = load ptr, ptr %185, align 8, !tbaa !127
-  %.not20.i.i.i = icmp eq ptr %186, null
-  br i1 %.not20.i.i.i, label %189, label %187
+184:                                              ; preds = %182, %178
+  %185 = phi ptr [ %183, %182 ], [ %179, %178 ]
+  %186 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  %187 = load ptr, ptr %186, align 8, !tbaa !127
+  %.not20.i.i.i = icmp eq ptr %187, null
+  br i1 %.not20.i.i.i, label %190, label %188
 
-187:                                              ; preds = %183
-  %188 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  store ptr %186, ptr %184, align 8, !tbaa !151
-  br label %189
+188:                                              ; preds = %184
+  %189 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  store ptr %187, ptr %185, align 8, !tbaa !151
+  br label %190
 
-189:                                              ; preds = %187, %183
-  %190 = phi ptr [ %188, %187 ], [ %184, %183 ]
-  %191 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %192 = load ptr, ptr %191, align 8, !tbaa !128
-  %.not21.i.i.i = icmp eq ptr %192, null
-  br i1 %.not21.i.i.i, label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i, label %193
+190:                                              ; preds = %188, %184
+  %191 = phi ptr [ %189, %188 ], [ %185, %184 ]
+  %192 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %193 = load ptr, ptr %192, align 8, !tbaa !128
+  %.not21.i.i.i = icmp eq ptr %193, null
+  br i1 %.not21.i.i.i, label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i, label %194
 
-193:                                              ; preds = %189
-  %194 = getelementptr inbounds nuw i8, ptr %190, i64 8
-  store ptr %192, ptr %190, align 8, !tbaa !151
+194:                                              ; preds = %190
+  %195 = getelementptr inbounds nuw i8, ptr %191, i64 8
+  store ptr %193, ptr %191, align 8, !tbaa !151
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i
 
-_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i: ; preds = %193, %189, %.noexc35.i.i, %166, %.noexc33.i.i, %_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i.i, %156, %153, %_ZN7AstNode11privateCastI16AstIfaceRefDTypeP12AstNodeDTypeEEPT_PS_.exit.i.i.i.i, %139
-  %195 = phi ptr [ %136, %139 ], [ %136, %_ZN7AstNode11privateCastI16AstIfaceRefDTypeP12AstNodeDTypeEEPT_PS_.exit.i.i.i.i ], [ %136, %153 ], [ %136, %156 ], [ %136, %_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i.i ], [ %136, %.noexc33.i.i ], [ %136, %166 ], [ %136, %.noexc35.i.i ], [ %190, %189 ], [ %194, %193 ]
-  %196 = icmp ugt ptr %195, %.151.i.i
-  br i1 %196, label %.lr.ph.i.i, label %_ZN7AstNode7foreachIZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvP9AstVarRefP8AstIfaceEEEUlS7_E_EEvOT_.exit, !prof !156
+_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i: ; preds = %194, %190, %.noexc35.i.i, %167, %.noexc33.i.i, %_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i.i, %157, %154, %_ZN7AstNode11privateCastI16AstIfaceRefDTypeP12AstNodeDTypeEEPT_PS_.exit.i.i.i.i, %140
+  %196 = phi ptr [ %137, %140 ], [ %137, %_ZN7AstNode11privateCastI16AstIfaceRefDTypeP12AstNodeDTypeEEPT_PS_.exit.i.i.i.i ], [ %137, %154 ], [ %137, %157 ], [ %137, %_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i.i ], [ %137, %.noexc33.i.i ], [ %137, %167 ], [ %137, %.noexc35.i.i ], [ %191, %190 ], [ %195, %194 ]
+  %197 = icmp ugt ptr %196, %.151.i.i
+  br i1 %197, label %.lr.ph.i.i, label %_ZN7AstNode7foreachIZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvP9AstVarRefP8AstIfaceEEEUlS7_E_EEvOT_.exit, !prof !156
 
 _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit38.i.i:    ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.loopexit.split-lp.i, %.loopexit.i.loopexit.i, %.thread24.i
-  %.pn.pn.i31.i = phi { ptr, i32 } [ %128, %.thread24.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ], [ %lpad.loopexit.i, %.loopexit.i.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.i.loopexit.split-lp.i ]
+  %.pn.pn.i31.i = phi { ptr, i32 } [ %129, %.thread24.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ], [ %lpad.loopexit.i, %.loopexit.i.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.i.loopexit.split-lp.i ]
   %.sroa.21.730.i = phi ptr [ %13, %.thread24.i ], [ %.sroa.21.5.i, %.loopexit.split-lp.i.i ], [ %.sroa.21.4.ph.i, %.loopexit.i.loopexit.i ], [ %.sroa.21.1.i, %.loopexit.i.loopexit.split-lp.i ]
   %.sroa.0.729.i = phi ptr [ %11, %.thread24.i ], [ %.sroa.0.5.i, %.loopexit.split-lp.i.i ], [ %.sroa.0.4.ph.i, %.loopexit.i.loopexit.i ], [ %.sroa.0.1.i, %.loopexit.i.loopexit.split-lp.i ]
-  %197 = ptrtoint ptr %.sroa.21.730.i to i64
-  %198 = ptrtoint ptr %.sroa.0.729.i to i64
-  %199 = sub i64 %197, %198
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.729.i, i64 noundef %199) #25
+  %198 = ptrtoint ptr %.sroa.21.730.i to i64
+  %199 = ptrtoint ptr %.sroa.0.729.i to i64
+  %200 = sub i64 %198, %199
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.729.i, i64 noundef %200) #25
   resume { ptr, i32 } %.pn.pn.i31.i
 
 _ZN7AstNode7foreachIZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvP9AstVarRefP8AstIfaceEEEUlS7_E_EEvOT_.exit: ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i, %16, %_ZN7AstNode11privateCastI16AstIfaceRefDTypeP12AstNodeDTypeEEPT_PS_.exit.i.i.i, %30, %33, %_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i, %.noexc5.i, %45, %.noexc7.i, %.preheader.i.i
   %.sroa.21.618.i = phi ptr [ %13, %.preheader.i.i ], [ %13, %16 ], [ %13, %45 ], [ %13, %.noexc7.i ], [ %13, %30 ], [ %13, %33 ], [ %13, %.noexc5.i ], [ %13, %_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i ], [ %13, %_ZN7AstNode11privateCastI16AstIfaceRefDTypeP12AstNodeDTypeEEPT_PS_.exit.i.i.i ], [ %.sroa.21.5.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i ]
   %.sroa.0.617.i = phi ptr [ %11, %.preheader.i.i ], [ %11, %16 ], [ %11, %45 ], [ %11, %.noexc7.i ], [ %11, %30 ], [ %11, %33 ], [ %11, %.noexc5.i ], [ %11, %_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i ], [ %11, %_ZN7AstNode11privateCastI16AstIfaceRefDTypeP12AstNodeDTypeEEPT_PS_.exit.i.i.i ], [ %.sroa.0.5.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS5_E_clES5_.exit.i.i ]
-  %200 = ptrtoint ptr %.sroa.21.618.i to i64
-  %201 = ptrtoint ptr %.sroa.0.617.i to i64
-  %202 = sub i64 %200, %201
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.617.i, i64 noundef %202) #25
+  %201 = ptrtoint ptr %.sroa.21.618.i to i64
+  %202 = ptrtoint ptr %.sroa.0.617.i to i64
+  %203 = sub i64 %201, %202
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.617.i, i64 noundef %203) #25
   ret void
 }
 

@@ -3286,7 +3286,9 @@ _ZN4llvm16SSAUpdaterTraitsINS_17MachineSSAUpdaterEE13ValueIsNewPHIENS_8RegisterE
   %114 = load ptr, ptr %113, align 8, !tbaa !288
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %116 = load ptr, ptr %115, align 8, !tbaa !228
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %.not53 = icmp eq ptr %116, %113
+  %spec.select = select i1 %.not53, ptr %113, ptr %116
+  %117 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %.sroa.0.0.copyload = load i32, ptr %117, align 8, !tbaa !159
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %119 = load ptr, ptr %118, align 8, !tbaa !237
@@ -4098,7 +4100,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEPNS_14SSAUpdaterImpl
   %135 = load ptr, ptr %.0.i, align 8, !tbaa !226
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %137 = load ptr, ptr %136, align 8, !tbaa !228
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  %.not = icmp eq ptr %137, %135
+  %spec.select = select i1 %.not, ptr %135, ptr %137
+  %138 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %139 = load i32, ptr %138, align 4, !tbaa !163
   %.not41 = icmp eq i32 %139, 0
   br i1 %.not41, label %142, label %140
@@ -4126,12 +4130,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEPNS_14SSAUpdaterImpl
 _ZN4llvm16SSAUpdaterTraitsINS_17MachineSSAUpdaterEE10ValueIsPHIENS_8RegisterEPS1_.exit: ; preds = %147, %147
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %151 = load ptr, ptr %150, align 8, !tbaa !219
-  %152 = load ptr, ptr %137, align 8, !tbaa !288
+  %152 = load ptr, ptr %spec.select, align 8, !tbaa !288
   %.not43 = icmp eq ptr %151, %152
   br i1 %.not43, label %153, label %_ZN4llvm16SSAUpdaterTraitsINS_17MachineSSAUpdaterEE10ValueIsPHIENS_8RegisterEPS1_.exit.thread, !llvm.loop !328
 
 153:                                              ; preds = %_ZN4llvm16SSAUpdaterTraitsINS_17MachineSSAUpdaterEE10ValueIsPHIENS_8RegisterEPS1_.exit
-  %154 = getelementptr inbounds nuw i8, ptr %137, i64 56
+  %154 = getelementptr inbounds nuw i8, ptr %spec.select, i64 56
   %155 = load ptr, ptr %154, align 8, !tbaa !325
   %.not44 = icmp eq ptr %155, null
   br i1 %.not44, label %158, label %156
@@ -4159,7 +4163,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_17MachineSSAUpdaterEE6
   %165 = load ptr, ptr %2, align 8, !tbaa !153
   %166 = zext i32 %164 to i64
   %167 = getelementptr inbounds nuw ptr, ptr %165, i64 %166
-  %168 = ptrtoint ptr %137 to i64
+  %168 = ptrtoint ptr %spec.select to i64
   store i64 %168, ptr %167, align 1
   %169 = load i32, ptr %15, align 8, !tbaa !173
   %170 = add i32 %169, 1

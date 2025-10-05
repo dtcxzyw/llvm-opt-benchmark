@@ -4893,10 +4893,12 @@ if.end.i.i.i.i.i.i70:                             ; preds = %if.end171
 _ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit: ; preds = %if.then.i.i.i.i.i.i73, %if.end.i.i.i.i.i.i70
   %retval.0.i.i.i.i.i.i72 = phi ptr [ %34, %if.then.i.i.i.i.i.i73 ], [ %call7.i.i.i.i.i.i71, %if.end.i.i.i.i.i.i70 ]
   %call197 = call fastcc ptr @_ZN6hermes2vmL16regExpInitializeERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES5_S5_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %retval.0.i.i.i.i.i.i72, ptr nonnull %retval.0.i.i.i.i.i.i29, ptr %retval.0.i.i.i.i.i.i38)
+  %cmp.i.i75.not = icmp eq ptr %call197, inttoptr (i64 -1 to ptr)
+  %spec.select = select i1 %cmp.i.i75.not, ptr inttoptr (i64 -1 to ptr), ptr %call197
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %if.then135, %if.then112, %if.end49, %if.then33, %if.end, %entry, %_ZN4llvh11SmallStringILj7EED2Ev.exit
-  %retval.sroa.0.0 = phi ptr [ inttoptr (i64 -1 to ptr), %_ZN4llvh11SmallStringILj7EED2Ev.exit ], [ inttoptr (i64 -1 to ptr), %entry ], [ inttoptr (i64 -1 to ptr), %if.end ], [ inttoptr (i64 -1 to ptr), %if.then33 ], [ %pattern.coerce, %if.end49 ], [ inttoptr (i64 -1 to ptr), %if.then112 ], [ inttoptr (i64 -1 to ptr), %if.then135 ], [ %call197, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ]
+  %retval.sroa.0.0 = phi ptr [ inttoptr (i64 -1 to ptr), %_ZN4llvh11SmallStringILj7EED2Ev.exit ], [ inttoptr (i64 -1 to ptr), %entry ], [ inttoptr (i64 -1 to ptr), %if.end ], [ inttoptr (i64 -1 to ptr), %if.then33 ], [ %pattern.coerce, %if.end49 ], [ inttoptr (i64 -1 to ptr), %if.then112 ], [ inttoptr (i64 -1 to ptr), %if.then135 ], [ %spec.select, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -9846,10 +9848,12 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSRegExpEEENS0_6HandleIT_EEONS0_
 
 if.end25:                                         ; preds = %_ZN6hermes2vm6HandleINS0_8JSRegExpEE10dyn_vmcastERKNS0_10HandleBaseE.exit
   %call32 = tail call fastcc ptr @_ZN6hermes2vmL25regExpConstructorInternalERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES5_b(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %pattern.coerce, ptr %flags.coerce, i1 noundef zeroext true)
+  %cmp.i.i4.not = icmp eq ptr %call32, inttoptr (i64 -1 to ptr)
+  %spec.select5 = select i1 %cmp.i.i4.not, ptr inttoptr (i64 -1 to ptr), ptr %call32
   br label %return
 
 return:                                           ; preds = %if.end25, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSRegExpEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
-  %retval.sroa.0.0 = phi ptr [ %spec.select, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSRegExpEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ %call32, %if.end25 ]
+  %retval.sroa.0.0 = phi ptr [ %spec.select, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSRegExpEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ %spec.select5, %if.end25 ]
   ret ptr %retval.sroa.0.0
 }
 

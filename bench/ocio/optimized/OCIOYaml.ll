@@ -125434,11 +125434,13 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i115: ; preds = %122, %.noex
 124:                                              ; preds = %115
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.1, ptr noundef nonnull align 16 dereferenceable(32) %7, i64 32, i1 false)
   %125 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 32
+  %.not.i16.i103 = icmp eq ptr %.sroa.12.0, %125
+  %spec.select = select i1 %.not.i16.i103, ptr %.sroa.12.0, ptr %125
   br label %_ZNSt6vectorIdSaIdEE6assignIPdvEEvT_S4_.exit64
 
 _ZNSt6vectorIdSaIdEE6assignIPdvEEvT_S4_.exit64:   ; preds = %124, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i115
   %.sroa.0.7 = phi ptr [ %121, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i115 ], [ %.sroa.0.1, %124 ]
-  %.sroa.12.2 = phi ptr [ %123, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i115 ], [ %125, %124 ]
+  %.sroa.12.2 = phi ptr [ %123, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i115 ], [ %spec.select, %124 ]
   %.sroa.26.7 = phi ptr [ %123, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i115 ], [ %.sroa.12.0, %124 ]
   %126 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 32)
           to label %_ZN4YAMLlsERNS_7EmitterENS_13EMITTER_MANIPE.exit66 unwind label %.loopexit.split-lp

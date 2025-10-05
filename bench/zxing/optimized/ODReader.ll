@@ -1926,6 +1926,8 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %376, %.noexc31
   %382 = load i64, ptr %17, align 8
   store i64 %382, ptr %.sroa.0365.9, align 4
   %383 = getelementptr inbounds nuw i8, ptr %.sroa.0365.9, i64 8
+  %.not.i16.i = icmp eq ptr %.sroa.15.8, %383
+  %spec.select488 = select i1 %.not.i16.i, ptr %.sroa.15.8, ptr %383
   br label %_ZNSt6vectorIiSaIiEEaSESt16initializer_listIiE.exit
 
 _ZSt7advanceIPKimEvRT_T0_.exit.i:                 ; preds = %378
@@ -1946,7 +1948,7 @@ _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread:      ; preds = %_ZSt7advanceIPKimEv
 
 _ZNSt6vectorIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %381, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread
   %.sroa.34.15 = phi ptr [ %377, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i ], [ %.sroa.34.9, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread ], [ %.sroa.34.9, %381 ]
-  %.sroa.15.12 = phi ptr [ %377, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i ], [ %385, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread ], [ %383, %381 ]
+  %.sroa.15.12 = phi ptr [ %377, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i ], [ %385, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread ], [ %spec.select488, %381 ]
   %.sroa.0365.15 = phi ptr [ %374, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i ], [ %.sroa.0365.9, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread ], [ %.sroa.0365.9, %381 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %100, label %386, label %413
