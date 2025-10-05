@@ -145030,15 +145030,15 @@ _ZNK5boost8geometry6detail7overlay15side_calculatorI21sub_range_from_pointsINS0_
 define linkonce_odr hidden void @_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE7unifiedINS0_13segment_ratioIdEENS4_25segment_intersection_infoIdS7_EENS0_5model17referring_segmentIKNSA_2d28point_xyIdNS0_2cs9cartesianEEEEESI_NS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsISG_S7_EEEE21sub_range_from_pointsISG_ESQ_EENT3_11return_typeERT0_RKT1_RKT2_RKSR_RKT4_RKT5_(ptr dead_on_unwind noalias writable sret(%"struct.boost::geometry::policies::relate::segments_intersection_policy<boost::geometry::segment_intersection_points<boost::geometry::model::d2::point_xy<double>>>::return_type") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %6) local_unnamed_addr #4 comdat align 2 {
   %8 = alloca %"struct.boost::geometry::segment_intersection_points", align 8
   %9 = alloca %"struct.boost::geometry::segment_intersection_points", align 8
-  %.sroa.5.i151 = alloca [42 x i8], align 2
+  %.sroa.5.i149 = alloca [42 x i8], align 2
   %10 = alloca %"struct.boost::geometry::strategy::side::side_by_triangle<>::eps_policy", align 8
   %11 = alloca %"struct.boost::geometry::strategy::side::side_by_triangle<>::eps_policy", align 8
   %12 = alloca %"struct.boost::geometry::segment_intersection_points", align 8
-  %.sroa.5.i133 = alloca [42 x i8], align 2
+  %.sroa.5.i131 = alloca [42 x i8], align 2
   %13 = alloca %"struct.boost::geometry::strategy::side::side_by_triangle<>::eps_policy", align 8
   %14 = alloca %"struct.boost::geometry::strategy::side::side_by_triangle<>::eps_policy", align 8
   %15 = alloca %"struct.boost::geometry::segment_intersection_points", align 8
-  %.sroa.5.i120 = alloca [42 x i8], align 2
+  %.sroa.5.i118 = alloca [42 x i8], align 2
   %16 = alloca %"struct.boost::geometry::segment_intersection_points", align 8
   %.sroa.5.i104 = alloca [42 x i8], align 2
   %17 = alloca %"struct.boost::geometry::segment_intersection_points", align 8
@@ -145263,7 +145263,7 @@ _ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.i, i64 42, i1 false), !tbaa.struct !2570
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !2553
-  br label %491
+  br label %495
 
 134:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i96, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i99, %110, %107, %94, %91
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2571)
@@ -145302,770 +145302,770 @@ _ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.0..sroa_idx.i109, ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.i104, i64 42, i1 false), !tbaa.struct !2570
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i104)
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !2571
-  br label %491
+  br label %495
 
 _ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit95.thread: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i91, %58, %61, %76, %79, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i88, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit95
-  %.0.i.i.i94218 = phi i1 [ true, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit95 ], [ false, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i88 ], [ %88, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i91 ], [ false, %79 ], [ false, %76 ], [ false, %61 ], [ false, %58 ]
+  %.0.i.i.i94215 = phi i1 [ true, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit95 ], [ false, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i88 ], [ %88, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i91 ], [ false, %79 ], [ false, %76 ], [ false, %61 ], [ false, %58 ]
   %143 = fcmp ogt double %21, %22
-  %.021.i = select i1 %143, double %22, double %21
-  %.020.i = select i1 %143, double %21, double %22
+  %.020.i = select i1 %143, double %22, double %21
+  %.019.i = select i1 %143, double %21, double %22
   %144 = fcmp ogt double %55, %56
-  %.019.i = select i1 %144, double %56, double %55
+  %.018.i = select i1 %144, double %56, double %55
   %.0.i = select i1 %144, double %55, double %56
-  %or.cond.i.i.i = fcmp uge double %.020.i, %.019.i
-  br i1 %or.cond.i.i.i, label %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread23.i, label %145
+  %145 = fcmp olt double %.019.i, %.018.i
+  br i1 %145, label %146, label %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread22.i
 
-145:                                              ; preds = %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit95.thread
-  %146 = tail call double @llvm.fabs.f64(double %.019.i)
-  %147 = fcmp ueq double %146, 0x7FF0000000000000
-  br i1 %147, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %148
+146:                                              ; preds = %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit95.thread
+  %147 = tail call double @llvm.fabs.f64(double %.018.i)
+  %148 = fcmp ueq double %147, 0x7FF0000000000000
+  br i1 %148, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %149
 
-148:                                              ; preds = %145
-  %149 = tail call double @llvm.fabs.f64(double %.020.i)
-  %150 = fcmp ueq double %149, 0x7FF0000000000000
-  br i1 %150, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.i
+149:                                              ; preds = %146
+  %150 = tail call double @llvm.fabs.f64(double %.019.i)
+  %151 = fcmp ueq double %150, 0x7FF0000000000000
+  br i1 %151, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.i
 
-_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.i: ; preds = %148
-  %151 = fsub double %.019.i, %.020.i
-  %152 = tail call noundef double @llvm.fabs.f64(double %151)
-  %153 = fcmp olt double %146, %149
-  %154 = select i1 %153, double %149, double %146
-  %155 = fcmp olt double %154, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i = select i1 %155, double 1.000000e+00, double %154
-  %156 = fmul double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
-  %157 = fcmp ugt double %152, %156
-  br i1 %157, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread23.i
+_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.i: ; preds = %149
+  %152 = fsub double %.018.i, %.019.i
+  %153 = tail call noundef double @llvm.fabs.f64(double %152)
+  %154 = fcmp olt double %147, %150
+  %155 = select i1 %154, double %150, double %147
+  %156 = fcmp olt double %155, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i = select i1 %156, double 1.000000e+00, double %155
+  %157 = fmul double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
+  %158 = fcmp ugt double %153, %157
+  br i1 %158, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread22.i
 
-_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread23.i: ; preds = %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.i, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit95.thread
-  %or.cond.i.i4.i = fcmp uge double %.0.i, %.021.i
-  br i1 %or.cond.i.i4.i, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread220, label %158
+_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread22.i: ; preds = %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.i, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit95.thread
+  %159 = fcmp olt double %.0.i, %.020.i
+  br i1 %159, label %160, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread217
 
-158:                                              ; preds = %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread23.i
-  %159 = tail call double @llvm.fabs.f64(double %.021.i)
-  %160 = fcmp ueq double %159, 0x7FF0000000000000
-  br i1 %160, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %161
+160:                                              ; preds = %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread22.i
+  %161 = tail call double @llvm.fabs.f64(double %.020.i)
+  %162 = fcmp ueq double %161, 0x7FF0000000000000
+  br i1 %162, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %163
 
-161:                                              ; preds = %158
-  %162 = tail call double @llvm.fabs.f64(double %.0.i)
-  %163 = fcmp ueq double %162, 0x7FF0000000000000
-  br i1 %163, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit
+163:                                              ; preds = %160
+  %164 = tail call double @llvm.fabs.f64(double %.0.i)
+  %165 = fcmp ueq double %164, 0x7FF0000000000000
+  br i1 %165, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit
 
-_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit: ; preds = %161
-  %164 = fsub double %.021.i, %.0.i
-  %165 = tail call noundef double @llvm.fabs.f64(double %164)
-  %166 = fcmp olt double %159, %162
-  %167 = select i1 %166, double %162, double %159
-  %168 = fcmp olt double %167, 1.000000e+00
-  %.sroa.speculated.i.i.i.i5.i = select i1 %168, double 1.000000e+00, double %167
-  %169 = fmul double %.sroa.speculated.i.i.i.i5.i, 0x3CB0000000000000
-  %170 = fcmp ugt double %165, %169
-  br i1 %170, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread220
+_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit: ; preds = %163
+  %166 = fsub double %.020.i, %.0.i
+  %167 = tail call noundef double @llvm.fabs.f64(double %166)
+  %168 = fcmp olt double %161, %164
+  %169 = select i1 %168, double %164, double %161
+  %170 = fcmp olt double %169, 1.000000e+00
+  %.sroa.speculated.i.i.i.i5.i = select i1 %170, double 1.000000e+00, double %169
+  %171 = fmul double %.sroa.speculated.i.i.i.i5.i, 0x3CB0000000000000
+  %172 = fcmp ugt double %167, %171
+  br i1 %172, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread217
 
-_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread220: ; preds = %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread23.i, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit
-  %171 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %172 = load double, ptr %171, align 8, !tbaa !2335
-  %173 = getelementptr inbounds nuw i8, ptr %5, i64 24
+_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread217: ; preds = %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread22.i, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit
+  %173 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %174 = load double, ptr %173, align 8, !tbaa !2335
-  %175 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %176 = load double, ptr %175, align 8, !tbaa !2335
-  %177 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %177 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %178 = load double, ptr %177, align 8, !tbaa !2335
-  %179 = fcmp ogt double %172, %174
-  %.021.i110 = select i1 %179, double %174, double %172
-  %.020.i111 = select i1 %179, double %172, double %174
-  %180 = fcmp ogt double %176, %178
-  %.019.i112 = select i1 %180, double %178, double %176
-  %.0.i113 = select i1 %180, double %176, double %178
-  %or.cond.i.i.i114 = fcmp uge double %.020.i111, %.019.i112
-  br i1 %or.cond.i.i.i114, label %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread23.i117, label %181
+  %179 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %180 = load double, ptr %179, align 8, !tbaa !2335
+  %181 = fcmp ogt double %174, %176
+  %.020.i110 = select i1 %181, double %176, double %174
+  %.019.i111 = select i1 %181, double %174, double %176
+  %182 = fcmp ogt double %178, %180
+  %.018.i112 = select i1 %182, double %180, double %178
+  %.0.i113 = select i1 %182, double %178, double %180
+  %183 = fcmp olt double %.019.i111, %.018.i112
+  br i1 %183, label %184, label %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread22.i114
 
-181:                                              ; preds = %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread220
-  %182 = tail call double @llvm.fabs.f64(double %.019.i112)
-  %183 = fcmp ueq double %182, 0x7FF0000000000000
-  br i1 %183, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %184
-
-184:                                              ; preds = %181
-  %185 = tail call double @llvm.fabs.f64(double %.020.i111)
+184:                                              ; preds = %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread217
+  %185 = tail call double @llvm.fabs.f64(double %.018.i112)
   %186 = fcmp ueq double %185, 0x7FF0000000000000
-  br i1 %186, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.i115
+  br i1 %186, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %187
 
-_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.i115: ; preds = %184
-  %187 = fsub double %.019.i112, %.020.i111
-  %188 = tail call noundef double @llvm.fabs.f64(double %187)
-  %189 = fcmp olt double %182, %185
-  %190 = select i1 %189, double %185, double %182
-  %191 = fcmp olt double %190, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i116 = select i1 %191, double 1.000000e+00, double %190
-  %192 = fmul double %.sroa.speculated.i.i.i.i.i116, 0x3CB0000000000000
-  %193 = fcmp ugt double %188, %192
-  br i1 %193, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread23.i117
+187:                                              ; preds = %184
+  %188 = tail call double @llvm.fabs.f64(double %.019.i111)
+  %189 = fcmp ueq double %188, 0x7FF0000000000000
+  br i1 %189, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.i116
 
-_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread23.i117: ; preds = %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.i115, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread220
-  %or.cond.i.i4.i118 = fcmp uge double %.0.i113, %.021.i110
-  br i1 %or.cond.i.i4.i118, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread221, label %194
+_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.i116: ; preds = %187
+  %190 = fsub double %.018.i112, %.019.i111
+  %191 = tail call noundef double @llvm.fabs.f64(double %190)
+  %192 = fcmp olt double %185, %188
+  %193 = select i1 %192, double %188, double %185
+  %194 = fcmp olt double %193, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i117 = select i1 %194, double 1.000000e+00, double %193
+  %195 = fmul double %.sroa.speculated.i.i.i.i.i117, 0x3CB0000000000000
+  %196 = fcmp ugt double %191, %195
+  br i1 %196, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread22.i114
 
-194:                                              ; preds = %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread23.i117
-  %195 = tail call double @llvm.fabs.f64(double %.021.i110)
-  %196 = fcmp ueq double %195, 0x7FF0000000000000
-  br i1 %196, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %197
+_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread22.i114: ; preds = %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.i116, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread217
+  %197 = fcmp olt double %.0.i113, %.020.i110
+  br i1 %197, label %198, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread218
 
-197:                                              ; preds = %194
-  %198 = tail call double @llvm.fabs.f64(double %.0.i113)
-  %199 = fcmp ueq double %198, 0x7FF0000000000000
-  br i1 %199, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit
+198:                                              ; preds = %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread22.i114
+  %199 = tail call double @llvm.fabs.f64(double %.020.i110)
+  %200 = fcmp ueq double %199, 0x7FF0000000000000
+  br i1 %200, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %201
 
-_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit: ; preds = %197
-  %200 = fsub double %.021.i110, %.0.i113
-  %201 = tail call noundef double @llvm.fabs.f64(double %200)
-  %202 = fcmp olt double %195, %198
-  %203 = select i1 %202, double %198, double %195
-  %204 = fcmp olt double %203, 1.000000e+00
-  %.sroa.speculated.i.i.i.i5.i119 = select i1 %204, double 1.000000e+00, double %203
-  %205 = fmul double %.sroa.speculated.i.i.i.i5.i119, 0x3CB0000000000000
-  %206 = fcmp ugt double %201, %205
-  br i1 %206, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread221
+201:                                              ; preds = %198
+  %202 = tail call double @llvm.fabs.f64(double %.0.i113)
+  %203 = fcmp ueq double %202, 0x7FF0000000000000
+  br i1 %203, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit
 
-_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread: ; preds = %181, %184, %194, %197, %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.i115, %145, %148, %158, %161, %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.i, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit
+_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit: ; preds = %201
+  %204 = fsub double %.020.i110, %.0.i113
+  %205 = tail call noundef double @llvm.fabs.f64(double %204)
+  %206 = fcmp olt double %199, %202
+  %207 = select i1 %206, double %202, double %199
+  %208 = fcmp olt double %207, 1.000000e+00
+  %.sroa.speculated.i.i.i.i5.i115 = select i1 %208, double 1.000000e+00, double %207
+  %209 = fmul double %.sroa.speculated.i.i.i.i5.i115, 0x3CB0000000000000
+  %210 = fcmp ugt double %205, %209
+  br i1 %210, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread218
+
+_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread: ; preds = %184, %187, %198, %201, %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.i116, %146, %149, %160, %163, %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.i, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2580)
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !2580
   store i64 0, ptr %15, align 8, !tbaa !2561, !alias.scope !2583, !noalias !2580
-  br label %207
+  br label %211
 
-207:                                              ; preds = %207, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread
-  %.idx.i.i.i121 = phi i64 [ 40, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread ], [ %.add.i.i.i123, %207 ]
-  %.ptr.i.i.i122 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i121
-  store double 0.000000e+00, ptr %.ptr.i.i.i122, align 8, !tbaa !2351, !alias.scope !2583, !noalias !2580
-  %208 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i122, i64 8
-  store double 1.000000e+00, ptr %208, align 8, !tbaa !2352, !alias.scope !2583, !noalias !2580
-  %209 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i122, i64 16
-  %210 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i122, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %209, i8 0, i64 16, i1 false), !alias.scope !2583, !noalias !2580
-  store double 1.000000e+00, ptr %210, align 8, !tbaa !2352, !alias.scope !2583, !noalias !2580
-  %211 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i122, i64 40
-  store double 0.000000e+00, ptr %211, align 8, !tbaa !2490, !alias.scope !2583, !noalias !2580
-  %212 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i122, i64 48
-  store i8 0, ptr %212, align 8, !tbaa !2559, !alias.scope !2583, !noalias !2580
-  %.add.i.i.i123 = add nuw nsw i64 %.idx.i.i.i121, 56
-  %213 = icmp eq i64 %.add.i.i.i123, 152
-  br i1 %213, label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit127, label %207
+211:                                              ; preds = %211, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread
+  %.idx.i.i.i119 = phi i64 [ 40, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread ], [ %.add.i.i.i121, %211 ]
+  %.ptr.i.i.i120 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i119
+  store double 0.000000e+00, ptr %.ptr.i.i.i120, align 8, !tbaa !2351, !alias.scope !2583, !noalias !2580
+  %212 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i120, i64 8
+  store double 1.000000e+00, ptr %212, align 8, !tbaa !2352, !alias.scope !2583, !noalias !2580
+  %213 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i120, i64 16
+  %214 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i120, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %213, i8 0, i64 16, i1 false), !alias.scope !2583, !noalias !2580
+  store double 1.000000e+00, ptr %214, align 8, !tbaa !2352, !alias.scope !2583, !noalias !2580
+  %215 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i120, i64 40
+  store double 0.000000e+00, ptr %215, align 8, !tbaa !2490, !alias.scope !2583, !noalias !2580
+  %216 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i120, i64 48
+  store i8 0, ptr %216, align 8, !tbaa !2559, !alias.scope !2583, !noalias !2580
+  %.add.i.i.i121 = add nuw nsw i64 %.idx.i.i.i119, 56
+  %217 = icmp eq i64 %.add.i.i.i121, 152
+  br i1 %217, label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit125, label %211
 
-_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit127: ; preds = %207
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i120)
-  %.sroa.5.i120.2.i120.2.i120.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5.i120, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(40) %.sroa.5.i120.2.i120.2.i120.2..sroa_idx, i8 0, i64 40, i1 false), !alias.scope !2586, !noalias !2580
+_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit125: ; preds = %211
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i118)
+  %.sroa.5.i118.2.i118.2.i118.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5.i118, i64 2
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(40) %.sroa.5.i118.2.i118.2.i118.2..sroa_idx, i8 0, i64 40, i1 false), !alias.scope !2586, !noalias !2580
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 8 dereferenceable(152) %15, i64 152, i1 false), !tbaa.struct !2569
-  %214 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i8 100, ptr %214, align 8, !tbaa !24, !alias.scope !2580
-  %.sroa.4.0..sroa_idx.i125 = getelementptr inbounds nuw i8, ptr %0, i64 153
-  store i8 0, ptr %.sroa.4.0..sroa_idx.i125, align 1, !tbaa !15, !alias.scope !2580
-  %.sroa.5.0..sroa_idx.i126 = getelementptr inbounds nuw i8, ptr %0, i64 154
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.0..sroa_idx.i126, ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.i120, i64 42, i1 false), !tbaa.struct !2570
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i120)
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i8 100, ptr %218, align 8, !tbaa !24, !alias.scope !2580
+  %.sroa.4.0..sroa_idx.i123 = getelementptr inbounds nuw i8, ptr %0, i64 153
+  store i8 0, ptr %.sroa.4.0..sroa_idx.i123, align 1, !tbaa !15, !alias.scope !2580
+  %.sroa.5.0..sroa_idx.i124 = getelementptr inbounds nuw i8, ptr %0, i64 154
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.0..sroa_idx.i124, ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.i118, i64 42, i1 false), !tbaa.struct !2570
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i118)
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !2580
-  br label %491
+  br label %495
 
-_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread221: ; preds = %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread23.i117, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit
+_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread218: ; preds = %_ZN5boost8geometry4math7smallerIddEEbRKT_RKT0_.exit.thread22.i114, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %215 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %216 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %217 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %218 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 0, ptr %218, align 4
+  %219 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %220 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %222 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i64 0, ptr %222, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store double 1.000000e+00, ptr %14, align 8, !tbaa !2542
-  %219 = call noundef double @_ZN5boost8geometry8strategy4side16side_by_triangleIvE18compute_side_valueIddLb0EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_SD_NS4_10eps_policyINS0_4math6detail20equals_factor_policyIdLb1EEEEEEEdRKT_RKT0_RKT1_RT2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  %220 = fcmp oeq double %219, 0.000000e+00
-  br i1 %220, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i, label %221
+  %223 = call noundef double @_ZN5boost8geometry8strategy4side16side_by_triangleIvE18compute_side_valueIddLb0EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_SD_NS4_10eps_policyINS0_4math6detail20equals_factor_policyIdLb1EEEEEEEdRKT_RKT0_RKT1_RT2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %224 = fcmp oeq double %223, 0.000000e+00
+  br i1 %224, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i, label %225
 
-221:                                              ; preds = %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread221
-  %222 = call double @llvm.fabs.f64(double %219)
-  %223 = fcmp ueq double %222, 0x7FF0000000000000
-  br i1 %223, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i
+225:                                              ; preds = %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread218
+  %226 = call double @llvm.fabs.f64(double %223)
+  %227 = fcmp ueq double %226, 0x7FF0000000000000
+  br i1 %227, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i: ; preds = %221
-  %224 = fcmp ogt double %219, 0.000000e+00
-  %225 = select i1 %224, i32 1, i32 -1
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i: ; preds = %225
+  %228 = fcmp ogt double %223, 0.000000e+00
+  %229 = select i1 %228, i32 1, i32 -1
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i: ; preds = %221
-  %226 = load double, ptr %14, align 8, !tbaa !2335
-  %.fr.i = freeze double %226
-  %227 = fmul double %.fr.i, 0x3CB0000000000000
-  %228 = fcmp ugt double %222, %227
-  %229 = fcmp ogt double %219, 0.000000e+00
-  %230 = select i1 %229, i32 1, i32 -1
-  br i1 %228, label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i: ; preds = %225
+  %230 = load double, ptr %14, align 8, !tbaa !2335
+  %.fr.i = freeze double %230
+  %231 = fmul double %.fr.i, 0x3CB0000000000000
+  %232 = fcmp ugt double %226, %231
+  %233 = fcmp ogt double %223, 0.000000e+00
+  %234 = select i1 %233, i32 1, i32 -1
+  br i1 %232, label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread221
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE17disjoint_by_rangeILm1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT0_SE_RKT1_SH_.exit.thread218
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit
 
 _ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i
-  %231 = phi i32 [ 0, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i ], [ %230, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i ], [ %225, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i ]
+  %235 = phi i32 [ 0, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i ], [ %234, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i ], [ %229, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store double 1.000000e+00, ptr %13, align 8, !tbaa !2542
-  %232 = call noundef double @_ZN5boost8geometry8strategy4side16side_by_triangleIvE18compute_side_valueIddLb0EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_SD_NS4_10eps_policyINS0_4math6detail20equals_factor_policyIdLb1EEEEEEEdRKT_RKT0_RKT1_RT2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(8) %13)
-  %233 = fcmp oeq double %232, 0.000000e+00
-  br i1 %233, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i130, label %234
+  %236 = call noundef double @_ZN5boost8geometry8strategy4side16side_by_triangleIvE18compute_side_valueIddLb0EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_SD_NS4_10eps_policyINS0_4math6detail20equals_factor_policyIdLb1EEEEEEEdRKT_RKT0_RKT1_RT2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  %237 = fcmp oeq double %236, 0.000000e+00
+  br i1 %237, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i128, label %238
 
-234:                                              ; preds = %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit
-  %235 = call double @llvm.fabs.f64(double %232)
-  %236 = fcmp ueq double %235, 0x7FF0000000000000
-  br i1 %236, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i131, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i128
+238:                                              ; preds = %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit
+  %239 = call double @llvm.fabs.f64(double %236)
+  %240 = fcmp ueq double %239, 0x7FF0000000000000
+  br i1 %240, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i129, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i126
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i131: ; preds = %234
-  %237 = fcmp ogt double %232, 0.000000e+00
-  %238 = select i1 %237, i32 1, i32 -1
-  br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit132
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i129: ; preds = %238
+  %241 = fcmp ogt double %236, 0.000000e+00
+  %242 = select i1 %241, i32 1, i32 -1
+  br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit130
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i128: ; preds = %234
-  %239 = load double, ptr %13, align 8, !tbaa !2335
-  %.fr.i129 = freeze double %239
-  %240 = fmul double %.fr.i129, 0x3CB0000000000000
-  %241 = fcmp ugt double %235, %240
-  %242 = fcmp ogt double %232, 0.000000e+00
-  %243 = select i1 %242, i32 1, i32 -1
-  br i1 %241, label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit132, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i130
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i126: ; preds = %238
+  %243 = load double, ptr %13, align 8, !tbaa !2335
+  %.fr.i127 = freeze double %243
+  %244 = fmul double %.fr.i127, 0x3CB0000000000000
+  %245 = fcmp ugt double %239, %244
+  %246 = fcmp ogt double %236, 0.000000e+00
+  %247 = select i1 %246, i32 1, i32 -1
+  br i1 %245, label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit130, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i128
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i130: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i128, %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit
-  br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit132
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i128: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i126, %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit
+  br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit130
 
-_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit132: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i131, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i128, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i130
-  %244 = phi i32 [ 0, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i130 ], [ %243, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i128 ], [ %238, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i131 ]
+_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit130: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i129, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i126, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i128
+  %248 = phi i32 [ 0, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i128 ], [ %247, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i126 ], [ %242, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  store i32 %231, ptr %18, align 4, !tbaa !2509
-  store i32 %244, ptr %215, align 4, !tbaa !2589
-  %245 = mul nsw i32 %244, %231
-  %246 = icmp eq i32 %245, 1
-  br i1 %246, label %247, label %256
+  store i32 %235, ptr %18, align 4, !tbaa !2509
+  store i32 %248, ptr %219, align 4, !tbaa !2589
+  %249 = mul nsw i32 %248, %235
+  %250 = icmp eq i32 %249, 1
+  br i1 %250, label %251, label %260
 
-247:                                              ; preds = %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit132
+251:                                              ; preds = %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit130
   call void @llvm.experimental.noalias.scope.decl(metadata !2590)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !2590
   store i64 0, ptr %12, align 8, !tbaa !2561, !alias.scope !2593, !noalias !2590
-  br label %248
+  br label %252
 
-248:                                              ; preds = %248, %247
-  %.idx.i.i.i134 = phi i64 [ 40, %247 ], [ %.add.i.i.i136, %248 ]
-  %.ptr.i.i.i135 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i.i134
-  store double 0.000000e+00, ptr %.ptr.i.i.i135, align 8, !tbaa !2351, !alias.scope !2593, !noalias !2590
-  %249 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i135, i64 8
-  store double 1.000000e+00, ptr %249, align 8, !tbaa !2352, !alias.scope !2593, !noalias !2590
-  %250 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i135, i64 16
-  %251 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i135, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %250, i8 0, i64 16, i1 false), !alias.scope !2593, !noalias !2590
-  store double 1.000000e+00, ptr %251, align 8, !tbaa !2352, !alias.scope !2593, !noalias !2590
-  %252 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i135, i64 40
-  store double 0.000000e+00, ptr %252, align 8, !tbaa !2490, !alias.scope !2593, !noalias !2590
-  %253 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i135, i64 48
-  store i8 0, ptr %253, align 8, !tbaa !2559, !alias.scope !2593, !noalias !2590
-  %.add.i.i.i136 = add nuw nsw i64 %.idx.i.i.i134, 56
-  %254 = icmp eq i64 %.add.i.i.i136, 152
-  br i1 %254, label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit140, label %248
+252:                                              ; preds = %252, %251
+  %.idx.i.i.i132 = phi i64 [ 40, %251 ], [ %.add.i.i.i134, %252 ]
+  %.ptr.i.i.i133 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i.i132
+  store double 0.000000e+00, ptr %.ptr.i.i.i133, align 8, !tbaa !2351, !alias.scope !2593, !noalias !2590
+  %253 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i133, i64 8
+  store double 1.000000e+00, ptr %253, align 8, !tbaa !2352, !alias.scope !2593, !noalias !2590
+  %254 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i133, i64 16
+  %255 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i133, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %254, i8 0, i64 16, i1 false), !alias.scope !2593, !noalias !2590
+  store double 1.000000e+00, ptr %255, align 8, !tbaa !2352, !alias.scope !2593, !noalias !2590
+  %256 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i133, i64 40
+  store double 0.000000e+00, ptr %256, align 8, !tbaa !2490, !alias.scope !2593, !noalias !2590
+  %257 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i133, i64 48
+  store i8 0, ptr %257, align 8, !tbaa !2559, !alias.scope !2593, !noalias !2590
+  %.add.i.i.i134 = add nuw nsw i64 %.idx.i.i.i132, 56
+  %258 = icmp eq i64 %.add.i.i.i134, 152
+  br i1 %258, label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit138, label %252
 
-_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit140: ; preds = %248
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i133)
-  %.sroa.5.i133.2.i133.2.i133.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5.i133, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(40) %.sroa.5.i133.2.i133.2.i133.2..sroa_idx, i8 0, i64 40, i1 false), !alias.scope !2596, !noalias !2590
+_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit138: ; preds = %252
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i131)
+  %.sroa.5.i131.2.i131.2.i131.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5.i131, i64 2
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(40) %.sroa.5.i131.2.i131.2.i131.2..sroa_idx, i8 0, i64 40, i1 false), !alias.scope !2596, !noalias !2590
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 8 dereferenceable(152) %12, i64 152, i1 false), !tbaa.struct !2569
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i8 100, ptr %255, align 8, !tbaa !24, !alias.scope !2590
-  %.sroa.4.0..sroa_idx.i138 = getelementptr inbounds nuw i8, ptr %0, i64 153
-  store i8 0, ptr %.sroa.4.0..sroa_idx.i138, align 1, !tbaa !15, !alias.scope !2590
-  %.sroa.5.0..sroa_idx.i139 = getelementptr inbounds nuw i8, ptr %0, i64 154
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.0..sroa_idx.i139, ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.i133, i64 42, i1 false), !tbaa.struct !2570
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i133)
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i8 100, ptr %259, align 8, !tbaa !24, !alias.scope !2590
+  %.sroa.4.0..sroa_idx.i136 = getelementptr inbounds nuw i8, ptr %0, i64 153
+  store i8 0, ptr %.sroa.4.0..sroa_idx.i136, align 1, !tbaa !15, !alias.scope !2590
+  %.sroa.5.0..sroa_idx.i137 = getelementptr inbounds nuw i8, ptr %0, i64 154
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.0..sroa_idx.i137, ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.i131, i64 42, i1 false), !tbaa.struct !2570
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i131)
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !2590
-  br label %490
+  br label %494
 
-256:                                              ; preds = %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit132
+260:                                              ; preds = %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit130
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store double 1.000000e+00, ptr %11, align 8, !tbaa !2542
-  %257 = call noundef double @_ZN5boost8geometry8strategy4side16side_by_triangleIvE18compute_side_valueIddLb0EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_SD_NS4_10eps_policyINS0_4math6detail20equals_factor_policyIdLb1EEEEEEEdRKT_RKT0_RKT1_RT2_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %258 = fcmp oeq double %257, 0.000000e+00
-  br i1 %258, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i143, label %259
+  %261 = call noundef double @_ZN5boost8geometry8strategy4side16side_by_triangleIvE18compute_side_valueIddLb0EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_SD_NS4_10eps_policyINS0_4math6detail20equals_factor_policyIdLb1EEEEEEEdRKT_RKT0_RKT1_RT2_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %262 = fcmp oeq double %261, 0.000000e+00
+  br i1 %262, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i141, label %263
 
-259:                                              ; preds = %256
-  %260 = call double @llvm.fabs.f64(double %257)
-  %261 = fcmp ueq double %260, 0x7FF0000000000000
-  br i1 %261, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i144, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i141
+263:                                              ; preds = %260
+  %264 = call double @llvm.fabs.f64(double %261)
+  %265 = fcmp ueq double %264, 0x7FF0000000000000
+  br i1 %265, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i142, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i139
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i144: ; preds = %259
-  %262 = fcmp ogt double %257, 0.000000e+00
-  %263 = select i1 %262, i32 1, i32 -1
-  br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit145
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i142: ; preds = %263
+  %266 = fcmp ogt double %261, 0.000000e+00
+  %267 = select i1 %266, i32 1, i32 -1
+  br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit143
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i141: ; preds = %259
-  %264 = load double, ptr %11, align 8, !tbaa !2335
-  %.fr.i142 = freeze double %264
-  %265 = fmul double %.fr.i142, 0x3CB0000000000000
-  %266 = fcmp ugt double %260, %265
-  %267 = fcmp ogt double %257, 0.000000e+00
-  %268 = select i1 %267, i32 1, i32 -1
-  br i1 %266, label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit145, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i143
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i139: ; preds = %263
+  %268 = load double, ptr %11, align 8, !tbaa !2335
+  %.fr.i140 = freeze double %268
+  %269 = fmul double %.fr.i140, 0x3CB0000000000000
+  %270 = fcmp ugt double %264, %269
+  %271 = fcmp ogt double %261, 0.000000e+00
+  %272 = select i1 %271, i32 1, i32 -1
+  br i1 %270, label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit143, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i141
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i143: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i141, %256
-  br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit145
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i141: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i139, %260
+  br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit143
 
-_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit145: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i144, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i141, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i143
-  %269 = phi i32 [ 0, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i143 ], [ %268, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i141 ], [ %263, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i144 ]
+_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit143: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i142, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i139, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i141
+  %273 = phi i32 [ 0, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i141 ], [ %272, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i139 ], [ %267, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store double 1.000000e+00, ptr %10, align 8, !tbaa !2542
-  %270 = call noundef double @_ZN5boost8geometry8strategy4side16side_by_triangleIvE18compute_side_valueIddLb0EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_SD_NS4_10eps_policyINS0_4math6detail20equals_factor_policyIdLb1EEEEEEEdRKT_RKT0_RKT1_RT2_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %271 = fcmp oeq double %270, 0.000000e+00
-  br i1 %271, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i148, label %272
+  %274 = call noundef double @_ZN5boost8geometry8strategy4side16side_by_triangleIvE18compute_side_valueIddLb0EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_SD_NS4_10eps_policyINS0_4math6detail20equals_factor_policyIdLb1EEEEEEEdRKT_RKT0_RKT1_RT2_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %275 = fcmp oeq double %274, 0.000000e+00
+  br i1 %275, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i146, label %276
 
-272:                                              ; preds = %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit145
-  %273 = call double @llvm.fabs.f64(double %270)
-  %274 = fcmp ueq double %273, 0x7FF0000000000000
-  br i1 %274, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i149, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i146
+276:                                              ; preds = %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit143
+  %277 = call double @llvm.fabs.f64(double %274)
+  %278 = fcmp ueq double %277, 0x7FF0000000000000
+  br i1 %278, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i147, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i144
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i149: ; preds = %272
-  %275 = fcmp ogt double %270, 0.000000e+00
-  %276 = select i1 %275, i32 1, i32 -1
-  br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit150
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i147: ; preds = %276
+  %279 = fcmp ogt double %274, 0.000000e+00
+  %280 = select i1 %279, i32 1, i32 -1
+  br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit148
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i146: ; preds = %272
-  %277 = load double, ptr %10, align 8, !tbaa !2335
-  %.fr.i147 = freeze double %277
-  %278 = fmul double %.fr.i147, 0x3CB0000000000000
-  %279 = fcmp ugt double %273, %278
-  %280 = fcmp ogt double %270, 0.000000e+00
-  %281 = select i1 %280, i32 1, i32 -1
-  br i1 %279, label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit150, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i148
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i144: ; preds = %276
+  %281 = load double, ptr %10, align 8, !tbaa !2335
+  %.fr.i145 = freeze double %281
+  %282 = fmul double %.fr.i145, 0x3CB0000000000000
+  %283 = fcmp ugt double %277, %282
+  %284 = fcmp ogt double %274, 0.000000e+00
+  %285 = select i1 %284, i32 1, i32 -1
+  br i1 %283, label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit148, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i146
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i148: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i146, %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit145
-  br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit150
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i146: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i144, %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit143
+  br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit148
 
-_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit150: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i149, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i146, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i148
-  %282 = phi i32 [ 0, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i148 ], [ %281, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i146 ], [ %276, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i149 ]
+_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit148: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i147, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i144, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i146
+  %286 = phi i32 [ 0, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i146 ], [ %285, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i144 ], [ %280, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  store i32 %269, ptr %216, align 4, !tbaa !2509
-  store i32 %282, ptr %217, align 4, !tbaa !2589
-  %283 = mul nsw i32 %282, %269
-  %284 = icmp eq i32 %283, 1
-  br i1 %284, label %285, label %_ZNK5boost8geometry9side_info9collinearEv.exit
+  store i32 %273, ptr %220, align 4, !tbaa !2509
+  store i32 %286, ptr %221, align 4, !tbaa !2589
+  %287 = mul nsw i32 %286, %273
+  %288 = icmp eq i32 %287, 1
+  br i1 %288, label %289, label %_ZNK5boost8geometry9side_info9collinearEv.exit
 
-285:                                              ; preds = %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit150
+289:                                              ; preds = %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit148
   call void @llvm.experimental.noalias.scope.decl(metadata !2599)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !2599
   store i64 0, ptr %9, align 8, !tbaa !2561, !alias.scope !2602, !noalias !2599
-  br label %286
+  br label %290
 
-286:                                              ; preds = %286, %285
-  %.idx.i.i.i152 = phi i64 [ 40, %285 ], [ %.add.i.i.i154, %286 ]
-  %.ptr.i.i.i153 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i.i152
-  store double 0.000000e+00, ptr %.ptr.i.i.i153, align 8, !tbaa !2351, !alias.scope !2602, !noalias !2599
-  %287 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i153, i64 8
-  store double 1.000000e+00, ptr %287, align 8, !tbaa !2352, !alias.scope !2602, !noalias !2599
-  %288 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i153, i64 16
-  %289 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i153, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %288, i8 0, i64 16, i1 false), !alias.scope !2602, !noalias !2599
-  store double 1.000000e+00, ptr %289, align 8, !tbaa !2352, !alias.scope !2602, !noalias !2599
-  %290 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i153, i64 40
-  store double 0.000000e+00, ptr %290, align 8, !tbaa !2490, !alias.scope !2602, !noalias !2599
-  %291 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i153, i64 48
-  store i8 0, ptr %291, align 8, !tbaa !2559, !alias.scope !2602, !noalias !2599
-  %.add.i.i.i154 = add nuw nsw i64 %.idx.i.i.i152, 56
-  %292 = icmp eq i64 %.add.i.i.i154, 152
-  br i1 %292, label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit158, label %286
+290:                                              ; preds = %290, %289
+  %.idx.i.i.i150 = phi i64 [ 40, %289 ], [ %.add.i.i.i152, %290 ]
+  %.ptr.i.i.i151 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i.i150
+  store double 0.000000e+00, ptr %.ptr.i.i.i151, align 8, !tbaa !2351, !alias.scope !2602, !noalias !2599
+  %291 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i151, i64 8
+  store double 1.000000e+00, ptr %291, align 8, !tbaa !2352, !alias.scope !2602, !noalias !2599
+  %292 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i151, i64 16
+  %293 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i151, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %292, i8 0, i64 16, i1 false), !alias.scope !2602, !noalias !2599
+  store double 1.000000e+00, ptr %293, align 8, !tbaa !2352, !alias.scope !2602, !noalias !2599
+  %294 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i151, i64 40
+  store double 0.000000e+00, ptr %294, align 8, !tbaa !2490, !alias.scope !2602, !noalias !2599
+  %295 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i151, i64 48
+  store i8 0, ptr %295, align 8, !tbaa !2559, !alias.scope !2602, !noalias !2599
+  %.add.i.i.i152 = add nuw nsw i64 %.idx.i.i.i150, 56
+  %296 = icmp eq i64 %.add.i.i.i152, 152
+  br i1 %296, label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit156, label %290
 
-_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit158: ; preds = %286
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i151)
-  %.sroa.5.i151.2.i151.2.i151.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5.i151, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(40) %.sroa.5.i151.2.i151.2.i151.2..sroa_idx, i8 0, i64 40, i1 false), !alias.scope !2605, !noalias !2599
+_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit156: ; preds = %290
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i149)
+  %.sroa.5.i149.2.i149.2.i149.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5.i149, i64 2
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(40) %.sroa.5.i149.2.i149.2.i149.2..sroa_idx, i8 0, i64 40, i1 false), !alias.scope !2605, !noalias !2599
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 8 dereferenceable(152) %9, i64 152, i1 false), !tbaa.struct !2569
-  %293 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i8 100, ptr %293, align 8, !tbaa !24, !alias.scope !2599
-  %.sroa.4.0..sroa_idx.i156 = getelementptr inbounds nuw i8, ptr %0, i64 153
-  store i8 0, ptr %.sroa.4.0..sroa_idx.i156, align 1, !tbaa !15, !alias.scope !2599
-  %.sroa.5.0..sroa_idx.i157 = getelementptr inbounds nuw i8, ptr %0, i64 154
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.0..sroa_idx.i157, ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.i151, i64 42, i1 false), !tbaa.struct !2570
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i151)
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i8 100, ptr %297, align 8, !tbaa !24, !alias.scope !2599
+  %.sroa.4.0..sroa_idx.i154 = getelementptr inbounds nuw i8, ptr %0, i64 153
+  store i8 0, ptr %.sroa.4.0..sroa_idx.i154, align 1, !tbaa !15, !alias.scope !2599
+  %.sroa.5.0..sroa_idx.i155 = getelementptr inbounds nuw i8, ptr %0, i64 154
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.0..sroa_idx.i155, ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.i149, i64 42, i1 false), !tbaa.struct !2570
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i149)
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !2599
-  br label %490
+  br label %494
 
-_ZNK5boost8geometry9side_info9collinearEv.exit:   ; preds = %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit150
-  %294 = or i32 %269, %231
-  %295 = or i32 %294, %282
-  %296 = or i32 %295, %244
-  %spec.select = icmp eq i32 %296, 0
-  %297 = load double, ptr %19, align 8, !tbaa !2335
-  %298 = load double, ptr %5, align 8, !tbaa !2335
-  %299 = fsub double %297, %298
-  %300 = load double, ptr %20, align 8, !tbaa !2335
-  %301 = load double, ptr %6, align 8, !tbaa !2335
-  %302 = fsub double %300, %301
-  %303 = load double, ptr %173, align 8, !tbaa !2335
-  %304 = load double, ptr %171, align 8, !tbaa !2335
-  %305 = fsub double %303, %304
-  %306 = load double, ptr %177, align 8, !tbaa !2335
+_ZNK5boost8geometry9side_info9collinearEv.exit:   ; preds = %_ZN5boost8geometry8strategy4side16side_by_triangleIvE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_SB_EEiRKT_RKT0_RKT1_.exit148
+  %298 = or i32 %273, %235
+  %299 = or i32 %298, %286
+  %300 = or i32 %299, %248
+  %spec.select = icmp eq i32 %300, 0
+  %301 = load double, ptr %19, align 8, !tbaa !2335
+  %302 = load double, ptr %5, align 8, !tbaa !2335
+  %303 = fsub double %301, %302
+  %304 = load double, ptr %20, align 8, !tbaa !2335
+  %305 = load double, ptr %6, align 8, !tbaa !2335
+  %306 = fsub double %304, %305
   %307 = load double, ptr %175, align 8, !tbaa !2335
-  %308 = fsub double %306, %307
-  br i1 %spec.select, label %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge, label %309
+  %308 = load double, ptr %173, align 8, !tbaa !2335
+  %309 = fsub double %307, %308
+  %310 = load double, ptr %179, align 8, !tbaa !2335
+  %311 = load double, ptr %177, align 8, !tbaa !2335
+  %312 = fsub double %310, %311
+  br i1 %spec.select, label %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge, label %313
 
 _ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge: ; preds = %_ZNK5boost8geometry9side_info9collinearEv.exit
-  %.pre236 = call noundef double @llvm.fabs.f64(double %299)
-  %.pre237 = call noundef double @llvm.fabs.f64(double %305)
-  %.pre239 = call noundef double @llvm.fabs.f64(double %302)
-  %.pre241 = call noundef double @llvm.fabs.f64(double %308)
-  br label %370
+  %.pre233 = call noundef double @llvm.fabs.f64(double %303)
+  %.pre234 = call noundef double @llvm.fabs.f64(double %309)
+  %.pre236 = call noundef double @llvm.fabs.f64(double %306)
+  %.pre238 = call noundef double @llvm.fabs.f64(double %312)
+  br label %374
 
-309:                                              ; preds = %_ZNK5boost8geometry9side_info9collinearEv.exit
-  %310 = fsub double %298, %301
-  %311 = fsub double %304, %307
-  %312 = fneg double %310
-  %313 = fmul double %308, %312
-  %314 = call noundef double @llvm.fmuladd.f64(double %302, double %311, double %313)
-  %315 = fneg double %302
-  %316 = fmul double %305, %315
-  %317 = call noundef double @llvm.fmuladd.f64(double %299, double %308, double %316)
-  %318 = fsub double %301, %298
-  %319 = fsub double %307, %304
-  %320 = fneg double %318
-  %321 = fmul double %305, %320
-  %322 = call noundef double @llvm.fmuladd.f64(double %299, double %319, double %321)
-  %323 = fneg double %299
-  %324 = fmul double %308, %323
-  %325 = call noundef double @llvm.fmuladd.f64(double %302, double %305, double %324)
-  %326 = call noundef double @llvm.fabs.f64(double %299)
-  %327 = call noundef double @llvm.fabs.f64(double %305)
-  %328 = call noundef double @llvm.fabs.f64(double %302)
-  %329 = call noundef double @llvm.fabs.f64(double %308)
-  %330 = fcmp oeq double %317, 0.000000e+00
-  br i1 %330, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread, label %331
+313:                                              ; preds = %_ZNK5boost8geometry9side_info9collinearEv.exit
+  %314 = fsub double %302, %305
+  %315 = fsub double %308, %311
+  %316 = fneg double %314
+  %317 = fmul double %312, %316
+  %318 = call noundef double @llvm.fmuladd.f64(double %306, double %315, double %317)
+  %319 = fneg double %306
+  %320 = fmul double %309, %319
+  %321 = call noundef double @llvm.fmuladd.f64(double %303, double %312, double %320)
+  %322 = fsub double %305, %302
+  %323 = fsub double %311, %308
+  %324 = fneg double %322
+  %325 = fmul double %309, %324
+  %326 = call noundef double @llvm.fmuladd.f64(double %303, double %323, double %325)
+  %327 = fneg double %303
+  %328 = fmul double %312, %327
+  %329 = call noundef double @llvm.fmuladd.f64(double %306, double %309, double %328)
+  %330 = call noundef double @llvm.fabs.f64(double %303)
+  %331 = call noundef double @llvm.fabs.f64(double %309)
+  %332 = call noundef double @llvm.fabs.f64(double %306)
+  %333 = call noundef double @llvm.fabs.f64(double %312)
+  %334 = fcmp oeq double %321, 0.000000e+00
+  br i1 %334, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread, label %335
 
-331:                                              ; preds = %309
-  %332 = fcmp olt double %326, %327
-  %333 = select i1 %332, double %327, double %326
-  %334 = fcmp olt double %333, %328
-  %.sroa.speculated6.i = select i1 %334, double %328, double %333
-  %335 = fcmp olt double %.sroa.speculated6.i, %329
-  %336 = select i1 %335, double %329, double %.sroa.speculated6.i
-  %337 = fcmp olt double %336, 1.000000e+00
-  %.sroa.speculated.i = select i1 %337, double 1.000000e+00, double %336
-  %338 = call double @llvm.fabs.f64(double %317)
-  %339 = fcmp one double %338, 0x7FF0000000000000
-  %340 = fmul double %.sroa.speculated.i, 0x3CB0000000000000
-  %341 = fcmp ole double %338, %340
-  %or.cond = select i1 %339, i1 %341, i1 false
-  %342 = fcmp oeq double %325, 0.000000e+00
-  %or.cond231 = or i1 %342, %or.cond
-  br i1 %or.cond231, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread, label %343
+335:                                              ; preds = %313
+  %336 = fcmp olt double %330, %331
+  %337 = select i1 %336, double %331, double %330
+  %338 = fcmp olt double %337, %332
+  %.sroa.speculated6.i = select i1 %338, double %332, double %337
+  %339 = fcmp olt double %.sroa.speculated6.i, %333
+  %340 = select i1 %339, double %333, double %.sroa.speculated6.i
+  %341 = fcmp olt double %340, 1.000000e+00
+  %.sroa.speculated.i = select i1 %341, double 1.000000e+00, double %340
+  %342 = call double @llvm.fabs.f64(double %321)
+  %343 = fcmp one double %342, 0x7FF0000000000000
+  %344 = fmul double %.sroa.speculated.i, 0x3CB0000000000000
+  %345 = fcmp ole double %342, %344
+  %or.cond = select i1 %343, i1 %345, i1 false
+  %346 = fcmp oeq double %329, 0.000000e+00
+  %or.cond228 = or i1 %346, %or.cond
+  br i1 %or.cond228, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread, label %347
 
-343:                                              ; preds = %331
-  %344 = call double @llvm.fabs.f64(double %325)
-  %345 = fcmp one double %344, 0x7FF0000000000000
-  %346 = fcmp ole double %344, %340
-  %or.cond233 = select i1 %345, i1 %346, i1 false
-  br i1 %or.cond233, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit161.thread226
+347:                                              ; preds = %335
+  %348 = call double @llvm.fabs.f64(double %329)
+  %349 = fcmp one double %348, 0x7FF0000000000000
+  %350 = fcmp ole double %348, %344
+  %or.cond230 = select i1 %349, i1 %350, i1 false
+  br i1 %or.cond230, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit159.thread223
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread: ; preds = %343, %331, %309
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread: ; preds = %347, %335, %313
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  br label %370
+  br label %374
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit161.thread226: ; preds = %343
-  %347 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store double %314, ptr %347, align 8, !tbaa !2351
-  %348 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store double %317, ptr %348, align 8, !tbaa !2352
-  %349 = fcmp olt double %317, 0.000000e+00
-  br i1 %349, label %350, label %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit159.thread223: ; preds = %347
+  %351 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store double %318, ptr %351, align 8, !tbaa !2351
+  %352 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store double %321, ptr %352, align 8, !tbaa !2352
+  %353 = fcmp olt double %321, 0.000000e+00
+  br i1 %353, label %354, label %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit
 
-350:                                              ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit161.thread226
-  %351 = fneg double %314
-  store double %351, ptr %347, align 8, !tbaa !2351
-  %352 = fneg double %317
-  store double %352, ptr %348, align 8, !tbaa !2352
+354:                                              ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit159.thread223
+  %355 = fneg double %318
+  store double %355, ptr %351, align 8, !tbaa !2351
+  %356 = fneg double %321
+  store double %356, ptr %352, align 8, !tbaa !2352
   br label %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit
 
-_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit161.thread226, %350
-  %353 = phi double [ %351, %350 ], [ %314, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit161.thread226 ]
-  %354 = phi double [ %352, %350 ], [ %317, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit161.thread226 ]
-  %355 = fmul double %353, 1.000000e+06
-  %356 = fdiv double %355, %354
-  %357 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store double %356, ptr %357, align 8, !tbaa !2490
-  %358 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store double %322, ptr %358, align 8, !tbaa !2351
-  %359 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store double %325, ptr %359, align 8, !tbaa !2352
-  %360 = fcmp olt double %325, 0.000000e+00
-  br i1 %360, label %361, label %364
+_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit159.thread223, %354
+  %357 = phi double [ %355, %354 ], [ %318, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit159.thread223 ]
+  %358 = phi double [ %356, %354 ], [ %321, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit159.thread223 ]
+  %359 = fmul double %357, 1.000000e+06
+  %360 = fdiv double %359, %358
+  %361 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store double %360, ptr %361, align 8, !tbaa !2490
+  %362 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store double %326, ptr %362, align 8, !tbaa !2351
+  %363 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store double %329, ptr %363, align 8, !tbaa !2352
+  %364 = fcmp olt double %329, 0.000000e+00
+  br i1 %364, label %365, label %368
 
-361:                                              ; preds = %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit
-  %362 = fneg double %322
-  store double %362, ptr %358, align 8, !tbaa !2351
-  %363 = fneg double %325
-  store double %363, ptr %359, align 8, !tbaa !2352
-  br label %364
+365:                                              ; preds = %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit
+  %366 = fneg double %326
+  store double %366, ptr %362, align 8, !tbaa !2351
+  %367 = fneg double %329
+  store double %367, ptr %363, align 8, !tbaa !2352
+  br label %368
 
-364:                                              ; preds = %361, %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit
-  %365 = phi double [ %362, %361 ], [ %322, %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit ]
-  %366 = phi double [ %363, %361 ], [ %325, %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit ]
-  %367 = fmul double %365, 1.000000e+06
-  %368 = fdiv double %367, %366
-  %369 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store double %368, ptr %369, align 8, !tbaa !2490
+368:                                              ; preds = %365, %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit
+  %369 = phi double [ %366, %365 ], [ %326, %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit ]
+  %370 = phi double [ %367, %365 ], [ %329, %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit ]
+  %371 = fmul double %369, 1.000000e+06
+  %372 = fdiv double %371, %370
+  %373 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store double %372, ptr %373, align 8, !tbaa !2490
   %.pre = load double, ptr %5, align 8, !tbaa !2335
-  %.pre235 = load double, ptr %6, align 8, !tbaa !2335
+  %.pre232 = load double, ptr %6, align 8, !tbaa !2335
   br label %.critedge
 
-370:                                              ; preds = %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread
-  %.pre-phi242 = phi double [ %.pre241, %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge ], [ %329, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread ]
-  %.pre-phi240 = phi double [ %.pre239, %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge ], [ %328, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread ]
-  %.pre-phi238 = phi double [ %.pre237, %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge ], [ %327, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread ]
-  %.pre-phi = phi double [ %.pre236, %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge ], [ %326, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread ]
-  %371 = phi i32 [ %282, %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge ], [ 0, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread ]
-  %372 = phi i32 [ %269, %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge ], [ 0, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread ]
-  %373 = phi i32 [ %231, %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge ], [ 0, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread ]
-  br i1 %.0.i.i.i, label %374, label %376
+374:                                              ; preds = %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread
+  %.pre-phi239 = phi double [ %.pre238, %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge ], [ %333, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread ]
+  %.pre-phi237 = phi double [ %.pre236, %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge ], [ %332, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread ]
+  %.pre-phi235 = phi double [ %.pre234, %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge ], [ %331, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread ]
+  %.pre-phi = phi double [ %.pre233, %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge ], [ %330, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread ]
+  %375 = phi i32 [ %286, %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge ], [ 0, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread ]
+  %376 = phi i32 [ %273, %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge ], [ 0, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread ]
+  %377 = phi i32 [ %235, %_ZNK5boost8geometry9side_info9collinearEv.exit._crit_edge ], [ 0, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread ]
+  br i1 %.0.i.i.i, label %378, label %380
 
-374:                                              ; preds = %370
-  %375 = fcmp oge double %.pre-phi240, %.pre-phi242
-  %.sroa.0.0.insert.ext.i.i = zext i1 %375 to i16
+378:                                              ; preds = %374
+  %379 = fcmp oge double %.pre-phi237, %.pre-phi239
+  %.sroa.0.0.insert.ext.i.i = zext i1 %379 to i16
   %.sroa.0.0.insert.insert.i.i = or disjoint i16 %.sroa.0.0.insert.ext.i.i, 256
   br label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit
 
-376:                                              ; preds = %370
-  br i1 %.0.i.i.i94218, label %377, label %379
+380:                                              ; preds = %374
+  br i1 %.0.i.i.i94215, label %381, label %383
 
-377:                                              ; preds = %376
-  %378 = fcmp oge double %.pre-phi, %.pre-phi238
-  %.sroa.0.0.insert.ext.i17.i = zext i1 %378 to i16
+381:                                              ; preds = %380
+  %382 = fcmp oge double %.pre-phi, %.pre-phi235
+  %.sroa.0.0.insert.ext.i17.i = zext i1 %382 to i16
   %.sroa.0.0.insert.insert.i18.i = or disjoint i16 %.sroa.0.0.insert.ext.i17.i, 256
   br label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit
 
-379:                                              ; preds = %376
-  %380 = fcmp olt double %.pre-phi240, %.pre-phi
-  %381 = select i1 %380, double %.pre-phi240, double %.pre-phi
-  %382 = fcmp olt double %.pre-phi242, %.pre-phi238
-  %383 = select i1 %382, double %.pre-phi242, double %.pre-phi238
-  %384 = fcmp oeq double %381, %383
-  br i1 %384, label %385, label %387
+383:                                              ; preds = %380
+  %384 = fcmp olt double %.pre-phi237, %.pre-phi
+  %385 = select i1 %384, double %.pre-phi237, double %.pre-phi
+  %386 = fcmp olt double %.pre-phi239, %.pre-phi235
+  %387 = select i1 %386, double %.pre-phi239, double %.pre-phi235
+  %388 = fcmp oeq double %385, %387
+  br i1 %388, label %389, label %391
 
-385:                                              ; preds = %379
-  %386 = fcmp ogt double %381, 0.000000e+00
-  %.sroa.0.0.insert.insert.i23.i = select i1 %386, i16 257, i16 1
+389:                                              ; preds = %383
+  %390 = fcmp ogt double %385, 0.000000e+00
+  %.sroa.0.0.insert.insert.i23.i = select i1 %390, i16 257, i16 1
   br label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit
 
-387:                                              ; preds = %379
-  %388 = fcmp ogt double %381, %383
-  %.sroa.0.0.insert.ext.i26.i = zext i1 %388 to i16
+391:                                              ; preds = %383
+  %392 = fcmp ogt double %385, %387
+  %.sroa.0.0.insert.ext.i26.i = zext i1 %392 to i16
   %.sroa.0.0.insert.insert.i27.i = or disjoint i16 %.sroa.0.0.insert.ext.i26.i, 256
   br label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit
 
-_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit: ; preds = %374, %377, %385, %387
-  %.sroa.0.0.i = phi i16 [ %.sroa.0.0.insert.insert.i.i, %374 ], [ %.sroa.0.0.insert.insert.i18.i, %377 ], [ %.sroa.0.0.insert.insert.i23.i, %385 ], [ %.sroa.0.0.insert.insert.i27.i, %387 ]
-  %389 = and i16 %.sroa.0.0.i, 256
-  %.not = icmp eq i16 %389, 0
-  br i1 %.not, label %.critedge, label %390
+_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit: ; preds = %378, %381, %389, %391
+  %.sroa.0.0.i = phi i16 [ %.sroa.0.0.insert.insert.i.i, %378 ], [ %.sroa.0.0.insert.insert.i18.i, %381 ], [ %.sroa.0.0.insert.insert.i23.i, %389 ], [ %.sroa.0.0.insert.insert.i27.i, %391 ]
+  %393 = and i16 %.sroa.0.0.i, 256
+  %.not = icmp eq i16 %393, 0
+  br i1 %.not, label %.critedge, label %394
 
-390:                                              ; preds = %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit
-  %391 = trunc i16 %.sroa.0.0.i to i1
-  br i1 %391, label %392, label %393
+394:                                              ; preds = %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit
+  %395 = trunc i16 %.sroa.0.0.i to i1
+  br i1 %395, label %396, label %397
 
-392:                                              ; preds = %390
-  call void @_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE16relate_collinearILm0ENS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEEESH_NSA_17referring_segmentIKSF_EESM_SF_SF_EENT0_11return_typeERKT2_RKT3_RKT4_SX_RKT5_S10_bb(ptr dead_on_unwind writable sret(%"struct.boost::geometry::policies::relate::segments_intersection_policy<boost::geometry::segment_intersection_points<boost::geometry::model::d2::point_xy<double>>>::return_type") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %20, i1 noundef zeroext %.0.i.i.i, i1 noundef zeroext %.0.i.i.i94218)
-  br label %490
+396:                                              ; preds = %394
+  call void @_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE16relate_collinearILm0ENS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEEESH_NSA_17referring_segmentIKSF_EESM_SF_SF_EENT0_11return_typeERKT2_RKT3_RKT4_SX_RKT5_S10_bb(ptr dead_on_unwind writable sret(%"struct.boost::geometry::policies::relate::segments_intersection_policy<boost::geometry::segment_intersection_points<boost::geometry::model::d2::point_xy<double>>>::return_type") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %20, i1 noundef zeroext %.0.i.i.i, i1 noundef zeroext %.0.i.i.i94215)
+  br label %494
 
-393:                                              ; preds = %390
-  call void @_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE16relate_collinearILm1ENS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEEESH_NSA_17referring_segmentIKSF_EESM_SF_SF_EENT0_11return_typeERKT2_RKT3_RKT4_SX_RKT5_S10_bb(ptr dead_on_unwind writable sret(%"struct.boost::geometry::policies::relate::segments_intersection_policy<boost::geometry::segment_intersection_points<boost::geometry::model::d2::point_xy<double>>>::return_type") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %20, i1 noundef zeroext %.0.i.i.i, i1 noundef zeroext %.0.i.i.i94218)
-  br label %490
+397:                                              ; preds = %394
+  call void @_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE16relate_collinearILm1ENS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEEESH_NSA_17referring_segmentIKSF_EESM_SF_SF_EENT0_11return_typeERKT2_RKT3_RKT4_SX_RKT5_S10_bb(ptr dead_on_unwind writable sret(%"struct.boost::geometry::policies::relate::segments_intersection_policy<boost::geometry::segment_intersection_points<boost::geometry::model::d2::point_xy<double>>>::return_type") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %20, i1 noundef zeroext %.0.i.i.i, i1 noundef zeroext %.0.i.i.i94215)
+  br label %494
 
-.critedge:                                        ; preds = %364, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit
-  %394 = phi i32 [ %282, %364 ], [ %371, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit ]
-  %395 = phi i32 [ %269, %364 ], [ %372, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit ]
-  %396 = phi i32 [ %244, %364 ], [ 0, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit ]
-  %397 = phi i32 [ %231, %364 ], [ %373, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit ]
-  %398 = phi double [ %.pre235, %364 ], [ %301, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit ]
-  %399 = phi double [ %.pre, %364 ], [ %298, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit ]
-  %400 = fcmp oeq double %399, %398
-  br i1 %400, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i165, label %401
+.critedge:                                        ; preds = %368, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit
+  %398 = phi i32 [ %286, %368 ], [ %375, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit ]
+  %399 = phi i32 [ %273, %368 ], [ %376, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit ]
+  %400 = phi i32 [ %248, %368 ], [ 0, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit ]
+  %401 = phi i32 [ %235, %368 ], [ %377, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit ]
+  %402 = phi double [ %.pre232, %368 ], [ %305, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit ]
+  %403 = phi double [ %.pre, %368 ], [ %302, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE21is_x_more_significantIdEESt4pairIbbERKT_SA_SA_SA_bb.exit ]
+  %404 = fcmp oeq double %403, %402
+  br i1 %404, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i163, label %405
 
-401:                                              ; preds = %.critedge
-  %402 = call double @llvm.fabs.f64(double %399)
-  %403 = fcmp ueq double %402, 0x7FF0000000000000
-  br i1 %403, label %430, label %404
+405:                                              ; preds = %.critedge
+  %406 = call double @llvm.fabs.f64(double %403)
+  %407 = fcmp ueq double %406, 0x7FF0000000000000
+  br i1 %407, label %434, label %408
 
-404:                                              ; preds = %401
-  %405 = call double @llvm.fabs.f64(double %398)
-  %406 = fcmp ueq double %405, 0x7FF0000000000000
-  br i1 %406, label %430, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i163
+408:                                              ; preds = %405
+  %409 = call double @llvm.fabs.f64(double %402)
+  %410 = fcmp ueq double %409, 0x7FF0000000000000
+  br i1 %410, label %434, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i161
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i163: ; preds = %404
-  %407 = fsub double %399, %398
-  %408 = call noundef double @llvm.fabs.f64(double %407)
-  %409 = fcmp olt double %402, %405
-  %410 = select i1 %409, double %405, double %402
-  %411 = fcmp olt double %410, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i164 = select i1 %411, double 1.000000e+00, double %410
-  %412 = fmul double %.sroa.speculated.i.i.i.i.i.i164, 0x3CB0000000000000
-  %413 = fcmp ugt double %408, %412
-  br i1 %413, label %430, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i165
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i161: ; preds = %408
+  %411 = fsub double %403, %402
+  %412 = call noundef double @llvm.fabs.f64(double %411)
+  %413 = fcmp olt double %406, %409
+  %414 = select i1 %413, double %409, double %406
+  %415 = fcmp olt double %414, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i162 = select i1 %415, double 1.000000e+00, double %414
+  %416 = fmul double %.sroa.speculated.i.i.i.i.i.i162, 0x3CB0000000000000
+  %417 = fcmp ugt double %412, %416
+  br i1 %417, label %434, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i163
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i165: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i163, %.critedge
-  %414 = load double, ptr %171, align 8, !tbaa !2335
-  %415 = load double, ptr %175, align 8, !tbaa !2335
-  %416 = fcmp oeq double %414, %415
-  br i1 %416, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit170, label %417
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i163: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i161, %.critedge
+  %418 = load double, ptr %173, align 8, !tbaa !2335
+  %419 = load double, ptr %177, align 8, !tbaa !2335
+  %420 = fcmp oeq double %418, %419
+  br i1 %420, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit168, label %421
 
-417:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i165
-  %418 = call double @llvm.fabs.f64(double %414)
-  %419 = fcmp ueq double %418, 0x7FF0000000000000
-  br i1 %419, label %430, label %420
+421:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i163
+  %422 = call double @llvm.fabs.f64(double %418)
+  %423 = fcmp ueq double %422, 0x7FF0000000000000
+  br i1 %423, label %434, label %424
 
-420:                                              ; preds = %417
-  %421 = call double @llvm.fabs.f64(double %415)
-  %422 = fcmp ueq double %421, 0x7FF0000000000000
-  br i1 %422, label %430, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i166
+424:                                              ; preds = %421
+  %425 = call double @llvm.fabs.f64(double %419)
+  %426 = fcmp ueq double %425, 0x7FF0000000000000
+  br i1 %426, label %434, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i164
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i166: ; preds = %420
-  %423 = fsub double %414, %415
-  %424 = call noundef double @llvm.fabs.f64(double %423)
-  %425 = fcmp olt double %418, %421
-  %426 = select i1 %425, double %421, double %418
-  %427 = fcmp olt double %426, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i167 = select i1 %427, double 1.000000e+00, double %426
-  %428 = fmul double %.sroa.speculated.i.i.i.i.i.i.i167, 0x3CB0000000000000
-  %429 = fcmp ugt double %424, %428
-  br i1 %429, label %430, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit170
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i164: ; preds = %424
+  %427 = fsub double %418, %419
+  %428 = call noundef double @llvm.fabs.f64(double %427)
+  %429 = fcmp olt double %422, %425
+  %430 = select i1 %429, double %425, double %422
+  %431 = fcmp olt double %430, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i165 = select i1 %431, double 1.000000e+00, double %430
+  %432 = fmul double %.sroa.speculated.i.i.i.i.i.i.i165, 0x3CB0000000000000
+  %433 = fcmp ugt double %428, %432
+  br i1 %433, label %434, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit168
 
-430:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i163, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i166, %420, %417, %404, %401
-  %431 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %20)
-  br i1 %431, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit170, label %484
+434:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i161, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i164, %424, %421, %408, %405
+  %435 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %20)
+  br i1 %435, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit168, label %488
 
-_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit170: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i166, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i165, %430
+_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit168: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i164, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i163, %434
   call void @llvm.experimental.noalias.scope.decl(metadata !2608)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !2608
-  br label %432
+  br label %436
 
-432:                                              ; preds = %432, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit170
-  %.idx.i.i.i171 = phi i64 [ 40, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit170 ], [ %.add.i.i.i173, %432 ]
-  %.ptr.i.i.i172 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i.i171
-  store double 0.000000e+00, ptr %.ptr.i.i.i172, align 8, !tbaa !2351, !alias.scope !2611, !noalias !2608
-  %433 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i172, i64 8
-  store double 1.000000e+00, ptr %433, align 8, !tbaa !2352, !alias.scope !2611, !noalias !2608
-  %434 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i172, i64 16
-  %435 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i172, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %434, i8 0, i64 16, i1 false), !alias.scope !2611, !noalias !2608
-  store double 1.000000e+00, ptr %435, align 8, !tbaa !2352, !alias.scope !2611, !noalias !2608
-  %436 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i172, i64 40
-  store double 0.000000e+00, ptr %436, align 8, !tbaa !2490, !alias.scope !2611, !noalias !2608
-  %437 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i172, i64 48
-  store i8 0, ptr %437, align 8, !tbaa !2559, !alias.scope !2611, !noalias !2608
-  %.add.i.i.i173 = add nuw nsw i64 %.idx.i.i.i171, 56
-  %438 = icmp eq i64 %.add.i.i.i173, 152
-  br i1 %438, label %_ZN5boost8geometry8policies6relate28segments_intersection_pointsINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EESD_RKNS0_9side_infoERKT_RKT0_.exit.i, label %432
+436:                                              ; preds = %436, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit168
+  %.idx.i.i.i169 = phi i64 [ 40, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit168 ], [ %.add.i.i.i171, %436 ]
+  %.ptr.i.i.i170 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i.i169
+  store double 0.000000e+00, ptr %.ptr.i.i.i170, align 8, !tbaa !2351, !alias.scope !2611, !noalias !2608
+  %437 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i170, i64 8
+  store double 1.000000e+00, ptr %437, align 8, !tbaa !2352, !alias.scope !2611, !noalias !2608
+  %438 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i170, i64 16
+  %439 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i170, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %438, i8 0, i64 16, i1 false), !alias.scope !2611, !noalias !2608
+  store double 1.000000e+00, ptr %439, align 8, !tbaa !2352, !alias.scope !2611, !noalias !2608
+  %440 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i170, i64 40
+  store double 0.000000e+00, ptr %440, align 8, !tbaa !2490, !alias.scope !2611, !noalias !2608
+  %441 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i170, i64 48
+  store i8 0, ptr %441, align 8, !tbaa !2559, !alias.scope !2611, !noalias !2608
+  %.add.i.i.i171 = add nuw nsw i64 %.idx.i.i.i169, 56
+  %442 = icmp eq i64 %.add.i.i.i171, 152
+  br i1 %442, label %_ZN5boost8geometry8policies6relate28segments_intersection_pointsINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EESD_RKNS0_9side_infoERKT_RKT0_.exit.i, label %436
 
-_ZN5boost8geometry8policies6relate28segments_intersection_pointsINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EESD_RKNS0_9side_infoERKT_RKT0_.exit.i: ; preds = %432
+_ZN5boost8geometry8policies6relate28segments_intersection_pointsINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EESD_RKNS0_9side_infoERKT_RKT0_.exit.i: ; preds = %436
   store i64 1, ptr %8, align 8, !tbaa !2561, !alias.scope !2611, !noalias !2608
-  %439 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %439, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !noalias !2608
-  %440 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %441 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  store i8 1, ptr %441, align 8, !tbaa !2559, !alias.scope !2611, !noalias !2608
-  %442 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %440, ptr noundef nonnull align 8 dereferenceable(24) %442, i64 24, i1 false), !tbaa.struct !2508, !noalias !2608
-  %443 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %444 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %444, ptr noundef nonnull align 8 dereferenceable(24) %443, i64 24, i1 false), !tbaa.struct !2508, !noalias !2608
-  %445 = icmp eq i32 %397, 0
-  %446 = icmp eq i32 %396, 0
-  %447 = icmp eq i32 %395, 0
-  %448 = icmp eq i32 %394, 0
-  %449 = or i32 %395, %397
-  %or.cond.i.i.i174 = icmp eq i32 %449, 0
-  br i1 %or.cond.i.i.i174, label %450, label %453
+  %443 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %443, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !noalias !2608
+  %444 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %445 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  store i8 1, ptr %445, align 8, !tbaa !2559, !alias.scope !2611, !noalias !2608
+  %446 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %444, ptr noundef nonnull align 8 dereferenceable(24) %446, i64 24, i1 false), !tbaa.struct !2508, !noalias !2608
+  %447 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %448 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %448, ptr noundef nonnull align 8 dereferenceable(24) %447, i64 24, i1 false), !tbaa.struct !2508, !noalias !2608
+  %449 = icmp eq i32 %401, 0
+  %450 = icmp eq i32 %400, 0
+  %451 = icmp eq i32 %399, 0
+  %452 = icmp eq i32 %398, 0
+  %453 = or i32 %399, %401
+  %or.cond.i.i.i = icmp eq i32 %453, 0
+  br i1 %or.cond.i.i.i, label %454, label %457
 
-450:                                              ; preds = %_ZN5boost8geometry8policies6relate28segments_intersection_pointsINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EESD_RKNS0_9side_infoERKT_RKT0_.exit.i
-  %451 = icmp eq i32 %394, 1
-  %.neg.i.i.i.i = select i1 %451, i32 -1, i32 1
-  %452 = select i1 %451, i32 1, i32 -1
+454:                                              ; preds = %_ZN5boost8geometry8policies6relate28segments_intersection_pointsINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EESD_RKNS0_9side_infoERKT_RKT0_.exit.i
+  %455 = icmp eq i32 %398, 1
+  %.neg.i.i.i.i = select i1 %455, i32 -1, i32 1
+  %456 = select i1 %455, i32 1, i32 -1
   br label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EENSE_11return_typeERKNS0_9side_infoERKT_RKT0_.exit
 
-453:                                              ; preds = %_ZN5boost8geometry8policies6relate28segments_intersection_pointsINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EESD_RKNS0_9side_infoERKT_RKT0_.exit.i
-  %454 = or i32 %394, %396
-  %or.cond3.i.i.i = icmp eq i32 %454, 0
-  br i1 %or.cond3.i.i.i, label %455, label %458
+457:                                              ; preds = %_ZN5boost8geometry8policies6relate28segments_intersection_pointsINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EESD_RKNS0_9side_infoERKT_RKT0_.exit.i
+  %458 = or i32 %398, %400
+  %or.cond3.i.i.i = icmp eq i32 %458, 0
+  br i1 %or.cond3.i.i.i, label %459, label %462
 
-455:                                              ; preds = %453
-  %456 = icmp eq i32 %395, 1
-  %.neg.i31.i.i.i = select i1 %456, i32 -1, i32 1
-  %457 = select i1 %456, i32 1, i32 -1
+459:                                              ; preds = %457
+  %460 = icmp eq i32 %399, 1
+  %.neg.i31.i.i.i = select i1 %460, i32 -1, i32 1
+  %461 = select i1 %460, i32 1, i32 -1
   br label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EENSE_11return_typeERKNS0_9side_infoERKT_RKT0_.exit
 
-458:                                              ; preds = %453
-  %459 = or i32 %395, %396
-  %or.cond5.i.i.i = icmp eq i32 %459, 0
-  br i1 %or.cond5.i.i.i, label %460, label %463
+462:                                              ; preds = %457
+  %463 = or i32 %399, %400
+  %or.cond5.i.i.i = icmp eq i32 %463, 0
+  br i1 %or.cond5.i.i.i, label %464, label %467
 
-460:                                              ; preds = %458
-  %461 = icmp eq i32 %394, 1
-  %462 = select i1 %461, i32 1, i32 -1
+464:                                              ; preds = %462
+  %465 = icmp eq i32 %398, 1
+  %466 = select i1 %465, i32 1, i32 -1
   br label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EENSE_11return_typeERKNS0_9side_infoERKT_RKT0_.exit
 
-463:                                              ; preds = %458
-  %464 = or i32 %394, %397
-  %or.cond7.i.i.i = icmp eq i32 %464, 0
-  br i1 %or.cond7.i.i.i, label %465, label %468
+467:                                              ; preds = %462
+  %468 = or i32 %398, %401
+  %or.cond7.i.i.i = icmp eq i32 %468, 0
+  br i1 %or.cond7.i.i.i, label %469, label %472
 
-465:                                              ; preds = %463
-  %466 = icmp eq i32 %395, 1
-  %467 = select i1 %466, i32 1, i32 -1
+469:                                              ; preds = %467
+  %470 = icmp eq i32 %399, 1
+  %471 = select i1 %470, i32 1, i32 -1
   br label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EENSE_11return_typeERKNS0_9side_infoERKT_RKT0_.exit
 
-468:                                              ; preds = %463
-  br i1 %447, label %469, label %471
+472:                                              ; preds = %467
+  br i1 %451, label %473, label %475
 
-469:                                              ; preds = %468
-  %470 = icmp eq i32 %394, 1
-  %spec.select.i.neg.i.i.i = select i1 %470, i32 -1, i32 1
-  %spec.select.i.i.i.i = select i1 %470, i32 1, i32 -1
+473:                                              ; preds = %472
+  %474 = icmp eq i32 %398, 1
+  %spec.select.i.neg.i.i.i = select i1 %474, i32 -1, i32 1
+  %spec.select.i.i.i.i = select i1 %474, i32 1, i32 -1
   br label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EENSE_11return_typeERKNS0_9side_infoERKT_RKT0_.exit
 
-471:                                              ; preds = %468
-  br i1 %445, label %472, label %473
+475:                                              ; preds = %472
+  br i1 %449, label %476, label %477
 
-472:                                              ; preds = %471
-  %.not.i.i.i = icmp eq i32 %394, 1
+476:                                              ; preds = %475
+  %.not.i.i.i = icmp eq i32 %398, 1
   %spec.select.i32.neg.i.i.i = select i1 %.not.i.i.i, i32 1, i32 -1
   %spec.select.i32.i.i.i = select i1 %.not.i.i.i, i32 -1, i32 1
   br label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EENSE_11return_typeERKNS0_9side_infoERKT_RKT0_.exit
 
-473:                                              ; preds = %471
-  br i1 %448, label %474, label %477
+477:                                              ; preds = %475
+  br i1 %452, label %478, label %481
 
-474:                                              ; preds = %473
-  %475 = icmp eq i32 %396, 1
-  %476 = select i1 %475, i32 1, i32 -1
-  br label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EENSE_11return_typeERKNS0_9side_infoERKT_RKT0_.exit
-
-477:                                              ; preds = %473
-  %478 = icmp eq i32 %394, 1
-  br i1 %446, label %479, label %481
-
-479:                                              ; preds = %477
-  %480 = select i1 %478, i32 1, i32 -1
+478:                                              ; preds = %477
+  %479 = icmp eq i32 %400, 1
+  %480 = select i1 %479, i32 1, i32 -1
   br label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EENSE_11return_typeERKNS0_9side_infoERKT_RKT0_.exit
 
 481:                                              ; preds = %477
-  %.neg.i33.i.i.i = select i1 %478, i32 -1, i32 1
-  %482 = select i1 %478, i32 1, i32 -1
+  %482 = icmp eq i32 %398, 1
+  br i1 %450, label %483, label %485
+
+483:                                              ; preds = %481
+  %484 = select i1 %482, i32 1, i32 -1
   br label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EENSE_11return_typeERKNS0_9side_infoERKT_RKT0_.exit
 
-_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EENSE_11return_typeERKNS0_9side_infoERKT_RKT0_.exit: ; preds = %450, %455, %460, %465, %469, %472, %474, %479, %481
-  %.sink46.i.i.i = phi i8 [ 116, %455 ], [ 97, %465 ], [ 115, %472 ], [ 109, %479 ], [ 105, %481 ], [ 109, %474 ], [ 115, %469 ], [ 97, %460 ], [ 102, %450 ]
-  %.sink43.i.i.i = phi i32 [ 1, %455 ], [ -1, %465 ], [ -1, %472 ], [ 1, %479 ], [ -1, %481 ], [ 0, %474 ], [ 0, %469 ], [ 1, %460 ], [ -1, %450 ]
-  %.sink41.i.i.i = phi i32 [ 1, %455 ], [ 1, %465 ], [ 0, %472 ], [ 0, %479 ], [ -1, %481 ], [ 1, %474 ], [ -1, %469 ], [ -1, %460 ], [ -1, %450 ]
-  %.neg.i31.sink.i.i.i = phi i32 [ %.neg.i31.i.i.i, %455 ], [ %467, %465 ], [ %spec.select.i32.i.i.i, %472 ], [ %480, %479 ], [ %.neg.i33.i.i.i, %481 ], [ %476, %474 ], [ %spec.select.i.neg.i.i.i, %469 ], [ %462, %460 ], [ %.neg.i.i.i.i, %450 ]
-  %.sink38.i.i.i = phi i32 [ %457, %455 ], [ %467, %465 ], [ %spec.select.i32.neg.i.i.i, %472 ], [ %480, %479 ], [ %482, %481 ], [ %476, %474 ], [ %spec.select.i.i.i.i, %469 ], [ %462, %460 ], [ %452, %450 ]
+485:                                              ; preds = %481
+  %.neg.i33.i.i.i = select i1 %482, i32 -1, i32 1
+  %486 = select i1 %482, i32 1, i32 -1
+  br label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EENSE_11return_typeERKNS0_9side_infoERKT_RKT0_.exit
+
+_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EENSE_11return_typeERKNS0_9side_infoERKT_RKT0_.exit: ; preds = %454, %459, %464, %469, %473, %476, %478, %483, %485
+  %.sink46.i.i.i = phi i8 [ 116, %459 ], [ 97, %469 ], [ 115, %476 ], [ 109, %483 ], [ 105, %485 ], [ 109, %478 ], [ 115, %473 ], [ 97, %464 ], [ 102, %454 ]
+  %.sink43.i.i.i = phi i32 [ 1, %459 ], [ -1, %469 ], [ -1, %476 ], [ 1, %483 ], [ -1, %485 ], [ 0, %478 ], [ 0, %473 ], [ 1, %464 ], [ -1, %454 ]
+  %.sink41.i.i.i = phi i32 [ 1, %459 ], [ 1, %469 ], [ 0, %476 ], [ 0, %483 ], [ -1, %485 ], [ 1, %478 ], [ -1, %473 ], [ -1, %464 ], [ -1, %454 ]
+  %.neg.i31.sink.i.i.i = phi i32 [ %.neg.i31.i.i.i, %459 ], [ %471, %469 ], [ %spec.select.i32.i.i.i, %476 ], [ %484, %483 ], [ %.neg.i33.i.i.i, %485 ], [ %480, %478 ], [ %spec.select.i.neg.i.i.i, %473 ], [ %466, %464 ], [ %.neg.i.i.i.i, %454 ]
+  %.sink38.i.i.i = phi i32 [ %461, %459 ], [ %471, %469 ], [ %spec.select.i32.neg.i.i.i, %476 ], [ %484, %483 ], [ %486, %485 ], [ %480, %478 ], [ %spec.select.i.i.i.i, %473 ], [ %466, %464 ], [ %456, %454 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 8 dereferenceable(152) %8, i64 152, i1 false), !tbaa.struct !2569
-  %483 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i8 %.sink46.i.i.i, ptr %483, align 8, !tbaa !24, !alias.scope !2608
-  %.sroa.4.0..sroa_idx.i175 = getelementptr inbounds nuw i8, ptr %0, i64 153
-  store i8 0, ptr %.sroa.4.0..sroa_idx.i175, align 1, !tbaa !15, !alias.scope !2608
+  %487 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i8 %.sink46.i.i.i, ptr %487, align 8, !tbaa !24, !alias.scope !2608
+  %.sroa.4.0..sroa_idx.i172 = getelementptr inbounds nuw i8, ptr %0, i64 153
+  store i8 0, ptr %.sroa.4.0..sroa_idx.i172, align 1, !tbaa !15, !alias.scope !2608
   %.sroa.56.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 %.sink43.i.i.i, ptr %.sroa.56.0..sroa_idx.i, align 4, !tbaa !263, !alias.scope !2608
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -146081,29 +146081,29 @@ _ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_i
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %.sink41.i.i.i, ptr %.sroa.11.0..sroa_idx.i, align 8, !tbaa !24, !alias.scope !2608
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !2608
-  br label %490
+  br label %494
 
-484:                                              ; preds = %430
-  %485 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  br i1 %485, label %488, label %486
+488:                                              ; preds = %434
+  %489 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  br i1 %489, label %492, label %490
 
-486:                                              ; preds = %484
-  %487 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20)
-  br i1 %487, label %488, label %489
+490:                                              ; preds = %488
+  %491 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20)
+  br i1 %491, label %492, label %493
 
-488:                                              ; preds = %486, %484
+492:                                              ; preds = %490, %488
   call void @_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EENSE_11return_typeERKNS0_9side_infoERKT_RKT0_(ptr dead_on_unwind writable sret(%"struct.boost::geometry::policies::relate::segments_intersection_policy<boost::geometry::segment_intersection_points<boost::geometry::model::d2::point_xy<double>>>::return_type") align 8 %0, ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(16) %19)
-  br label %490
+  br label %494
 
-489:                                              ; preds = %486
+493:                                              ; preds = %490
   call void @_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE16segments_crossesINS5_17referring_segmentIKSA_EESI_NS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EEEENSE_11return_typeERKNS0_9side_infoERKT1_RKT_RKT0_(ptr dead_on_unwind writable sret(%"struct.boost::geometry::policies::relate::segments_intersection_policy<boost::geometry::segment_intersection_points<boost::geometry::model::d2::point_xy<double>>>::return_type") align 8 %0, ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br label %490
+  br label %494
 
-490:                                              ; preds = %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EENSE_11return_typeERKNS0_9side_infoERKT_RKT0_.exit, %488, %489, %393, %392, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit158, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit140
+494:                                              ; preds = %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE27segments_share_common_pointINS0_8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdSC_EESA_EENSE_11return_typeERKNS0_9side_infoERKT_RKT0_.exit, %492, %493, %397, %396, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit156, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit138
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %491
+  br label %495
 
-491:                                              ; preds = %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE10degenerateINS5_17referring_segmentIKSA_EEEENSE_11return_typeERKT_b.exit, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit, %490, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit127
+495:                                              ; preds = %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE10degenerateINS5_17referring_segmentIKSA_EEEENSE_11return_typeERKT_b.exit, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit, %494, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS0_13segment_ratioIdEEEEE8disjointEv.exit125
   ret void
 }
 
@@ -148309,125 +148309,125 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry8strategy12inte
   %7 = load ptr, ptr %6, align 8, !tbaa !2674
   %8 = load double, ptr %7, align 8, !tbaa !2335
   %9 = fcmp olt double %5, %8
-  br i1 %9, label %10, label %25
+  br i1 %9, label %10, label %26
 
 10:                                               ; preds = %2
-  %or.cond.i.i.i = fcmp uge double %3, %5
-  br i1 %or.cond.i.i.i, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread10, label %11
+  %11 = fcmp olt double %3, %5
+  br i1 %11, label %12, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread8
 
-11:                                               ; preds = %10
-  %12 = tail call double @llvm.fabs.f64(double %5)
-  %13 = fcmp ueq double %12, 0x7FF0000000000000
-  br i1 %13, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %14
+12:                                               ; preds = %10
+  %13 = tail call double @llvm.fabs.f64(double %5)
+  %14 = fcmp ueq double %13, 0x7FF0000000000000
+  br i1 %14, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %15
 
-14:                                               ; preds = %11
-  %15 = tail call double @llvm.fabs.f64(double %3)
-  %16 = fcmp ueq double %15, 0x7FF0000000000000
-  br i1 %16, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %17
+15:                                               ; preds = %12
+  %16 = tail call double @llvm.fabs.f64(double %3)
+  %17 = fcmp ueq double %16, 0x7FF0000000000000
+  br i1 %17, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %18
 
-17:                                               ; preds = %14
-  %18 = fsub double %5, %3
-  %19 = tail call noundef double @llvm.fabs.f64(double %18)
-  %20 = fcmp olt double %12, %15
-  %21 = select i1 %20, double %15, double %12
-  %22 = fcmp olt double %21, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i = select i1 %22, double 1.000000e+00, double %21
-  %23 = fmul double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
-  %24 = fcmp ugt double %19, %23
-  br i1 %24, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread10
+18:                                               ; preds = %15
+  %19 = fsub double %5, %3
+  %20 = tail call noundef double @llvm.fabs.f64(double %19)
+  %21 = fcmp olt double %13, %16
+  %22 = select i1 %21, double %16, double %13
+  %23 = fcmp olt double %22, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i = select i1 %23, double 1.000000e+00, double %22
+  %24 = fmul double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
+  %25 = fcmp ugt double %20, %24
+  br i1 %25, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread8
 
-25:                                               ; preds = %2
-  %26 = fcmp ule double %5, %8
-  %or.cond.i.i13.i = fcmp uge double %5, %3
-  %or.cond.i = select i1 %26, i1 true, i1 %or.cond.i.i13.i
-  br i1 %or.cond.i, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread10, label %27
+26:                                               ; preds = %2
+  %27 = fcmp ogt double %5, %8
+  %28 = fcmp olt double %5, %3
+  %or.cond.i = select i1 %27, i1 %28, i1 false
+  br i1 %or.cond.i, label %29, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread8
 
-27:                                               ; preds = %25
-  %28 = tail call double @llvm.fabs.f64(double %3)
-  %29 = fcmp ueq double %28, 0x7FF0000000000000
-  br i1 %29, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %30
+29:                                               ; preds = %26
+  %30 = tail call double @llvm.fabs.f64(double %3)
+  %31 = fcmp ueq double %30, 0x7FF0000000000000
+  br i1 %31, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %32
 
-30:                                               ; preds = %27
-  %31 = tail call double @llvm.fabs.f64(double %5)
-  %32 = fcmp ueq double %31, 0x7FF0000000000000
-  br i1 %32, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
+32:                                               ; preds = %29
+  %33 = tail call double @llvm.fabs.f64(double %5)
+  %34 = fcmp ueq double %33, 0x7FF0000000000000
+  br i1 %34, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
 
-_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit: ; preds = %30
-  %33 = fsub double %3, %5
-  %34 = tail call noundef double @llvm.fabs.f64(double %33)
-  %35 = fcmp olt double %28, %31
-  %36 = select i1 %35, double %31, double %28
-  %37 = fcmp olt double %36, 1.000000e+00
-  %.sroa.speculated.i.i.i.i14.i = select i1 %37, double 1.000000e+00, double %36
-  %38 = fmul double %.sroa.speculated.i.i.i.i14.i, 0x3CB0000000000000
-  %39 = fcmp ugt double %34, %38
-  br i1 %39, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread10
+_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit: ; preds = %32
+  %35 = fsub double %3, %5
+  %36 = tail call noundef double @llvm.fabs.f64(double %35)
+  %37 = fcmp olt double %30, %33
+  %38 = select i1 %37, double %33, double %30
+  %39 = fcmp olt double %38, 1.000000e+00
+  %.sroa.speculated.i.i.i.i14.i = select i1 %39, double 1.000000e+00, double %38
+  %40 = fmul double %.sroa.speculated.i.i.i.i14.i, 0x3CB0000000000000
+  %41 = fcmp ugt double %36, %40
+  br i1 %41, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread8
 
-_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread10: ; preds = %10, %25, %17, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load double, ptr %40, align 8, !tbaa !2335
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
+_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread8: ; preds = %10, %26, %18, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load double, ptr %42, align 8, !tbaa !2335
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %45 = load double, ptr %44, align 8, !tbaa !2335
-  %46 = fcmp olt double %43, %45
-  br i1 %46, label %47, label %62
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %47 = load double, ptr %46, align 8, !tbaa !2335
+  %48 = fcmp olt double %45, %47
+  br i1 %48, label %49, label %65
 
-47:                                               ; preds = %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread10
-  %or.cond.i.i.i7 = fcmp uge double %41, %43
-  br i1 %or.cond.i.i.i7, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %48
+49:                                               ; preds = %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread8
+  %50 = fcmp olt double %43, %45
+  br i1 %50, label %51, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
 
-48:                                               ; preds = %47
-  %49 = tail call double @llvm.fabs.f64(double %43)
-  %50 = fcmp ueq double %49, 0x7FF0000000000000
-  br i1 %50, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %51
-
-51:                                               ; preds = %48
-  %52 = tail call double @llvm.fabs.f64(double %41)
+51:                                               ; preds = %49
+  %52 = tail call double @llvm.fabs.f64(double %45)
   %53 = fcmp ueq double %52, 0x7FF0000000000000
   br i1 %53, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %54
 
 54:                                               ; preds = %51
-  %55 = fsub double %43, %41
-  %56 = tail call noundef double @llvm.fabs.f64(double %55)
-  %57 = fcmp olt double %49, %52
-  %58 = select i1 %57, double %52, double %49
-  %59 = fcmp olt double %58, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i8 = select i1 %59, double 1.000000e+00, double %58
-  %60 = fmul double %.sroa.speculated.i.i.i.i.i8, 0x3CB0000000000000
-  %61 = fcmp ugt double %56, %60
+  %55 = tail call double @llvm.fabs.f64(double %43)
+  %56 = fcmp ueq double %55, 0x7FF0000000000000
+  br i1 %56, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %57
+
+57:                                               ; preds = %54
+  %58 = fsub double %45, %43
+  %59 = tail call noundef double @llvm.fabs.f64(double %58)
+  %60 = fcmp olt double %52, %55
+  %61 = select i1 %60, double %55, double %52
+  %62 = fcmp olt double %61, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i6 = select i1 %62, double 1.000000e+00, double %61
+  %63 = fmul double %.sroa.speculated.i.i.i.i.i6, 0x3CB0000000000000
+  %64 = fcmp ugt double %59, %63
   br label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
 
-62:                                               ; preds = %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread10
-  %63 = fcmp ule double %43, %45
-  %or.cond.i.i13.i4 = fcmp uge double %43, %41
-  %or.cond.i5 = select i1 %63, i1 true, i1 %or.cond.i.i13.i4
-  br i1 %or.cond.i5, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %64
+65:                                               ; preds = %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread8
+  %66 = fcmp ogt double %45, %47
+  %67 = fcmp olt double %45, %43
+  %or.cond.i4 = select i1 %66, i1 %67, i1 false
+  br i1 %or.cond.i4, label %68, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
 
-64:                                               ; preds = %62
-  %65 = tail call double @llvm.fabs.f64(double %41)
-  %66 = fcmp ueq double %65, 0x7FF0000000000000
-  br i1 %66, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %67
+68:                                               ; preds = %65
+  %69 = tail call double @llvm.fabs.f64(double %43)
+  %70 = fcmp ueq double %69, 0x7FF0000000000000
+  br i1 %70, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %71
 
-67:                                               ; preds = %64
-  %68 = tail call double @llvm.fabs.f64(double %43)
-  %69 = fcmp ueq double %68, 0x7FF0000000000000
-  br i1 %69, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %70
+71:                                               ; preds = %68
+  %72 = tail call double @llvm.fabs.f64(double %45)
+  %73 = fcmp ueq double %72, 0x7FF0000000000000
+  br i1 %73, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %74
 
-70:                                               ; preds = %67
-  %71 = fsub double %41, %43
-  %72 = tail call noundef double @llvm.fabs.f64(double %71)
-  %73 = fcmp olt double %65, %68
-  %74 = select i1 %73, double %68, double %65
-  %75 = fcmp olt double %74, 1.000000e+00
-  %.sroa.speculated.i.i.i.i14.i6 = select i1 %75, double 1.000000e+00, double %74
-  %76 = fmul double %.sroa.speculated.i.i.i.i14.i6, 0x3CB0000000000000
-  %77 = fcmp ugt double %72, %76
+74:                                               ; preds = %71
+  %75 = fsub double %43, %45
+  %76 = tail call noundef double @llvm.fabs.f64(double %75)
+  %77 = fcmp olt double %69, %72
+  %78 = select i1 %77, double %72, double %69
+  %79 = fcmp olt double %78, 1.000000e+00
+  %.sroa.speculated.i.i.i.i14.i5 = select i1 %79, double 1.000000e+00, double %78
+  %80 = fmul double %.sroa.speculated.i.i.i.i14.i5, 0x3CB0000000000000
+  %81 = fcmp ugt double %76, %80
   br label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
 
-_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit: ; preds = %27, %30, %11, %14, %70, %67, %64, %62, %54, %51, %48, %47, %17, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
-  %78 = phi i1 [ true, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit ], [ true, %17 ], [ false, %62 ], [ false, %47 ], [ %61, %54 ], [ true, %51 ], [ true, %48 ], [ %77, %70 ], [ true, %67 ], [ true, %64 ], [ true, %14 ], [ true, %11 ], [ true, %30 ], [ true, %27 ]
-  ret i1 %78
+_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit: ; preds = %29, %32, %12, %15, %74, %71, %68, %65, %57, %54, %51, %49, %18, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
+  %82 = phi i1 [ true, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi0ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit ], [ true, %18 ], [ false, %65 ], [ false, %49 ], [ %64, %57 ], [ true, %54 ], [ true, %51 ], [ %81, %74 ], [ true, %71 ], [ true, %68 ], [ true, %15 ], [ true, %12 ], [ true, %32 ], [ true, %29 ]
+  ret i1 %82
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -148439,125 +148439,125 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry8strategy12inte
   %7 = load ptr, ptr %1, align 8, !tbaa !2563
   %8 = load double, ptr %7, align 8, !tbaa !2335
   %9 = fcmp olt double %6, %8
-  br i1 %9, label %10, label %25
+  br i1 %9, label %10, label %26
 
 10:                                               ; preds = %2
-  %or.cond.i.i.i = fcmp uge double %3, %6
-  br i1 %or.cond.i.i.i, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread10, label %11
+  %11 = fcmp olt double %3, %6
+  br i1 %11, label %12, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread8
 
-11:                                               ; preds = %10
-  %12 = tail call double @llvm.fabs.f64(double %6)
-  %13 = fcmp ueq double %12, 0x7FF0000000000000
-  br i1 %13, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %14
+12:                                               ; preds = %10
+  %13 = tail call double @llvm.fabs.f64(double %6)
+  %14 = fcmp ueq double %13, 0x7FF0000000000000
+  br i1 %14, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %15
 
-14:                                               ; preds = %11
-  %15 = tail call double @llvm.fabs.f64(double %3)
-  %16 = fcmp ueq double %15, 0x7FF0000000000000
-  br i1 %16, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %17
+15:                                               ; preds = %12
+  %16 = tail call double @llvm.fabs.f64(double %3)
+  %17 = fcmp ueq double %16, 0x7FF0000000000000
+  br i1 %17, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %18
 
-17:                                               ; preds = %14
-  %18 = fsub double %6, %3
-  %19 = tail call noundef double @llvm.fabs.f64(double %18)
-  %20 = fcmp olt double %12, %15
-  %21 = select i1 %20, double %15, double %12
-  %22 = fcmp olt double %21, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i = select i1 %22, double 1.000000e+00, double %21
-  %23 = fmul double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
-  %24 = fcmp ugt double %19, %23
-  br i1 %24, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread10
+18:                                               ; preds = %15
+  %19 = fsub double %6, %3
+  %20 = tail call noundef double @llvm.fabs.f64(double %19)
+  %21 = fcmp olt double %13, %16
+  %22 = select i1 %21, double %16, double %13
+  %23 = fcmp olt double %22, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i = select i1 %23, double 1.000000e+00, double %22
+  %24 = fmul double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
+  %25 = fcmp ugt double %20, %24
+  br i1 %25, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread8
 
-25:                                               ; preds = %2
-  %26 = fcmp ule double %6, %8
-  %or.cond.i.i13.i = fcmp uge double %6, %3
-  %or.cond.i = select i1 %26, i1 true, i1 %or.cond.i.i13.i
-  br i1 %or.cond.i, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread10, label %27
+26:                                               ; preds = %2
+  %27 = fcmp ogt double %6, %8
+  %28 = fcmp olt double %6, %3
+  %or.cond.i = select i1 %27, i1 %28, i1 false
+  br i1 %or.cond.i, label %29, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread8
 
-27:                                               ; preds = %25
-  %28 = tail call double @llvm.fabs.f64(double %3)
-  %29 = fcmp ueq double %28, 0x7FF0000000000000
-  br i1 %29, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %30
+29:                                               ; preds = %26
+  %30 = tail call double @llvm.fabs.f64(double %3)
+  %31 = fcmp ueq double %30, 0x7FF0000000000000
+  br i1 %31, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %32
 
-30:                                               ; preds = %27
-  %31 = tail call double @llvm.fabs.f64(double %6)
-  %32 = fcmp ueq double %31, 0x7FF0000000000000
-  br i1 %32, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
+32:                                               ; preds = %29
+  %33 = tail call double @llvm.fabs.f64(double %6)
+  %34 = fcmp ueq double %33, 0x7FF0000000000000
+  br i1 %34, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
 
-_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit: ; preds = %30
-  %33 = fsub double %3, %6
-  %34 = tail call noundef double @llvm.fabs.f64(double %33)
-  %35 = fcmp olt double %28, %31
-  %36 = select i1 %35, double %31, double %28
-  %37 = fcmp olt double %36, 1.000000e+00
-  %.sroa.speculated.i.i.i.i14.i = select i1 %37, double 1.000000e+00, double %36
-  %38 = fmul double %.sroa.speculated.i.i.i.i14.i, 0x3CB0000000000000
-  %39 = fcmp ugt double %34, %38
-  br i1 %39, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread10
+_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit: ; preds = %32
+  %35 = fsub double %3, %6
+  %36 = tail call noundef double @llvm.fabs.f64(double %35)
+  %37 = fcmp olt double %30, %33
+  %38 = select i1 %37, double %33, double %30
+  %39 = fcmp olt double %38, 1.000000e+00
+  %.sroa.speculated.i.i.i.i14.i = select i1 %39, double 1.000000e+00, double %38
+  %40 = fmul double %.sroa.speculated.i.i.i.i14.i, 0x3CB0000000000000
+  %41 = fcmp ugt double %36, %40
+  br i1 %41, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread8
 
-_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread10: ; preds = %10, %25, %17, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load double, ptr %40, align 8, !tbaa !2335
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
+_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread8: ; preds = %10, %26, %18, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load double, ptr %42, align 8, !tbaa !2335
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %45 = load double, ptr %44, align 8, !tbaa !2335
-  %46 = fcmp olt double %43, %45
-  br i1 %46, label %47, label %62
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %47 = load double, ptr %46, align 8, !tbaa !2335
+  %48 = fcmp olt double %45, %47
+  br i1 %48, label %49, label %65
 
-47:                                               ; preds = %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread10
-  %or.cond.i.i.i7 = fcmp uge double %41, %43
-  br i1 %or.cond.i.i.i7, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %48
+49:                                               ; preds = %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread8
+  %50 = fcmp olt double %43, %45
+  br i1 %50, label %51, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
 
-48:                                               ; preds = %47
-  %49 = tail call double @llvm.fabs.f64(double %43)
-  %50 = fcmp ueq double %49, 0x7FF0000000000000
-  br i1 %50, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %51
-
-51:                                               ; preds = %48
-  %52 = tail call double @llvm.fabs.f64(double %41)
+51:                                               ; preds = %49
+  %52 = tail call double @llvm.fabs.f64(double %45)
   %53 = fcmp ueq double %52, 0x7FF0000000000000
   br i1 %53, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %54
 
 54:                                               ; preds = %51
-  %55 = fsub double %43, %41
-  %56 = tail call noundef double @llvm.fabs.f64(double %55)
-  %57 = fcmp olt double %49, %52
-  %58 = select i1 %57, double %52, double %49
-  %59 = fcmp olt double %58, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i8 = select i1 %59, double 1.000000e+00, double %58
-  %60 = fmul double %.sroa.speculated.i.i.i.i.i8, 0x3CB0000000000000
-  %61 = fcmp ugt double %56, %60
+  %55 = tail call double @llvm.fabs.f64(double %43)
+  %56 = fcmp ueq double %55, 0x7FF0000000000000
+  br i1 %56, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %57
+
+57:                                               ; preds = %54
+  %58 = fsub double %45, %43
+  %59 = tail call noundef double @llvm.fabs.f64(double %58)
+  %60 = fcmp olt double %52, %55
+  %61 = select i1 %60, double %55, double %52
+  %62 = fcmp olt double %61, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i6 = select i1 %62, double 1.000000e+00, double %61
+  %63 = fmul double %.sroa.speculated.i.i.i.i.i6, 0x3CB0000000000000
+  %64 = fcmp ugt double %59, %63
   br label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
 
-62:                                               ; preds = %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread10
-  %63 = fcmp ule double %43, %45
-  %or.cond.i.i13.i4 = fcmp uge double %43, %41
-  %or.cond.i5 = select i1 %63, i1 true, i1 %or.cond.i.i13.i4
-  br i1 %or.cond.i5, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %64
+65:                                               ; preds = %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit.thread8
+  %66 = fcmp ogt double %45, %47
+  %67 = fcmp olt double %45, %43
+  %or.cond.i4 = select i1 %66, i1 %67, i1 false
+  br i1 %or.cond.i4, label %68, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
 
-64:                                               ; preds = %62
-  %65 = tail call double @llvm.fabs.f64(double %41)
-  %66 = fcmp ueq double %65, 0x7FF0000000000000
-  br i1 %66, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %67
+68:                                               ; preds = %65
+  %69 = tail call double @llvm.fabs.f64(double %43)
+  %70 = fcmp ueq double %69, 0x7FF0000000000000
+  br i1 %70, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %71
 
-67:                                               ; preds = %64
-  %68 = tail call double @llvm.fabs.f64(double %43)
-  %69 = fcmp ueq double %68, 0x7FF0000000000000
-  br i1 %69, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %70
+71:                                               ; preds = %68
+  %72 = tail call double @llvm.fabs.f64(double %45)
+  %73 = fcmp ueq double %72, 0x7FF0000000000000
+  br i1 %73, label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit, label %74
 
-70:                                               ; preds = %67
-  %71 = fsub double %41, %43
-  %72 = tail call noundef double @llvm.fabs.f64(double %71)
-  %73 = fcmp olt double %65, %68
-  %74 = select i1 %73, double %68, double %65
-  %75 = fcmp olt double %74, 1.000000e+00
-  %.sroa.speculated.i.i.i.i14.i6 = select i1 %75, double 1.000000e+00, double %74
-  %76 = fmul double %.sroa.speculated.i.i.i.i14.i6, 0x3CB0000000000000
-  %77 = fcmp ugt double %72, %76
+74:                                               ; preds = %71
+  %75 = fsub double %43, %45
+  %76 = tail call noundef double @llvm.fabs.f64(double %75)
+  %77 = fcmp olt double %69, %72
+  %78 = select i1 %77, double %72, double %69
+  %79 = fcmp olt double %78, 1.000000e+00
+  %.sroa.speculated.i.i.i.i14.i5 = select i1 %79, double 1.000000e+00, double %78
+  %80 = fmul double %.sroa.speculated.i.i.i.i14.i5, 0x3CB0000000000000
+  %81 = fcmp ugt double %76, %80
   br label %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
 
-_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit: ; preds = %27, %30, %11, %14, %70, %67, %64, %62, %54, %51, %48, %47, %17, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
-  %78 = phi i1 [ true, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit ], [ true, %17 ], [ false, %62 ], [ false, %47 ], [ %61, %54 ], [ true, %51 ], [ true, %48 ], [ %77, %70 ], [ true, %67 ], [ true, %64 ], [ true, %14 ], [ true, %11 ], [ true, %30 ], [ true, %27 ]
-  ret i1 %78
+_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi1ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit: ; preds = %29, %32, %12, %15, %74, %71, %68, %65, %57, %54, %51, %49, %18, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit
+  %82 = phi i1 [ true, %_ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIdNS0_13segment_ratioIdEEE25exceeds_side_in_dimensionILi1ELi0ENS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_17referring_segmentIKSF_EEEEbRT1_RKT2_.exit ], [ true, %18 ], [ false, %65 ], [ false, %49 ], [ %64, %57 ], [ true, %54 ], [ true, %51 ], [ %81, %74 ], [ true, %71 ], [ true, %68 ], [ true, %15 ], [ true, %12 ], [ true, %32 ], [ true, %29 ]
+  ret i1 %82
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable

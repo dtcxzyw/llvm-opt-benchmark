@@ -67189,7 +67189,7 @@ _ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_19CoatedConductorBxDFEEEDaS1_.exit: ; pr
   %62 = or disjoint i32 %spec.select.i.i, 4
   %or.cond.i.i = select i1 %58, i1 true, i1 %61
   %63 = or disjoint i32 %spec.select.i.i, 8
-  %spec.select15.i.i = select i1 %or.cond.i.i, i32 %63, i32 %spec.select.i.i
+  %spec.select15.i.i = select i1 %or.cond.i.i, i32 %63, i32 17
   %.1.i.i33 = select i1 %55, i32 %62, i32 %spec.select15.i.i
   br label %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_17CoatedDiffuseBxDFEEEDaS1_.exit
 

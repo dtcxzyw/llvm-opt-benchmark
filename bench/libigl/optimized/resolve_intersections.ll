@@ -36495,330 +36495,382 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4CGAL13Intersections8internal22do
   %10 = load double, ptr %0, align 8, !tbaa !34
   %11 = load double, ptr %9, align 8, !tbaa !34
   %12 = fcmp olt double %10, %11
-  %.not.i.i.not.i = fcmp ueq double %10, %11
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load double, ptr %14, align 8
-  %16 = load double, ptr %13, align 8
-  %17 = fcmp olt double %15, %16
-  %.0.i.i.i = select i1 %.not.i.i.not.i, i1 %17, i1 %12
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load double, ptr %1, align 8, !tbaa !34
-  %20 = load double, ptr %18, align 8, !tbaa !34
-  %21 = fcmp olt double %19, %20
-  %.not.i.i.not.i116 = fcmp ueq double %19, %20
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load double, ptr %23, align 8
-  %25 = load double, ptr %22, align 8
-  %26 = fcmp olt double %24, %25
-  %.0.i.i.i117 = select i1 %.not.i.i.not.i116, i1 %26, i1 %21
+  %13 = fcmp ule double %10, %11
+  %.not.i.i.i = xor i1 %12, %13
+  br i1 %.not.i.i.i, label %14, label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit
+
+14:                                               ; preds = %4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load double, ptr %16, align 8, !tbaa !34
+  %18 = load double, ptr %15, align 8, !tbaa !34
+  %19 = fcmp olt double %17, %18
+  br label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit
+
+_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit: ; preds = %4, %14
+  %.0.i.i.i = phi i1 [ %19, %14 ], [ %12, %4 ]
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %21 = load double, ptr %1, align 8, !tbaa !34
+  %22 = load double, ptr %20, align 8, !tbaa !34
+  %23 = fcmp olt double %21, %22
+  %24 = fcmp ule double %21, %22
+  %.not.i.i.i116 = xor i1 %23, %24
+  br i1 %.not.i.i.i116, label %25, label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit118
+
+25:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %28 = load double, ptr %27, align 8, !tbaa !34
+  %29 = load double, ptr %26, align 8, !tbaa !34
+  %30 = fcmp olt double %28, %29
+  br label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit118
+
+_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit118: ; preds = %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit, %25
+  %.0.i.i.i117 = phi i1 [ %30, %25 ], [ %23, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit ]
   %not. = xor i1 %.0.i.i.i, true
-  %27 = zext i1 %not. to i32
-  %28 = zext i1 %.0.i.i.i to i32
+  %31 = zext i1 %not. to i32
+  %32 = zext i1 %.0.i.i.i to i32
   %not.115 = xor i1 %.0.i.i.i117, true
-  %29 = zext i1 %not.115 to i32
+  %33 = zext i1 %not.115 to i32
   %spec.select.idx.i.i = select i1 %.0.i.i.i, i64 0, i64 16
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select.idx.i.i
-  %spec.select.idx.i.i118 = select i1 %.0.i.i.i, i64 16, i64 0
-  %spec.select.i.i119 = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select.idx.i.i118
-  %spec.select.idx.i.i120 = select i1 %.0.i.i.i117, i64 0, i64 16
-  %spec.select.i.i121 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx.i.i120
-  %spec.select.idx.i.i122 = select i1 %.0.i.i.i117, i64 16, i64 0
-  %spec.select.i.i123 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx.i.i122
-  %30 = load double, ptr %spec.select.i.i119, align 8, !tbaa !34
-  %31 = load double, ptr %spec.select.i.i121, align 8, !tbaa !34
-  %32 = fcmp olt double %30, %31
-  %.not.i.i.not.i124 = fcmp ueq double %30, %31
-  %33 = getelementptr inbounds nuw i8, ptr %spec.select.i.i121, i64 8
-  %34 = getelementptr inbounds nuw i8, ptr %spec.select.i.i119, i64 8
-  %35 = load double, ptr %34, align 8
-  %36 = load double, ptr %33, align 8
-  %37 = fcmp olt double %35, %36
-  %.0.i.i.i125 = select i1 %.not.i.i.not.i124, i1 %37, i1 %32
-  br i1 %.0.i.i.i125, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread, label %38
+  %spec.select.idx.i.i119 = select i1 %.0.i.i.i, i64 16, i64 0
+  %spec.select.i.i120 = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select.idx.i.i119
+  %spec.select.idx.i.i121 = select i1 %.0.i.i.i117, i64 0, i64 16
+  %spec.select.i.i122 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx.i.i121
+  %spec.select.idx.i.i123 = select i1 %.0.i.i.i117, i64 16, i64 0
+  %spec.select.i.i124 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx.i.i123
+  %34 = load double, ptr %spec.select.i.i120, align 8, !tbaa !34
+  %35 = load double, ptr %spec.select.i.i122, align 8, !tbaa !34
+  %36 = fcmp olt double %34, %35
+  %37 = fcmp ule double %34, %35
+  %.not.i.i.i125 = xor i1 %36, %37
+  br i1 %.not.i.i.i125, label %38, label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit127
 
-38:                                               ; preds = %4
-  %39 = load double, ptr %spec.select.i.i123, align 8, !tbaa !34
-  %40 = load double, ptr %spec.select.i.i, align 8, !tbaa !34
-  %41 = fcmp olt double %39, %40
-  %.not.i.i.not.i126 = fcmp ueq double %39, %40
-  %42 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
-  %43 = getelementptr inbounds nuw i8, ptr %spec.select.i.i123, i64 8
-  %44 = load double, ptr %43, align 8
-  %45 = load double, ptr %42, align 8
-  %46 = fcmp olt double %44, %45
-  %.0.i.i.i127 = select i1 %.not.i.i.not.i126, i1 %46, i1 %41
-  br i1 %.0.i.i.i127, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread, label %47
+38:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit118
+  %39 = getelementptr inbounds nuw i8, ptr %spec.select.i.i122, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %spec.select.i.i120, i64 8
+  %41 = load double, ptr %40, align 8, !tbaa !34
+  %42 = load double, ptr %39, align 8, !tbaa !34
+  %43 = fcmp olt double %41, %42
+  br i1 %43, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread, label %44
 
-47:                                               ; preds = %38
-  %48 = fcmp olt double %40, %31
-  %49 = fcmp ogt double %40, %31
-  %..i.i.i.i = zext i1 %49 to i32
-  %.0.i.i.i.i = select i1 %48, i32 -1, i32 %..i.i.i.i
+_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit127: ; preds = %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit118
+  br i1 %36, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread, label %44
+
+44:                                               ; preds = %38, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit127
+  %45 = load double, ptr %spec.select.i.i124, align 8, !tbaa !34
+  %46 = load double, ptr %spec.select.i.i, align 8, !tbaa !34
+  %47 = fcmp olt double %45, %46
+  %48 = fcmp ule double %45, %46
+  %.not.i.i.i128 = xor i1 %47, %48
+  br i1 %.not.i.i.i128, label %49, label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit130
+
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %spec.select.i.i124, i64 8
+  %52 = load double, ptr %51, align 8, !tbaa !34
+  %53 = load double, ptr %50, align 8, !tbaa !34
+  %54 = fcmp olt double %52, %53
+  br i1 %54, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread, label %55
+
+_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit130: ; preds = %44
+  br i1 %47, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread, label %55
+
+55:                                               ; preds = %49, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit130
+  %56 = fcmp olt double %46, %35
+  %57 = fcmp ogt double %46, %35
+  %..i.i.i.i = zext i1 %57 to i32
+  %.0.i.i.i.i = select i1 %56, i32 -1, i32 %..i.i.i.i
   %.not.i.i = icmp eq i32 %.0.i.i.i.i, 0
-  br i1 %.not.i.i, label %50, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit
+  br i1 %.not.i.i, label %58, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit
 
-50:                                               ; preds = %47
-  %51 = fcmp olt double %45, %36
-  %52 = fcmp ogt double %45, %36
-  %..i.i8.i.i = zext i1 %52 to i32
-  br i1 %51, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit.thread, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds nuw i8, ptr %spec.select.i.i122, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
+  %61 = load double, ptr %60, align 8, !tbaa !34
+  %62 = load double, ptr %59, align 8, !tbaa !34
+  %63 = fcmp olt double %61, %62
+  %64 = fcmp ogt double %61, %62
+  %..i.i8.i.i = zext i1 %64 to i32
+  br i1 %63, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit.thread, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit
 
-_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit: ; preds = %50, %47
-  %.0.i.i = phi i32 [ %..i.i8.i.i, %50 ], [ %.0.i.i.i.i, %47 ]
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit: ; preds = %58, %55
+  %.0.i.i = phi i32 [ %..i.i8.i.i, %58 ], [ %.0.i.i.i.i, %55 ]
   switch i32 %.0.i.i, label %default.unreachable [
     i32 -1, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit.thread
-    i32 0, label %84
-    i32 1, label %98
+    i32 0, label %105
+    i32 1, label %123
   ]
 
-_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit.thread: ; preds = %50, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit
-  %53 = fcmp ogt double %30, %31
-  %..i.i.i.i128 = zext i1 %53 to i32
-  %.0.i.i.i.i129 = select i1 %32, i32 -1, i32 %..i.i.i.i128
-  %.not.i.i130 = icmp eq i32 %.0.i.i.i.i129, 0
-  br i1 %.not.i.i130, label %54, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit.thread: ; preds = %58, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit
+  %65 = fcmp ogt double %34, %35
+  %..i.i.i.i131 = zext i1 %65 to i32
+  %.0.i.i.i.i132 = select i1 %36, i32 -1, i32 %..i.i.i.i131
+  %.not.i.i133 = icmp eq i32 %.0.i.i.i.i132, 0
+  br i1 %.not.i.i133, label %66, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137
 
-54:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit.thread
-  %55 = fcmp ogt double %35, %36
-  %..i.i8.i.i132 = zext i1 %55 to i32
-  br i1 %37, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134
+66:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit.thread
+  %67 = getelementptr inbounds nuw i8, ptr %spec.select.i.i122, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %spec.select.i.i120, i64 8
+  %69 = load double, ptr %68, align 8, !tbaa !34
+  %70 = load double, ptr %67, align 8, !tbaa !34
+  %71 = fcmp olt double %69, %70
+  %72 = fcmp ogt double %69, %70
+  %..i.i8.i.i135 = zext i1 %72 to i32
+  br i1 %71, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137
 
-_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134: ; preds = %54, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit.thread
-  %.0.i.i131 = phi i32 [ %..i.i8.i.i132, %54 ], [ %.0.i.i.i.i129, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit.thread ]
-  switch i32 %.0.i.i131, label %default.unreachable [
-    i32 -1, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread
-    i32 0, label %56
-    i32 1, label %57
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137: ; preds = %66, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit.thread
+  %.0.i.i134 = phi i32 [ %..i.i8.i.i135, %66 ], [ %.0.i.i.i.i132, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit.thread ]
+  switch i32 %.0.i.i134, label %default.unreachable [
+    i32 -1, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread
+    i32 0, label %73
+    i32 1, label %74
   ]
 
-56:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134
-  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread
+73:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137
+  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread
 
-57:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134
-  %58 = fcmp olt double %30, %39
-  %59 = fcmp ogt double %30, %39
-  %..i.i.i.i135 = zext i1 %59 to i32
-  %.0.i.i.i.i136 = select i1 %58, i32 -1, i32 %..i.i.i.i135
-  %.not.i.i137 = icmp eq i32 %.0.i.i.i.i136, 0
-  br i1 %.not.i.i137, label %60, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit141
+74:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137
+  %75 = fcmp olt double %34, %45
+  %76 = fcmp ogt double %34, %45
+  %..i.i.i.i138 = zext i1 %76 to i32
+  %.0.i.i.i.i139 = select i1 %75, i32 -1, i32 %..i.i.i.i138
+  %.not.i.i140 = icmp eq i32 %.0.i.i.i.i139, 0
+  br i1 %.not.i.i140, label %77, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit144
 
-60:                                               ; preds = %57
-  %61 = fcmp olt double %35, %44
-  %62 = fcmp ogt double %35, %44
-  %..i.i8.i.i139 = zext i1 %62 to i32
-  br i1 %61, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit141.thread, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit141
+77:                                               ; preds = %74
+  %78 = getelementptr inbounds nuw i8, ptr %spec.select.i.i124, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %spec.select.i.i120, i64 8
+  %80 = load double, ptr %79, align 8, !tbaa !34
+  %81 = load double, ptr %78, align 8, !tbaa !34
+  %82 = fcmp olt double %80, %81
+  %83 = fcmp ogt double %80, %81
+  %..i.i8.i.i142 = zext i1 %83 to i32
+  br i1 %82, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit144.thread, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit144
 
-_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit141: ; preds = %60, %57
-  %.0.i.i138 = phi i32 [ %..i.i8.i.i139, %60 ], [ %.0.i.i.i.i136, %57 ]
-  switch i32 %.0.i.i138, label %default.unreachable [
-    i32 -1, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit141.thread
-    i32 0, label %70
-    i32 1, label %76
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit144: ; preds = %77, %74
+  %.0.i.i141 = phi i32 [ %..i.i8.i.i142, %77 ], [ %.0.i.i.i.i139, %74 ]
+  switch i32 %.0.i.i141, label %default.unreachable [
+    i32 -1, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit144.thread
+    i32 0, label %91
+    i32 1, label %97
   ]
 
-_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit141.thread: ; preds = %60, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit141
-  %63 = select i1 %.0.i.i.i117, i32 2, i32 3
-  %64 = select i1 %.0.i.i.i117, i32 3, i32 2
-  %65 = select i1 %.0.i.i.i, i32 0, i32 2
-  %66 = or disjoint i32 %65, %29
-  %67 = tail call { i64, i64 } @_ZN4CGAL13Intersections8internal29seg_seg_do_intersect_crossingINS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES8_EEEEEEEENS1_15S2S2_inter_infoERKNT_7Point_2ESH_SH_SH_iiiiRKSE_bi(ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i119, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i121, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i123, i32 noundef %27, i32 noundef %28, i32 noundef %63, i32 noundef %64, ptr noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %3, i32 noundef %66)
-  %68 = extractvalue { i64, i64 } %67, 0
-  %.sroa.31180.0.extract.shift = lshr i64 %68, 32
-  %.sroa.31180.0.extract.trunc = trunc nuw i64 %.sroa.31180.0.extract.shift to i32
-  %69 = extractvalue { i64, i64 } %67, 1
-  %.sroa.44.8.extract.trunc189 = trunc i64 %69 to i32
-  %.sroa.62.8.extract.shift194 = and i64 %69, -4294967296
-  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit144.thread: ; preds = %77, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit144
+  %84 = select i1 %.0.i.i.i117, i32 2, i32 3
+  %85 = select i1 %.0.i.i.i117, i32 3, i32 2
+  %86 = select i1 %.0.i.i.i, i32 0, i32 2
+  %87 = or disjoint i32 %86, %33
+  %88 = tail call { i64, i64 } @_ZN4CGAL13Intersections8internal29seg_seg_do_intersect_crossingINS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES8_EEEEEEEENS1_15S2S2_inter_infoERKNT_7Point_2ESH_SH_SH_iiiiRKSE_bi(ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i120, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i122, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i124, i32 noundef %31, i32 noundef %32, i32 noundef %84, i32 noundef %85, ptr noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %3, i32 noundef %87)
+  %89 = extractvalue { i64, i64 } %88, 0
+  %.sroa.31183.0.extract.shift = lshr i64 %89, 32
+  %.sroa.31183.0.extract.trunc = trunc nuw i64 %.sroa.31183.0.extract.shift to i32
+  %90 = extractvalue { i64, i64 } %88, 1
+  %.sroa.44.8.extract.trunc192 = trunc i64 %90 to i32
+  %.sroa.62.8.extract.shift197 = and i64 %90, -4294967296
+  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread
 
-70:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit141
+91:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit144
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %3, label %71, label %.critedge
+  br i1 %3, label %92, label %.critedge
 
-71:                                               ; preds = %70
-  %72 = call noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors11Collinear_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %5, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i119, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i121)
+92:                                               ; preds = %91
+  %93 = call noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors11Collinear_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %5, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i120, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i122)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %72, label %73, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread
-
-73:                                               ; preds = %71
-  %74 = select i1 %.0.i.i.i117, i32 2, i32 3
-  %75 = select i1 %.0.i.i.i117, i32 3, i32 2
-  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread
-
-.critedge:                                        ; preds = %70
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread
-
-76:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit141
-  %77 = select i1 %.0.i.i.i117, i32 2, i32 3
-  %78 = select i1 %.0.i.i.i117, i32 3, i32 2
-  %79 = select i1 %.0.i.i.i, i32 0, i32 2
-  %80 = or disjoint i32 %79, %29
-  %81 = tail call { i64, i64 } @_ZN4CGAL13Intersections8internal30seg_seg_do_intersect_containedINS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES8_EEEEEEEENS1_15S2S2_inter_infoERKNT_7Point_2ESH_SH_SH_iiiiRKSE_bi(ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i119, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i121, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i123, i32 noundef %27, i32 noundef %28, i32 noundef %77, i32 noundef %78, ptr noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %3, i32 noundef %80)
-  %82 = extractvalue { i64, i64 } %81, 0
-  %.sroa.31180.0.extract.shift181 = lshr i64 %82, 32
-  %.sroa.31180.0.extract.trunc182 = trunc nuw i64 %.sroa.31180.0.extract.shift181 to i32
-  %83 = extractvalue { i64, i64 } %81, 1
-  %.sroa.44.8.extract.trunc188 = trunc i64 %83 to i32
-  %.sroa.62.8.extract.shift192 = and i64 %83, -4294967296
-  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread
-
-84:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit
-  br i1 %3, label %85, label %97
-
-85:                                               ; preds = %84
-  %86 = fcmp olt double %30, %39
-  %87 = fcmp ogt double %30, %39
-  %..i.i.i.i142 = zext i1 %87 to i32
-  %.0.i.i.i.i143 = select i1 %86, i32 -1, i32 %..i.i.i.i142
-  %.not.i.i144 = icmp eq i32 %.0.i.i.i.i143, 0
-  br i1 %.not.i.i144, label %88, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148
-
-88:                                               ; preds = %85
-  %89 = fcmp olt double %35, %44
-  %90 = fcmp ogt double %35, %44
-  %..i.i8.i.i146 = zext i1 %90 to i32
-  br i1 %89, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148.thread, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148
-
-_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148: ; preds = %88, %85
-  %.0.i.i145 = phi i32 [ %..i.i8.i.i146, %88 ], [ %.0.i.i.i.i143, %85 ]
-  switch i32 %.0.i.i145, label %default.unreachable [
-    i32 -1, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148.thread
-    i32 0, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread
-    i32 1, label %92
-  ]
-
-_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148.thread: ; preds = %88, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %91 = call noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors11Collinear_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %6, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i119, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i123)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %91, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread, label %97
-
-92:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %93 = call noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors11Collinear_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i119, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i123)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %93, label %94, label %97
+  br i1 %93, label %94, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread
 
 94:                                               ; preds = %92
   %95 = select i1 %.0.i.i.i117, i32 2, i32 3
   %96 = select i1 %.0.i.i.i117, i32 3, i32 2
-  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread
+  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread
 
-97:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148.thread, %92, %84
-  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread
+.critedge:                                        ; preds = %91
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread
 
-98:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit
-  %99 = fcmp ogt double %39, %40
-  %..i.i.i.i149 = zext i1 %99 to i32
-  %.0.i.i.i.i150 = select i1 %41, i32 -1, i32 %..i.i.i.i149
-  %.not.i.i151 = icmp eq i32 %.0.i.i.i.i150, 0
-  br i1 %.not.i.i151, label %100, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit155
+97:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit144
+  %98 = select i1 %.0.i.i.i117, i32 2, i32 3
+  %99 = select i1 %.0.i.i.i117, i32 3, i32 2
+  %100 = select i1 %.0.i.i.i, i32 0, i32 2
+  %101 = or disjoint i32 %100, %33
+  %102 = tail call { i64, i64 } @_ZN4CGAL13Intersections8internal30seg_seg_do_intersect_containedINS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES8_EEEEEEEENS1_15S2S2_inter_infoERKNT_7Point_2ESH_SH_SH_iiiiRKSE_bi(ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i120, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i122, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i124, i32 noundef %31, i32 noundef %32, i32 noundef %98, i32 noundef %99, ptr noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %3, i32 noundef %101)
+  %103 = extractvalue { i64, i64 } %102, 0
+  %.sroa.31183.0.extract.shift184 = lshr i64 %103, 32
+  %.sroa.31183.0.extract.trunc185 = trunc nuw i64 %.sroa.31183.0.extract.shift184 to i32
+  %104 = extractvalue { i64, i64 } %102, 1
+  %.sroa.44.8.extract.trunc191 = trunc i64 %104 to i32
+  %.sroa.62.8.extract.shift195 = and i64 %104, -4294967296
+  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread
 
-100:                                              ; preds = %98
-  %101 = fcmp ogt double %44, %45
-  %..i.i8.i.i153 = zext i1 %101 to i32
-  br i1 %46, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit155
+105:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit
+  br i1 %3, label %106, label %122
 
-_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit155: ; preds = %100, %98
-  %.0.i.i152 = phi i32 [ %..i.i8.i.i153, %100 ], [ %.0.i.i.i.i150, %98 ]
-  switch i32 %.0.i.i152, label %default.unreachable [
-    i32 -1, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread
-    i32 0, label %102
-    i32 1, label %103
+106:                                              ; preds = %105
+  %107 = fcmp olt double %34, %45
+  %108 = fcmp ogt double %34, %45
+  %..i.i.i.i145 = zext i1 %108 to i32
+  %.0.i.i.i.i146 = select i1 %107, i32 -1, i32 %..i.i.i.i145
+  %.not.i.i147 = icmp eq i32 %.0.i.i.i.i146, 0
+  br i1 %.not.i.i147, label %109, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151
+
+109:                                              ; preds = %106
+  %110 = getelementptr inbounds nuw i8, ptr %spec.select.i.i124, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %spec.select.i.i120, i64 8
+  %112 = load double, ptr %111, align 8, !tbaa !34
+  %113 = load double, ptr %110, align 8, !tbaa !34
+  %114 = fcmp olt double %112, %113
+  %115 = fcmp ogt double %112, %113
+  %..i.i8.i.i149 = zext i1 %115 to i32
+  br i1 %114, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151.thread, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151
+
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151: ; preds = %109, %106
+  %.0.i.i148 = phi i32 [ %..i.i8.i.i149, %109 ], [ %.0.i.i.i.i146, %106 ]
+  switch i32 %.0.i.i148, label %default.unreachable [
+    i32 -1, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151.thread
+    i32 0, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread
+    i32 1, label %117
   ]
 
-102:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit155
-  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151.thread: ; preds = %109, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  %116 = call noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors11Collinear_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %6, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i120, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br i1 %116, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread, label %122
 
-103:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit155
-  %104 = fcmp olt double %39, %30
-  %105 = fcmp ogt double %39, %30
-  %..i.i.i.i156 = zext i1 %105 to i32
-  %.0.i.i.i.i157 = select i1 %104, i32 -1, i32 %..i.i.i.i156
-  %.not.i.i158 = icmp eq i32 %.0.i.i.i.i157, 0
-  br i1 %.not.i.i158, label %106, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit162
+117:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  %118 = call noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors11Collinear_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i120, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br i1 %118, label %119, label %122
 
-106:                                              ; preds = %103
-  %107 = fcmp olt double %44, %35
-  %108 = fcmp ogt double %44, %35
-  %..i.i8.i.i160 = zext i1 %108 to i32
-  br i1 %107, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit162.thread, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit162
+119:                                              ; preds = %117
+  %120 = select i1 %.0.i.i.i117, i32 2, i32 3
+  %121 = select i1 %.0.i.i.i117, i32 3, i32 2
+  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread
 
-_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit162: ; preds = %106, %103
-  %.0.i.i159 = phi i32 [ %..i.i8.i.i160, %106 ], [ %.0.i.i.i.i157, %103 ]
-  switch i32 %.0.i.i159, label %default.unreachable [
-    i32 -1, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit162.thread
-    i32 0, label %117
-    i32 1, label %121
+122:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151.thread, %117, %105
+  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread
+
+123:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit
+  %124 = fcmp ogt double %45, %46
+  %..i.i.i.i152 = zext i1 %124 to i32
+  %.0.i.i.i.i153 = select i1 %47, i32 -1, i32 %..i.i.i.i152
+  %.not.i.i154 = icmp eq i32 %.0.i.i.i.i153, 0
+  br i1 %.not.i.i154, label %125, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit158
+
+125:                                              ; preds = %123
+  %126 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %spec.select.i.i124, i64 8
+  %128 = load double, ptr %127, align 8, !tbaa !34
+  %129 = load double, ptr %126, align 8, !tbaa !34
+  %130 = fcmp olt double %128, %129
+  %131 = fcmp ogt double %128, %129
+  %..i.i8.i.i156 = zext i1 %131 to i32
+  br i1 %130, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit158
+
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit158: ; preds = %125, %123
+  %.0.i.i155 = phi i32 [ %..i.i8.i.i156, %125 ], [ %.0.i.i.i.i153, %123 ]
+  switch i32 %.0.i.i155, label %default.unreachable [
+    i32 -1, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread
+    i32 0, label %132
+    i32 1, label %133
   ]
 
-_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit162.thread: ; preds = %106, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit162
-  %109 = select i1 %.0.i.i.i117, i32 2, i32 3
-  %110 = select i1 %.0.i.i.i117, i32 3, i32 2
-  %111 = select i1 %.0.i.i.i, i32 4, i32 5
-  %112 = select i1 %.0.i.i.i117, i32 0, i32 2
-  %113 = or disjoint i32 %112, %111
-  %114 = tail call { i64, i64 } @_ZN4CGAL13Intersections8internal29seg_seg_do_intersect_crossingINS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES8_EEEEEEEENS1_15S2S2_inter_infoERKNT_7Point_2ESH_SH_SH_iiiiRKSE_bi(ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i121, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i123, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i119, i32 noundef %109, i32 noundef %110, i32 noundef %27, i32 noundef %28, ptr noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %3, i32 noundef %113)
-  %115 = extractvalue { i64, i64 } %114, 0
-  %.sroa.31180.0.extract.shift183 = lshr i64 %115, 32
-  %.sroa.31180.0.extract.trunc184 = trunc nuw i64 %.sroa.31180.0.extract.shift183 to i32
-  %116 = extractvalue { i64, i64 } %114, 1
-  %.sroa.44.8.extract.trunc187 = trunc i64 %116 to i32
-  %.sroa.62.8.extract.shift190 = and i64 %116, -4294967296
-  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread
+132:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit158
+  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread
 
-117:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit162
+133:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit158
+  %134 = fcmp olt double %45, %34
+  %135 = fcmp ogt double %45, %34
+  %..i.i.i.i159 = zext i1 %135 to i32
+  %.0.i.i.i.i160 = select i1 %134, i32 -1, i32 %..i.i.i.i159
+  %.not.i.i161 = icmp eq i32 %.0.i.i.i.i160, 0
+  br i1 %.not.i.i161, label %136, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit165
+
+136:                                              ; preds = %133
+  %137 = getelementptr inbounds nuw i8, ptr %spec.select.i.i120, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %spec.select.i.i124, i64 8
+  %139 = load double, ptr %138, align 8, !tbaa !34
+  %140 = load double, ptr %137, align 8, !tbaa !34
+  %141 = fcmp olt double %139, %140
+  %142 = fcmp ogt double %139, %140
+  %..i.i8.i.i163 = zext i1 %142 to i32
+  br i1 %141, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit165.thread, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit165
+
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit165: ; preds = %136, %133
+  %.0.i.i162 = phi i32 [ %..i.i8.i.i163, %136 ], [ %.0.i.i.i.i160, %133 ]
+  switch i32 %.0.i.i162, label %default.unreachable [
+    i32 -1, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit165.thread
+    i32 0, label %151
+    i32 1, label %155
+  ]
+
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit165.thread: ; preds = %136, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit165
+  %143 = select i1 %.0.i.i.i117, i32 2, i32 3
+  %144 = select i1 %.0.i.i.i117, i32 3, i32 2
+  %145 = select i1 %.0.i.i.i, i32 4, i32 5
+  %146 = select i1 %.0.i.i.i117, i32 0, i32 2
+  %147 = or disjoint i32 %146, %145
+  %148 = tail call { i64, i64 } @_ZN4CGAL13Intersections8internal29seg_seg_do_intersect_crossingINS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES8_EEEEEEEENS1_15S2S2_inter_infoERKNT_7Point_2ESH_SH_SH_iiiiRKSE_bi(ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i122, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i124, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i120, i32 noundef %143, i32 noundef %144, i32 noundef %31, i32 noundef %32, ptr noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %3, i32 noundef %147)
+  %149 = extractvalue { i64, i64 } %148, 0
+  %.sroa.31183.0.extract.shift186 = lshr i64 %149, 32
+  %.sroa.31183.0.extract.trunc187 = trunc nuw i64 %.sroa.31183.0.extract.shift186 to i32
+  %150 = extractvalue { i64, i64 } %148, 1
+  %.sroa.44.8.extract.trunc190 = trunc i64 %150 to i32
+  %.sroa.62.8.extract.shift193 = and i64 %150, -4294967296
+  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread
+
+151:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit165
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  br i1 %3, label %118, label %.critedge2
+  br i1 %3, label %152, label %.critedge2
 
-118:                                              ; preds = %117
-  %119 = call noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors11Collinear_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i121, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i123)
+152:                                              ; preds = %151
+  %153 = call noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors11Collinear_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i122, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i124)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %119, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread, label %120
+  br i1 %153, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread, label %154
 
-.critedge2:                                       ; preds = %117
+.critedge2:                                       ; preds = %151
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %120
+  br label %154
 
-120:                                              ; preds = %.critedge2, %118
-  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread
+154:                                              ; preds = %.critedge2, %152
+  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread
 
-121:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit162
-  %122 = select i1 %.0.i.i.i117, i32 2, i32 3
-  %123 = select i1 %.0.i.i.i117, i32 3, i32 2
-  %124 = select i1 %.0.i.i.i, i32 4, i32 5
-  %125 = select i1 %.0.i.i.i117, i32 0, i32 2
-  %126 = or disjoint i32 %125, %124
-  %127 = tail call { i64, i64 } @_ZN4CGAL13Intersections8internal30seg_seg_do_intersect_containedINS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES8_EEEEEEEENS1_15S2S2_inter_infoERKNT_7Point_2ESH_SH_SH_iiiiRKSE_bi(ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i121, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i123, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i119, i32 noundef %122, i32 noundef %123, i32 noundef %27, i32 noundef %28, ptr noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %3, i32 noundef %126)
-  %128 = extractvalue { i64, i64 } %127, 0
-  %.sroa.31180.0.extract.shift185 = lshr i64 %128, 32
-  %.sroa.31180.0.extract.trunc186 = trunc nuw i64 %.sroa.31180.0.extract.shift185 to i32
-  %129 = extractvalue { i64, i64 } %127, 1
-  %.sroa.44.8.extract.trunc = trunc i64 %129 to i32
-  %.sroa.62.8.extract.shift = and i64 %129, -4294967296
-  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread
+155:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit165
+  %156 = select i1 %.0.i.i.i117, i32 2, i32 3
+  %157 = select i1 %.0.i.i.i117, i32 3, i32 2
+  %158 = select i1 %.0.i.i.i, i32 4, i32 5
+  %159 = select i1 %.0.i.i.i117, i32 0, i32 2
+  %160 = or disjoint i32 %159, %158
+  %161 = tail call { i64, i64 } @_ZN4CGAL13Intersections8internal30seg_seg_do_intersect_containedINS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES8_EEEEEEEENS1_15S2S2_inter_infoERKNT_7Point_2ESH_SH_SH_iiiiRKSE_bi(ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i122, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i124, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i120, i32 noundef %156, i32 noundef %157, i32 noundef %31, i32 noundef %32, ptr noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %3, i32 noundef %160)
+  %162 = extractvalue { i64, i64 } %161, 0
+  %.sroa.31183.0.extract.shift188 = lshr i64 %162, 32
+  %.sroa.31183.0.extract.trunc189 = trunc nuw i64 %.sroa.31183.0.extract.shift188 to i32
+  %163 = extractvalue { i64, i64 } %161, 1
+  %.sroa.44.8.extract.trunc = trunc i64 %163 to i32
+  %.sroa.62.8.extract.shift = and i64 %163, -4294967296
+  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread
 
-default.unreachable:                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit162, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit155, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit141, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit
+default.unreachable:                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit165, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit158, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit144, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit
   unreachable
 
-_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134.thread: ; preds = %100, %54, %118, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit155, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148.thread, %71, %.critedge, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134, %4, %38, %121, %120, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit162.thread, %102, %97, %94, %76, %73, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit141.thread, %56
-  %.sroa.31180.0 = phi i32 [ %28, %56 ], [ %.sroa.31180.0.extract.trunc, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit141.thread ], [ %74, %73 ], [ %.sroa.31180.0.extract.trunc182, %76 ], [ %27, %97 ], [ %95, %94 ], [ %27, %102 ], [ %.sroa.31180.0.extract.trunc184, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit162.thread ], [ %28, %120 ], [ %.sroa.31180.0.extract.trunc186, %121 ], [ -1, %38 ], [ -1, %4 ], [ %.0.i.i131, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134 ], [ %28, %.critedge ], [ %28, %71 ], [ %27, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148.thread ], [ %27, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148 ], [ %.0.i.i152, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit155 ], [ %27, %118 ], [ -1, %54 ], [ -1, %100 ]
-  %.sroa.31.0 = phi i64 [ 0, %56 ], [ %68, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit141.thread ], [ 0, %73 ], [ %82, %76 ], [ 0, %97 ], [ 0, %94 ], [ 0, %102 ], [ %115, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit162.thread ], [ 0, %120 ], [ %128, %121 ], [ 0, %38 ], [ 0, %4 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134 ], [ 0, %.critedge ], [ 0, %71 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148.thread ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit155 ], [ 0, %118 ], [ 0, %54 ], [ 0, %100 ]
-  %.sroa.18.0 = phi i64 [ 0, %56 ], [ %68, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit141.thread ], [ 256, %73 ], [ %82, %76 ], [ 0, %97 ], [ 256, %94 ], [ 0, %102 ], [ %115, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit162.thread ], [ 0, %120 ], [ %128, %121 ], [ 0, %38 ], [ 0, %4 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134 ], [ 0, %.critedge ], [ 0, %71 ], [ 256, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148.thread ], [ 256, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit155 ], [ 256, %118 ], [ 0, %54 ], [ 0, %100 ]
-  %.sroa.0164.0 = phi i64 [ 1, %56 ], [ %68, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit141.thread ], [ 1, %73 ], [ %82, %76 ], [ 1, %97 ], [ 1, %94 ], [ 1, %102 ], [ %115, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit162.thread ], [ 1, %120 ], [ %128, %121 ], [ 0, %38 ], [ 0, %4 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134 ], [ 1, %.critedge ], [ 1, %71 ], [ 1, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148.thread ], [ 1, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit155 ], [ 1, %118 ], [ 0, %54 ], [ 0, %100 ]
-  %.sroa.44.0 = phi i32 [ -1, %56 ], [ %.sroa.44.8.extract.trunc189, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit141.thread ], [ %75, %73 ], [ %.sroa.44.8.extract.trunc188, %76 ], [ -1, %97 ], [ %96, %94 ], [ -1, %102 ], [ %.sroa.44.8.extract.trunc187, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit162.thread ], [ -1, %120 ], [ %.sroa.44.8.extract.trunc, %121 ], [ -1, %38 ], [ -1, %4 ], [ %.0.i.i131, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134 ], [ -1, %.critedge ], [ -1, %71 ], [ %28, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148.thread ], [ %28, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148 ], [ %.0.i.i152, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit155 ], [ %28, %118 ], [ -1, %54 ], [ -1, %100 ]
-  %.sroa.62.0 = phi i64 [ 0, %56 ], [ %.sroa.62.8.extract.shift194, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit141.thread ], [ 0, %73 ], [ %.sroa.62.8.extract.shift192, %76 ], [ 0, %97 ], [ 0, %94 ], [ 0, %102 ], [ %.sroa.62.8.extract.shift190, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit162.thread ], [ 0, %120 ], [ %.sroa.62.8.extract.shift, %121 ], [ -4294967296, %38 ], [ -4294967296, %4 ], [ -4294967296, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit134 ], [ 0, %.critedge ], [ 0, %71 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148.thread ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit148 ], [ -4294967296, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit155 ], [ 0, %118 ], [ -4294967296, %54 ], [ -4294967296, %100 ]
-  %.sroa.31180.0.insert.ext = zext i32 %.sroa.31180.0 to i64
-  %.sroa.31180.0.insert.shift = shl nuw i64 %.sroa.31180.0.insert.ext, 32
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137.thread: ; preds = %125, %66, %152, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit158, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151.thread, %92, %.critedge, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit127, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit130, %38, %49, %155, %154, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit165.thread, %132, %122, %119, %97, %94, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit144.thread, %73
+  %.sroa.31183.0 = phi i32 [ %32, %73 ], [ %.sroa.31183.0.extract.trunc, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit144.thread ], [ %95, %94 ], [ %.sroa.31183.0.extract.trunc185, %97 ], [ %31, %122 ], [ %120, %119 ], [ %31, %132 ], [ %.sroa.31183.0.extract.trunc187, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit165.thread ], [ %32, %154 ], [ %.sroa.31183.0.extract.trunc189, %155 ], [ -1, %49 ], [ -1, %38 ], [ -1, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit130 ], [ -1, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit127 ], [ %.0.i.i134, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137 ], [ %32, %.critedge ], [ %32, %92 ], [ %31, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151.thread ], [ %31, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151 ], [ %.0.i.i155, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit158 ], [ %31, %152 ], [ -1, %66 ], [ -1, %125 ]
+  %.sroa.31.0 = phi i64 [ 0, %73 ], [ %89, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit144.thread ], [ 0, %94 ], [ %103, %97 ], [ 0, %122 ], [ 0, %119 ], [ 0, %132 ], [ %149, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit165.thread ], [ 0, %154 ], [ %162, %155 ], [ 0, %49 ], [ 0, %38 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit130 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit127 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137 ], [ 0, %.critedge ], [ 0, %92 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151.thread ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit158 ], [ 0, %152 ], [ 0, %66 ], [ 0, %125 ]
+  %.sroa.18.0 = phi i64 [ 0, %73 ], [ %89, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit144.thread ], [ 256, %94 ], [ %103, %97 ], [ 0, %122 ], [ 256, %119 ], [ 0, %132 ], [ %149, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit165.thread ], [ 0, %154 ], [ %162, %155 ], [ 0, %49 ], [ 0, %38 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit130 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit127 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137 ], [ 0, %.critedge ], [ 0, %92 ], [ 256, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151.thread ], [ 256, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit158 ], [ 256, %152 ], [ 0, %66 ], [ 0, %125 ]
+  %.sroa.0167.0 = phi i64 [ 1, %73 ], [ %89, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit144.thread ], [ 1, %94 ], [ %103, %97 ], [ 1, %122 ], [ 1, %119 ], [ 1, %132 ], [ %149, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit165.thread ], [ 1, %154 ], [ %162, %155 ], [ 0, %49 ], [ 0, %38 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit130 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit127 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137 ], [ 1, %.critedge ], [ 1, %92 ], [ 1, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151.thread ], [ 1, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit158 ], [ 1, %152 ], [ 0, %66 ], [ 0, %125 ]
+  %.sroa.44.0 = phi i32 [ -1, %73 ], [ %.sroa.44.8.extract.trunc192, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit144.thread ], [ %96, %94 ], [ %.sroa.44.8.extract.trunc191, %97 ], [ -1, %122 ], [ %121, %119 ], [ -1, %132 ], [ %.sroa.44.8.extract.trunc190, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit165.thread ], [ -1, %154 ], [ %.sroa.44.8.extract.trunc, %155 ], [ -1, %49 ], [ -1, %38 ], [ -1, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit130 ], [ -1, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit127 ], [ %.0.i.i134, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137 ], [ -1, %.critedge ], [ -1, %92 ], [ %32, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151.thread ], [ %32, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151 ], [ %.0.i.i155, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit158 ], [ %32, %152 ], [ -1, %66 ], [ -1, %125 ]
+  %.sroa.62.0 = phi i64 [ 0, %73 ], [ %.sroa.62.8.extract.shift197, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit144.thread ], [ 0, %94 ], [ %.sroa.62.8.extract.shift195, %97 ], [ 0, %122 ], [ 0, %119 ], [ 0, %132 ], [ %.sroa.62.8.extract.shift193, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit165.thread ], [ 0, %154 ], [ %.sroa.62.8.extract.shift, %155 ], [ -4294967296, %49 ], [ -4294967296, %38 ], [ -4294967296, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit130 ], [ -4294967296, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit127 ], [ -4294967296, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit137 ], [ 0, %.critedge ], [ 0, %92 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151.thread ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit151 ], [ -4294967296, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit158 ], [ 0, %152 ], [ -4294967296, %66 ], [ -4294967296, %125 ]
+  %.sroa.31183.0.insert.ext = zext i32 %.sroa.31183.0 to i64
+  %.sroa.31183.0.insert.shift = shl nuw i64 %.sroa.31183.0.insert.ext, 32
   %.sroa.31.0.insert.ext = and i64 %.sroa.31.0, 4294901760
-  %.sroa.31.0.insert.insert = or disjoint i64 %.sroa.31180.0.insert.shift, %.sroa.31.0.insert.ext
+  %.sroa.31.0.insert.insert = or disjoint i64 %.sroa.31183.0.insert.shift, %.sroa.31.0.insert.ext
   %.sroa.18.0.insert.ext = and i64 %.sroa.18.0, 65280
   %.sroa.18.0.insert.insert = or disjoint i64 %.sroa.31.0.insert.insert, %.sroa.18.0.insert.ext
-  %.sroa.0164.0.insert.ext = and i64 %.sroa.0164.0, 255
-  %.sroa.0164.0.insert.insert = or disjoint i64 %.sroa.18.0.insert.insert, %.sroa.0164.0.insert.ext
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0164.0.insert.insert, 0
+  %.sroa.0167.0.insert.ext = and i64 %.sroa.0167.0, 255
+  %.sroa.0167.0.insert.insert = or disjoint i64 %.sroa.18.0.insert.insert, %.sroa.0167.0.insert.ext
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0167.0.insert.insert, 0
   %.sroa.44.8.insert.ext = zext i32 %.sroa.44.0 to i64
   %.sroa.44.8.insert.insert = or disjoint i64 %.sroa.62.0, %.sroa.44.8.insert.ext
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.44.8.insert.insert, 1

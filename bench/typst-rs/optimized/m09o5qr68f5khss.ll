@@ -98537,17 +98537,17 @@ define internal fastcc void @_ZN5typst9visualize5shape7segment17hbacf4c96de12a7b
   %18 = icmp eq i64 %17, 0
   %or.cond = select i1 %15, i1 true, i1 %18
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink.sroa.gep223 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink.sroa.gep224 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink.sroa.gep226 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink.sroa.gep227 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink.sroa.gep228 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sink.sroa.gep230 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink.sroa.gep231 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink.sroa.gep232 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sink.sroa.gep234 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sink.sroa.gep235 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sink.sroa.gep236 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sink.sroa.gep217 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink.sroa.gep218 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink.sroa.gep220 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink.sroa.gep221 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink.sroa.gep222 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink.sroa.gep224 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink.sroa.gep225 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink.sroa.gep226 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sink.sroa.gep228 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink.sroa.gep229 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink.sroa.gep230 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br i1 %or.cond, label %.thread, label %_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit
 
 .thread:                                          ; preds = %5
@@ -98594,206 +98594,172 @@ define internal fastcc void @_ZN5typst9visualize5shape7segment17hbacf4c96de12a7b
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !24138
   br label %.invoke
 
-.invoke:                                          ; preds = %80, %56, %33
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %80 ], [ %.sink.sroa.gep223, %56 ], [ %.sink.sroa.gep224, %33 ]
-  %.sink.sroa.phi225 = phi ptr [ %.sink.sroa.gep226, %80 ], [ %.sink.sroa.gep227, %56 ], [ %.sink.sroa.gep228, %33 ]
-  %.sink.sroa.phi229 = phi ptr [ %.sink.sroa.gep230, %80 ], [ %.sink.sroa.gep231, %56 ], [ %.sink.sroa.gep232, %33 ]
-  %.sink.sroa.phi233 = phi ptr [ %.sink.sroa.gep234, %80 ], [ %.sink.sroa.gep235, %56 ], [ %.sink.sroa.gep236, %33 ]
-  %.sink = phi ptr [ %9, %80 ], [ %10, %56 ], [ %11, %33 ]
+.invoke:                                          ; preds = %72, %52, %33
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %72 ], [ %.sink.sroa.gep217, %52 ], [ %.sink.sroa.gep218, %33 ]
+  %.sink.sroa.phi219 = phi ptr [ %.sink.sroa.gep220, %72 ], [ %.sink.sroa.gep221, %52 ], [ %.sink.sroa.gep222, %33 ]
+  %.sink.sroa.phi223 = phi ptr [ %.sink.sroa.gep224, %72 ], [ %.sink.sroa.gep225, %52 ], [ %.sink.sroa.gep226, %33 ]
+  %.sink.sroa.phi227 = phi ptr [ %.sink.sroa.gep228, %72 ], [ %.sink.sroa.gep229, %52 ], [ %.sink.sroa.gep230, %33 ]
+  %.sink = phi ptr [ %9, %72 ], [ %10, %52 ], [ %11, %33 ]
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %.sink, align 8, !noalias !24125
   store i64 1, ptr %.sink.sroa.phi, align 8, !noalias !24125
-  store ptr null, ptr %.sink.sroa.phi225, align 8, !noalias !24125
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %.sink.sroa.phi229, align 8, !noalias !24125
-  store i64 0, ptr %.sink.sroa.phi233, align 8, !noalias !24125
+  store ptr null, ptr %.sink.sroa.phi219, align 8, !noalias !24125
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %.sink.sroa.phi223, align 8, !noalias !24125
+  store i64 0, ptr %.sink.sroa.phi227, align 8, !noalias !24125
   invoke void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #77
-          to label %.cont unwind label %1070
+          to label %.cont unwind label %1058
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
 "_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i": ; preds = %29
   %34 = fcmp oeq double %27, %31
-  br i1 %34, label %35, label %.loopexit
+  br i1 %34, label %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit.i, label %.loopexit
 
-35:                                               ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i"
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %37 = load double, ptr %36, align 8, !alias.scope !24139, !noundef !4
-  %38 = fcmp ugt double %27, %31
-  br i1 %38, label %39, label %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit.i
-
-39:                                               ; preds = %35
-  %40 = fcmp ult double %27, %31
-  br i1 %40, label %.invoke174, label %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit.i
-
-.invoke174:                                       ; preds = %86, %62, %39
-  invoke void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #77
-          to label %.cont175 unwind label %1070
-
-.cont175:                                         ; preds = %.invoke174
-  unreachable
-
-_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit.i: ; preds = %39, %35
-  %.0.sroa.speculated.i.i.i.i.i = phi double [ %31, %39 ], [ %27, %35 ]
-  %41 = fsub double %37, %.0.sroa.speculated.i.i.i.i.i
-  %.0.i.inv.i.i.i1.i.i.i.i = fcmp ord double %41, 0.000000e+00
-  %.0.i.i.i2.i.i.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i.i, double %41, double 0.000000e+00
+_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit.i: ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i"
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %36 = load double, ptr %35, align 8, !alias.scope !24139, !noundef !4
+  %37 = fsub double %36, %27
+  %.0.i.inv.i.i.i1.i.i.i.i = fcmp ord double %37, 0.000000e+00
+  %.0.i.i.i2.i.i.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i.i, double %37, double 0.000000e+00
   %.inv.i.i.i = fcmp ole double %.0.i.i.i2.i.i.i.i, 0.000000e+00
   %.0.sroa.speculated.i.i1.i.i.i = select i1 %.inv.i.i.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i.i
   %.mux.i.i = fcmp olt double %.0.sroa.speculated.i.i1.i.i.i, %27
-  br i1 %.mux.i.i, label %.loopexit, label %42
+  br i1 %.mux.i.i, label %.loopexit, label %38
 
-42:                                               ; preds = %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit.i
+38:                                               ; preds = %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit.i
   switch i8 %2, label %default.unreachable [
     i8 0, label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit9.i"
-    i8 1, label %43
-    i8 2, label %45
-    i8 3, label %47
+    i8 1, label %39
+    i8 2, label %41
+    i8 3, label %43
   ]
 
-default.unreachable:                              ; preds = %69, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i, %196, %1015, %995, %643, %915, %812, %802, %782, %690, %670, %654, %647, %608, %557, %531, %502, %443, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i, %._crit_edge.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i, %42
+default.unreachable:                              ; preds = %61, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i, %184, %1003, %983, %631, %903, %800, %790, %770, %678, %658, %642, %635, %596, %545, %519, %490, %431, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i, %._crit_edge.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i, %38
   unreachable
 
-43:                                               ; preds = %42
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 48
+39:                                               ; preds = %38
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit9.i"
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 96
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 96
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit9.i"
 
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 144
+43:                                               ; preds = %38
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 144
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit9.i"
 
-"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit9.i": ; preds = %47, %45, %43, %42
-  %.0.i8.i = phi ptr [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %3, %42 ]
+"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit9.i": ; preds = %43, %41, %39, %38
+  %.0.i8.i = phi ptr [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %3, %38 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24142)
-  %49 = getelementptr inbounds nuw i8, ptr %.0.i8.i, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i8.i, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24145)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24148)
-  %50 = load double, ptr %49, align 8, !alias.scope !24150, !noalias !24148, !noundef !4
+  %46 = load double, ptr %45, align 8, !alias.scope !24150, !noalias !24148, !noundef !4
+  %47 = fcmp uno double %46, 0.000000e+00
+  br i1 %47, label %52, label %48
+
+48:                                               ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit9.i"
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i8.i, i64 24
+  %50 = load double, ptr %49, align 8, !alias.scope !24151, !noalias !24145, !noundef !4
   %51 = fcmp uno double %50, 0.000000e+00
-  br i1 %51, label %56, label %52
+  br i1 %51, label %52, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i10.i"
 
-52:                                               ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit9.i"
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i8.i, i64 24
-  %54 = load double, ptr %53, align 8, !alias.scope !24151, !noalias !24145, !noundef !4
-  %55 = fcmp uno double %54, 0.000000e+00
-  br i1 %55, label %56, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i10.i"
-
-56:                                               ; preds = %52, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit9.i"
+52:                                               ; preds = %48, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit9.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !24152
   br label %.invoke
 
-"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i10.i": ; preds = %52
-  %57 = fcmp oeq double %50, %54
-  br i1 %57, label %58, label %.loopexit
+"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i10.i": ; preds = %48
+  %53 = fcmp oeq double %46, %50
+  br i1 %53, label %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit18.i, label %.loopexit
 
-58:                                               ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i10.i"
-  %59 = getelementptr inbounds nuw i8, ptr %.0.i8.i, i64 16
-  %60 = load double, ptr %59, align 8, !alias.scope !24153, !noundef !4
-  %61 = fcmp ugt double %50, %54
-  br i1 %61, label %62, label %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit19.i
+_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit18.i: ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i10.i"
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i8.i, i64 16
+  %55 = load double, ptr %54, align 8, !alias.scope !24153, !noundef !4
+  %56 = fsub double %55, %46
+  %.0.i.inv.i.i.i1.i.i.i13.i = fcmp ord double %56, 0.000000e+00
+  %.0.i.i.i2.i.i.i14.i = select i1 %.0.i.inv.i.i.i1.i.i.i13.i, double %56, double 0.000000e+00
+  %.inv.i.i15.i = fcmp ole double %.0.i.i.i2.i.i.i14.i, 0.000000e+00
+  %.0.sroa.speculated.i.i1.i.i16.i = select i1 %.inv.i.i15.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i14.i
+  %.mux.i17.i = fcmp olt double %.0.sroa.speculated.i.i1.i.i16.i, %46
+  br i1 %.mux.i17.i, label %.loopexit, label %switch.lookup
 
-62:                                               ; preds = %58
-  %63 = fcmp ult double %50, %54
-  br i1 %63, label %.invoke174, label %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit19.i
-
-_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit19.i: ; preds = %62, %58
-  %.0.sroa.speculated.i.i.i.i13.i = phi double [ %54, %62 ], [ %50, %58 ]
-  %64 = fsub double %60, %.0.sroa.speculated.i.i.i.i13.i
-  %.0.i.inv.i.i.i1.i.i.i14.i = fcmp ord double %64, 0.000000e+00
-  %.0.i.i.i2.i.i.i15.i = select i1 %.0.i.inv.i.i.i1.i.i.i14.i, double %64, double 0.000000e+00
-  %.inv.i.i16.i = fcmp ole double %.0.i.i.i2.i.i.i15.i, 0.000000e+00
-  %.0.sroa.speculated.i.i1.i.i17.i = select i1 %.inv.i.i16.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i15.i
-  %.mux.i18.i = fcmp olt double %.0.sroa.speculated.i.i1.i.i17.i, %50
-  br i1 %.mux.i18.i, label %.loopexit, label %switch.lookup
-
-switch.lookup:                                    ; preds = %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit19.i
-  %65 = shl nuw nsw i8 %1, 3
-  %switch.shiftamt = zext nneg i8 %65 to i32
+switch.lookup:                                    ; preds = %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit18.i
+  %57 = shl nuw nsw i8 %1, 3
+  %switch.shiftamt = zext nneg i8 %57 to i32
   %switch.downshift = lshr i32 197121, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
-  %.not38.i = icmp eq i8 %2, %switch.masked
-  br i1 %.not38.i, label %_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit, label %.lr.ph.i
+  %.not36.i = icmp eq i8 %2, %switch.masked
+  br i1 %.not36.i, label %_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %switch.lookup
-  %66 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %67 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  br label %69
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  br label %61
 
-69:                                               ; preds = %switch.lookup184, %.lr.ph.i
-  %.039.i = phi i8 [ %switch.masked, %.lr.ph.i ], [ %switch.masked188, %switch.lookup184 ]
-  switch i8 %.039.i, label %default.unreachable [
-    i8 0, label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit22.i"
-    i8 1, label %70
-    i8 2, label %71
-    i8 3, label %72
+61:                                               ; preds = %switch.lookup178, %.lr.ph.i
+  %.037.i = phi i8 [ %switch.masked, %.lr.ph.i ], [ %switch.masked182, %switch.lookup178 ]
+  switch i8 %.037.i, label %default.unreachable [
+    i8 0, label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit21.i"
+    i8 1, label %62
+    i8 2, label %63
+    i8 3, label %64
   ]
 
-70:                                               ; preds = %69
-  br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit22.i"
+62:                                               ; preds = %61
+  br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit21.i"
 
-71:                                               ; preds = %69
-  br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit22.i"
+63:                                               ; preds = %61
+  br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit21.i"
 
-72:                                               ; preds = %69
-  br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit22.i"
+64:                                               ; preds = %61
+  br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit21.i"
 
-"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit22.i": ; preds = %72, %71, %70, %69
-  %.0.i21.i = phi ptr [ %68, %70 ], [ %67, %71 ], [ %66, %72 ], [ %3, %69 ]
+"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit21.i": ; preds = %64, %63, %62, %61
+  %.0.i20.i = phi ptr [ %60, %62 ], [ %59, %63 ], [ %58, %64 ], [ %3, %61 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24156)
-  %73 = getelementptr inbounds nuw i8, ptr %.0.i21.i, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i20.i, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24159)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24162)
-  %74 = load double, ptr %73, align 8, !alias.scope !24164, !noalias !24162, !noundef !4
-  %75 = fcmp uno double %74, 0.000000e+00
-  br i1 %75, label %80, label %76
+  %66 = load double, ptr %65, align 8, !alias.scope !24164, !noalias !24162, !noundef !4
+  %67 = fcmp uno double %66, 0.000000e+00
+  br i1 %67, label %72, label %68
 
-76:                                               ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit22.i"
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i21.i, i64 24
-  %78 = load double, ptr %77, align 8, !alias.scope !24165, !noalias !24159, !noundef !4
-  %79 = fcmp uno double %78, 0.000000e+00
-  br i1 %79, label %80, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i23.i"
+68:                                               ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit21.i"
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i20.i, i64 24
+  %70 = load double, ptr %69, align 8, !alias.scope !24165, !noalias !24159, !noundef !4
+  %71 = fcmp uno double %70, 0.000000e+00
+  br i1 %71, label %72, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i22.i"
 
-80:                                               ; preds = %76, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit22.i"
+72:                                               ; preds = %68, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit21.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !24166
   br label %.invoke
 
-"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i23.i": ; preds = %76
-  %81 = fcmp oeq double %74, %78
-  br i1 %81, label %82, label %.loopexit
+"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i22.i": ; preds = %68
+  %73 = fcmp oeq double %66, %70
+  br i1 %73, label %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit30.i, label %.loopexit
 
-82:                                               ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i23.i"
-  %83 = getelementptr inbounds nuw i8, ptr %.0.i21.i, i64 16
-  %84 = load double, ptr %83, align 8, !alias.scope !24167, !noundef !4
-  %85 = fcmp ugt double %74, %78
-  br i1 %85, label %86, label %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit32.i
+_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit30.i: ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i22.i"
+  %74 = getelementptr inbounds nuw i8, ptr %.0.i20.i, i64 16
+  %75 = load double, ptr %74, align 8, !alias.scope !24167, !noundef !4
+  %76 = fsub double %75, %66
+  %.0.i.inv.i.i.i1.i.i.i25.i = fcmp ord double %76, 0.000000e+00
+  %.0.i.i.i2.i.i.i26.i = select i1 %.0.i.inv.i.i.i1.i.i.i25.i, double %76, double 0.000000e+00
+  %.inv.i.i27.i = fcmp ole double %.0.i.i.i2.i.i.i26.i, 0.000000e+00
+  %.0.sroa.speculated.i.i1.i.i28.i = select i1 %.inv.i.i27.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i26.i
+  %.mux.i29.i = fcmp olt double %.0.sroa.speculated.i.i1.i.i28.i, %66
+  br i1 %.mux.i29.i, label %.loopexit, label %switch.lookup178
 
-86:                                               ; preds = %82
-  %87 = fcmp ult double %74, %78
-  br i1 %87, label %.invoke174, label %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit32.i
+switch.lookup178:                                 ; preds = %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit30.i
+  %switch.cast179 = zext i8 %.037.i to i32
+  %switch.shiftamt180 = shl nuw nsw i32 %switch.cast179, 3
+  %switch.downshift181 = lshr i32 197121, %switch.shiftamt180
+  %switch.masked182 = trunc i32 %switch.downshift181 to i8
+  %.not.i = icmp eq i8 %2, %switch.masked182
+  br i1 %.not.i, label %_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit, label %61
 
-_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit32.i: ; preds = %86, %82
-  %.0.sroa.speculated.i.i.i.i26.i = phi double [ %78, %86 ], [ %74, %82 ]
-  %88 = fsub double %84, %.0.sroa.speculated.i.i.i.i26.i
-  %.0.i.inv.i.i.i1.i.i.i27.i = fcmp ord double %88, 0.000000e+00
-  %.0.i.i.i2.i.i.i28.i = select i1 %.0.i.inv.i.i.i1.i.i.i27.i, double %88, double 0.000000e+00
-  %.inv.i.i29.i = fcmp ole double %.0.i.i.i2.i.i.i28.i, 0.000000e+00
-  %.0.sroa.speculated.i.i1.i.i30.i = select i1 %.inv.i.i29.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i28.i
-  %.mux.i31.i = fcmp olt double %.0.sroa.speculated.i.i1.i.i30.i, %74
-  br i1 %.mux.i31.i, label %.loopexit, label %switch.lookup184
-
-switch.lookup184:                                 ; preds = %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit32.i
-  %switch.cast185 = zext i8 %.039.i to i32
-  %switch.shiftamt186 = shl nuw nsw i32 %switch.cast185, 3
-  %switch.downshift187 = lshr i32 197121, %switch.shiftamt186
-  %switch.masked188 = trunc i32 %switch.downshift187 to i8
-  %.not.i = icmp eq i8 %2, %switch.masked188
-  br i1 %.not.i, label %_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit, label %69
-
-_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit: ; preds = %switch.lookup184, %5, %switch.lookup
+_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit: ; preds = %switch.lookup178, %5, %switch.lookup
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24170)
@@ -98807,1091 +98773,1091 @@ _ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit: ; pred
   store i64 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24178, !noalias !24177
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24181)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24184)
-  switch i8 %1, label %90 [
+  switch i8 %1, label %78 [
     i8 0, label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i.i"
-    i8 1, label %91
-    i8 2, label %93
-    i8 3, label %95
+    i8 1, label %79
+    i8 2, label %81
+    i8 3, label %83
   ]
 
-89:                                               ; preds = %430
+77:                                               ; preds = %418
   invoke void @"_ZN4core3ptr58drop_in_place$LT$typst..visualize..stroke..FixedStroke$GT$17h5b9c4d9ab9a3e683E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %12) #79
-          to label %.body.thread unwind label %431, !noalias !24170
+          to label %.body.thread unwind label %419, !noalias !24170
 
-90:                                               ; preds = %_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit
+78:                                               ; preds = %_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit
   unreachable
 
-91:                                               ; preds = %_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit
-  %92 = getelementptr inbounds nuw i8, ptr %3, i64 48
+79:                                               ; preds = %_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i.i"
 
-93:                                               ; preds = %_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 96
+81:                                               ; preds = %_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 96
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i.i"
 
-95:                                               ; preds = %_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit
-  %96 = getelementptr inbounds nuw i8, ptr %3, i64 144
+83:                                               ; preds = %_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 144
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i.i"
 
-"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i.i": ; preds = %95, %93, %91, %_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit
-  %.0.i.i.i = phi ptr [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %3, %_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit ]
-  %97 = icmp eq i8 %1, %2
+"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i.i": ; preds = %83, %81, %79, %_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit
+  %.0.i.i.i = phi ptr [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %3, %_ZN5typst9visualize5shape7segment12fill_corners17hc799ecfad7b5c806E.exit ]
+  %85 = icmp eq i8 %1, %2
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %.pre.i.i = load double, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !24186, !noalias !24187
   %.phi.trans.insert301.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
   %.pre302.i.i = load double, ptr %.phi.trans.insert301.i.i, align 8, !alias.scope !24186, !noalias !24187
   %.phi.trans.insert303.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   %.pre304.i.i = load double, ptr %.phi.trans.insert303.i.i, align 8, !alias.scope !24186, !noalias !24187
-  br i1 %97, label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit._crit_edge.i.i", label %98
+  br i1 %85, label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit._crit_edge.i.i", label %86
 
-98:                                               ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i.i"
-  %99 = fcmp ugt double %.pre302.i.i, %.pre304.i.i
-  br i1 %99, label %100, label %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit.i.i
+86:                                               ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i.i"
+  %87 = fcmp ugt double %.pre302.i.i, %.pre304.i.i
+  br i1 %87, label %88, label %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit.i.i
 
-100:                                              ; preds = %98
-  %101 = fcmp ult double %.pre302.i.i, %.pre304.i.i
-  br i1 %101, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit.i.i
+88:                                               ; preds = %86
+  %89 = fcmp ult double %.pre302.i.i, %.pre304.i.i
+  br i1 %89, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit.i.i
 
-.invoke.i:                                        ; preds = %406, %389, %372, %345, %207, %325, %308, %291, %258, %241, %213, %191, %150, %131, %106, %100
+.invoke.i:                                        ; preds = %394, %377, %360, %333, %195, %313, %296, %279, %246, %229, %201, %179, %138, %119, %94, %88
   invoke void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #77
           to label %.cont.i unwind label %.loopexit.split-lp.i, !noalias !24188
 
 .cont.i:                                          ; preds = %.invoke.i
   unreachable
 
-_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit.i.i: ; preds = %100, %98
-  %.0.sroa.speculated.i.i.i.i.i.i = phi double [ %.pre304.i.i, %100 ], [ %.pre302.i.i, %98 ]
-  %102 = fneg double %.0.sroa.speculated.i.i.i.i.i.i
+_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit.i.i: ; preds = %88, %86
+  %.0.sroa.speculated.i.i.i.i.i.i = phi double [ %.pre304.i.i, %88 ], [ %.pre302.i.i, %86 ]
+  %90 = fneg double %.0.sroa.speculated.i.i.i.i.i.i
   %.0.i.inv.i.i.i.i.i.i.i.i = fcmp ord double %.0.sroa.speculated.i.i.i.i.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i.i, double %102, double 0.000000e+00
-  %103 = fadd double %.pre.i.i, %.0.i.i.i.i.i.i.i.i
-  %.0.i.inv.i.i.i1.i.i.i.i.i = fcmp ord double %103, 0.000000e+00
-  %.0.i.i.i2.i.i.i.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i.i.i, double %103, double 0.000000e+00
+  %.0.i.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i.i, double %90, double 0.000000e+00
+  %91 = fadd double %.pre.i.i, %.0.i.i.i.i.i.i.i.i
+  %.0.i.inv.i.i.i1.i.i.i.i.i = fcmp ord double %91, 0.000000e+00
+  %.0.i.i.i2.i.i.i.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i.i.i, double %91, double 0.000000e+00
   %.inv.i.i.i.i = fcmp ole double %.0.i.i.i2.i.i.i.i.i, 0.000000e+00
   %.0.sroa.speculated.i.i1.i.i.i.i = select i1 %.inv.i.i.i.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i.i.i
-  %104 = fcmp ugt double %.0.sroa.speculated.i.i1.i.i.i.i, 0.000000e+00
-  br i1 %104, label %127, label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit._crit_edge.i.i"
+  %92 = fcmp ugt double %.0.sroa.speculated.i.i1.i.i.i.i, 0.000000e+00
+  br i1 %92, label %115, label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit._crit_edge.i.i"
 
 "_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit._crit_edge.i.i": ; preds = %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit.i.i, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i.i"
-  %105 = fcmp ugt double %.pre302.i.i, %.pre304.i.i
-  br i1 %105, label %106, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i
+  %93 = fcmp ugt double %.pre302.i.i, %.pre304.i.i
+  br i1 %93, label %94, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i
 
-106:                                              ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit._crit_edge.i.i"
-  %107 = fcmp ult double %.pre302.i.i, %.pre304.i.i
-  br i1 %107, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i
+94:                                               ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit._crit_edge.i.i"
+  %95 = fcmp ult double %.pre302.i.i, %.pre304.i.i
+  br i1 %95, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i
 
-_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i: ; preds = %106, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit._crit_edge.i.i"
-  %.0.sroa.speculated.i.i.i.i11.i.i = phi double [ %.pre304.i.i, %106 ], [ %.pre302.i.i, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit._crit_edge.i.i" ]
-  %108 = fneg double %.0.sroa.speculated.i.i.i.i11.i.i
+_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i: ; preds = %94, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit._crit_edge.i.i"
+  %.0.sroa.speculated.i.i.i.i11.i.i = phi double [ %.pre304.i.i, %94 ], [ %.pre302.i.i, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit._crit_edge.i.i" ]
+  %96 = fneg double %.0.sroa.speculated.i.i.i.i11.i.i
   %.0.i.inv.i.i.i.i.i.i12.i.i = fcmp ord double %.0.sroa.speculated.i.i.i.i11.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i13.i.i = select i1 %.0.i.inv.i.i.i.i.i.i12.i.i, double %108, double 0.000000e+00
-  %109 = fadd double %.pre.i.i, %.0.i.i.i.i.i.i13.i.i
-  %.0.i.inv.i.i.i1.i.i.i14.i.i = fcmp ord double %109, 0.000000e+00
-  %.0.i.i.i2.i.i.i15.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i14.i.i, double %109, double 0.000000e+00
+  %.0.i.i.i.i.i.i13.i.i = select i1 %.0.i.inv.i.i.i.i.i.i12.i.i, double %96, double 0.000000e+00
+  %97 = fadd double %.pre.i.i, %.0.i.i.i.i.i.i13.i.i
+  %.0.i.inv.i.i.i1.i.i.i14.i.i = fcmp ord double %97, 0.000000e+00
+  %.0.i.i.i2.i.i.i15.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i14.i.i, double %97, double 0.000000e+00
   %.inv.i.i16.i.i = fcmp ole double %.0.i.i.i2.i.i.i15.i.i, 0.000000e+00
   %.0.sroa.speculated.i.i1.i.i17.i.i = select i1 %.inv.i.i16.i.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i15.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
-  %111 = load i8, ptr %110, align 8, !range !3454, !alias.scope !24189, !noalias !24187, !noundef !4
-  switch i8 %111, label %default.unreachable [
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
+  %99 = load i8, ptr %98, align 8, !range !3454, !alias.scope !24189, !noalias !24187, !noundef !4
+  switch i8 %99, label %default.unreachable [
     i8 0, label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit.i.i
-    i8 1, label %112
-    i8 2, label %114
-    i8 3, label %119
+    i8 1, label %100
+    i8 2, label %102
+    i8 3, label %107
   ]
 
-112:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i
-  %113 = load double, ptr %.0.i.i.i, align 8, !alias.scope !24189, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i.i3.i.i.i = fcmp ord double %113, 0.000000e+00
-  %.0.i.i.i2.i.i4.i.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i.i.i, double %113, double 0.000000e+00
+100:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i
+  %101 = load double, ptr %.0.i.i.i, align 8, !alias.scope !24189, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i.i3.i.i.i = fcmp ord double %101, 0.000000e+00
+  %.0.i.i.i2.i.i4.i.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i.i.i, double %101, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit.i.i
 
-114:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i
-  %115 = load double, ptr %.0.i.i.i, align 8, !alias.scope !24189, !noalias !24187, !noundef !4
-  %116 = fsub double %115, %.0.sroa.speculated.i.i1.i.i17.i.i
-  %.0.i.inv.i.i.i1.i3.i.i.i.i = fcmp ord double %116, 0.000000e+00
-  %.0.i.i.i2.i4.i.i.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i.i.i, double %116, double 0.000000e+00
-  %117 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %118 = load double, ptr %117, align 8, !alias.scope !24189, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i7.i.i.i.i = fcmp ord double %118, 0.000000e+00
-  %.0.i.i.i2.i8.i.i.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i.i.i, double %118, double 0.000000e+00
+102:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i
+  %103 = load double, ptr %.0.i.i.i, align 8, !alias.scope !24189, !noalias !24187, !noundef !4
+  %104 = fsub double %103, %.0.sroa.speculated.i.i1.i.i17.i.i
+  %.0.i.inv.i.i.i1.i3.i.i.i.i = fcmp ord double %104, 0.000000e+00
+  %.0.i.i.i2.i4.i.i.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i.i.i, double %104, double 0.000000e+00
+  %105 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %106 = load double, ptr %105, align 8, !alias.scope !24189, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i7.i.i.i.i = fcmp ord double %106, 0.000000e+00
+  %.0.i.i.i2.i8.i.i.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i.i.i, double %106, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit.i.i
 
-119:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i
-  %120 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %121 = load double, ptr %120, align 8, !alias.scope !24189, !noalias !24187, !noundef !4
-  %122 = fsub double %121, %.0.sroa.speculated.i.i1.i.i17.i.i
-  %.0.i.inv.i.i.i1.i11.i.i.i.i = fcmp ord double %122, 0.000000e+00
-  %.0.i.i.i2.i12.i.i.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i.i.i, double %122, double 0.000000e+00
+107:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i
+  %108 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %109 = load double, ptr %108, align 8, !alias.scope !24189, !noalias !24187, !noundef !4
+  %110 = fsub double %109, %.0.sroa.speculated.i.i1.i.i17.i.i
+  %.0.i.inv.i.i.i1.i11.i.i.i.i = fcmp ord double %110, 0.000000e+00
+  %.0.i.i.i2.i12.i.i.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i.i.i, double %110, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit.i.i
 
-_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit.i.i: ; preds = %119, %114, %112, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i
-  %.sroa.5.0.i.i.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i17.i.i, %112 ], [ %.0.i.i.i2.i8.i.i.i.i, %114 ], [ %.0.i.i.i2.i12.i.i.i.i, %119 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi double [ %.0.i.i.i2.i.i4.i.i.i, %112 ], [ %.0.i.i.i2.i4.i.i.i.i, %114 ], [ 0.000000e+00, %119 ], [ %.0.sroa.speculated.i.i1.i.i17.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i ]
+_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit.i.i: ; preds = %107, %102, %100, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i
+  %.sroa.5.0.i.i.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i17.i.i, %100 ], [ %.0.i.i.i2.i8.i.i.i.i, %102 ], [ %.0.i.i.i2.i12.i.i.i.i, %107 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i ]
+  %.sroa.0.0.i.i.i.i = phi double [ %.0.i.i.i2.i.i4.i.i.i, %100 ], [ %.0.i.i.i2.i4.i.i.i.i, %102 ], [ 0.000000e+00, %107 ], [ %.0.sroa.speculated.i.i1.i.i17.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i.i.i ]
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef 0)
           to label %_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i.i unwind label %.loopexit.split-lp.i, !noalias !24188
 
 _ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i.i: ; preds = %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit.i.i
   %.pre.i.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24194, !noalias !24199
-  %123 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !24194, !noalias !24199, !nonnull !4, !noundef !4
-  %124 = getelementptr inbounds { i64, [6 x i64] }, ptr %123, i64 %.pre.i.i.i.i
-  store i64 0, ptr %124, align 8, !noalias !24188
-  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %124, i64 8
+  %111 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !24194, !noalias !24199, !nonnull !4, !noundef !4
+  %112 = getelementptr inbounds { i64, [6 x i64] }, ptr %111, i64 %.pre.i.i.i.i
+  store i64 0, ptr %112, align 8, !noalias !24188
+  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %112, i64 8
   store double %.sroa.0.0.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !24188
-  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %124, i64 16
+  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %112, i64 16
   store double %.sroa.5.0.i.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !24188
-  %125 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24194, !noalias !24199, !noundef !4
-  %126 = add i64 %125, 1
-  store i64 %126, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24194, !noalias !24199
-  br label %switch.lookup189
+  %113 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24194, !noalias !24199, !noundef !4
+  %114 = add i64 %113, 1
+  store i64 %114, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24194, !noalias !24199
+  br label %switch.lookup183
 
-127:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit.i.i
-  %128 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints3mid17h649e3ec148bee15bE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i.i.i)
+115:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit.i.i
+  %116 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints3mid17h649e3ec148bee15bE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i.i.i)
           to label %.noexc6.i unwind label %.loopexit.split-lp.i, !noalias !24188
 
-.noexc6.i:                                        ; preds = %127
-  %129 = extractvalue { double, double } %128, 0
-  %130 = extractvalue { double, double } %128, 1
-  br i1 %99, label %131, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i
+.noexc6.i:                                        ; preds = %115
+  %117 = extractvalue { double, double } %116, 0
+  %118 = extractvalue { double, double } %116, 1
+  br i1 %87, label %119, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i
 
-131:                                              ; preds = %.noexc6.i
-  %132 = fcmp ult double %.pre302.i.i, %.pre304.i.i
-  br i1 %132, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i
+119:                                              ; preds = %.noexc6.i
+  %120 = fcmp ult double %.pre302.i.i, %.pre304.i.i
+  br i1 %120, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i
 
-_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i: ; preds = %131, %.noexc6.i
-  %.0.sroa.speculated.i.i.i.i19.i.i = phi double [ %.pre304.i.i, %131 ], [ %.pre302.i.i, %.noexc6.i ]
-  %133 = fneg double %.0.sroa.speculated.i.i.i.i19.i.i
+_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i: ; preds = %119, %.noexc6.i
+  %.0.sroa.speculated.i.i.i.i19.i.i = phi double [ %.pre304.i.i, %119 ], [ %.pre302.i.i, %.noexc6.i ]
+  %121 = fneg double %.0.sroa.speculated.i.i.i.i19.i.i
   %.0.i.inv.i.i.i.i.i.i20.i.i = fcmp ord double %.0.sroa.speculated.i.i.i.i19.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i21.i.i = select i1 %.0.i.inv.i.i.i.i.i.i20.i.i, double %133, double 0.000000e+00
-  %134 = fadd double %.pre.i.i, %.0.i.i.i.i.i.i21.i.i
-  %.0.i.inv.i.i.i1.i.i.i22.i.i = fcmp ord double %134, 0.000000e+00
-  %.0.i.i.i2.i.i.i23.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i22.i.i, double %134, double 0.000000e+00
+  %.0.i.i.i.i.i.i21.i.i = select i1 %.0.i.inv.i.i.i.i.i.i20.i.i, double %121, double 0.000000e+00
+  %122 = fadd double %.pre.i.i, %.0.i.i.i.i.i.i21.i.i
+  %.0.i.inv.i.i.i1.i.i.i22.i.i = fcmp ord double %122, 0.000000e+00
+  %.0.i.i.i2.i.i.i23.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i22.i.i, double %122, double 0.000000e+00
   %.inv.i.i24.i.i = fcmp ole double %.0.i.i.i2.i.i.i23.i.i, 0.000000e+00
   %.0.sroa.speculated.i.i1.i.i25.i.i = select i1 %.inv.i.i24.i.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i23.i.i
-  %135 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
-  %136 = load i8, ptr %135, align 8, !range !3454, !alias.scope !24201, !noalias !24187, !noundef !4
-  switch i8 %136, label %default.unreachable [
+  %123 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
+  %124 = load i8, ptr %123, align 8, !range !3454, !alias.scope !24201, !noalias !24187, !noundef !4
+  switch i8 %124, label %default.unreachable [
     i8 0, label %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit.i.i
-    i8 1, label %137
-    i8 2, label %140
-    i8 3, label %146
+    i8 1, label %125
+    i8 2, label %128
+    i8 3, label %134
   ]
 
-137:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i
-  %138 = load double, ptr %.0.i.i.i, align 8, !alias.scope !24201, !noalias !24187, !noundef !4
-  %139 = fsub double %138, %.0.sroa.speculated.i.i1.i.i25.i.i
-  %.0.i.inv.i.i.i1.i.i3.i34.i.i = fcmp ord double %139, 0.000000e+00
-  %.0.i.i.i2.i.i4.i35.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i34.i.i, double %139, double 0.000000e+00
+125:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i
+  %126 = load double, ptr %.0.i.i.i, align 8, !alias.scope !24201, !noalias !24187, !noundef !4
+  %127 = fsub double %126, %.0.sroa.speculated.i.i1.i.i25.i.i
+  %.0.i.inv.i.i.i1.i.i3.i34.i.i = fcmp ord double %127, 0.000000e+00
+  %.0.i.i.i2.i.i4.i35.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i34.i.i, double %127, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit.i.i
 
-140:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i
-  %141 = load double, ptr %.0.i.i.i, align 8, !alias.scope !24201, !noalias !24187, !noundef !4
-  %142 = fsub double %141, %.0.sroa.speculated.i.i1.i.i25.i.i
-  %.0.i.inv.i.i.i1.i3.i.i30.i.i = fcmp ord double %142, 0.000000e+00
-  %.0.i.i.i2.i4.i.i31.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i30.i.i, double %142, double 0.000000e+00
-  %143 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %144 = load double, ptr %143, align 8, !alias.scope !24201, !noalias !24187, !noundef !4
-  %145 = fsub double %144, %.0.sroa.speculated.i.i1.i.i25.i.i
-  %.0.i.inv.i.i.i1.i7.i.i32.i.i = fcmp ord double %145, 0.000000e+00
-  %.0.i.i.i2.i8.i.i33.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i32.i.i, double %145, double 0.000000e+00
+128:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i
+  %129 = load double, ptr %.0.i.i.i, align 8, !alias.scope !24201, !noalias !24187, !noundef !4
+  %130 = fsub double %129, %.0.sroa.speculated.i.i1.i.i25.i.i
+  %.0.i.inv.i.i.i1.i3.i.i30.i.i = fcmp ord double %130, 0.000000e+00
+  %.0.i.i.i2.i4.i.i31.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i30.i.i, double %130, double 0.000000e+00
+  %131 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %132 = load double, ptr %131, align 8, !alias.scope !24201, !noalias !24187, !noundef !4
+  %133 = fsub double %132, %.0.sroa.speculated.i.i1.i.i25.i.i
+  %.0.i.inv.i.i.i1.i7.i.i32.i.i = fcmp ord double %133, 0.000000e+00
+  %.0.i.i.i2.i8.i.i33.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i32.i.i, double %133, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit.i.i
 
-146:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i
-  %147 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %148 = load double, ptr %147, align 8, !alias.scope !24201, !noalias !24187, !noundef !4
-  %149 = fsub double %148, %.0.sroa.speculated.i.i1.i.i25.i.i
-  %.0.i.inv.i.i.i1.i11.i.i26.i.i = fcmp ord double %149, 0.000000e+00
-  %.0.i.i.i2.i12.i.i27.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i26.i.i, double %149, double 0.000000e+00
+134:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i
+  %135 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %136 = load double, ptr %135, align 8, !alias.scope !24201, !noalias !24187, !noundef !4
+  %137 = fsub double %136, %.0.sroa.speculated.i.i1.i.i25.i.i
+  %.0.i.inv.i.i.i1.i11.i.i26.i.i = fcmp ord double %137, 0.000000e+00
+  %.0.i.i.i2.i12.i.i27.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i26.i.i, double %137, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit.i.i
 
-_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit.i.i: ; preds = %146, %140, %137, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i
-  %.sroa.5.0.i.i28.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i25.i.i, %137 ], [ %.0.i.i.i2.i8.i.i33.i.i, %140 ], [ %.0.i.i.i2.i12.i.i27.i.i, %146 ], [ %.0.sroa.speculated.i.i1.i.i25.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i ]
-  %.sroa.0.0.i.i29.i.i = phi double [ %.0.i.i.i2.i.i4.i35.i.i, %137 ], [ %.0.i.i.i2.i4.i.i31.i.i, %140 ], [ %.0.sroa.speculated.i.i1.i.i25.i.i, %146 ], [ %.0.sroa.speculated.i.i1.i.i25.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i ]
-  br i1 %99, label %150, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i
+_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit.i.i: ; preds = %134, %128, %125, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i
+  %.sroa.5.0.i.i28.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i25.i.i, %125 ], [ %.0.i.i.i2.i8.i.i33.i.i, %128 ], [ %.0.i.i.i2.i12.i.i27.i.i, %134 ], [ %.0.sroa.speculated.i.i1.i.i25.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i ]
+  %.sroa.0.0.i.i29.i.i = phi double [ %.0.i.i.i2.i.i4.i35.i.i, %125 ], [ %.0.i.i.i2.i4.i.i31.i.i, %128 ], [ %.0.sroa.speculated.i.i1.i.i25.i.i, %134 ], [ %.0.sroa.speculated.i.i1.i.i25.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i18.i.i ]
+  br i1 %87, label %138, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i
 
-150:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit.i.i
-  %151 = fcmp ult double %.pre302.i.i, %.pre304.i.i
-  br i1 %151, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i
+138:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit.i.i
+  %139 = fcmp ult double %.pre302.i.i, %.pre304.i.i
+  br i1 %139, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i
 
-_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i: ; preds = %150, %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit.i.i
-  %.0.sroa.speculated.i.i.i.i38.i.i = phi double [ %.pre304.i.i, %150 ], [ %.pre302.i.i, %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit.i.i ]
-  %152 = fneg double %.0.sroa.speculated.i.i.i.i38.i.i
+_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i: ; preds = %138, %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit.i.i
+  %.0.sroa.speculated.i.i.i.i38.i.i = phi double [ %.pre304.i.i, %138 ], [ %.pre302.i.i, %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit.i.i ]
+  %140 = fneg double %.0.sroa.speculated.i.i.i.i38.i.i
   %.0.i.inv.i.i.i.i.i.i39.i.i = fcmp ord double %.0.sroa.speculated.i.i.i.i38.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i40.i.i = select i1 %.0.i.inv.i.i.i.i.i.i39.i.i, double %152, double 0.000000e+00
-  %153 = fadd double %.pre.i.i, %.0.i.i.i.i.i.i40.i.i
-  %.0.i.inv.i.i.i1.i.i.i41.i.i = fcmp ord double %153, 0.000000e+00
-  %.0.i.i.i2.i.i.i42.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i41.i.i, double %153, double 0.000000e+00
+  %.0.i.i.i.i.i.i40.i.i = select i1 %.0.i.inv.i.i.i.i.i.i39.i.i, double %140, double 0.000000e+00
+  %141 = fadd double %.pre.i.i, %.0.i.i.i.i.i.i40.i.i
+  %.0.i.inv.i.i.i1.i.i.i41.i.i = fcmp ord double %141, 0.000000e+00
+  %.0.i.i.i2.i.i.i42.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i41.i.i, double %141, double 0.000000e+00
   %.inv.i.i43.i.i = fcmp ole double %.0.i.i.i2.i.i.i42.i.i, 0.000000e+00
   %.0.sroa.speculated.i.i1.i.i44.i.i = select i1 %.inv.i.i43.i.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i42.i.i
-  switch i8 %136, label %default.unreachable [
+  switch i8 %124, label %default.unreachable [
     i8 0, label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit56.i.i
-    i8 1, label %154
-    i8 2, label %156
-    i8 3, label %161
+    i8 1, label %142
+    i8 2, label %144
+    i8 3, label %149
   ]
 
-154:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i
-  %155 = load double, ptr %.0.i.i.i, align 8, !alias.scope !24206, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i.i3.i53.i.i = fcmp ord double %155, 0.000000e+00
-  %.0.i.i.i2.i.i4.i54.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i53.i.i, double %155, double 0.000000e+00
+142:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i
+  %143 = load double, ptr %.0.i.i.i, align 8, !alias.scope !24206, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i.i3.i53.i.i = fcmp ord double %143, 0.000000e+00
+  %.0.i.i.i2.i.i4.i54.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i53.i.i, double %143, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit56.i.i
 
-156:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i
-  %157 = load double, ptr %.0.i.i.i, align 8, !alias.scope !24206, !noalias !24187, !noundef !4
-  %158 = fsub double %157, %.0.sroa.speculated.i.i1.i.i44.i.i
-  %.0.i.inv.i.i.i1.i3.i.i49.i.i = fcmp ord double %158, 0.000000e+00
-  %.0.i.i.i2.i4.i.i50.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i49.i.i, double %158, double 0.000000e+00
-  %159 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %160 = load double, ptr %159, align 8, !alias.scope !24206, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i7.i.i51.i.i = fcmp ord double %160, 0.000000e+00
-  %.0.i.i.i2.i8.i.i52.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i51.i.i, double %160, double 0.000000e+00
+144:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i
+  %145 = load double, ptr %.0.i.i.i, align 8, !alias.scope !24206, !noalias !24187, !noundef !4
+  %146 = fsub double %145, %.0.sroa.speculated.i.i1.i.i44.i.i
+  %.0.i.inv.i.i.i1.i3.i.i49.i.i = fcmp ord double %146, 0.000000e+00
+  %.0.i.i.i2.i4.i.i50.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i49.i.i, double %146, double 0.000000e+00
+  %147 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %148 = load double, ptr %147, align 8, !alias.scope !24206, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i7.i.i51.i.i = fcmp ord double %148, 0.000000e+00
+  %.0.i.i.i2.i8.i.i52.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i51.i.i, double %148, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit56.i.i
 
-161:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i
-  %162 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %163 = load double, ptr %162, align 8, !alias.scope !24206, !noalias !24187, !noundef !4
-  %164 = fsub double %163, %.0.sroa.speculated.i.i1.i.i44.i.i
-  %.0.i.inv.i.i.i1.i11.i.i45.i.i = fcmp ord double %164, 0.000000e+00
-  %.0.i.i.i2.i12.i.i46.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i45.i.i, double %164, double 0.000000e+00
+149:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i
+  %150 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %151 = load double, ptr %150, align 8, !alias.scope !24206, !noalias !24187, !noundef !4
+  %152 = fsub double %151, %.0.sroa.speculated.i.i1.i.i44.i.i
+  %.0.i.inv.i.i.i1.i11.i.i45.i.i = fcmp ord double %152, 0.000000e+00
+  %.0.i.i.i2.i12.i.i46.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i45.i.i, double %152, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit56.i.i
 
-_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit56.i.i: ; preds = %161, %156, %154, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i
-  %.sroa.5.0.i.i47.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i44.i.i, %154 ], [ %.0.i.i.i2.i8.i.i52.i.i, %156 ], [ %.0.i.i.i2.i12.i.i46.i.i, %161 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i ]
-  %.sroa.0.0.i.i48.i.i = phi double [ %.0.i.i.i2.i.i4.i54.i.i, %154 ], [ %.0.i.i.i2.i4.i.i50.i.i, %156 ], [ 0.000000e+00, %161 ], [ %.0.sroa.speculated.i.i1.i.i44.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i ]
-  %165 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24211, !noalias !24218, !noundef !4
-  %166 = load i64, ptr %8, align 8, !alias.scope !24211, !noalias !24218, !noundef !4
-  %167 = icmp eq i64 %165, %166
-  br i1 %167, label %168, label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_move17hbd8f7f65c8c548d5E.exit.i.i"
+_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit56.i.i: ; preds = %149, %144, %142, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i
+  %.sroa.5.0.i.i47.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i44.i.i, %142 ], [ %.0.i.i.i2.i8.i.i52.i.i, %144 ], [ %.0.i.i.i2.i12.i.i46.i.i, %149 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i ]
+  %.sroa.0.0.i.i48.i.i = phi double [ %.0.i.i.i2.i.i4.i54.i.i, %142 ], [ %.0.i.i.i2.i4.i.i50.i.i, %144 ], [ 0.000000e+00, %149 ], [ %.0.sroa.speculated.i.i1.i.i44.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i37.i.i ]
+  %153 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24211, !noalias !24218, !noundef !4
+  %154 = load i64, ptr %8, align 8, !alias.scope !24211, !noalias !24218, !noundef !4
+  %155 = icmp eq i64 %153, %154
+  br i1 %155, label %156, label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_move17hbd8f7f65c8c548d5E.exit.i.i"
 
-168:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit56.i.i
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %165)
+156:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit56.i.i
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %153)
           to label %.noexc9.i unwind label %.loopexit.split-lp.i, !noalias !24188
 
-.noexc9.i:                                        ; preds = %168
+.noexc9.i:                                        ; preds = %156
   %.pre.i.i.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24211, !noalias !24218
   br label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_move17hbd8f7f65c8c548d5E.exit.i.i"
 
 "_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_move17hbd8f7f65c8c548d5E.exit.i.i": ; preds = %.noexc9.i, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit56.i.i
-  %169 = phi i64 [ %.pre.i.i.i.i.i, %.noexc9.i ], [ %165, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit56.i.i ]
-  %170 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !24211, !noalias !24218, !nonnull !4, !noundef !4
-  %171 = getelementptr inbounds { i64, [6 x i64] }, ptr %170, i64 %169
-  store i64 0, ptr %171, align 8, !noalias !24188
-  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %171, i64 8
-  store double %129, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !24188
-  %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %171, i64 16
-  store double %130, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !noalias !24188
-  %172 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24211, !noalias !24218, !noundef !4
-  %173 = add i64 %172, 1
-  store i64 %173, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24211, !noalias !24218
-  invoke void @"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$3arc17hcbbb6d66eecb9f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, double noundef %129, double noundef %130, double noundef %.sroa.0.0.i.i29.i.i, double noundef %.sroa.5.0.i.i28.i.i, double noundef %.sroa.0.0.i.i48.i.i, double noundef %.sroa.5.0.i.i47.i.i)
-          to label %switch.lookup189 unwind label %.loopexit.split-lp.i, !noalias !24188
+  %157 = phi i64 [ %.pre.i.i.i.i.i, %.noexc9.i ], [ %153, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit56.i.i ]
+  %158 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !24211, !noalias !24218, !nonnull !4, !noundef !4
+  %159 = getelementptr inbounds { i64, [6 x i64] }, ptr %158, i64 %157
+  store i64 0, ptr %159, align 8, !noalias !24188
+  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %159, i64 8
+  store double %117, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !24188
+  %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %159, i64 16
+  store double %118, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !noalias !24188
+  %160 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24211, !noalias !24218, !noundef !4
+  %161 = add i64 %160, 1
+  store i64 %161, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24211, !noalias !24218
+  invoke void @"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$3arc17hcbbb6d66eecb9f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, double noundef %117, double noundef %118, double noundef %.sroa.0.0.i.i29.i.i, double noundef %.sroa.5.0.i.i28.i.i, double noundef %.sroa.0.0.i.i48.i.i, double noundef %.sroa.5.0.i.i47.i.i)
+          to label %switch.lookup183 unwind label %.loopexit.split-lp.i, !noalias !24188
 
-switch.lookup189:                                 ; preds = %_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i.i, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_move17hbd8f7f65c8c548d5E.exit.i.i"
-  %174 = shl nuw nsw i8 %1, 3
-  %switch.shiftamt191 = zext nneg i8 %174 to i32
-  %switch.downshift192 = lshr i32 197121, %switch.shiftamt191
-  %switch.masked193 = trunc i32 %switch.downshift192 to i8
-  %.not299.i.i = icmp eq i8 %2, %switch.masked193
+switch.lookup183:                                 ; preds = %_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i.i, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_move17hbd8f7f65c8c548d5E.exit.i.i"
+  %162 = shl nuw nsw i8 %1, 3
+  %switch.shiftamt185 = zext nneg i8 %162 to i32
+  %switch.downshift186 = lshr i32 197121, %switch.shiftamt185
+  %switch.masked187 = trunc i32 %switch.downshift186 to i8
+  %.not299.i.i = icmp eq i8 %2, %switch.masked187
   br i1 %.not299.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %switch.lookup189
-  %175 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %176 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %177 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  br label %196
+.lr.ph.i.i:                                       ; preds = %switch.lookup183
+  %163 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %164 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %165 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  br label %184
 
-._crit_edge.i.i:                                  ; preds = %switch.lookup194, %switch.lookup189
+._crit_edge.i.i:                                  ; preds = %switch.lookup188, %switch.lookup183
   switch i8 %2, label %default.unreachable [
     i8 0, label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit59.i.i"
-    i8 1, label %178
-    i8 2, label %180
-    i8 3, label %182
+    i8 1, label %166
+    i8 2, label %168
+    i8 3, label %170
   ]
 
-178:                                              ; preds = %._crit_edge.i.i
-  %179 = getelementptr inbounds nuw i8, ptr %3, i64 48
+166:                                              ; preds = %._crit_edge.i.i
+  %167 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit59.i.i"
 
-180:                                              ; preds = %._crit_edge.i.i
-  %181 = getelementptr inbounds nuw i8, ptr %3, i64 96
+168:                                              ; preds = %._crit_edge.i.i
+  %169 = getelementptr inbounds nuw i8, ptr %3, i64 96
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit59.i.i"
 
-182:                                              ; preds = %._crit_edge.i.i
-  %183 = getelementptr inbounds nuw i8, ptr %3, i64 144
+170:                                              ; preds = %._crit_edge.i.i
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 144
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit59.i.i"
 
-"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit59.i.i": ; preds = %182, %180, %178, %._crit_edge.i.i
-  %.0.i58.i.i = phi ptr [ %179, %178 ], [ %181, %180 ], [ %183, %182 ], [ %3, %._crit_edge.i.i ]
-  %184 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 16
-  %185 = load double, ptr %184, align 8, !alias.scope !24220, !noalias !24187, !noundef !4
-  %186 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 32
-  %187 = load double, ptr %186, align 8, !alias.scope !24220, !noalias !24187, !noundef !4
-  %188 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 24
-  %189 = load double, ptr %188, align 8, !alias.scope !24220, !noalias !24187, !noundef !4
-  %190 = fcmp ugt double %187, %189
-  br i1 %190, label %191, label %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit68.i.i
+"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit59.i.i": ; preds = %170, %168, %166, %._crit_edge.i.i
+  %.0.i58.i.i = phi ptr [ %167, %166 ], [ %169, %168 ], [ %171, %170 ], [ %3, %._crit_edge.i.i ]
+  %172 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 16
+  %173 = load double, ptr %172, align 8, !alias.scope !24220, !noalias !24187, !noundef !4
+  %174 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 32
+  %175 = load double, ptr %174, align 8, !alias.scope !24220, !noalias !24187, !noundef !4
+  %176 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 24
+  %177 = load double, ptr %176, align 8, !alias.scope !24220, !noalias !24187, !noundef !4
+  %178 = fcmp ugt double %175, %177
+  br i1 %178, label %179, label %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit68.i.i
 
-191:                                              ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit59.i.i"
-  %192 = fcmp ult double %187, %189
-  br i1 %192, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit68.i.i
+179:                                              ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit59.i.i"
+  %180 = fcmp ult double %175, %177
+  br i1 %180, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit68.i.i
 
-_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit68.i.i: ; preds = %191, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit59.i.i"
-  %.0.sroa.speculated.i.i.i.i61.i.i = phi double [ %189, %191 ], [ %187, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit59.i.i" ]
-  %193 = fneg double %.0.sroa.speculated.i.i.i.i61.i.i
+_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit68.i.i: ; preds = %179, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit59.i.i"
+  %.0.sroa.speculated.i.i.i.i61.i.i = phi double [ %177, %179 ], [ %175, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit59.i.i" ]
+  %181 = fneg double %.0.sroa.speculated.i.i.i.i61.i.i
   %.0.i.inv.i.i.i.i.i.i62.i.i = fcmp ord double %.0.sroa.speculated.i.i.i.i61.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i63.i.i = select i1 %.0.i.inv.i.i.i.i.i.i62.i.i, double %193, double 0.000000e+00
-  %194 = fadd double %185, %.0.i.i.i.i.i.i63.i.i
-  %.0.i.inv.i.i.i1.i.i.i64.i.i = fcmp ord double %194, 0.000000e+00
-  %.0.i.i.i2.i.i.i65.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i64.i.i, double %194, double 0.000000e+00
+  %.0.i.i.i.i.i.i63.i.i = select i1 %.0.i.inv.i.i.i.i.i.i62.i.i, double %181, double 0.000000e+00
+  %182 = fadd double %173, %.0.i.i.i.i.i.i63.i.i
+  %.0.i.inv.i.i.i1.i.i.i64.i.i = fcmp ord double %182, 0.000000e+00
+  %.0.i.i.i2.i.i.i65.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i64.i.i, double %182, double 0.000000e+00
   %.inv.i.i66.i.i = fcmp ole double %.0.i.i.i2.i.i.i65.i.i, 0.000000e+00
   %.0.sroa.speculated.i.i1.i.i67.i.i = select i1 %.inv.i.i66.i.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i65.i.i
-  %195 = fcmp ugt double %.0.sroa.speculated.i.i1.i.i67.i.i, 0.000000e+00
-  br i1 %195, label %239, label %212
+  %183 = fcmp ugt double %.0.sroa.speculated.i.i1.i.i67.i.i, 0.000000e+00
+  br i1 %183, label %227, label %200
 
-196:                                              ; preds = %switch.lookup194, %.lr.ph.i.i
-  %.0300.i.i = phi i8 [ %switch.masked193, %.lr.ph.i.i ], [ %switch.masked198, %switch.lookup194 ]
+184:                                              ; preds = %switch.lookup188, %.lr.ph.i.i
+  %.0300.i.i = phi i8 [ %switch.masked187, %.lr.ph.i.i ], [ %switch.masked192, %switch.lookup188 ]
   switch i8 %.0300.i.i, label %default.unreachable [
     i8 0, label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit70.i.i"
-    i8 1, label %197
-    i8 2, label %198
-    i8 3, label %199
+    i8 1, label %185
+    i8 2, label %186
+    i8 3, label %187
   ]
 
-197:                                              ; preds = %196
+185:                                              ; preds = %184
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit70.i.i"
 
-198:                                              ; preds = %196
+186:                                              ; preds = %184
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit70.i.i"
 
-199:                                              ; preds = %196
+187:                                              ; preds = %184
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit70.i.i"
 
-"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit70.i.i": ; preds = %199, %198, %197, %196
-  %.0.i69.i.i = phi ptr [ %177, %197 ], [ %176, %198 ], [ %175, %199 ], [ %3, %196 ]
-  %200 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 16
-  %201 = load double, ptr %200, align 8, !alias.scope !24225, !noalias !24187, !noundef !4
-  %202 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 32
-  %203 = load double, ptr %202, align 8, !alias.scope !24225, !noalias !24187, !noundef !4
-  %204 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 24
-  %205 = load double, ptr %204, align 8, !alias.scope !24225, !noalias !24187, !noundef !4
-  %206 = fcmp ugt double %203, %205
-  br i1 %206, label %207, label %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit79.i.i
+"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit70.i.i": ; preds = %187, %186, %185, %184
+  %.0.i69.i.i = phi ptr [ %165, %185 ], [ %164, %186 ], [ %163, %187 ], [ %3, %184 ]
+  %188 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 16
+  %189 = load double, ptr %188, align 8, !alias.scope !24225, !noalias !24187, !noundef !4
+  %190 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 32
+  %191 = load double, ptr %190, align 8, !alias.scope !24225, !noalias !24187, !noundef !4
+  %192 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 24
+  %193 = load double, ptr %192, align 8, !alias.scope !24225, !noalias !24187, !noundef !4
+  %194 = fcmp ugt double %191, %193
+  br i1 %194, label %195, label %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit79.i.i
 
-207:                                              ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit70.i.i"
-  %208 = fcmp ult double %203, %205
-  br i1 %208, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit79.i.i
+195:                                              ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit70.i.i"
+  %196 = fcmp ult double %191, %193
+  br i1 %196, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit79.i.i
 
-_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit79.i.i: ; preds = %207, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit70.i.i"
-  %.0.sroa.speculated.i.i.i.i72.i.i = phi double [ %205, %207 ], [ %203, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit70.i.i" ]
-  %209 = fneg double %.0.sroa.speculated.i.i.i.i72.i.i
+_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit79.i.i: ; preds = %195, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit70.i.i"
+  %.0.sroa.speculated.i.i.i.i72.i.i = phi double [ %193, %195 ], [ %191, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit70.i.i" ]
+  %197 = fneg double %.0.sroa.speculated.i.i.i.i72.i.i
   %.0.i.inv.i.i.i.i.i.i73.i.i = fcmp ord double %.0.sroa.speculated.i.i.i.i72.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i74.i.i = select i1 %.0.i.inv.i.i.i.i.i.i73.i.i, double %209, double 0.000000e+00
-  %210 = fadd double %201, %.0.i.i.i.i.i.i74.i.i
-  %.0.i.inv.i.i.i1.i.i.i75.i.i = fcmp ord double %210, 0.000000e+00
-  %.0.i.i.i2.i.i.i76.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i75.i.i, double %210, double 0.000000e+00
+  %.0.i.i.i.i.i.i74.i.i = select i1 %.0.i.inv.i.i.i.i.i.i73.i.i, double %197, double 0.000000e+00
+  %198 = fadd double %189, %.0.i.i.i.i.i.i74.i.i
+  %.0.i.inv.i.i.i1.i.i.i75.i.i = fcmp ord double %198, 0.000000e+00
+  %.0.i.i.i2.i.i.i76.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i75.i.i, double %198, double 0.000000e+00
   %.inv.i.i77.i.i = fcmp ole double %.0.i.i.i2.i.i.i76.i.i, 0.000000e+00
   %.0.sroa.speculated.i.i1.i.i78.i.i = select i1 %.inv.i.i77.i.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i76.i.i
-  %211 = fcmp ugt double %.0.sroa.speculated.i.i1.i.i78.i.i, 0.000000e+00
-  br i1 %211, label %371, label %344
+  %199 = fcmp ugt double %.0.sroa.speculated.i.i1.i.i78.i.i, 0.000000e+00
+  br i1 %199, label %359, label %332
 
-212:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit68.i.i
-  br i1 %190, label %213, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i
+200:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit68.i.i
+  br i1 %178, label %201, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i
 
-213:                                              ; preds = %212
-  %214 = fcmp ult double %187, %189
-  br i1 %214, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i
+201:                                              ; preds = %200
+  %202 = fcmp ult double %175, %177
+  br i1 %202, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i
 
-_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i: ; preds = %213, %212
-  %.0.sroa.speculated.i.i.i.i81.i.i = phi double [ %189, %213 ], [ %187, %212 ]
-  %215 = fneg double %.0.sroa.speculated.i.i.i.i81.i.i
+_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i: ; preds = %201, %200
+  %.0.sroa.speculated.i.i.i.i81.i.i = phi double [ %177, %201 ], [ %175, %200 ]
+  %203 = fneg double %.0.sroa.speculated.i.i.i.i81.i.i
   %.0.i.inv.i.i.i.i.i.i82.i.i = fcmp ord double %.0.sroa.speculated.i.i.i.i81.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i83.i.i = select i1 %.0.i.inv.i.i.i.i.i.i82.i.i, double %215, double 0.000000e+00
-  %216 = fadd double %185, %.0.i.i.i.i.i.i83.i.i
-  %.0.i.inv.i.i.i1.i.i.i84.i.i = fcmp ord double %216, 0.000000e+00
-  %.0.i.i.i2.i.i.i85.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i84.i.i, double %216, double 0.000000e+00
+  %.0.i.i.i.i.i.i83.i.i = select i1 %.0.i.inv.i.i.i.i.i.i82.i.i, double %203, double 0.000000e+00
+  %204 = fadd double %173, %.0.i.i.i.i.i.i83.i.i
+  %.0.i.inv.i.i.i1.i.i.i84.i.i = fcmp ord double %204, 0.000000e+00
+  %.0.i.i.i2.i.i.i85.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i84.i.i, double %204, double 0.000000e+00
   %.inv.i.i86.i.i = fcmp ole double %.0.i.i.i2.i.i.i85.i.i, 0.000000e+00
   %.0.sroa.speculated.i.i1.i.i87.i.i = select i1 %.inv.i.i86.i.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i85.i.i
-  %217 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 40
-  %218 = load i8, ptr %217, align 8, !range !3454, !alias.scope !24230, !noalias !24187, !noundef !4
-  switch i8 %218, label %default.unreachable [
+  %205 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 40
+  %206 = load i8, ptr %205, align 8, !range !3454, !alias.scope !24230, !noalias !24187, !noundef !4
+  switch i8 %206, label %default.unreachable [
     i8 0, label %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit.i.i
-    i8 1, label %219
-    i8 2, label %222
-    i8 3, label %227
+    i8 1, label %207
+    i8 2, label %210
+    i8 3, label %215
   ]
 
-219:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i
-  %220 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24230, !noalias !24187, !noundef !4
-  %221 = fsub double %220, %.0.sroa.speculated.i.i1.i.i87.i.i
-  %.0.i.inv.i.i.i1.i.i3.i96.i.i = fcmp ord double %221, 0.000000e+00
-  %.0.i.i.i2.i.i4.i97.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i96.i.i, double %221, double 0.000000e+00
+207:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i
+  %208 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24230, !noalias !24187, !noundef !4
+  %209 = fsub double %208, %.0.sroa.speculated.i.i1.i.i87.i.i
+  %.0.i.inv.i.i.i1.i.i3.i96.i.i = fcmp ord double %209, 0.000000e+00
+  %.0.i.i.i2.i.i4.i97.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i96.i.i, double %209, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit.i.i
 
-222:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i
-  %223 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24230, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i3.i.i92.i.i = fcmp ord double %223, 0.000000e+00
-  %.0.i.i.i2.i4.i.i93.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i92.i.i, double %223, double 0.000000e+00
-  %224 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
-  %225 = load double, ptr %224, align 8, !alias.scope !24230, !noalias !24187, !noundef !4
-  %226 = fsub double %225, %.0.sroa.speculated.i.i1.i.i87.i.i
-  %.0.i.inv.i.i.i1.i7.i.i94.i.i = fcmp ord double %226, 0.000000e+00
-  %.0.i.i.i2.i8.i.i95.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i94.i.i, double %226, double 0.000000e+00
+210:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i
+  %211 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24230, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i3.i.i92.i.i = fcmp ord double %211, 0.000000e+00
+  %.0.i.i.i2.i4.i.i93.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i92.i.i, double %211, double 0.000000e+00
+  %212 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
+  %213 = load double, ptr %212, align 8, !alias.scope !24230, !noalias !24187, !noundef !4
+  %214 = fsub double %213, %.0.sroa.speculated.i.i1.i.i87.i.i
+  %.0.i.inv.i.i.i1.i7.i.i94.i.i = fcmp ord double %214, 0.000000e+00
+  %.0.i.i.i2.i8.i.i95.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i94.i.i, double %214, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit.i.i
 
-227:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i
-  %228 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
-  %229 = load double, ptr %228, align 8, !alias.scope !24230, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i11.i.i88.i.i = fcmp ord double %229, 0.000000e+00
-  %.0.i.i.i2.i12.i.i89.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i88.i.i, double %229, double 0.000000e+00
+215:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i
+  %216 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
+  %217 = load double, ptr %216, align 8, !alias.scope !24230, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i11.i.i88.i.i = fcmp ord double %217, 0.000000e+00
+  %.0.i.i.i2.i12.i.i89.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i88.i.i, double %217, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit.i.i
 
-_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit.i.i: ; preds = %227, %222, %219, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i
-  %.sroa.5.0.i.i90.i.i = phi double [ 0.000000e+00, %219 ], [ %.0.i.i.i2.i8.i.i95.i.i, %222 ], [ %.0.i.i.i2.i12.i.i89.i.i, %227 ], [ %.0.sroa.speculated.i.i1.i.i87.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i ]
-  %.sroa.0.0.i.i91.i.i = phi double [ %.0.i.i.i2.i.i4.i97.i.i, %219 ], [ %.0.i.i.i2.i4.i.i93.i.i, %222 ], [ %.0.sroa.speculated.i.i1.i.i87.i.i, %227 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i ]
-  %230 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24235, !noalias !24240, !noundef !4
-  %231 = load i64, ptr %8, align 8, !alias.scope !24235, !noalias !24240, !noundef !4
-  %232 = icmp eq i64 %230, %231
-  br i1 %232, label %233, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i.i
+_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit.i.i: ; preds = %215, %210, %207, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i
+  %.sroa.5.0.i.i90.i.i = phi double [ 0.000000e+00, %207 ], [ %.0.i.i.i2.i8.i.i95.i.i, %210 ], [ %.0.i.i.i2.i12.i.i89.i.i, %215 ], [ %.0.sroa.speculated.i.i1.i.i87.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i ]
+  %.sroa.0.0.i.i91.i.i = phi double [ %.0.i.i.i2.i.i4.i97.i.i, %207 ], [ %.0.i.i.i2.i4.i.i93.i.i, %210 ], [ %.0.sroa.speculated.i.i1.i.i87.i.i, %215 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i80.i.i ]
+  %218 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24235, !noalias !24240, !noundef !4
+  %219 = load i64, ptr %8, align 8, !alias.scope !24235, !noalias !24240, !noundef !4
+  %220 = icmp eq i64 %218, %219
+  br i1 %220, label %221, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i.i
 
-233:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit.i.i
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %230)
+221:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit.i.i
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %218)
           to label %.noexc14.i unwind label %.loopexit.split-lp.i, !noalias !24188
 
-.noexc14.i:                                       ; preds = %233
+.noexc14.i:                                       ; preds = %221
   %.pre.i.i101.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24235, !noalias !24240
   br label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i.i
 
 _ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i.i: ; preds = %.noexc14.i, %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit.i.i
-  %234 = phi i64 [ %.pre.i.i101.i.i, %.noexc14.i ], [ %230, %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit.i.i ]
-  %235 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !24235, !noalias !24240, !nonnull !4, !noundef !4
-  %236 = getelementptr inbounds { i64, [6 x i64] }, ptr %235, i64 %234
-  store i64 1, ptr %236, align 8, !noalias !24188
-  %.sroa.4.0..sroa_idx.i99.i.i = getelementptr inbounds nuw i8, ptr %236, i64 8
+  %222 = phi i64 [ %.pre.i.i101.i.i, %.noexc14.i ], [ %218, %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit.i.i ]
+  %223 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !24235, !noalias !24240, !nonnull !4, !noundef !4
+  %224 = getelementptr inbounds { i64, [6 x i64] }, ptr %223, i64 %222
+  store i64 1, ptr %224, align 8, !noalias !24188
+  %.sroa.4.0..sroa_idx.i99.i.i = getelementptr inbounds nuw i8, ptr %224, i64 8
   store double %.sroa.0.0.i.i91.i.i, ptr %.sroa.4.0..sroa_idx.i99.i.i, align 8, !noalias !24188
-  %.sroa.5.0..sroa_idx.i100.i.i = getelementptr inbounds nuw i8, ptr %236, i64 16
+  %.sroa.5.0..sroa_idx.i100.i.i = getelementptr inbounds nuw i8, ptr %224, i64 16
   store double %.sroa.5.0.i.i90.i.i, ptr %.sroa.5.0..sroa_idx.i100.i.i, align 8, !noalias !24188
-  %237 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24235, !noalias !24240, !noundef !4
-  %238 = add i64 %237, 1
-  store i64 %238, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24235, !noalias !24240
-  br label %1066
+  %225 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24235, !noalias !24240, !noundef !4
+  %226 = add i64 %225, 1
+  store i64 %226, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24235, !noalias !24240
+  br label %1054
 
-239:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit68.i.i
-  br i1 %97, label %290, label %240
+227:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit68.i.i
+  br i1 %85, label %278, label %228
 
-240:                                              ; preds = %239
-  br i1 %190, label %241, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i
+228:                                              ; preds = %227
+  br i1 %178, label %229, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i
 
-241:                                              ; preds = %240
-  %242 = fcmp ult double %187, %189
-  br i1 %242, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i
+229:                                              ; preds = %228
+  %230 = fcmp ult double %175, %177
+  br i1 %230, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i
 
-_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i: ; preds = %241, %240
-  %.0.sroa.speculated.i.i.i.i103.i.i = phi double [ %189, %241 ], [ %187, %240 ]
-  %243 = fneg double %.0.sroa.speculated.i.i.i.i103.i.i
+_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i: ; preds = %229, %228
+  %.0.sroa.speculated.i.i.i.i103.i.i = phi double [ %177, %229 ], [ %175, %228 ]
+  %231 = fneg double %.0.sroa.speculated.i.i.i.i103.i.i
   %.0.i.inv.i.i.i.i.i.i104.i.i = fcmp ord double %.0.sroa.speculated.i.i.i.i103.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i105.i.i = select i1 %.0.i.inv.i.i.i.i.i.i104.i.i, double %243, double 0.000000e+00
-  %244 = fadd double %185, %.0.i.i.i.i.i.i105.i.i
-  %.0.i.inv.i.i.i1.i.i.i106.i.i = fcmp ord double %244, 0.000000e+00
-  %.0.i.i.i2.i.i.i107.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i106.i.i, double %244, double 0.000000e+00
+  %.0.i.i.i.i.i.i105.i.i = select i1 %.0.i.inv.i.i.i.i.i.i104.i.i, double %231, double 0.000000e+00
+  %232 = fadd double %173, %.0.i.i.i.i.i.i105.i.i
+  %.0.i.inv.i.i.i1.i.i.i106.i.i = fcmp ord double %232, 0.000000e+00
+  %.0.i.i.i2.i.i.i107.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i106.i.i, double %232, double 0.000000e+00
   %.inv.i.i108.i.i = fcmp ole double %.0.i.i.i2.i.i.i107.i.i, 0.000000e+00
   %.0.sroa.speculated.i.i1.i.i109.i.i = select i1 %.inv.i.i108.i.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i107.i.i
-  %245 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 40
-  %246 = load i8, ptr %245, align 8, !range !3454, !alias.scope !24242, !noalias !24187, !noundef !4
-  switch i8 %246, label %default.unreachable [
+  %233 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 40
+  %234 = load i8, ptr %233, align 8, !range !3454, !alias.scope !24242, !noalias !24187, !noundef !4
+  switch i8 %234, label %default.unreachable [
     i8 0, label %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit121.i.i
-    i8 1, label %247
-    i8 2, label %250
-    i8 3, label %255
+    i8 1, label %235
+    i8 2, label %238
+    i8 3, label %243
   ]
 
-247:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i
-  %248 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24242, !noalias !24187, !noundef !4
-  %249 = fsub double %248, %.0.sroa.speculated.i.i1.i.i109.i.i
-  %.0.i.inv.i.i.i1.i.i3.i118.i.i = fcmp ord double %249, 0.000000e+00
-  %.0.i.i.i2.i.i4.i119.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i118.i.i, double %249, double 0.000000e+00
+235:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i
+  %236 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24242, !noalias !24187, !noundef !4
+  %237 = fsub double %236, %.0.sroa.speculated.i.i1.i.i109.i.i
+  %.0.i.inv.i.i.i1.i.i3.i118.i.i = fcmp ord double %237, 0.000000e+00
+  %.0.i.i.i2.i.i4.i119.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i118.i.i, double %237, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit121.i.i
 
-250:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i
-  %251 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24242, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i3.i.i114.i.i = fcmp ord double %251, 0.000000e+00
-  %.0.i.i.i2.i4.i.i115.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i114.i.i, double %251, double 0.000000e+00
-  %252 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
-  %253 = load double, ptr %252, align 8, !alias.scope !24242, !noalias !24187, !noundef !4
-  %254 = fsub double %253, %.0.sroa.speculated.i.i1.i.i109.i.i
-  %.0.i.inv.i.i.i1.i7.i.i116.i.i = fcmp ord double %254, 0.000000e+00
-  %.0.i.i.i2.i8.i.i117.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i116.i.i, double %254, double 0.000000e+00
+238:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i
+  %239 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24242, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i3.i.i114.i.i = fcmp ord double %239, 0.000000e+00
+  %.0.i.i.i2.i4.i.i115.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i114.i.i, double %239, double 0.000000e+00
+  %240 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
+  %241 = load double, ptr %240, align 8, !alias.scope !24242, !noalias !24187, !noundef !4
+  %242 = fsub double %241, %.0.sroa.speculated.i.i1.i.i109.i.i
+  %.0.i.inv.i.i.i1.i7.i.i116.i.i = fcmp ord double %242, 0.000000e+00
+  %.0.i.i.i2.i8.i.i117.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i116.i.i, double %242, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit121.i.i
 
-255:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i
-  %256 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
-  %257 = load double, ptr %256, align 8, !alias.scope !24242, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i11.i.i110.i.i = fcmp ord double %257, 0.000000e+00
-  %.0.i.i.i2.i12.i.i111.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i110.i.i, double %257, double 0.000000e+00
+243:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i
+  %244 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
+  %245 = load double, ptr %244, align 8, !alias.scope !24242, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i11.i.i110.i.i = fcmp ord double %245, 0.000000e+00
+  %.0.i.i.i2.i12.i.i111.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i110.i.i, double %245, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit121.i.i
 
-_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit121.i.i: ; preds = %255, %250, %247, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i
-  %.sroa.5.0.i.i112.i.i = phi double [ 0.000000e+00, %247 ], [ %.0.i.i.i2.i8.i.i117.i.i, %250 ], [ %.0.i.i.i2.i12.i.i111.i.i, %255 ], [ %.0.sroa.speculated.i.i1.i.i109.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i ]
-  %.sroa.0.0.i.i113.i.i = phi double [ %.0.i.i.i2.i.i4.i119.i.i, %247 ], [ %.0.i.i.i2.i4.i.i115.i.i, %250 ], [ %.0.sroa.speculated.i.i1.i.i109.i.i, %255 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i ]
-  br i1 %190, label %258, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i
+_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit121.i.i: ; preds = %243, %238, %235, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i
+  %.sroa.5.0.i.i112.i.i = phi double [ 0.000000e+00, %235 ], [ %.0.i.i.i2.i8.i.i117.i.i, %238 ], [ %.0.i.i.i2.i12.i.i111.i.i, %243 ], [ %.0.sroa.speculated.i.i1.i.i109.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i ]
+  %.sroa.0.0.i.i113.i.i = phi double [ %.0.i.i.i2.i.i4.i119.i.i, %235 ], [ %.0.i.i.i2.i4.i.i115.i.i, %238 ], [ %.0.sroa.speculated.i.i1.i.i109.i.i, %243 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i102.i.i ]
+  br i1 %178, label %246, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i
 
-258:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit121.i.i
-  %259 = fcmp ult double %187, %189
-  br i1 %259, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i
+246:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit121.i.i
+  %247 = fcmp ult double %175, %177
+  br i1 %247, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i
 
-_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i: ; preds = %258, %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit121.i.i
-  %.0.sroa.speculated.i.i.i.i123.i.i = phi double [ %189, %258 ], [ %187, %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit121.i.i ]
-  %260 = fneg double %.0.sroa.speculated.i.i.i.i123.i.i
+_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i: ; preds = %246, %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit121.i.i
+  %.0.sroa.speculated.i.i.i.i123.i.i = phi double [ %177, %246 ], [ %175, %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit121.i.i ]
+  %248 = fneg double %.0.sroa.speculated.i.i.i.i123.i.i
   %.0.i.inv.i.i.i.i.i.i124.i.i = fcmp ord double %.0.sroa.speculated.i.i.i.i123.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i125.i.i = select i1 %.0.i.inv.i.i.i.i.i.i124.i.i, double %260, double 0.000000e+00
-  %261 = fadd double %185, %.0.i.i.i.i.i.i125.i.i
-  %.0.i.inv.i.i.i1.i.i.i126.i.i = fcmp ord double %261, 0.000000e+00
-  %.0.i.i.i2.i.i.i127.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i126.i.i, double %261, double 0.000000e+00
+  %.0.i.i.i.i.i.i125.i.i = select i1 %.0.i.inv.i.i.i.i.i.i124.i.i, double %248, double 0.000000e+00
+  %249 = fadd double %173, %.0.i.i.i.i.i.i125.i.i
+  %.0.i.inv.i.i.i1.i.i.i126.i.i = fcmp ord double %249, 0.000000e+00
+  %.0.i.i.i2.i.i.i127.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i126.i.i, double %249, double 0.000000e+00
   %.inv.i.i128.i.i = fcmp ole double %.0.i.i.i2.i.i.i127.i.i, 0.000000e+00
   %.0.sroa.speculated.i.i1.i.i129.i.i = select i1 %.inv.i.i128.i.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i127.i.i
-  switch i8 %246, label %default.unreachable [
+  switch i8 %234, label %default.unreachable [
     i8 0, label %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit141.i.i
-    i8 1, label %262
-    i8 2, label %265
-    i8 3, label %271
+    i8 1, label %250
+    i8 2, label %253
+    i8 3, label %259
   ]
 
-262:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i
-  %263 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24247, !noalias !24187, !noundef !4
-  %264 = fsub double %263, %.0.sroa.speculated.i.i1.i.i129.i.i
-  %.0.i.inv.i.i.i1.i.i3.i138.i.i = fcmp ord double %264, 0.000000e+00
-  %.0.i.i.i2.i.i4.i139.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i138.i.i, double %264, double 0.000000e+00
+250:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i
+  %251 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24247, !noalias !24187, !noundef !4
+  %252 = fsub double %251, %.0.sroa.speculated.i.i1.i.i129.i.i
+  %.0.i.inv.i.i.i1.i.i3.i138.i.i = fcmp ord double %252, 0.000000e+00
+  %.0.i.i.i2.i.i4.i139.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i138.i.i, double %252, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit141.i.i
 
-265:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i
-  %266 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24247, !noalias !24187, !noundef !4
-  %267 = fsub double %266, %.0.sroa.speculated.i.i1.i.i129.i.i
-  %.0.i.inv.i.i.i1.i3.i.i134.i.i = fcmp ord double %267, 0.000000e+00
-  %.0.i.i.i2.i4.i.i135.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i134.i.i, double %267, double 0.000000e+00
-  %268 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
-  %269 = load double, ptr %268, align 8, !alias.scope !24247, !noalias !24187, !noundef !4
-  %270 = fsub double %269, %.0.sroa.speculated.i.i1.i.i129.i.i
-  %.0.i.inv.i.i.i1.i7.i.i136.i.i = fcmp ord double %270, 0.000000e+00
-  %.0.i.i.i2.i8.i.i137.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i136.i.i, double %270, double 0.000000e+00
+253:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i
+  %254 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24247, !noalias !24187, !noundef !4
+  %255 = fsub double %254, %.0.sroa.speculated.i.i1.i.i129.i.i
+  %.0.i.inv.i.i.i1.i3.i.i134.i.i = fcmp ord double %255, 0.000000e+00
+  %.0.i.i.i2.i4.i.i135.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i134.i.i, double %255, double 0.000000e+00
+  %256 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
+  %257 = load double, ptr %256, align 8, !alias.scope !24247, !noalias !24187, !noundef !4
+  %258 = fsub double %257, %.0.sroa.speculated.i.i1.i.i129.i.i
+  %.0.i.inv.i.i.i1.i7.i.i136.i.i = fcmp ord double %258, 0.000000e+00
+  %.0.i.i.i2.i8.i.i137.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i136.i.i, double %258, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit141.i.i
 
-271:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i
-  %272 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
-  %273 = load double, ptr %272, align 8, !alias.scope !24247, !noalias !24187, !noundef !4
-  %274 = fsub double %273, %.0.sroa.speculated.i.i1.i.i129.i.i
-  %.0.i.inv.i.i.i1.i11.i.i130.i.i = fcmp ord double %274, 0.000000e+00
-  %.0.i.i.i2.i12.i.i131.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i130.i.i, double %274, double 0.000000e+00
+259:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i
+  %260 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
+  %261 = load double, ptr %260, align 8, !alias.scope !24247, !noalias !24187, !noundef !4
+  %262 = fsub double %261, %.0.sroa.speculated.i.i1.i.i129.i.i
+  %.0.i.inv.i.i.i1.i11.i.i130.i.i = fcmp ord double %262, 0.000000e+00
+  %.0.i.i.i2.i12.i.i131.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i130.i.i, double %262, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit141.i.i
 
-_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit141.i.i: ; preds = %271, %265, %262, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i
-  %.sroa.5.0.i.i132.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i129.i.i, %262 ], [ %.0.i.i.i2.i8.i.i137.i.i, %265 ], [ %.0.i.i.i2.i12.i.i131.i.i, %271 ], [ %.0.sroa.speculated.i.i1.i.i129.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i ]
-  %.sroa.0.0.i.i133.i.i = phi double [ %.0.i.i.i2.i.i4.i139.i.i, %262 ], [ %.0.i.i.i2.i4.i.i135.i.i, %265 ], [ %.0.sroa.speculated.i.i1.i.i129.i.i, %271 ], [ %.0.sroa.speculated.i.i1.i.i129.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i ]
-  %275 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints3mid17h649e3ec148bee15bE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i58.i.i)
+_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit141.i.i: ; preds = %259, %253, %250, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i
+  %.sroa.5.0.i.i132.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i129.i.i, %250 ], [ %.0.i.i.i2.i8.i.i137.i.i, %253 ], [ %.0.i.i.i2.i12.i.i131.i.i, %259 ], [ %.0.sroa.speculated.i.i1.i.i129.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i ]
+  %.sroa.0.0.i.i133.i.i = phi double [ %.0.i.i.i2.i.i4.i139.i.i, %250 ], [ %.0.i.i.i2.i4.i.i135.i.i, %253 ], [ %.0.sroa.speculated.i.i1.i.i129.i.i, %259 ], [ %.0.sroa.speculated.i.i1.i.i129.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i122.i.i ]
+  %263 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints3mid17h649e3ec148bee15bE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i58.i.i)
           to label %.noexc17.i unwind label %.loopexit.split-lp.i, !noalias !24188
 
 .noexc17.i:                                       ; preds = %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit141.i.i
-  %276 = extractvalue { double, double } %275, 0
-  %277 = extractvalue { double, double } %275, 1
-  %278 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24252, !noalias !24259, !noundef !4
-  %279 = load i64, ptr %8, align 8, !alias.scope !24252, !noalias !24259, !noundef !4
-  %280 = icmp eq i64 %278, %279
-  br i1 %280, label %281, label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.i.invoke.i"
+  %264 = extractvalue { double, double } %263, 0
+  %265 = extractvalue { double, double } %263, 1
+  %266 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24252, !noalias !24259, !noundef !4
+  %267 = load i64, ptr %8, align 8, !alias.scope !24252, !noalias !24259, !noundef !4
+  %268 = icmp eq i64 %266, %267
+  br i1 %268, label %269, label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.i.invoke.i"
 
-281:                                              ; preds = %.noexc17.i
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %278)
+269:                                              ; preds = %.noexc17.i
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %266)
           to label %.noexc18.i unwind label %.loopexit.split-lp.i, !noalias !24188
 
-.noexc18.i:                                       ; preds = %281
+.noexc18.i:                                       ; preds = %269
   %.pre.i.i.i144.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24252, !noalias !24259
   br label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.i.invoke.i"
 
 "_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.i.invoke.i": ; preds = %.noexc23.i, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i, %.noexc18.i, %.noexc17.i
-  %.sink83.i = phi i64 [ %.pre.i.i.i207.i.i, %.noexc23.i ], [ %340, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i ], [ %.pre.i.i.i144.i.i, %.noexc18.i ], [ %278, %.noexc17.i ]
+  %.sink83.i = phi i64 [ %.pre.i.i.i207.i.i, %.noexc23.i ], [ %328, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i ], [ %.pre.i.i.i144.i.i, %.noexc18.i ], [ %266, %.noexc17.i ]
   %.sroa.0.0.i.i156.i.sink.i = phi double [ %.sroa.0.0.i.i156.i.i, %.noexc23.i ], [ %.sroa.0.0.i.i156.i.i, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i ], [ %.sroa.0.0.i.i113.i.i, %.noexc18.i ], [ %.sroa.0.0.i.i113.i.i, %.noexc17.i ]
   %.sroa.5.0.i.i155.i.sink.i = phi double [ %.sroa.5.0.i.i155.i.i, %.noexc23.i ], [ %.sroa.5.0.i.i155.i.i, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i ], [ %.sroa.5.0.i.i112.i.i, %.noexc18.i ], [ %.sroa.5.0.i.i112.i.i, %.noexc17.i ]
-  %282 = phi double [ %.sroa.0.0.i.i176.i.i, %.noexc23.i ], [ %.sroa.0.0.i.i176.i.i, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i ], [ %.sroa.0.0.i.i133.i.i, %.noexc18.i ], [ %.sroa.0.0.i.i133.i.i, %.noexc17.i ]
-  %283 = phi double [ %.sroa.5.0.i.i175.i.i, %.noexc23.i ], [ %.sroa.5.0.i.i175.i.i, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i ], [ %.sroa.5.0.i.i132.i.i, %.noexc18.i ], [ %.sroa.5.0.i.i132.i.i, %.noexc17.i ]
-  %284 = phi double [ %.sroa.0.0.i.i196.i.i, %.noexc23.i ], [ %.sroa.0.0.i.i196.i.i, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i ], [ %276, %.noexc18.i ], [ %276, %.noexc17.i ]
-  %285 = phi double [ %.sroa.5.0.i.i195.i.i, %.noexc23.i ], [ %.sroa.5.0.i.i195.i.i, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i ], [ %277, %.noexc18.i ], [ %277, %.noexc17.i ]
-  %286 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !24184, !noalias !24261, !nonnull !4, !noundef !4
-  %287 = getelementptr inbounds { i64, [6 x i64] }, ptr %286, i64 %.sink83.i
-  store i64 1, ptr %287, align 8, !noalias !24188
-  %.sroa.4.0..sroa_idx.i.i205.i.i = getelementptr inbounds nuw i8, ptr %287, i64 8
+  %270 = phi double [ %.sroa.0.0.i.i176.i.i, %.noexc23.i ], [ %.sroa.0.0.i.i176.i.i, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i ], [ %.sroa.0.0.i.i133.i.i, %.noexc18.i ], [ %.sroa.0.0.i.i133.i.i, %.noexc17.i ]
+  %271 = phi double [ %.sroa.5.0.i.i175.i.i, %.noexc23.i ], [ %.sroa.5.0.i.i175.i.i, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i ], [ %.sroa.5.0.i.i132.i.i, %.noexc18.i ], [ %.sroa.5.0.i.i132.i.i, %.noexc17.i ]
+  %272 = phi double [ %.sroa.0.0.i.i196.i.i, %.noexc23.i ], [ %.sroa.0.0.i.i196.i.i, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i ], [ %264, %.noexc18.i ], [ %264, %.noexc17.i ]
+  %273 = phi double [ %.sroa.5.0.i.i195.i.i, %.noexc23.i ], [ %.sroa.5.0.i.i195.i.i, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i ], [ %265, %.noexc18.i ], [ %265, %.noexc17.i ]
+  %274 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !24184, !noalias !24261, !nonnull !4, !noundef !4
+  %275 = getelementptr inbounds { i64, [6 x i64] }, ptr %274, i64 %.sink83.i
+  store i64 1, ptr %275, align 8, !noalias !24188
+  %.sroa.4.0..sroa_idx.i.i205.i.i = getelementptr inbounds nuw i8, ptr %275, i64 8
   store double %.sroa.0.0.i.i156.i.sink.i, ptr %.sroa.4.0..sroa_idx.i.i205.i.i, align 8, !noalias !24188
-  %.sroa.5.0..sroa_idx.i.i206.i.i = getelementptr inbounds nuw i8, ptr %287, i64 16
+  %.sroa.5.0..sroa_idx.i.i206.i.i = getelementptr inbounds nuw i8, ptr %275, i64 16
   store double %.sroa.5.0.i.i155.i.sink.i, ptr %.sroa.5.0..sroa_idx.i.i206.i.i, align 8, !noalias !24188
-  %288 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24184, !noalias !24261, !noundef !4
-  %289 = add i64 %288, 1
-  store i64 %289, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24184, !noalias !24261
-  invoke void @"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$3arc17hcbbb6d66eecb9f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, double noundef %.sroa.0.0.i.i156.i.sink.i, double noundef %.sroa.5.0.i.i155.i.sink.i, double noundef %282, double noundef %283, double noundef %284, double noundef %285)
-          to label %1066 unwind label %.loopexit.split-lp.i, !noalias !24188
+  %276 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24184, !noalias !24261, !noundef !4
+  %277 = add i64 %276, 1
+  store i64 %277, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24184, !noalias !24261
+  invoke void @"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$3arc17hcbbb6d66eecb9f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, double noundef %.sroa.0.0.i.i156.i.sink.i, double noundef %.sroa.5.0.i.i155.i.sink.i, double noundef %270, double noundef %271, double noundef %272, double noundef %273)
+          to label %1054 unwind label %.loopexit.split-lp.i, !noalias !24188
 
-290:                                              ; preds = %239
-  br i1 %190, label %291, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i
+278:                                              ; preds = %227
+  br i1 %178, label %279, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i
 
-291:                                              ; preds = %290
-  %292 = fcmp ult double %187, %189
-  br i1 %292, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i
+279:                                              ; preds = %278
+  %280 = fcmp ult double %175, %177
+  br i1 %280, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i
 
-_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i: ; preds = %291, %290
-  %.0.sroa.speculated.i.i.i.i146.i.i = phi double [ %189, %291 ], [ %187, %290 ]
-  %293 = fneg double %.0.sroa.speculated.i.i.i.i146.i.i
+_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i: ; preds = %279, %278
+  %.0.sroa.speculated.i.i.i.i146.i.i = phi double [ %177, %279 ], [ %175, %278 ]
+  %281 = fneg double %.0.sroa.speculated.i.i.i.i146.i.i
   %.0.i.inv.i.i.i.i.i.i147.i.i = fcmp ord double %.0.sroa.speculated.i.i.i.i146.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i148.i.i = select i1 %.0.i.inv.i.i.i.i.i.i147.i.i, double %293, double 0.000000e+00
-  %294 = fadd double %185, %.0.i.i.i.i.i.i148.i.i
-  %.0.i.inv.i.i.i1.i.i.i149.i.i = fcmp ord double %294, 0.000000e+00
-  %.0.i.i.i2.i.i.i150.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i149.i.i, double %294, double 0.000000e+00
+  %.0.i.i.i.i.i.i148.i.i = select i1 %.0.i.inv.i.i.i.i.i.i147.i.i, double %281, double 0.000000e+00
+  %282 = fadd double %173, %.0.i.i.i.i.i.i148.i.i
+  %.0.i.inv.i.i.i1.i.i.i149.i.i = fcmp ord double %282, 0.000000e+00
+  %.0.i.i.i2.i.i.i150.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i149.i.i, double %282, double 0.000000e+00
   %.inv.i.i151.i.i = fcmp ole double %.0.i.i.i2.i.i.i150.i.i, 0.000000e+00
   %.0.sroa.speculated.i.i1.i.i152.i.i = select i1 %.inv.i.i151.i.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i150.i.i
-  %295 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 40
-  %296 = load i8, ptr %295, align 8, !range !3454, !alias.scope !24262, !noalias !24187, !noundef !4
-  switch i8 %296, label %default.unreachable [
+  %283 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 40
+  %284 = load i8, ptr %283, align 8, !range !3454, !alias.scope !24262, !noalias !24187, !noundef !4
+  switch i8 %284, label %default.unreachable [
     i8 0, label %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit164.i.i
-    i8 1, label %297
-    i8 2, label %300
-    i8 3, label %305
+    i8 1, label %285
+    i8 2, label %288
+    i8 3, label %293
   ]
 
-297:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i
-  %298 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24262, !noalias !24187, !noundef !4
-  %299 = fsub double %298, %.0.sroa.speculated.i.i1.i.i152.i.i
-  %.0.i.inv.i.i.i1.i.i3.i161.i.i = fcmp ord double %299, 0.000000e+00
-  %.0.i.i.i2.i.i4.i162.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i161.i.i, double %299, double 0.000000e+00
+285:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i
+  %286 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24262, !noalias !24187, !noundef !4
+  %287 = fsub double %286, %.0.sroa.speculated.i.i1.i.i152.i.i
+  %.0.i.inv.i.i.i1.i.i3.i161.i.i = fcmp ord double %287, 0.000000e+00
+  %.0.i.i.i2.i.i4.i162.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i161.i.i, double %287, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit164.i.i
 
-300:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i
-  %301 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24262, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i3.i.i157.i.i = fcmp ord double %301, 0.000000e+00
-  %.0.i.i.i2.i4.i.i158.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i157.i.i, double %301, double 0.000000e+00
-  %302 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
-  %303 = load double, ptr %302, align 8, !alias.scope !24262, !noalias !24187, !noundef !4
-  %304 = fsub double %303, %.0.sroa.speculated.i.i1.i.i152.i.i
-  %.0.i.inv.i.i.i1.i7.i.i159.i.i = fcmp ord double %304, 0.000000e+00
-  %.0.i.i.i2.i8.i.i160.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i159.i.i, double %304, double 0.000000e+00
+288:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i
+  %289 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24262, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i3.i.i157.i.i = fcmp ord double %289, 0.000000e+00
+  %.0.i.i.i2.i4.i.i158.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i157.i.i, double %289, double 0.000000e+00
+  %290 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
+  %291 = load double, ptr %290, align 8, !alias.scope !24262, !noalias !24187, !noundef !4
+  %292 = fsub double %291, %.0.sroa.speculated.i.i1.i.i152.i.i
+  %.0.i.inv.i.i.i1.i7.i.i159.i.i = fcmp ord double %292, 0.000000e+00
+  %.0.i.i.i2.i8.i.i160.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i159.i.i, double %292, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit164.i.i
 
-305:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i
-  %306 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
-  %307 = load double, ptr %306, align 8, !alias.scope !24262, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i11.i.i153.i.i = fcmp ord double %307, 0.000000e+00
-  %.0.i.i.i2.i12.i.i154.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i153.i.i, double %307, double 0.000000e+00
+293:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i
+  %294 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
+  %295 = load double, ptr %294, align 8, !alias.scope !24262, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i11.i.i153.i.i = fcmp ord double %295, 0.000000e+00
+  %.0.i.i.i2.i12.i.i154.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i153.i.i, double %295, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit164.i.i
 
-_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit164.i.i: ; preds = %305, %300, %297, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i
-  %.sroa.5.0.i.i155.i.i = phi double [ 0.000000e+00, %297 ], [ %.0.i.i.i2.i8.i.i160.i.i, %300 ], [ %.0.i.i.i2.i12.i.i154.i.i, %305 ], [ %.0.sroa.speculated.i.i1.i.i152.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i ]
-  %.sroa.0.0.i.i156.i.i = phi double [ %.0.i.i.i2.i.i4.i162.i.i, %297 ], [ %.0.i.i.i2.i4.i.i158.i.i, %300 ], [ %.0.sroa.speculated.i.i1.i.i152.i.i, %305 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i ]
-  br i1 %190, label %308, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i
+_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit164.i.i: ; preds = %293, %288, %285, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i
+  %.sroa.5.0.i.i155.i.i = phi double [ 0.000000e+00, %285 ], [ %.0.i.i.i2.i8.i.i160.i.i, %288 ], [ %.0.i.i.i2.i12.i.i154.i.i, %293 ], [ %.0.sroa.speculated.i.i1.i.i152.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i ]
+  %.sroa.0.0.i.i156.i.i = phi double [ %.0.i.i.i2.i.i4.i162.i.i, %285 ], [ %.0.i.i.i2.i4.i.i158.i.i, %288 ], [ %.0.sroa.speculated.i.i1.i.i152.i.i, %293 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i145.i.i ]
+  br i1 %178, label %296, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i
 
-308:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit164.i.i
-  %309 = fcmp ult double %187, %189
-  br i1 %309, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i
+296:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit164.i.i
+  %297 = fcmp ult double %175, %177
+  br i1 %297, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i
 
-_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i: ; preds = %308, %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit164.i.i
-  %.0.sroa.speculated.i.i.i.i166.i.i = phi double [ %189, %308 ], [ %187, %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit164.i.i ]
-  %310 = fneg double %.0.sroa.speculated.i.i.i.i166.i.i
+_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i: ; preds = %296, %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit164.i.i
+  %.0.sroa.speculated.i.i.i.i166.i.i = phi double [ %177, %296 ], [ %175, %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit164.i.i ]
+  %298 = fneg double %.0.sroa.speculated.i.i.i.i166.i.i
   %.0.i.inv.i.i.i.i.i.i167.i.i = fcmp ord double %.0.sroa.speculated.i.i.i.i166.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i168.i.i = select i1 %.0.i.inv.i.i.i.i.i.i167.i.i, double %310, double 0.000000e+00
-  %311 = fadd double %185, %.0.i.i.i.i.i.i168.i.i
-  %.0.i.inv.i.i.i1.i.i.i169.i.i = fcmp ord double %311, 0.000000e+00
-  %.0.i.i.i2.i.i.i170.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i169.i.i, double %311, double 0.000000e+00
+  %.0.i.i.i.i.i.i168.i.i = select i1 %.0.i.inv.i.i.i.i.i.i167.i.i, double %298, double 0.000000e+00
+  %299 = fadd double %173, %.0.i.i.i.i.i.i168.i.i
+  %.0.i.inv.i.i.i1.i.i.i169.i.i = fcmp ord double %299, 0.000000e+00
+  %.0.i.i.i2.i.i.i170.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i169.i.i, double %299, double 0.000000e+00
   %.inv.i.i171.i.i = fcmp ole double %.0.i.i.i2.i.i.i170.i.i, 0.000000e+00
   %.0.sroa.speculated.i.i1.i.i172.i.i = select i1 %.inv.i.i171.i.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i170.i.i
-  switch i8 %296, label %default.unreachable [
+  switch i8 %284, label %default.unreachable [
     i8 0, label %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit184.i.i
-    i8 1, label %312
-    i8 2, label %315
-    i8 3, label %321
+    i8 1, label %300
+    i8 2, label %303
+    i8 3, label %309
   ]
 
-312:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i
-  %313 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24267, !noalias !24187, !noundef !4
-  %314 = fsub double %313, %.0.sroa.speculated.i.i1.i.i172.i.i
-  %.0.i.inv.i.i.i1.i.i3.i181.i.i = fcmp ord double %314, 0.000000e+00
-  %.0.i.i.i2.i.i4.i182.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i181.i.i, double %314, double 0.000000e+00
+300:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i
+  %301 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24267, !noalias !24187, !noundef !4
+  %302 = fsub double %301, %.0.sroa.speculated.i.i1.i.i172.i.i
+  %.0.i.inv.i.i.i1.i.i3.i181.i.i = fcmp ord double %302, 0.000000e+00
+  %.0.i.i.i2.i.i4.i182.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i181.i.i, double %302, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit184.i.i
 
-315:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i
-  %316 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24267, !noalias !24187, !noundef !4
-  %317 = fsub double %316, %.0.sroa.speculated.i.i1.i.i172.i.i
-  %.0.i.inv.i.i.i1.i3.i.i177.i.i = fcmp ord double %317, 0.000000e+00
-  %.0.i.i.i2.i4.i.i178.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i177.i.i, double %317, double 0.000000e+00
-  %318 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
-  %319 = load double, ptr %318, align 8, !alias.scope !24267, !noalias !24187, !noundef !4
-  %320 = fsub double %319, %.0.sroa.speculated.i.i1.i.i172.i.i
-  %.0.i.inv.i.i.i1.i7.i.i179.i.i = fcmp ord double %320, 0.000000e+00
-  %.0.i.i.i2.i8.i.i180.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i179.i.i, double %320, double 0.000000e+00
+303:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i
+  %304 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24267, !noalias !24187, !noundef !4
+  %305 = fsub double %304, %.0.sroa.speculated.i.i1.i.i172.i.i
+  %.0.i.inv.i.i.i1.i3.i.i177.i.i = fcmp ord double %305, 0.000000e+00
+  %.0.i.i.i2.i4.i.i178.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i177.i.i, double %305, double 0.000000e+00
+  %306 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
+  %307 = load double, ptr %306, align 8, !alias.scope !24267, !noalias !24187, !noundef !4
+  %308 = fsub double %307, %.0.sroa.speculated.i.i1.i.i172.i.i
+  %.0.i.inv.i.i.i1.i7.i.i179.i.i = fcmp ord double %308, 0.000000e+00
+  %.0.i.i.i2.i8.i.i180.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i179.i.i, double %308, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit184.i.i
 
-321:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i
-  %322 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
-  %323 = load double, ptr %322, align 8, !alias.scope !24267, !noalias !24187, !noundef !4
-  %324 = fsub double %323, %.0.sroa.speculated.i.i1.i.i172.i.i
-  %.0.i.inv.i.i.i1.i11.i.i173.i.i = fcmp ord double %324, 0.000000e+00
-  %.0.i.i.i2.i12.i.i174.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i173.i.i, double %324, double 0.000000e+00
+309:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i
+  %310 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
+  %311 = load double, ptr %310, align 8, !alias.scope !24267, !noalias !24187, !noundef !4
+  %312 = fsub double %311, %.0.sroa.speculated.i.i1.i.i172.i.i
+  %.0.i.inv.i.i.i1.i11.i.i173.i.i = fcmp ord double %312, 0.000000e+00
+  %.0.i.i.i2.i12.i.i174.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i173.i.i, double %312, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit184.i.i
 
-_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit184.i.i: ; preds = %321, %315, %312, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i
-  %.sroa.5.0.i.i175.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i172.i.i, %312 ], [ %.0.i.i.i2.i8.i.i180.i.i, %315 ], [ %.0.i.i.i2.i12.i.i174.i.i, %321 ], [ %.0.sroa.speculated.i.i1.i.i172.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i ]
-  %.sroa.0.0.i.i176.i.i = phi double [ %.0.i.i.i2.i.i4.i182.i.i, %312 ], [ %.0.i.i.i2.i4.i.i178.i.i, %315 ], [ %.0.sroa.speculated.i.i1.i.i172.i.i, %321 ], [ %.0.sroa.speculated.i.i1.i.i172.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i ]
-  br i1 %190, label %325, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i
+_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit184.i.i: ; preds = %309, %303, %300, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i
+  %.sroa.5.0.i.i175.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i172.i.i, %300 ], [ %.0.i.i.i2.i8.i.i180.i.i, %303 ], [ %.0.i.i.i2.i12.i.i174.i.i, %309 ], [ %.0.sroa.speculated.i.i1.i.i172.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i ]
+  %.sroa.0.0.i.i176.i.i = phi double [ %.0.i.i.i2.i.i4.i182.i.i, %300 ], [ %.0.i.i.i2.i4.i.i178.i.i, %303 ], [ %.0.sroa.speculated.i.i1.i.i172.i.i, %309 ], [ %.0.sroa.speculated.i.i1.i.i172.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i165.i.i ]
+  br i1 %178, label %313, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i
 
-325:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit184.i.i
-  %326 = fcmp ult double %187, %189
-  br i1 %326, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i
+313:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit184.i.i
+  %314 = fcmp ult double %175, %177
+  br i1 %314, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i
 
-_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i: ; preds = %325, %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit184.i.i
-  %.0.sroa.speculated.i.i.i.i186.i.i = phi double [ %189, %325 ], [ %187, %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit184.i.i ]
-  %327 = fneg double %.0.sroa.speculated.i.i.i.i186.i.i
+_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i: ; preds = %313, %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit184.i.i
+  %.0.sroa.speculated.i.i.i.i186.i.i = phi double [ %177, %313 ], [ %175, %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit184.i.i ]
+  %315 = fneg double %.0.sroa.speculated.i.i.i.i186.i.i
   %.0.i.inv.i.i.i.i.i.i187.i.i = fcmp ord double %.0.sroa.speculated.i.i.i.i186.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i188.i.i = select i1 %.0.i.inv.i.i.i.i.i.i187.i.i, double %327, double 0.000000e+00
-  %328 = fadd double %185, %.0.i.i.i.i.i.i188.i.i
-  %.0.i.inv.i.i.i1.i.i.i189.i.i = fcmp ord double %328, 0.000000e+00
-  %.0.i.i.i2.i.i.i190.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i189.i.i, double %328, double 0.000000e+00
+  %.0.i.i.i.i.i.i188.i.i = select i1 %.0.i.inv.i.i.i.i.i.i187.i.i, double %315, double 0.000000e+00
+  %316 = fadd double %173, %.0.i.i.i.i.i.i188.i.i
+  %.0.i.inv.i.i.i1.i.i.i189.i.i = fcmp ord double %316, 0.000000e+00
+  %.0.i.i.i2.i.i.i190.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i189.i.i, double %316, double 0.000000e+00
   %.inv.i.i191.i.i = fcmp ole double %.0.i.i.i2.i.i.i190.i.i, 0.000000e+00
   %.0.sroa.speculated.i.i1.i.i192.i.i = select i1 %.inv.i.i191.i.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i190.i.i
-  switch i8 %296, label %default.unreachable [
+  switch i8 %284, label %default.unreachable [
     i8 0, label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i
-    i8 1, label %329
-    i8 2, label %331
-    i8 3, label %336
+    i8 1, label %317
+    i8 2, label %319
+    i8 3, label %324
   ]
 
-329:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i
-  %330 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24272, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i.i3.i201.i.i = fcmp ord double %330, 0.000000e+00
-  %.0.i.i.i2.i.i4.i202.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i201.i.i, double %330, double 0.000000e+00
+317:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i
+  %318 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24272, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i.i3.i201.i.i = fcmp ord double %318, 0.000000e+00
+  %.0.i.i.i2.i.i4.i202.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i201.i.i, double %318, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i
 
-331:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i
-  %332 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24272, !noalias !24187, !noundef !4
-  %333 = fsub double %332, %.0.sroa.speculated.i.i1.i.i192.i.i
-  %.0.i.inv.i.i.i1.i3.i.i197.i.i = fcmp ord double %333, 0.000000e+00
-  %.0.i.i.i2.i4.i.i198.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i197.i.i, double %333, double 0.000000e+00
-  %334 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
-  %335 = load double, ptr %334, align 8, !alias.scope !24272, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i7.i.i199.i.i = fcmp ord double %335, 0.000000e+00
-  %.0.i.i.i2.i8.i.i200.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i199.i.i, double %335, double 0.000000e+00
+319:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i
+  %320 = load double, ptr %.0.i58.i.i, align 8, !alias.scope !24272, !noalias !24187, !noundef !4
+  %321 = fsub double %320, %.0.sroa.speculated.i.i1.i.i192.i.i
+  %.0.i.inv.i.i.i1.i3.i.i197.i.i = fcmp ord double %321, 0.000000e+00
+  %.0.i.i.i2.i4.i.i198.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i197.i.i, double %321, double 0.000000e+00
+  %322 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
+  %323 = load double, ptr %322, align 8, !alias.scope !24272, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i7.i.i199.i.i = fcmp ord double %323, 0.000000e+00
+  %.0.i.i.i2.i8.i.i200.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i199.i.i, double %323, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i
 
-336:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i
-  %337 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
-  %338 = load double, ptr %337, align 8, !alias.scope !24272, !noalias !24187, !noundef !4
-  %339 = fsub double %338, %.0.sroa.speculated.i.i1.i.i192.i.i
-  %.0.i.inv.i.i.i1.i11.i.i193.i.i = fcmp ord double %339, 0.000000e+00
-  %.0.i.i.i2.i12.i.i194.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i193.i.i, double %339, double 0.000000e+00
+324:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i
+  %325 = getelementptr inbounds nuw i8, ptr %.0.i58.i.i, i64 8
+  %326 = load double, ptr %325, align 8, !alias.scope !24272, !noalias !24187, !noundef !4
+  %327 = fsub double %326, %.0.sroa.speculated.i.i1.i.i192.i.i
+  %.0.i.inv.i.i.i1.i11.i.i193.i.i = fcmp ord double %327, 0.000000e+00
+  %.0.i.i.i2.i12.i.i194.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i193.i.i, double %327, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i
 
-_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i: ; preds = %336, %331, %329, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i
-  %.sroa.5.0.i.i195.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i192.i.i, %329 ], [ %.0.i.i.i2.i8.i.i200.i.i, %331 ], [ %.0.i.i.i2.i12.i.i194.i.i, %336 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i ]
-  %.sroa.0.0.i.i196.i.i = phi double [ %.0.i.i.i2.i.i4.i202.i.i, %329 ], [ %.0.i.i.i2.i4.i.i198.i.i, %331 ], [ 0.000000e+00, %336 ], [ %.0.sroa.speculated.i.i1.i.i192.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i ]
-  %340 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24277, !noalias !24284, !noundef !4
-  %341 = load i64, ptr %8, align 8, !alias.scope !24277, !noalias !24284, !noundef !4
-  %342 = icmp eq i64 %340, %341
-  br i1 %342, label %343, label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.i.invoke.i"
+_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i: ; preds = %324, %319, %317, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i
+  %.sroa.5.0.i.i195.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i192.i.i, %317 ], [ %.0.i.i.i2.i8.i.i200.i.i, %319 ], [ %.0.i.i.i2.i12.i.i194.i.i, %324 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i ]
+  %.sroa.0.0.i.i196.i.i = phi double [ %.0.i.i.i2.i.i4.i202.i.i, %317 ], [ %.0.i.i.i2.i4.i.i198.i.i, %319 ], [ 0.000000e+00, %324 ], [ %.0.sroa.speculated.i.i1.i.i192.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i185.i.i ]
+  %328 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24277, !noalias !24284, !noundef !4
+  %329 = load i64, ptr %8, align 8, !alias.scope !24277, !noalias !24284, !noundef !4
+  %330 = icmp eq i64 %328, %329
+  br i1 %330, label %331, label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.i.invoke.i"
 
-343:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %340)
+331:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit204.i.i
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %328)
           to label %.noexc23.i unwind label %.loopexit.split-lp.i, !noalias !24188
 
-.noexc23.i:                                       ; preds = %343
+.noexc23.i:                                       ; preds = %331
   %.pre.i.i.i207.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24277, !noalias !24284
   br label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.i.invoke.i"
 
-344:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit79.i.i
-  br i1 %206, label %345, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i
+332:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit79.i.i
+  br i1 %194, label %333, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i
 
-345:                                              ; preds = %344
-  %346 = fcmp ult double %203, %205
-  br i1 %346, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i
+333:                                              ; preds = %332
+  %334 = fcmp ult double %191, %193
+  br i1 %334, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i
 
-_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i: ; preds = %345, %344
-  %.0.sroa.speculated.i.i.i.i210.i.i = phi double [ %205, %345 ], [ %203, %344 ]
-  %347 = fneg double %.0.sroa.speculated.i.i.i.i210.i.i
+_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i: ; preds = %333, %332
+  %.0.sroa.speculated.i.i.i.i210.i.i = phi double [ %193, %333 ], [ %191, %332 ]
+  %335 = fneg double %.0.sroa.speculated.i.i.i.i210.i.i
   %.0.i.inv.i.i.i.i.i.i211.i.i = fcmp ord double %.0.sroa.speculated.i.i.i.i210.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i212.i.i = select i1 %.0.i.inv.i.i.i.i.i.i211.i.i, double %347, double 0.000000e+00
-  %348 = fadd double %201, %.0.i.i.i.i.i.i212.i.i
-  %.0.i.inv.i.i.i1.i.i.i213.i.i = fcmp ord double %348, 0.000000e+00
-  %.0.i.i.i2.i.i.i214.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i213.i.i, double %348, double 0.000000e+00
+  %.0.i.i.i.i.i.i212.i.i = select i1 %.0.i.inv.i.i.i.i.i.i211.i.i, double %335, double 0.000000e+00
+  %336 = fadd double %189, %.0.i.i.i.i.i.i212.i.i
+  %.0.i.inv.i.i.i1.i.i.i213.i.i = fcmp ord double %336, 0.000000e+00
+  %.0.i.i.i2.i.i.i214.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i213.i.i, double %336, double 0.000000e+00
   %.inv.i.i215.i.i = fcmp ole double %.0.i.i.i2.i.i.i214.i.i, 0.000000e+00
   %.0.sroa.speculated.i.i1.i.i216.i.i = select i1 %.inv.i.i215.i.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i214.i.i
-  %349 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 40
-  %350 = load i8, ptr %349, align 8, !range !3454, !alias.scope !24286, !noalias !24187, !noundef !4
-  switch i8 %350, label %default.unreachable [
+  %337 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 40
+  %338 = load i8, ptr %337, align 8, !range !3454, !alias.scope !24286, !noalias !24187, !noundef !4
+  switch i8 %338, label %default.unreachable [
     i8 0, label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit228.i.i
-    i8 1, label %351
-    i8 2, label %353
-    i8 3, label %358
+    i8 1, label %339
+    i8 2, label %341
+    i8 3, label %346
   ]
 
-351:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i
-  %352 = load double, ptr %.0.i69.i.i, align 8, !alias.scope !24286, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i.i3.i225.i.i = fcmp ord double %352, 0.000000e+00
-  %.0.i.i.i2.i.i4.i226.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i225.i.i, double %352, double 0.000000e+00
+339:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i
+  %340 = load double, ptr %.0.i69.i.i, align 8, !alias.scope !24286, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i.i3.i225.i.i = fcmp ord double %340, 0.000000e+00
+  %.0.i.i.i2.i.i4.i226.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i225.i.i, double %340, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit228.i.i
 
-353:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i
-  %354 = load double, ptr %.0.i69.i.i, align 8, !alias.scope !24286, !noalias !24187, !noundef !4
-  %355 = fsub double %354, %.0.sroa.speculated.i.i1.i.i216.i.i
-  %.0.i.inv.i.i.i1.i3.i.i221.i.i = fcmp ord double %355, 0.000000e+00
-  %.0.i.i.i2.i4.i.i222.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i221.i.i, double %355, double 0.000000e+00
-  %356 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 8
-  %357 = load double, ptr %356, align 8, !alias.scope !24286, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i7.i.i223.i.i = fcmp ord double %357, 0.000000e+00
-  %.0.i.i.i2.i8.i.i224.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i223.i.i, double %357, double 0.000000e+00
+341:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i
+  %342 = load double, ptr %.0.i69.i.i, align 8, !alias.scope !24286, !noalias !24187, !noundef !4
+  %343 = fsub double %342, %.0.sroa.speculated.i.i1.i.i216.i.i
+  %.0.i.inv.i.i.i1.i3.i.i221.i.i = fcmp ord double %343, 0.000000e+00
+  %.0.i.i.i2.i4.i.i222.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i221.i.i, double %343, double 0.000000e+00
+  %344 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 8
+  %345 = load double, ptr %344, align 8, !alias.scope !24286, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i7.i.i223.i.i = fcmp ord double %345, 0.000000e+00
+  %.0.i.i.i2.i8.i.i224.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i223.i.i, double %345, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit228.i.i
 
-358:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i
-  %359 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 8
-  %360 = load double, ptr %359, align 8, !alias.scope !24286, !noalias !24187, !noundef !4
-  %361 = fsub double %360, %.0.sroa.speculated.i.i1.i.i216.i.i
-  %.0.i.inv.i.i.i1.i11.i.i217.i.i = fcmp ord double %361, 0.000000e+00
-  %.0.i.i.i2.i12.i.i218.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i217.i.i, double %361, double 0.000000e+00
+346:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i
+  %347 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 8
+  %348 = load double, ptr %347, align 8, !alias.scope !24286, !noalias !24187, !noundef !4
+  %349 = fsub double %348, %.0.sroa.speculated.i.i1.i.i216.i.i
+  %.0.i.inv.i.i.i1.i11.i.i217.i.i = fcmp ord double %349, 0.000000e+00
+  %.0.i.i.i2.i12.i.i218.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i217.i.i, double %349, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit228.i.i
 
-_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit228.i.i: ; preds = %358, %353, %351, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i
-  %.sroa.5.0.i.i219.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i216.i.i, %351 ], [ %.0.i.i.i2.i8.i.i224.i.i, %353 ], [ %.0.i.i.i2.i12.i.i218.i.i, %358 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i ]
-  %.sroa.0.0.i.i220.i.i = phi double [ %.0.i.i.i2.i.i4.i226.i.i, %351 ], [ %.0.i.i.i2.i4.i.i222.i.i, %353 ], [ 0.000000e+00, %358 ], [ %.0.sroa.speculated.i.i1.i.i216.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i ]
-  %362 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24291, !noalias !24296, !noundef !4
-  %363 = load i64, ptr %8, align 8, !alias.scope !24291, !noalias !24296, !noundef !4
-  %364 = icmp eq i64 %362, %363
-  br i1 %364, label %365, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit232.i.i
+_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit228.i.i: ; preds = %346, %341, %339, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i
+  %.sroa.5.0.i.i219.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i216.i.i, %339 ], [ %.0.i.i.i2.i8.i.i224.i.i, %341 ], [ %.0.i.i.i2.i12.i.i218.i.i, %346 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i ]
+  %.sroa.0.0.i.i220.i.i = phi double [ %.0.i.i.i2.i.i4.i226.i.i, %339 ], [ %.0.i.i.i2.i4.i.i222.i.i, %341 ], [ 0.000000e+00, %346 ], [ %.0.sroa.speculated.i.i1.i.i216.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i209.i.i ]
+  %350 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24291, !noalias !24296, !noundef !4
+  %351 = load i64, ptr %8, align 8, !alias.scope !24291, !noalias !24296, !noundef !4
+  %352 = icmp eq i64 %350, %351
+  br i1 %352, label %353, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit232.i.i
 
-365:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit228.i.i
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %362)
+353:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit228.i.i
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %350)
           to label %.noexc26.i unwind label %.loopexit.i, !noalias !24188
 
-.noexc26.i:                                       ; preds = %365
+.noexc26.i:                                       ; preds = %353
   %.pre.i.i231.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24291, !noalias !24296
   br label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit232.i.i
 
 _ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit232.i.i: ; preds = %.noexc26.i, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit228.i.i
-  %366 = phi i64 [ %.pre.i.i231.i.i, %.noexc26.i ], [ %362, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit228.i.i ]
-  %367 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !24291, !noalias !24296, !nonnull !4, !noundef !4
-  %368 = getelementptr inbounds { i64, [6 x i64] }, ptr %367, i64 %366
-  store i64 1, ptr %368, align 8, !noalias !24188
-  %.sroa.4.0..sroa_idx.i229.i.i = getelementptr inbounds nuw i8, ptr %368, i64 8
+  %354 = phi i64 [ %.pre.i.i231.i.i, %.noexc26.i ], [ %350, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit228.i.i ]
+  %355 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !24291, !noalias !24296, !nonnull !4, !noundef !4
+  %356 = getelementptr inbounds { i64, [6 x i64] }, ptr %355, i64 %354
+  store i64 1, ptr %356, align 8, !noalias !24188
+  %.sroa.4.0..sroa_idx.i229.i.i = getelementptr inbounds nuw i8, ptr %356, i64 8
   store double %.sroa.0.0.i.i220.i.i, ptr %.sroa.4.0..sroa_idx.i229.i.i, align 8, !noalias !24188
-  %.sroa.5.0..sroa_idx.i230.i.i = getelementptr inbounds nuw i8, ptr %368, i64 16
+  %.sroa.5.0..sroa_idx.i230.i.i = getelementptr inbounds nuw i8, ptr %356, i64 16
   store double %.sroa.5.0.i.i219.i.i, ptr %.sroa.5.0..sroa_idx.i230.i.i, align 8, !noalias !24188
-  %369 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24291, !noalias !24296, !noundef !4
-  %370 = add i64 %369, 1
-  store i64 %370, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24291, !noalias !24296
-  br label %switch.lookup194
+  %357 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24291, !noalias !24296, !noundef !4
+  %358 = add i64 %357, 1
+  store i64 %358, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24291, !noalias !24296
+  br label %switch.lookup188
 
-371:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit79.i.i
-  br i1 %206, label %372, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i
+359:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3arc17h7ee034187827a08dE.exit79.i.i
+  br i1 %194, label %360, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i
 
-372:                                              ; preds = %371
-  %373 = fcmp ult double %203, %205
-  br i1 %373, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i
+360:                                              ; preds = %359
+  %361 = fcmp ult double %191, %193
+  br i1 %361, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i
 
-_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i: ; preds = %372, %371
-  %.0.sroa.speculated.i.i.i.i234.i.i = phi double [ %205, %372 ], [ %203, %371 ]
-  %374 = fneg double %.0.sroa.speculated.i.i.i.i234.i.i
+_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i: ; preds = %360, %359
+  %.0.sroa.speculated.i.i.i.i234.i.i = phi double [ %193, %360 ], [ %191, %359 ]
+  %362 = fneg double %.0.sroa.speculated.i.i.i.i234.i.i
   %.0.i.inv.i.i.i.i.i.i235.i.i = fcmp ord double %.0.sroa.speculated.i.i.i.i234.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i236.i.i = select i1 %.0.i.inv.i.i.i.i.i.i235.i.i, double %374, double 0.000000e+00
-  %375 = fadd double %201, %.0.i.i.i.i.i.i236.i.i
-  %.0.i.inv.i.i.i1.i.i.i237.i.i = fcmp ord double %375, 0.000000e+00
-  %.0.i.i.i2.i.i.i238.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i237.i.i, double %375, double 0.000000e+00
+  %.0.i.i.i.i.i.i236.i.i = select i1 %.0.i.inv.i.i.i.i.i.i235.i.i, double %362, double 0.000000e+00
+  %363 = fadd double %189, %.0.i.i.i.i.i.i236.i.i
+  %.0.i.inv.i.i.i1.i.i.i237.i.i = fcmp ord double %363, 0.000000e+00
+  %.0.i.i.i2.i.i.i238.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i237.i.i, double %363, double 0.000000e+00
   %.inv.i.i239.i.i = fcmp ole double %.0.i.i.i2.i.i.i238.i.i, 0.000000e+00
   %.0.sroa.speculated.i.i1.i.i240.i.i = select i1 %.inv.i.i239.i.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i238.i.i
-  %376 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 40
-  %377 = load i8, ptr %376, align 8, !range !3454, !alias.scope !24298, !noalias !24187, !noundef !4
-  switch i8 %377, label %default.unreachable [
+  %364 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 40
+  %365 = load i8, ptr %364, align 8, !range !3454, !alias.scope !24298, !noalias !24187, !noundef !4
+  switch i8 %365, label %default.unreachable [
     i8 0, label %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit252.i.i
-    i8 1, label %378
-    i8 2, label %381
-    i8 3, label %386
+    i8 1, label %366
+    i8 2, label %369
+    i8 3, label %374
   ]
 
-378:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i
-  %379 = load double, ptr %.0.i69.i.i, align 8, !alias.scope !24298, !noalias !24187, !noundef !4
-  %380 = fsub double %379, %.0.sroa.speculated.i.i1.i.i240.i.i
-  %.0.i.inv.i.i.i1.i.i3.i249.i.i = fcmp ord double %380, 0.000000e+00
-  %.0.i.i.i2.i.i4.i250.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i249.i.i, double %380, double 0.000000e+00
+366:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i
+  %367 = load double, ptr %.0.i69.i.i, align 8, !alias.scope !24298, !noalias !24187, !noundef !4
+  %368 = fsub double %367, %.0.sroa.speculated.i.i1.i.i240.i.i
+  %.0.i.inv.i.i.i1.i.i3.i249.i.i = fcmp ord double %368, 0.000000e+00
+  %.0.i.i.i2.i.i4.i250.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i249.i.i, double %368, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit252.i.i
 
-381:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i
-  %382 = load double, ptr %.0.i69.i.i, align 8, !alias.scope !24298, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i3.i.i245.i.i = fcmp ord double %382, 0.000000e+00
-  %.0.i.i.i2.i4.i.i246.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i245.i.i, double %382, double 0.000000e+00
-  %383 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 8
-  %384 = load double, ptr %383, align 8, !alias.scope !24298, !noalias !24187, !noundef !4
-  %385 = fsub double %384, %.0.sroa.speculated.i.i1.i.i240.i.i
-  %.0.i.inv.i.i.i1.i7.i.i247.i.i = fcmp ord double %385, 0.000000e+00
-  %.0.i.i.i2.i8.i.i248.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i247.i.i, double %385, double 0.000000e+00
+369:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i
+  %370 = load double, ptr %.0.i69.i.i, align 8, !alias.scope !24298, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i3.i.i245.i.i = fcmp ord double %370, 0.000000e+00
+  %.0.i.i.i2.i4.i.i246.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i245.i.i, double %370, double 0.000000e+00
+  %371 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 8
+  %372 = load double, ptr %371, align 8, !alias.scope !24298, !noalias !24187, !noundef !4
+  %373 = fsub double %372, %.0.sroa.speculated.i.i1.i.i240.i.i
+  %.0.i.inv.i.i.i1.i7.i.i247.i.i = fcmp ord double %373, 0.000000e+00
+  %.0.i.i.i2.i8.i.i248.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i247.i.i, double %373, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit252.i.i
 
-386:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i
-  %387 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 8
-  %388 = load double, ptr %387, align 8, !alias.scope !24298, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i11.i.i241.i.i = fcmp ord double %388, 0.000000e+00
-  %.0.i.i.i2.i12.i.i242.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i241.i.i, double %388, double 0.000000e+00
+374:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i
+  %375 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 8
+  %376 = load double, ptr %375, align 8, !alias.scope !24298, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i11.i.i241.i.i = fcmp ord double %376, 0.000000e+00
+  %.0.i.i.i2.i12.i.i242.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i241.i.i, double %376, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit252.i.i
 
-_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit252.i.i: ; preds = %386, %381, %378, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i
-  %.sroa.5.0.i.i243.i.i = phi double [ 0.000000e+00, %378 ], [ %.0.i.i.i2.i8.i.i248.i.i, %381 ], [ %.0.i.i.i2.i12.i.i242.i.i, %386 ], [ %.0.sroa.speculated.i.i1.i.i240.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i ]
-  %.sroa.0.0.i.i244.i.i = phi double [ %.0.i.i.i2.i.i4.i250.i.i, %378 ], [ %.0.i.i.i2.i4.i.i246.i.i, %381 ], [ %.0.sroa.speculated.i.i1.i.i240.i.i, %386 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i ]
-  br i1 %206, label %389, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i
+_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit252.i.i: ; preds = %374, %369, %366, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i
+  %.sroa.5.0.i.i243.i.i = phi double [ 0.000000e+00, %366 ], [ %.0.i.i.i2.i8.i.i248.i.i, %369 ], [ %.0.i.i.i2.i12.i.i242.i.i, %374 ], [ %.0.sroa.speculated.i.i1.i.i240.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i ]
+  %.sroa.0.0.i.i244.i.i = phi double [ %.0.i.i.i2.i.i4.i250.i.i, %366 ], [ %.0.i.i.i2.i4.i.i246.i.i, %369 ], [ %.0.sroa.speculated.i.i1.i.i240.i.i, %374 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i233.i.i ]
+  br i1 %194, label %377, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i
 
-389:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit252.i.i
-  %390 = fcmp ult double %203, %205
-  br i1 %390, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i
+377:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit252.i.i
+  %378 = fcmp ult double %191, %193
+  br i1 %378, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i
 
-_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i: ; preds = %389, %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit252.i.i
-  %.0.sroa.speculated.i.i.i.i254.i.i = phi double [ %205, %389 ], [ %203, %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit252.i.i ]
-  %391 = fneg double %.0.sroa.speculated.i.i.i.i254.i.i
+_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i: ; preds = %377, %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit252.i.i
+  %.0.sroa.speculated.i.i.i.i254.i.i = phi double [ %193, %377 ], [ %191, %_ZN5typst9visualize5shape13ControlPoints5start17hffed5cf54a44c7c1E.exit252.i.i ]
+  %379 = fneg double %.0.sroa.speculated.i.i.i.i254.i.i
   %.0.i.inv.i.i.i.i.i.i255.i.i = fcmp ord double %.0.sroa.speculated.i.i.i.i254.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i256.i.i = select i1 %.0.i.inv.i.i.i.i.i.i255.i.i, double %391, double 0.000000e+00
-  %392 = fadd double %201, %.0.i.i.i.i.i.i256.i.i
-  %.0.i.inv.i.i.i1.i.i.i257.i.i = fcmp ord double %392, 0.000000e+00
-  %.0.i.i.i2.i.i.i258.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i257.i.i, double %392, double 0.000000e+00
+  %.0.i.i.i.i.i.i256.i.i = select i1 %.0.i.inv.i.i.i.i.i.i255.i.i, double %379, double 0.000000e+00
+  %380 = fadd double %189, %.0.i.i.i.i.i.i256.i.i
+  %.0.i.inv.i.i.i1.i.i.i257.i.i = fcmp ord double %380, 0.000000e+00
+  %.0.i.i.i2.i.i.i258.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i257.i.i, double %380, double 0.000000e+00
   %.inv.i.i259.i.i = fcmp ole double %.0.i.i.i2.i.i.i258.i.i, 0.000000e+00
   %.0.sroa.speculated.i.i1.i.i260.i.i = select i1 %.inv.i.i259.i.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i258.i.i
-  switch i8 %377, label %default.unreachable [
+  switch i8 %365, label %default.unreachable [
     i8 0, label %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit272.i.i
-    i8 1, label %393
-    i8 2, label %396
-    i8 3, label %402
+    i8 1, label %381
+    i8 2, label %384
+    i8 3, label %390
   ]
 
-393:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i
-  %394 = load double, ptr %.0.i69.i.i, align 8, !alias.scope !24303, !noalias !24187, !noundef !4
-  %395 = fsub double %394, %.0.sroa.speculated.i.i1.i.i260.i.i
-  %.0.i.inv.i.i.i1.i.i3.i269.i.i = fcmp ord double %395, 0.000000e+00
-  %.0.i.i.i2.i.i4.i270.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i269.i.i, double %395, double 0.000000e+00
+381:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i
+  %382 = load double, ptr %.0.i69.i.i, align 8, !alias.scope !24303, !noalias !24187, !noundef !4
+  %383 = fsub double %382, %.0.sroa.speculated.i.i1.i.i260.i.i
+  %.0.i.inv.i.i.i1.i.i3.i269.i.i = fcmp ord double %383, 0.000000e+00
+  %.0.i.i.i2.i.i4.i270.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i269.i.i, double %383, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit272.i.i
 
-396:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i
-  %397 = load double, ptr %.0.i69.i.i, align 8, !alias.scope !24303, !noalias !24187, !noundef !4
-  %398 = fsub double %397, %.0.sroa.speculated.i.i1.i.i260.i.i
-  %.0.i.inv.i.i.i1.i3.i.i265.i.i = fcmp ord double %398, 0.000000e+00
-  %.0.i.i.i2.i4.i.i266.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i265.i.i, double %398, double 0.000000e+00
-  %399 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 8
-  %400 = load double, ptr %399, align 8, !alias.scope !24303, !noalias !24187, !noundef !4
-  %401 = fsub double %400, %.0.sroa.speculated.i.i1.i.i260.i.i
-  %.0.i.inv.i.i.i1.i7.i.i267.i.i = fcmp ord double %401, 0.000000e+00
-  %.0.i.i.i2.i8.i.i268.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i267.i.i, double %401, double 0.000000e+00
+384:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i
+  %385 = load double, ptr %.0.i69.i.i, align 8, !alias.scope !24303, !noalias !24187, !noundef !4
+  %386 = fsub double %385, %.0.sroa.speculated.i.i1.i.i260.i.i
+  %.0.i.inv.i.i.i1.i3.i.i265.i.i = fcmp ord double %386, 0.000000e+00
+  %.0.i.i.i2.i4.i.i266.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i265.i.i, double %386, double 0.000000e+00
+  %387 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 8
+  %388 = load double, ptr %387, align 8, !alias.scope !24303, !noalias !24187, !noundef !4
+  %389 = fsub double %388, %.0.sroa.speculated.i.i1.i.i260.i.i
+  %.0.i.inv.i.i.i1.i7.i.i267.i.i = fcmp ord double %389, 0.000000e+00
+  %.0.i.i.i2.i8.i.i268.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i267.i.i, double %389, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit272.i.i
 
-402:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i
-  %403 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 8
-  %404 = load double, ptr %403, align 8, !alias.scope !24303, !noalias !24187, !noundef !4
-  %405 = fsub double %404, %.0.sroa.speculated.i.i1.i.i260.i.i
-  %.0.i.inv.i.i.i1.i11.i.i261.i.i = fcmp ord double %405, 0.000000e+00
-  %.0.i.i.i2.i12.i.i262.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i261.i.i, double %405, double 0.000000e+00
+390:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i
+  %391 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 8
+  %392 = load double, ptr %391, align 8, !alias.scope !24303, !noalias !24187, !noundef !4
+  %393 = fsub double %392, %.0.sroa.speculated.i.i1.i.i260.i.i
+  %.0.i.inv.i.i.i1.i11.i.i261.i.i = fcmp ord double %393, 0.000000e+00
+  %.0.i.i.i2.i12.i.i262.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i261.i.i, double %393, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit272.i.i
 
-_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit272.i.i: ; preds = %402, %396, %393, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i
-  %.sroa.5.0.i.i263.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i260.i.i, %393 ], [ %.0.i.i.i2.i8.i.i268.i.i, %396 ], [ %.0.i.i.i2.i12.i.i262.i.i, %402 ], [ %.0.sroa.speculated.i.i1.i.i260.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i ]
-  %.sroa.0.0.i.i264.i.i = phi double [ %.0.i.i.i2.i.i4.i270.i.i, %393 ], [ %.0.i.i.i2.i4.i.i266.i.i, %396 ], [ %.0.sroa.speculated.i.i1.i.i260.i.i, %402 ], [ %.0.sroa.speculated.i.i1.i.i260.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i ]
-  br i1 %206, label %406, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i
+_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit272.i.i: ; preds = %390, %384, %381, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i
+  %.sroa.5.0.i.i263.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i260.i.i, %381 ], [ %.0.i.i.i2.i8.i.i268.i.i, %384 ], [ %.0.i.i.i2.i12.i.i262.i.i, %390 ], [ %.0.sroa.speculated.i.i1.i.i260.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i ]
+  %.sroa.0.0.i.i264.i.i = phi double [ %.0.i.i.i2.i.i4.i270.i.i, %381 ], [ %.0.i.i.i2.i4.i.i266.i.i, %384 ], [ %.0.sroa.speculated.i.i1.i.i260.i.i, %390 ], [ %.0.sroa.speculated.i.i1.i.i260.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i253.i.i ]
+  br i1 %194, label %394, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i
 
-406:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit272.i.i
-  %407 = fcmp ult double %203, %205
-  br i1 %407, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i
+394:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit272.i.i
+  %395 = fcmp ult double %191, %193
+  br i1 %395, label %.invoke.i, label %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i
 
-_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i: ; preds = %406, %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit272.i.i
-  %.0.sroa.speculated.i.i.i.i274.i.i = phi double [ %205, %406 ], [ %203, %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit272.i.i ]
-  %408 = fneg double %.0.sroa.speculated.i.i.i.i274.i.i
+_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i: ; preds = %394, %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit272.i.i
+  %.0.sroa.speculated.i.i.i.i274.i.i = phi double [ %193, %394 ], [ %191, %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit272.i.i ]
+  %396 = fneg double %.0.sroa.speculated.i.i.i.i274.i.i
   %.0.i.inv.i.i.i.i.i.i275.i.i = fcmp ord double %.0.sroa.speculated.i.i.i.i274.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i276.i.i = select i1 %.0.i.inv.i.i.i.i.i.i275.i.i, double %408, double 0.000000e+00
-  %409 = fadd double %201, %.0.i.i.i.i.i.i276.i.i
-  %.0.i.inv.i.i.i1.i.i.i277.i.i = fcmp ord double %409, 0.000000e+00
-  %.0.i.i.i2.i.i.i278.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i277.i.i, double %409, double 0.000000e+00
+  %.0.i.i.i.i.i.i276.i.i = select i1 %.0.i.inv.i.i.i.i.i.i275.i.i, double %396, double 0.000000e+00
+  %397 = fadd double %189, %.0.i.i.i.i.i.i276.i.i
+  %.0.i.inv.i.i.i1.i.i.i277.i.i = fcmp ord double %397, 0.000000e+00
+  %.0.i.i.i2.i.i.i278.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i277.i.i, double %397, double 0.000000e+00
   %.inv.i.i279.i.i = fcmp ole double %.0.i.i.i2.i.i.i278.i.i, 0.000000e+00
   %.0.sroa.speculated.i.i1.i.i280.i.i = select i1 %.inv.i.i279.i.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i278.i.i
-  switch i8 %377, label %default.unreachable [
+  switch i8 %365, label %default.unreachable [
     i8 0, label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit292.i.i
-    i8 1, label %410
-    i8 2, label %412
-    i8 3, label %417
+    i8 1, label %398
+    i8 2, label %400
+    i8 3, label %405
   ]
 
-410:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i
-  %411 = load double, ptr %.0.i69.i.i, align 8, !alias.scope !24308, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i.i3.i289.i.i = fcmp ord double %411, 0.000000e+00
-  %.0.i.i.i2.i.i4.i290.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i289.i.i, double %411, double 0.000000e+00
+398:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i
+  %399 = load double, ptr %.0.i69.i.i, align 8, !alias.scope !24308, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i.i3.i289.i.i = fcmp ord double %399, 0.000000e+00
+  %.0.i.i.i2.i.i4.i290.i.i = select i1 %.0.i.inv.i.i.i1.i.i3.i289.i.i, double %399, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit292.i.i
 
-412:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i
-  %413 = load double, ptr %.0.i69.i.i, align 8, !alias.scope !24308, !noalias !24187, !noundef !4
-  %414 = fsub double %413, %.0.sroa.speculated.i.i1.i.i280.i.i
-  %.0.i.inv.i.i.i1.i3.i.i285.i.i = fcmp ord double %414, 0.000000e+00
-  %.0.i.i.i2.i4.i.i286.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i285.i.i, double %414, double 0.000000e+00
-  %415 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 8
-  %416 = load double, ptr %415, align 8, !alias.scope !24308, !noalias !24187, !noundef !4
-  %.0.i.inv.i.i.i1.i7.i.i287.i.i = fcmp ord double %416, 0.000000e+00
-  %.0.i.i.i2.i8.i.i288.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i287.i.i, double %416, double 0.000000e+00
+400:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i
+  %401 = load double, ptr %.0.i69.i.i, align 8, !alias.scope !24308, !noalias !24187, !noundef !4
+  %402 = fsub double %401, %.0.sroa.speculated.i.i1.i.i280.i.i
+  %.0.i.inv.i.i.i1.i3.i.i285.i.i = fcmp ord double %402, 0.000000e+00
+  %.0.i.i.i2.i4.i.i286.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i285.i.i, double %402, double 0.000000e+00
+  %403 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 8
+  %404 = load double, ptr %403, align 8, !alias.scope !24308, !noalias !24187, !noundef !4
+  %.0.i.inv.i.i.i1.i7.i.i287.i.i = fcmp ord double %404, 0.000000e+00
+  %.0.i.i.i2.i8.i.i288.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i287.i.i, double %404, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit292.i.i
 
-417:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i
-  %418 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 8
-  %419 = load double, ptr %418, align 8, !alias.scope !24308, !noalias !24187, !noundef !4
-  %420 = fsub double %419, %.0.sroa.speculated.i.i1.i.i280.i.i
-  %.0.i.inv.i.i.i1.i11.i.i281.i.i = fcmp ord double %420, 0.000000e+00
-  %.0.i.i.i2.i12.i.i282.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i281.i.i, double %420, double 0.000000e+00
+405:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i
+  %406 = getelementptr inbounds nuw i8, ptr %.0.i69.i.i, i64 8
+  %407 = load double, ptr %406, align 8, !alias.scope !24308, !noalias !24187, !noundef !4
+  %408 = fsub double %407, %.0.sroa.speculated.i.i1.i.i280.i.i
+  %.0.i.inv.i.i.i1.i11.i.i281.i.i = fcmp ord double %408, 0.000000e+00
+  %.0.i.i.i2.i12.i.i282.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i281.i.i, double %408, double 0.000000e+00
   br label %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit292.i.i
 
-_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit292.i.i: ; preds = %417, %412, %410, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i
-  %.sroa.5.0.i.i283.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i280.i.i, %410 ], [ %.0.i.i.i2.i8.i.i288.i.i, %412 ], [ %.0.i.i.i2.i12.i.i282.i.i, %417 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i ]
-  %.sroa.0.0.i.i284.i.i = phi double [ %.0.i.i.i2.i.i4.i290.i.i, %410 ], [ %.0.i.i.i2.i4.i.i286.i.i, %412 ], [ 0.000000e+00, %417 ], [ %.0.sroa.speculated.i.i1.i.i280.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i ]
-  %421 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24313, !noalias !24320, !noundef !4
-  %422 = load i64, ptr %8, align 8, !alias.scope !24313, !noalias !24320, !noundef !4
-  %423 = icmp eq i64 %421, %422
-  br i1 %423, label %424, label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit296.i.i"
+_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit292.i.i: ; preds = %405, %400, %398, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i
+  %.sroa.5.0.i.i283.i.i = phi double [ %.0.sroa.speculated.i.i1.i.i280.i.i, %398 ], [ %.0.i.i.i2.i8.i.i288.i.i, %400 ], [ %.0.i.i.i2.i12.i.i282.i.i, %405 ], [ 0.000000e+00, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i ]
+  %.sroa.0.0.i.i284.i.i = phi double [ %.0.i.i.i2.i.i4.i290.i.i, %398 ], [ %.0.i.i.i2.i4.i.i286.i.i, %400 ], [ 0.000000e+00, %405 ], [ %.0.sroa.speculated.i.i1.i.i280.i.i, %_ZN5typst9visualize5shape13ControlPoints6radius17h00089f2043f91e52E.exit.i273.i.i ]
+  %409 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24313, !noalias !24320, !noundef !4
+  %410 = load i64, ptr %8, align 8, !alias.scope !24313, !noalias !24320, !noundef !4
+  %411 = icmp eq i64 %409, %410
+  br i1 %411, label %412, label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit296.i.i"
 
-424:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit292.i.i
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %421)
+412:                                              ; preds = %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit292.i.i
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %409)
           to label %.noexc30.i unwind label %.loopexit.i, !noalias !24188
 
-.noexc30.i:                                       ; preds = %424
+.noexc30.i:                                       ; preds = %412
   %.pre.i.i.i295.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24313, !noalias !24320
   br label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit296.i.i"
 
 "_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit296.i.i": ; preds = %.noexc30.i, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit292.i.i
-  %425 = phi i64 [ %.pre.i.i.i295.i.i, %.noexc30.i ], [ %421, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit292.i.i ]
-  %426 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !24313, !noalias !24320, !nonnull !4, !noundef !4
-  %427 = getelementptr inbounds { i64, [6 x i64] }, ptr %426, i64 %425
-  store i64 1, ptr %427, align 8, !noalias !24188
-  %.sroa.4.0..sroa_idx.i.i293.i.i = getelementptr inbounds nuw i8, ptr %427, i64 8
+  %413 = phi i64 [ %.pre.i.i.i295.i.i, %.noexc30.i ], [ %409, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit292.i.i ]
+  %414 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !24313, !noalias !24320, !nonnull !4, !noundef !4
+  %415 = getelementptr inbounds { i64, [6 x i64] }, ptr %414, i64 %413
+  store i64 1, ptr %415, align 8, !noalias !24188
+  %.sroa.4.0..sroa_idx.i.i293.i.i = getelementptr inbounds nuw i8, ptr %415, i64 8
   store double %.sroa.0.0.i.i244.i.i, ptr %.sroa.4.0..sroa_idx.i.i293.i.i, align 8, !noalias !24188
-  %.sroa.5.0..sroa_idx.i.i294.i.i = getelementptr inbounds nuw i8, ptr %427, i64 16
+  %.sroa.5.0..sroa_idx.i.i294.i.i = getelementptr inbounds nuw i8, ptr %415, i64 16
   store double %.sroa.5.0.i.i243.i.i, ptr %.sroa.5.0..sroa_idx.i.i294.i.i, align 8, !noalias !24188
-  %428 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24313, !noalias !24320, !noundef !4
-  %429 = add i64 %428, 1
-  store i64 %429, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24313, !noalias !24320
+  %416 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24313, !noalias !24320, !noundef !4
+  %417 = add i64 %416, 1
+  store i64 %417, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !24313, !noalias !24320
   invoke void @"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$3arc17hcbbb6d66eecb9f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, double noundef %.sroa.0.0.i.i244.i.i, double noundef %.sroa.5.0.i.i243.i.i, double noundef %.sroa.0.0.i.i264.i.i, double noundef %.sroa.5.0.i.i263.i.i, double noundef %.sroa.0.0.i.i284.i.i, double noundef %.sroa.5.0.i.i283.i.i)
-          to label %switch.lookup194 unwind label %.loopexit.i, !noalias !24188
+          to label %switch.lookup188 unwind label %.loopexit.i, !noalias !24188
 
-switch.lookup194:                                 ; preds = %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit232.i.i, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit296.i.i"
-  %switch.cast195 = zext i8 %.0300.i.i to i32
-  %switch.shiftamt196 = shl nuw nsw i32 %switch.cast195, 3
-  %switch.downshift197 = lshr i32 197121, %switch.shiftamt196
-  %switch.masked198 = trunc i32 %switch.downshift197 to i8
-  %.not.i.i = icmp eq i8 %2, %switch.masked198
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %196
+switch.lookup188:                                 ; preds = %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit232.i.i, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit296.i.i"
+  %switch.cast189 = zext i8 %.0300.i.i to i32
+  %switch.shiftamt190 = shl nuw nsw i32 %switch.cast189, 3
+  %switch.downshift191 = lshr i32 197121, %switch.shiftamt190
+  %switch.masked192 = trunc i32 %switch.downshift191 to i8
+  %.not.i.i = icmp eq i8 %2, %switch.masked192
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %184
 
-.loopexit.i:                                      ; preds = %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit296.i.i", %424, %365
+.loopexit.i:                                      ; preds = %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit296.i.i", %412, %353
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  br label %430
+  br label %418
 
-.loopexit.split-lp.i:                             ; preds = %343, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.i.invoke.i", %281, %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit141.i.i, %233, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_move17hbd8f7f65c8c548d5E.exit.i.i", %168, %127, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit.i.i, %.invoke.i
+.loopexit.split-lp.i:                             ; preds = %331, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.i.invoke.i", %269, %_ZN5typst9visualize5shape13ControlPoints6center17he14dac8cf12ccc15E.exit141.i.i, %221, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_move17hbd8f7f65c8c548d5E.exit.i.i", %156, %115, %_ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit.i.i, %.invoke.i
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  br label %430
+  br label %418
 
-430:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i
+418:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$typst..visualize..path..Path$GT$17h5d2fecdebf89ed83E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #79
-          to label %89 unwind label %431, !noalias !24188
+          to label %77 unwind label %419, !noalias !24188
 
-431:                                              ; preds = %430, %89
-  %432 = landingpad { ptr, i32 }
+419:                                              ; preds = %418, %77
+  %420 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #78, !noalias !24170
   unreachable
 
-.loopexit:                                        ; preds = %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit32.i, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i23.i", %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit.i, %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit19.i, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i10.i"
+.loopexit:                                        ; preds = %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit30.i, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i22.i", %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit.i, %_ZN5typst9visualize5shape7segment11fill_corner17h6c5282ee9ca9bbe2E.exit18.i, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i10.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24322)
@@ -99899,1781 +99865,1781 @@ switch.lookup194:                                 ; preds = %_ZN5typst9visualize
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24327)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !24329
   store i64 0, ptr %7, align 8, !alias.scope !24330, !noalias !24329
-  %.sroa.4.0..sroa_idx.i.i17 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !alias.scope !24330, !noalias !24329
-  %.sroa.5.0..sroa_idx.i.i18 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 0, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24330, !noalias !24329
-  %433 = icmp eq i8 %1, %2
-  br i1 %433, label %443, label %435
+  %.sroa.4.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !alias.scope !24330, !noalias !24329
+  %.sroa.5.0..sroa_idx.i.i15 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i64 0, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24330, !noalias !24329
+  %421 = icmp eq i8 %1, %2
+  br i1 %421, label %431, label %423
 
-434:                                              ; preds = %.loopexit.split-lp.i25
+422:                                              ; preds = %.loopexit.split-lp.i21
   invoke void @"_ZN4core3ptr58drop_in_place$LT$typst..visualize..stroke..FixedStroke$GT$17h5b9c4d9ab9a3e683E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %13) #79
-          to label %.body.thread unwind label %1064, !noalias !24322
+          to label %.body.thread unwind label %1052, !noalias !24322
 
-435:                                              ; preds = %.loopexit
-  switch i8 %1, label %436 [
-    i8 0, label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i19"
-    i8 1, label %437
-    i8 2, label %439
-    i8 3, label %441
+423:                                              ; preds = %.loopexit
+  switch i8 %1, label %424 [
+    i8 0, label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i16"
+    i8 1, label %425
+    i8 2, label %427
+    i8 3, label %429
   ]
 
-436:                                              ; preds = %435
+424:                                              ; preds = %423
   unreachable
 
-437:                                              ; preds = %435
-  %438 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i19"
+425:                                              ; preds = %423
+  %426 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i16"
 
-439:                                              ; preds = %435
-  %440 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i19"
+427:                                              ; preds = %423
+  %428 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i16"
 
-441:                                              ; preds = %435
-  %442 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i19"
+429:                                              ; preds = %423
+  %430 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i16"
 
-443:                                              ; preds = %.loopexit
+431:                                              ; preds = %.loopexit
   switch i8 %1, label %default.unreachable [
     i8 0, label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit27.i"
-    i8 1, label %444
-    i8 2, label %446
-    i8 3, label %448
+    i8 1, label %432
+    i8 2, label %434
+    i8 3, label %436
   ]
 
-444:                                              ; preds = %443
-  %445 = getelementptr inbounds nuw i8, ptr %3, i64 48
+432:                                              ; preds = %431
+  %433 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit27.i"
 
-446:                                              ; preds = %443
-  %447 = getelementptr inbounds nuw i8, ptr %3, i64 96
+434:                                              ; preds = %431
+  %435 = getelementptr inbounds nuw i8, ptr %3, i64 96
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit27.i"
 
-448:                                              ; preds = %443
-  %449 = getelementptr inbounds nuw i8, ptr %3, i64 144
+436:                                              ; preds = %431
+  %437 = getelementptr inbounds nuw i8, ptr %3, i64 144
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit27.i"
 
-.loopexit.i30:                                    ; preds = %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i426.i, %980, %970, %966, %960, %952, %950
-  %lpad.loopexit.i31 = landingpad { ptr, i32 }
+.loopexit.i26:                                    ; preds = %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i426.i, %968, %958, %954, %948, %940, %938
+  %lpad.loopexit.i27 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp.i25
+  br label %.loopexit.split-lp.i21
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i534.i, %1058, %1024
+.loopexit.split-lp.loopexit.i:                    ; preds = %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i534.i, %1046, %1012
   %lpad.loopexit690.i = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp.i25
+  br label %.loopexit.split-lp.i21
 
-.loopexit.split-lp.loopexit.split-lp.i:           ; preds = %.invoke.i33, %914, %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i399.invoke.i, %902, %896, %894, %893, %887, %885, %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i387.i, %874, %837, %811, %764, %758, %756, %755, %749, %747, %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i231.i, %736, %728, %699, %642, %607, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit27.i", %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i.i35, %586, %556, %530, %524, %_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i.i37, %494, %484, %480, %474, %466, %464
+.loopexit.split-lp.loopexit.split-lp.i:           ; preds = %.invoke.i29, %902, %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i399.invoke.i, %890, %884, %882, %881, %875, %873, %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i387.i, %862, %825, %799, %752, %746, %744, %743, %737, %735, %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i231.i, %724, %716, %687, %630, %595, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit27.i", %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i.i31, %574, %544, %518, %512, %_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i.i33, %482, %472, %468, %462, %454, %452
   %lpad.loopexit.split-lp691.i = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp.i25
+  br label %.loopexit.split-lp.i21
 
-.loopexit.split-lp.i25:                           ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i30
-  %lpad.phi.i26 = phi { ptr, i32 } [ %lpad.loopexit.i31, %.loopexit.i30 ], [ %lpad.loopexit690.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp691.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+.loopexit.split-lp.i21:                           ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i26
+  %lpad.phi.i22 = phi { ptr, i32 } [ %lpad.loopexit.i27, %.loopexit.i26 ], [ %lpad.loopexit690.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp691.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$typst..visualize..path..Path$GT$17h5d2fecdebf89ed83E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #79
-          to label %434 unwind label %1064, !noalias !24333
+          to label %422 unwind label %1052, !noalias !24333
 
-"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i19": ; preds = %441, %439, %437, %435
-  %.0.i.i20 = phi ptr [ %438, %437 ], [ %440, %439 ], [ %442, %441 ], [ %3, %435 ]
-  %450 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 16
-  %451 = load double, ptr %450, align 8, !alias.scope !24334, !noalias !24333, !noundef !4
-  %452 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 32
-  %453 = load double, ptr %452, align 8, !alias.scope !24334, !noalias !24333, !noundef !4
-  %454 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 24
-  %455 = load double, ptr %454, align 8, !alias.scope !24334, !noalias !24333, !noundef !4
-  %456 = fcmp ugt double %453, %455
-  br i1 %456, label %457, label %459
+"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i16": ; preds = %429, %427, %425, %423
+  %.0.i.i17 = phi ptr [ %426, %425 ], [ %428, %427 ], [ %430, %429 ], [ %3, %423 ]
+  %438 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 16
+  %439 = load double, ptr %438, align 8, !alias.scope !24334, !noalias !24333, !noundef !4
+  %440 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 32
+  %441 = load double, ptr %440, align 8, !alias.scope !24334, !noalias !24333, !noundef !4
+  %442 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 24
+  %443 = load double, ptr %442, align 8, !alias.scope !24334, !noalias !24333, !noundef !4
+  %444 = fcmp ugt double %441, %443
+  br i1 %444, label %445, label %447
 
-457:                                              ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i19"
-  %458 = fcmp ult double %453, %455
-  br i1 %458, label %.invoke.i33, label %459
+445:                                              ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i16"
+  %446 = fcmp ult double %441, %443
+  br i1 %446, label %.invoke.i29, label %447
 
-459:                                              ; preds = %457, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i19"
-  %.0.sroa.speculated.i.i.i.i.i21 = phi double [ %453, %457 ], [ %455, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i19" ]
-  %460 = fmul double %.0.sroa.speculated.i.i.i.i.i21, 2.000000e+00
-  %.0.i.inv.i.i.i.i.i.i.i = fcmp ord double %460, 0.000000e+00
-  %.neg.i.i.i = fneg double %460
-  %461 = select i1 %.0.i.inv.i.i.i.i.i.i.i, double %.neg.i.i.i, double -0.000000e+00
-  %462 = fadd double %451, %461
-  %.0.i.inv.i.i.i1.i.i.i.i22 = fcmp ord double %462, 0.000000e+00
-  %.0.i.i.i2.i.i.i.i23 = select i1 %.0.i.inv.i.i.i1.i.i.i.i22, double %462, double 0.000000e+00
-  %.inv.i.i.i24 = fcmp ole double %.0.i.i.i2.i.i.i.i23, 0.000000e+00
-  %.0.sroa.speculated.i.i3.i.i.i = select i1 %.inv.i.i.i24, double 0.000000e+00, double %.0.i.i.i2.i.i.i.i23
-  %463 = fcmp ugt double %.0.sroa.speculated.i.i3.i.i.i, 0.000000e+00
-  br i1 %463, label %466, label %464
+447:                                              ; preds = %445, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i16"
+  %.0.sroa.speculated.i.i.i.i.i = phi double [ %441, %445 ], [ %443, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit.i16" ]
+  %448 = fmul double %.0.sroa.speculated.i.i.i.i.i, 2.000000e+00
+  %.0.i.inv.i.i.i.i.i.i.i = fcmp ord double %448, 0.000000e+00
+  %.neg.i.i.i = fneg double %448
+  %449 = select i1 %.0.i.inv.i.i.i.i.i.i.i, double %.neg.i.i.i, double -0.000000e+00
+  %450 = fadd double %439, %449
+  %.0.i.inv.i.i.i1.i.i.i.i18 = fcmp ord double %450, 0.000000e+00
+  %.0.i.i.i2.i.i.i.i19 = select i1 %.0.i.inv.i.i.i1.i.i.i.i18, double %450, double 0.000000e+00
+  %.inv.i.i.i20 = fcmp ole double %.0.i.i.i2.i.i.i.i19, 0.000000e+00
+  %.0.sroa.speculated.i.i3.i.i.i = select i1 %.inv.i.i.i20, double 0.000000e+00, double %.0.i.i.i2.i.i.i.i19
+  %451 = fcmp ugt double %.0.sroa.speculated.i.i3.i.i.i, 0.000000e+00
+  br i1 %451, label %454, label %452
 
-464:                                              ; preds = %459
-  %465 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9end_inner17h1e20cb6e6d27c977E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i.i20)
+452:                                              ; preds = %447
+  %453 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9end_inner17h1e20cb6e6d27c977E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i.i17)
+          to label %456 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+
+454:                                              ; preds = %447
+  %455 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9end_inner17h1e20cb6e6d27c977E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i.i17)
           to label %468 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-466:                                              ; preds = %459
-  %467 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9end_inner17h1e20cb6e6d27c977E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i.i20)
-          to label %480 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+456:                                              ; preds = %452
+  %457 = extractvalue { double, double } %453, 0
+  %458 = extractvalue { double, double } %453, 1
+  %459 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24339, !noalias !24344, !noundef !4
+  %460 = load i64, ptr %7, align 8, !alias.scope !24339, !noalias !24344, !noundef !4
+  %461 = icmp eq i64 %459, %460
+  br i1 %461, label %462, label %_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i
 
-468:                                              ; preds = %464
-  %469 = extractvalue { double, double } %465, 0
-  %470 = extractvalue { double, double } %465, 1
-  %471 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24339, !noalias !24344, !noundef !4
-  %472 = load i64, ptr %7, align 8, !alias.scope !24339, !noalias !24344, !noundef !4
-  %473 = icmp eq i64 %471, %472
-  br i1 %473, label %474, label %_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i
+462:                                              ; preds = %456
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %459)
+          to label %.noexc30.i32 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-474:                                              ; preds = %468
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %471)
-          to label %.noexc30.i36 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
-
-.noexc30.i36:                                     ; preds = %474
-  %.pre.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24339, !noalias !24344
+.noexc30.i32:                                     ; preds = %462
+  %.pre.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24339, !noalias !24344
   br label %_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i
 
-_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i: ; preds = %.noexc30.i36, %468
-  %475 = phi i64 [ %.pre.i.i.i, %.noexc30.i36 ], [ %471, %468 ]
-  %476 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !alias.scope !24339, !noalias !24344, !nonnull !4, !noundef !4
-  %477 = getelementptr inbounds { i64, [6 x i64] }, ptr %476, i64 %475
-  store i64 0, ptr %477, align 8, !noalias !24333
-  %.sroa.4.0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %477, i64 8
-  store double %469, ptr %.sroa.4.0..sroa_idx.i28.i, align 8, !noalias !24333
-  %.sroa.5.0..sroa_idx.i29.i = getelementptr inbounds nuw i8, ptr %477, i64 16
-  store double %470, ptr %.sroa.5.0..sroa_idx.i29.i, align 8, !noalias !24333
-  %478 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24339, !noalias !24344, !noundef !4
-  %479 = add i64 %478, 1
-  store i64 %479, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24339, !noalias !24344
+_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i: ; preds = %.noexc30.i32, %456
+  %463 = phi i64 [ %.pre.i.i.i, %.noexc30.i32 ], [ %459, %456 ]
+  %464 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !alias.scope !24339, !noalias !24344, !nonnull !4, !noundef !4
+  %465 = getelementptr inbounds { i64, [6 x i64] }, ptr %464, i64 %463
+  store i64 0, ptr %465, align 8, !noalias !24333
+  %.sroa.4.0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %465, i64 8
+  store double %457, ptr %.sroa.4.0..sroa_idx.i28.i, align 8, !noalias !24333
+  %.sroa.5.0..sroa_idx.i29.i = getelementptr inbounds nuw i8, ptr %465, i64 16
+  store double %458, ptr %.sroa.5.0..sroa_idx.i29.i, align 8, !noalias !24333
+  %466 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24339, !noalias !24344, !noundef !4
+  %467 = add i64 %466, 1
+  store i64 %467, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24339, !noalias !24344
   br label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_move17hbd8f7f65c8c548d5E.exit.i"
 
-"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_move17hbd8f7f65c8c548d5E.exit.i": ; preds = %_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i.i37, %_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i
-  %or.cond.i.i = fcmp uno double %451, 0.000000e+00
-  br i1 %or.cond.i.i, label %.invoke.i33, label %500
+"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_move17hbd8f7f65c8c548d5E.exit.i": ; preds = %_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i.i33, %_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i
+  %or.cond.i.i = fcmp uno double %439, 0.000000e+00
+  br i1 %or.cond.i.i, label %.invoke.i29, label %488
 
-480:                                              ; preds = %466
-  %481 = extractvalue { double, double } %467, 0
-  %482 = extractvalue { double, double } %467, 1
-  %483 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints12center_inner17h9fc69018ae912dfaE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i.i20)
-          to label %484 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+468:                                              ; preds = %454
+  %469 = extractvalue { double, double } %455, 0
+  %470 = extractvalue { double, double } %455, 1
+  %471 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints12center_inner17h9fc69018ae912dfaE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i.i17)
+          to label %472 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-484:                                              ; preds = %480
-  %485 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9mid_inner17h2477946988fc9b81E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i.i20)
-          to label %486 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+472:                                              ; preds = %468
+  %473 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9mid_inner17h2477946988fc9b81E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i.i17)
+          to label %474 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-486:                                              ; preds = %484
-  %487 = extractvalue { double, double } %483, 1
-  %488 = extractvalue { double, double } %483, 0
-  %489 = extractvalue { double, double } %485, 0
-  %490 = extractvalue { double, double } %485, 1
-  %491 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24346, !noalias !24353, !noundef !4
-  %492 = load i64, ptr %7, align 8, !alias.scope !24346, !noalias !24353, !noundef !4
-  %493 = icmp eq i64 %491, %492
-  br i1 %493, label %494, label %_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i.i37
+474:                                              ; preds = %472
+  %475 = extractvalue { double, double } %471, 1
+  %476 = extractvalue { double, double } %471, 0
+  %477 = extractvalue { double, double } %473, 0
+  %478 = extractvalue { double, double } %473, 1
+  %479 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24346, !noalias !24353, !noundef !4
+  %480 = load i64, ptr %7, align 8, !alias.scope !24346, !noalias !24353, !noundef !4
+  %481 = icmp eq i64 %479, %480
+  br i1 %481, label %482, label %_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i.i33
 
-494:                                              ; preds = %486
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %491)
+482:                                              ; preds = %474
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %479)
           to label %.noexc32.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-.noexc32.i:                                       ; preds = %494
-  %.pre.i.i.i.i40 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24346, !noalias !24353
-  br label %_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i.i37
+.noexc32.i:                                       ; preds = %482
+  %.pre.i.i.i.i36 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24346, !noalias !24353
+  br label %_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i.i33
 
-_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i.i37: ; preds = %.noexc32.i, %486
-  %495 = phi i64 [ %.pre.i.i.i.i40, %.noexc32.i ], [ %491, %486 ]
-  %496 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !alias.scope !24346, !noalias !24353, !nonnull !4, !noundef !4
-  %497 = getelementptr inbounds { i64, [6 x i64] }, ptr %496, i64 %495
-  store i64 0, ptr %497, align 8, !noalias !24333
-  %.sroa.4.0..sroa_idx.i.i.i38 = getelementptr inbounds nuw i8, ptr %497, i64 8
-  store double %481, ptr %.sroa.4.0..sroa_idx.i.i.i38, align 8, !noalias !24333
-  %.sroa.5.0..sroa_idx.i.i.i39 = getelementptr inbounds nuw i8, ptr %497, i64 16
-  store double %482, ptr %.sroa.5.0..sroa_idx.i.i.i39, align 8, !noalias !24333
-  %498 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24346, !noalias !24353, !noundef !4
-  %499 = add i64 %498, 1
-  store i64 %499, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24346, !noalias !24353
-  invoke void @"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$3arc17hcbbb6d66eecb9f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, double noundef %481, double noundef %482, double noundef %488, double noundef %487, double noundef %489, double noundef %490)
+_ZN5typst9visualize4path4Path7move_to17h33f4fcac0263808aE.exit.i.i33: ; preds = %.noexc32.i, %474
+  %483 = phi i64 [ %.pre.i.i.i.i36, %.noexc32.i ], [ %479, %474 ]
+  %484 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !alias.scope !24346, !noalias !24353, !nonnull !4, !noundef !4
+  %485 = getelementptr inbounds { i64, [6 x i64] }, ptr %484, i64 %483
+  store i64 0, ptr %485, align 8, !noalias !24333
+  %.sroa.4.0..sroa_idx.i.i.i34 = getelementptr inbounds nuw i8, ptr %485, i64 8
+  store double %469, ptr %.sroa.4.0..sroa_idx.i.i.i34, align 8, !noalias !24333
+  %.sroa.5.0..sroa_idx.i.i.i35 = getelementptr inbounds nuw i8, ptr %485, i64 16
+  store double %470, ptr %.sroa.5.0..sroa_idx.i.i.i35, align 8, !noalias !24333
+  %486 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24346, !noalias !24353, !noundef !4
+  %487 = add i64 %486, 1
+  store i64 %487, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24346, !noalias !24353
+  invoke void @"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$3arc17hcbbb6d66eecb9f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, double noundef %469, double noundef %470, double noundef %476, double noundef %475, double noundef %477, double noundef %478)
           to label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_move17hbd8f7f65c8c548d5E.exit.i" unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-500:                                              ; preds = %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_move17hbd8f7f65c8c548d5E.exit.i"
-  %501 = fcmp ugt double %451, 0.000000e+00
-  br i1 %501, label %524, label %502
+488:                                              ; preds = %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_move17hbd8f7f65c8c548d5E.exit.i"
+  %489 = fcmp ugt double %439, 0.000000e+00
+  br i1 %489, label %512, label %490
 
-502:                                              ; preds = %500
-  %503 = fneg double %453
-  %.0.i.inv.i.i.i.i.i = fcmp ord double %453, 0.000000e+00
-  %.0.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i, double %503, double 0.000000e+00
-  %504 = fneg double %455
-  %.0.i.inv.i.i.i1.i.i = fcmp ord double %455, 0.000000e+00
-  %.0.i.i.i2.i.i = select i1 %.0.i.inv.i.i.i1.i.i, double %504, double 0.000000e+00
-  %505 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 40
-  %506 = load i8, ptr %505, align 8, !range !3454, !alias.scope !24355, !noalias !24333, !noundef !4
-  switch i8 %506, label %default.unreachable [
-    i8 0, label %526
-    i8 1, label %507
-    i8 2, label %511
-    i8 3, label %519
+490:                                              ; preds = %488
+  %491 = fneg double %441
+  %.0.i.inv.i.i.i.i.i = fcmp ord double %441, 0.000000e+00
+  %.0.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i, double %491, double 0.000000e+00
+  %492 = fneg double %443
+  %.0.i.inv.i.i.i1.i.i = fcmp ord double %443, 0.000000e+00
+  %.0.i.i.i2.i.i = select i1 %.0.i.inv.i.i.i1.i.i, double %492, double 0.000000e+00
+  %493 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 40
+  %494 = load i8, ptr %493, align 8, !range !3454, !alias.scope !24355, !noalias !24333, !noundef !4
+  switch i8 %494, label %default.unreachable [
+    i8 0, label %514
+    i8 1, label %495
+    i8 2, label %499
+    i8 3, label %507
   ]
 
-507:                                              ; preds = %502
-  %508 = load double, ptr %.0.i.i20, align 8, !alias.scope !24355, !noalias !24333, !noundef !4
-  %509 = fneg double %.0.i.i.i2.i.i
+495:                                              ; preds = %490
+  %496 = load double, ptr %.0.i.i17, align 8, !alias.scope !24355, !noalias !24333, !noundef !4
+  %497 = fneg double %.0.i.i.i2.i.i
   %.0.i.inv.i.i.i.i.i.i34.i = fcmp ord double %.0.i.i.i2.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i34.i, double %509, double 0.000000e+00
-  %510 = fadd double %.0.i.i.i.i.i.i.i, %508
-  %.0.i.inv.i.i.i1.i.i.i35.i = fcmp ord double %510, 0.000000e+00
-  %.0.i.i.i2.i.i.i36.i = select i1 %.0.i.inv.i.i.i1.i.i.i35.i, double %510, double 0.000000e+00
-  br label %526
+  %.0.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i34.i, double %497, double 0.000000e+00
+  %498 = fadd double %.0.i.i.i.i.i.i.i, %496
+  %.0.i.inv.i.i.i1.i.i.i35.i = fcmp ord double %498, 0.000000e+00
+  %.0.i.i.i2.i.i.i36.i = select i1 %.0.i.inv.i.i.i1.i.i.i35.i, double %498, double 0.000000e+00
+  br label %514
 
-511:                                              ; preds = %502
-  %512 = load double, ptr %.0.i.i20, align 8, !alias.scope !24355, !noalias !24333, !noundef !4
-  %513 = fneg double %.0.i.i.i.i.i
+499:                                              ; preds = %490
+  %500 = load double, ptr %.0.i.i17, align 8, !alias.scope !24355, !noalias !24333, !noundef !4
+  %501 = fneg double %.0.i.i.i.i.i
   %.0.i.inv.i.i.i.i1.i.i.i = fcmp ord double %.0.i.i.i.i.i, 0.000000e+00
-  %.0.i.i.i.i2.i.i.i = select i1 %.0.i.inv.i.i.i.i1.i.i.i, double %513, double 0.000000e+00
-  %514 = fadd double %.0.i.i.i.i2.i.i.i, %512
-  %.0.i.inv.i.i.i1.i3.i.i.i = fcmp ord double %514, 0.000000e+00
-  %.0.i.i.i2.i4.i.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i.i, double %514, double 0.000000e+00
-  %515 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 8
-  %516 = load double, ptr %515, align 8, !alias.scope !24355, !noalias !24333, !noundef !4
-  %517 = fneg double %.0.i.i.i2.i.i
+  %.0.i.i.i.i2.i.i.i = select i1 %.0.i.inv.i.i.i.i1.i.i.i, double %501, double 0.000000e+00
+  %502 = fadd double %.0.i.i.i.i2.i.i.i, %500
+  %.0.i.inv.i.i.i1.i3.i.i.i = fcmp ord double %502, 0.000000e+00
+  %.0.i.i.i2.i4.i.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i.i, double %502, double 0.000000e+00
+  %503 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 8
+  %504 = load double, ptr %503, align 8, !alias.scope !24355, !noalias !24333, !noundef !4
+  %505 = fneg double %.0.i.i.i2.i.i
   %.0.i.inv.i.i.i.i5.i.i.i = fcmp ord double %.0.i.i.i2.i.i, 0.000000e+00
-  %.0.i.i.i.i6.i.i.i = select i1 %.0.i.inv.i.i.i.i5.i.i.i, double %517, double 0.000000e+00
-  %518 = fadd double %.0.i.i.i.i6.i.i.i, %516
-  %.0.i.inv.i.i.i1.i7.i.i.i = fcmp ord double %518, 0.000000e+00
-  %.0.i.i.i2.i8.i.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i.i, double %518, double 0.000000e+00
-  br label %526
+  %.0.i.i.i.i6.i.i.i = select i1 %.0.i.inv.i.i.i.i5.i.i.i, double %505, double 0.000000e+00
+  %506 = fadd double %.0.i.i.i.i6.i.i.i, %504
+  %.0.i.inv.i.i.i1.i7.i.i.i = fcmp ord double %506, 0.000000e+00
+  %.0.i.i.i2.i8.i.i.i = select i1 %.0.i.inv.i.i.i1.i7.i.i.i, double %506, double 0.000000e+00
+  br label %514
 
-519:                                              ; preds = %502
-  %520 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 8
-  %521 = load double, ptr %520, align 8, !alias.scope !24355, !noalias !24333, !noundef !4
-  %522 = fneg double %.0.i.i.i.i.i
+507:                                              ; preds = %490
+  %508 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 8
+  %509 = load double, ptr %508, align 8, !alias.scope !24355, !noalias !24333, !noundef !4
+  %510 = fneg double %.0.i.i.i.i.i
   %.0.i.inv.i.i.i.i9.i.i.i = fcmp ord double %.0.i.i.i.i.i, 0.000000e+00
-  %.0.i.i.i.i10.i.i.i = select i1 %.0.i.inv.i.i.i.i9.i.i.i, double %522, double 0.000000e+00
-  %523 = fadd double %.0.i.i.i.i10.i.i.i, %521
-  %.0.i.inv.i.i.i1.i11.i.i.i = fcmp ord double %523, 0.000000e+00
-  %.0.i.i.i2.i12.i.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i.i, double %523, double 0.000000e+00
-  br label %526
+  %.0.i.i.i.i10.i.i.i = select i1 %.0.i.inv.i.i.i.i9.i.i.i, double %510, double 0.000000e+00
+  %511 = fadd double %.0.i.i.i.i10.i.i.i, %509
+  %.0.i.inv.i.i.i1.i11.i.i.i = fcmp ord double %511, 0.000000e+00
+  %.0.i.i.i2.i12.i.i.i = select i1 %.0.i.inv.i.i.i1.i11.i.i.i, double %511, double 0.000000e+00
+  br label %514
 
-524:                                              ; preds = %500
-  %525 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9mid_outer17hb19045bd875ed6f8E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i.i20)
-          to label %557 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+512:                                              ; preds = %488
+  %513 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9mid_outer17hb19045bd875ed6f8E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i.i17)
+          to label %545 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-526:                                              ; preds = %519, %511, %507, %502
-  %.sroa.5.0.i.i.i = phi double [ %.0.i.i.i.i.i, %507 ], [ %.0.i.i.i2.i8.i.i.i, %511 ], [ %.0.i.i.i2.i12.i.i.i, %519 ], [ %.0.i.i.i2.i.i, %502 ]
-  %.sroa.0.0.i.i.i = phi double [ %.0.i.i.i2.i.i.i36.i, %507 ], [ %.0.i.i.i2.i4.i.i.i, %511 ], [ %.0.i.i.i2.i.i, %519 ], [ %.0.i.i.i.i.i, %502 ]
-  %527 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24360, !noalias !24365, !noundef !4
-  %528 = load i64, ptr %7, align 8, !alias.scope !24360, !noalias !24365, !noundef !4
-  %529 = icmp eq i64 %527, %528
-  br i1 %529, label %530, label %531
+514:                                              ; preds = %507, %499, %495, %490
+  %.sroa.5.0.i.i.i = phi double [ %.0.i.i.i.i.i, %495 ], [ %.0.i.i.i2.i8.i.i.i, %499 ], [ %.0.i.i.i2.i12.i.i.i, %507 ], [ %.0.i.i.i2.i.i, %490 ]
+  %.sroa.0.0.i.i.i = phi double [ %.0.i.i.i2.i.i.i36.i, %495 ], [ %.0.i.i.i2.i4.i.i.i, %499 ], [ %.0.i.i.i2.i.i, %507 ], [ %.0.i.i.i.i.i, %490 ]
+  %515 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24360, !noalias !24365, !noundef !4
+  %516 = load i64, ptr %7, align 8, !alias.scope !24360, !noalias !24365, !noundef !4
+  %517 = icmp eq i64 %515, %516
+  br i1 %517, label %518, label %519
 
-530:                                              ; preds = %526
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %527)
+518:                                              ; preds = %514
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %515)
           to label %.noexc40.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-.noexc40.i:                                       ; preds = %530
-  %.pre.i.i39.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24360, !noalias !24365
-  br label %531
+.noexc40.i:                                       ; preds = %518
+  %.pre.i.i39.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24360, !noalias !24365
+  br label %519
 
-531:                                              ; preds = %.noexc40.i, %526
-  %532 = phi i64 [ %.pre.i.i39.i, %.noexc40.i ], [ %527, %526 ]
-  %533 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !alias.scope !24360, !noalias !24365, !nonnull !4, !noundef !4
-  %534 = getelementptr inbounds { i64, [6 x i64] }, ptr %533, i64 %532
-  store i64 1, ptr %534, align 8, !noalias !24333
-  %.sroa.4.0..sroa_idx.i37.i = getelementptr inbounds nuw i8, ptr %534, i64 8
+519:                                              ; preds = %.noexc40.i, %514
+  %520 = phi i64 [ %.pre.i.i39.i, %.noexc40.i ], [ %515, %514 ]
+  %521 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !alias.scope !24360, !noalias !24365, !nonnull !4, !noundef !4
+  %522 = getelementptr inbounds { i64, [6 x i64] }, ptr %521, i64 %520
+  store i64 1, ptr %522, align 8, !noalias !24333
+  %.sroa.4.0..sroa_idx.i37.i = getelementptr inbounds nuw i8, ptr %522, i64 8
   store double %.sroa.0.0.i.i.i, ptr %.sroa.4.0..sroa_idx.i37.i, align 8, !noalias !24333
-  %.sroa.5.0..sroa_idx.i38.i = getelementptr inbounds nuw i8, ptr %534, i64 16
+  %.sroa.5.0..sroa_idx.i38.i = getelementptr inbounds nuw i8, ptr %522, i64 16
   store double %.sroa.5.0.i.i.i, ptr %.sroa.5.0..sroa_idx.i38.i, align 8, !noalias !24333
-  %535 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24360, !noalias !24365, !noundef !4
-  %536 = add i64 %535, 1
-  store i64 %536, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24360, !noalias !24365
-  %537 = fadd double %451, %.0.i.i.i.i.i
-  %.0.i.inv.i.i.i1.i.i.i = fcmp ord double %537, 0.000000e+00
-  %.0.i.i.i2.i.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i, double %537, double 0.000000e+00
-  switch i8 %506, label %default.unreachable [
-    i8 0, label %553
-    i8 1, label %538
-    i8 2, label %542
-    i8 3, label %549
+  %523 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24360, !noalias !24365, !noundef !4
+  %524 = add i64 %523, 1
+  store i64 %524, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24360, !noalias !24365
+  %525 = fadd double %439, %.0.i.i.i.i.i
+  %.0.i.inv.i.i.i1.i.i.i = fcmp ord double %525, 0.000000e+00
+  %.0.i.i.i2.i.i.i = select i1 %.0.i.inv.i.i.i1.i.i.i, double %525, double 0.000000e+00
+  switch i8 %494, label %default.unreachable [
+    i8 0, label %541
+    i8 1, label %526
+    i8 2, label %530
+    i8 3, label %537
   ]
 
-538:                                              ; preds = %531
-  %539 = load double, ptr %.0.i.i20, align 8, !alias.scope !24367, !noalias !24333, !noundef !4
-  %540 = fneg double %.0.i.i.i2.i.i
+526:                                              ; preds = %519
+  %527 = load double, ptr %.0.i.i17, align 8, !alias.scope !24367, !noalias !24333, !noundef !4
+  %528 = fneg double %.0.i.i.i2.i.i
   %.0.i.inv.i.i.i.i.i.i53.i = fcmp ord double %.0.i.i.i2.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i54.i = select i1 %.0.i.inv.i.i.i.i.i.i53.i, double %540, double 0.000000e+00
-  %541 = fadd double %.0.i.i.i.i.i.i54.i, %539
-  %.0.i.inv.i.i.i1.i.i.i55.i = fcmp ord double %541, 0.000000e+00
-  %.0.i.i.i2.i.i.i56.i = select i1 %.0.i.inv.i.i.i1.i.i.i55.i, double %541, double 0.000000e+00
-  br label %553
+  %.0.i.i.i.i.i.i54.i = select i1 %.0.i.inv.i.i.i.i.i.i53.i, double %528, double 0.000000e+00
+  %529 = fadd double %.0.i.i.i.i.i.i54.i, %527
+  %.0.i.inv.i.i.i1.i.i.i55.i = fcmp ord double %529, 0.000000e+00
+  %.0.i.i.i2.i.i.i56.i = select i1 %.0.i.inv.i.i.i1.i.i.i55.i, double %529, double 0.000000e+00
+  br label %541
 
-542:                                              ; preds = %531
-  %543 = load double, ptr %.0.i.i20, align 8, !alias.scope !24367, !noalias !24333, !noundef !4
-  %544 = fsub double %543, %.0.i.i.i2.i.i.i
-  %.0.i.inv.i.i.i1.i3.i.i47.i = fcmp ord double %544, 0.000000e+00
-  %.0.i.i.i2.i4.i.i48.i = select i1 %.0.i.inv.i.i.i1.i3.i.i47.i, double %544, double 0.000000e+00
-  %545 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 8
-  %546 = load double, ptr %545, align 8, !alias.scope !24367, !noalias !24333, !noundef !4
-  %547 = fneg double %.0.i.i.i2.i.i
+530:                                              ; preds = %519
+  %531 = load double, ptr %.0.i.i17, align 8, !alias.scope !24367, !noalias !24333, !noundef !4
+  %532 = fsub double %531, %.0.i.i.i2.i.i.i
+  %.0.i.inv.i.i.i1.i3.i.i47.i = fcmp ord double %532, 0.000000e+00
+  %.0.i.i.i2.i4.i.i48.i = select i1 %.0.i.inv.i.i.i1.i3.i.i47.i, double %532, double 0.000000e+00
+  %533 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 8
+  %534 = load double, ptr %533, align 8, !alias.scope !24367, !noalias !24333, !noundef !4
+  %535 = fneg double %.0.i.i.i2.i.i
   %.0.i.inv.i.i.i.i5.i.i49.i = fcmp ord double %.0.i.i.i2.i.i, 0.000000e+00
-  %.0.i.i.i.i6.i.i50.i = select i1 %.0.i.inv.i.i.i.i5.i.i49.i, double %547, double 0.000000e+00
-  %548 = fadd double %.0.i.i.i.i6.i.i50.i, %546
-  %.0.i.inv.i.i.i1.i7.i.i51.i = fcmp ord double %548, 0.000000e+00
-  %.0.i.i.i2.i8.i.i52.i = select i1 %.0.i.inv.i.i.i1.i7.i.i51.i, double %548, double 0.000000e+00
-  br label %553
+  %.0.i.i.i.i6.i.i50.i = select i1 %.0.i.inv.i.i.i.i5.i.i49.i, double %535, double 0.000000e+00
+  %536 = fadd double %.0.i.i.i.i6.i.i50.i, %534
+  %.0.i.inv.i.i.i1.i7.i.i51.i = fcmp ord double %536, 0.000000e+00
+  %.0.i.i.i2.i8.i.i52.i = select i1 %.0.i.inv.i.i.i1.i7.i.i51.i, double %536, double 0.000000e+00
+  br label %541
 
-549:                                              ; preds = %531
-  %550 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 8
-  %551 = load double, ptr %550, align 8, !alias.scope !24367, !noalias !24333, !noundef !4
-  %552 = fsub double %551, %.0.i.i.i2.i.i.i
-  %.0.i.inv.i.i.i1.i11.i.i43.i = fcmp ord double %552, 0.000000e+00
-  %.0.i.i.i2.i12.i.i44.i = select i1 %.0.i.inv.i.i.i1.i11.i.i43.i, double %552, double 0.000000e+00
-  br label %553
+537:                                              ; preds = %519
+  %538 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 8
+  %539 = load double, ptr %538, align 8, !alias.scope !24367, !noalias !24333, !noundef !4
+  %540 = fsub double %539, %.0.i.i.i2.i.i.i
+  %.0.i.inv.i.i.i1.i11.i.i43.i = fcmp ord double %540, 0.000000e+00
+  %.0.i.i.i2.i12.i.i44.i = select i1 %.0.i.inv.i.i.i1.i11.i.i43.i, double %540, double 0.000000e+00
+  br label %541
 
-553:                                              ; preds = %549, %542, %538, %531
-  %.sroa.5.0.i.i45.i = phi double [ %.0.i.i.i2.i.i.i, %538 ], [ %.0.i.i.i2.i8.i.i52.i, %542 ], [ %.0.i.i.i2.i12.i.i44.i, %549 ], [ %.0.i.i.i2.i.i, %531 ]
-  %.sroa.0.0.i.i46.i = phi double [ %.0.i.i.i2.i.i.i56.i, %538 ], [ %.0.i.i.i2.i4.i.i48.i, %542 ], [ %.0.i.i.i2.i.i, %549 ], [ %.0.i.i.i2.i.i.i, %531 ]
-  %554 = load i64, ptr %7, align 8, !alias.scope !24372, !noalias !24377, !noundef !4
-  %555 = icmp eq i64 %536, %554
-  br i1 %555, label %556, label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.sink.split.i"
+541:                                              ; preds = %537, %530, %526, %519
+  %.sroa.5.0.i.i45.i = phi double [ %.0.i.i.i2.i.i.i, %526 ], [ %.0.i.i.i2.i8.i.i52.i, %530 ], [ %.0.i.i.i2.i12.i.i44.i, %537 ], [ %.0.i.i.i2.i.i, %519 ]
+  %.sroa.0.0.i.i46.i = phi double [ %.0.i.i.i2.i.i.i56.i, %526 ], [ %.0.i.i.i2.i4.i.i48.i, %530 ], [ %.0.i.i.i2.i.i, %537 ], [ %.0.i.i.i2.i.i.i, %519 ]
+  %542 = load i64, ptr %7, align 8, !alias.scope !24372, !noalias !24377, !noundef !4
+  %543 = icmp eq i64 %524, %542
+  br i1 %543, label %544, label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.sink.split.i"
 
-556:                                              ; preds = %553
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %536)
+544:                                              ; preds = %541
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %524)
           to label %.noexc61.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-.noexc61.i:                                       ; preds = %556
-  %.pre.i.i60.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24372, !noalias !24377
+.noexc61.i:                                       ; preds = %544
+  %.pre.i.i60.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24372, !noalias !24377
   br label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.sink.split.i"
 
-557:                                              ; preds = %524
-  %558 = extractvalue { double, double } %525, 0
-  %559 = extractvalue { double, double } %525, 1
-  %560 = fneg double %453
-  %.0.i.inv.i.i.i.i.i64.i = fcmp ord double %453, 0.000000e+00
-  %.0.i.i.i.i.i65.i = select i1 %.0.i.inv.i.i.i.i.i64.i, double %560, double 0.000000e+00
-  %561 = fadd double %451, %.0.i.i.i.i.i65.i
-  %.0.i.inv.i.i.i1.i.i66.i = fcmp ord double %561, 0.000000e+00
-  %.0.i.i.i2.i.i67.i = select i1 %.0.i.inv.i.i.i1.i.i66.i, double %561, double 0.000000e+00
-  %562 = fneg double %455
-  %.0.i.inv.i.i.i.i1.i.i = fcmp ord double %455, 0.000000e+00
-  %.0.i.i.i.i2.i.i = select i1 %.0.i.inv.i.i.i.i1.i.i, double %562, double 0.000000e+00
-  %563 = fadd double %451, %.0.i.i.i.i2.i.i
-  %.0.i.inv.i.i.i1.i3.i.i = fcmp ord double %563, 0.000000e+00
-  %.0.i.i.i2.i4.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i, double %563, double 0.000000e+00
-  %564 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 40
-  %565 = load i8, ptr %564, align 8, !range !3454, !alias.scope !24379, !noalias !24333, !noundef !4
-  switch i8 %565, label %default.unreachable [
+545:                                              ; preds = %512
+  %546 = extractvalue { double, double } %513, 0
+  %547 = extractvalue { double, double } %513, 1
+  %548 = fneg double %441
+  %.0.i.inv.i.i.i.i.i64.i = fcmp ord double %441, 0.000000e+00
+  %.0.i.i.i.i.i65.i = select i1 %.0.i.inv.i.i.i.i.i64.i, double %548, double 0.000000e+00
+  %549 = fadd double %439, %.0.i.i.i.i.i65.i
+  %.0.i.inv.i.i.i1.i.i66.i = fcmp ord double %549, 0.000000e+00
+  %.0.i.i.i2.i.i67.i = select i1 %.0.i.inv.i.i.i1.i.i66.i, double %549, double 0.000000e+00
+  %550 = fneg double %443
+  %.0.i.inv.i.i.i.i1.i.i = fcmp ord double %443, 0.000000e+00
+  %.0.i.i.i.i2.i.i = select i1 %.0.i.inv.i.i.i.i1.i.i, double %550, double 0.000000e+00
+  %551 = fadd double %439, %.0.i.i.i.i2.i.i
+  %.0.i.inv.i.i.i1.i3.i.i = fcmp ord double %551, 0.000000e+00
+  %.0.i.i.i2.i4.i.i = select i1 %.0.i.inv.i.i.i1.i3.i.i, double %551, double 0.000000e+00
+  %552 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 40
+  %553 = load i8, ptr %552, align 8, !range !3454, !alias.scope !24379, !noalias !24333, !noundef !4
+  switch i8 %553, label %default.unreachable [
     i8 0, label %.thread.i
-    i8 1, label %566
-    i8 2, label %571
-    i8 3, label %579
+    i8 1, label %554
+    i8 2, label %559
+    i8 3, label %567
   ]
 
-566:                                              ; preds = %557
-  %567 = load double, ptr %.0.i.i20, align 8, !alias.scope !24379, !noalias !24333, !noundef !4
-  %568 = fsub double %567, %.0.i.i.i2.i4.i.i
-  %.0.i.inv.i.i.i1.i.i.i76.i = fcmp ord double %568, 0.000000e+00
-  %.0.i.i.i2.i.i.i77.i = select i1 %.0.i.inv.i.i.i1.i.i.i76.i, double %568, double 0.000000e+00
-  %569 = fneg double %.0.i.i.i.i2.i.i
+554:                                              ; preds = %545
+  %555 = load double, ptr %.0.i.i17, align 8, !alias.scope !24379, !noalias !24333, !noundef !4
+  %556 = fsub double %555, %.0.i.i.i2.i4.i.i
+  %.0.i.inv.i.i.i1.i.i.i76.i = fcmp ord double %556, 0.000000e+00
+  %.0.i.i.i2.i.i.i77.i = select i1 %.0.i.inv.i.i.i1.i.i.i76.i, double %556, double 0.000000e+00
+  %557 = fneg double %.0.i.i.i.i2.i.i
   %.0.i.inv.i.i.i.i.i.i96.i = fcmp ord double %.0.i.i.i.i2.i.i, 0.000000e+00
-  %.0.i.i.i.i.i.i97.i = select i1 %.0.i.inv.i.i.i.i.i.i96.i, double %569, double 0.000000e+00
-  %570 = fadd double %.0.i.i.i.i.i.i97.i, %567
-  %.0.i.inv.i.i.i1.i.i.i98.i = fcmp ord double %570, 0.000000e+00
-  %.0.i.i.i2.i.i.i99.i = select i1 %.0.i.inv.i.i.i1.i.i.i98.i, double %570, double 0.000000e+00
+  %.0.i.i.i.i.i.i97.i = select i1 %.0.i.inv.i.i.i.i.i.i96.i, double %557, double 0.000000e+00
+  %558 = fadd double %.0.i.i.i.i.i.i97.i, %555
+  %.0.i.inv.i.i.i1.i.i.i98.i = fcmp ord double %558, 0.000000e+00
+  %.0.i.i.i2.i.i.i99.i = select i1 %.0.i.inv.i.i.i1.i.i.i98.i, double %558, double 0.000000e+00
   br label %.thread.i
 
-571:                                              ; preds = %557
-  %572 = load double, ptr %.0.i.i20, align 8, !alias.scope !24379, !noalias !24333, !noundef !4
-  %573 = fsub double %572, %.0.i.i.i2.i.i67.i
-  %.0.i.inv.i.i.i1.i3.i.i72.i = fcmp ord double %573, 0.000000e+00
-  %.0.i.i.i2.i4.i.i73.i = select i1 %.0.i.inv.i.i.i1.i3.i.i72.i, double %573, double 0.000000e+00
-  %574 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 8
-  %575 = load double, ptr %574, align 8, !alias.scope !24379, !noalias !24333, !noundef !4
-  %576 = fsub double %575, %.0.i.i.i2.i4.i.i
-  %.0.i.inv.i.i.i1.i7.i.i74.i = fcmp ord double %576, 0.000000e+00
-  %.0.i.i.i2.i8.i.i75.i = select i1 %.0.i.inv.i.i.i1.i7.i.i74.i, double %576, double 0.000000e+00
-  %577 = fneg double %.0.i.i.i.i2.i.i
+559:                                              ; preds = %545
+  %560 = load double, ptr %.0.i.i17, align 8, !alias.scope !24379, !noalias !24333, !noundef !4
+  %561 = fsub double %560, %.0.i.i.i2.i.i67.i
+  %.0.i.inv.i.i.i1.i3.i.i72.i = fcmp ord double %561, 0.000000e+00
+  %.0.i.i.i2.i4.i.i73.i = select i1 %.0.i.inv.i.i.i1.i3.i.i72.i, double %561, double 0.000000e+00
+  %562 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 8
+  %563 = load double, ptr %562, align 8, !alias.scope !24379, !noalias !24333, !noundef !4
+  %564 = fsub double %563, %.0.i.i.i2.i4.i.i
+  %.0.i.inv.i.i.i1.i7.i.i74.i = fcmp ord double %564, 0.000000e+00
+  %.0.i.i.i2.i8.i.i75.i = select i1 %.0.i.inv.i.i.i1.i7.i.i74.i, double %564, double 0.000000e+00
+  %565 = fneg double %.0.i.i.i.i2.i.i
   %.0.i.inv.i.i.i.i5.i.i92.i = fcmp ord double %.0.i.i.i.i2.i.i, 0.000000e+00
-  %.0.i.i.i.i6.i.i93.i = select i1 %.0.i.inv.i.i.i.i5.i.i92.i, double %577, double 0.000000e+00
-  %578 = fadd double %.0.i.i.i.i6.i.i93.i, %575
-  %.0.i.inv.i.i.i1.i7.i.i94.i = fcmp ord double %578, 0.000000e+00
-  %.0.i.i.i2.i8.i.i95.i = select i1 %.0.i.inv.i.i.i1.i7.i.i94.i, double %578, double 0.000000e+00
+  %.0.i.i.i.i6.i.i93.i = select i1 %.0.i.inv.i.i.i.i5.i.i92.i, double %565, double 0.000000e+00
+  %566 = fadd double %.0.i.i.i.i6.i.i93.i, %563
+  %.0.i.inv.i.i.i1.i7.i.i94.i = fcmp ord double %566, 0.000000e+00
+  %.0.i.i.i2.i8.i.i95.i = select i1 %.0.i.inv.i.i.i1.i7.i.i94.i, double %566, double 0.000000e+00
   br label %.thread.i
 
-579:                                              ; preds = %557
-  %580 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 8
-  %581 = load double, ptr %580, align 8, !alias.scope !24379, !noalias !24333, !noundef !4
-  %582 = fsub double %581, %.0.i.i.i2.i.i67.i
-  %.0.i.inv.i.i.i1.i11.i.i68.i = fcmp ord double %582, 0.000000e+00
-  %.0.i.i.i2.i12.i.i69.i = select i1 %.0.i.inv.i.i.i1.i11.i.i68.i, double %582, double 0.000000e+00
+567:                                              ; preds = %545
+  %568 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 8
+  %569 = load double, ptr %568, align 8, !alias.scope !24379, !noalias !24333, !noundef !4
+  %570 = fsub double %569, %.0.i.i.i2.i.i67.i
+  %.0.i.inv.i.i.i1.i11.i.i68.i = fcmp ord double %570, 0.000000e+00
+  %.0.i.i.i2.i12.i.i69.i = select i1 %.0.i.inv.i.i.i1.i11.i.i68.i, double %570, double 0.000000e+00
   br label %.thread.i
 
-.thread.i:                                        ; preds = %579, %571, %566, %557
-  %.sroa.0.0.i.i71544.i = phi double [ %.0.i.i.i2.i.i.i77.i, %566 ], [ %.0.i.i.i2.i4.i.i73.i, %571 ], [ %.0.i.i.i2.i4.i.i, %579 ], [ %.0.i.i.i2.i.i67.i, %557 ]
-  %.sroa.5.0.i.i70543.i = phi double [ %.0.i.i.i2.i.i67.i, %566 ], [ %.0.i.i.i2.i8.i.i75.i, %571 ], [ %.0.i.i.i2.i12.i.i69.i, %579 ], [ %.0.i.i.i2.i4.i.i, %557 ]
-  %.sroa.5.0.i.i88.i = phi double [ %.0.i.i.i2.i.i67.i, %566 ], [ %.0.i.i.i2.i8.i.i95.i, %571 ], [ %.0.i.i.i2.i12.i.i69.i, %579 ], [ %.0.i.i.i.i2.i.i, %557 ]
-  %.sroa.0.0.i.i89.i = phi double [ %.0.i.i.i2.i.i.i99.i, %566 ], [ %.0.i.i.i2.i4.i.i73.i, %571 ], [ %.0.i.i.i.i2.i.i, %579 ], [ %.0.i.i.i2.i.i67.i, %557 ]
-  %583 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24384, !noalias !24391, !noundef !4
-  %584 = load i64, ptr %7, align 8, !alias.scope !24384, !noalias !24391, !noundef !4
-  %585 = icmp eq i64 %583, %584
-  br i1 %585, label %586, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i.i35
+.thread.i:                                        ; preds = %567, %559, %554, %545
+  %.sroa.0.0.i.i71544.i = phi double [ %.0.i.i.i2.i.i.i77.i, %554 ], [ %.0.i.i.i2.i4.i.i73.i, %559 ], [ %.0.i.i.i2.i4.i.i, %567 ], [ %.0.i.i.i2.i.i67.i, %545 ]
+  %.sroa.5.0.i.i70543.i = phi double [ %.0.i.i.i2.i.i67.i, %554 ], [ %.0.i.i.i2.i8.i.i75.i, %559 ], [ %.0.i.i.i2.i12.i.i69.i, %567 ], [ %.0.i.i.i2.i4.i.i, %545 ]
+  %.sroa.5.0.i.i88.i = phi double [ %.0.i.i.i2.i.i67.i, %554 ], [ %.0.i.i.i2.i8.i.i95.i, %559 ], [ %.0.i.i.i2.i12.i.i69.i, %567 ], [ %.0.i.i.i.i2.i.i, %545 ]
+  %.sroa.0.0.i.i89.i = phi double [ %.0.i.i.i2.i.i.i99.i, %554 ], [ %.0.i.i.i2.i4.i.i73.i, %559 ], [ %.0.i.i.i.i2.i.i, %567 ], [ %.0.i.i.i2.i.i67.i, %545 ]
+  %571 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24384, !noalias !24391, !noundef !4
+  %572 = load i64, ptr %7, align 8, !alias.scope !24384, !noalias !24391, !noundef !4
+  %573 = icmp eq i64 %571, %572
+  br i1 %573, label %574, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i.i31
 
-586:                                              ; preds = %.thread.i
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %583)
+574:                                              ; preds = %.thread.i
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %571)
           to label %.noexc105.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-.noexc105.i:                                      ; preds = %586
-  %.pre.i.i.i104.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24384, !noalias !24391
-  br label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i.i35
+.noexc105.i:                                      ; preds = %574
+  %.pre.i.i.i104.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24384, !noalias !24391
+  br label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i.i31
 
-_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i.i35: ; preds = %.noexc105.i, %.thread.i
-  %587 = phi i64 [ %.pre.i.i.i104.i, %.noexc105.i ], [ %583, %.thread.i ]
-  %588 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !alias.scope !24384, !noalias !24391, !nonnull !4, !noundef !4
-  %589 = getelementptr inbounds { i64, [6 x i64] }, ptr %588, i64 %587
-  store i64 1, ptr %589, align 8, !noalias !24333
-  %.sroa.4.0..sroa_idx.i.i102.i = getelementptr inbounds nuw i8, ptr %589, i64 8
-  store double %558, ptr %.sroa.4.0..sroa_idx.i.i102.i, align 8, !noalias !24333
-  %.sroa.5.0..sroa_idx.i.i103.i = getelementptr inbounds nuw i8, ptr %589, i64 16
-  store double %559, ptr %.sroa.5.0..sroa_idx.i.i103.i, align 8, !noalias !24333
-  %590 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24384, !noalias !24391, !noundef !4
-  %591 = add i64 %590, 1
-  store i64 %591, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24384, !noalias !24391
-  invoke void @"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$3arc17hcbbb6d66eecb9f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, double noundef %558, double noundef %559, double noundef %.sroa.0.0.i.i71544.i, double noundef %.sroa.5.0.i.i70543.i, double noundef %.sroa.0.0.i.i89.i, double noundef %.sroa.5.0.i.i88.i)
-          to label %switch.lookup199 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i.i31: ; preds = %.noexc105.i, %.thread.i
+  %575 = phi i64 [ %.pre.i.i.i104.i, %.noexc105.i ], [ %571, %.thread.i ]
+  %576 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !alias.scope !24384, !noalias !24391, !nonnull !4, !noundef !4
+  %577 = getelementptr inbounds { i64, [6 x i64] }, ptr %576, i64 %575
+  store i64 1, ptr %577, align 8, !noalias !24333
+  %.sroa.4.0..sroa_idx.i.i102.i = getelementptr inbounds nuw i8, ptr %577, i64 8
+  store double %546, ptr %.sroa.4.0..sroa_idx.i.i102.i, align 8, !noalias !24333
+  %.sroa.5.0..sroa_idx.i.i103.i = getelementptr inbounds nuw i8, ptr %577, i64 16
+  store double %547, ptr %.sroa.5.0..sroa_idx.i.i103.i, align 8, !noalias !24333
+  %578 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24384, !noalias !24391, !noundef !4
+  %579 = add i64 %578, 1
+  store i64 %579, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24384, !noalias !24391
+  invoke void @"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$3arc17hcbbb6d66eecb9f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, double noundef %546, double noundef %547, double noundef %.sroa.0.0.i.i71544.i, double noundef %.sroa.5.0.i.i70543.i, double noundef %.sroa.0.0.i.i89.i, double noundef %.sroa.5.0.i.i88.i)
+          to label %switch.lookup193 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.sink.split.i": ; preds = %.noexc139.i, %639, %.noexc61.i, %553
-  %.sink763.i = phi i64 [ %.pre.i.i138.i, %.noexc139.i ], [ %613, %639 ], [ %.pre.i.i60.i, %.noexc61.i ], [ %536, %553 ]
-  %.sroa.0.0.i.i123.sink.i = phi double [ %.sroa.0.0.i.i123.i, %.noexc139.i ], [ %.sroa.0.0.i.i123.i, %639 ], [ %.sroa.0.0.i.i46.i, %.noexc61.i ], [ %.sroa.0.0.i.i46.i, %553 ]
-  %.sroa.5.0.i.i122.sink.i = phi double [ %.sroa.5.0.i.i122.i, %.noexc139.i ], [ %.sroa.5.0.i.i122.i, %639 ], [ %.sroa.5.0.i.i45.i, %.noexc61.i ], [ %.sroa.5.0.i.i45.i, %553 ]
-  %592 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !noalias !24329, !nonnull !4, !noundef !4
-  %593 = getelementptr inbounds { i64, [6 x i64] }, ptr %592, i64 %.sink763.i
-  store i64 1, ptr %593, align 8, !noalias !24333
-  %.sroa.4.0..sroa_idx.i136.i = getelementptr inbounds nuw i8, ptr %593, i64 8
+"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.sink.split.i": ; preds = %.noexc139.i, %627, %.noexc61.i, %541
+  %.sink763.i = phi i64 [ %.pre.i.i138.i, %.noexc139.i ], [ %601, %627 ], [ %.pre.i.i60.i, %.noexc61.i ], [ %524, %541 ]
+  %.sroa.0.0.i.i123.sink.i = phi double [ %.sroa.0.0.i.i123.i, %.noexc139.i ], [ %.sroa.0.0.i.i123.i, %627 ], [ %.sroa.0.0.i.i46.i, %.noexc61.i ], [ %.sroa.0.0.i.i46.i, %541 ]
+  %.sroa.5.0.i.i122.sink.i = phi double [ %.sroa.5.0.i.i122.i, %.noexc139.i ], [ %.sroa.5.0.i.i122.i, %627 ], [ %.sroa.5.0.i.i45.i, %.noexc61.i ], [ %.sroa.5.0.i.i45.i, %541 ]
+  %580 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !noalias !24329, !nonnull !4, !noundef !4
+  %581 = getelementptr inbounds { i64, [6 x i64] }, ptr %580, i64 %.sink763.i
+  store i64 1, ptr %581, align 8, !noalias !24333
+  %.sroa.4.0..sroa_idx.i136.i = getelementptr inbounds nuw i8, ptr %581, i64 8
   store double %.sroa.0.0.i.i123.sink.i, ptr %.sroa.4.0..sroa_idx.i136.i, align 8, !noalias !24333
-  %.sroa.5.0..sroa_idx.i137.i = getelementptr inbounds nuw i8, ptr %593, i64 16
+  %.sroa.5.0..sroa_idx.i137.i = getelementptr inbounds nuw i8, ptr %581, i64 16
   store double %.sroa.5.0.i.i122.sink.i, ptr %.sroa.5.0..sroa_idx.i137.i, align 8, !noalias !24333
-  %594 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !noalias !24329, !noundef !4
-  %595 = add i64 %594, 1
-  store i64 %595, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !noalias !24329
-  br label %switch.lookup199
+  %582 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !noalias !24329, !noundef !4
+  %583 = add i64 %582, 1
+  store i64 %583, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !noalias !24329
+  br label %switch.lookup193
 
-switch.lookup199:                                 ; preds = %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i.i35, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.sink.split.i"
-  %596 = shl nuw nsw i8 %1, 3
-  %switch.shiftamt201 = zext nneg i8 %596 to i32
-  %switch.downshift202 = lshr i32 197121, %switch.shiftamt201
-  %switch.masked203 = trunc i32 %switch.downshift202 to i8
-  %.not693.i = icmp eq i8 %2, %switch.masked203
-  br i1 %.not693.i, label %._crit_edge.i, label %.lr.ph.i28
+switch.lookup193:                                 ; preds = %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i.i31, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.sink.split.i"
+  %584 = shl nuw nsw i8 %1, 3
+  %switch.shiftamt195 = zext nneg i8 %584 to i32
+  %switch.downshift196 = lshr i32 197121, %switch.shiftamt195
+  %switch.masked197 = trunc i32 %switch.downshift196 to i8
+  %.not693.i = icmp eq i8 %2, %switch.masked197
+  br i1 %.not693.i, label %._crit_edge.i, label %.lr.ph.i24
 
-.lr.ph.i28:                                       ; preds = %switch.lookup199
-  %597 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %598 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %599 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  br label %643
+.lr.ph.i24:                                       ; preds = %switch.lookup193
+  %585 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %586 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %587 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  br label %631
 
-"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit27.i": ; preds = %448, %446, %444, %443
-  %.0.i26.i = phi ptr [ %445, %444 ], [ %447, %446 ], [ %449, %448 ], [ %3, %443 ]
-  %600 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9end_inner17h1e20cb6e6d27c977E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i26.i)
-          to label %601 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit27.i": ; preds = %436, %434, %432, %431
+  %.0.i26.i = phi ptr [ %433, %432 ], [ %435, %434 ], [ %437, %436 ], [ %3, %431 ]
+  %588 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9end_inner17h1e20cb6e6d27c977E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i26.i)
+          to label %589 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-601:                                              ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit27.i"
-  %602 = extractvalue { double, double } %600, 0
-  %603 = extractvalue { double, double } %600, 1
-  %604 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24393, !noalias !24398, !noundef !4
-  %605 = load i64, ptr %7, align 8, !alias.scope !24393, !noalias !24398, !noundef !4
-  %606 = icmp eq i64 %604, %605
-  br i1 %606, label %607, label %608
+589:                                              ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit27.i"
+  %590 = extractvalue { double, double } %588, 0
+  %591 = extractvalue { double, double } %588, 1
+  %592 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24393, !noalias !24398, !noundef !4
+  %593 = load i64, ptr %7, align 8, !alias.scope !24393, !noalias !24398, !noundef !4
+  %594 = icmp eq i64 %592, %593
+  br i1 %594, label %595, label %596
 
-607:                                              ; preds = %601
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %604)
+595:                                              ; preds = %589
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %592)
           to label %.noexc111.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-.noexc111.i:                                      ; preds = %607
-  %.pre.i.i110.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24393, !noalias !24398
-  br label %608
+.noexc111.i:                                      ; preds = %595
+  %.pre.i.i110.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24393, !noalias !24398
+  br label %596
 
-608:                                              ; preds = %.noexc111.i, %601
-  %609 = phi i64 [ %.pre.i.i110.i, %.noexc111.i ], [ %604, %601 ]
-  %610 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !alias.scope !24393, !noalias !24398, !nonnull !4, !noundef !4
-  %611 = getelementptr inbounds { i64, [6 x i64] }, ptr %610, i64 %609
-  store i64 0, ptr %611, align 8, !noalias !24333
-  %.sroa.4.0..sroa_idx.i108.i = getelementptr inbounds nuw i8, ptr %611, i64 8
-  store double %602, ptr %.sroa.4.0..sroa_idx.i108.i, align 8, !noalias !24333
-  %.sroa.5.0..sroa_idx.i109.i = getelementptr inbounds nuw i8, ptr %611, i64 16
-  store double %603, ptr %.sroa.5.0..sroa_idx.i109.i, align 8, !noalias !24333
-  %612 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24393, !noalias !24398, !noundef !4
-  %613 = add i64 %612, 1
-  store i64 %613, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24393, !noalias !24398
-  %614 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 16
-  %.val.i113.i = load double, ptr %614, align 8, !alias.scope !24400, !noalias !24333, !noundef !4
-  %615 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 32
-  %616 = load double, ptr %615, align 8, !alias.scope !24400, !noalias !24333, !noundef !4
-  %617 = fneg double %616
-  %.0.i.inv.i.i.i.i.i114.i = fcmp ord double %616, 0.000000e+00
-  %.0.i.i.i.i.i115.i = select i1 %.0.i.inv.i.i.i.i.i114.i, double %617, double 0.000000e+00
-  %618 = fadd double %.val.i113.i, %.0.i.i.i.i.i115.i
-  %.0.i.inv.i.i.i1.i.i116.i = fcmp ord double %618, 0.000000e+00
-  %.0.i.i.i2.i.i117.i = select i1 %.0.i.inv.i.i.i1.i.i116.i, double %618, double 0.000000e+00
-  %619 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 24
-  %620 = load double, ptr %619, align 8, !alias.scope !24400, !noalias !24333, !noundef !4
-  %621 = fneg double %620
-  %.0.i.inv.i.i.i.i118.i = fcmp ord double %620, 0.000000e+00
-  %.0.i.i.i.i119.i = select i1 %.0.i.inv.i.i.i.i118.i, double %621, double 0.000000e+00
-  %622 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 40
-  %623 = load i8, ptr %622, align 8, !range !3454, !alias.scope !24403, !noalias !24333, !noundef !4
-  switch i8 %623, label %default.unreachable [
-    i8 0, label %639
-    i8 1, label %624
-    i8 2, label %628
-    i8 3, label %635
+596:                                              ; preds = %.noexc111.i, %589
+  %597 = phi i64 [ %.pre.i.i110.i, %.noexc111.i ], [ %592, %589 ]
+  %598 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !alias.scope !24393, !noalias !24398, !nonnull !4, !noundef !4
+  %599 = getelementptr inbounds { i64, [6 x i64] }, ptr %598, i64 %597
+  store i64 0, ptr %599, align 8, !noalias !24333
+  %.sroa.4.0..sroa_idx.i108.i = getelementptr inbounds nuw i8, ptr %599, i64 8
+  store double %590, ptr %.sroa.4.0..sroa_idx.i108.i, align 8, !noalias !24333
+  %.sroa.5.0..sroa_idx.i109.i = getelementptr inbounds nuw i8, ptr %599, i64 16
+  store double %591, ptr %.sroa.5.0..sroa_idx.i109.i, align 8, !noalias !24333
+  %600 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24393, !noalias !24398, !noundef !4
+  %601 = add i64 %600, 1
+  store i64 %601, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24393, !noalias !24398
+  %602 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 16
+  %.val.i113.i = load double, ptr %602, align 8, !alias.scope !24400, !noalias !24333, !noundef !4
+  %603 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 32
+  %604 = load double, ptr %603, align 8, !alias.scope !24400, !noalias !24333, !noundef !4
+  %605 = fneg double %604
+  %.0.i.inv.i.i.i.i.i114.i = fcmp ord double %604, 0.000000e+00
+  %.0.i.i.i.i.i115.i = select i1 %.0.i.inv.i.i.i.i.i114.i, double %605, double 0.000000e+00
+  %606 = fadd double %.val.i113.i, %.0.i.i.i.i.i115.i
+  %.0.i.inv.i.i.i1.i.i116.i = fcmp ord double %606, 0.000000e+00
+  %.0.i.i.i2.i.i117.i = select i1 %.0.i.inv.i.i.i1.i.i116.i, double %606, double 0.000000e+00
+  %607 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 24
+  %608 = load double, ptr %607, align 8, !alias.scope !24400, !noalias !24333, !noundef !4
+  %609 = fneg double %608
+  %.0.i.inv.i.i.i.i118.i = fcmp ord double %608, 0.000000e+00
+  %.0.i.i.i.i119.i = select i1 %.0.i.inv.i.i.i.i118.i, double %609, double 0.000000e+00
+  %610 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 40
+  %611 = load i8, ptr %610, align 8, !range !3454, !alias.scope !24403, !noalias !24333, !noundef !4
+  switch i8 %611, label %default.unreachable [
+    i8 0, label %627
+    i8 1, label %612
+    i8 2, label %616
+    i8 3, label %623
   ]
 
-624:                                              ; preds = %608
-  %625 = load double, ptr %.0.i26.i, align 8, !alias.scope !24403, !noalias !24333, !noundef !4
-  %626 = fneg double %.0.i.i.i.i119.i
+612:                                              ; preds = %596
+  %613 = load double, ptr %.0.i26.i, align 8, !alias.scope !24403, !noalias !24333, !noundef !4
+  %614 = fneg double %.0.i.i.i.i119.i
   %.0.i.inv.i.i.i.i.i.i130.i = fcmp ord double %.0.i.i.i.i119.i, 0.000000e+00
-  %.0.i.i.i.i.i.i131.i = select i1 %.0.i.inv.i.i.i.i.i.i130.i, double %626, double 0.000000e+00
-  %627 = fadd double %.0.i.i.i.i.i.i131.i, %625
-  %.0.i.inv.i.i.i1.i.i.i132.i = fcmp ord double %627, 0.000000e+00
-  %.0.i.i.i2.i.i.i133.i = select i1 %.0.i.inv.i.i.i1.i.i.i132.i, double %627, double 0.000000e+00
-  br label %639
+  %.0.i.i.i.i.i.i131.i = select i1 %.0.i.inv.i.i.i.i.i.i130.i, double %614, double 0.000000e+00
+  %615 = fadd double %.0.i.i.i.i.i.i131.i, %613
+  %.0.i.inv.i.i.i1.i.i.i132.i = fcmp ord double %615, 0.000000e+00
+  %.0.i.i.i2.i.i.i133.i = select i1 %.0.i.inv.i.i.i1.i.i.i132.i, double %615, double 0.000000e+00
+  br label %627
 
-628:                                              ; preds = %608
-  %629 = load double, ptr %.0.i26.i, align 8, !alias.scope !24403, !noalias !24333, !noundef !4
-  %630 = fsub double %629, %.0.i.i.i2.i.i117.i
-  %.0.i.inv.i.i.i1.i3.i.i124.i = fcmp ord double %630, 0.000000e+00
-  %.0.i.i.i2.i4.i.i125.i = select i1 %.0.i.inv.i.i.i1.i3.i.i124.i, double %630, double 0.000000e+00
-  %631 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 8
-  %632 = load double, ptr %631, align 8, !alias.scope !24403, !noalias !24333, !noundef !4
-  %633 = fneg double %.0.i.i.i.i119.i
+616:                                              ; preds = %596
+  %617 = load double, ptr %.0.i26.i, align 8, !alias.scope !24403, !noalias !24333, !noundef !4
+  %618 = fsub double %617, %.0.i.i.i2.i.i117.i
+  %.0.i.inv.i.i.i1.i3.i.i124.i = fcmp ord double %618, 0.000000e+00
+  %.0.i.i.i2.i4.i.i125.i = select i1 %.0.i.inv.i.i.i1.i3.i.i124.i, double %618, double 0.000000e+00
+  %619 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 8
+  %620 = load double, ptr %619, align 8, !alias.scope !24403, !noalias !24333, !noundef !4
+  %621 = fneg double %.0.i.i.i.i119.i
   %.0.i.inv.i.i.i.i5.i.i126.i = fcmp ord double %.0.i.i.i.i119.i, 0.000000e+00
-  %.0.i.i.i.i6.i.i127.i = select i1 %.0.i.inv.i.i.i.i5.i.i126.i, double %633, double 0.000000e+00
-  %634 = fadd double %.0.i.i.i.i6.i.i127.i, %632
-  %.0.i.inv.i.i.i1.i7.i.i128.i = fcmp ord double %634, 0.000000e+00
-  %.0.i.i.i2.i8.i.i129.i = select i1 %.0.i.inv.i.i.i1.i7.i.i128.i, double %634, double 0.000000e+00
-  br label %639
+  %.0.i.i.i.i6.i.i127.i = select i1 %.0.i.inv.i.i.i.i5.i.i126.i, double %621, double 0.000000e+00
+  %622 = fadd double %.0.i.i.i.i6.i.i127.i, %620
+  %.0.i.inv.i.i.i1.i7.i.i128.i = fcmp ord double %622, 0.000000e+00
+  %.0.i.i.i2.i8.i.i129.i = select i1 %.0.i.inv.i.i.i1.i7.i.i128.i, double %622, double 0.000000e+00
+  br label %627
 
-635:                                              ; preds = %608
-  %636 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 8
-  %637 = load double, ptr %636, align 8, !alias.scope !24403, !noalias !24333, !noundef !4
-  %638 = fsub double %637, %.0.i.i.i2.i.i117.i
-  %.0.i.inv.i.i.i1.i11.i.i120.i = fcmp ord double %638, 0.000000e+00
-  %.0.i.i.i2.i12.i.i121.i = select i1 %.0.i.inv.i.i.i1.i11.i.i120.i, double %638, double 0.000000e+00
-  br label %639
+623:                                              ; preds = %596
+  %624 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 8
+  %625 = load double, ptr %624, align 8, !alias.scope !24403, !noalias !24333, !noundef !4
+  %626 = fsub double %625, %.0.i.i.i2.i.i117.i
+  %.0.i.inv.i.i.i1.i11.i.i120.i = fcmp ord double %626, 0.000000e+00
+  %.0.i.i.i2.i12.i.i121.i = select i1 %.0.i.inv.i.i.i1.i11.i.i120.i, double %626, double 0.000000e+00
+  br label %627
 
-639:                                              ; preds = %635, %628, %624, %608
-  %.sroa.5.0.i.i122.i = phi double [ %.0.i.i.i2.i.i117.i, %624 ], [ %.0.i.i.i2.i8.i.i129.i, %628 ], [ %.0.i.i.i2.i12.i.i121.i, %635 ], [ %.0.i.i.i.i119.i, %608 ]
-  %.sroa.0.0.i.i123.i = phi double [ %.0.i.i.i2.i.i.i133.i, %624 ], [ %.0.i.i.i2.i4.i.i125.i, %628 ], [ %.0.i.i.i.i119.i, %635 ], [ %.0.i.i.i2.i.i117.i, %608 ]
-  %640 = load i64, ptr %7, align 8, !alias.scope !24406, !noalias !24411, !noundef !4
-  %641 = icmp eq i64 %613, %640
-  br i1 %641, label %642, label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.sink.split.i"
+627:                                              ; preds = %623, %616, %612, %596
+  %.sroa.5.0.i.i122.i = phi double [ %.0.i.i.i2.i.i117.i, %612 ], [ %.0.i.i.i2.i8.i.i129.i, %616 ], [ %.0.i.i.i2.i12.i.i121.i, %623 ], [ %.0.i.i.i.i119.i, %596 ]
+  %.sroa.0.0.i.i123.i = phi double [ %.0.i.i.i2.i.i.i133.i, %612 ], [ %.0.i.i.i2.i4.i.i125.i, %616 ], [ %.0.i.i.i.i119.i, %623 ], [ %.0.i.i.i2.i.i117.i, %596 ]
+  %628 = load i64, ptr %7, align 8, !alias.scope !24406, !noalias !24411, !noundef !4
+  %629 = icmp eq i64 %601, %628
+  br i1 %629, label %630, label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.sink.split.i"
 
-642:                                              ; preds = %639
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %613)
+630:                                              ; preds = %627
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %601)
           to label %.noexc139.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-.noexc139.i:                                      ; preds = %642
-  %.pre.i.i138.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24406, !noalias !24411
+.noexc139.i:                                      ; preds = %630
+  %.pre.i.i138.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24406, !noalias !24411
   br label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.sink.split.i"
 
-._crit_edge.i:                                    ; preds = %switch.lookup214, %switch.lookup199
-  br i1 %433, label %654, label %647
+._crit_edge.i:                                    ; preds = %switch.lookup208, %switch.lookup193
+  br i1 %421, label %642, label %635
 
-643:                                              ; preds = %switch.lookup214, %.lr.ph.i28
-  %.0694.i = phi i8 [ %switch.masked203, %.lr.ph.i28 ], [ %switch.masked218, %switch.lookup214 ]
+631:                                              ; preds = %switch.lookup208, %.lr.ph.i24
+  %.0694.i = phi i8 [ %switch.masked197, %.lr.ph.i24 ], [ %switch.masked212, %switch.lookup208 ]
   switch i8 %.0694.i, label %default.unreachable [
     i8 0, label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit142.i"
-    i8 1, label %644
-    i8 2, label %645
-    i8 3, label %646
+    i8 1, label %632
+    i8 2, label %633
+    i8 3, label %634
   ]
 
-644:                                              ; preds = %643
+632:                                              ; preds = %631
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit142.i"
 
-645:                                              ; preds = %643
+633:                                              ; preds = %631
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit142.i"
 
-646:                                              ; preds = %643
+634:                                              ; preds = %631
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit142.i"
 
-647:                                              ; preds = %._crit_edge.i
+635:                                              ; preds = %._crit_edge.i
   switch i8 %2, label %default.unreachable [
     i8 0, label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit144.i"
-    i8 1, label %648
-    i8 2, label %650
-    i8 3, label %652
+    i8 1, label %636
+    i8 2, label %638
+    i8 3, label %640
   ]
 
-648:                                              ; preds = %647
-  %649 = getelementptr inbounds nuw i8, ptr %3, i64 48
+636:                                              ; preds = %635
+  %637 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit144.i"
 
-650:                                              ; preds = %647
-  %651 = getelementptr inbounds nuw i8, ptr %3, i64 96
+638:                                              ; preds = %635
+  %639 = getelementptr inbounds nuw i8, ptr %3, i64 96
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit144.i"
 
-652:                                              ; preds = %647
-  %653 = getelementptr inbounds nuw i8, ptr %3, i64 144
+640:                                              ; preds = %635
+  %641 = getelementptr inbounds nuw i8, ptr %3, i64 144
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit144.i"
 
-654:                                              ; preds = %._crit_edge.i
+642:                                              ; preds = %._crit_edge.i
   switch i8 %1, label %default.unreachable [
     i8 0, label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit146.i"
-    i8 1, label %655
-    i8 2, label %657
-    i8 3, label %659
+    i8 1, label %643
+    i8 2, label %645
+    i8 3, label %647
   ]
 
-655:                                              ; preds = %654
-  %656 = getelementptr inbounds nuw i8, ptr %3, i64 48
+643:                                              ; preds = %642
+  %644 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit146.i"
 
-657:                                              ; preds = %654
-  %658 = getelementptr inbounds nuw i8, ptr %3, i64 96
+645:                                              ; preds = %642
+  %646 = getelementptr inbounds nuw i8, ptr %3, i64 96
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit146.i"
 
-659:                                              ; preds = %654
-  %660 = getelementptr inbounds nuw i8, ptr %3, i64 144
+647:                                              ; preds = %642
+  %648 = getelementptr inbounds nuw i8, ptr %3, i64 144
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit146.i"
 
-"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit144.i": ; preds = %652, %650, %648, %647
-  %.0.i143.i = phi ptr [ %649, %648 ], [ %651, %650 ], [ %653, %652 ], [ %3, %647 ]
-  %661 = getelementptr i8, ptr %.0.i143.i, i64 16
-  %.val23.i = load double, ptr %661, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
+"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit144.i": ; preds = %640, %638, %636, %635
+  %.0.i143.i = phi ptr [ %637, %636 ], [ %639, %638 ], [ %641, %640 ], [ %3, %635 ]
+  %649 = getelementptr i8, ptr %.0.i143.i, i64 16
+  %.val23.i = load double, ptr %649, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
   %or.cond.i147.i = fcmp uno double %.val23.i, 0.000000e+00
-  br i1 %or.cond.i147.i, label %.invoke.i33, label %662
+  br i1 %or.cond.i147.i, label %.invoke.i29, label %650
 
-662:                                              ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit144.i"
-  %663 = fcmp ugt double %.val23.i, 0.000000e+00
-  %664 = getelementptr inbounds nuw i8, ptr %.0.i143.i, i64 32
-  %665 = load double, ptr %664, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
-  %666 = fneg double %665
-  %.0.i.inv.i.i.i.i174.i = fcmp ord double %665, 0.000000e+00
-  %.0.i.i.i.i175.i = select i1 %.0.i.inv.i.i.i.i174.i, double %666, double 0.000000e+00
-  %667 = getelementptr inbounds nuw i8, ptr %.0.i143.i, i64 24
-  %668 = load double, ptr %667, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
-  %669 = fneg double %668
-  %.0.i.inv.i.i.i.i.i177.i = fcmp ord double %668, 0.000000e+00
-  %.0.i.i.i.i.i178.i = select i1 %.0.i.inv.i.i.i.i.i177.i, double %669, double 0.000000e+00
-  br i1 %663, label %690, label %670
+650:                                              ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit144.i"
+  %651 = fcmp ugt double %.val23.i, 0.000000e+00
+  %652 = getelementptr inbounds nuw i8, ptr %.0.i143.i, i64 32
+  %653 = load double, ptr %652, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
+  %654 = fneg double %653
+  %.0.i.inv.i.i.i.i174.i = fcmp ord double %653, 0.000000e+00
+  %.0.i.i.i.i175.i = select i1 %.0.i.inv.i.i.i.i174.i, double %654, double 0.000000e+00
+  %655 = getelementptr inbounds nuw i8, ptr %.0.i143.i, i64 24
+  %656 = load double, ptr %655, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
+  %657 = fneg double %656
+  %.0.i.inv.i.i.i.i.i177.i = fcmp ord double %656, 0.000000e+00
+  %.0.i.i.i.i.i178.i = select i1 %.0.i.inv.i.i.i.i.i177.i, double %657, double 0.000000e+00
+  br i1 %651, label %678, label %658
 
-670:                                              ; preds = %662
-  %671 = getelementptr inbounds nuw i8, ptr %.0.i143.i, i64 40
-  %672 = load i8, ptr %671, align 8, !range !3454, !alias.scope !24413, !noalias !24333, !noundef !4
-  switch i8 %672, label %default.unreachable [
-    i8 0, label %695
-    i8 1, label %673
-    i8 2, label %677
-    i8 3, label %685
+658:                                              ; preds = %650
+  %659 = getelementptr inbounds nuw i8, ptr %.0.i143.i, i64 40
+  %660 = load i8, ptr %659, align 8, !range !3454, !alias.scope !24413, !noalias !24333, !noundef !4
+  switch i8 %660, label %default.unreachable [
+    i8 0, label %683
+    i8 1, label %661
+    i8 2, label %665
+    i8 3, label %673
   ]
 
-673:                                              ; preds = %670
-  %674 = load double, ptr %.0.i143.i, align 8, !alias.scope !24413, !noalias !24333, !noundef !4
-  %675 = fneg double %.0.i.i.i.i.i178.i
+661:                                              ; preds = %658
+  %662 = load double, ptr %.0.i143.i, align 8, !alias.scope !24413, !noalias !24333, !noundef !4
+  %663 = fneg double %.0.i.i.i.i.i178.i
   %.0.i.inv.i.i.i.i.i.i168.i = fcmp ord double %.0.i.i.i.i.i178.i, 0.000000e+00
-  %.0.i.i.i.i.i.i169.i = select i1 %.0.i.inv.i.i.i.i.i.i168.i, double %675, double 0.000000e+00
-  %676 = fadd double %.0.i.i.i.i.i.i169.i, %674
-  %.0.i.inv.i.i.i1.i.i.i170.i = fcmp ord double %676, 0.000000e+00
-  %.0.i.i.i2.i.i.i171.i = select i1 %.0.i.inv.i.i.i1.i.i.i170.i, double %676, double 0.000000e+00
-  br label %695
+  %.0.i.i.i.i.i.i169.i = select i1 %.0.i.inv.i.i.i.i.i.i168.i, double %663, double 0.000000e+00
+  %664 = fadd double %.0.i.i.i.i.i.i169.i, %662
+  %.0.i.inv.i.i.i1.i.i.i170.i = fcmp ord double %664, 0.000000e+00
+  %.0.i.i.i2.i.i.i171.i = select i1 %.0.i.inv.i.i.i1.i.i.i170.i, double %664, double 0.000000e+00
+  br label %683
 
-677:                                              ; preds = %670
-  %678 = load double, ptr %.0.i143.i, align 8, !alias.scope !24413, !noalias !24333, !noundef !4
-  %679 = fneg double %.0.i.i.i.i175.i
+665:                                              ; preds = %658
+  %666 = load double, ptr %.0.i143.i, align 8, !alias.scope !24413, !noalias !24333, !noundef !4
+  %667 = fneg double %.0.i.i.i.i175.i
   %.0.i.inv.i.i.i.i1.i.i160.i = fcmp ord double %.0.i.i.i.i175.i, 0.000000e+00
-  %.0.i.i.i.i2.i.i161.i = select i1 %.0.i.inv.i.i.i.i1.i.i160.i, double %679, double 0.000000e+00
-  %680 = fadd double %.0.i.i.i.i2.i.i161.i, %678
-  %.0.i.inv.i.i.i1.i3.i.i162.i = fcmp ord double %680, 0.000000e+00
-  %.0.i.i.i2.i4.i.i163.i = select i1 %.0.i.inv.i.i.i1.i3.i.i162.i, double %680, double 0.000000e+00
-  %681 = getelementptr inbounds nuw i8, ptr %.0.i143.i, i64 8
-  %682 = load double, ptr %681, align 8, !alias.scope !24413, !noalias !24333, !noundef !4
-  %683 = fneg double %.0.i.i.i.i.i178.i
+  %.0.i.i.i.i2.i.i161.i = select i1 %.0.i.inv.i.i.i.i1.i.i160.i, double %667, double 0.000000e+00
+  %668 = fadd double %.0.i.i.i.i2.i.i161.i, %666
+  %.0.i.inv.i.i.i1.i3.i.i162.i = fcmp ord double %668, 0.000000e+00
+  %.0.i.i.i2.i4.i.i163.i = select i1 %.0.i.inv.i.i.i1.i3.i.i162.i, double %668, double 0.000000e+00
+  %669 = getelementptr inbounds nuw i8, ptr %.0.i143.i, i64 8
+  %670 = load double, ptr %669, align 8, !alias.scope !24413, !noalias !24333, !noundef !4
+  %671 = fneg double %.0.i.i.i.i.i178.i
   %.0.i.inv.i.i.i.i5.i.i164.i = fcmp ord double %.0.i.i.i.i.i178.i, 0.000000e+00
-  %.0.i.i.i.i6.i.i165.i = select i1 %.0.i.inv.i.i.i.i5.i.i164.i, double %683, double 0.000000e+00
-  %684 = fadd double %.0.i.i.i.i6.i.i165.i, %682
-  %.0.i.inv.i.i.i1.i7.i.i166.i = fcmp ord double %684, 0.000000e+00
-  %.0.i.i.i2.i8.i.i167.i = select i1 %.0.i.inv.i.i.i1.i7.i.i166.i, double %684, double 0.000000e+00
-  br label %695
+  %.0.i.i.i.i6.i.i165.i = select i1 %.0.i.inv.i.i.i.i5.i.i164.i, double %671, double 0.000000e+00
+  %672 = fadd double %.0.i.i.i.i6.i.i165.i, %670
+  %.0.i.inv.i.i.i1.i7.i.i166.i = fcmp ord double %672, 0.000000e+00
+  %.0.i.i.i2.i8.i.i167.i = select i1 %.0.i.inv.i.i.i1.i7.i.i166.i, double %672, double 0.000000e+00
+  br label %683
 
-685:                                              ; preds = %670
-  %686 = getelementptr inbounds nuw i8, ptr %.0.i143.i, i64 8
-  %687 = load double, ptr %686, align 8, !alias.scope !24413, !noalias !24333, !noundef !4
-  %688 = fneg double %.0.i.i.i.i175.i
+673:                                              ; preds = %658
+  %674 = getelementptr inbounds nuw i8, ptr %.0.i143.i, i64 8
+  %675 = load double, ptr %674, align 8, !alias.scope !24413, !noalias !24333, !noundef !4
+  %676 = fneg double %.0.i.i.i.i175.i
   %.0.i.inv.i.i.i.i9.i.i154.i = fcmp ord double %.0.i.i.i.i175.i, 0.000000e+00
-  %.0.i.i.i.i10.i.i155.i = select i1 %.0.i.inv.i.i.i.i9.i.i154.i, double %688, double 0.000000e+00
-  %689 = fadd double %.0.i.i.i.i10.i.i155.i, %687
-  %.0.i.inv.i.i.i1.i11.i.i156.i = fcmp ord double %689, 0.000000e+00
-  %.0.i.i.i2.i12.i.i157.i = select i1 %.0.i.inv.i.i.i1.i11.i.i156.i, double %689, double 0.000000e+00
-  br label %695
+  %.0.i.i.i.i10.i.i155.i = select i1 %.0.i.inv.i.i.i.i9.i.i154.i, double %676, double 0.000000e+00
+  %677 = fadd double %.0.i.i.i.i10.i.i155.i, %675
+  %.0.i.inv.i.i.i1.i11.i.i156.i = fcmp ord double %677, 0.000000e+00
+  %.0.i.i.i2.i12.i.i157.i = select i1 %.0.i.inv.i.i.i1.i11.i.i156.i, double %677, double 0.000000e+00
+  br label %683
 
-690:                                              ; preds = %662
-  %691 = fadd double %.val23.i, %.0.i.i.i.i.i178.i
-  %.0.i.inv.i.i.i1.i.i179.i = fcmp ord double %691, 0.000000e+00
-  %.0.i.i.i2.i.i180.i = select i1 %.0.i.inv.i.i.i1.i.i179.i, double %691, double 0.000000e+00
-  %692 = getelementptr inbounds nuw i8, ptr %.0.i143.i, i64 40
-  %693 = load i8, ptr %692, align 8, !range !3454, !alias.scope !24418, !noalias !24333, !noundef !4
-  switch i8 %693, label %default.unreachable [
+678:                                              ; preds = %650
+  %679 = fadd double %.val23.i, %.0.i.i.i.i.i178.i
+  %.0.i.inv.i.i.i1.i.i179.i = fcmp ord double %679, 0.000000e+00
+  %.0.i.i.i2.i.i180.i = select i1 %.0.i.inv.i.i.i1.i.i179.i, double %679, double 0.000000e+00
+  %680 = getelementptr inbounds nuw i8, ptr %.0.i143.i, i64 40
+  %681 = load i8, ptr %680, align 8, !range !3454, !alias.scope !24418, !noalias !24333, !noundef !4
+  switch i8 %681, label %default.unreachable [
     i8 0, label %.thread555.i
-    i8 1, label %708
-    i8 2, label %712
-    i8 3, label %721
+    i8 1, label %696
+    i8 2, label %700
+    i8 3, label %709
   ]
 
-.thread555.i:                                     ; preds = %690
-  %694 = fadd double %.val23.i, %.0.i.i.i.i175.i
-  %.0.i.inv.i.i.i1.i.i213558.i = fcmp ord double %694, 0.000000e+00
-  %.0.i.i.i2.i.i214559.i = select i1 %.0.i.inv.i.i.i1.i.i213558.i, double %694, double 0.000000e+00
-  br label %728
+.thread555.i:                                     ; preds = %678
+  %682 = fadd double %.val23.i, %.0.i.i.i.i175.i
+  %.0.i.inv.i.i.i1.i.i213558.i = fcmp ord double %682, 0.000000e+00
+  %.0.i.i.i2.i.i214559.i = select i1 %.0.i.inv.i.i.i1.i.i213558.i, double %682, double 0.000000e+00
+  br label %716
 
-695:                                              ; preds = %685, %677, %673, %670
-  %.sroa.5.0.i.i158.i = phi double [ %.0.i.i.i.i175.i, %673 ], [ %.0.i.i.i2.i8.i.i167.i, %677 ], [ %.0.i.i.i2.i12.i.i157.i, %685 ], [ %.0.i.i.i.i.i178.i, %670 ]
-  %.sroa.0.0.i.i159.i = phi double [ %.0.i.i.i2.i.i.i171.i, %673 ], [ %.0.i.i.i2.i4.i.i163.i, %677 ], [ %.0.i.i.i.i.i178.i, %685 ], [ %.0.i.i.i.i175.i, %670 ]
-  %696 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24423, !noalias !24428, !noundef !4
-  %697 = load i64, ptr %7, align 8, !alias.scope !24423, !noalias !24428, !noundef !4
-  %698 = icmp eq i64 %696, %697
-  br i1 %698, label %699, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit200.i
+683:                                              ; preds = %673, %665, %661, %658
+  %.sroa.5.0.i.i158.i = phi double [ %.0.i.i.i.i175.i, %661 ], [ %.0.i.i.i2.i8.i.i167.i, %665 ], [ %.0.i.i.i2.i12.i.i157.i, %673 ], [ %.0.i.i.i.i.i178.i, %658 ]
+  %.sroa.0.0.i.i159.i = phi double [ %.0.i.i.i2.i.i.i171.i, %661 ], [ %.0.i.i.i2.i4.i.i163.i, %665 ], [ %.0.i.i.i.i.i178.i, %673 ], [ %.0.i.i.i.i175.i, %658 ]
+  %684 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24423, !noalias !24428, !noundef !4
+  %685 = load i64, ptr %7, align 8, !alias.scope !24423, !noalias !24428, !noundef !4
+  %686 = icmp eq i64 %684, %685
+  br i1 %686, label %687, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit200.i
 
-699:                                              ; preds = %695
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %696)
+687:                                              ; preds = %683
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %684)
           to label %.noexc199.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-.noexc199.i:                                      ; preds = %699
-  %.pre.i.i198.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24423, !noalias !24428
+.noexc199.i:                                      ; preds = %687
+  %.pre.i.i198.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24423, !noalias !24428
   br label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit200.i
 
-_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit200.i: ; preds = %.noexc199.i, %695
-  %700 = phi i64 [ %.pre.i.i198.i, %.noexc199.i ], [ %696, %695 ]
-  %701 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !alias.scope !24423, !noalias !24428, !nonnull !4, !noundef !4
-  %702 = getelementptr inbounds { i64, [6 x i64] }, ptr %701, i64 %700
-  store i64 1, ptr %702, align 8, !noalias !24333
-  %.sroa.4.0..sroa_idx.i196.i = getelementptr inbounds nuw i8, ptr %702, i64 8
+_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit200.i: ; preds = %.noexc199.i, %683
+  %688 = phi i64 [ %.pre.i.i198.i, %.noexc199.i ], [ %684, %683 ]
+  %689 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !alias.scope !24423, !noalias !24428, !nonnull !4, !noundef !4
+  %690 = getelementptr inbounds { i64, [6 x i64] }, ptr %689, i64 %688
+  store i64 1, ptr %690, align 8, !noalias !24333
+  %.sroa.4.0..sroa_idx.i196.i = getelementptr inbounds nuw i8, ptr %690, i64 8
   store double %.sroa.0.0.i.i159.i, ptr %.sroa.4.0..sroa_idx.i196.i, align 8, !noalias !24333
-  %.sroa.5.0..sroa_idx.i197.i = getelementptr inbounds nuw i8, ptr %702, i64 16
+  %.sroa.5.0..sroa_idx.i197.i = getelementptr inbounds nuw i8, ptr %690, i64 16
   store double %.sroa.5.0.i.i158.i, ptr %.sroa.5.0..sroa_idx.i197.i, align 8, !noalias !24333
-  %703 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24423, !noalias !24428, !noundef !4
-  %704 = add i64 %703, 1
-  store i64 %704, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24423, !noalias !24428
+  %691 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24423, !noalias !24428, !noundef !4
+  %692 = add i64 %691, 1
+  store i64 %692, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24423, !noalias !24428
   br label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit237.i"
 
 "_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit237.i": ; preds = %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i231.i, %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit200.i
-  %705 = fcmp ugt double %665, %668
-  br i1 %705, label %706, label %742
+  %693 = fcmp ugt double %653, %656
+  br i1 %693, label %694, label %730
 
-706:                                              ; preds = %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit237.i"
-  %707 = fcmp ult double %665, %668
-  br i1 %707, label %.invoke.i33, label %742
+694:                                              ; preds = %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit237.i"
+  %695 = fcmp ult double %653, %656
+  br i1 %695, label %.invoke.i29, label %730
 
-708:                                              ; preds = %690
-  %709 = load double, ptr %.0.i143.i, align 8, !alias.scope !24418, !noalias !24333, !noundef !4
-  %710 = fsub double %709, %.0.i.i.i2.i.i180.i
-  %.0.i.inv.i.i.i1.i.i.i193.i = fcmp ord double %710, 0.000000e+00
-  %.0.i.i.i2.i.i.i194.i = select i1 %.0.i.inv.i.i.i1.i.i.i193.i, double %710, double 0.000000e+00
-  %711 = fadd double %.val23.i, %.0.i.i.i.i175.i
-  %.0.i.inv.i.i.i1.i.i213565.i = fcmp ord double %711, 0.000000e+00
-  %.0.i.i.i2.i.i214566.i = select i1 %.0.i.inv.i.i.i1.i.i213565.i, double %711, double 0.000000e+00
-  br label %728
+696:                                              ; preds = %678
+  %697 = load double, ptr %.0.i143.i, align 8, !alias.scope !24418, !noalias !24333, !noundef !4
+  %698 = fsub double %697, %.0.i.i.i2.i.i180.i
+  %.0.i.inv.i.i.i1.i.i.i193.i = fcmp ord double %698, 0.000000e+00
+  %.0.i.i.i2.i.i.i194.i = select i1 %.0.i.inv.i.i.i1.i.i.i193.i, double %698, double 0.000000e+00
+  %699 = fadd double %.val23.i, %.0.i.i.i.i175.i
+  %.0.i.inv.i.i.i1.i.i213565.i = fcmp ord double %699, 0.000000e+00
+  %.0.i.i.i2.i.i214566.i = select i1 %.0.i.inv.i.i.i1.i.i213565.i, double %699, double 0.000000e+00
+  br label %716
 
-712:                                              ; preds = %690
-  %713 = load double, ptr %.0.i143.i, align 8, !alias.scope !24418, !noalias !24333, !noundef !4
-  %714 = fneg double %.0.i.i.i.i175.i
+700:                                              ; preds = %678
+  %701 = load double, ptr %.0.i143.i, align 8, !alias.scope !24418, !noalias !24333, !noundef !4
+  %702 = fneg double %.0.i.i.i.i175.i
   %.0.i.inv.i.i.i.i1.i.i187.i = fcmp ord double %.0.i.i.i.i175.i, 0.000000e+00
-  %.0.i.i.i.i2.i.i188.i = select i1 %.0.i.inv.i.i.i.i1.i.i187.i, double %714, double 0.000000e+00
-  %715 = fadd double %.0.i.i.i.i2.i.i188.i, %713
-  %.0.i.inv.i.i.i1.i3.i.i189.i = fcmp ord double %715, 0.000000e+00
-  %.0.i.i.i2.i4.i.i190.i = select i1 %.0.i.inv.i.i.i1.i3.i.i189.i, double %715, double 0.000000e+00
-  %716 = getelementptr inbounds nuw i8, ptr %.0.i143.i, i64 8
-  %717 = load double, ptr %716, align 8, !alias.scope !24418, !noalias !24333, !noundef !4
-  %718 = fsub double %717, %.0.i.i.i2.i.i180.i
-  %.0.i.inv.i.i.i1.i7.i.i191.i = fcmp ord double %718, 0.000000e+00
-  %.0.i.i.i2.i8.i.i192.i = select i1 %.0.i.inv.i.i.i1.i7.i.i191.i, double %718, double 0.000000e+00
-  %719 = fadd double %.val23.i, %.0.i.i.i.i175.i
-  %.0.i.inv.i.i.i1.i.i213573.i = fcmp ord double %719, 0.000000e+00
-  %.0.i.i.i2.i.i214574.i = select i1 %.0.i.inv.i.i.i1.i.i213573.i, double %719, double 0.000000e+00
-  %720 = fsub double %713, %.0.i.i.i2.i.i214574.i
-  %.0.i.inv.i.i.i1.i3.i.i223.i = fcmp ord double %720, 0.000000e+00
-  %.0.i.i.i2.i4.i.i224.i = select i1 %.0.i.inv.i.i.i1.i3.i.i223.i, double %720, double 0.000000e+00
-  br label %728
+  %.0.i.i.i.i2.i.i188.i = select i1 %.0.i.inv.i.i.i.i1.i.i187.i, double %702, double 0.000000e+00
+  %703 = fadd double %.0.i.i.i.i2.i.i188.i, %701
+  %.0.i.inv.i.i.i1.i3.i.i189.i = fcmp ord double %703, 0.000000e+00
+  %.0.i.i.i2.i4.i.i190.i = select i1 %.0.i.inv.i.i.i1.i3.i.i189.i, double %703, double 0.000000e+00
+  %704 = getelementptr inbounds nuw i8, ptr %.0.i143.i, i64 8
+  %705 = load double, ptr %704, align 8, !alias.scope !24418, !noalias !24333, !noundef !4
+  %706 = fsub double %705, %.0.i.i.i2.i.i180.i
+  %.0.i.inv.i.i.i1.i7.i.i191.i = fcmp ord double %706, 0.000000e+00
+  %.0.i.i.i2.i8.i.i192.i = select i1 %.0.i.inv.i.i.i1.i7.i.i191.i, double %706, double 0.000000e+00
+  %707 = fadd double %.val23.i, %.0.i.i.i.i175.i
+  %.0.i.inv.i.i.i1.i.i213573.i = fcmp ord double %707, 0.000000e+00
+  %.0.i.i.i2.i.i214574.i = select i1 %.0.i.inv.i.i.i1.i.i213573.i, double %707, double 0.000000e+00
+  %708 = fsub double %701, %.0.i.i.i2.i.i214574.i
+  %.0.i.inv.i.i.i1.i3.i.i223.i = fcmp ord double %708, 0.000000e+00
+  %.0.i.i.i2.i4.i.i224.i = select i1 %.0.i.inv.i.i.i1.i3.i.i223.i, double %708, double 0.000000e+00
+  br label %716
 
-721:                                              ; preds = %690
-  %722 = getelementptr inbounds nuw i8, ptr %.0.i143.i, i64 8
-  %723 = load double, ptr %722, align 8, !alias.scope !24418, !noalias !24333, !noundef !4
-  %724 = fneg double %.0.i.i.i.i175.i
+709:                                              ; preds = %678
+  %710 = getelementptr inbounds nuw i8, ptr %.0.i143.i, i64 8
+  %711 = load double, ptr %710, align 8, !alias.scope !24418, !noalias !24333, !noundef !4
+  %712 = fneg double %.0.i.i.i.i175.i
   %.0.i.inv.i.i.i.i9.i.i181.i = fcmp ord double %.0.i.i.i.i175.i, 0.000000e+00
-  %.0.i.i.i.i10.i.i182.i = select i1 %.0.i.inv.i.i.i.i9.i.i181.i, double %724, double 0.000000e+00
-  %725 = fadd double %.0.i.i.i.i10.i.i182.i, %723
-  %.0.i.inv.i.i.i1.i11.i.i183.i = fcmp ord double %725, 0.000000e+00
-  %.0.i.i.i2.i12.i.i184.i = select i1 %.0.i.inv.i.i.i1.i11.i.i183.i, double %725, double 0.000000e+00
-  %726 = fadd double %.val23.i, %.0.i.i.i.i175.i
-  %.0.i.inv.i.i.i1.i.i213.i = fcmp ord double %726, 0.000000e+00
-  %.0.i.i.i2.i.i214.i = select i1 %.0.i.inv.i.i.i1.i.i213.i, double %726, double 0.000000e+00
-  %727 = fsub double %723, %.0.i.i.i2.i.i214.i
-  %.0.i.inv.i.i.i1.i11.i.i219.i = fcmp ord double %727, 0.000000e+00
-  %.0.i.i.i2.i12.i.i220.i = select i1 %.0.i.inv.i.i.i1.i11.i.i219.i, double %727, double 0.000000e+00
-  br label %728
+  %.0.i.i.i.i10.i.i182.i = select i1 %.0.i.inv.i.i.i.i9.i.i181.i, double %712, double 0.000000e+00
+  %713 = fadd double %.0.i.i.i.i10.i.i182.i, %711
+  %.0.i.inv.i.i.i1.i11.i.i183.i = fcmp ord double %713, 0.000000e+00
+  %.0.i.i.i2.i12.i.i184.i = select i1 %.0.i.inv.i.i.i1.i11.i.i183.i, double %713, double 0.000000e+00
+  %714 = fadd double %.val23.i, %.0.i.i.i.i175.i
+  %.0.i.inv.i.i.i1.i.i213.i = fcmp ord double %714, 0.000000e+00
+  %.0.i.i.i2.i.i214.i = select i1 %.0.i.inv.i.i.i1.i.i213.i, double %714, double 0.000000e+00
+  %715 = fsub double %711, %.0.i.i.i2.i.i214.i
+  %.0.i.inv.i.i.i1.i11.i.i219.i = fcmp ord double %715, 0.000000e+00
+  %.0.i.i.i2.i12.i.i220.i = select i1 %.0.i.inv.i.i.i1.i11.i.i219.i, double %715, double 0.000000e+00
+  br label %716
 
-728:                                              ; preds = %721, %712, %708, %.thread555.i
-  %.sroa.0.0.i.i186561.i = phi double [ %.0.i.i.i2.i.i.i194.i, %708 ], [ %.0.i.i.i2.i4.i.i190.i, %712 ], [ %.0.i.i.i2.i.i180.i, %721 ], [ %.0.i.i.i.i175.i, %.thread555.i ]
-  %.sroa.5.0.i.i185560.i = phi double [ %.0.i.i.i.i175.i, %708 ], [ %.0.i.i.i2.i8.i.i192.i, %712 ], [ %.0.i.i.i2.i12.i.i184.i, %721 ], [ %.0.i.i.i2.i.i180.i, %.thread555.i ]
-  %.sroa.5.0.i.i221.i = phi double [ %.0.i.i.i2.i.i214566.i, %708 ], [ %.0.i.i.i2.i8.i.i192.i, %712 ], [ %.0.i.i.i2.i12.i.i220.i, %721 ], [ %.0.i.i.i2.i.i180.i, %.thread555.i ]
-  %.sroa.0.0.i.i222.i = phi double [ %.0.i.i.i2.i.i.i194.i, %708 ], [ %.0.i.i.i2.i4.i.i224.i, %712 ], [ %.0.i.i.i2.i.i180.i, %721 ], [ %.0.i.i.i2.i.i214559.i, %.thread555.i ]
-  %729 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9mid_outer17hb19045bd875ed6f8E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i143.i)
-          to label %730 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+716:                                              ; preds = %709, %700, %696, %.thread555.i
+  %.sroa.0.0.i.i186561.i = phi double [ %.0.i.i.i2.i.i.i194.i, %696 ], [ %.0.i.i.i2.i4.i.i190.i, %700 ], [ %.0.i.i.i2.i.i180.i, %709 ], [ %.0.i.i.i.i175.i, %.thread555.i ]
+  %.sroa.5.0.i.i185560.i = phi double [ %.0.i.i.i.i175.i, %696 ], [ %.0.i.i.i2.i8.i.i192.i, %700 ], [ %.0.i.i.i2.i12.i.i184.i, %709 ], [ %.0.i.i.i2.i.i180.i, %.thread555.i ]
+  %.sroa.5.0.i.i221.i = phi double [ %.0.i.i.i2.i.i214566.i, %696 ], [ %.0.i.i.i2.i8.i.i192.i, %700 ], [ %.0.i.i.i2.i12.i.i220.i, %709 ], [ %.0.i.i.i2.i.i180.i, %.thread555.i ]
+  %.sroa.0.0.i.i222.i = phi double [ %.0.i.i.i2.i.i.i194.i, %696 ], [ %.0.i.i.i2.i4.i.i224.i, %700 ], [ %.0.i.i.i2.i.i180.i, %709 ], [ %.0.i.i.i2.i.i214559.i, %.thread555.i ]
+  %717 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9mid_outer17hb19045bd875ed6f8E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i143.i)
+          to label %718 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-730:                                              ; preds = %728
-  %731 = extractvalue { double, double } %729, 0
-  %732 = extractvalue { double, double } %729, 1
-  %733 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24430, !noalias !24437, !noundef !4
-  %734 = load i64, ptr %7, align 8, !alias.scope !24430, !noalias !24437, !noundef !4
-  %735 = icmp eq i64 %733, %734
-  br i1 %735, label %736, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i231.i
+718:                                              ; preds = %716
+  %719 = extractvalue { double, double } %717, 0
+  %720 = extractvalue { double, double } %717, 1
+  %721 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24430, !noalias !24437, !noundef !4
+  %722 = load i64, ptr %7, align 8, !alias.scope !24430, !noalias !24437, !noundef !4
+  %723 = icmp eq i64 %721, %722
+  br i1 %723, label %724, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i231.i
 
-736:                                              ; preds = %730
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %733)
+724:                                              ; preds = %718
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %721)
           to label %.noexc235.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-.noexc235.i:                                      ; preds = %736
-  %.pre.i.i.i234.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24430, !noalias !24437
+.noexc235.i:                                      ; preds = %724
+  %.pre.i.i.i234.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24430, !noalias !24437
   br label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i231.i
 
-_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i231.i: ; preds = %.noexc235.i, %730
-  %737 = phi i64 [ %.pre.i.i.i234.i, %.noexc235.i ], [ %733, %730 ]
-  %738 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !alias.scope !24430, !noalias !24437, !nonnull !4, !noundef !4
-  %739 = getelementptr inbounds { i64, [6 x i64] }, ptr %738, i64 %737
-  store i64 1, ptr %739, align 8, !noalias !24333
-  %.sroa.4.0..sroa_idx.i.i232.i = getelementptr inbounds nuw i8, ptr %739, i64 8
+_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i231.i: ; preds = %.noexc235.i, %718
+  %725 = phi i64 [ %.pre.i.i.i234.i, %.noexc235.i ], [ %721, %718 ]
+  %726 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !alias.scope !24430, !noalias !24437, !nonnull !4, !noundef !4
+  %727 = getelementptr inbounds { i64, [6 x i64] }, ptr %726, i64 %725
+  store i64 1, ptr %727, align 8, !noalias !24333
+  %.sroa.4.0..sroa_idx.i.i232.i = getelementptr inbounds nuw i8, ptr %727, i64 8
   store double %.sroa.0.0.i.i186561.i, ptr %.sroa.4.0..sroa_idx.i.i232.i, align 8, !noalias !24333
-  %.sroa.5.0..sroa_idx.i.i233.i = getelementptr inbounds nuw i8, ptr %739, i64 16
+  %.sroa.5.0..sroa_idx.i.i233.i = getelementptr inbounds nuw i8, ptr %727, i64 16
   store double %.sroa.5.0.i.i185560.i, ptr %.sroa.5.0..sroa_idx.i.i233.i, align 8, !noalias !24333
-  %740 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24430, !noalias !24437, !noundef !4
-  %741 = add i64 %740, 1
-  store i64 %741, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24430, !noalias !24437
-  invoke void @"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$3arc17hcbbb6d66eecb9f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, double noundef %.sroa.0.0.i.i186561.i, double noundef %.sroa.5.0.i.i185560.i, double noundef %.sroa.0.0.i.i222.i, double noundef %.sroa.5.0.i.i221.i, double noundef %731, double noundef %732)
+  %728 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24430, !noalias !24437, !noundef !4
+  %729 = add i64 %728, 1
+  store i64 %729, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24430, !noalias !24437
+  invoke void @"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$3arc17hcbbb6d66eecb9f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, double noundef %.sroa.0.0.i.i186561.i, double noundef %.sroa.5.0.i.i185560.i, double noundef %.sroa.0.0.i.i222.i, double noundef %.sroa.5.0.i.i221.i, double noundef %719, double noundef %720)
           to label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit237.i" unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-742:                                              ; preds = %706, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit237.i"
-  %.0.sroa.speculated.i.i.i.i201.i = phi double [ %665, %706 ], [ %668, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit237.i" ]
-  %743 = fmul double %.0.sroa.speculated.i.i.i.i201.i, 2.000000e+00
-  %.0.i.inv.i.i.i.i.i.i202.i = fcmp ord double %743, 0.000000e+00
-  %.neg.i.i203.i = fneg double %743
-  %744 = select i1 %.0.i.inv.i.i.i.i.i.i202.i, double %.neg.i.i203.i, double -0.000000e+00
-  %745 = fadd double %.val23.i, %744
-  %.0.i.inv.i.i.i1.i.i.i204.i = fcmp ord double %745, 0.000000e+00
-  %.0.i.i.i2.i.i.i205.i = select i1 %.0.i.inv.i.i.i1.i.i.i204.i, double %745, double 0.000000e+00
+730:                                              ; preds = %694, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit237.i"
+  %.0.sroa.speculated.i.i.i.i201.i = phi double [ %653, %694 ], [ %656, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit237.i" ]
+  %731 = fmul double %.0.sroa.speculated.i.i.i.i201.i, 2.000000e+00
+  %.0.i.inv.i.i.i.i.i.i202.i = fcmp ord double %731, 0.000000e+00
+  %.neg.i.i203.i = fneg double %731
+  %732 = select i1 %.0.i.inv.i.i.i.i.i.i202.i, double %.neg.i.i203.i, double -0.000000e+00
+  %733 = fadd double %.val23.i, %732
+  %.0.i.inv.i.i.i1.i.i.i204.i = fcmp ord double %733, 0.000000e+00
+  %.0.i.i.i2.i.i.i205.i = select i1 %.0.i.inv.i.i.i1.i.i.i204.i, double %733, double 0.000000e+00
   %.inv.i.i206.i = fcmp ole double %.0.i.i.i2.i.i.i205.i, 0.000000e+00
   %.0.sroa.speculated.i.i3.i.i207.i = select i1 %.inv.i.i206.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i205.i
-  %746 = fcmp ugt double %.0.sroa.speculated.i.i3.i.i207.i, 0.000000e+00
-  br i1 %746, label %749, label %747
+  %734 = fcmp ugt double %.0.sroa.speculated.i.i3.i.i207.i, 0.000000e+00
+  br i1 %734, label %737, label %735
 
-747:                                              ; preds = %742
-  %748 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints12center_inner17h9fc69018ae912dfaE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i143.i)
-          to label %751 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+735:                                              ; preds = %730
+  %736 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints12center_inner17h9fc69018ae912dfaE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i143.i)
+          to label %739 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-749:                                              ; preds = %742
-  %750 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9mid_inner17h2477946988fc9b81E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i143.i)
-          to label %756 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+737:                                              ; preds = %730
+  %738 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9mid_inner17h2477946988fc9b81E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i143.i)
+          to label %744 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-751:                                              ; preds = %747
-  %752 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24439, !noalias !24444, !noundef !4
-  %753 = load i64, ptr %7, align 8, !alias.scope !24439, !noalias !24444, !noundef !4
-  %754 = icmp eq i64 %752, %753
-  br i1 %754, label %755, label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit249.sink.split.i"
+739:                                              ; preds = %735
+  %740 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24439, !noalias !24444, !noundef !4
+  %741 = load i64, ptr %7, align 8, !alias.scope !24439, !noalias !24444, !noundef !4
+  %742 = icmp eq i64 %740, %741
+  br i1 %742, label %743, label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit249.sink.split.i"
 
-755:                                              ; preds = %751
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %752)
+743:                                              ; preds = %739
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %740)
           to label %.noexc241.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-.noexc241.i:                                      ; preds = %755
-  %.pre.i.i240.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24439, !noalias !24444
+.noexc241.i:                                      ; preds = %743
+  %.pre.i.i240.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24439, !noalias !24444
   br label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit249.sink.split.i"
 
-756:                                              ; preds = %749
-  %757 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints12center_inner17h9fc69018ae912dfaE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i143.i)
-          to label %758 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+744:                                              ; preds = %737
+  %745 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints12center_inner17h9fc69018ae912dfaE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i143.i)
+          to label %746 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-758:                                              ; preds = %756
-  %759 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints11start_inner17hb6ec1ce9261f43dfE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i143.i)
-          to label %760 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+746:                                              ; preds = %744
+  %747 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints11start_inner17hb6ec1ce9261f43dfE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i143.i)
+          to label %748 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-760:                                              ; preds = %758
-  %761 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24446, !noalias !24453, !noundef !4
-  %762 = load i64, ptr %7, align 8, !alias.scope !24446, !noalias !24453, !noundef !4
-  %763 = icmp eq i64 %761, %762
-  br i1 %763, label %764, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i399.invoke.i
+748:                                              ; preds = %746
+  %749 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24446, !noalias !24453, !noundef !4
+  %750 = load i64, ptr %7, align 8, !alias.scope !24446, !noalias !24453, !noundef !4
+  %751 = icmp eq i64 %749, %750
+  br i1 %751, label %752, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i399.invoke.i
 
-764:                                              ; preds = %760
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %761)
+752:                                              ; preds = %748
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %749)
           to label %.noexc247.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-.noexc247.i:                                      ; preds = %764
-  %.pre.i.i.i246.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24446, !noalias !24453
+.noexc247.i:                                      ; preds = %752
+  %.pre.i.i.i246.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24446, !noalias !24453
   br label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i399.invoke.i
 
-"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit249.sink.split.i": ; preds = %.noexc397.i, %889, %.noexc241.i, %751
-  %.sink770.i = phi i64 [ %.pre.i.i396.i, %.noexc397.i ], [ %890, %889 ], [ %.pre.i.i240.i, %.noexc241.i ], [ %752, %751 ]
-  %.pn.i = phi { double, double } [ %886, %.noexc397.i ], [ %886, %889 ], [ %748, %.noexc241.i ], [ %748, %751 ]
+"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit249.sink.split.i": ; preds = %.noexc397.i, %877, %.noexc241.i, %739
+  %.sink770.i = phi i64 [ %.pre.i.i396.i, %.noexc397.i ], [ %878, %877 ], [ %.pre.i.i240.i, %.noexc241.i ], [ %740, %739 ]
+  %.pn.i = phi { double, double } [ %874, %.noexc397.i ], [ %874, %877 ], [ %736, %.noexc241.i ], [ %736, %739 ]
   %.sink.i = extractvalue { double, double } %.pn.i, 1
   %.sink766.i = extractvalue { double, double } %.pn.i, 0
-  %765 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !noalias !24329, !nonnull !4, !noundef !4
-  %766 = getelementptr inbounds { i64, [6 x i64] }, ptr %765, i64 %.sink770.i
-  store i64 1, ptr %766, align 8, !noalias !24333
-  %.sroa.4.0..sroa_idx.i394.i = getelementptr inbounds nuw i8, ptr %766, i64 8
+  %753 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !noalias !24329, !nonnull !4, !noundef !4
+  %754 = getelementptr inbounds { i64, [6 x i64] }, ptr %753, i64 %.sink770.i
+  store i64 1, ptr %754, align 8, !noalias !24333
+  %.sroa.4.0..sroa_idx.i394.i = getelementptr inbounds nuw i8, ptr %754, i64 8
   store double %.sink766.i, ptr %.sroa.4.0..sroa_idx.i394.i, align 8, !noalias !24333
-  %.sroa.5.0..sroa_idx.i395.i = getelementptr inbounds nuw i8, ptr %766, i64 16
+  %.sroa.5.0..sroa_idx.i395.i = getelementptr inbounds nuw i8, ptr %754, i64 16
   store double %.sink.i, ptr %.sroa.5.0..sroa_idx.i395.i, align 8, !noalias !24333
-  %767 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !noalias !24329, !noundef !4
-  %768 = add i64 %767, 1
-  store i64 %768, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !noalias !24329
-  br label %switch.lookup204
+  %755 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !noalias !24329, !noundef !4
+  %756 = add i64 %755, 1
+  store i64 %756, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !noalias !24329
+  br label %switch.lookup198
 
-switch.lookup204:                                 ; preds = %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit249.sink.split.i", %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i399.invoke.i
-  %769 = shl nuw nsw i8 %2, 3
-  %switch.shiftamt206 = zext nneg i8 %769 to i32
-  %switch.downshift207 = lshr i32 33619971, %switch.shiftamt206
-  %switch.masked208 = trunc i32 %switch.downshift207 to i8
-  %.not21695.i = icmp eq i8 %1, %switch.masked208
+switch.lookup198:                                 ; preds = %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit249.sink.split.i", %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i399.invoke.i
+  %757 = shl nuw nsw i8 %2, 3
+  %switch.shiftamt200 = zext nneg i8 %757 to i32
+  %switch.downshift201 = lshr i32 33619971, %switch.shiftamt200
+  %switch.masked202 = trunc i32 %switch.downshift201 to i8
+  %.not21695.i = icmp eq i8 %1, %switch.masked202
   br i1 %.not21695.i, label %._crit_edge698.i, label %.lr.ph697.i
 
-.lr.ph697.i:                                      ; preds = %switch.lookup204
-  %770 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %771 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %772 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  br label %915
+.lr.ph697.i:                                      ; preds = %switch.lookup198
+  %758 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %759 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %760 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  br label %903
 
-"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit146.i": ; preds = %659, %657, %655, %654
-  %.0.i145.i = phi ptr [ %656, %655 ], [ %658, %657 ], [ %660, %659 ], [ %3, %654 ]
-  %773 = getelementptr i8, ptr %.0.i145.i, i64 16
-  %.val24.i = load double, ptr %773, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
+"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit146.i": ; preds = %647, %645, %643, %642
+  %.0.i145.i = phi ptr [ %644, %643 ], [ %646, %645 ], [ %648, %647 ], [ %3, %642 ]
+  %761 = getelementptr i8, ptr %.0.i145.i, i64 16
+  %.val24.i = load double, ptr %761, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
   %or.cond.i251.i = fcmp uno double %.val24.i, 0.000000e+00
-  br i1 %or.cond.i251.i, label %.invoke.i33, label %774
+  br i1 %or.cond.i251.i, label %.invoke.i29, label %762
 
-774:                                              ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit146.i"
-  %775 = fcmp ugt double %.val24.i, 0.000000e+00
-  %776 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 32
-  %777 = load double, ptr %776, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
-  %778 = fneg double %777
-  %.0.i.inv.i.i.i.i278.i = fcmp ord double %777, 0.000000e+00
-  %.0.i.i.i.i279.i = select i1 %.0.i.inv.i.i.i.i278.i, double %778, double 0.000000e+00
-  %779 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 24
-  %780 = load double, ptr %779, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
-  %781 = fneg double %780
-  %.0.i.inv.i.i.i.i.i281.i = fcmp ord double %780, 0.000000e+00
-  %.0.i.i.i.i.i282.i = select i1 %.0.i.inv.i.i.i.i.i281.i, double %781, double 0.000000e+00
-  br i1 %775, label %802, label %782
+762:                                              ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit146.i"
+  %763 = fcmp ugt double %.val24.i, 0.000000e+00
+  %764 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 32
+  %765 = load double, ptr %764, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
+  %766 = fneg double %765
+  %.0.i.inv.i.i.i.i278.i = fcmp ord double %765, 0.000000e+00
+  %.0.i.i.i.i279.i = select i1 %.0.i.inv.i.i.i.i278.i, double %766, double 0.000000e+00
+  %767 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 24
+  %768 = load double, ptr %767, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
+  %769 = fneg double %768
+  %.0.i.inv.i.i.i.i.i281.i = fcmp ord double %768, 0.000000e+00
+  %.0.i.i.i.i.i282.i = select i1 %.0.i.inv.i.i.i.i.i281.i, double %769, double 0.000000e+00
+  br i1 %763, label %790, label %770
 
-782:                                              ; preds = %774
-  %783 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 40
-  %784 = load i8, ptr %783, align 8, !range !3454, !alias.scope !24455, !noalias !24333, !noundef !4
-  switch i8 %784, label %default.unreachable [
-    i8 0, label %807
-    i8 1, label %785
-    i8 2, label %789
-    i8 3, label %797
+770:                                              ; preds = %762
+  %771 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 40
+  %772 = load i8, ptr %771, align 8, !range !3454, !alias.scope !24455, !noalias !24333, !noundef !4
+  switch i8 %772, label %default.unreachable [
+    i8 0, label %795
+    i8 1, label %773
+    i8 2, label %777
+    i8 3, label %785
   ]
 
-785:                                              ; preds = %782
-  %786 = load double, ptr %.0.i145.i, align 8, !alias.scope !24455, !noalias !24333, !noundef !4
-  %787 = fneg double %.0.i.i.i.i.i282.i
+773:                                              ; preds = %770
+  %774 = load double, ptr %.0.i145.i, align 8, !alias.scope !24455, !noalias !24333, !noundef !4
+  %775 = fneg double %.0.i.i.i.i.i282.i
   %.0.i.inv.i.i.i.i.i.i272.i = fcmp ord double %.0.i.i.i.i.i282.i, 0.000000e+00
-  %.0.i.i.i.i.i.i273.i = select i1 %.0.i.inv.i.i.i.i.i.i272.i, double %787, double 0.000000e+00
-  %788 = fadd double %.0.i.i.i.i.i.i273.i, %786
-  %.0.i.inv.i.i.i1.i.i.i274.i = fcmp ord double %788, 0.000000e+00
-  %.0.i.i.i2.i.i.i275.i = select i1 %.0.i.inv.i.i.i1.i.i.i274.i, double %788, double 0.000000e+00
-  br label %807
+  %.0.i.i.i.i.i.i273.i = select i1 %.0.i.inv.i.i.i.i.i.i272.i, double %775, double 0.000000e+00
+  %776 = fadd double %.0.i.i.i.i.i.i273.i, %774
+  %.0.i.inv.i.i.i1.i.i.i274.i = fcmp ord double %776, 0.000000e+00
+  %.0.i.i.i2.i.i.i275.i = select i1 %.0.i.inv.i.i.i1.i.i.i274.i, double %776, double 0.000000e+00
+  br label %795
 
-789:                                              ; preds = %782
-  %790 = load double, ptr %.0.i145.i, align 8, !alias.scope !24455, !noalias !24333, !noundef !4
-  %791 = fneg double %.0.i.i.i.i279.i
+777:                                              ; preds = %770
+  %778 = load double, ptr %.0.i145.i, align 8, !alias.scope !24455, !noalias !24333, !noundef !4
+  %779 = fneg double %.0.i.i.i.i279.i
   %.0.i.inv.i.i.i.i1.i.i264.i = fcmp ord double %.0.i.i.i.i279.i, 0.000000e+00
-  %.0.i.i.i.i2.i.i265.i = select i1 %.0.i.inv.i.i.i.i1.i.i264.i, double %791, double 0.000000e+00
-  %792 = fadd double %.0.i.i.i.i2.i.i265.i, %790
-  %.0.i.inv.i.i.i1.i3.i.i266.i = fcmp ord double %792, 0.000000e+00
-  %.0.i.i.i2.i4.i.i267.i = select i1 %.0.i.inv.i.i.i1.i3.i.i266.i, double %792, double 0.000000e+00
-  %793 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 8
-  %794 = load double, ptr %793, align 8, !alias.scope !24455, !noalias !24333, !noundef !4
-  %795 = fneg double %.0.i.i.i.i.i282.i
+  %.0.i.i.i.i2.i.i265.i = select i1 %.0.i.inv.i.i.i.i1.i.i264.i, double %779, double 0.000000e+00
+  %780 = fadd double %.0.i.i.i.i2.i.i265.i, %778
+  %.0.i.inv.i.i.i1.i3.i.i266.i = fcmp ord double %780, 0.000000e+00
+  %.0.i.i.i2.i4.i.i267.i = select i1 %.0.i.inv.i.i.i1.i3.i.i266.i, double %780, double 0.000000e+00
+  %781 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 8
+  %782 = load double, ptr %781, align 8, !alias.scope !24455, !noalias !24333, !noundef !4
+  %783 = fneg double %.0.i.i.i.i.i282.i
   %.0.i.inv.i.i.i.i5.i.i268.i = fcmp ord double %.0.i.i.i.i.i282.i, 0.000000e+00
-  %.0.i.i.i.i6.i.i269.i = select i1 %.0.i.inv.i.i.i.i5.i.i268.i, double %795, double 0.000000e+00
-  %796 = fadd double %.0.i.i.i.i6.i.i269.i, %794
-  %.0.i.inv.i.i.i1.i7.i.i270.i = fcmp ord double %796, 0.000000e+00
-  %.0.i.i.i2.i8.i.i271.i = select i1 %.0.i.inv.i.i.i1.i7.i.i270.i, double %796, double 0.000000e+00
-  br label %807
+  %.0.i.i.i.i6.i.i269.i = select i1 %.0.i.inv.i.i.i.i5.i.i268.i, double %783, double 0.000000e+00
+  %784 = fadd double %.0.i.i.i.i6.i.i269.i, %782
+  %.0.i.inv.i.i.i1.i7.i.i270.i = fcmp ord double %784, 0.000000e+00
+  %.0.i.i.i2.i8.i.i271.i = select i1 %.0.i.inv.i.i.i1.i7.i.i270.i, double %784, double 0.000000e+00
+  br label %795
 
-797:                                              ; preds = %782
-  %798 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 8
-  %799 = load double, ptr %798, align 8, !alias.scope !24455, !noalias !24333, !noundef !4
-  %800 = fneg double %.0.i.i.i.i279.i
+785:                                              ; preds = %770
+  %786 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 8
+  %787 = load double, ptr %786, align 8, !alias.scope !24455, !noalias !24333, !noundef !4
+  %788 = fneg double %.0.i.i.i.i279.i
   %.0.i.inv.i.i.i.i9.i.i258.i = fcmp ord double %.0.i.i.i.i279.i, 0.000000e+00
-  %.0.i.i.i.i10.i.i259.i = select i1 %.0.i.inv.i.i.i.i9.i.i258.i, double %800, double 0.000000e+00
-  %801 = fadd double %.0.i.i.i.i10.i.i259.i, %799
-  %.0.i.inv.i.i.i1.i11.i.i260.i = fcmp ord double %801, 0.000000e+00
-  %.0.i.i.i2.i12.i.i261.i = select i1 %.0.i.inv.i.i.i1.i11.i.i260.i, double %801, double 0.000000e+00
-  br label %807
+  %.0.i.i.i.i10.i.i259.i = select i1 %.0.i.inv.i.i.i.i9.i.i258.i, double %788, double 0.000000e+00
+  %789 = fadd double %.0.i.i.i.i10.i.i259.i, %787
+  %.0.i.inv.i.i.i1.i11.i.i260.i = fcmp ord double %789, 0.000000e+00
+  %.0.i.i.i2.i12.i.i261.i = select i1 %.0.i.inv.i.i.i1.i11.i.i260.i, double %789, double 0.000000e+00
+  br label %795
 
-802:                                              ; preds = %774
-  %803 = fadd double %.val24.i, %.0.i.i.i.i.i282.i
-  %.0.i.inv.i.i.i1.i.i283.i = fcmp ord double %803, 0.000000e+00
-  %.0.i.i.i2.i.i284.i = select i1 %.0.i.inv.i.i.i1.i.i283.i, double %803, double 0.000000e+00
-  %804 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 40
-  %805 = load i8, ptr %804, align 8, !range !3454, !alias.scope !24460, !noalias !24333, !noundef !4
-  switch i8 %805, label %default.unreachable [
+790:                                              ; preds = %762
+  %791 = fadd double %.val24.i, %.0.i.i.i.i.i282.i
+  %.0.i.inv.i.i.i1.i.i283.i = fcmp ord double %791, 0.000000e+00
+  %.0.i.i.i2.i.i284.i = select i1 %.0.i.inv.i.i.i1.i.i283.i, double %791, double 0.000000e+00
+  %792 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 40
+  %793 = load i8, ptr %792, align 8, !range !3454, !alias.scope !24460, !noalias !24333, !noundef !4
+  switch i8 %793, label %default.unreachable [
     i8 0, label %.thread602.i
-    i8 1, label %846
-    i8 2, label %852
-    i8 3, label %863
+    i8 1, label %834
+    i8 2, label %840
+    i8 3, label %851
   ]
 
-.thread602.i:                                     ; preds = %802
-  %806 = fadd double %.val24.i, %.0.i.i.i.i279.i
-  %.0.i.inv.i.i.i1.i.i346581.i = fcmp ord double %806, 0.000000e+00
-  %.0.i.i.i2.i.i347582.i = select i1 %.0.i.inv.i.i.i1.i.i346581.i, double %806, double 0.000000e+00
-  br label %870
+.thread602.i:                                     ; preds = %790
+  %794 = fadd double %.val24.i, %.0.i.i.i.i279.i
+  %.0.i.inv.i.i.i1.i.i346581.i = fcmp ord double %794, 0.000000e+00
+  %.0.i.i.i2.i.i347582.i = select i1 %.0.i.inv.i.i.i1.i.i346581.i, double %794, double 0.000000e+00
+  br label %858
 
-807:                                              ; preds = %797, %789, %785, %782
-  %.sroa.5.0.i.i262.i = phi double [ %.0.i.i.i.i279.i, %785 ], [ %.0.i.i.i2.i8.i.i271.i, %789 ], [ %.0.i.i.i2.i12.i.i261.i, %797 ], [ %.0.i.i.i.i.i282.i, %782 ]
-  %.sroa.0.0.i.i263.i = phi double [ %.0.i.i.i2.i.i.i275.i, %785 ], [ %.0.i.i.i2.i4.i.i267.i, %789 ], [ %.0.i.i.i.i.i282.i, %797 ], [ %.0.i.i.i.i279.i, %782 ]
-  %808 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24465, !noalias !24470, !noundef !4
-  %809 = load i64, ptr %7, align 8, !alias.scope !24465, !noalias !24470, !noundef !4
-  %810 = icmp eq i64 %808, %809
-  br i1 %810, label %811, label %812
+795:                                              ; preds = %785, %777, %773, %770
+  %.sroa.5.0.i.i262.i = phi double [ %.0.i.i.i.i279.i, %773 ], [ %.0.i.i.i2.i8.i.i271.i, %777 ], [ %.0.i.i.i2.i12.i.i261.i, %785 ], [ %.0.i.i.i.i.i282.i, %770 ]
+  %.sroa.0.0.i.i263.i = phi double [ %.0.i.i.i2.i.i.i275.i, %773 ], [ %.0.i.i.i2.i4.i.i267.i, %777 ], [ %.0.i.i.i.i.i282.i, %785 ], [ %.0.i.i.i.i279.i, %770 ]
+  %796 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24465, !noalias !24470, !noundef !4
+  %797 = load i64, ptr %7, align 8, !alias.scope !24465, !noalias !24470, !noundef !4
+  %798 = icmp eq i64 %796, %797
+  br i1 %798, label %799, label %800
 
-811:                                              ; preds = %807
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %808)
+799:                                              ; preds = %795
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %796)
           to label %.noexc304.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-.noexc304.i:                                      ; preds = %811
-  %.pre.i.i303.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24465, !noalias !24470
-  br label %812
+.noexc304.i:                                      ; preds = %799
+  %.pre.i.i303.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24465, !noalias !24470
+  br label %800
 
-812:                                              ; preds = %.noexc304.i, %807
-  %813 = phi i64 [ %.pre.i.i303.i, %.noexc304.i ], [ %808, %807 ]
-  %814 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !alias.scope !24465, !noalias !24470, !nonnull !4, !noundef !4
-  %815 = getelementptr inbounds { i64, [6 x i64] }, ptr %814, i64 %813
-  store i64 1, ptr %815, align 8, !noalias !24333
-  %.sroa.4.0..sroa_idx.i301.i = getelementptr inbounds nuw i8, ptr %815, i64 8
+800:                                              ; preds = %.noexc304.i, %795
+  %801 = phi i64 [ %.pre.i.i303.i, %.noexc304.i ], [ %796, %795 ]
+  %802 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !alias.scope !24465, !noalias !24470, !nonnull !4, !noundef !4
+  %803 = getelementptr inbounds { i64, [6 x i64] }, ptr %802, i64 %801
+  store i64 1, ptr %803, align 8, !noalias !24333
+  %.sroa.4.0..sroa_idx.i301.i = getelementptr inbounds nuw i8, ptr %803, i64 8
   store double %.sroa.0.0.i.i263.i, ptr %.sroa.4.0..sroa_idx.i301.i, align 8, !noalias !24333
-  %.sroa.5.0..sroa_idx.i302.i = getelementptr inbounds nuw i8, ptr %815, i64 16
+  %.sroa.5.0..sroa_idx.i302.i = getelementptr inbounds nuw i8, ptr %803, i64 16
   store double %.sroa.5.0.i.i262.i, ptr %.sroa.5.0..sroa_idx.i302.i, align 8, !noalias !24333
-  %816 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24465, !noalias !24470, !noundef !4
-  %817 = add i64 %816, 1
-  store i64 %817, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24465, !noalias !24470
-  %818 = fadd double %.val24.i, %.0.i.i.i.i279.i
-  %.0.i.inv.i.i.i1.i.i309.i = fcmp ord double %818, 0.000000e+00
-  %.0.i.i.i2.i.i310.i = select i1 %.0.i.inv.i.i.i1.i.i309.i, double %818, double 0.000000e+00
-  switch i8 %784, label %default.unreachable [
-    i8 0, label %834
-    i8 1, label %819
-    i8 2, label %823
-    i8 3, label %830
+  %804 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24465, !noalias !24470, !noundef !4
+  %805 = add i64 %804, 1
+  store i64 %805, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24465, !noalias !24470
+  %806 = fadd double %.val24.i, %.0.i.i.i.i279.i
+  %.0.i.inv.i.i.i1.i.i309.i = fcmp ord double %806, 0.000000e+00
+  %.0.i.i.i2.i.i310.i = select i1 %.0.i.inv.i.i.i1.i.i309.i, double %806, double 0.000000e+00
+  switch i8 %772, label %default.unreachable [
+    i8 0, label %822
+    i8 1, label %807
+    i8 2, label %811
+    i8 3, label %818
   ]
 
-819:                                              ; preds = %812
-  %820 = load double, ptr %.0.i145.i, align 8, !alias.scope !24472, !noalias !24333, !noundef !4
-  %821 = fneg double %.0.i.i.i.i.i282.i
+807:                                              ; preds = %800
+  %808 = load double, ptr %.0.i145.i, align 8, !alias.scope !24472, !noalias !24333, !noundef !4
+  %809 = fneg double %.0.i.i.i.i.i282.i
   %.0.i.inv.i.i.i.i.i.i323.i = fcmp ord double %.0.i.i.i.i.i282.i, 0.000000e+00
-  %.0.i.i.i.i.i.i324.i = select i1 %.0.i.inv.i.i.i.i.i.i323.i, double %821, double 0.000000e+00
-  %822 = fadd double %.0.i.i.i.i.i.i324.i, %820
-  %.0.i.inv.i.i.i1.i.i.i325.i = fcmp ord double %822, 0.000000e+00
-  %.0.i.i.i2.i.i.i326.i = select i1 %.0.i.inv.i.i.i1.i.i.i325.i, double %822, double 0.000000e+00
-  br label %834
+  %.0.i.i.i.i.i.i324.i = select i1 %.0.i.inv.i.i.i.i.i.i323.i, double %809, double 0.000000e+00
+  %810 = fadd double %.0.i.i.i.i.i.i324.i, %808
+  %.0.i.inv.i.i.i1.i.i.i325.i = fcmp ord double %810, 0.000000e+00
+  %.0.i.i.i2.i.i.i326.i = select i1 %.0.i.inv.i.i.i1.i.i.i325.i, double %810, double 0.000000e+00
+  br label %822
 
-823:                                              ; preds = %812
-  %824 = load double, ptr %.0.i145.i, align 8, !alias.scope !24472, !noalias !24333, !noundef !4
-  %825 = fsub double %824, %.0.i.i.i2.i.i310.i
-  %.0.i.inv.i.i.i1.i3.i.i317.i = fcmp ord double %825, 0.000000e+00
-  %.0.i.i.i2.i4.i.i318.i = select i1 %.0.i.inv.i.i.i1.i3.i.i317.i, double %825, double 0.000000e+00
-  %826 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 8
-  %827 = load double, ptr %826, align 8, !alias.scope !24472, !noalias !24333, !noundef !4
-  %828 = fneg double %.0.i.i.i.i.i282.i
+811:                                              ; preds = %800
+  %812 = load double, ptr %.0.i145.i, align 8, !alias.scope !24472, !noalias !24333, !noundef !4
+  %813 = fsub double %812, %.0.i.i.i2.i.i310.i
+  %.0.i.inv.i.i.i1.i3.i.i317.i = fcmp ord double %813, 0.000000e+00
+  %.0.i.i.i2.i4.i.i318.i = select i1 %.0.i.inv.i.i.i1.i3.i.i317.i, double %813, double 0.000000e+00
+  %814 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 8
+  %815 = load double, ptr %814, align 8, !alias.scope !24472, !noalias !24333, !noundef !4
+  %816 = fneg double %.0.i.i.i.i.i282.i
   %.0.i.inv.i.i.i.i5.i.i319.i = fcmp ord double %.0.i.i.i.i.i282.i, 0.000000e+00
-  %.0.i.i.i.i6.i.i320.i = select i1 %.0.i.inv.i.i.i.i5.i.i319.i, double %828, double 0.000000e+00
-  %829 = fadd double %.0.i.i.i.i6.i.i320.i, %827
-  %.0.i.inv.i.i.i1.i7.i.i321.i = fcmp ord double %829, 0.000000e+00
-  %.0.i.i.i2.i8.i.i322.i = select i1 %.0.i.inv.i.i.i1.i7.i.i321.i, double %829, double 0.000000e+00
-  br label %834
+  %.0.i.i.i.i6.i.i320.i = select i1 %.0.i.inv.i.i.i.i5.i.i319.i, double %816, double 0.000000e+00
+  %817 = fadd double %.0.i.i.i.i6.i.i320.i, %815
+  %.0.i.inv.i.i.i1.i7.i.i321.i = fcmp ord double %817, 0.000000e+00
+  %.0.i.i.i2.i8.i.i322.i = select i1 %.0.i.inv.i.i.i1.i7.i.i321.i, double %817, double 0.000000e+00
+  br label %822
 
-830:                                              ; preds = %812
-  %831 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 8
-  %832 = load double, ptr %831, align 8, !alias.scope !24472, !noalias !24333, !noundef !4
-  %833 = fsub double %832, %.0.i.i.i2.i.i310.i
-  %.0.i.inv.i.i.i1.i11.i.i313.i = fcmp ord double %833, 0.000000e+00
-  %.0.i.i.i2.i12.i.i314.i = select i1 %.0.i.inv.i.i.i1.i11.i.i313.i, double %833, double 0.000000e+00
-  br label %834
+818:                                              ; preds = %800
+  %819 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 8
+  %820 = load double, ptr %819, align 8, !alias.scope !24472, !noalias !24333, !noundef !4
+  %821 = fsub double %820, %.0.i.i.i2.i.i310.i
+  %.0.i.inv.i.i.i1.i11.i.i313.i = fcmp ord double %821, 0.000000e+00
+  %.0.i.i.i2.i12.i.i314.i = select i1 %.0.i.inv.i.i.i1.i11.i.i313.i, double %821, double 0.000000e+00
+  br label %822
 
-834:                                              ; preds = %830, %823, %819, %812
-  %.sroa.5.0.i.i315.i = phi double [ %.0.i.i.i2.i.i310.i, %819 ], [ %.0.i.i.i2.i8.i.i322.i, %823 ], [ %.0.i.i.i2.i12.i.i314.i, %830 ], [ %.0.i.i.i.i.i282.i, %812 ]
-  %.sroa.0.0.i.i316.i = phi double [ %.0.i.i.i2.i.i.i326.i, %819 ], [ %.0.i.i.i2.i4.i.i318.i, %823 ], [ %.0.i.i.i.i.i282.i, %830 ], [ %.0.i.i.i2.i.i310.i, %812 ]
-  %835 = load i64, ptr %7, align 8, !alias.scope !24477, !noalias !24482, !noundef !4
-  %836 = icmp eq i64 %817, %835
-  br i1 %836, label %837, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit333.i
+822:                                              ; preds = %818, %811, %807, %800
+  %.sroa.5.0.i.i315.i = phi double [ %.0.i.i.i2.i.i310.i, %807 ], [ %.0.i.i.i2.i8.i.i322.i, %811 ], [ %.0.i.i.i2.i12.i.i314.i, %818 ], [ %.0.i.i.i.i.i282.i, %800 ]
+  %.sroa.0.0.i.i316.i = phi double [ %.0.i.i.i2.i.i.i326.i, %807 ], [ %.0.i.i.i2.i4.i.i318.i, %811 ], [ %.0.i.i.i.i.i282.i, %818 ], [ %.0.i.i.i2.i.i310.i, %800 ]
+  %823 = load i64, ptr %7, align 8, !alias.scope !24477, !noalias !24482, !noundef !4
+  %824 = icmp eq i64 %805, %823
+  br i1 %824, label %825, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit333.i
 
-837:                                              ; preds = %834
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %817)
+825:                                              ; preds = %822
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %805)
           to label %.noexc332.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-.noexc332.i:                                      ; preds = %837
-  %.pre.i.i331.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24477, !noalias !24482
+.noexc332.i:                                      ; preds = %825
+  %.pre.i.i331.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24477, !noalias !24482
   br label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit333.i
 
-_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit333.i: ; preds = %.noexc332.i, %834
-  %838 = phi i64 [ %.pre.i.i331.i, %.noexc332.i ], [ %817, %834 ]
-  %839 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !alias.scope !24477, !noalias !24482, !nonnull !4, !noundef !4
-  %840 = getelementptr inbounds { i64, [6 x i64] }, ptr %839, i64 %838
-  store i64 1, ptr %840, align 8, !noalias !24333
-  %.sroa.4.0..sroa_idx.i329.i = getelementptr inbounds nuw i8, ptr %840, i64 8
+_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit333.i: ; preds = %.noexc332.i, %822
+  %826 = phi i64 [ %.pre.i.i331.i, %.noexc332.i ], [ %805, %822 ]
+  %827 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !alias.scope !24477, !noalias !24482, !nonnull !4, !noundef !4
+  %828 = getelementptr inbounds { i64, [6 x i64] }, ptr %827, i64 %826
+  store i64 1, ptr %828, align 8, !noalias !24333
+  %.sroa.4.0..sroa_idx.i329.i = getelementptr inbounds nuw i8, ptr %828, i64 8
   store double %.sroa.0.0.i.i316.i, ptr %.sroa.4.0..sroa_idx.i329.i, align 8, !noalias !24333
-  %.sroa.5.0..sroa_idx.i330.i = getelementptr inbounds nuw i8, ptr %840, i64 16
+  %.sroa.5.0..sroa_idx.i330.i = getelementptr inbounds nuw i8, ptr %828, i64 16
   store double %.sroa.5.0.i.i315.i, ptr %.sroa.5.0..sroa_idx.i330.i, align 8, !noalias !24333
-  %841 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24477, !noalias !24482, !noundef !4
-  %842 = add i64 %841, 1
-  store i64 %842, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24477, !noalias !24482
+  %829 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24477, !noalias !24482, !noundef !4
+  %830 = add i64 %829, 1
+  store i64 %830, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24477, !noalias !24482
   br label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit393.i"
 
 "_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit393.i": ; preds = %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i387.i, %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit333.i
-  %843 = fcmp ugt double %777, %780
-  br i1 %843, label %844, label %880
+  %831 = fcmp ugt double %765, %768
+  br i1 %831, label %832, label %868
 
-844:                                              ; preds = %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit393.i"
-  %845 = fcmp ult double %777, %780
-  br i1 %845, label %.invoke.i33, label %880
+832:                                              ; preds = %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit393.i"
+  %833 = fcmp ult double %765, %768
+  br i1 %833, label %.invoke.i29, label %868
 
-846:                                              ; preds = %802
-  %847 = load double, ptr %.0.i145.i, align 8, !alias.scope !24460, !noalias !24333, !noundef !4
-  %848 = fsub double %847, %.0.i.i.i2.i.i284.i
-  %.0.i.inv.i.i.i1.i.i.i297.i = fcmp ord double %848, 0.000000e+00
-  %.0.i.i.i2.i.i.i298.i = select i1 %.0.i.inv.i.i.i1.i.i.i297.i, double %848, double 0.000000e+00
-  %849 = fadd double %.val24.i, %.0.i.i.i.i279.i
-  %.0.i.inv.i.i.i1.i.i346589.i = fcmp ord double %849, 0.000000e+00
-  %.0.i.i.i2.i.i347590.i = select i1 %.0.i.inv.i.i.i1.i.i346589.i, double %849, double 0.000000e+00
-  %850 = fneg double %.0.i.i.i.i.i282.i
+834:                                              ; preds = %790
+  %835 = load double, ptr %.0.i145.i, align 8, !alias.scope !24460, !noalias !24333, !noundef !4
+  %836 = fsub double %835, %.0.i.i.i2.i.i284.i
+  %.0.i.inv.i.i.i1.i.i.i297.i = fcmp ord double %836, 0.000000e+00
+  %.0.i.i.i2.i.i.i298.i = select i1 %.0.i.inv.i.i.i1.i.i.i297.i, double %836, double 0.000000e+00
+  %837 = fadd double %.val24.i, %.0.i.i.i.i279.i
+  %.0.i.inv.i.i.i1.i.i346589.i = fcmp ord double %837, 0.000000e+00
+  %.0.i.i.i2.i.i347590.i = select i1 %.0.i.inv.i.i.i1.i.i346589.i, double %837, double 0.000000e+00
+  %838 = fneg double %.0.i.i.i.i.i282.i
   %.0.i.inv.i.i.i.i.i.i381.i = fcmp ord double %.0.i.i.i.i.i282.i, 0.000000e+00
-  %.0.i.i.i.i.i.i382.i = select i1 %.0.i.inv.i.i.i.i.i.i381.i, double %850, double 0.000000e+00
-  %851 = fadd double %.0.i.i.i.i.i.i382.i, %847
-  %.0.i.inv.i.i.i1.i.i.i383.i = fcmp ord double %851, 0.000000e+00
-  %.0.i.i.i2.i.i.i384.i = select i1 %.0.i.inv.i.i.i1.i.i.i383.i, double %851, double 0.000000e+00
-  br label %870
+  %.0.i.i.i.i.i.i382.i = select i1 %.0.i.inv.i.i.i.i.i.i381.i, double %838, double 0.000000e+00
+  %839 = fadd double %.0.i.i.i.i.i.i382.i, %835
+  %.0.i.inv.i.i.i1.i.i.i383.i = fcmp ord double %839, 0.000000e+00
+  %.0.i.i.i2.i.i.i384.i = select i1 %.0.i.inv.i.i.i1.i.i.i383.i, double %839, double 0.000000e+00
+  br label %858
 
-852:                                              ; preds = %802
-  %853 = load double, ptr %.0.i145.i, align 8, !alias.scope !24460, !noalias !24333, !noundef !4
-  %854 = fneg double %.0.i.i.i.i279.i
+840:                                              ; preds = %790
+  %841 = load double, ptr %.0.i145.i, align 8, !alias.scope !24460, !noalias !24333, !noundef !4
+  %842 = fneg double %.0.i.i.i.i279.i
   %.0.i.inv.i.i.i.i1.i.i291.i = fcmp ord double %.0.i.i.i.i279.i, 0.000000e+00
-  %.0.i.i.i.i2.i.i292.i = select i1 %.0.i.inv.i.i.i.i1.i.i291.i, double %854, double 0.000000e+00
-  %855 = fadd double %.0.i.i.i.i2.i.i292.i, %853
-  %.0.i.inv.i.i.i1.i3.i.i293.i = fcmp ord double %855, 0.000000e+00
-  %.0.i.i.i2.i4.i.i294.i = select i1 %.0.i.inv.i.i.i1.i3.i.i293.i, double %855, double 0.000000e+00
-  %856 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 8
-  %857 = load double, ptr %856, align 8, !alias.scope !24460, !noalias !24333, !noundef !4
-  %858 = fsub double %857, %.0.i.i.i2.i.i284.i
-  %.0.i.inv.i.i.i1.i7.i.i295.i = fcmp ord double %858, 0.000000e+00
-  %.0.i.i.i2.i8.i.i296.i = select i1 %.0.i.inv.i.i.i1.i7.i.i295.i, double %858, double 0.000000e+00
-  %859 = fadd double %.val24.i, %.0.i.i.i.i279.i
-  %.0.i.inv.i.i.i1.i.i346597.i = fcmp ord double %859, 0.000000e+00
-  %.0.i.i.i2.i.i347598.i = select i1 %.0.i.inv.i.i.i1.i.i346597.i, double %859, double 0.000000e+00
-  %860 = fsub double %853, %.0.i.i.i2.i.i347598.i
-  %.0.i.inv.i.i.i1.i3.i.i356.i = fcmp ord double %860, 0.000000e+00
-  %.0.i.i.i2.i4.i.i357.i = select i1 %.0.i.inv.i.i.i1.i3.i.i356.i, double %860, double 0.000000e+00
-  %861 = fneg double %.0.i.i.i.i.i282.i
+  %.0.i.i.i.i2.i.i292.i = select i1 %.0.i.inv.i.i.i.i1.i.i291.i, double %842, double 0.000000e+00
+  %843 = fadd double %.0.i.i.i.i2.i.i292.i, %841
+  %.0.i.inv.i.i.i1.i3.i.i293.i = fcmp ord double %843, 0.000000e+00
+  %.0.i.i.i2.i4.i.i294.i = select i1 %.0.i.inv.i.i.i1.i3.i.i293.i, double %843, double 0.000000e+00
+  %844 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 8
+  %845 = load double, ptr %844, align 8, !alias.scope !24460, !noalias !24333, !noundef !4
+  %846 = fsub double %845, %.0.i.i.i2.i.i284.i
+  %.0.i.inv.i.i.i1.i7.i.i295.i = fcmp ord double %846, 0.000000e+00
+  %.0.i.i.i2.i8.i.i296.i = select i1 %.0.i.inv.i.i.i1.i7.i.i295.i, double %846, double 0.000000e+00
+  %847 = fadd double %.val24.i, %.0.i.i.i.i279.i
+  %.0.i.inv.i.i.i1.i.i346597.i = fcmp ord double %847, 0.000000e+00
+  %.0.i.i.i2.i.i347598.i = select i1 %.0.i.inv.i.i.i1.i.i346597.i, double %847, double 0.000000e+00
+  %848 = fsub double %841, %.0.i.i.i2.i.i347598.i
+  %.0.i.inv.i.i.i1.i3.i.i356.i = fcmp ord double %848, 0.000000e+00
+  %.0.i.i.i2.i4.i.i357.i = select i1 %.0.i.inv.i.i.i1.i3.i.i356.i, double %848, double 0.000000e+00
+  %849 = fneg double %.0.i.i.i.i.i282.i
   %.0.i.inv.i.i.i.i5.i.i377.i = fcmp ord double %.0.i.i.i.i.i282.i, 0.000000e+00
-  %.0.i.i.i.i6.i.i378.i = select i1 %.0.i.inv.i.i.i.i5.i.i377.i, double %861, double 0.000000e+00
-  %862 = fadd double %.0.i.i.i.i6.i.i378.i, %857
-  %.0.i.inv.i.i.i1.i7.i.i379.i = fcmp ord double %862, 0.000000e+00
-  %.0.i.i.i2.i8.i.i380.i = select i1 %.0.i.inv.i.i.i1.i7.i.i379.i, double %862, double 0.000000e+00
-  br label %870
+  %.0.i.i.i.i6.i.i378.i = select i1 %.0.i.inv.i.i.i.i5.i.i377.i, double %849, double 0.000000e+00
+  %850 = fadd double %.0.i.i.i.i6.i.i378.i, %845
+  %.0.i.inv.i.i.i1.i7.i.i379.i = fcmp ord double %850, 0.000000e+00
+  %.0.i.i.i2.i8.i.i380.i = select i1 %.0.i.inv.i.i.i1.i7.i.i379.i, double %850, double 0.000000e+00
+  br label %858
 
-863:                                              ; preds = %802
-  %864 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 8
-  %865 = load double, ptr %864, align 8, !alias.scope !24460, !noalias !24333, !noundef !4
-  %866 = fneg double %.0.i.i.i.i279.i
+851:                                              ; preds = %790
+  %852 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 8
+  %853 = load double, ptr %852, align 8, !alias.scope !24460, !noalias !24333, !noundef !4
+  %854 = fneg double %.0.i.i.i.i279.i
   %.0.i.inv.i.i.i.i9.i.i285.i = fcmp ord double %.0.i.i.i.i279.i, 0.000000e+00
-  %.0.i.i.i.i10.i.i286.i = select i1 %.0.i.inv.i.i.i.i9.i.i285.i, double %866, double 0.000000e+00
-  %867 = fadd double %.0.i.i.i.i10.i.i286.i, %865
-  %.0.i.inv.i.i.i1.i11.i.i287.i = fcmp ord double %867, 0.000000e+00
-  %.0.i.i.i2.i12.i.i288.i = select i1 %.0.i.inv.i.i.i1.i11.i.i287.i, double %867, double 0.000000e+00
-  %868 = fadd double %.val24.i, %.0.i.i.i.i279.i
-  %.0.i.inv.i.i.i1.i.i346.i = fcmp ord double %868, 0.000000e+00
-  %.0.i.i.i2.i.i347.i = select i1 %.0.i.inv.i.i.i1.i.i346.i, double %868, double 0.000000e+00
-  %869 = fsub double %865, %.0.i.i.i2.i.i347.i
-  %.0.i.inv.i.i.i1.i11.i.i352.i = fcmp ord double %869, 0.000000e+00
-  %.0.i.i.i2.i12.i.i353.i = select i1 %.0.i.inv.i.i.i1.i11.i.i352.i, double %869, double 0.000000e+00
-  br label %870
+  %.0.i.i.i.i10.i.i286.i = select i1 %.0.i.inv.i.i.i.i9.i.i285.i, double %854, double 0.000000e+00
+  %855 = fadd double %.0.i.i.i.i10.i.i286.i, %853
+  %.0.i.inv.i.i.i1.i11.i.i287.i = fcmp ord double %855, 0.000000e+00
+  %.0.i.i.i2.i12.i.i288.i = select i1 %.0.i.inv.i.i.i1.i11.i.i287.i, double %855, double 0.000000e+00
+  %856 = fadd double %.val24.i, %.0.i.i.i.i279.i
+  %.0.i.inv.i.i.i1.i.i346.i = fcmp ord double %856, 0.000000e+00
+  %.0.i.i.i2.i.i347.i = select i1 %.0.i.inv.i.i.i1.i.i346.i, double %856, double 0.000000e+00
+  %857 = fsub double %853, %.0.i.i.i2.i.i347.i
+  %.0.i.inv.i.i.i1.i11.i.i352.i = fcmp ord double %857, 0.000000e+00
+  %.0.i.i.i2.i12.i.i353.i = select i1 %.0.i.inv.i.i.i1.i11.i.i352.i, double %857, double 0.000000e+00
+  br label %858
 
-870:                                              ; preds = %863, %852, %846, %.thread602.i
-  %.sroa.0.0.i.i355611.i = phi double [ %.0.i.i.i2.i.i.i298.i, %846 ], [ %.0.i.i.i2.i4.i.i357.i, %852 ], [ %.0.i.i.i2.i.i284.i, %863 ], [ %.0.i.i.i2.i.i347582.i, %.thread602.i ]
-  %.sroa.5.0.i.i354610.i = phi double [ %.0.i.i.i2.i.i347590.i, %846 ], [ %.0.i.i.i2.i8.i.i296.i, %852 ], [ %.0.i.i.i2.i12.i.i353.i, %863 ], [ %.0.i.i.i2.i.i284.i, %.thread602.i ]
-  %.sroa.5.0.i.i289583609.i = phi double [ %.0.i.i.i.i279.i, %846 ], [ %.0.i.i.i2.i8.i.i296.i, %852 ], [ %.0.i.i.i2.i12.i.i288.i, %863 ], [ %.0.i.i.i2.i.i284.i, %.thread602.i ]
-  %.sroa.0.0.i.i290584608.i = phi double [ %.0.i.i.i2.i.i.i298.i, %846 ], [ %.0.i.i.i2.i4.i.i294.i, %852 ], [ %.0.i.i.i2.i.i284.i, %863 ], [ %.0.i.i.i.i279.i, %.thread602.i ]
-  %.sroa.5.0.i.i373.i = phi double [ %.0.i.i.i2.i.i347590.i, %846 ], [ %.0.i.i.i2.i8.i.i380.i, %852 ], [ %.0.i.i.i2.i12.i.i353.i, %863 ], [ %.0.i.i.i.i.i282.i, %.thread602.i ]
-  %.sroa.0.0.i.i374.i = phi double [ %.0.i.i.i2.i.i.i384.i, %846 ], [ %.0.i.i.i2.i4.i.i357.i, %852 ], [ %.0.i.i.i.i.i282.i, %863 ], [ %.0.i.i.i2.i.i347582.i, %.thread602.i ]
-  %871 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24484, !noalias !24491, !noundef !4
-  %872 = load i64, ptr %7, align 8, !alias.scope !24484, !noalias !24491, !noundef !4
-  %873 = icmp eq i64 %871, %872
-  br i1 %873, label %874, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i387.i
+858:                                              ; preds = %851, %840, %834, %.thread602.i
+  %.sroa.0.0.i.i355611.i = phi double [ %.0.i.i.i2.i.i.i298.i, %834 ], [ %.0.i.i.i2.i4.i.i357.i, %840 ], [ %.0.i.i.i2.i.i284.i, %851 ], [ %.0.i.i.i2.i.i347582.i, %.thread602.i ]
+  %.sroa.5.0.i.i354610.i = phi double [ %.0.i.i.i2.i.i347590.i, %834 ], [ %.0.i.i.i2.i8.i.i296.i, %840 ], [ %.0.i.i.i2.i12.i.i353.i, %851 ], [ %.0.i.i.i2.i.i284.i, %.thread602.i ]
+  %.sroa.5.0.i.i289583609.i = phi double [ %.0.i.i.i.i279.i, %834 ], [ %.0.i.i.i2.i8.i.i296.i, %840 ], [ %.0.i.i.i2.i12.i.i288.i, %851 ], [ %.0.i.i.i2.i.i284.i, %.thread602.i ]
+  %.sroa.0.0.i.i290584608.i = phi double [ %.0.i.i.i2.i.i.i298.i, %834 ], [ %.0.i.i.i2.i4.i.i294.i, %840 ], [ %.0.i.i.i2.i.i284.i, %851 ], [ %.0.i.i.i.i279.i, %.thread602.i ]
+  %.sroa.5.0.i.i373.i = phi double [ %.0.i.i.i2.i.i347590.i, %834 ], [ %.0.i.i.i2.i8.i.i380.i, %840 ], [ %.0.i.i.i2.i12.i.i353.i, %851 ], [ %.0.i.i.i.i.i282.i, %.thread602.i ]
+  %.sroa.0.0.i.i374.i = phi double [ %.0.i.i.i2.i.i.i384.i, %834 ], [ %.0.i.i.i2.i4.i.i357.i, %840 ], [ %.0.i.i.i.i.i282.i, %851 ], [ %.0.i.i.i2.i.i347582.i, %.thread602.i ]
+  %859 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24484, !noalias !24491, !noundef !4
+  %860 = load i64, ptr %7, align 8, !alias.scope !24484, !noalias !24491, !noundef !4
+  %861 = icmp eq i64 %859, %860
+  br i1 %861, label %862, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i387.i
 
-874:                                              ; preds = %870
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %871)
+862:                                              ; preds = %858
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %859)
           to label %.noexc391.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-.noexc391.i:                                      ; preds = %874
-  %.pre.i.i.i390.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24484, !noalias !24491
+.noexc391.i:                                      ; preds = %862
+  %.pre.i.i.i390.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24484, !noalias !24491
   br label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i387.i
 
-_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i387.i: ; preds = %.noexc391.i, %870
-  %875 = phi i64 [ %.pre.i.i.i390.i, %.noexc391.i ], [ %871, %870 ]
-  %876 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !alias.scope !24484, !noalias !24491, !nonnull !4, !noundef !4
-  %877 = getelementptr inbounds { i64, [6 x i64] }, ptr %876, i64 %875
-  store i64 1, ptr %877, align 8, !noalias !24333
-  %.sroa.4.0..sroa_idx.i.i388.i = getelementptr inbounds nuw i8, ptr %877, i64 8
+_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i387.i: ; preds = %.noexc391.i, %858
+  %863 = phi i64 [ %.pre.i.i.i390.i, %.noexc391.i ], [ %859, %858 ]
+  %864 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !alias.scope !24484, !noalias !24491, !nonnull !4, !noundef !4
+  %865 = getelementptr inbounds { i64, [6 x i64] }, ptr %864, i64 %863
+  store i64 1, ptr %865, align 8, !noalias !24333
+  %.sroa.4.0..sroa_idx.i.i388.i = getelementptr inbounds nuw i8, ptr %865, i64 8
   store double %.sroa.0.0.i.i290584608.i, ptr %.sroa.4.0..sroa_idx.i.i388.i, align 8, !noalias !24333
-  %.sroa.5.0..sroa_idx.i.i389.i = getelementptr inbounds nuw i8, ptr %877, i64 16
+  %.sroa.5.0..sroa_idx.i.i389.i = getelementptr inbounds nuw i8, ptr %865, i64 16
   store double %.sroa.5.0.i.i289583609.i, ptr %.sroa.5.0..sroa_idx.i.i389.i, align 8, !noalias !24333
-  %878 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24484, !noalias !24491, !noundef !4
-  %879 = add i64 %878, 1
-  store i64 %879, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24484, !noalias !24491
+  %866 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24484, !noalias !24491, !noundef !4
+  %867 = add i64 %866, 1
+  store i64 %867, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24484, !noalias !24491
   invoke void @"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$3arc17hcbbb6d66eecb9f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, double noundef %.sroa.0.0.i.i290584608.i, double noundef %.sroa.5.0.i.i289583609.i, double noundef %.sroa.0.0.i.i355611.i, double noundef %.sroa.5.0.i.i354610.i, double noundef %.sroa.0.0.i.i374.i, double noundef %.sroa.5.0.i.i373.i)
           to label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit393.i" unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-880:                                              ; preds = %844, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit393.i"
-  %.0.sroa.speculated.i.i.i.i334.i = phi double [ %777, %844 ], [ %780, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit393.i" ]
-  %881 = fmul double %.0.sroa.speculated.i.i.i.i334.i, 2.000000e+00
-  %.0.i.inv.i.i.i.i.i.i335.i = fcmp ord double %881, 0.000000e+00
-  %.neg.i.i336.i = fneg double %881
-  %882 = select i1 %.0.i.inv.i.i.i.i.i.i335.i, double %.neg.i.i336.i, double -0.000000e+00
-  %883 = fadd double %.val24.i, %882
-  %.0.i.inv.i.i.i1.i.i.i337.i = fcmp ord double %883, 0.000000e+00
-  %.0.i.i.i2.i.i.i338.i = select i1 %.0.i.inv.i.i.i1.i.i.i337.i, double %883, double 0.000000e+00
+868:                                              ; preds = %832, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit393.i"
+  %.0.sroa.speculated.i.i.i.i334.i = phi double [ %765, %832 ], [ %768, %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit393.i" ]
+  %869 = fmul double %.0.sroa.speculated.i.i.i.i334.i, 2.000000e+00
+  %.0.i.inv.i.i.i.i.i.i335.i = fcmp ord double %869, 0.000000e+00
+  %.neg.i.i336.i = fneg double %869
+  %870 = select i1 %.0.i.inv.i.i.i.i.i.i335.i, double %.neg.i.i336.i, double -0.000000e+00
+  %871 = fadd double %.val24.i, %870
+  %.0.i.inv.i.i.i1.i.i.i337.i = fcmp ord double %871, 0.000000e+00
+  %.0.i.i.i2.i.i.i338.i = select i1 %.0.i.inv.i.i.i1.i.i.i337.i, double %871, double 0.000000e+00
   %.inv.i.i339.i = fcmp ole double %.0.i.i.i2.i.i.i338.i, 0.000000e+00
   %.0.sroa.speculated.i.i3.i.i340.i = select i1 %.inv.i.i339.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i338.i
-  %884 = fcmp ugt double %.0.sroa.speculated.i.i3.i.i340.i, 0.000000e+00
-  br i1 %884, label %887, label %885
+  %872 = fcmp ugt double %.0.sroa.speculated.i.i3.i.i340.i, 0.000000e+00
+  br i1 %872, label %875, label %873
 
-885:                                              ; preds = %880
-  %886 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints12center_inner17h9fc69018ae912dfaE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i145.i)
-          to label %889 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+873:                                              ; preds = %868
+  %874 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints12center_inner17h9fc69018ae912dfaE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i145.i)
+          to label %877 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-887:                                              ; preds = %880
-  %888 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9end_inner17h1e20cb6e6d27c977E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i145.i)
-          to label %894 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+875:                                              ; preds = %868
+  %876 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9end_inner17h1e20cb6e6d27c977E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i145.i)
+          to label %882 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-889:                                              ; preds = %885
-  %890 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24493, !noalias !24498, !noundef !4
-  %891 = load i64, ptr %7, align 8, !alias.scope !24493, !noalias !24498, !noundef !4
-  %892 = icmp eq i64 %890, %891
-  br i1 %892, label %893, label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit249.sink.split.i"
+877:                                              ; preds = %873
+  %878 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24493, !noalias !24498, !noundef !4
+  %879 = load i64, ptr %7, align 8, !alias.scope !24493, !noalias !24498, !noundef !4
+  %880 = icmp eq i64 %878, %879
+  br i1 %880, label %881, label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit249.sink.split.i"
 
-893:                                              ; preds = %889
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %890)
+881:                                              ; preds = %877
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %878)
           to label %.noexc397.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-.noexc397.i:                                      ; preds = %893
-  %.pre.i.i396.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24493, !noalias !24498
+.noexc397.i:                                      ; preds = %881
+  %.pre.i.i396.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24493, !noalias !24498
   br label %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit249.sink.split.i"
 
-894:                                              ; preds = %887
-  %895 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints12center_inner17h9fc69018ae912dfaE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i145.i)
-          to label %896 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+882:                                              ; preds = %875
+  %883 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints12center_inner17h9fc69018ae912dfaE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i145.i)
+          to label %884 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-896:                                              ; preds = %894
-  %897 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints11start_inner17hb6ec1ce9261f43dfE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i145.i)
-          to label %898 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+884:                                              ; preds = %882
+  %885 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints11start_inner17hb6ec1ce9261f43dfE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i145.i)
+          to label %886 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-898:                                              ; preds = %896
-  %899 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24500, !noalias !24507, !noundef !4
-  %900 = load i64, ptr %7, align 8, !alias.scope !24500, !noalias !24507, !noundef !4
-  %901 = icmp eq i64 %899, %900
-  br i1 %901, label %902, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i399.invoke.i
+886:                                              ; preds = %884
+  %887 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24500, !noalias !24507, !noundef !4
+  %888 = load i64, ptr %7, align 8, !alias.scope !24500, !noalias !24507, !noundef !4
+  %889 = icmp eq i64 %887, %888
+  br i1 %889, label %890, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i399.invoke.i
 
-902:                                              ; preds = %898
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %899)
+890:                                              ; preds = %886
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %887)
           to label %.noexc403.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-.noexc403.i:                                      ; preds = %902
-  %.pre.i.i.i402.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24500, !noalias !24507
+.noexc403.i:                                      ; preds = %890
+  %.pre.i.i.i402.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24500, !noalias !24507
   br label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i399.invoke.i
 
-_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i399.invoke.i: ; preds = %.noexc403.i, %898, %.noexc247.i, %760
-  %.sink779.i = phi i64 [ %.pre.i.i.i246.i, %.noexc247.i ], [ %761, %760 ], [ %.pre.i.i.i402.i, %.noexc403.i ], [ %899, %898 ]
-  %.pn781.i = phi { double, double } [ %750, %.noexc247.i ], [ %750, %760 ], [ %888, %.noexc403.i ], [ %888, %898 ]
-  %.pn783.i = phi { double, double } [ %757, %.noexc247.i ], [ %757, %760 ], [ %895, %.noexc403.i ], [ %895, %898 ]
-  %.pn785.i = phi { double, double } [ %759, %.noexc247.i ], [ %759, %760 ], [ %897, %.noexc403.i ], [ %897, %898 ]
-  %903 = extractvalue { double, double } %.pn785.i, 1
-  %904 = extractvalue { double, double } %.pn785.i, 0
-  %905 = extractvalue { double, double } %.pn783.i, 1
-  %906 = extractvalue { double, double } %.pn783.i, 0
+_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i399.invoke.i: ; preds = %.noexc403.i, %886, %.noexc247.i, %748
+  %.sink779.i = phi i64 [ %.pre.i.i.i246.i, %.noexc247.i ], [ %749, %748 ], [ %.pre.i.i.i402.i, %.noexc403.i ], [ %887, %886 ]
+  %.pn781.i = phi { double, double } [ %738, %.noexc247.i ], [ %738, %748 ], [ %876, %.noexc403.i ], [ %876, %886 ]
+  %.pn783.i = phi { double, double } [ %745, %.noexc247.i ], [ %745, %748 ], [ %883, %.noexc403.i ], [ %883, %886 ]
+  %.pn785.i = phi { double, double } [ %747, %.noexc247.i ], [ %747, %748 ], [ %885, %.noexc403.i ], [ %885, %886 ]
+  %891 = extractvalue { double, double } %.pn785.i, 1
+  %892 = extractvalue { double, double } %.pn785.i, 0
+  %893 = extractvalue { double, double } %.pn783.i, 1
+  %894 = extractvalue { double, double } %.pn783.i, 0
   %.sink773.i = extractvalue { double, double } %.pn781.i, 1
   %.sink775.i = extractvalue { double, double } %.pn781.i, 0
-  %907 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !noalias !24329, !nonnull !4, !noundef !4
-  %908 = getelementptr inbounds { i64, [6 x i64] }, ptr %907, i64 %.sink779.i
-  store i64 1, ptr %908, align 8, !noalias !24333
-  %.sroa.4.0..sroa_idx.i.i244.i = getelementptr inbounds nuw i8, ptr %908, i64 8
+  %895 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !noalias !24329, !nonnull !4, !noundef !4
+  %896 = getelementptr inbounds { i64, [6 x i64] }, ptr %895, i64 %.sink779.i
+  store i64 1, ptr %896, align 8, !noalias !24333
+  %.sroa.4.0..sroa_idx.i.i244.i = getelementptr inbounds nuw i8, ptr %896, i64 8
   store double %.sink775.i, ptr %.sroa.4.0..sroa_idx.i.i244.i, align 8, !noalias !24333
-  %.sroa.5.0..sroa_idx.i.i245.i = getelementptr inbounds nuw i8, ptr %908, i64 16
+  %.sroa.5.0..sroa_idx.i.i245.i = getelementptr inbounds nuw i8, ptr %896, i64 16
   store double %.sink773.i, ptr %.sroa.5.0..sroa_idx.i.i245.i, align 8, !noalias !24333
-  %909 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !noalias !24329, !noundef !4
-  %910 = add i64 %909, 1
-  store i64 %910, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !noalias !24329
-  invoke void @"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$3arc17hcbbb6d66eecb9f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, double noundef %.sink775.i, double noundef %.sink773.i, double noundef %906, double noundef %905, double noundef %904, double noundef %903)
-          to label %switch.lookup204 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+  %897 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !noalias !24329, !noundef !4
+  %898 = add i64 %897, 1
+  store i64 %898, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !noalias !24329
+  invoke void @"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$3arc17hcbbb6d66eecb9f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, double noundef %.sink775.i, double noundef %.sink773.i, double noundef %894, double noundef %893, double noundef %892, double noundef %891)
+          to label %switch.lookup198 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-._crit_edge698.i:                                 ; preds = %switch.lookup209, %switch.lookup204
-  %911 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24509, !noalias !24514, !noundef !4
-  %912 = load i64, ptr %7, align 8, !alias.scope !24509, !noalias !24514, !noundef !4
-  %913 = icmp eq i64 %911, %912
-  br i1 %913, label %914, label %919
+._crit_edge698.i:                                 ; preds = %switch.lookup203, %switch.lookup198
+  %899 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24509, !noalias !24514, !noundef !4
+  %900 = load i64, ptr %7, align 8, !alias.scope !24509, !noalias !24514, !noundef !4
+  %901 = icmp eq i64 %899, %900
+  br i1 %901, label %902, label %907
 
-914:                                              ; preds = %._crit_edge698.i
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %911)
+902:                                              ; preds = %._crit_edge698.i
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %899)
           to label %.noexc407.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-.noexc407.i:                                      ; preds = %914
-  %.pre.i.i406.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24509, !noalias !24514
-  br label %919
+.noexc407.i:                                      ; preds = %902
+  %.pre.i.i406.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24509, !noalias !24514
+  br label %907
 
-915:                                              ; preds = %switch.lookup209, %.lr.ph697.i
-  %.020696.i = phi i8 [ %switch.masked208, %.lr.ph697.i ], [ %switch.masked213, %switch.lookup209 ]
+903:                                              ; preds = %switch.lookup203, %.lr.ph697.i
+  %.020696.i = phi i8 [ %switch.masked202, %.lr.ph697.i ], [ %switch.masked207, %switch.lookup203 ]
   switch i8 %.020696.i, label %default.unreachable [
     i8 0, label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit409.i"
-    i8 1, label %916
-    i8 2, label %917
-    i8 3, label %918
+    i8 1, label %904
+    i8 2, label %905
+    i8 3, label %906
   ]
 
-916:                                              ; preds = %915
+904:                                              ; preds = %903
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit409.i"
 
-917:                                              ; preds = %915
+905:                                              ; preds = %903
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit409.i"
 
-918:                                              ; preds = %915
+906:                                              ; preds = %903
   br label %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit409.i"
 
-919:                                              ; preds = %.noexc407.i, %._crit_edge698.i
-  %920 = phi i64 [ %.pre.i.i406.i, %.noexc407.i ], [ %911, %._crit_edge698.i ]
-  %921 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !alias.scope !24509, !noalias !24514, !nonnull !4, !noundef !4
-  %922 = getelementptr inbounds { i64, [6 x i64] }, ptr %921, i64 %920
-  store i64 3, ptr %922, align 8, !noalias !24333
-  %923 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24509, !noalias !24514, !noundef !4
-  %924 = add i64 %923, 1
-  store i64 %924, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24509, !noalias !24514
-  %925 = getelementptr inbounds nuw i8, ptr %13, i64 32
+907:                                              ; preds = %.noexc407.i, %._crit_edge698.i
+  %908 = phi i64 [ %.pre.i.i406.i, %.noexc407.i ], [ %899, %._crit_edge698.i ]
+  %909 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !alias.scope !24509, !noalias !24514, !nonnull !4, !noundef !4
+  %910 = getelementptr inbounds { i64, [6 x i64] }, ptr %909, i64 %908
+  store i64 3, ptr %910, align 8, !noalias !24333
+  %911 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24509, !noalias !24514, !noundef !4
+  %912 = add i64 %911, 1
+  store i64 %912, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24509, !noalias !24514
+  %913 = getelementptr inbounds nuw i8, ptr %13, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !24516
-  %.sroa.545.104.copyload = load i32, ptr %925, align 8, !alias.scope !24333, !noalias !24325
+  %.sroa.541.104.copyload = load i32, ptr %913, align 8, !alias.scope !24333, !noalias !24325
   %.sroa.7.104..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.104..sroa_idx, i64 20, i1 false), !alias.scope !24333, !noalias !24325
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !24329
   call void @llvm.experimental.noalias.scope.decl(metadata !24517)
-  %926 = load i64, ptr %13, align 8, !range !3584, !alias.scope !24520, !noalias !24521, !noundef !4
-  %927 = icmp eq i64 %926, -9223372036854775808
-  br i1 %927, label %_ZN5typst9visualize5shape12fill_segment17hdb4bfb33866d8383E.exit, label %.noexc41
+  %914 = load i64, ptr %13, align 8, !range !3584, !alias.scope !24520, !noalias !24521, !noundef !4
+  %915 = icmp eq i64 %914, -9223372036854775808
+  br i1 %915, label %_ZN5typst9visualize5shape12fill_segment17hdb4bfb33866d8383E.exit, label %.noexc37
 
-.noexc41:                                         ; preds = %919
+.noexc37:                                         ; preds = %907
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !24522
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6e2c25b60224195aE.llvm.16845035774076767816"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %13)
-  %928 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %929 = load i64, ptr %928, align 8, !range !3584, !noalias !24522, !noundef !4
-  %.not.i.i.i.i.i.i = icmp eq i64 %929, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr115drop_in_place$LT$typst..visualize..stroke..DashPattern$LT$typst..layout..abs..Abs$C$typst..layout..abs..Abs$GT$$GT$17h9fbfd7dd68c4a634E.exit.i.i", label %930
+  %916 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %917 = load i64, ptr %916, align 8, !range !3584, !noalias !24522, !noundef !4
+  %.not.i.i.i.i.i.i = icmp eq i64 %917, 0
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr115drop_in_place$LT$typst..visualize..stroke..DashPattern$LT$typst..layout..abs..Abs$C$typst..layout..abs..Abs$GT$$GT$17h9fbfd7dd68c4a634E.exit.i.i", label %918
 
-930:                                              ; preds = %.noexc41
-  %931 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %932 = load i64, ptr %931, align 8, !noalias !24522, !noundef !4
-  %933 = icmp eq i64 %932, 0
-  br i1 %933, label %"_ZN4core3ptr115drop_in_place$LT$typst..visualize..stroke..DashPattern$LT$typst..layout..abs..Abs$C$typst..layout..abs..Abs$GT$$GT$17h9fbfd7dd68c4a634E.exit.i.i", label %934
+918:                                              ; preds = %.noexc37
+  %919 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %920 = load i64, ptr %919, align 8, !noalias !24522, !noundef !4
+  %921 = icmp eq i64 %920, 0
+  br i1 %921, label %"_ZN4core3ptr115drop_in_place$LT$typst..visualize..stroke..DashPattern$LT$typst..layout..abs..Abs$C$typst..layout..abs..Abs$GT$$GT$17h9fbfd7dd68c4a634E.exit.i.i", label %922
 
-934:                                              ; preds = %930
-  %935 = load ptr, ptr %6, align 8, !noalias !24522, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %935, i64 noundef %932, i64 noundef %929) #80, !noalias !24322
+922:                                              ; preds = %918
+  %923 = load ptr, ptr %6, align 8, !noalias !24522, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %923, i64 noundef %920, i64 noundef %917) #80, !noalias !24322
   br label %"_ZN4core3ptr115drop_in_place$LT$typst..visualize..stroke..DashPattern$LT$typst..layout..abs..Abs$C$typst..layout..abs..Abs$GT$$GT$17h9fbfd7dd68c4a634E.exit.i.i"
 
-"_ZN4core3ptr115drop_in_place$LT$typst..visualize..stroke..DashPattern$LT$typst..layout..abs..Abs$C$typst..layout..abs..Abs$GT$$GT$17h9fbfd7dd68c4a634E.exit.i.i": ; preds = %934, %930, %.noexc41
+"_ZN4core3ptr115drop_in_place$LT$typst..visualize..stroke..DashPattern$LT$typst..layout..abs..Abs$C$typst..layout..abs..Abs$GT$$GT$17h9fbfd7dd68c4a634E.exit.i.i": ; preds = %922, %918, %.noexc37
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !24522
   br label %_ZN5typst9visualize5shape12fill_segment17hdb4bfb33866d8383E.exit
 
-"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit409.i": ; preds = %918, %917, %916, %915
-  %.0.i408.i = phi ptr [ %772, %916 ], [ %771, %917 ], [ %770, %918 ], [ %3, %915 ]
-  %936 = getelementptr inbounds nuw i8, ptr %.0.i408.i, i64 16
-  %937 = load double, ptr %936, align 8, !alias.scope !24531, !noalias !24333, !noundef !4
-  %938 = getelementptr inbounds nuw i8, ptr %.0.i408.i, i64 32
-  %939 = load double, ptr %938, align 8, !alias.scope !24531, !noalias !24333, !noundef !4
-  %940 = getelementptr inbounds nuw i8, ptr %.0.i408.i, i64 24
-  %941 = load double, ptr %940, align 8, !alias.scope !24531, !noalias !24333, !noundef !4
-  %942 = fcmp ugt double %939, %941
-  br i1 %942, label %943, label %945
+"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit409.i": ; preds = %906, %905, %904, %903
+  %.0.i408.i = phi ptr [ %760, %904 ], [ %759, %905 ], [ %758, %906 ], [ %3, %903 ]
+  %924 = getelementptr inbounds nuw i8, ptr %.0.i408.i, i64 16
+  %925 = load double, ptr %924, align 8, !alias.scope !24531, !noalias !24333, !noundef !4
+  %926 = getelementptr inbounds nuw i8, ptr %.0.i408.i, i64 32
+  %927 = load double, ptr %926, align 8, !alias.scope !24531, !noalias !24333, !noundef !4
+  %928 = getelementptr inbounds nuw i8, ptr %.0.i408.i, i64 24
+  %929 = load double, ptr %928, align 8, !alias.scope !24531, !noalias !24333, !noundef !4
+  %930 = fcmp ugt double %927, %929
+  br i1 %930, label %931, label %933
 
-943:                                              ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit409.i"
-  %944 = fcmp ult double %939, %941
-  br i1 %944, label %.invoke.i33, label %945
+931:                                              ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit409.i"
+  %932 = fcmp ult double %927, %929
+  br i1 %932, label %.invoke.i29, label %933
 
-945:                                              ; preds = %943, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit409.i"
-  %.0.sroa.speculated.i.i.i.i410.i = phi double [ %939, %943 ], [ %941, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit409.i" ]
-  %946 = fmul double %.0.sroa.speculated.i.i.i.i410.i, 2.000000e+00
-  %.0.i.inv.i.i.i.i.i.i411.i = fcmp ord double %946, 0.000000e+00
-  %.neg.i.i412.i = fneg double %946
-  %947 = select i1 %.0.i.inv.i.i.i.i.i.i411.i, double %.neg.i.i412.i, double -0.000000e+00
-  %948 = fadd double %937, %947
-  %.0.i.inv.i.i.i1.i.i.i413.i = fcmp ord double %948, 0.000000e+00
-  %.0.i.i.i2.i.i.i414.i = select i1 %.0.i.inv.i.i.i1.i.i.i413.i, double %948, double 0.000000e+00
+933:                                              ; preds = %931, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit409.i"
+  %.0.sroa.speculated.i.i.i.i410.i = phi double [ %927, %931 ], [ %929, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit409.i" ]
+  %934 = fmul double %.0.sroa.speculated.i.i.i.i410.i, 2.000000e+00
+  %.0.i.inv.i.i.i.i.i.i411.i = fcmp ord double %934, 0.000000e+00
+  %.neg.i.i412.i = fneg double %934
+  %935 = select i1 %.0.i.inv.i.i.i.i.i.i411.i, double %.neg.i.i412.i, double -0.000000e+00
+  %936 = fadd double %925, %935
+  %.0.i.inv.i.i.i1.i.i.i413.i = fcmp ord double %936, 0.000000e+00
+  %.0.i.i.i2.i.i.i414.i = select i1 %.0.i.inv.i.i.i1.i.i.i413.i, double %936, double 0.000000e+00
   %.inv.i.i415.i = fcmp ole double %.0.i.i.i2.i.i.i414.i, 0.000000e+00
   %.0.sroa.speculated.i.i3.i.i416.i = select i1 %.inv.i.i415.i, double 0.000000e+00, double %.0.i.i.i2.i.i.i414.i
-  %949 = fcmp ugt double %.0.sroa.speculated.i.i3.i.i416.i, 0.000000e+00
-  br i1 %949, label %952, label %950
+  %937 = fcmp ugt double %.0.sroa.speculated.i.i3.i.i416.i, 0.000000e+00
+  br i1 %937, label %940, label %938
 
-950:                                              ; preds = %945
-  %951 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints12center_inner17h9fc69018ae912dfaE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i408.i)
-          to label %954 unwind label %.loopexit.i30, !noalias !24333
+938:                                              ; preds = %933
+  %939 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints12center_inner17h9fc69018ae912dfaE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i408.i)
+          to label %942 unwind label %.loopexit.i26, !noalias !24333
 
-952:                                              ; preds = %945
-  %953 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9end_inner17h1e20cb6e6d27c977E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i408.i)
-          to label %966 unwind label %.loopexit.i30, !noalias !24333
+940:                                              ; preds = %933
+  %941 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints9end_inner17h1e20cb6e6d27c977E(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i408.i)
+          to label %954 unwind label %.loopexit.i26, !noalias !24333
 
-954:                                              ; preds = %950
-  %955 = extractvalue { double, double } %951, 0
-  %956 = extractvalue { double, double } %951, 1
-  %957 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24536, !noalias !24541, !noundef !4
-  %958 = load i64, ptr %7, align 8, !alias.scope !24536, !noalias !24541, !noundef !4
-  %959 = icmp eq i64 %957, %958
-  br i1 %959, label %960, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit423.i
+942:                                              ; preds = %938
+  %943 = extractvalue { double, double } %939, 0
+  %944 = extractvalue { double, double } %939, 1
+  %945 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24536, !noalias !24541, !noundef !4
+  %946 = load i64, ptr %7, align 8, !alias.scope !24536, !noalias !24541, !noundef !4
+  %947 = icmp eq i64 %945, %946
+  br i1 %947, label %948, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit423.i
 
-960:                                              ; preds = %954
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %957)
-          to label %.noexc422.i unwind label %.loopexit.i30, !noalias !24333
+948:                                              ; preds = %942
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %945)
+          to label %.noexc422.i unwind label %.loopexit.i26, !noalias !24333
 
-.noexc422.i:                                      ; preds = %960
-  %.pre.i.i421.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24536, !noalias !24541
+.noexc422.i:                                      ; preds = %948
+  %.pre.i.i421.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24536, !noalias !24541
   br label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit423.i
 
-_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit423.i: ; preds = %.noexc422.i, %954
-  %961 = phi i64 [ %.pre.i.i421.i, %.noexc422.i ], [ %957, %954 ]
-  %962 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !alias.scope !24536, !noalias !24541, !nonnull !4, !noundef !4
-  %963 = getelementptr inbounds { i64, [6 x i64] }, ptr %962, i64 %961
-  store i64 1, ptr %963, align 8, !noalias !24333
-  %.sroa.4.0..sroa_idx.i419.i = getelementptr inbounds nuw i8, ptr %963, i64 8
-  store double %955, ptr %.sroa.4.0..sroa_idx.i419.i, align 8, !noalias !24333
-  %.sroa.5.0..sroa_idx.i420.i = getelementptr inbounds nuw i8, ptr %963, i64 16
-  store double %956, ptr %.sroa.5.0..sroa_idx.i420.i, align 8, !noalias !24333
-  %964 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24536, !noalias !24541, !noundef !4
-  %965 = add i64 %964, 1
-  store i64 %965, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24536, !noalias !24541
-  br label %switch.lookup209
+_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit423.i: ; preds = %.noexc422.i, %942
+  %949 = phi i64 [ %.pre.i.i421.i, %.noexc422.i ], [ %945, %942 ]
+  %950 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !alias.scope !24536, !noalias !24541, !nonnull !4, !noundef !4
+  %951 = getelementptr inbounds { i64, [6 x i64] }, ptr %950, i64 %949
+  store i64 1, ptr %951, align 8, !noalias !24333
+  %.sroa.4.0..sroa_idx.i419.i = getelementptr inbounds nuw i8, ptr %951, i64 8
+  store double %943, ptr %.sroa.4.0..sroa_idx.i419.i, align 8, !noalias !24333
+  %.sroa.5.0..sroa_idx.i420.i = getelementptr inbounds nuw i8, ptr %951, i64 16
+  store double %944, ptr %.sroa.5.0..sroa_idx.i420.i, align 8, !noalias !24333
+  %952 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24536, !noalias !24541, !noundef !4
+  %953 = add i64 %952, 1
+  store i64 %953, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24536, !noalias !24541
+  br label %switch.lookup203
 
-switch.lookup209:                                 ; preds = %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit423.i, %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i426.i
-  %switch.cast210 = zext i8 %.020696.i to i32
-  %switch.shiftamt211 = shl nuw nsw i32 %switch.cast210, 3
-  %switch.downshift212 = lshr i32 33619971, %switch.shiftamt211
-  %switch.masked213 = trunc i32 %switch.downshift212 to i8
-  %.not21.i = icmp eq i8 %1, %switch.masked213
-  br i1 %.not21.i, label %._crit_edge698.i, label %915
+switch.lookup203:                                 ; preds = %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit423.i, %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i426.i
+  %switch.cast204 = zext i8 %.020696.i to i32
+  %switch.shiftamt205 = shl nuw nsw i32 %switch.cast204, 3
+  %switch.downshift206 = lshr i32 33619971, %switch.shiftamt205
+  %switch.masked207 = trunc i32 %switch.downshift206 to i8
+  %.not21.i = icmp eq i8 %1, %switch.masked207
+  br i1 %.not21.i, label %._crit_edge698.i, label %903
 
-966:                                              ; preds = %952
-  %967 = extractvalue { double, double } %953, 0
-  %968 = extractvalue { double, double } %953, 1
-  %969 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints12center_inner17h9fc69018ae912dfaE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i408.i)
-          to label %970 unwind label %.loopexit.i30, !noalias !24333
+954:                                              ; preds = %940
+  %955 = extractvalue { double, double } %941, 0
+  %956 = extractvalue { double, double } %941, 1
+  %957 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints12center_inner17h9fc69018ae912dfaE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i408.i)
+          to label %958 unwind label %.loopexit.i26, !noalias !24333
 
-970:                                              ; preds = %966
-  %971 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints11start_inner17hb6ec1ce9261f43dfE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i408.i)
-          to label %972 unwind label %.loopexit.i30, !noalias !24333
+958:                                              ; preds = %954
+  %959 = invoke fastcc { double, double } @_ZN5typst9visualize5shape13ControlPoints11start_inner17hb6ec1ce9261f43dfE(ptr noalias noundef readonly align 8 dereferenceable(48) %.0.i408.i)
+          to label %960 unwind label %.loopexit.i26, !noalias !24333
 
-972:                                              ; preds = %970
-  %973 = extractvalue { double, double } %969, 1
-  %974 = extractvalue { double, double } %969, 0
-  %975 = extractvalue { double, double } %971, 0
-  %976 = extractvalue { double, double } %971, 1
-  %977 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24543, !noalias !24550, !noundef !4
-  %978 = load i64, ptr %7, align 8, !alias.scope !24543, !noalias !24550, !noundef !4
-  %979 = icmp eq i64 %977, %978
-  br i1 %979, label %980, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i426.i
+960:                                              ; preds = %958
+  %961 = extractvalue { double, double } %957, 1
+  %962 = extractvalue { double, double } %957, 0
+  %963 = extractvalue { double, double } %959, 0
+  %964 = extractvalue { double, double } %959, 1
+  %965 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24543, !noalias !24550, !noundef !4
+  %966 = load i64, ptr %7, align 8, !alias.scope !24543, !noalias !24550, !noundef !4
+  %967 = icmp eq i64 %965, %966
+  br i1 %967, label %968, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i426.i
 
-980:                                              ; preds = %972
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %977)
-          to label %.noexc430.i unwind label %.loopexit.i30, !noalias !24333
+968:                                              ; preds = %960
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %965)
+          to label %.noexc430.i unwind label %.loopexit.i26, !noalias !24333
 
-.noexc430.i:                                      ; preds = %980
-  %.pre.i.i.i429.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24543, !noalias !24550
+.noexc430.i:                                      ; preds = %968
+  %.pre.i.i.i429.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24543, !noalias !24550
   br label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i426.i
 
-_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i426.i: ; preds = %.noexc430.i, %972
-  %981 = phi i64 [ %.pre.i.i.i429.i, %.noexc430.i ], [ %977, %972 ]
-  %982 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !alias.scope !24543, !noalias !24550, !nonnull !4, !noundef !4
-  %983 = getelementptr inbounds { i64, [6 x i64] }, ptr %982, i64 %981
-  store i64 1, ptr %983, align 8, !noalias !24333
-  %.sroa.4.0..sroa_idx.i.i427.i = getelementptr inbounds nuw i8, ptr %983, i64 8
-  store double %967, ptr %.sroa.4.0..sroa_idx.i.i427.i, align 8, !noalias !24333
-  %.sroa.5.0..sroa_idx.i.i428.i = getelementptr inbounds nuw i8, ptr %983, i64 16
-  store double %968, ptr %.sroa.5.0..sroa_idx.i.i428.i, align 8, !noalias !24333
-  %984 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24543, !noalias !24550, !noundef !4
-  %985 = add i64 %984, 1
-  store i64 %985, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24543, !noalias !24550
-  invoke void @"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$3arc17hcbbb6d66eecb9f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, double noundef %967, double noundef %968, double noundef %974, double noundef %973, double noundef %975, double noundef %976)
-          to label %switch.lookup209 unwind label %.loopexit.i30, !noalias !24333
+_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i426.i: ; preds = %.noexc430.i, %960
+  %969 = phi i64 [ %.pre.i.i.i429.i, %.noexc430.i ], [ %965, %960 ]
+  %970 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !alias.scope !24543, !noalias !24550, !nonnull !4, !noundef !4
+  %971 = getelementptr inbounds { i64, [6 x i64] }, ptr %970, i64 %969
+  store i64 1, ptr %971, align 8, !noalias !24333
+  %.sroa.4.0..sroa_idx.i.i427.i = getelementptr inbounds nuw i8, ptr %971, i64 8
+  store double %955, ptr %.sroa.4.0..sroa_idx.i.i427.i, align 8, !noalias !24333
+  %.sroa.5.0..sroa_idx.i.i428.i = getelementptr inbounds nuw i8, ptr %971, i64 16
+  store double %956, ptr %.sroa.5.0..sroa_idx.i.i428.i, align 8, !noalias !24333
+  %972 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24543, !noalias !24550, !noundef !4
+  %973 = add i64 %972, 1
+  store i64 %973, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24543, !noalias !24550
+  invoke void @"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$3arc17hcbbb6d66eecb9f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, double noundef %955, double noundef %956, double noundef %962, double noundef %961, double noundef %963, double noundef %964)
+          to label %switch.lookup203 unwind label %.loopexit.i26, !noalias !24333
 
-"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit142.i": ; preds = %646, %645, %644, %643
-  %.0.i141.i = phi ptr [ %599, %644 ], [ %598, %645 ], [ %597, %646 ], [ %3, %643 ]
-  %986 = getelementptr i8, ptr %.0.i141.i, i64 16
-  %.val25.i = load double, ptr %986, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
+"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit142.i": ; preds = %634, %633, %632, %631
+  %.0.i141.i = phi ptr [ %587, %632 ], [ %586, %633 ], [ %585, %634 ], [ %3, %631 ]
+  %974 = getelementptr i8, ptr %.0.i141.i, i64 16
+  %.val25.i = load double, ptr %974, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
   %or.cond.i433.i = fcmp uno double %.val25.i, 0.000000e+00
-  br i1 %or.cond.i433.i, label %.invoke.i33, label %987
+  br i1 %or.cond.i433.i, label %.invoke.i29, label %975
 
-.invoke.i33:                                      ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit142.i", %943, %844, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit146.i", %706, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit144.i", %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_move17hbd8f7f65c8c548d5E.exit.i", %457
+.invoke.i29:                                      ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit142.i", %931, %832, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit146.i", %694, %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit144.i", %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_move17hbd8f7f65c8c548d5E.exit.i", %445
   invoke void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #77
-          to label %.cont.i34 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
+          to label %.cont.i30 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !24333
 
-.cont.i34:                                        ; preds = %.invoke.i33
+.cont.i30:                                        ; preds = %.invoke.i29
   unreachable
 
-987:                                              ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit142.i"
-  %988 = fcmp ugt double %.val25.i, 0.000000e+00
-  %989 = getelementptr inbounds nuw i8, ptr %.0.i141.i, i64 32
-  %990 = load double, ptr %989, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
-  %991 = fneg double %990
-  %.0.i.inv.i.i.i.i460.i = fcmp ord double %990, 0.000000e+00
-  %.0.i.i.i.i461.i = select i1 %.0.i.inv.i.i.i.i460.i, double %991, double 0.000000e+00
-  %992 = getelementptr inbounds nuw i8, ptr %.0.i141.i, i64 24
-  %993 = load double, ptr %992, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
-  %994 = fneg double %993
-  %.0.i.inv.i.i.i.i.i463.i = fcmp ord double %993, 0.000000e+00
-  %.0.i.i.i.i.i464.i = select i1 %.0.i.inv.i.i.i.i.i463.i, double %994, double 0.000000e+00
-  br i1 %988, label %1015, label %995
+975:                                              ; preds = %"_ZN115_$LT$typst..layout..corners..Corners$LT$T$GT$$u20$as$u20$typst..util..Get$LT$typst..layout..corners..Corner$GT$$GT$7get_ref17h874d9a4d22c2e1d6E.exit142.i"
+  %976 = fcmp ugt double %.val25.i, 0.000000e+00
+  %977 = getelementptr inbounds nuw i8, ptr %.0.i141.i, i64 32
+  %978 = load double, ptr %977, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
+  %979 = fneg double %978
+  %.0.i.inv.i.i.i.i460.i = fcmp ord double %978, 0.000000e+00
+  %.0.i.i.i.i461.i = select i1 %.0.i.inv.i.i.i.i460.i, double %979, double 0.000000e+00
+  %980 = getelementptr inbounds nuw i8, ptr %.0.i141.i, i64 24
+  %981 = load double, ptr %980, align 8, !alias.scope !24325, !noalias !24333, !noundef !4
+  %982 = fneg double %981
+  %.0.i.inv.i.i.i.i.i463.i = fcmp ord double %981, 0.000000e+00
+  %.0.i.i.i.i.i464.i = select i1 %.0.i.inv.i.i.i.i.i463.i, double %982, double 0.000000e+00
+  br i1 %976, label %1003, label %983
 
-995:                                              ; preds = %987
-  %996 = getelementptr inbounds nuw i8, ptr %.0.i141.i, i64 40
-  %997 = load i8, ptr %996, align 8, !range !3454, !alias.scope !24552, !noalias !24333, !noundef !4
-  switch i8 %997, label %default.unreachable [
-    i8 0, label %1020
-    i8 1, label %998
-    i8 2, label %1002
-    i8 3, label %1010
+983:                                              ; preds = %975
+  %984 = getelementptr inbounds nuw i8, ptr %.0.i141.i, i64 40
+  %985 = load i8, ptr %984, align 8, !range !3454, !alias.scope !24552, !noalias !24333, !noundef !4
+  switch i8 %985, label %default.unreachable [
+    i8 0, label %1008
+    i8 1, label %986
+    i8 2, label %990
+    i8 3, label %998
   ]
 
-998:                                              ; preds = %995
-  %999 = load double, ptr %.0.i141.i, align 8, !alias.scope !24552, !noalias !24333, !noundef !4
-  %1000 = fneg double %.0.i.i.i.i.i464.i
+986:                                              ; preds = %983
+  %987 = load double, ptr %.0.i141.i, align 8, !alias.scope !24552, !noalias !24333, !noundef !4
+  %988 = fneg double %.0.i.i.i.i.i464.i
   %.0.i.inv.i.i.i.i.i.i454.i = fcmp ord double %.0.i.i.i.i.i464.i, 0.000000e+00
-  %.0.i.i.i.i.i.i455.i = select i1 %.0.i.inv.i.i.i.i.i.i454.i, double %1000, double 0.000000e+00
-  %1001 = fadd double %.0.i.i.i.i.i.i455.i, %999
-  %.0.i.inv.i.i.i1.i.i.i456.i = fcmp ord double %1001, 0.000000e+00
-  %.0.i.i.i2.i.i.i457.i = select i1 %.0.i.inv.i.i.i1.i.i.i456.i, double %1001, double 0.000000e+00
-  br label %1020
+  %.0.i.i.i.i.i.i455.i = select i1 %.0.i.inv.i.i.i.i.i.i454.i, double %988, double 0.000000e+00
+  %989 = fadd double %.0.i.i.i.i.i.i455.i, %987
+  %.0.i.inv.i.i.i1.i.i.i456.i = fcmp ord double %989, 0.000000e+00
+  %.0.i.i.i2.i.i.i457.i = select i1 %.0.i.inv.i.i.i1.i.i.i456.i, double %989, double 0.000000e+00
+  br label %1008
 
-1002:                                             ; preds = %995
-  %1003 = load double, ptr %.0.i141.i, align 8, !alias.scope !24552, !noalias !24333, !noundef !4
-  %1004 = fneg double %.0.i.i.i.i461.i
+990:                                              ; preds = %983
+  %991 = load double, ptr %.0.i141.i, align 8, !alias.scope !24552, !noalias !24333, !noundef !4
+  %992 = fneg double %.0.i.i.i.i461.i
   %.0.i.inv.i.i.i.i1.i.i446.i = fcmp ord double %.0.i.i.i.i461.i, 0.000000e+00
-  %.0.i.i.i.i2.i.i447.i = select i1 %.0.i.inv.i.i.i.i1.i.i446.i, double %1004, double 0.000000e+00
-  %1005 = fadd double %.0.i.i.i.i2.i.i447.i, %1003
-  %.0.i.inv.i.i.i1.i3.i.i448.i = fcmp ord double %1005, 0.000000e+00
-  %.0.i.i.i2.i4.i.i449.i = select i1 %.0.i.inv.i.i.i1.i3.i.i448.i, double %1005, double 0.000000e+00
-  %1006 = getelementptr inbounds nuw i8, ptr %.0.i141.i, i64 8
-  %1007 = load double, ptr %1006, align 8, !alias.scope !24552, !noalias !24333, !noundef !4
-  %1008 = fneg double %.0.i.i.i.i.i464.i
+  %.0.i.i.i.i2.i.i447.i = select i1 %.0.i.inv.i.i.i.i1.i.i446.i, double %992, double 0.000000e+00
+  %993 = fadd double %.0.i.i.i.i2.i.i447.i, %991
+  %.0.i.inv.i.i.i1.i3.i.i448.i = fcmp ord double %993, 0.000000e+00
+  %.0.i.i.i2.i4.i.i449.i = select i1 %.0.i.inv.i.i.i1.i3.i.i448.i, double %993, double 0.000000e+00
+  %994 = getelementptr inbounds nuw i8, ptr %.0.i141.i, i64 8
+  %995 = load double, ptr %994, align 8, !alias.scope !24552, !noalias !24333, !noundef !4
+  %996 = fneg double %.0.i.i.i.i.i464.i
   %.0.i.inv.i.i.i.i5.i.i450.i = fcmp ord double %.0.i.i.i.i.i464.i, 0.000000e+00
-  %.0.i.i.i.i6.i.i451.i = select i1 %.0.i.inv.i.i.i.i5.i.i450.i, double %1008, double 0.000000e+00
-  %1009 = fadd double %.0.i.i.i.i6.i.i451.i, %1007
-  %.0.i.inv.i.i.i1.i7.i.i452.i = fcmp ord double %1009, 0.000000e+00
-  %.0.i.i.i2.i8.i.i453.i = select i1 %.0.i.inv.i.i.i1.i7.i.i452.i, double %1009, double 0.000000e+00
-  br label %1020
+  %.0.i.i.i.i6.i.i451.i = select i1 %.0.i.inv.i.i.i.i5.i.i450.i, double %996, double 0.000000e+00
+  %997 = fadd double %.0.i.i.i.i6.i.i451.i, %995
+  %.0.i.inv.i.i.i1.i7.i.i452.i = fcmp ord double %997, 0.000000e+00
+  %.0.i.i.i2.i8.i.i453.i = select i1 %.0.i.inv.i.i.i1.i7.i.i452.i, double %997, double 0.000000e+00
+  br label %1008
 
-1010:                                             ; preds = %995
-  %1011 = getelementptr inbounds nuw i8, ptr %.0.i141.i, i64 8
-  %1012 = load double, ptr %1011, align 8, !alias.scope !24552, !noalias !24333, !noundef !4
-  %1013 = fneg double %.0.i.i.i.i461.i
+998:                                              ; preds = %983
+  %999 = getelementptr inbounds nuw i8, ptr %.0.i141.i, i64 8
+  %1000 = load double, ptr %999, align 8, !alias.scope !24552, !noalias !24333, !noundef !4
+  %1001 = fneg double %.0.i.i.i.i461.i
   %.0.i.inv.i.i.i.i9.i.i440.i = fcmp ord double %.0.i.i.i.i461.i, 0.000000e+00
-  %.0.i.i.i.i10.i.i441.i = select i1 %.0.i.inv.i.i.i.i9.i.i440.i, double %1013, double 0.000000e+00
-  %1014 = fadd double %.0.i.i.i.i10.i.i441.i, %1012
-  %.0.i.inv.i.i.i1.i11.i.i442.i = fcmp ord double %1014, 0.000000e+00
-  %.0.i.i.i2.i12.i.i443.i = select i1 %.0.i.inv.i.i.i1.i11.i.i442.i, double %1014, double 0.000000e+00
-  br label %1020
+  %.0.i.i.i.i10.i.i441.i = select i1 %.0.i.inv.i.i.i.i9.i.i440.i, double %1001, double 0.000000e+00
+  %1002 = fadd double %.0.i.i.i.i10.i.i441.i, %1000
+  %.0.i.inv.i.i.i1.i11.i.i442.i = fcmp ord double %1002, 0.000000e+00
+  %.0.i.i.i2.i12.i.i443.i = select i1 %.0.i.inv.i.i.i1.i11.i.i442.i, double %1002, double 0.000000e+00
+  br label %1008
 
-1015:                                             ; preds = %987
-  %1016 = fadd double %.val25.i, %.0.i.i.i.i.i464.i
-  %.0.i.inv.i.i.i1.i.i465.i = fcmp ord double %1016, 0.000000e+00
-  %.0.i.i.i2.i.i466.i = select i1 %.0.i.inv.i.i.i1.i.i465.i, double %1016, double 0.000000e+00
-  %1017 = getelementptr inbounds nuw i8, ptr %.0.i141.i, i64 40
-  %1018 = load i8, ptr %1017, align 8, !range !3454, !alias.scope !24557, !noalias !24333, !noundef !4
-  switch i8 %1018, label %default.unreachable [
+1003:                                             ; preds = %975
+  %1004 = fadd double %.val25.i, %.0.i.i.i.i.i464.i
+  %.0.i.inv.i.i.i1.i.i465.i = fcmp ord double %1004, 0.000000e+00
+  %.0.i.i.i2.i.i466.i = select i1 %.0.i.inv.i.i.i1.i.i465.i, double %1004, double 0.000000e+00
+  %1005 = getelementptr inbounds nuw i8, ptr %.0.i141.i, i64 40
+  %1006 = load i8, ptr %1005, align 8, !range !3454, !alias.scope !24557, !noalias !24333, !noundef !4
+  switch i8 %1006, label %default.unreachable [
     i8 0, label %.thread658.i
-    i8 1, label %1030
-    i8 2, label %1036
-    i8 3, label %1047
+    i8 1, label %1018
+    i8 2, label %1024
+    i8 3, label %1035
   ]
 
-.thread658.i:                                     ; preds = %1015
-  %1019 = fadd double %.val25.i, %.0.i.i.i.i461.i
-  %.0.i.inv.i.i.i1.i.i493637.i = fcmp ord double %1019, 0.000000e+00
-  %.0.i.i.i2.i.i494638.i = select i1 %.0.i.inv.i.i.i1.i.i493637.i, double %1019, double 0.000000e+00
-  br label %1054
+.thread658.i:                                     ; preds = %1003
+  %1007 = fadd double %.val25.i, %.0.i.i.i.i461.i
+  %.0.i.inv.i.i.i1.i.i493637.i = fcmp ord double %1007, 0.000000e+00
+  %.0.i.i.i2.i.i494638.i = select i1 %.0.i.inv.i.i.i1.i.i493637.i, double %1007, double 0.000000e+00
+  br label %1042
 
-1020:                                             ; preds = %1010, %1002, %998, %995
-  %.sroa.5.0.i.i444.i = phi double [ %.0.i.i.i.i461.i, %998 ], [ %.0.i.i.i2.i8.i.i453.i, %1002 ], [ %.0.i.i.i2.i12.i.i443.i, %1010 ], [ %.0.i.i.i.i.i464.i, %995 ]
-  %.sroa.0.0.i.i445.i = phi double [ %.0.i.i.i2.i.i.i457.i, %998 ], [ %.0.i.i.i2.i4.i.i449.i, %1002 ], [ %.0.i.i.i.i.i464.i, %1010 ], [ %.0.i.i.i.i461.i, %995 ]
-  %1021 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24562, !noalias !24567, !noundef !4
-  %1022 = load i64, ptr %7, align 8, !alias.scope !24562, !noalias !24567, !noundef !4
-  %1023 = icmp eq i64 %1021, %1022
-  br i1 %1023, label %1024, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit487.i
+1008:                                             ; preds = %998, %990, %986, %983
+  %.sroa.5.0.i.i444.i = phi double [ %.0.i.i.i.i461.i, %986 ], [ %.0.i.i.i2.i8.i.i453.i, %990 ], [ %.0.i.i.i2.i12.i.i443.i, %998 ], [ %.0.i.i.i.i.i464.i, %983 ]
+  %.sroa.0.0.i.i445.i = phi double [ %.0.i.i.i2.i.i.i457.i, %986 ], [ %.0.i.i.i2.i4.i.i449.i, %990 ], [ %.0.i.i.i.i.i464.i, %998 ], [ %.0.i.i.i.i461.i, %983 ]
+  %1009 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24562, !noalias !24567, !noundef !4
+  %1010 = load i64, ptr %7, align 8, !alias.scope !24562, !noalias !24567, !noundef !4
+  %1011 = icmp eq i64 %1009, %1010
+  br i1 %1011, label %1012, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit487.i
 
-1024:                                             ; preds = %1020
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %1021)
+1012:                                             ; preds = %1008
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %1009)
           to label %.noexc486.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !24333
 
-.noexc486.i:                                      ; preds = %1024
-  %.pre.i.i485.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24562, !noalias !24567
+.noexc486.i:                                      ; preds = %1012
+  %.pre.i.i485.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24562, !noalias !24567
   br label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit487.i
 
-_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit487.i: ; preds = %.noexc486.i, %1020
-  %1025 = phi i64 [ %.pre.i.i485.i, %.noexc486.i ], [ %1021, %1020 ]
-  %1026 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !alias.scope !24562, !noalias !24567, !nonnull !4, !noundef !4
-  %1027 = getelementptr inbounds { i64, [6 x i64] }, ptr %1026, i64 %1025
-  store i64 1, ptr %1027, align 8, !noalias !24333
-  %.sroa.4.0..sroa_idx.i483.i = getelementptr inbounds nuw i8, ptr %1027, i64 8
+_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit487.i: ; preds = %.noexc486.i, %1008
+  %1013 = phi i64 [ %.pre.i.i485.i, %.noexc486.i ], [ %1009, %1008 ]
+  %1014 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !alias.scope !24562, !noalias !24567, !nonnull !4, !noundef !4
+  %1015 = getelementptr inbounds { i64, [6 x i64] }, ptr %1014, i64 %1013
+  store i64 1, ptr %1015, align 8, !noalias !24333
+  %.sroa.4.0..sroa_idx.i483.i = getelementptr inbounds nuw i8, ptr %1015, i64 8
   store double %.sroa.0.0.i.i445.i, ptr %.sroa.4.0..sroa_idx.i483.i, align 8, !noalias !24333
-  %.sroa.5.0..sroa_idx.i484.i = getelementptr inbounds nuw i8, ptr %1027, i64 16
+  %.sroa.5.0..sroa_idx.i484.i = getelementptr inbounds nuw i8, ptr %1015, i64 16
   store double %.sroa.5.0.i.i444.i, ptr %.sroa.5.0..sroa_idx.i484.i, align 8, !noalias !24333
-  %1028 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24562, !noalias !24567, !noundef !4
-  %1029 = add i64 %1028, 1
-  store i64 %1029, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24562, !noalias !24567
-  br label %switch.lookup214
+  %1016 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24562, !noalias !24567, !noundef !4
+  %1017 = add i64 %1016, 1
+  store i64 %1017, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24562, !noalias !24567
+  br label %switch.lookup208
 
-switch.lookup214:                                 ; preds = %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit487.i, %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i534.i
-  %switch.cast215 = zext i8 %.0694.i to i32
-  %switch.shiftamt216 = shl nuw nsw i32 %switch.cast215, 3
-  %switch.downshift217 = lshr i32 197121, %switch.shiftamt216
-  %switch.masked218 = trunc i32 %switch.downshift217 to i8
-  %.not.i29 = icmp eq i8 %2, %switch.masked218
-  br i1 %.not.i29, label %._crit_edge.i, label %643
+switch.lookup208:                                 ; preds = %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit487.i, %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i534.i
+  %switch.cast209 = zext i8 %.0694.i to i32
+  %switch.shiftamt210 = shl nuw nsw i32 %switch.cast209, 3
+  %switch.downshift211 = lshr i32 197121, %switch.shiftamt210
+  %switch.masked212 = trunc i32 %switch.downshift211 to i8
+  %.not.i25 = icmp eq i8 %2, %switch.masked212
+  br i1 %.not.i25, label %._crit_edge.i, label %631
 
-1030:                                             ; preds = %1015
-  %1031 = load double, ptr %.0.i141.i, align 8, !alias.scope !24557, !noalias !24333, !noundef !4
-  %1032 = fsub double %1031, %.0.i.i.i2.i.i466.i
-  %.0.i.inv.i.i.i1.i.i.i479.i = fcmp ord double %1032, 0.000000e+00
-  %.0.i.i.i2.i.i.i480.i = select i1 %.0.i.inv.i.i.i1.i.i.i479.i, double %1032, double 0.000000e+00
-  %1033 = fadd double %.val25.i, %.0.i.i.i.i461.i
-  %.0.i.inv.i.i.i1.i.i493645.i = fcmp ord double %1033, 0.000000e+00
-  %.0.i.i.i2.i.i494646.i = select i1 %.0.i.inv.i.i.i1.i.i493645.i, double %1033, double 0.000000e+00
-  %1034 = fneg double %.0.i.i.i.i.i464.i
+1018:                                             ; preds = %1003
+  %1019 = load double, ptr %.0.i141.i, align 8, !alias.scope !24557, !noalias !24333, !noundef !4
+  %1020 = fsub double %1019, %.0.i.i.i2.i.i466.i
+  %.0.i.inv.i.i.i1.i.i.i479.i = fcmp ord double %1020, 0.000000e+00
+  %.0.i.i.i2.i.i.i480.i = select i1 %.0.i.inv.i.i.i1.i.i.i479.i, double %1020, double 0.000000e+00
+  %1021 = fadd double %.val25.i, %.0.i.i.i.i461.i
+  %.0.i.inv.i.i.i1.i.i493645.i = fcmp ord double %1021, 0.000000e+00
+  %.0.i.i.i2.i.i494646.i = select i1 %.0.i.inv.i.i.i1.i.i493645.i, double %1021, double 0.000000e+00
+  %1022 = fneg double %.0.i.i.i.i.i464.i
   %.0.i.inv.i.i.i.i.i.i528.i = fcmp ord double %.0.i.i.i.i.i464.i, 0.000000e+00
-  %.0.i.i.i.i.i.i529.i = select i1 %.0.i.inv.i.i.i.i.i.i528.i, double %1034, double 0.000000e+00
-  %1035 = fadd double %.0.i.i.i.i.i.i529.i, %1031
-  %.0.i.inv.i.i.i1.i.i.i530.i = fcmp ord double %1035, 0.000000e+00
-  %.0.i.i.i2.i.i.i531.i = select i1 %.0.i.inv.i.i.i1.i.i.i530.i, double %1035, double 0.000000e+00
-  br label %1054
+  %.0.i.i.i.i.i.i529.i = select i1 %.0.i.inv.i.i.i.i.i.i528.i, double %1022, double 0.000000e+00
+  %1023 = fadd double %.0.i.i.i.i.i.i529.i, %1019
+  %.0.i.inv.i.i.i1.i.i.i530.i = fcmp ord double %1023, 0.000000e+00
+  %.0.i.i.i2.i.i.i531.i = select i1 %.0.i.inv.i.i.i1.i.i.i530.i, double %1023, double 0.000000e+00
+  br label %1042
 
-1036:                                             ; preds = %1015
-  %1037 = load double, ptr %.0.i141.i, align 8, !alias.scope !24557, !noalias !24333, !noundef !4
-  %1038 = fneg double %.0.i.i.i.i461.i
+1024:                                             ; preds = %1003
+  %1025 = load double, ptr %.0.i141.i, align 8, !alias.scope !24557, !noalias !24333, !noundef !4
+  %1026 = fneg double %.0.i.i.i.i461.i
   %.0.i.inv.i.i.i.i1.i.i473.i = fcmp ord double %.0.i.i.i.i461.i, 0.000000e+00
-  %.0.i.i.i.i2.i.i474.i = select i1 %.0.i.inv.i.i.i.i1.i.i473.i, double %1038, double 0.000000e+00
-  %1039 = fadd double %.0.i.i.i.i2.i.i474.i, %1037
-  %.0.i.inv.i.i.i1.i3.i.i475.i = fcmp ord double %1039, 0.000000e+00
-  %.0.i.i.i2.i4.i.i476.i = select i1 %.0.i.inv.i.i.i1.i3.i.i475.i, double %1039, double 0.000000e+00
-  %1040 = getelementptr inbounds nuw i8, ptr %.0.i141.i, i64 8
-  %1041 = load double, ptr %1040, align 8, !alias.scope !24557, !noalias !24333, !noundef !4
-  %1042 = fsub double %1041, %.0.i.i.i2.i.i466.i
-  %.0.i.inv.i.i.i1.i7.i.i477.i = fcmp ord double %1042, 0.000000e+00
-  %.0.i.i.i2.i8.i.i478.i = select i1 %.0.i.inv.i.i.i1.i7.i.i477.i, double %1042, double 0.000000e+00
-  %1043 = fadd double %.val25.i, %.0.i.i.i.i461.i
-  %.0.i.inv.i.i.i1.i.i493653.i = fcmp ord double %1043, 0.000000e+00
-  %.0.i.i.i2.i.i494654.i = select i1 %.0.i.inv.i.i.i1.i.i493653.i, double %1043, double 0.000000e+00
-  %1044 = fsub double %1037, %.0.i.i.i2.i.i494654.i
-  %.0.i.inv.i.i.i1.i3.i.i503.i = fcmp ord double %1044, 0.000000e+00
-  %.0.i.i.i2.i4.i.i504.i = select i1 %.0.i.inv.i.i.i1.i3.i.i503.i, double %1044, double 0.000000e+00
-  %1045 = fneg double %.0.i.i.i.i.i464.i
+  %.0.i.i.i.i2.i.i474.i = select i1 %.0.i.inv.i.i.i.i1.i.i473.i, double %1026, double 0.000000e+00
+  %1027 = fadd double %.0.i.i.i.i2.i.i474.i, %1025
+  %.0.i.inv.i.i.i1.i3.i.i475.i = fcmp ord double %1027, 0.000000e+00
+  %.0.i.i.i2.i4.i.i476.i = select i1 %.0.i.inv.i.i.i1.i3.i.i475.i, double %1027, double 0.000000e+00
+  %1028 = getelementptr inbounds nuw i8, ptr %.0.i141.i, i64 8
+  %1029 = load double, ptr %1028, align 8, !alias.scope !24557, !noalias !24333, !noundef !4
+  %1030 = fsub double %1029, %.0.i.i.i2.i.i466.i
+  %.0.i.inv.i.i.i1.i7.i.i477.i = fcmp ord double %1030, 0.000000e+00
+  %.0.i.i.i2.i8.i.i478.i = select i1 %.0.i.inv.i.i.i1.i7.i.i477.i, double %1030, double 0.000000e+00
+  %1031 = fadd double %.val25.i, %.0.i.i.i.i461.i
+  %.0.i.inv.i.i.i1.i.i493653.i = fcmp ord double %1031, 0.000000e+00
+  %.0.i.i.i2.i.i494654.i = select i1 %.0.i.inv.i.i.i1.i.i493653.i, double %1031, double 0.000000e+00
+  %1032 = fsub double %1025, %.0.i.i.i2.i.i494654.i
+  %.0.i.inv.i.i.i1.i3.i.i503.i = fcmp ord double %1032, 0.000000e+00
+  %.0.i.i.i2.i4.i.i504.i = select i1 %.0.i.inv.i.i.i1.i3.i.i503.i, double %1032, double 0.000000e+00
+  %1033 = fneg double %.0.i.i.i.i.i464.i
   %.0.i.inv.i.i.i.i5.i.i524.i = fcmp ord double %.0.i.i.i.i.i464.i, 0.000000e+00
-  %.0.i.i.i.i6.i.i525.i = select i1 %.0.i.inv.i.i.i.i5.i.i524.i, double %1045, double 0.000000e+00
-  %1046 = fadd double %.0.i.i.i.i6.i.i525.i, %1041
-  %.0.i.inv.i.i.i1.i7.i.i526.i = fcmp ord double %1046, 0.000000e+00
-  %.0.i.i.i2.i8.i.i527.i = select i1 %.0.i.inv.i.i.i1.i7.i.i526.i, double %1046, double 0.000000e+00
-  br label %1054
+  %.0.i.i.i.i6.i.i525.i = select i1 %.0.i.inv.i.i.i.i5.i.i524.i, double %1033, double 0.000000e+00
+  %1034 = fadd double %.0.i.i.i.i6.i.i525.i, %1029
+  %.0.i.inv.i.i.i1.i7.i.i526.i = fcmp ord double %1034, 0.000000e+00
+  %.0.i.i.i2.i8.i.i527.i = select i1 %.0.i.inv.i.i.i1.i7.i.i526.i, double %1034, double 0.000000e+00
+  br label %1042
 
-1047:                                             ; preds = %1015
-  %1048 = getelementptr inbounds nuw i8, ptr %.0.i141.i, i64 8
-  %1049 = load double, ptr %1048, align 8, !alias.scope !24557, !noalias !24333, !noundef !4
-  %1050 = fneg double %.0.i.i.i.i461.i
+1035:                                             ; preds = %1003
+  %1036 = getelementptr inbounds nuw i8, ptr %.0.i141.i, i64 8
+  %1037 = load double, ptr %1036, align 8, !alias.scope !24557, !noalias !24333, !noundef !4
+  %1038 = fneg double %.0.i.i.i.i461.i
   %.0.i.inv.i.i.i.i9.i.i467.i = fcmp ord double %.0.i.i.i.i461.i, 0.000000e+00
-  %.0.i.i.i.i10.i.i468.i = select i1 %.0.i.inv.i.i.i.i9.i.i467.i, double %1050, double 0.000000e+00
-  %1051 = fadd double %.0.i.i.i.i10.i.i468.i, %1049
-  %.0.i.inv.i.i.i1.i11.i.i469.i = fcmp ord double %1051, 0.000000e+00
-  %.0.i.i.i2.i12.i.i470.i = select i1 %.0.i.inv.i.i.i1.i11.i.i469.i, double %1051, double 0.000000e+00
-  %1052 = fadd double %.val25.i, %.0.i.i.i.i461.i
-  %.0.i.inv.i.i.i1.i.i493.i = fcmp ord double %1052, 0.000000e+00
-  %.0.i.i.i2.i.i494.i = select i1 %.0.i.inv.i.i.i1.i.i493.i, double %1052, double 0.000000e+00
-  %1053 = fsub double %1049, %.0.i.i.i2.i.i494.i
-  %.0.i.inv.i.i.i1.i11.i.i499.i = fcmp ord double %1053, 0.000000e+00
-  %.0.i.i.i2.i12.i.i500.i = select i1 %.0.i.inv.i.i.i1.i11.i.i499.i, double %1053, double 0.000000e+00
-  br label %1054
+  %.0.i.i.i.i10.i.i468.i = select i1 %.0.i.inv.i.i.i.i9.i.i467.i, double %1038, double 0.000000e+00
+  %1039 = fadd double %.0.i.i.i.i10.i.i468.i, %1037
+  %.0.i.inv.i.i.i1.i11.i.i469.i = fcmp ord double %1039, 0.000000e+00
+  %.0.i.i.i2.i12.i.i470.i = select i1 %.0.i.inv.i.i.i1.i11.i.i469.i, double %1039, double 0.000000e+00
+  %1040 = fadd double %.val25.i, %.0.i.i.i.i461.i
+  %.0.i.inv.i.i.i1.i.i493.i = fcmp ord double %1040, 0.000000e+00
+  %.0.i.i.i2.i.i494.i = select i1 %.0.i.inv.i.i.i1.i.i493.i, double %1040, double 0.000000e+00
+  %1041 = fsub double %1037, %.0.i.i.i2.i.i494.i
+  %.0.i.inv.i.i.i1.i11.i.i499.i = fcmp ord double %1041, 0.000000e+00
+  %.0.i.i.i2.i12.i.i500.i = select i1 %.0.i.inv.i.i.i1.i11.i.i499.i, double %1041, double 0.000000e+00
+  br label %1042
 
-1054:                                             ; preds = %1047, %1036, %1030, %.thread658.i
-  %.sroa.0.0.i.i502667.i = phi double [ %.0.i.i.i2.i.i.i480.i, %1030 ], [ %.0.i.i.i2.i4.i.i504.i, %1036 ], [ %.0.i.i.i2.i.i466.i, %1047 ], [ %.0.i.i.i2.i.i494638.i, %.thread658.i ]
-  %.sroa.5.0.i.i501666.i = phi double [ %.0.i.i.i2.i.i494646.i, %1030 ], [ %.0.i.i.i2.i8.i.i478.i, %1036 ], [ %.0.i.i.i2.i12.i.i500.i, %1047 ], [ %.0.i.i.i2.i.i466.i, %.thread658.i ]
-  %.sroa.5.0.i.i471639665.i = phi double [ %.0.i.i.i.i461.i, %1030 ], [ %.0.i.i.i2.i8.i.i478.i, %1036 ], [ %.0.i.i.i2.i12.i.i470.i, %1047 ], [ %.0.i.i.i2.i.i466.i, %.thread658.i ]
-  %.sroa.0.0.i.i472640664.i = phi double [ %.0.i.i.i2.i.i.i480.i, %1030 ], [ %.0.i.i.i2.i4.i.i476.i, %1036 ], [ %.0.i.i.i2.i.i466.i, %1047 ], [ %.0.i.i.i.i461.i, %.thread658.i ]
-  %.sroa.5.0.i.i520.i = phi double [ %.0.i.i.i2.i.i494646.i, %1030 ], [ %.0.i.i.i2.i8.i.i527.i, %1036 ], [ %.0.i.i.i2.i12.i.i500.i, %1047 ], [ %.0.i.i.i.i.i464.i, %.thread658.i ]
-  %.sroa.0.0.i.i521.i = phi double [ %.0.i.i.i2.i.i.i531.i, %1030 ], [ %.0.i.i.i2.i4.i.i504.i, %1036 ], [ %.0.i.i.i.i.i464.i, %1047 ], [ %.0.i.i.i2.i.i494638.i, %.thread658.i ]
-  %1055 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24569, !noalias !24576, !noundef !4
-  %1056 = load i64, ptr %7, align 8, !alias.scope !24569, !noalias !24576, !noundef !4
-  %1057 = icmp eq i64 %1055, %1056
-  br i1 %1057, label %1058, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i534.i
+1042:                                             ; preds = %1035, %1024, %1018, %.thread658.i
+  %.sroa.0.0.i.i502667.i = phi double [ %.0.i.i.i2.i.i.i480.i, %1018 ], [ %.0.i.i.i2.i4.i.i504.i, %1024 ], [ %.0.i.i.i2.i.i466.i, %1035 ], [ %.0.i.i.i2.i.i494638.i, %.thread658.i ]
+  %.sroa.5.0.i.i501666.i = phi double [ %.0.i.i.i2.i.i494646.i, %1018 ], [ %.0.i.i.i2.i8.i.i478.i, %1024 ], [ %.0.i.i.i2.i12.i.i500.i, %1035 ], [ %.0.i.i.i2.i.i466.i, %.thread658.i ]
+  %.sroa.5.0.i.i471639665.i = phi double [ %.0.i.i.i.i461.i, %1018 ], [ %.0.i.i.i2.i8.i.i478.i, %1024 ], [ %.0.i.i.i2.i12.i.i470.i, %1035 ], [ %.0.i.i.i2.i.i466.i, %.thread658.i ]
+  %.sroa.0.0.i.i472640664.i = phi double [ %.0.i.i.i2.i.i.i480.i, %1018 ], [ %.0.i.i.i2.i4.i.i476.i, %1024 ], [ %.0.i.i.i2.i.i466.i, %1035 ], [ %.0.i.i.i.i461.i, %.thread658.i ]
+  %.sroa.5.0.i.i520.i = phi double [ %.0.i.i.i2.i.i494646.i, %1018 ], [ %.0.i.i.i2.i8.i.i527.i, %1024 ], [ %.0.i.i.i2.i12.i.i500.i, %1035 ], [ %.0.i.i.i.i.i464.i, %.thread658.i ]
+  %.sroa.0.0.i.i521.i = phi double [ %.0.i.i.i2.i.i.i531.i, %1018 ], [ %.0.i.i.i2.i4.i.i504.i, %1024 ], [ %.0.i.i.i.i.i464.i, %1035 ], [ %.0.i.i.i2.i.i494638.i, %.thread658.i ]
+  %1043 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24569, !noalias !24576, !noundef !4
+  %1044 = load i64, ptr %7, align 8, !alias.scope !24569, !noalias !24576, !noundef !4
+  %1045 = icmp eq i64 %1043, %1044
+  br i1 %1045, label %1046, label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i534.i
 
-1058:                                             ; preds = %1054
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %1055)
+1046:                                             ; preds = %1042
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h1f77bb70f58cb49aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %1043)
           to label %.noexc538.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !24333
 
-.noexc538.i:                                      ; preds = %1058
-  %.pre.i.i.i537.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24569, !noalias !24576
+.noexc538.i:                                      ; preds = %1046
+  %.pre.i.i.i537.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24569, !noalias !24576
   br label %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i534.i
 
-_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i534.i: ; preds = %.noexc538.i, %1054
-  %1059 = phi i64 [ %.pre.i.i.i537.i, %.noexc538.i ], [ %1055, %1054 ]
-  %1060 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i17, align 8, !alias.scope !24569, !noalias !24576, !nonnull !4, !noundef !4
-  %1061 = getelementptr inbounds { i64, [6 x i64] }, ptr %1060, i64 %1059
-  store i64 1, ptr %1061, align 8, !noalias !24333
-  %.sroa.4.0..sroa_idx.i.i535.i = getelementptr inbounds nuw i8, ptr %1061, i64 8
+_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i534.i: ; preds = %.noexc538.i, %1042
+  %1047 = phi i64 [ %.pre.i.i.i537.i, %.noexc538.i ], [ %1043, %1042 ]
+  %1048 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !alias.scope !24569, !noalias !24576, !nonnull !4, !noundef !4
+  %1049 = getelementptr inbounds { i64, [6 x i64] }, ptr %1048, i64 %1047
+  store i64 1, ptr %1049, align 8, !noalias !24333
+  %.sroa.4.0..sroa_idx.i.i535.i = getelementptr inbounds nuw i8, ptr %1049, i64 8
   store double %.sroa.0.0.i.i472640664.i, ptr %.sroa.4.0..sroa_idx.i.i535.i, align 8, !noalias !24333
-  %.sroa.5.0..sroa_idx.i.i536.i = getelementptr inbounds nuw i8, ptr %1061, i64 16
+  %.sroa.5.0..sroa_idx.i.i536.i = getelementptr inbounds nuw i8, ptr %1049, i64 16
   store double %.sroa.5.0.i.i471639665.i, ptr %.sroa.5.0..sroa_idx.i.i536.i, align 8, !noalias !24333
-  %1062 = load i64, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24569, !noalias !24576, !noundef !4
-  %1063 = add i64 %1062, 1
-  store i64 %1063, ptr %.sroa.5.0..sroa_idx.i.i18, align 8, !alias.scope !24569, !noalias !24576
+  %1050 = load i64, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24569, !noalias !24576, !noundef !4
+  %1051 = add i64 %1050, 1
+  store i64 %1051, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !24569, !noalias !24576
   invoke void @"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$3arc17hcbbb6d66eecb9f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, double noundef %.sroa.0.0.i.i472640664.i, double noundef %.sroa.5.0.i.i471639665.i, double noundef %.sroa.0.0.i.i502667.i, double noundef %.sroa.5.0.i.i501666.i, double noundef %.sroa.0.0.i.i521.i, double noundef %.sroa.5.0.i.i520.i)
-          to label %switch.lookup214 unwind label %.loopexit.split-lp.loopexit.i, !noalias !24333
+          to label %switch.lookup208 unwind label %.loopexit.split-lp.loopexit.i, !noalias !24333
 
-1064:                                             ; preds = %.loopexit.split-lp.i25, %434
-  %1065 = landingpad { ptr, i32 }
+1052:                                             ; preds = %.loopexit.split-lp.i21, %422
+  %1053 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #78, !noalias !24322
   unreachable
 
-1066:                                             ; preds = %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.i.invoke.i", %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i.i
+1054:                                             ; preds = %"_ZN81_$LT$typst..visualize..path..Path$u20$as$u20$typst..visualize..shape..PathExt$GT$8arc_line17h2732676c3eefdce6E.exit.i.invoke.i", %_ZN5typst9visualize4path4Path7line_to17h6d8bc36d36603884E.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !24578
   %.sroa.3.24.copyload = load i64, ptr %12, align 8, !alias.scope !24188, !noalias !24173
-  %1067 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(72) %1067, i64 72, i1 false)
+  %1055 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(72) %1055, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !24177
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %1068
+  br label %1056
 
-1068:                                             ; preds = %_ZN5typst9visualize5shape12fill_segment17hdb4bfb33866d8383E.exit, %1066
-  %.0849 = phi i8 [ 1, %_ZN5typst9visualize5shape12fill_segment17hdb4bfb33866d8383E.exit ], [ 0, %1066 ]
-  %.sroa.545.0 = phi i32 [ %.sroa.545.104.copyload, %_ZN5typst9visualize5shape12fill_segment17hdb4bfb33866d8383E.exit ], [ 3, %1066 ]
-  %.sroa.3.0 = phi i64 [ -9223372036854775807, %_ZN5typst9visualize5shape12fill_segment17hdb4bfb33866d8383E.exit ], [ %.sroa.3.24.copyload, %1066 ]
+1056:                                             ; preds = %_ZN5typst9visualize5shape12fill_segment17hdb4bfb33866d8383E.exit, %1054
+  %.0845 = phi i8 [ 1, %_ZN5typst9visualize5shape12fill_segment17hdb4bfb33866d8383E.exit ], [ 0, %1054 ]
+  %.sroa.541.0 = phi i32 [ %.sroa.541.104.copyload, %_ZN5typst9visualize5shape12fill_segment17hdb4bfb33866d8383E.exit ], [ 3, %1054 ]
+  %.sroa.3.0 = phi i64 [ -9223372036854775807, %_ZN5typst9visualize5shape12fill_segment17hdb4bfb33866d8383E.exit ], [ %.sroa.3.24.copyload, %1054 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.3.0, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5, i64 72, i1 false)
-  %.sroa.545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %.sroa.545.0, ptr %.sroa.545.0..sroa_idx, align 8
+  %.sroa.541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i32 %.sroa.541.0, ptr %.sroa.541.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7, i64 20, i1 false)
-  %1069 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i8 %.0849, ptr %1069, align 8
+  %1057 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i8 %.0845, ptr %1057, align 8
   ret void
 
-_ZN5typst9visualize5shape12fill_segment17hdb4bfb33866d8383E.exit: ; preds = %"_ZN4core3ptr115drop_in_place$LT$typst..visualize..stroke..DashPattern$LT$typst..layout..abs..Abs$C$typst..layout..abs..Abs$GT$$GT$17h9fbfd7dd68c4a634E.exit.i.i", %919
+_ZN5typst9visualize5shape12fill_segment17hdb4bfb33866d8383E.exit: ; preds = %"_ZN4core3ptr115drop_in_place$LT$typst..visualize..stroke..DashPattern$LT$typst..layout..abs..Abs$C$typst..layout..abs..Abs$GT$$GT$17h9fbfd7dd68c4a634E.exit.i.i", %907
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %1068
+  br label %1056
 
-.body.thread:                                     ; preds = %434, %89, %1070
-  %eh.lpad-body53 = phi { ptr, i32 } [ %lpad.thr_comm, %1070 ], [ %lpad.phi.i, %89 ], [ %lpad.phi.i26, %434 ]
-  resume { ptr, i32 } %eh.lpad-body53
+.body.thread:                                     ; preds = %422, %77, %1058
+  %eh.lpad-body49 = phi { ptr, i32 } [ %lpad.thr_comm, %1058 ], [ %lpad.phi.i, %77 ], [ %lpad.phi.i22, %422 ]
+  resume { ptr, i32 } %eh.lpad-body49
 
-1070:                                             ; preds = %.invoke174, %.invoke
+1058:                                             ; preds = %.invoke
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$typst..visualize..stroke..FixedStroke$GT$17h5b9c4d9ab9a3e683E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %4) #79
-          to label %.body.thread unwind label %1071
+          to label %.body.thread unwind label %1059
 
-1071:                                             ; preds = %1070
-  %1072 = landingpad { ptr, i32 }
+1059:                                             ; preds = %1058
+  %1060 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #78
   unreachable

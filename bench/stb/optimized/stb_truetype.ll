@@ -14208,7 +14208,7 @@ stbtt_GetGlyphShape.exit:                         ; preds = %23, %stbtt__GetGlyp
   %.029 = select i1 %39, float %1, float %2
   %40 = fcmp une float %2, 0.000000e+00
   %brmerge = or i1 %39, %40
-  %.mux = select i1 %40, float %2, float %.029
+  %.mux = select i1 %40, float %2, float %1
   br i1 %brmerge, label %43, label %41
 
 41:                                               ; preds = %stbtt_GetGlyphShape.exit

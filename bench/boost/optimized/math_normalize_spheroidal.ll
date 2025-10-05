@@ -131472,26 +131472,26 @@ define linkonce_odr hidden void @_Z8test_boxIfEvT_S0_S0_S0_RKS0_S2_S2_S2_(float 
   store float %3, ptr %12, align 4, !tbaa !1473
   %13 = fsub float %0, %2
   %14 = tail call noundef float @llvm.fabs.f32(float %13)
-  %or.cond.i.i.i.i.i = fcmp ult float %14, 3.600000e+02
-  br i1 %or.cond.i.i.i.i.i, label %15, label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6degreeEfEEvRT0_S5_S5_S5_.exit
+  %15 = fcmp ult float %14, 3.600000e+02
+  br i1 %15, label %16, label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6degreeEfEEvRT0_S5_S5_S5_.exit
 
-15:                                               ; preds = %8
-  %16 = fcmp ueq float %14, 0x7FF0000000000000
-  br i1 %16, label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6degreeEfEEvRT0_S5_S5_S5_.exit, label %17
+16:                                               ; preds = %8
+  %17 = fcmp ueq float %14, 0x7FF0000000000000
+  br i1 %17, label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6degreeEfEEvRT0_S5_S5_S5_.exit, label %18
 
-17:                                               ; preds = %15
-  %18 = fsub float 3.600000e+02, %14
-  %19 = tail call noundef float @llvm.fabs.f32(float %18)
-  %20 = fcmp ogt float %14, 3.600000e+02
-  %21 = select i1 %20, float %14, float 3.600000e+02
-  %22 = fcmp olt float %21, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i = select i1 %22, float 1.000000e+00, float %21
-  %23 = fmul float %.sroa.speculated.i.i.i.i.i.i.i, 0x3E80000000000000
-  %24 = fcmp ole float %19, %23
+18:                                               ; preds = %16
+  %19 = fsub float 3.600000e+02, %14
+  %20 = tail call noundef float @llvm.fabs.f32(float %19)
+  %21 = fcmp ogt float %14, 3.600000e+02
+  %22 = select i1 %21, float %14, float 3.600000e+02
+  %23 = fcmp olt float %22, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i = select i1 %23, float 1.000000e+00, float %22
+  %24 = fmul float %.sroa.speculated.i.i.i.i.i.i.i, 0x3E80000000000000
+  %25 = fcmp ole float %20, %24
   br label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6degreeEfEEvRT0_S5_S5_S5_.exit
 
-_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6degreeEfEEvRT0_S5_S5_S5_.exit: ; preds = %8, %15, %17
-  %.0.i.i.i.i.i = phi i1 [ true, %8 ], [ %24, %17 ], [ false, %15 ]
+_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6degreeEfEEvRT0_S5_S5_S5_.exit: ; preds = %8, %16, %18
+  %.0.i.i.i.i.i = phi i1 [ true, %8 ], [ %25, %18 ], [ false, %16 ]
   call void @_ZN5boost8geometry4math6detail36normalize_spheroidal_box_coordinatesINS0_6degreeEfLb1EE5applyERfS6_S6_S6_b(ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, i1 noundef zeroext %.0.i.i.i.i.i)
   call void @_Z11test_equalsIfTnNSt9enable_ifIXsr3std14numeric_limitsIT_EE13has_quiet_NaNEiE4typeELi0EEvRKS1_S5_(ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @_Z11test_equalsIfTnNSt9enable_ifIXsr3std14numeric_limitsIT_EE13has_quiet_NaNEiE4typeELi0EEvRKS1_S5_(ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %5)
@@ -132135,26 +132135,26 @@ define linkonce_odr hidden void @_Z8test_boxIdEvT_S0_S0_S0_RKS0_S2_S2_S2_(double
   store double %3, ptr %12, align 8, !tbaa !1475
   %13 = fsub double %0, %2
   %14 = tail call noundef double @llvm.fabs.f64(double %13)
-  %or.cond.i.i.i.i.i = fcmp ult double %14, 3.600000e+02
-  br i1 %or.cond.i.i.i.i.i, label %15, label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6degreeEdEEvRT0_S5_S5_S5_.exit
+  %15 = fcmp ult double %14, 3.600000e+02
+  br i1 %15, label %16, label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6degreeEdEEvRT0_S5_S5_S5_.exit
 
-15:                                               ; preds = %8
-  %16 = fcmp ueq double %14, 0x7FF0000000000000
-  br i1 %16, label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6degreeEdEEvRT0_S5_S5_S5_.exit, label %17
+16:                                               ; preds = %8
+  %17 = fcmp ueq double %14, 0x7FF0000000000000
+  br i1 %17, label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6degreeEdEEvRT0_S5_S5_S5_.exit, label %18
 
-17:                                               ; preds = %15
-  %18 = fsub double 3.600000e+02, %14
-  %19 = tail call noundef double @llvm.fabs.f64(double %18)
-  %20 = fcmp ogt double %14, 3.600000e+02
-  %21 = select i1 %20, double %14, double 3.600000e+02
-  %22 = fcmp olt double %21, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i = select i1 %22, double 1.000000e+00, double %21
-  %23 = fmul double %.sroa.speculated.i.i.i.i.i.i.i, 0x3CB0000000000000
-  %24 = fcmp ole double %19, %23
+18:                                               ; preds = %16
+  %19 = fsub double 3.600000e+02, %14
+  %20 = tail call noundef double @llvm.fabs.f64(double %19)
+  %21 = fcmp ogt double %14, 3.600000e+02
+  %22 = select i1 %21, double %14, double 3.600000e+02
+  %23 = fcmp olt double %22, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i = select i1 %23, double 1.000000e+00, double %22
+  %24 = fmul double %.sroa.speculated.i.i.i.i.i.i.i, 0x3CB0000000000000
+  %25 = fcmp ole double %20, %24
   br label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6degreeEdEEvRT0_S5_S5_S5_.exit
 
-_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6degreeEdEEvRT0_S5_S5_S5_.exit: ; preds = %8, %15, %17
-  %.0.i.i.i.i.i = phi i1 [ true, %8 ], [ %24, %17 ], [ false, %15 ]
+_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6degreeEdEEvRT0_S5_S5_S5_.exit: ; preds = %8, %16, %18
+  %.0.i.i.i.i.i = phi i1 [ true, %8 ], [ %25, %18 ], [ false, %16 ]
   call void @_ZN5boost8geometry4math6detail36normalize_spheroidal_box_coordinatesINS0_6degreeEdLb1EE5applyERdS6_S6_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, i1 noundef zeroext %.0.i.i.i.i.i)
   call void @_Z11test_equalsIdTnNSt9enable_ifIXsr3std14numeric_limitsIT_EE13has_quiet_NaNEiE4typeELi0EEvRKS1_S5_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @_Z11test_equalsIdTnNSt9enable_ifIXsr3std14numeric_limitsIT_EE13has_quiet_NaNEiE4typeELi0EEvRKS1_S5_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %5)

@@ -1335,7 +1335,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %79, %73, %66
   %.sroa.speculated = select i1 %93, float %.sroa.6.043, float %.sroa.0.042
   %96 = fcmp uge float %95, %.sroa.speculated
   %brmerge = or i1 %93, %96
-  %.sroa.0.1 = select i1 %brmerge, float %.sroa.0.042, float %95
+  %.sroa.0.1 = select i1 %brmerge, float %.sroa.0.042, float %91
   %.sroa.6.0.mux = select i1 %93, float %94, float %.sroa.6.043
   %.sroa.6.1 = select i1 %96, float %.sroa.6.043, float %.sroa.6.0.mux
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #23

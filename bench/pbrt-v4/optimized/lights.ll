@@ -25663,49 +25663,47 @@ define dso_local void @_ZNK4pbrt9SpotLight6PDF_LeERKNS_3RayEPfS4_(ptr noundef no
   %30 = fmul float %7, %29
   %31 = fadd float %7, %11
   %32 = fdiv float %30, %31
-  br label %55
+  br label %54
 
 33:                                               ; preds = %4
   %34 = load float, ptr %8, align 8, !tbaa !585
   %35 = fcmp olt float %23, %34
-  %36 = fcmp ogt float %23, %24
-  %or.cond.i = or i1 %36, %35
-  br i1 %or.cond.i, label %_ZN4pbrt13SmoothStepPDFEfff.exit, label %37
+  br i1 %35, label %_ZN4pbrt13SmoothStepPDFEfff.exit, label %36
 
-37:                                               ; preds = %33
-  %38 = fsub float %24, %34
-  %39 = fdiv float 2.000000e+00, %38
-  %40 = fcmp oeq float %34, %24
-  br i1 %40, label %_ZN4pbrt10SmoothStepEfff.exit.i, label %41
+36:                                               ; preds = %33
+  %37 = fsub float %24, %34
+  %38 = fdiv float 2.000000e+00, %37
+  %39 = fcmp oeq float %34, %24
+  br i1 %39, label %_ZN4pbrt10SmoothStepEfff.exit.i, label %40
 
-41:                                               ; preds = %37
-  %42 = fsub float %23, %34
-  %43 = fdiv float %42, %38
-  %44 = fcmp olt float %43, 0.000000e+00
-  %45 = fcmp ogt float %43, 1.000000e+00
-  %..i.i.i = select i1 %45, float 1.000000e+00, float %43
-  %.0.i.i.i = select i1 %44, float 0.000000e+00, float %..i.i.i
-  %46 = fmul float %.0.i.i.i, %.0.i.i.i
-  %47 = fmul float %.0.i.i.i, 2.000000e+00
-  %48 = fsub float 3.000000e+00, %47
-  %49 = fmul float %46, %48
+40:                                               ; preds = %36
+  %41 = fsub float %23, %34
+  %42 = fdiv float %41, %37
+  %43 = fcmp olt float %42, 0.000000e+00
+  %44 = fcmp ogt float %42, 1.000000e+00
+  %..i.i.i = select i1 %44, float 1.000000e+00, float %42
+  %.0.i.i.i = select i1 %43, float 0.000000e+00, float %..i.i.i
+  %45 = fmul float %.0.i.i.i, %.0.i.i.i
+  %46 = fmul float %.0.i.i.i, 2.000000e+00
+  %47 = fsub float 3.000000e+00, %46
+  %48 = fmul float %45, %47
   br label %_ZN4pbrt10SmoothStepEfff.exit.i
 
-_ZN4pbrt10SmoothStepEfff.exit.i:                  ; preds = %41, %37
-  %.0.i.i = phi float [ %49, %41 ], [ 1.000000e+00, %37 ]
-  %50 = fmul float %39, %.0.i.i
+_ZN4pbrt10SmoothStepEfff.exit.i:                  ; preds = %40, %36
+  %.0.i.i = phi float [ %48, %40 ], [ 1.000000e+00, %36 ]
+  %49 = fmul float %38, %.0.i.i
   br label %_ZN4pbrt13SmoothStepPDFEfff.exit
 
 _ZN4pbrt13SmoothStepPDFEfff.exit:                 ; preds = %33, %_ZN4pbrt10SmoothStepEfff.exit.i
-  %.0.i = phi float [ %50, %_ZN4pbrt10SmoothStepEfff.exit.i ], [ 0.000000e+00, %33 ]
-  %51 = fmul float %11, %.0.i
-  %52 = fadd float %7, %11
-  %53 = fmul float %52, 0x401921FB60000000
-  %54 = fdiv float %51, %53
-  br label %55
+  %.0.i = phi float [ %49, %_ZN4pbrt10SmoothStepEfff.exit.i ], [ 0.000000e+00, %33 ]
+  %50 = fmul float %11, %.0.i
+  %51 = fadd float %7, %11
+  %52 = fmul float %51, 0x401921FB60000000
+  %53 = fdiv float %50, %52
+  br label %54
 
-55:                                               ; preds = %_ZN4pbrt13SmoothStepPDFEfff.exit, %26
-  %storemerge = phi float [ %54, %_ZN4pbrt13SmoothStepPDFEfff.exit ], [ %32, %26 ]
+54:                                               ; preds = %_ZN4pbrt13SmoothStepPDFEfff.exit, %26
+  %storemerge = phi float [ %53, %_ZN4pbrt13SmoothStepPDFEfff.exit ], [ %32, %26 ]
   store float %storemerge, ptr %3, align 4, !tbaa !77
   ret void
 }
@@ -27003,15 +27001,15 @@ define dso_local void @_ZNK4pbrt5Light6PDF_LeERKNS_3RayEPfS4_(ptr noundef nonnul
   %6 = inttoptr i64 %5 to ptr
   %7 = lshr i64 %.val, 57
   %8 = trunc nuw nsw i64 %7 to i32
-  switch i32 %8, label %252 [
+  switch i32 %8, label %251 [
     i32 1, label %9
     i32 2, label %10
     i32 3, label %15
     i32 4, label %16
     i32 5, label %105
-    i32 6, label %156
-    i32 7, label %157
-    i32 8, label %163
+    i32 6, label %155
+    i32 7, label %156
+    i32 8, label %162
   ]
 
 9:                                                ; preds = %4
@@ -27190,180 +27188,178 @@ define dso_local void @_ZNK4pbrt5Light6PDF_LeERKNS_3RayEPfS4_(ptr noundef nonnul
 134:                                              ; preds = %105
   %135 = load float, ptr %109, align 8, !tbaa !585
   %136 = fcmp olt float %124, %135
-  %137 = fcmp ogt float %124, %125
-  %or.cond.i.i.i.i.i = or i1 %137, %136
-  br i1 %or.cond.i.i.i.i.i, label %_ZN4pbrt13SmoothStepPDFEfff.exit.i.i.i.i, label %138
+  br i1 %136, label %_ZN4pbrt13SmoothStepPDFEfff.exit.i.i.i.i, label %137
 
-138:                                              ; preds = %134
-  %139 = fsub float %125, %135
-  %140 = fdiv float 2.000000e+00, %139
-  %141 = fcmp oeq float %135, %125
-  br i1 %141, label %_ZN4pbrt10SmoothStepEfff.exit.i.i.i.i.i, label %142
+137:                                              ; preds = %134
+  %138 = fsub float %125, %135
+  %139 = fdiv float 2.000000e+00, %138
+  %140 = fcmp oeq float %135, %125
+  br i1 %140, label %_ZN4pbrt10SmoothStepEfff.exit.i.i.i.i.i, label %141
 
-142:                                              ; preds = %138
-  %143 = fsub float %124, %135
-  %144 = fdiv float %143, %139
-  %145 = fcmp olt float %144, 0.000000e+00
-  %146 = fcmp ogt float %144, 1.000000e+00
-  %..i.i.i.i.i.i.i = select i1 %146, float 1.000000e+00, float %144
-  %.0.i.i.i.i.i.i.i = select i1 %145, float 0.000000e+00, float %..i.i.i.i.i.i.i
-  %147 = fmul float %.0.i.i.i.i.i.i.i, %.0.i.i.i.i.i.i.i
-  %148 = fmul float %.0.i.i.i.i.i.i.i, 2.000000e+00
-  %149 = fsub float 3.000000e+00, %148
-  %150 = fmul float %147, %149
+141:                                              ; preds = %137
+  %142 = fsub float %124, %135
+  %143 = fdiv float %142, %138
+  %144 = fcmp olt float %143, 0.000000e+00
+  %145 = fcmp ogt float %143, 1.000000e+00
+  %..i.i.i.i.i.i.i = select i1 %145, float 1.000000e+00, float %143
+  %.0.i.i.i.i.i.i.i = select i1 %144, float 0.000000e+00, float %..i.i.i.i.i.i.i
+  %146 = fmul float %.0.i.i.i.i.i.i.i, %.0.i.i.i.i.i.i.i
+  %147 = fmul float %.0.i.i.i.i.i.i.i, 2.000000e+00
+  %148 = fsub float 3.000000e+00, %147
+  %149 = fmul float %146, %148
   br label %_ZN4pbrt10SmoothStepEfff.exit.i.i.i.i.i
 
-_ZN4pbrt10SmoothStepEfff.exit.i.i.i.i.i:          ; preds = %142, %138
-  %.0.i.i.i.i.i.i = phi float [ %150, %142 ], [ 1.000000e+00, %138 ]
-  %151 = fmul float %140, %.0.i.i.i.i.i.i
+_ZN4pbrt10SmoothStepEfff.exit.i.i.i.i.i:          ; preds = %141, %137
+  %.0.i.i.i.i.i.i = phi float [ %149, %141 ], [ 1.000000e+00, %137 ]
+  %150 = fmul float %139, %.0.i.i.i.i.i.i
   br label %_ZN4pbrt13SmoothStepPDFEfff.exit.i.i.i.i
 
 _ZN4pbrt13SmoothStepPDFEfff.exit.i.i.i.i:         ; preds = %_ZN4pbrt10SmoothStepEfff.exit.i.i.i.i.i, %134
-  %.0.i.i.i.i.i = phi float [ %151, %_ZN4pbrt10SmoothStepEfff.exit.i.i.i.i.i ], [ 0.000000e+00, %134 ]
-  %152 = fmul float %112, %.0.i.i.i.i.i
-  %153 = fadd float %108, %112
-  %154 = fmul float %153, 0x401921FB60000000
-  %155 = fdiv float %152, %154
+  %.0.i.i.i.i.i = phi float [ %150, %_ZN4pbrt10SmoothStepEfff.exit.i.i.i.i.i ], [ 0.000000e+00, %134 ]
+  %151 = fmul float %112, %.0.i.i.i.i.i
+  %152 = fadd float %108, %112
+  %153 = fmul float %152, 0x401921FB60000000
+  %154 = fdiv float %151, %153
   br label %"_ZZNK4pbrt5Light6PDF_LeERKNS_3RayEPfS4_ENK3$_0clIPKNS_9SpotLightEEEDaT_.exit.i.i"
 
 "_ZZNK4pbrt5Light6PDF_LeERKNS_3RayEPfS4_ENK3$_0clIPKNS_9SpotLightEEEDaT_.exit.i.i": ; preds = %_ZN4pbrt13SmoothStepPDFEfff.exit.i.i.i.i, %127
-  %storemerge.i.i.i.i = phi float [ %155, %_ZN4pbrt13SmoothStepPDFEfff.exit.i.i.i.i ], [ %133, %127 ]
+  %storemerge.i.i.i.i = phi float [ %154, %_ZN4pbrt13SmoothStepPDFEfff.exit.i.i.i.i ], [ %133, %127 ]
   store float %storemerge.i.i.i.i, ptr %3, align 4, !tbaa !77
   br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.exit"
 
-156:                                              ; preds = %4
+155:                                              ; preds = %4
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.137, i32 noundef 435, ptr noundef nonnull @.str.139) #37
   unreachable
 
-157:                                              ; preds = %4
+156:                                              ; preds = %4
   store float 0x3FB45F3060000000, ptr %3, align 4, !tbaa !77
-  %158 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %159 = load float, ptr %158, align 8, !tbaa !466
-  %160 = fmul float %159, %159
-  %161 = fmul float %160, 0x400921FB60000000
-  %162 = fdiv float 1.000000e+00, %161
-  store float %162, ptr %2, align 4, !tbaa !77
+  %157 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %158 = load float, ptr %157, align 8, !tbaa !466
+  %159 = fmul float %158, %158
+  %160 = fmul float %159, 0x400921FB60000000
+  %161 = fdiv float 1.000000e+00, %160
+  store float %161, ptr %2, align 4, !tbaa !77
   br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.exit"
 
-163:                                              ; preds = %4
-  %164 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.012.0.copyload.i.i.i.i = load <2 x float>, ptr %164, align 4
+162:                                              ; preds = %4
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.012.0.copyload.i.i.i.i = load <2 x float>, ptr %163, align 4
   %.sroa.213.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.sroa.213.0.copyload.i.i.i.i = load float, ptr %.sroa.213.0..sroa_idx.i.i.i.i, align 4
   %.sroa.012.0.vec.extract.i.i.i21.i.i = extractelement <2 x float> %.sroa.012.0.copyload.i.i.i.i, i64 0
   %.sroa.012.4.vec.extract.i.i.i22.i.i = extractelement <2 x float> %.sroa.012.0.copyload.i.i.i.i, i64 1
-  %165 = getelementptr inbounds nuw i8, ptr %6, i64 68
-  %166 = load float, ptr %165, align 4, !tbaa !77
-  %167 = fmul float %.sroa.012.0.vec.extract.i.i.i21.i.i, %166
-  %168 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %169 = load float, ptr %168, align 4, !tbaa !77
-  %170 = fmul float %.sroa.012.4.vec.extract.i.i.i22.i.i, %169
-  %171 = fadd float %167, %170
-  %172 = getelementptr inbounds nuw i8, ptr %6, i64 76
-  %173 = load float, ptr %172, align 4, !tbaa !77
-  %174 = fmul float %.sroa.213.0.copyload.i.i.i.i, %173
-  %175 = fadd float %171, %174
-  %176 = getelementptr inbounds nuw i8, ptr %6, i64 84
-  %177 = load float, ptr %176, align 4, !tbaa !77
-  %178 = fmul float %.sroa.012.0.vec.extract.i.i.i21.i.i, %177
-  %179 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %180 = load float, ptr %179, align 4, !tbaa !77
-  %181 = fmul float %.sroa.012.4.vec.extract.i.i.i22.i.i, %180
-  %182 = fadd float %178, %181
-  %183 = getelementptr inbounds nuw i8, ptr %6, i64 92
-  %184 = load float, ptr %183, align 4, !tbaa !77
-  %185 = fmul float %.sroa.213.0.copyload.i.i.i.i, %184
-  %186 = fadd float %182, %185
-  %187 = getelementptr inbounds nuw i8, ptr %6, i64 100
-  %188 = load float, ptr %187, align 4, !tbaa !77
-  %189 = fmul float %.sroa.012.0.vec.extract.i.i.i21.i.i, %188
-  %190 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %191 = load float, ptr %190, align 4, !tbaa !77
-  %192 = fmul float %.sroa.012.4.vec.extract.i.i.i22.i.i, %191
-  %193 = fadd float %189, %192
-  %194 = getelementptr inbounds nuw i8, ptr %6, i64 108
-  %195 = load float, ptr %194, align 4, !tbaa !77
-  %196 = fmul float %.sroa.213.0.copyload.i.i.i.i, %195
-  %197 = fadd float %193, %196
-  %198 = fneg float %175
-  %199 = fneg float %186
-  %200 = fneg float %197
-  %.sroa.0.0.vec.insert.i.i.i.i.i = insertelement <2 x float> poison, float %198, i64 0
-  %.sroa.0.4.vec.insert.i.i.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i.i.i, float %199, i64 1
-  %201 = getelementptr inbounds nuw i8, ptr %6, i64 336
-  %202 = tail call <2 x float> @_ZN4pbrt23EqualAreaSphereToSquareENS_7Vector3IfEE(<2 x float> %.sroa.0.4.vec.insert.i.i.i.i.i, float %200)
-  %.sroa.0.0.copyload.i.i.i.i23.i.i = load <2 x float>, ptr %201, align 4
+  %164 = getelementptr inbounds nuw i8, ptr %6, i64 68
+  %165 = load float, ptr %164, align 4, !tbaa !77
+  %166 = fmul float %.sroa.012.0.vec.extract.i.i.i21.i.i, %165
+  %167 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %168 = load float, ptr %167, align 4, !tbaa !77
+  %169 = fmul float %.sroa.012.4.vec.extract.i.i.i22.i.i, %168
+  %170 = fadd float %166, %169
+  %171 = getelementptr inbounds nuw i8, ptr %6, i64 76
+  %172 = load float, ptr %171, align 4, !tbaa !77
+  %173 = fmul float %.sroa.213.0.copyload.i.i.i.i, %172
+  %174 = fadd float %170, %173
+  %175 = getelementptr inbounds nuw i8, ptr %6, i64 84
+  %176 = load float, ptr %175, align 4, !tbaa !77
+  %177 = fmul float %.sroa.012.0.vec.extract.i.i.i21.i.i, %176
+  %178 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %179 = load float, ptr %178, align 4, !tbaa !77
+  %180 = fmul float %.sroa.012.4.vec.extract.i.i.i22.i.i, %179
+  %181 = fadd float %177, %180
+  %182 = getelementptr inbounds nuw i8, ptr %6, i64 92
+  %183 = load float, ptr %182, align 4, !tbaa !77
+  %184 = fmul float %.sroa.213.0.copyload.i.i.i.i, %183
+  %185 = fadd float %181, %184
+  %186 = getelementptr inbounds nuw i8, ptr %6, i64 100
+  %187 = load float, ptr %186, align 4, !tbaa !77
+  %188 = fmul float %.sroa.012.0.vec.extract.i.i.i21.i.i, %187
+  %189 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  %190 = load float, ptr %189, align 4, !tbaa !77
+  %191 = fmul float %.sroa.012.4.vec.extract.i.i.i22.i.i, %190
+  %192 = fadd float %188, %191
+  %193 = getelementptr inbounds nuw i8, ptr %6, i64 108
+  %194 = load float, ptr %193, align 4, !tbaa !77
+  %195 = fmul float %.sroa.213.0.copyload.i.i.i.i, %194
+  %196 = fadd float %192, %195
+  %197 = fneg float %174
+  %198 = fneg float %185
+  %199 = fneg float %196
+  %.sroa.0.0.vec.insert.i.i.i.i.i = insertelement <2 x float> poison, float %197, i64 0
+  %.sroa.0.4.vec.insert.i.i.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i.i.i, float %198, i64 1
+  %200 = getelementptr inbounds nuw i8, ptr %6, i64 336
+  %201 = tail call <2 x float> @_ZN4pbrt23EqualAreaSphereToSquareENS_7Vector3IfEE(<2 x float> %.sroa.0.4.vec.insert.i.i.i.i.i, float %199)
+  %.sroa.0.0.copyload.i.i.i.i23.i.i = load <2 x float>, ptr %200, align 4
   %.sroa.0.0.vec.extract.i.i.i.i.i25.i.i = extractelement <2 x float> %.sroa.0.0.copyload.i.i.i.i23.i.i, i64 0
-  %foldExtExtBinop40 = fsub <2 x float> %202, %.sroa.0.0.copyload.i.i.i.i23.i.i
-  %203 = extractelement <2 x float> %foldExtExtBinop40, i64 0
+  %foldExtExtBinop40 = fsub <2 x float> %201, %.sroa.0.0.copyload.i.i.i.i23.i.i
+  %202 = extractelement <2 x float> %foldExtExtBinop40, i64 0
   %.sroa.0.4.vec.extract.i.i.i.i.i27.i.i = extractelement <2 x float> %.sroa.0.0.copyload.i.i.i.i23.i.i, i64 1
-  %.sroa.0.4.vec.insert.i.i.i.i.i29.i.i = fsub <2 x float> %202, %.sroa.0.0.copyload.i.i.i.i23.i.i
-  %204 = getelementptr inbounds nuw i8, ptr %6, i64 344
-  %205 = load float, ptr %204, align 4, !tbaa !232
-  %206 = fcmp ogt float %205, %.sroa.0.0.vec.extract.i.i.i.i.i25.i.i
-  %207 = fsub float %205, %.sroa.0.0.vec.extract.i.i.i.i.i25.i.i
-  %208 = fdiv float %203, %207
-  %.sroa.01.0.vec.insert.i.i.i.i30.i.i = insertelement <2 x float> %.sroa.0.4.vec.insert.i.i.i.i.i29.i.i, float %208, i64 0
-  %.sroa.01.0.i.i.i.i31.i.i = select i1 %206, <2 x float> %.sroa.01.0.vec.insert.i.i.i.i30.i.i, <2 x float> %.sroa.0.4.vec.insert.i.i.i.i.i29.i.i
-  %209 = getelementptr inbounds nuw i8, ptr %6, i64 348
-  %210 = load float, ptr %209, align 4, !tbaa !257
-  %211 = fcmp ogt float %210, %.sroa.0.4.vec.extract.i.i.i.i.i27.i.i
-  %212 = fsub float %210, %.sroa.0.4.vec.extract.i.i.i.i.i27.i.i
+  %.sroa.0.4.vec.insert.i.i.i.i.i29.i.i = fsub <2 x float> %201, %.sroa.0.0.copyload.i.i.i.i23.i.i
+  %203 = getelementptr inbounds nuw i8, ptr %6, i64 344
+  %204 = load float, ptr %203, align 4, !tbaa !232
+  %205 = fcmp ogt float %204, %.sroa.0.0.vec.extract.i.i.i.i.i25.i.i
+  %206 = fsub float %204, %.sroa.0.0.vec.extract.i.i.i.i.i25.i.i
+  %207 = fdiv float %202, %206
+  %.sroa.01.0.vec.insert.i.i.i.i30.i.i = insertelement <2 x float> %.sroa.0.4.vec.insert.i.i.i.i.i29.i.i, float %207, i64 0
+  %.sroa.01.0.i.i.i.i31.i.i = select i1 %205, <2 x float> %.sroa.01.0.vec.insert.i.i.i.i30.i.i, <2 x float> %.sroa.0.4.vec.insert.i.i.i.i.i29.i.i
+  %208 = getelementptr inbounds nuw i8, ptr %6, i64 348
+  %209 = load float, ptr %208, align 4, !tbaa !257
+  %210 = fcmp ogt float %209, %.sroa.0.4.vec.extract.i.i.i.i.i27.i.i
+  %211 = fsub float %209, %.sroa.0.4.vec.extract.i.i.i.i.i27.i.i
   %.sroa.01.4.vec.extract.i.i.i.i32.i.i = extractelement <2 x float> %.sroa.01.0.i.i.i.i31.i.i, i64 1
-  %213 = fdiv float %.sroa.01.4.vec.extract.i.i.i.i32.i.i, %212
-  %.sroa.01.4.vec.insert.i.i.i.i33.i.i = insertelement <2 x float> %.sroa.01.0.i.i.i.i31.i.i, float %213, i64 1
-  %.sroa.01.1.i.i.i.i34.i.i = select i1 %211, <2 x float> %.sroa.01.4.vec.insert.i.i.i.i33.i.i, <2 x float> %.sroa.01.0.i.i.i.i31.i.i
+  %212 = fdiv float %.sroa.01.4.vec.extract.i.i.i.i32.i.i, %211
+  %.sroa.01.4.vec.insert.i.i.i.i33.i.i = insertelement <2 x float> %.sroa.01.0.i.i.i.i31.i.i, float %212, i64 1
+  %.sroa.01.1.i.i.i.i34.i.i = select i1 %210, <2 x float> %.sroa.01.4.vec.insert.i.i.i.i33.i.i, <2 x float> %.sroa.01.0.i.i.i.i31.i.i
   %.sroa.0.0.vec.extract.i4.i.i.i35.i.i = extractelement <2 x float> %.sroa.01.1.i.i.i.i34.i.i, i64 0
   %.sroa.0.4.vec.extract.i5.i.i.i36.i.i = extractelement <2 x float> %.sroa.01.1.i.i.i.i34.i.i, i64 1
-  %214 = getelementptr inbounds nuw i8, ptr %6, i64 360
-  %215 = load ptr, ptr %214, align 8, !tbaa !212
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 24
-  %217 = load i64, ptr %216, align 8, !tbaa !70
-  %218 = uitofp i64 %217 to float
-  %219 = fmul float %.sroa.0.0.vec.extract.i4.i.i.i35.i.i, %218
-  %220 = fptosi float %219 to i32
-  %221 = add i64 %217, -1
-  %222 = icmp slt i32 %220, 0
-  %223 = sext i32 %220 to i64
-  %spec.select11.i.i.i.i37.i.i = tail call i64 @llvm.umin.i64(i64 %221, i64 %223)
-  %224 = getelementptr inbounds nuw i8, ptr %6, i64 408
-  %225 = load i64, ptr %224, align 8, !tbaa !70
-  %226 = uitofp i64 %225 to float
-  %227 = fmul float %.sroa.0.4.vec.extract.i5.i.i.i36.i.i, %226
-  %228 = fptosi float %227 to i32
-  %229 = add i64 %225, -1
-  %230 = icmp slt i32 %228, 0
-  %231 = sext i32 %228 to i64
-  %spec.select11.i6.i.i.i38.i.i = tail call i64 @llvm.umin.i64(i64 %229, i64 %231)
-  %232 = shl i64 %spec.select11.i6.i.i.i38.i.i, 32
-  %233 = ashr exact i64 %232, 32
-  %234 = select i1 %230, i64 0, i64 %233
-  %235 = getelementptr inbounds nuw %"class.pbrt::PiecewiseConstant1D", ptr %215, i64 %234
-  %236 = shl i64 %spec.select11.i.i.i.i37.i.i, 32
-  %237 = ashr exact i64 %236, 32
-  %238 = select i1 %222, i64 0, i64 %237
-  %239 = getelementptr inbounds nuw i8, ptr %235, i64 8
-  %240 = load ptr, ptr %239, align 8, !tbaa !66
-  %241 = getelementptr inbounds nuw float, ptr %240, i64 %238
-  %242 = load float, ptr %241, align 4, !tbaa !77
-  %243 = getelementptr inbounds nuw i8, ptr %6, i64 456
-  %244 = load float, ptr %243, align 8, !tbaa !184
-  %245 = fdiv float %242, %244
-  %246 = fdiv float %245, 0x402921FB60000000
-  store float %246, ptr %3, align 4, !tbaa !77
-  %247 = getelementptr inbounds nuw i8, ptr %6, i64 328
-  %248 = load float, ptr %247, align 8, !tbaa !487
-  %249 = fmul float %248, %248
-  %250 = fmul float %249, 0x400921FB60000000
-  %251 = fdiv float 1.000000e+00, %250
-  store float %251, ptr %2, align 4, !tbaa !77
+  %213 = getelementptr inbounds nuw i8, ptr %6, i64 360
+  %214 = load ptr, ptr %213, align 8, !tbaa !212
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 24
+  %216 = load i64, ptr %215, align 8, !tbaa !70
+  %217 = uitofp i64 %216 to float
+  %218 = fmul float %.sroa.0.0.vec.extract.i4.i.i.i35.i.i, %217
+  %219 = fptosi float %218 to i32
+  %220 = add i64 %216, -1
+  %221 = icmp slt i32 %219, 0
+  %222 = sext i32 %219 to i64
+  %spec.select11.i.i.i.i37.i.i = tail call i64 @llvm.umin.i64(i64 %220, i64 %222)
+  %223 = getelementptr inbounds nuw i8, ptr %6, i64 408
+  %224 = load i64, ptr %223, align 8, !tbaa !70
+  %225 = uitofp i64 %224 to float
+  %226 = fmul float %.sroa.0.4.vec.extract.i5.i.i.i36.i.i, %225
+  %227 = fptosi float %226 to i32
+  %228 = add i64 %224, -1
+  %229 = icmp slt i32 %227, 0
+  %230 = sext i32 %227 to i64
+  %spec.select11.i6.i.i.i38.i.i = tail call i64 @llvm.umin.i64(i64 %228, i64 %230)
+  %231 = shl i64 %spec.select11.i6.i.i.i38.i.i, 32
+  %232 = ashr exact i64 %231, 32
+  %233 = select i1 %229, i64 0, i64 %232
+  %234 = getelementptr inbounds nuw %"class.pbrt::PiecewiseConstant1D", ptr %214, i64 %233
+  %235 = shl i64 %spec.select11.i.i.i.i37.i.i, 32
+  %236 = ashr exact i64 %235, 32
+  %237 = select i1 %221, i64 0, i64 %236
+  %238 = getelementptr inbounds nuw i8, ptr %234, i64 8
+  %239 = load ptr, ptr %238, align 8, !tbaa !66
+  %240 = getelementptr inbounds nuw float, ptr %239, i64 %237
+  %241 = load float, ptr %240, align 4, !tbaa !77
+  %242 = getelementptr inbounds nuw i8, ptr %6, i64 456
+  %243 = load float, ptr %242, align 8, !tbaa !184
+  %244 = fdiv float %241, %243
+  %245 = fdiv float %244, 0x402921FB60000000
+  store float %245, ptr %3, align 4, !tbaa !77
+  %246 = getelementptr inbounds nuw i8, ptr %6, i64 328
+  %247 = load float, ptr %246, align 8, !tbaa !487
+  %248 = fmul float %247, %247
+  %249 = fmul float %248, 0x400921FB60000000
+  %250 = fdiv float 1.000000e+00, %249
+  store float %250, ptr %2, align 4, !tbaa !77
   br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.exit"
 
-252:                                              ; preds = %4
+251:                                              ; preds = %4
   tail call void @_ZNK4pbrt24PortalImageInfiniteLight6PDF_LeERKNS_3RayEPfS4_(ptr noundef nonnull align 8 dereferenceable(516) %6, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef %3)
   br label %"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.exit"
 
-"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.exit": ; preds = %9, %10, %15, %16, %"_ZZNK4pbrt5Light6PDF_LeERKNS_3RayEPfS4_ENK3$_0clIPKNS_9SpotLightEEEDaT_.exit.i.i", %157, %163, %252
+"_ZNK4pbrt13TaggedPointerIJNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightENS_24PortalImageInfiniteLightEEE8DispatchIRZNKS_5Light6PDF_LeERKNS_3RayEPfSG_E3$_0EEDcOT_.exit": ; preds = %9, %10, %15, %16, %"_ZZNK4pbrt5Light6PDF_LeERKNS_3RayEPfS4_ENK3$_0clIPKNS_9SpotLightEEEDaT_.exit.i.i", %156, %162, %251
   ret void
 }
 

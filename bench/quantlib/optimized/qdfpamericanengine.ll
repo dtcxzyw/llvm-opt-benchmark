@@ -19420,7 +19420,7 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %expon)
   %1 = load double, ptr %val, align 8, !tbaa !55
   %iszero.i.i.i = fcmp oeq double %1, 0.000000e+00
-  br i1 %iszero.i.i.i, label %if.end6, label %fpclassify_not_zero.i.i.i
+  br i1 %iszero.i.i.i, label %if.then13, label %fpclassify_not_zero.i.i.i
 
 fpclassify_not_zero.i.i.i:                        ; preds = %entry
   %cmp.i.i.i = fcmp uno double %1, 0.000000e+00
@@ -19440,20 +19440,16 @@ if.end:                                           ; preds = %if.then
   tail call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %3, ptr noundef nonnull @.str.82, ptr noundef nonnull align 8 dereferenceable(8) %val)
   br label %cleanup
 
-if.end6:                                          ; preds = %entry
-  %cmp8 = fcmp ult double %1, 0x7FEFFFFFFFFFFFFF
-  br i1 %cmp8, label %if.then13, label %if.then9
-
 if.end6.thread:                                   ; preds = %fpclassify_not_nan.i.i.i
   %cmp825 = fcmp ult double %1, 0x7FEFFFFFFFFFFFFF
   br i1 %cmp825, label %if.end15, label %if.then9
 
-if.then9:                                         ; preds = %if.end6.thread, %if.end6
+if.then9:                                         ; preds = %if.end6.thread
   %4 = load ptr, ptr @_ZZN5boost4math6detail14float_next_impIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_E8function, align 8, !tbaa !3
   tail call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_errordEEvPKcS6_(ptr noundef %4, ptr noundef nonnull @.str.83)
   br label %cleanup
 
-if.then13:                                        ; preds = %if.end6
+if.then13:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %tmp.i.i)
   %stmxcsr.i.i = load i32, ptr %tmp.i.i, align 4

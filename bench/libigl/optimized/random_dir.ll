@@ -73,17 +73,17 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.preheader: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i
   %8 = fcmp ogt double %5, 0.000000e+00
-  br i1 %8, label %.lr.ph.us.preheader, label %.preheader
+  br i1 %8, label %.lr.ph49, label %.preheader
 
-.lr.ph.us.preheader:                              ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.preheader
+.lr.ph49:                                         ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.preheader
   %9 = fdiv double 1.000000e+00, %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %11 = phi double [ %46, %._crit_edge.us ], [ 0.000000e+00, %.lr.ph.us.preheader ]
-  %.03248.us = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
-  %.03447.us = phi i32 [ %45, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
+.lr.ph.us:                                        ; preds = %._crit_edge.us, %.lr.ph49
+  %11 = phi double [ 0.000000e+00, %.lr.ph49 ], [ %46, %._crit_edge.us ]
+  %.03248.us = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next, %._crit_edge.us ]
+  %.03447.us = phi i32 [ 0, %.lr.ph49 ], [ %45, %._crit_edge.us ]
   %12 = fdiv double %11, %5
   %sext = shl i64 %.03248.us, 32
   %13 = ashr exact i64 %sext, 32
@@ -160,7 +160,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.preheader: ; pr
   br label %58
 
 58:                                               ; preds = %.lr.ph, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi3ELi1ELi0ELi3ELi1EEEEERS3_RKNS_9DenseBaseIT_EE.exit
-  %indvars.iv55 = phi i64 [ %57, %.lr.ph ], [ %indvars.iv.next56, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi3ELi1ELi0ELi3ELi1EEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
+  %indvars.iv53 = phi i64 [ %57, %.lr.ph ], [ %indvars.iv.next54, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi3ELi1ELi0ELi3ELi1EEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %59 = tail call i32 @rand() #11, !noalias !19
@@ -183,7 +183,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.preheader: ; pr
   store double %74, ptr %53, align 8, !tbaa !8, !alias.scope !19
   store double %62, ptr %54, align 8, !tbaa !8, !alias.scope !19
   %75 = load ptr, ptr %0, align 8, !tbaa !10, !noalias !22
-  %76 = getelementptr inbounds double, ptr %75, i64 %indvars.iv55
+  %76 = getelementptr inbounds double, ptr %75, i64 %indvars.iv53
   %77 = load i64, ptr %55, align 8, !tbaa !25, !noalias !22
   %78 = load i64, ptr %56, align 8, !tbaa !15
   %79 = icmp sgt i64 %77, 0
@@ -202,8 +202,8 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.preheader: ; pr
 
 _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi3ELi1ELi0ELi3ELi1EEEEERS3_RKNS_9DenseBaseIT_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %indvars.iv.next56 = add nsw i64 %indvars.iv55, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next56 to i32
+  %indvars.iv.next54 = add nsw i64 %indvars.iv53, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next54 to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %58, !llvm.loop !27
 

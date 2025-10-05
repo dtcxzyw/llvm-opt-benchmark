@@ -6224,7 +6224,7 @@ define dso_local ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly captures
   %.031 = select i1 %18, float %1, float %2
   %19 = fcmp une float %2, 0.000000e+00
   %brmerge = or i1 %18, %19
-  %.mux = select i1 %19, float %2, float %.031
+  %.mux = select i1 %19, float %2, float %1
   br i1 %brmerge, label %20, label %fons__tmpalloc.exit.thread
 
 20:                                               ; preds = %10

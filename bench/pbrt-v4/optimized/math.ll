@@ -524,8 +524,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi2EEltERK
   br i1 %3, label %.preheader, label %.thread, !llvm.loop !32
 
 .thread:                                          ; preds = %12, %7
-  %spec.select = fcmp olt float %9, %11
-  ret i1 %spec.select
+  %13 = fcmp olt float %9, %11
+  ret i1 %13
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -1378,8 +1378,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi3EEltERK
   br i1 %exitcond34.not, label %.thread, label %.preheader, !llvm.loop !68
 
 .thread:                                          ; preds = %11, %6
-  %spec.select = fcmp olt float %8, %10
-  ret i1 %spec.select
+  %12 = fcmp olt float %8, %10
+  ret i1 %12
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -1973,8 +1973,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EEltERK
   br i1 %exitcond34.not, label %.thread, label %.preheader, !llvm.loop !91
 
 .thread:                                          ; preds = %11, %6
-  %spec.select = fcmp olt float %8, %10
-  ret i1 %spec.select
+  %12 = fcmp olt float %8, %10
+  ret i1 %12
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

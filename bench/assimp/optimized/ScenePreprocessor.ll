@@ -866,11 +866,11 @@ define linkonce_odr hidden void @_ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIf
   %124 = fmul float %61, %121
   %125 = tail call noundef float @llvm.fmuladd.f32(float %124, float %75, float %123)
   %126 = fcmp olt float %125, 0.000000e+00
-  br i1 %126, label %127, label %._ZN10aiVector3tIfEdVEf.exit_crit_edge
+  br i1 %126, label %127, label %._crit_edge
 
-._ZN10aiVector3tIfEdVEf.exit_crit_edge:           ; preds = %4
+._crit_edge:                                      ; preds = %4
   %.pre = load float, ptr %1, align 4
-  br label %_ZN10aiVector3tIfEdVEf.exit
+  br label %131
 
 127:                                              ; preds = %4
   %128 = fneg float %sqrt.i
@@ -880,114 +880,114 @@ define linkonce_odr hidden void @_ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIf
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %129, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %1, align 4
   store float %130, ptr %40, align 4
-  br label %_ZN10aiVector3tIfEdVEf.exit
+  br label %131
 
-_ZN10aiVector3tIfEdVEf.exit:                      ; preds = %._ZN10aiVector3tIfEdVEf.exit_crit_edge, %127
-  %131 = phi float [ %sqrt.i32, %._ZN10aiVector3tIfEdVEf.exit_crit_edge ], [ %130, %127 ]
-  %132 = phi float [ %sqrt.i31, %._ZN10aiVector3tIfEdVEf.exit_crit_edge ], [ %129, %127 ]
-  %133 = phi float [ %.pre, %._ZN10aiVector3tIfEdVEf.exit_crit_edge ], [ %128, %127 ]
-  %or.cond = fcmp oeq float %133, 0.000000e+00
-  %134 = fdiv float 1.000000e+00, %133
-  %135 = fmul float %15, %134
-  %136 = fmul float %16, %134
-  %137 = fmul float %17, %134
-  %.sroa.055.0 = select i1 %or.cond, float %15, float %135
-  %.sroa.7.0 = select i1 %or.cond, float %16, float %136
-  %.sroa.1260.0 = select i1 %or.cond, float %17, float %137
-  %or.cond75 = fcmp oeq float %132, 0.000000e+00
-  %138 = fdiv float 1.000000e+00, %132
-  %139 = fmul float %19, %138
-  %140 = fmul float %21, %138
-  %141 = fmul float %23, %138
-  %.sroa.17.0 = select i1 %or.cond75, float %19, float %139
-  %.sroa.22.0 = select i1 %or.cond75, float %21, float %140
-  %.sroa.27.0 = select i1 %or.cond75, float %23, float %141
-  %or.cond76 = fcmp oeq float %131, 0.000000e+00
-  %142 = fdiv float 1.000000e+00, %131
-  %143 = fmul float %25, %142
-  %144 = fmul float %27, %142
-  %145 = fmul float %29, %142
-  %.sroa.32.0 = select i1 %or.cond76, float %25, float %143
-  %.sroa.37.0 = select i1 %or.cond76, float %27, float %144
-  %.sroa.42.0 = select i1 %or.cond76, float %29, float %145
-  %146 = fadd float %.sroa.055.0, %.sroa.22.0
-  %147 = fadd float %146, %.sroa.42.0
-  %148 = fcmp ogt float %147, 0.000000e+00
-  br i1 %148, label %149, label %160
+131:                                              ; preds = %._crit_edge, %127
+  %132 = phi float [ %sqrt.i32, %._crit_edge ], [ %130, %127 ]
+  %133 = phi float [ %sqrt.i31, %._crit_edge ], [ %129, %127 ]
+  %134 = phi float [ %.pre, %._crit_edge ], [ %128, %127 ]
+  %135 = fcmp une float %134, 0.000000e+00
+  %136 = fdiv float 1.000000e+00, %134
+  %137 = fmul float %15, %136
+  %138 = fmul float %16, %136
+  %139 = fmul float %17, %136
+  %.sroa.055.0 = select i1 %135, float %137, float %15
+  %.sroa.7.0 = select i1 %135, float %138, float %16
+  %.sroa.1260.0 = select i1 %135, float %139, float %17
+  %140 = fcmp une float %133, 0.000000e+00
+  %141 = fdiv float 1.000000e+00, %133
+  %142 = fmul float %19, %141
+  %143 = fmul float %21, %141
+  %144 = fmul float %23, %141
+  %.sroa.17.0 = select i1 %140, float %142, float %19
+  %.sroa.22.0 = select i1 %140, float %143, float %21
+  %.sroa.27.0 = select i1 %140, float %144, float %23
+  %145 = fcmp une float %132, 0.000000e+00
+  %146 = fdiv float 1.000000e+00, %132
+  %147 = fmul float %25, %146
+  %148 = fmul float %27, %146
+  %149 = fmul float %29, %146
+  %.sroa.32.0 = select i1 %145, float %147, float %25
+  %.sroa.37.0 = select i1 %145, float %148, float %27
+  %.sroa.42.0 = select i1 %145, float %149, float %29
+  %150 = fadd float %.sroa.055.0, %.sroa.22.0
+  %151 = fadd float %150, %.sroa.42.0
+  %152 = fcmp ogt float %151, 0.000000e+00
+  br i1 %152, label %153, label %164
 
-149:                                              ; preds = %_ZN10aiVector3tIfEdVEf.exit
-  %150 = fadd float %147, 1.000000e+00
-  %151 = tail call noundef float @sqrtf(float noundef %150) #14
-  %152 = fmul float %151, 2.000000e+00
-  %153 = fsub float %.sroa.27.0, %.sroa.37.0
-  %154 = fdiv float %153, %152
-  %155 = fsub float %.sroa.32.0, %.sroa.1260.0
-  %156 = fdiv float %155, %152
-  %157 = fsub float %.sroa.7.0, %.sroa.17.0
-  %158 = fdiv float %157, %152
-  %159 = fmul float %152, 2.500000e-01
+153:                                              ; preds = %131
+  %154 = fadd float %151, 1.000000e+00
+  %155 = tail call noundef float @sqrtf(float noundef %154) #14
+  %156 = fmul float %155, 2.000000e+00
+  %157 = fsub float %.sroa.27.0, %.sroa.37.0
+  %158 = fdiv float %157, %156
+  %159 = fsub float %.sroa.32.0, %.sroa.1260.0
+  %160 = fdiv float %159, %156
+  %161 = fsub float %.sroa.7.0, %.sroa.17.0
+  %162 = fdiv float %161, %156
+  %163 = fmul float %156, 2.500000e-01
   br label %_ZN13aiQuaterniontIfEC2ERK12aiMatrix3x3tIfE.exit
 
-160:                                              ; preds = %_ZN10aiVector3tIfEdVEf.exit
-  %161 = fcmp ogt float %.sroa.055.0, %.sroa.22.0
-  %162 = fcmp ogt float %.sroa.055.0, %.sroa.42.0
-  %or.cond.i = and i1 %161, %162
-  br i1 %or.cond.i, label %163, label %176
+164:                                              ; preds = %131
+  %165 = fcmp ogt float %.sroa.055.0, %.sroa.22.0
+  %166 = fcmp ogt float %.sroa.055.0, %.sroa.42.0
+  %or.cond.i = and i1 %165, %166
+  br i1 %or.cond.i, label %167, label %180
 
-163:                                              ; preds = %160
-  %164 = fadd float %.sroa.055.0, 1.000000e+00
-  %165 = fsub float %164, %.sroa.22.0
-  %166 = fsub float %165, %.sroa.42.0
-  %167 = tail call noundef float @sqrtf(float noundef %166) #14
-  %168 = fmul float %167, 2.000000e+00
-  %169 = fmul float %168, 2.500000e-01
-  %170 = fadd float %.sroa.7.0, %.sroa.17.0
-  %171 = fdiv float %170, %168
-  %172 = fadd float %.sroa.1260.0, %.sroa.32.0
-  %173 = fdiv float %172, %168
-  %174 = fsub float %.sroa.27.0, %.sroa.37.0
-  %175 = fdiv float %174, %168
+167:                                              ; preds = %164
+  %168 = fadd float %.sroa.055.0, 1.000000e+00
+  %169 = fsub float %168, %.sroa.22.0
+  %170 = fsub float %169, %.sroa.42.0
+  %171 = tail call noundef float @sqrtf(float noundef %170) #14
+  %172 = fmul float %171, 2.000000e+00
+  %173 = fmul float %172, 2.500000e-01
+  %174 = fadd float %.sroa.7.0, %.sroa.17.0
+  %175 = fdiv float %174, %172
+  %176 = fadd float %.sroa.1260.0, %.sroa.32.0
+  %177 = fdiv float %176, %172
+  %178 = fsub float %.sroa.27.0, %.sroa.37.0
+  %179 = fdiv float %178, %172
   br label %_ZN13aiQuaterniontIfEC2ERK12aiMatrix3x3tIfE.exit
 
-176:                                              ; preds = %160
-  %177 = fcmp ogt float %.sroa.22.0, %.sroa.42.0
-  br i1 %177, label %178, label %191
+180:                                              ; preds = %164
+  %181 = fcmp ogt float %.sroa.22.0, %.sroa.42.0
+  br i1 %181, label %182, label %195
 
-178:                                              ; preds = %176
-  %179 = fadd float %.sroa.22.0, 1.000000e+00
-  %180 = fsub float %179, %.sroa.055.0
-  %181 = fsub float %180, %.sroa.42.0
-  %182 = tail call noundef float @sqrtf(float noundef %181) #14
-  %183 = fmul float %182, 2.000000e+00
-  %184 = fadd float %.sroa.7.0, %.sroa.17.0
-  %185 = fdiv float %184, %183
-  %186 = fmul float %183, 2.500000e-01
-  %187 = fadd float %.sroa.27.0, %.sroa.37.0
-  %188 = fdiv float %187, %183
-  %189 = fsub float %.sroa.32.0, %.sroa.1260.0
-  %190 = fdiv float %189, %183
+182:                                              ; preds = %180
+  %183 = fadd float %.sroa.22.0, 1.000000e+00
+  %184 = fsub float %183, %.sroa.055.0
+  %185 = fsub float %184, %.sroa.42.0
+  %186 = tail call noundef float @sqrtf(float noundef %185) #14
+  %187 = fmul float %186, 2.000000e+00
+  %188 = fadd float %.sroa.7.0, %.sroa.17.0
+  %189 = fdiv float %188, %187
+  %190 = fmul float %187, 2.500000e-01
+  %191 = fadd float %.sroa.27.0, %.sroa.37.0
+  %192 = fdiv float %191, %187
+  %193 = fsub float %.sroa.32.0, %.sroa.1260.0
+  %194 = fdiv float %193, %187
   br label %_ZN13aiQuaterniontIfEC2ERK12aiMatrix3x3tIfE.exit
 
-191:                                              ; preds = %176
-  %192 = fadd float %.sroa.42.0, 1.000000e+00
-  %193 = fsub float %192, %.sroa.055.0
-  %194 = fsub float %193, %.sroa.22.0
-  %195 = tail call noundef float @sqrtf(float noundef %194) #14
-  %196 = fmul float %195, 2.000000e+00
-  %197 = fadd float %.sroa.1260.0, %.sroa.32.0
-  %198 = fdiv float %197, %196
-  %199 = fadd float %.sroa.27.0, %.sroa.37.0
-  %200 = fdiv float %199, %196
-  %201 = fmul float %196, 2.500000e-01
-  %202 = fsub float %.sroa.7.0, %.sroa.17.0
-  %203 = fdiv float %202, %196
+195:                                              ; preds = %180
+  %196 = fadd float %.sroa.42.0, 1.000000e+00
+  %197 = fsub float %196, %.sroa.055.0
+  %198 = fsub float %197, %.sroa.22.0
+  %199 = tail call noundef float @sqrtf(float noundef %198) #14
+  %200 = fmul float %199, 2.000000e+00
+  %201 = fadd float %.sroa.1260.0, %.sroa.32.0
+  %202 = fdiv float %201, %200
+  %203 = fadd float %.sroa.27.0, %.sroa.37.0
+  %204 = fdiv float %203, %200
+  %205 = fmul float %200, 2.500000e-01
+  %206 = fsub float %.sroa.7.0, %.sroa.17.0
+  %207 = fdiv float %206, %200
   br label %_ZN13aiQuaterniontIfEC2ERK12aiMatrix3x3tIfE.exit
 
-_ZN13aiQuaterniontIfEC2ERK12aiMatrix3x3tIfE.exit: ; preds = %149, %163, %178, %191
-  %.sroa.12.0 = phi float [ %158, %149 ], [ %173, %163 ], [ %188, %178 ], [ %201, %191 ]
-  %.sroa.8.0 = phi float [ %156, %149 ], [ %171, %163 ], [ %186, %178 ], [ %200, %191 ]
-  %.sroa.4.0 = phi float [ %154, %149 ], [ %169, %163 ], [ %185, %178 ], [ %198, %191 ]
-  %.sink.i = phi float [ %159, %149 ], [ %175, %163 ], [ %190, %178 ], [ %203, %191 ]
+_ZN13aiQuaterniontIfEC2ERK12aiMatrix3x3tIfE.exit: ; preds = %153, %167, %182, %195
+  %.sroa.12.0 = phi float [ %162, %153 ], [ %177, %167 ], [ %192, %182 ], [ %205, %195 ]
+  %.sroa.8.0 = phi float [ %160, %153 ], [ %175, %167 ], [ %190, %182 ], [ %204, %195 ]
+  %.sroa.4.0 = phi float [ %158, %153 ], [ %173, %167 ], [ %189, %182 ], [ %202, %195 ]
+  %.sink.i = phi float [ %163, %153 ], [ %179, %167 ], [ %194, %182 ], [ %207, %195 ]
   store float %.sink.i, ptr %2, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 4

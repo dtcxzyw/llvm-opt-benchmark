@@ -135342,7 +135342,7 @@ _ZNK8QPointerI7QCPAxisEptEv.exit:                 ; preds = %23, %27, %31
 .outer.backedge:                                  ; preds = %63, %_ZNK8QCPGraph17segmentsIntersectEddddRi.exit
   %.pre66 = phi i64 [ %.pre, %_ZNK8QCPGraph17segmentsIntersectEddddRi.exit ], [ %.pre65, %63 ]
   %71 = phi i64 [ %.pre, %_ZNK8QCPGraph17segmentsIntersectEddddRi.exit ], [ %45, %63 ]
-  %.pn = phi i32 [ %111, %_ZNK8QCPGraph17segmentsIntersectEddddRi.exit ], [ 1, %63 ]
+  %.pn = phi i32 [ %112, %_ZNK8QCPGraph17segmentsIntersectEddddRi.exit ], [ 1, %63 ]
   %.040.ph.be = phi i32 [ %.1, %_ZNK8QCPGraph17segmentsIntersectEddddRi.exit ], [ %.04054, %63 ]
   %.041.ph.be = add i32 %.041.ph56, %.pn
   %72 = sext i32 %.040.ph.be to i64
@@ -135407,28 +135407,28 @@ _ZNK8QPointerI7QCPAxisEptEv.exit:                 ; preds = %23, %27, %31
   store i64 %107, ptr %43, align 8
   %108 = load i64, ptr %44, align 8
   invoke void @_ZN9QtPrivate16QMovableArrayOpsISt4pairI12QCPDataRangeS2_EE7emplaceIJS3_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %0, i64 noundef %108, ptr noundef nonnull align 4 dereferenceable(16) %7)
-          to label %_ZN5QListISt4pairI12QCPDataRangeS1_EE6appendEOS2_.exit unwind label %109
+          to label %_ZN5QListISt4pairI12QCPDataRangeS1_EE6appendEOS2_.exit unwind label %110
 
 _ZN5QListISt4pairI12QCPDataRangeS1_EE6appendEOS2_.exit: ; preds = %.sink.split.i
-  %or.cond = fcmp uge double %.037, %.0
+  %109 = fcmp uge double %.037, %.0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre.pre = load i64, ptr %16, align 8
   br label %_ZNK8QCPGraph17segmentsIntersectEddddRi.exit
 
-109:                                              ; preds = %.sink.split.i
-  %110 = landingpad { ptr, i32 }
+110:                                              ; preds = %.sink.split.i
+  %111 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5QListISt4pairI12QCPDataRangeS1_EED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) #52
-  resume { ptr, i32 } %110
+  resume { ptr, i32 } %111
 
 _ZNK8QCPGraph17segmentsIntersectEddddRi.exit:     ; preds = %104, %102, %_ZN5QListISt4pairI12QCPDataRangeS1_EE6appendEOS2_.exit
   %.pre = phi i64 [ %.pre.pre, %_ZN5QListISt4pairI12QCPDataRangeS1_EE6appendEOS2_.exit ], [ %.pre65, %102 ], [ %.pre65, %104 ]
-  %.04548 = phi i1 [ %or.cond, %_ZN5QListISt4pairI12QCPDataRangeS1_EE6appendEOS2_.exit ], [ true, %102 ], [ false, %104 ]
-  %111 = zext i1 %.04548 to i32
+  %.04548 = phi i1 [ %109, %_ZN5QListISt4pairI12QCPDataRangeS1_EE6appendEOS2_.exit ], [ true, %102 ], [ false, %104 ]
+  %112 = zext i1 %.04548 to i32
   %not..04548 = xor i1 %.04548, true
-  %112 = zext i1 %not..04548 to i32
-  %.1 = add i32 %.04054, %112
+  %113 = zext i1 %not..04548 to i32
+  %.1 = add i32 %.04054, %113
   br label %.outer.backedge
 
 .critedge:                                        ; preds = %.outer.backedge, %.lr.ph, %59, %_ZNK8QPointerI7QCPAxisEptEv.exit, %19, %15, %11, %6

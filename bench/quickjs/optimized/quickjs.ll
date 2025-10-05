@@ -199458,7 +199458,7 @@ JS_ToFloat64Free.exit.thread:                     ; preds = %82, %78, %JS_ToFloa
 .preheader.i66:                                   ; preds = %91
   %96 = uitofp nneg i32 %.0 to double
   %97 = fcmp ult double %92, %96
-  br i1 %97, label %._crit_edge129.i, label %.lr.ph128.i
+  br i1 %97, label %._crit_edge128.i, label %.lr.ph127.i
 
 98:                                               ; preds = %91
   %99 = fptosi double %92 to i64
@@ -199490,26 +199490,26 @@ JS_ToFloat64Free.exit.thread:                     ; preds = %82, %78, %JS_ToFloa
   %110 = fcmp une double %93, 0.000000e+00
   br i1 %110, label %127, label %js_dtoa_radix.exit
 
-.lr.ph128.i:                                      ; preds = %.preheader.i66, %.lr.ph128.i
-  %.1127.i = phi ptr [ %120, %.lr.ph128.i ], [ %94, %.preheader.i66 ]
-  %.083126.i = phi double [ %114, %.lr.ph128.i ], [ %92, %.preheader.i66 ]
-  %111 = tail call double @fmod(double noundef %.083126.i, double noundef %96) #41, !tbaa !67
+.lr.ph127.i:                                      ; preds = %.preheader.i66, %.lr.ph127.i
+  %.1126.i = phi ptr [ %120, %.lr.ph127.i ], [ %94, %.preheader.i66 ]
+  %.083125.i = phi double [ %114, %.lr.ph127.i ], [ %92, %.preheader.i66 ]
+  %111 = tail call double @fmod(double noundef %.083125.i, double noundef %96) #41, !tbaa !67
   %112 = fptosi double %111 to i32
-  %113 = fdiv double %.083126.i, %96
+  %113 = fdiv double %.083125.i, %96
   %114 = tail call double @llvm.trunc.f64(double %113)
   %115 = fcmp ult double %114, 0x433FFFFFFFFFFFFF
   %116 = sext i32 %112 to i64
   %117 = select i1 %115, i64 %116, i64 0
   %118 = getelementptr inbounds i8, ptr @digits, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !46
-  %120 = getelementptr inbounds i8, ptr %.1127.i, i64 -1
+  %120 = getelementptr inbounds i8, ptr %.1126.i, i64 -1
   store i8 %119, ptr %120, align 1, !tbaa !46
   %121 = fcmp ult double %114, %96
-  br i1 %121, label %._crit_edge129.i, label %.lr.ph128.i, !llvm.loop !1259
+  br i1 %121, label %._crit_edge128.i, label %.lr.ph127.i, !llvm.loop !1259
 
-._crit_edge129.i:                                 ; preds = %.lr.ph128.i, %.preheader.i66
-  %.083.lcssa.i = phi double [ %92, %.preheader.i66 ], [ %114, %.lr.ph128.i ]
-  %.1.lcssa.i = phi ptr [ %94, %.preheader.i66 ], [ %120, %.lr.ph128.i ]
+._crit_edge128.i:                                 ; preds = %.lr.ph127.i, %.preheader.i66
+  %.083.lcssa.i = phi double [ %92, %.preheader.i66 ], [ %114, %.lr.ph127.i ]
+  %.1.lcssa.i = phi ptr [ %94, %.preheader.i66 ], [ %120, %.lr.ph127.i ]
   %122 = fptosi double %.083.lcssa.i to i32
   %123 = sext i32 %122 to i64
   %124 = getelementptr inbounds i8, ptr @digits, i64 %123
@@ -199524,14 +199524,14 @@ JS_ToFloat64Free.exit.thread:                     ; preds = %82, %78, %JS_ToFloa
   %130 = getelementptr inbounds nuw i8, ptr %7, i64 1101
   store i8 46, ptr %94, align 4, !tbaa !46
   %131 = icmp slt i64 %99, 4503599627370496
-  br i1 %131, label %.lr.ph114.i, label %.critedge.i
+  br i1 %131, label %.lr.ph113.i, label %.critedge.i
 
-.lr.ph114.i:                                      ; preds = %127, %.lr.ph114.i
-  %.075112.i = phi double [ %143, %.lr.ph114.i ], [ 1.074000e+03, %127 ]
-  %.076111.i = phi ptr [ %140, %.lr.ph114.i ], [ %130, %127 ]
-  %.082110.i = phi i64 [ %142, %.lr.ph114.i ], [ %99, %127 ]
-  %.084109.i = phi double [ %136, %.lr.ph114.i ], [ %93, %127 ]
-  %132 = fmul double %.084109.i, %128
+.lr.ph113.i:                                      ; preds = %127, %.lr.ph113.i
+  %.075111.i = phi double [ %143, %.lr.ph113.i ], [ 1.074000e+03, %127 ]
+  %.076110.i = phi ptr [ %140, %.lr.ph113.i ], [ %130, %127 ]
+  %.082109.i = phi i64 [ %142, %.lr.ph113.i ], [ %99, %127 ]
+  %.084108.i = phi double [ %136, %.lr.ph113.i ], [ %93, %127 ]
+  %132 = fmul double %.084108.i, %128
   %133 = tail call double @llvm.trunc.f64(double %132)
   %134 = fptosi double %133 to i32
   %135 = sitofp i32 %134 to double
@@ -199539,21 +199539,21 @@ JS_ToFloat64Free.exit.thread:                     ; preds = %82, %78, %JS_ToFloa
   %137 = sext i32 %134 to i64
   %138 = getelementptr inbounds i8, ptr @digits, i64 %137
   %139 = load i8, ptr %138, align 1, !tbaa !46
-  %140 = getelementptr inbounds nuw i8, ptr %.076111.i, i64 1
-  store i8 %139, ptr %.076111.i, align 1, !tbaa !46
-  %141 = mul i64 %.082110.i, %100
+  %140 = getelementptr inbounds nuw i8, ptr %.076110.i, i64 1
+  store i8 %139, ptr %.076110.i, align 1, !tbaa !46
+  %141 = mul i64 %.082109.i, %100
   %142 = add i64 %141, %137
-  %143 = fsub double %.075112.i, %129
+  %143 = fsub double %.075111.i, %129
   %144 = fcmp une double %136, 0.000000e+00
   %145 = icmp slt i64 %142, 4503599627370496
   %or.cond.i65 = select i1 %144, i1 %145, i1 false
   %146 = fcmp ogt double %143, 0.000000e+00
   %or.cond3.i = select i1 %or.cond.i65, i1 %146, i1 false
-  br i1 %or.cond3.i, label %.lr.ph114.i, label %.critedge.i, !llvm.loop !1260
+  br i1 %or.cond3.i, label %.lr.ph113.i, label %.critedge.i, !llvm.loop !1260
 
-.critedge.i:                                      ; preds = %.lr.ph114.i, %127
-  %.084.lcssa.i = phi double [ %93, %127 ], [ %136, %.lr.ph114.i ]
-  %.076.lcssa.i = phi ptr [ %130, %127 ], [ %140, %.lr.ph114.i ]
+.critedge.i:                                      ; preds = %.lr.ph113.i, %127
+  %.084.lcssa.i = phi double [ %93, %127 ], [ %136, %.lr.ph113.i ]
+  %.076.lcssa.i = phi ptr [ %130, %127 ], [ %140, %.lr.ph113.i ]
   store i8 0, ptr %.076.lcssa.i, align 1, !tbaa !46
   %147 = fmul double %.084.lcssa.i, %128
   %148 = lshr i32 %.0, 1
@@ -199568,40 +199568,40 @@ JS_ToFloat64Free.exit.thread:                     ; preds = %82, %78, %JS_ToFloa
   %155 = getelementptr inbounds i8, ptr %.076.lcssa.i, i64 -1
   %156 = load i8, ptr %155, align 1, !tbaa !46
   %157 = icmp eq i8 %156, %154
-  br i1 %157, label %.lr.ph118.i, label %._crit_edge119.i
+  br i1 %157, label %.lr.ph117.i, label %._crit_edge118.i
 
-.lr.ph118.i:                                      ; preds = %151, %.lr.ph118.i
-  %158 = phi ptr [ %159, %.lr.ph118.i ], [ %155, %151 ]
+.lr.ph117.i:                                      ; preds = %151, %.lr.ph117.i
+  %158 = phi ptr [ %159, %.lr.ph117.i ], [ %155, %151 ]
   store i8 0, ptr %158, align 1, !tbaa !46
   %159 = getelementptr inbounds i8, ptr %158, i64 -1
   %160 = load i8, ptr %159, align 1, !tbaa !46
   %161 = icmp eq i8 %160, %154
-  br i1 %161, label %.lr.ph118.i, label %._crit_edge119.i, !llvm.loop !1261
+  br i1 %161, label %.lr.ph117.i, label %._crit_edge118.i, !llvm.loop !1261
 
-._crit_edge119.i:                                 ; preds = %.lr.ph118.i, %151
-  %.177.lcssa.i = phi ptr [ %.076.lcssa.i, %151 ], [ %158, %.lr.ph118.i ]
-  %.lcssa101.i = phi ptr [ %155, %151 ], [ %159, %.lr.ph118.i ]
-  %.lcssa.i = phi i8 [ %156, %151 ], [ %160, %.lr.ph118.i ]
+._crit_edge118.i:                                 ; preds = %.lr.ph117.i, %151
+  %.177.lcssa.i = phi ptr [ %.076.lcssa.i, %151 ], [ %158, %.lr.ph117.i ]
+  %.lcssa101.i = phi ptr [ %155, %151 ], [ %159, %.lr.ph117.i ]
+  %.lcssa.i = phi i8 [ %156, %151 ], [ %160, %.lr.ph117.i ]
   %162 = icmp eq i8 %.lcssa.i, 46
   br i1 %162, label %163, label %.loopexit99.i
 
-163:                                              ; preds = %._crit_edge119.i
+163:                                              ; preds = %._crit_edge118.i
   store i8 0, ptr %.lcssa101.i, align 1, !tbaa !46
   %164 = getelementptr inbounds i8, ptr %.lcssa101.i, i64 -1
   %165 = load i8, ptr %164, align 1, !tbaa !46
   %166 = icmp eq i8 %165, %154
-  br i1 %166, label %.lr.ph124.i, label %.loopexit99.i
+  br i1 %166, label %.lr.ph123.i, label %.loopexit99.i
 
-.lr.ph124.i:                                      ; preds = %163, %.lr.ph124.i
-  %167 = phi ptr [ %168, %.lr.ph124.i ], [ %164, %163 ]
+.lr.ph123.i:                                      ; preds = %163, %.lr.ph123.i
+  %167 = phi ptr [ %168, %.lr.ph123.i ], [ %164, %163 ]
   store i8 48, ptr %167, align 1, !tbaa !46
   %168 = getelementptr inbounds i8, ptr %167, i64 -1
   %169 = load i8, ptr %168, align 1, !tbaa !46
   %170 = icmp eq i8 %169, %154
-  br i1 %170, label %.lr.ph124.i, label %.loopexit99.i, !llvm.loop !1262
+  br i1 %170, label %.lr.ph123.i, label %.loopexit99.i, !llvm.loop !1262
 
-.loopexit99.i:                                    ; preds = %.lr.ph124.i, %163, %._crit_edge119.i
-  %.278.i = phi ptr [ %.177.lcssa.i, %._crit_edge119.i ], [ %.lcssa101.i, %163 ], [ %167, %.lr.ph124.i ]
+.loopexit99.i:                                    ; preds = %.lr.ph123.i, %163, %._crit_edge118.i
+  %.278.i = phi ptr [ %.177.lcssa.i, %._crit_edge118.i ], [ %.lcssa101.i, %163 ], [ %167, %.lr.ph123.i ]
   %171 = icmp eq ptr %.278.i, %.0.lcssa.i
   br i1 %171, label %172, label %174
 
@@ -199634,8 +199634,8 @@ JS_ToFloat64Free.exit.thread:                     ; preds = %82, %78, %JS_ToFloa
   store i8 0, ptr %178, align 1, !tbaa !46
   br label %js_dtoa_radix.exit
 
-js_dtoa_radix.exit:                               ; preds = %.preheader98.i, %._crit_edge.i, %._crit_edge129.i, %172, %174, %181
-  %.2.i64 = phi ptr [ %109, %._crit_edge.i ], [ %126, %._crit_edge129.i ], [ %109, %181 ], [ %173, %172 ], [ %109, %174 ], [ %109, %.preheader98.i ]
+js_dtoa_radix.exit:                               ; preds = %.preheader98.i, %._crit_edge.i, %._crit_edge128.i, %172, %174, %181
+  %.2.i64 = phi ptr [ %109, %._crit_edge.i ], [ %126, %._crit_edge128.i ], [ %109, %181 ], [ %173, %172 ], [ %109, %174 ], [ %109, %.preheader98.i ]
   %182 = fcmp olt double %84, 0.000000e+00
   %183 = getelementptr inbounds i8, ptr %.2.i64, i64 -1
   store i8 45, ptr %183, align 1, !tbaa !46

@@ -5942,7 +5942,7 @@ define dso_local noundef ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly 
   %.032 = select i1 %18, float %1, float %2
   %19 = fcmp une float %2, 0.000000e+00
   %brmerge = or i1 %18, %19
-  %.mux = select i1 %19, float %2, float %.032
+  %.mux = select i1 %19, float %2, float %1
   br i1 %brmerge, label %22, label %20
 
 20:                                               ; preds = %10

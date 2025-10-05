@@ -1314,10 +1314,10 @@ define internal fastcc double @calc_length_hist_frac(ptr noundef readonly captur
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i64, ptr %0, i64 %25
   %27 = load double, ptr %26, align 8
-  %28 = add nsw i32 %24, -1
-  %29 = fcmp ole double %27, %2
-  %.115.i = select i1 %29, i32 %.01420.i, i32 %28
-  %.1.i = select i1 %29, i32 %24, i32 %.021.i
+  %28 = fcmp ole double %27, %2
+  %29 = add nsw i32 %24, -1
+  %.115.i = select i1 %28, i32 %.01420.i, i32 %29
+  %.1.i = select i1 %28, i32 %24, i32 %.021.i
   %30 = icmp slt i32 %.1.i, %.115.i
   br i1 %30, label %.lr.ph.split.i, label %length_hist_bsearch.exit, !llvm.loop !11
 

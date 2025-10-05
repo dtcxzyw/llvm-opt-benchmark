@@ -33931,102 +33931,98 @@ define linkonce_odr dso_local noundef double @_ZN5boost4math6detail14float_next_
 
 16:                                               ; preds = %11, %13
   %17 = fcmp olt double %9, 0.000000e+00
-  br i1 %17, label %59, label %18
+  br i1 %17, label %57, label %18
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr @_ZZN5boost4math6detail14float_next_impIdNS0_8policies6policyINS3_14overflow_errorILNS3_17error_policy_typeE2EEENS3_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKSA_RKSt17integral_constantIbLb1EERKT0_E8function, align 8, !tbaa !526
   tail call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %19, ptr noundef nonnull @.str.48, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br label %59
-
-_ZN5boost4math10fpclassifyIdEEiT_.exit:           ; preds = %3
-  %20 = fcmp ult double %9, 0x7FEFFFFFFFFFFFFF
-  br i1 %20, label %22, label %59
+  br label %57
 
 _ZN5boost4math10fpclassifyIdEEiT_.exit.thread28:  ; preds = %13
-  %21 = fcmp ult double %9, 0x7FEFFFFFFFFFFFFF
-  br i1 %21, label %26, label %59
+  %20 = fcmp ult double %9, 0x7FEFFFFFFFFFFFFF
+  br i1 %20, label %24, label %57
 
-22:                                               ; preds = %_ZN5boost4math10fpclassifyIdEEiT_.exit
+_ZN5boost4math10fpclassifyIdEEiT_.exit:           ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %7)
-  %23 = load i32, ptr %7, align 4
-  %24 = and i32 %23, 32832
-  %.not.i.i = icmp eq i32 %24, 0
-  %25 = select i1 %.not.i.i, double 4.940660e-324, double 0x10000000000000
+  %21 = load i32, ptr %7, align 4
+  %22 = and i32 %21, 32832
+  %.not.i.i = icmp eq i32 %22, 0
+  %23 = select i1 %.not.i.i, double 4.940660e-324, double 0x10000000000000
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %59
+  br label %57
 
-26:                                               ; preds = %_ZN5boost4math10fpclassifyIdEEiT_.exit.thread28
-  %27 = fcmp uge double %14, 0x10000000000000
-  br i1 %27, label %28, label %44
+24:                                               ; preds = %_ZN5boost4math10fpclassifyIdEEiT_.exit.thread28
+  %25 = fcmp uge double %14, 0x10000000000000
+  br i1 %25, label %26, label %42
 
-28:                                               ; preds = %26
-  %29 = load atomic i8, ptr @_ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val acquire, align 8
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %31, label %_ZN5boost4math6detail19get_min_shift_valueIdEET_v.exit, !prof !48
+26:                                               ; preds = %24
+  %27 = load atomic i8, ptr @_ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val acquire, align 8
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %29, label %_ZN5boost4math6detail19get_min_shift_valueIdEET_v.exit, !prof !48
 
-31:                                               ; preds = %28
-  %32 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val) #25
-  %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %_ZN5boost4math6detail19get_min_shift_valueIdEET_v.exit, label %33
+29:                                               ; preds = %26
+  %30 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val) #25
+  %.not.i = icmp eq i32 %30, 0
+  br i1 %.not.i, label %_ZN5boost4math6detail19get_min_shift_valueIdEET_v.exit, label %31
 
-33:                                               ; preds = %31
-  %34 = tail call noundef double @ldexp(double noundef 0x10000000000000, i32 noundef 54) #25, !tbaa !23
-  store double %34, ptr @_ZZN5boost4math6detail19get_min_shift_valueIdEET_vE3val, align 8, !tbaa !10
-  %35 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5boost4math6detail19get_min_shift_valueIdEET_vE3val)
+31:                                               ; preds = %29
+  %32 = tail call noundef double @ldexp(double noundef 0x10000000000000, i32 noundef 54) #25, !tbaa !23
+  store double %32, ptr @_ZZN5boost4math6detail19get_min_shift_valueIdEET_vE3val, align 8, !tbaa !10
+  %33 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5boost4math6detail19get_min_shift_valueIdEET_vE3val)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val) #25
   br label %_ZN5boost4math6detail19get_min_shift_valueIdEET_v.exit
 
-_ZN5boost4math6detail19get_min_shift_valueIdEET_v.exit: ; preds = %28, %31, %33
-  %36 = load double, ptr @_ZZN5boost4math6detail19get_min_shift_valueIdEET_vE3val, align 8, !tbaa !10
-  %37 = fcmp olt double %14, %36
+_ZN5boost4math6detail19get_min_shift_valueIdEET_v.exit: ; preds = %26, %29, %31
+  %34 = load double, ptr @_ZZN5boost4math6detail19get_min_shift_valueIdEET_vE3val, align 8, !tbaa !10
+  %35 = fcmp olt double %14, %34
   %.pre = load double, ptr %0, align 8, !tbaa !10
-  br i1 %37, label %38, label %44
+  br i1 %35, label %36, label %42
 
-38:                                               ; preds = %_ZN5boost4math6detail19get_min_shift_valueIdEET_v.exit
-  %39 = fcmp une double %.pre, 0x8010000000000000
-  br i1 %39, label %40, label %44
+36:                                               ; preds = %_ZN5boost4math6detail19get_min_shift_valueIdEET_v.exit
+  %37 = fcmp une double %.pre, 0x8010000000000000
+  br i1 %37, label %38, label %42
 
-40:                                               ; preds = %38
-  %41 = tail call double @ldexp(double noundef %.pre, i32 noundef 106) #25, !tbaa !23
+38:                                               ; preds = %36
+  %39 = tail call double @ldexp(double noundef %.pre, i32 noundef 106) #25, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store double %41, ptr %5, align 8, !tbaa !10
+  store double %39, ptr %5, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %42 = call noundef double @_ZN5boost4math6detail14float_next_impIdNS0_8policies6policyINS3_14overflow_errorILNS3_17error_policy_typeE2EEENS3_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKSA_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %40 = call noundef double @_ZN5boost4math6detail14float_next_impIdNS0_8policies6policyINS3_14overflow_errorILNS3_17error_policy_typeE2EEENS3_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKSA_RKSt17integral_constantIbLb1EERKT0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %43 = call double @ldexp(double noundef %42, i32 noundef -106) #25, !tbaa !23
-  br label %59
-
-44:                                               ; preds = %38, %_ZN5boost4math6detail19get_min_shift_valueIdEET_v.exit, %26
-  %45 = phi double [ 0x8010000000000000, %38 ], [ %.pre, %_ZN5boost4math6detail19get_min_shift_valueIdEET_v.exit ], [ %9, %26 ]
-  %46 = call double @frexp(double noundef %45, ptr noundef nonnull %8) #25
-  %47 = fcmp oeq double %46, -5.000000e-01
-  %.pre29 = load i32, ptr %8, align 4, !tbaa !23
-  %48 = sext i1 %47 to i32
-  %49 = add nsw i32 %.pre29, %48
-  %50 = add nsw i32 %49, -53
-  %51 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %50) #25, !tbaa !23
-  %52 = fcmp oeq double %51, 0.000000e+00
-  br i1 %52, label %53, label %57
-
-53:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.x86.sse.stmxcsr(ptr nonnull %4)
-  %54 = load i32, ptr %4, align 4
-  %55 = and i32 %54, 32832
-  %.not.i.i26 = icmp eq i32 %55, 0
-  %56 = select i1 %.not.i.i26, double 4.940660e-324, double 0x10000000000000
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %41 = call double @ldexp(double noundef %40, i32 noundef -106) #25, !tbaa !23
   br label %57
 
-57:                                               ; preds = %53, %44
-  %.0 = phi double [ %56, %53 ], [ %51, %44 ]
-  %58 = fadd double %45, %.0
-  br label %59
+42:                                               ; preds = %36, %_ZN5boost4math6detail19get_min_shift_valueIdEET_v.exit, %24
+  %43 = phi double [ 0x8010000000000000, %36 ], [ %.pre, %_ZN5boost4math6detail19get_min_shift_valueIdEET_v.exit ], [ %9, %24 ]
+  %44 = call double @frexp(double noundef %43, ptr noundef nonnull %8) #25
+  %45 = fcmp oeq double %44, -5.000000e-01
+  %.pre29 = load i32, ptr %8, align 4, !tbaa !23
+  %46 = sext i1 %45 to i32
+  %47 = add nsw i32 %.pre29, %46
+  %48 = add nsw i32 %47, -53
+  %49 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %48) #25, !tbaa !23
+  %50 = fcmp oeq double %49, 0.000000e+00
+  br i1 %50, label %51, label %55
 
-59:                                               ; preds = %_ZN5boost4math10fpclassifyIdEEiT_.exit.thread28, %_ZN5boost4math10fpclassifyIdEEiT_.exit, %16, %57, %40, %22, %18
-  %.022 = phi double [ 0x7FF8000000000000, %18 ], [ %25, %22 ], [ %43, %40 ], [ %58, %57 ], [ 0xFFEFFFFFFFFFFFFF, %16 ], [ 0x7FF0000000000000, %_ZN5boost4math10fpclassifyIdEEiT_.exit ], [ 0x7FF0000000000000, %_ZN5boost4math10fpclassifyIdEEiT_.exit.thread28 ]
+51:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.x86.sse.stmxcsr(ptr nonnull %4)
+  %52 = load i32, ptr %4, align 4
+  %53 = and i32 %52, 32832
+  %.not.i.i26 = icmp eq i32 %53, 0
+  %54 = select i1 %.not.i.i26, double 4.940660e-324, double 0x10000000000000
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %55
+
+55:                                               ; preds = %51, %42
+  %.0 = phi double [ %54, %51 ], [ %49, %42 ]
+  %56 = fadd double %43, %.0
+  br label %57
+
+57:                                               ; preds = %_ZN5boost4math10fpclassifyIdEEiT_.exit.thread28, %16, %55, %38, %_ZN5boost4math10fpclassifyIdEEiT_.exit, %18
+  %.022 = phi double [ 0x7FF8000000000000, %18 ], [ %23, %_ZN5boost4math10fpclassifyIdEEiT_.exit ], [ %41, %38 ], [ %56, %55 ], [ 0xFFEFFFFFFFFFFFFF, %16 ], [ 0x7FF0000000000000, %_ZN5boost4math10fpclassifyIdEEiT_.exit.thread28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret double %.022
 }

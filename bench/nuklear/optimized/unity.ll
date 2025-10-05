@@ -22476,7 +22476,7 @@ define ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly captures(none) %0,
   %.032 = select i1 %18, float %1, float %2
   %19 = fcmp une float %2, 0.000000e+00
   %brmerge = or i1 %18, %19
-  %.mux = select i1 %19, float %2, float %.032
+  %.mux = select i1 %19, float %2, float %1
   br i1 %brmerge, label %24, label %20
 
 20:                                               ; preds = %10
@@ -45441,14 +45441,14 @@ define void @nk_layout_row_push(ptr noundef readonly captures(address_is_null) %
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %5 = load ptr, ptr %4, align 8, !tbaa !824
-  %.not27 = icmp eq ptr %5, null
-  br i1 %.not27, label %.critedge, label %6
+  %.not26 = icmp eq ptr %5, null
+  br i1 %.not26, label %.critedge, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %8 = load ptr, ptr %7, align 8, !tbaa !825
-  %.not28 = icmp eq ptr %8, null
-  br i1 %.not28, label %.critedge, label %9
+  %.not27 = icmp eq ptr %8, null
+  br i1 %.not27, label %.critedge, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 112

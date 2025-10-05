@@ -2075,7 +2075,7 @@ define hidden noundef zeroext i1 @_ZN2cv6dynafu5PtCmpENS_7Point3_IfEES2_(<2 x fl
   %8 = fcmp olt float %.sroa.010.4.vec.extract, %.sroa.01.4.vec.extract
   %or.cond = select i1 %7, i1 %8, i1 false
   %.not = xor i1 %7, true
-  %brmerge = or i1 %or.cond, %.not
+  %brmerge = select i1 %.not, i1 true, i1 %8
   br i1 %brmerge, label %13, label %9
 
 9:                                                ; preds = %6

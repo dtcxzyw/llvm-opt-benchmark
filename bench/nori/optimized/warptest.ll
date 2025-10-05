@@ -12030,9 +12030,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7Arcball6motionEN4nori7TVector
   %60 = fadd float %59, 1.000000e+00
   %61 = fadd float %58, %60
   %62 = fcmp ogt float %61, 0x3F1A36E2E0000000
-  br i1 %62, label %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit, label %120
+  br i1 %62, label %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit37, label %120
 
-_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit: ; preds = %57
+_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit37: ; preds = %57
   %63 = tail call float @llvm.sqrt.f32(float %55)
   %64 = fdiv float %48, %63
   %65 = fdiv float %49, %63
@@ -12066,15 +12066,15 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit: ; pr
   %92 = fcmp ogt float %91, 1.000000e+00
   br i1 %92, label %93, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
 
-93:                                               ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit
+93:                                               ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit37
   %sqrt76 = tail call float @llvm.sqrt.f32(float %91)
   %94 = fadd float %sqrt76, -1.000000e+00
   %95 = tail call float @llvm.fmuladd.f32(float %94, float 0x3FC99999A0000000, float 1.000000e+00)
   %96 = fmul float %95, %90
   br label %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
 
-_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit: ; preds = %93, %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit
-  %.0 = phi float [ %96, %93 ], [ %90, %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit ]
+_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit: ; preds = %93, %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit37
+  %.0 = phi float [ %96, %93 ], [ %90, %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit37 ]
   %97 = fcmp ogt float %84, 0.000000e+00
   %98 = fdiv float %73, %sqrt
   %99 = fdiv float %76, %sqrt

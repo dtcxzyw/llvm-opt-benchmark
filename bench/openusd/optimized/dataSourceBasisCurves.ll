@@ -4906,9 +4906,9 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__29U
   %20 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery23ValueMightBeTimeVaryingEv(ptr noundef nonnull align 8 dereferenceable(120) %19)
   %21 = fcmp ord double %18, 0.000000e+00
   %or.cond = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond, label %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit, label %_ZNSt6vectorIdSaIdEED2Ev.exit35
+  br i1 %or.cond, label %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit15, label %_ZNSt6vectorIdSaIdEED2Ev.exit35
 
-_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit: ; preds = %4
+_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit15: ; preds = %4
   %22 = fpext float %1 to double
   %23 = fadd double %18, %22
   %24 = fpext float %2 to double
@@ -4930,7 +4930,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit: ; preds = %
   %31 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery24GetTimeSamplesInIntervalERKNS_10GfIntervalEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(120) %19, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %7)
           to label %32 unwind label %.loopexit.split-lp
 
-32:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit
+32:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit15
   %33 = load double, ptr %6, align 8
   %34 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery24GetBracketingTimeSamplesEdPdS1_Pb(ptr noundef nonnull align 8 dereferenceable(120) %19, double noundef %33, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %11)
           to label %35 unwind label %.loopexit.split-lp
@@ -4956,7 +4956,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit: ; preds = %
           cleanup
   br label %44
 
-.loopexit.split-lp:                               ; preds = %.invoke, %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit, %32, %52, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i20, %160
+.loopexit.split-lp:                               ; preds = %.invoke, %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit15, %32, %52, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i20, %160
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %44
@@ -5999,9 +5999,9 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__29U
   %20 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery23ValueMightBeTimeVaryingEv(ptr noundef nonnull align 8 dereferenceable(120) %19)
   %21 = fcmp ord double %18, 0.000000e+00
   %or.cond = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond, label %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit, label %_ZNSt6vectorIdSaIdEED2Ev.exit35
+  br i1 %or.cond, label %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit15, label %_ZNSt6vectorIdSaIdEED2Ev.exit35
 
-_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit: ; preds = %4
+_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit15: ; preds = %4
   %22 = fpext float %1 to double
   %23 = fadd double %18, %22
   %24 = fpext float %2 to double
@@ -6023,7 +6023,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit: ; preds = %
   %31 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery24GetTimeSamplesInIntervalERKNS_10GfIntervalEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(120) %19, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %7)
           to label %32 unwind label %.loopexit.split-lp
 
-32:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit
+32:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit15
   %33 = load double, ptr %6, align 8
   %34 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery24GetBracketingTimeSamplesEdPdS1_Pb(ptr noundef nonnull align 8 dereferenceable(120) %19, double noundef %33, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %11)
           to label %35 unwind label %.loopexit.split-lp
@@ -6049,7 +6049,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit: ; preds = %
           cleanup
   br label %44
 
-.loopexit.split-lp:                               ; preds = %.invoke, %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit, %32, %52, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i20, %160
+.loopexit.split-lp:                               ; preds = %.invoke, %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit15, %32, %52, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i20, %160
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %44

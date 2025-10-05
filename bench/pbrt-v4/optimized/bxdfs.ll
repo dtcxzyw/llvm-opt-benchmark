@@ -5979,7 +5979,7 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit:             ; preds = %11
   %21 = or disjoint i32 %spec.select, 4
   %or.cond = select i1 %17, i1 true, i1 %20
   %22 = or disjoint i32 %spec.select, 8
-  %spec.select15 = select i1 %or.cond, i32 %22, i32 %spec.select
+  %spec.select15 = select i1 %or.cond, i32 %22, i32 17
   %.1 = select i1 %14, i32 %21, i32 %spec.select15
   ret i32 %.1
 }

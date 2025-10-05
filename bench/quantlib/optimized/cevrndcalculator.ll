@@ -1733,8 +1733,8 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %61 = phi double [ %178, %if.end141.i ], [ %.ph152, %while.body.i.preheader ]
   %62 = phi double [ %179, %if.end141.i ], [ %.ph153, %while.body.i.preheader ]
   %63 = phi double [ %180, %if.end141.i ], [ %.ph154, %while.body.i.preheader ]
-  %flipflop.0405.i = phi i32 [ %flipflop.1.i, %if.end141.i ], [ -1, %while.body.i.preheader ]
-  %storemerge404.i = phi i64 [ %inc143.i, %if.end141.i ], [ 2, %while.body.i.preheader ]
+  %flipflop.0403.i = phi i32 [ %flipflop.1.i, %if.end141.i ], [ -1, %while.body.i.preheader ]
+  %storemerge402.i = phi i64 [ %inc143.i, %if.end141.i ], [ 2, %while.body.i.preheader ]
   %mul.i13 = fmul double %62, %63
   %cmp63.i = fcmp ugt double %mul.i13, 0.000000e+00
   br i1 %cmp63.i, label %if.end81.i, label %if.then64.i
@@ -1742,16 +1742,16 @@ while.body.i:                                     ; preds = %while.body.i.prehea
 if.then64.i:                                      ; preds = %while.body.i
   %cmp.i97.i = fcmp oeq double %63, 0.000000e+00
   %64 = call double @llvm.fabs.f64(double %63)
-  %cmp4.i102.i = fcmp olt double %64, 0x3A1B900000000000
-  %or.cond389.i = or i1 %cmp.i97.i, %cmp4.i102.i
-  br i1 %or.cond389.i, label %invoke.cont13, label %if.end69.i
+  %cmp4.i101.i = fcmp olt double %64, 0x3A1B900000000000
+  %or.cond387.i = or i1 %cmp.i97.i, %cmp4.i101.i
+  br i1 %or.cond387.i, label %invoke.cont13, label %if.end69.i
 
 if.end69.i:                                       ; preds = %if.then64.i
-  %cmp.i104.i = fcmp oeq double %62, 0.000000e+00
+  %cmp.i103.i = fcmp oeq double %62, 0.000000e+00
   %65 = call double @llvm.fabs.f64(double %62)
-  %cmp4.i109.i = fcmp olt double %65, 0x3A1B900000000000
-  %or.cond390.i = or i1 %cmp.i104.i, %cmp4.i109.i
-  br i1 %or.cond390.i, label %invoke.cont13, label %if.end74.i
+  %cmp4.i107.i = fcmp olt double %65, 0x3A1B900000000000
+  %or.cond388.i = or i1 %cmp.i103.i, %cmp4.i107.i
+  br i1 %or.cond388.i, label %invoke.cont13, label %if.end74.i
 
 if.end74.i:                                       ; preds = %if.end69.i
   %add77.i = fadd double %60, %61
@@ -1773,11 +1773,11 @@ if.end74.i:                                       ; preds = %if.end69.i
   %call19.i.i.i.i = call double @pow(double noundef %div18.i.i.i.i, double noundef %sub9.i.i.i.i) #32, !tbaa !14
   %mul28.i.i.i.i = fmul double %div13.i.i.i.i, 2.000000e+00
   %call29.i.i.i.i = call double @sqrt(double noundef %mul28.i.i.i.i) #32, !tbaa !14
-  %cmp10.not168.i.i = icmp samesign ugt i64 %storemerge404.i, 19
-  br i1 %cmp10.not168.i.i, label %do.body.i.i, label %while.body.lr.ph.i.i
+  %cmp10.not167.i.i = icmp samesign ugt i64 %storemerge402.i, 19
+  br i1 %cmp10.not167.i.i, label %do.body.i.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end74.i
-  %inc.i.i = add nuw nsw i64 %storemerge404.i, 1
+  %inc.i.i = add nuw nsw i64 %storemerge402.i, 1
   %mul20.i.i.i.i = fmul double %div13.i.i.i.i, %sub9.i.i.i.i
   %sub22.i.i.i.i = fsub double 2.000000e+00, %sub9.i.i.i.i
   %mul23.i.i.i.i = fmul double %sub22.i.i.i.i, 5.000000e-01
@@ -1796,9 +1796,9 @@ while.body.lr.ph.i.i:                             ; preds = %if.end74.i
   %div34.i.i.i.i = fdiv double %sub27.i.i.i.i, %mul33.i.i.i.i
   %sub35.i.i.i.i = fsub double %div34.i.i.i.i, %28
   %mul.i.i15 = fmul double %63, %sub35.i.i.i.i
-  %cmp.i112.i = fcmp olt double %mul.i.i15, 0.000000e+00
-  %73 = select i1 %cmp.i112.i, double %60, double %61
-  %74 = select i1 %cmp.i112.i, double %63, double %62
+  %cmp.i110.i = fcmp olt double %mul.i.i15, 0.000000e+00
+  %73 = select i1 %cmp.i110.i, double %60, double %61
+  %74 = select i1 %cmp.i110.i, double %63, double %62
   %sub.i.i17 = fsub double %div.i14, %73
   br label %while.body.i.i
 
@@ -1809,17 +1809,17 @@ while.body.i.i:                                   ; preds = %if.end122.i.i, %whi
   %78 = phi double [ %div.i14, %while.body.lr.ph.i.i ], [ %storemerge.i.i, %if.end122.i.i ]
   %79 = phi double [ %74, %while.body.lr.ph.i.i ], [ %froot.1.i.i, %if.end122.i.i ]
   %80 = phi double [ %73, %while.body.lr.ph.i.i ], [ %91, %if.end122.i.i ]
-  %e.0171.i.i = phi double [ %sub.i.i17, %while.body.lr.ph.i.i ], [ %e.2.i.i, %if.end122.i.i ]
-  %d.0170.i.i = phi double [ %sub.i.i17, %while.body.lr.ph.i.i ], [ %d.2.i.i, %if.end122.i.i ]
-  %froot.0169.i.i = phi double [ %sub35.i.i.i.i, %while.body.lr.ph.i.i ], [ %sub35.i.i120.i.i, %if.end122.i.i ]
+  %e.0170.i.i = phi double [ %sub.i.i17, %while.body.lr.ph.i.i ], [ %e.2.i.i, %if.end122.i.i ]
+  %d.0169.i.i = phi double [ %sub.i.i17, %while.body.lr.ph.i.i ], [ %d.2.i.i, %if.end122.i.i ]
+  %froot.0168.i.i = phi double [ %sub35.i.i.i.i, %while.body.lr.ph.i.i ], [ %sub35.i.i119.i.i, %if.end122.i.i ]
   %81 = phi i64 [ %inc.i.i, %while.body.lr.ph.i.i ], [ %inc126.i.i, %if.end122.i.i ]
-  %cmp11.i.i = fcmp ogt double %froot.0169.i.i, 0.000000e+00
+  %cmp11.i.i = fcmp ogt double %froot.0168.i.i, 0.000000e+00
   %cmp13.i.i = fcmp ogt double %77, 0.000000e+00
-  %or.cond.i114.i = select i1 %cmp11.i.i, i1 %cmp13.i.i, i1 false
-  br i1 %or.cond.i114.i, label %if.then18.i.i, label %lor.lhs.false.i.i
+  %or.cond.i112.i = select i1 %cmp11.i.i, i1 %cmp13.i.i, i1 false
+  br i1 %or.cond.i112.i, label %if.then18.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %while.body.i.i
-  %cmp14.i.i = fcmp olt double %froot.0169.i.i, 0.000000e+00
+  %cmp14.i.i = fcmp olt double %froot.0168.i.i, 0.000000e+00
   %cmp17.i.i = fcmp olt double %77, 0.000000e+00
   %or.cond49.i.i = select i1 %cmp14.i.i, i1 %cmp17.i.i, i1 false
   br i1 %or.cond49.i.i, label %if.then18.i.i, label %if.end26.i.i
@@ -1832,10 +1832,10 @@ if.end26.i.i:                                     ; preds = %if.then18.i.i, %lor
   %82 = phi double [ %79, %if.then18.i.i ], [ %75, %lor.lhs.false.i.i ]
   %83 = phi double [ %80, %if.then18.i.i ], [ %76, %lor.lhs.false.i.i ]
   %84 = phi double [ %79, %if.then18.i.i ], [ %77, %lor.lhs.false.i.i ]
-  %d.1.i.i = phi double [ %sub25.i.i, %if.then18.i.i ], [ %d.0170.i.i, %lor.lhs.false.i.i ]
-  %e.1.i.i = phi double [ %sub25.i.i, %if.then18.i.i ], [ %e.0171.i.i, %lor.lhs.false.i.i ]
+  %d.1.i.i = phi double [ %sub25.i.i, %if.then18.i.i ], [ %d.0169.i.i, %lor.lhs.false.i.i ]
+  %e.1.i.i = phi double [ %sub25.i.i, %if.then18.i.i ], [ %e.0170.i.i, %lor.lhs.false.i.i ]
   %85 = call double @llvm.fabs.f64(double %84)
-  %86 = call double @llvm.fabs.f64(double %froot.0169.i.i)
+  %86 = call double @llvm.fabs.f64(double %froot.0168.i.i)
   %cmp28.i.i = fcmp olt double %85, %86
   br i1 %cmp28.i.i, label %if.then29.i.i, label %if.end40.i.i
 
@@ -1844,13 +1844,13 @@ if.then29.i.i:                                    ; preds = %if.end26.i.i
 
 if.end40.i.i:                                     ; preds = %if.then29.i.i, %if.end26.i.i
   %.pre-phi.i.i = phi double [ %85, %if.then29.i.i ], [ %86, %if.end26.i.i ]
-  %87 = phi double [ %froot.0169.i.i, %if.then29.i.i ], [ %82, %if.end26.i.i ]
+  %87 = phi double [ %froot.0168.i.i, %if.then29.i.i ], [ %82, %if.end26.i.i ]
   %88 = phi double [ %78, %if.then29.i.i ], [ %80, %if.end26.i.i ]
-  %89 = phi double [ %froot.0169.i.i, %if.then29.i.i ], [ %79, %if.end26.i.i ]
+  %89 = phi double [ %froot.0168.i.i, %if.then29.i.i ], [ %79, %if.end26.i.i ]
   %90 = phi double [ %78, %if.then29.i.i ], [ %83, %if.end26.i.i ]
   %91 = phi double [ %83, %if.then29.i.i ], [ %78, %if.end26.i.i ]
-  %92 = phi double [ %froot.0169.i.i, %if.then29.i.i ], [ %84, %if.end26.i.i ]
-  %froot.1.i.i = phi double [ %84, %if.then29.i.i ], [ %froot.0169.i.i, %if.end26.i.i ]
+  %92 = phi double [ %froot.0168.i.i, %if.then29.i.i ], [ %84, %if.end26.i.i ]
+  %froot.1.i.i = phi double [ %84, %if.then29.i.i ], [ %froot.0168.i.i, %if.end26.i.i ]
   %93 = call double @llvm.fabs.f64(double %91)
   %94 = call double @llvm.fmuladd.f64(double %93, double 0x3CC0000000000000, double 5.000000e-09)
   %sub48.i.i = fsub double %90, %91
@@ -1860,8 +1860,8 @@ if.end40.i.i:                                     ; preds = %if.then29.i.i, %if.
   %cmp.i.i.i = fcmp oeq double %froot.1.i.i, 0.000000e+00
   %cmp4.i.i.i = fcmp olt double %.pre-phi.i.i, 0x3A1B900000000000
   %96 = or i1 %cmp4.i.i.i, %cmp.i.i.i
-  %or.cond164.i.i = select i1 %cmp49.i.i, i1 true, i1 %96
-  br i1 %or.cond164.i.i, label %if.then52.i.i, label %if.end58.i.i
+  %or.cond163.i.i = select i1 %cmp49.i.i, i1 true, i1 %96
+  br i1 %or.cond163.i.i, label %if.then52.i.i, label %if.end58.i.i
 
 if.then52.i.i:                                    ; preds = %if.end40.i.i
   %cmp.i.i.i55.i.i = fcmp olt double %91, %mul.i.i.i
@@ -1892,8 +1892,8 @@ if.end58.i.i:                                     ; preds = %if.end40.i.i
   %cmp59.i.i = fcmp oge double %100, %94
   %101 = call double @llvm.fabs.f64(double %89)
   %cmp62.i.i = fcmp ogt double %101, %.pre-phi.i.i
-  %or.cond193.i.i = select i1 %cmp59.i.i, i1 %cmp62.i.i, i1 false
-  br i1 %or.cond193.i.i, label %if.then63.i.i, label %if.end111.i.i
+  %or.cond192.i.i = select i1 %cmp59.i.i, i1 %cmp62.i.i, i1 false
+  br i1 %or.cond192.i.i, label %if.then63.i.i, label %if.end111.i.i
 
 if.then63.i.i:                                    ; preds = %if.end58.i.i
   %div65.i.i = fdiv double %froot.1.i.i, %89
@@ -1901,34 +1901,34 @@ if.then63.i.i:                                    ; preds = %if.end58.i.i
   br i1 %cmp.i82.i.i, label %if.then69.i.i, label %if.end.i83.i.i
 
 if.end.i83.i.i:                                   ; preds = %if.then63.i.i
-  %sub.i.i115.i = fsub double %88, %90
-  %102 = call double @llvm.fabs.f64(double %sub.i.i115.i)
-  %cmp1.i84.i.i = fcmp oeq double %88, 0.000000e+00
+  %sub.i.i113.i = fsub double %88, %90
+  %102 = call double @llvm.fabs.f64(double %sub.i.i113.i)
+  %cmp1.i.i.i = fcmp oeq double %88, 0.000000e+00
   %cmp2.i.i.i = fcmp oeq double %90, 0.000000e+00
-  %or.cond.i.i.i = or i1 %cmp1.i84.i.i, %cmp2.i.i.i
-  br i1 %or.cond.i.i.i, label %if.then3.i.i.i, label %_ZN8QuantLib5closeEdd.exit87.i.i
+  %or.cond.i.i.i = or i1 %cmp1.i.i.i, %cmp2.i.i.i
+  br i1 %or.cond.i.i.i, label %if.then3.i.i.i, label %_ZN8QuantLib5closeEdd.exit86.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i83.i.i
-  %cmp4.i86.i.i = fcmp olt double %102, 0x3A1B900000000000
-  br i1 %cmp4.i86.i.i, label %if.then69.i.i, label %if.else73.i.i
+  %cmp4.i85.i.i = fcmp olt double %102, 0x3A1B900000000000
+  br i1 %cmp4.i85.i.i, label %if.then69.i.i, label %if.else73.i.i
 
-_ZN8QuantLib5closeEdd.exit87.i.i:                 ; preds = %if.end.i83.i.i
+_ZN8QuantLib5closeEdd.exit86.i.i:                 ; preds = %if.end.i83.i.i
   %103 = call double @llvm.fabs.f64(double %88)
-  %mul.i.i116.i = fmul double %103, 0x3D05000000000000
-  %cmp6.i.i.i = fcmp ole double %102, %mul.i.i116.i
+  %mul.i.i114.i = fmul double %103, 0x3D05000000000000
+  %cmp6.i.i.i = fcmp ole double %102, %mul.i.i114.i
   %104 = call double @llvm.fabs.f64(double %90)
-  %mul7.i.i117.i = fmul double %104, 0x3D05000000000000
-  %cmp8.i.i.i = fcmp ole double %102, %mul7.i.i117.i
+  %mul7.i.i115.i = fmul double %104, 0x3D05000000000000
+  %cmp8.i.i.i = fcmp ole double %102, %mul7.i.i115.i
   %105 = and i1 %cmp6.i.i.i, %cmp8.i.i.i
   br i1 %105, label %if.then69.i.i, label %if.else73.i.i
 
-if.then69.i.i:                                    ; preds = %_ZN8QuantLib5closeEdd.exit87.i.i, %if.then3.i.i.i, %if.then63.i.i
+if.then69.i.i:                                    ; preds = %_ZN8QuantLib5closeEdd.exit86.i.i, %if.then3.i.i.i, %if.then63.i.i
   %mul70.i.i = fmul double %div.i.i18, 2.000000e+00
   %mul71.i.i = fmul double %mul70.i.i, %div65.i.i
   %sub72.i.i = fsub double 1.000000e+00, %div65.i.i
   br label %if.end94.i.i
 
-if.else73.i.i:                                    ; preds = %_ZN8QuantLib5closeEdd.exit87.i.i, %if.then3.i.i.i
+if.else73.i.i:                                    ; preds = %_ZN8QuantLib5closeEdd.exit86.i.i, %if.then3.i.i.i
   %div76.i.i = fdiv double %89, %87
   %div78.i.i = fdiv double %froot.1.i.i, %87
   %mul79.i.i = fmul double %div.i.i18, 2.000000e+00
@@ -1973,57 +1973,57 @@ if.then106.i.i:                                   ; preds = %if.end94.i.i
   br label %if.end111.i.i
 
 if.end111.i.i:                                    ; preds = %if.then106.i.i, %if.end94.i.i, %if.end58.i.i
-  %.pre-phi175.i.i = phi double [ %95, %if.end58.i.i ], [ %95, %if.end94.i.i ], [ %.pre.i.i, %if.then106.i.i ]
+  %.pre-phi174.i.i = phi double [ %95, %if.end58.i.i ], [ %95, %if.end94.i.i ], [ %.pre.i.i, %if.then106.i.i ]
   %113 = phi double [ %92, %if.end58.i.i ], [ %108, %if.end94.i.i ], [ %108, %if.then106.i.i ]
   %d.2.i.i = phi double [ %div.i.i18, %if.end58.i.i ], [ %div.i.i18, %if.end94.i.i ], [ %div107.i.i, %if.then106.i.i ]
   %e.2.i.i = phi double [ %div.i.i18, %if.end58.i.i ], [ %div.i.i18, %if.end94.i.i ], [ %d.1.i.i, %if.then106.i.i ]
-  %cmp115.i.i = fcmp ogt double %.pre-phi175.i.i, %94
+  %cmp115.i.i = fcmp ogt double %.pre-phi174.i.i, %94
   br i1 %cmp115.i.i, label %if.end122.i.i, label %if.else118.i.i
 
 if.else118.i.i:                                   ; preds = %if.end111.i.i
-  %cmp.i88.i.i = fcmp ult double %div.i.i18, 0.000000e+00
+  %cmp.i87.i.i = fcmp ult double %div.i.i18, 0.000000e+00
   %114 = call double @llvm.fabs.f64(double %94)
   %fneg.i.i.i = fneg double %114
-  %cond.i.i.i = select i1 %cmp.i88.i.i, double %fneg.i.i.i, double %114
+  %cond.i.i.i = select i1 %cmp.i87.i.i, double %fneg.i.i.i, double %114
   br label %if.end122.i.i
 
 if.end122.i.i:                                    ; preds = %if.else118.i.i, %if.end111.i.i
   %cond.i.pn.i.i = phi double [ %cond.i.i.i, %if.else118.i.i ], [ %d.2.i.i, %if.end111.i.i ]
   %storemerge.i.i = fadd double %91, %cond.i.pn.i.i
-  %cmp.i.i.i94.i.i = fcmp olt double %storemerge.i.i, %mul.i.i.i
-  %.sroa.speculated.i.i95.i.i = select i1 %cmp.i.i.i94.i.i, double %mul.i.i.i, double %storemerge.i.i
-  %add.i.i96.i.i = fadd double %sub.i.i.i, %.sroa.speculated.i.i95.i.i
-  %mul2.i.i97.i.i = fmul double %add.i.i96.i.i, 2.000000e+00
-  %115 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i95.i.i, double 3.000000e+00, double %sub.i.i.i)
-  %mul4.i.i98.i.i = fmul double %115, %mul2.i.i97.i.i
-  %116 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i95.i.i, double 2.000000e+00, double %sub.i.i.i)
-  %mul.i.i.i99.i.i = fmul double %116, %116
-  %mul7.i.i100.i.i = fmul double %mul.i.i.i99.i.i, 3.000000e+00
-  %div8.i.i101.i.i = fdiv double %mul4.i.i98.i.i, %mul7.i.i100.i.i
-  %sub9.i.i102.i.i = fsub double 1.000000e+00, %div8.i.i101.i.i
-  %mul.i17.i.i103.i.i = fmul double %add.i.i96.i.i, %add.i.i96.i.i
-  %div13.i.i104.i.i = fdiv double %116, %mul.i17.i.i103.i.i
-  %sub14.i.i105.i.i = fadd double %sub9.i.i102.i.i, -1.000000e+00
-  %117 = call double @llvm.fmuladd.f64(double %sub9.i.i102.i.i, double -3.000000e+00, double 1.000000e+00)
-  %mul16.i.i106.i.i = fmul double %sub14.i.i105.i.i, %117
-  %div18.i.i107.i.i = fdiv double %div.i.i.i, %add.i.i96.i.i
-  %call19.i.i108.i.i = call double @pow(double noundef %div18.i.i107.i.i, double noundef %sub9.i.i102.i.i) #32, !tbaa !14
-  %mul20.i.i109.i.i = fmul double %div13.i.i104.i.i, %sub9.i.i102.i.i
-  %sub22.i.i110.i.i = fsub double 2.000000e+00, %sub9.i.i102.i.i
-  %mul23.i.i111.i.i = fmul double %sub22.i.i110.i.i, 5.000000e-01
-  %118 = fneg double %mul16.i.i106.i.i
-  %neg.i.i112.i.i = fmul double %mul23.i.i111.i.i, %118
-  %119 = call double @llvm.fmuladd.f64(double %neg.i.i112.i.i, double %div13.i.i104.i.i, double %sub14.i.i105.i.i)
-  %120 = call double @llvm.fmuladd.f64(double %mul20.i.i109.i.i, double %119, double 1.000000e+00)
-  %sub27.i.i113.i.i = fsub double %call19.i.i108.i.i, %120
-  %mul28.i.i114.i.i = fmul double %div13.i.i104.i.i, 2.000000e+00
-  %call29.i.i115.i.i = call double @sqrt(double noundef %mul28.i.i114.i.i) #32, !tbaa !14
-  %mul30.i.i116.i.i = fmul double %call29.i.i115.i.i, %sub9.i.i102.i.i
-  %mul31.i.i117.i.i = fmul double %mul16.i.i106.i.i, 5.000000e-01
-  %121 = call double @llvm.fmuladd.f64(double %mul31.i.i117.i.i, double %div13.i.i104.i.i, double 1.000000e+00)
-  %mul33.i.i118.i.i = fmul double %mul30.i.i116.i.i, %121
-  %div34.i.i119.i.i = fdiv double %sub27.i.i113.i.i, %mul33.i.i118.i.i
-  %sub35.i.i120.i.i = fsub double %div34.i.i119.i.i, %28
+  %cmp.i.i.i93.i.i = fcmp olt double %storemerge.i.i, %mul.i.i.i
+  %.sroa.speculated.i.i94.i.i = select i1 %cmp.i.i.i93.i.i, double %mul.i.i.i, double %storemerge.i.i
+  %add.i.i95.i.i = fadd double %sub.i.i.i, %.sroa.speculated.i.i94.i.i
+  %mul2.i.i96.i.i = fmul double %add.i.i95.i.i, 2.000000e+00
+  %115 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i94.i.i, double 3.000000e+00, double %sub.i.i.i)
+  %mul4.i.i97.i.i = fmul double %115, %mul2.i.i96.i.i
+  %116 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i94.i.i, double 2.000000e+00, double %sub.i.i.i)
+  %mul.i.i.i98.i.i = fmul double %116, %116
+  %mul7.i.i99.i.i = fmul double %mul.i.i.i98.i.i, 3.000000e+00
+  %div8.i.i100.i.i = fdiv double %mul4.i.i97.i.i, %mul7.i.i99.i.i
+  %sub9.i.i101.i.i = fsub double 1.000000e+00, %div8.i.i100.i.i
+  %mul.i17.i.i102.i.i = fmul double %add.i.i95.i.i, %add.i.i95.i.i
+  %div13.i.i103.i.i = fdiv double %116, %mul.i17.i.i102.i.i
+  %sub14.i.i104.i.i = fadd double %sub9.i.i101.i.i, -1.000000e+00
+  %117 = call double @llvm.fmuladd.f64(double %sub9.i.i101.i.i, double -3.000000e+00, double 1.000000e+00)
+  %mul16.i.i105.i.i = fmul double %sub14.i.i104.i.i, %117
+  %div18.i.i106.i.i = fdiv double %div.i.i.i, %add.i.i95.i.i
+  %call19.i.i107.i.i = call double @pow(double noundef %div18.i.i106.i.i, double noundef %sub9.i.i101.i.i) #32, !tbaa !14
+  %mul20.i.i108.i.i = fmul double %div13.i.i103.i.i, %sub9.i.i101.i.i
+  %sub22.i.i109.i.i = fsub double 2.000000e+00, %sub9.i.i101.i.i
+  %mul23.i.i110.i.i = fmul double %sub22.i.i109.i.i, 5.000000e-01
+  %118 = fneg double %mul16.i.i105.i.i
+  %neg.i.i111.i.i = fmul double %mul23.i.i110.i.i, %118
+  %119 = call double @llvm.fmuladd.f64(double %neg.i.i111.i.i, double %div13.i.i103.i.i, double %sub14.i.i104.i.i)
+  %120 = call double @llvm.fmuladd.f64(double %mul20.i.i108.i.i, double %119, double 1.000000e+00)
+  %sub27.i.i112.i.i = fsub double %call19.i.i107.i.i, %120
+  %mul28.i.i113.i.i = fmul double %div13.i.i103.i.i, 2.000000e+00
+  %call29.i.i114.i.i = call double @sqrt(double noundef %mul28.i.i113.i.i) #32, !tbaa !14
+  %mul30.i.i115.i.i = fmul double %call29.i.i114.i.i, %sub9.i.i101.i.i
+  %mul31.i.i116.i.i = fmul double %mul16.i.i105.i.i, 5.000000e-01
+  %121 = call double @llvm.fmuladd.f64(double %mul31.i.i116.i.i, double %div13.i.i103.i.i, double 1.000000e+00)
+  %mul33.i.i117.i.i = fmul double %mul30.i.i115.i.i, %121
+  %div34.i.i118.i.i = fdiv double %sub27.i.i112.i.i, %mul33.i.i117.i.i
+  %sub35.i.i119.i.i = fsub double %div34.i.i118.i.i, %28
   %inc126.i.i = add nuw nsw i64 %81, 1
   %exitcond = icmp eq i64 %inc126.i.i, 21
   br i1 %exitcond, label %do.body.i.i, label %while.body.i.i, !llvm.loop !33
@@ -2034,15 +2034,15 @@ do.body.i.i:                                      ; preds = %if.end122.i.i, %if.
           to label %.noexc unwind label %lpad9
 
 .noexc:                                           ; preds = %do.body.i.i
-  %call1.i122.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream.i.i, ptr noundef nonnull @.str.109, i64 noundef 40)
+  %call1.i121.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream.i.i, ptr noundef nonnull @.str.109, i64 noundef 40)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %.noexc
-  %call.i123.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream.i.i, i64 noundef 20)
+  %call.i122.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream.i.i, i64 noundef 20)
           to label %invoke.cont129.i.i unwind label %lpad.i.i
 
 invoke.cont129.i.i:                               ; preds = %invoke.cont.i.i
-  %call1.i126.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i123.i.i, ptr noundef nonnull @.str.110, i64 noundef 10)
+  %call1.i125.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i122.i.i, ptr noundef nonnull @.str.110, i64 noundef 10)
           to label %invoke.cont131.i.i unwind label %lpad.i.i
 
 invoke.cont131.i.i:                               ; preds = %invoke.cont129.i.i
@@ -2092,8 +2092,8 @@ lpad143.i.i:                                      ; preds = %invoke.cont144.i.i,
           catch ptr null
   %126 = load ptr, ptr %ref.tmp140.i.i, align 8, !tbaa !17
   %127 = getelementptr inbounds nuw i8, ptr %ref.tmp140.i.i, i64 16
-  %cmp.i.i.i128.i.i = icmp eq ptr %126, %127
-  br i1 %cmp.i.i.i128.i.i, label %ehcleanup.i.i, label %if.then.i.i.i.i19
+  %cmp.i.i.i127.i.i = icmp eq ptr %126, %127
+  br i1 %cmp.i.i.i127.i.i, label %ehcleanup.i.i, label %if.then.i.i.i.i19
 
 if.then.i.i.i.i19:                                ; preds = %lpad143.i.i
   %128 = load i64, ptr %127, align 8, !tbaa !22
@@ -2107,22 +2107,22 @@ ehcleanup.i.i:                                    ; preds = %lpad143.i.i, %if.th
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp140.i.i)
   %129 = load ptr, ptr %ref.tmp136.i.i, align 8, !tbaa !17
   %130 = getelementptr inbounds nuw i8, ptr %ref.tmp136.i.i, i64 16
-  %cmp.i.i.i129.i.i = icmp eq ptr %129, %130
-  br i1 %cmp.i.i.i129.i.i, label %ehcleanup146.i.i, label %if.then.i.i130.i.i
+  %cmp.i.i.i128.i.i = icmp eq ptr %129, %130
+  br i1 %cmp.i.i.i128.i.i, label %ehcleanup146.i.i, label %if.then.i.i129.i.i
 
-if.then.i.i130.i.i:                               ; preds = %ehcleanup.i.i
+if.then.i.i129.i.i:                               ; preds = %ehcleanup.i.i
   %131 = load i64, ptr %130, align 8, !tbaa !22
-  %add.i.i.i131.i.i = add i64 %131, 1
-  call void @_ZdlPvm(ptr noundef %129, i64 noundef %add.i.i.i131.i.i) #34
+  %add.i.i.i130.i.i = add i64 %131, 1
+  call void @_ZdlPvm(ptr noundef %129, i64 noundef %add.i.i.i130.i.i) #34
   br label %ehcleanup146.i.i
 
-ehcleanup146.i.i:                                 ; preds = %ehcleanup.i.i, %if.then.i.i130.i.i
+ehcleanup146.i.i:                                 ; preds = %ehcleanup.i.i, %if.then.i.i129.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp137.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp136.i.i)
   %132 = load ptr, ptr %ref.tmp.i.i, align 8, !tbaa !17
   %133 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
-  %cmp.i.i.i136.i.i = icmp eq ptr %132, %133
-  br i1 %cmp.i.i.i136.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i139.i.i, label %ehcleanup150.i.i
+  %cmp.i.i.i135.i.i = icmp eq ptr %132, %133
+  br i1 %cmp.i.i.i135.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i.i, label %ehcleanup150.i.i
 
 ehcleanup146.thread.i.i:                          ; preds = %invoke.cont135.i.i
   %134 = landingpad { ptr, i32 }
@@ -2131,41 +2131,41 @@ ehcleanup146.thread.i.i:                          ; preds = %invoke.cont135.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp136.i.i)
   %135 = load ptr, ptr %ref.tmp.i.i, align 8, !tbaa !17
   %136 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
-  %cmp.i.i.i136150.i.i = icmp eq ptr %135, %136
-  br i1 %cmp.i.i.i136150.i.i, label %cleanup.action.sink.split.i.i, label %ehcleanup150.thread159.i.i
+  %cmp.i.i.i135149.i.i = icmp eq ptr %135, %136
+  br i1 %cmp.i.i.i135149.i.i, label %cleanup.action.sink.split.i.i, label %ehcleanup150.thread158.i.i
 
-ehcleanup150.thread159.i.i:                       ; preds = %ehcleanup146.thread.i.i
+ehcleanup150.thread158.i.i:                       ; preds = %ehcleanup146.thread.i.i
   %137 = load i64, ptr %136, align 8, !tbaa !22
-  %add.i.i.i138162.i.i = add i64 %137, 1
-  call void @_ZdlPvm(ptr noundef %135, i64 noundef %add.i.i.i138162.i.i) #34
+  %add.i.i.i137161.i.i = add i64 %137, 1
+  call void @_ZdlPvm(ptr noundef %135, i64 noundef %add.i.i.i137161.i.i) #34
   br label %cleanup.action.sink.split.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i139.i.i: ; preds = %ehcleanup146.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i.i: ; preds = %ehcleanup146.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp133.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br i1 %cleanup.isactive.3.i.i, label %cleanup.action.i.i, label %ehcleanup154.i.i
 
 ehcleanup150.i.i:                                 ; preds = %ehcleanup146.i.i
   %138 = load i64, ptr %133, align 8, !tbaa !22
-  %add.i.i.i138.i.i = add i64 %138, 1
-  call void @_ZdlPvm(ptr noundef %132, i64 noundef %add.i.i.i138.i.i) #34
+  %add.i.i.i137.i.i = add i64 %138, 1
+  call void @_ZdlPvm(ptr noundef %132, i64 noundef %add.i.i.i137.i.i) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp133.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br i1 %cleanup.isactive.3.i.i, label %cleanup.action.i.i, label %ehcleanup154.i.i
 
-cleanup.action.sink.split.i.i:                    ; preds = %ehcleanup146.thread.i.i, %ehcleanup150.thread159.i.i, %ehcleanup150.thread.i.i
-  %.pn.pn.pn147.ph.i.i = phi { ptr, i32 } [ %134, %ehcleanup150.thread159.i.i ], [ %123, %ehcleanup150.thread.i.i ], [ %134, %ehcleanup146.thread.i.i ]
+cleanup.action.sink.split.i.i:                    ; preds = %ehcleanup146.thread.i.i, %ehcleanup150.thread158.i.i, %ehcleanup150.thread.i.i
+  %.pn.pn.pn146.ph.i.i = phi { ptr, i32 } [ %134, %ehcleanup150.thread158.i.i ], [ %123, %ehcleanup150.thread.i.i ], [ %134, %ehcleanup146.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp133.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br label %cleanup.action.i.i
 
-cleanup.action.i.i:                               ; preds = %cleanup.action.sink.split.i.i, %ehcleanup150.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i139.i.i
-  %.pn.pn.pn147.i.i = phi { ptr, i32 } [ %.pn.i.i, %ehcleanup150.i.i ], [ %.pn.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i139.i.i ], [ %.pn.pn.pn147.ph.i.i, %cleanup.action.sink.split.i.i ]
+cleanup.action.i.i:                               ; preds = %cleanup.action.sink.split.i.i, %ehcleanup150.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i.i
+  %.pn.pn.pn146.i.i = phi { ptr, i32 } [ %.pn.i.i, %ehcleanup150.i.i ], [ %.pn.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i.i ], [ %.pn.pn.pn146.ph.i.i, %cleanup.action.sink.split.i.i ]
   call void @__cxa_free_exception(ptr %exception.i.i) #32
   br label %ehcleanup154.i.i
 
-ehcleanup154.i.i:                                 ; preds = %cleanup.action.i.i, %ehcleanup150.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i139.i.i, %lpad.i.i
-  %.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn147.i.i, %cleanup.action.i.i ], [ %.pn.i.i, %ehcleanup150.i.i ], [ %122, %lpad.i.i ], [ %.pn.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i139.i.i ]
+ehcleanup154.i.i:                                 ; preds = %cleanup.action.i.i, %ehcleanup150.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i.i, %lpad.i.i
+  %.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn146.i.i, %cleanup.action.i.i ], [ %.pn.i.i, %ehcleanup150.i.i ], [ %122, %lpad.i.i ], [ %.pn.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i.i ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream.i.i) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %_ql_msg_stream.i.i)
   br label %ehcleanup
@@ -2177,191 +2177,191 @@ if.end81.i:                                       ; preds = %while.body.i
   %139 = call double @llvm.fabs.f64(double %63)
   %140 = call double @llvm.fabs.f64(double %62)
   %cmp84.i = fcmp olt double %139, %140
-  br i1 %cmp84.i, label %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit131.i, label %if.else96.i
+  br i1 %cmp84.i, label %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i, label %if.else96.i
 
-_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit131.i: ; preds = %if.end81.i
+_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i: ; preds = %if.end81.i
   %sub89.i = fsub double %57, %56
   %141 = call double @llvm.fmuladd.f64(double %sub89.i, double 1.600000e+00, double %57)
-  %cmp.i.i.i137.i = fcmp olt double %141, %mul.i.i.i
-  %.sroa.speculated.i.i138.i = select i1 %cmp.i.i.i137.i, double %mul.i.i.i, double %141
-  %add.i.i139.i = fadd double %sub.i.i.i, %.sroa.speculated.i.i138.i
-  %mul2.i.i140.i = fmul double %add.i.i139.i, 2.000000e+00
-  %142 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i138.i, double 3.000000e+00, double %sub.i.i.i)
-  %mul4.i.i141.i = fmul double %142, %mul2.i.i140.i
-  %143 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i138.i, double 2.000000e+00, double %sub.i.i.i)
-  %mul.i.i.i142.i = fmul double %143, %143
-  %mul7.i.i143.i = fmul double %mul.i.i.i142.i, 3.000000e+00
-  %div8.i.i144.i = fdiv double %mul4.i.i141.i, %mul7.i.i143.i
-  %sub9.i.i145.i = fsub double 1.000000e+00, %div8.i.i144.i
-  %mul.i17.i.i146.i = fmul double %add.i.i139.i, %add.i.i139.i
-  %div13.i.i147.i = fdiv double %143, %mul.i17.i.i146.i
-  %sub14.i.i148.i = fadd double %sub9.i.i145.i, -1.000000e+00
-  %144 = call double @llvm.fmuladd.f64(double %sub9.i.i145.i, double -3.000000e+00, double 1.000000e+00)
-  %mul16.i.i149.i = fmul double %sub14.i.i148.i, %144
-  %div18.i.i150.i = fdiv double %div.i.i.i, %add.i.i139.i
-  %call19.i.i151.i = call double @pow(double noundef %div18.i.i150.i, double noundef %sub9.i.i145.i) #32, !tbaa !14
-  %mul20.i.i152.i = fmul double %div13.i.i147.i, %sub9.i.i145.i
-  %sub22.i.i153.i = fsub double 2.000000e+00, %sub9.i.i145.i
-  %mul23.i.i154.i = fmul double %sub22.i.i153.i, 5.000000e-01
-  %145 = fneg double %mul16.i.i149.i
-  %neg.i.i155.i = fmul double %mul23.i.i154.i, %145
-  %146 = call double @llvm.fmuladd.f64(double %neg.i.i155.i, double %div13.i.i147.i, double %sub14.i.i148.i)
-  %147 = call double @llvm.fmuladd.f64(double %mul20.i.i152.i, double %146, double 1.000000e+00)
-  %sub27.i.i156.i = fsub double %call19.i.i151.i, %147
-  %mul28.i.i157.i = fmul double %div13.i.i147.i, 2.000000e+00
-  %call29.i.i158.i = call double @sqrt(double noundef %mul28.i.i157.i) #32, !tbaa !14
-  %mul30.i.i159.i = fmul double %sub9.i.i145.i, %call29.i.i158.i
-  %mul31.i.i160.i = fmul double %mul16.i.i149.i, 5.000000e-01
-  %148 = call double @llvm.fmuladd.f64(double %mul31.i.i160.i, double %div13.i.i147.i, double 1.000000e+00)
-  %mul33.i.i161.i = fmul double %148, %mul30.i.i159.i
-  %div34.i.i162.i = fdiv double %sub27.i.i156.i, %mul33.i.i161.i
-  %sub35.i.i163.i = fsub double %div34.i.i162.i, %28
+  %cmp.i.i.i135.i = fcmp olt double %141, %mul.i.i.i
+  %.sroa.speculated.i.i136.i = select i1 %cmp.i.i.i135.i, double %mul.i.i.i, double %141
+  %add.i.i137.i = fadd double %sub.i.i.i, %.sroa.speculated.i.i136.i
+  %mul2.i.i138.i = fmul double %add.i.i137.i, 2.000000e+00
+  %142 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i136.i, double 3.000000e+00, double %sub.i.i.i)
+  %mul4.i.i139.i = fmul double %142, %mul2.i.i138.i
+  %143 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i136.i, double 2.000000e+00, double %sub.i.i.i)
+  %mul.i.i.i140.i = fmul double %143, %143
+  %mul7.i.i141.i = fmul double %mul.i.i.i140.i, 3.000000e+00
+  %div8.i.i142.i = fdiv double %mul4.i.i139.i, %mul7.i.i141.i
+  %sub9.i.i143.i = fsub double 1.000000e+00, %div8.i.i142.i
+  %mul.i17.i.i144.i = fmul double %add.i.i137.i, %add.i.i137.i
+  %div13.i.i145.i = fdiv double %143, %mul.i17.i.i144.i
+  %sub14.i.i146.i = fadd double %sub9.i.i143.i, -1.000000e+00
+  %144 = call double @llvm.fmuladd.f64(double %sub9.i.i143.i, double -3.000000e+00, double 1.000000e+00)
+  %mul16.i.i147.i = fmul double %sub14.i.i146.i, %144
+  %div18.i.i148.i = fdiv double %div.i.i.i, %add.i.i137.i
+  %call19.i.i149.i = call double @pow(double noundef %div18.i.i148.i, double noundef %sub9.i.i143.i) #32, !tbaa !14
+  %mul20.i.i150.i = fmul double %div13.i.i145.i, %sub9.i.i143.i
+  %sub22.i.i151.i = fsub double 2.000000e+00, %sub9.i.i143.i
+  %mul23.i.i152.i = fmul double %sub22.i.i151.i, 5.000000e-01
+  %145 = fneg double %mul16.i.i147.i
+  %neg.i.i153.i = fmul double %mul23.i.i152.i, %145
+  %146 = call double @llvm.fmuladd.f64(double %neg.i.i153.i, double %div13.i.i145.i, double %sub14.i.i146.i)
+  %147 = call double @llvm.fmuladd.f64(double %mul20.i.i150.i, double %146, double 1.000000e+00)
+  %sub27.i.i154.i = fsub double %call19.i.i149.i, %147
+  %mul28.i.i155.i = fmul double %div13.i.i145.i, 2.000000e+00
+  %call29.i.i156.i = call double @sqrt(double noundef %mul28.i.i155.i) #32, !tbaa !14
+  %mul30.i.i157.i = fmul double %sub9.i.i143.i, %call29.i.i156.i
+  %mul31.i.i158.i = fmul double %mul16.i.i147.i, 5.000000e-01
+  %148 = call double @llvm.fmuladd.f64(double %mul31.i.i158.i, double %div13.i.i145.i, double 1.000000e+00)
+  %mul33.i.i159.i = fmul double %148, %mul30.i.i157.i
+  %div34.i.i160.i = fdiv double %sub27.i.i154.i, %mul33.i.i159.i
+  %sub35.i.i161.i = fsub double %div34.i.i160.i, %28
   br label %if.end141.i
 
 if.else96.i:                                      ; preds = %if.end81.i
   %cmp99.i = fcmp ogt double %139, %140
-  br i1 %cmp99.i, label %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit177.i, label %if.else111.i
+  br i1 %cmp99.i, label %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i, label %if.else111.i
 
-_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit177.i: ; preds = %if.else96.i
+_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i: ; preds = %if.else96.i
   %sub104.i = fsub double %58, %57
   %149 = call double @llvm.fmuladd.f64(double %sub104.i, double 1.600000e+00, double %58)
-  %cmp.i.i.i183.i = fcmp olt double %149, %mul.i.i.i
-  %.sroa.speculated.i.i184.i = select i1 %cmp.i.i.i183.i, double %mul.i.i.i, double %149
-  %add.i.i185.i = fadd double %sub.i.i.i, %.sroa.speculated.i.i184.i
-  %mul2.i.i186.i = fmul double %add.i.i185.i, 2.000000e+00
-  %150 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i184.i, double 3.000000e+00, double %sub.i.i.i)
-  %mul4.i.i187.i = fmul double %150, %mul2.i.i186.i
-  %151 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i184.i, double 2.000000e+00, double %sub.i.i.i)
-  %mul.i.i.i188.i = fmul double %151, %151
-  %mul7.i.i189.i = fmul double %mul.i.i.i188.i, 3.000000e+00
-  %div8.i.i190.i = fdiv double %mul4.i.i187.i, %mul7.i.i189.i
-  %sub9.i.i191.i = fsub double 1.000000e+00, %div8.i.i190.i
-  %mul.i17.i.i192.i = fmul double %add.i.i185.i, %add.i.i185.i
-  %div13.i.i193.i = fdiv double %151, %mul.i17.i.i192.i
-  %sub14.i.i194.i = fadd double %sub9.i.i191.i, -1.000000e+00
-  %152 = call double @llvm.fmuladd.f64(double %sub9.i.i191.i, double -3.000000e+00, double 1.000000e+00)
-  %mul16.i.i195.i = fmul double %sub14.i.i194.i, %152
-  %div18.i.i196.i = fdiv double %div.i.i.i, %add.i.i185.i
-  %call19.i.i197.i = call double @pow(double noundef %div18.i.i196.i, double noundef %sub9.i.i191.i) #32, !tbaa !14
-  %mul20.i.i198.i = fmul double %div13.i.i193.i, %sub9.i.i191.i
-  %sub22.i.i199.i = fsub double 2.000000e+00, %sub9.i.i191.i
-  %mul23.i.i200.i = fmul double %sub22.i.i199.i, 5.000000e-01
-  %153 = fneg double %mul16.i.i195.i
-  %neg.i.i201.i = fmul double %mul23.i.i200.i, %153
-  %154 = call double @llvm.fmuladd.f64(double %neg.i.i201.i, double %div13.i.i193.i, double %sub14.i.i194.i)
-  %155 = call double @llvm.fmuladd.f64(double %mul20.i.i198.i, double %154, double 1.000000e+00)
-  %sub27.i.i202.i = fsub double %call19.i.i197.i, %155
-  %mul28.i.i203.i = fmul double %div13.i.i193.i, 2.000000e+00
-  %call29.i.i204.i = call double @sqrt(double noundef %mul28.i.i203.i) #32, !tbaa !14
-  %mul30.i.i205.i = fmul double %sub9.i.i191.i, %call29.i.i204.i
-  %mul31.i.i206.i = fmul double %mul16.i.i195.i, 5.000000e-01
-  %156 = call double @llvm.fmuladd.f64(double %mul31.i.i206.i, double %div13.i.i193.i, double 1.000000e+00)
-  %mul33.i.i207.i = fmul double %156, %mul30.i.i205.i
-  %div34.i.i208.i = fdiv double %sub27.i.i202.i, %mul33.i.i207.i
-  %sub35.i.i209.i = fsub double %div34.i.i208.i, %28
+  %cmp.i.i.i181.i = fcmp olt double %149, %mul.i.i.i
+  %.sroa.speculated.i.i182.i = select i1 %cmp.i.i.i181.i, double %mul.i.i.i, double %149
+  %add.i.i183.i = fadd double %sub.i.i.i, %.sroa.speculated.i.i182.i
+  %mul2.i.i184.i = fmul double %add.i.i183.i, 2.000000e+00
+  %150 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i182.i, double 3.000000e+00, double %sub.i.i.i)
+  %mul4.i.i185.i = fmul double %150, %mul2.i.i184.i
+  %151 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i182.i, double 2.000000e+00, double %sub.i.i.i)
+  %mul.i.i.i186.i = fmul double %151, %151
+  %mul7.i.i187.i = fmul double %mul.i.i.i186.i, 3.000000e+00
+  %div8.i.i188.i = fdiv double %mul4.i.i185.i, %mul7.i.i187.i
+  %sub9.i.i189.i = fsub double 1.000000e+00, %div8.i.i188.i
+  %mul.i17.i.i190.i = fmul double %add.i.i183.i, %add.i.i183.i
+  %div13.i.i191.i = fdiv double %151, %mul.i17.i.i190.i
+  %sub14.i.i192.i = fadd double %sub9.i.i189.i, -1.000000e+00
+  %152 = call double @llvm.fmuladd.f64(double %sub9.i.i189.i, double -3.000000e+00, double 1.000000e+00)
+  %mul16.i.i193.i = fmul double %sub14.i.i192.i, %152
+  %div18.i.i194.i = fdiv double %div.i.i.i, %add.i.i183.i
+  %call19.i.i195.i = call double @pow(double noundef %div18.i.i194.i, double noundef %sub9.i.i189.i) #32, !tbaa !14
+  %mul20.i.i196.i = fmul double %div13.i.i191.i, %sub9.i.i189.i
+  %sub22.i.i197.i = fsub double 2.000000e+00, %sub9.i.i189.i
+  %mul23.i.i198.i = fmul double %sub22.i.i197.i, 5.000000e-01
+  %153 = fneg double %mul16.i.i193.i
+  %neg.i.i199.i = fmul double %mul23.i.i198.i, %153
+  %154 = call double @llvm.fmuladd.f64(double %neg.i.i199.i, double %div13.i.i191.i, double %sub14.i.i192.i)
+  %155 = call double @llvm.fmuladd.f64(double %mul20.i.i196.i, double %154, double 1.000000e+00)
+  %sub27.i.i200.i = fsub double %call19.i.i195.i, %155
+  %mul28.i.i201.i = fmul double %div13.i.i191.i, 2.000000e+00
+  %call29.i.i202.i = call double @sqrt(double noundef %mul28.i.i201.i) #32, !tbaa !14
+  %mul30.i.i203.i = fmul double %sub9.i.i189.i, %call29.i.i202.i
+  %mul31.i.i204.i = fmul double %mul16.i.i193.i, 5.000000e-01
+  %156 = call double @llvm.fmuladd.f64(double %mul31.i.i204.i, double %div13.i.i191.i, double 1.000000e+00)
+  %mul33.i.i205.i = fmul double %156, %mul30.i.i203.i
+  %div34.i.i206.i = fdiv double %sub27.i.i200.i, %mul33.i.i205.i
+  %sub35.i.i207.i = fsub double %div34.i.i206.i, %28
   br label %if.end141.i
 
 if.else111.i:                                     ; preds = %if.else96.i
-  switch i32 %flipflop.0405.i, label %if.end141.i [
-    i32 -1, label %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit223.i
-    i32 1, label %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit269.i
+  switch i32 %flipflop.0403.i, label %if.end141.i [
+    i32 -1, label %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit221.i
+    i32 1, label %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit267.i
   ]
 
-_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit223.i: ; preds = %if.else111.i
+_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit221.i: ; preds = %if.else111.i
   %sub117.i = fsub double %59, %58
   %157 = call double @llvm.fmuladd.f64(double %sub117.i, double 1.600000e+00, double %59)
-  %cmp.i.i.i229.i = fcmp olt double %157, %mul.i.i.i
-  %.sroa.speculated.i.i230.i = select i1 %cmp.i.i.i229.i, double %mul.i.i.i, double %157
-  %add.i.i231.i = fadd double %sub.i.i.i, %.sroa.speculated.i.i230.i
-  %mul2.i.i232.i = fmul double %add.i.i231.i, 2.000000e+00
-  %158 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i230.i, double 3.000000e+00, double %sub.i.i.i)
-  %mul4.i.i233.i = fmul double %158, %mul2.i.i232.i
-  %159 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i230.i, double 2.000000e+00, double %sub.i.i.i)
-  %mul.i.i.i234.i = fmul double %159, %159
-  %mul7.i.i235.i = fmul double %mul.i.i.i234.i, 3.000000e+00
-  %div8.i.i236.i = fdiv double %mul4.i.i233.i, %mul7.i.i235.i
-  %sub9.i.i237.i = fsub double 1.000000e+00, %div8.i.i236.i
-  %mul.i17.i.i238.i = fmul double %add.i.i231.i, %add.i.i231.i
-  %div13.i.i239.i = fdiv double %159, %mul.i17.i.i238.i
-  %sub14.i.i240.i = fadd double %sub9.i.i237.i, -1.000000e+00
-  %160 = call double @llvm.fmuladd.f64(double %sub9.i.i237.i, double -3.000000e+00, double 1.000000e+00)
-  %mul16.i.i241.i = fmul double %sub14.i.i240.i, %160
-  %div18.i.i242.i = fdiv double %div.i.i.i, %add.i.i231.i
-  %call19.i.i243.i = call double @pow(double noundef %div18.i.i242.i, double noundef %sub9.i.i237.i) #32, !tbaa !14
-  %mul20.i.i244.i = fmul double %div13.i.i239.i, %sub9.i.i237.i
-  %sub22.i.i245.i = fsub double 2.000000e+00, %sub9.i.i237.i
-  %mul23.i.i246.i = fmul double %sub22.i.i245.i, 5.000000e-01
-  %161 = fneg double %mul16.i.i241.i
-  %neg.i.i247.i = fmul double %mul23.i.i246.i, %161
-  %162 = call double @llvm.fmuladd.f64(double %neg.i.i247.i, double %div13.i.i239.i, double %sub14.i.i240.i)
-  %163 = call double @llvm.fmuladd.f64(double %mul20.i.i244.i, double %162, double 1.000000e+00)
-  %sub27.i.i248.i = fsub double %call19.i.i243.i, %163
-  %mul28.i.i249.i = fmul double %div13.i.i239.i, 2.000000e+00
-  %call29.i.i250.i = call double @sqrt(double noundef %mul28.i.i249.i) #32, !tbaa !14
-  %mul30.i.i251.i = fmul double %sub9.i.i237.i, %call29.i.i250.i
-  %mul31.i.i252.i = fmul double %mul16.i.i241.i, 5.000000e-01
-  %164 = call double @llvm.fmuladd.f64(double %mul31.i.i252.i, double %div13.i.i239.i, double 1.000000e+00)
-  %mul33.i.i253.i = fmul double %164, %mul30.i.i251.i
-  %div34.i.i254.i = fdiv double %sub27.i.i248.i, %mul33.i.i253.i
-  %sub35.i.i255.i = fsub double %div34.i.i254.i, %28
-  %inc.i = add nuw nsw i64 %storemerge404.i, 1
+  %cmp.i.i.i227.i = fcmp olt double %157, %mul.i.i.i
+  %.sroa.speculated.i.i228.i = select i1 %cmp.i.i.i227.i, double %mul.i.i.i, double %157
+  %add.i.i229.i = fadd double %sub.i.i.i, %.sroa.speculated.i.i228.i
+  %mul2.i.i230.i = fmul double %add.i.i229.i, 2.000000e+00
+  %158 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i228.i, double 3.000000e+00, double %sub.i.i.i)
+  %mul4.i.i231.i = fmul double %158, %mul2.i.i230.i
+  %159 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i228.i, double 2.000000e+00, double %sub.i.i.i)
+  %mul.i.i.i232.i = fmul double %159, %159
+  %mul7.i.i233.i = fmul double %mul.i.i.i232.i, 3.000000e+00
+  %div8.i.i234.i = fdiv double %mul4.i.i231.i, %mul7.i.i233.i
+  %sub9.i.i235.i = fsub double 1.000000e+00, %div8.i.i234.i
+  %mul.i17.i.i236.i = fmul double %add.i.i229.i, %add.i.i229.i
+  %div13.i.i237.i = fdiv double %159, %mul.i17.i.i236.i
+  %sub14.i.i238.i = fadd double %sub9.i.i235.i, -1.000000e+00
+  %160 = call double @llvm.fmuladd.f64(double %sub9.i.i235.i, double -3.000000e+00, double 1.000000e+00)
+  %mul16.i.i239.i = fmul double %sub14.i.i238.i, %160
+  %div18.i.i240.i = fdiv double %div.i.i.i, %add.i.i229.i
+  %call19.i.i241.i = call double @pow(double noundef %div18.i.i240.i, double noundef %sub9.i.i235.i) #32, !tbaa !14
+  %mul20.i.i242.i = fmul double %div13.i.i237.i, %sub9.i.i235.i
+  %sub22.i.i243.i = fsub double 2.000000e+00, %sub9.i.i235.i
+  %mul23.i.i244.i = fmul double %sub22.i.i243.i, 5.000000e-01
+  %161 = fneg double %mul16.i.i239.i
+  %neg.i.i245.i = fmul double %mul23.i.i244.i, %161
+  %162 = call double @llvm.fmuladd.f64(double %neg.i.i245.i, double %div13.i.i237.i, double %sub14.i.i238.i)
+  %163 = call double @llvm.fmuladd.f64(double %mul20.i.i242.i, double %162, double 1.000000e+00)
+  %sub27.i.i246.i = fsub double %call19.i.i241.i, %163
+  %mul28.i.i247.i = fmul double %div13.i.i237.i, 2.000000e+00
+  %call29.i.i248.i = call double @sqrt(double noundef %mul28.i.i247.i) #32, !tbaa !14
+  %mul30.i.i249.i = fmul double %sub9.i.i235.i, %call29.i.i248.i
+  %mul31.i.i250.i = fmul double %mul16.i.i239.i, 5.000000e-01
+  %164 = call double @llvm.fmuladd.f64(double %mul31.i.i250.i, double %div13.i.i237.i, double 1.000000e+00)
+  %mul33.i.i251.i = fmul double %164, %mul30.i.i249.i
+  %div34.i.i252.i = fdiv double %sub27.i.i246.i, %mul33.i.i251.i
+  %sub35.i.i253.i = fsub double %div34.i.i252.i, %28
+  %inc.i = add nuw nsw i64 %storemerge402.i, 1
   br label %if.end141.i
 
-_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit269.i: ; preds = %if.else111.i
+_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit267.i: ; preds = %if.else111.i
   %sub131.i = fsub double %61, %59
   %165 = call double @llvm.fmuladd.f64(double %sub131.i, double 1.600000e+00, double %61)
-  %cmp.i.i.i275.i = fcmp olt double %165, %mul.i.i.i
-  %.sroa.speculated.i.i276.i = select i1 %cmp.i.i.i275.i, double %mul.i.i.i, double %165
-  %add.i.i277.i = fadd double %sub.i.i.i, %.sroa.speculated.i.i276.i
-  %mul2.i.i278.i = fmul double %add.i.i277.i, 2.000000e+00
-  %166 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i276.i, double 3.000000e+00, double %sub.i.i.i)
-  %mul4.i.i279.i = fmul double %166, %mul2.i.i278.i
-  %167 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i276.i, double 2.000000e+00, double %sub.i.i.i)
-  %mul.i.i.i280.i = fmul double %167, %167
-  %mul7.i.i281.i = fmul double %mul.i.i.i280.i, 3.000000e+00
-  %div8.i.i282.i = fdiv double %mul4.i.i279.i, %mul7.i.i281.i
-  %sub9.i.i283.i = fsub double 1.000000e+00, %div8.i.i282.i
-  %mul.i17.i.i284.i = fmul double %add.i.i277.i, %add.i.i277.i
-  %div13.i.i285.i = fdiv double %167, %mul.i17.i.i284.i
-  %sub14.i.i286.i = fadd double %sub9.i.i283.i, -1.000000e+00
-  %168 = call double @llvm.fmuladd.f64(double %sub9.i.i283.i, double -3.000000e+00, double 1.000000e+00)
-  %mul16.i.i287.i = fmul double %sub14.i.i286.i, %168
-  %div18.i.i288.i = fdiv double %div.i.i.i, %add.i.i277.i
-  %call19.i.i289.i = call double @pow(double noundef %div18.i.i288.i, double noundef %sub9.i.i283.i) #32, !tbaa !14
-  %mul20.i.i290.i = fmul double %div13.i.i285.i, %sub9.i.i283.i
-  %sub22.i.i291.i = fsub double 2.000000e+00, %sub9.i.i283.i
-  %mul23.i.i292.i = fmul double %sub22.i.i291.i, 5.000000e-01
-  %169 = fneg double %mul16.i.i287.i
-  %neg.i.i293.i = fmul double %mul23.i.i292.i, %169
-  %170 = call double @llvm.fmuladd.f64(double %neg.i.i293.i, double %div13.i.i285.i, double %sub14.i.i286.i)
-  %171 = call double @llvm.fmuladd.f64(double %mul20.i.i290.i, double %170, double 1.000000e+00)
-  %sub27.i.i294.i = fsub double %call19.i.i289.i, %171
-  %mul28.i.i295.i = fmul double %div13.i.i285.i, 2.000000e+00
-  %call29.i.i296.i = call double @sqrt(double noundef %mul28.i.i295.i) #32, !tbaa !14
-  %mul30.i.i297.i = fmul double %sub9.i.i283.i, %call29.i.i296.i
-  %mul31.i.i298.i = fmul double %mul16.i.i287.i, 5.000000e-01
-  %172 = call double @llvm.fmuladd.f64(double %mul31.i.i298.i, double %div13.i.i285.i, double 1.000000e+00)
-  %mul33.i.i299.i = fmul double %172, %mul30.i.i297.i
-  %div34.i.i300.i = fdiv double %sub27.i.i294.i, %mul33.i.i299.i
-  %sub35.i.i301.i = fsub double %div34.i.i300.i, %28
+  %cmp.i.i.i273.i = fcmp olt double %165, %mul.i.i.i
+  %.sroa.speculated.i.i274.i = select i1 %cmp.i.i.i273.i, double %mul.i.i.i, double %165
+  %add.i.i275.i = fadd double %sub.i.i.i, %.sroa.speculated.i.i274.i
+  %mul2.i.i276.i = fmul double %add.i.i275.i, 2.000000e+00
+  %166 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i274.i, double 3.000000e+00, double %sub.i.i.i)
+  %mul4.i.i277.i = fmul double %166, %mul2.i.i276.i
+  %167 = call double @llvm.fmuladd.f64(double %.sroa.speculated.i.i274.i, double 2.000000e+00, double %sub.i.i.i)
+  %mul.i.i.i278.i = fmul double %167, %167
+  %mul7.i.i279.i = fmul double %mul.i.i.i278.i, 3.000000e+00
+  %div8.i.i280.i = fdiv double %mul4.i.i277.i, %mul7.i.i279.i
+  %sub9.i.i281.i = fsub double 1.000000e+00, %div8.i.i280.i
+  %mul.i17.i.i282.i = fmul double %add.i.i275.i, %add.i.i275.i
+  %div13.i.i283.i = fdiv double %167, %mul.i17.i.i282.i
+  %sub14.i.i284.i = fadd double %sub9.i.i281.i, -1.000000e+00
+  %168 = call double @llvm.fmuladd.f64(double %sub9.i.i281.i, double -3.000000e+00, double 1.000000e+00)
+  %mul16.i.i285.i = fmul double %sub14.i.i284.i, %168
+  %div18.i.i286.i = fdiv double %div.i.i.i, %add.i.i275.i
+  %call19.i.i287.i = call double @pow(double noundef %div18.i.i286.i, double noundef %sub9.i.i281.i) #32, !tbaa !14
+  %mul20.i.i288.i = fmul double %div13.i.i283.i, %sub9.i.i281.i
+  %sub22.i.i289.i = fsub double 2.000000e+00, %sub9.i.i281.i
+  %mul23.i.i290.i = fmul double %sub22.i.i289.i, 5.000000e-01
+  %169 = fneg double %mul16.i.i285.i
+  %neg.i.i291.i = fmul double %mul23.i.i290.i, %169
+  %170 = call double @llvm.fmuladd.f64(double %neg.i.i291.i, double %div13.i.i283.i, double %sub14.i.i284.i)
+  %171 = call double @llvm.fmuladd.f64(double %mul20.i.i288.i, double %170, double 1.000000e+00)
+  %sub27.i.i292.i = fsub double %call19.i.i287.i, %171
+  %mul28.i.i293.i = fmul double %div13.i.i283.i, 2.000000e+00
+  %call29.i.i294.i = call double @sqrt(double noundef %mul28.i.i293.i) #32, !tbaa !14
+  %mul30.i.i295.i = fmul double %sub9.i.i281.i, %call29.i.i294.i
+  %mul31.i.i296.i = fmul double %mul16.i.i285.i, 5.000000e-01
+  %172 = call double @llvm.fmuladd.f64(double %mul31.i.i296.i, double %div13.i.i283.i, double 1.000000e+00)
+  %mul33.i.i297.i = fmul double %172, %mul30.i.i295.i
+  %div34.i.i298.i = fdiv double %sub27.i.i292.i, %mul33.i.i297.i
+  %sub35.i.i299.i = fsub double %div34.i.i298.i, %28
   br label %if.end141.i
 
-if.end141.i:                                      ; preds = %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit269.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit223.i, %if.else111.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit177.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit131.i
-  %brent.sroa.31.2 = phi double [ %brent.sroa.31.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit131.i ], [ %sub35.i.i209.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit177.i ], [ %brent.sroa.31.1, %if.else111.i ], [ %brent.sroa.31.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit223.i ], [ %sub35.i.i301.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit269.i ]
-  %brent.sroa.23.2 = phi double [ %sub35.i.i163.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit131.i ], [ %brent.sroa.23.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit177.i ], [ %brent.sroa.23.1, %if.else111.i ], [ %sub35.i.i255.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit223.i ], [ %brent.sroa.23.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit269.i ]
-  %brent.sroa.15.2 = phi double [ %brent.sroa.15.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit131.i ], [ %149, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit177.i ], [ %brent.sroa.15.1, %if.else111.i ], [ %brent.sroa.15.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit223.i ], [ %165, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit269.i ]
-  %brent.sroa.7.2 = phi double [ %141, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit131.i ], [ %brent.sroa.7.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit177.i ], [ %brent.sroa.7.1, %if.else111.i ], [ %157, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit223.i ], [ %brent.sroa.7.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit269.i ]
-  %173 = phi double [ %56, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit131.i ], [ %149, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit177.i ], [ %56, %if.else111.i ], [ %56, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit223.i ], [ %165, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit269.i ]
-  %174 = phi double [ %141, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit131.i ], [ %57, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit177.i ], [ %57, %if.else111.i ], [ %157, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit223.i ], [ %57, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit269.i ]
-  %175 = phi double [ %56, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit131.i ], [ %149, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit177.i ], [ %58, %if.else111.i ], [ %58, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit223.i ], [ %165, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit269.i ]
-  %176 = phi double [ %141, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit131.i ], [ %57, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit177.i ], [ %59, %if.else111.i ], [ %157, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit223.i ], [ %59, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit269.i ]
-  %177 = phi double [ %141, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit131.i ], [ %57, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit177.i ], [ %60, %if.else111.i ], [ %157, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit223.i ], [ %59, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit269.i ]
-  %178 = phi double [ %56, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit131.i ], [ %149, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit177.i ], [ %61, %if.else111.i ], [ %58, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit223.i ], [ %165, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit269.i ]
-  %179 = phi double [ %62, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit131.i ], [ %sub35.i.i209.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit177.i ], [ %62, %if.else111.i ], [ %62, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit223.i ], [ %sub35.i.i301.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit269.i ]
-  %180 = phi double [ %sub35.i.i163.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit131.i ], [ %63, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit177.i ], [ %63, %if.else111.i ], [ %sub35.i.i255.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit223.i ], [ %63, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit269.i ]
-  %storemerge401.i = phi i64 [ %storemerge404.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit131.i ], [ %storemerge404.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit177.i ], [ %storemerge404.i, %if.else111.i ], [ %inc.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit223.i ], [ %storemerge404.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit269.i ]
-  %flipflop.1.i = phi i32 [ %flipflop.0405.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit131.i ], [ %flipflop.0405.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit177.i ], [ 0, %if.else111.i ], [ 1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit223.i ], [ -1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit269.i ]
-  %inc143.i = add i64 %storemerge401.i, 1
+if.end141.i:                                      ; preds = %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit267.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit221.i, %if.else111.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i
+  %brent.sroa.31.2 = phi double [ %brent.sroa.31.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i ], [ %sub35.i.i207.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i ], [ %brent.sroa.31.1, %if.else111.i ], [ %brent.sroa.31.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit221.i ], [ %sub35.i.i299.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit267.i ]
+  %brent.sroa.23.2 = phi double [ %sub35.i.i161.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i ], [ %brent.sroa.23.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i ], [ %brent.sroa.23.1, %if.else111.i ], [ %sub35.i.i253.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit221.i ], [ %brent.sroa.23.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit267.i ]
+  %brent.sroa.15.2 = phi double [ %brent.sroa.15.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i ], [ %149, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i ], [ %brent.sroa.15.1, %if.else111.i ], [ %brent.sroa.15.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit221.i ], [ %165, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit267.i ]
+  %brent.sroa.7.2 = phi double [ %141, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i ], [ %brent.sroa.7.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i ], [ %brent.sroa.7.1, %if.else111.i ], [ %157, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit221.i ], [ %brent.sroa.7.1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit267.i ]
+  %173 = phi double [ %56, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i ], [ %149, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i ], [ %56, %if.else111.i ], [ %56, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit221.i ], [ %165, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit267.i ]
+  %174 = phi double [ %141, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i ], [ %57, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i ], [ %57, %if.else111.i ], [ %157, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit221.i ], [ %57, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit267.i ]
+  %175 = phi double [ %56, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i ], [ %149, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i ], [ %58, %if.else111.i ], [ %58, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit221.i ], [ %165, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit267.i ]
+  %176 = phi double [ %141, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i ], [ %57, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i ], [ %59, %if.else111.i ], [ %157, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit221.i ], [ %59, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit267.i ]
+  %177 = phi double [ %141, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i ], [ %57, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i ], [ %60, %if.else111.i ], [ %157, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit221.i ], [ %59, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit267.i ]
+  %178 = phi double [ %56, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i ], [ %149, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i ], [ %61, %if.else111.i ], [ %58, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit221.i ], [ %165, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit267.i ]
+  %179 = phi double [ %62, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i ], [ %sub35.i.i207.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i ], [ %62, %if.else111.i ], [ %62, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit221.i ], [ %sub35.i.i299.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit267.i ]
+  %180 = phi double [ %sub35.i.i161.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i ], [ %63, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i ], [ %63, %if.else111.i ], [ %sub35.i.i253.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit221.i ], [ %63, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit267.i ]
+  %storemerge399.i = phi i64 [ %storemerge402.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i ], [ %storemerge402.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i ], [ %storemerge402.i, %if.else111.i ], [ %inc.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit221.i ], [ %storemerge402.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit267.i ]
+  %flipflop.1.i = phi i32 [ %flipflop.0403.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit129.i ], [ %flipflop.0403.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit175.i ], [ 0, %if.else111.i ], [ 1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit221.i ], [ -1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit267.i ]
+  %inc143.i = add i64 %storemerge399.i, 1
   %cmp60.not.i = icmp ugt i64 %inc143.i, 20
   br i1 %cmp60.not.i, label %do.body144.i, label %while.body.i, !llvm.loop !35
 
@@ -2371,55 +2371,55 @@ do.body144.i:                                     ; preds = %if.end141.i
           to label %.noexc25 unwind label %lpad9
 
 .noexc25:                                         ; preds = %do.body144.i
-  %call1.i304.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream145.i, ptr noundef nonnull @.str.102, i64 noundef 26)
+  %call1.i302.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream145.i, ptr noundef nonnull @.str.102, i64 noundef 26)
           to label %invoke.cont147.i unwind label %lpad146.i
 
 invoke.cont147.i:                                 ; preds = %.noexc25
-  %call.i305.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream145.i, i64 noundef 20)
+  %call.i303.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream145.i, i64 noundef 20)
           to label %invoke.cont150.i unwind label %lpad146.i
 
 invoke.cont150.i:                                 ; preds = %invoke.cont147.i
-  %call1.i309.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i305.i, ptr noundef nonnull @.str.103, i64 noundef 45)
+  %call1.i307.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i303.i, ptr noundef nonnull @.str.103, i64 noundef 45)
           to label %invoke.cont152.i unwind label %lpad146.i
 
 invoke.cont152.i:                                 ; preds = %invoke.cont150.i
-  %call1.i314.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i305.i, ptr noundef nonnull @.str.104, i64 noundef 2)
+  %call1.i312.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i303.i, ptr noundef nonnull @.str.104, i64 noundef 2)
           to label %invoke.cont154.i unwind label %lpad146.i
 
 invoke.cont154.i:                                 ; preds = %invoke.cont152.i
-  %call.i316.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i305.i, double noundef %brent.sroa.7.2)
+  %call.i314.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i303.i, double noundef %brent.sroa.7.2)
           to label %invoke.cont157.i unwind label %lpad146.i
 
 invoke.cont157.i:                                 ; preds = %invoke.cont154.i
-  %call1.i320.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i316.i, ptr noundef nonnull @.str.105, i64 noundef 1)
+  %call1.i318.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i314.i, ptr noundef nonnull @.str.105, i64 noundef 1)
           to label %invoke.cont159.i unwind label %lpad146.i
 
 invoke.cont159.i:                                 ; preds = %invoke.cont157.i
-  %call.i322.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i316.i, double noundef %brent.sroa.15.2)
+  %call.i320.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i314.i, double noundef %brent.sroa.15.2)
           to label %invoke.cont162.i unwind label %lpad146.i
 
 invoke.cont162.i:                                 ; preds = %invoke.cont159.i
-  %call1.i327.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i322.i, ptr noundef nonnull @.str.106, i64 noundef 2)
+  %call1.i325.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i320.i, ptr noundef nonnull @.str.106, i64 noundef 2)
           to label %invoke.cont164.i unwind label %lpad146.i
 
 invoke.cont164.i:                                 ; preds = %invoke.cont162.i
-  %call1.i332.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i322.i, ptr noundef nonnull @.str.107, i64 noundef 4)
+  %call1.i330.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i320.i, ptr noundef nonnull @.str.107, i64 noundef 4)
           to label %invoke.cont166.i unwind label %lpad146.i
 
 invoke.cont166.i:                                 ; preds = %invoke.cont164.i
-  %call.i334.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i322.i, double noundef %brent.sroa.23.2)
+  %call.i332.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i320.i, double noundef %brent.sroa.23.2)
           to label %invoke.cont169.i unwind label %lpad146.i
 
 invoke.cont169.i:                                 ; preds = %invoke.cont166.i
-  %call1.i339.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i334.i, ptr noundef nonnull @.str.105, i64 noundef 1)
+  %call1.i337.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i332.i, ptr noundef nonnull @.str.105, i64 noundef 1)
           to label %invoke.cont171.i unwind label %lpad146.i
 
 invoke.cont171.i:                                 ; preds = %invoke.cont169.i
-  %call.i341.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i334.i, double noundef %brent.sroa.31.2)
+  %call.i339.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i332.i, double noundef %brent.sroa.31.2)
           to label %invoke.cont174.i unwind label %lpad146.i
 
 invoke.cont174.i:                                 ; preds = %invoke.cont171.i
-  %call1.i346.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i341.i, ptr noundef nonnull @.str.108, i64 noundef 2)
+  %call1.i344.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i339.i, ptr noundef nonnull @.str.108, i64 noundef 2)
           to label %invoke.cont176.i unwind label %lpad146.i
 
 invoke.cont176.i:                                 ; preds = %invoke.cont174.i
@@ -2469,13 +2469,13 @@ lpad190.i:                                        ; preds = %invoke.cont191.i, %
           catch ptr null
   %185 = load ptr, ptr %ref.tmp187.i, align 8, !tbaa !17
   %186 = getelementptr inbounds nuw i8, ptr %ref.tmp187.i, i64 16
-  %cmp.i.i.i348.i = icmp eq ptr %185, %186
-  br i1 %cmp.i.i.i348.i, label %ehcleanup194.i, label %if.then.i.i.i
+  %cmp.i.i.i346.i = icmp eq ptr %185, %186
+  br i1 %cmp.i.i.i346.i, label %ehcleanup194.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad190.i
   %187 = load i64, ptr %186, align 8, !tbaa !22
-  %add.i.i.i349.i = add i64 %187, 1
-  call void @_ZdlPvm(ptr noundef %185, i64 noundef %add.i.i.i349.i) #34
+  %add.i.i.i347.i = add i64 %187, 1
+  call void @_ZdlPvm(ptr noundef %185, i64 noundef %add.i.i.i347.i) #34
   br label %ehcleanup194.i
 
 ehcleanup194.i:                                   ; preds = %lpad190.i, %if.then.i.i.i, %lpad188.i
@@ -2484,22 +2484,22 @@ ehcleanup194.i:                                   ; preds = %lpad190.i, %if.then
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp187.i)
   %188 = load ptr, ptr %ref.tmp183.i, align 8, !tbaa !17
   %189 = getelementptr inbounds nuw i8, ptr %ref.tmp183.i, i64 16
-  %cmp.i.i.i351.i = icmp eq ptr %188, %189
-  br i1 %cmp.i.i.i351.i, label %ehcleanup196.i, label %if.then.i.i352.i
+  %cmp.i.i.i349.i = icmp eq ptr %188, %189
+  br i1 %cmp.i.i.i349.i, label %ehcleanup196.i, label %if.then.i.i350.i
 
-if.then.i.i352.i:                                 ; preds = %ehcleanup194.i
+if.then.i.i350.i:                                 ; preds = %ehcleanup194.i
   %190 = load i64, ptr %189, align 8, !tbaa !22
-  %add.i.i.i353.i = add i64 %190, 1
-  call void @_ZdlPvm(ptr noundef %188, i64 noundef %add.i.i.i353.i) #34
+  %add.i.i.i351.i = add i64 %190, 1
+  call void @_ZdlPvm(ptr noundef %188, i64 noundef %add.i.i.i351.i) #34
   br label %ehcleanup196.i
 
-ehcleanup196.i:                                   ; preds = %ehcleanup194.i, %if.then.i.i352.i
+ehcleanup196.i:                                   ; preds = %ehcleanup194.i, %if.then.i.i350.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp184.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp183.i)
   %191 = load ptr, ptr %ref.tmp179.i, align 8, !tbaa !17
   %192 = getelementptr inbounds nuw i8, ptr %ref.tmp179.i, i64 16
-  %cmp.i.i.i359.i = icmp eq ptr %191, %192
-  br i1 %cmp.i.i.i359.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i363.i, label %ehcleanup200.i
+  %cmp.i.i.i357.i = icmp eq ptr %191, %192
+  br i1 %cmp.i.i.i357.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i361.i, label %ehcleanup200.i
 
 ehcleanup196.thread.i:                            ; preds = %invoke.cont182.i
   %193 = landingpad { ptr, i32 }
@@ -2508,41 +2508,41 @@ ehcleanup196.thread.i:                            ; preds = %invoke.cont182.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp183.i)
   %194 = load ptr, ptr %ref.tmp179.i, align 8, !tbaa !17
   %195 = getelementptr inbounds nuw i8, ptr %ref.tmp179.i, i64 16
-  %cmp.i.i.i359376.i = icmp eq ptr %194, %195
-  br i1 %cmp.i.i.i359376.i, label %cleanup.action205.sink.split.i, label %ehcleanup200.thread385.i
+  %cmp.i.i.i357374.i = icmp eq ptr %194, %195
+  br i1 %cmp.i.i.i357374.i, label %cleanup.action205.sink.split.i, label %ehcleanup200.thread383.i
 
-ehcleanup200.thread385.i:                         ; preds = %ehcleanup196.thread.i
+ehcleanup200.thread383.i:                         ; preds = %ehcleanup196.thread.i
   %196 = load i64, ptr %195, align 8, !tbaa !22
-  %add.i.i.i361388.i = add i64 %196, 1
-  call void @_ZdlPvm(ptr noundef %194, i64 noundef %add.i.i.i361388.i) #34
+  %add.i.i.i359386.i = add i64 %196, 1
+  call void @_ZdlPvm(ptr noundef %194, i64 noundef %add.i.i.i359386.i) #34
   br label %cleanup.action205.sink.split.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i363.i: ; preds = %ehcleanup196.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i361.i: ; preds = %ehcleanup196.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp180.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp179.i)
   br i1 %cleanup.isactive192.3.i, label %cleanup.action205.i, label %ehcleanup207.i
 
 ehcleanup200.i:                                   ; preds = %ehcleanup196.i
   %197 = load i64, ptr %192, align 8, !tbaa !22
-  %add.i.i.i361.i = add i64 %197, 1
-  call void @_ZdlPvm(ptr noundef %191, i64 noundef %add.i.i.i361.i) #34
+  %add.i.i.i359.i = add i64 %197, 1
+  call void @_ZdlPvm(ptr noundef %191, i64 noundef %add.i.i.i359.i) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp180.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp179.i)
   br i1 %cleanup.isactive192.3.i, label %cleanup.action205.i, label %ehcleanup207.i
 
-cleanup.action205.sink.split.i:                   ; preds = %ehcleanup196.thread.i, %ehcleanup200.thread385.i, %ehcleanup200.thread.i
-  %.pn.pn.pn373.ph.i = phi { ptr, i32 } [ %193, %ehcleanup200.thread385.i ], [ %182, %ehcleanup200.thread.i ], [ %193, %ehcleanup196.thread.i ]
+cleanup.action205.sink.split.i:                   ; preds = %ehcleanup196.thread.i, %ehcleanup200.thread383.i, %ehcleanup200.thread.i
+  %.pn.pn.pn371.ph.i = phi { ptr, i32 } [ %193, %ehcleanup200.thread383.i ], [ %182, %ehcleanup200.thread.i ], [ %193, %ehcleanup196.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp180.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp179.i)
   br label %cleanup.action205.i
 
-cleanup.action205.i:                              ; preds = %cleanup.action205.sink.split.i, %ehcleanup200.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i363.i
-  %.pn.pn.pn373.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup200.i ], [ %.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i363.i ], [ %.pn.pn.pn373.ph.i, %cleanup.action205.sink.split.i ]
+cleanup.action205.i:                              ; preds = %cleanup.action205.sink.split.i, %ehcleanup200.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i361.i
+  %.pn.pn.pn371.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup200.i ], [ %.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i361.i ], [ %.pn.pn.pn371.ph.i, %cleanup.action205.sink.split.i ]
   call void @__cxa_free_exception(ptr %exception178.i) #32
   br label %ehcleanup207.i
 
-ehcleanup207.i:                                   ; preds = %cleanup.action205.i, %ehcleanup200.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i363.i, %lpad146.i
-  %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn373.i, %cleanup.action205.i ], [ %.pn.i, %ehcleanup200.i ], [ %181, %lpad146.i ], [ %.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i363.i ]
+ehcleanup207.i:                                   ; preds = %cleanup.action205.i, %ehcleanup200.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i361.i, %lpad146.i
+  %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn371.i, %cleanup.action205.i ], [ %.pn.i, %ehcleanup200.i ], [ %181, %lpad146.i ], [ %.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i361.i ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream145.i) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %_ql_msg_stream145.i)
   br label %ehcleanup
@@ -2550,8 +2550,8 @@ ehcleanup207.i:                                   ; preds = %cleanup.action205.i
 unreachable.i:                                    ; preds = %invoke.cont191.i
   unreachable
 
-invoke.cont13:                                    ; preds = %cdce.call, %if.then52.i.i, %_ZNK8QuantLib23InverseCumulativeNormalclEd.exit, %if.then64.i, %if.end69.i
-  %retval.0.i20 = phi double [ %div, %_ZNK8QuantLib23InverseCumulativeNormalclEd.exit ], [ %60, %if.then64.i ], [ %61, %if.end69.i ], [ %91, %if.then52.i.i ], [ %91, %cdce.call ]
+invoke.cont13:                                    ; preds = %if.then52.i.i, %cdce.call, %_ZNK8QuantLib23InverseCumulativeNormalclEd.exit, %if.then64.i, %if.end69.i
+  %retval.0.i20 = phi double [ %div, %_ZNK8QuantLib23InverseCumulativeNormalclEd.exit ], [ %60, %if.then64.i ], [ %61, %if.end69.i ], [ %91, %cdce.call ], [ %91, %if.then52.i.i ]
   %mul12 = fmul double %t, %retval.0.i20
   %mul2.i = fmul double %mul.i.i9, %mul12
   %div.i31 = fdiv double 1.000000e+00, %mul.i8
@@ -9004,7 +9004,6 @@ define linkonce_odr noundef x86_fp80 @_ZN5boost4math6detail14tgammap1m1_impIeNS0
 entry:
   %ref.tmp.i.i53 = alloca %"struct.boost::math::policies::policy", align 1
   %ref.tmp1.i.i54 = alloca %"struct.boost::math::lanczos::lanczos17m64", align 1
-  %x.addr.i = alloca x86_fp80, align 16
   %ref.tmp.i.i = alloca %"struct.boost::math::policies::policy", align 1
   %ref.tmp1.i.i = alloca %"struct.boost::math::lanczos::lanczos17m64", align 1
   %ref.tmp = alloca %"struct.std::integral_constant.3", align 1
@@ -9014,7 +9013,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %cmp1 = fcmp olt x86_fp80 %dz, 0xKBFFE8000000000000000
-  br i1 %cmp1, label %if.then2, label %if.else
+  br i1 %cmp1, label %if.then2, label %if.end.i
 
 if.then2:                                         ; preds = %if.then
   %add = fadd x86_fp80 %dz, 0xK3FFF8000000000000000
@@ -9035,17 +9034,7 @@ _ZN5boost4math6tgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %sub = fadd x86_fp80 %call.i.i, 0xKBFFF8000000000000000
   br label %if.end23
 
-if.else:                                          ; preds = %if.then
-  call void @llvm.lifetime.start.p0(ptr nonnull %x.addr.i)
-  store x86_fp80 %dz, ptr %x.addr.i, align 16, !tbaa !36
-  %cmp.i = fcmp olt x86_fp80 %dz, 0xKBFFF8000000000000000
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.else
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_erroreEEvPKcS6_RKT0_(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef nonnull align 16 dereferenceable(16) %x.addr.i)
-  br label %_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit
-
-if.end.i:                                         ; preds = %if.else
+if.end.i:                                         ; preds = %if.then
   %cmp1.i = fcmp oeq x86_fp80 %dz, 0xKBFFF8000000000000000
   br i1 %cmp1.i, label %if.then2.i, label %if.end4.i
 
@@ -9057,9 +9046,8 @@ if.end4.i:                                        ; preds = %if.end.i
   %call5.i = tail call x86_fp80 @log1pl(x86_fp80 noundef %dz) #32, !tbaa !14
   br label %_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit
 
-_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit: ; preds = %if.then.i, %if.then2.i, %if.end4.i
-  %retval.0.i = phi x86_fp80 [ 0xK7FFFC000000000000000, %if.then.i ], [ 0xKFFFF8000000000000000, %if.then2.i ], [ %call5.i, %if.end4.i ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %x.addr.i)
+_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_.exit: ; preds = %if.then2.i, %if.end4.i
+  %retval.0.i = phi x86_fp80 [ 0xKFFFF8000000000000000, %if.then2.i ], [ %call5.i, %if.end4.i ]
   %add4 = fadd x86_fp80 %dz, 0xK40008000000000000000
   %add5 = fadd x86_fp80 %dz, 0xK3FFF8000000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
@@ -16443,7 +16431,7 @@ entry:
   %tmp.i.i = alloca i32, align 4
   %1 = load x86_fp80, ptr %val, align 16, !tbaa !36
   %iszero.i.i.i = fcmp oeq x86_fp80 %1, 0xK00000000000000000000
-  br i1 %iszero.i.i.i, label %if.end6, label %fpclassify_not_zero.i.i.i
+  br i1 %iszero.i.i.i, label %if.then13, label %fpclassify_not_zero.i.i.i
 
 fpclassify_not_zero.i.i.i:                        ; preds = %entry
   %cmp.i.i.i = fcmp uno x86_fp80 %1, 0xK00000000000000000000
@@ -16463,20 +16451,16 @@ if.end:                                           ; preds = %if.then
   tail call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_erroreEEvPKcS6_RKT0_(ptr noundef %3, ptr noundef nonnull @.str.130, ptr noundef nonnull align 16 dereferenceable(16) %val)
   br label %cleanup
 
-if.end6:                                          ; preds = %entry
-  %cmp8 = fcmp ult x86_fp80 %1, 0xK7FFEFFFFFFFFFFFFFFFF
-  br i1 %cmp8, label %if.then13, label %if.then9
-
 if.end6.thread:                                   ; preds = %fpclassify_not_nan.i.i.i
   %cmp828 = fcmp ult x86_fp80 %1, 0xK7FFEFFFFFFFFFFFFFFFF
   br i1 %cmp828, label %if.end15, label %if.then9
 
-if.then9:                                         ; preds = %if.end6.thread, %if.end6
+if.then9:                                         ; preds = %if.end6.thread
   %4 = load ptr, ptr @_ZZN5boost4math6detail14float_next_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_RKS7_RKSt17integral_constantIbLb1EERKT0_E8function, align 8, !tbaa !38
   tail call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_erroreEEvPKcS6_(ptr noundef %4, ptr noundef nonnull @.str.47)
   br label %cleanup
 
-if.then13:                                        ; preds = %if.end6
+if.then13:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %tmp.i.i)
   %stmxcsr.i.i = load i32, ptr %tmp.i.i, align 4
@@ -17157,14 +17141,14 @@ if.end15:                                         ; preds = %if.end3
   %16 = bitcast x86_fp80 %7 to i80
   %17 = xor i80 %16, %15
   %cmp18 = icmp sgt i80 %17, -1
-  br i1 %cmp18, label %if.then19, label %if.end22
+  br i1 %cmp18, label %if.then19, label %if.then24
 
 if.then19:                                        ; preds = %if.end15
   %18 = load ptr, ptr @_ZZN5boost4math5tools13toms748_solveINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS6_13promote_floatILb0EEENS6_14promote_doubleILb0EEENS6_14default_policyESC_SC_SC_SC_SC_SC_SC_SC_SC_SC_EEEEEEeNS1_13eps_toleranceIeEESD_EESt4pairIT0_SJ_ET_RKSJ_SN_SN_SN_T1_RmRKT2_E8function, align 8, !tbaa !38
   call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_erroreEEvPKcS6_RKT0_(ptr noundef %18, ptr noundef nonnull @.str.140, ptr noundef nonnull align 16 dereferenceable(16) %a)
   br label %cleanup164
 
-if.end22:                                         ; preds = %if.end15
+if.then24:                                        ; preds = %if.end15
   store x86_fp80 0xK400FC350000000000000, ptr %fd, align 16, !tbaa !36
   store x86_fp80 0xK400FC350000000000000, ptr %e, align 16, !tbaa !36
   store x86_fp80 0xK400FC350000000000000, ptr %fe, align 16, !tbaa !36
@@ -17177,13 +17161,13 @@ if.end22:                                         ; preds = %if.end15
   %cmp.i47 = fcmp ugt x86_fp80 %20, %21
   br i1 %cmp.i47, label %lor.lhs.false.i, label %if.then.i
 
-lor.lhs.false.i:                                  ; preds = %if.end22
+lor.lhs.false.i:                                  ; preds = %if.then24
   %neg7.i = fneg x86_fp80 %11
   %22 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %neg7.i, x86_fp80 0xK3FC2A000000000000000, x86_fp80 %4)
   %cmp8.i = fcmp ult x86_fp80 %20, %22
   br i1 %cmp8.i, label %_ZN5boost4math5tools6detail18secant_interpolateIeEET_RKS4_S6_S6_S6_.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end22
+if.then.i:                                        ; preds = %lor.lhs.false.i, %if.then24
   %add.i = fadd x86_fp80 %3, %4
   %div9.i = fmul x86_fp80 %add.i, 0xK3FFE8000000000000000
   br label %_ZN5boost4math5tools6detail18secant_interpolateIeEET_RKS4_S6_S6_S6_.exit

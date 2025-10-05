@@ -446,10 +446,10 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %._crit_edge122
   %122 = fmul float %118, %118
   %123 = call float @llvm.fmuladd.f32(float %115, float %115, float %122)
   %124 = call noundef float @llvm.fmuladd.f32(float %121, float %121, float %123)
-  %or.cond.i = fcmp ule float %124, 0.000000e+00
-  br i1 %or.cond.i, label %.lr.ph.preheader, label %125
+  %125 = fcmp ogt float %124, 0.000000e+00
+  br i1 %125, label %_ZN10aiVector3tIfEdVEf.exit.i, label %.lr.ph.preheader
 
-125:                                              ; preds = %72
+_ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %72
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %124)
   %126 = fdiv float 1.000000e+00, %sqrt.i.i
   %127 = fmul float %115, %126
@@ -459,9 +459,9 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %._crit_edge122
   %129 = fmul float %121, %126
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %72, %125
-  %.sroa.088.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i69, %72 ], [ %.sroa.088.4.vec.insert, %125 ]
-  %.sroa.9.0 = phi float [ %121, %72 ], [ %129, %125 ]
+.lr.ph.preheader:                                 ; preds = %72, %_ZN10aiVector3tIfEdVEf.exit.i
+  %.sroa.088.0 = phi <2 x float> [ %.sroa.088.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i ], [ %.sroa.0.4.vec.insert.i69, %72 ]
+  %.sroa.9.0 = phi float [ %129, %_ZN10aiVector3tIfEdVEf.exit.i ], [ %121, %72 ]
   store <2 x float> %.sroa.088.0, ptr %9, align 8
   store float %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 8
   br label %.lr.ph

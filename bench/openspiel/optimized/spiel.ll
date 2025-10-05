@@ -3414,11 +3414,11 @@ define { i64, double } @_ZN10open_spiel12SampleActionERKSt6vectorISt4pairIldESaI
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
   %48 = icmp eq i64 %47, 16
-  br i1 %48, label %49, label %.preheader57
+  br i1 %48, label %49, label %.preheader55
 
-.preheader57:                                     ; preds = %41
-  %.not73 = icmp eq ptr %44, %43
-  br i1 %.not73, label %._crit_edge, label %.lr.ph
+.preheader55:                                     ; preds = %41
+  %.not71 = icmp eq ptr %44, %43
+  br i1 %.not71, label %._crit_edge, label %.lr.ph
 
 49:                                               ; preds = %41
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -3445,10 +3445,10 @@ define { i64, double } @_ZN10open_spiel12SampleActionERKSt6vectorISt4pairIldESaI
           cleanup
   br label %112
 
-.lr.ph:                                           ; preds = %.preheader57, %73
-  %.03875 = phi double [ %74, %73 ], [ 0.000000e+00, %.preheader57 ]
-  %.sroa.050.074 = phi ptr [ %75, %73 ], [ %44, %.preheader57 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.050.074, i64 8
+.lr.ph:                                           ; preds = %.preheader55, %73
+  %.03873 = phi double [ %74, %73 ], [ 0.000000e+00, %.preheader55 ]
+  %.sroa.050.072 = phi ptr [ %75, %73 ], [ %44, %.preheader55 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.050.072, i64 8
   %61 = load double, ptr %60, align 8
   %62 = fcmp ult double %61, 0.000000e+00
   br i1 %62, label %63, label %67
@@ -3490,8 +3490,8 @@ define { i64, double } @_ZN10open_spiel12SampleActionERKSt6vectorISt4pairIldESaI
   br label %112
 
 73:                                               ; preds = %67
-  %74 = fadd double %.03875, %61
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.050.074, i64 16
+  %74 = fadd double %.03873, %61
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.050.072, i64 16
   %.not = icmp eq ptr %75, %43
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -3499,11 +3499,11 @@ define { i64, double } @_ZN10open_spiel12SampleActionERKSt6vectorISt4pairIldESaI
   %76 = fptrunc double %74 to float
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader57
-  %.lcssa67 = phi double [ undef, %.preheader57 ], [ %61, %._crit_edge.loopexit ]
-  %.038.lcssa = phi float [ 0.000000e+00, %.preheader57 ], [ %76, %._crit_edge.loopexit ]
-  store double %.lcssa67, ptr %15, align 8
-  store double %.lcssa67, ptr %19, align 8
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader55
+  %.lcssa65 = phi double [ undef, %.preheader55 ], [ %61, %._crit_edge.loopexit ]
+  %.038.lcssa = phi float [ 0.000000e+00, %.preheader55 ], [ %76, %._crit_edge.loopexit ]
+  store double %.lcssa65, ptr %15, align 8
+  store double %.lcssa65, ptr %19, align 8
   store float %.038.lcssa, ptr %23, align 4
   store float 1.000000e+00, ptr %24, align 4
   %77 = fadd float %.038.lcssa, -1.000000e+00
@@ -3512,7 +3512,7 @@ define { i64, double } @_ZN10open_spiel12SampleActionERKSt6vectorISt4pairIldESaI
   br i1 %79, label %80, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  br i1 %.not73, label %._crit_edge84, label %.lr.ph83
+  br i1 %.not71, label %._crit_edge82, label %.lr.ph81
 
 80:                                               ; preds = %._crit_edge
   store i32 302, ptr %26, align 4
@@ -3528,44 +3528,44 @@ define { i64, double } @_ZN10open_spiel12SampleActionERKSt6vectorISt4pairIldESaI
           cleanup
   br label %112
 
-.lr.ph83:                                         ; preds = %.preheader, %89
-  %.182 = phi double [ %87, %89 ], [ 0.000000e+00, %.preheader ]
-  %.sroa.046.081 = phi ptr [ %90, %89 ], [ %44, %.preheader ]
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.046.081, i64 8
+.lr.ph81:                                         ; preds = %.preheader, %89
+  %.180 = phi double [ %87, %89 ], [ 0.000000e+00, %.preheader ]
+  %.sroa.046.079 = phi ptr [ %90, %89 ], [ %44, %.preheader ]
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.046.079, i64 8
   %85 = load double, ptr %84, align 8
-  %86 = fcmp ole double %.182, %1
-  %87 = fadd double %.182, %85
+  %86 = fcmp ole double %.180, %1
+  %87 = fadd double %.180, %85
   %88 = fcmp olt double %1, %87
   %or.cond = select i1 %86, i1 %88, i1 false
   br i1 %or.cond, label %.loopexit, label %89
 
-89:                                               ; preds = %.lr.ph83
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.046.081, i64 16
-  %.not55 = icmp eq ptr %90, %43
-  br i1 %.not55, label %._crit_edge84, label %.lr.ph83
+89:                                               ; preds = %.lr.ph81
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.046.079, i64 16
+  %.not53 = icmp eq ptr %90, %43
+  br i1 %.not53, label %._crit_edge82, label %.lr.ph81
 
-._crit_edge84:                                    ; preds = %89, %.preheader
+._crit_edge82:                                    ; preds = %89, %.preheader
   %91 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.36)
   %92 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %93 = load ptr, ptr %0, align 8
   %94 = load ptr, ptr %42, align 8
-  %.not5685 = icmp eq ptr %93, %94
-  br i1 %.not5685, label %_ZN4absl7debian28AlphaNumC2EPKc.exit, label %.lr.ph88
+  %.not5483 = icmp eq ptr %93, %94
+  br i1 %.not5483, label %_ZN4absl7debian28AlphaNumC2EPKc.exit, label %.lr.ph86
 
-.lr.ph88:                                         ; preds = %._crit_edge84, %.lr.ph88
-  %.sroa.042.086 = phi ptr [ %102, %.lr.ph88 ], [ %93, %._crit_edge84 ]
-  %95 = load i64, ptr %.sroa.042.086, align 8
+.lr.ph86:                                         ; preds = %._crit_edge82, %.lr.ph86
+  %.sroa.042.084 = phi ptr [ %102, %.lr.ph86 ], [ %93, %._crit_edge82 ]
+  %95 = load i64, ptr %.sroa.042.084, align 8
   %96 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %95)
   %97 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull @.str.37)
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.042.086, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.042.084, i64 8
   %99 = load double, ptr %98, align 8
   %100 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %97, double noundef %99)
   %101 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.042.086, i64 16
-  %.not56 = icmp eq ptr %102, %94
-  br i1 %.not56, label %_ZN4absl7debian28AlphaNumC2EPKc.exit, label %.lr.ph88
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.042.084, i64 16
+  %.not54 = icmp eq ptr %102, %94
+  br i1 %.not54, label %_ZN4absl7debian28AlphaNumC2EPKc.exit, label %.lr.ph86
 
-_ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %.lr.ph88, %._crit_edge84
+_ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %.lr.ph86, %._crit_edge82
   store ptr @.str.38, ptr %28, align 8
   %103 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 47, ptr %103, align 8
@@ -3594,9 +3594,9 @@ _ZN4absl7debian28AlphaNumC2Ed.exit:               ; preds = %_ZN4absl7debian28Al
           cleanup
   br label %112
 
-.loopexit:                                        ; preds = %.lr.ph83, %49
-  %.sroa.0.0.in = phi ptr [ %44, %49 ], [ %.sroa.046.081, %.lr.ph83 ]
-  %.sroa.3.0 = phi double [ %51, %49 ], [ %85, %.lr.ph83 ]
+.loopexit:                                        ; preds = %.lr.ph81, %49
+  %.sroa.0.0.in = phi ptr [ %44, %49 ], [ %.sroa.046.079, %.lr.ph81 ]
+  %.sroa.3.0 = phi double [ %51, %49 ], [ %85, %.lr.ph81 ]
   %.sroa.0.0 = load i64, ptr %.sroa.0.0.in, align 8
   %.fca.0.insert = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, double } %.fca.0.insert, double %.sroa.3.0, 1

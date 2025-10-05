@@ -57172,11 +57172,11 @@ define linkonce_odr hidden void @_ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIf
   %124 = fmul float %61, %121
   %125 = tail call noundef float @llvm.fmuladd.f32(float %124, float %75, float %123)
   %126 = fcmp olt float %125, 0.000000e+00
-  br i1 %126, label %127, label %._ZN10aiVector3tIfEdVEf.exit_crit_edge
+  br i1 %126, label %127, label %._crit_edge
 
-._ZN10aiVector3tIfEdVEf.exit_crit_edge:           ; preds = %4
+._crit_edge:                                      ; preds = %4
   %.pre = load float, ptr %1, align 4
-  br label %_ZN10aiVector3tIfEdVEf.exit
+  br label %131
 
 127:                                              ; preds = %4
   %128 = fneg float %sqrt.i
@@ -57186,61 +57186,61 @@ define linkonce_odr hidden void @_ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIf
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %129, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %1, align 4
   store float %130, ptr %40, align 4
-  br label %_ZN10aiVector3tIfEdVEf.exit
+  br label %131
 
-_ZN10aiVector3tIfEdVEf.exit:                      ; preds = %._ZN10aiVector3tIfEdVEf.exit_crit_edge, %127
-  %131 = phi float [ %sqrt.i49, %._ZN10aiVector3tIfEdVEf.exit_crit_edge ], [ %130, %127 ]
-  %132 = phi float [ %sqrt.i48, %._ZN10aiVector3tIfEdVEf.exit_crit_edge ], [ %129, %127 ]
-  %133 = phi float [ %.pre, %._ZN10aiVector3tIfEdVEf.exit_crit_edge ], [ %128, %127 ]
-  %or.cond = fcmp oeq float %133, 0.000000e+00
-  %134 = fdiv float 1.000000e+00, %133
-  %135 = fmul float %17, %134
-  %.sroa.12.0 = select i1 %or.cond, float %17, float %135
-  %or.cond68 = fcmp oeq float %132, 0.000000e+00
-  %136 = fdiv float 1.000000e+00, %132
-  %137 = fneg float %.sroa.12.0
-  %138 = tail call noundef float @asinf(float noundef %137) #34
-  %139 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %138, ptr %139, align 4
-  %140 = tail call noundef float @cosf(float noundef %138) #34
-  %141 = tail call noundef float @llvm.fabs.f32(float %140)
-  %142 = fcmp ogt float %141, 0x3E80000000000000
-  br i1 %142, label %143, label %155
+131:                                              ; preds = %._crit_edge, %127
+  %132 = phi float [ %sqrt.i49, %._crit_edge ], [ %130, %127 ]
+  %133 = phi float [ %sqrt.i48, %._crit_edge ], [ %129, %127 ]
+  %134 = phi float [ %.pre, %._crit_edge ], [ %128, %127 ]
+  %135 = fcmp une float %134, 0.000000e+00
+  %136 = fdiv float 1.000000e+00, %134
+  %137 = fmul float %17, %136
+  %.sroa.12.0 = select i1 %135, float %137, float %17
+  %138 = fcmp une float %133, 0.000000e+00
+  %139 = fdiv float 1.000000e+00, %133
+  %140 = fneg float %.sroa.12.0
+  %141 = tail call noundef float @asinf(float noundef %140) #34
+  %142 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store float %141, ptr %142, align 4
+  %143 = tail call noundef float @cosf(float noundef %141) #34
+  %144 = tail call noundef float @llvm.fabs.f32(float %143)
+  %145 = fcmp ogt float %144, 0x3E80000000000000
+  br i1 %145, label %146, label %159
 
-143:                                              ; preds = %_ZN10aiVector3tIfEdVEf.exit
-  %or.cond69 = fcmp oeq float %131, 0.000000e+00
-  %144 = fdiv float 1.000000e+00, %131
-  %145 = fmul float %29, %144
-  %.sroa.40.0 = select i1 %or.cond69, float %29, float %145
-  %146 = fmul float %23, %136
-  %.sroa.27.0 = select i1 %or.cond68, float %23, float %146
-  %147 = fmul float %15, %134
-  %.sroa.0.0 = select i1 %or.cond, float %15, float %147
-  %148 = fmul float %16, %134
-  %.sroa.7.0 = select i1 %or.cond, float %16, float %148
-  %149 = fdiv float %.sroa.40.0, %140
-  %150 = fdiv float %.sroa.27.0, %140
-  %151 = tail call noundef float @atan2f(float noundef %150, float noundef %149) #34
-  store float %151, ptr %2, align 4
-  %152 = fdiv float %.sroa.0.0, %140
-  %153 = fdiv float %.sroa.7.0, %140
-  %154 = tail call noundef float @atan2f(float noundef %153, float noundef %152) #34
-  br label %160
+146:                                              ; preds = %131
+  %147 = fcmp une float %132, 0.000000e+00
+  %148 = fdiv float 1.000000e+00, %132
+  %149 = fmul float %29, %148
+  %.sroa.40.0 = select i1 %147, float %149, float %29
+  %150 = fmul float %23, %139
+  %.sroa.27.0 = select i1 %138, float %150, float %23
+  %151 = fmul float %15, %136
+  %.sroa.0.0 = select i1 %135, float %151, float %15
+  %152 = fmul float %16, %136
+  %.sroa.7.0 = select i1 %135, float %152, float %16
+  %153 = fdiv float %.sroa.40.0, %143
+  %154 = fdiv float %.sroa.27.0, %143
+  %155 = tail call noundef float @atan2f(float noundef %154, float noundef %153) #34
+  store float %155, ptr %2, align 4
+  %156 = fdiv float %.sroa.0.0, %143
+  %157 = fdiv float %.sroa.7.0, %143
+  %158 = tail call noundef float @atan2f(float noundef %157, float noundef %156) #34
+  br label %164
 
-155:                                              ; preds = %_ZN10aiVector3tIfEdVEf.exit
-  %156 = fmul float %19, %136
-  %.sroa.17.0 = select i1 %or.cond68, float %19, float %156
-  %157 = fmul float %21, %136
-  %.sroa.22.0 = select i1 %or.cond68, float %21, float %157
+159:                                              ; preds = %131
+  %160 = fmul float %19, %139
+  %.sroa.17.0 = select i1 %138, float %160, float %19
+  %161 = fmul float %21, %139
+  %.sroa.22.0 = select i1 %138, float %161, float %21
   store float 0.000000e+00, ptr %2, align 4
-  %158 = fneg float %.sroa.17.0
-  %159 = tail call noundef float @atan2f(float noundef %158, float noundef %.sroa.22.0) #34
-  br label %160
+  %162 = fneg float %.sroa.17.0
+  %163 = tail call noundef float @atan2f(float noundef %162, float noundef %.sroa.22.0) #34
+  br label %164
 
-160:                                              ; preds = %155, %143
-  %.sink = phi float [ %154, %143 ], [ %159, %155 ]
-  %161 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float %.sink, ptr %161, align 4
+164:                                              ; preds = %159, %146
+  %.sink = phi float [ %158, %146 ], [ %163, %159 ]
+  %165 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store float %.sink, ptr %165, align 4
   ret void
 }
 

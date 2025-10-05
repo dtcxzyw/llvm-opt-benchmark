@@ -1884,10 +1884,10 @@ define hidden void @_ZN6Assimp11STLExporter9WriteMeshEPK6aiMesh(ptr noundef nonn
   %21 = fmul float %38, %38
   %22 = tail call float @llvm.fmuladd.f32(float %35, float %35, float %21)
   %23 = tail call noundef float @llvm.fmuladd.f32(float %41, float %41, float %22)
-  %or.cond.i = fcmp ule float %23, 0.000000e+00
-  br i1 %or.cond.i, label %_ZN10aiVector3tIfE13NormalizeSafeEv.exit, label %24
+  %24 = fcmp ogt float %23, 0.000000e+00
+  br i1 %24, label %_ZN10aiVector3tIfEdVEf.exit.i, label %_ZN10aiVector3tIfE13NormalizeSafeEv.exit
 
-24:                                               ; preds = %20
+_ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %20
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %23)
   %25 = fdiv float 1.000000e+00, %sqrt.i.i
   %26 = fmul float %35, %25
@@ -1916,10 +1916,10 @@ define hidden void @_ZN6Assimp11STLExporter9WriteMeshEPK6aiMesh(ptr noundef nonn
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %20, label %29, !llvm.loop !26
 
-_ZN10aiVector3tIfE13NormalizeSafeEv.exit:         ; preds = %24, %20, %16
-  %.sroa.14.0 = phi float [ 0.000000e+00, %16 ], [ %41, %20 ], [ %28, %24 ]
-  %.sroa.8.0 = phi float [ 0.000000e+00, %16 ], [ %38, %20 ], [ %27, %24 ]
-  %.sroa.0.0 = phi float [ 0.000000e+00, %16 ], [ %35, %20 ], [ %26, %24 ]
+_ZN10aiVector3tIfE13NormalizeSafeEv.exit:         ; preds = %_ZN10aiVector3tIfEdVEf.exit.i, %20, %16
+  %.sroa.14.0 = phi float [ 0.000000e+00, %16 ], [ %28, %_ZN10aiVector3tIfEdVEf.exit.i ], [ %41, %20 ]
+  %.sroa.8.0 = phi float [ 0.000000e+00, %16 ], [ %27, %_ZN10aiVector3tIfEdVEf.exit.i ], [ %38, %20 ]
+  %.sroa.0.0 = phi float [ 0.000000e+00, %16 ], [ %26, %_ZN10aiVector3tIfEdVEf.exit.i ], [ %35, %20 ]
   %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.11, i64 noundef 14)
   %43 = fpext float %.sroa.0.0 to double
   %44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %43)

@@ -132343,143 +132343,143 @@ _ZN5boost8geometry13get_as_radianILm1ELm1ENS0_5model3boxINS2_5pointIdLm2ENS0_2cs
   %47 = load double, ptr %5, align 8, !tbaa !1473
   %48 = fsub double %46, %47
   %49 = tail call noundef double @llvm.fabs.f64(double %48)
-  %or.cond.i.i.i.i.i = fcmp ult double %49, 0x401921FB54442D18
-  br i1 %or.cond.i.i.i.i.i, label %50, label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit
+  %50 = fcmp ult double %49, 0x401921FB54442D18
+  br i1 %50, label %51, label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit
 
-50:                                               ; preds = %_ZN5boost8geometry13get_as_radianILm1ELm1ENS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEEEENS0_18fp_coordinate_typeIT1_E4typeERKSC_.exit
-  %51 = fcmp ueq double %49, 0x7FF0000000000000
-  br i1 %51, label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit, label %52
+51:                                               ; preds = %_ZN5boost8geometry13get_as_radianILm1ELm1ENS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEEEENS0_18fp_coordinate_typeIT1_E4typeERKSC_.exit
+  %52 = fcmp ueq double %49, 0x7FF0000000000000
+  br i1 %52, label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit, label %53
 
-52:                                               ; preds = %50
-  %53 = fsub double 0x401921FB54442D18, %49
-  %54 = tail call noundef double @llvm.fabs.f64(double %53)
-  %55 = fcmp ogt double %49, 0x401921FB54442D18
-  %56 = select i1 %55, double %49, double 0x401921FB54442D18
-  %57 = fcmp olt double %56, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i = select i1 %57, double 1.000000e+00, double %56
-  %58 = fmul double %.sroa.speculated.i.i.i.i.i.i.i, 0x3CB0000000000000
-  %59 = fcmp ole double %54, %58
+53:                                               ; preds = %51
+  %54 = fsub double 0x401921FB54442D18, %49
+  %55 = tail call noundef double @llvm.fabs.f64(double %54)
+  %56 = fcmp ogt double %49, 0x401921FB54442D18
+  %57 = select i1 %56, double %49, double 0x401921FB54442D18
+  %58 = fcmp olt double %57, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i = select i1 %58, double 1.000000e+00, double %57
+  %59 = fmul double %.sroa.speculated.i.i.i.i.i.i.i, 0x3CB0000000000000
+  %60 = fcmp ole double %55, %59
   br label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit
 
-_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit: ; preds = %_ZN5boost8geometry13get_as_radianILm1ELm1ENS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEEEENS0_18fp_coordinate_typeIT1_E4typeERKSC_.exit, %50, %52
-  %.0.i.i.i.i.i = phi i1 [ true, %_ZN5boost8geometry13get_as_radianILm1ELm1ENS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEEEENS0_18fp_coordinate_typeIT1_E4typeERKSC_.exit ], [ %59, %52 ], [ false, %50 ]
+_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit: ; preds = %_ZN5boost8geometry13get_as_radianILm1ELm1ENS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEEEENS0_18fp_coordinate_typeIT1_E4typeERKSC_.exit, %51, %53
+  %.0.i.i.i.i.i = phi i1 [ true, %_ZN5boost8geometry13get_as_radianILm1ELm1ENS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEEEENS0_18fp_coordinate_typeIT1_E4typeERKSC_.exit ], [ %60, %53 ], [ false, %51 ]
   call void @_ZN5boost8geometry4math6detail36normalize_spheroidal_box_coordinatesINS0_6radianEdLb1EE5applyERdS6_S6_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext %.0.i.i.i.i.i)
-  %60 = load double, ptr %3, align 8, !tbaa !1473
-  %61 = load double, ptr %5, align 8, !tbaa !1473
-  %62 = fcmp oeq double %60, %61
-  br i1 %62, label %136, label %63
+  %61 = load double, ptr %3, align 8, !tbaa !1473
+  %62 = load double, ptr %5, align 8, !tbaa !1473
+  %63 = fcmp oeq double %61, %62
+  br i1 %63, label %137, label %64
 
-63:                                               ; preds = %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit
-  %64 = load double, ptr %6, align 8, !tbaa !1473
-  %65 = load double, ptr %4, align 8, !tbaa !1473
-  %66 = fcmp oeq double %64, %65
-  br i1 %66, label %136, label %67
+64:                                               ; preds = %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit
+  %65 = load double, ptr %6, align 8, !tbaa !1473
+  %66 = load double, ptr %4, align 8, !tbaa !1473
+  %67 = fcmp oeq double %65, %66
+  br i1 %67, label %137, label %68
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %69 = load double, ptr %68, align 8, !tbaa !2389
-  %70 = load double, ptr %0, align 8, !tbaa !2391
-  %71 = fdiv double %69, %70
-  %72 = fmul double %71, %71
-  %73 = fsub double 1.000000e+00, %72
-  %74 = fsub double %61, %60
-  %75 = call double @sin(double noundef %65) #56, !tbaa !263
-  %76 = call double @sin(double noundef %64) #56, !tbaa !263
-  %77 = fcmp oeq double %73, 0.000000e+00
-  br i1 %77, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread, label %78
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %70 = load double, ptr %69, align 8, !tbaa !2389
+  %71 = load double, ptr %0, align 8, !tbaa !2391
+  %72 = fdiv double %70, %71
+  %73 = fmul double %72, %72
+  %74 = fsub double 1.000000e+00, %73
+  %75 = fsub double %62, %61
+  %76 = call double @sin(double noundef %66) #56, !tbaa !263
+  %77 = call double @sin(double noundef %65) #56, !tbaa !263
+  %78 = fcmp oeq double %74, 0.000000e+00
+  br i1 %78, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread, label %79
 
-78:                                               ; preds = %67
-  %79 = call double @llvm.fabs.f64(double %73)
-  %80 = fcmp ueq double %79, 0x7FF0000000000000
-  br i1 %80, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread61, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit
+79:                                               ; preds = %68
+  %80 = call double @llvm.fabs.f64(double %74)
+  %81 = fcmp ueq double %80, 0x7FF0000000000000
+  br i1 %81, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread61, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit: ; preds = %78
-  %81 = fcmp olt double %79, 1.000000e+00
-  %.sroa.speculated.i.i.i = select i1 %81, double 1.000000e+00, double %79
-  %82 = fmul double %.sroa.speculated.i.i.i, 0x3CB0000000000000
-  %83 = fcmp ugt double %79, %82
-  br i1 %83, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread61, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit: ; preds = %79
+  %82 = fcmp olt double %80, 1.000000e+00
+  %.sroa.speculated.i.i.i = select i1 %82, double 1.000000e+00, double %80
+  %83 = fmul double %.sroa.speculated.i.i.i, 0x3CB0000000000000
+  %84 = fcmp ugt double %80, %83
+  br i1 %84, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread61, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread: ; preds = %67, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit
-  %84 = fsub double %76, %75
-  %85 = fmul double %74, %84
-  %86 = fmul double %70, %85
-  %87 = fmul double %70, %86
-  br label %136
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread: ; preds = %68, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit
+  %85 = fsub double %77, %76
+  %86 = fmul double %75, %85
+  %87 = fmul double %71, %86
+  %88 = fmul double %71, %87
+  br label %137
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread61: ; preds = %78, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit
-  %88 = fneg double %75
-  %89 = fmul double %73, %88
-  %90 = call double @llvm.fmuladd.f64(double %89, double %75, double 1.000000e+00)
-  %91 = fdiv double 1.000000e+00, %90
-  %92 = fneg double %76
-  %93 = fmul double %73, %92
-  %94 = call double @llvm.fmuladd.f64(double %93, double %76, double 1.000000e+00)
-  %95 = fdiv double 1.000000e+00, %94
-  %96 = fcmp ogt double %73, 0.000000e+00
-  br i1 %96, label %97, label %111
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread61: ; preds = %79, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit
+  %89 = fneg double %76
+  %90 = fmul double %74, %89
+  %91 = call double @llvm.fmuladd.f64(double %90, double %76, double 1.000000e+00)
+  %92 = fdiv double 1.000000e+00, %91
+  %93 = fneg double %77
+  %94 = fmul double %74, %93
+  %95 = call double @llvm.fmuladd.f64(double %94, double %77, double 1.000000e+00)
+  %96 = fdiv double 1.000000e+00, %95
+  %97 = fcmp ogt double %74, 0.000000e+00
+  br i1 %97, label %98, label %112
 
-97:                                               ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread61
-  %98 = call noundef double @sqrt(double noundef %73) #56, !tbaa !263
-  %99 = fmul double %75, %98
-  %100 = fmul double %76, %98
-  %101 = fcmp oeq double %99, 0.000000e+00
-  br i1 %101, label %105, label %102
+98:                                               ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread61
+  %99 = call noundef double @sqrt(double noundef %74) #56, !tbaa !263
+  %100 = fmul double %76, %99
+  %101 = fmul double %77, %99
+  %102 = fcmp oeq double %100, 0.000000e+00
+  br i1 %102, label %106, label %103
 
-102:                                              ; preds = %97
-  %103 = call double @atanh(double noundef %99) #56, !tbaa !263
-  %104 = fdiv double %103, %99
-  br label %105
+103:                                              ; preds = %98
+  %104 = call double @atanh(double noundef %100) #56, !tbaa !263
+  %105 = fdiv double %104, %100
+  br label %106
 
-105:                                              ; preds = %97, %102
-  %106 = phi double [ %104, %102 ], [ 1.000000e+00, %97 ]
-  %107 = fcmp oeq double %100, 0.000000e+00
-  br i1 %107, label %126, label %108
+106:                                              ; preds = %98, %103
+  %107 = phi double [ %105, %103 ], [ 1.000000e+00, %98 ]
+  %108 = fcmp oeq double %101, 0.000000e+00
+  br i1 %108, label %127, label %109
 
-108:                                              ; preds = %105
-  %109 = call double @atanh(double noundef %100) #56, !tbaa !263
-  %110 = fdiv double %109, %100
-  br label %126
+109:                                              ; preds = %106
+  %110 = call double @atanh(double noundef %101) #56, !tbaa !263
+  %111 = fdiv double %110, %101
+  br label %127
 
-111:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread61
-  %112 = fneg double %73
-  %113 = call noundef double @sqrt(double noundef %112) #56, !tbaa !263
-  %114 = fmul double %75, %113
-  %115 = fmul double %76, %113
-  %116 = fcmp oeq double %114, 0.000000e+00
-  br i1 %116, label %120, label %117
+112:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread61
+  %113 = fneg double %74
+  %114 = call noundef double @sqrt(double noundef %113) #56, !tbaa !263
+  %115 = fmul double %76, %114
+  %116 = fmul double %77, %114
+  %117 = fcmp oeq double %115, 0.000000e+00
+  br i1 %117, label %121, label %118
 
-117:                                              ; preds = %111
-  %118 = call double @atan(double noundef %114) #56, !tbaa !263
-  %119 = fdiv double %118, %114
-  br label %120
+118:                                              ; preds = %112
+  %119 = call double @atan(double noundef %115) #56, !tbaa !263
+  %120 = fdiv double %119, %115
+  br label %121
 
-120:                                              ; preds = %111, %117
-  %121 = phi double [ %119, %117 ], [ 1.000000e+00, %111 ]
-  %122 = fcmp oeq double %115, 0.000000e+00
-  br i1 %122, label %126, label %123
+121:                                              ; preds = %112, %118
+  %122 = phi double [ %120, %118 ], [ 1.000000e+00, %112 ]
+  %123 = fcmp oeq double %116, 0.000000e+00
+  br i1 %123, label %127, label %124
 
-123:                                              ; preds = %120
-  %124 = call double @atan(double noundef %115) #56, !tbaa !263
-  %125 = fdiv double %124, %115
-  br label %126
+124:                                              ; preds = %121
+  %125 = call double @atan(double noundef %116) #56, !tbaa !263
+  %126 = fdiv double %125, %116
+  br label %127
 
-126:                                              ; preds = %123, %120, %108, %105
-  %.047 = phi double [ %110, %108 ], [ 1.000000e+00, %105 ], [ %125, %123 ], [ 1.000000e+00, %120 ]
-  %.046 = phi double [ %106, %108 ], [ %106, %105 ], [ %121, %123 ], [ %121, %120 ]
-  %127 = fadd double %91, %.046
-  %128 = fmul double %75, %127
-  %129 = fadd double %95, %.047
-  %130 = fmul double %76, %129
-  %131 = fmul double %69, %69
-  %132 = fmul double %74, %131
-  %133 = fsub double %130, %128
-  %134 = fmul double %132, %133
-  %135 = fmul double %134, 5.000000e-01
-  br label %136
+127:                                              ; preds = %124, %121, %109, %106
+  %.047 = phi double [ %111, %109 ], [ 1.000000e+00, %106 ], [ %126, %124 ], [ 1.000000e+00, %121 ]
+  %.046 = phi double [ %107, %109 ], [ %107, %106 ], [ %122, %124 ], [ %122, %121 ]
+  %128 = fadd double %92, %.046
+  %129 = fmul double %76, %128
+  %130 = fadd double %96, %.047
+  %131 = fmul double %77, %130
+  %132 = fmul double %70, %70
+  %133 = fmul double %75, %132
+  %134 = fsub double %131, %129
+  %135 = fmul double %133, %134
+  %136 = fmul double %135, 5.000000e-01
+  br label %137
 
-136:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread, %126, %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit, %63
-  %.0 = phi double [ 0.000000e+00, %63 ], [ 0.000000e+00, %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit ], [ %87, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread ], [ %135, %126 ]
+137:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread, %127, %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit, %64
+  %.0 = phi double [ 0.000000e+00, %64 ], [ 0.000000e+00, %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit ], [ %88, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread ], [ %136, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -132915,48 +132915,48 @@ _ZN5boost8geometry13get_as_radianILm1ELm1ENS0_5model3boxINS2_5pointIdLm2ENS0_2cs
   %49 = load double, ptr %4, align 8
   %50 = fcmp oeq double %45, %49
   %or.cond = select i1 %48, i1 true, i1 %50
-  br i1 %or.cond, label %76, label %51
+  br i1 %or.cond, label %77, label %51
 
 51:                                               ; preds = %_ZN5boost8geometry13get_as_radianILm1ELm1ENS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEEEENS0_18fp_coordinate_typeIT1_E4typeERKSC_.exit
   %52 = fsub double %46, %47
   %53 = tail call noundef double @llvm.fabs.f64(double %52)
-  %or.cond.i.i.i.i.i = fcmp ult double %53, 0x401921FB54442D18
-  br i1 %or.cond.i.i.i.i.i, label %54, label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit
+  %54 = fcmp ult double %53, 0x401921FB54442D18
+  br i1 %54, label %55, label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit
 
-54:                                               ; preds = %51
-  %55 = fcmp ueq double %53, 0x7FF0000000000000
-  br i1 %55, label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit, label %56
+55:                                               ; preds = %51
+  %56 = fcmp ueq double %53, 0x7FF0000000000000
+  br i1 %56, label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit, label %57
 
-56:                                               ; preds = %54
-  %57 = fsub double 0x401921FB54442D18, %53
-  %58 = tail call noundef double @llvm.fabs.f64(double %57)
-  %59 = fcmp ogt double %53, 0x401921FB54442D18
-  %60 = select i1 %59, double %53, double 0x401921FB54442D18
-  %61 = fcmp olt double %60, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i = select i1 %61, double 1.000000e+00, double %60
-  %62 = fmul double %.sroa.speculated.i.i.i.i.i.i.i, 0x3CB0000000000000
-  %63 = fcmp ole double %58, %62
+57:                                               ; preds = %55
+  %58 = fsub double 0x401921FB54442D18, %53
+  %59 = tail call noundef double @llvm.fabs.f64(double %58)
+  %60 = fcmp ogt double %53, 0x401921FB54442D18
+  %61 = select i1 %60, double %53, double 0x401921FB54442D18
+  %62 = fcmp olt double %61, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i = select i1 %62, double 1.000000e+00, double %61
+  %63 = fmul double %.sroa.speculated.i.i.i.i.i.i.i, 0x3CB0000000000000
+  %64 = fcmp ole double %59, %63
   br label %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit
 
-_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit: ; preds = %51, %54, %56
-  %.0.i.i.i.i.i = phi i1 [ true, %51 ], [ %63, %56 ], [ false, %54 ]
+_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit: ; preds = %51, %55, %57
+  %.0.i.i.i.i.i = phi i1 [ true, %51 ], [ %64, %57 ], [ false, %55 ]
   call void @_ZN5boost8geometry4math6detail36normalize_spheroidal_box_coordinatesINS0_6radianEdLb1EE5applyERdS6_S6_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext %.0.i.i.i.i.i)
-  %64 = load double, ptr %5, align 8, !tbaa !1473
-  %65 = load double, ptr %3, align 8, !tbaa !1473
-  %66 = fsub double %64, %65
-  %67 = load double, ptr %6, align 8, !tbaa !1473
-  %68 = call double @sin(double noundef %67) #56, !tbaa !263
-  %69 = load double, ptr %4, align 8, !tbaa !1473
-  %70 = call double @sin(double noundef %69) #56, !tbaa !263
-  %71 = fsub double %68, %70
-  %72 = fmul double %66, %71
-  %73 = load double, ptr %0, align 8, !tbaa !2392
-  %74 = fmul double %73, %73
-  %75 = fmul double %72, %74
-  br label %76
+  %65 = load double, ptr %5, align 8, !tbaa !1473
+  %66 = load double, ptr %3, align 8, !tbaa !1473
+  %67 = fsub double %65, %66
+  %68 = load double, ptr %6, align 8, !tbaa !1473
+  %69 = call double @sin(double noundef %68) #56, !tbaa !263
+  %70 = load double, ptr %4, align 8, !tbaa !1473
+  %71 = call double @sin(double noundef %70) #56, !tbaa !263
+  %72 = fsub double %69, %71
+  %73 = fmul double %67, %72
+  %74 = load double, ptr %0, align 8, !tbaa !2392
+  %75 = fmul double %74, %74
+  %76 = fmul double %73, %75
+  br label %77
 
-76:                                               ; preds = %_ZN5boost8geometry13get_as_radianILm1ELm1ENS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEEEENS0_18fp_coordinate_typeIT1_E4typeERKSC_.exit, %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit
-  %.0 = phi double [ %75, %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit ], [ 0.000000e+00, %_ZN5boost8geometry13get_as_radianILm1ELm1ENS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEEEENS0_18fp_coordinate_typeIT1_E4typeERKSC_.exit ]
+77:                                               ; preds = %_ZN5boost8geometry13get_as_radianILm1ELm1ENS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEEEENS0_18fp_coordinate_typeIT1_E4typeERKSC_.exit, %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit
+  %.0 = phi double [ %76, %_ZN5boost8geometry4math36normalize_spheroidal_box_coordinatesINS0_6radianEdEEvRT0_S5_S5_S5_.exit ], [ 0.000000e+00, %_ZN5boost8geometry13get_as_radianILm1ELm1ENS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEEEENS0_18fp_coordinate_typeIT1_E4typeERKSC_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

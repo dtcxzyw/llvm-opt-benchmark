@@ -149618,8 +149618,8 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.th
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i.us.us: ; preds = %.lr.ph.split.us.split.us
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load double, ptr %16, align 8, !tbaa !2470
-  %or.cond53 = fcmp olt double %17, %.fr52
-  br i1 %or.cond53, label %18, label %.critedge
+  %.old.us.us = fcmp olt double %17, %.fr52
+  br i1 %.old.us.us, label %18, label %.critedge
 
 18:                                               ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i.us.us, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i.i.i.us.us
   %19 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %0, i64 %.020.us.us
@@ -149660,8 +149660,8 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.th
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i.us: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i.i.us, %.lr.ph.split.us.split
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %36 = load double, ptr %35, align 8, !tbaa !2470
-  %or.cond56 = fcmp olt double %36, %.fr52
-  br i1 %or.cond56, label %37, label %.critedge
+  %.old.us = fcmp olt double %36, %.fr52
+  br i1 %.old.us, label %37, label %.critedge
 
 37:                                               ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i.us, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i.i.i.us
   %38 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %0, i64 %.020.us
@@ -150487,8 +150487,8 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.th
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i.us.us: ; preds = %.split.us.split.us
   %9 = getelementptr inbounds i8, ptr %.sroa.07.0.us.us, i64 -8
   %10 = load double, ptr %9, align 8, !tbaa !2470
-  %or.cond22 = fcmp olt double %.sroa.5.0.copyload.fr, %10
-  br i1 %or.cond22, label %11, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5boost8geometry4lessINS3_5model5pointIdLm2ENS3_2cs9cartesianEEELin1EvEEEclIS9_NS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread
+  %.old.us.us = fcmp olt double %.sroa.5.0.copyload.fr, %10
+  br i1 %.old.us.us, label %11, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5boost8geometry4lessINS3_5model5pointIdLm2ENS3_2cs9cartesianEEELin1EvEEEclIS9_NS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread
 
 11:                                               ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i.us.us, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i.i.i.us.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07.0.us.us, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.us.us, i64 16, i1 false), !tbaa.struct !1813
@@ -150524,8 +150524,8 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.th
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i.us: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i.i.us, %.split.us.split
   %25 = getelementptr inbounds i8, ptr %.sroa.07.0.us, i64 -8
   %26 = load double, ptr %25, align 8, !tbaa !2470
-  %or.cond23 = fcmp olt double %.sroa.5.0.copyload.fr, %26
-  br i1 %or.cond23, label %27, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5boost8geometry4lessINS3_5model5pointIdLm2ENS3_2cs9cartesianEEELin1EvEEEclIS9_NS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread
+  %.old.us = fcmp olt double %.sroa.5.0.copyload.fr, %26
+  br i1 %.old.us, label %27, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5boost8geometry4lessINS3_5model5pointIdLm2ENS3_2cs9cartesianEEELin1EvEEEclIS9_NS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread
 
 27:                                               ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i.us, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i.i.i.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07.0.us, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.us, i64 16, i1 false), !tbaa.struct !1813
@@ -161622,8 +161622,8 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.th
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i.us.us: ; preds = %.lr.ph.split.us.split.us
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load double, ptr %16, align 8, !tbaa !2470
-  %or.cond53 = fcmp olt double %17, %.fr52
-  br i1 %or.cond53, label %18, label %.critedge
+  %.old.us.us = fcmp olt double %17, %.fr52
+  br i1 %.old.us.us, label %18, label %.critedge
 
 18:                                               ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i.us.us, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i.i.i.us.us
   %19 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %0, i64 %.020.us.us
@@ -161664,8 +161664,8 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.th
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i.us: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i.i.us, %.lr.ph.split.us.split
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %36 = load double, ptr %35, align 8, !tbaa !2470
-  %or.cond56 = fcmp olt double %36, %.fr52
-  br i1 %or.cond56, label %37, label %.critedge
+  %.old.us = fcmp olt double %36, %.fr52
+  br i1 %.old.us, label %37, label %.critedge
 
 37:                                               ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i.us, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i.i.i.us
   %38 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %0, i64 %.020.us
@@ -162488,8 +162488,8 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.th
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i.us.us: ; preds = %.split.us.split.us
   %9 = getelementptr inbounds i8, ptr %.sroa.07.0.us.us, i64 -8
   %10 = load double, ptr %9, align 8, !tbaa !2470
-  %or.cond22 = fcmp olt double %.sroa.5.0.copyload.fr, %10
-  br i1 %or.cond22, label %11, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5boost8geometry4lessIvLin1ENS3_10strategies6relate9cartesianIvEEEEEclINS3_5model5pointIdLm2ENS3_2cs9cartesianEEENS_17__normal_iteratorIPSG_St6vectorISG_SaISG_EEEEEEbRT_T0_.exit.thread
+  %.old.us.us = fcmp olt double %.sroa.5.0.copyload.fr, %10
+  br i1 %.old.us.us, label %11, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5boost8geometry4lessIvLin1ENS3_10strategies6relate9cartesianIvEEEEEclINS3_5model5pointIdLm2ENS3_2cs9cartesianEEENS_17__normal_iteratorIPSG_St6vectorISG_SaISG_EEEEEEbRT_T0_.exit.thread
 
 11:                                               ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i.us.us, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i.i.i.us.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07.0.us.us, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.us.us, i64 16, i1 false), !tbaa.struct !1813
@@ -162525,8 +162525,8 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.th
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i.us: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i.i.us, %.split.us.split
   %25 = getelementptr inbounds i8, ptr %.sroa.07.0.us, i64 -8
   %26 = load double, ptr %25, align 8, !tbaa !2470
-  %or.cond23 = fcmp olt double %.sroa.5.0.copyload.fr, %26
-  br i1 %or.cond23, label %27, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5boost8geometry4lessIvLin1ENS3_10strategies6relate9cartesianIvEEEEEclINS3_5model5pointIdLm2ENS3_2cs9cartesianEEENS_17__normal_iteratorIPSG_St6vectorISG_SaISG_EEEEEEbRT_T0_.exit.thread
+  %.old.us = fcmp olt double %.sroa.5.0.copyload.fr, %26
+  br i1 %.old.us, label %27, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5boost8geometry4lessIvLin1ENS3_10strategies6relate9cartesianIvEEEEEclINS3_5model5pointIdLm2ENS3_2cs9cartesianEEENS_17__normal_iteratorIPSG_St6vectorISG_SaISG_EEEEEEbRT_T0_.exit.thread
 
 27:                                               ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i.us, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i.i.i.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07.0.us, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.us, i64 16, i1 false), !tbaa.struct !1813

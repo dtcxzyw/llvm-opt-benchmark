@@ -160376,31 +160376,31 @@ _ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointI
   store float %.sroa.9.0.copyload.i, ptr %7, align 4, !tbaa !2375
   %26 = fsub float %.sroa.0.0.copyload.i, %.sroa.7.0.copyload.i
   %27 = call noundef float @llvm.fabs.f32(float %26)
-  %or.cond.i.i.i.i.i.i.i.i = fcmp ult float %27, 3.600000e+02
-  br i1 %or.cond.i.i.i.i.i.i.i.i, label %28, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i
+  %28 = fcmp ult float %27, 3.600000e+02
+  br i1 %28, label %29, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i
 
-28:                                               ; preds = %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i
-  %29 = fcmp ueq float %27, 0x7FF0000000000000
-  br i1 %29, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i, label %30
+29:                                               ; preds = %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i
+  %30 = fcmp ueq float %27, 0x7FF0000000000000
+  br i1 %30, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i, label %31
 
-30:                                               ; preds = %28
-  %31 = fsub float 3.600000e+02, %27
-  %32 = call noundef float @llvm.fabs.f32(float %31)
-  %33 = fcmp ogt float %27, 3.600000e+02
-  %34 = select i1 %33, float %27, float 3.600000e+02
-  %35 = fcmp olt float %34, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i.i.i.i = select i1 %35, float 1.000000e+00, float %34
-  %36 = fmul float %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, 0x3E80000000000000
-  %37 = fcmp ole float %32, %36
+31:                                               ; preds = %29
+  %32 = fsub float 3.600000e+02, %27
+  %33 = call noundef float @llvm.fabs.f32(float %32)
+  %34 = fcmp ogt float %27, 3.600000e+02
+  %35 = select i1 %34, float %27, float 3.600000e+02
+  %36 = fcmp olt float %35, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i.i.i.i = select i1 %36, float 1.000000e+00, float %35
+  %37 = fmul float %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, 0x3E80000000000000
+  %38 = fcmp ole float %33, %37
   br label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i
 
-_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i: ; preds = %30, %28, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i
-  %.0.i.i.i.i.i.i.i.i = phi i1 [ true, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i ], [ %37, %30 ], [ false, %28 ]
+_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i: ; preds = %31, %29, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i
+  %.0.i.i.i.i.i.i.i.i = phi i1 [ true, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i ], [ %38, %31 ], [ false, %29 ]
   call void @_ZN5boost8geometry4math6detail36normalize_spheroidal_box_coordinatesINS0_6degreeEfLb1EE5applyERfS6_S6_S6_b(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, i1 noundef zeroext %.0.i.i.i.i.i.i.i.i)
-  %38 = load float, ptr %4, align 4, !tbaa !2375
-  %39 = load float, ptr %5, align 4, !tbaa !2375
-  %40 = load float, ptr %6, align 4, !tbaa !2375
-  %41 = load float, ptr %7, align 4, !tbaa !2375
+  %39 = load float, ptr %4, align 4, !tbaa !2375
+  %40 = load float, ptr %5, align 4, !tbaa !2375
+  %41 = load float, ptr %6, align 4, !tbaa !2375
+  %42 = load float, ptr %7, align 4, !tbaa !2375
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -160408,18 +160408,18 @@ _ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5p
   br label %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit
 
 _ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit: ; preds = %3, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i
-  %.sroa.9.0.i = phi float [ %41, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0xC7EFFFFFE0000000, %3 ]
-  %.sroa.7.0.i = phi float [ %40, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0xC7EFFFFFE0000000, %3 ]
-  %.sroa.5.0.i = phi float [ %39, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0x47EFFFFFE0000000, %3 ]
-  %.sroa.0.0.i = phi float [ %38, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0x47EFFFFFE0000000, %3 ]
-  %42 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store float %.sroa.0.0.i, ptr %42, align 16, !tbaa !2375
-  %43 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store float %.sroa.5.0.i, ptr %43, align 4, !tbaa !2375
-  %44 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store float %.sroa.7.0.i, ptr %44, align 8, !tbaa !2375
-  %45 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store float %.sroa.9.0.i, ptr %45, align 4, !tbaa !2375
+  %.sroa.9.0.i = phi float [ %42, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0xC7EFFFFFE0000000, %3 ]
+  %.sroa.7.0.i = phi float [ %41, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0xC7EFFFFFE0000000, %3 ]
+  %.sroa.5.0.i = phi float [ %40, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0x47EFFFFFE0000000, %3 ]
+  %.sroa.0.0.i = phi float [ %39, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0x47EFFFFFE0000000, %3 ]
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store float %.sroa.0.0.i, ptr %43, align 16, !tbaa !2375
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  store float %.sroa.5.0.i, ptr %44, align 4, !tbaa !2375
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store float %.sroa.7.0.i, ptr %45, align 8, !tbaa !2375
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 28
+  store float %.sroa.9.0.i, ptr %46, align 4, !tbaa !2375
   call void @_ZN5boost8geometry6detail8envelope23envelope_range_of_boxes5applyIA2_NS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_(ptr noundef nonnull align 4 dereferenceable(32) %9, ptr noundef nonnull align 4 dereferenceable(16) %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
@@ -160438,495 +160438,494 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail8envelope23envelope_ra
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load float, ptr %7, align 4, !tbaa !2375
   %.fr.i.i = freeze float %8
-  %or.cond.i.i.i.i.i.i = fcmp uge float %.fr22.i.i, %.fr.i.i
-  br i1 %or.cond.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i, label %9
+  %9 = fcmp olt float %.fr22.i.i, %.fr.i.i
+  br i1 %9, label %10, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
 
-9:                                                ; preds = %.lr.ph.i.i
-  %10 = tail call float @llvm.fabs.f32(float %.fr.i.i)
-  %11 = fcmp ueq float %10, 0x7FF0000000000000
-  br i1 %11, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %12
+10:                                               ; preds = %.lr.ph.i.i
+  %11 = tail call float @llvm.fabs.f32(float %.fr.i.i)
+  %12 = fcmp ueq float %11, 0x7FF0000000000000
+  br i1 %12, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %13
 
-12:                                               ; preds = %9
-  %13 = tail call float @llvm.fabs.f32(float %.fr22.i.i)
-  %14 = fcmp ueq float %13, 0x7FF0000000000000
-  br i1 %14, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i
+13:                                               ; preds = %10
+  %14 = tail call float @llvm.fabs.f32(float %.fr22.i.i)
+  %15 = fcmp ueq float %14, 0x7FF0000000000000
+  br i1 %15, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i: ; preds = %12
-  %15 = fsub float %.fr.i.i, %.fr22.i.i
-  %16 = tail call noundef float @llvm.fabs.f32(float %15)
-  %17 = fcmp olt float %10, %13
-  %18 = select i1 %17, float %13, float %10
-  %19 = fcmp olt float %18, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i.i = select i1 %19, float 1.000000e+00, float %18
-  %20 = fmul float %.sroa.speculated.i.i.i.i.i.i.i.i, 0x3E80000000000000
-  %21 = fcmp ugt float %16, %20
-  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i: ; preds = %13
+  %16 = fsub float %.fr.i.i, %.fr22.i.i
+  %17 = tail call noundef float @llvm.fabs.f32(float %16)
+  %18 = fcmp olt float %11, %14
+  %19 = select i1 %18, float %14, float %11
+  %20 = fcmp olt float %19, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i.i = select i1 %20, float 1.000000e+00, float %19
+  %21 = fmul float %.sroa.speculated.i.i.i.i.i.i.i.i, 0x3E80000000000000
+  %22 = fcmp ugt float %17, %21
+  br i1 %22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i, %12, %9
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i, %13, %10
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i, %.lr.ph.i.i
-  %22 = phi ptr [ %.ptr, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i ], [ %0, %.lr.ph.i.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %24 = load float, ptr %23, align 4, !tbaa !2375
-  %.fr22.i.i46 = freeze float %24
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %26 = load float, ptr %25, align 4, !tbaa !2375
-  %.fr.i.i47 = freeze float %26
-  %or.cond.i.i.i.i.i.i48 = fcmp uge float %.fr22.i.i46, %.fr.i.i47
-  br i1 %or.cond.i.i.i.i.i.i48, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i, label %27
+  %23 = phi ptr [ %.ptr, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i ], [ %0, %.lr.ph.i.i ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %25 = load float, ptr %24, align 4, !tbaa !2375
+  %.fr22.i.i46 = freeze float %25
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %27 = load float, ptr %26, align 4, !tbaa !2375
+  %.fr.i.i47 = freeze float %27
+  %28 = fcmp olt float %.fr22.i.i46, %.fr.i.i47
+  br i1 %28, label %29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
 
-27:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
-  %28 = tail call float @llvm.fabs.f32(float %.fr.i.i47)
-  %29 = fcmp ueq float %28, 0x7FF0000000000000
-  br i1 %29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %30
+29:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
+  %30 = tail call float @llvm.fabs.f32(float %.fr.i.i47)
+  %31 = fcmp ueq float %30, 0x7FF0000000000000
+  br i1 %31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %32
 
-30:                                               ; preds = %27
-  %31 = tail call float @llvm.fabs.f32(float %.fr22.i.i46)
-  %32 = fcmp ueq float %31, 0x7FF0000000000000
-  br i1 %32, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i
+32:                                               ; preds = %29
+  %33 = tail call float @llvm.fabs.f32(float %.fr22.i.i46)
+  %34 = fcmp ueq float %33, 0x7FF0000000000000
+  br i1 %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i: ; preds = %30
-  %33 = fsub float %.fr.i.i47, %.fr22.i.i46
-  %34 = tail call noundef float @llvm.fabs.f32(float %33)
-  %35 = fcmp olt float %28, %31
-  %36 = select i1 %35, float %31, float %28
-  %37 = fcmp olt float %36, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i.i49 = select i1 %37, float 1.000000e+00, float %36
-  %38 = fmul float %.sroa.speculated.i.i.i.i.i.i.i.i49, 0x3E80000000000000
-  %39 = fcmp ugt float %34, %38
-  br i1 %39, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i: ; preds = %32
+  %35 = fsub float %.fr.i.i47, %.fr22.i.i46
+  %36 = tail call noundef float @llvm.fabs.f32(float %35)
+  %37 = fcmp olt float %30, %33
+  %38 = select i1 %37, float %33, float %30
+  %39 = fcmp olt float %38, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i.i49 = select i1 %39, float 1.000000e+00, float %38
+  %40 = fmul float %.sroa.speculated.i.i.i.i.i.i.i.i49, 0x3E80000000000000
+  %41 = fcmp ugt float %36, %40
+  br i1 %41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i, %30, %27
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i, %32, %29
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
-  %40 = phi ptr [ %.ptr, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i ]
+  %42 = phi ptr [ %.ptr, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br label %44
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  br label %46
 
-43:                                               ; preds = %.critedge
+45:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float 0.000000e+00, ptr %3, align 4, !tbaa !2375
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 0.000000e+00, ptr %4, align 4, !tbaa !2375
   invoke void @_ZN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS0_6degreeEE5applyISt6vectorINS2_18longitude_intervalIfEESaIS9_EEfEEvRKT_RT0_SG_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %167 unwind label %183
+          to label %169 unwind label %185
 
-44:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i, %.critedge
-  %45 = phi ptr [ null, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i ], [ %165, %.critedge ]
-  %46 = phi ptr [ null, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i ], [ %166, %.critedge ]
-  %.0.idx159 = phi i64 [ 0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i ], [ %.0.add, %.critedge ]
-  %.0.ptr160 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx159
-  %47 = load float, ptr %.0.ptr160, align 4, !tbaa !2375
-  %48 = fcmp oeq float %47, 0x47EFFFFFE0000000
-  %49 = getelementptr inbounds nuw i8, ptr %.0.ptr160, i64 4
-  %50 = load float, ptr %49, align 4
-  %51 = fcmp oeq float %50, 0x47EFFFFFE0000000
-  %or.cond.i = select i1 %48, i1 %51, i1 false
-  %52 = getelementptr inbounds nuw i8, ptr %.0.ptr160, i64 8
-  %53 = load float, ptr %52, align 4
-  %54 = fcmp oeq float %53, 0xC7EFFFFFE0000000
-  %or.cond13.i = select i1 %or.cond.i, i1 %54, i1 false
-  %55 = getelementptr inbounds nuw i8, ptr %.0.ptr160, i64 12
-  %56 = load float, ptr %55, align 4, !tbaa !2375
-  %57 = fcmp oeq float %56, 0xC7EFFFFFE0000000
-  %or.cond200 = select i1 %or.cond13.i, i1 %57, i1 false
-  %58 = fcmp oeq float %50, 9.000000e+01
-  %or.cond202 = select i1 %or.cond200, i1 true, i1 %58
-  br i1 %or.cond202, label %.critedge, label %59
+46:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i, %.critedge
+  %47 = phi ptr [ null, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i ], [ %168, %.critedge ]
+  %.0.idx158 = phi i64 [ 0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i ], [ %.0.add, %.critedge ]
+  %.0.ptr159 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx158
+  %48 = load float, ptr %.0.ptr159, align 4, !tbaa !2375
+  %49 = fcmp oeq float %48, 0x47EFFFFFE0000000
+  %50 = getelementptr inbounds nuw i8, ptr %.0.ptr159, i64 4
+  %51 = load float, ptr %50, align 4
+  %52 = fcmp oeq float %51, 0x47EFFFFFE0000000
+  %or.cond.i = select i1 %49, i1 %52, i1 false
+  %53 = getelementptr inbounds nuw i8, ptr %.0.ptr159, i64 8
+  %54 = load float, ptr %53, align 4
+  %55 = fcmp oeq float %54, 0xC7EFFFFFE0000000
+  %or.cond13.i = select i1 %or.cond.i, i1 %55, i1 false
+  %56 = getelementptr inbounds nuw i8, ptr %.0.ptr159, i64 12
+  %57 = load float, ptr %56, align 4, !tbaa !2375
+  %58 = fcmp oeq float %57, 0xC7EFFFFFE0000000
+  %or.cond196 = select i1 %or.cond13.i, i1 %58, i1 false
+  %59 = fcmp oeq float %51, 9.000000e+01
+  %or.cond198 = select i1 %or.cond196, i1 true, i1 %59
+  br i1 %or.cond198, label %.critedge, label %60
 
-59:                                               ; preds = %44
-  %60 = tail call float @llvm.fabs.f32(float %50)
-  %61 = fcmp ueq float %60, 0x7FF0000000000000
-  br i1 %61, label %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread130, label %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit
+60:                                               ; preds = %46
+  %61 = tail call float @llvm.fabs.f32(float %51)
+  %62 = fcmp ueq float %61, 0x7FF0000000000000
+  br i1 %62, label %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread129, label %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit
 
-_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit: ; preds = %59
-  %62 = fadd float %50, -9.000000e+01
-  %63 = tail call noundef float @llvm.fabs.f32(float %62)
-  %64 = fcmp olt float %60, 9.000000e+01
-  %65 = select i1 %64, float 9.000000e+01, float %60
-  %66 = fcmp olt float %65, 1.000000e+00
-  %.sroa.speculated.i.i.i = select i1 %66, float 1.000000e+00, float %65
-  %67 = fmul float %.sroa.speculated.i.i.i, 0x3E80000000000000
-  %68 = fcmp ole float %63, %67
-  %69 = fcmp oeq float %56, -9.000000e+01
-  %or.cond = select i1 %68, i1 true, i1 %69
-  br i1 %or.cond, label %.critedge, label %70
+_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit: ; preds = %60
+  %63 = fadd float %51, -9.000000e+01
+  %64 = tail call noundef float @llvm.fabs.f32(float %63)
+  %65 = fcmp olt float %61, 9.000000e+01
+  %66 = select i1 %65, float 9.000000e+01, float %61
+  %67 = fcmp olt float %66, 1.000000e+00
+  %.sroa.speculated.i.i.i = select i1 %67, float 1.000000e+00, float %66
+  %68 = fmul float %.sroa.speculated.i.i.i, 0x3E80000000000000
+  %69 = fcmp ole float %64, %68
+  %70 = fcmp oeq float %57, -9.000000e+01
+  %or.cond = select i1 %69, i1 true, i1 %70
+  br i1 %or.cond, label %.critedge, label %71
 
-_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread130: ; preds = %59
-  %.old = fcmp oeq float %56, -9.000000e+01
-  br i1 %.old, label %.critedge, label %70
+_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread129: ; preds = %60
+  %.old = fcmp oeq float %57, -9.000000e+01
+  br i1 %.old, label %.critedge, label %71
 
-70:                                               ; preds = %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread130
-  %71 = tail call float @llvm.fabs.f32(float %56)
-  %72 = fcmp ueq float %71, 0x7FF0000000000000
-  br i1 %72, label %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit53.thread133, label %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit53
+71:                                               ; preds = %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread129
+  %72 = tail call float @llvm.fabs.f32(float %57)
+  %73 = fcmp ueq float %72, 0x7FF0000000000000
+  br i1 %73, label %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit52.thread132, label %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit52
 
-_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit53: ; preds = %70
-  %73 = fadd float %56, 9.000000e+01
-  %74 = tail call noundef float @llvm.fabs.f32(float %73)
-  %75 = fcmp olt float %71, 9.000000e+01
-  %76 = select i1 %75, float 9.000000e+01, float %71
-  %77 = fcmp olt float %76, 1.000000e+00
-  %.sroa.speculated.i.i.i51 = select i1 %77, float 1.000000e+00, float %76
-  %78 = fmul float %.sroa.speculated.i.i.i51, 0x3E80000000000000
-  %79 = fcmp ugt float %74, %78
-  br i1 %79, label %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit53.thread133, label %.critedge
+_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit52: ; preds = %71
+  %74 = fadd float %57, 9.000000e+01
+  %75 = tail call noundef float @llvm.fabs.f32(float %74)
+  %76 = fcmp olt float %72, 9.000000e+01
+  %77 = select i1 %76, float 9.000000e+01, float %72
+  %78 = fcmp olt float %77, 1.000000e+00
+  %.sroa.speculated.i.i.i50 = select i1 %78, float 1.000000e+00, float %77
+  %79 = fmul float %.sroa.speculated.i.i.i50, 0x3E80000000000000
+  %80 = fcmp ugt float %75, %79
+  br i1 %80, label %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit52.thread132, label %.critedge
 
-_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit53.thread133: ; preds = %70, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit53
-  %or.cond.i.i = fcmp ule float %53, 1.800000e+02
-  br i1 %or.cond.i.i, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread136, label %80
+_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit52.thread132: ; preds = %71, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit52
+  %81 = fcmp ogt float %54, 1.800000e+02
+  br i1 %81, label %82, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread135
 
-80:                                               ; preds = %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit53.thread133
-  %81 = fcmp ueq float %53, 0x7FF0000000000000
-  br i1 %81, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit
+82:                                               ; preds = %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit52.thread132
+  %83 = fcmp ueq float %54, 0x7FF0000000000000
+  br i1 %83, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit
 
-_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit: ; preds = %80
-  %82 = fadd float %53, -1.800000e+02
-  %83 = tail call noundef float @llvm.fabs.f32(float %82)
-  %84 = fcmp olt float %53, 1.800000e+02
-  %85 = select i1 %84, float 1.800000e+02, float %53
-  %86 = fcmp olt float %85, 1.000000e+00
-  %.sroa.speculated.i.i.i.i = select i1 %86, float 1.000000e+00, float %85
-  %87 = fmul float %.sroa.speculated.i.i.i.i, 0x3E80000000000000
-  %88 = fcmp ugt float %83, %87
-  br i1 %88, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread136
+_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit: ; preds = %82
+  %84 = fadd float %54, -1.800000e+02
+  %85 = tail call noundef float @llvm.fabs.f32(float %84)
+  %86 = fcmp olt float %54, 1.800000e+02
+  %87 = select i1 %86, float 1.800000e+02, float %54
+  %88 = fcmp olt float %87, 1.000000e+00
+  %.sroa.speculated.i.i.i.i = select i1 %88, float 1.000000e+00, float %87
+  %89 = fmul float %.sroa.speculated.i.i.i.i, 0x3E80000000000000
+  %90 = fcmp ugt float %85, %89
+  br i1 %90, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread135
 
-_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread: ; preds = %80, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit
-  %.not.i.i55 = icmp eq ptr %46, %45
-  br i1 %.not.i.i55, label %92, label %89
-
-89:                                               ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread
-  store float %47, ptr %46, align 4, !tbaa !24
-  %.sroa_idx110 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store i32 1127481344, ptr %.sroa_idx110, align 4, !tbaa !24
-  %90 = load ptr, ptr %41, align 8, !tbaa !2511
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  store ptr %91, ptr %41, align 8, !tbaa !2511
-  %.pre165 = load ptr, ptr %42, align 8, !tbaa !2513
-  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE9push_backEOS5_.exit
+_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread: ; preds = %82, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit
+  %91 = load ptr, ptr %44, align 8, !tbaa !2511
+  %.not.i.i54 = icmp eq ptr %47, %91
+  br i1 %.not.i.i54, label %95, label %92
 
 92:                                               ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread
-  %93 = load ptr, ptr %2, align 8, !tbaa !2514
-  %94 = ptrtoint ptr %45 to i64
-  %95 = ptrtoint ptr %93 to i64
-  %96 = sub i64 %94, %95
-  %97 = icmp eq i64 %96, 9223372036854775800
-  br i1 %97, label %98, label %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
-
-98:                                               ; preds = %92
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1433) #57
-          to label %.noexc unwind label %.loopexit.split-lp
-
-.noexc:                                           ; preds = %98
-  unreachable
-
-_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %92
-  %99 = ashr exact i64 %96, 3
-  %.sroa.speculated.i.i.i.i56 = tail call i64 @llvm.umax.i64(i64 %99, i64 1)
-  %100 = add nsw i64 %.sroa.speculated.i.i.i.i56, %99
-  %101 = icmp ult i64 %100, %99
-  %102 = tail call i64 @llvm.umin.i64(i64 %100, i64 1152921504606846975)
-  %103 = select i1 %101, i64 1152921504606846975, i64 %102
-  %.not.i.i.i.i = icmp ne i64 %103, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i)
-  %104 = shl nuw nsw i64 %103, 3
-  %105 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %104) #61
-          to label %.noexc57 unwind label %.loopexit
-
-.noexc57:                                         ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %96
-  store float %47, ptr %106, align 4, !tbaa !24
-  %.sroa_idx112 = getelementptr inbounds nuw i8, ptr %106, i64 4
-  store i32 1127481344, ptr %.sroa_idx112, align 4, !tbaa !24
-  %.not10.i.i.i.i.i.i = icmp eq ptr %93, %45
-  br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc57, %.lr.ph.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi ptr [ %109, %.lr.ph.i.i.i.i.i.i ], [ %105, %.noexc57 ]
-  %.0911.i.i.i.i.i.i = phi ptr [ %108, %.lr.ph.i.i.i.i.i.i ], [ %93, %.noexc57 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !2515)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !2518)
-  %107 = load i64, ptr %.0911.i.i.i.i.i.i, align 4, !tbaa !24, !alias.scope !2518, !noalias !2515
-  store i64 %107, ptr %.012.i.i.i.i.i.i, align 4, !tbaa !24, !alias.scope !2515, !noalias !2518
-  %108 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 8
-  %109 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %108, %45
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !2520
-
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc57
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %105, %.noexc57 ], [ %109, %.lr.ph.i.i.i.i.i.i ]
-  %110 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
-  %.not.i23.i.i.i = icmp eq ptr %93, null
-  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %111
-
-111:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %93, i64 noundef %96) #60
-  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i
-
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %111, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
-  store ptr %105, ptr %2, align 8, !tbaa !2514
-  store ptr %110, ptr %41, align 8, !tbaa !2511
-  %112 = getelementptr inbounds nuw %"class.boost::geometry::detail::envelope::longitude_interval", ptr %105, i64 %103
-  store ptr %112, ptr %42, align 8, !tbaa !2513
+  store float %48, ptr %47, align 4, !tbaa !24
+  %.sroa_idx109 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  store i32 1127481344, ptr %.sroa_idx109, align 4, !tbaa !24
+  %93 = load ptr, ptr %43, align 8, !tbaa !2513
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  store ptr %94, ptr %43, align 8, !tbaa !2513
+  %.pre164 = load ptr, ptr %44, align 8, !tbaa !2511
   br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE9push_backEOS5_.exit
 
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %89
-  %113 = phi ptr [ %112, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.pre165, %89 ]
-  %114 = phi ptr [ %110, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %91, %89 ]
-  %115 = fadd float %53, -3.600000e+02
-  %.not.i.i58 = icmp eq ptr %114, %113
-  br i1 %.not.i.i58, label %119, label %116
+95:                                               ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread
+  %96 = load ptr, ptr %2, align 8, !tbaa !2514
+  %97 = ptrtoint ptr %47 to i64
+  %98 = ptrtoint ptr %96 to i64
+  %99 = sub i64 %97, %98
+  %100 = icmp eq i64 %99, 9223372036854775800
+  br i1 %100, label %101, label %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
 
-116:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE9push_backEOS5_.exit
-  store i32 -1020002304, ptr %114, align 4, !tbaa !24
-  %.sroa_idx103 = getelementptr inbounds nuw i8, ptr %114, i64 4
-  store float %115, ptr %.sroa_idx103, align 4, !tbaa !24
-  %117 = load ptr, ptr %41, align 8, !tbaa !2511
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  store ptr %118, ptr %41, align 8, !tbaa !2511
-  br label %.critedge
+101:                                              ; preds = %95
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1433) #57
+          to label %.noexc unwind label %.loopexit.split-lp145
+
+.noexc:                                           ; preds = %101
+  unreachable
+
+_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %95
+  %102 = ashr exact i64 %99, 3
+  %.sroa.speculated.i.i.i.i55 = tail call i64 @llvm.umax.i64(i64 %102, i64 1)
+  %103 = add nsw i64 %.sroa.speculated.i.i.i.i55, %102
+  %104 = icmp ult i64 %103, %102
+  %105 = tail call i64 @llvm.umin.i64(i64 %103, i64 1152921504606846975)
+  %106 = select i1 %104, i64 1152921504606846975, i64 %105
+  %.not.i.i.i.i = icmp ne i64 %106, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %107 = shl nuw nsw i64 %106, 3
+  %108 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %107) #61
+          to label %.noexc56 unwind label %.loopexit144
+
+.noexc56:                                         ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 %99
+  store float %48, ptr %109, align 4, !tbaa !24
+  %.sroa_idx111 = getelementptr inbounds nuw i8, ptr %109, i64 4
+  store i32 1127481344, ptr %.sroa_idx111, align 4, !tbaa !24
+  %.not10.i.i.i.i.i.i = icmp eq ptr %96, %47
+  br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc56, %.lr.ph.i.i.i.i.i.i
+  %.012.i.i.i.i.i.i = phi ptr [ %112, %.lr.ph.i.i.i.i.i.i ], [ %108, %.noexc56 ]
+  %.0911.i.i.i.i.i.i = phi ptr [ %111, %.lr.ph.i.i.i.i.i.i ], [ %96, %.noexc56 ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !2515)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !2518)
+  %110 = load i64, ptr %.0911.i.i.i.i.i.i, align 4, !tbaa !24, !alias.scope !2518, !noalias !2515
+  store i64 %110, ptr %.012.i.i.i.i.i.i, align 4, !tbaa !24, !alias.scope !2515, !noalias !2518
+  %111 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %111, %47
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !2520
+
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc56
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %108, %.noexc56 ], [ %112, %.lr.ph.i.i.i.i.i.i ]
+  %113 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
+  %.not.i23.i.i.i = icmp eq ptr %96, null
+  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %114
+
+114:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef %99) #60
+  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %114, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
+  store ptr %108, ptr %2, align 8, !tbaa !2514
+  store ptr %113, ptr %43, align 8, !tbaa !2513
+  %115 = getelementptr inbounds nuw %"class.boost::geometry::detail::envelope::longitude_interval", ptr %108, i64 %106
+  store ptr %115, ptr %44, align 8, !tbaa !2511
+  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE9push_backEOS5_.exit
+
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %92
+  %116 = phi ptr [ %115, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.pre164, %92 ]
+  %117 = phi ptr [ %113, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %94, %92 ]
+  %118 = fadd float %54, -3.600000e+02
+  %.not.i.i57 = icmp eq ptr %117, %116
+  br i1 %.not.i.i57, label %122, label %119
 
 119:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE9push_backEOS5_.exit
-  %120 = load ptr, ptr %2, align 8, !tbaa !2514
-  %121 = ptrtoint ptr %113 to i64
-  %122 = ptrtoint ptr %120 to i64
-  %123 = sub i64 %121, %122
-  %124 = icmp eq i64 %123, 9223372036854775800
-  br i1 %124, label %125, label %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i59
+  store i32 -1020002304, ptr %117, align 4, !tbaa !24
+  %.sroa_idx102 = getelementptr inbounds nuw i8, ptr %117, i64 4
+  store float %118, ptr %.sroa_idx102, align 4, !tbaa !24
+  %120 = load ptr, ptr %43, align 8, !tbaa !2513
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  store ptr %121, ptr %43, align 8, !tbaa !2513
+  br label %.critedge
 
-125:                                              ; preds = %119
+122:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE9push_backEOS5_.exit
+  %123 = load ptr, ptr %2, align 8, !tbaa !2514
+  %124 = ptrtoint ptr %116 to i64
+  %125 = ptrtoint ptr %123 to i64
+  %126 = sub i64 %124, %125
+  %127 = icmp eq i64 %126, 9223372036854775800
+  br i1 %127, label %128, label %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i58
+
+128:                                              ; preds = %122
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1433) #57
-          to label %.noexc71 unwind label %.loopexit.split-lp146
+          to label %.noexc70 unwind label %.loopexit.split-lp150
 
-.noexc71:                                         ; preds = %125
+.noexc70:                                         ; preds = %128
   unreachable
 
-_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i59: ; preds = %119
-  %126 = ashr exact i64 %123, 3
-  %.sroa.speculated.i.i.i.i60 = tail call i64 @llvm.umax.i64(i64 %126, i64 1)
-  %127 = add nsw i64 %.sroa.speculated.i.i.i.i60, %126
-  %128 = icmp ult i64 %127, %126
-  %129 = tail call i64 @llvm.umin.i64(i64 %127, i64 1152921504606846975)
-  %130 = select i1 %128, i64 1152921504606846975, i64 %129
-  %.not.i.i.i.i61 = icmp ne i64 %130, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i61)
-  %131 = shl nuw nsw i64 %130, 3
-  %132 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %131) #61
-          to label %.noexc72 unwind label %.loopexit145
+_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i58: ; preds = %122
+  %129 = ashr exact i64 %126, 3
+  %.sroa.speculated.i.i.i.i59 = tail call i64 @llvm.umax.i64(i64 %129, i64 1)
+  %130 = add nsw i64 %.sroa.speculated.i.i.i.i59, %129
+  %131 = icmp ult i64 %130, %129
+  %132 = tail call i64 @llvm.umin.i64(i64 %130, i64 1152921504606846975)
+  %133 = select i1 %131, i64 1152921504606846975, i64 %132
+  %.not.i.i.i.i60 = icmp ne i64 %133, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i60)
+  %134 = shl nuw nsw i64 %133, 3
+  %135 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %134) #61
+          to label %.noexc71 unwind label %.loopexit149
 
-.noexc72:                                         ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i59
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 %123
-  store i32 -1020002304, ptr %133, align 4, !tbaa !24
-  %.sroa_idx105 = getelementptr inbounds nuw i8, ptr %133, i64 4
-  store float %115, ptr %.sroa_idx105, align 4, !tbaa !24
-  %.not10.i.i.i.i.i.i62 = icmp eq ptr %120, %113
-  br i1 %.not10.i.i.i.i.i.i62, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i67, label %.lr.ph.i.i.i.i.i.i63
+.noexc71:                                         ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i58
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 %126
+  store i32 -1020002304, ptr %136, align 4, !tbaa !24
+  %.sroa_idx104 = getelementptr inbounds nuw i8, ptr %136, i64 4
+  store float %118, ptr %.sroa_idx104, align 4, !tbaa !24
+  %.not10.i.i.i.i.i.i61 = icmp eq ptr %123, %116
+  br i1 %.not10.i.i.i.i.i.i61, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i66, label %.lr.ph.i.i.i.i.i.i62
 
-.lr.ph.i.i.i.i.i.i63:                             ; preds = %.noexc72, %.lr.ph.i.i.i.i.i.i63
-  %.012.i.i.i.i.i.i64 = phi ptr [ %136, %.lr.ph.i.i.i.i.i.i63 ], [ %132, %.noexc72 ]
-  %.0911.i.i.i.i.i.i65 = phi ptr [ %135, %.lr.ph.i.i.i.i.i.i63 ], [ %120, %.noexc72 ]
+.lr.ph.i.i.i.i.i.i62:                             ; preds = %.noexc71, %.lr.ph.i.i.i.i.i.i62
+  %.012.i.i.i.i.i.i63 = phi ptr [ %139, %.lr.ph.i.i.i.i.i.i62 ], [ %135, %.noexc71 ]
+  %.0911.i.i.i.i.i.i64 = phi ptr [ %138, %.lr.ph.i.i.i.i.i.i62 ], [ %123, %.noexc71 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2521)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2524)
-  %134 = load i64, ptr %.0911.i.i.i.i.i.i65, align 4, !tbaa !24, !alias.scope !2524, !noalias !2521
-  store i64 %134, ptr %.012.i.i.i.i.i.i64, align 4, !tbaa !24, !alias.scope !2521, !noalias !2524
-  %135 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i65, i64 8
-  %136 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i64, i64 8
-  %.not.i.i.i.i.i.i66 = icmp eq ptr %135, %113
-  br i1 %.not.i.i.i.i.i.i66, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i67, label %.lr.ph.i.i.i.i.i.i63, !llvm.loop !2520
+  %137 = load i64, ptr %.0911.i.i.i.i.i.i64, align 4, !tbaa !24, !alias.scope !2524, !noalias !2521
+  store i64 %137, ptr %.012.i.i.i.i.i.i63, align 4, !tbaa !24, !alias.scope !2521, !noalias !2524
+  %138 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i64, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i63, i64 8
+  %.not.i.i.i.i.i.i65 = icmp eq ptr %138, %116
+  br i1 %.not.i.i.i.i.i.i65, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i66, label %.lr.ph.i.i.i.i.i.i62, !llvm.loop !2520
 
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i67: ; preds = %.lr.ph.i.i.i.i.i.i63, %.noexc72
-  %.0.lcssa.i.i.i.i.i.i68 = phi ptr [ %132, %.noexc72 ], [ %136, %.lr.ph.i.i.i.i.i.i63 ]
-  %137 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i68, i64 8
-  %.not.i23.i.i.i69 = icmp eq ptr %120, null
-  br i1 %.not.i23.i.i.i69, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i70, label %138
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i66: ; preds = %.lr.ph.i.i.i.i.i.i62, %.noexc71
+  %.0.lcssa.i.i.i.i.i.i67 = phi ptr [ %135, %.noexc71 ], [ %139, %.lr.ph.i.i.i.i.i.i62 ]
+  %140 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i67, i64 8
+  %.not.i23.i.i.i68 = icmp eq ptr %123, null
+  br i1 %.not.i23.i.i.i68, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i69, label %141
 
-138:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i67
-  tail call void @_ZdlPvm(ptr noundef nonnull %120, i64 noundef %123) #60
-  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i70
+141:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i66
+  tail call void @_ZdlPvm(ptr noundef nonnull %123, i64 noundef %126) #60
+  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i69
 
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i70: ; preds = %138, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i67
-  store ptr %132, ptr %2, align 8, !tbaa !2514
-  store ptr %137, ptr %41, align 8, !tbaa !2511
-  %139 = getelementptr inbounds nuw %"class.boost::geometry::detail::envelope::longitude_interval", ptr %132, i64 %130
-  store ptr %139, ptr %42, align 8, !tbaa !2513
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i69: ; preds = %141, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i66
+  store ptr %135, ptr %2, align 8, !tbaa !2514
+  store ptr %140, ptr %43, align 8, !tbaa !2513
+  %142 = getelementptr inbounds nuw %"class.boost::geometry::detail::envelope::longitude_interval", ptr %135, i64 %133
+  store ptr %142, ptr %44, align 8, !tbaa !2511
   br label %.critedge
 
-.loopexit:                                        ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
-  %lpad.loopexit = landingpad { ptr, i32 }
+.loopexit144:                                     ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
+  %lpad.loopexit146 = landingpad { ptr, i32 }
           cleanup
-  br label %185
+  br label %187
 
-.loopexit.split-lp:                               ; preds = %98
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+.loopexit.split-lp145:                            ; preds = %101
+  %lpad.loopexit.split-lp147 = landingpad { ptr, i32 }
           cleanup
-  br label %185
+  br label %187
 
-.loopexit145:                                     ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i59
-  %lpad.loopexit147 = landingpad { ptr, i32 }
+.loopexit149:                                     ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i58
+  %lpad.loopexit151 = landingpad { ptr, i32 }
           cleanup
-  br label %185
+  br label %187
 
-.loopexit.split-lp146:                            ; preds = %125
-  %lpad.loopexit.split-lp148 = landingpad { ptr, i32 }
+.loopexit.split-lp150:                            ; preds = %128
+  %lpad.loopexit.split-lp152 = landingpad { ptr, i32 }
           cleanup
-  br label %185
+  br label %187
 
-_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread136: ; preds = %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit53.thread133, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit
-  %140 = load ptr, ptr %42, align 8, !tbaa !2513
-  %.not.i.i74 = icmp eq ptr %46, %140
-  br i1 %.not.i.i74, label %144, label %141
+_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread135: ; preds = %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit52.thread132, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit
+  %143 = load ptr, ptr %44, align 8, !tbaa !2511
+  %.not.i.i73 = icmp eq ptr %47, %143
+  br i1 %.not.i.i73, label %147, label %144
 
-141:                                              ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread136
-  store float %47, ptr %46, align 4, !tbaa !24
-  %.sroa_idx96 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store float %53, ptr %.sroa_idx96, align 4, !tbaa !24
-  %142 = load ptr, ptr %41, align 8, !tbaa !2511
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  store ptr %143, ptr %41, align 8, !tbaa !2511
+144:                                              ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread135
+  store float %48, ptr %47, align 4, !tbaa !24
+  %.sroa_idx95 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  store float %54, ptr %.sroa_idx95, align 4, !tbaa !24
+  %145 = load ptr, ptr %43, align 8, !tbaa !2513
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  store ptr %146, ptr %43, align 8, !tbaa !2513
   br label %.critedge
 
-144:                                              ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread136
-  %145 = load ptr, ptr %2, align 8, !tbaa !2514
-  %146 = ptrtoint ptr %46 to i64
-  %147 = ptrtoint ptr %145 to i64
-  %148 = sub i64 %146, %147
-  %149 = icmp eq i64 %148, 9223372036854775800
-  br i1 %149, label %150, label %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i75
+147:                                              ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread135
+  %148 = load ptr, ptr %2, align 8, !tbaa !2514
+  %149 = ptrtoint ptr %47 to i64
+  %150 = ptrtoint ptr %148 to i64
+  %151 = sub i64 %149, %150
+  %152 = icmp eq i64 %151, 9223372036854775800
+  br i1 %152, label %153, label %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i74
 
-150:                                              ; preds = %144
+153:                                              ; preds = %147
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1433) #57
-          to label %.noexc87 unwind label %.loopexit.split-lp151
+          to label %.noexc86 unwind label %.loopexit.split-lp
 
-.noexc87:                                         ; preds = %150
+.noexc86:                                         ; preds = %153
   unreachable
 
-_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i75: ; preds = %144
-  %151 = ashr exact i64 %148, 3
-  %.sroa.speculated.i.i.i.i76 = tail call i64 @llvm.umax.i64(i64 %151, i64 1)
-  %152 = add nsw i64 %.sroa.speculated.i.i.i.i76, %151
-  %153 = icmp ult i64 %152, %151
-  %154 = tail call i64 @llvm.umin.i64(i64 %152, i64 1152921504606846975)
-  %155 = select i1 %153, i64 1152921504606846975, i64 %154
-  %.not.i.i.i.i77 = icmp ne i64 %155, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i77)
-  %156 = shl nuw nsw i64 %155, 3
-  %157 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %156) #61
-          to label %.noexc88 unwind label %.loopexit150
+_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i74: ; preds = %147
+  %154 = ashr exact i64 %151, 3
+  %.sroa.speculated.i.i.i.i75 = tail call i64 @llvm.umax.i64(i64 %154, i64 1)
+  %155 = add nsw i64 %.sroa.speculated.i.i.i.i75, %154
+  %156 = icmp ult i64 %155, %154
+  %157 = tail call i64 @llvm.umin.i64(i64 %155, i64 1152921504606846975)
+  %158 = select i1 %156, i64 1152921504606846975, i64 %157
+  %.not.i.i.i.i76 = icmp ne i64 %158, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i76)
+  %159 = shl nuw nsw i64 %158, 3
+  %160 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %159) #61
+          to label %.noexc87 unwind label %.loopexit
 
-.noexc88:                                         ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i75
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 %148
-  store float %47, ptr %158, align 4, !tbaa !24
-  %.sroa_idx98 = getelementptr inbounds nuw i8, ptr %158, i64 4
-  store float %53, ptr %.sroa_idx98, align 4, !tbaa !24
-  %.not10.i.i.i.i.i.i78 = icmp eq ptr %145, %46
-  br i1 %.not10.i.i.i.i.i.i78, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i83, label %.lr.ph.i.i.i.i.i.i79
+.noexc87:                                         ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i74
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 %151
+  store float %48, ptr %161, align 4, !tbaa !24
+  %.sroa_idx97 = getelementptr inbounds nuw i8, ptr %161, i64 4
+  store float %54, ptr %.sroa_idx97, align 4, !tbaa !24
+  %.not10.i.i.i.i.i.i77 = icmp eq ptr %148, %47
+  br i1 %.not10.i.i.i.i.i.i77, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i82, label %.lr.ph.i.i.i.i.i.i78
 
-.lr.ph.i.i.i.i.i.i79:                             ; preds = %.noexc88, %.lr.ph.i.i.i.i.i.i79
-  %.012.i.i.i.i.i.i80 = phi ptr [ %161, %.lr.ph.i.i.i.i.i.i79 ], [ %157, %.noexc88 ]
-  %.0911.i.i.i.i.i.i81 = phi ptr [ %160, %.lr.ph.i.i.i.i.i.i79 ], [ %145, %.noexc88 ]
+.lr.ph.i.i.i.i.i.i78:                             ; preds = %.noexc87, %.lr.ph.i.i.i.i.i.i78
+  %.012.i.i.i.i.i.i79 = phi ptr [ %164, %.lr.ph.i.i.i.i.i.i78 ], [ %160, %.noexc87 ]
+  %.0911.i.i.i.i.i.i80 = phi ptr [ %163, %.lr.ph.i.i.i.i.i.i78 ], [ %148, %.noexc87 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2526)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2529)
-  %159 = load i64, ptr %.0911.i.i.i.i.i.i81, align 4, !tbaa !24, !alias.scope !2529, !noalias !2526
-  store i64 %159, ptr %.012.i.i.i.i.i.i80, align 4, !tbaa !24, !alias.scope !2526, !noalias !2529
-  %160 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i81, i64 8
-  %161 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i80, i64 8
-  %.not.i.i.i.i.i.i82 = icmp eq ptr %160, %46
-  br i1 %.not.i.i.i.i.i.i82, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i83, label %.lr.ph.i.i.i.i.i.i79, !llvm.loop !2520
+  %162 = load i64, ptr %.0911.i.i.i.i.i.i80, align 4, !tbaa !24, !alias.scope !2529, !noalias !2526
+  store i64 %162, ptr %.012.i.i.i.i.i.i79, align 4, !tbaa !24, !alias.scope !2526, !noalias !2529
+  %163 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i80, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i79, i64 8
+  %.not.i.i.i.i.i.i81 = icmp eq ptr %163, %47
+  br i1 %.not.i.i.i.i.i.i81, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i82, label %.lr.ph.i.i.i.i.i.i78, !llvm.loop !2520
 
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i83: ; preds = %.lr.ph.i.i.i.i.i.i79, %.noexc88
-  %.0.lcssa.i.i.i.i.i.i84 = phi ptr [ %157, %.noexc88 ], [ %161, %.lr.ph.i.i.i.i.i.i79 ]
-  %162 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i84, i64 8
-  %.not.i23.i.i.i85 = icmp eq ptr %145, null
-  br i1 %.not.i23.i.i.i85, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i86, label %163
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i82: ; preds = %.lr.ph.i.i.i.i.i.i78, %.noexc87
+  %.0.lcssa.i.i.i.i.i.i83 = phi ptr [ %160, %.noexc87 ], [ %164, %.lr.ph.i.i.i.i.i.i78 ]
+  %165 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i83, i64 8
+  %.not.i23.i.i.i84 = icmp eq ptr %148, null
+  br i1 %.not.i23.i.i.i84, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i85, label %166
 
-163:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i83
-  tail call void @_ZdlPvm(ptr noundef nonnull %145, i64 noundef %148) #60
-  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i86
+166:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i82
+  tail call void @_ZdlPvm(ptr noundef nonnull %148, i64 noundef %151) #60
+  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i85
 
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i86: ; preds = %163, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i83
-  store ptr %157, ptr %2, align 8, !tbaa !2514
-  store ptr %162, ptr %41, align 8, !tbaa !2511
-  %164 = getelementptr inbounds nuw %"class.boost::geometry::detail::envelope::longitude_interval", ptr %157, i64 %155
-  store ptr %164, ptr %42, align 8, !tbaa !2513
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i85: ; preds = %166, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i82
+  store ptr %160, ptr %2, align 8, !tbaa !2514
+  store ptr %165, ptr %43, align 8, !tbaa !2513
+  %167 = getelementptr inbounds nuw %"class.boost::geometry::detail::envelope::longitude_interval", ptr %160, i64 %158
+  store ptr %167, ptr %44, align 8, !tbaa !2511
   br label %.critedge
 
-.loopexit150:                                     ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i75
-  %lpad.loopexit152 = landingpad { ptr, i32 }
+.loopexit:                                        ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i74
+  %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %185
+  br label %187
 
-.loopexit.split-lp151:                            ; preds = %150
-  %lpad.loopexit.split-lp153 = landingpad { ptr, i32 }
+.loopexit.split-lp:                               ; preds = %153
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %185
+  br label %187
 
-.critedge:                                        ; preds = %44, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread130, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit53, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit, %141, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i86, %116, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i70
-  %165 = phi ptr [ %45, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread130 ], [ %45, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit53 ], [ %45, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit ], [ %140, %141 ], [ %164, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i86 ], [ %113, %116 ], [ %139, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i70 ], [ %45, %44 ]
-  %166 = phi ptr [ %46, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread130 ], [ %46, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit53 ], [ %46, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit ], [ %143, %141 ], [ %162, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i86 ], [ %118, %116 ], [ %137, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i70 ], [ %46, %44 ]
-  %.0.add = add nuw nsw i64 %.0.idx159, 16
+.critedge:                                        ; preds = %46, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread129, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit52, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit, %144, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i85, %119, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i69
+  %168 = phi ptr [ %47, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread129 ], [ %47, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit52 ], [ %47, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit ], [ %146, %144 ], [ %165, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i85 ], [ %121, %119 ], [ %140, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i69 ], [ %47, %46 ]
+  %.0.add = add nuw nsw i64 %.0.idx158, 16
   %.not = icmp eq i64 %.0.add, 32
-  br i1 %.not, label %43, label %44, !llvm.loop !2531
+  br i1 %.not, label %45, label %46, !llvm.loop !2531
 
-167:                                              ; preds = %43
-  %168 = load float, ptr %3, align 4, !tbaa !2375
-  store float %168, ptr %1, align 4, !tbaa !2375
-  %169 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %170 = load float, ptr %169, align 4, !tbaa !2375
-  %171 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %170, ptr %171, align 4, !tbaa !2375
-  %172 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %173 = load float, ptr %4, align 4, !tbaa !2375
-  store float %173, ptr %172, align 4, !tbaa !2375
-  %174 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  %175 = load float, ptr %174, align 4, !tbaa !2375
-  %176 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store float %175, ptr %176, align 4, !tbaa !2375
+169:                                              ; preds = %45
+  %170 = load float, ptr %3, align 4, !tbaa !2375
+  store float %170, ptr %1, align 4, !tbaa !2375
+  %171 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %172 = load float, ptr %171, align 4, !tbaa !2375
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store float %172, ptr %173, align 4, !tbaa !2375
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %175 = load float, ptr %4, align 4, !tbaa !2375
+  store float %175, ptr %174, align 4, !tbaa !2375
+  %176 = getelementptr inbounds nuw i8, ptr %42, i64 12
+  %177 = load float, ptr %176, align 4, !tbaa !2375
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store float %177, ptr %178, align 4, !tbaa !2375
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %177 = load ptr, ptr %2, align 8, !tbaa !2514
-  %.not.i.i.i = icmp eq ptr %177, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EED2Ev.exit, label %178
+  %179 = load ptr, ptr %2, align 8, !tbaa !2514
+  %.not.i.i.i = icmp eq ptr %179, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EED2Ev.exit, label %180
 
-178:                                              ; preds = %167
-  %179 = load ptr, ptr %42, align 8, !tbaa !2513
-  %180 = ptrtoint ptr %179 to i64
-  %181 = ptrtoint ptr %177 to i64
-  %182 = sub i64 %180, %181
-  call void @_ZdlPvm(ptr noundef nonnull %177, i64 noundef %182) #60
+180:                                              ; preds = %169
+  %181 = load ptr, ptr %44, align 8, !tbaa !2511
+  %182 = ptrtoint ptr %181 to i64
+  %183 = ptrtoint ptr %179 to i64
+  %184 = sub i64 %182, %183
+  call void @_ZdlPvm(ptr noundef nonnull %179, i64 noundef %184) #60
   br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EED2Ev.exit
 
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EED2Ev.exit: ; preds = %167, %178
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EED2Ev.exit: ; preds = %169, %180
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-183:                                              ; preds = %43
-  %184 = landingpad { ptr, i32 }
+185:                                              ; preds = %45
+  %186 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.pre166 = load ptr, ptr %2, align 8, !tbaa !2514
-  br label %185
+  %.pre165 = load ptr, ptr %2, align 8, !tbaa !2514
+  br label %187
 
-185:                                              ; preds = %.loopexit150, %.loopexit.split-lp151, %.loopexit145, %.loopexit.split-lp146, %.loopexit, %.loopexit.split-lp, %183
-  %186 = phi ptr [ %.pre166, %183 ], [ %93, %.loopexit ], [ %93, %.loopexit.split-lp ], [ %120, %.loopexit145 ], [ %120, %.loopexit.split-lp146 ], [ %145, %.loopexit150 ], [ %145, %.loopexit.split-lp151 ]
-  %.pn36.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit147, %.loopexit145 ], [ %lpad.loopexit.split-lp148, %.loopexit.split-lp146 ], [ %lpad.loopexit152, %.loopexit150 ], [ %lpad.loopexit.split-lp153, %.loopexit.split-lp151 ]
-  %.not.i.i.i90 = icmp eq ptr %186, null
-  br i1 %.not.i.i.i90, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EED2Ev.exit91, label %187
+187:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit149, %.loopexit.split-lp150, %.loopexit144, %.loopexit.split-lp145, %185
+  %188 = phi ptr [ %.pre165, %185 ], [ %96, %.loopexit144 ], [ %96, %.loopexit.split-lp145 ], [ %123, %.loopexit149 ], [ %123, %.loopexit.split-lp150 ], [ %148, %.loopexit ], [ %148, %.loopexit.split-lp ]
+  %.pn36.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %186, %185 ], [ %lpad.loopexit146, %.loopexit144 ], [ %lpad.loopexit.split-lp147, %.loopexit.split-lp145 ], [ %lpad.loopexit151, %.loopexit149 ], [ %lpad.loopexit.split-lp152, %.loopexit.split-lp150 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.not.i.i.i89 = icmp eq ptr %188, null
+  br i1 %.not.i.i.i89, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EED2Ev.exit90, label %189
 
-187:                                              ; preds = %185
-  %188 = load ptr, ptr %42, align 8, !tbaa !2513
-  %189 = ptrtoint ptr %188 to i64
-  %190 = ptrtoint ptr %186 to i64
-  %191 = sub i64 %189, %190
-  call void @_ZdlPvm(ptr noundef nonnull %186, i64 noundef %191) #60
-  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EED2Ev.exit91
+189:                                              ; preds = %187
+  %190 = load ptr, ptr %44, align 8, !tbaa !2511
+  %191 = ptrtoint ptr %190 to i64
+  %192 = ptrtoint ptr %188 to i64
+  %193 = sub i64 %191, %192
+  call void @_ZdlPvm(ptr noundef nonnull %188, i64 noundef %193) #60
+  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EED2Ev.exit90
 
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EED2Ev.exit91: ; preds = %185, %187
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EED2Ev.exit90: ; preds = %187, %189
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn36.pn.pn.pn.pn.pn
 }
@@ -161188,7 +161187,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail8envelope28envelope_ra
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !174
   %11 = icmp eq ptr %8, %10
-  br i1 %11, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread49, label %12
+  br i1 %11, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread45, label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -161201,119 +161200,119 @@ _ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envel
   br label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEET_SJ_SJ_T0_.exit
 
 .lr.ph.i.i:                                       ; preds = %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
-  %15 = phi ptr [ %32, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %13, %12 ]
-  %.sroa.02.116.i.i = phi ptr [ %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %8, %12 ]
+  %15 = phi ptr [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %13, %12 ]
+  %.sroa.02.116.i.i = phi ptr [ %32, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %8, %12 ]
   %16 = load float, ptr %15, align 4, !tbaa !2375
   %.fr14.i.i = freeze float %16
   %17 = load float, ptr %.sroa.02.116.i.i, align 4, !tbaa !2375
   %.fr.i.i = freeze float %17
-  %or.cond.i.i.i.i.i.i = fcmp uge float %.fr14.i.i, %.fr.i.i
-  br i1 %or.cond.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i, label %18
+  %18 = fcmp olt float %.fr14.i.i, %.fr.i.i
+  br i1 %18, label %19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
 
-18:                                               ; preds = %.lr.ph.i.i
-  %19 = tail call float @llvm.fabs.f32(float %.fr.i.i)
-  %20 = fcmp ueq float %19, 0x7FF0000000000000
-  br i1 %20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %21
+19:                                               ; preds = %.lr.ph.i.i
+  %20 = tail call float @llvm.fabs.f32(float %.fr.i.i)
+  %21 = fcmp ueq float %20, 0x7FF0000000000000
+  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %22
 
-21:                                               ; preds = %18
-  %22 = tail call float @llvm.fabs.f32(float %.fr14.i.i)
-  %23 = fcmp ueq float %22, 0x7FF0000000000000
-  br i1 %23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i
+22:                                               ; preds = %19
+  %23 = tail call float @llvm.fabs.f32(float %.fr14.i.i)
+  %24 = fcmp ueq float %23, 0x7FF0000000000000
+  br i1 %24, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i: ; preds = %21
-  %24 = fsub float %.fr.i.i, %.fr14.i.i
-  %25 = tail call noundef float @llvm.fabs.f32(float %24)
-  %26 = fcmp olt float %19, %22
-  %27 = select i1 %26, float %22, float %19
-  %28 = fcmp olt float %27, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i.i = select i1 %28, float 1.000000e+00, float %27
-  %29 = fmul float %.sroa.speculated.i.i.i.i.i.i.i.i, 0x3E80000000000000
-  %30 = fcmp ugt float %25, %29
-  br i1 %30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i: ; preds = %22
+  %25 = fsub float %.fr.i.i, %.fr14.i.i
+  %26 = tail call noundef float @llvm.fabs.f32(float %25)
+  %27 = fcmp olt float %20, %23
+  %28 = select i1 %27, float %23, float %20
+  %29 = fcmp olt float %28, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i.i = select i1 %29, float 1.000000e+00, float %28
+  %30 = fmul float %.sroa.speculated.i.i.i.i.i.i.i.i, 0x3E80000000000000
+  %31 = fcmp ugt float %26, %30
+  br i1 %31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i, %21, %18
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i, %22, %19
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i, %.lr.ph.i.i
-  %31 = phi ptr [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i ], [ %.sroa.02.116.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i ], [ %.sroa.02.116.i.i, %.lr.ph.i.i ]
-  %32 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.not.i.i = icmp eq ptr %32, %10
+  %32 = phi ptr [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i ], [ %.sroa.02.116.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i ], [ %.sroa.02.116.i.i, %.lr.ph.i.i ]
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.not.i.i = icmp eq ptr %33, %10
   br i1 %.not.i.i, label %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit, label %.lr.ph.i.i, !llvm.loop !2532
 
 _ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
-  %33 = load float, ptr %31, align 4, !tbaa !2375
-  store float %33, ptr %1, align 4, !tbaa !2375
+  %34 = load float, ptr %32, align 4, !tbaa !2375
+  store float %34, ptr %1, align 4, !tbaa !2375
   br label %.lr.ph.i.i23
 
 .lr.ph.i.i23:                                     ; preds = %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
-  %34 = phi ptr [ %53, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %13, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit ]
-  %.sroa.02.117.i.i = phi ptr [ %52, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %8, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit ]
-  %.sroa.06.016.i.i = phi ptr [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %8, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.02.117.i.i, i64 4
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.06.016.i.i, i64 12
-  %37 = load float, ptr %35, align 4, !tbaa !2375
-  %.fr14.i.i24 = freeze float %37
+  %35 = phi ptr [ %55, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %13, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit ]
+  %.sroa.02.117.i.i = phi ptr [ %54, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %8, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit ]
+  %.sroa.06.016.i.i = phi ptr [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %8, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.02.117.i.i, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.06.016.i.i, i64 12
   %38 = load float, ptr %36, align 4, !tbaa !2375
-  %.fr.i.i25 = freeze float %38
-  %or.cond.i.i.i.i.i.i26 = fcmp uge float %.fr14.i.i24, %.fr.i.i25
-  br i1 %or.cond.i.i.i.i.i.i26, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i, label %39
+  %.fr14.i.i24 = freeze float %38
+  %39 = load float, ptr %37, align 4, !tbaa !2375
+  %.fr.i.i25 = freeze float %39
+  %40 = fcmp olt float %.fr14.i.i24, %.fr.i.i25
+  br i1 %40, label %41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
 
-39:                                               ; preds = %.lr.ph.i.i23
-  %40 = tail call float @llvm.fabs.f32(float %.fr.i.i25)
-  %41 = fcmp ueq float %40, 0x7FF0000000000000
-  br i1 %41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %42
+41:                                               ; preds = %.lr.ph.i.i23
+  %42 = tail call float @llvm.fabs.f32(float %.fr.i.i25)
+  %43 = fcmp ueq float %42, 0x7FF0000000000000
+  br i1 %43, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %44
 
-42:                                               ; preds = %39
-  %43 = tail call float @llvm.fabs.f32(float %.fr14.i.i24)
-  %44 = fcmp ueq float %43, 0x7FF0000000000000
-  br i1 %44, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i
+44:                                               ; preds = %41
+  %45 = tail call float @llvm.fabs.f32(float %.fr14.i.i24)
+  %46 = fcmp ueq float %45, 0x7FF0000000000000
+  br i1 %46, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i: ; preds = %42
-  %45 = fsub float %.fr.i.i25, %.fr14.i.i24
-  %46 = tail call noundef float @llvm.fabs.f32(float %45)
-  %47 = fcmp olt float %40, %43
-  %48 = select i1 %47, float %43, float %40
-  %49 = fcmp olt float %48, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i.i27 = select i1 %49, float 1.000000e+00, float %48
-  %50 = fmul float %.sroa.speculated.i.i.i.i.i.i.i.i27, 0x3E80000000000000
-  %51 = fcmp ugt float %46, %50
-  br i1 %51, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i: ; preds = %44
+  %47 = fsub float %.fr.i.i25, %.fr14.i.i24
+  %48 = tail call noundef float @llvm.fabs.f32(float %47)
+  %49 = fcmp olt float %42, %45
+  %50 = select i1 %49, float %45, float %42
+  %51 = fcmp olt float %50, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i.i28 = select i1 %51, float 1.000000e+00, float %50
+  %52 = fmul float %.sroa.speculated.i.i.i.i.i.i.i.i28, 0x3E80000000000000
+  %53 = fcmp ugt float %48, %52
+  br i1 %53, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i, %42, %39
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i, %44, %41
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i, %.lr.ph.i.i23
-  %52 = phi ptr [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i ], [ %.sroa.02.117.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i ], [ %.sroa.02.117.i.i, %.lr.ph.i.i23 ]
-  %53 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %.not.i.i28 = icmp eq ptr %53, %10
-  br i1 %.not.i.i28, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEET_SJ_SJ_T0_.exit, label %.lr.ph.i.i23, !llvm.loop !2533
+  %54 = phi ptr [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i ], [ %.sroa.02.117.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i ], [ %.sroa.02.117.i.i, %.lr.ph.i.i23 ]
+  %55 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %.not.i.i26 = icmp eq ptr %55, %10
+  br i1 %.not.i.i26, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEET_SJ_SJ_T0_.exit, label %.lr.ph.i.i23, !llvm.loop !2533
 
 _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEET_SJ_SJ_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit.thread
-  %.sroa.02.0.i.i29 = phi ptr [ %8, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit.thread ], [ %52, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ]
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.i.i29, i64 4
-  %55 = load float, ptr %54, align 4, !tbaa !2375
-  store float %55, ptr %2, align 4, !tbaa !2375
-  %56 = load float, ptr %1, align 4, !tbaa !2375
-  %57 = fsub float %55, %56
-  %or.cond.i.i30 = fcmp ule float %57, 1.800000e+02
-  br i1 %or.cond.i.i30, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread49, label %58
+  %.sroa.02.0.i.i27 = phi ptr [ %8, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit.thread ], [ %54, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIfEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ]
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.i.i27, i64 4
+  %57 = load float, ptr %56, align 4, !tbaa !2375
+  store float %57, ptr %2, align 4, !tbaa !2375
+  %58 = load float, ptr %1, align 4, !tbaa !2375
+  %59 = fsub float %57, %58
+  %60 = fcmp ogt float %59, 1.800000e+02
+  br i1 %60, label %61, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread45
 
-58:                                               ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEET_SJ_SJ_T0_.exit
-  %59 = fcmp ueq float %57, 0x7FF0000000000000
-  br i1 %59, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit
+61:                                               ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEET_SJ_SJ_T0_.exit
+  %62 = fcmp ueq float %59, 0x7FF0000000000000
+  br i1 %62, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit
 
-_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit: ; preds = %58
-  %60 = fadd float %57, -1.800000e+02
-  %61 = tail call noundef float @llvm.fabs.f32(float %60)
-  %62 = fcmp olt float %57, 1.800000e+02
-  %63 = select i1 %62, float 1.800000e+02, float %57
-  %64 = fcmp olt float %63, 1.000000e+00
-  %.sroa.speculated.i.i.i.i = select i1 %64, float 1.000000e+00, float %63
-  %65 = fmul float %.sroa.speculated.i.i.i.i, 0x3E80000000000000
-  %66 = fcmp ugt float %61, %65
-  br i1 %66, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread49
+_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit: ; preds = %61
+  %63 = fadd float %59, -1.800000e+02
+  %64 = tail call noundef float @llvm.fabs.f32(float %63)
+  %65 = fcmp olt float %59, 1.800000e+02
+  %66 = select i1 %65, float 1.800000e+02, float %59
+  %67 = fcmp olt float %66, 1.000000e+00
+  %.sroa.speculated.i.i.i.i = select i1 %67, float 1.000000e+00, float %66
+  %68 = fmul float %.sroa.speculated.i.i.i.i, 0x3E80000000000000
+  %69 = fcmp ugt float %64, %68
+  br i1 %69, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread45
 
-_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread: ; preds = %58, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit
+_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread: ; preds = %61, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %5, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -161321,107 +161320,107 @@ _ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread: ; preds = %58, %_ZN5b
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN5boost8geometry5sweepISt6vectorINS0_6detail8envelope18longitude_intervalIfEESaIS6_EESt14priority_queueINS3_16max_interval_gap11sweep_eventIS6_EES2_ISC_SaISC_EENSA_13event_greaterISC_EEENSA_22initialization_visitorENSA_13event_visitorISC_EENS3_5sweep19no_interrupt_policyEEEvRKT_RT0_RT1_RT2_RKT3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(25) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %67 unwind label %79
+          to label %70 unwind label %82
 
-67:                                               ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread
+70:                                               ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %69 = load float, ptr %68, align 8, !tbaa !2375
-  %70 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %71 = load float, ptr %70, align 4, !tbaa !2375
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %72 = load float, ptr %71, align 8, !tbaa !2375
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %74 = load float, ptr %73, align 4, !tbaa !2375
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %72 = load ptr, ptr %5, align 8, !tbaa !2534
-  %.not.i.i.i.i.i = icmp eq ptr %72, null
-  br i1 %.not.i.i.i.i.i, label %_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIfEESaIS6_EEfEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit, label %73
+  %75 = load ptr, ptr %5, align 8, !tbaa !2534
+  %.not.i.i.i.i.i = icmp eq ptr %75, null
+  br i1 %.not.i.i.i.i.i, label %_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIfEESaIS6_EEfEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit, label %76
 
-73:                                               ; preds = %67
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !2536
-  %76 = ptrtoint ptr %75 to i64
-  %77 = ptrtoint ptr %72 to i64
-  %78 = sub i64 %76, %77
-  call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %78) #60
+76:                                               ; preds = %70
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %78 = load ptr, ptr %77, align 8, !tbaa !2536
+  %79 = ptrtoint ptr %78 to i64
+  %80 = ptrtoint ptr %75 to i64
+  %81 = sub i64 %79, %80
+  call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %81) #60
   br label %_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIfEESaIS6_EEfEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit
 
-79:                                               ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread
-  %80 = landingpad { ptr, i32 }
+82:                                               ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread
+  %83 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %81 = load ptr, ptr %5, align 8, !tbaa !2534
-  %.not.i.i.i.i4.i = icmp eq ptr %81, null
-  br i1 %.not.i.i.i.i4.i, label %_ZNSt14priority_queueIN5boost8geometry6detail16max_interval_gap11sweep_eventINS2_8envelope18longitude_intervalIfEEEESt6vectorIS8_SaIS8_EENS3_13event_greaterIS8_EEED2Ev.exit5.i, label %82
+  %84 = load ptr, ptr %5, align 8, !tbaa !2534
+  %.not.i.i.i.i4.i = icmp eq ptr %84, null
+  br i1 %.not.i.i.i.i4.i, label %_ZNSt14priority_queueIN5boost8geometry6detail16max_interval_gap11sweep_eventINS2_8envelope18longitude_intervalIfEEEESt6vectorIS8_SaIS8_EENS3_13event_greaterIS8_EEED2Ev.exit5.i, label %85
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !2536
-  %85 = ptrtoint ptr %84 to i64
-  %86 = ptrtoint ptr %81 to i64
-  %87 = sub i64 %85, %86
-  call void @_ZdlPvm(ptr noundef nonnull %81, i64 noundef %87) #60
+85:                                               ; preds = %82
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %87 = load ptr, ptr %86, align 8, !tbaa !2536
+  %88 = ptrtoint ptr %87 to i64
+  %89 = ptrtoint ptr %84 to i64
+  %90 = sub i64 %88, %89
+  call void @_ZdlPvm(ptr noundef nonnull %84, i64 noundef %90) #60
   br label %_ZNSt14priority_queueIN5boost8geometry6detail16max_interval_gap11sweep_eventINS2_8envelope18longitude_intervalIfEEEESt6vectorIS8_SaIS8_EENS3_13event_greaterIS8_EEED2Ev.exit5.i
 
-_ZNSt14priority_queueIN5boost8geometry6detail16max_interval_gap11sweep_eventINS2_8envelope18longitude_intervalIfEEEESt6vectorIS8_SaIS8_EENS3_13event_greaterIS8_EEED2Ev.exit5.i: ; preds = %82, %79
+_ZNSt14priority_queueIN5boost8geometry6detail16max_interval_gap11sweep_eventINS2_8envelope18longitude_intervalIfEEEESt6vectorIS8_SaIS8_EENS3_13event_greaterIS8_EEED2Ev.exit5.i: ; preds = %85, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %80
+  resume { ptr, i32 } %83
 
-_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIfEESaIS6_EEfEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit: ; preds = %67, %73
-  %88 = fsub float %71, %69
+_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIfEESaIS6_EEfEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit: ; preds = %70, %76
+  %91 = fsub float %74, %72
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %or.cond.i.i31 = fcmp ule float %88, 0.000000e+00
-  br i1 %or.cond.i.i31, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread49, label %89
+  %92 = fcmp ogt float %91, 0.000000e+00
+  br i1 %92, label %93, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread45
 
-89:                                               ; preds = %_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIfEESaIS6_EEfEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit
-  %90 = fcmp ueq float %88, 0x7FF0000000000000
-  br i1 %90, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34.thread, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34
+93:                                               ; preds = %_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIfEESaIS6_EEfEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit
+  %94 = fcmp ueq float %91, 0x7FF0000000000000
+  br i1 %94, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit31.thread, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit31
 
-_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34: ; preds = %89
-  %91 = fcmp olt float %88, 1.000000e+00
-  %.sroa.speculated.i.i.i.i32 = select i1 %91, float 1.000000e+00, float %88
-  %92 = fmul float %.sroa.speculated.i.i.i.i32, 0x3E80000000000000
-  %93 = fcmp ugt float %88, %92
-  br i1 %93, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34.thread.thread, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread49
+_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit31: ; preds = %93
+  %95 = fcmp olt float %91, 1.000000e+00
+  %.sroa.speculated.i.i.i.i30 = select i1 %95, float 1.000000e+00, float %91
+  %96 = fmul float %.sroa.speculated.i.i.i.i30, 0x3E80000000000000
+  %97 = fcmp ugt float %91, %96
+  br i1 %97, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit31.thread.thread, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread45
 
-_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34.thread: ; preds = %89
-  %94 = load float, ptr %1, align 4, !tbaa !2375
-  %95 = fadd float %94, 3.600000e+02
-  %96 = load float, ptr %2, align 4, !tbaa !2375
-  %97 = fsub float %95, %96
-  %or.cond.i.i35 = fcmp uge float %97, %88
-  br i1 %or.cond.i.i35, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread49, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit38.thread
-
-_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34.thread.thread: ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34
+_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit31.thread: ; preds = %93
   %98 = load float, ptr %1, align 4, !tbaa !2375
   %99 = fadd float %98, 3.600000e+02
   %100 = load float, ptr %2, align 4, !tbaa !2375
   %101 = fsub float %99, %100
-  %or.cond.i.i3573 = fcmp uge float %101, %88
-  br i1 %or.cond.i.i3573, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread49, label %102
+  %102 = fcmp olt float %101, %91
+  br i1 %102, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34.thread, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread45
 
-102:                                              ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34.thread.thread
-  %103 = call float @llvm.fabs.f32(float %101)
-  %104 = fcmp ueq float %103, 0x7FF0000000000000
-  br i1 %104, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit38.thread, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit38
+_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit31.thread.thread: ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit31
+  %103 = load float, ptr %1, align 4, !tbaa !2375
+  %104 = fadd float %103, 3.600000e+02
+  %105 = load float, ptr %2, align 4, !tbaa !2375
+  %106 = fsub float %104, %105
+  %107 = fcmp olt float %106, %91
+  br i1 %107, label %108, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread45
 
-_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit38: ; preds = %102
-  %105 = fsub float %88, %101
-  %106 = call noundef float @llvm.fabs.f32(float %105)
-  %107 = fcmp olt float %88, %103
-  %108 = select i1 %107, float %103, float %88
-  %109 = fcmp olt float %108, 1.000000e+00
-  %.sroa.speculated.i.i.i.i36 = select i1 %109, float 1.000000e+00, float %108
-  %110 = fmul float %.sroa.speculated.i.i.i.i36, 0x3E80000000000000
-  %111 = fcmp ugt float %106, %110
-  br i1 %111, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit38.thread, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread49
+108:                                              ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit31.thread.thread
+  %109 = call float @llvm.fabs.f32(float %106)
+  %110 = fcmp ueq float %109, 0x7FF0000000000000
+  br i1 %110, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34.thread, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34
 
-_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit38.thread: ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34.thread, %102, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit38
-  store float %71, ptr %1, align 4, !tbaa !2375
-  %112 = fadd float %69, 3.600000e+02
-  store float %112, ptr %2, align 4, !tbaa !2375
-  br label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread49
+_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34: ; preds = %108
+  %111 = fsub float %91, %106
+  %112 = call noundef float @llvm.fabs.f32(float %111)
+  %113 = fcmp olt float %91, %109
+  %114 = select i1 %113, float %109, float %91
+  %115 = fcmp olt float %114, 1.000000e+00
+  %.sroa.speculated.i.i.i.i33 = select i1 %115, float 1.000000e+00, float %114
+  %116 = fmul float %.sroa.speculated.i.i.i.i33, 0x3E80000000000000
+  %117 = fcmp ugt float %112, %116
+  br i1 %117, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34.thread, label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread45
 
-_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread49: ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34.thread.thread, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34.thread, %_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIfEESaIS6_EEfEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEET_SJ_SJ_T0_.exit, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit38.thread, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit38, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit, %3
+_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34.thread: ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit31.thread, %108, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34
+  store float %74, ptr %1, align 4, !tbaa !2375
+  %118 = fadd float %72, 3.600000e+02
+  store float %118, ptr %2, align 4, !tbaa !2375
+  br label %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread45
+
+_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit.thread45: ; preds = %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit31.thread.thread, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit31.thread, %_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIfEESaIS6_EEfEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIfEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEET_SJ_SJ_T0_.exit, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit31, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34.thread, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit34, %_ZN5boost8geometry4math6largerIffEEbRKT_RKT0_.exit, %3
   ret void
 }
 
@@ -163223,31 +163222,31 @@ _ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointI
   store float %.sroa.9.0.copyload.i, ptr %10, align 4, !tbaa !2375
   %16 = fsub float %.sroa.0.0.copyload.i, %.sroa.7.0.copyload.i
   %17 = tail call noundef float @llvm.fabs.f32(float %16)
-  %or.cond.i.i.i.i.i.i.i.i = fcmp ult float %17, 3.600000e+02
-  br i1 %or.cond.i.i.i.i.i.i.i.i, label %18, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i
+  %18 = fcmp ult float %17, 3.600000e+02
+  br i1 %18, label %19, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i
 
-18:                                               ; preds = %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i
-  %19 = fcmp ueq float %17, 0x7FF0000000000000
-  br i1 %19, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i, label %20
+19:                                               ; preds = %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i
+  %20 = fcmp ueq float %17, 0x7FF0000000000000
+  br i1 %20, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i, label %21
 
-20:                                               ; preds = %18
-  %21 = fsub float 3.600000e+02, %17
-  %22 = tail call noundef float @llvm.fabs.f32(float %21)
-  %23 = fcmp ogt float %17, 3.600000e+02
-  %24 = select i1 %23, float %17, float 3.600000e+02
-  %25 = fcmp olt float %24, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i.i.i.i = select i1 %25, float 1.000000e+00, float %24
-  %26 = fmul float %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, 0x3E80000000000000
-  %27 = fcmp ole float %22, %26
+21:                                               ; preds = %19
+  %22 = fsub float 3.600000e+02, %17
+  %23 = tail call noundef float @llvm.fabs.f32(float %22)
+  %24 = fcmp ogt float %17, 3.600000e+02
+  %25 = select i1 %24, float %17, float 3.600000e+02
+  %26 = fcmp olt float %25, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i.i.i.i = select i1 %26, float 1.000000e+00, float %25
+  %27 = fmul float %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, 0x3E80000000000000
+  %28 = fcmp ole float %23, %27
   br label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i
 
-_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i: ; preds = %20, %18, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i
-  %.0.i.i.i.i.i.i.i.i = phi i1 [ true, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i ], [ %27, %20 ], [ false, %18 ]
+_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i: ; preds = %21, %19, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i
+  %.0.i.i.i.i.i.i.i.i = phi i1 [ true, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i ], [ %28, %21 ], [ false, %19 ]
   call void @_ZN5boost8geometry4math6detail36normalize_spheroidal_box_coordinatesINS0_6degreeEfLb1EE5applyERfS6_S6_S6_b(ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, i1 noundef zeroext %.0.i.i.i.i.i.i.i.i)
-  %28 = load float, ptr %7, align 4, !tbaa !2375
-  %29 = load float, ptr %8, align 4, !tbaa !2375
-  %30 = load float, ptr %9, align 4, !tbaa !2375
-  %31 = load float, ptr %10, align 4, !tbaa !2375
+  %29 = load float, ptr %7, align 4, !tbaa !2375
+  %30 = load float, ptr %8, align 4, !tbaa !2375
+  %31 = load float, ptr %9, align 4, !tbaa !2375
+  %32 = load float, ptr %10, align 4, !tbaa !2375
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -163255,17 +163254,17 @@ _ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5p
   br label %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit
 
 _ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit: ; preds = %2, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i
-  %.sroa.9.0.i = phi float [ %31, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0xC7EFFFFFE0000000, %2 ]
-  %.sroa.7.0.i = phi float [ %30, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0xC7EFFFFFE0000000, %2 ]
-  %.sroa.5.0.i = phi float [ %29, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0x47EFFFFFE0000000, %2 ]
-  %.sroa.0.0.i = phi float [ %28, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0x47EFFFFFE0000000, %2 ]
+  %.sroa.9.0.i = phi float [ %32, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0xC7EFFFFFE0000000, %2 ]
+  %.sroa.7.0.i = phi float [ %31, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0xC7EFFFFFE0000000, %2 ]
+  %.sroa.5.0.i = phi float [ %30, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0x47EFFFFFE0000000, %2 ]
+  %.sroa.0.0.i = phi float [ %29, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0x47EFFFFFE0000000, %2 ]
   store float %.sroa.0.0.i, ptr %11, align 16, !tbaa !2375
-  %32 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store float %.sroa.5.0.i, ptr %32, align 4, !tbaa !2375
-  %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store float %.sroa.7.0.i, ptr %33, align 8, !tbaa !2375
-  %34 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store float %.sroa.9.0.i, ptr %34, align 4, !tbaa !2375
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store float %.sroa.5.0.i, ptr %33, align 4, !tbaa !2375
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store float %.sroa.7.0.i, ptr %34, align 8, !tbaa !2375
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  store float %.sroa.9.0.i, ptr %35, align 4, !tbaa !2375
   %.sroa.0.0.copyload.i3 = load float, ptr %0, align 4
   %.sroa.5.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.5.0.copyload.i5 = load float, ptr %.sroa.5.0..sroa_idx.i4, align 4, !tbaa !24
@@ -163273,14 +163272,14 @@ _ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3bo
   %.sroa.7.0.copyload.i7 = load float, ptr %.sroa.7.0..sroa_idx.i6, align 4
   %.sroa.9.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.sroa.9.0.copyload.i9 = load float, ptr %.sroa.9.0..sroa_idx.i8, align 4, !tbaa !24
-  %35 = fcmp oeq float %.sroa.0.0.copyload.i3, 0x47EFFFFFE0000000
-  %36 = fcmp oeq float %.sroa.5.0.copyload.i5, 0x47EFFFFFE0000000
-  %or.cond.i.i10 = select i1 %35, i1 %36, i1 false
-  %37 = fcmp oeq float %.sroa.7.0.copyload.i7, 0xC7EFFFFFE0000000
-  %or.cond13.i.i11 = select i1 %or.cond.i.i10, i1 %37, i1 false
-  %38 = fcmp oeq float %.sroa.9.0.copyload.i9, 0xC7EFFFFFE0000000
-  %or.cond.i12 = select i1 %or.cond13.i.i11, i1 %38, i1 false
-  br i1 %or.cond.i12, label %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit22, label %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13
+  %36 = fcmp oeq float %.sroa.0.0.copyload.i3, 0x47EFFFFFE0000000
+  %37 = fcmp oeq float %.sroa.5.0.copyload.i5, 0x47EFFFFFE0000000
+  %or.cond.i.i10 = select i1 %36, i1 %37, i1 false
+  %38 = fcmp oeq float %.sroa.7.0.copyload.i7, 0xC7EFFFFFE0000000
+  %or.cond13.i.i11 = select i1 %or.cond.i.i10, i1 %38, i1 false
+  %39 = fcmp oeq float %.sroa.9.0.copyload.i9, 0xC7EFFFFFE0000000
+  %or.cond.i12 = select i1 %or.cond13.i.i11, i1 %39, i1 false
+  br i1 %or.cond.i12, label %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit21, label %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13
 
 _ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13: ; preds = %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -163291,52 +163290,52 @@ _ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointI
   store float %.sroa.7.0.copyload.i7, ptr %5, align 4, !tbaa !2375
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float %.sroa.9.0.copyload.i9, ptr %6, align 4, !tbaa !2375
-  %39 = fsub float %.sroa.0.0.copyload.i3, %.sroa.7.0.copyload.i7
-  %40 = call noundef float @llvm.fabs.f32(float %39)
-  %or.cond.i.i.i.i.i.i.i.i14 = fcmp ult float %40, 3.600000e+02
-  br i1 %or.cond.i.i.i.i.i.i.i.i14, label %41, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15
+  %40 = fsub float %.sroa.0.0.copyload.i3, %.sroa.7.0.copyload.i7
+  %41 = call noundef float @llvm.fabs.f32(float %40)
+  %42 = fcmp ult float %41, 3.600000e+02
+  br i1 %42, label %43, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14
 
-41:                                               ; preds = %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13
-  %42 = fcmp ueq float %40, 0x7FF0000000000000
-  br i1 %42, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15, label %43
+43:                                               ; preds = %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13
+  %44 = fcmp ueq float %41, 0x7FF0000000000000
+  br i1 %44, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14, label %45
 
-43:                                               ; preds = %41
-  %44 = fsub float 3.600000e+02, %40
-  %45 = call noundef float @llvm.fabs.f32(float %44)
-  %46 = fcmp ogt float %40, 3.600000e+02
-  %47 = select i1 %46, float %40, float 3.600000e+02
-  %48 = fcmp olt float %47, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i.i.i.i21 = select i1 %48, float 1.000000e+00, float %47
-  %49 = fmul float %.sroa.speculated.i.i.i.i.i.i.i.i.i.i21, 0x3E80000000000000
-  %50 = fcmp ole float %45, %49
-  br label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15
+45:                                               ; preds = %43
+  %46 = fsub float 3.600000e+02, %41
+  %47 = call noundef float @llvm.fabs.f32(float %46)
+  %48 = fcmp ogt float %41, 3.600000e+02
+  %49 = select i1 %48, float %41, float 3.600000e+02
+  %50 = fcmp olt float %49, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i.i.i.i20 = select i1 %50, float 1.000000e+00, float %49
+  %51 = fmul float %.sroa.speculated.i.i.i.i.i.i.i.i.i.i20, 0x3E80000000000000
+  %52 = fcmp ole float %47, %51
+  br label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14
 
-_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15: ; preds = %43, %41, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13
-  %.0.i.i.i.i.i.i.i.i16 = phi i1 [ true, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13 ], [ %50, %43 ], [ false, %41 ]
-  call void @_ZN5boost8geometry4math6detail36normalize_spheroidal_box_coordinatesINS0_6degreeEfLb1EE5applyERfS6_S6_S6_b(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, i1 noundef zeroext %.0.i.i.i.i.i.i.i.i16)
-  %51 = load float, ptr %3, align 4, !tbaa !2375
-  %52 = load float, ptr %4, align 4, !tbaa !2375
-  %53 = load float, ptr %5, align 4, !tbaa !2375
-  %54 = load float, ptr %6, align 4, !tbaa !2375
+_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14: ; preds = %45, %43, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13
+  %.0.i.i.i.i.i.i.i.i15 = phi i1 [ true, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13 ], [ %52, %45 ], [ false, %43 ]
+  call void @_ZN5boost8geometry4math6detail36normalize_spheroidal_box_coordinatesINS0_6degreeEfLb1EE5applyERfS6_S6_S6_b(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, i1 noundef zeroext %.0.i.i.i.i.i.i.i.i15)
+  %53 = load float, ptr %3, align 4, !tbaa !2375
+  %54 = load float, ptr %4, align 4, !tbaa !2375
+  %55 = load float, ptr %5, align 4, !tbaa !2375
+  %56 = load float, ptr %6, align 4, !tbaa !2375
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit22
+  br label %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit21
 
-_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit22: ; preds = %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15
-  %.sroa.9.0.i17 = phi float [ %54, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15 ], [ 0xC7EFFFFFE0000000, %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit ]
-  %.sroa.7.0.i18 = phi float [ %53, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15 ], [ 0xC7EFFFFFE0000000, %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit ]
-  %.sroa.5.0.i19 = phi float [ %52, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15 ], [ 0x47EFFFFFE0000000, %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit ]
-  %.sroa.0.0.i20 = phi float [ %51, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15 ], [ 0x47EFFFFFE0000000, %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit ]
-  %55 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store float %.sroa.0.0.i20, ptr %55, align 16, !tbaa !2375
-  %56 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  store float %.sroa.5.0.i19, ptr %56, align 4, !tbaa !2375
-  %57 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store float %.sroa.7.0.i18, ptr %57, align 8, !tbaa !2375
-  %58 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  store float %.sroa.9.0.i17, ptr %58, align 4, !tbaa !2375
+_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit21: ; preds = %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14
+  %.sroa.9.0.i16 = phi float [ %56, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14 ], [ 0xC7EFFFFFE0000000, %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit ]
+  %.sroa.7.0.i17 = phi float [ %55, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14 ], [ 0xC7EFFFFFE0000000, %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit ]
+  %.sroa.5.0.i18 = phi float [ %54, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14 ], [ 0x47EFFFFFE0000000, %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit ]
+  %.sroa.0.0.i19 = phi float [ %53, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14 ], [ 0x47EFFFFFE0000000, %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit ]
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store float %.sroa.0.0.i19, ptr %57, align 16, !tbaa !2375
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  store float %.sroa.5.0.i18, ptr %58, align 4, !tbaa !2375
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store float %.sroa.7.0.i17, ptr %59, align 8, !tbaa !2375
+  %60 = getelementptr inbounds nuw i8, ptr %11, i64 28
+  store float %.sroa.9.0.i16, ptr %60, align 4, !tbaa !2375
   call void @_ZN5boost8geometry6detail8envelope23envelope_range_of_boxes5applyIA2_NS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_(ptr noundef nonnull align 4 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(16) %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
@@ -182586,31 +182585,31 @@ _ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointI
   store double %.sroa.9.0.copyload.i, ptr %7, align 8, !tbaa !3067
   %26 = fsub double %.sroa.0.0.copyload.i, %.sroa.7.0.copyload.i
   %27 = call noundef double @llvm.fabs.f64(double %26)
-  %or.cond.i.i.i.i.i.i.i.i = fcmp ult double %27, 3.600000e+02
-  br i1 %or.cond.i.i.i.i.i.i.i.i, label %28, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i
+  %28 = fcmp ult double %27, 3.600000e+02
+  br i1 %28, label %29, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i
 
-28:                                               ; preds = %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i
-  %29 = fcmp ueq double %27, 0x7FF0000000000000
-  br i1 %29, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i, label %30
+29:                                               ; preds = %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i
+  %30 = fcmp ueq double %27, 0x7FF0000000000000
+  br i1 %30, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i, label %31
 
-30:                                               ; preds = %28
-  %31 = fsub double 3.600000e+02, %27
-  %32 = call noundef double @llvm.fabs.f64(double %31)
-  %33 = fcmp ogt double %27, 3.600000e+02
-  %34 = select i1 %33, double %27, double 3.600000e+02
-  %35 = fcmp olt double %34, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i.i.i.i = select i1 %35, double 1.000000e+00, double %34
-  %36 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, 0x3CB0000000000000
-  %37 = fcmp ole double %32, %36
+31:                                               ; preds = %29
+  %32 = fsub double 3.600000e+02, %27
+  %33 = call noundef double @llvm.fabs.f64(double %32)
+  %34 = fcmp ogt double %27, 3.600000e+02
+  %35 = select i1 %34, double %27, double 3.600000e+02
+  %36 = fcmp olt double %35, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i.i.i.i = select i1 %36, double 1.000000e+00, double %35
+  %37 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, 0x3CB0000000000000
+  %38 = fcmp ole double %33, %37
   br label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i
 
-_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i: ; preds = %30, %28, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i
-  %.0.i.i.i.i.i.i.i.i = phi i1 [ true, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i ], [ %37, %30 ], [ false, %28 ]
+_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i: ; preds = %31, %29, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i
+  %.0.i.i.i.i.i.i.i.i = phi i1 [ true, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i ], [ %38, %31 ], [ false, %29 ]
   call void @_ZN5boost8geometry4math6detail36normalize_spheroidal_box_coordinatesINS0_6degreeEdLb1EE5applyERdS6_S6_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext %.0.i.i.i.i.i.i.i.i)
-  %38 = load double, ptr %4, align 8, !tbaa !3067
-  %39 = load double, ptr %5, align 8, !tbaa !3067
-  %40 = load double, ptr %6, align 8, !tbaa !3067
-  %41 = load double, ptr %7, align 8, !tbaa !3067
+  %39 = load double, ptr %4, align 8, !tbaa !3067
+  %40 = load double, ptr %5, align 8, !tbaa !3067
+  %41 = load double, ptr %6, align 8, !tbaa !3067
+  %42 = load double, ptr %7, align 8, !tbaa !3067
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -182618,18 +182617,18 @@ _ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5p
   br label %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit
 
 _ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit: ; preds = %3, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i
-  %.sroa.9.0.i = phi double [ %41, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0xFFEFFFFFFFFFFFFF, %3 ]
-  %.sroa.7.0.i = phi double [ %40, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0xFFEFFFFFFFFFFFFF, %3 ]
-  %.sroa.5.0.i = phi double [ %39, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0x7FEFFFFFFFFFFFFF, %3 ]
-  %.sroa.0.0.i = phi double [ %38, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0x7FEFFFFFFFFFFFFF, %3 ]
-  %42 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store double %.sroa.0.0.i, ptr %42, align 16, !tbaa !3067
-  %43 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store double %.sroa.5.0.i, ptr %43, align 8, !tbaa !3067
-  %44 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store double %.sroa.7.0.i, ptr %44, align 16, !tbaa !3067
-  %45 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store double %.sroa.9.0.i, ptr %45, align 8, !tbaa !3067
+  %.sroa.9.0.i = phi double [ %42, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0xFFEFFFFFFFFFFFFF, %3 ]
+  %.sroa.7.0.i = phi double [ %41, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0xFFEFFFFFFFFFFFFF, %3 ]
+  %.sroa.5.0.i = phi double [ %40, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0x7FEFFFFFFFFFFFFF, %3 ]
+  %.sroa.0.0.i = phi double [ %39, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0x7FEFFFFFFFFFFFFF, %3 ]
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store double %.sroa.0.0.i, ptr %43, align 16, !tbaa !3067
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store double %.sroa.5.0.i, ptr %44, align 8, !tbaa !3067
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  store double %.sroa.7.0.i, ptr %45, align 16, !tbaa !3067
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  store double %.sroa.9.0.i, ptr %46, align 8, !tbaa !3067
   call void @_ZN5boost8geometry6detail8envelope23envelope_range_of_boxes5applyIA2_NS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(32) %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
@@ -182648,485 +182647,484 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail8envelope23envelope_ra
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load double, ptr %7, align 8, !tbaa !3067
   %.fr.i.i = freeze double %8
-  %or.cond.i.i.i.i.i.i = fcmp uge double %.fr22.i.i, %.fr.i.i
-  br i1 %or.cond.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i, label %9
+  %9 = fcmp olt double %.fr22.i.i, %.fr.i.i
+  br i1 %9, label %10, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
 
-9:                                                ; preds = %.lr.ph.i.i
-  %10 = tail call double @llvm.fabs.f64(double %.fr.i.i)
-  %11 = fcmp ueq double %10, 0x7FF0000000000000
-  br i1 %11, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %12
+10:                                               ; preds = %.lr.ph.i.i
+  %11 = tail call double @llvm.fabs.f64(double %.fr.i.i)
+  %12 = fcmp ueq double %11, 0x7FF0000000000000
+  br i1 %12, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %13
 
-12:                                               ; preds = %9
-  %13 = tail call double @llvm.fabs.f64(double %.fr22.i.i)
-  %14 = fcmp ueq double %13, 0x7FF0000000000000
-  br i1 %14, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i
+13:                                               ; preds = %10
+  %14 = tail call double @llvm.fabs.f64(double %.fr22.i.i)
+  %15 = fcmp ueq double %14, 0x7FF0000000000000
+  br i1 %15, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i: ; preds = %12
-  %15 = fsub double %.fr.i.i, %.fr22.i.i
-  %16 = tail call noundef double @llvm.fabs.f64(double %15)
-  %17 = fcmp olt double %10, %13
-  %18 = select i1 %17, double %13, double %10
-  %19 = fcmp olt double %18, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i.i = select i1 %19, double 1.000000e+00, double %18
-  %20 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i, 0x3CB0000000000000
-  %21 = fcmp ugt double %16, %20
-  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i: ; preds = %13
+  %16 = fsub double %.fr.i.i, %.fr22.i.i
+  %17 = tail call noundef double @llvm.fabs.f64(double %16)
+  %18 = fcmp olt double %11, %14
+  %19 = select i1 %18, double %14, double %11
+  %20 = fcmp olt double %19, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i.i = select i1 %20, double 1.000000e+00, double %19
+  %21 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i, 0x3CB0000000000000
+  %22 = fcmp ugt double %17, %21
+  br i1 %22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i, %12, %9
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i, %13, %10
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i, %.lr.ph.i.i
-  %22 = phi ptr [ %.ptr, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i ], [ %0, %.lr.ph.i.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load double, ptr %23, align 8, !tbaa !3067
-  %.fr22.i.i46 = freeze double %24
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %26 = load double, ptr %25, align 8, !tbaa !3067
-  %.fr.i.i47 = freeze double %26
-  %or.cond.i.i.i.i.i.i48 = fcmp uge double %.fr22.i.i46, %.fr.i.i47
-  br i1 %or.cond.i.i.i.i.i.i48, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i, label %27
+  %23 = phi ptr [ %.ptr, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i ], [ %0, %.lr.ph.i.i ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = load double, ptr %24, align 8, !tbaa !3067
+  %.fr22.i.i46 = freeze double %25
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %27 = load double, ptr %26, align 8, !tbaa !3067
+  %.fr.i.i47 = freeze double %27
+  %28 = fcmp olt double %.fr22.i.i46, %.fr.i.i47
+  br i1 %28, label %29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
 
-27:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
-  %28 = tail call double @llvm.fabs.f64(double %.fr.i.i47)
-  %29 = fcmp ueq double %28, 0x7FF0000000000000
-  br i1 %29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %30
+29:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
+  %30 = tail call double @llvm.fabs.f64(double %.fr.i.i47)
+  %31 = fcmp ueq double %30, 0x7FF0000000000000
+  br i1 %31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %32
 
-30:                                               ; preds = %27
-  %31 = tail call double @llvm.fabs.f64(double %.fr22.i.i46)
-  %32 = fcmp ueq double %31, 0x7FF0000000000000
-  br i1 %32, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i
+32:                                               ; preds = %29
+  %33 = tail call double @llvm.fabs.f64(double %.fr22.i.i46)
+  %34 = fcmp ueq double %33, 0x7FF0000000000000
+  br i1 %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i: ; preds = %30
-  %33 = fsub double %.fr.i.i47, %.fr22.i.i46
-  %34 = tail call noundef double @llvm.fabs.f64(double %33)
-  %35 = fcmp olt double %28, %31
-  %36 = select i1 %35, double %31, double %28
-  %37 = fcmp olt double %36, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i.i49 = select i1 %37, double 1.000000e+00, double %36
-  %38 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i49, 0x3CB0000000000000
-  %39 = fcmp ugt double %34, %38
-  br i1 %39, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i: ; preds = %32
+  %35 = fsub double %.fr.i.i47, %.fr22.i.i46
+  %36 = tail call noundef double @llvm.fabs.f64(double %35)
+  %37 = fcmp olt double %30, %33
+  %38 = select i1 %37, double %33, double %30
+  %39 = fcmp olt double %38, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i.i49 = select i1 %39, double 1.000000e+00, double %38
+  %40 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i49, 0x3CB0000000000000
+  %41 = fcmp ugt double %36, %40
+  br i1 %41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i, %30, %27
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i, %32, %29
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i
-  %40 = phi ptr [ %.ptr, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i ]
+  %42 = phi ptr [ %.ptr, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread.i.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.i.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm0EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br label %44
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  br label %46
 
-43:                                               ; preds = %.critedge
+45:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store double 0.000000e+00, ptr %3, align 8, !tbaa !3067
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double 0.000000e+00, ptr %4, align 8, !tbaa !3067
   invoke void @_ZN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS0_6degreeEE5applyISt6vectorINS2_18longitude_intervalIdEESaIS9_EEdEEvRKT_RT0_SG_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %163 unwind label %179
+          to label %165 unwind label %181
 
-44:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i, %.critedge
-  %45 = phi ptr [ null, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i ], [ %161, %.critedge ]
-  %46 = phi ptr [ null, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i ], [ %162, %.critedge ]
-  %.0.idx153 = phi i64 [ 0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i ], [ %.0.add, %.critedge ]
-  %.0.ptr154 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx153
-  %47 = load double, ptr %.0.ptr154, align 8, !tbaa !3067
-  %48 = fcmp oeq double %47, 0x7FEFFFFFFFFFFFFF
-  %49 = getelementptr inbounds nuw i8, ptr %.0.ptr154, i64 8
-  %50 = load double, ptr %49, align 8
-  %51 = fcmp oeq double %50, 0x7FEFFFFFFFFFFFFF
-  %or.cond.i = select i1 %48, i1 %51, i1 false
-  %52 = getelementptr inbounds nuw i8, ptr %.0.ptr154, i64 16
-  %53 = load double, ptr %52, align 8
-  %54 = fcmp oeq double %53, 0xFFEFFFFFFFFFFFFF
-  %or.cond13.i = select i1 %or.cond.i, i1 %54, i1 false
-  %55 = getelementptr inbounds nuw i8, ptr %.0.ptr154, i64 24
-  %56 = load double, ptr %55, align 8, !tbaa !3067
-  %57 = fcmp oeq double %56, 0xFFEFFFFFFFFFFFFF
-  %or.cond194 = select i1 %or.cond13.i, i1 %57, i1 false
-  %58 = fcmp oeq double %50, 9.000000e+01
-  %or.cond196 = select i1 %or.cond194, i1 true, i1 %58
-  br i1 %or.cond196, label %.critedge, label %59
+46:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i, %.critedge
+  %47 = phi ptr [ null, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i ], [ %164, %.critedge ]
+  %.0.idx152 = phi i64 [ 0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope23envelope_range_of_boxes13latitude_lessILm1EEEEclIPKNS3_5model3boxINSB_5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESL_EEbT_T0_.exit.thread19.i.i ], [ %.0.add, %.critedge ]
+  %.0.ptr153 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx152
+  %48 = load double, ptr %.0.ptr153, align 8, !tbaa !3067
+  %49 = fcmp oeq double %48, 0x7FEFFFFFFFFFFFFF
+  %50 = getelementptr inbounds nuw i8, ptr %.0.ptr153, i64 8
+  %51 = load double, ptr %50, align 8
+  %52 = fcmp oeq double %51, 0x7FEFFFFFFFFFFFFF
+  %or.cond.i = select i1 %49, i1 %52, i1 false
+  %53 = getelementptr inbounds nuw i8, ptr %.0.ptr153, i64 16
+  %54 = load double, ptr %53, align 8
+  %55 = fcmp oeq double %54, 0xFFEFFFFFFFFFFFFF
+  %or.cond13.i = select i1 %or.cond.i, i1 %55, i1 false
+  %56 = getelementptr inbounds nuw i8, ptr %.0.ptr153, i64 24
+  %57 = load double, ptr %56, align 8, !tbaa !3067
+  %58 = fcmp oeq double %57, 0xFFEFFFFFFFFFFFFF
+  %or.cond190 = select i1 %or.cond13.i, i1 %58, i1 false
+  %59 = fcmp oeq double %51, 9.000000e+01
+  %or.cond192 = select i1 %or.cond190, i1 true, i1 %59
+  br i1 %or.cond192, label %.critedge, label %60
 
-59:                                               ; preds = %44
-  %60 = tail call double @llvm.fabs.f64(double %50)
-  %61 = fcmp ueq double %60, 0x7FF0000000000000
-  br i1 %61, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread124, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit
+60:                                               ; preds = %46
+  %61 = tail call double @llvm.fabs.f64(double %51)
+  %62 = fcmp ueq double %61, 0x7FF0000000000000
+  br i1 %62, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread123, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit: ; preds = %59
-  %62 = fadd double %50, -9.000000e+01
-  %63 = tail call noundef double @llvm.fabs.f64(double %62)
-  %64 = fcmp olt double %60, 9.000000e+01
-  %65 = select i1 %64, double 9.000000e+01, double %60
-  %66 = fcmp olt double %65, 1.000000e+00
-  %.sroa.speculated.i.i.i = select i1 %66, double 1.000000e+00, double %65
-  %67 = fmul double %.sroa.speculated.i.i.i, 0x3CB0000000000000
-  %68 = fcmp ole double %63, %67
-  %69 = fcmp oeq double %56, -9.000000e+01
-  %or.cond = select i1 %68, i1 true, i1 %69
-  br i1 %or.cond, label %.critedge, label %70
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit: ; preds = %60
+  %63 = fadd double %51, -9.000000e+01
+  %64 = tail call noundef double @llvm.fabs.f64(double %63)
+  %65 = fcmp olt double %61, 9.000000e+01
+  %66 = select i1 %65, double 9.000000e+01, double %61
+  %67 = fcmp olt double %66, 1.000000e+00
+  %.sroa.speculated.i.i.i = select i1 %67, double 1.000000e+00, double %66
+  %68 = fmul double %.sroa.speculated.i.i.i, 0x3CB0000000000000
+  %69 = fcmp ole double %64, %68
+  %70 = fcmp oeq double %57, -9.000000e+01
+  %or.cond = select i1 %69, i1 true, i1 %70
+  br i1 %or.cond, label %.critedge, label %71
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread124: ; preds = %59
-  %.old = fcmp oeq double %56, -9.000000e+01
-  br i1 %.old, label %.critedge, label %70
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread123: ; preds = %60
+  %.old = fcmp oeq double %57, -9.000000e+01
+  br i1 %.old, label %.critedge, label %71
 
-70:                                               ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread124
-  %71 = tail call double @llvm.fabs.f64(double %56)
-  %72 = fcmp ueq double %71, 0x7FF0000000000000
-  br i1 %72, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit53.thread127, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit53
+71:                                               ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread123
+  %72 = tail call double @llvm.fabs.f64(double %57)
+  %73 = fcmp ueq double %72, 0x7FF0000000000000
+  br i1 %73, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit52.thread126, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit52
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit53: ; preds = %70
-  %73 = fadd double %56, 9.000000e+01
-  %74 = tail call noundef double @llvm.fabs.f64(double %73)
-  %75 = fcmp olt double %71, 9.000000e+01
-  %76 = select i1 %75, double 9.000000e+01, double %71
-  %77 = fcmp olt double %76, 1.000000e+00
-  %.sroa.speculated.i.i.i51 = select i1 %77, double 1.000000e+00, double %76
-  %78 = fmul double %.sroa.speculated.i.i.i51, 0x3CB0000000000000
-  %79 = fcmp ugt double %74, %78
-  br i1 %79, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit53.thread127, label %.critedge
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit52: ; preds = %71
+  %74 = fadd double %57, 9.000000e+01
+  %75 = tail call noundef double @llvm.fabs.f64(double %74)
+  %76 = fcmp olt double %72, 9.000000e+01
+  %77 = select i1 %76, double 9.000000e+01, double %72
+  %78 = fcmp olt double %77, 1.000000e+00
+  %.sroa.speculated.i.i.i50 = select i1 %78, double 1.000000e+00, double %77
+  %79 = fmul double %.sroa.speculated.i.i.i50, 0x3CB0000000000000
+  %80 = fcmp ugt double %75, %79
+  br i1 %80, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit52.thread126, label %.critedge
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit53.thread127: ; preds = %70, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit53
-  %or.cond.i.i = fcmp ule double %53, 1.800000e+02
-  br i1 %or.cond.i.i, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread130, label %80
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit52.thread126: ; preds = %71, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit52
+  %81 = fcmp ogt double %54, 1.800000e+02
+  br i1 %81, label %82, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread129
 
-80:                                               ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit53.thread127
-  %81 = fcmp ueq double %53, 0x7FF0000000000000
-  br i1 %81, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit
+82:                                               ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit52.thread126
+  %83 = fcmp ueq double %54, 0x7FF0000000000000
+  br i1 %83, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit
 
-_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit: ; preds = %80
-  %82 = fadd double %53, -1.800000e+02
-  %83 = tail call noundef double @llvm.fabs.f64(double %82)
-  %84 = fcmp olt double %53, 1.800000e+02
-  %85 = select i1 %84, double 1.800000e+02, double %53
-  %86 = fcmp olt double %85, 1.000000e+00
-  %.sroa.speculated.i.i.i.i = select i1 %86, double 1.000000e+00, double %85
-  %87 = fmul double %.sroa.speculated.i.i.i.i, 0x3CB0000000000000
-  %88 = fcmp ugt double %83, %87
-  br i1 %88, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread130
+_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit: ; preds = %82
+  %84 = fadd double %54, -1.800000e+02
+  %85 = tail call noundef double @llvm.fabs.f64(double %84)
+  %86 = fcmp olt double %54, 1.800000e+02
+  %87 = select i1 %86, double 1.800000e+02, double %54
+  %88 = fcmp olt double %87, 1.000000e+00
+  %.sroa.speculated.i.i.i.i = select i1 %88, double 1.000000e+00, double %87
+  %89 = fmul double %.sroa.speculated.i.i.i.i, 0x3CB0000000000000
+  %90 = fcmp ugt double %85, %89
+  br i1 %90, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread129
 
-_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread: ; preds = %80, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit
-  %.not.i.i55 = icmp eq ptr %46, %45
-  br i1 %.not.i.i55, label %92, label %89
-
-89:                                               ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread
-  store double %47, ptr %46, align 8
-  %.sroa.6108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store double 1.800000e+02, ptr %.sroa.6108.0..sroa_idx, align 8, !tbaa !24
-  %90 = load ptr, ptr %41, align 8, !tbaa !3173
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  store ptr %91, ptr %41, align 8, !tbaa !3173
-  %.pre159 = load ptr, ptr %42, align 8, !tbaa !3175
-  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE9push_backEOS5_.exit
+_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread: ; preds = %82, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit
+  %91 = load ptr, ptr %44, align 8, !tbaa !3173
+  %.not.i.i54 = icmp eq ptr %47, %91
+  br i1 %.not.i.i54, label %95, label %92
 
 92:                                               ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread
-  %93 = load ptr, ptr %2, align 8, !tbaa !3176
-  %94 = ptrtoint ptr %45 to i64
-  %95 = ptrtoint ptr %93 to i64
-  %96 = sub i64 %94, %95
-  %97 = icmp eq i64 %96, 9223372036854775792
-  br i1 %97, label %98, label %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
-
-98:                                               ; preds = %92
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1433) #57
-          to label %.noexc unwind label %.loopexit.split-lp
-
-.noexc:                                           ; preds = %98
-  unreachable
-
-_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %92
-  %99 = ashr exact i64 %96, 4
-  %.sroa.speculated.i.i.i.i56 = tail call i64 @llvm.umax.i64(i64 %99, i64 1)
-  %100 = add nsw i64 %.sroa.speculated.i.i.i.i56, %99
-  %101 = icmp ult i64 %100, %99
-  %102 = tail call i64 @llvm.umin.i64(i64 %100, i64 576460752303423487)
-  %103 = select i1 %101, i64 576460752303423487, i64 %102
-  %.not.i.i.i.i = icmp ne i64 %103, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i)
-  %104 = shl nuw nsw i64 %103, 4
-  %105 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %104) #61
-          to label %.noexc57 unwind label %.loopexit
-
-.noexc57:                                         ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %96
-  store double %47, ptr %106, align 8
-  %.sroa.6108.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  store double 1.800000e+02, ptr %.sroa.6108.0..sroa_idx109, align 8, !tbaa !24
-  %.not10.i.i.i.i.i.i = icmp eq ptr %93, %45
-  br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc57, %.lr.ph.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi ptr [ %108, %.lr.ph.i.i.i.i.i.i ], [ %105, %.noexc57 ]
-  %.0911.i.i.i.i.i.i = phi ptr [ %107, %.lr.ph.i.i.i.i.i.i ], [ %93, %.noexc57 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !1701, !alias.scope !3177
-  %107 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 16
-  %108 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %107, %45
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !3181
-
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc57
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %105, %.noexc57 ], [ %108, %.lr.ph.i.i.i.i.i.i ]
-  %109 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
-  %.not.i23.i.i.i = icmp eq ptr %93, null
-  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %110
-
-110:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %93, i64 noundef %96) #60
-  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i
-
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %110, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
-  store ptr %105, ptr %2, align 8, !tbaa !3176
-  store ptr %109, ptr %41, align 8, !tbaa !3173
-  %111 = getelementptr inbounds nuw %"class.boost::geometry::detail::envelope::longitude_interval.1204", ptr %105, i64 %103
-  store ptr %111, ptr %42, align 8, !tbaa !3175
+  store double %48, ptr %47, align 8
+  %.sroa.6107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store double 1.800000e+02, ptr %.sroa.6107.0..sroa_idx, align 8, !tbaa !24
+  %93 = load ptr, ptr %43, align 8, !tbaa !3175
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  store ptr %94, ptr %43, align 8, !tbaa !3175
+  %.pre158 = load ptr, ptr %44, align 8, !tbaa !3173
   br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE9push_backEOS5_.exit
 
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %89
-  %112 = phi ptr [ %111, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.pre159, %89 ]
-  %113 = phi ptr [ %109, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %91, %89 ]
-  %114 = fadd double %53, -3.600000e+02
-  %.not.i.i58 = icmp eq ptr %113, %112
-  br i1 %.not.i.i58, label %117, label %115
+95:                                               ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread
+  %96 = load ptr, ptr %2, align 8, !tbaa !3176
+  %97 = ptrtoint ptr %47 to i64
+  %98 = ptrtoint ptr %96 to i64
+  %99 = sub i64 %97, %98
+  %100 = icmp eq i64 %99, 9223372036854775792
+  br i1 %100, label %101, label %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
 
-115:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE9push_backEOS5_.exit
-  store double -1.800000e+02, ptr %113, align 8
-  %.sroa.6103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %113, i64 8
-  store double %114, ptr %.sroa.6103.0..sroa_idx, align 8, !tbaa !24
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  store ptr %116, ptr %41, align 8, !tbaa !3173
-  br label %.critedge
-
-117:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE9push_backEOS5_.exit
-  %118 = load ptr, ptr %2, align 8, !tbaa !3176
-  %119 = ptrtoint ptr %112 to i64
-  %120 = ptrtoint ptr %118 to i64
-  %121 = sub i64 %119, %120
-  %122 = icmp eq i64 %121, 9223372036854775792
-  br i1 %122, label %123, label %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i59
-
-123:                                              ; preds = %117
+101:                                              ; preds = %95
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1433) #57
-          to label %.noexc71 unwind label %.loopexit.split-lp140
+          to label %.noexc unwind label %.loopexit.split-lp139
 
-.noexc71:                                         ; preds = %123
+.noexc:                                           ; preds = %101
   unreachable
 
-_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i59: ; preds = %117
-  %124 = ashr exact i64 %121, 4
-  %.sroa.speculated.i.i.i.i60 = tail call i64 @llvm.umax.i64(i64 %124, i64 1)
-  %125 = add nsw i64 %.sroa.speculated.i.i.i.i60, %124
-  %126 = icmp ult i64 %125, %124
-  %127 = tail call i64 @llvm.umin.i64(i64 %125, i64 576460752303423487)
-  %128 = select i1 %126, i64 576460752303423487, i64 %127
-  %.not.i.i.i.i61 = icmp ne i64 %128, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i61)
-  %129 = shl nuw nsw i64 %128, 4
-  %130 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %129) #61
-          to label %.noexc72 unwind label %.loopexit139
+_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %95
+  %102 = ashr exact i64 %99, 4
+  %.sroa.speculated.i.i.i.i55 = tail call i64 @llvm.umax.i64(i64 %102, i64 1)
+  %103 = add nsw i64 %.sroa.speculated.i.i.i.i55, %102
+  %104 = icmp ult i64 %103, %102
+  %105 = tail call i64 @llvm.umin.i64(i64 %103, i64 576460752303423487)
+  %106 = select i1 %104, i64 576460752303423487, i64 %105
+  %.not.i.i.i.i = icmp ne i64 %106, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %107 = shl nuw nsw i64 %106, 4
+  %108 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %107) #61
+          to label %.noexc56 unwind label %.loopexit138
 
-.noexc72:                                         ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i59
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %121
-  store double -1.800000e+02, ptr %131, align 8
-  %.sroa.6103.0..sroa_idx104 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  store double %114, ptr %.sroa.6103.0..sroa_idx104, align 8, !tbaa !24
-  %.not10.i.i.i.i.i.i62 = icmp eq ptr %118, %112
-  br i1 %.not10.i.i.i.i.i.i62, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i67, label %.lr.ph.i.i.i.i.i.i63
+.noexc56:                                         ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 %99
+  store double %48, ptr %109, align 8
+  %.sroa.6107.0..sroa_idx108 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  store double 1.800000e+02, ptr %.sroa.6107.0..sroa_idx108, align 8, !tbaa !24
+  %.not10.i.i.i.i.i.i = icmp eq ptr %96, %47
+  br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i63:                             ; preds = %.noexc72, %.lr.ph.i.i.i.i.i.i63
-  %.012.i.i.i.i.i.i64 = phi ptr [ %133, %.lr.ph.i.i.i.i.i.i63 ], [ %130, %.noexc72 ]
-  %.0911.i.i.i.i.i.i65 = phi ptr [ %132, %.lr.ph.i.i.i.i.i.i63 ], [ %118, %.noexc72 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i64, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i65, i64 16, i1 false), !tbaa.struct !1701, !alias.scope !3182
-  %132 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i65, i64 16
-  %133 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i64, i64 16
-  %.not.i.i.i.i.i.i66 = icmp eq ptr %132, %112
-  br i1 %.not.i.i.i.i.i.i66, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i67, label %.lr.ph.i.i.i.i.i.i63, !llvm.loop !3181
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc56, %.lr.ph.i.i.i.i.i.i
+  %.012.i.i.i.i.i.i = phi ptr [ %111, %.lr.ph.i.i.i.i.i.i ], [ %108, %.noexc56 ]
+  %.0911.i.i.i.i.i.i = phi ptr [ %110, %.lr.ph.i.i.i.i.i.i ], [ %96, %.noexc56 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !1701, !alias.scope !3177
+  %110 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i = icmp eq ptr %110, %47
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !3181
 
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i67: ; preds = %.lr.ph.i.i.i.i.i.i63, %.noexc72
-  %.0.lcssa.i.i.i.i.i.i68 = phi ptr [ %130, %.noexc72 ], [ %133, %.lr.ph.i.i.i.i.i.i63 ]
-  %134 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i68, i64 16
-  %.not.i23.i.i.i69 = icmp eq ptr %118, null
-  br i1 %.not.i23.i.i.i69, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i70, label %135
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc56
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %108, %.noexc56 ], [ %111, %.lr.ph.i.i.i.i.i.i ]
+  %112 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %.not.i23.i.i.i = icmp eq ptr %96, null
+  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %113
 
-135:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i67
-  tail call void @_ZdlPvm(ptr noundef nonnull %118, i64 noundef %121) #60
-  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i70
+113:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef %99) #60
+  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i70: ; preds = %135, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i67
-  store ptr %130, ptr %2, align 8, !tbaa !3176
-  store ptr %134, ptr %41, align 8, !tbaa !3173
-  %136 = getelementptr inbounds nuw %"class.boost::geometry::detail::envelope::longitude_interval.1204", ptr %130, i64 %128
-  store ptr %136, ptr %42, align 8, !tbaa !3175
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %113, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
+  store ptr %108, ptr %2, align 8, !tbaa !3176
+  store ptr %112, ptr %43, align 8, !tbaa !3175
+  %114 = getelementptr inbounds nuw %"class.boost::geometry::detail::envelope::longitude_interval.1204", ptr %108, i64 %106
+  store ptr %114, ptr %44, align 8, !tbaa !3173
+  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE9push_backEOS5_.exit
+
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %92
+  %115 = phi ptr [ %114, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.pre158, %92 ]
+  %116 = phi ptr [ %112, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %94, %92 ]
+  %117 = fadd double %54, -3.600000e+02
+  %.not.i.i57 = icmp eq ptr %116, %115
+  br i1 %.not.i.i57, label %120, label %118
+
+118:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE9push_backEOS5_.exit
+  store double -1.800000e+02, ptr %116, align 8
+  %.sroa.6102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %116, i64 8
+  store double %117, ptr %.sroa.6102.0..sroa_idx, align 8, !tbaa !24
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 16
+  store ptr %119, ptr %43, align 8, !tbaa !3175
   br label %.critedge
 
-.loopexit:                                        ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
+120:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE9push_backEOS5_.exit
+  %121 = load ptr, ptr %2, align 8, !tbaa !3176
+  %122 = ptrtoint ptr %115 to i64
+  %123 = ptrtoint ptr %121 to i64
+  %124 = sub i64 %122, %123
+  %125 = icmp eq i64 %124, 9223372036854775792
+  br i1 %125, label %126, label %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i58
+
+126:                                              ; preds = %120
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1433) #57
+          to label %.noexc70 unwind label %.loopexit.split-lp144
+
+.noexc70:                                         ; preds = %126
+  unreachable
+
+_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i58: ; preds = %120
+  %127 = ashr exact i64 %124, 4
+  %.sroa.speculated.i.i.i.i59 = tail call i64 @llvm.umax.i64(i64 %127, i64 1)
+  %128 = add nsw i64 %.sroa.speculated.i.i.i.i59, %127
+  %129 = icmp ult i64 %128, %127
+  %130 = tail call i64 @llvm.umin.i64(i64 %128, i64 576460752303423487)
+  %131 = select i1 %129, i64 576460752303423487, i64 %130
+  %.not.i.i.i.i60 = icmp ne i64 %131, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i60)
+  %132 = shl nuw nsw i64 %131, 4
+  %133 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %132) #61
+          to label %.noexc71 unwind label %.loopexit143
+
+.noexc71:                                         ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i58
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 %124
+  store double -1.800000e+02, ptr %134, align 8
+  %.sroa.6102.0..sroa_idx103 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  store double %117, ptr %.sroa.6102.0..sroa_idx103, align 8, !tbaa !24
+  %.not10.i.i.i.i.i.i61 = icmp eq ptr %121, %115
+  br i1 %.not10.i.i.i.i.i.i61, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i66, label %.lr.ph.i.i.i.i.i.i62
+
+.lr.ph.i.i.i.i.i.i62:                             ; preds = %.noexc71, %.lr.ph.i.i.i.i.i.i62
+  %.012.i.i.i.i.i.i63 = phi ptr [ %136, %.lr.ph.i.i.i.i.i.i62 ], [ %133, %.noexc71 ]
+  %.0911.i.i.i.i.i.i64 = phi ptr [ %135, %.lr.ph.i.i.i.i.i.i62 ], [ %121, %.noexc71 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i63, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i64, i64 16, i1 false), !tbaa.struct !1701, !alias.scope !3182
+  %135 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i64, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i63, i64 16
+  %.not.i.i.i.i.i.i65 = icmp eq ptr %135, %115
+  br i1 %.not.i.i.i.i.i.i65, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i66, label %.lr.ph.i.i.i.i.i.i62, !llvm.loop !3181
+
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i66: ; preds = %.lr.ph.i.i.i.i.i.i62, %.noexc71
+  %.0.lcssa.i.i.i.i.i.i67 = phi ptr [ %133, %.noexc71 ], [ %136, %.lr.ph.i.i.i.i.i.i62 ]
+  %137 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i67, i64 16
+  %.not.i23.i.i.i68 = icmp eq ptr %121, null
+  br i1 %.not.i23.i.i.i68, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i69, label %138
+
+138:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i66
+  tail call void @_ZdlPvm(ptr noundef nonnull %121, i64 noundef %124) #60
+  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i69
+
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i69: ; preds = %138, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i66
+  store ptr %133, ptr %2, align 8, !tbaa !3176
+  store ptr %137, ptr %43, align 8, !tbaa !3175
+  %139 = getelementptr inbounds nuw %"class.boost::geometry::detail::envelope::longitude_interval.1204", ptr %133, i64 %131
+  store ptr %139, ptr %44, align 8, !tbaa !3173
+  br label %.critedge
+
+.loopexit138:                                     ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
+  %lpad.loopexit140 = landingpad { ptr, i32 }
+          cleanup
+  br label %183
+
+.loopexit.split-lp139:                            ; preds = %101
+  %lpad.loopexit.split-lp141 = landingpad { ptr, i32 }
+          cleanup
+  br label %183
+
+.loopexit143:                                     ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i58
+  %lpad.loopexit145 = landingpad { ptr, i32 }
+          cleanup
+  br label %183
+
+.loopexit.split-lp144:                            ; preds = %126
+  %lpad.loopexit.split-lp146 = landingpad { ptr, i32 }
+          cleanup
+  br label %183
+
+_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread129: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit52.thread126, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit
+  %140 = load ptr, ptr %44, align 8, !tbaa !3173
+  %.not.i.i73 = icmp eq ptr %47, %140
+  br i1 %.not.i.i73, label %144, label %141
+
+141:                                              ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread129
+  store double %48, ptr %47, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store double %54, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !24
+  %142 = load ptr, ptr %43, align 8, !tbaa !3175
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
+  store ptr %143, ptr %43, align 8, !tbaa !3175
+  br label %.critedge
+
+144:                                              ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread129
+  %145 = load ptr, ptr %2, align 8, !tbaa !3176
+  %146 = ptrtoint ptr %47 to i64
+  %147 = ptrtoint ptr %145 to i64
+  %148 = sub i64 %146, %147
+  %149 = icmp eq i64 %148, 9223372036854775792
+  br i1 %149, label %150, label %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i74
+
+150:                                              ; preds = %144
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1433) #57
+          to label %.noexc86 unwind label %.loopexit.split-lp
+
+.noexc86:                                         ; preds = %150
+  unreachable
+
+_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i74: ; preds = %144
+  %151 = ashr exact i64 %148, 4
+  %.sroa.speculated.i.i.i.i75 = tail call i64 @llvm.umax.i64(i64 %151, i64 1)
+  %152 = add nsw i64 %.sroa.speculated.i.i.i.i75, %151
+  %153 = icmp ult i64 %152, %151
+  %154 = tail call i64 @llvm.umin.i64(i64 %152, i64 576460752303423487)
+  %155 = select i1 %153, i64 576460752303423487, i64 %154
+  %.not.i.i.i.i76 = icmp ne i64 %155, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i76)
+  %156 = shl nuw nsw i64 %155, 4
+  %157 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %156) #61
+          to label %.noexc87 unwind label %.loopexit
+
+.noexc87:                                         ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i74
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 %148
+  store double %48, ptr %158, align 8
+  %.sroa.6.0..sroa_idx97 = getelementptr inbounds nuw i8, ptr %158, i64 8
+  store double %54, ptr %.sroa.6.0..sroa_idx97, align 8, !tbaa !24
+  %.not10.i.i.i.i.i.i77 = icmp eq ptr %145, %47
+  br i1 %.not10.i.i.i.i.i.i77, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i82, label %.lr.ph.i.i.i.i.i.i78
+
+.lr.ph.i.i.i.i.i.i78:                             ; preds = %.noexc87, %.lr.ph.i.i.i.i.i.i78
+  %.012.i.i.i.i.i.i79 = phi ptr [ %160, %.lr.ph.i.i.i.i.i.i78 ], [ %157, %.noexc87 ]
+  %.0911.i.i.i.i.i.i80 = phi ptr [ %159, %.lr.ph.i.i.i.i.i.i78 ], [ %145, %.noexc87 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i79, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i80, i64 16, i1 false), !tbaa.struct !1701, !alias.scope !3186
+  %159 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i80, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i79, i64 16
+  %.not.i.i.i.i.i.i81 = icmp eq ptr %159, %47
+  br i1 %.not.i.i.i.i.i.i81, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i82, label %.lr.ph.i.i.i.i.i.i78, !llvm.loop !3181
+
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i82: ; preds = %.lr.ph.i.i.i.i.i.i78, %.noexc87
+  %.0.lcssa.i.i.i.i.i.i83 = phi ptr [ %157, %.noexc87 ], [ %160, %.lr.ph.i.i.i.i.i.i78 ]
+  %161 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i83, i64 16
+  %.not.i23.i.i.i84 = icmp eq ptr %145, null
+  br i1 %.not.i23.i.i.i84, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i85, label %162
+
+162:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i82
+  tail call void @_ZdlPvm(ptr noundef nonnull %145, i64 noundef %148) #60
+  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i85
+
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i85: ; preds = %162, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i82
+  store ptr %157, ptr %2, align 8, !tbaa !3176
+  store ptr %161, ptr %43, align 8, !tbaa !3175
+  %163 = getelementptr inbounds nuw %"class.boost::geometry::detail::envelope::longitude_interval.1204", ptr %157, i64 %155
+  store ptr %163, ptr %44, align 8, !tbaa !3173
+  br label %.critedge
+
+.loopexit:                                        ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i74
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %181
+  br label %183
 
-.loopexit.split-lp:                               ; preds = %98
+.loopexit.split-lp:                               ; preds = %150
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %181
+  br label %183
 
-.loopexit139:                                     ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i59
-  %lpad.loopexit141 = landingpad { ptr, i32 }
-          cleanup
-  br label %181
-
-.loopexit.split-lp140:                            ; preds = %123
-  %lpad.loopexit.split-lp142 = landingpad { ptr, i32 }
-          cleanup
-  br label %181
-
-_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread130: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit53.thread127, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit
-  %137 = load ptr, ptr %42, align 8, !tbaa !3175
-  %.not.i.i74 = icmp eq ptr %46, %137
-  br i1 %.not.i.i74, label %141, label %138
-
-138:                                              ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread130
-  store double %47, ptr %46, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store double %53, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !24
-  %139 = load ptr, ptr %41, align 8, !tbaa !3173
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  store ptr %140, ptr %41, align 8, !tbaa !3173
-  br label %.critedge
-
-141:                                              ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread130
-  %142 = load ptr, ptr %2, align 8, !tbaa !3176
-  %143 = ptrtoint ptr %46 to i64
-  %144 = ptrtoint ptr %142 to i64
-  %145 = sub i64 %143, %144
-  %146 = icmp eq i64 %145, 9223372036854775792
-  br i1 %146, label %147, label %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i75
-
-147:                                              ; preds = %141
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1433) #57
-          to label %.noexc87 unwind label %.loopexit.split-lp145
-
-.noexc87:                                         ; preds = %147
-  unreachable
-
-_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i75: ; preds = %141
-  %148 = ashr exact i64 %145, 4
-  %.sroa.speculated.i.i.i.i76 = tail call i64 @llvm.umax.i64(i64 %148, i64 1)
-  %149 = add nsw i64 %.sroa.speculated.i.i.i.i76, %148
-  %150 = icmp ult i64 %149, %148
-  %151 = tail call i64 @llvm.umin.i64(i64 %149, i64 576460752303423487)
-  %152 = select i1 %150, i64 576460752303423487, i64 %151
-  %.not.i.i.i.i77 = icmp ne i64 %152, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i77)
-  %153 = shl nuw nsw i64 %152, 4
-  %154 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %153) #61
-          to label %.noexc88 unwind label %.loopexit144
-
-.noexc88:                                         ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i75
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 %145
-  store double %47, ptr %155, align 8
-  %.sroa.6.0..sroa_idx98 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  store double %53, ptr %.sroa.6.0..sroa_idx98, align 8, !tbaa !24
-  %.not10.i.i.i.i.i.i78 = icmp eq ptr %142, %46
-  br i1 %.not10.i.i.i.i.i.i78, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i83, label %.lr.ph.i.i.i.i.i.i79
-
-.lr.ph.i.i.i.i.i.i79:                             ; preds = %.noexc88, %.lr.ph.i.i.i.i.i.i79
-  %.012.i.i.i.i.i.i80 = phi ptr [ %157, %.lr.ph.i.i.i.i.i.i79 ], [ %154, %.noexc88 ]
-  %.0911.i.i.i.i.i.i81 = phi ptr [ %156, %.lr.ph.i.i.i.i.i.i79 ], [ %142, %.noexc88 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i80, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i81, i64 16, i1 false), !tbaa.struct !1701, !alias.scope !3186
-  %156 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i81, i64 16
-  %157 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i80, i64 16
-  %.not.i.i.i.i.i.i82 = icmp eq ptr %156, %46
-  br i1 %.not.i.i.i.i.i.i82, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i83, label %.lr.ph.i.i.i.i.i.i79, !llvm.loop !3181
-
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i83: ; preds = %.lr.ph.i.i.i.i.i.i79, %.noexc88
-  %.0.lcssa.i.i.i.i.i.i84 = phi ptr [ %154, %.noexc88 ], [ %157, %.lr.ph.i.i.i.i.i.i79 ]
-  %158 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i84, i64 16
-  %.not.i23.i.i.i85 = icmp eq ptr %142, null
-  br i1 %.not.i23.i.i.i85, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i86, label %159
-
-159:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i83
-  tail call void @_ZdlPvm(ptr noundef nonnull %142, i64 noundef %145) #60
-  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i86
-
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i86: ; preds = %159, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i83
-  store ptr %154, ptr %2, align 8, !tbaa !3176
-  store ptr %158, ptr %41, align 8, !tbaa !3173
-  %160 = getelementptr inbounds nuw %"class.boost::geometry::detail::envelope::longitude_interval.1204", ptr %154, i64 %152
-  store ptr %160, ptr %42, align 8, !tbaa !3175
-  br label %.critedge
-
-.loopexit144:                                     ; preds = %_ZNKSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i75
-  %lpad.loopexit146 = landingpad { ptr, i32 }
-          cleanup
-  br label %181
-
-.loopexit.split-lp145:                            ; preds = %147
-  %lpad.loopexit.split-lp147 = landingpad { ptr, i32 }
-          cleanup
-  br label %181
-
-.critedge:                                        ; preds = %44, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread124, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit53, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit, %138, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i86, %115, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i70
-  %161 = phi ptr [ %45, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread124 ], [ %45, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit53 ], [ %45, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit ], [ %137, %138 ], [ %160, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i86 ], [ %112, %115 ], [ %136, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i70 ], [ %45, %44 ]
-  %162 = phi ptr [ %46, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread124 ], [ %46, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit53 ], [ %46, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit ], [ %140, %138 ], [ %158, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i86 ], [ %116, %115 ], [ %134, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i70 ], [ %46, %44 ]
-  %.0.add = add nuw nsw i64 %.0.idx153, 32
+.critedge:                                        ; preds = %46, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread123, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit52, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit, %141, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i85, %118, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i69
+  %164 = phi ptr [ %47, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread123 ], [ %47, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit52 ], [ %47, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit ], [ %143, %141 ], [ %161, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i85 ], [ %119, %118 ], [ %137, %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i69 ], [ %47, %46 ]
+  %.0.add = add nuw nsw i64 %.0.idx152, 32
   %.not = icmp eq i64 %.0.add, 64
-  br i1 %.not, label %43, label %44, !llvm.loop !3190
+  br i1 %.not, label %45, label %46, !llvm.loop !3190
 
-163:                                              ; preds = %43
-  %164 = load double, ptr %3, align 8, !tbaa !3067
-  store double %164, ptr %1, align 8, !tbaa !3067
-  %165 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %166 = load double, ptr %165, align 8, !tbaa !3067
-  %167 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %166, ptr %167, align 8, !tbaa !3067
-  %168 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %169 = load double, ptr %4, align 8, !tbaa !3067
-  store double %169, ptr %168, align 8, !tbaa !3067
-  %170 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %171 = load double, ptr %170, align 8, !tbaa !3067
-  %172 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store double %171, ptr %172, align 8, !tbaa !3067
+165:                                              ; preds = %45
+  %166 = load double, ptr %3, align 8, !tbaa !3067
+  store double %166, ptr %1, align 8, !tbaa !3067
+  %167 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %168 = load double, ptr %167, align 8, !tbaa !3067
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store double %168, ptr %169, align 8, !tbaa !3067
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %171 = load double, ptr %4, align 8, !tbaa !3067
+  store double %171, ptr %170, align 8, !tbaa !3067
+  %172 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %173 = load double, ptr %172, align 8, !tbaa !3067
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store double %173, ptr %174, align 8, !tbaa !3067
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %173 = load ptr, ptr %2, align 8, !tbaa !3176
-  %.not.i.i.i = icmp eq ptr %173, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EED2Ev.exit, label %174
+  %175 = load ptr, ptr %2, align 8, !tbaa !3176
+  %.not.i.i.i = icmp eq ptr %175, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EED2Ev.exit, label %176
 
-174:                                              ; preds = %163
-  %175 = load ptr, ptr %42, align 8, !tbaa !3175
-  %176 = ptrtoint ptr %175 to i64
-  %177 = ptrtoint ptr %173 to i64
-  %178 = sub i64 %176, %177
-  call void @_ZdlPvm(ptr noundef nonnull %173, i64 noundef %178) #60
+176:                                              ; preds = %165
+  %177 = load ptr, ptr %44, align 8, !tbaa !3173
+  %178 = ptrtoint ptr %177 to i64
+  %179 = ptrtoint ptr %175 to i64
+  %180 = sub i64 %178, %179
+  call void @_ZdlPvm(ptr noundef nonnull %175, i64 noundef %180) #60
   br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EED2Ev.exit
 
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EED2Ev.exit: ; preds = %163, %174
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EED2Ev.exit: ; preds = %165, %176
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-179:                                              ; preds = %43
-  %180 = landingpad { ptr, i32 }
+181:                                              ; preds = %45
+  %182 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.pre160 = load ptr, ptr %2, align 8, !tbaa !3176
-  br label %181
+  %.pre159 = load ptr, ptr %2, align 8, !tbaa !3176
+  br label %183
 
-181:                                              ; preds = %.loopexit144, %.loopexit.split-lp145, %.loopexit139, %.loopexit.split-lp140, %.loopexit, %.loopexit.split-lp, %179
-  %182 = phi ptr [ %.pre160, %179 ], [ %93, %.loopexit ], [ %93, %.loopexit.split-lp ], [ %118, %.loopexit139 ], [ %118, %.loopexit.split-lp140 ], [ %142, %.loopexit144 ], [ %142, %.loopexit.split-lp145 ]
-  %.pn36.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %180, %179 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit141, %.loopexit139 ], [ %lpad.loopexit.split-lp142, %.loopexit.split-lp140 ], [ %lpad.loopexit146, %.loopexit144 ], [ %lpad.loopexit.split-lp147, %.loopexit.split-lp145 ]
-  %.not.i.i.i90 = icmp eq ptr %182, null
-  br i1 %.not.i.i.i90, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EED2Ev.exit91, label %183
+183:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit143, %.loopexit.split-lp144, %.loopexit138, %.loopexit.split-lp139, %181
+  %184 = phi ptr [ %.pre159, %181 ], [ %96, %.loopexit138 ], [ %96, %.loopexit.split-lp139 ], [ %121, %.loopexit143 ], [ %121, %.loopexit.split-lp144 ], [ %145, %.loopexit ], [ %145, %.loopexit.split-lp ]
+  %.pn36.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %182, %181 ], [ %lpad.loopexit140, %.loopexit138 ], [ %lpad.loopexit.split-lp141, %.loopexit.split-lp139 ], [ %lpad.loopexit145, %.loopexit143 ], [ %lpad.loopexit.split-lp146, %.loopexit.split-lp144 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.not.i.i.i89 = icmp eq ptr %184, null
+  br i1 %.not.i.i.i89, label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EED2Ev.exit90, label %185
 
-183:                                              ; preds = %181
-  %184 = load ptr, ptr %42, align 8, !tbaa !3175
-  %185 = ptrtoint ptr %184 to i64
-  %186 = ptrtoint ptr %182 to i64
-  %187 = sub i64 %185, %186
-  call void @_ZdlPvm(ptr noundef nonnull %182, i64 noundef %187) #60
-  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EED2Ev.exit91
+185:                                              ; preds = %183
+  %186 = load ptr, ptr %44, align 8, !tbaa !3173
+  %187 = ptrtoint ptr %186 to i64
+  %188 = ptrtoint ptr %184 to i64
+  %189 = sub i64 %187, %188
+  call void @_ZdlPvm(ptr noundef nonnull %184, i64 noundef %189) #60
+  br label %_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EED2Ev.exit90
 
-_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EED2Ev.exit91: ; preds = %181, %183
+_ZNSt6vectorIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EED2Ev.exit90: ; preds = %183, %185
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn36.pn.pn.pn.pn.pn
 }
@@ -183388,7 +183386,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail8envelope28envelope_ra
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !174
   %11 = icmp eq ptr %8, %10
-  br i1 %11, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread49, label %12
+  br i1 %11, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread45, label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -183401,119 +183399,119 @@ _ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envel
   br label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEET_SJ_SJ_T0_.exit
 
 .lr.ph.i.i:                                       ; preds = %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
-  %15 = phi ptr [ %32, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %13, %12 ]
-  %.sroa.02.116.i.i = phi ptr [ %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %8, %12 ]
+  %15 = phi ptr [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %13, %12 ]
+  %.sroa.02.116.i.i = phi ptr [ %32, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %8, %12 ]
   %16 = load double, ptr %15, align 8, !tbaa !3067
   %.fr14.i.i = freeze double %16
   %17 = load double, ptr %.sroa.02.116.i.i, align 8, !tbaa !3067
   %.fr.i.i = freeze double %17
-  %or.cond.i.i.i.i.i.i = fcmp uge double %.fr14.i.i, %.fr.i.i
-  br i1 %or.cond.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i, label %18
+  %18 = fcmp olt double %.fr14.i.i, %.fr.i.i
+  br i1 %18, label %19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
 
-18:                                               ; preds = %.lr.ph.i.i
-  %19 = tail call double @llvm.fabs.f64(double %.fr.i.i)
-  %20 = fcmp ueq double %19, 0x7FF0000000000000
-  br i1 %20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %21
+19:                                               ; preds = %.lr.ph.i.i
+  %20 = tail call double @llvm.fabs.f64(double %.fr.i.i)
+  %21 = fcmp ueq double %20, 0x7FF0000000000000
+  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %22
 
-21:                                               ; preds = %18
-  %22 = tail call double @llvm.fabs.f64(double %.fr14.i.i)
-  %23 = fcmp ueq double %22, 0x7FF0000000000000
-  br i1 %23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i
+22:                                               ; preds = %19
+  %23 = tail call double @llvm.fabs.f64(double %.fr14.i.i)
+  %24 = fcmp ueq double %23, 0x7FF0000000000000
+  br i1 %24, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i: ; preds = %21
-  %24 = fsub double %.fr.i.i, %.fr14.i.i
-  %25 = tail call noundef double @llvm.fabs.f64(double %24)
-  %26 = fcmp olt double %19, %22
-  %27 = select i1 %26, double %22, double %19
-  %28 = fcmp olt double %27, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i.i = select i1 %28, double 1.000000e+00, double %27
-  %29 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i, 0x3CB0000000000000
-  %30 = fcmp ugt double %25, %29
-  br i1 %30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i: ; preds = %22
+  %25 = fsub double %.fr.i.i, %.fr14.i.i
+  %26 = tail call noundef double @llvm.fabs.f64(double %25)
+  %27 = fcmp olt double %20, %23
+  %28 = select i1 %27, double %23, double %20
+  %29 = fcmp olt double %28, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i.i = select i1 %29, double 1.000000e+00, double %28
+  %30 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i, 0x3CB0000000000000
+  %31 = fcmp ugt double %26, %30
+  br i1 %31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i, %21, %18
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i, %22, %19
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i, %.lr.ph.i.i
-  %31 = phi ptr [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i ], [ %.sroa.02.116.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i ], [ %.sroa.02.116.i.i, %.lr.ph.i.i ]
-  %32 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.not.i.i = icmp eq ptr %32, %10
+  %32 = phi ptr [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i ], [ %.sroa.02.116.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i ], [ %.sroa.02.116.i.i, %.lr.ph.i.i ]
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.not.i.i = icmp eq ptr %33, %10
   br i1 %.not.i.i, label %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit, label %.lr.ph.i.i, !llvm.loop !3191
 
 _ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
-  %33 = load double, ptr %31, align 8, !tbaa !3067
-  store double %33, ptr %1, align 8, !tbaa !3067
+  %34 = load double, ptr %32, align 8, !tbaa !3067
+  store double %34, ptr %1, align 8, !tbaa !3067
   br label %.lr.ph.i.i23
 
 .lr.ph.i.i23:                                     ; preds = %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
-  %34 = phi ptr [ %53, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %13, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit ]
-  %.sroa.02.117.i.i = phi ptr [ %52, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %8, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit ]
-  %.sroa.06.016.i.i = phi ptr [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %8, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.02.117.i.i, i64 8
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.06.016.i.i, i64 24
-  %37 = load double, ptr %35, align 8, !tbaa !3067
-  %.fr14.i.i24 = freeze double %37
+  %35 = phi ptr [ %55, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %13, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit ]
+  %.sroa.02.117.i.i = phi ptr [ %54, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %8, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit ]
+  %.sroa.06.016.i.i = phi ptr [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ], [ %8, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.02.117.i.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.06.016.i.i, i64 24
   %38 = load double, ptr %36, align 8, !tbaa !3067
-  %.fr.i.i25 = freeze double %38
-  %or.cond.i.i.i.i.i.i26 = fcmp uge double %.fr14.i.i24, %.fr.i.i25
-  br i1 %or.cond.i.i.i.i.i.i26, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i, label %39
+  %.fr14.i.i24 = freeze double %38
+  %39 = load double, ptr %37, align 8, !tbaa !3067
+  %.fr.i.i25 = freeze double %39
+  %40 = fcmp olt double %.fr14.i.i24, %.fr.i.i25
+  br i1 %40, label %41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
 
-39:                                               ; preds = %.lr.ph.i.i23
-  %40 = tail call double @llvm.fabs.f64(double %.fr.i.i25)
-  %41 = fcmp ueq double %40, 0x7FF0000000000000
-  br i1 %41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %42
+41:                                               ; preds = %.lr.ph.i.i23
+  %42 = tail call double @llvm.fabs.f64(double %.fr.i.i25)
+  %43 = fcmp ueq double %42, 0x7FF0000000000000
+  br i1 %43, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %44
 
-42:                                               ; preds = %39
-  %43 = tail call double @llvm.fabs.f64(double %.fr14.i.i24)
-  %44 = fcmp ueq double %43, 0x7FF0000000000000
-  br i1 %44, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i
+44:                                               ; preds = %41
+  %45 = tail call double @llvm.fabs.f64(double %.fr14.i.i24)
+  %46 = fcmp ueq double %45, 0x7FF0000000000000
+  br i1 %46, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i: ; preds = %42
-  %45 = fsub double %.fr.i.i25, %.fr14.i.i24
-  %46 = tail call noundef double @llvm.fabs.f64(double %45)
-  %47 = fcmp olt double %40, %43
-  %48 = select i1 %47, double %43, double %40
-  %49 = fcmp olt double %48, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i.i27 = select i1 %49, double 1.000000e+00, double %48
-  %50 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i27, 0x3CB0000000000000
-  %51 = fcmp ugt double %46, %50
-  br i1 %51, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i: ; preds = %44
+  %47 = fsub double %.fr.i.i25, %.fr14.i.i24
+  %48 = tail call noundef double @llvm.fabs.f64(double %47)
+  %49 = fcmp olt double %42, %45
+  %50 = select i1 %49, double %45, double %42
+  %51 = fcmp olt double %50, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i.i28 = select i1 %51, double 1.000000e+00, double %50
+  %52 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i28, 0x3CB0000000000000
+  %53 = fcmp ugt double %48, %52
+  br i1 %53, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i, %42, %39
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i, %44, %41
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i, %.lr.ph.i.i23
-  %52 = phi ptr [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i ], [ %.sroa.02.117.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i ], [ %.sroa.02.117.i.i, %.lr.ph.i.i23 ]
-  %53 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %.not.i.i28 = icmp eq ptr %53, %10
-  br i1 %.not.i.i28, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEET_SJ_SJ_T0_.exit, label %.lr.ph.i.i23, !llvm.loop !3192
+  %54 = phi ptr [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread.i.i ], [ %.sroa.02.117.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.i.i ], [ %.sroa.02.117.i.i, %.lr.ph.i.i23 ]
+  %55 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %.not.i.i26 = icmp eq ptr %55, %10
+  br i1 %.not.i.i26, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEET_SJ_SJ_T0_.exit, label %.lr.ph.i.i23, !llvm.loop !3192
 
 _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEET_SJ_SJ_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit.thread
-  %.sroa.02.0.i.i29 = phi ptr [ %8, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit.thread ], [ %52, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ]
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.i.i29, i64 8
-  %55 = load double, ptr %54, align 8, !tbaa !3067
-  store double %55, ptr %2, align 8, !tbaa !3067
-  %56 = load double, ptr %1, align 8, !tbaa !3067
-  %57 = fsub double %55, %56
-  %or.cond.i.i30 = fcmp ule double %57, 1.800000e+02
-  br i1 %or.cond.i.i30, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread49, label %58
+  %.sroa.02.0.i.i27 = phi ptr [ %8, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm0EEEET_SJ_SJ_T0_.exit.thread ], [ %54, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail8envelope28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEEclINS_17__normal_iteratorIPKNS5_18longitude_intervalIdEESt6vectorISF_SaISF_EEEESL_EEbT_T0_.exit.thread11.i.i ]
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.i.i27, i64 8
+  %57 = load double, ptr %56, align 8, !tbaa !3067
+  store double %57, ptr %2, align 8, !tbaa !3067
+  %58 = load double, ptr %1, align 8, !tbaa !3067
+  %59 = fsub double %57, %58
+  %60 = fcmp ogt double %59, 1.800000e+02
+  br i1 %60, label %61, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread45
 
-58:                                               ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEET_SJ_SJ_T0_.exit
-  %59 = fcmp ueq double %57, 0x7FF0000000000000
-  br i1 %59, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit
+61:                                               ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEET_SJ_SJ_T0_.exit
+  %62 = fcmp ueq double %59, 0x7FF0000000000000
+  br i1 %62, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit
 
-_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit: ; preds = %58
-  %60 = fadd double %57, -1.800000e+02
-  %61 = tail call noundef double @llvm.fabs.f64(double %60)
-  %62 = fcmp olt double %57, 1.800000e+02
-  %63 = select i1 %62, double 1.800000e+02, double %57
-  %64 = fcmp olt double %63, 1.000000e+00
-  %.sroa.speculated.i.i.i.i = select i1 %64, double 1.000000e+00, double %63
-  %65 = fmul double %.sroa.speculated.i.i.i.i, 0x3CB0000000000000
-  %66 = fcmp ugt double %61, %65
-  br i1 %66, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread49
+_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit: ; preds = %61
+  %63 = fadd double %59, -1.800000e+02
+  %64 = tail call noundef double @llvm.fabs.f64(double %63)
+  %65 = fcmp olt double %59, 1.800000e+02
+  %66 = select i1 %65, double 1.800000e+02, double %59
+  %67 = fcmp olt double %66, 1.000000e+00
+  %.sroa.speculated.i.i.i.i = select i1 %67, double 1.000000e+00, double %66
+  %68 = fmul double %.sroa.speculated.i.i.i.i, 0x3CB0000000000000
+  %69 = fcmp ugt double %64, %68
+  br i1 %69, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread45
 
-_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread: ; preds = %58, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit
+_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread: ; preds = %61, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %5, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -183521,107 +183519,107 @@ _ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread: ; preds = %58, %_ZN5b
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN5boost8geometry5sweepISt6vectorINS0_6detail8envelope18longitude_intervalIdEESaIS6_EESt14priority_queueINS3_16max_interval_gap11sweep_eventIS6_EES2_ISC_SaISC_EENSA_13event_greaterISC_EEENSA_22initialization_visitorENSA_13event_visitorISC_EENS3_5sweep19no_interrupt_policyEEEvRKT_RT0_RT1_RT2_RKT3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(25) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %67 unwind label %79
+          to label %70 unwind label %82
 
-67:                                               ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread
+70:                                               ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %69 = load double, ptr %68, align 8, !tbaa !3067
-  %70 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %71 = load double, ptr %70, align 8, !tbaa !3067
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %72 = load double, ptr %71, align 8, !tbaa !3067
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %74 = load double, ptr %73, align 8, !tbaa !3067
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %72 = load ptr, ptr %5, align 8, !tbaa !3193
-  %.not.i.i.i.i.i = icmp eq ptr %72, null
-  br i1 %.not.i.i.i.i.i, label %_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIdEESaIS6_EEdEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit, label %73
+  %75 = load ptr, ptr %5, align 8, !tbaa !3193
+  %.not.i.i.i.i.i = icmp eq ptr %75, null
+  br i1 %.not.i.i.i.i.i, label %_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIdEESaIS6_EEdEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit, label %76
 
-73:                                               ; preds = %67
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !3195
-  %76 = ptrtoint ptr %75 to i64
-  %77 = ptrtoint ptr %72 to i64
-  %78 = sub i64 %76, %77
-  call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %78) #60
+76:                                               ; preds = %70
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %78 = load ptr, ptr %77, align 8, !tbaa !3195
+  %79 = ptrtoint ptr %78 to i64
+  %80 = ptrtoint ptr %75 to i64
+  %81 = sub i64 %79, %80
+  call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %81) #60
   br label %_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIdEESaIS6_EEdEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit
 
-79:                                               ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread
-  %80 = landingpad { ptr, i32 }
+82:                                               ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread
+  %83 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %81 = load ptr, ptr %5, align 8, !tbaa !3193
-  %.not.i.i.i.i4.i = icmp eq ptr %81, null
-  br i1 %.not.i.i.i.i4.i, label %_ZNSt14priority_queueIN5boost8geometry6detail16max_interval_gap11sweep_eventINS2_8envelope18longitude_intervalIdEEEESt6vectorIS8_SaIS8_EENS3_13event_greaterIS8_EEED2Ev.exit5.i, label %82
+  %84 = load ptr, ptr %5, align 8, !tbaa !3193
+  %.not.i.i.i.i4.i = icmp eq ptr %84, null
+  br i1 %.not.i.i.i.i4.i, label %_ZNSt14priority_queueIN5boost8geometry6detail16max_interval_gap11sweep_eventINS2_8envelope18longitude_intervalIdEEEESt6vectorIS8_SaIS8_EENS3_13event_greaterIS8_EEED2Ev.exit5.i, label %85
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !3195
-  %85 = ptrtoint ptr %84 to i64
-  %86 = ptrtoint ptr %81 to i64
-  %87 = sub i64 %85, %86
-  call void @_ZdlPvm(ptr noundef nonnull %81, i64 noundef %87) #60
+85:                                               ; preds = %82
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %87 = load ptr, ptr %86, align 8, !tbaa !3195
+  %88 = ptrtoint ptr %87 to i64
+  %89 = ptrtoint ptr %84 to i64
+  %90 = sub i64 %88, %89
+  call void @_ZdlPvm(ptr noundef nonnull %84, i64 noundef %90) #60
   br label %_ZNSt14priority_queueIN5boost8geometry6detail16max_interval_gap11sweep_eventINS2_8envelope18longitude_intervalIdEEEESt6vectorIS8_SaIS8_EENS3_13event_greaterIS8_EEED2Ev.exit5.i
 
-_ZNSt14priority_queueIN5boost8geometry6detail16max_interval_gap11sweep_eventINS2_8envelope18longitude_intervalIdEEEESt6vectorIS8_SaIS8_EENS3_13event_greaterIS8_EEED2Ev.exit5.i: ; preds = %82, %79
+_ZNSt14priority_queueIN5boost8geometry6detail16max_interval_gap11sweep_eventINS2_8envelope18longitude_intervalIdEEEESt6vectorIS8_SaIS8_EENS3_13event_greaterIS8_EEED2Ev.exit5.i: ; preds = %85, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %80
+  resume { ptr, i32 } %83
 
-_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIdEESaIS6_EEdEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit: ; preds = %67, %73
-  %88 = fsub double %71, %69
+_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIdEESaIS6_EEdEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit: ; preds = %70, %76
+  %91 = fsub double %74, %72
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %or.cond.i.i31 = fcmp ule double %88, 0.000000e+00
-  br i1 %or.cond.i.i31, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread49, label %89
+  %92 = fcmp ogt double %91, 0.000000e+00
+  br i1 %92, label %93, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread45
 
-89:                                               ; preds = %_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIdEESaIS6_EEdEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit
-  %90 = fcmp ueq double %88, 0x7FF0000000000000
-  br i1 %90, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34.thread, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34
+93:                                               ; preds = %_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIdEESaIS6_EEdEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit
+  %94 = fcmp ueq double %91, 0x7FF0000000000000
+  br i1 %94, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit31.thread, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit31
 
-_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34: ; preds = %89
-  %91 = fcmp olt double %88, 1.000000e+00
-  %.sroa.speculated.i.i.i.i32 = select i1 %91, double 1.000000e+00, double %88
-  %92 = fmul double %.sroa.speculated.i.i.i.i32, 0x3CB0000000000000
-  %93 = fcmp ugt double %88, %92
-  br i1 %93, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34.thread.thread, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread49
+_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit31: ; preds = %93
+  %95 = fcmp olt double %91, 1.000000e+00
+  %.sroa.speculated.i.i.i.i30 = select i1 %95, double 1.000000e+00, double %91
+  %96 = fmul double %.sroa.speculated.i.i.i.i30, 0x3CB0000000000000
+  %97 = fcmp ugt double %91, %96
+  br i1 %97, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit31.thread.thread, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread45
 
-_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34.thread: ; preds = %89
-  %94 = load double, ptr %1, align 8, !tbaa !3067
-  %95 = fadd double %94, 3.600000e+02
-  %96 = load double, ptr %2, align 8, !tbaa !3067
-  %97 = fsub double %95, %96
-  %or.cond.i.i35 = fcmp uge double %97, %88
-  br i1 %or.cond.i.i35, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread49, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit38.thread
-
-_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34.thread.thread: ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34
+_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit31.thread: ; preds = %93
   %98 = load double, ptr %1, align 8, !tbaa !3067
   %99 = fadd double %98, 3.600000e+02
   %100 = load double, ptr %2, align 8, !tbaa !3067
   %101 = fsub double %99, %100
-  %or.cond.i.i3573 = fcmp uge double %101, %88
-  br i1 %or.cond.i.i3573, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread49, label %102
+  %102 = fcmp olt double %101, %91
+  br i1 %102, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34.thread, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread45
 
-102:                                              ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34.thread.thread
-  %103 = call double @llvm.fabs.f64(double %101)
-  %104 = fcmp ueq double %103, 0x7FF0000000000000
-  br i1 %104, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit38.thread, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit38
+_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit31.thread.thread: ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit31
+  %103 = load double, ptr %1, align 8, !tbaa !3067
+  %104 = fadd double %103, 3.600000e+02
+  %105 = load double, ptr %2, align 8, !tbaa !3067
+  %106 = fsub double %104, %105
+  %107 = fcmp olt double %106, %91
+  br i1 %107, label %108, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread45
 
-_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit38: ; preds = %102
-  %105 = fsub double %88, %101
-  %106 = call noundef double @llvm.fabs.f64(double %105)
-  %107 = fcmp olt double %88, %103
-  %108 = select i1 %107, double %103, double %88
-  %109 = fcmp olt double %108, 1.000000e+00
-  %.sroa.speculated.i.i.i.i36 = select i1 %109, double 1.000000e+00, double %108
-  %110 = fmul double %.sroa.speculated.i.i.i.i36, 0x3CB0000000000000
-  %111 = fcmp ugt double %106, %110
-  br i1 %111, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit38.thread, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread49
+108:                                              ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit31.thread.thread
+  %109 = call double @llvm.fabs.f64(double %106)
+  %110 = fcmp ueq double %109, 0x7FF0000000000000
+  br i1 %110, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34.thread, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34
 
-_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit38.thread: ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34.thread, %102, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit38
-  store double %71, ptr %1, align 8, !tbaa !3067
-  %112 = fadd double %69, 3.600000e+02
-  store double %112, ptr %2, align 8, !tbaa !3067
-  br label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread49
+_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34: ; preds = %108
+  %111 = fsub double %91, %106
+  %112 = call noundef double @llvm.fabs.f64(double %111)
+  %113 = fcmp olt double %91, %109
+  %114 = select i1 %113, double %109, double %91
+  %115 = fcmp olt double %114, 1.000000e+00
+  %.sroa.speculated.i.i.i.i33 = select i1 %115, double 1.000000e+00, double %114
+  %116 = fmul double %.sroa.speculated.i.i.i.i33, 0x3CB0000000000000
+  %117 = fcmp ugt double %112, %116
+  br i1 %117, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34.thread, label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread45
 
-_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread49: ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34.thread.thread, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34.thread, %_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIdEESaIS6_EEdEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEET_SJ_SJ_T0_.exit, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit38.thread, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit38, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit, %3
+_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34.thread: ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit31.thread, %108, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34
+  store double %74, ptr %1, align 8, !tbaa !3067
+  %118 = fadd double %72, 3.600000e+02
+  store double %118, ptr %2, align 8, !tbaa !3067
+  br label %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread45
+
+_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit.thread45: ; preds = %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit31.thread.thread, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit31.thread, %_ZN5boost8geometry11maximum_gapISt6vectorINS0_6detail8envelope18longitude_intervalIdEESaIS6_EEdEENS_11range_valueIT_E4type15difference_typeERKSA_RT0_SH_.exit, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail8envelope18longitude_intervalIdEESt6vectorIS7_SaIS7_EEEENS5_28envelope_range_of_longitudesINS3_6degreeEE14longitude_lessILm1EEEET_SJ_SJ_T0_.exit, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit31, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34.thread, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit34, %_ZN5boost8geometry4math6largerIddEEbRKT_RKT0_.exit, %3
   ret void
 }
 
@@ -185385,31 +185383,31 @@ _ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointI
   store double %.sroa.9.0.copyload.i, ptr %10, align 8, !tbaa !3067
   %16 = fsub double %.sroa.0.0.copyload.i, %.sroa.7.0.copyload.i
   %17 = tail call noundef double @llvm.fabs.f64(double %16)
-  %or.cond.i.i.i.i.i.i.i.i = fcmp ult double %17, 3.600000e+02
-  br i1 %or.cond.i.i.i.i.i.i.i.i, label %18, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i
+  %18 = fcmp ult double %17, 3.600000e+02
+  br i1 %18, label %19, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i
 
-18:                                               ; preds = %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i
-  %19 = fcmp ueq double %17, 0x7FF0000000000000
-  br i1 %19, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i, label %20
+19:                                               ; preds = %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i
+  %20 = fcmp ueq double %17, 0x7FF0000000000000
+  br i1 %20, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i, label %21
 
-20:                                               ; preds = %18
-  %21 = fsub double 3.600000e+02, %17
-  %22 = tail call noundef double @llvm.fabs.f64(double %21)
-  %23 = fcmp ogt double %17, 3.600000e+02
-  %24 = select i1 %23, double %17, double 3.600000e+02
-  %25 = fcmp olt double %24, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i.i.i.i = select i1 %25, double 1.000000e+00, double %24
-  %26 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, 0x3CB0000000000000
-  %27 = fcmp ole double %22, %26
+21:                                               ; preds = %19
+  %22 = fsub double 3.600000e+02, %17
+  %23 = tail call noundef double @llvm.fabs.f64(double %22)
+  %24 = fcmp ogt double %17, 3.600000e+02
+  %25 = select i1 %24, double %17, double 3.600000e+02
+  %26 = fcmp olt double %25, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i.i.i.i = select i1 %26, double 1.000000e+00, double %25
+  %27 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, 0x3CB0000000000000
+  %28 = fcmp ole double %23, %27
   br label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i
 
-_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i: ; preds = %20, %18, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i
-  %.0.i.i.i.i.i.i.i.i = phi i1 [ true, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i ], [ %27, %20 ], [ false, %18 ]
+_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i: ; preds = %21, %19, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i
+  %.0.i.i.i.i.i.i.i.i = phi i1 [ true, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i ], [ %28, %21 ], [ false, %19 ]
   call void @_ZN5boost8geometry4math6detail36normalize_spheroidal_box_coordinatesINS0_6degreeEdLb1EE5applyERdS6_S6_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, i1 noundef zeroext %.0.i.i.i.i.i.i.i.i)
-  %28 = load double, ptr %7, align 8, !tbaa !3067
-  %29 = load double, ptr %8, align 8, !tbaa !3067
-  %30 = load double, ptr %9, align 8, !tbaa !3067
-  %31 = load double, ptr %10, align 8, !tbaa !3067
+  %29 = load double, ptr %7, align 8, !tbaa !3067
+  %30 = load double, ptr %8, align 8, !tbaa !3067
+  %31 = load double, ptr %9, align 8, !tbaa !3067
+  %32 = load double, ptr %10, align 8, !tbaa !3067
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -185417,17 +185415,17 @@ _ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5p
   br label %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit
 
 _ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit: ; preds = %2, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i
-  %.sroa.9.0.i = phi double [ %31, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0xFFEFFFFFFFFFFFFF, %2 ]
-  %.sroa.7.0.i = phi double [ %30, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0xFFEFFFFFFFFFFFFF, %2 ]
-  %.sroa.5.0.i = phi double [ %29, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0x7FEFFFFFFFFFFFFF, %2 ]
-  %.sroa.0.0.i = phi double [ %28, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0x7FEFFFFFFFFFFFFF, %2 ]
+  %.sroa.9.0.i = phi double [ %32, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0xFFEFFFFFFFFFFFFF, %2 ]
+  %.sroa.7.0.i = phi double [ %31, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0xFFEFFFFFFFFFFFFF, %2 ]
+  %.sroa.5.0.i = phi double [ %30, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0x7FEFFFFFFFFFFFFF, %2 ]
+  %.sroa.0.0.i = phi double [ %29, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i ], [ 0x7FEFFFFFFFFFFFFF, %2 ]
   store double %.sroa.0.0.i, ptr %11, align 16, !tbaa !3067
-  %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store double %.sroa.5.0.i, ptr %32, align 8, !tbaa !3067
-  %33 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store double %.sroa.7.0.i, ptr %33, align 16, !tbaa !3067
-  %34 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store double %.sroa.9.0.i, ptr %34, align 8, !tbaa !3067
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store double %.sroa.5.0.i, ptr %33, align 8, !tbaa !3067
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store double %.sroa.7.0.i, ptr %34, align 16, !tbaa !3067
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store double %.sroa.9.0.i, ptr %35, align 8, !tbaa !3067
   %.sroa.0.0.copyload.i3 = load double, ptr %0, align 8
   %.sroa.5.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.5.0.copyload.i5 = load double, ptr %.sroa.5.0..sroa_idx.i4, align 8, !tbaa !24
@@ -185435,14 +185433,14 @@ _ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3bo
   %.sroa.7.0.copyload.i7 = load double, ptr %.sroa.7.0..sroa_idx.i6, align 8
   %.sroa.9.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.9.0.copyload.i9 = load double, ptr %.sroa.9.0..sroa_idx.i8, align 8, !tbaa !24
-  %35 = fcmp oeq double %.sroa.0.0.copyload.i3, 0x7FEFFFFFFFFFFFFF
-  %36 = fcmp oeq double %.sroa.5.0.copyload.i5, 0x7FEFFFFFFFFFFFFF
-  %or.cond.i.i10 = select i1 %35, i1 %36, i1 false
-  %37 = fcmp oeq double %.sroa.7.0.copyload.i7, 0xFFEFFFFFFFFFFFFF
-  %or.cond13.i.i11 = select i1 %or.cond.i.i10, i1 %37, i1 false
-  %38 = fcmp oeq double %.sroa.9.0.copyload.i9, 0xFFEFFFFFFFFFFFFF
-  %or.cond.i12 = select i1 %or.cond13.i.i11, i1 %38, i1 false
-  br i1 %or.cond.i12, label %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit22, label %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13
+  %36 = fcmp oeq double %.sroa.0.0.copyload.i3, 0x7FEFFFFFFFFFFFFF
+  %37 = fcmp oeq double %.sroa.5.0.copyload.i5, 0x7FEFFFFFFFFFFFFF
+  %or.cond.i.i10 = select i1 %36, i1 %37, i1 false
+  %38 = fcmp oeq double %.sroa.7.0.copyload.i7, 0xFFEFFFFFFFFFFFFF
+  %or.cond13.i.i11 = select i1 %or.cond.i.i10, i1 %38, i1 false
+  %39 = fcmp oeq double %.sroa.9.0.copyload.i9, 0xFFEFFFFFFFFFFFFF
+  %or.cond.i12 = select i1 %or.cond13.i.i11, i1 %39, i1 false
+  br i1 %or.cond.i12, label %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit21, label %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13
 
 _ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13: ; preds = %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -185453,52 +185451,52 @@ _ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointI
   store double %.sroa.7.0.copyload.i7, ptr %5, align 8, !tbaa !3067
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store double %.sroa.9.0.copyload.i9, ptr %6, align 8, !tbaa !3067
-  %39 = fsub double %.sroa.0.0.copyload.i3, %.sroa.7.0.copyload.i7
-  %40 = call noundef double @llvm.fabs.f64(double %39)
-  %or.cond.i.i.i.i.i.i.i.i14 = fcmp ult double %40, 3.600000e+02
-  br i1 %or.cond.i.i.i.i.i.i.i.i14, label %41, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15
+  %40 = fsub double %.sroa.0.0.copyload.i3, %.sroa.7.0.copyload.i7
+  %41 = call noundef double @llvm.fabs.f64(double %40)
+  %42 = fcmp ult double %41, 3.600000e+02
+  br i1 %42, label %43, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14
 
-41:                                               ; preds = %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13
-  %42 = fcmp ueq double %40, 0x7FF0000000000000
-  br i1 %42, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15, label %43
+43:                                               ; preds = %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13
+  %44 = fcmp ueq double %41, 0x7FF0000000000000
+  br i1 %44, label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14, label %45
 
-43:                                               ; preds = %41
-  %44 = fsub double 3.600000e+02, %40
-  %45 = call noundef double @llvm.fabs.f64(double %44)
-  %46 = fcmp ogt double %40, 3.600000e+02
-  %47 = select i1 %46, double %40, double 3.600000e+02
-  %48 = fcmp olt double %47, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i.i.i.i21 = select i1 %48, double 1.000000e+00, double %47
-  %49 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i21, 0x3CB0000000000000
-  %50 = fcmp ole double %45, %49
-  br label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15
+45:                                               ; preds = %43
+  %46 = fsub double 3.600000e+02, %41
+  %47 = call noundef double @llvm.fabs.f64(double %46)
+  %48 = fcmp ogt double %41, 3.600000e+02
+  %49 = select i1 %48, double %41, double 3.600000e+02
+  %50 = fcmp olt double %49, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i.i.i.i20 = select i1 %50, double 1.000000e+00, double %49
+  %51 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i20, 0x3CB0000000000000
+  %52 = fcmp ole double %47, %51
+  br label %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14
 
-_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15: ; preds = %43, %41, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13
-  %.0.i.i.i.i.i.i.i.i16 = phi i1 [ true, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13 ], [ %50, %43 ], [ false, %41 ]
-  call void @_ZN5boost8geometry4math6detail36normalize_spheroidal_box_coordinatesINS0_6degreeEdLb1EE5applyERdS6_S6_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext %.0.i.i.i.i.i.i.i.i16)
-  %51 = load double, ptr %3, align 8, !tbaa !3067
-  %52 = load double, ptr %4, align 8, !tbaa !3067
-  %53 = load double, ptr %5, align 8, !tbaa !3067
-  %54 = load double, ptr %6, align 8, !tbaa !3067
+_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14: ; preds = %45, %43, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13
+  %.0.i.i.i.i.i.i.i.i15 = phi i1 [ true, %_ZN5boost8geometry33is_inverse_spheroidal_coordinatesINS0_5model3boxINS2_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEEEbRKT_.exit.thread.i13 ], [ %52, %45 ], [ false, %43 ]
+  call void @_ZN5boost8geometry4math6detail36normalize_spheroidal_box_coordinatesINS0_6degreeEdLb1EE5applyERdS6_S6_S6_b(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext %.0.i.i.i.i.i.i.i.i15)
+  %53 = load double, ptr %3, align 8, !tbaa !3067
+  %54 = load double, ptr %4, align 8, !tbaa !3067
+  %55 = load double, ptr %5, align 8, !tbaa !3067
+  %56 = load double, ptr %6, align 8, !tbaa !3067
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit22
+  br label %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit21
 
-_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit22: ; preds = %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15
-  %.sroa.9.0.i17 = phi double [ %54, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15 ], [ 0xFFEFFFFFFFFFFFFF, %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit ]
-  %.sroa.7.0.i18 = phi double [ %53, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15 ], [ 0xFFEFFFFFFFFFFFFF, %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit ]
-  %.sroa.5.0.i19 = phi double [ %52, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15 ], [ 0x7FEFFFFFFFFFFFFF, %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit ]
-  %.sroa.0.0.i20 = phi double [ %51, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i15 ], [ 0x7FEFFFFFFFFFFFFF, %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit ]
-  %55 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store double %.sroa.0.0.i20, ptr %55, align 16, !tbaa !3067
-  %56 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store double %.sroa.5.0.i19, ptr %56, align 8, !tbaa !3067
-  %57 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store double %.sroa.7.0.i18, ptr %57, align 16, !tbaa !3067
-  %58 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  store double %.sroa.9.0.i17, ptr %58, align 8, !tbaa !3067
+_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit21: ; preds = %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14
+  %.sroa.9.0.i16 = phi double [ %56, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14 ], [ 0xFFEFFFFFFFFFFFFF, %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit ]
+  %.sroa.7.0.i17 = phi double [ %55, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14 ], [ 0xFFEFFFFFFFFFFFFF, %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit ]
+  %.sroa.5.0.i18 = phi double [ %54, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14 ], [ 0x7FEFFFFFFFFFFFFF, %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit ]
+  %.sroa.0.0.i19 = phi double [ %53, %_ZN5boost8geometry8strategy9normalize13spherical_box5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit.i14 ], [ 0x7FEFFFFFFFFFFFFF, %_ZN5boost8geometry6detail8envelope24envelope_box_on_spheroid5applyINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_.exit ]
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store double %.sroa.0.0.i19, ptr %57, align 16, !tbaa !3067
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  store double %.sroa.5.0.i18, ptr %58, align 8, !tbaa !3067
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  store double %.sroa.7.0.i17, ptr %59, align 16, !tbaa !3067
+  %60 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  store double %.sroa.9.0.i16, ptr %60, align 8, !tbaa !3067
   call void @_ZN5boost8geometry6detail8envelope23envelope_range_of_boxes5applyIA2_NS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEESD_EEvRKT_RT0_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(32) %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
@@ -212105,9 +212103,9 @@ attributes #66 = { nounwind willreturn memory(read) }
 !2508 = !{!2509, !7, i64 0}
 !2509 = !{!"_ZTSN5boost8geometry5model17referring_segmentIKNS1_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEE", !7, i64 0, !7, i64 8}
 !2510 = !{!2509, !7, i64 8}
-!2511 = !{!2512, !7, i64 8}
+!2511 = !{!2512, !7, i64 16}
 !2512 = !{!"_ZTSNSt12_Vector_baseIN5boost8geometry6detail8envelope18longitude_intervalIfEESaIS5_EE17_Vector_impl_dataE", !7, i64 0, !7, i64 8, !7, i64 16}
-!2513 = !{!2512, !7, i64 16}
+!2513 = !{!2512, !7, i64 8}
 !2514 = !{!2512, !7, i64 0}
 !2515 = !{!2516}
 !2516 = distinct !{!2516, !2517, !"_ZSt19__relocate_object_aIN5boost8geometry6detail8envelope18longitude_intervalIfEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
@@ -212767,9 +212765,9 @@ attributes #66 = { nounwind willreturn memory(read) }
 !3170 = !{!3171, !7, i64 0}
 !3171 = !{!"_ZTSN5boost8geometry5model17referring_segmentIKNS1_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEE", !7, i64 0, !7, i64 8}
 !3172 = !{!3171, !7, i64 8}
-!3173 = !{!3174, !7, i64 8}
+!3173 = !{!3174, !7, i64 16}
 !3174 = !{!"_ZTSNSt12_Vector_baseIN5boost8geometry6detail8envelope18longitude_intervalIdEESaIS5_EE17_Vector_impl_dataE", !7, i64 0, !7, i64 8, !7, i64 16}
-!3175 = !{!3174, !7, i64 16}
+!3175 = !{!3174, !7, i64 8}
 !3176 = !{!3174, !7, i64 0}
 !3177 = !{!3178, !3180}
 !3178 = distinct !{!3178, !3179, !"_ZSt19__relocate_object_aIN5boost8geometry6detail8envelope18longitude_intervalIdEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}

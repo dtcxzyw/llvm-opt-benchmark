@@ -9355,10 +9355,10 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %185, %186
   %212 = fmul float %.sroa.9.0.lcssa, %.sroa.9.0.lcssa
   %213 = call float @llvm.fmuladd.f32(float %.sroa.0151.0.lcssa, float %.sroa.0151.0.lcssa, float %212)
   %214 = call noundef float @llvm.fmuladd.f32(float %.sroa.14.0.lcssa, float %.sroa.14.0.lcssa, float %213)
-  %or.cond.i = fcmp ule float %214, 0.000000e+00
-  br i1 %or.cond.i, label %_ZN10aiVector3tIfE13NormalizeSafeEv.exit, label %215
+  %215 = fcmp ogt float %214, 0.000000e+00
+  br i1 %215, label %_ZN10aiVector3tIfEdVEf.exit.i, label %_ZN10aiVector3tIfE13NormalizeSafeEv.exit
 
-215:                                              ; preds = %._crit_edge248
+_ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %._crit_edge248
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %214)
   %216 = fdiv float 1.000000e+00, %sqrt.i.i
   %217 = fmul float %.sroa.0151.0.lcssa, %216
@@ -9393,10 +9393,10 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %185, %186
   %.not217 = icmp eq ptr %235, %210
   br i1 %.not217, label %._crit_edge248, label %223, !llvm.loop !109
 
-_ZN10aiVector3tIfE13NormalizeSafeEv.exit:         ; preds = %215, %._crit_edge248
-  %.sroa.14.1 = phi float [ %.sroa.14.0.lcssa, %._crit_edge248 ], [ %219, %215 ]
-  %.sroa.9.1 = phi float [ %.sroa.9.0.lcssa, %._crit_edge248 ], [ %218, %215 ]
-  %.sroa.0151.1 = phi float [ %.sroa.0151.0.lcssa, %._crit_edge248 ], [ %217, %215 ]
+_ZN10aiVector3tIfE13NormalizeSafeEv.exit:         ; preds = %_ZN10aiVector3tIfEdVEf.exit.i, %._crit_edge248
+  %.sroa.14.1 = phi float [ %219, %_ZN10aiVector3tIfEdVEf.exit.i ], [ %.sroa.14.0.lcssa, %._crit_edge248 ]
+  %.sroa.9.1 = phi float [ %218, %_ZN10aiVector3tIfEdVEf.exit.i ], [ %.sroa.9.0.lcssa, %._crit_edge248 ]
+  %.sroa.0151.1 = phi float [ %217, %_ZN10aiVector3tIfEdVEf.exit.i ], [ %.sroa.0151.0.lcssa, %._crit_edge248 ]
   br i1 %.not217241, label %.loopexit, label %.lr.ph254
 
 .lr.ph254:                                        ; preds = %_ZN10aiVector3tIfE13NormalizeSafeEv.exit, %.lr.ph254

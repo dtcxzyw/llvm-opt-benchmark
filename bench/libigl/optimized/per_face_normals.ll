@@ -18908,530 +18908,329 @@ define linkonce_odr dso_local void @_ZZN3igl23per_face_normals_stableIN5Eigen6Ma
   %6 = alloca double, align 8
   %7 = alloca double, align 8
   %8 = alloca double, align 8
-  %9 = alloca double, align 8
-  %10 = alloca double, align 8
-  %11 = alloca double, align 8
-  %12 = alloca double, align 8
-  %13 = alloca double, align 8
-  %14 = alloca double, align 8
-  %15 = alloca double, align 8
-  %16 = alloca double, align 8
-  %17 = alloca double, align 8
-  %18 = alloca double, align 8
-  %19 = alloca double, align 8
-  %20 = alloca double, align 8
-  %21 = alloca double, align 8
-  %22 = alloca double, align 8
-  %23 = alloca double, align 8
-  %24 = alloca double, align 8
-  %25 = alloca double, align 8
-  %26 = alloca double, align 8
-  %27 = alloca double, align 8
-  %28 = alloca double, align 8
-  %29 = alloca double, align 8
-  %30 = alloca double, align 8
-  %31 = alloca double, align 8
-  %32 = alloca double, align 8
-  %33 = alloca %"class.Eigen::Matrix.71", align 8
-  %34 = alloca %"class.Eigen::Matrix.71", align 8
-  %35 = alloca %"class.Eigen::Matrix.71", align 8
-  %36 = alloca %"class.std::function", align 8
-  %37 = load ptr, ptr %0, align 8, !tbaa !953
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !955
-  %40 = sext i32 %1 to i64
-  %41 = load ptr, ptr %39, align 8, !tbaa !53
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %43 = getelementptr i32, ptr %41, i64 %40
-  %44 = load i32, ptr %43, align 4, !tbaa !42
-  %45 = sext i32 %44 to i64
-  %46 = load ptr, ptr %37, align 8, !tbaa !44, !noalias !956
-  %47 = getelementptr inbounds double, ptr %46, i64 %45
-  %48 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %49 = load i64, ptr %48, align 8, !tbaa !48
-  %50 = load double, ptr %47, align 8, !tbaa !49
-  %51 = getelementptr inbounds double, ptr %47, i64 %49
-  %52 = load double, ptr %51, align 8, !tbaa !49
-  %.idx.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %49, 4
-  %53 = getelementptr inbounds i8, ptr %47, i64 %.idx.i.i.i.i.i.i.i.i.i.i
-  %54 = load double, ptr %53, align 8, !tbaa !49
-  %55 = load i64, ptr %42, align 8, !tbaa !59
-  %56 = getelementptr i32, ptr %43, i64 %55
-  %57 = load i32, ptr %56, align 4, !tbaa !42
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds double, ptr %46, i64 %58
-  %60 = load double, ptr %59, align 8, !tbaa !49
-  %61 = getelementptr inbounds double, ptr %59, i64 %49
-  %62 = load double, ptr %61, align 8, !tbaa !49
-  %63 = getelementptr inbounds i8, ptr %59, i64 %.idx.i.i.i.i.i.i.i.i.i.i
-  %64 = load double, ptr %63, align 8, !tbaa !49
-  %.idx = shl i64 %55, 3
-  %65 = getelementptr i8, ptr %43, i64 %.idx
-  %66 = load i32, ptr %65, align 4, !tbaa !42
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds double, ptr %46, i64 %67
-  %69 = load double, ptr %68, align 8, !tbaa !49
-  %70 = getelementptr inbounds double, ptr %68, i64 %49
-  %71 = load double, ptr %70, align 8, !tbaa !49
-  %72 = getelementptr inbounds i8, ptr %68, i64 %.idx.i.i.i.i.i.i.i.i.i.i
-  %73 = load double, ptr %72, align 8, !tbaa !49
-  call void @llvm.lifetime.start.p0(ptr nonnull %33)
-  %74 = fsub double %62, %52
-  %75 = fsub double %73, %54
-  %76 = fsub double %64, %54
-  %77 = fsub double %71, %52
-  %78 = fneg double %77
-  %79 = fmul double %76, %78
-  %80 = tail call double @llvm.fmuladd.f64(double %74, double %75, double %79)
-  %81 = fsub double %69, %50
-  %82 = fsub double %60, %50
-  %83 = fneg double %75
-  %84 = fmul double %82, %83
-  %85 = tail call double @llvm.fmuladd.f64(double %76, double %81, double %84)
-  %86 = fneg double %81
-  %87 = fmul double %74, %86
-  %88 = tail call double @llvm.fmuladd.f64(double %82, double %77, double %87)
-  store double %80, ptr %33, align 8, !tbaa !49, !alias.scope !959
-  %89 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store double %85, ptr %89, align 8, !tbaa !49, !alias.scope !959
-  %90 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store double %88, ptr %90, align 8, !tbaa !49, !alias.scope !959
-  call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %91 = fsub double %71, %62
-  %92 = fsub double %54, %64
-  %93 = fsub double %73, %64
-  %94 = fsub double %52, %62
-  %95 = fneg double %94
-  %96 = fmul double %93, %95
-  %97 = tail call double @llvm.fmuladd.f64(double %91, double %92, double %96)
-  %98 = fsub double %50, %60
-  %99 = fsub double %69, %60
-  %100 = fneg double %92
-  %101 = fmul double %99, %100
-  %102 = tail call double @llvm.fmuladd.f64(double %93, double %98, double %101)
-  %103 = fneg double %98
-  %104 = fmul double %91, %103
-  %105 = tail call double @llvm.fmuladd.f64(double %99, double %94, double %104)
-  store double %97, ptr %34, align 8, !tbaa !49, !alias.scope !962
-  %106 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store double %102, ptr %106, align 8, !tbaa !49, !alias.scope !962
-  %107 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store double %105, ptr %107, align 8, !tbaa !49, !alias.scope !962
-  call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %108 = fsub double %52, %71
-  %109 = fsub double %64, %73
-  %110 = fsub double %54, %73
-  %111 = fsub double %62, %71
-  %112 = fneg double %111
-  %113 = fmul double %110, %112
-  %114 = tail call double @llvm.fmuladd.f64(double %108, double %109, double %113)
-  %115 = fsub double %60, %69
-  %116 = fsub double %50, %69
-  %117 = fneg double %109
-  %118 = fmul double %116, %117
-  %119 = tail call double @llvm.fmuladd.f64(double %110, double %115, double %118)
-  %120 = fneg double %115
-  %121 = fmul double %108, %120
-  %122 = tail call double @llvm.fmuladd.f64(double %116, double %111, double %121)
-  store double %114, ptr %35, align 8, !tbaa !49, !alias.scope !965
-  %123 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store double %119, ptr %123, align 8, !tbaa !49, !alias.scope !965
-  %124 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store double %122, ptr %124, align 8, !tbaa !49, !alias.scope !965
-  %125 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %126 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %127 = ptrtoint ptr %36 to i64
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %129 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  br label %155
+  %9 = alloca %"class.Eigen::Matrix.71", align 8
+  %10 = alloca %"class.Eigen::Matrix.71", align 8
+  %11 = alloca %"class.Eigen::Matrix.71", align 8
+  %12 = alloca %"class.std::function", align 8
+  %13 = load ptr, ptr %0, align 8, !tbaa !953
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !955
+  %16 = sext i32 %1 to i64
+  %17 = load ptr, ptr %15, align 8, !tbaa !53
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %19 = getelementptr i32, ptr %17, i64 %16
+  %20 = load i32, ptr %19, align 4, !tbaa !42
+  %21 = sext i32 %20 to i64
+  %22 = load ptr, ptr %13, align 8, !tbaa !44, !noalias !956
+  %23 = getelementptr inbounds double, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %25 = load i64, ptr %24, align 8, !tbaa !48
+  %26 = load double, ptr %23, align 8, !tbaa !49
+  %27 = getelementptr inbounds double, ptr %23, i64 %25
+  %28 = load double, ptr %27, align 8, !tbaa !49
+  %.idx.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %25, 4
+  %29 = getelementptr inbounds i8, ptr %23, i64 %.idx.i.i.i.i.i.i.i.i.i.i
+  %30 = load double, ptr %29, align 8, !tbaa !49
+  %31 = load i64, ptr %18, align 8, !tbaa !59
+  %32 = getelementptr i32, ptr %19, i64 %31
+  %33 = load i32, ptr %32, align 4, !tbaa !42
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds double, ptr %22, i64 %34
+  %36 = load double, ptr %35, align 8, !tbaa !49
+  %37 = getelementptr inbounds double, ptr %35, i64 %25
+  %38 = load double, ptr %37, align 8, !tbaa !49
+  %39 = getelementptr inbounds i8, ptr %35, i64 %.idx.i.i.i.i.i.i.i.i.i.i
+  %40 = load double, ptr %39, align 8, !tbaa !49
+  %.idx = shl i64 %31, 3
+  %41 = getelementptr i8, ptr %19, i64 %.idx
+  %42 = load i32, ptr %41, align 4, !tbaa !42
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds double, ptr %22, i64 %43
+  %45 = load double, ptr %44, align 8, !tbaa !49
+  %46 = getelementptr inbounds double, ptr %44, i64 %25
+  %47 = load double, ptr %46, align 8, !tbaa !49
+  %48 = getelementptr inbounds i8, ptr %44, i64 %.idx.i.i.i.i.i.i.i.i.i.i
+  %49 = load double, ptr %48, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  %50 = fsub double %38, %28
+  %51 = fsub double %49, %30
+  %52 = fsub double %40, %30
+  %53 = fsub double %47, %28
+  %54 = fneg double %53
+  %55 = fmul double %52, %54
+  %56 = tail call double @llvm.fmuladd.f64(double %50, double %51, double %55)
+  %57 = fsub double %45, %26
+  %58 = fsub double %36, %26
+  %59 = fneg double %51
+  %60 = fmul double %58, %59
+  %61 = tail call double @llvm.fmuladd.f64(double %52, double %57, double %60)
+  %62 = fneg double %57
+  %63 = fmul double %50, %62
+  %64 = tail call double @llvm.fmuladd.f64(double %58, double %53, double %63)
+  store double %56, ptr %9, align 8, !tbaa !49, !alias.scope !959
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store double %61, ptr %65, align 8, !tbaa !49, !alias.scope !959
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store double %64, ptr %66, align 8, !tbaa !49, !alias.scope !959
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  %67 = fsub double %47, %38
+  %68 = fsub double %30, %40
+  %69 = fsub double %49, %40
+  %70 = fsub double %28, %38
+  %71 = fneg double %70
+  %72 = fmul double %69, %71
+  %73 = tail call double @llvm.fmuladd.f64(double %67, double %68, double %72)
+  %74 = fsub double %26, %36
+  %75 = fsub double %45, %36
+  %76 = fneg double %68
+  %77 = fmul double %75, %76
+  %78 = tail call double @llvm.fmuladd.f64(double %69, double %74, double %77)
+  %79 = fneg double %74
+  %80 = fmul double %67, %79
+  %81 = tail call double @llvm.fmuladd.f64(double %75, double %70, double %80)
+  store double %73, ptr %10, align 8, !tbaa !49, !alias.scope !962
+  %82 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store double %78, ptr %82, align 8, !tbaa !49, !alias.scope !962
+  %83 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store double %81, ptr %83, align 8, !tbaa !49, !alias.scope !962
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  %84 = fsub double %28, %47
+  %85 = fsub double %40, %49
+  %86 = fsub double %30, %49
+  %87 = fsub double %38, %47
+  %88 = fneg double %87
+  %89 = fmul double %86, %88
+  %90 = tail call double @llvm.fmuladd.f64(double %84, double %85, double %89)
+  %91 = fsub double %36, %45
+  %92 = fsub double %26, %45
+  %93 = fneg double %85
+  %94 = fmul double %92, %93
+  %95 = tail call double @llvm.fmuladd.f64(double %86, double %91, double %94)
+  %96 = fneg double %91
+  %97 = fmul double %84, %96
+  %98 = tail call double @llvm.fmuladd.f64(double %92, double %87, double %97)
+  store double %90, ptr %11, align 8, !tbaa !49, !alias.scope !965
+  %99 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store double %95, ptr %99, align 8, !tbaa !49, !alias.scope !965
+  %100 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store double %98, ptr %100, align 8, !tbaa !49, !alias.scope !965
+  %101 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %103 = ptrtoint ptr %12 to i64
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  br label %131
 
-130:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %131 = load ptr, ptr %128, align 8, !tbaa !968
-  %132 = load ptr, ptr %131, align 8, !tbaa !44, !noalias !969
-  %133 = getelementptr inbounds double, ptr %132, i64 %40
-  %134 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  %135 = load i64, ptr %134, align 8, !tbaa !34, !noalias !969
-  %136 = icmp eq i64 %135, 0
-  br i1 %136, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEdVERKd.exit, label %137
+106:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit
+  %107 = load ptr, ptr %104, align 8, !tbaa !968
+  %108 = load ptr, ptr %107, align 8, !tbaa !44, !noalias !969
+  %109 = getelementptr inbounds double, ptr %108, i64 %16
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  %111 = load i64, ptr %110, align 8, !tbaa !34, !noalias !969
+  %112 = icmp eq i64 %111, 0
+  br i1 %112, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEdVERKd.exit, label %113
 
-137:                                              ; preds = %130
-  %138 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %139 = load i64, ptr %138, align 8, !tbaa !48
-  %140 = load double, ptr %133, align 8, !tbaa !49
-  %141 = fmul double %140, %140
-  %142 = icmp sgt i64 %135, 1
-  br i1 %142, label %.lr.ph.i.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE4normEv.exit
+113:                                              ; preds = %106
+  %114 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %115 = load i64, ptr %114, align 8, !tbaa !48
+  %116 = load double, ptr %109, align 8, !tbaa !49
+  %117 = fmul double %116, %116
+  %118 = icmp sgt i64 %111, 1
+  br i1 %118, label %.lr.ph.i.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE4normEv.exit
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %137, %.lr.ph.i.i.i.i.i
-  %.01724.i.i.i.i.i = phi i64 [ %148, %.lr.ph.i.i.i.i.i ], [ 1, %137 ]
-  %.02223.i.i.i.i.i = phi double [ %147, %.lr.ph.i.i.i.i.i ], [ %141, %137 ]
-  %143 = mul nsw i64 %.01724.i.i.i.i.i, %139
-  %144 = getelementptr double, ptr %133, i64 %143
-  %145 = load double, ptr %144, align 8, !tbaa !49
-  %146 = fmul double %145, %145
-  %147 = fadd double %.02223.i.i.i.i.i, %146
-  %148 = add nuw nsw i64 %.01724.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %148, %135
+.lr.ph.i.i.i.i.i:                                 ; preds = %113, %.lr.ph.i.i.i.i.i
+  %.01724.i.i.i.i.i = phi i64 [ %124, %.lr.ph.i.i.i.i.i ], [ 1, %113 ]
+  %.02223.i.i.i.i.i = phi double [ %123, %.lr.ph.i.i.i.i.i ], [ %117, %113 ]
+  %119 = mul nsw i64 %.01724.i.i.i.i.i, %115
+  %120 = getelementptr double, ptr %109, i64 %119
+  %121 = load double, ptr %120, align 8, !tbaa !49
+  %122 = fmul double %121, %121
+  %123 = fadd double %.02223.i.i.i.i.i, %122
+  %124 = add nuw nsw i64 %.01724.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %124, %111
   br i1 %exitcond.not.i.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE4normEv.exit.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !358
 
 _ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE4normEv.exit.thread: ; preds = %.lr.ph.i.i.i.i.i
-  %.scalar.i119 = call noundef double @llvm.sqrt.f64(double %147)
+  %.scalar.i119 = call noundef double @llvm.sqrt.f64(double %123)
   br label %.lr.ph.i.i.i.i.i.i.preheader
 
-_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE4normEv.exit: ; preds = %137
-  %.scalar.i = call noundef double @llvm.sqrt.f64(double %141)
-  %149 = icmp eq i64 %135, 1
-  br i1 %149, label %.lr.ph.i.i.i.i.i.i.preheader, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEdVERKd.exit
+_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE4normEv.exit: ; preds = %113
+  %.scalar.i = call noundef double @llvm.sqrt.f64(double %117)
+  %125 = icmp eq i64 %111, 1
+  br i1 %125, label %.lr.ph.i.i.i.i.i.i.preheader, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEdVERKd.exit
 
 .lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE4normEv.exit.thread, %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE4normEv.exit
   %.scalar.i120 = phi double [ %.scalar.i119, %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE4normEv.exit.thread ], [ %.scalar.i, %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE4normEv.exit ]
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi i64 [ %154, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.preheader ]
-  %150 = mul nsw i64 %.05.i.i.i.i.i.i, %139
-  %151 = getelementptr inbounds double, ptr %133, i64 %150
-  %152 = load double, ptr %151, align 8, !tbaa !49
-  %153 = fdiv double %152, %.scalar.i120
-  store double %153, ptr %151, align 8, !tbaa !49
-  %154 = add nuw nsw i64 %.05.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i = icmp eq i64 %154, %135
+  %.05.i.i.i.i.i.i = phi i64 [ %130, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.preheader ]
+  %126 = mul nsw i64 %.05.i.i.i.i.i.i, %115
+  %127 = getelementptr inbounds double, ptr %109, i64 %126
+  %128 = load double, ptr %127, align 8, !tbaa !49
+  %129 = fdiv double %128, %.scalar.i120
+  store double %129, ptr %127, align 8, !tbaa !49
+  %130 = add nuw nsw i64 %.05.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i = icmp eq i64 %130, %111
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEdVERKd.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !79
 
-_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEdVERKd.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %130, %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE4normEv.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEdVERKd.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %106, %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE4normEv.exit
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
-155:                                              ; preds = %2, %_ZNSt14_Function_baseD2Ev.exit
+131:                                              ; preds = %2, %_ZNSt14_Function_baseD2Ev.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZNSt14_Function_baseD2Ev.exit ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  store i64 0, ptr %129, align 8
-  store i64 %127, ptr %36, align 8, !tbaa !972
-  store ptr @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_, ptr %126, align 8, !tbaa !974
-  store ptr @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation, ptr %125, align 8, !tbaa !977
-  %156 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv
-  %157 = load double, ptr %156, align 8, !tbaa !49
-  %158 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv
-  %159 = load double, ptr %158, align 8, !tbaa !49
-  %160 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv
-  %161 = load double, ptr %160, align 8, !tbaa !49
-  %162 = call double @llvm.fabs.f64(double %161)
-  %163 = call double @llvm.fabs.f64(double %157)
-  %164 = fcmp ogt double %162, %163
-  br i1 %164, label %_ZNKSt8functionIFddddEEclEddd.exit.i, label %189
-
-_ZNKSt8functionIFddddEEclEddd.exit.i:             ; preds = %155
-  %165 = fcmp ogt double %163, %162
-  br i1 %165, label %_ZNKSt8functionIFddddEEclEddd.exit.i312, label %167
-
-_ZNKSt8functionIFddddEEclEddd.exit.i312:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  store double %157, ptr %30, align 8, !tbaa !49
-  store double %159, ptr %31, align 8, !tbaa !49
-  store double %161, ptr %32, align 8, !tbaa !49
-  %166 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
-          to label %.noexc140 unwind label %231
-
-.noexc140:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i312
-  call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-167:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i
-  %168 = call double @llvm.fabs.f64(double %159)
-  %169 = fcmp ogt double %163, %168
-  %170 = fcmp ogt double %168, %162
-  br i1 %169, label %_ZNKSt8functionIFddddEEclEddd.exit24.i138, label %180
-
-_ZNKSt8functionIFddddEEclEddd.exit24.i138:        ; preds = %167
-  br i1 %170, label %_ZNKSt8functionIFddddEEclEddd.exit.i211, label %174
-
-_ZNKSt8functionIFddddEEclEddd.exit.i211:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i138
-  %171 = fcmp ogt double %162, %168
-  br i1 %171, label %_ZNKSt8functionIFddddEEclEddd.exit.i324, label %_ZNKSt8functionIFddddEEclEddd.exit24.i322
-
-_ZNKSt8functionIFddddEEclEddd.exit.i324:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i211
-  call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  store double %161, ptr %27, align 8, !tbaa !49
-  store double %157, ptr %28, align 8, !tbaa !49
-  store double %159, ptr %29, align 8, !tbaa !49
-  %172 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %.noexc326 unwind label %231
-
-.noexc326:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i324
-  call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-_ZNKSt8functionIFddddEEclEddd.exit24.i322:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i211
-  call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  store double %159, ptr %24, align 8, !tbaa !49
-  store double %161, ptr %25, align 8, !tbaa !49
-  store double %157, ptr %26, align 8, !tbaa !49
-  %173 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26)
-          to label %.noexc328 unwind label %231
-
-.noexc328:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i322
-  call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-174:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i138
-  %175 = fcmp ogt double %168, %163
-  br i1 %175, label %_ZNKSt8functionIFddddEEclEddd.exit24.i336, label %177
-
-_ZNKSt8functionIFddddEEclEddd.exit24.i336:        ; preds = %174
-  call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  store double %161, ptr %21, align 8, !tbaa !49
-  store double %157, ptr %22, align 8, !tbaa !49
-  store double %159, ptr %23, align 8, !tbaa !49
-  %176 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
-          to label %.noexc215 unwind label %231
-
-.noexc215:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i336
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-177:                                              ; preds = %174
-  %178 = fadd double %157, %161
-  %179 = fadd double %159, %178
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-180:                                              ; preds = %167
-  br i1 %170, label %_ZNKSt8functionIFddddEEclEddd.exit26.i137, label %186
-
-_ZNKSt8functionIFddddEEclEddd.exit26.i137:        ; preds = %180
-  %181 = fcmp ogt double %162, %168
-  br i1 %181, label %_ZNKSt8functionIFddddEEclEddd.exit26.i348, label %183
-
-_ZNKSt8functionIFddddEEclEddd.exit26.i348:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i137
-  call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  store double %159, ptr %18, align 8, !tbaa !49
-  store double %161, ptr %19, align 8, !tbaa !49
-  store double %157, ptr %20, align 8, !tbaa !49
-  %182 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20)
-          to label %.noexc231 unwind label %231
-
-.noexc231:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i348
-  call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-183:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i137
-  %184 = fadd double %159, %161
-  %185 = fadd double %157, %184
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-186:                                              ; preds = %180
-  %187 = fadd double %159, %161
-  %188 = fadd double %157, %187
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-189:                                              ; preds = %155
-  %190 = call double @llvm.fabs.f64(double %159)
-  %191 = fcmp ogt double %162, %190
-  %192 = fcmp ogt double %190, %163
-  br i1 %191, label %_ZNKSt8functionIFddddEEclEddd.exit24.i, label %209
-
-_ZNKSt8functionIFddddEEclEddd.exit24.i:           ; preds = %189
-  br i1 %192, label %_ZNKSt8functionIFddddEEclEddd.exit.i151, label %203
-
-_ZNKSt8functionIFddddEEclEddd.exit.i151:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i
-  %193 = fcmp ogt double %163, %190
-  br i1 %193, label %_ZNKSt8functionIFddddEEclEddd.exit.i366, label %195
-
-_ZNKSt8functionIFddddEEclEddd.exit.i366:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i151
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store double %159, ptr %15, align 8, !tbaa !49
-  store double %161, ptr %16, align 8, !tbaa !49
-  store double %157, ptr %17, align 8, !tbaa !49
-  %194 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %.noexc241 unwind label %231
-
-.noexc241:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i366
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-195:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i151
-  %196 = fcmp ogt double %163, %162
-  br i1 %196, label %_ZNKSt8functionIFddddEEclEddd.exit.i380, label %_ZNKSt8functionIFddddEEclEddd.exit26.i235
-
-_ZNKSt8functionIFddddEEclEddd.exit.i380:          ; preds = %195
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store double %161, ptr %12, align 8, !tbaa !49
-  store double %157, ptr %13, align 8, !tbaa !49
-  store double %159, ptr %14, align 8, !tbaa !49
-  %197 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %.noexc243 unwind label %231
+  store i64 0, ptr %105, align 8
+  store i64 %103, ptr %12, align 8, !tbaa !972
+  store ptr @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_, ptr %102, align 8, !tbaa !974
+  store ptr @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation, ptr %101, align 8, !tbaa !977
+  %132 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %133 = load double, ptr %132, align 8, !tbaa !49
+  %134 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
+  %135 = load double, ptr %134, align 8, !tbaa !49
+  %136 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %137 = load double, ptr %136, align 8, !tbaa !49
+  %138 = call double @llvm.fabs.f64(double %137)
+  %139 = call double @llvm.fabs.f64(double %133)
+  %140 = fcmp ogt double %138, %139
+  %141 = call double @llvm.fabs.f64(double %135)
+  br i1 %140, label %_ZNKSt8functionIFddddEEclEddd.exit.i, label %151
 
-.noexc243:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i380
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
+_ZNKSt8functionIFddddEEclEddd.exit.i:             ; preds = %131
+  %142 = fcmp ogt double %139, %141
+  br i1 %142, label %_ZNKSt8functionIFddddEEclEddd.exit24.i138, label %148
 
-_ZNKSt8functionIFddddEEclEddd.exit26.i235:        ; preds = %195
-  %198 = fcmp ogt double %190, %162
-  br i1 %198, label %_ZNKSt8functionIFddddEEclEddd.exit26.i390, label %200
+_ZNKSt8functionIFddddEEclEddd.exit24.i138:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i
+  %143 = fcmp ogt double %141, %138
+  br i1 %143, label %_ZNKSt8functionIFddddEEclEddd.exit24.i248, label %145
 
-_ZNKSt8functionIFddddEEclEddd.exit26.i390:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i235
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store double %159, ptr %9, align 8, !tbaa !49
-  store double %161, ptr %10, align 8, !tbaa !49
-  store double %157, ptr %11, align 8, !tbaa !49
-  %199 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %.noexc400 unwind label %231
-
-.noexc400:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i390
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-200:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i235
-  %201 = fadd double %159, %161
-  %202 = fadd double %157, %201
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-203:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i
-  %204 = fcmp ogt double %190, %162
-  br i1 %204, label %_ZNKSt8functionIFddddEEclEddd.exit24.i406, label %206
-
-_ZNKSt8functionIFddddEEclEddd.exit24.i406:        ; preds = %203
+_ZNKSt8functionIFddddEEclEddd.exit24.i248:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i138
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store double %157, ptr %6, align 8, !tbaa !49
-  store double %159, ptr %7, align 8, !tbaa !49
-  store double %161, ptr %8, align 8, !tbaa !49
-  %205 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %.noexc155 unwind label %231
+  store double %135, ptr %6, align 8, !tbaa !49
+  store double %137, ptr %7, align 8, !tbaa !49
+  store double %133, ptr %8, align 8, !tbaa !49
+  %144 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %.noexc196 unwind label %177
 
-.noexc155:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i406
+.noexc196:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i248
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
 
-206:                                              ; preds = %203
-  %207 = fadd double %157, %161
-  %208 = fadd double %159, %207
+145:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i138
+  %146 = fadd double %133, %137
+  %147 = fadd double %135, %146
   br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
 
-209:                                              ; preds = %189
-  br i1 %192, label %_ZNKSt8functionIFddddEEclEddd.exit26.i, label %215
+148:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i
+  %149 = fadd double %135, %137
+  %150 = fadd double %133, %149
+  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
 
-_ZNKSt8functionIFddddEEclEddd.exit26.i:           ; preds = %209
-  %210 = fcmp ogt double %163, %190
-  br i1 %210, label %_ZNKSt8functionIFddddEEclEddd.exit26.i418, label %212
+151:                                              ; preds = %131
+  %152 = fcmp ogt double %138, %141
+  br i1 %152, label %_ZNKSt8functionIFddddEEclEddd.exit24.i, label %161
 
-_ZNKSt8functionIFddddEEclEddd.exit26.i418:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i
+_ZNKSt8functionIFddddEEclEddd.exit24.i:           ; preds = %151
+  %153 = fcmp ogt double %141, %139
+  br i1 %153, label %_ZNKSt8functionIFddddEEclEddd.exit.i151, label %158
+
+_ZNKSt8functionIFddddEEclEddd.exit.i151:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i
+  %154 = fcmp ogt double %139, %138
+  br i1 %154, label %_ZNKSt8functionIFddddEEclEddd.exit.i261, label %.noexc227
+
+_ZNKSt8functionIFddddEEclEddd.exit.i261:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i151
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store double %157, ptr %3, align 8, !tbaa !49
-  store double %159, ptr %4, align 8, !tbaa !49
-  store double %161, ptr %5, align 8, !tbaa !49
-  %211 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %.noexc171 unwind label %231
+  store double %137, ptr %3, align 8, !tbaa !49
+  store double %133, ptr %4, align 8, !tbaa !49
+  store double %135, ptr %5, align 8, !tbaa !49
+  %155 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %.noexc225 unwind label %177
 
-.noexc171:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i418
+.noexc225:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i261
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
 
-212:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i
-  %213 = fadd double %157, %159
-  %214 = fadd double %213, %161
+.noexc227:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i151
+  %156 = fadd double %135, %137
+  %157 = fadd double %133, %156
   br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
 
-215:                                              ; preds = %209
-  %216 = fadd double %157, %159
-  %217 = fadd double %216, %161
+158:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i
+  %159 = fadd double %133, %137
+  %160 = fadd double %135, %159
   br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
 
-_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit: ; preds = %200, %.noexc400, %.noexc328, %.noexc326, %.noexc243, %.noexc241, %183, %.noexc231, %177, %.noexc215, %212, %.noexc171, %206, %.noexc155, %186, %.noexc140, %215
-  %.0.i = phi double [ %217, %215 ], [ %166, %.noexc140 ], [ %188, %186 ], [ %205, %.noexc155 ], [ %208, %206 ], [ %211, %.noexc171 ], [ %214, %212 ], [ %176, %.noexc215 ], [ %179, %177 ], [ %182, %.noexc231 ], [ %185, %183 ], [ %194, %.noexc241 ], [ %197, %.noexc243 ], [ %172, %.noexc326 ], [ %173, %.noexc328 ], [ %199, %.noexc400 ], [ %202, %200 ]
-  %218 = load ptr, ptr %128, align 8, !tbaa !968
-  %219 = load ptr, ptr %218, align 8, !tbaa !44
-  %220 = getelementptr inbounds nuw i8, ptr %218, i64 8
-  %221 = load i64, ptr %220, align 8, !tbaa !48
-  %222 = mul nsw i64 %221, %indvars.iv
-  %223 = getelementptr double, ptr %219, i64 %40
-  %224 = getelementptr double, ptr %223, i64 %222
-  store double %.0.i, ptr %224, align 8, !tbaa !49
-  %225 = load ptr, ptr %125, align 8, !tbaa !977
-  %.not.i = icmp eq ptr %225, null
-  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %226
+161:                                              ; preds = %151
+  %162 = fadd double %133, %135
+  %163 = fadd double %162, %137
+  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
 
-226:                                              ; preds = %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-  %227 = invoke noundef zeroext i1 %225(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %36, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %228
+_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit: ; preds = %148, %.noexc227, %.noexc225, %145, %.noexc196, %161, %158
+  %.0.i = phi double [ %160, %158 ], [ %163, %161 ], [ %144, %.noexc196 ], [ %147, %145 ], [ %155, %.noexc225 ], [ %157, %.noexc227 ], [ %150, %148 ]
+  %164 = load ptr, ptr %104, align 8, !tbaa !968
+  %165 = load ptr, ptr %164, align 8, !tbaa !44
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %167 = load i64, ptr %166, align 8, !tbaa !48
+  %168 = mul nsw i64 %167, %indvars.iv
+  %169 = getelementptr double, ptr %165, i64 %16
+  %170 = getelementptr double, ptr %169, i64 %168
+  store double %.0.i, ptr %170, align 8, !tbaa !49
+  %171 = load ptr, ptr %101, align 8, !tbaa !977
+  %.not.i = icmp eq ptr %171, null
+  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %172
 
-228:                                              ; preds = %226
-  %229 = landingpad { ptr, i32 }
+172:                                              ; preds = %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
+  %173 = invoke noundef zeroext i1 %171(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %174
+
+174:                                              ; preds = %172
+  %175 = landingpad { ptr, i32 }
           catch ptr null
-  %230 = extractvalue { ptr, i32 } %229, 0
-  call void @__clang_call_terminate(ptr %230) #29
+  %176 = extractvalue { ptr, i32 } %175, 0
+  call void @__clang_call_terminate(ptr %176) #29
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit, %226
-  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit, %172
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %130, label %155, !llvm.loop !978
+  br i1 %exitcond.not, label %106, label %131, !llvm.loop !978
 
-231:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i418, %_ZNKSt8functionIFddddEEclEddd.exit24.i406, %_ZNKSt8functionIFddddEEclEddd.exit26.i390, %_ZNKSt8functionIFddddEEclEddd.exit.i380, %_ZNKSt8functionIFddddEEclEddd.exit.i366, %_ZNKSt8functionIFddddEEclEddd.exit26.i348, %_ZNKSt8functionIFddddEEclEddd.exit24.i336, %_ZNKSt8functionIFddddEEclEddd.exit24.i322, %_ZNKSt8functionIFddddEEclEddd.exit.i324, %_ZNKSt8functionIFddddEEclEddd.exit.i312
-  %lpad.loopexit456 = landingpad { ptr, i32 }
+177:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i261, %_ZNKSt8functionIFddddEEclEddd.exit24.i248
+  %lpad.loopexit291 = landingpad { ptr, i32 }
           cleanup
-  %.pre.pre.pre.pre = load ptr, ptr %125, align 8, !tbaa !977
+  %.pre.pre.pre.pre = load ptr, ptr %101, align 8, !tbaa !977
   %.not.i29 = icmp eq ptr %.pre.pre.pre.pre, null
-  br i1 %.not.i29, label %_ZNSt14_Function_baseD2Ev.exit30, label %232
+  br i1 %.not.i29, label %_ZNSt14_Function_baseD2Ev.exit30, label %178
 
-232:                                              ; preds = %231
-  %233 = invoke noundef zeroext i1 %.pre.pre.pre.pre(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %36, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit30 unwind label %234
+178:                                              ; preds = %177
+  %179 = invoke noundef zeroext i1 %.pre.pre.pre.pre(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit30 unwind label %180
 
-234:                                              ; preds = %232
-  %235 = landingpad { ptr, i32 }
+180:                                              ; preds = %178
+  %181 = landingpad { ptr, i32 }
           catch ptr null
-  %236 = extractvalue { ptr, i32 } %235, 0
-  call void @__clang_call_terminate(ptr %236) #29
+  %182 = extractvalue { ptr, i32 } %181, 0
+  call void @__clang_call_terminate(ptr %182) #29
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit30:                 ; preds = %231, %232
-  call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  resume { ptr, i32 } %lpad.loopexit456
+_ZNSt14_Function_baseD2Ev.exit30:                 ; preds = %177, %178
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  resume { ptr, i32 } %lpad.loopexit291
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -20315,502 +20114,301 @@ define linkonce_odr dso_local void @_ZZN3igl23per_face_normals_stableIN5Eigen6Ma
   %6 = alloca double, align 8
   %7 = alloca double, align 8
   %8 = alloca double, align 8
-  %9 = alloca double, align 8
-  %10 = alloca double, align 8
-  %11 = alloca double, align 8
-  %12 = alloca double, align 8
-  %13 = alloca double, align 8
-  %14 = alloca double, align 8
-  %15 = alloca double, align 8
-  %16 = alloca double, align 8
-  %17 = alloca double, align 8
-  %18 = alloca double, align 8
-  %19 = alloca double, align 8
-  %20 = alloca double, align 8
-  %21 = alloca double, align 8
-  %22 = alloca double, align 8
-  %23 = alloca double, align 8
-  %24 = alloca double, align 8
-  %25 = alloca double, align 8
-  %26 = alloca double, align 8
-  %27 = alloca double, align 8
-  %28 = alloca double, align 8
-  %29 = alloca double, align 8
-  %30 = alloca double, align 8
-  %31 = alloca double, align 8
-  %32 = alloca double, align 8
-  %33 = alloca %"class.Eigen::Matrix.71", align 8
-  %34 = alloca %"class.Eigen::Matrix.71", align 8
-  %35 = alloca %"class.Eigen::Matrix.71", align 8
-  %36 = alloca %"class.std::function", align 8
-  %37 = load ptr, ptr %0, align 8, !tbaa !1010
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !1012
-  %40 = sext i32 %1 to i64
-  %41 = load ptr, ptr %39, align 8, !tbaa !53
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %43 = getelementptr i32, ptr %41, i64 %40
-  %44 = load i32, ptr %43, align 4, !tbaa !42
-  %45 = sext i32 %44 to i64
-  %46 = load ptr, ptr %37, align 8, !tbaa !44, !noalias !1013
-  %47 = getelementptr inbounds double, ptr %46, i64 %45
-  %48 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %49 = load i64, ptr %48, align 8, !tbaa !48
-  %50 = load double, ptr %47, align 8, !tbaa !49
-  %51 = getelementptr inbounds double, ptr %47, i64 %49
-  %52 = load double, ptr %51, align 8, !tbaa !49
-  %.idx.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %49, 4
-  %53 = getelementptr inbounds i8, ptr %47, i64 %.idx.i.i.i.i.i.i.i.i.i.i
-  %54 = load double, ptr %53, align 8, !tbaa !49
-  %55 = load i64, ptr %42, align 8, !tbaa !59
-  %56 = getelementptr i32, ptr %43, i64 %55
-  %57 = load i32, ptr %56, align 4, !tbaa !42
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds double, ptr %46, i64 %58
-  %60 = load double, ptr %59, align 8, !tbaa !49
-  %61 = getelementptr inbounds double, ptr %59, i64 %49
-  %62 = load double, ptr %61, align 8, !tbaa !49
-  %63 = getelementptr inbounds i8, ptr %59, i64 %.idx.i.i.i.i.i.i.i.i.i.i
-  %64 = load double, ptr %63, align 8, !tbaa !49
-  %.idx = shl i64 %55, 3
-  %65 = getelementptr i8, ptr %43, i64 %.idx
-  %66 = load i32, ptr %65, align 4, !tbaa !42
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds double, ptr %46, i64 %67
-  %69 = load double, ptr %68, align 8, !tbaa !49
-  %70 = getelementptr inbounds double, ptr %68, i64 %49
-  %71 = load double, ptr %70, align 8, !tbaa !49
-  %72 = getelementptr inbounds i8, ptr %68, i64 %.idx.i.i.i.i.i.i.i.i.i.i
-  %73 = load double, ptr %72, align 8, !tbaa !49
-  call void @llvm.lifetime.start.p0(ptr nonnull %33)
-  %74 = fsub double %62, %52
-  %75 = fsub double %73, %54
-  %76 = fsub double %64, %54
-  %77 = fsub double %71, %52
-  %78 = fneg double %77
-  %79 = fmul double %76, %78
-  %80 = tail call double @llvm.fmuladd.f64(double %74, double %75, double %79)
-  %81 = fsub double %69, %50
-  %82 = fsub double %60, %50
-  %83 = fneg double %75
-  %84 = fmul double %82, %83
-  %85 = tail call double @llvm.fmuladd.f64(double %76, double %81, double %84)
-  %86 = fneg double %81
-  %87 = fmul double %74, %86
-  %88 = tail call double @llvm.fmuladd.f64(double %82, double %77, double %87)
-  store double %80, ptr %33, align 8, !tbaa !49, !alias.scope !1016
-  %89 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store double %85, ptr %89, align 8, !tbaa !49, !alias.scope !1016
-  %90 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store double %88, ptr %90, align 8, !tbaa !49, !alias.scope !1016
-  call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %91 = fsub double %71, %62
-  %92 = fsub double %54, %64
-  %93 = fsub double %73, %64
-  %94 = fsub double %52, %62
-  %95 = fneg double %94
-  %96 = fmul double %93, %95
-  %97 = tail call double @llvm.fmuladd.f64(double %91, double %92, double %96)
-  %98 = fsub double %50, %60
-  %99 = fsub double %69, %60
-  %100 = fneg double %92
-  %101 = fmul double %99, %100
-  %102 = tail call double @llvm.fmuladd.f64(double %93, double %98, double %101)
-  %103 = fneg double %98
-  %104 = fmul double %91, %103
-  %105 = tail call double @llvm.fmuladd.f64(double %99, double %94, double %104)
-  store double %97, ptr %34, align 8, !tbaa !49, !alias.scope !1019
-  %106 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store double %102, ptr %106, align 8, !tbaa !49, !alias.scope !1019
-  %107 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store double %105, ptr %107, align 8, !tbaa !49, !alias.scope !1019
-  call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %108 = fsub double %52, %71
-  %109 = fsub double %64, %73
-  %110 = fsub double %54, %73
-  %111 = fsub double %62, %71
-  %112 = fneg double %111
-  %113 = fmul double %110, %112
-  %114 = tail call double @llvm.fmuladd.f64(double %108, double %109, double %113)
-  %115 = fsub double %60, %69
-  %116 = fsub double %50, %69
-  %117 = fneg double %109
-  %118 = fmul double %116, %117
-  %119 = tail call double @llvm.fmuladd.f64(double %110, double %115, double %118)
-  %120 = fneg double %115
-  %121 = fmul double %108, %120
-  %122 = tail call double @llvm.fmuladd.f64(double %116, double %111, double %121)
-  store double %114, ptr %35, align 8, !tbaa !49, !alias.scope !1022
-  %123 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store double %119, ptr %123, align 8, !tbaa !49, !alias.scope !1022
-  %124 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store double %122, ptr %124, align 8, !tbaa !49, !alias.scope !1022
-  %125 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %126 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %127 = ptrtoint ptr %36 to i64
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %129 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  br label %151
+  %9 = alloca %"class.Eigen::Matrix.71", align 8
+  %10 = alloca %"class.Eigen::Matrix.71", align 8
+  %11 = alloca %"class.Eigen::Matrix.71", align 8
+  %12 = alloca %"class.std::function", align 8
+  %13 = load ptr, ptr %0, align 8, !tbaa !1010
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !1012
+  %16 = sext i32 %1 to i64
+  %17 = load ptr, ptr %15, align 8, !tbaa !53
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %19 = getelementptr i32, ptr %17, i64 %16
+  %20 = load i32, ptr %19, align 4, !tbaa !42
+  %21 = sext i32 %20 to i64
+  %22 = load ptr, ptr %13, align 8, !tbaa !44, !noalias !1013
+  %23 = getelementptr inbounds double, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %25 = load i64, ptr %24, align 8, !tbaa !48
+  %26 = load double, ptr %23, align 8, !tbaa !49
+  %27 = getelementptr inbounds double, ptr %23, i64 %25
+  %28 = load double, ptr %27, align 8, !tbaa !49
+  %.idx.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %25, 4
+  %29 = getelementptr inbounds i8, ptr %23, i64 %.idx.i.i.i.i.i.i.i.i.i.i
+  %30 = load double, ptr %29, align 8, !tbaa !49
+  %31 = load i64, ptr %18, align 8, !tbaa !59
+  %32 = getelementptr i32, ptr %19, i64 %31
+  %33 = load i32, ptr %32, align 4, !tbaa !42
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds double, ptr %22, i64 %34
+  %36 = load double, ptr %35, align 8, !tbaa !49
+  %37 = getelementptr inbounds double, ptr %35, i64 %25
+  %38 = load double, ptr %37, align 8, !tbaa !49
+  %39 = getelementptr inbounds i8, ptr %35, i64 %.idx.i.i.i.i.i.i.i.i.i.i
+  %40 = load double, ptr %39, align 8, !tbaa !49
+  %.idx = shl i64 %31, 3
+  %41 = getelementptr i8, ptr %19, i64 %.idx
+  %42 = load i32, ptr %41, align 4, !tbaa !42
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds double, ptr %22, i64 %43
+  %45 = load double, ptr %44, align 8, !tbaa !49
+  %46 = getelementptr inbounds double, ptr %44, i64 %25
+  %47 = load double, ptr %46, align 8, !tbaa !49
+  %48 = getelementptr inbounds i8, ptr %44, i64 %.idx.i.i.i.i.i.i.i.i.i.i
+  %49 = load double, ptr %48, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  %50 = fsub double %38, %28
+  %51 = fsub double %49, %30
+  %52 = fsub double %40, %30
+  %53 = fsub double %47, %28
+  %54 = fneg double %53
+  %55 = fmul double %52, %54
+  %56 = tail call double @llvm.fmuladd.f64(double %50, double %51, double %55)
+  %57 = fsub double %45, %26
+  %58 = fsub double %36, %26
+  %59 = fneg double %51
+  %60 = fmul double %58, %59
+  %61 = tail call double @llvm.fmuladd.f64(double %52, double %57, double %60)
+  %62 = fneg double %57
+  %63 = fmul double %50, %62
+  %64 = tail call double @llvm.fmuladd.f64(double %58, double %53, double %63)
+  store double %56, ptr %9, align 8, !tbaa !49, !alias.scope !1016
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store double %61, ptr %65, align 8, !tbaa !49, !alias.scope !1016
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store double %64, ptr %66, align 8, !tbaa !49, !alias.scope !1016
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  %67 = fsub double %47, %38
+  %68 = fsub double %30, %40
+  %69 = fsub double %49, %40
+  %70 = fsub double %28, %38
+  %71 = fneg double %70
+  %72 = fmul double %69, %71
+  %73 = tail call double @llvm.fmuladd.f64(double %67, double %68, double %72)
+  %74 = fsub double %26, %36
+  %75 = fsub double %45, %36
+  %76 = fneg double %68
+  %77 = fmul double %75, %76
+  %78 = tail call double @llvm.fmuladd.f64(double %69, double %74, double %77)
+  %79 = fneg double %74
+  %80 = fmul double %67, %79
+  %81 = tail call double @llvm.fmuladd.f64(double %75, double %70, double %80)
+  store double %73, ptr %10, align 8, !tbaa !49, !alias.scope !1019
+  %82 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store double %78, ptr %82, align 8, !tbaa !49, !alias.scope !1019
+  %83 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store double %81, ptr %83, align 8, !tbaa !49, !alias.scope !1019
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  %84 = fsub double %28, %47
+  %85 = fsub double %40, %49
+  %86 = fsub double %30, %49
+  %87 = fsub double %38, %47
+  %88 = fneg double %87
+  %89 = fmul double %86, %88
+  %90 = tail call double @llvm.fmuladd.f64(double %84, double %85, double %89)
+  %91 = fsub double %36, %45
+  %92 = fsub double %26, %45
+  %93 = fneg double %85
+  %94 = fmul double %92, %93
+  %95 = tail call double @llvm.fmuladd.f64(double %86, double %91, double %94)
+  %96 = fneg double %91
+  %97 = fmul double %84, %96
+  %98 = tail call double @llvm.fmuladd.f64(double %92, double %87, double %97)
+  store double %90, ptr %11, align 8, !tbaa !49, !alias.scope !1022
+  %99 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store double %95, ptr %99, align 8, !tbaa !49, !alias.scope !1022
+  %100 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store double %98, ptr %100, align 8, !tbaa !49, !alias.scope !1022
+  %101 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %103 = ptrtoint ptr %12 to i64
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  br label %127
 
-130:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %131 = load ptr, ptr %128, align 8, !tbaa !1025
-  %132 = load ptr, ptr %131, align 8, !tbaa !142, !noalias !1026
-  %133 = getelementptr inbounds double, ptr %132, i64 %40
-  %134 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %135 = load i64, ptr %134, align 8, !tbaa !140
-  %136 = load double, ptr %133, align 8, !tbaa !49
-  %137 = fmul double %136, %136
-  %138 = getelementptr double, ptr %133, i64 %135
-  %139 = load double, ptr %138, align 8, !tbaa !49
-  %140 = fmul double %139, %139
-  %.idx.i.i.i.i.i.i.i.i = shl i64 %135, 4
-  %141 = getelementptr i8, ptr %133, i64 %.idx.i.i.i.i.i.i.i.i
-  %142 = load double, ptr %141, align 8, !tbaa !49
-  %143 = fmul double %142, %142
-  %144 = fadd double %140, %143
-  %145 = fadd double %137, %144
-  %.scalar.i = call noundef double @llvm.sqrt.f64(double %145)
-  %146 = fdiv double %136, %.scalar.i
-  store double %146, ptr %133, align 8, !tbaa !49
-  %147 = load double, ptr %138, align 8, !tbaa !49
-  %148 = fdiv double %147, %.scalar.i
-  store double %148, ptr %138, align 8, !tbaa !49
-  %149 = load double, ptr %141, align 8, !tbaa !49
-  %150 = fdiv double %149, %.scalar.i
-  store double %150, ptr %141, align 8, !tbaa !49
-  call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+106:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit
+  %107 = load ptr, ptr %104, align 8, !tbaa !1025
+  %108 = load ptr, ptr %107, align 8, !tbaa !142, !noalias !1026
+  %109 = getelementptr inbounds double, ptr %108, i64 %16
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %111 = load i64, ptr %110, align 8, !tbaa !140
+  %112 = load double, ptr %109, align 8, !tbaa !49
+  %113 = fmul double %112, %112
+  %114 = getelementptr double, ptr %109, i64 %111
+  %115 = load double, ptr %114, align 8, !tbaa !49
+  %116 = fmul double %115, %115
+  %.idx.i.i.i.i.i.i.i.i = shl i64 %111, 4
+  %117 = getelementptr i8, ptr %109, i64 %.idx.i.i.i.i.i.i.i.i
+  %118 = load double, ptr %117, align 8, !tbaa !49
+  %119 = fmul double %118, %118
+  %120 = fadd double %116, %119
+  %121 = fadd double %113, %120
+  %.scalar.i = call noundef double @llvm.sqrt.f64(double %121)
+  %122 = fdiv double %112, %.scalar.i
+  store double %122, ptr %109, align 8, !tbaa !49
+  %123 = load double, ptr %114, align 8, !tbaa !49
+  %124 = fdiv double %123, %.scalar.i
+  store double %124, ptr %114, align 8, !tbaa !49
+  %125 = load double, ptr %117, align 8, !tbaa !49
+  %126 = fdiv double %125, %.scalar.i
+  store double %126, ptr %117, align 8, !tbaa !49
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
-151:                                              ; preds = %2, %_ZNSt14_Function_baseD2Ev.exit
+127:                                              ; preds = %2, %_ZNSt14_Function_baseD2Ev.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZNSt14_Function_baseD2Ev.exit ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  store i64 0, ptr %129, align 8
-  store i64 %127, ptr %36, align 8, !tbaa !972
-  store ptr @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_, ptr %126, align 8, !tbaa !974
-  store ptr @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %125, align 8, !tbaa !977
-  %152 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv
-  %153 = load double, ptr %152, align 8, !tbaa !49
-  %154 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv
-  %155 = load double, ptr %154, align 8, !tbaa !49
-  %156 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv
-  %157 = load double, ptr %156, align 8, !tbaa !49
-  %158 = call double @llvm.fabs.f64(double %157)
-  %159 = call double @llvm.fabs.f64(double %153)
-  %160 = fcmp ogt double %158, %159
-  br i1 %160, label %_ZNKSt8functionIFddddEEclEddd.exit.i, label %185
-
-_ZNKSt8functionIFddddEEclEddd.exit.i:             ; preds = %151
-  %161 = fcmp ogt double %159, %158
-  br i1 %161, label %_ZNKSt8functionIFddddEEclEddd.exit.i301, label %163
-
-_ZNKSt8functionIFddddEEclEddd.exit.i301:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  store double %153, ptr %30, align 8, !tbaa !49
-  store double %155, ptr %31, align 8, !tbaa !49
-  store double %157, ptr %32, align 8, !tbaa !49
-  %162 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
-          to label %.noexc131 unwind label %227
-
-.noexc131:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i301
-  call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
-
-163:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i
-  %164 = call double @llvm.fabs.f64(double %155)
-  %165 = fcmp ogt double %159, %164
-  %166 = fcmp ogt double %164, %158
-  br i1 %165, label %_ZNKSt8functionIFddddEEclEddd.exit24.i129, label %176
-
-_ZNKSt8functionIFddddEEclEddd.exit24.i129:        ; preds = %163
-  br i1 %166, label %_ZNKSt8functionIFddddEEclEddd.exit.i201, label %170
-
-_ZNKSt8functionIFddddEEclEddd.exit.i201:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i129
-  %167 = fcmp ogt double %158, %164
-  br i1 %167, label %_ZNKSt8functionIFddddEEclEddd.exit.i313, label %_ZNKSt8functionIFddddEEclEddd.exit24.i311
-
-_ZNKSt8functionIFddddEEclEddd.exit.i313:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i201
-  call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  store double %157, ptr %27, align 8, !tbaa !49
-  store double %153, ptr %28, align 8, !tbaa !49
-  store double %155, ptr %29, align 8, !tbaa !49
-  %168 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %.noexc315 unwind label %227
-
-.noexc315:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i313
-  call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
-
-_ZNKSt8functionIFddddEEclEddd.exit24.i311:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i201
-  call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  store double %155, ptr %24, align 8, !tbaa !49
-  store double %157, ptr %25, align 8, !tbaa !49
-  store double %153, ptr %26, align 8, !tbaa !49
-  %169 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26)
-          to label %.noexc317 unwind label %227
-
-.noexc317:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i311
-  call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
-
-170:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i129
-  %171 = fcmp ogt double %164, %159
-  br i1 %171, label %_ZNKSt8functionIFddddEEclEddd.exit24.i325, label %173
-
-_ZNKSt8functionIFddddEEclEddd.exit24.i325:        ; preds = %170
-  call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  store double %157, ptr %21, align 8, !tbaa !49
-  store double %153, ptr %22, align 8, !tbaa !49
-  store double %155, ptr %23, align 8, !tbaa !49
-  %172 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
-          to label %.noexc205 unwind label %227
-
-.noexc205:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i325
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
-
-173:                                              ; preds = %170
-  %174 = fadd double %153, %157
-  %175 = fadd double %155, %174
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
-
-176:                                              ; preds = %163
-  br i1 %166, label %_ZNKSt8functionIFddddEEclEddd.exit26.i128, label %182
-
-_ZNKSt8functionIFddddEEclEddd.exit26.i128:        ; preds = %176
-  %177 = fcmp ogt double %158, %164
-  br i1 %177, label %_ZNKSt8functionIFddddEEclEddd.exit26.i337, label %179
-
-_ZNKSt8functionIFddddEEclEddd.exit26.i337:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i128
-  call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  store double %155, ptr %18, align 8, !tbaa !49
-  store double %157, ptr %19, align 8, !tbaa !49
-  store double %153, ptr %20, align 8, !tbaa !49
-  %178 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20)
-          to label %.noexc221 unwind label %227
-
-.noexc221:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i337
-  call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
-
-179:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i128
-  %180 = fadd double %155, %157
-  %181 = fadd double %153, %180
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
-
-182:                                              ; preds = %176
-  %183 = fadd double %155, %157
-  %184 = fadd double %153, %183
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
-
-185:                                              ; preds = %151
-  %186 = call double @llvm.fabs.f64(double %155)
-  %187 = fcmp ogt double %158, %186
-  %188 = fcmp ogt double %186, %159
-  br i1 %187, label %_ZNKSt8functionIFddddEEclEddd.exit24.i, label %205
-
-_ZNKSt8functionIFddddEEclEddd.exit24.i:           ; preds = %185
-  br i1 %188, label %_ZNKSt8functionIFddddEEclEddd.exit.i142, label %199
-
-_ZNKSt8functionIFddddEEclEddd.exit.i142:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i
-  %189 = fcmp ogt double %159, %186
-  br i1 %189, label %_ZNKSt8functionIFddddEEclEddd.exit.i355, label %191
-
-_ZNKSt8functionIFddddEEclEddd.exit.i355:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i142
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store double %155, ptr %15, align 8, !tbaa !49
-  store double %157, ptr %16, align 8, !tbaa !49
-  store double %153, ptr %17, align 8, !tbaa !49
-  %190 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %.noexc231 unwind label %227
-
-.noexc231:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i355
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
-
-191:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i142
-  %192 = fcmp ogt double %159, %158
-  br i1 %192, label %_ZNKSt8functionIFddddEEclEddd.exit.i369, label %_ZNKSt8functionIFddddEEclEddd.exit26.i225
-
-_ZNKSt8functionIFddddEEclEddd.exit.i369:          ; preds = %191
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store double %157, ptr %12, align 8, !tbaa !49
-  store double %153, ptr %13, align 8, !tbaa !49
-  store double %155, ptr %14, align 8, !tbaa !49
-  %193 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %.noexc233 unwind label %227
+  store i64 0, ptr %105, align 8
+  store i64 %103, ptr %12, align 8, !tbaa !972
+  store ptr @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_, ptr %102, align 8, !tbaa !974
+  store ptr @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %101, align 8, !tbaa !977
+  %128 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %129 = load double, ptr %128, align 8, !tbaa !49
+  %130 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
+  %131 = load double, ptr %130, align 8, !tbaa !49
+  %132 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %133 = load double, ptr %132, align 8, !tbaa !49
+  %134 = call double @llvm.fabs.f64(double %133)
+  %135 = call double @llvm.fabs.f64(double %129)
+  %136 = fcmp ogt double %134, %135
+  %137 = call double @llvm.fabs.f64(double %131)
+  br i1 %136, label %_ZNKSt8functionIFddddEEclEddd.exit.i, label %147
 
-.noexc233:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i369
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
+_ZNKSt8functionIFddddEEclEddd.exit.i:             ; preds = %127
+  %138 = fcmp ogt double %135, %137
+  br i1 %138, label %_ZNKSt8functionIFddddEEclEddd.exit24.i129, label %144
 
-_ZNKSt8functionIFddddEEclEddd.exit26.i225:        ; preds = %191
-  %194 = fcmp ogt double %186, %158
-  br i1 %194, label %_ZNKSt8functionIFddddEEclEddd.exit26.i379, label %196
+_ZNKSt8functionIFddddEEclEddd.exit24.i129:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i
+  %139 = fcmp ogt double %137, %134
+  br i1 %139, label %_ZNKSt8functionIFddddEEclEddd.exit24.i237, label %141
 
-_ZNKSt8functionIFddddEEclEddd.exit26.i379:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i225
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store double %155, ptr %9, align 8, !tbaa !49
-  store double %157, ptr %10, align 8, !tbaa !49
-  store double %153, ptr %11, align 8, !tbaa !49
-  %195 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %.noexc389 unwind label %227
-
-.noexc389:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i379
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
-
-196:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i225
-  %197 = fadd double %155, %157
-  %198 = fadd double %153, %197
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
-
-199:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i
-  %200 = fcmp ogt double %186, %158
-  br i1 %200, label %_ZNKSt8functionIFddddEEclEddd.exit24.i395, label %202
-
-_ZNKSt8functionIFddddEEclEddd.exit24.i395:        ; preds = %199
+_ZNKSt8functionIFddddEEclEddd.exit24.i237:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i129
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store double %153, ptr %6, align 8, !tbaa !49
-  store double %155, ptr %7, align 8, !tbaa !49
-  store double %157, ptr %8, align 8, !tbaa !49
-  %201 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %.noexc146 unwind label %227
+  store double %131, ptr %6, align 8, !tbaa !49
+  store double %133, ptr %7, align 8, !tbaa !49
+  store double %129, ptr %8, align 8, !tbaa !49
+  %140 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %.noexc186 unwind label %173
 
-.noexc146:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i395
+.noexc186:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i237
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
 
-202:                                              ; preds = %199
-  %203 = fadd double %153, %157
-  %204 = fadd double %155, %203
+141:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i129
+  %142 = fadd double %129, %133
+  %143 = fadd double %131, %142
   br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
 
-205:                                              ; preds = %185
-  br i1 %188, label %_ZNKSt8functionIFddddEEclEddd.exit26.i, label %211
+144:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i
+  %145 = fadd double %131, %133
+  %146 = fadd double %129, %145
+  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
 
-_ZNKSt8functionIFddddEEclEddd.exit26.i:           ; preds = %205
-  %206 = fcmp ogt double %159, %186
-  br i1 %206, label %_ZNKSt8functionIFddddEEclEddd.exit26.i407, label %208
+147:                                              ; preds = %127
+  %148 = fcmp ogt double %134, %137
+  br i1 %148, label %_ZNKSt8functionIFddddEEclEddd.exit24.i, label %157
 
-_ZNKSt8functionIFddddEEclEddd.exit26.i407:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i
+_ZNKSt8functionIFddddEEclEddd.exit24.i:           ; preds = %147
+  %149 = fcmp ogt double %137, %135
+  br i1 %149, label %_ZNKSt8functionIFddddEEclEddd.exit.i142, label %154
+
+_ZNKSt8functionIFddddEEclEddd.exit.i142:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i
+  %150 = fcmp ogt double %135, %134
+  br i1 %150, label %_ZNKSt8functionIFddddEEclEddd.exit.i250, label %.noexc217
+
+_ZNKSt8functionIFddddEEclEddd.exit.i250:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i142
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store double %153, ptr %3, align 8, !tbaa !49
-  store double %155, ptr %4, align 8, !tbaa !49
-  store double %157, ptr %5, align 8, !tbaa !49
-  %207 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %.noexc162 unwind label %227
+  store double %133, ptr %3, align 8, !tbaa !49
+  store double %129, ptr %4, align 8, !tbaa !49
+  store double %131, ptr %5, align 8, !tbaa !49
+  %151 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %.noexc215 unwind label %173
 
-.noexc162:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i407
+.noexc215:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i250
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
 
-208:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i
-  %209 = fadd double %153, %155
-  %210 = fadd double %209, %157
+.noexc217:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i142
+  %152 = fadd double %131, %133
+  %153 = fadd double %129, %152
   br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
 
-211:                                              ; preds = %205
-  %212 = fadd double %153, %155
-  %213 = fadd double %212, %157
+154:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i
+  %155 = fadd double %129, %133
+  %156 = fadd double %131, %155
   br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
 
-_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit: ; preds = %196, %.noexc389, %.noexc317, %.noexc315, %.noexc233, %.noexc231, %179, %.noexc221, %173, %.noexc205, %208, %.noexc162, %202, %.noexc146, %182, %.noexc131, %211
-  %.0.i = phi double [ %213, %211 ], [ %162, %.noexc131 ], [ %184, %182 ], [ %201, %.noexc146 ], [ %204, %202 ], [ %207, %.noexc162 ], [ %210, %208 ], [ %172, %.noexc205 ], [ %175, %173 ], [ %178, %.noexc221 ], [ %181, %179 ], [ %190, %.noexc231 ], [ %193, %.noexc233 ], [ %168, %.noexc315 ], [ %169, %.noexc317 ], [ %195, %.noexc389 ], [ %198, %196 ]
-  %214 = load ptr, ptr %128, align 8, !tbaa !1025
-  %215 = load ptr, ptr %214, align 8, !tbaa !142
-  %216 = getelementptr inbounds nuw i8, ptr %214, i64 8
-  %217 = load i64, ptr %216, align 8, !tbaa !140
-  %218 = mul nsw i64 %217, %indvars.iv
-  %219 = getelementptr double, ptr %215, i64 %40
-  %220 = getelementptr double, ptr %219, i64 %218
-  store double %.0.i, ptr %220, align 8, !tbaa !49
-  %221 = load ptr, ptr %125, align 8, !tbaa !977
-  %.not.i = icmp eq ptr %221, null
-  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %222
+157:                                              ; preds = %147
+  %158 = fadd double %129, %131
+  %159 = fadd double %158, %133
+  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
 
-222:                                              ; preds = %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
-  %223 = invoke noundef zeroext i1 %221(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %36, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %224
+_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit: ; preds = %144, %.noexc217, %.noexc215, %141, %.noexc186, %157, %154
+  %.0.i = phi double [ %156, %154 ], [ %159, %157 ], [ %140, %.noexc186 ], [ %143, %141 ], [ %151, %.noexc215 ], [ %153, %.noexc217 ], [ %146, %144 ]
+  %160 = load ptr, ptr %104, align 8, !tbaa !1025
+  %161 = load ptr, ptr %160, align 8, !tbaa !142
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  %163 = load i64, ptr %162, align 8, !tbaa !140
+  %164 = mul nsw i64 %163, %indvars.iv
+  %165 = getelementptr double, ptr %161, i64 %16
+  %166 = getelementptr double, ptr %165, i64 %164
+  store double %.0.i, ptr %166, align 8, !tbaa !49
+  %167 = load ptr, ptr %101, align 8, !tbaa !977
+  %.not.i = icmp eq ptr %167, null
+  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %168
 
-224:                                              ; preds = %222
-  %225 = landingpad { ptr, i32 }
+168:                                              ; preds = %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit
+  %169 = invoke noundef zeroext i1 %167(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %170
+
+170:                                              ; preds = %168
+  %171 = landingpad { ptr, i32 }
           catch ptr null
-  %226 = extractvalue { ptr, i32 } %225, 0
-  call void @__clang_call_terminate(ptr %226) #29
+  %172 = extractvalue { ptr, i32 } %171, 0
+  call void @__clang_call_terminate(ptr %172) #29
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit, %222
-  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSR_SR_.exit, %168
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %130, label %151, !llvm.loop !1029
+  br i1 %exitcond.not, label %106, label %127, !llvm.loop !1029
 
-227:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i407, %_ZNKSt8functionIFddddEEclEddd.exit24.i395, %_ZNKSt8functionIFddddEEclEddd.exit26.i379, %_ZNKSt8functionIFddddEEclEddd.exit.i369, %_ZNKSt8functionIFddddEEclEddd.exit.i355, %_ZNKSt8functionIFddddEEclEddd.exit26.i337, %_ZNKSt8functionIFddddEEclEddd.exit24.i325, %_ZNKSt8functionIFddddEEclEddd.exit24.i311, %_ZNKSt8functionIFddddEEclEddd.exit.i313, %_ZNKSt8functionIFddddEEclEddd.exit.i301
-  %lpad.loopexit445 = landingpad { ptr, i32 }
+173:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i250, %_ZNKSt8functionIFddddEEclEddd.exit24.i237
+  %lpad.loopexit280 = landingpad { ptr, i32 }
           cleanup
-  %.pre.pre.pre.pre = load ptr, ptr %125, align 8, !tbaa !977
+  %.pre.pre.pre.pre = load ptr, ptr %101, align 8, !tbaa !977
   %.not.i29 = icmp eq ptr %.pre.pre.pre.pre, null
-  br i1 %.not.i29, label %_ZNSt14_Function_baseD2Ev.exit30, label %228
+  br i1 %.not.i29, label %_ZNSt14_Function_baseD2Ev.exit30, label %174
 
-228:                                              ; preds = %227
-  %229 = invoke noundef zeroext i1 %.pre.pre.pre.pre(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %36, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit30 unwind label %230
+174:                                              ; preds = %173
+  %175 = invoke noundef zeroext i1 %.pre.pre.pre.pre(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit30 unwind label %176
 
-230:                                              ; preds = %228
-  %231 = landingpad { ptr, i32 }
+176:                                              ; preds = %174
+  %177 = landingpad { ptr, i32 }
           catch ptr null
-  %232 = extractvalue { ptr, i32 } %231, 0
-  call void @__clang_call_terminate(ptr %232) #29
+  %178 = extractvalue { ptr, i32 } %177, 0
+  call void @__clang_call_terminate(ptr %178) #29
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit30:                 ; preds = %227, %228
-  call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  resume { ptr, i32 } %lpad.loopexit445
+_ZNSt14_Function_baseD2Ev.exit30:                 ; preds = %173, %174
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  resume { ptr, i32 } %lpad.loopexit280
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -21691,502 +21289,301 @@ define linkonce_odr dso_local void @_ZZN3igl23per_face_normals_stableIN5Eigen6Ma
   %6 = alloca double, align 8
   %7 = alloca double, align 8
   %8 = alloca double, align 8
-  %9 = alloca double, align 8
-  %10 = alloca double, align 8
-  %11 = alloca double, align 8
-  %12 = alloca double, align 8
-  %13 = alloca double, align 8
-  %14 = alloca double, align 8
-  %15 = alloca double, align 8
-  %16 = alloca double, align 8
-  %17 = alloca double, align 8
-  %18 = alloca double, align 8
-  %19 = alloca double, align 8
-  %20 = alloca double, align 8
-  %21 = alloca double, align 8
-  %22 = alloca double, align 8
-  %23 = alloca double, align 8
-  %24 = alloca double, align 8
-  %25 = alloca double, align 8
-  %26 = alloca double, align 8
-  %27 = alloca double, align 8
-  %28 = alloca double, align 8
-  %29 = alloca double, align 8
-  %30 = alloca double, align 8
-  %31 = alloca double, align 8
-  %32 = alloca double, align 8
-  %33 = alloca %"class.Eigen::Matrix.71", align 8
-  %34 = alloca %"class.Eigen::Matrix.71", align 8
-  %35 = alloca %"class.Eigen::Matrix.71", align 8
-  %36 = alloca %"class.std::function", align 8
-  %37 = load ptr, ptr %0, align 8, !tbaa !1059
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !1061
-  %40 = sext i32 %1 to i64
-  %41 = load ptr, ptr %39, align 8, !tbaa !303
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %43 = getelementptr i32, ptr %41, i64 %40
-  %44 = load i32, ptr %43, align 4, !tbaa !42
-  %45 = sext i32 %44 to i64
-  %46 = load ptr, ptr %37, align 8, !tbaa !142, !noalias !1062
-  %47 = getelementptr inbounds double, ptr %46, i64 %45
-  %48 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %49 = load i64, ptr %48, align 8, !tbaa !140
-  %50 = load double, ptr %47, align 8, !tbaa !49
-  %51 = getelementptr inbounds double, ptr %47, i64 %49
-  %52 = load double, ptr %51, align 8, !tbaa !49
-  %.idx.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %49, 4
-  %53 = getelementptr inbounds i8, ptr %47, i64 %.idx.i.i.i.i.i.i.i.i.i.i
-  %54 = load double, ptr %53, align 8, !tbaa !49
-  %55 = load i64, ptr %42, align 8, !tbaa !95
-  %56 = getelementptr i32, ptr %43, i64 %55
-  %57 = load i32, ptr %56, align 4, !tbaa !42
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds double, ptr %46, i64 %58
-  %60 = load double, ptr %59, align 8, !tbaa !49
-  %61 = getelementptr inbounds double, ptr %59, i64 %49
-  %62 = load double, ptr %61, align 8, !tbaa !49
-  %63 = getelementptr inbounds i8, ptr %59, i64 %.idx.i.i.i.i.i.i.i.i.i.i
-  %64 = load double, ptr %63, align 8, !tbaa !49
-  %.idx = shl i64 %55, 3
-  %65 = getelementptr i8, ptr %43, i64 %.idx
-  %66 = load i32, ptr %65, align 4, !tbaa !42
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds double, ptr %46, i64 %67
-  %69 = load double, ptr %68, align 8, !tbaa !49
-  %70 = getelementptr inbounds double, ptr %68, i64 %49
-  %71 = load double, ptr %70, align 8, !tbaa !49
-  %72 = getelementptr inbounds i8, ptr %68, i64 %.idx.i.i.i.i.i.i.i.i.i.i
-  %73 = load double, ptr %72, align 8, !tbaa !49
-  call void @llvm.lifetime.start.p0(ptr nonnull %33)
-  %74 = fsub double %62, %52
-  %75 = fsub double %73, %54
-  %76 = fsub double %64, %54
-  %77 = fsub double %71, %52
-  %78 = fneg double %77
-  %79 = fmul double %76, %78
-  %80 = tail call double @llvm.fmuladd.f64(double %74, double %75, double %79)
-  %81 = fsub double %69, %50
-  %82 = fsub double %60, %50
-  %83 = fneg double %75
-  %84 = fmul double %82, %83
-  %85 = tail call double @llvm.fmuladd.f64(double %76, double %81, double %84)
-  %86 = fneg double %81
-  %87 = fmul double %74, %86
-  %88 = tail call double @llvm.fmuladd.f64(double %82, double %77, double %87)
-  store double %80, ptr %33, align 8, !tbaa !49, !alias.scope !1065
-  %89 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store double %85, ptr %89, align 8, !tbaa !49, !alias.scope !1065
-  %90 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store double %88, ptr %90, align 8, !tbaa !49, !alias.scope !1065
-  call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %91 = fsub double %71, %62
-  %92 = fsub double %54, %64
-  %93 = fsub double %73, %64
-  %94 = fsub double %52, %62
-  %95 = fneg double %94
-  %96 = fmul double %93, %95
-  %97 = tail call double @llvm.fmuladd.f64(double %91, double %92, double %96)
-  %98 = fsub double %50, %60
-  %99 = fsub double %69, %60
-  %100 = fneg double %92
-  %101 = fmul double %99, %100
-  %102 = tail call double @llvm.fmuladd.f64(double %93, double %98, double %101)
-  %103 = fneg double %98
-  %104 = fmul double %91, %103
-  %105 = tail call double @llvm.fmuladd.f64(double %99, double %94, double %104)
-  store double %97, ptr %34, align 8, !tbaa !49, !alias.scope !1068
-  %106 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store double %102, ptr %106, align 8, !tbaa !49, !alias.scope !1068
-  %107 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store double %105, ptr %107, align 8, !tbaa !49, !alias.scope !1068
-  call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %108 = fsub double %52, %71
-  %109 = fsub double %64, %73
-  %110 = fsub double %54, %73
-  %111 = fsub double %62, %71
-  %112 = fneg double %111
-  %113 = fmul double %110, %112
-  %114 = tail call double @llvm.fmuladd.f64(double %108, double %109, double %113)
-  %115 = fsub double %60, %69
-  %116 = fsub double %50, %69
-  %117 = fneg double %109
-  %118 = fmul double %116, %117
-  %119 = tail call double @llvm.fmuladd.f64(double %110, double %115, double %118)
-  %120 = fneg double %115
-  %121 = fmul double %108, %120
-  %122 = tail call double @llvm.fmuladd.f64(double %116, double %111, double %121)
-  store double %114, ptr %35, align 8, !tbaa !49, !alias.scope !1071
-  %123 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store double %119, ptr %123, align 8, !tbaa !49, !alias.scope !1071
-  %124 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store double %122, ptr %124, align 8, !tbaa !49, !alias.scope !1071
-  %125 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %126 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %127 = ptrtoint ptr %36 to i64
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %129 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  br label %151
+  %9 = alloca %"class.Eigen::Matrix.71", align 8
+  %10 = alloca %"class.Eigen::Matrix.71", align 8
+  %11 = alloca %"class.Eigen::Matrix.71", align 8
+  %12 = alloca %"class.std::function", align 8
+  %13 = load ptr, ptr %0, align 8, !tbaa !1059
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !1061
+  %16 = sext i32 %1 to i64
+  %17 = load ptr, ptr %15, align 8, !tbaa !303
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %19 = getelementptr i32, ptr %17, i64 %16
+  %20 = load i32, ptr %19, align 4, !tbaa !42
+  %21 = sext i32 %20 to i64
+  %22 = load ptr, ptr %13, align 8, !tbaa !142, !noalias !1062
+  %23 = getelementptr inbounds double, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %25 = load i64, ptr %24, align 8, !tbaa !140
+  %26 = load double, ptr %23, align 8, !tbaa !49
+  %27 = getelementptr inbounds double, ptr %23, i64 %25
+  %28 = load double, ptr %27, align 8, !tbaa !49
+  %.idx.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %25, 4
+  %29 = getelementptr inbounds i8, ptr %23, i64 %.idx.i.i.i.i.i.i.i.i.i.i
+  %30 = load double, ptr %29, align 8, !tbaa !49
+  %31 = load i64, ptr %18, align 8, !tbaa !95
+  %32 = getelementptr i32, ptr %19, i64 %31
+  %33 = load i32, ptr %32, align 4, !tbaa !42
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds double, ptr %22, i64 %34
+  %36 = load double, ptr %35, align 8, !tbaa !49
+  %37 = getelementptr inbounds double, ptr %35, i64 %25
+  %38 = load double, ptr %37, align 8, !tbaa !49
+  %39 = getelementptr inbounds i8, ptr %35, i64 %.idx.i.i.i.i.i.i.i.i.i.i
+  %40 = load double, ptr %39, align 8, !tbaa !49
+  %.idx = shl i64 %31, 3
+  %41 = getelementptr i8, ptr %19, i64 %.idx
+  %42 = load i32, ptr %41, align 4, !tbaa !42
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds double, ptr %22, i64 %43
+  %45 = load double, ptr %44, align 8, !tbaa !49
+  %46 = getelementptr inbounds double, ptr %44, i64 %25
+  %47 = load double, ptr %46, align 8, !tbaa !49
+  %48 = getelementptr inbounds i8, ptr %44, i64 %.idx.i.i.i.i.i.i.i.i.i.i
+  %49 = load double, ptr %48, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  %50 = fsub double %38, %28
+  %51 = fsub double %49, %30
+  %52 = fsub double %40, %30
+  %53 = fsub double %47, %28
+  %54 = fneg double %53
+  %55 = fmul double %52, %54
+  %56 = tail call double @llvm.fmuladd.f64(double %50, double %51, double %55)
+  %57 = fsub double %45, %26
+  %58 = fsub double %36, %26
+  %59 = fneg double %51
+  %60 = fmul double %58, %59
+  %61 = tail call double @llvm.fmuladd.f64(double %52, double %57, double %60)
+  %62 = fneg double %57
+  %63 = fmul double %50, %62
+  %64 = tail call double @llvm.fmuladd.f64(double %58, double %53, double %63)
+  store double %56, ptr %9, align 8, !tbaa !49, !alias.scope !1065
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store double %61, ptr %65, align 8, !tbaa !49, !alias.scope !1065
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store double %64, ptr %66, align 8, !tbaa !49, !alias.scope !1065
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  %67 = fsub double %47, %38
+  %68 = fsub double %30, %40
+  %69 = fsub double %49, %40
+  %70 = fsub double %28, %38
+  %71 = fneg double %70
+  %72 = fmul double %69, %71
+  %73 = tail call double @llvm.fmuladd.f64(double %67, double %68, double %72)
+  %74 = fsub double %26, %36
+  %75 = fsub double %45, %36
+  %76 = fneg double %68
+  %77 = fmul double %75, %76
+  %78 = tail call double @llvm.fmuladd.f64(double %69, double %74, double %77)
+  %79 = fneg double %74
+  %80 = fmul double %67, %79
+  %81 = tail call double @llvm.fmuladd.f64(double %75, double %70, double %80)
+  store double %73, ptr %10, align 8, !tbaa !49, !alias.scope !1068
+  %82 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store double %78, ptr %82, align 8, !tbaa !49, !alias.scope !1068
+  %83 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store double %81, ptr %83, align 8, !tbaa !49, !alias.scope !1068
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  %84 = fsub double %28, %47
+  %85 = fsub double %40, %49
+  %86 = fsub double %30, %49
+  %87 = fsub double %38, %47
+  %88 = fneg double %87
+  %89 = fmul double %86, %88
+  %90 = tail call double @llvm.fmuladd.f64(double %84, double %85, double %89)
+  %91 = fsub double %36, %45
+  %92 = fsub double %26, %45
+  %93 = fneg double %85
+  %94 = fmul double %92, %93
+  %95 = tail call double @llvm.fmuladd.f64(double %86, double %91, double %94)
+  %96 = fneg double %91
+  %97 = fmul double %84, %96
+  %98 = tail call double @llvm.fmuladd.f64(double %92, double %87, double %97)
+  store double %90, ptr %11, align 8, !tbaa !49, !alias.scope !1071
+  %99 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store double %95, ptr %99, align 8, !tbaa !49, !alias.scope !1071
+  %100 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store double %98, ptr %100, align 8, !tbaa !49, !alias.scope !1071
+  %101 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %103 = ptrtoint ptr %12 to i64
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  br label %127
 
-130:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %131 = load ptr, ptr %128, align 8, !tbaa !1074
-  %132 = load ptr, ptr %131, align 8, !tbaa !142, !noalias !1075
-  %133 = getelementptr inbounds double, ptr %132, i64 %40
-  %134 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %135 = load i64, ptr %134, align 8, !tbaa !140
-  %136 = load double, ptr %133, align 8, !tbaa !49
-  %137 = fmul double %136, %136
-  %138 = getelementptr double, ptr %133, i64 %135
-  %139 = load double, ptr %138, align 8, !tbaa !49
-  %140 = fmul double %139, %139
-  %.idx.i.i.i.i.i.i.i.i = shl i64 %135, 4
-  %141 = getelementptr i8, ptr %133, i64 %.idx.i.i.i.i.i.i.i.i
-  %142 = load double, ptr %141, align 8, !tbaa !49
-  %143 = fmul double %142, %142
-  %144 = fadd double %140, %143
-  %145 = fadd double %137, %144
-  %.scalar.i = call noundef double @llvm.sqrt.f64(double %145)
-  %146 = fdiv double %136, %.scalar.i
-  store double %146, ptr %133, align 8, !tbaa !49
-  %147 = load double, ptr %138, align 8, !tbaa !49
-  %148 = fdiv double %147, %.scalar.i
-  store double %148, ptr %138, align 8, !tbaa !49
-  %149 = load double, ptr %141, align 8, !tbaa !49
-  %150 = fdiv double %149, %.scalar.i
-  store double %150, ptr %141, align 8, !tbaa !49
-  call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+106:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit
+  %107 = load ptr, ptr %104, align 8, !tbaa !1074
+  %108 = load ptr, ptr %107, align 8, !tbaa !142, !noalias !1075
+  %109 = getelementptr inbounds double, ptr %108, i64 %16
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %111 = load i64, ptr %110, align 8, !tbaa !140
+  %112 = load double, ptr %109, align 8, !tbaa !49
+  %113 = fmul double %112, %112
+  %114 = getelementptr double, ptr %109, i64 %111
+  %115 = load double, ptr %114, align 8, !tbaa !49
+  %116 = fmul double %115, %115
+  %.idx.i.i.i.i.i.i.i.i = shl i64 %111, 4
+  %117 = getelementptr i8, ptr %109, i64 %.idx.i.i.i.i.i.i.i.i
+  %118 = load double, ptr %117, align 8, !tbaa !49
+  %119 = fmul double %118, %118
+  %120 = fadd double %116, %119
+  %121 = fadd double %113, %120
+  %.scalar.i = call noundef double @llvm.sqrt.f64(double %121)
+  %122 = fdiv double %112, %.scalar.i
+  store double %122, ptr %109, align 8, !tbaa !49
+  %123 = load double, ptr %114, align 8, !tbaa !49
+  %124 = fdiv double %123, %.scalar.i
+  store double %124, ptr %114, align 8, !tbaa !49
+  %125 = load double, ptr %117, align 8, !tbaa !49
+  %126 = fdiv double %125, %.scalar.i
+  store double %126, ptr %117, align 8, !tbaa !49
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
-151:                                              ; preds = %2, %_ZNSt14_Function_baseD2Ev.exit
+127:                                              ; preds = %2, %_ZNSt14_Function_baseD2Ev.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZNSt14_Function_baseD2Ev.exit ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  store i64 0, ptr %129, align 8
-  store i64 %127, ptr %36, align 8, !tbaa !972
-  store ptr @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_, ptr %126, align 8, !tbaa !974
-  store ptr @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation, ptr %125, align 8, !tbaa !977
-  %152 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv
-  %153 = load double, ptr %152, align 8, !tbaa !49
-  %154 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv
-  %155 = load double, ptr %154, align 8, !tbaa !49
-  %156 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv
-  %157 = load double, ptr %156, align 8, !tbaa !49
-  %158 = call double @llvm.fabs.f64(double %157)
-  %159 = call double @llvm.fabs.f64(double %153)
-  %160 = fcmp ogt double %158, %159
-  br i1 %160, label %_ZNKSt8functionIFddddEEclEddd.exit.i, label %185
-
-_ZNKSt8functionIFddddEEclEddd.exit.i:             ; preds = %151
-  %161 = fcmp ogt double %159, %158
-  br i1 %161, label %_ZNKSt8functionIFddddEEclEddd.exit.i300, label %163
-
-_ZNKSt8functionIFddddEEclEddd.exit.i300:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  store double %153, ptr %30, align 8, !tbaa !49
-  store double %155, ptr %31, align 8, !tbaa !49
-  store double %157, ptr %32, align 8, !tbaa !49
-  %162 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
-          to label %.noexc130 unwind label %227
-
-.noexc130:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i300
-  call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-163:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i
-  %164 = call double @llvm.fabs.f64(double %155)
-  %165 = fcmp ogt double %159, %164
-  %166 = fcmp ogt double %164, %158
-  br i1 %165, label %_ZNKSt8functionIFddddEEclEddd.exit24.i128, label %176
-
-_ZNKSt8functionIFddddEEclEddd.exit24.i128:        ; preds = %163
-  br i1 %166, label %_ZNKSt8functionIFddddEEclEddd.exit.i200, label %170
-
-_ZNKSt8functionIFddddEEclEddd.exit.i200:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i128
-  %167 = fcmp ogt double %158, %164
-  br i1 %167, label %_ZNKSt8functionIFddddEEclEddd.exit.i312, label %_ZNKSt8functionIFddddEEclEddd.exit24.i310
-
-_ZNKSt8functionIFddddEEclEddd.exit.i312:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i200
-  call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  store double %157, ptr %27, align 8, !tbaa !49
-  store double %153, ptr %28, align 8, !tbaa !49
-  store double %155, ptr %29, align 8, !tbaa !49
-  %168 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %.noexc314 unwind label %227
-
-.noexc314:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i312
-  call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-_ZNKSt8functionIFddddEEclEddd.exit24.i310:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i200
-  call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  store double %155, ptr %24, align 8, !tbaa !49
-  store double %157, ptr %25, align 8, !tbaa !49
-  store double %153, ptr %26, align 8, !tbaa !49
-  %169 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26)
-          to label %.noexc316 unwind label %227
-
-.noexc316:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i310
-  call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-170:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i128
-  %171 = fcmp ogt double %164, %159
-  br i1 %171, label %_ZNKSt8functionIFddddEEclEddd.exit24.i324, label %173
-
-_ZNKSt8functionIFddddEEclEddd.exit24.i324:        ; preds = %170
-  call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  store double %157, ptr %21, align 8, !tbaa !49
-  store double %153, ptr %22, align 8, !tbaa !49
-  store double %155, ptr %23, align 8, !tbaa !49
-  %172 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
-          to label %.noexc204 unwind label %227
-
-.noexc204:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i324
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-173:                                              ; preds = %170
-  %174 = fadd double %153, %157
-  %175 = fadd double %155, %174
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-176:                                              ; preds = %163
-  br i1 %166, label %_ZNKSt8functionIFddddEEclEddd.exit26.i127, label %182
-
-_ZNKSt8functionIFddddEEclEddd.exit26.i127:        ; preds = %176
-  %177 = fcmp ogt double %158, %164
-  br i1 %177, label %_ZNKSt8functionIFddddEEclEddd.exit26.i336, label %179
-
-_ZNKSt8functionIFddddEEclEddd.exit26.i336:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i127
-  call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  store double %155, ptr %18, align 8, !tbaa !49
-  store double %157, ptr %19, align 8, !tbaa !49
-  store double %153, ptr %20, align 8, !tbaa !49
-  %178 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20)
-          to label %.noexc220 unwind label %227
-
-.noexc220:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i336
-  call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-179:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i127
-  %180 = fadd double %155, %157
-  %181 = fadd double %153, %180
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-182:                                              ; preds = %176
-  %183 = fadd double %155, %157
-  %184 = fadd double %153, %183
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-185:                                              ; preds = %151
-  %186 = call double @llvm.fabs.f64(double %155)
-  %187 = fcmp ogt double %158, %186
-  %188 = fcmp ogt double %186, %159
-  br i1 %187, label %_ZNKSt8functionIFddddEEclEddd.exit24.i, label %205
-
-_ZNKSt8functionIFddddEEclEddd.exit24.i:           ; preds = %185
-  br i1 %188, label %_ZNKSt8functionIFddddEEclEddd.exit.i141, label %199
-
-_ZNKSt8functionIFddddEEclEddd.exit.i141:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i
-  %189 = fcmp ogt double %159, %186
-  br i1 %189, label %_ZNKSt8functionIFddddEEclEddd.exit.i354, label %191
-
-_ZNKSt8functionIFddddEEclEddd.exit.i354:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i141
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store double %155, ptr %15, align 8, !tbaa !49
-  store double %157, ptr %16, align 8, !tbaa !49
-  store double %153, ptr %17, align 8, !tbaa !49
-  %190 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %.noexc230 unwind label %227
-
-.noexc230:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i354
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-191:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i141
-  %192 = fcmp ogt double %159, %158
-  br i1 %192, label %_ZNKSt8functionIFddddEEclEddd.exit.i368, label %_ZNKSt8functionIFddddEEclEddd.exit26.i224
-
-_ZNKSt8functionIFddddEEclEddd.exit.i368:          ; preds = %191
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store double %157, ptr %12, align 8, !tbaa !49
-  store double %153, ptr %13, align 8, !tbaa !49
-  store double %155, ptr %14, align 8, !tbaa !49
-  %193 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %.noexc232 unwind label %227
+  store i64 0, ptr %105, align 8
+  store i64 %103, ptr %12, align 8, !tbaa !972
+  store ptr @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_, ptr %102, align 8, !tbaa !974
+  store ptr @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation, ptr %101, align 8, !tbaa !977
+  %128 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %129 = load double, ptr %128, align 8, !tbaa !49
+  %130 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
+  %131 = load double, ptr %130, align 8, !tbaa !49
+  %132 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %133 = load double, ptr %132, align 8, !tbaa !49
+  %134 = call double @llvm.fabs.f64(double %133)
+  %135 = call double @llvm.fabs.f64(double %129)
+  %136 = fcmp ogt double %134, %135
+  %137 = call double @llvm.fabs.f64(double %131)
+  br i1 %136, label %_ZNKSt8functionIFddddEEclEddd.exit.i, label %147
 
-.noexc232:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i368
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
+_ZNKSt8functionIFddddEEclEddd.exit.i:             ; preds = %127
+  %138 = fcmp ogt double %135, %137
+  br i1 %138, label %_ZNKSt8functionIFddddEEclEddd.exit24.i128, label %144
 
-_ZNKSt8functionIFddddEEclEddd.exit26.i224:        ; preds = %191
-  %194 = fcmp ogt double %186, %158
-  br i1 %194, label %_ZNKSt8functionIFddddEEclEddd.exit26.i378, label %196
+_ZNKSt8functionIFddddEEclEddd.exit24.i128:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i
+  %139 = fcmp ogt double %137, %134
+  br i1 %139, label %_ZNKSt8functionIFddddEEclEddd.exit24.i236, label %141
 
-_ZNKSt8functionIFddddEEclEddd.exit26.i378:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i224
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store double %155, ptr %9, align 8, !tbaa !49
-  store double %157, ptr %10, align 8, !tbaa !49
-  store double %153, ptr %11, align 8, !tbaa !49
-  %195 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %.noexc388 unwind label %227
-
-.noexc388:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i378
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-196:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i224
-  %197 = fadd double %155, %157
-  %198 = fadd double %153, %197
-  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-
-199:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i
-  %200 = fcmp ogt double %186, %158
-  br i1 %200, label %_ZNKSt8functionIFddddEEclEddd.exit24.i394, label %202
-
-_ZNKSt8functionIFddddEEclEddd.exit24.i394:        ; preds = %199
+_ZNKSt8functionIFddddEEclEddd.exit24.i236:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i128
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store double %153, ptr %6, align 8, !tbaa !49
-  store double %155, ptr %7, align 8, !tbaa !49
-  store double %157, ptr %8, align 8, !tbaa !49
-  %201 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %.noexc145 unwind label %227
+  store double %131, ptr %6, align 8, !tbaa !49
+  store double %133, ptr %7, align 8, !tbaa !49
+  store double %129, ptr %8, align 8, !tbaa !49
+  %140 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %.noexc185 unwind label %173
 
-.noexc145:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i394
+.noexc185:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i236
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
 
-202:                                              ; preds = %199
-  %203 = fadd double %153, %157
-  %204 = fadd double %155, %203
+141:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i128
+  %142 = fadd double %129, %133
+  %143 = fadd double %131, %142
   br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
 
-205:                                              ; preds = %185
-  br i1 %188, label %_ZNKSt8functionIFddddEEclEddd.exit26.i, label %211
+144:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i
+  %145 = fadd double %131, %133
+  %146 = fadd double %129, %145
+  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
 
-_ZNKSt8functionIFddddEEclEddd.exit26.i:           ; preds = %205
-  %206 = fcmp ogt double %159, %186
-  br i1 %206, label %_ZNKSt8functionIFddddEEclEddd.exit26.i406, label %208
+147:                                              ; preds = %127
+  %148 = fcmp ogt double %134, %137
+  br i1 %148, label %_ZNKSt8functionIFddddEEclEddd.exit24.i, label %157
 
-_ZNKSt8functionIFddddEEclEddd.exit26.i406:        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i
+_ZNKSt8functionIFddddEEclEddd.exit24.i:           ; preds = %147
+  %149 = fcmp ogt double %137, %135
+  br i1 %149, label %_ZNKSt8functionIFddddEEclEddd.exit.i141, label %154
+
+_ZNKSt8functionIFddddEEclEddd.exit.i141:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i
+  %150 = fcmp ogt double %135, %134
+  br i1 %150, label %_ZNKSt8functionIFddddEEclEddd.exit.i249, label %.noexc216
+
+_ZNKSt8functionIFddddEEclEddd.exit.i249:          ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i141
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store double %153, ptr %3, align 8, !tbaa !49
-  store double %155, ptr %4, align 8, !tbaa !49
-  store double %157, ptr %5, align 8, !tbaa !49
-  %207 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %.noexc161 unwind label %227
+  store double %133, ptr %3, align 8, !tbaa !49
+  store double %129, ptr %4, align 8, !tbaa !49
+  store double %131, ptr %5, align 8, !tbaa !49
+  %151 = invoke noundef double @_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %.noexc214 unwind label %173
 
-.noexc161:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i406
+.noexc214:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i249
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
 
-208:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i
-  %209 = fadd double %153, %155
-  %210 = fadd double %209, %157
+.noexc216:                                        ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i141
+  %152 = fadd double %131, %133
+  %153 = fadd double %129, %152
   br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
 
-211:                                              ; preds = %205
-  %212 = fadd double %153, %155
-  %213 = fadd double %212, %157
+154:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit24.i
+  %155 = fadd double %129, %133
+  %156 = fadd double %131, %155
   br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
 
-_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit: ; preds = %196, %.noexc388, %.noexc316, %.noexc314, %.noexc232, %.noexc230, %179, %.noexc220, %173, %.noexc204, %208, %.noexc161, %202, %.noexc145, %182, %.noexc130, %211
-  %.0.i = phi double [ %213, %211 ], [ %162, %.noexc130 ], [ %184, %182 ], [ %201, %.noexc145 ], [ %204, %202 ], [ %207, %.noexc161 ], [ %210, %208 ], [ %172, %.noexc204 ], [ %175, %173 ], [ %178, %.noexc220 ], [ %181, %179 ], [ %190, %.noexc230 ], [ %193, %.noexc232 ], [ %168, %.noexc314 ], [ %169, %.noexc316 ], [ %195, %.noexc388 ], [ %198, %196 ]
-  %214 = load ptr, ptr %128, align 8, !tbaa !1074
-  %215 = load ptr, ptr %214, align 8, !tbaa !142
-  %216 = getelementptr inbounds nuw i8, ptr %214, i64 8
-  %217 = load i64, ptr %216, align 8, !tbaa !140
-  %218 = mul nsw i64 %217, %indvars.iv
-  %219 = getelementptr double, ptr %215, i64 %40
-  %220 = getelementptr double, ptr %219, i64 %218
-  store double %.0.i, ptr %220, align 8, !tbaa !49
-  %221 = load ptr, ptr %125, align 8, !tbaa !977
-  %.not.i = icmp eq ptr %221, null
-  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %222
+157:                                              ; preds = %147
+  %158 = fadd double %129, %131
+  %159 = fadd double %158, %133
+  br label %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
 
-222:                                              ; preds = %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
-  %223 = invoke noundef zeroext i1 %221(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %36, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %224
+_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit: ; preds = %144, %.noexc216, %.noexc214, %141, %.noexc185, %157, %154
+  %.0.i = phi double [ %156, %154 ], [ %159, %157 ], [ %140, %.noexc185 ], [ %143, %141 ], [ %151, %.noexc214 ], [ %153, %.noexc216 ], [ %146, %144 ]
+  %160 = load ptr, ptr %104, align 8, !tbaa !1074
+  %161 = load ptr, ptr %160, align 8, !tbaa !142
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  %163 = load i64, ptr %162, align 8, !tbaa !140
+  %164 = mul nsw i64 %163, %indvars.iv
+  %165 = getelementptr double, ptr %161, i64 %16
+  %166 = getelementptr double, ptr %165, i64 %164
+  store double %.0.i, ptr %166, align 8, !tbaa !49
+  %167 = load ptr, ptr %101, align 8, !tbaa !977
+  %.not.i = icmp eq ptr %167, null
+  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %168
 
-224:                                              ; preds = %222
-  %225 = landingpad { ptr, i32 }
+168:                                              ; preds = %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit
+  %169 = invoke noundef zeroext i1 %167(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %170
+
+170:                                              ; preds = %168
+  %171 = landingpad { ptr, i32 }
           catch ptr null
-  %226 = extractvalue { ptr, i32 } %225, 0
-  call void @__clang_call_terminate(ptr %226) #29
+  %172 = extractvalue { ptr, i32 } %171, 0
+  call void @__clang_call_terminate(ptr %172) #29
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit, %222
-  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNSt17_Function_handlerIFddddEZZN3igl23per_face_normals_stableIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELi3ELi0ELin1ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERNS3_15PlainObjectBaseIT1_EEENKUliE_clEiEUldddE_E9_M_invokeERKSt9_Any_dataOdSQ_SQ_.exit, %168
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %130, label %151, !llvm.loop !1078
+  br i1 %exitcond.not, label %106, label %127, !llvm.loop !1078
 
-227:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit26.i406, %_ZNKSt8functionIFddddEEclEddd.exit24.i394, %_ZNKSt8functionIFddddEEclEddd.exit26.i378, %_ZNKSt8functionIFddddEEclEddd.exit.i368, %_ZNKSt8functionIFddddEEclEddd.exit.i354, %_ZNKSt8functionIFddddEEclEddd.exit26.i336, %_ZNKSt8functionIFddddEEclEddd.exit24.i324, %_ZNKSt8functionIFddddEEclEddd.exit24.i310, %_ZNKSt8functionIFddddEEclEddd.exit.i312, %_ZNKSt8functionIFddddEEclEddd.exit.i300
-  %lpad.loopexit444 = landingpad { ptr, i32 }
+173:                                              ; preds = %_ZNKSt8functionIFddddEEclEddd.exit.i249, %_ZNKSt8functionIFddddEEclEddd.exit24.i236
+  %lpad.loopexit279 = landingpad { ptr, i32 }
           cleanup
-  %.pre.pre.pre.pre = load ptr, ptr %125, align 8, !tbaa !977
+  %.pre.pre.pre.pre = load ptr, ptr %101, align 8, !tbaa !977
   %.not.i29 = icmp eq ptr %.pre.pre.pre.pre, null
-  br i1 %.not.i29, label %_ZNSt14_Function_baseD2Ev.exit30, label %228
+  br i1 %.not.i29, label %_ZNSt14_Function_baseD2Ev.exit30, label %174
 
-228:                                              ; preds = %227
-  %229 = invoke noundef zeroext i1 %.pre.pre.pre.pre(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %36, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit30 unwind label %230
+174:                                              ; preds = %173
+  %175 = invoke noundef zeroext i1 %.pre.pre.pre.pre(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit30 unwind label %176
 
-230:                                              ; preds = %228
-  %231 = landingpad { ptr, i32 }
+176:                                              ; preds = %174
+  %177 = landingpad { ptr, i32 }
           catch ptr null
-  %232 = extractvalue { ptr, i32 } %231, 0
-  call void @__clang_call_terminate(ptr %232) #29
+  %178 = extractvalue { ptr, i32 } %177, 0
+  call void @__clang_call_terminate(ptr %178) #29
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit30:                 ; preds = %227, %228
-  call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  resume { ptr, i32 } %lpad.loopexit444
+_ZNSt14_Function_baseD2Ev.exit30:                 ; preds = %173, %174
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  resume { ptr, i32 } %lpad.loopexit279
 }
 
 ; Function Attrs: mustprogress uwtable
